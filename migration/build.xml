@@ -6,9 +6,9 @@
        </classpath>
    </taskdef>
 
-   <taskdef name="merge" classname="com.jsuarez.packagecomparer.ant.MergeTask" classpath="../lib/PackageComparer-1.4.39.jar"/>
+<!--   <taskdef name="merge" classname="com.jsuarez.packagecomparer.ant.MergeTask" classpath="../lib/PackageComparer-1.4.39.jar"/>
 
-   <taskdef name="product-configurator" classname="com.jsuarez.bbva.ant.ProductConfiguratorTask" classpath="../lib/BBVA-product-configurator-1.0.0.jar"/>
+   <taskdef name="product-configurator" classname="com.jsuarez.bbva.ant.ProductConfiguratorTask" classpath="../lib/BBVA-product-configurator-1.0.0.jar"/> -->
 
 	<property environment="ENV"/>
 	<property file="build.properties"/>
