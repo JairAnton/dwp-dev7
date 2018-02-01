@@ -6,9 +6,6 @@
        </classpath>
    </taskdef>
 
-   <taskdef name="merge" classname="com.jsuarez.packagecomparer.ant.MergeTask" classpath="../lib/PackageComparer-1.4.39.jar"/>
-
-   <taskdef name="product-configurator" classname="com.jsuarez.bbva.ant.ProductConfiguratorTask" classpath="../lib/BBVA-product-configurator-1.0.0.jar"/>
 
 	<property environment="ENV"/>
 	<property file="build.properties"/>
@@ -16,9 +13,6 @@
 	<property name="deploy.path" value="../src"/>
 	<property name="delta.path" value="../migration/src"/>			
 
-	<!-- <property name="sf.retr.username" value="jsuarez@bbva.com.DEV"/>
-	<property name="sf.retr.password" value="1e23UN08rQiSfnRQufKG0odsPvKuJ5KVjtH4O"/>
-	<property name="sf.retr.serverurl" value="https://test.salesforce.com"/> -->
 
 	<property name="sf.unpackaged" value="temp_package.xml"/>
 	<property name="sf.unpackaged2" value="../src/package.xml"/>
