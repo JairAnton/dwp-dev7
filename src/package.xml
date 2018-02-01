@@ -5,6 +5,8 @@
         <members>Ejecutivo</members>
         <members>Especialista</members>
         <members>Migracion</members>
+		<members>Asistente</members>
+        <members>Gerente</members>
         <name>Profile</name>
     </types>
     <version>41.0</version>
