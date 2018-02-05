@@ -9,6 +9,14 @@
         <name>CustomObjectTranslation</name>
     </types>
     <types>
+        <members>Branch__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>DWP_Branch</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
         <members>Branch__c-DWP_Branch</members>
         <name>Layout</name>
     </types>
