@@ -5,6 +5,10 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>User-es</members>
+        <name>CustomObjectTranslation</name>
+    </types>
+    <types>
         <members>User-User Layout</members>
         <name>Layout</name>
     </types>
