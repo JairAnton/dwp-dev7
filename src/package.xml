@@ -30,5 +30,22 @@
 		<members>User_Record_Page</members>
 		<name>FlexiPage</name>
 	</types>
+	<types>
+        <members>User</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>User-es</members>
+        <name>CustomObjectTranslation</name>
+    </types>
+    <types>
+        <members>User-User Layout</members>
+        <members>UserAlt-User Profile Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>User-User Layout</members>
+        <name>CompactLayout</name>
+    </types>
     <version>41.0</version>
 </Package>
