@@ -44,7 +44,7 @@
         <name>Layout</name>
     </types>
     <types>
-        <members>User-User Layout</members>
+        <members>User.User_Layout</members>
         <name>CompactLayout</name>
     </types>
     <version>41.0</version>
