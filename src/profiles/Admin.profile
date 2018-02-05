@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-	<classAccesses>
-        <apexClass>Hangout_ctrl</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>Hangout_ctrl_TEST</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -110,17 +102,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Branch__c-DWP_Branch</layout>
+        <layout>Branch__c-Branch_Layout</layout>
     </layoutAssignments>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Branch__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
     <tabVisibilities>
         <tab>Branch__c</tab>
         <visibility>DefaultOff</visibility>

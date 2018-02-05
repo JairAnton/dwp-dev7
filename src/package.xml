@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Branch__c</members>
-        <name>CustomObject</name>
+        <members>Branch__c.Branch_CompactLayout</members>
+        <name>CompactLayout</name>
+    </types>
+    <types>
+        <members>Branch__c.active_type__c</members>
+        <members>Branch__c.address_desc__c</members>
+        <members>Branch__c.branch_category_type__c</members>
+        <members>Branch__c.branch_id__c</members>
+        <members>Branch__c.branch_level1_desc__c</members>
+        <members>Branch__c.branch_level1_id__c</members>
+        <members>Branch__c.branch_level2_desc__c</members>
+        <members>Branch__c.branch_level2_id__c</members>
+        <members>Branch__c.branch_level3_desc__c</members>
+        <members>Branch__c.branch_level3_id__c</members>
+        <members>Branch__c.branch_level4_desc__c</members>
+        <members>Branch__c.branch_level4_id__c</members>
+        <members>Branch__c.city_name__c</members>
+        <members>Branch__c.country_name__c</members>
+        <members>Branch__c.other_phone_number__c</members>
+        <members>Branch__c.phone_number__c</members>
+        <members>Branch__c.state_name__c</members>
+        <members>Branch__c.street_desc__c</members>
+        <members>Branch__c.unique_id__c</members>
+        <members>Branch__c.zipcode_id__c</members>
+        <name>CustomField</name>
     </types>
     <types>
         <members>Branch__c-es</members>
@@ -13,12 +36,16 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>DWP_Branch</members>
+        <members>Branch_LightningPage</members>
         <name>FlexiPage</name>
     </types>
     <types>
-        <members>Branch__c-DWP_Branch</members>
+        <members>Branch__c-Branch_Layout</members>
         <name>Layout</name>
+    </types>
+    <types>
+        <members>Branch__c.All</members>
+        <name>ListView</name>
     </types>
     <types>
         <members>Admin</members>

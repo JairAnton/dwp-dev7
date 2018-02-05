@@ -1,74 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionOverrides>
-        <actionName>Accept</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>DWP_Branch</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-    </actionOverrides>
-    <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>DWP_Branch</compactLayoutAssignment>
     <compactLayouts>
-        <fullName>DWP_Branch</fullName>
+        <fullName>Branch_CompactLayout</fullName>
         <fields>Name</fields>
         <fields>branch_category_type__c</fields>
         <fields>branch_id__c</fields>
         <fields>address_desc__c</fields>
         <fields>active_type__c</fields>
-        <label>DWP_Branch</label>
+        <label>Branch_CompactLayout</label>
     </compactLayouts>
-    <deploymentStatus>Deployed</deploymentStatus>
-    <description>Objeto de Oficina</description>
-    <enableActivities>false</enableActivities>
-    <enableBulkApi>true</enableBulkApi>
-    <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
-    <enableSharing>true</enableSharing>
-    <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>active_type__c</fullName>
         <defaultValue>false</defaultValue>
@@ -299,8 +239,6 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <gender>Feminine</gender>
-    <label>Branch</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -311,28 +249,4 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <filterScope>Everything</filterScope>
         <label>Todos</label>
     </listViews>
-    <nameField>
-        <label>Branch Name</label>
-        <type>Text</type>
-    </nameField>
-    <pluralLabel>Branches</pluralLabel>
-    <searchLayouts>
-        <customTabListAdditionalFields>branch_id__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>branch_category_type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>active_type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>branch_level4_desc__c</customTabListAdditionalFields>
-        <excludedStandardButtons>New</excludedStandardButtons>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
-        <excludedStandardButtons>Accept</excludedStandardButtons>
-        <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>branch_id__c</searchFilterFields>
-        <searchFilterFields>branch_category_type__c</searchFilterFields>
-        <searchFilterFields>active_type__c</searchFilterFields>
-        <searchFilterFields>branch_level4_desc__c</searchFilterFields>
-        <searchResultsAdditionalFields>branch_id__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>branch_category_type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>active_type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>branch_level4_desc__c</searchResultsAdditionalFields>
-    </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

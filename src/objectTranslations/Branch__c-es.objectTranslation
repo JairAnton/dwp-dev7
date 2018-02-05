@@ -94,7 +94,7 @@
     </fields>
     <gender>Feminine</gender>
     <layouts>
-        <layout>DWP_Branch</layout>
+        <layout>Branch_Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
