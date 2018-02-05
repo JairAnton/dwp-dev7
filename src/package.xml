@@ -9,5 +9,26 @@
         <members>Gerente</members>
         <name>Profile</name>
     </types>
+	<types>
+		<members>Hangout</members>
+		<name>CustomLabel</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>Translations</name>
+	</types>
+	<types>
+		<members>Hangout_ctrl</members>
+		<members>Hangout_ctrl_TEST</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Hangouts_cmp</members>
+		<name>AuraDefinitionBundle</name>
+	</types>
+	<types>
+		<members>User_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
     <version>41.0</version>
 </Package>
