@@ -35,11 +35,6 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>Account.Account_Quick_Action_New_Contact</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>0</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>NewTask</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>1</sortOrder>
@@ -166,9 +161,6 @@
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
-        <quickActionListItems>
-            <quickActionName>Account.Account_Quick_Action_New_Contact</quickActionName>
-        </quickActionListItems>
         <quickActionListItems>
             <quickActionName>FeedItem.TextPost</quickActionName>
         </quickActionListItems>
