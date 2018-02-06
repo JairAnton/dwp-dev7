@@ -29,6 +29,9 @@
 	<types>
 		<members>User_Record_Page</members>
 		<members>Branch_LightningPage</members>
+		<members>Account_Record_Page_Account</members>
+        <members>Account_Record_Page_Group</members>
+        <members>Account_Record_Page_No_Account</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>
@@ -39,17 +42,26 @@
     <types>
         <members>User-es</members>
 		<members>Branch__c-es</members>
+		<members>Account-es</members>
+        <members>Contact-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
         <members>User-User Layout</members>
         <members>UserAlt-User Profile Layout</members>
 		<members>Branch__c-Branch_Layout</members>
+		<members>Account-Account_Page_Layout_Account</members>
+        <members>Account-Account_Page_Layout_Economic_Group</members>
+        <members>Account-Account_Page_Layout_No_Account</members>
+        <members>Contact-Contact Layout</members>
         <name>Layout</name>
     </types>
     <types>
         <members>User.User_Layout</members>
 		<members>Branch__c.Branch_CompactLayout</members>
+		<members>Account.Account_Compact_Layout_Account</members>
+        <members>Account.Account_Compact_Layout_Group</members>
+        <members>Account.Account_Compact_Layout_No_Account</members>
         <name>CompactLayout</name>
     </types>
 	<types>
@@ -79,6 +91,22 @@
         <members>User.portfolio_classification_id__c</members>
         <members>User.organizational_unit_id__c</members>
         <members>User.organizational_unit_name__c</members>
+		<members>Contact.Precualificado__c</members>
+        <members>Contact.account_type__c</members>
+        <members>Contact.decision_making_desc__c</members>
+        <members>Contact.events_info_type__c</members>
+        <members>Contact.other_prof_prosition_type__c</members>
+        <members>Contact.parent_account__c</members>
+        <members>Contact.parent_account_assignment__c</members>
+        <members>Contact.parent_account_decision_making_desc__c</members>
+        <members>Contact.parent_account_other_prof_prosition_type__c</members>
+        <members>Contact.parent_account_prof_position_type__c</members>
+        <members>Contact.phone_1__c</members>
+        <members>Contact.phone_1_area_code__c</members>
+        <members>Contact.phone_2__c</members>
+        <members>Contact.phone_2_area_code__c</members>
+        <members>Contact.primary_account_owner__c</members>
+        <members>Contact.prof_position_type__c</members>
         <name>CustomField</name>
     </types>
 	<types>
@@ -88,6 +116,12 @@
 	<types>
         <members>Branch__c.All</members>
         <name>ListView</name>
+    </types>
+	<types>
+        <members>Account.Record_Type_Client</members>
+        <members>Account.Record_Type_Economic_Group</members>
+        <members>Account.Record_Type_No_Client</members>
+        <name>RecordType</name>
     </types>
     <version>41.0</version>
 </Package>
