@@ -28,24 +28,66 @@
 	</types>
 	<types>
 		<members>User_Record_Page</members>
+		<members>Branch_LightningPage</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>
         <members>User</members>
+		<members>Branch__c</members>
         <name>CustomObject</name>
     </types>
     <types>
         <members>User-es</members>
+		<members>Branch__c-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
         <members>User-User Layout</members>
         <members>UserAlt-User Profile Layout</members>
+		<members>Branch__c-Branch_Layout</members>
         <name>Layout</name>
     </types>
     <types>
         <members>User.User_Layout</members>
+		<members>Branch__c.Branch_CompactLayout</members>
         <name>CompactLayout</name>
+    </types>
+	<types>
+        <members>Branch__c.active_type__c</members>
+        <members>Branch__c.address_desc__c</members>
+        <members>Branch__c.branch_category_type__c</members>
+        <members>Branch__c.branch_id__c</members>
+        <members>Branch__c.branch_level1_desc__c</members>
+        <members>Branch__c.branch_level1_id__c</members>
+        <members>Branch__c.branch_level2_desc__c</members>
+        <members>Branch__c.branch_level2_id__c</members>
+        <members>Branch__c.branch_level3_desc__c</members>
+        <members>Branch__c.branch_level3_id__c</members>
+        <members>Branch__c.branch_level4_desc__c</members>
+        <members>Branch__c.branch_level4_id__c</members>
+        <members>Branch__c.city_name__c</members>
+        <members>Branch__c.country_name__c</members>
+        <members>Branch__c.other_phone_number__c</members>
+        <members>Branch__c.phone_number__c</members>
+        <members>Branch__c.state_name__c</members>
+        <members>Branch__c.street_desc__c</members>
+        <members>Branch__c.unique_id__c</members>
+        <members>Branch__c.zipcode_id__c</members>
+		<members>User.user_id__c</members>
+        <members>User.prof_position_id__c</members>
+        <members>User.prof_position_type__c</members>
+        <members>User.portfolio_classification_id__c</members>
+        <members>User.organizational_unit_id__c</members>
+        <members>User.organizational_unit_name__c</members>
+        <name>CustomField</name>
+    </types>
+	<types>
+        <members>Branch__c</members>
+        <name>CustomTab</name>
+    </types>
+	<types>
+        <members>Branch__c.All</members>
+        <name>ListView</name>
     </types>
     <version>41.0</version>
 </Package>
