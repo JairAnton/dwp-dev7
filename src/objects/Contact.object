@@ -123,13 +123,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Picklist_Value_Account_Parent</fullName>
+                    <fullName>No</fullName>
                     <default>false</default>
-                    <label>Value 1</label>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>SI</fullName>
+                    <default>false</default>
+                    <label>SI</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -142,13 +146,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Picklist_Value_Decision_Parent_Account</fullName>
+                    <fullName>No</fullName>
                     <default>false</default>
-                    <label>Value 1</label>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>SI</fullName>
+                    <default>false</default>
+                    <label>SI</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -597,18 +605,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Active</fullName>
-                    <default>false</default>
-                    <label>Active</label>
+                    <fullName>Activo</fullName>
+                    <default>true</default>
+                    <label>Activo</label>
                 </value>
                 <value>
-                    <fullName>Inactive</fullName>
+                    <fullName>Inactivo</fullName>
                     <default>false</default>
-                    <label>Inactive</label>
+                    <label>Inactivo</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
