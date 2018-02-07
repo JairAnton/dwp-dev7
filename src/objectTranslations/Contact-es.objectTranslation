@@ -444,7 +444,7 @@
         </sections>
         <sections>
             <label>Información del cargo</label>
-            <section>Position Information</section>
+            <section>Address Information</section>
         </sections>
     </layouts>
 </CustomObjectTranslation>
