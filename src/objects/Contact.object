@@ -34,16 +34,15 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>decisor_No</fullName>
+                    <fullName>No</fullName>
                     <default>false</default>
                     <label>No</label>
                 </value>
                 <value>
-                    <fullName>decisor_Yes</fullName>
+                    <fullName>Si</fullName>
                     <default>false</default>
                     <label>Sí</label>
                 </value>
@@ -131,7 +130,7 @@
                     <label>No</label>
                 </value>
                 <value>
-                    <fullName>SI</fullName>
+                    <fullName>Si</fullName>
                     <default>false</default>
                     <label>Sí</label>
                 </value>
@@ -154,7 +153,7 @@
                     <label>No</label>
                 </value>
                 <value>
-                    <fullName>SI</fullName>
+                    <fullName>Si</fullName>
                     <default>false</default>
                     <label>Sí</label>
                 </value>
