@@ -133,7 +133,7 @@
                 <value>
                     <fullName>SI</fullName>
                     <default>false</default>
-                    <label>SI</label>
+                    <label>Sí</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -156,7 +156,7 @@
                 <value>
                     <fullName>SI</fullName>
                     <default>false</default>
-                    <label>SI</label>
+                    <label>Sí</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
