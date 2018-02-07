@@ -137,7 +137,7 @@
     <fields>
         <fullName>parent_account_decision_making_desc__c</fullName>
         <externalId>false</externalId>
-        <label>Decision Making Level Parent Account</label>
+        <label>Decision Parent Account</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
