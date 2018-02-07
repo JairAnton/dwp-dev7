@@ -32,6 +32,7 @@
 		<members>Account_Record_Page_Account</members>
         <members>Account_Record_Page_Group</members>
         <members>Account_Record_Page_No_Account</members>
+        <members>Contact_Record_Page</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>
@@ -62,6 +63,7 @@
 		<members>Account.Account_Compact_Layout_Account</members>
         <members>Account.Account_Compact_Layout_Group</members>
         <members>Account.Account_Compact_Layout_No_Account</members>
+        <members>Contact.Contact</members>
         <name>CompactLayout</name>
     </types>
 	<types>
@@ -107,6 +109,7 @@
         <members>Contact.phone_2_area_code__c</members>
         <members>Contact.primary_account_owner__c</members>
         <members>Contact.prof_position_type__c</members>
+        <members>Contact.Status_desc__c</members>
         <name>CustomField</name>
     </types>
 	<types>

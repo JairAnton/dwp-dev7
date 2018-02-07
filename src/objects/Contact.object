@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <compactLayouts>
+        <fullName>Contact</fullName>
+        <fields>Name</fields>
+        <fields>MobilePhone</fields>
+        <fields>Email</fields>
+        <fields>Status_desc__c</fields>
+        <label>Contact</label>
+    </compactLayouts>
     <fields>
         <fullName>Precualificado__c</fullName>
         <externalId>false</externalId>
@@ -576,6 +584,31 @@
                     <fullName>OTROS</fullName>
                     <default>false</default>
                     <label>OTROS</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_desc__c</fullName>
+        <description>Validate the status from Contact</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

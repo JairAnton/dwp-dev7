@@ -19,7 +19,7 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>Observaciones</value>
+            <value>Comentarios</value>
         </caseValues>
         <gender>Feminine</gender>
         <name>description_contact</name>
