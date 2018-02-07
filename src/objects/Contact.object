@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <compactLayouts>
+        <fullName>Contact</fullName>
+        <fields>Name</fields>
+        <fields>MobilePhone</fields>
+        <fields>Email</fields>
+        <fields>Status_desc__c</fields>
+        <label>Contact</label>
+    </compactLayouts>
     <fields>
         <fullName>Precualificado__c</fullName>
         <externalId>false</externalId>
@@ -26,16 +34,15 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>decisor_No</fullName>
+                    <fullName>No</fullName>
                     <default>false</default>
                     <label>No</label>
                 </value>
                 <value>
-                    <fullName>decisor_Yes</fullName>
+                    <fullName>Si</fullName>
                     <default>false</default>
                     <label>Sí</label>
                 </value>
@@ -115,13 +122,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Picklist_Value_Account_Parent</fullName>
+                    <fullName>No</fullName>
                     <default>false</default>
-                    <label>Value 1</label>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Si</fullName>
+                    <default>false</default>
+                    <label>Sí</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -129,18 +140,22 @@
     <fields>
         <fullName>parent_account_decision_making_desc__c</fullName>
         <externalId>false</externalId>
-        <label>Decision Making Level Parent Account</label>
+        <label>Decision Parent Account</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Picklist_Value_Decision_Parent_Account</fullName>
+                    <fullName>No</fullName>
                     <default>false</default>
-                    <label>Value 1</label>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Si</fullName>
+                    <default>false</default>
+                    <label>Sí</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -167,9 +182,124 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Value 1</fullName>
+                    <fullName>ACCIONISTA</fullName>
                     <default>false</default>
-                    <label>Value 1</label>
+                    <isActive>false</isActive>
+                    <label>ACCIONISTA</label>
+                </value>
+                <value>
+                    <fullName>ADMINISTRADOR</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>ADMINISTRADOR</label>
+                </value>
+                <value>
+                    <fullName>APODERADO</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>APODERADO</label>
+                </value>
+                <value>
+                    <fullName>ASISTENTE</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>ASISTENTE</label>
+                </value>
+                <value>
+                    <fullName>DIRECTORIO</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>DIRECTORIO</label>
+                </value>
+                <value>
+                    <fullName>GERENTE COMERCIAL</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE COMERCIAL</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE ADMINISTRACION</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE ADMINISTRACION</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE FINANZAS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE OPERACIONES</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE OPERACIONES</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE RRHH</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE RRHH</label>
+                </value>
+                <value>
+                    <fullName>GERENTE GENERAL</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE GENERAL</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACIÓN</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE ADMINISTRACIÓN</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE FINANZAS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE TESORERIA</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE TESORERIA</label>
+                </value>
+                <value>
+                    <fullName>OTROS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>OTROS</label>
+                </value>
+                <value>
+                    <fullName>PRESIDENTE DE DIRECTORIO</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>PRESIDENTE DE DIRECTORIO</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -576,6 +706,30 @@
                     <fullName>OTROS</fullName>
                     <default>false</default>
                     <label>OTROS</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_desc__c</fullName>
+        <description>Validate the status from Contact</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Activo</fullName>
+                    <default>true</default>
+                    <label>Activo</label>
+                </value>
+                <value>
+                    <fullName>Inactivo</fullName>
+                    <default>false</default>
+                    <label>Inactivo</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

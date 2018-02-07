@@ -12,7 +12,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>UserRoleId</field>
+                <field>prof_position_type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -57,7 +57,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Address</field>
+                <field>Extension</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

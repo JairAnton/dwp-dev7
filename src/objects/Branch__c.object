@@ -49,9 +49,8 @@
     <compactLayouts>
         <fullName>Branch_CompactLayout</fullName>
         <fields>Name</fields>
-        <fields>branch_category_type__c</fields>
         <fields>branch_id__c</fields>
-        <fields>address_desc__c</fields>
+        <fields>branch_category_type__c</fields>
         <fields>active_type__c</fields>
         <label>Branch_CompactLayout</label>
     </compactLayouts>
@@ -131,7 +130,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <fullName>branch_level1_id__c</fullName>
         <description>Código de País</description>
         <externalId>false</externalId>
-        <formula>&quot;&quot;</formula>
+        <formula>branch_level1_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Branch  Hiearchy Level 1 Code</label>
         <required>false</required>
@@ -156,7 +155,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <fullName>branch_level2_id__c</fullName>
         <description>Código de Área</description>
         <externalId>false</externalId>
-        <formula>&quot;&quot;</formula>
+        <formula>branch_level2_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Branch  Hiearchy Level 2 Code</label>
         <required>false</required>
@@ -181,7 +180,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <fullName>branch_level3_id__c</fullName>
         <description>Código de Banca</description>
         <externalId>false</externalId>
-        <formula>&quot;&quot;</formula>
+        <formula>branch_level3_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Branch  Hiearchy Level 3 Code</label>
         <required>false</required>
@@ -206,7 +205,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <fullName>branch_level4_id__c</fullName>
         <description>Código de Regional</description>
         <externalId>false</externalId>
-        <formula>&quot;&quot;</formula>
+        <formula>branch_level4_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Branch  Hiearchy Level 4 Code</label>
         <required>false</required>
