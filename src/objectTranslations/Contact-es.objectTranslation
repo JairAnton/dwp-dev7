@@ -113,22 +113,6 @@
         <name>parent_account__c</name>
     </fields>
     <fields>
-        <label>¿Asignar Contacto a Grupo Ecónomico?</label>
-        <name>parent_account_assignment__c</name>
-        <picklistValues>
-            <masterLabel>Value 1</masterLabel>
-            <translation><!-- Value 1 --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label>¿Decisor en Grupo Económico?</label>
-        <name>parent_account_decision_making_desc__c</name>
-        <picklistValues>
-            <masterLabel>Value 1</masterLabel>
-            <translation><!-- Value 1 --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label>Otro Cargo en el Grupo Económico</label>
         <name>parent_account_other_prof_prosition_type__c</name>
     </fields>

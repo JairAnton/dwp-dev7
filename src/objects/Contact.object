@@ -183,9 +183,124 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Value 1</fullName>
+                    <fullName>ACCIONISTA</fullName>
                     <default>false</default>
-                    <label>Value 1</label>
+                    <isActive>false</isActive>
+                    <label>ACCIONISTA</label>
+                </value>
+                <value>
+                    <fullName>ADMINISTRADOR</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>ADMINISTRADOR</label>
+                </value>
+                <value>
+                    <fullName>APODERADO</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>APODERADO</label>
+                </value>
+                <value>
+                    <fullName>ASISTENTE</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>ASISTENTE</label>
+                </value>
+                <value>
+                    <fullName>DIRECTORIO</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>DIRECTORIO</label>
+                </value>
+                <value>
+                    <fullName>GERENTE COMERCIAL</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE COMERCIAL</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE ADMINISTRACION</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE ADMINISTRACION</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE FINANZAS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE OPERACIONES</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE OPERACIONES</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE RRHH</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE DE RRHH</label>
+                </value>
+                <value>
+                    <fullName>GERENTE GENERAL</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GERENTE GENERAL</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACIÓN</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE ADMINISTRACIÓN</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE FINANZAS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE TESORERIA</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>JEFE DE TESORERIA</label>
+                </value>
+                <value>
+                    <fullName>OTROS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>OTROS</label>
+                </value>
+                <value>
+                    <fullName>PRESIDENTE DE DIRECTORIO</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>PRESIDENTE DE DIRECTORIO</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
