@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <classAccesses>
+	<classAccesses>
         <apexClass>Hangout_ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -39,7 +39,7 @@
         <field>User.user_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Branch__c.active_type__c</field>
         <readable>true</readable>
@@ -139,7 +139,7 @@
         <field>Branch__c.zipcode_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Contact.Precualificado__c</field>
         <readable>true</readable>
@@ -237,10 +237,10 @@
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
+	<layoutAssignments>
         <layout>Branch__c-Branch_Layout</layout>
     </layoutAssignments>
-     <layoutAssignments>
+	 <layoutAssignments>
         <layout>Account-Account_Page_Layout_Account</layout>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
@@ -255,7 +255,7 @@
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
-    <objectPermissions>
+	<objectPermissions>
        <allowCreate>true</allowCreate>
        <allowDelete>true</allowDelete>
        <allowEdit>true</allowEdit>
@@ -264,7 +264,7 @@
        <object>Branch__c</object>
        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    <recordTypeVisibilities>
+	<recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
         <visible>true</visible>

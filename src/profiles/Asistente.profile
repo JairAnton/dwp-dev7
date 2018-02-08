@@ -39,7 +39,7 @@
         <field>User.user_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Branch__c.active_type__c</field>
         <readable>true</readable>
@@ -139,7 +139,7 @@
         <field>Branch__c.zipcode_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Contact.Precualificado__c</field>
         <readable>true</readable>
@@ -228,14 +228,19 @@
         <editable>true</editable>
         <field>Contact.BirthDate</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Description</field>
+        <readable>true</readable>
     </fieldPermissions> 
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
+	<layoutAssignments>
         <layout>Branch__c-Branch_Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
+	<layoutAssignments>
         <layout>Account-Account_Page_Layout_Account</layout>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
@@ -250,7 +255,7 @@
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
-    <objectPermissions>
+	<objectPermissions>
        <allowCreate>false</allowCreate>
        <allowDelete>false</allowDelete>
        <allowEdit>false</allowEdit>
@@ -259,7 +264,7 @@
        <object>Branch__c</object>
        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <recordTypeVisibilities>
+	<recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
         <visible>true</visible>
@@ -274,7 +279,7 @@
         <recordType>Account.Record_Type_No_Client</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <tabVisibilities>
+	<tabVisibilities>
         <tab>Branch__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>

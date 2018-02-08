@@ -57,10 +57,6 @@
         <name>phone_contact</name>
     </fields>
     <fields>
-        <label><!-- Fullname --></label>
-        <name>Fullname__c</name>
-    </fields>
-    <fields>
         <label><!-- ¿Precualificado? --></label>
         <name>Precualificado__c</name>
     </fields>
@@ -456,12 +452,4 @@
             <translation><!-- PRESIDENTE DE DIRECTORIO --></translation>
         </picklistValues>
     </fields>
-    <webLinks>
-        <label><!-- GoogleMaps --></label>
-        <name>GoogleMaps</name>
-    </webLinks>
-    <webLinks>
-        <label><!-- GoogleSearch --></label>
-        <name>GoogleSearch</name>
-    </webLinks>
 </CustomObjectTranslation>
