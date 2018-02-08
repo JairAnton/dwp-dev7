@@ -8,5 +8,100 @@
         <plural>true</plural>
         <value>Oficinas</value>
     </caseValues>
+    <fields>
+        <label>Inactivo</label>
+        <name>active_type__c</name>
+    </fields>
+    <fields>
+        <label>Dirección</label>
+        <name>address_desc__c</name>
+    </fields>
+    <fields>
+        <label>Categoría</label>
+        <name>branch_category_type__c</name>
+    </fields>
+    <fields>
+        <label>Código</label>
+        <name>branch_id__c</name>
+    </fields>
+    <fields>
+        <label>Country</label>
+        <name>branch_level1_desc__c</name>
+        <relationshipLabel>Oficinas (Country)</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Código de País</label>
+        <name>branch_level1_id__c</name>
+    </fields>
+    <fields>
+        <label>Área</label>
+        <name>branch_level2_desc__c</name>
+        <relationshipLabel>Oficinas (Área)</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Código de Área</label>
+        <name>branch_level2_id__c</name>
+    </fields>
+    <fields>
+        <label>Banca</label>
+        <name>branch_level3_desc__c</name>
+        <relationshipLabel>Oficinas (Banca)</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Código de Banca</label>
+        <name>branch_level3_id__c</name>
+    </fields>
+    <fields>
+        <label>Regional</label>
+        <name>branch_level4_desc__c</name>
+        <relationshipLabel>Oficinas (Regional)</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Código de Regional</label>
+        <name>branch_level4_id__c</name>
+    </fields>
+    <fields>
+        <label>Localidad/Ciudad</label>
+        <name>city_name__c</name>
+    </fields>
+    <fields>
+        <label>País</label>
+        <name>country_name__c</name>
+    </fields>
+    <fields>
+        <label>Telefono 2</label>
+        <name>other_phone_number__c</name>
+    </fields>
+    <fields>
+        <label>Telefono 1</label>
+        <name>phone_number__c</name>
+    </fields>
+    <fields>
+        <label>Provincia</label>
+        <name>state_name__c</name>
+    </fields>
+    <fields>
+        <label>Calle</label>
+        <name>street_desc__c</name>
+    </fields>
+    <fields>
+        <label>Identificador Único</label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label>Código Postal</label>
+        <name>zipcode_id__c</name>
+    </fields>
     <gender>Feminine</gender>
+    <layouts>
+        <layout>Branch_Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Jerarquía --></label>
+            <section>Jerarquía</section>
+        </sections>
+    </layouts>
 </CustomObjectTranslation>
