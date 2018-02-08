@@ -32,7 +32,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>User.prof_position_type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -224,6 +224,16 @@
         <field>Contact.Status_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.BirthDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Description</field>
+        <readable>true</readable>
+    </fieldPermissions> 
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
