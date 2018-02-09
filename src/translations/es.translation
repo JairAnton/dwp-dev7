@@ -4,4 +4,20 @@
         <label>Iniciar Hangout</label>
         <name>Hangout</name>
     </customLabels>
+    <customLabels>
+        <label>Aceptar</label>
+        <name>Agree</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Para dar de alta una nuevo Contacto debes acceder previamente a la Ficha del Cliente, y pulsar el botón &quot;Nuevo Contacto&quot;</label>
+        <name>NewContactWarning</name>
+    </customLabels>
+    <customLabels>
+        <label>Aviso</label>
+        <name>Warning</name>
+    </customLabels>
 </Translations>
