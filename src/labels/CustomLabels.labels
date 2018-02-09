@@ -7,4 +7,32 @@
         <shortDescription>Hangout</shortDescription>
         <value>Start a Hangout</value>
     </labels>
+	<labels>
+        <fullName>Agree</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Agree</shortDescription>
+        <value>OK</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>NewContactWarning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewContactWarning</shortDescription>
+        <value>To create an contact you must go to the client&apos;s detail page and click on the &quot;New Contact&quot; button</value>
+    </labels>
+    <labels>
+        <fullName>Warning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Warning</shortDescription>
+        <value>Warning</value>
+    </labels>
 </CustomLabels>
