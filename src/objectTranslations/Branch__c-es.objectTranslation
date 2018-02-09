@@ -104,4 +104,5 @@
             <section>Jerarquía</section>
         </sections>
     </layouts>
+    <nameFieldLabel>Oficina</nameFieldLabel>
 </CustomObjectTranslation>
