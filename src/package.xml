@@ -118,6 +118,9 @@
     </types>
 	<types>
         <members>Branch__c.All</members>
+        <members>Contact.AllContacts</members>
+        <members>Contact.MyContacts</members>
+        <members>Contact.My_No_Client_Contacts</members>
         <name>ListView</name>
     </types>
 	<types>

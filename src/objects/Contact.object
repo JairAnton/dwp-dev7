@@ -734,4 +734,52 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <listViews>
+        <fullName>AllContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>prof_position_type__c</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.BIRTHDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>MyContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>prof_position_type__c</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.BIRTHDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>primary_account_owner__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>My_No_Client_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>prof_position_type__c</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.BIRTHDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>account_type__c</field>
+            <operation>equals</operation>
+            <value>No Client</value>
+        </filters>
+        <filters>
+            <field>primary_account_owner__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My No Client Contacts</label>
+    </listViews>
 </CustomObject>
