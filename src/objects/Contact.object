@@ -762,7 +762,7 @@
         <label>My Contacts</label>
     </listViews>
     <listViews>
-        <fullName>My_No_Client_Contacts</fullName>
+        <fullName>Mis_Contactos_No_Cliente</fullName>
         <columns>FULL_NAME</columns>
         <columns>ACCOUNT.NAME</columns>
         <columns>prof_position_type__c</columns>
