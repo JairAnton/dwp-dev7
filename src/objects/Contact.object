@@ -734,4 +734,102 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Mobile</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(MobilePhone)), OR(LEN(MobilePhone) &lt;&gt; 9, NOT(ISNUMBER(MobilePhone))))</errorConditionFormula>
+        <errorDisplayField>MobilePhone</errorDisplayField>
+        <errorMessage>Please, check that the mobile phone contains 9 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Phone1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(phone_1_area_code__c, &quot;01&quot;)), NOT(ISPICKVAL(phone_1_area_code__c, &quot;&quot;)), NOT(ISBLANK(phone_1__c)), OR(LEN(phone_1__c) &lt;&gt; 6, NOT(ISNUMBER(phone_1__c))))</errorConditionFormula>
+        <errorDisplayField>phone_1__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 1 contains 6 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Phone1_Lima</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(phone_1_area_code__c, &quot;01&quot;),NOT(ISBLANK(phone_1__c)) , OR(LEN(phone_1__c) &lt;&gt; 7, NOT(ISNUMBER(phone_1__c))))</errorConditionFormula>
+        <errorDisplayField>phone_1__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 1 contains 7 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Phone2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(phone_2_area_code__c, &quot;01&quot;)), NOT(ISPICKVAL(phone_2_area_code__c, &quot;&quot;)), NOT(ISBLANK(phone_2__c)), OR(LEN(phone_2__c) &lt;&gt; 6, NOT(ISNUMBER(phone_2__c))))</errorConditionFormula>
+        <errorDisplayField>phone_2__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 2 contains 6 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Phone2_Lima</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(phone_2_area_code__c, &quot;01&quot;),NOT(ISBLANK(phone_2__c)) , OR(LEN(phone_2__c) &lt;&gt; 7, NOT(ISNUMBER(phone_2__c))))</errorConditionFormula>
+        <errorDisplayField>phone_2__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 2 contains 7 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Position</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(prof_position_type__c, &quot;OTHERS&quot;), ISBLANK(other_prof_prosition_type__c))</errorConditionFormula>
+        <errorDisplayField>other_prof_prosition_type__c</errorDisplayField>
+        <errorMessage>Please, specify the Other Position information.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Position_PA</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(parent_account_prof_position_type__c, &quot;OTHERS&quot;), ISBLANK(parent_account_other_prof_prosition_type__c))</errorConditionFormula>
+        <errorDisplayField>parent_account_other_prof_prosition_type__c</errorDisplayField>
+        <errorMessage>Please, specify the Other Position Parent Account information.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Req_AC1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(phone_1__c)), ISBLANK(TEXT(phone_1_area_code__c)))</errorConditionFormula>
+        <errorDisplayField>phone_1_area_code__c</errorDisplayField>
+        <errorMessage>Please, select the Phone 1 Area Code.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Req_AC2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(phone_2__c)), ISBLANK(TEXT(phone_2_area_code__c)))</errorConditionFormula>
+        <errorDisplayField>phone_2_area_code__c</errorDisplayField>
+        <errorMessage>Please, select the Phone 2 Area Code.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Req_Phone1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(TEXT(phone_1_area_code__c))), ISBLANK(phone_1__c))</errorConditionFormula>
+        <errorDisplayField>phone_1__c</errorDisplayField>
+        <errorMessage>Please, full the Phone 1 field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Req_Phone2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(TEXT(phone_2_area_code__c))), ISBLANK(phone_2__c))</errorConditionFormula>
+        <errorDisplayField>phone_2__c</errorDisplayField>
+        <errorMessage>Please, full the Phone 2 field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Required_Decisor</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK(TEXT(decision_making_desc__c))</errorConditionFormula>
+        <errorDisplayField>decision_making_desc__c</errorDisplayField>
+        <errorMessage>Please, complete the decisor.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Required_FN</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK(FirstName)</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>Please, complete the contact first name.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Required_Salutat</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK(TEXT(Salutation))</errorConditionFormula>
+        <errorDisplayField>Salutation</errorDisplayField>
+        <errorMessage>Please, select the salutation.</errorMessage>
+    </validationRules>	
 </CustomObject>
