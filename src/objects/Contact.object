@@ -780,6 +780,6 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>My No Client Contacts</label>
+        <label>Mis Contactos No Cliente</label>
     </listViews>
 </CustomObject>
