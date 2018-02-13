@@ -180,125 +180,105 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
                 <value>
                     <fullName>ACCIONISTA</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>ACCIONISTA</label>
                 </value>
                 <value>
                     <fullName>ADMINISTRADOR</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>ADMINISTRADOR</label>
                 </value>
                 <value>
                     <fullName>APODERADO</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>APODERADO</label>
                 </value>
                 <value>
                     <fullName>ASISTENTE</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>ASISTENTE</label>
                 </value>
                 <value>
                     <fullName>DIRECTORIO</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>DIRECTORIO</label>
                 </value>
                 <value>
                     <fullName>GERENTE COMERCIAL</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>GERENTE COMERCIAL</label>
                 </value>
                 <value>
                     <fullName>GERENTE DE ADMINISTRACION</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>GERENTE DE ADMINISTRACION</label>
                 </value>
                 <value>
                     <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
                 </value>
                 <value>
                     <fullName>GERENTE DE CONTABILIDAD</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>GERENTE DE CONTABILIDAD</label>
                 </value>
                 <value>
                     <fullName>GERENTE DE FINANZAS</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>GERENTE DE FINANZAS</label>
                 </value>
                 <value>
                     <fullName>GERENTE DE OPERACIONES</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>GERENTE DE OPERACIONES</label>
                 </value>
                 <value>
                     <fullName>GERENTE DE RRHH</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>GERENTE DE RRHH</label>
                 </value>
                 <value>
                     <fullName>GERENTE GENERAL</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>GERENTE GENERAL</label>
-                </value>
-                <value>
-                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
                 </value>
                 <value>
                     <fullName>JEFE DE ADMINISTRACIÓN</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>JEFE DE ADMINISTRACIÓN</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
                 </value>
                 <value>
                     <fullName>JEFE DE CONTABILIDAD</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>JEFE DE CONTABILIDAD</label>
                 </value>
                 <value>
                     <fullName>JEFE DE FINANZAS</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>JEFE DE FINANZAS</label>
                 </value>
                 <value>
                     <fullName>JEFE DE TESORERIA</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>JEFE DE TESORERIA</label>
                 </value>
                 <value>
                     <fullName>OTROS</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>OTROS</label>
                 </value>
                 <value>
                     <fullName>PRESIDENTE DE DIRECTORIO</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>PRESIDENTE DE DIRECTORIO</label>
                 </value>
             </valueSetDefinition>
@@ -600,106 +580,22 @@
         <fullName>prof_position_type__c</fullName>
         <externalId>false</externalId>
         <label>Position</label>
-        <picklist>
-            <picklistValues>
-                <fullName>ACCIONISTA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ADMINISTRADOR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>APODERADO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ASISTENTE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DIRECTORIO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GERENTE COMERCIAL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GERENTE DE ADMINISTRACION</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GERENTE DE CONTABILIDAD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GERENTE DE FINANZAS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GERENTE DE OPERACIONES</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GERENTE DE RRHH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GERENTE GENERAL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JEFE DE ADMINISTRACIÓN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JEFE DE CONTABILIDAD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JEFE DE FINANZAS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JEFE DE TESORERIA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OTROS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PRESIDENTE DE DIRECTORIO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>true</sorted>
-        </picklist>		
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
                 <value>
                     <fullName>ACCIONISTA</fullName>
                     <default>false</default>
                     <label>ACCIONISTA</label>
                 </value>
                 <value>
-                    <fullName>PRESIDENTE DE DIRECTORIO</fullName>
+                    <fullName>ADMINISTRADOR</fullName>
                     <default>false</default>
-                    <label>PRESIDENTE DE DIRECTORIO</label>
+                    <label>ADMINISTRADOR</label>
                 </value>
                 <value>
                     <fullName>APODERADO</fullName>
@@ -707,34 +603,14 @@
                     <label>APODERADO</label>
                 </value>
                 <value>
+                    <fullName>ASISTENTE</fullName>
+                    <default>false</default>
+                    <label>ASISTENTE</label>
+                </value>
+                <value>
                     <fullName>DIRECTORIO</fullName>
                     <default>false</default>
                     <label>DIRECTORIO</label>
-                </value>
-                <value>
-                    <fullName>GERENTE GENERAL</fullName>
-                    <default>false</default>
-                    <label>GERENTE GENERAL</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE FINANZAS</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE FINANZAS</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE ADMINISTRACION</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE ADMINISTRACION</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE RRHH</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE RRHH</label>
                 </value>
                 <value>
                     <fullName>GERENTE COMERCIAL</fullName>
@@ -742,14 +618,54 @@
                     <label>GERENTE COMERCIAL</label>
                 </value>
                 <value>
-                    <fullName>GERENTE DE OPERACIONES</fullName>
+                    <fullName>GERENTE DE ADMINISTRACION</fullName>
                     <default>false</default>
-                    <label>GERENTE DE OPERACIONES</label>
+                    <label>GERENTE DE ADMINISTRACION</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
                 </value>
                 <value>
                     <fullName>GERENTE DE CONTABILIDAD</fullName>
                     <default>false</default>
                     <label>GERENTE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE FINANZAS</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE OPERACIONES</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE OPERACIONES</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE RRHH</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE RRHH</label>
+                </value>
+                <value>
+                    <fullName>GERENTE GENERAL</fullName>
+                    <default>false</default>
+                    <label>GERENTE GENERAL</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACIÓN</fullName>
+                    <default>false</default>
+                    <label>JEFE DE ADMINISTRACIÓN</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <label>JEFE DE CONTABILIDAD</label>
                 </value>
                 <value>
                     <fullName>JEFE DE FINANZAS</fullName>
@@ -762,34 +678,14 @@
                     <label>JEFE DE TESORERIA</label>
                 </value>
                 <value>
-                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
-                    <default>false</default>
-                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
-                </value>
-                <value>
-                    <fullName>JEFE DE ADMINISTRACIÓN</fullName>
-                    <default>false</default>
-                    <label>JEFE DE ADMINISTRACIÓN</label>
-                </value>
-                <value>
-                    <fullName>JEFE DE CONTABILIDAD</fullName>
-                    <default>false</default>
-                    <label>JEFE DE CONTABILIDAD</label>
-                </value>
-                <value>
-                    <fullName>ADMINISTRADOR</fullName>
-                    <default>false</default>
-                    <label>ADMINISTRADOR</label>
-                </value>
-                <value>
-                    <fullName>ASISTENTE</fullName>
-                    <default>false</default>
-                    <label>ASISTENTE</label>
-                </value>
-                <value>
                     <fullName>OTROS</fullName>
                     <default>false</default>
                     <label>OTROS</label>
+                </value>
+                <value>
+                    <fullName>PRESIDENTE DE DIRECTORIO</fullName>
+                    <default>false</default>
+                    <label>PRESIDENTE DE DIRECTORIO</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
