@@ -138,7 +138,7 @@
         <criteriaItems>
             <field>Contact.parent_account_prof_position_type__c</field>
             <operation>notEqual</operation>
-            <value>OTHERS</value>
+            <value>OTROS</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -152,7 +152,7 @@
         <criteriaItems>
             <field>Contact.prof_position_type__c</field>
             <operation>notEqual</operation>
-            <value>OTHERS</value>
+            <value>OTROS</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
