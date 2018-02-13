@@ -39,7 +39,7 @@
         <field>User.user_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Branch__c.active_type__c</field>
         <readable>true</readable>
@@ -139,7 +139,7 @@
         <field>Branch__c.zipcode_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Precualificado__c</field>
         <readable>true</readable>
@@ -182,107 +182,13 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.parent_account_other_prof_prosition_type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.parent_account_prof_position_type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.phone_1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.phone_1_area_code__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.phone_2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.phone_2_area_code__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.primary_account_owner__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.prof_position_type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Status_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.BirthDate</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Description</field>
-        <readable>true</readable>
-    </fieldPermissions> 
-    <layoutAssignments>
-        <layout>User-User Layout</layout>
-    </layoutAssignments>
-	<layoutAssignments>
-        <layout>Branch__c-Branch_Layout</layout>
-    </layoutAssignments>
-	<layoutAssignments>
-        <layout>Account-Account_Page_Layout_Account</layout>
-        <recordType>Account.Record_Type_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Economic_Group</layout>
-        <recordType>Account.Record_Type_Economic_Group</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_No_Account</layout>
-        <recordType>Account.Record_Type_No_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contact-Contact Layout</layout>
-    </layoutAssignments>
-	<objectPermissions>
-       <allowCreate>false</allowCreate>
-       <allowDelete>false</allowDelete>
-       <allowEdit>false</allowEdit>
-       <allowRead>true</allowRead>
-       <modifyAllRecords>false</modifyAllRecords>
-       <object>Branch__c</object>
-       <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-	<recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Account.Record_Type_Client</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account.Record_Type_Economic_Group</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account.Record_Type_No_Client</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-	<tabVisibilities>
-        <tab>Branch__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>false</enabled>
@@ -319,6 +225,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>AllowViewKnowledge</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApexRestServices</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -977,16 +887,8 @@
         <name>ViewHelpLink</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>ViewMyTeamsDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>ViewPublicDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>ViewPublicReports</name>
+        <enabled>true</enabled>
+        <name>ViewRoles</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

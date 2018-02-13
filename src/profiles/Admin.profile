@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-<custom>false</custom>	
-	<classAccesses>
+<custom>false</custom>  
+    <classAccesses>
         <apexClass>Hangout_ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -39,7 +39,7 @@
         <field>User.user_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Branch__c.active_type__c</field>
         <readable>true</readable>
@@ -139,7 +139,7 @@
         <field>Branch__c.zipcode_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Precualificado__c</field>
         <readable>true</readable>
@@ -234,13 +234,13 @@
         <field>Contact.Description</field>
         <readable>true</readable>
     </fieldPermissions> 
-	<layoutAssignments>
+    <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
-	<layoutAssignments>
+    <layoutAssignments>
         <layout>Branch__c-Branch_Layout</layout>
     </layoutAssignments>
-	<layoutAssignments>
+    <layoutAssignments>
         <layout>Account-Account_Page_Layout_Account</layout>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
@@ -255,7 +255,7 @@
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
-	<objectPermissions>
+    <objectPermissions>
        <allowCreate>true</allowCreate>
        <allowDelete>true</allowDelete>
        <allowEdit>true</allowEdit>
@@ -264,7 +264,7 @@
        <object>Branch__c</object>
        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-	<recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
         <visible>true</visible>
@@ -278,8 +278,8 @@
         <default>false</default>
         <recordType>Account.Record_Type_No_Client</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>	
-	<tabVisibilities>
+    </recordTypeVisibilities>   
+    <tabVisibilities>
         <tab>Branch__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
@@ -789,8 +789,8 @@
         <name>ManageSynonyms</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>ManageTwoFactor</name>
+        <enabled>true</enabled>
+        <name>ManageTranslation</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -910,6 +910,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>SubscribeToLightningDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
@@ -987,6 +991,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewPublicReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewRoles</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
