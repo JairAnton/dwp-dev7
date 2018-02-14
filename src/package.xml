@@ -169,5 +169,18 @@
         <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
         <name>ValidationRule</name>
     </types>
+    <types>
+        <members>Account.Nuevo_Contacto</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>Contact_Group_Handler</members>
+        <members>Contact_Group_Handler_test</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Contact_Tgr</members>
+        <name>ApexTrigger</name>
+    </types>
     <version>41.0</version>
 </Package>
