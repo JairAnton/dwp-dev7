@@ -295,7 +295,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <unique>false</unique>
     </fields>
     <gender>Feminine</gender>
-    <label>Branch</label>
+    <label>Oficina</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -310,7 +310,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <label>Branch Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Branches</pluralLabel>
+    <pluralLabel>Oficinas</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>branch_id__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>branch_category_type__c</customTabListAdditionalFields>

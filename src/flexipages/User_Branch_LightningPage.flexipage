@@ -57,10 +57,9 @@
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>User_Branch</masterLabel>
-    <pageTemplate>flexipage:recordHomeTemplateDesktop</pageTemplate>
     <sobjectType>User_Branch__c</sobjectType>
     <template>
         <name>flexipage:recordHomeTemplateDesktop</name>
     </template>
-	<type>RecordPage</type>
+    <type>RecordPage</type>
 </FlexiPage>

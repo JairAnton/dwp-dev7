@@ -41,7 +41,7 @@
         <members>Account_Record_Page_Group</members>
         <members>Account_Record_Page_No_Account</members>
         <members>Contact_Record_Page</members>
-		<members>User_Branch_LightningPage</members>
+        <members>User_Branch_LightningPage</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -143,10 +143,10 @@
     </types>
     <types>
         <members>Branch__c</members>
-		<members>User_Branch__c</members>
+        <members>User_Branch__c</members>
         <name>CustomTab</name>
     </types>
-    <types>
+	<types>
         <members>Branch__c.All</members>
         <members>Contact.AllContacts</members>
         <members>Contact.MyContacts</members>
