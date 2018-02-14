@@ -22,7 +22,7 @@
         <fullName>Record_Type_Client</fullName>
         <active>true</active>
         <compactLayoutAssignment>Account_Compact_Layout_Account</compactLayoutAssignment>
-        <label>Account</label>
+        <label>Client</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -536,7 +536,7 @@
         <fullName>Record_Type_No_Client</fullName>
         <active>true</active>
         <compactLayoutAssignment>Account_Compact_Layout_No_Account</compactLayoutAssignment>
-        <label>No Account</label>
+        <label>No Client</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>

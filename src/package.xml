@@ -11,6 +11,10 @@
     </types>
 	<types>
 		<members>Hangout</members>
+        <members>Agree</members>
+        <members>Cancel</members>
+        <members>NewContactWarning</members>
+        <members>Warning</members>
 		<name>CustomLabel</name>
 	</types>
 	<types>
@@ -20,10 +24,14 @@
 	<types>
 		<members>Hangout_ctrl</members>
 		<members>Hangout_ctrl_TEST</members>
+        <members>OverrideButtonMessage_ctrl</members>
+        <members>OverrideButtonMessage_ctrl_TEST</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
 		<members>Hangouts_cmp</members>
+        <members>ModalTemplate_cmp</members>
+        <members>OverrideStandardButtonMessage_cmp</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
@@ -38,6 +46,7 @@
 	<types>
         <members>User</members>
 		<members>Branch__c</members>
+        <members>Override_Standard_Button_Message__mdt</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -55,6 +64,7 @@
         <members>Account-Account_Page_Layout_Economic_Group</members>
         <members>Account-Account_Page_Layout_No_Account</members>
         <members>Contact-Contact Layout</members>
+        <members>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -110,6 +120,11 @@
         <members>Contact.primary_account_owner__c</members>
         <members>Contact.prof_position_type__c</members>
         <members>Contact.Status_desc__c</members>
+        <members>Override_Standard_Button_Message__mdt.Body_Label_API__c</members>
+        <members>Override_Standard_Button_Message__mdt.Button_Label_API_Agree__c</members>
+        <members>Override_Standard_Button_Message__mdt.Button_Label_API_Cancel__c</members>
+        <members>Override_Standard_Button_Message__mdt.Object_Api_Name_to_Redirect__c</members>
+        <members>Override_Standard_Button_Message__mdt.Title_Label_API__c</members>
         <name>CustomField</name>
     </types>
 	<types>
@@ -118,6 +133,9 @@
     </types>
 	<types>
         <members>Branch__c.All</members>
+        <members>Contact.AllContacts</members>
+        <members>Contact.MyContacts</members>
+        <members>Contact.Mis_Contactos_No_Cliente</members>
         <name>ListView</name>
     </types>
 	<types>
@@ -125,6 +143,31 @@
         <members>Account.Record_Type_Economic_Group</members>
         <members>Account.Record_Type_No_Client</members>
         <name>RecordType</name>
+    </types>
+    <types>
+        <members>Override_Standard_Button_Message.Contact</members>
+        <name>CustomMetadata</name>
+    </types>
+	<types>
+		<members>Contact</members>
+        <name>Workflow</name>
+    </types>
+	<types>
+        <members>Contact.Contact_Validation_Rule_Mobile</members>
+        <members>Contact.Contact_Validation_Rule_Phone1</members>
+        <members>Contact.Contact_Validation_Rule_Phone1_Lima</members>
+        <members>Contact.Contact_Validation_Rule_Phone2</members>
+        <members>Contact.Contact_Validation_Rule_Phone2_Lima</members>
+        <members>Contact.Contact_Validation_Rule_Position</members>
+        <members>Contact.Contact_Validation_Rule_Position_PA</members>
+        <members>Contact.Contact_Validation_Rule_Req_AC1</members>
+        <members>Contact.Contact_Validation_Rule_Req_AC2</members>
+        <members>Contact.Contact_Validation_Rule_Req_Phone1</members>
+        <members>Contact.Contact_Validation_Rule_Req_Phone2</members>
+        <members>Contact.Contact_Validation_Rule_Required_Decisor</members>
+        <members>Contact.Contact_Validation_Rule_Required_FN</members>
+        <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
+        <name>ValidationRule</name>
     </types>
     <version>41.0</version>
 </Package>
