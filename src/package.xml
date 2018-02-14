@@ -41,6 +41,7 @@
         <members>Account_Record_Page_Group</members>
         <members>Account_Record_Page_No_Account</members>
         <members>Contact_Record_Page</members>
+        <members>User_Branch_LightningPage</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>
@@ -54,6 +55,8 @@
 		<members>Branch__c-es</members>
 		<members>Account-es</members>
         <members>Contact-es</members>
+        <members>User_Branch__c-en_US</members>
+        <members>User_Branch__c-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -65,6 +68,7 @@
         <members>Account-Account_Page_Layout_No_Account</members>
         <members>Contact-Contact Layout</members>
         <members>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</members>
+        <members>User_Branch__c-User_Branch Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -74,6 +78,7 @@
         <members>Account.Account_Compact_Layout_Group</members>
         <members>Account.Account_Compact_Layout_No_Account</members>
         <members>Contact.Contact</members>
+        <members>User_Branch__c.Relation_User_Branch</members>
         <name>CompactLayout</name>
     </types>
 	<types>
@@ -125,10 +130,19 @@
         <members>Override_Standard_Button_Message__mdt.Button_Label_API_Cancel__c</members>
         <members>Override_Standard_Button_Message__mdt.Object_Api_Name_to_Redirect__c</members>
         <members>Override_Standard_Button_Message__mdt.Title_Label_API__c</members>
+        <members>User_Branch__c.Primary__c</members>
+        <members>User_Branch__c.User__c</members>
+        <members>User_Branch__c.branch_category_type__c</members>
+        <members>User_Branch__c.branch_id__c</members>
+        <members>User_Branch__c.branch_name__c</members>
+        <members>User_Branch__c.unique_id__c</members>
+        <members>User_Branch__c.user_id__c</members>
+        <members>User_Branch__c.user_prof_position_type__c</members>
         <name>CustomField</name>
     </types>
 	<types>
         <members>Branch__c</members>
+        <members>User_Branch__c</members>
         <name>CustomTab</name>
     </types>
 	<types>
@@ -136,6 +150,7 @@
         <members>Contact.AllContacts</members>
         <members>Contact.MyContacts</members>
         <members>Contact.Mis_Contactos_No_Cliente</members>
+        <members>User_Branch__c.All</members>
         <name>ListView</name>
     </types>
 	<types>

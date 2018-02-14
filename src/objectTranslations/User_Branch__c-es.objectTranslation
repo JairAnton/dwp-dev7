@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Oficina de Usuario</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Oficinas de Usuario</value>
+    </caseValues>
+    <fields>
+        <label>Principal</label>
+        <name>Primary__c</name>
+    </fields>
+    <fields>
+        <label>Usuario</label>
+        <name>User__c</name>
+        <relationshipLabel>Oficina de Usuario</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Categoría de Oficina</label>
+        <name>branch_category_type__c</name>
+    </fields>
+    <fields>
+        <label>Código de Oficina</label>
+        <name>branch_id__c</name>
+    </fields>
+    <fields>
+        <label>Oficina</label>
+        <name>branch_name__c</name>
+        <relationshipLabel>Usuario de la Oficina</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Identificador Único</label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label>Registro</label>
+        <name>user_id__c</name>
+    </fields>
+    <fields>
+        <label>Cargo</label>
+        <name>user_prof_position_type__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>User_Branch Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>
