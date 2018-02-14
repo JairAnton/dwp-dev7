@@ -15,7 +15,7 @@
     <fields>
         <label><!-- User --></label>
         <name>User__c</name>
-        <relationshipLabel><!-- Oficinas de Usuario --></relationshipLabel>
+        <relationshipLabel><!-- User Branches --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Branch Category --></label>

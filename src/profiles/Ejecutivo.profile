@@ -1048,7 +1048,6 @@
         <enabled>true</enabled>
         <name>ViewSetup</name>
     </userPermissions>
-    <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
         <name>AddDirectMessageMembers</name>
