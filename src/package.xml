@@ -47,6 +47,7 @@
     <types>
         <members>User</members>
         <members>Branch__c</members>
+        <members>User_Branch__c</members>
         <members>Override_Standard_Button_Message__mdt</members>
         <name>CustomObject</name>
     </types>
@@ -137,24 +138,15 @@
         <members>User_Branch__c.branch_name__c</members>
         <members>User_Branch__c.unique_id__c</members>
         <members>User_Branch__c.user_id__c</members>
-        <members>User_Branch__c.user_prof_position_type__c</members>
+        <members>User_Branch__c.user_prof_position_type__c</members>       
         <name>CustomField</name>
     </types>
     <types>
         <members>Branch__c</members>
         <members>User_Branch__c</members>
-        <name>CustomObject</name>
+        <name>CustomTab</name>
     </types>
-    <types>
-        <members>Branch_LightningPage</members>
-        <name>FlexiPage</name>
-    </types>
-    <types>
-        <members>Branch__c-Branch_Layout</members>
-        <members>User_Branch__c-User_Branch Layout</members>
-        <name>Layout</name>
-    </types>
-    <types>
+	<types>
         <members>Branch__c.All</members>
         <members>Contact.AllContacts</members>
         <members>Contact.MyContacts</members>
@@ -192,6 +184,19 @@
         <members>Contact.Contact_Validation_Rule_Required_FN</members>
         <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
         <name>ValidationRule</name>
+    </types>
+    <types>
+        <members>Account.Nuevo_Contacto</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>Contact_Group_Handler</members>
+        <members>Contact_Group_Handler_test</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Contact_Tgr</members>
+        <name>ApexTrigger</name>
     </types>
     <version>41.0</version>
 </Package>
