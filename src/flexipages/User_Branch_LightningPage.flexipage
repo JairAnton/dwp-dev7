@@ -59,5 +59,8 @@
     <masterLabel>User_Branch</masterLabel>
     <pageTemplate>flexipage:recordHomeTemplateDesktop</pageTemplate>
     <sobjectType>User_Branch__c</sobjectType>
-    <type>RecordPage</type>
+    <template>
+        <name>flexipage:recordHomeTemplateDesktop</name>
+    </template>
+	<type>RecordPage</type>
 </FlexiPage>

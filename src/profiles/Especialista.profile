@@ -301,6 +301,9 @@
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+		<layout>UserAlt-User Profile Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
        <allowCreate>false</allowCreate>
        <allowDelete>false</allowDelete>
