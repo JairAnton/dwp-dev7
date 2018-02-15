@@ -49,6 +49,7 @@
         <members>Branch__c</members>
         <members>User_Branch__c</members>
         <members>Override_Standard_Button_Message__mdt</members>
+        <members>AccountContactRelation</members>
         <name>CustomObject</name>
     </types>
     <types>
