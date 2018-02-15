@@ -73,6 +73,12 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <fields>branch_name__c</fields>
+        <fields>branch_id__c</fields>
+        <fields>branch_category_type__c</fields>
+        <relatedList>User_Branch__c.User__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <relatedLists>

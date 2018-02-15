@@ -8,7 +8,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>numVisibleActions</name>
-                <value>2</value>
+                <value>3</value>
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
@@ -19,14 +19,18 @@
         <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
-        <name>facet-f803b4e3-3c36-4718-a0d8-d79137d2ec4d</name>
+        <name>facet-1ee5a55c-d725-4391-a642-aa041e7bee7c</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>active</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-f803b4e3-3c36-4718-a0d8-d79137d2ec4d</value>
+                <value>facet-1ee5a55c-d725-4391-a642-aa041e7bee7c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
@@ -34,14 +38,14 @@
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
-        <name>facet-3edb915a-658d-4819-add9-b31eb30a4078</name>
+        <name>facet-7b203f7a-4129-4ee7-af52-2f8420b2efe1</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>tabs</name>
-                <value>facet-3edb915a-658d-4819-add9-b31eb30a4078</value>
+                <value>facet-7b203f7a-4129-4ee7-af52-2f8420b2efe1</value>
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
         </componentInstances>
@@ -49,26 +53,11 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>parentFieldApiName</name>
-                <value>Branch__c.Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListApiName</name>
-                <value>Branches_Users__r</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListComponentOverride</name>
-                <value>NONE</value>
-            </componentInstanceProperties>
-            <componentName>force:relatedListSingleContainer</componentName>
-        </componentInstances>
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Branch</masterLabel>
-    <sobjectType>Branch__c</sobjectType>
+    <masterLabel>User_Branch</masterLabel>
+    <sobjectType>User_Branch__c</sobjectType>
     <template>
         <name>flexipage:recordHomeTemplateDesktop</name>
     </template>

@@ -9,74 +9,82 @@
         <members>Gerente</members>
         <name>Profile</name>
     </types>
-	<types>
-		<members>Hangout</members>
+    <types>
+        <members>Hangout</members>
         <members>Agree</members>
         <members>Cancel</members>
         <members>NewContactWarning</members>
         <members>Warning</members>
-		<name>CustomLabel</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>Translations</name>
-	</types>
-	<types>
-		<members>Hangout_ctrl</members>
-		<members>Hangout_ctrl_TEST</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Translations</name>
+    </types>
+    <types>
+        <members>Hangout_ctrl</members>
+        <members>Hangout_ctrl_TEST</members>
         <members>OverrideButtonMessage_ctrl</members>
         <members>OverrideButtonMessage_ctrl_TEST</members>
-		<name>ApexClass</name>
-	</types>
-	<types>
-		<members>Hangouts_cmp</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Hangouts_cmp</members>
         <members>ModalTemplate_cmp</members>
         <members>OverrideStandardButtonMessage_cmp</members>
-		<name>AuraDefinitionBundle</name>
-	</types>
-	<types>
-		<members>User_Record_Page</members>
-		<members>Branch_LightningPage</members>
-		<members>Account_Record_Page_Account</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>User_Record_Page</members>
+        <members>Branch_LightningPage</members>
+        <members>Account_Record_Page_Account</members>
         <members>Account_Record_Page_Group</members>
         <members>Account_Record_Page_No_Account</members>
         <members>Contact_Record_Page</members>
-		<name>FlexiPage</name>
-	</types>
-	<types>
+        <members>User_Branch_LightningPage</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
         <members>User</members>
-		<members>Branch__c</members>
+        <members>Branch__c</members>
+        <members>User_Branch__c</members>
         <members>Override_Standard_Button_Message__mdt</members>
+        <members>AccountContactRelation</members>
         <name>CustomObject</name>
     </types>
     <types>
         <members>User-es</members>
-		<members>Branch__c-es</members>
-		<members>Account-es</members>
+        <members>Branch__c-es</members>
+        <members>Account-es</members>
         <members>Contact-es</members>
+        <members>User_Branch__c-en_US</members>
+        <members>User_Branch__c-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
         <members>User-User Layout</members>
         <members>UserAlt-User Profile Layout</members>
-		<members>Branch__c-Branch_Layout</members>
-		<members>Account-Account_Page_Layout_Account</members>
+        <members>Branch__c-Branch_Layout</members>
+        <members>Account-Account_Page_Layout_Account</members>
         <members>Account-Account_Page_Layout_Economic_Group</members>
         <members>Account-Account_Page_Layout_No_Account</members>
         <members>Contact-Contact Layout</members>
         <members>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</members>
+        <members>User_Branch__c-User_Branch Layout</members>
+        <members>AccountContactRelation-Account Contact Relationship Layout</members>
         <name>Layout</name>
     </types>
     <types>
         <members>User.User_Layout</members>
-		<members>Branch__c.Branch_CompactLayout</members>
-		<members>Account.Account_Compact_Layout_Account</members>
+        <members>Branch__c.Branch_CompactLayout</members>
+        <members>Account.Account_Compact_Layout_Account</members>
         <members>Account.Account_Compact_Layout_Group</members>
         <members>Account.Account_Compact_Layout_No_Account</members>
         <members>Contact.Contact</members>
+        <members>User_Branch__c.Relation_User_Branch</members>
         <name>CompactLayout</name>
     </types>
-	<types>
+    <types>
         <members>Branch__c.active_type__c</members>
         <members>Branch__c.address_desc__c</members>
         <members>Branch__c.branch_category_type__c</members>
@@ -97,13 +105,13 @@
         <members>Branch__c.street_desc__c</members>
         <members>Branch__c.unique_id__c</members>
         <members>Branch__c.zipcode_id__c</members>
-		<members>User.user_id__c</members>
+        <members>User.user_id__c</members>
         <members>User.prof_position_id__c</members>
         <members>User.prof_position_type__c</members>
         <members>User.portfolio_classification_id__c</members>
         <members>User.organizational_unit_id__c</members>
         <members>User.organizational_unit_name__c</members>
-		<members>Contact.Precualificado__c</members>
+        <members>Contact.Precualificado__c</members>
         <members>Contact.account_type__c</members>
         <members>Contact.decision_making_desc__c</members>
         <members>Contact.events_info_type__c</members>
@@ -125,10 +133,22 @@
         <members>Override_Standard_Button_Message__mdt.Button_Label_API_Cancel__c</members>
         <members>Override_Standard_Button_Message__mdt.Object_Api_Name_to_Redirect__c</members>
         <members>Override_Standard_Button_Message__mdt.Title_Label_API__c</members>
+        <members>User_Branch__c.Primary__c</members>
+        <members>User_Branch__c.User__c</members>
+        <members>User_Branch__c.branch_category_type__c</members>
+        <members>User_Branch__c.branch_id__c</members>
+        <members>User_Branch__c.branch_name__c</members>
+        <members>User_Branch__c.unique_id__c</members>
+        <members>User_Branch__c.user_id__c</members>
+        <members>User_Branch__c.user_prof_position_type__c</members>
+        <members>AccountContactRelation.Contact_Primary_Account__c</members>
+        <members>AccountContactRelation.Contact_decisor__c</members>
+        <members>AccountContactRelation.other_prof_prosition_type__c</members>
         <name>CustomField</name>
     </types>
-	<types>
+    <types>
         <members>Branch__c</members>
+        <members>User_Branch__c</members>
         <name>CustomTab</name>
     </types>
 	<types>
@@ -136,9 +156,10 @@
         <members>Contact.AllContacts</members>
         <members>Contact.MyContacts</members>
         <members>Contact.Mis_Contactos_No_Cliente</members>
+        <members>User_Branch__c.All</members>
         <name>ListView</name>
     </types>
-	<types>
+    <types>
         <members>Account.Record_Type_Client</members>
         <members>Account.Record_Type_Economic_Group</members>
         <members>Account.Record_Type_No_Client</members>
@@ -148,11 +169,11 @@
         <members>Override_Standard_Button_Message.Contact</members>
         <name>CustomMetadata</name>
     </types>
-	<types>
-		<members>Contact</members>
+    <types>
+        <members>Contact</members>
         <name>Workflow</name>
     </types>
-	<types>
+    <types>
         <members>Contact.Contact_Validation_Rule_Mobile</members>
         <members>Contact.Contact_Validation_Rule_Phone1</members>
         <members>Contact.Contact_Validation_Rule_Phone1_Lima</members>
@@ -168,6 +189,19 @@
         <members>Contact.Contact_Validation_Rule_Required_FN</members>
         <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
         <name>ValidationRule</name>
+    </types>
+    <types>
+        <members>Account.Nuevo_Contacto</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>Contact_Group_Handler</members>
+        <members>Contact_Group_Handler_test</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Contact_Tgr</members>
+        <name>ApexTrigger</name>
     </types>
     <version>41.0</version>
 </Package>
