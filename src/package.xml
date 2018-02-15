@@ -70,6 +70,7 @@
         <members>Contact-Contact Layout</members>
         <members>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</members>
         <members>User_Branch__c-User_Branch Layout</members>
+        <members>AccountContactRelation-Account Contact Relationship Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -138,7 +139,10 @@
         <members>User_Branch__c.branch_name__c</members>
         <members>User_Branch__c.unique_id__c</members>
         <members>User_Branch__c.user_id__c</members>
-        <members>User_Branch__c.user_prof_position_type__c</members>       
+        <members>User_Branch__c.user_prof_position_type__c</members>
+        <members>AccountContactRelation.Contact_Primary_Account__c</members>
+        <members>AccountContactRelation.Contact_decisor__c</members>
+        <members>AccountContactRelation.other_prof_prosition_type__c</members>
         <name>CustomField</name>
     </types>
     <types>
