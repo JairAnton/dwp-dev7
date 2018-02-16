@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
-        <label>Código Unidad Organizativa</label>
+        <label>Código unidad organizativa</label>
         <name>organizational_unit_id__c</name>
     </fields>
     <fields>
-        <label>Unidad Organizativa</label>
+        <label>Unidad organizativa</label>
         <name>organizational_unit_name__c</name>
     </fields>
     <fields>
-        <label>Código de Cartera</label>
+        <label>Código de cartera</label>
         <name>portfolio_classification_id__c</name>
     </fields>
     <fields>
-        <label>Código de Cargo</label>
+        <label>Código de cargo</label>
         <name>prof_position_id__c</name>
     </fields>
     <fields>
@@ -35,11 +35,11 @@
         <layout>User Profile Layout</layout>
         <layoutType>UserAlt</layoutType>
         <sections>
-            <label><!-- About --></label>
+            <label>Detalles</label>
             <section>About</section>
         </sections>
         <sections>
-            <label><!-- Contact --></label>
+            <label>Contacto</label>
             <section>Contact</section>
         </sections>
     </layouts>

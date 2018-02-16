@@ -50,7 +50,7 @@
         <name>Record_Type_Client</name>
     </recordTypes>
     <recordTypes>
-        <label>Grupo Económico</label>
+        <label>Grupo económico</label>
         <name>Record_Type_Economic_Group</name>
     </recordTypes>
     <recordTypes>
