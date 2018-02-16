@@ -39,7 +39,7 @@
         <relationshipLabel>Oficinas (Área)</relationshipLabel>
     </fields>
     <fields>
-        <label>Código de Área</label>
+        <label>Código de área</label>
         <name>branch_level2_id__c</name>
     </fields>
     <fields>
@@ -48,7 +48,7 @@
         <relationshipLabel>Oficinas (Banca)</relationshipLabel>
     </fields>
     <fields>
-        <label>Código de Banca</label>
+        <label>Código de banca</label>
         <name>branch_level3_id__c</name>
     </fields>
     <fields>
@@ -57,7 +57,7 @@
         <relationshipLabel>Oficinas (Regional)</relationshipLabel>
     </fields>
     <fields>
-        <label>Código de Regional</label>
+        <label>Código de regional</label>
         <name>branch_level4_id__c</name>
     </fields>
     <fields>
@@ -85,11 +85,11 @@
         <name>street_desc__c</name>
     </fields>
     <fields>
-        <label>Identificador Único</label>
+        <label>Identificador único</label>
         <name>unique_id__c</name>
     </fields>
     <fields>
-        <label>Código Postal</label>
+        <label>Código postal</label>
         <name>zipcode_id__c</name>
     </fields>
     <gender>Feminine</gender>

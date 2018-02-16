@@ -2,11 +2,11 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value>Oficina de Usuario</value>
+        <value>Oficina de usuario</value>
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value>Oficinas de Usuario</value>
+        <value>Oficinas de usuario</value>
     </caseValues>
     <fields>
         <label>Principal</label>
@@ -15,23 +15,23 @@
     <fields>
         <label>Usuario</label>
         <name>User__c</name>
-        <relationshipLabel>Oficina de Usuario</relationshipLabel>
+        <relationshipLabel>Oficina de usuario</relationshipLabel>
     </fields>
     <fields>
-        <label>Categoría de Oficina</label>
+        <label>Categoría de oficina</label>
         <name>branch_category_type__c</name>
     </fields>
     <fields>
-        <label>Código de Oficina</label>
+        <label>Código de oficina</label>
         <name>branch_id__c</name>
     </fields>
     <fields>
         <label>Oficina</label>
         <name>branch_name__c</name>
-        <relationshipLabel>Usuario de la Oficina</relationshipLabel>
+        <relationshipLabel>Usuario de la oficina</relationshipLabel>
     </fields>
     <fields>
-        <label>Identificador Único</label>
+        <label>Identificador único</label>
         <name>unique_id__c</name>
     </fields>
     <fields>
