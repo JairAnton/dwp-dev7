@@ -9,46 +9,39 @@
         <value>User Branches</value>
     </caseValues>
     <fields>
-        <label><!-- Primary --></label>
-        <name>Primary__c</name>
-    </fields>
-    <fields>
         <label><!-- User --></label>
         <name>User__c</name>
         <relationshipLabel><!-- User Branches --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Branch Category --></label>
+        <label><!-- Branch category --></label>
         <name>branch_category_type__c</name>
     </fields>
     <fields>
-        <label><!-- Branch Code --></label>
+        <label><!-- Branch code --></label>
         <name>branch_id__c</name>
     </fields>
     <fields>
         <label><!-- Branch --></label>
         <name>branch_name__c</name>
-        <relationshipLabel><!-- Branch Users --></relationshipLabel>
+        <relationshipLabel><!-- User Branches --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Unique Identifier --></label>
+        <label><!-- Primary --></label>
+        <name>primary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique identifier --></label>
         <name>unique_id__c</name>
     </fields>
     <fields>
-        <label><!-- User Code --></label>
+        <label><!-- User code --></label>
         <name>user_id__c</name>
     </fields>
     <fields>
         <label><!-- Position --></label>
         <name>user_prof_position_type__c</name>
     </fields>
-    <layouts>
-        <layout>User_Branch Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
     <nameFieldLabel><!-- Reference --></nameFieldLabel>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

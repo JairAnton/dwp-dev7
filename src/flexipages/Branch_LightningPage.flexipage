@@ -67,7 +67,7 @@
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Branch</masterLabel>
+    <masterLabel>Branch Record Page</masterLabel>
     <sobjectType>Branch__c</sobjectType>
     <template>
         <name>flexipage:recordHomeTemplateDesktop</name>
