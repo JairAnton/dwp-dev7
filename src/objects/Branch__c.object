@@ -51,6 +51,7 @@
         <fields>Name</fields>
         <fields>branch_id__c</fields>
         <fields>branch_category_type__c</fields>
+        <fields>active_type__c</fields>
         <label>Branch_CompactLayout</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>

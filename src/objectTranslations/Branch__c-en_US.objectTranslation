@@ -2,96 +2,96 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value>Oficina</value>
+        <value>Office</value>
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value>Oficinas</value>
+        <value>Offices</value>
     </caseValues>
     <fields>
-        <label>Inactivo</label>
+        <label><!-- Inactive --></label>
         <name>active_type__c</name>
     </fields>
     <fields>
-        <label>Dirección</label>
+        <label><!-- Address --></label>
         <name>address_desc__c</name>
     </fields>
     <fields>
-        <label>Categoría</label>
+        <label><!-- Branch category --></label>
         <name>branch_category_type__c</name>
     </fields>
     <fields>
-        <label>Código</label>
+        <label><!-- Branch code --></label>
         <name>branch_id__c</name>
     </fields>
     <fields>
-        <label>Country</label>
+        <label><!-- Branch hierarchy level 1 --></label>
         <name>branch_level1_desc__c</name>
-        <relationshipLabel>Oficinas (Country)</relationshipLabel>
+        <relationshipLabel><!-- Offices (Branch hierarchy level 1) --></relationshipLabel>
     </fields>
     <fields>
-        <label>Código de país</label>
+        <label><!-- Branch  hiearchy level 1 code --></label>
         <name>branch_level1_id__c</name>
     </fields>
     <fields>
-        <label>Área</label>
+        <label><!-- Branch hierarchy level 2 --></label>
         <name>branch_level2_desc__c</name>
-        <relationshipLabel>Oficinas (Área)</relationshipLabel>
+        <relationshipLabel><!-- Offices (Branch hierarchy level 2) --></relationshipLabel>
     </fields>
     <fields>
-        <label>Código área</label>
+        <label><!-- Branch  hiearchy level 2 code --></label>
         <name>branch_level2_id__c</name>
     </fields>
     <fields>
-        <label>Banca</label>
+        <label><!-- Branch hierarchy level 3 --></label>
         <name>branch_level3_desc__c</name>
-        <relationshipLabel>Oficinas (Banca)</relationshipLabel>
+        <relationshipLabel><!-- Offices (Branch hierarchy level 3) --></relationshipLabel>
     </fields>
     <fields>
-        <label>Código banca</label>
+        <label><!-- Branch  hiearchy level 3 code --></label>
         <name>branch_level3_id__c</name>
     </fields>
     <fields>
-        <label>Regional</label>
+        <label><!-- Branch hierarchy level 4 --></label>
         <name>branch_level4_desc__c</name>
-        <relationshipLabel>Oficinas (Regional)</relationshipLabel>
+        <relationshipLabel><!-- Offices (Branch hierarchy level 4) --></relationshipLabel>
     </fields>
     <fields>
-        <label>Código regional</label>
+        <label><!-- Branch hiearchy level 4 code --></label>
         <name>branch_level4_id__c</name>
     </fields>
     <fields>
-        <label>Localidad/ciudad</label>
+        <label><!-- City --></label>
         <name>city_name__c</name>
     </fields>
     <fields>
-        <label>País</label>
+        <label><!-- Country --></label>
         <name>country_name__c</name>
     </fields>
     <fields>
-        <label>Telefono 2</label>
+        <label><!-- Other phone --></label>
         <name>other_phone_number__c</name>
     </fields>
     <fields>
-        <label>Telefono 1</label>
+        <label><!-- Phone --></label>
         <name>phone_number__c</name>
     </fields>
     <fields>
-        <label>Provincia</label>
+        <label><!-- State --></label>
         <name>state_name__c</name>
     </fields>
     <fields>
-        <label>Calle</label>
+        <label><!-- Street --></label>
         <name>street_desc__c</name>
     </fields>
     <fields>
-        <label>Identificador único</label>
+        <label><!-- Unique identifier --></label>
         <name>unique_id__c</name>
     </fields>
     <fields>
-        <label>Código postal</label>
+        <label><!-- Postal code --></label>
         <name>zipcode_id__c</name>
     </fields>
-    <gender>Feminine</gender>
-    <nameFieldLabel>Oficina</nameFieldLabel>
+    <nameFieldLabel><!-- Name --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

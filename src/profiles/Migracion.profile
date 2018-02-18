@@ -272,6 +272,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>User_Branch__c.primary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>User_Branch__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>

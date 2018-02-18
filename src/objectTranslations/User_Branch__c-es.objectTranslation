@@ -9,10 +9,6 @@
         <value>Oficinas de usuario</value>
     </caseValues>
     <fields>
-        <label>Principal</label>
-        <name>Primary__c</name>
-    </fields>
-    <fields>
         <label>Usuario</label>
         <name>User__c</name>
         <relationshipLabel>Oficina de usuario</relationshipLabel>
@@ -29,6 +25,12 @@
         <label>Oficina</label>
         <name>branch_name__c</name>
         <relationshipLabel>Usuario de la oficina</relationshipLabel>
+        <relationshipLabel>Usuarios de la oficina</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Identificador único</label>
+        <label>Principal</label>
+        <name>primary__c</name>
     </fields>
     <fields>
         <label>Identificador único</label>
@@ -43,11 +45,4 @@
         <name>user_prof_position_type__c</name>
     </fields>
     <gender>Feminine</gender>
-    <layouts>
-        <layout>User_Branch Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
 </CustomObjectTranslation>
