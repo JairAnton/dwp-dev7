@@ -69,11 +69,11 @@
         <name>country_name__c</name>
     </fields>
     <fields>
-        <label>Telefono 2</label>
+        <label>Teléfono 2</label>
         <name>other_phone_number__c</name>
     </fields>
     <fields>
-        <label>Telefono 1</label>
+        <label>Teléfono 1</label>
         <name>phone_number__c</name>
     </fields>
     <fields>
@@ -93,5 +93,20 @@
         <name>zipcode_id__c</name>
     </fields>
     <gender>Feminine</gender>
+    <layouts>
+        <layout>Branch_Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Detalle</label>
+            <section>Detail</section>
+        </sections>
+        <sections>
+            <label>Jerarquía</label>
+            <section>Hierarchy</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>Oficina</nameFieldLabel>
 </CustomObjectTranslation>
