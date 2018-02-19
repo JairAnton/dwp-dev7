@@ -180,7 +180,7 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>true</sorted>
+                <sorted>false</sorted>
                 <value>
                     <fullName>ACCIONISTA</fullName>
                     <default>false</default>
@@ -588,9 +588,9 @@
                     <label>ACCIONISTA</label>
                 </value>
                 <value>
-                    <fullName>ADMINISTRADOR</fullName>
+                    <fullName>PRESIDENTE DE DIRECTORIO</fullName>
                     <default>false</default>
-                    <label>ADMINISTRADOR</label>
+                    <label>PRESIDENTE DE DIRECTORIO</label>
                 </value>
                 <value>
                     <fullName>APODERADO</fullName>
@@ -598,49 +598,9 @@
                     <label>APODERADO</label>
                 </value>
                 <value>
-                    <fullName>ASISTENTE</fullName>
-                    <default>false</default>
-                    <label>ASISTENTE</label>
-                </value>
-                <value>
                     <fullName>DIRECTORIO</fullName>
                     <default>false</default>
                     <label>DIRECTORIO</label>
-                </value>
-                <value>
-                    <fullName>GERENTE COMERCIAL</fullName>
-                    <default>false</default>
-                    <label>GERENTE COMERCIAL</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE ADMINISTRACION</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE ADMINISTRACION</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE CONTABILIDAD</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE CONTABILIDAD</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE FINANZAS</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE FINANZAS</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE OPERACIONES</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE OPERACIONES</label>
-                </value>
-                <value>
-                    <fullName>GERENTE DE RRHH</fullName>
-                    <default>false</default>
-                    <label>GERENTE DE RRHH</label>
                 </value>
                 <value>
                     <fullName>GERENTE GENERAL</fullName>
@@ -648,19 +608,34 @@
                     <label>GERENTE GENERAL</label>
                 </value>
                 <value>
-                    <fullName>JEFE DE ADMINISTRACIÓN</fullName>
+                    <fullName>GERENTE DE FINANZAS</fullName>
                     <default>false</default>
-                    <label>JEFE DE ADMINISTRACIÓN</label>
+                    <label>GERENTE DE FINANZAS</label>
                 </value>
                 <value>
-                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
                     <default>false</default>
-                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
+                    <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
                 </value>
                 <value>
-                    <fullName>JEFE DE CONTABILIDAD</fullName>
+                    <fullName>GERENTE DE RRHH</fullName>
                     <default>false</default>
-                    <label>JEFE DE CONTABILIDAD</label>
+                    <label>GERENTE DE RRHH</label>
+                </value>
+                <value>
+                    <fullName>GERENTE COMERCIAL</fullName>
+                    <default>false</default>
+                    <label>GERENTE COMERCIAL</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE OPERACIONES</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE OPERACIONES</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <label>GGERENTE DE CONTABILIDAD</label>
                 </value>
                 <value>
                     <fullName>JEFE DE FINANZAS</fullName>
@@ -673,14 +648,34 @@
                     <label>JEFE DE TESORERIA</label>
                 </value>
                 <value>
+                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACIÓN</fullName>
+                    <default>false</default>
+                    <label>JEFE DE ADMINISTRACIÓN</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <label>JEFE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>ADMINISTRADOR</fullName>
+                    <default>false</default>
+                    <label>ADMINISTRADOR</label>
+                </value>
+                <value>
+                    <fullName>ASISTENTE</fullName>
+                    <default>false</default>
+                    <label>ASISTENTE</label>
+                </value>
+                <value>
                     <fullName>OTROS</fullName>
                     <default>false</default>
                     <label>OTROS</label>
-                </value>
-                <value>
-                    <fullName>PRESIDENTE DE DIRECTORIO</fullName>
-                    <default>false</default>
-                    <label>PRESIDENTE DE DIRECTORIO</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -755,7 +750,7 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>Mis contactos no cliente</label>
+        <label>Mis contactos no clientes</label>
     </listViews>
 	<validationRules>
         <fullName>Contact_Validation_Rule_Mobile</fullName>
