@@ -57,9 +57,7 @@
         <members>Branch__c-es</members>
         <members>Account-es</members>
         <members>Contact-es</members>
-        <members>User_Branch__c-en_US</members>
         <members>User_Branch__c-es</members>
-        <members>Account-en_US</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -139,6 +137,7 @@
         <members>User_Branch__c.branch_category_type__c</members>
         <members>User_Branch__c.branch_id__c</members>
         <members>User_Branch__c.branch_name__c</members>
+        <members>User_Branch__c.primary__c</members>
         <members>User_Branch__c.unique_id__c</members>
         <members>User_Branch__c.user_id__c</members>
         <members>User_Branch__c.user_prof_position_type__c</members>
