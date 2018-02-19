@@ -35,7 +35,7 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>Teléfono Completo Oficina 2</value>
+            <value>Teléfono completo oficina 2</value>
         </caseValues>
         <gender>Masculine</gender>
         <name>home_phone_contact</name>
