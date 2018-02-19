@@ -24,7 +24,7 @@
     <fields>
         <label>Oficina</label>
         <name>branch_name__c</name>
-        <relationshipLabel>Usuario de la oficina</relationshipLabel>        
+        <relationshipLabel>Usuarios de la oficina</relationshipLabel>
     </fields>
     <fields>
         <label>Principal</label>              
