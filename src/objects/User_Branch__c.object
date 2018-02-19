@@ -87,7 +87,7 @@
         <externalId>false</externalId>
         <formula>branch_name__r.branch_category_type__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Branch Category</label>
+        <label>Branch category</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -98,7 +98,7 @@
         <externalId>false</externalId>
         <formula>branch_name__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Branch Code</label>
+        <label>Branch code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -110,7 +110,7 @@
         <externalId>false</externalId>
         <label>Branch</label>
         <referenceTo>Branch__c</referenceTo>
-        <relationshipLabel>Branch Users</relationshipLabel>
+        <relationshipLabel>Branch users</relationshipLabel>
         <relationshipName>Branches_Users</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -131,7 +131,7 @@
         <fullName>unique_id__c</fullName>
         <description>Identificador Único</description>
         <externalId>true</externalId>
-        <label>Unique Identifier</label>
+        <label>Unique identifier</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -143,7 +143,7 @@
         <externalId>false</externalId>
         <formula>$User.user_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>User Code</label>
+        <label>User code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

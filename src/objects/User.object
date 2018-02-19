@@ -75,7 +75,7 @@
         <fullName>organizational_unit_id__c</fullName>
         <description>stores the organizational Unit Code</description>
         <externalId>false</externalId>
-        <label>Organizational Unit Code</label>
+        <label>Organizational unit code</label>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -86,7 +86,7 @@
         <fullName>organizational_unit_name__c</fullName>
         <description>Saves the name of the organizational unit</description>
         <externalId>false</externalId>
-        <label>Organizational Unit</label>
+        <label>Organizational unit</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -97,7 +97,7 @@
         <fullName>portfolio_classification_id__c</fullName>
         <description>is the portafolio code</description>
         <externalId>false</externalId>
-        <label>Portfolio Code</label>
+        <label>Portfolio code</label>
         <length>20</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -108,7 +108,7 @@
         <fullName>prof_position_id__c</fullName>
         <description>Id for the user position</description>
         <externalId>false</externalId>
-        <label>Position Code</label>
+        <label>Position code</label>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -130,7 +130,7 @@
         <fullName>user_id__c</fullName>
         <description>this field is used as external code for the user</description>
         <externalId>true</externalId>
-        <label>User Code</label>
+        <label>User code</label>
         <length>20</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
