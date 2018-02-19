@@ -182,7 +182,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <externalId>false</externalId>
         <formula>branch_level3_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Branch hiearchy level 3 code</label>
+        <label>Branch hierarchy level 3 code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -207,7 +207,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <externalId>false</externalId>
         <formula>branch_level4_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Branch hiearchy level 4 code</label>
+        <label>Branch hierarchy level 4 code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
