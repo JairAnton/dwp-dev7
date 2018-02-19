@@ -755,7 +755,7 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>Mis contactos no nliente</label>
+        <label>Mis contactos no cliente</label>
     </listViews>
 	<validationRules>
         <fullName>Contact_Validation_Rule_Mobile</fullName>
