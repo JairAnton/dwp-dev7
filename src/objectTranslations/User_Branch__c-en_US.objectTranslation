@@ -2,16 +2,16 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value>User Branch</value>
+        <value>User branch</value>
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value>User Branches</value>
+        <value>User branches</value>
     </caseValues>
     <fields>
         <label><!-- User --></label>
         <name>User__c</name>
-        <relationshipLabel><!-- User Branches --></relationshipLabel>
+        <relationshipLabel><!-- User branches --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Branch category --></label>
@@ -24,7 +24,7 @@
     <fields>
         <label><!-- Branch --></label>
         <name>branch_name__c</name>
-        <relationshipLabel><!-- User Branches --></relationshipLabel>
+        <relationshipLabel><!-- Branch users --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Primary --></label>
