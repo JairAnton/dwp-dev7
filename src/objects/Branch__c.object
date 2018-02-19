@@ -308,7 +308,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <label>Todos</label>
     </listViews>
     <nameField>
-        <label>Branch Name</label>
+        <label>Branch name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Oficinas</pluralLabel>
