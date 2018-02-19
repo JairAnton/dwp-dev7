@@ -27,8 +27,7 @@
         <relationshipLabel>Usuario de la oficina</relationshipLabel>        
     </fields>
     <fields>
-        <label>Identificador único</label>
-        <label>Principal</label>
+        <label>Principal</label>              
         <name>primary__c</name>
     </fields>
     <fields>

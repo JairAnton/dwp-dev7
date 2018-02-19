@@ -44,9 +44,10 @@
     <compactLayoutAssignment>Relation_User_Branch</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Relation_User_Branch</fullName>
+        <fields>Name</fields>
         <fields>User__c</fields>
-        <fields>user_prof_position_type__c</fields>
-        <fields>user_id__c</fields>
+        <fields>branch_name__c</fields>
+        <fields>primary__c</fields>
         <label>Relation User Branch</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -116,6 +117,15 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>primary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Principal</description>
+        <externalId>false</externalId>
+        <label>Primary</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>unique_id__c</fullName>
