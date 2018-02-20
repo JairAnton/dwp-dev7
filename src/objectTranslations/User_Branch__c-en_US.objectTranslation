@@ -6,7 +6,7 @@
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value>User branches1</value>
+        <value>User branches</value>
     </caseValues>
     <fields>
         <label><!-- User --></label>
