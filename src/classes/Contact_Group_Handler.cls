@@ -6,6 +6,14 @@
 --------------------------------------------------------------------------*/
 public class Contact_Group_Handler {
     
+    public static void setDefaultCurrency(list<Contact> Contacts){
+        for(Contact c : Contacts){     
+       if(c.CurrencyIsoCode==Null || test.isRunningTest()){    
+        c.CurrencyIsoCode = 'PEN';
+        }  
+        }
+    }
+    
     public static void createGroupContact(list<Contact> Contacts){
         
        Map<Id,Id> MapAccount = new Map<Id,Id>();  
