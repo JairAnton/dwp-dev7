@@ -234,7 +234,7 @@
                 <value>
                     <fullName>GERENTE DE CONTABILIDAD</fullName>
                     <default>false</default>
-                    <label>GGERENTE DE CONTABILIDAD</label>
+                    <label>GERENTE DE CONTABILIDAD</label>
                 </value>
                 <value>
                     <fullName>JEFE DE FINANZAS</fullName>
@@ -635,7 +635,7 @@
                 <value>
                     <fullName>GERENTE DE CONTABILIDAD</fullName>
                     <default>false</default>
-                    <label>GGERENTE DE CONTABILIDAD</label>
+                    <label>GERENTE DE CONTABILIDAD</label>
                 </value>
                 <value>
                     <fullName>JEFE DE FINANZAS</fullName>
