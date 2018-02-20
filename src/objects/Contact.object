@@ -713,7 +713,7 @@
         <columns>CONTACT.PHONE3</columns>
         <columns>CONTACT.BIRTHDATE</columns>
         <filterScope>Everything</filterScope>
-        <label>All contacts</label>
+        <label>All Contacts</label>
     </listViews>
     <listViews>
         <fullName>MyContacts</fullName>
@@ -729,7 +729,7 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>My contacts</label>
+        <label>My Contacts</label>
     </listViews>
     <listViews>
         <fullName>Mis_Contactos_No_Cliente</fullName>
