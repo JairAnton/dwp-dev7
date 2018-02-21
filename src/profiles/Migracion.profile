@@ -436,7 +436,7 @@
         <name>ApproveContract</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>AssignPermissionSets</name>
     </userPermissions>
     <userPermissions>
@@ -576,7 +576,7 @@
         <name>DebugApex</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>DelegatedTwoFactor</name>
     </userPermissions>
     <userPermissions>
@@ -808,11 +808,11 @@
         <name>ManageInteraction</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ManageInternalUsers</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ManageIpAddresses</name>
     </userPermissions>
     <userPermissions>
@@ -828,7 +828,7 @@
         <name>ManageLeads</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ManageLoginAccessPolicies</name>
     </userPermissions>
     <userPermissions>
@@ -844,11 +844,11 @@
         <name>ManagePackageLicenses</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ManagePasswordPolicies</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ManageProfilesPermissionsets</name>
     </userPermissions>
     <userPermissions>
@@ -868,7 +868,7 @@
         <name>ManageReportsInPubFolders</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ManageRoles</name>
     </userPermissions>
     <userPermissions>
@@ -880,7 +880,7 @@
         <name>ManageSessionPermissionSets</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ManageSharing</name>
     </userPermissions>
     <userPermissions>
@@ -900,7 +900,7 @@
         <name>ManageUnlistedGroups</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ManageUsers</name>
     </userPermissions>
     <userPermissions>
@@ -956,7 +956,7 @@
         <name>RemoveDirectMessageMembers</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ResetPasswords</name>
     </userPermissions>
     <userPermissions>
@@ -1048,7 +1048,7 @@
         <name>ViewAllForecasts</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ViewAllUsers</name>
     </userPermissions>
     <userPermissions>
