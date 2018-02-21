@@ -261,7 +261,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User_Branch__c.branch_category_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
