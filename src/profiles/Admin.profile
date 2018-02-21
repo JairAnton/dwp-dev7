@@ -51,7 +51,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Branch__c.branch_level1_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -61,7 +61,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Branch__c.branch_level2_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -71,7 +71,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Branch__c.branch_level3_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -81,7 +81,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Branch__c.branch_level4_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -136,12 +136,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User_Branch__c.branch_category_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User_Branch__c.branch_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -156,7 +156,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User_Branch__c.user_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
