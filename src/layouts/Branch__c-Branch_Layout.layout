@@ -148,8 +148,9 @@
     </platformActionList>
     <relatedLists>
         <fields>User__c</fields>
-        <fields>user_prof_position_type__c</fields>
+        <fields>user_prof_position_type__c</fields> 
         <fields>user_id__c</fields>
+        <excludeButtons>New</excludeButtons>
         <relatedList>User_Branch__c.branch_name__c</relatedList>
         <excludeButtons>New</excludeButtons>
     </relatedLists>

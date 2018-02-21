@@ -3,7 +3,7 @@
     <fields>
 		<caseValues>
 			<plural>false</plural>
-			<value>Cliente1</value>
+			<value>Cliente</value>
 		</caseValues>
 		<caseValues>
 			<plural>true</plural>

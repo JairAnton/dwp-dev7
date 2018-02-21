@@ -77,6 +77,7 @@
         <fields>branch_name__c</fields>
         <fields>branch_id__c</fields>
         <fields>branch_level4__c</fields>
+        <excludeButtons>New</excludeButtons>
         <relatedList>User_Branch__c.User__c</relatedList>
     </relatedLists>
     <relatedLists>
