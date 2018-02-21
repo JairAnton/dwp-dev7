@@ -9,7 +9,7 @@
         <value>Oficinas</value>
     </caseValues>
     <fields>
-        <label>Inactivo</label>
+        <label>Inactiva</label>
         <name>active_type__c</name>
     </fields>
     <fields>
