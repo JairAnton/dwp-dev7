@@ -152,7 +152,6 @@
         <fields>user_id__c</fields>
         <excludeButtons>New</excludeButtons>
         <relatedList>User_Branch__c.branch_name__c</relatedList>
-        <excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedObjects>branch_level2_desc__c</relatedObjects>
     <relatedObjects>branch_level3_desc__c</relatedObjects>

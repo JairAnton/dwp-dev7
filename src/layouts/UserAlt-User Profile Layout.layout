@@ -73,7 +73,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>branch_name__c</fields>
         <fields>branch_id__c</fields>
         <fields>branch_level4__c</fields>
