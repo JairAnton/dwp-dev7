@@ -163,7 +163,7 @@
     <fields>
         <fullName>branch_level4__c</fullName>
         <externalId>false</externalId>
-        <formula>branch_name__r.branch_level4_desc__c</formula>
+        <formula>branch_name__r.branch_level4_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Branch hierarchy level 4</label>
         <required>false</required>
