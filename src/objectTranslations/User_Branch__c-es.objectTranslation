@@ -42,5 +42,9 @@
         <label>Cargo</label>
         <name>user_prof_position_type__c</name>
     </fields>
+    <fields>
+        <label>Regional</label>
+        <name>branch_level4__c</name>
+    </fields>
     <gender>Feminine</gender>
 </CustomObjectTranslation>
