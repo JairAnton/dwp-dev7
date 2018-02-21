@@ -315,6 +315,11 @@
         <field>Contact.Phone</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+       <editable>false</editable>
+       <field>User_Branch__c.branch_level4__c</field>
+       <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
