@@ -207,6 +207,7 @@
     </types>
     <types>
         <members>Account.Nuevo_Contacto</members>
+        <members>SendEmail</members>
         <name>QuickAction</name>
     </types>
     <types>

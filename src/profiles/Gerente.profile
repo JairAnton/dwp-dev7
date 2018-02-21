@@ -256,7 +256,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User_Branch__c.User__c</field>
         <readable>true</readable>
     </fieldPermissions>
