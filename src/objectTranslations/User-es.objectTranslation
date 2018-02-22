@@ -35,7 +35,7 @@
         <layout>User Profile Layout</layout>
         <layoutType>UserAlt</layoutType>
         <sections>
-            <label>Detalles</label>
+            <label>Detalle</label>
             <section>About</section>
         </sections>
         <sections>

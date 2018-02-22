@@ -6,12 +6,12 @@
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value>Oficinas de usuario</value>
+        <value>Oficinas del usuario</value>
     </caseValues>
     <fields>
         <label>Usuario</label>
         <name>User__c</name>
-        <relationshipLabel>Oficina de usuario</relationshipLabel>
+        <relationshipLabel>Oficina del usuario</relationshipLabel>
     </fields>
     <fields>
         <label>Categoría de oficina</label>
