@@ -464,43 +464,43 @@
         <name>Contact_Validation_Rule_Mobile</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, compruebe que el Teléfono Oficina 1 contiene 6 dígitos.</errorMessage>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 1 contiene 6 dígitos.</errorMessage>
         <name>Contact_Validation_Rule_Phone1</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, compruebe que el Teléfono Oficina 1 contiene 7 dígitos.</errorMessage>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 1 contiene 7 dígitos.</errorMessage>
         <name>Contact_Validation_Rule_Phone1_Lima</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, compruebe que el Teléfono Oficina 2 contiene 6 dígitos.</errorMessage>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 2 contiene 6 dígitos.</errorMessage>
         <name>Contact_Validation_Rule_Phone2</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, compruebe que el Teléfono Oficina 2 contiene 7 dígitos.</errorMessage>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 2 contiene 7 dígitos.</errorMessage>
         <name>Contact_Validation_Rule_Phone2_Lima</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, especifique el Otro Cargo.</errorMessage>
+        <errorMessage>Por favor, especifique el Otro cargo.</errorMessage>
         <name>Contact_Validation_Rule_Position</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, especifique el Otro Cargo en el Grupo Económico.</errorMessage>
+        <errorMessage>Por favor, especifique el Otro cargo en el Grupo económico.</errorMessage>
         <name>Contact_Validation_Rule_Position_PA</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, seleccione el Prefijo Ciudad Teléfono Oficina 1.</errorMessage>
+        <errorMessage>Por favor, seleccione el Prefijo ciudad teléfono oficina 1.</errorMessage>
         <name>Contact_Validation_Rule_Req_AC1</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, seleccione el Prefijo Ciudad Teléfono Oficina 2.</errorMessage>
+        <errorMessage>Por favor, seleccione el Prefijo ciudad teléfono oficina 2.</errorMessage>
         <name>Contact_Validation_Rule_Req_AC2</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, Ingrese el Teléfono 1.</errorMessage>
+        <errorMessage>Por favor, ingrese el Teléfono 1.</errorMessage>
         <name>Contact_Validation_Rule_Req_Phone1</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, Ingrese el Teléfono 2.</errorMessage>
+        <errorMessage>Por favor, ingrese el Teléfono 2.</errorMessage>
         <name>Contact_Validation_Rule_Req_Phone2</name>
     </validationRules>
     <validationRules>
