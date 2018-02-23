@@ -76,6 +76,7 @@
         <members>Account-es</members>
         <members>Contact-es</members>
         <members>User_Branch__c-es</members>
+        <members>AccountContactRelation-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
