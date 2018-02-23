@@ -41,6 +41,9 @@
         <members>Hangout_ctrl_TEST</members>
         <members>OverrideButtonMessage_ctrl</members>
         <members>OverrideButtonMessage_ctrl_TEST</members>
+        <members>AccountContact_Handler</members>
+        <members>Contact_Group_Handler</members>
+        <members>Contact_Group_Handler_test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -157,9 +160,8 @@
         <members>User_Branch__c.user_id__c</members>
         <members>User_Branch__c.user_prof_position_type__c</members>
         <members>User_Branch__c.branch_level4__c</members>
-        <members>AccountContactRelation.Contact_Primary_Account__c</members>
-        <members>AccountContactRelation.Contact_decisor__c</members>
-        <members>AccountContactRelation.other_prof_prosition_type__c</members>
+       
+       
         <name>CustomField</name>
     </types>
     <types>
@@ -218,6 +220,7 @@
     </types>
     <types>
         <members>Contact_Tgr</members>
+        <members>AccountContact_tgr</members>
         <name>ApexTrigger</name>
     </types>
     <version>41.0</version>
