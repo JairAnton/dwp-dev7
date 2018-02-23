@@ -160,10 +160,8 @@
         <members>User_Branch__c.user_id__c</members>
         <members>User_Branch__c.user_prof_position_type__c</members>
         <members>User_Branch__c.branch_level4__c</members>
-        <members>AccountContactRelation.Contact_Primary_Account__c</members>
-        <members>AccountContactRelation.Contact_decisor__c</members>
-        <members>AccountContactRelation.other_prof_prosition_type__c</members>
-        <members>AccountContactRelation.prof_position_type__c</members>
+       
+       
         <name>CustomField</name>
     </types>
     <types>
