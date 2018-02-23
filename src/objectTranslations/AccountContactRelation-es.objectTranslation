@@ -41,11 +41,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Other position --></label>
+        <label>Otro Cargo</label>
         <name>other_prof_prosition_type__c</name>
     </fields>
     <fields>
-        <label>Posición</label>
+        <label>Cargo</label>
         <name>prof_position_type__c</name>
         <picklistValues>
             <masterLabel>ACCIONISTA</masterLabel>
