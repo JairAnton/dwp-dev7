@@ -190,6 +190,8 @@
     <relatedLists>
         <fields>ACCOUNT.NAME</fields>
         <fields>ACCOUNT.RECORDTYPE</fields>
+        <fields>calc_prof_position_type__c</fields>
+        <fields>decision_making_desc__c</fields>
         <relatedList>RelatedContactAccountRelationList</relatedList>
     </relatedLists>
     <relatedLists>
