@@ -159,8 +159,6 @@
         <members>User_Branch__c.user_id__c</members>
         <members>User_Branch__c.user_prof_position_type__c</members>
         <members>User_Branch__c.branch_level4__c</members>
-       
-       
         <name>CustomField</name>
     </types>
     <types>
