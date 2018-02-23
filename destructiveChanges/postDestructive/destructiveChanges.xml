@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>  
-        <members></members>
-        <name></name>
+        <members>AccountContactRelation.other_prof_prosition_type__c</members>
+		<members>AccountContactRelation.prof_prosition_type__c</members>
+        <name>CustomField</name>
     </types>
 	<version>41.0</version>
 </Package>
