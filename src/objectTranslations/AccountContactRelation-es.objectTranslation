@@ -41,7 +41,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Otro Cargo</label>
+        <label>Otro cargo</label>
         <name>other_prof_prosition_type__c</name>
     </fields>
     <fields>
