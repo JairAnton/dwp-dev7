@@ -25,7 +25,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Posiciòn calculada</label>
+        <label>Cargo</label>
         <name>calc_prof_position_type__c</name>
     </fields>
     <fields>
@@ -45,7 +45,7 @@
         <name>other_prof_prosition_type__c</name>
     </fields>
     <fields>
-        <label><!-- Position --></label>
+        <label>Posición</label>
         <name>prof_position_type__c</name>
         <picklistValues>
             <masterLabel>ACCIONISTA</masterLabel>
