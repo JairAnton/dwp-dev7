@@ -41,7 +41,6 @@
         <members>Hangout_ctrl_TEST</members>
         <members>OverrideButtonMessage_ctrl</members>
         <members>OverrideButtonMessage_ctrl_TEST</members>
-        <members>AccountContact_Handler</members>
         <members>Contact_Group_Handler</members>
         <members>Contact_Group_Handler_test</members>
         <name>ApexClass</name>

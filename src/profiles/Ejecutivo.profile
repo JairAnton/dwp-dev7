@@ -24,10 +24,6 @@
         <apexClass>Contact_Group_Handler_test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>AccountContact_Handler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
