@@ -713,7 +713,7 @@
         <columns>CONTACT.PHONE3</columns>
         <columns>CONTACT.BIRTHDATE</columns>
         <filterScope>Everything</filterScope>
-        <label>All Contacts</label>
+        <label>Todos mis contactos</label>
     </listViews>
     <listViews>
         <fullName>MyContacts</fullName>
