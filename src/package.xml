@@ -151,7 +151,6 @@
         <members>Override_Standard_Button_Message__mdt.Button_Label_API_Cancel__c</members>
         <members>Override_Standard_Button_Message__mdt.Object_Api_Name_to_Redirect__c</members>
         <members>Override_Standard_Button_Message__mdt.Title_Label_API__c</members>
-        <members>User_Branch__c.Primary__c</members>
         <members>User_Branch__c.User__c</members>
         <members>User_Branch__c.branch_category_type__c</members>
         <members>User_Branch__c.branch_id__c</members>
