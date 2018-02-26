@@ -24,6 +24,10 @@
         <apexClass>Contact_Group_Handler_test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>AccountContact_Handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -46,9 +50,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.prof_position_type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -161,77 +165,77 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.account_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.decision_making_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.events_info_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.other_prof_prosition_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.parent_account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.parent_account_assignment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.parent_account_decision_making_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.parent_account_other_prof_prosition_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.parent_account_prof_position_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.phone_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.phone_1_area_code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.phone_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.phone_2_area_code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.primary_account_owner__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.prof_position_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -256,7 +260,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User_Branch__c.User__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -272,6 +276,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>User_Branch__c.primary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>User_Branch__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -281,7 +290,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User_Branch__c.user_prof_position_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -298,6 +307,41 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>AccountContactRelation.other_prof_prosition_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.HomePhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Phone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+       <editable>false</editable>
+       <field>User_Branch__c.branch_level4__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.prof_position_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.other_prof_prosition_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.decision_making_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.calc_prof_position_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
@@ -338,6 +382,15 @@
        <modifyAllRecords>false</modifyAllRecords>
        <object>Branch__c</object>
        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>User_Branch__c</object>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <recordTypeVisibilities>
         <default>true</default>
@@ -676,7 +729,7 @@
         <name>ImportLeads</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ImportPersonal</name>
     </userPermissions>
     <userPermissions>
@@ -696,7 +749,7 @@
         <name>LightningExperienceUser</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ListEmailSend</name>
     </userPermissions>
     <userPermissions>
@@ -1069,10 +1122,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ViewSetup</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>AddDirectMessageMembers</name>
     </userPermissions>
     <userPermissions>
@@ -1232,7 +1281,7 @@
         <name>ViewRoles</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ViewSetup</name>
     </userPermissions>
 </Profile>

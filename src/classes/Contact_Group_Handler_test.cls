@@ -28,8 +28,7 @@ public class Contact_Group_Handler_test {
      lastName =   'Test Last',  
      AccountId  = Child.Id,
      decision_making_desc__c = 'Si',
-     Salutation = 'Mr',
-     CurrencyISOCode='PEN',    
+     Salutation = 'Mr',  
      parent_account_assignment__c = 'Si'    
      );
      insert c;   

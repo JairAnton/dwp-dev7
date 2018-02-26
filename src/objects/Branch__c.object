@@ -51,6 +51,7 @@
         <fields>Name</fields>
         <fields>branch_id__c</fields>
         <fields>branch_category_type__c</fields>
+        <fields>active_type__c</fields>
         <label>Branch_CompactLayout</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -94,7 +95,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <fullName>branch_category_type__c</fullName>
         <description>Categoría</description>
         <externalId>false</externalId>
-        <label>Branch Category</label>
+        <label>Branch category</label>
         <length>10</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -105,7 +106,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <fullName>branch_id__c</fullName>
         <description>Código</description>
         <externalId>false</externalId>
-        <label>Branch Code</label>
+        <label>Branch code</label>
         <length>10</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -117,7 +118,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Country</description>
         <externalId>false</externalId>
-        <label>Branch  Hierarchy Level 1</label>
+        <label>Branch hierarchy level 1</label>
         <referenceTo>Branch__c</referenceTo>
         <relationshipLabel>Branches (Branch  Hierarchy Level 1)</relationshipLabel>
         <relationshipName>Branches1</relationshipName>
@@ -131,7 +132,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <externalId>false</externalId>
         <formula>branch_level1_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Branch  Hiearchy Level 1 Code</label>
+        <label>Branch hierarchy level 1 code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -142,7 +143,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Área</description>
         <externalId>false</externalId>
-        <label>Branch  Hierarchy Level 2</label>
+        <label>Branch hierarchy level 2</label>
         <referenceTo>Branch__c</referenceTo>
         <relationshipLabel>Branches (Branch  Hierarchy Level 2)</relationshipLabel>
         <relationshipName>Branches2</relationshipName>
@@ -156,7 +157,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <externalId>false</externalId>
         <formula>branch_level2_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Branch  Hiearchy Level 2 Code</label>
+        <label>Branch hierarchy level 2 code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -167,7 +168,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Banca</description>
         <externalId>false</externalId>
-        <label>Branch Hierarchy Level 3</label>
+        <label>Branch hierarchy level 3</label>
         <referenceTo>Branch__c</referenceTo>
         <relationshipLabel>Branches (Branch Hierarchy Level 3)</relationshipLabel>
         <relationshipName>Branch3</relationshipName>
@@ -181,7 +182,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <externalId>false</externalId>
         <formula>branch_level3_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Branch  Hiearchy Level 3 Code</label>
+        <label>Branch hierarchy level 3 code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -192,7 +193,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Regional</description>
         <externalId>false</externalId>
-        <label>Branch Hierarchy Level 4</label>
+        <label>Branch hierarchy level 4</label>
         <referenceTo>Branch__c</referenceTo>
         <relationshipLabel>Branches (Branch Hierarchy Level 4)</relationshipLabel>
         <relationshipName>Branches</relationshipName>
@@ -206,7 +207,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <externalId>false</externalId>
         <formula>branch_level4_desc__r.branch_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Branch  Hiearchy Level 4 Code</label>
+        <label>Branch hierarchy level 4 code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -238,7 +239,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <fullName>other_phone_number__c</fullName>
         <description>Telefono 2</description>
         <externalId>false</externalId>
-        <label>OtherPhone</label>
+        <label>Other phone</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Phone</type>
@@ -287,7 +288,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <fullName>zipcode_id__c</fullName>
         <description>Código Postal</description>
         <externalId>false</externalId>
-        <label>Postal Code</label>
+        <label>Postal code</label>
         <length>20</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -307,7 +308,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <label>Todos</label>
     </listViews>
     <nameField>
-        <label>Branch Name</label>
+        <label>Branch name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Oficinas</pluralLabel>

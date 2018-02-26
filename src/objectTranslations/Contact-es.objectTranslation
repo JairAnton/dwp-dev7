@@ -35,7 +35,7 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>Teléfono Completo Oficina 2</value>
+            <value>Teléfono completo oficina 2</value>
         </caseValues>
         <gender>Masculine</gender>
         <name>home_phone_contact</name>
@@ -51,7 +51,7 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>Teléfono Completo Oficina 1</value>
+            <value>Teléfono completo oficina 1</value>
         </caseValues>
         <gender>Masculine</gender>
         <name>phone_contact</name>
@@ -73,7 +73,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Tipo de Cliente</label>
+        <label>Tipo de cliente</label>
         <name>account_type__c</name>
     </fields>
     <fields>
@@ -121,11 +121,11 @@
         <name>other_prof_prosition_type__c</name>
     </fields>
     <fields>
-        <label>Grupo Económico</label>
+        <label>Grupo económico</label>
         <name>parent_account__c</name>
     </fields>
     <fields>
-        <label>¿Asignar Contacto a Grupo Ecónomico?</label>
+        <label>¿Asignar contacto a grupo ecónomico?</label>
         <name>parent_account_assignment__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -137,7 +137,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>¿Decisor en Grupo Económico?</label>
+        <label>¿Decisor en grupo económico?</label>
         <name>parent_account_decision_making_desc__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -149,19 +149,19 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Otro Cargo en el Grupo Económico</label>
+        <label>Otro cargo en el grupo económico</label>
         <name>parent_account_other_prof_prosition_type__c</name>
     </fields>
     <fields>
-        <label>Cargo en el Grupo Económico</label>
+        <label>Cargo en el grupo económico</label>
         <name>parent_account_prof_position_type__c</name>
     </fields>
     <fields>
-        <label>Teléfono Oficina 1</label>
+        <label>Teléfono oficina 1</label>
         <name>phone_1__c</name>
     </fields>
     <fields>
-        <label>Prefijo Ciudad Teléfono Oficina 1</label>
+        <label>Prefijo ciudad teléfono oficina 1</label>
         <name>phone_1_area_code__c</name>
         <picklistValues>
             <masterLabel>Amazonas - 41</masterLabel>
@@ -261,11 +261,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Teléfono Oficina 2</label>
+        <label>Teléfono oficina 2</label>
         <name>phone_2__c</name>
     </fields>
     <fields>
-        <label>Prefijo Ciudad Teléfono Oficina 2</label>
+        <label>Prefijo ciudad teléfono oficina 2</label>
         <name>phone_2_area_code__c</name>
         <picklistValues>
             <masterLabel>Amazonas - 41</masterLabel>
@@ -365,7 +365,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>¿Ejecutivo Cliente Principal ?</label>
+        <label>¿Ejecutivo cliente principal ?</label>
         <name>primary_account_owner__c</name>
     </fields>
     <fields>
@@ -464,43 +464,43 @@
         <name>Contact_Validation_Rule_Mobile</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, compruebe que el Teléfono Oficina 1 contiene 6 dígitos.</errorMessage>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 1 contiene 6 dígitos.</errorMessage>
         <name>Contact_Validation_Rule_Phone1</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, compruebe que el Teléfono Oficina 1 contiene 7 dígitos.</errorMessage>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 1 contiene 7 dígitos.</errorMessage>
         <name>Contact_Validation_Rule_Phone1_Lima</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, compruebe que el Teléfono Oficina 2 contiene 6 dígitos.</errorMessage>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 2 contiene 6 dígitos.</errorMessage>
         <name>Contact_Validation_Rule_Phone2</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, compruebe que el Teléfono Oficina 2 contiene 7 dígitos.</errorMessage>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 2 contiene 7 dígitos.</errorMessage>
         <name>Contact_Validation_Rule_Phone2_Lima</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, especifique el Otro Cargo.</errorMessage>
+        <errorMessage>Por favor, especifique el Otro cargo.</errorMessage>
         <name>Contact_Validation_Rule_Position</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, especifique el Otro Cargo en el Grupo Económico.</errorMessage>
+        <errorMessage>Por favor, especifique el Otro cargo en el Grupo económico.</errorMessage>
         <name>Contact_Validation_Rule_Position_PA</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, seleccione el Prefijo Ciudad Teléfono Oficina 1.</errorMessage>
+        <errorMessage>Por favor, seleccione el Prefijo ciudad teléfono oficina 1.</errorMessage>
         <name>Contact_Validation_Rule_Req_AC1</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, seleccione el Prefijo Ciudad Teléfono Oficina 2.</errorMessage>
+        <errorMessage>Por favor, seleccione el Prefijo ciudad teléfono oficina 2.</errorMessage>
         <name>Contact_Validation_Rule_Req_AC2</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, Ingrese el Teléfono 1.</errorMessage>
+        <errorMessage>Por favor, ingrese el Teléfono de oficina 1.</errorMessage>
         <name>Contact_Validation_Rule_Req_Phone1</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Por favor, Ingrese el Teléfono 2.</errorMessage>
+        <errorMessage>Por favor, ingrese el Teléfono de oficina 2.</errorMessage>
         <name>Contact_Validation_Rule_Req_Phone2</name>
     </validationRules>
     <validationRules>

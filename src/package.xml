@@ -21,11 +21,29 @@
         <members>*</members>
         <name>Translations</name>
     </types>
+	<types>
+        <members>Account</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Account-es</members>
+        <name>CustomObjectTranslation</name>
+    </types>
+    <types>
+        <members>Account-Account Layout</members>
+        <members>Account-Account_Page_Layout_Account</members>
+        <members>Account-Account_Page_Layout_Economic_Group</members>
+        <members>Account-Account_Page_Layout_No_Account</members>
+        <name>Layout</name>
+    </types>
     <types>
         <members>Hangout_ctrl</members>
         <members>Hangout_ctrl_TEST</members>
         <members>OverrideButtonMessage_ctrl</members>
         <members>OverrideButtonMessage_ctrl_TEST</members>
+        <members>AccountContact_Handler</members>
+        <members>Contact_Group_Handler</members>
+        <members>Contact_Group_Handler_test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -57,8 +75,8 @@
         <members>Branch__c-es</members>
         <members>Account-es</members>
         <members>Contact-es</members>
-        <members>User_Branch__c-en_US</members>
         <members>User_Branch__c-es</members>
+        <members>AccountContactRelation-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -138,11 +156,14 @@
         <members>User_Branch__c.branch_category_type__c</members>
         <members>User_Branch__c.branch_id__c</members>
         <members>User_Branch__c.branch_name__c</members>
+        <members>User_Branch__c.primary__c</members>
         <members>User_Branch__c.unique_id__c</members>
         <members>User_Branch__c.user_id__c</members>
         <members>User_Branch__c.user_prof_position_type__c</members>
-        <members>AccountContactRelation.Contact_Primary_Account__c</members>
-        <members>AccountContactRelation.Contact_decisor__c</members>
+        <members>User_Branch__c.branch_level4__c</members>
+        <members>AccountContactRelation.decision_making_desc__c</members>
+        <members>AccountContactRelation.prof_position_type__c</members>
+        <members>AccountContactRelation.other_prof_prosition_type__c</members>
         <members>AccountContactRelation.other_prof_prosition_type__c</members>
         <name>CustomField</name>
     </types>
@@ -192,6 +213,7 @@
     </types>
     <types>
         <members>Account.Nuevo_Contacto</members>
+        <members>SendEmail</members>
         <name>QuickAction</name>
     </types>
     <types>
@@ -201,6 +223,7 @@
     </types>
     <types>
         <members>Contact_Tgr</members>
+        <members>AccountContact_tgr</members>
         <name>ApexTrigger</name>
     </types>
     <version>41.0</version>

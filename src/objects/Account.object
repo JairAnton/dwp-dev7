@@ -277,8 +277,8 @@
     </recordTypes>
     <recordTypes>
         <fullName>Record_Type_Economic_Group</fullName>
-        <active>true</active>
-        <compactLayoutAssignment>Account_Compact_Layout_Group</compactLayoutAssignment>
+        <active>true</active> 
+        <compactLayoutAssignment>Account_Compact_Layout_Group</compactLayoutAssignment> 
         <label>Economic Group</label>
         <picklistValues>
             <picklist>AccountSource</picklist>

@@ -19,32 +19,6 @@
         <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
-        <name>facet-f803b4e3-3c36-4718-a0d8-d79137d2ec4d</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
-                <value>facet-f803b4e3-3c36-4718-a0d8-d79137d2ec4d</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Standard.Tab.detail</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:tab</componentName>
-        </componentInstances>
-        <name>facet-3edb915a-658d-4819-add9-b31eb30a4078</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>tabs</name>
-                <value>facet-3edb915a-658d-4819-add9-b31eb30a4078</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:tabset</componentName>
-        </componentInstances>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
@@ -67,7 +41,7 @@
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Branch</masterLabel>
+    <masterLabel>Branch Record Page</masterLabel>
     <sobjectType>Branch__c</sobjectType>
     <template>
         <name>flexipage:recordHomeTemplateDesktop</name>

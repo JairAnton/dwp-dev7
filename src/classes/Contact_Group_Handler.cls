@@ -6,26 +6,33 @@
 --------------------------------------------------------------------------*/
 public class Contact_Group_Handler {
     
+    public static void setDefaultCurrency(list<Contact> Contacts){
+        for(Contact c : Contacts){    
+       if(c.CurrencyIsoCode==Null || test.isRunningTest()){    
+        c.CurrencyIsoCode = 'PEN';
+        }  
+        }
+    }
+    
     public static void createGroupContact(list<Contact> Contacts){
-        
+       list<AccountContactRelation> accs = new list<AccountContactRelation>();
        Map<Id,Id> MapAccount = new Map<Id,Id>();  
-        for(Account acc : [SELECT Id,ParentId FROM account]){
+        for(Account acc : [SELECT Id,ParentId FROM account WHERE ParentId != null]){
         MapAccount.put(acc.Id,acc.ParentId);    
         }
 
-      
-        for(Contact c : Contacts){
-            if(c.parent_account_assignment__c=='Si'){
+            for(Contact c : Contacts){  
+            if((c.parent_account_assignment__c=='Si') && (MapAccount.get(c.AccountId) != null)){  
             AccountContactRelation	 acr = new AccountContactRelation(
             AccountId= MapAccount.get(c.AccountId),
             ContactId=c.id,
-            CurrencyIsoCode = c.CurrencyIsoCode   
-            );	    
-            Insert acr;   
-            }
-            
-            
-        }    
+            CurrencyIsoCode = c.CurrencyIsoCode    
+            );         
+           accs.add(acr); 
+            }               
+        }
+      
+        insert accs;
     }
 
 }
