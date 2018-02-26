@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Divisa</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contact_currency</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Ejecutivo</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contact_owner</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Comentarios</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>description_contact</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Email</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>email_contact</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teléfono completo oficina 2</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>home_phone_contact</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Celular</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>mobile_contact</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teléfono completo oficina 1</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>phone_contact</name>
+    </fields>
+    <fields>
+        <label><!-- ¿Precualificado? --></label>
+        <name>Precualificado__c</name>
+    </fields>
+    <fields>
+        <label>Estado</label>
+        <name>Status_desc__c</name>
+        <picklistValues>
+            <masterLabel>Activo</masterLabel>
+            <translation><!-- Activo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactivo</masterLabel>
+            <translation><!-- Inactivo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Tipo de cliente</label>
+        <name>account_type__c</name>
+    </fields>
+    <fields>
+        <label>Decisor</label>
+        <name>decision_making_desc__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sí</masterLabel>
+            <translation><!-- Sí --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Eventos e información</label>
+        <name>events_info_type__c</name>
+        <picklistValues>
+            <masterLabel>Calidad</masterLabel>
+            <translation><!-- Calidad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coyuntura</masterLabel>
+            <translation><!-- Coyuntura --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desayunos</masterLabel>
+            <translation><!-- Desayunos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EEFF</masterLabel>
+            <translation><!-- EEFF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emailing</masterLabel>
+            <translation><!-- Emailing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Noche arte</masterLabel>
+            <translation><!-- Noche arte --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Otro cargo</label>
+        <name>other_prof_prosition_type__c</name>
+    </fields>
+    <fields>
+        <label>Grupo económico</label>
+        <name>parent_account__c</name>
+    </fields>
+    <fields>
+        <label>¿Asignar contacto a grupo ecónomico?</label>
+        <name>parent_account_assignment__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sí</masterLabel>
+            <translation><!-- Sí --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>¿Decisor en grupo económico?</label>
+        <name>parent_account_decision_making_desc__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sí</masterLabel>
+            <translation><!-- Sí --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Otro cargo en el grupo económico</label>
+        <name>parent_account_other_prof_prosition_type__c</name>
+    </fields>
+    <fields>
+        <label>Cargo en el grupo económico</label>
+        <name>parent_account_prof_position_type__c</name>
+    </fields>
+    <fields>
+        <label>Teléfono oficina 1</label>
+        <name>phone_1__c</name>
+    </fields>
+    <fields>
+        <label>Prefijo ciudad teléfono oficina 1</label>
+        <name>phone_1_area_code__c</name>
+        <picklistValues>
+            <masterLabel>Amazonas - 41</masterLabel>
+            <translation><!-- Amazonas - 41 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ancash - 43</masterLabel>
+            <translation><!-- Ancash - 43 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apurimac - 83</masterLabel>
+            <translation><!-- Apurimac - 83 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arequipa - 54</masterLabel>
+            <translation><!-- Arequipa - 54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ayacucho - 66</masterLabel>
+            <translation><!-- Ayacucho - 66 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cajamarca - 76</masterLabel>
+            <translation><!-- Cajamarca - 76 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cusco - 84</masterLabel>
+            <translation><!-- Cusco - 84 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Huancavelica - 67</masterLabel>
+            <translation><!-- Huancavelica - 67 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Huanuco - 62</masterLabel>
+            <translation><!-- Huanuco - 62 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ica - 56</masterLabel>
+            <translation><!-- Ica - 56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Junin - 64</masterLabel>
+            <translation><!-- Junin - 64 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>La Libertad - 44</masterLabel>
+            <translation><!-- La Libertad - 44 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lambayeque - 74</masterLabel>
+            <translation><!-- Lambayeque - 74 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lima y Callo - 01</masterLabel>
+            <translation><!-- Lima y Callo - 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loreto - 65</masterLabel>
+            <translation><!-- Loreto - 65 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Madre de Dios - 82</masterLabel>
+            <translation><!-- Madre de Dios - 82 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moquegua - 53</masterLabel>
+            <translation><!-- Moquegua - 53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pasco - 63</masterLabel>
+            <translation><!-- Pasco - 63 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Piura - 73</masterLabel>
+            <translation><!-- Piura - 73 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Puno - 51</masterLabel>
+            <translation><!-- Puno - 51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Martin - 42</masterLabel>
+            <translation><!-- San Martin - 42 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tacna - 52</masterLabel>
+            <translation><!-- Tacna - 52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tumbes - 72</masterLabel>
+            <translation><!-- Tumbes - 72 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ucayali - 61</masterLabel>
+            <translation><!-- Ucayali - 61 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Teléfono oficina 2</label>
+        <name>phone_2__c</name>
+    </fields>
+    <fields>
+        <label>Prefijo ciudad teléfono oficina 2</label>
+        <name>phone_2_area_code__c</name>
+        <picklistValues>
+            <masterLabel>Amazonas - 41</masterLabel>
+            <translation><!-- Amazonas - 41 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ancash - 43</masterLabel>
+            <translation><!-- Ancash - 43 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apurimac- 83</masterLabel>
+            <translation><!-- Apurimac- 83 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arequipa- 54</masterLabel>
+            <translation><!-- Arequipa- 54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ayacucho - 66</masterLabel>
+            <translation><!-- Ayacucho - 66 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cajamarca - 76</masterLabel>
+            <translation><!-- Cajamarca - 76 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cusco - 84</masterLabel>
+            <translation><!-- Cusco - 84 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Huancavelica - 67</masterLabel>
+            <translation><!-- Huancavelica - 67 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Huanuco - 62</masterLabel>
+            <translation><!-- Huanuco - 62 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ica - 56</masterLabel>
+            <translation><!-- Ica - 56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Junin - 64</masterLabel>
+            <translation><!-- Junin - 64 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>La Libertad - 44</masterLabel>
+            <translation><!-- La Libertad - 44 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lambayeque - 74</masterLabel>
+            <translation><!-- Lambayeque - 74 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lima y Callao - 01</masterLabel>
+            <translation><!-- Lima y Callao - 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loreto - 65</masterLabel>
+            <translation><!-- Loreto - 65 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Madre de Dios - 82</masterLabel>
+            <translation><!-- Madre de Dios - 82 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moquegua - 53</masterLabel>
+            <translation><!-- Moquegua - 53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pasco - 63</masterLabel>
+            <translation><!-- Pasco - 63 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Piura - 73</masterLabel>
+            <translation><!-- Piura - 73 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Puno - 51</masterLabel>
+            <translation><!-- Puno - 51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Martin - 42</masterLabel>
+            <translation><!-- San Martin - 42 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tacna - 52</masterLabel>
+            <translation><!-- Tacna - 52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tumbes - 72</masterLabel>
+            <translation><!-- Tumbes - 72 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ucayali - 61</masterLabel>
+            <translation><!-- Ucayali - 61 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>¿Ejecutivo cliente principal ?</label>
+        <name>primary_account_owner__c</name>
+    </fields>
+    <fields>
+        <label>Cargo</label>
+        <name>prof_position_type__c</name>
+        <picklistValues>
+            <masterLabel>ACCIONISTA</masterLabel>
+            <translation><!-- ACCIONISTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ADMINISTRADOR</masterLabel>
+            <translation><!-- ADMINISTRADOR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>APODERADO</masterLabel>
+            <translation><!-- APODERADO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ASISTENTE</masterLabel>
+            <translation><!-- ASISTENTE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DIRECTORIO</masterLabel>
+            <translation><!-- DIRECTORIO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE COMERCIAL</masterLabel>
+            <translation><!-- GERENTE COMERCIAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE ADMINISTRACION</masterLabel>
+            <translation><!-- GERENTE DE ADMINISTRACION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE ADMINISTRACION Y FINANZAS</masterLabel>
+            <translation><!-- GERENTE DE ADMINISTRACION Y FINANZAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE CONTABILIDAD</masterLabel>
+            <translation><!-- GERENTE DE CONTABILIDAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE FINANZAS</masterLabel>
+            <translation><!-- GERENTE DE FINANZAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE OPERACIONES</masterLabel>
+            <translation><!-- GERENTE DE OPERACIONES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE RRHH</masterLabel>
+            <translation><!-- GERENTE DE RRHH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE GENERAL</masterLabel>
+            <translation><!-- GERENTE GENERAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE ADMINISTRACION Y FINANZAS</masterLabel>
+            <translation><!-- JEFE DE ADMINISTRACION Y FINANZAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE ADMINISTRACIÓN</masterLabel>
+            <translation><!-- JEFE DE ADMINISTRACIÓN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE CONTABILIDAD</masterLabel>
+            <translation><!-- JEFE DE CONTABILIDAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE FINANZAS</masterLabel>
+            <translation><!-- JEFE DE FINANZAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE TESORERIA</masterLabel>
+            <translation><!-- JEFE DE TESORERIA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTROS</masterLabel>
+            <translation><!-- OTROS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRESIDENTE DE DIRECTORIO</masterLabel>
+            <translation><!-- PRESIDENTE DE DIRECTORIO --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Contact Layout</layout>
+        <sections>
+            <label>Información del cliente</label>
+            <section>Account Information</section>
+        </sections>
+    </layouts>
+	<validationRules>
+        <errorMessage>Por favor, compruebe que el Celular contiene 9 dígitos.</errorMessage>
+        <name>Contact_Validation_Rule_Mobile</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 1 contiene 6 dígitos.</errorMessage>
+        <name>Contact_Validation_Rule_Phone1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 1 contiene 7 dígitos.</errorMessage>
+        <name>Contact_Validation_Rule_Phone1_Lima</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 2 contiene 6 dígitos.</errorMessage>
+        <name>Contact_Validation_Rule_Phone2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 2 contiene 7 dígitos.</errorMessage>
+        <name>Contact_Validation_Rule_Phone2_Lima</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, especifique el Otro cargo.</errorMessage>
+        <name>Contact_Validation_Rule_Position</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, especifique el Otro cargo en el Grupo económico.</errorMessage>
+        <name>Contact_Validation_Rule_Position_PA</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, seleccione el Prefijo ciudad teléfono oficina 1.</errorMessage>
+        <name>Contact_Validation_Rule_Req_AC1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, seleccione el Prefijo ciudad teléfono oficina 2.</errorMessage>
+        <name>Contact_Validation_Rule_Req_AC2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, ingrese el Teléfono de oficina 1.</errorMessage>
+        <name>Contact_Validation_Rule_Req_Phone1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, ingrese el Teléfono de oficina 2.</errorMessage>
+        <name>Contact_Validation_Rule_Req_Phone2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, seleccione el Decisor.</errorMessage>
+        <name>Contact_Validation_Rule_Required_Decisor</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, introduzca el nombre del contacto.</errorMessage>
+        <name>Contact_Validation_Rule_Required_FN</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, seleccione el Tratamiento.</errorMessage>
+        <name>Contact_Validation_Rule_Required_Salutat</name>
+    </validationRules>	
+</CustomObjectTranslation>

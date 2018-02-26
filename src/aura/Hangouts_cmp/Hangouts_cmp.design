@@ -1,0 +1,7 @@
+<design:component >
+    <design:attribute name="alignment" label="alignment" description="right/left"/>
+    <design:attribute name="marginTop" label="margin-top" description="Enter the margin following by px"/>
+    <design:attribute name="marginBottom" label="margin-bottom" description="Enter the margin following by px"/>
+    <design:attribute name="marginLeft" label="margin-left" description="Enter the margin following by px"/>
+    <design:attribute name="marginRight" label="margin-right" description="Enter the margin following by px"/>
+</design:component>

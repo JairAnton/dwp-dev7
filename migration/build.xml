@@ -1,0 +1,195 @@
+<project name="Salesforce Deployment" default="deploy__TEST" basedir="." xmlns:sf="antlib:com.salesforce">
+	<!-- Deploy vars secured here -->
+	<taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+       <classpath>
+           <pathelement location="../lib/ant-salesforce.jar" />                
+       </classpath>
+   </taskdef>
+
+
+	<property environment="ENV"/>
+	<property file="build.properties"/>
+	
+	<property name="deploy.path" value="../src"/>
+	<property name="delta.path" value="../migration/src"/>			
+
+
+	<property name="sf.unpackaged" value="temp_package.xml"/>
+	<property name="sf.unpackaged2" value="../src/package.xml"/>
+	<property name="sf.unpackaged.dep" value="deploymentPackage.xml"/>
+
+
+	<target name="deploy">
+		<echo message="DEPLOYING WITH THE USER: ${sf.username}"/>
+
+	<!-- Upload the contents of the "codepkg" directory, running the tests for just 1 class -->
+		<sf:deploy
+			username="${sf.username}"
+			password="${sf.password}"
+			serverurl="${sf.serverurl}"
+			deployRoot="${deploy.path}"
+			maxPoll="1000"
+			checkOnly="${sf.checkOnly}"
+			pollWaitMillis="10000"
+			ignoreWarnings= "true"
+			testLevel="${sf.testLevel}"/>
+	</target>
+
+	<target name="delta">
+		<echo message="DEPLOYING WITH THE USER: ${sf.username}"/>
+
+	<!-- Upload the contents of the "codepkg" directory, running the tests for just 1 class -->
+		<sf:deploy
+			username="${sf.username}"
+			password="${sf.password}"
+			serverurl="${sf.serverurl}"
+			deployRoot="${delta.path}"
+			maxPoll="1000"
+			checkOnly="${sf.checkOnly}"
+			pollWaitMillis="10000"
+			ignoreWarnings= "true"
+			testLevel="${sf.testLevel}"/>
+	</target>
+	<target name="testDelta">
+		<sf:deploy
+			username="${sf.usernameTest}"
+			password="${sf.passwordTest}"
+			serverurl="${sf.serverurlTest}"
+			deployRoot="${delta.path}"
+			maxPoll="1000"
+			checkOnly="true"
+			pollWaitMillis="10000"
+			ignoreWarnings= "true"
+			testLevel="RunAllTestsInOrg"/>
+	</target>
+
+	<!-- <property file="local.properties"/> -->
+
+
+	<target name="retrieve" depends="clean">
+		<echo message="RETRIEVING WITH THE USER: ${sf.username}"/>
+		
+		<mkdir dir="${deploy.path}"/>
+		
+		<sf:retrieve
+            username="${sf.username}"
+            password="${sf.password}"
+            serverurl="${sf.serverurl}"
+            retrieveTarget="${deploy.path}"
+	        unpackaged="${sf.unpackaged}" />
+
+	   <!--  <tstamp>
+	    	<format property="NOW" pattern="yyyy-MM-dd HH:mm:ss:sss zzz" locale="es,ES"/>
+	    </tstamp>	    
+	    <property
+		     name="header"
+		     value="##Generated file - do not modify!"/>
+	    <propertyfile file="${deploy.path}/last_retrieve.properties" comment="${header}"/>  -->    		     	
+	    <delete file="temp_package.xml"/>
+	</target>
+
+	<target name="mretrieve">
+		<echo message="RETRIEVING WITH THE USER: ${sf.username}"/>
+					
+		<sf:retrieve
+            username="${sf.username}"
+            password="${sf.password}"
+            serverurl="${sf.serverurl}"
+            retrieveTarget="${deploy.path}"
+	        unpackaged="${sf.unpackaged2}" />
+	   
+	</target>
+
+	<target name="deploymentRetrieve" depends="clean">
+		<echo message="RETRIEVING WITH THE USER: ${sf.retr.username}"/>
+		
+		<mkdir dir="${deploy.path}"/>
+		
+		<sf:retrieve
+            username="${sf.retr.username}"
+            password="${sf.retr.password}"
+            serverurl="${sf.retr.serverurl}"
+            retrieveTarget="${deploy.path}"
+	        unpackaged="${sf.unpackaged.dep}" />
+
+	    <tstamp>
+	    	<format property="NOW" pattern="yyyy-MM-dd HH:mm:ss:sss zzz" locale="es,ES"/>
+	    </tstamp>	    
+	    <property
+		     name="header"
+		     value="##Generated file - do not modify!"/>
+	    <propertyfile file="${deploy.path}/last_retrieve.properties" comment="${header}"/>     		     	
+	    <delete file="temp_package.xml"/>
+	</target>
+
+	<target name="clean">
+		<copy file="../src/package.xml" tofile="temp_package.xml"/>
+		<echo message="Delete RETRIEVE dir"/>
+		<delete dir="${deploy.path}"/>
+	</target>	
+
+    <target name="merge">
+        <merge 
+            packageFile="../src/package.xml"
+            outFile="deploymentPackage.xml"/>        
+    </target>
+
+    <target name="getNotMapped">
+        <product-configurator 
+            srcPath="../src"
+            operation="getNotMapped"/>        
+    </target>
+
+    <target name="getAllObjectFields">
+        <product-configurator 
+            srcPath="../src"
+            operation="getAllObjectFields"/>        
+    </target>
+
+    <target name="mapNotMapped">
+        <product-configurator 
+            srcPath="../src"
+            operation="mapNotMapped"/>        
+    </target>
+
+    <target name="prepare">
+        <delete dir="${deploy.path}"/> 
+        <copy file="package.tmpl" tofile="${deploy.path}/package.xml"/>
+        <exec executable="git">
+        	<arg value="add" />
+        	<arg value="${deploy.path}" />
+        </exec>
+        <exec executable="git">
+        	<arg value="commit" />
+        	<arg value="-m 'Prepare commit'" />
+        </exec>
+    </target>
+
+    <target name="preDestructive">
+        <sf:deploy
+			username="${sf.username}"
+			password="${sf.password}"
+			serverurl="${sf.serverurl}"
+			maxPoll="1000"
+			checkOnly="false"
+			pollWaitMillis="10000"
+			ignoreWarnings= "true"
+			purgeOnDelete="false"
+			deployRoot="../destructiveChanges/preDestructive"/>
+    </target> 
+
+    <target name="postDestructive">
+        <sf:deploy
+			username="${sf.username}"
+			password="${sf.password}"
+			serverurl="${sf.serverurl}"
+			maxPoll="1000"
+			checkOnly="false"
+			pollWaitMillis="10000"
+			ignoreWarnings= "true"
+			purgeOnDelete="false"
+			deployRoot="../destructiveChanges/postDestructive"/>
+    </target> 
+	
+
+</project>
