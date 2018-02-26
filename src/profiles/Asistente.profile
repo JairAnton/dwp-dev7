@@ -1106,7 +1106,7 @@
         <name>ViewPublicReports</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ViewSetup</name>
     </userPermissions>
 </Profile>
