@@ -27,6 +27,7 @@
     </types>
     <types>
         <members>Account-es</members>
+        <members>AccountContactRelation-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -44,6 +45,7 @@
         <members>AccountContact_Handler</members>
         <members>Contact_Group_Handler</members>
         <members>Contact_Group_Handler_test</members>
+        <members>AccountContact_Handler_TEST</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -191,6 +193,7 @@
     </types>
     <types>
         <members>Contact</members>
+        <members>AccountContactRelation</members>
         <name>Workflow</name>
     </types>
     <types>
@@ -208,17 +211,13 @@
         <members>Contact.Contact_Validation_Rule_Required_Decisor</members>
         <members>Contact.Contact_Validation_Rule_Required_FN</members>
         <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
+        <members>AccountContactRelation.ACR_ValidationRule_Position</members>
         <name>ValidationRule</name>
     </types>
     <types>
         <members>Account.Nuevo_Contacto</members>
         <members>SendEmail</members>
         <name>QuickAction</name>
-    </types>
-    <types>
-        <members>Contact_Group_Handler</members>
-        <members>Contact_Group_Handler_test</members>
-        <name>ApexClass</name>
     </types>
     <types>
         <members>Contact_Tgr</members>
