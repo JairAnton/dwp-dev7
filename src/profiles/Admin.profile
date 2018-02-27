@@ -390,10 +390,6 @@
         <name>AllowLightningLogin</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
-        <name>AllowUniversalSearch</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>false</enabled>
         <name>AllowViewEditConvertedLeads</name>
     </userPermissions>
