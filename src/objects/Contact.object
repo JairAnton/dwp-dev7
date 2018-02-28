@@ -727,7 +727,7 @@
     <fields>
         <fullName>Formula_Fecha_de_nacimiento__c</fullName>
         <externalId>false</externalId>
-        <formula>text(Birthdate)</formula>
+        <formula>text(DAY(Birthdate))+"-" +TEXT(MONTH(Birthdate))+"-" +TEXT(YEAR(Birthdate))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Fecha de nacimiento</label>
         <required>false</required>
