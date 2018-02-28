@@ -237,4 +237,12 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <validationRules>
+        <fullName>ACR_ValidationRule_Position</fullName>
+        <active>true</active>
+        <description>Validation to specify a value in other position field, when Others is selected in Position picklist.</description>
+        <errorConditionFormula>AND(ISPICKVAL(prof_position_type__c, &quot;OTROS&quot;), ISBLANK(other_prof_prosition_type__c))</errorConditionFormula>
+        <errorDisplayField>other_prof_prosition_type__c</errorDisplayField>
+        <errorMessage>Please, specify the other position information.</errorMessage>
+    </validationRules>
 </CustomObject>

@@ -15,8 +15,8 @@
                 <field>prof_position_type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>other_prof_prosition_type__c</field>
+                <behavior>Required</behavior>
+                <field>decision_making_desc__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -26,7 +26,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>decision_making_desc__c</field>
+                <field>other_prof_prosition_type__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

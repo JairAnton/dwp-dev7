@@ -27,6 +27,7 @@
     </types>
     <types>
         <members>Account-es</members>
+        <members>AccountContactRelation-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -44,6 +45,7 @@
         <members>AccountContact_Handler</members>
         <members>Contact_Group_Handler</members>
         <members>Contact_Group_Handler_test</members>
+        <members>AccountContact_Handler_TEST</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -164,6 +166,8 @@
         <members>AccountContactRelation.prof_position_type__c</members>
         <members>AccountContactRelation.other_prof_prosition_type__c</members>
         <members>AccountContactRelation.other_prof_prosition_type__c</members>
+        <members>Contact.Formula_Cliente__c</members>
+        <members>Contact.Formula_Fecha_de_nacimiento__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -191,6 +195,7 @@
     </types>
     <types>
         <members>Contact</members>
+        <members>AccountContactRelation</members>
         <name>Workflow</name>
     </types>
     <types>
@@ -208,17 +213,16 @@
         <members>Contact.Contact_Validation_Rule_Required_Decisor</members>
         <members>Contact.Contact_Validation_Rule_Required_FN</members>
         <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
+        <members>AccountContactRelation.ACR_ValidationRule_Position</members>
         <name>ValidationRule</name>
     </types>
     <types>
         <members>Account.Nuevo_Contacto</members>
         <members>SendEmail</members>
+		<members>LogACall</members>
+        <members>NewEvent</members>
+        <members>NewTask</members>
         <name>QuickAction</name>
-    </types>
-    <types>
-        <members>Contact_Group_Handler</members>
-        <members>Contact_Group_Handler_test</members>
-        <name>ApexClass</name>
     </types>
     <types>
         <members>Contact_Tgr</members>
