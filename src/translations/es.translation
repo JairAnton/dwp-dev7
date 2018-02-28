@@ -1,3 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Translations xmlns="http://soap.sforce.com/2006/04/metadata"/>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label>Iniciar Hangout</label>
+        <name>Hangout</name>
+    </customLabels>
+    <customLabels>
+        <label>Aceptar</label>
+        <name>Agree</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Para dar de alta un nuevo Contacto debes acceder previamente a la Ficha del Cliente, y pulsar el botón &quot;Nuevo Contacto&quot;</label>
+        <name>NewContactWarning</name>
+    </customLabels>
+    <customLabels>
+        <label>Aviso</label>
+        <name>Warning</name>
+    </customLabels>
+</Translations>
 
