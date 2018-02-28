@@ -128,4 +128,8 @@
             <translation><!-- PRESIDENTE DE DIRECTORIO --></translation>
         </picklistValues>
     </fields>
+    <validationRules>
+        <errorMessage>Por favor, especifique el otro cargo.</errorMessage>
+        <name>ACR_ValidationRule_Position</name>
+    </validationRules>
 </CustomObjectTranslation>
