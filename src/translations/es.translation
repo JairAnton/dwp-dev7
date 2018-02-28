@@ -20,5 +20,21 @@
         <label>Aviso</label>
         <name>Warning</name>
     </customLabels>
+	 <quickActions>
+        <label>Llamada</label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label>Evento</label>
+        <name>NewEvent</name>
+    </quickActions>
+    <quickActions>
+        <label>Tarea</label>
+        <name>NewTask</name>
+    </quickActions>
+    <quickActions>
+        <label>Email</label>
+        <name>SendEmail</name>
+    </quickActions>
 </Translations>
 
