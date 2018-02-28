@@ -219,6 +219,9 @@
     <types>
         <members>Account.Nuevo_Contacto</members>
         <members>SendEmail</members>
+		<members>LogACall</members>
+        <members>NewEvent</members>
+        <members>NewTask</members>
         <name>QuickAction</name>
     </types>
     <types>
