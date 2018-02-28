@@ -1290,7 +1290,6 @@
         <lookupFilterFields>ACCOUNT.RECORDTYPE</lookupFilterFields>
         <lookupFilterFields>segment_desc__c</lookupFilterFields>
         <lookupFilterFields>branch_id__c</lookupFilterFields>
-        <lookupFilterFields>CORE.USERS.ALIAS</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>main_code_id__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PARENT_NAME</lookupPhoneDialogsAdditionalFields>

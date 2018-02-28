@@ -71,5 +71,4 @@
     <tab>standard-Dashboard</tab>
     <tab>standard-report</tab>
     <uiType>Lightning</uiType>
-    <utilityBar>DWP_Sales_UtilityBar</utilityBar>
 </CustomApplication>
