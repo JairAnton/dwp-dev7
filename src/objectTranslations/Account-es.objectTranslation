@@ -12,6 +12,14 @@
         <gender>Masculine</gender>
         <name>account_name</name>
     </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Tipo  de cliente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>account_record_type</name>
+    </fields>
     <layouts>
         <layout>Account_Page_Layout_Account</layout>
         <sections>
