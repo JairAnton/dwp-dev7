@@ -15,7 +15,7 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>Tipodecliente</value>
+            <value>Tipo de cliente</value>
         </caseValues>
         <gender>Masculine</gender>
         <name>account_record_type</name>
