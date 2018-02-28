@@ -224,7 +224,6 @@
         <members>Branch__c.All</members>
         <members>Contact.AllContacts</members>
         <members>Contact.MyContacts</members>
-        <members>Contact.Mis_Contactos_No_Cliente</members>
         <members>User_Branch__c.All</members>
 		<members>Account.AllAccounts</members>
         <members>Account.MyAccounts</members>
