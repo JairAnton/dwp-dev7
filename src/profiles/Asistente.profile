@@ -293,7 +293,7 @@
         <editable>false</editable>
         <field>User_Branch__c.user_prof_position_type__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>AccountContactRelation.Contact_Primary_Account__c</field>
@@ -327,6 +327,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>AccountContactRelation.calc_prof_position_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.decision_making_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.prof_position_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
