@@ -255,7 +255,8 @@
         <name>ValidationRule</name>
     </types>
     <types>
-        <members>Account.Nuevo_Contacto</members>
+        <members>Account.New_Contact_Economic_Group</members>
+        <members>Account.New_Contact</members>
         <members>SendEmail</members>
 		<members>LogACall</members>
         <members>NewEvent</members>
