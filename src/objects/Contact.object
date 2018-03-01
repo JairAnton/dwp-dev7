@@ -727,7 +727,7 @@
     <fields>
         <fullName>Formula_Fecha_de_nacimiento__c</fullName>
         <externalId>false</externalId>
-        <formula>text(Birthdate)</formula>
+        <formula>text(DAY(Birthdate))+"-" +TEXT(MONTH(Birthdate))+"-" +TEXT(YEAR(Birthdate))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Fecha de nacimiento</label>
         <required>false</required>
@@ -760,27 +760,6 @@
             <value>1</value>
         </filters>
         <label>My Contacts</label>
-    </listViews>
-    <listViews>
-        <fullName>Mis_Contactos_No_Cliente</fullName>
-        <columns>FULL_NAME</columns>
-        <columns>Formula_Cliente__c</columns>
-        <columns>prof_position_type__c</columns>
-        <columns>CONTACT.EMAIL</columns>
-        <columns>CONTACT.PHONE3</columns>
-        <columns>Formula_Fecha_de_nacimiento__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>account_type__c</field>
-            <operation>equals</operation>
-            <value>No Client</value>
-        </filters>
-        <filters>
-            <field>primary_account_owner__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>Mis contactos no clientes</label>
     </listViews>
 	<validationRules>
         <fullName>Contact_Validation_Rule_Mobile</fullName>
