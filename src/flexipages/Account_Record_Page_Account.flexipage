@@ -526,7 +526,7 @@
     <masterLabel>Account Record Page Account</masterLabel>
     <sobjectType>Account</sobjectType>
     <template>
-        <name>flexipage:recordHomeTemplateDesktop</name>
+     <name>flexipage:recordHomeLeftSidebarTemplateDesktop</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>
