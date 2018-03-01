@@ -21,22 +21,6 @@
         <members>*</members>
         <name>Translations</name>
     </types>
-	<types>
-        <members>Account</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Account-es</members>
-        <members>AccountContactRelation-es</members>
-        <name>CustomObjectTranslation</name>
-    </types>
-    <types>
-        <members>Account-Account Layout</members>
-        <members>Account-Account_Page_Layout_Account</members>
-        <members>Account-Account_Page_Layout_Economic_Group</members>
-        <members>Account-Account_Page_Layout_No_Account</members>
-        <name>Layout</name>
-    </types>
     <types>
         <members>Hangout_ctrl</members>
         <members>Hangout_ctrl_TEST</members>
@@ -59,9 +43,9 @@
         <members>Branch_LightningPage</members>
         <members>Account_Record_Page_Account</members>
         <members>Account_Record_Page_Group</members>
-        <members>Account_Record_Page_No_Account</members>
         <members>Contact_Record_Page</members>
         <members>User_Branch_LightningPage</members>
+        <members>Account_Bank_Classification_Record_Page</members>        
         <name>FlexiPage</name>
     </types>
     <types>
@@ -70,6 +54,8 @@
         <members>User_Branch__c</members>
         <members>Override_Standard_Button_Message__mdt</members>
         <members>AccountContactRelation</members>
+        <members>Account</members>
+        <members>Account_BBVA_Classification__c</members>        
         <name>CustomObject</name>
     </types>
     <types>
@@ -79,6 +65,9 @@
         <members>Contact-es</members>
         <members>User_Branch__c-es</members>
         <members>AccountContactRelation-es</members>
+        <members>Account-es</members>
+        <members>Account_BBVA_Classification__c-en_US</members>
+        <members>Account_BBVA_Classification__c-es</members>        
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -87,11 +76,11 @@
         <members>Branch__c-Branch_Layout</members>
         <members>Account-Account_Page_Layout_Account</members>
         <members>Account-Account_Page_Layout_Economic_Group</members>
-        <members>Account-Account_Page_Layout_No_Account</members>
         <members>Contact-Contact Layout</members>
         <members>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</members>
         <members>User_Branch__c-User_Branch Layout</members>
         <members>AccountContactRelation-Account Contact Relationship Layout</members>
+        <members>Account_BBVA_Classification__c-Account BBVA Classification Layout</members>        
         <name>Layout</name>
     </types>
     <types>
@@ -99,7 +88,6 @@
         <members>Branch__c.Branch_CompactLayout</members>
         <members>Account.Account_Compact_Layout_Account</members>
         <members>Account.Account_Compact_Layout_Group</members>
-        <members>Account.Account_Compact_Layout_No_Account</members>
         <members>Contact.Contact</members>
         <members>User_Branch__c.Relation_User_Branch</members>
         <name>CompactLayout</name>
@@ -168,25 +156,87 @@
         <members>AccountContactRelation.other_prof_prosition_type__c</members>
         <members>Contact.Formula_Cliente__c</members>
         <members>Contact.Formula_Fecha_de_nacimiento__c</members>
+        <members>Account.EBITDA_amount__c</members>
+        <members>Account.EBITDA_per__c</members>
+        <members>Account.ROA_per__c</members>
+        <members>Account.ROE_per__c</members>
+        <members>Account.acid_liquidity_number__c</members>
+        <members>Account.alert__c</members>
+        <members>Account.alert_desc__c</members>
+        <members>Account.bank_turnover_volume_amount__c</members>
+        <members>Account.banking_system_classification_desc__c</members>
+        <members>Account.banking_system_classification_id__c</members>
+        <members>Account.bbva_customer_classification_desc__c</members>
+        <members>Account.bbva_customer_classification_id__c</members>
+        <members>Account.branch_id__c</members>
+        <members>Account.bureau_code__c</members>
+        <members>Account.bureau_date__c</members>
+        <members>Account.business_cycle_amount__c</members>
+        <members>Account.cash_flow_amount__c</members>
+        <members>Account.collection_days_number__c</members>
+        <members>Account.commercial_strategy__c</members>
+        <members>Account.commercial_strategy_code__c</members>
+        <members>Account.commercial_strategy_date__c</members>
+        <members>Account.commercial_strategy_desc__c</members>
+        <members>Account.company_seniority_date__c</members>
+        <members>Account.company_seniority_year__c</members>
+        <members>Account.country_id__c</members>
+        <members>Account.crossborder_type__c</members>
+        <members>Account.customer_relationship_date__c</members>
+        <members>Account.customer_relationship_year__c</members>
+        <members>Account.debt_EBITDA_per__c</members>
+        <members>Account.dfb_sales_per__c</members>
+        <members>Account.economic_activity_sector__c</members>
+        <members>Account.economic_activity_subsector__c</members>
+        <members>Account.email__c</members>
+        <members>Account.entity_id__c</members>
+        <members>Account.financial_debt_amount__c</members>
+        <members>Account.financial_program_expiry_date__c</members>
+        <members>Account.funds_operational_needs_amount__c</members>
+        <members>Account.main_code_id__c</members>
+        <members>Account.margin_ordinary_amount__c</members>
+        <members>Account.net_cash_desc__c</members>
+        <members>Account.other_phone_number__c</members>
+        <members>Account.ownership_grade_per__c</members>
+        <members>Account.payback_amount__c</members>
+        <members>Account.payment_days_number__c</members>
+        <members>Account.risk_strategy_code__c</members>
+        <members>Account.risk_strategy_date__c</members>
+        <members>Account.risk_strategy_desc__c</members>
+        <members>Account.sales_var_per__c</members>
+        <members>Account.segment_desc__c</members>
+        <members>Account.segment_id__c</members>
+        <members>Account.stock_days_number__c</members>
+        <members>Account.structural_debt_amount__c</members>
+        <members>Account.unique_id__c</members>
+        <members>Account.watchlist_calif_id__c</members>
+        <members>Account.working_capital_number__c</members>
+        <members>Account_BBVA_Classification__c.account_id__c</members>
+        <members>Account_BBVA_Classification__c.bank_classification_date__c</members>
+        <members>Account_BBVA_Classification__c.bbva_customer_classification_desc__c</members>
+        <members>Account_BBVA_Classification__c.bbva_customer_classification_id__c</members>
+        <members>Account_BBVA_Classification__c.unique_id__c</members>        
         <name>CustomField</name>
     </types>
     <types>
         <members>Branch__c</members>
         <members>User_Branch__c</members>
+        <members>Account_BBVA_Classification__c</members>        
         <name>CustomTab</name>
     </types>
-	<types>
+    <types>
         <members>Branch__c.All</members>
         <members>Contact.AllContacts</members>
         <members>Contact.MyContacts</members>
-        <members>Contact.Mis_Contactos_No_Cliente</members>
         <members>User_Branch__c.All</members>
+        <members>Account.AllAccounts</members>
+        <members>Account.MyAccounts</members>
+        <members>Account_BBVA_Classification__c.All</members>        
         <name>ListView</name>
     </types>
     <types>
         <members>Account.Record_Type_Client</members>
         <members>Account.Record_Type_Economic_Group</members>
-        <members>Account.Record_Type_No_Client</members>
         <name>RecordType</name>
     </types>
     <types>
@@ -217,9 +267,10 @@
         <name>ValidationRule</name>
     </types>
     <types>
-        <members>Account.Nuevo_Contacto</members>
+        <members>Account.New_Contact_Economic_Group</members>
+        <members>Account.New_Contact</members>
         <members>SendEmail</members>
-		<members>LogACall</members>
+        <members>LogACall</members>
         <members>NewEvent</members>
         <members>NewTask</members>
         <name>QuickAction</name>
@@ -228,6 +279,23 @@
         <members>Contact_Tgr</members>
         <members>AccountContact_tgr</members>
         <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>DWP_Sales</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>LOGO_BBVA</members>
+        <name>ContentAsset</name>
+    </types>
+    <types>
+        <members>Blue_Circle_Icon</members>
+        <members>Green_Flag_Icon</members>
+        <members>Grey_Circle_Icon</members>
+        <members>Light_Blue_Circle_Icon</members>
+        <members>Red_Flag_Icon</members>
+        <members>White_Circle_Icon</members>
+        <name>StaticResource</name>
     </types>
     <version>41.0</version>
 </Package>
