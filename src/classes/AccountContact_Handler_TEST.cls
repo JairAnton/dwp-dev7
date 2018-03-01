@@ -10,7 +10,7 @@
  * @author Alberto Gómez
  */
 @isTest(SeeAllData=false)
-public class AccountContact_Handler_test {
+public class AccountContact_Handler_TEST {
 
     //Setup data.
     @testSetup
