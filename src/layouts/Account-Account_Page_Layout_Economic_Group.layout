@@ -32,6 +32,10 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
+            <actionName>Account.New_Contact_Economic_Group</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>24</sortOrder>
+        </platformActionListItems>
             <actionName>NewTask</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>0</sortOrder>

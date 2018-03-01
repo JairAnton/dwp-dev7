@@ -150,7 +150,7 @@
             <sortOrder>23</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Account.Nuevo_Contacto</actionName>
+            <actionName>Account.New_Contact</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>24</sortOrder>
         </platformActionListItems>
