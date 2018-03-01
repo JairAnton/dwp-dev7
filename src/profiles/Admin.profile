@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-	<applicationVisibilities>
+    <applicationVisibilities>
         <application>DWP_Sales</application>
         <default>true</default>
         <visible>true</visible>
@@ -34,7 +34,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>User.organizational_unit_id__c</field>
         <readable>true</readable>
@@ -389,7 +389,7 @@
         <field>Contact.Formula_Fecha_de_nacimiento__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
         <readable>true</readable>
@@ -689,6 +689,26 @@
         <field>Account.working_capital_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_BBVA_Classification__c.bank_classification_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Classification__c.bbva_customer_classification_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Classification__c.bbva_customer_classification_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Classification__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Branch__c-Branch_Layout</layout>
     </layoutAssignments>
@@ -701,10 +721,10 @@
      <layoutAssignments>
         <layout>AccountContactRelation-Account Contact Relationship Layout</layout>
     </layoutAssignments>
-	<layoutAssignments>
+    <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
-	<layoutAssignments>
+    <layoutAssignments>
         <layout>Account-Account_Page_Layout_Account</layout>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
@@ -712,7 +732,10 @@
         <layout>Account-Account_Page_Layout_Economic_Group</layout>
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
-	<objectPermissions>
+    <layoutAssignments>
+        <layout>Account_BBVA_Classification__c-Account BBVA Classification Layout</layout>
+    </layoutAssignments>    
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -721,7 +744,7 @@
         <object>Account</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-	<objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -730,7 +753,7 @@
         <object>Contact</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-	<objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -739,7 +762,7 @@
         <object>Branch__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-	<objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -748,7 +771,16 @@
         <object>User_Branch__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-	<recordTypeVisibilities>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Account_BBVA_Classification__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>    
+    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
         <visible>true</visible>
@@ -762,18 +794,22 @@
         <tab>Branch__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-	<tabVisibilities>
+    <tabVisibilities>
         <tab>User_Branch__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-	<tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-	<tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    <tabVisibilities>
+        <tab>Account_BBVA_Classification__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>    
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>false</enabled>

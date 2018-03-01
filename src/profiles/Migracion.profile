@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-	<applicationVisibilities>
+    <applicationVisibilities>
         <application>DWP_Sales</application>
         <default>true</default>
         <visible>true</visible>
@@ -359,7 +359,7 @@
         <field>Contact.Formula_Fecha_de_nacimiento__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
         <readable>true</readable>
@@ -659,6 +659,26 @@
         <field>Account.working_capital_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Classification__c.bank_classification_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Classification__c.bbva_customer_classification_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Classification__c.bbva_customer_classification_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Classification__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
@@ -679,12 +699,15 @@
     <layoutAssignments>
         <layout>User_Branch__c-User_Branch Layout</layout>
     </layoutAssignments>
-	<layoutAssignments>
-		<layout>UserAlt-User Profile Layout</layout>
+    <layoutAssignments>
+        <layout>UserAlt-User Profile Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AccountContactRelation-Account Contact Relationship Layout</layout>
     </layoutAssignments> 
+    <layoutAssignments>
+        <layout>Account_BBVA_Classification__c-Account BBVA Classification Layout</layout>
+    </layoutAssignments>    
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -703,7 +726,7 @@
         <object>Contact</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-	<objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -712,7 +735,7 @@
         <object>Branch__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-	<objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -721,6 +744,15 @@
         <object>User_Branch__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Account_BBVA_Classification__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>    
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
@@ -739,14 +771,18 @@
         <tab>User_Branch__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-	<tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-	<tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    <tabVisibilities>
+        <tab>Account_BBVA_Classification__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>    
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>false</enabled>

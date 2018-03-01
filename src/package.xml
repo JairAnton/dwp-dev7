@@ -45,6 +45,7 @@
         <members>Account_Record_Page_Group</members>
         <members>Contact_Record_Page</members>
         <members>User_Branch_LightningPage</members>
+        <members>Account_Bank_Classification_Record_Page</members>        
         <name>FlexiPage</name>
     </types>
     <types>
@@ -53,7 +54,8 @@
         <members>User_Branch__c</members>
         <members>Override_Standard_Button_Message__mdt</members>
         <members>AccountContactRelation</members>
-		<members>Account</members>
+        <members>Account</members>
+        <members>Account_BBVA_Classification__c</members>        
         <name>CustomObject</name>
     </types>
     <types>
@@ -63,7 +65,9 @@
         <members>Contact-es</members>
         <members>User_Branch__c-es</members>
         <members>AccountContactRelation-es</members>
-		<members>Account-es</members>
+        <members>Account-es</members>
+        <members>Account_BBVA_Classification__c-en_US</members>
+        <members>Account_BBVA_Classification__c-es</members>        
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -76,6 +80,7 @@
         <members>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</members>
         <members>User_Branch__c-User_Branch Layout</members>
         <members>AccountContactRelation-Account Contact Relationship Layout</members>
+        <members>Account_BBVA_Classification__c-Account BBVA Classification Layout</members>        
         <name>Layout</name>
     </types>
     <types>
@@ -151,7 +156,7 @@
         <members>AccountContactRelation.other_prof_prosition_type__c</members>
         <members>Contact.Formula_Cliente__c</members>
         <members>Contact.Formula_Fecha_de_nacimiento__c</members>
-		<members>Account.EBITDA_amount__c</members>
+        <members>Account.EBITDA_amount__c</members>
         <members>Account.EBITDA_per__c</members>
         <members>Account.ROA_per__c</members>
         <members>Account.ROE_per__c</members>
@@ -206,20 +211,27 @@
         <members>Account.unique_id__c</members>
         <members>Account.watchlist_calif_id__c</members>
         <members>Account.working_capital_number__c</members>
+        <members>Account_BBVA_Classification__c.account_id__c</members>
+        <members>Account_BBVA_Classification__c.bank_classification_date__c</members>
+        <members>Account_BBVA_Classification__c.bbva_customer_classification_desc__c</members>
+        <members>Account_BBVA_Classification__c.bbva_customer_classification_id__c</members>
+        <members>Account_BBVA_Classification__c.unique_id__c</members>        
         <name>CustomField</name>
     </types>
     <types>
         <members>Branch__c</members>
         <members>User_Branch__c</members>
+        <members>Account_BBVA_Classification__c</members>        
         <name>CustomTab</name>
     </types>
-	<types>
+    <types>
         <members>Branch__c.All</members>
         <members>Contact.AllContacts</members>
         <members>Contact.MyContacts</members>
         <members>User_Branch__c.All</members>
-		<members>Account.AllAccounts</members>
+        <members>Account.AllAccounts</members>
         <members>Account.MyAccounts</members>
+        <members>Account_BBVA_Classification__c.All</members>        
         <name>ListView</name>
     </types>
     <types>
@@ -258,7 +270,7 @@
         <members>Account.New_Contact_Economic_Group</members>
         <members>Account.New_Contact</members>
         <members>SendEmail</members>
-		<members>LogACall</members>
+        <members>LogACall</members>
         <members>NewEvent</members>
         <members>NewTask</members>
         <name>QuickAction</name>
@@ -268,15 +280,15 @@
         <members>AccountContact_tgr</members>
         <name>ApexTrigger</name>
     </types>
-	<types>
+    <types>
         <members>DWP_Sales</members>
         <name>CustomApplication</name>
     </types>
-	<types>
+    <types>
         <members>LOGO_BBVA</members>
         <name>ContentAsset</name>
     </types>
-	<types>
+    <types>
         <members>Blue_Circle_Icon</members>
         <members>Green_Flag_Icon</members>
         <members>Grey_Circle_Icon</members>
