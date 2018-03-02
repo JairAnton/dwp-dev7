@@ -717,6 +717,10 @@
         <label>Capital de trabajo</label>
         <name>working_capital_number__c</name>
     </fields>
+	<fields>
+        <label>Gestor principal</label>
+        <name>Owner_calculated__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Layout</layout>

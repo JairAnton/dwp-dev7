@@ -709,6 +709,11 @@
         <field>Account_BBVA_Classification__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Owner_calculated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Branch__c-Branch_Layout</layout>
     </layoutAssignments>

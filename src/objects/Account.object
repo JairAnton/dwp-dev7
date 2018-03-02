@@ -731,6 +731,16 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
     </fields>
+	<fields>
+        <fullName>Owner_calculated__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( OwnerId ,  Owner.FirstName + &apos; &apos; +  Owner.LastName ,&apos;SELF&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Owner</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
@@ -739,7 +749,7 @@
         <columns>ACCOUNT.RECORDTYPE</columns>
         <columns>segment_desc__c</columns>
         <columns>branch_id__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Owner_calculated__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Accounts</label>
     </listViews>
@@ -1276,14 +1286,14 @@
         <customTabListAdditionalFields>ACCOUNT.RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>segment_desc__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>branch_id__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CORE.USERS.ALIAS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Owner_calculated__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>main_code_id__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PARENT_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>segment_desc__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>branch_id__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Owner_calculated__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>main_code_id__c</lookupFilterFields>
         <lookupFilterFields>PARENT_NAME</lookupFilterFields>
@@ -1303,7 +1313,7 @@
         <searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>segment_desc__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>branch_id__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Owner_calculated__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
     <webLinks>
