@@ -431,17 +431,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.banking_system_classification_id__c</field>
+        <field>Account.banking_system_classification_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.bbva_customer_classification_desc__c</field>
+        <field>Account.bbva_classification_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.bbva_customer_classification_id__c</field>
+        <field>Account.bbva_classification_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -451,7 +451,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.bureau_code__c</field>
+        <field>Account.bureau_classification_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -491,7 +491,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.commercial_strategy_desc__c</field>
+        <field>Account.commercial_strategy_class_name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -566,7 +566,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.funds_operational_needs_amount__c</field>
+        <field>Account.fund_operational_needs_amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -616,7 +616,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.risk_strategy_desc__c</field>
+        <field>Account.risk_strategy_class_name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
