@@ -859,4 +859,5 @@
         <errorDisplayField>Salutation</errorDisplayField>
         <errorMessage>Please, select the Salutation.</errorMessage>
     </validationRules>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
