@@ -78,11 +78,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>risk_strategy_desc__c</field>
+                <field>risk_strategy_class_name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>bbva_customer_classification_desc__c</field>
+                <field>bbva_classification_desc__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -92,7 +92,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>bureau_code__c</field>
+                <field>bureau_classification_type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
