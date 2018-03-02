@@ -744,8 +744,8 @@
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
+		<columns>PARENT_NAME</columns>
         <columns>main_code_id__c</columns>
-        <columns>PARENT_NAME</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
         <columns>segment_desc__c</columns>
         <columns>branch_id__c</columns>
@@ -756,8 +756,8 @@
     <listViews>
         <fullName>MyAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
+		<columns>PARENT_NAME</columns>
         <columns>main_code_id__c</columns>
-        <columns>PARENT_NAME</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
         <columns>segment_desc__c</columns>
         <columns>branch_id__c</columns>
@@ -1288,28 +1288,28 @@
         <customTabListAdditionalFields>branch_id__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Owner_calculated__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>main_code_id__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PARENT_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>main_code_id__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>segment_desc__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>branch_id__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Owner_calculated__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
-        <lookupFilterFields>main_code_id__c</lookupFilterFields>
         <lookupFilterFields>PARENT_NAME</lookupFilterFields>
+        <lookupFilterFields>main_code_id__c</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.RECORDTYPE</lookupFilterFields>
         <lookupFilterFields>segment_desc__c</lookupFilterFields>
         <lookupFilterFields>branch_id__c</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>main_code_id__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PARENT_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>main_code_id__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.RECORDTYPE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>segment_desc__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>branch_id__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>main_code_id__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PARENT_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>main_code_id__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>segment_desc__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>branch_id__c</searchResultsAdditionalFields>
