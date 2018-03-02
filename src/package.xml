@@ -215,7 +215,8 @@
         <members>Account_BBVA_Classification__c.bank_classification_date__c</members>
         <members>Account_BBVA_Classification__c.bbva_customer_classification_desc__c</members>
         <members>Account_BBVA_Classification__c.bbva_customer_classification_id__c</members>
-        <members>Account_BBVA_Classification__c.unique_id__c</members>        
+        <members>Account_BBVA_Classification__c.unique_id__c</members>
+		<members>Account.Owner_calculated__c</members>
         <name>CustomField</name>
     </types>
     <types>
