@@ -534,15 +534,15 @@
     </fields>
     <fields>
         <label>Clasificación SBS código</label>
-        <name>banking_system_classification_id__c</name>
+        <name>banking_system_classification_type__c</name>
     </fields>
     <fields>
         <label>Clasificación BBVA</label>
-        <name>bbva_customer_classification_desc__c</name>
+        <name>bbva_classification_desc__c</name>
     </fields>
     <fields>
         <label>Clasificación BBVA código</label>
-        <name>bbva_customer_classification_id__c</name>
+        <name>bbva_classification_type__c</name>
     </fields>
     <fields>
         <label>Oficina principal</label>
@@ -551,7 +551,7 @@
     </fields>
     <fields>
         <label>Buro</label>
-        <name>bureau_code__c</name>
+        <name>bureau_classification_type__c</name>
     </fields>
     <fields>
         <label>Buro fecha</label>
@@ -583,7 +583,7 @@
     </fields>
     <fields>
         <label>Vinculación descripción</label>
-        <name>commercial_strategy_desc__c</name>
+        <name>commercial_strategy_class_name__c</name>
     </fields>
     <fields>
         <label>Fecha antigüedad empresa</label>
@@ -643,7 +643,7 @@
     </fields>
     <fields>
         <label>Necesidades operativas de fondo</label>
-        <name>funds_operational_needs_amount__c</name>
+        <name>fund_operational_needs_amount__c</name>
     </fields>
     <fields>
         <label>Código central</label>
@@ -683,7 +683,7 @@
     </fields>
     <fields>
         <label>Estrategia</label>
-        <name>risk_strategy_desc__c</name>
+        <name>risk_strategy_class_name__c</name>
     </fields>
     <fields>
         <label>Var ventas</label>

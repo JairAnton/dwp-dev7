@@ -165,11 +165,11 @@
         <members>Account.alert_desc__c</members>
         <members>Account.bank_turnover_volume_amount__c</members>
         <members>Account.banking_system_classification_desc__c</members>
-        <members>Account.banking_system_classification_id__c</members>
-        <members>Account.bbva_customer_classification_desc__c</members>
-        <members>Account.bbva_customer_classification_id__c</members>
+        <members>Account.banking_system_classification_type__c</members>
+        <members>Account.bbva_classification_desc__c</members>
+        <members>Account.bbva_classification_type__c</members>
         <members>Account.branch_id__c</members>
-        <members>Account.bureau_code__c</members>
+        <members>Account.bureau_classification_type__c</members>
         <members>Account.bureau_date__c</members>
         <members>Account.business_cycle_amount__c</members>
         <members>Account.cash_flow_amount__c</members>
@@ -177,7 +177,7 @@
         <members>Account.commercial_strategy__c</members>
         <members>Account.commercial_strategy_code__c</members>
         <members>Account.commercial_strategy_date__c</members>
-        <members>Account.commercial_strategy_desc__c</members>
+        <members>Account.commercial_strategy_class_name__c</members>
         <members>Account.company_seniority_date__c</members>
         <members>Account.company_seniority_year__c</members>
         <members>Account.country_id__c</members>
@@ -192,7 +192,7 @@
         <members>Account.entity_id__c</members>
         <members>Account.financial_debt_amount__c</members>
         <members>Account.financial_program_expiry_date__c</members>
-        <members>Account.funds_operational_needs_amount__c</members>
+        <members>Account.fund_operational_needs_amount__c</members>
         <members>Account.main_code_id__c</members>
         <members>Account.margin_ordinary_amount__c</members>
         <members>Account.net_cash_desc__c</members>
@@ -202,7 +202,7 @@
         <members>Account.payment_days_number__c</members>
         <members>Account.risk_strategy_code__c</members>
         <members>Account.risk_strategy_date__c</members>
-        <members>Account.risk_strategy_desc__c</members>
+        <members>Account.risk_strategy_class_name__c</members>
         <members>Account.sales_var_per__c</members>
         <members>Account.segment_desc__c</members>
         <members>Account.segment_id__c</members>
