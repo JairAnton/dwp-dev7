@@ -15,6 +15,7 @@
         <members>Cancel</members>
         <members>NewContactWarning</members>
         <members>Warning</members>
+        <members>assignationApproval</members>
         <name>CustomLabel</name>
     </types>
     <types>
