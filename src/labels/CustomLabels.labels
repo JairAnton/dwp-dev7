@@ -35,4 +35,12 @@
         <shortDescription>Warning</shortDescription>
         <value>Warning</value>
     </labels>
+    <labels>
+        <fullName>assignationApproval</fullName>
+        <categories>Account</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>assignationApproval</shortDescription>
+        <value>Si</value>
+    </labels>
 </CustomLabels>
