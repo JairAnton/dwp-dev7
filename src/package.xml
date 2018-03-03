@@ -30,6 +30,8 @@
         <members>Contact_Group_Handler</members>
         <members>Contact_Group_Handler_test</members>
         <members>AccountContact_Handler_TEST</members>
+        <members>AccountContactParentAssociation</members>
+        <members>Contact_Handler</members>
         <name>ApexClass</name>
     </types>
     <types>

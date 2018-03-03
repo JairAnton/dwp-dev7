@@ -4,7 +4,7 @@
  * Created date : Feb 14 2018
  * Developer name: Julio Medellín Oliva Indra(México)
 --------------------------------------------------------------------------*/
-public class Contact_Group_Handler {
+public with sharing class Contact_Group_Handler {
     
     public static void setDefaultCurrency(list<Contact> Contacts){
         for(Contact c : Contacts){    
@@ -22,7 +22,7 @@ public class Contact_Group_Handler {
         }
 
             for(Contact c : Contacts){  
-            if((c.parent_account_assignment__c=='Si') && (MapAccount.get(c.AccountId) != null)){  
+            if((c.parent_account_assignment__c==Label.assignationApproval) && (MapAccount.get(c.AccountId) != null)){  
             AccountContactRelation	 acr = new AccountContactRelation(
             AccountId= MapAccount.get(c.AccountId),
             ContactId=c.id,

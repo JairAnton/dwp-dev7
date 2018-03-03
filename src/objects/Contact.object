@@ -145,6 +145,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>parent_account_assignment__c</controllingField>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -158,6 +159,14 @@
                     <label>Sí</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>Si</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -178,6 +187,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>parent_account_assignment__c</controllingField>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -216,7 +226,7 @@
                     <default>false</default>
                     <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
                 </value>
-				<value>
+                <value>
                     <fullName>GERENTE DE ADMINISTRACION</fullName>
                     <default>false</default>
                     <label>GERENTE DE ADMINISTRACION</label>
@@ -281,7 +291,89 @@
                     <default>false</default>
                     <label>OTROS</label>
                 </value>
+                <value>
+                    <fullName>Value 1</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Value 1</label>
+                </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>ACCIONISTA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>PRESIDENTE DE DIRECTORIO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>APODERADO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>DIRECTORIO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE GENERAL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE FINANZAS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE ADMINISTRACION Y FINANZAS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE RRHH</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE COMERCIAL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE OPERACIONES</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE CONTABILIDAD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE FINANZAS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE TESORERIA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE ADMINISTRACION Y FINANZAS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE ADMINISTRACIÓN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE CONTABILIDAD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>ADMINISTRADOR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>ASISTENTE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>OTROS</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
