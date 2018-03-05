@@ -8,4 +8,8 @@ public class Contact_Handler {
     public static void createGroupContact(list<Contact> Contacts){
       Contact_Group_Handler.createGroupContact(Contacts); 
     }
+    
+    public static void  updateGroupContact(list<Contact> Contacts){
+      Contact_Group_Handler.updateGroupContact(Contacts); 
+    }
 }

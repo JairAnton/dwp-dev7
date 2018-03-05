@@ -34,5 +34,19 @@ public with sharing class Contact_Group_Handler {
       
         insert accs;
     }
-
+    
+    
+    public static void updateGroupContact(list<Contact> Contacts){
+       list<AccountContactRelation> accs = new list<AccountContactRelation>();
+       list<Id>ContactsIds = new list<Id>();
+            for(Contact c : Contacts){  
+             ContactsIds.add(c.Id);
+            }               
+        accs = [SELECT ID,AccountId,ContactId,isDirect, prof_position_type__c, other_prof_prosition_type__c, decision_making_desc__c from AccountContactRelation WHERE ContactId in : ContactsIDs AND IsDirect = true];
+        AccountContactParentAssociation.ucontact=false;
+        AccountContactParentAssociation.setValuesRelation(accs);
+        
+      }
+      
+      
 }
