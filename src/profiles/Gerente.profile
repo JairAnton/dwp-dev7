@@ -659,7 +659,6 @@
         <field>Account.working_capital_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_BBVA_Classification__c.bbva_classification_desc__c</field>
