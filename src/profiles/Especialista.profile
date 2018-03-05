@@ -661,22 +661,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_BBVA_Classification__c.bank_classification_date__c</field>
+        <field>Account_BBVA_Classification__c.bbva_classification_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_BBVA_Classification__c.bbva_customer_classification_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_BBVA_Classification__c.bbva_customer_classification_id__c</field>
+        <field>Account_BBVA_Classification__c.bbva_classification_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_BBVA_Classification__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_BBVA_Classification__c.year_month_day_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
