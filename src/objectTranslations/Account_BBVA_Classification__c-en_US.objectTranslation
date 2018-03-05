@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account BBVA Classification</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account BBVA Classifications</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account BBVA Classifications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Classification date --></label>
+        <name>bank_classification_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Classification --></label>
+        <name>bbva_customer_classification_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Classification code --></label>
+        <name>bbva_customer_classification_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <layouts>
+        <layout>Account BBVA Classification Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Reference --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

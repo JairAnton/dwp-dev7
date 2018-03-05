@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Create a new contact group from account</description>
     <optionsCreateFeedItem>true</optionsCreateFeedItem>
     <quickActionLayout>
         <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
@@ -32,7 +33,7 @@
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
                 <field>decision_making_desc__c</field>
-                <uiBehavior>Edit</uiBehavior>
+                <uiBehavior>Required</uiBehavior>
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
@@ -41,19 +42,9 @@
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
-                <field>parent_account_assignment__c</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
-                <field>parent_account_prof_position_type__c</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
                 <field>Description</field>
                 <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
+            </quickActionLayoutItems> 
         </quickActionLayoutColumns>
         <quickActionLayoutColumns>
             <quickActionLayoutItems>
@@ -90,19 +81,9 @@
                 <emptySpace>true</emptySpace>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
-                <field>parent_account_decision_making_desc__c</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
-                <field>parent_account_other_prof_prosition_type__c</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
         </quickActionLayoutColumns>
     </quickActionLayout>
-    <standardLabel>NewRecordType</standardLabel>
+    <standardLabel>New</standardLabel>
     <targetObject>Contact</targetObject>
     <targetParentField>Account</targetParentField>
     <type>Create</type>

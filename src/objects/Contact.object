@@ -145,6 +145,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>parent_account_assignment__c</controllingField>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -158,6 +159,14 @@
                     <label>Sí</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>Si</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -178,6 +187,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>parent_account_assignment__c</controllingField>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -216,7 +226,7 @@
                     <default>false</default>
                     <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
                 </value>
-				<value>
+                <value>
                     <fullName>GERENTE DE ADMINISTRACION</fullName>
                     <default>false</default>
                     <label>GERENTE DE ADMINISTRACION</label>
@@ -281,7 +291,89 @@
                     <default>false</default>
                     <label>OTROS</label>
                 </value>
+                <value>
+                    <fullName>Value 1</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Value 1</label>
+                </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>ACCIONISTA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>PRESIDENTE DE DIRECTORIO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>APODERADO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>DIRECTORIO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE GENERAL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE FINANZAS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE ADMINISTRACION Y FINANZAS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE RRHH</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE COMERCIAL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE OPERACIONES</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>GERENTE DE CONTABILIDAD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE FINANZAS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE TESORERIA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE ADMINISTRACION Y FINANZAS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE ADMINISTRACIÓN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>JEFE DE CONTABILIDAD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>ADMINISTRADOR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>ASISTENTE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Si</controllingFieldValue>
+                <valueName>OTROS</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -727,7 +819,7 @@
     <fields>
         <fullName>Formula_Fecha_de_nacimiento__c</fullName>
         <externalId>false</externalId>
-        <formula>text(Birthdate)</formula>
+        <formula>text(DAY(Birthdate))+"-" +TEXT(MONTH(Birthdate))+"-" +TEXT(YEAR(Birthdate))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Fecha de nacimiento</label>
         <required>false</required>
@@ -760,27 +852,6 @@
             <value>1</value>
         </filters>
         <label>My Contacts</label>
-    </listViews>
-    <listViews>
-        <fullName>Mis_Contactos_No_Cliente</fullName>
-        <columns>FULL_NAME</columns>
-        <columns>Formula_Cliente__c</columns>
-        <columns>prof_position_type__c</columns>
-        <columns>CONTACT.EMAIL</columns>
-        <columns>CONTACT.PHONE3</columns>
-        <columns>Formula_Fecha_de_nacimiento__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>account_type__c</field>
-            <operation>equals</operation>
-            <value>No Client</value>
-        </filters>
-        <filters>
-            <field>primary_account_owner__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>Mis contactos no clientes</label>
     </listViews>
 	<validationRules>
         <fullName>Contact_Validation_Rule_Mobile</fullName>
@@ -880,4 +951,5 @@
         <errorDisplayField>Salutation</errorDisplayField>
         <errorMessage>Please, select the Salutation.</errorMessage>
     </validationRules>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
