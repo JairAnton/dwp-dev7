@@ -1,4 +1,5 @@
 public with sharing class AccountContactParentAssociation {
+public static boolean uContact= true;
     
     /**
      * Method for set values in AccountContactRelation records.
@@ -17,7 +18,9 @@ public with sharing class AccountContactParentAssociation {
                     );
             lstAccountContactRelationUpdated.add(objAccountContactRelation2);
         }
+       
         update lstAccountContactRelationUpdated;
+         
     }
 
     /**
@@ -37,7 +40,9 @@ public with sharing class AccountContactParentAssociation {
                     objContact.other_prof_prosition_type__c = objAccountContactRelation.other_prof_prosition_type__c;
                     objContact.decision_making_desc__c = objAccountContactRelation.decision_making_desc__c;
                 }
-                update lstContact;
+                if(uContact){
+               update lstContact;
+                }
             }
         }
     }  
