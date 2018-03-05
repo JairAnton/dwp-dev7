@@ -11,11 +11,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>bank_classification_date__c</field>
+                <field>year_month_day_date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>bbva_customer_classification_id__c</field>
+                <field>bbva_classification_type__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -25,7 +25,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>bbva_customer_classification_desc__c</field>
+                <field>bbva_classification_desc__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -65,9 +65,9 @@
     </layoutSections>
     <miniLayout>
         <fields>account_id__c</fields>
-        <fields>bbva_customer_classification_desc__c</fields>
-        <fields>bank_classification_date__c</fields>
-        <fields>bbva_customer_classification_id__c</fields>
+        <fields>bbva_classification_desc__c</fields>
+        <fields>year_month_day_date__c</fields>
+        <fields>bbva_classification_type__c</fields>
     </miniLayout>
     <platformActionList>
         <actionListContext>Record</actionListContext>

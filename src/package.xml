@@ -216,10 +216,10 @@
         <members>Account.watchlist_calif_id__c</members>
         <members>Account.working_capital_number__c</members>
         <members>Account_BBVA_Classification__c.account_id__c</members>
-        <members>Account_BBVA_Classification__c.bank_classification_date__c</members>
-        <members>Account_BBVA_Classification__c.bbva_customer_classification_desc__c</members>
-        <members>Account_BBVA_Classification__c.bbva_customer_classification_id__c</members>
+        <members>Account_BBVA_Classification__c.bbva_classification_desc__c</members>
+        <members>Account_BBVA_Classification__c.bbva_classification_type__c</members>
         <members>Account_BBVA_Classification__c.unique_id__c</members>
+        <members>Account_BBVA_Classification__c.year_month_day_date__c</members>
 		<members>Account.Owner_calculated__c</members>
         <name>CustomField</name>
     </types>
