@@ -491,7 +491,7 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>Telefono 1</value>
+            <value>Teléfono 1</value>
         </caseValues>
         <gender>Masculine</gender>
         <name>phone_account</name>
@@ -550,11 +550,11 @@
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
     <fields>
-        <label>Buro</label>
+        <label>Buró</label>
         <name>bureau_classification_type__c</name>
     </fields>
     <fields>
-        <label>Buro fecha</label>
+        <label>Buró fecha</label>
         <name>bureau_date__c</name>
     </fields>
     <fields>
@@ -658,7 +658,7 @@
         <name>net_cash_desc__c</name>
     </fields>
     <fields>
-        <label>Telefono 2</label>
+        <label>Teléfono 2</label>
         <name>other_phone_number__c</name>
     </fields>
     <fields>
