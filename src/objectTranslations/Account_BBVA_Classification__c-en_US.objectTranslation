@@ -14,16 +14,8 @@
         <relationshipLabel><!-- Account BBVA Classifications --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Classification date --></label>
-        <name>bank_classification_date__c</name>
-    </fields>
-    <fields>
         <label><!-- Classification --></label>
         <name>bbva_customer_classification_desc__c</name>
-    </fields>
-    <fields>
-        <label><!-- Classification code --></label>
-        <name>bbva_customer_classification_id__c</name>
     </fields>
     <fields>
         <label><!-- Unique identifier --></label>
