@@ -58,6 +58,7 @@
         <members>Override_Standard_Button_Message__mdt</members>
         <members>AccountContactRelation</members>
         <members>Account</members>
+        <members>Contact</members>
         <members>Account_BBVA_Classification__c</members>        
         <name>CustomObject</name>
     </types>
