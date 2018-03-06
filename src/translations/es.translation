@@ -20,7 +20,111 @@
         <label>Aviso</label>
         <name>Warning</name>
     </customLabels>
-	 <quickActions>
+	<customLabels>
+        <label>Activo</label>
+        <name>AccountAccountingType1</name>
+    </customLabels>
+    <customLabels>
+        <label>Pasivo</label>
+        <name>AccountAccountingType2</name>
+    </customLabels>
+    <customLabels>
+        <label>Estado de ganancias y pérdidas</label>
+        <name>AccountAccountingType3</name>
+    </customLabels>
+    <customLabels>
+        <label>Patrimonio</label>
+        <name>AccountAccountingType4</name>
+    </customLabels>
+    <customLabels>
+        <label>Recursos gestionados</label>
+        <name>AccountBBVAResourcesTotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Información no disponible</label>
+        <name>AccountNoData</name>
+    </customLabels>
+    <customLabels>
+        <label>Activos</label>
+        <name>AccountProductClassification1</name>
+    </customLabels>
+    <customLabels>
+        <label>Pasivos</label>
+        <name>AccountProductClassification2</name>
+    </customLabels>
+    <customLabels>
+        <label>Pagos</label>
+        <name>AccountProductClassification3</name>
+    </customLabels>
+    <customLabels>
+        <label>Pagos</label>
+        <name>AccountProductClassification4</name>
+    </customLabels>
+    <customLabels>
+        <label>Bxl</label>
+        <name>AccountProductClassification5</name>
+    </customLabels>
+    <customLabels>
+        <label>Margen ordinario</label>
+        <name>AccountProfitabilityTotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Directa</label>
+        <name>AccountRankingClassification1</name>
+    </customLabels>
+    <customLabels>
+        <label>Indirecta</label>
+        <name>AccountRankingClassification2</name>
+    </customLabels>
+    <customLabels>
+        <label>Oct</label>
+        <name>Month10ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Nov</label>
+        <name>Month11ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Dic</label>
+        <name>Month12ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Ene</label>
+        <name>Month1ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Feb</label>
+        <name>Month2ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Mar</label>
+        <name>Month3ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Abr</label>
+        <name>Month4ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>May</label>
+        <name>Month5ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Jun</label>
+        <name>Month6ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Jul</label>
+        <name>Month7ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Ago</label>
+        <name>Month8ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Sep</label>
+        <name>Month9ShortName</name>
+    </customLabels>
+	<quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
     </quickActions>

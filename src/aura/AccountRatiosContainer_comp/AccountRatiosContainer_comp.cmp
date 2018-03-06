@@ -1,0 +1,52 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName">
+	<lightning:layout multipleRows="true">
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='6' size='6'>
+			<dwp_dv:DynamicDetailRow_Comp recordId="{!v.recordId}" 
+                                                      sObjectName="{!v.sObjectName}"
+                                                      fieldsToDisplay="sales_var_per__c,EBITDA_per__c,EBITDA_amount__c,cash_flow_amount__c,financial_debt_amount__c,structural_debt_amount__c"
+                                                      format=""
+                                     				  useSymbol="true"
+                                              		  positionCurrency="Left"
+               										  currencyLocale="false"
+                                                      cssClassName="Vertical_Grey"
+                                                      classSize="2 Column Span"
+                                     				  currencyDimension="None"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='6' size='6'>
+			<dwp_dv:DynamicDetailRow_Comp recordId="{!v.recordId}" 
+                                                      sObjectName="{!v.sObjectName}"
+                                                      fieldsToDisplay="collection_days_number__c,stock_days_number__c,payment_days_number__c,business_cycle_amount__c,fund_operational_needs_amount__c"
+                                                      format=""
+                                     				  useSymbol="true"
+                                              		  positionCurrency="Left"
+               										  currencyLocale="false"
+                                                      cssClassName="Vertical_Grey"
+                                                      classSize="2 Column Span"
+                                     				  currencyDimension="None"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='6' size='6'>
+			<dwp_dv:DynamicDetailRow_Comp recordId="{!v.recordId}" 
+                                                      sObjectName="{!v.sObjectName}"
+                                                      fieldsToDisplay="payback_amount__c,debt_EBITDA_per__c,dfb_sales_per__c,ROA_per__c,ROE_per__c"
+                                                      format=""
+                                     				  useSymbol="true"
+                                              		  positionCurrency="Left"
+               										  currencyLocale="false"
+                                                      cssClassName="Vertical_Grey"
+                                                      classSize="2 Column Span"
+                                     				  currencyDimension="None"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='6' size='6'>
+			<dwp_dv:DynamicDetailRow_Comp recordId="{!v.recordId}" 
+                                                      sObjectName="{!v.sObjectName}"
+                                                      fieldsToDisplay="ownership_grade_per__c,working_capital_number__c,acid_liquidity_number__c"
+                                                      format=""
+                                     				  useSymbol="true"
+                                              		  positionCurrency="Left"
+               										  currencyLocale="false"
+                                                      cssClassName="Vertical_Grey"
+                                                      classSize="2 Column Span"
+                                     				  currencyDimension="None"/>
+        </lightning:layoutItem>
+	</lightning:layout>
+</aura:component>
