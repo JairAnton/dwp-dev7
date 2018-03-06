@@ -258,7 +258,7 @@
         <editable>true</editable>
         <field>Contact.Description</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>User_Branch__c.Primary__c</field>
@@ -683,7 +683,32 @@
         <editable>false</editable>
         <field>Account.Owner_calculated__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Indicator__c.indicator_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Indicator__c.indicator_num__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Indicator__c.indicator_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Indicator__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Indicator__c.year_month_day_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
@@ -712,7 +737,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_BBVA_Classification__c-Account BBVA Classification Layout</layout>
-    </layoutAssignments>    
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Indicator__c-Account Indicator Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
        <allowCreate>false</allowCreate>
        <allowDelete>false</allowDelete>
@@ -757,7 +785,7 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account_BBVA_Classification__c</object>
         <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>    
+    </objectPermissions>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
@@ -787,7 +815,11 @@
     <tabVisibilities>
         <tab>Account_BBVA_Classification__c</tab>
         <visibility>Hidden</visibility>
-    </tabVisibilities>    
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Account_Indicator__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>false</enabled>

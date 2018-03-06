@@ -48,7 +48,8 @@
         <members>Account_Record_Page_Group</members>
         <members>Contact_Record_Page</members>
         <members>User_Branch_LightningPage</members>
-        <members>Account_Bank_Classification_Record_Page</members>        
+        <members>Account_Bank_Classification_Record_Page</members>
+        <members>Account_Indicator_Record_Page</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -59,7 +60,7 @@
         <members>AccountContactRelation</members>
         <members>Account</members>
         <members>Contact</members>
-        <members>Account_BBVA_Classification__c</members>        
+        <members>Account_BBVA_Classification__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -71,7 +72,9 @@
         <members>AccountContactRelation-es</members>
         <members>Account-es</members>
         <members>Account_BBVA_Classification__c-en_US</members>
-        <members>Account_BBVA_Classification__c-es</members>        
+        <members>Account_BBVA_Classification__c-es</members>
+        <members>Account_Indicator__c-en_US</members>
+        <members>Account_Indicator__c-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -84,7 +87,8 @@
         <members>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</members>
         <members>User_Branch__c-User_Branch Layout</members>
         <members>AccountContactRelation-Account Contact Relationship Layout</members>
-        <members>Account_BBVA_Classification__c-Account BBVA Classification Layout</members>        
+        <members>Account_BBVA_Classification__c-Account BBVA Classification Layout</members>
+        <members>Account_Indicator__c-Account Indicator Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -220,13 +224,20 @@
         <members>Account_BBVA_Classification__c.bbva_classification_type__c</members>
         <members>Account_BBVA_Classification__c.unique_id__c</members>
         <members>Account_BBVA_Classification__c.year_month_day_date__c</members>
-		<members>Account.Owner_calculated__c</members>
+        <members>Account.Owner_calculated__c</members>
+        <members>Account_Indicator__c.account_id__c</members>
+        <members>Account_Indicator__c.indicator_name__c</members>
+        <members>Account_Indicator__c.indicator_num__c</members>
+        <members>Account_Indicator__c.indicator_type__c</members>
+        <members>Account_Indicator__c.unique_id__c</members>
+        <members>Account_Indicator__c.year_month_day_date__c</members>
         <name>CustomField</name>
     </types>
     <types>
         <members>Branch__c</members>
         <members>User_Branch__c</members>
-        <members>Account_BBVA_Classification__c</members>        
+        <members>Account_BBVA_Classification__c</members>
+        <members>Account_Indicator__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -236,7 +247,7 @@
         <members>User_Branch__c.All</members>
         <members>Account.AllAccounts</members>
         <members>Account.MyAccounts</members>
-        <members>Account_BBVA_Classification__c.All</members>        
+        <members>Account_BBVA_Classification__c.All</members>
         <name>ListView</name>
     </types>
     <types>
