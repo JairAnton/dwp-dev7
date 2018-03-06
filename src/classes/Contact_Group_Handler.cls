@@ -4,7 +4,7 @@
  * Created date : Feb 14 2018
  * Developer name: Julio Medellín Oliva Indra(México)
 --------------------------------------------------------------------------*/
-public class Contact_Group_Handler {
+public with sharing class Contact_Group_Handler {
     
     public static void setDefaultCurrency(list<Contact> Contacts){
         for(Contact c : Contacts){    
@@ -22,7 +22,7 @@ public class Contact_Group_Handler {
         }
 
             for(Contact c : Contacts){  
-            if((c.parent_account_assignment__c=='Si') && (MapAccount.get(c.AccountId) != null)){  
+            if((c.parent_account_assignment__c==Label.assignationApproval) && (MapAccount.get(c.AccountId) != null)){  
             AccountContactRelation	 acr = new AccountContactRelation(
             AccountId= MapAccount.get(c.AccountId),
             ContactId=c.id,
@@ -34,5 +34,19 @@ public class Contact_Group_Handler {
       
         insert accs;
     }
-
+    
+    
+    public static void updateGroupContact(list<Contact> Contacts){
+       list<AccountContactRelation> accs = new list<AccountContactRelation>();
+       list<Id>ContactsIds = new list<Id>();
+            for(Contact c : Contacts){  
+             ContactsIds.add(c.Id);
+            }               
+        accs = [SELECT ID,AccountId,ContactId,isDirect, prof_position_type__c, other_prof_prosition_type__c, decision_making_desc__c from AccountContactRelation WHERE ContactId in : ContactsIDs AND IsDirect = true];
+        AccountContactParentAssociation.ucontact=false;
+        AccountContactParentAssociation.setValuesRelation(accs);
+        
+      }
+      
+      
 }
