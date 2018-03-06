@@ -714,6 +714,31 @@
         <field>Account.Owner_calculated__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Indicator__c.indicator_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Indicator__c.indicator_num__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Indicator__c.indicator_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Indicator__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Indicator__c.year_month_day_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Branch__c-Branch_Layout</layout>
     </layoutAssignments>
@@ -739,7 +764,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_BBVA_Classification__c-Account BBVA Classification Layout</layout>
-    </layoutAssignments>    
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Indicator__c-Account Indicator Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -784,7 +812,7 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account_BBVA_Classification__c</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>    
+    </objectPermissions>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
@@ -814,7 +842,11 @@
     <tabVisibilities>
         <tab>Account_BBVA_Classification__c</tab>
         <visibility>DefaultOff</visibility>
-    </tabVisibilities>    
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Account_Indicator__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>false</enabled>

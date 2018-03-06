@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Indicador</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Indicadores</value>
+    </caseValues>
+    <fields>
+        <label>Cliente</label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Indicators --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Descripción del indicador</label>
+        <name>indicator_name__c</name>
+    </fields>
+    <fields>
+        <label>Indicador</label>
+        <name>indicator_num__c</name>
+    </fields>
+    <fields>
+        <label>Tipo de indentificador</label>
+        <name>indicator_type__c</name>
+    </fields>
+    <fields>
+        <label>Identificador único</label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label>Fecha</label>
+        <name>year_month_day_date__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Account Indicator Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Referencia</nameFieldLabel>
+</CustomObjectTranslation>
