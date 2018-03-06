@@ -1,0 +1,96 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName">
+	<lightning:layout multipleRows="true">
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='12' size='12' >
+			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+                                                      sObjectName="{!v.sObjectName}"
+                                                      Type="Matrix"
+                                                      customLabelAPInameError="AccountNoData"
+                                                      showTitle="true"
+                                                      reportTitleAPI="AccountAccountingType1"
+                                                      Object="Account_Accounting__c"
+                                                      RelatedField="account_id__c"
+                                                      Header="gl_account_amount__c,gl_account_per__c"
+                                                      Format='CUR,%'
+                                                      FilterStatic="l1_gl_account_desc__c = '01'"
+                                                      Order="l2_gl_account_order__c ASC, l3_gl_account_order__c ASC, year_month_day_date__c ASC"
+                                                      Group="l2_gl_account_desc__c,l3_gl_account_desc__c"
+                                                      HeaderGroup="period__c"
+                                                      hidenSubHeadMatrix="true"
+                                                      Collapsed="true"
+                                                      CollapsedDefault="true"
+                                                      Summarize="SUM,AVG"
+                                                      showTotal="true"
+                                                      Symbol="true"
+                                                      PositionCurrency="Left"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='12' size='12' >
+			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+                                                      sObjectName="{!v.sObjectName}"
+                                                      Type="Matrix"
+                                                      customLabelAPInameError="AccountNoData"
+                                                      showTitle="true"
+                                                      reportTitleAPI="AccountAccountingType2"
+                                                      Object="Account_Accounting__c"
+                                                      RelatedField="account_id__c"
+                                                      Header="gl_account_amount__c,gl_account_per__c"
+                                                      Format='CUR,%'
+                                                      FilterStatic="l1_gl_account_desc__c = '02'"
+                                                      Order="l2_gl_account_order__c ASC, l3_gl_account_order__c ASC,year_month_day_date__c ASC"
+                                                      Group="l2_gl_account_desc__c,l3_gl_account_desc__c"
+                                                      HeaderGroup="period__c"
+                                                      hidenSubHeadMatrix="true"
+                                                      Collapsed="true"
+                                                      CollapsedDefault="true"
+                                                      Summarize="SUM,AVG"
+                                                      showTotal="true"
+                                                      Symbol="true"
+                                                      PositionCurrency="Left"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='12' size='12'>
+            <dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+                                                      sObjectName="{!v.sObjectName}"
+                                                      Type="Matrix"
+                                                      customLabelAPInameError="AccountNoData"
+                                                      showTitle="true"
+                                                      reportTitleAPI="AccountAccountingType4"
+                                                      Object="Account_Accounting__c"
+                                                      RelatedField="account_id__c"
+                                                      Header="gl_account_amount__c,gl_account_per__c"
+                                                      Format='CUR,%'
+                                                      FilterStatic="l1_gl_account_desc__c = '04'"
+                                                      Order="l2_gl_account_order__c ASC, l3_gl_account_order__c ASC,year_month_day_date__c ASC"
+                                                      Group="l2_gl_account_desc__c,l3_gl_account_desc__c"
+                                                      HeaderGroup="period__c"
+                                                      hidenSubHeadMatrix="true"
+                                                      Collapsed="true"
+                                                      CollapsedDefault="true"
+                                                      Summarize="SUM,AVG"
+                                                      showTotal="true"
+                                                      Symbol="true"
+                                                      PositionCurrency="Left"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='12' size='12' >
+           <dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+                                                      sObjectName="{!v.sObjectName}"
+                                                      Type="Matrix"
+                                                      customLabelAPInameError="AccountNoData"
+                                                      showTitle="true"
+                                                      reportTitleAPI="AccountAccountingType3"
+                                                      Object="Account_Accounting__c"
+                                                      RelatedField="account_id__c"
+                                                      Header="gl_account_amount__c,gl_account_per__c"
+                                                      Format='CUR,%'
+                                                      FilterStatic="l1_gl_account_desc__c = '03'"
+                                                      Order="l2_gl_account_order__c ASC, l3_gl_account_order__c ASC,year_month_day_date__c ASC"
+                                                      Group="l2_gl_account_desc__c,l3_gl_account_desc__c"
+                                                      HeaderGroup="period__c"
+                                                      hidenSubHeadMatrix="true"
+                                                      Collapsed="true"
+                                                      CollapsedDefault="true"
+                                                      Summarize="SUM,AVG"
+                                                      showTotal="true"
+                                                      Symbol="true"
+                                                      PositionCurrency="Left"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

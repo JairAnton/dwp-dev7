@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Resumen Información SBS</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Resumen Información SBS</value>
+    </caseValues>
+    <fields>
+        <label>Cliente</label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Banking System Debt Summary --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Mes actual vs. Diciembre</label>
+        <name>debt_current_vs_dec_balance_amount__c</name>
+    </fields>
+    <fields>
+        <label>Mes actual vs. Mes anterior</label>
+        <name>debt_current_vs_previous_balance_amount__c</name>
+    </fields>
+    <fields>
+        <label>Clasificación</label>
+        <name>l2_product_group_name__c</name>
+    </fields>
+    <fields>
+        <label>Impacto quota</label>
+        <name>quote_impact_desc__c</name>
+    </fields>
+    <fields>
+        <label>Identificador único</label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label>Fecha</label>
+        <name>year_month_day_date__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Referencia</nameFieldLabel>
+</CustomObjectTranslation>
