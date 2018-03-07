@@ -95,6 +95,7 @@
         <members>Account_Rating_Record_Page</members>
         <members>Account_Record_Page_Account</members>
         <members>Account_Renewals_Record_Page</members>
+        <members>Account_Banking_System_Classification</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -117,6 +118,7 @@
         <members>Account_Profitability__c</members>
         <members>Account_Rating__c</members>
         <members>Account_Renewals__c</members>
+        <members>Account_Banking_System_Classification__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -447,6 +449,7 @@
         <members>Account_Profitability__c</members>
         <members>Account_Rating__c</members>
         <members>Account_Renewals__c</members>
+        <members>Account_Banking_System_Classification__c</members>
         <name>CustomTab</name>
     </types>
     <types>
