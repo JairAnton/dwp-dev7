@@ -529,12 +529,13 @@
         <members>Account_Reports</members>
         <members>Account_Reports/Account_Billing</members>
         <members>Account_Reports/Account_Spread</members>
-        <members>Account_Reports/Account_Credit_Bureau</members>        
+        <members>Account_Reports/Account_Credit_Bureau</members>
+        <members>Account_Reports/Account_Risk_Strategy</members>
         <name>Report</name>
     </types>
     <types>
         <members>Account_with_Account_Indicator</members>
         <name>ReportType</name>
-    </types>    
+    </types>
     <version>41.0</version>
 </Package>
