@@ -16,7 +16,7 @@
         <members>NewContactWarning</members>
         <members>Warning</members>
         <members>assignationApproval</members>
-		<members>AccountAccountingType1</members>
+        <members>AccountAccountingType1</members>
         <members>AccountAccountingType2</members>
         <members>AccountAccountingType3</members>
         <members>AccountAccountingType4</members>
@@ -67,7 +67,7 @@
         <members>Hangouts_cmp</members>
         <members>ModalTemplate_cmp</members>
         <members>OverrideStandardButtonMessage_cmp</members>
-		<members>AccountAccountingContainer_comp</members>
+        <members>AccountAccountingContainer_comp</members>
         <members>AccountBankingSystemDebtQuoteContainer_comp</members>
         <members>AccountBankingSystemRankingContainer_comp</members>
         <members>AccountFlashContainer_comp</members>
@@ -84,7 +84,7 @@
         <members>User_Branch_LightningPage</members>
         <members>Account_Bank_Classification_Record_Page</members>
         <members>Account_Indicator_Record_Page</members>
-		<members>Account_Accounting_Record_Page</members>
+        <members>Account_Accounting_Record_Page</members>
         <members>Account_BBVA_Information_Record_Page</members>
         <members>Account_Banking_System_Debt_Record_Page</members>
         <members>Account_Banking_System_Debt_Summary_Record_Page</members>
@@ -107,7 +107,7 @@
         <members>Contact</members>
         <members>Account_BBVA_Classification__c</members>
         <members>Account_Indicator__c</members>
-		<members>Account_Accounting__c</members>
+        <members>Account_Accounting__c</members>
         <members>Account_BBVA_Information__c</members>
         <members>Account_Banking_System_Debt_Summary__c</members>
         <members>Account_Banking_System_Debt__c</members>
@@ -131,7 +131,7 @@
         <members>Account_BBVA_Classification__c-es</members>
         <members>Account_Indicator__c-en_US</members>
         <members>Account_Indicator__c-es</members>
-		<members>Account_Accounting__c-en_US</members>
+        <members>Account_Accounting__c-en_US</members>
         <members>Account_Accounting__c-es</members>
         <members>Account_BBVA_Information__c-en_US</members>
         <members>Account_BBVA_Information__c-es</members>
@@ -165,7 +165,7 @@
         <members>AccountContactRelation-Account Contact Relationship Layout</members>
         <members>Account_BBVA_Classification__c-Account BBVA Classification Layout</members>
         <members>Account_Indicator__c-Account Indicator Layout</members>
-		<members>Account_Accounting__c-Account Accounting Layout</members>
+        <members>Account_Accounting__c-Account Accounting Layout</members>
         <members>Account_BBVA_Information__c-Account BBVA Information Layout</members>
         <members>Account_Banking_System_Debt_Summary__c-Account Banking System Debt Summary Layout</members>
         <members>Account_Banking_System_Debt__c-Account Banking System Debt Layout</members>
@@ -316,7 +316,7 @@
         <members>Account_Indicator__c.indicator_type__c</members>
         <members>Account_Indicator__c.unique_id__c</members>
         <members>Account_Indicator__c.year_month_day_date__c</members>
-		<members>Account.empty_value__c</members>
+        <members>Account.empty_value__c</members>
         <members>Account_Accounting__c.account_id__c</members>
         <members>Account_Accounting__c.gl_account_amount__c</members>
         <members>Account_Accounting__c.gl_account_per__c</members>
@@ -430,7 +430,7 @@
         <members>User_Branch__c</members>
         <members>Account_BBVA_Classification__c</members>
         <members>Account_Indicator__c</members>
-		<members>Account_Accounting__c</members>
+        <members>Account_Accounting__c</members>
         <members>Account_BBVA_Information__c</members>
         <members>Account_Banking_System_Debt_Summary__c</members>
         <members>Account_Banking_System_Debt__c</members>
@@ -450,7 +450,7 @@
         <members>Account.AllAccounts</members>
         <members>Account.MyAccounts</members>
         <members>Account_BBVA_Classification__c.All</members>
-		<members>Account_Accounting__c.All</members>
+        <members>Account_Accounting__c.All</members>
         <members>Account_BBVA_Information__c.All</members>
         <members>Account_Banking_System_Debt_Summary__c.All</members>
         <members>Account_Banking_System_Debt__c.All</members>
@@ -525,11 +525,17 @@
         <members>White_Circle_Icon</members>
         <name>StaticResource</name>
     </types>
-	<types>
+    <types>
         <members>Account_Reports</members>
         <members>Account_Reports/Account_Billing</members>
         <members>Account_Reports/Account_Spread</members>
+        <members>Account_Reports/Account_Credit_Bureau</members>
+        <members>Account_Reports/Account_Risk_Strategy</members>
         <name>Report</name>
+    </types>
+    <types>
+        <members>Account_with_Account_Indicator</members>
+        <name>ReportType</name>
     </types>
     <version>41.0</version>
 </Package>
