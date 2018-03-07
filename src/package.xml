@@ -178,6 +178,7 @@
         <members>Account_Profitability__c-Account_Profitability Layout</members>
         <members>Account_Rating__c-Account Rating Layout</members>
         <members>Account_Renewals__c-Account Renewals Layout</members>
+        <members>Account_Banking_System_Classification__c-Formato Account Banking System Classification</members>
         <name>Layout</name>
     </types>
     <types>
