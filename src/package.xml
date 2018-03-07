@@ -59,7 +59,8 @@
         <members>AccountContactRelation</members>
         <members>Account</members>
         <members>Contact</members>
-        <members>Account_BBVA_Classification__c</members>        
+        <members>Account_BBVA_Classification__c</members>
+        <members>Account_Banking_System_Classification__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -71,7 +72,8 @@
         <members>AccountContactRelation-es</members>
         <members>Account-es</members>
         <members>Account_BBVA_Classification__c-en_US</members>
-        <members>Account_BBVA_Classification__c-es</members>        
+        <members>Account_BBVA_Classification__c-es</members>
+        <members>Account_Banking_System_Classification__c-es</members>  
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -221,6 +223,12 @@
         <members>Account_BBVA_Classification__c.unique_id__c</members>
         <members>Account_BBVA_Classification__c.year_month_day_date__c</members>
 		<members>Account.Owner_calculated__c</members>
+        <members>Account_Banking_System_Classification__c.Unique_Id__c</members>
+        <members>Account_Banking_System_Classification__c.account_id__c</members>
+        <members>Account_Banking_System_Classification__c.banking_system_classification_desc__c</members>
+        <members>Account_Banking_System_Classification__c.banking_system_classification_quota_per__c</members>
+        <members>Account_Banking_System_Classification__c.banking_system_classification_type__c</members>
+        <members>Account_Banking_System_Classification__c.year_month_day_date__c</members>
         <name>CustomField</name>
     </types>
     <types>

@@ -6,10 +6,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>Hangout_ctrl</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>Hangout_ctrl_TEST</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -22,6 +18,18 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountContactParentAssociation</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountContact_Handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountContact_Handler_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Contact_Group_Handler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -30,7 +38,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AccountContact_Handler</apexClass>
+        <apexClass>Contact_Handler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -681,6 +689,31 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.Unique_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.banking_system_classification_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.banking_system_classification_quota_per__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.banking_system_classification_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.year_month_day_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.watchlist_calif_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -712,6 +745,31 @@
 	<fieldPermissions>
         <editable>false</editable>
         <field>Account.Owner_calculated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.Unique_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.banking_system_classification_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.banking_system_classification_quota_per__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.banking_system_classification_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Banking_System_Classification__c.year_month_day_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
@@ -784,7 +842,16 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account_BBVA_Classification__c</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>    
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Account_Banking_System_Classification__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>       
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
@@ -814,7 +881,11 @@
     <tabVisibilities>
         <tab>Account_BBVA_Classification__c</tab>
         <visibility>DefaultOff</visibility>
-    </tabVisibilities>    
+    </tabVisibilities> 
+    <tabVisibilities>
+        <tab>Account_Banking_System_Classification__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>   
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>false</enabled>
