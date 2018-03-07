@@ -299,8 +299,8 @@
         <field>User_Branch__c.user_prof_position_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
+  <fieldPermissions>
+        <editable>false</editable>
         <field>AccountContactRelation.Contact_Primary_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -312,6 +312,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>AccountContactRelation.other_prof_prosition_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AccountContactRelation.prof_prosition_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
