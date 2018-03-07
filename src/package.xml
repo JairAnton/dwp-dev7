@@ -53,7 +53,9 @@
         <members>Hangout_ctrl_TEST</members>
         <members>OverrideButtonMessage_ctrl</members>
         <members>OverrideButtonMessage_ctrl_TEST</members>
+        <members>AccountContactParentAssociation</members>
         <members>AccountContact_Handler</members>
+        <members>AccountContact_Handler_TEST</members>
         <members>Contact_Group_Handler</members>
         <members>Contact_Group_Handler_test</members>
         <members>AccountContact_Handler_TEST</members>
