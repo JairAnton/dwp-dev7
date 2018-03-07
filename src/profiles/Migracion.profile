@@ -1522,7 +1522,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Account_Banking_System_Classification__c</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>    
     <userLicense>Salesforce</userLicense>
     <userPermissions>
