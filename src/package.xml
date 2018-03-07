@@ -247,7 +247,6 @@
         <members>AccountContactRelation.decision_making_desc__c</members>
         <members>AccountContactRelation.prof_position_type__c</members>
         <members>AccountContactRelation.other_prof_prosition_type__c</members>
-        <members>AccountContactRelation.other_prof_prosition_type__c</members>
         <members>Contact.Formula_Cliente__c</members>
         <members>Contact.Formula_Fecha_de_nacimiento__c</members>
         <members>Account.EBITDA_amount__c</members>
