@@ -151,6 +151,7 @@
         <members>Account_Rating__c-es</members>
         <members>Account_Renewals__c-en_US</members>
         <members>Account_Renewals__c-es</members>
+        <members>Account_Banking_System_Classification__c-es</members>  
         <name>CustomObjectTranslation</name>
     </types>
     <types>
