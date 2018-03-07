@@ -1489,7 +1489,6 @@
         <object>Account_Indicator__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -1573,7 +1572,6 @@
         <tab>Account_Renewals__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    </tabVisibilities> 
     <tabVisibilities>
         <tab>Account_Banking_System_Classification__c</tab>
         <visibility>Hidden</visibility>
