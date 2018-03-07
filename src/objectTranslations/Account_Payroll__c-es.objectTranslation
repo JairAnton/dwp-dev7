@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Pago de Haberes</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pagos de Haberes</value>
+    </caseValues>
+    <fields>
+        <label>Cliente</label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Payrolls --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Empleados</label>
+        <name>employees_number__c</name>
+    </fields>
+    <fields>
+        <label>PH</label>
+        <name>payroll_amount__c</name>
+    </fields>
+    <fields>
+        <label>Cuota</label>
+        <name>payroll_quota_amount__c</name>
+    </fields>
+    <fields>
+        <label>Var Sem</label>
+        <name>payroll_var_month_amount__c</name>
+    </fields>
+    <fields>
+        <label>Período</label>
+        <name>period__c</name>
+    </fields>
+    <fields>
+        <label>PH Cal</label>
+        <name>qualified_payroll_amount__c</name>
+    </fields>
+    <fields>
+        <label>Indentificador único</label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label>Fecha</label>
+        <name>year_month_day_date__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Referencia</nameFieldLabel>
+</CustomObjectTranslation>

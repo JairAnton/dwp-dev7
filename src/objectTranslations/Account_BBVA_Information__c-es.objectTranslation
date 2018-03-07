@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Información BBVA</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Información BBVA</value>
+    </caseValues>
+    <fields>
+        <label>Cliente</label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account BBVA Information --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>SM</label>
+        <name>average_balance_amount__c</name>
+    </fields>
+    <fields>
+        <label>SP</label>
+        <name>current_balance_amount__c</name>
+    </fields>
+    <fields>
+        <label>Var día</label>
+        <name>current_balance_var_day_amount__c</name>
+    </fields>
+    <fields>
+        <label>Var mes</label>
+        <name>current_balance_var_month_amount__c</name>
+    </fields>
+    <fields>
+        <label>Var trimestre</label>
+        <name>current_balance_var_quart_amount__c</name>
+    </fields>
+    <fields>
+        <label>Var año</label>
+        <name>current_balance_var_year_amount__c</name>
+    </fields>
+    <fields>
+        <label>Producto</label>
+        <name>product_desc__c</name>
+    </fields>
+    <fields>
+        <label>Orden producto</label>
+        <name>product_desc_order__c</name>
+    </fields>
+    <fields>
+        <label>Clasificación</label>
+        <name>product_group_classification_id__c</name>
+    </fields>
+    <fields>
+        <label>Orden clasificación</label>
+        <name>product_group_classification_order__c</name>
+    </fields>
+    <fields>
+        <label>Tipo</label>
+        <name>type__c</name>
+    </fields>
+    <fields>
+        <label>Indentificador único</label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label>Fecha</label>
+        <name>year_month_day_date__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Referencia</nameFieldLabel>
+</CustomObjectTranslation>
