@@ -491,7 +491,7 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>Telefono 1</value>
+            <value>Teléfono 1</value>
         </caseValues>
         <gender>Masculine</gender>
         <name>phone_account</name>
@@ -534,15 +534,15 @@
     </fields>
     <fields>
         <label>Clasificación SBS código</label>
-        <name>banking_system_classification_id__c</name>
+        <name>banking_system_classification_type__c</name>
     </fields>
     <fields>
         <label>Clasificación BBVA</label>
-        <name>bbva_customer_classification_desc__c</name>
+        <name>bbva_classification_desc__c</name>
     </fields>
     <fields>
         <label>Clasificación BBVA código</label>
-        <name>bbva_customer_classification_id__c</name>
+        <name>bbva_classification_type__c</name>
     </fields>
     <fields>
         <label>Oficina principal</label>
@@ -550,11 +550,11 @@
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
     <fields>
-        <label>Buro</label>
-        <name>bureau_code__c</name>
+        <label>Buró</label>
+        <name>bureau_classification_type__c</name>
     </fields>
     <fields>
-        <label>Buro fecha</label>
+        <label>Buró fecha</label>
         <name>bureau_date__c</name>
     </fields>
     <fields>
@@ -583,7 +583,7 @@
     </fields>
     <fields>
         <label>Vinculación descripción</label>
-        <name>commercial_strategy_desc__c</name>
+        <name>commercial_strategy_class_name__c</name>
     </fields>
     <fields>
         <label>Fecha antigüedad empresa</label>
@@ -643,7 +643,7 @@
     </fields>
     <fields>
         <label>Necesidades operativas de fondo</label>
-        <name>funds_operational_needs_amount__c</name>
+        <name>fund_operational_needs_amount__c</name>
     </fields>
     <fields>
         <label>Código central</label>
@@ -658,7 +658,7 @@
         <name>net_cash_desc__c</name>
     </fields>
     <fields>
-        <label>Telefono 2</label>
+        <label>Teléfono 2</label>
         <name>other_phone_number__c</name>
     </fields>
     <fields>
@@ -683,7 +683,7 @@
     </fields>
     <fields>
         <label>Estrategia</label>
-        <name>risk_strategy_desc__c</name>
+        <name>risk_strategy_class_name__c</name>
     </fields>
     <fields>
         <label>Var ventas</label>
@@ -716,6 +716,10 @@
     <fields>
         <label>Capital de trabajo</label>
         <name>working_capital_number__c</name>
+    </fields>
+	<fields>
+        <label>Gestor principal</label>
+        <name>Owner_calculated__c</name>
     </fields>
     <gender>Masculine</gender>
     <layouts>

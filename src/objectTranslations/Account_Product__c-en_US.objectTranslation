@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Product</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Products</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Products --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Classification --></label>
+        <name>product_classification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contracted --></label>
+        <name>product_contracted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contracted? --></label>
+        <name>product_contracted_calc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>product_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <nameFieldLabel><!-- Reference --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

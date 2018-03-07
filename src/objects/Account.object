@@ -278,7 +278,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>banking_system_classification_id__c</fullName>
+        <fullName>banking_system_classification_type__c</fullName>
         <externalId>false</externalId>
         <label>Banking system classification</label>
         <precision>18</precision>
@@ -289,7 +289,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>bbva_customer_classification_desc__c</fullName>
+        <fullName>bbva_classification_desc__c</fullName>
         <externalId>false</externalId>
         <label>BBVA classification desc</label>
         <length>255</length>
@@ -299,7 +299,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>bbva_customer_classification_id__c</fullName>
+        <fullName>bbva_classification_type__c</fullName>
         <externalId>false</externalId>
         <label>BBVA classification</label>
         <precision>18</precision>
@@ -322,7 +322,7 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>bureau_code__c</fullName>
+        <fullName>bureau_classification_type__c</fullName>
         <externalId>false</externalId>
         <label>Credit bureau</label>
         <precision>18</precision>
@@ -374,7 +374,7 @@
     <fields>
         <fullName>commercial_strategy__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE(UPPER(commercial_strategy_desc__c),&apos;BLANCO&apos;,IMAGE(&apos;/resource/White_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; BLANCO&apos;,&apos;PLOMO&apos;,IMAGE(&apos;/resource/Grey_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; PLOMO&apos;,&apos;CELESTE&apos;,IMAGE(&apos;/resource/Light_Blue_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; CELESTE&apos;,&apos;AZUL&apos;,IMAGE(&apos;/resource/Blue_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; AZUL&apos;,&apos;&apos;)</formula>
+        <formula>CASE(UPPER(commercial_strategy_class_name__c),&apos;BLANCO&apos;,IMAGE(&apos;/resource/White_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; BLANCO&apos;,&apos;PLOMO&apos;,IMAGE(&apos;/resource/Grey_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; PLOMO&apos;,&apos;CELESTE&apos;,IMAGE(&apos;/resource/Light_Blue_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; CELESTE&apos;,&apos;AZUL&apos;,IMAGE(&apos;/resource/Blue_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; AZUL&apos;,&apos;&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Commercial strategy</label>
         <required>false</required>
@@ -401,7 +401,7 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>commercial_strategy_desc__c</fullName>
+        <fullName>commercial_strategy_class_name__c</fullName>
         <externalId>false</externalId>
         <label>Commercial strategy description</label>
         <length>255</length>
@@ -543,7 +543,7 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>funds_operational_needs_amount__c</fullName>
+        <fullName>fund_operational_needs_amount__c</fullName>
         <externalId>false</externalId>
         <label>Operational funds needs</label>
         <precision>18</precision>
@@ -641,7 +641,7 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>risk_strategy_desc__c</fullName>
+        <fullName>risk_strategy_class_name__c</fullName>
         <externalId>false</externalId>
         <label>Strategy</label>
         <length>255</length>
@@ -731,23 +731,43 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
     </fields>
+	<fields>
+        <fullName>Owner_calculated__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( OwnerId ,  Owner.FirstName + &apos; &apos; +  Owner.LastName ,&apos;SELF&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Owner</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>empty_value__c</fullName>
+        <externalId>false</externalId>
+        <label>Empty value</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
+		<columns>PARENT_NAME</columns>
         <columns>main_code_id__c</columns>
-        <columns>PARENT_NAME</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
         <columns>segment_desc__c</columns>
         <columns>branch_id__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Owner_calculated__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Accounts</label>
     </listViews>
     <listViews>
         <fullName>MyAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
+		<columns>PARENT_NAME</columns>
         <columns>main_code_id__c</columns>
-        <columns>PARENT_NAME</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
         <columns>segment_desc__c</columns>
         <columns>branch_id__c</columns>
@@ -1276,34 +1296,34 @@
         <customTabListAdditionalFields>ACCOUNT.RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>segment_desc__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>branch_id__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CORE.USERS.ALIAS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Owner_calculated__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>main_code_id__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PARENT_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>main_code_id__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>segment_desc__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>branch_id__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Owner_calculated__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
-        <lookupFilterFields>main_code_id__c</lookupFilterFields>
         <lookupFilterFields>PARENT_NAME</lookupFilterFields>
+        <lookupFilterFields>main_code_id__c</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.RECORDTYPE</lookupFilterFields>
         <lookupFilterFields>segment_desc__c</lookupFilterFields>
         <lookupFilterFields>branch_id__c</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>main_code_id__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PARENT_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>main_code_id__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.RECORDTYPE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>segment_desc__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>branch_id__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>main_code_id__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PARENT_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>main_code_id__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>segment_desc__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>branch_id__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Owner_calculated__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
     <webLinks>

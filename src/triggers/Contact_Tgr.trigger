@@ -8,14 +8,17 @@ trigger Contact_Tgr on Contact (after insert,before insert,after update) {
     
     if(trigger.isBefore){
         if(trigger.isInsert){
-            Contact_Group_Handler.setDefaultCurrency(trigger.new);     
+            Contact_Handler.setDefaultCurrency(trigger.new);     
         }
          
     }
     
     if(trigger.isAfter){
         if(trigger.isInsert){
-            Contact_Group_Handler.createGroupContact(trigger.new);     
+            Contact_Handler.createGroupContact(trigger.new);     
+        }       
+         if(trigger.isUpdate){
+            Contact_Handler.updateGroupContact(trigger.new);     
         }
  
         if(trigger.isUpdate){

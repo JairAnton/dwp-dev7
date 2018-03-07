@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Banking System Debt Summary</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Banking System Debt Summary</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Banking System Debt Summary --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Current month vs December --></label>
+        <name>debt_current_vs_dec_balance_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current month vs Previous month --></label>
+        <name>debt_current_vs_previous_balance_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Classification --></label>
+        <name>l2_product_group_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Impact --></label>
+        <name>quote_impact_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>year_month_day_date__c</name>
+    </fields>
+    <nameFieldLabel><!-- Reference --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
