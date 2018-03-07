@@ -6,6 +6,10 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+     <apexClass>Hangout_ctrl</apexClass> 
+        <enabled>true</enabled> 
+    </classAccesses> 
+    <classAccesses> 
         <apexClass>Hangout_ctrl_TEST</apexClass>
         <enabled>true</enabled>
     </classAccesses>
