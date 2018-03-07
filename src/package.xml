@@ -424,6 +424,12 @@
         <members>Account_Renewals__c.product_subcategory_type__c</members>
         <members>Account_Renewals__c.product_subcategory_type_order__c</members>
         <members>Account_Renewals__c.unique_id__c</members>
+        <members>Account_Banking_System_Classification__c.Unique_Id__c</members>
+        <members>Account_Banking_System_Classification__c.account_id__c</members>
+        <members>Account_Banking_System_Classification__c.banking_system_classification_desc__c</members>
+        <members>Account_Banking_System_Classification__c.banking_system_classification_quota_per__c</members>
+        <members>Account_Banking_System_Classification__c.banking_system_classification_type__c</members>
+        <members>Account_Banking_System_Classification__c.year_month_day_date__c</members>
         <name>CustomField</name>
     </types>
     <types>
