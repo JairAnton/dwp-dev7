@@ -104,7 +104,7 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>Account_With_Account_Indicator__c</reportType>
+    <reportType>Account_with_Account_Indicator__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
