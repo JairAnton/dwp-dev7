@@ -23,11 +23,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>banking_system_classification_quota_per__c</field>
+                <field>banking_system_classification_type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>banking_system_classification_type__c</field>
+                <field>banking_system_classification_quota_per__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
