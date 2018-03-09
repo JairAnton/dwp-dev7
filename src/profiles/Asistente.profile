@@ -1288,6 +1288,9 @@
     <layoutAssignments>
         <layout>Account_Renewals__c-Account Renewals Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Global-Global Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
        <allowCreate>false</allowCreate>
        <allowDelete>false</allowDelete>

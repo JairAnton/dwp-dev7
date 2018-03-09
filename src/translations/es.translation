@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label>DWP Ventas</label>
+        <name>DWP_Sales</name>
+    </customApplications>
     <customLabels>
         <label>Iniciar Hangout</label>
         <name>Hangout</name>
@@ -53,7 +57,7 @@
         <name>AccountProductClassification2</name>
     </customLabels>
     <customLabels>
-        <label>Pagos</label>
+        <label>Cobros</label>
         <name>AccountProductClassification3</name>
     </customLabels>
     <customLabels>
