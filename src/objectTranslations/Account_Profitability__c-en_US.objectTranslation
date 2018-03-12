@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Profitability</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Profitabilities</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Profitability --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Current month amount --></label>
+        <name>currenct_mon_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current month percent --></label>
+        <name>currenct_mon_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual amount --></label>
+        <name>current_ydt_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Period --></label>
+        <name>period__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous annual amount --></label>
+        <name>previous_ydt_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category --></label>
+        <name>profitability_category_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category order --></label>
+        <name>profitability_category_type_order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subcategory --></label>
+        <name>profitability_subcategory_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subcategory order --></label>
+        <name>profitability_subcategory_type_order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>profitability_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>year_month_day_date__c</name>
+    </fields>
+    <nameFieldLabel><!-- Reference --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

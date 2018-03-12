@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Accounting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Accountings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Accountings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>gl_account_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Percentage --></label>
+        <name>gl_account_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>l1_gl_account_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type code --></label>
+        <name>l1_gl_account_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Categoria --></label>
+        <name>l2_gl_account_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category code --></label>
+        <name>l2_gl_account_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category order --></label>
+        <name>l2_gl_account_order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subcategory --></label>
+        <name>l3_gl_account_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subcategory code --></label>
+        <name>l3_gl_account_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subcategory order --></label>
+        <name>l3_gl_account_order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Period --></label>
+        <name>period__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>year_month_day_date__c</name>
+    </fields>
+    <nameFieldLabel><!-- Reference --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Payroll</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Payrolls</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Payrolls --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Employees --></label>
+        <name>employees_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payroll --></label>
+        <name>payroll_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quota --></label>
+        <name>payroll_quota_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Weekly variation --></label>
+        <name>payroll_var_month_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Period --></label>
+        <name>period__c</name>
+    </fields>
+    <fields>
+        <label><!-- Qualified Payroll --></label>
+        <name>qualified_payroll_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>year_month_day_date__c</name>
+    </fields>
+    <nameFieldLabel><!-- Reference --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
