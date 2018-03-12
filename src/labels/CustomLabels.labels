@@ -225,4 +225,67 @@
         <shortDescription>Month9ShortName</shortDescription>
         <value>Sep</value>
     </labels>
+	<labels>
+        <fullName>AccountAccountingType1TotalLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountAccountingType1TotalLabel</shortDescription>
+        <value>Total Active</value>
+    </labels>
+    <labels>
+        <fullName>AccountAccountingType2TotalLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountAccountingType2TotalLabel</shortDescription>
+        <value>Total Pasive</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductClassificationTable1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable1</shortDescription>
+        <value>Activos</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductClassificationTable2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable2</shortDescription>
+        <value>Pasivos</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductClassificationTable3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable3</shortDescription>
+        <value>Cobros</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductClassificationTable4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable4</shortDescription>
+        <value>Pagos</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductClassificationTable5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable5</shortDescription>
+        <value>Bxl</value>
+    </labels>
+    <labels>
+        <fullName>AccountRankingClassificationTable1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountRankingClassificationTable1</shortDescription>
+        <value>Directa</value>
+    </labels>
+    <labels>
+        <fullName>AccountRankingClassificationTable2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountRankingClassificationTable2</shortDescription>
+        <value>Indirecta</value>
+    </labels>
 </CustomLabels>

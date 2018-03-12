@@ -566,7 +566,7 @@
         <name>cash_flow_amount__c</name>
     </fields>
     <fields>
-        <label>Dias de cobro</label>
+        <label>Días de cobro</label>
         <name>collection_days_number__c</name>
     </fields>
     <fields>
@@ -670,7 +670,7 @@
         <name>payback_amount__c</name>
     </fields>
     <fields>
-        <label>Dias de pago</label>
+        <label>Días de pago</label>
         <name>payment_days_number__c</name>
     </fields>
     <fields>
@@ -698,7 +698,7 @@
         <name>segment_id__c</name>
     </fields>
     <fields>
-        <label>Dias de existencias</label>
+        <label>Días de existencias</label>
         <name>stock_days_number__c</name>
     </fields>
     <fields>

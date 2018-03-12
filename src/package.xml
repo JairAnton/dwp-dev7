@@ -42,6 +42,15 @@
         <members>Month7ShortName</members>
         <members>Month8ShortName</members>
         <members>Month9ShortName</members>
+		<members>AccountAccountingType1TotalLabel</members>
+        <members>AccountAccountingType2TotalLabel</members>
+        <members>AccountProductClassificationTable1</members>
+        <members>AccountProductClassificationTable2</members>
+        <members>AccountProductClassificationTable3</members>
+        <members>AccountProductClassificationTable4</members>
+        <members>AccountProductClassificationTable5</members>
+        <members>AccountRankingClassificationTable1</members>
+        <members>AccountRankingClassificationTable2</members>
         <name>CustomLabel</name>
     </types>
     <types>

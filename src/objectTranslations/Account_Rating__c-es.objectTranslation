@@ -14,11 +14,11 @@
         <relationshipLabel><!-- Account Ratings --></relationshipLabel>
     </fields>
     <fields>
-        <label>Cuantitativo</label>
+        <label>Cualitativo</label>
         <name>qualitative_rating_number__c</name>
     </fields>
     <fields>
-        <label>Cualitativo</label>
+        <label>Cuantitativo</label>
         <name>quantitative_rating_number__c</name>
     </fields>
     <fields>
