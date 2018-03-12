@@ -16,6 +16,41 @@
         <members>NewContactWarning</members>
         <members>Warning</members>
         <members>assignationApproval</members>
+        <members>AccountAccountingType1</members>
+        <members>AccountAccountingType2</members>
+        <members>AccountAccountingType3</members>
+        <members>AccountAccountingType4</members>
+        <members>AccountBBVAResourcesTotalLabel</members>
+        <members>AccountNoData</members>
+        <members>AccountProductClassification1</members>
+        <members>AccountProductClassification2</members>
+        <members>AccountProductClassification3</members>
+        <members>AccountProductClassification4</members>
+        <members>AccountProductClassification5</members>
+        <members>AccountProfitabilityTotalLabel</members>
+        <members>AccountRankingClassification1</members>
+        <members>AccountRankingClassification2</members>
+        <members>Month10ShortName</members>
+        <members>Month11ShortName</members>
+        <members>Month12ShortName</members>
+        <members>Month1ShortName</members>
+        <members>Month2ShortName</members>
+        <members>Month3ShortName</members>
+        <members>Month4ShortName</members>
+        <members>Month5ShortName</members>
+        <members>Month6ShortName</members>
+        <members>Month7ShortName</members>
+        <members>Month8ShortName</members>
+        <members>Month9ShortName</members>
+		<members>AccountAccountingType1TotalLabel</members>
+        <members>AccountAccountingType2TotalLabel</members>
+        <members>AccountProductClassificationTable1</members>
+        <members>AccountProductClassificationTable2</members>
+        <members>AccountProductClassificationTable3</members>
+        <members>AccountProductClassificationTable4</members>
+        <members>AccountProductClassificationTable5</members>
+        <members>AccountRankingClassificationTable1</members>
+        <members>AccountRankingClassificationTable2</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -27,7 +62,9 @@
         <members>Hangout_ctrl_TEST</members>
         <members>OverrideButtonMessage_ctrl</members>
         <members>OverrideButtonMessage_ctrl_TEST</members>
+        <members>AccountContactParentAssociation</members>
         <members>AccountContact_Handler</members>
+        <members>AccountContact_Handler_TEST</members>
         <members>Contact_Group_Handler</members>
         <members>Contact_Group_Handler_test</members>
         <members>AccountContact_Handler_TEST</members>
@@ -39,6 +76,12 @@
         <members>Hangouts_cmp</members>
         <members>ModalTemplate_cmp</members>
         <members>OverrideStandardButtonMessage_cmp</members>
+        <members>AccountAccountingContainer_comp</members>
+        <members>AccountBankingSystemDebtQuoteContainer_comp</members>
+        <members>AccountBankingSystemRankingContainer_comp</members>
+        <members>AccountFlashContainer_comp</members>
+        <members>AccountProductContainer_comp</members>
+        <members>AccountRatiosContainer_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -48,7 +91,20 @@
         <members>Account_Record_Page_Group</members>
         <members>Contact_Record_Page</members>
         <members>User_Branch_LightningPage</members>
-        <members>Account_Bank_Classification_Record_Page</members>        
+        <members>Account_Bank_Classification_Record_Page</members>
+        <members>Account_Indicator_Record_Page</members>
+        <members>Account_Accounting_Record_Page</members>
+        <members>Account_BBVA_Information_Record_Page</members>
+        <members>Account_Banking_System_Debt_Record_Page</members>
+        <members>Account_Banking_System_Debt_Summary_Record_Page</members>
+        <members>Account_Commercial_Strategy_Result_Record_Page</members>
+        <members>Account_Payroll_Record_Page</members>
+        <members>Account_Product_Record_Page</members>
+        <members>Account_Profitability_Record_Page</members>
+        <members>Account_Rating_Record_Page</members>
+        <members>Account_Record_Page_Account</members>
+        <members>Account_Renewals_Record_Page</members>
+        <members>Account_Banking_System_Classification</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -59,7 +115,19 @@
         <members>AccountContactRelation</members>
         <members>Account</members>
         <members>Contact</members>
-        <members>Account_BBVA_Classification__c</members>        
+        <members>Account_BBVA_Classification__c</members>
+        <members>Account_Indicator__c</members>
+        <members>Account_Accounting__c</members>
+        <members>Account_BBVA_Information__c</members>
+        <members>Account_Banking_System_Debt_Summary__c</members>
+        <members>Account_Banking_System_Debt__c</members>
+        <members>Account_Commercial_Strategy_Results__c</members>
+        <members>Account_Payroll__c</members>
+        <members>Account_Product__c</members>
+        <members>Account_Profitability__c</members>
+        <members>Account_Rating__c</members>
+        <members>Account_Renewals__c</members>
+        <members>Account_Banking_System_Classification__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -71,7 +139,30 @@
         <members>AccountContactRelation-es</members>
         <members>Account-es</members>
         <members>Account_BBVA_Classification__c-en_US</members>
-        <members>Account_BBVA_Classification__c-es</members>        
+        <members>Account_BBVA_Classification__c-es</members>
+        <members>Account_Indicator__c-en_US</members>
+        <members>Account_Indicator__c-es</members>
+        <members>Account_Accounting__c-en_US</members>
+        <members>Account_Accounting__c-es</members>
+        <members>Account_BBVA_Information__c-en_US</members>
+        <members>Account_BBVA_Information__c-es</members>
+        <members>Account_Banking_System_Debt_Summary__c-en_US</members>
+        <members>Account_Banking_System_Debt_Summary__c-es</members>
+        <members>Account_Banking_System_Debt__c-en_US</members>
+        <members>Account_Banking_System_Debt__c-es</members>
+        <members>Account_Commercial_Strategy_Results__c-en_US</members>
+        <members>Account_Commercial_Strategy_Results__c-es</members>
+        <members>Account_Payroll__c-en_US</members>
+        <members>Account_Payroll__c-es</members>
+        <members>Account_Product__c-en_US</members>
+        <members>Account_Product__c-es</members>
+        <members>Account_Profitability__c-en_US</members>
+        <members>Account_Profitability__c-es</members>
+        <members>Account_Rating__c-en_US</members>
+        <members>Account_Rating__c-es</members>
+        <members>Account_Renewals__c-en_US</members>
+        <members>Account_Renewals__c-es</members>
+        <members>Account_Banking_System_Classification__c-es</members>  
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -84,7 +175,20 @@
         <members>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</members>
         <members>User_Branch__c-User_Branch Layout</members>
         <members>AccountContactRelation-Account Contact Relationship Layout</members>
-        <members>Account_BBVA_Classification__c-Account BBVA Classification Layout</members>        
+        <members>Account_BBVA_Classification__c-Account BBVA Classification Layout</members>
+        <members>Account_Indicator__c-Account Indicator Layout</members>
+        <members>Account_Accounting__c-Account Accounting Layout</members>
+        <members>Account_BBVA_Information__c-Account BBVA Information Layout</members>
+        <members>Account_Banking_System_Debt_Summary__c-Account Banking System Debt Summary Layout</members>
+        <members>Account_Banking_System_Debt__c-Account Banking System Debt Layout</members>
+        <members>Account_Commercial_Strategy_Results__c-Account Commercial Strategy Result Layout</members>
+        <members>Account_Payroll__c-Account Payroll Layout</members>
+        <members>Account_Product__c-Account Asset Layout</members>
+        <members>Account_Profitability__c-Account_Profitability Layout</members>
+        <members>Account_Rating__c-Account Rating Layout</members>
+        <members>Account_Renewals__c-Account Renewals Layout</members>
+        <members>Account_Banking_System_Classification__c-Formato Account Banking System Classification</members>
+        <members>Global-Global Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -157,7 +261,6 @@
         <members>AccountContactRelation.decision_making_desc__c</members>
         <members>AccountContactRelation.prof_position_type__c</members>
         <members>AccountContactRelation.other_prof_prosition_type__c</members>
-        <members>AccountContactRelation.other_prof_prosition_type__c</members>
         <members>Contact.Formula_Cliente__c</members>
         <members>Contact.Formula_Fecha_de_nacimiento__c</members>
         <members>Account.EBITDA_amount__c</members>
@@ -216,17 +319,148 @@
         <members>Account.watchlist_calif_id__c</members>
         <members>Account.working_capital_number__c</members>
         <members>Account_BBVA_Classification__c.account_id__c</members>
-        <members>Account_BBVA_Classification__c.bank_classification_date__c</members>
-        <members>Account_BBVA_Classification__c.bbva_customer_classification_desc__c</members>
-        <members>Account_BBVA_Classification__c.bbva_customer_classification_id__c</members>
+        <members>Account_BBVA_Classification__c.bbva_classification_desc__c</members>
+        <members>Account_BBVA_Classification__c.bbva_classification_type__c</members>
         <members>Account_BBVA_Classification__c.unique_id__c</members>
-		<members>Account.Owner_calculated__c</members>
+        <members>Account_BBVA_Classification__c.year_month_day_date__c</members>
+        <members>Account.Owner_calculated__c</members>
+        <members>Account_Indicator__c.account_id__c</members>
+        <members>Account_Indicator__c.indicator_name__c</members>
+        <members>Account_Indicator__c.indicator_num__c</members>
+        <members>Account_Indicator__c.indicator_type__c</members>
+        <members>Account_Indicator__c.unique_id__c</members>
+        <members>Account_Indicator__c.year_month_day_date__c</members>
+        <members>Account.empty_value__c</members>
+        <members>Account_Accounting__c.account_id__c</members>
+        <members>Account_Accounting__c.gl_account_amount__c</members>
+        <members>Account_Accounting__c.gl_account_per__c</members>
+        <members>Account_Accounting__c.l1_gl_account_desc__c</members>
+        <members>Account_Accounting__c.l1_gl_account_id__c</members>
+        <members>Account_Accounting__c.l2_gl_account_desc__c</members>
+        <members>Account_Accounting__c.l2_gl_account_id__c</members>
+        <members>Account_Accounting__c.l2_gl_account_order__c</members>
+        <members>Account_Accounting__c.l3_gl_account_desc__c</members>
+        <members>Account_Accounting__c.l3_gl_account_id__c</members>
+        <members>Account_Accounting__c.l3_gl_account_order__c</members>
+        <members>Account_Accounting__c.period__c</members>
+        <members>Account_Accounting__c.unique_id__c</members>
+        <members>Account_Accounting__c.year_month_day_date__c</members>
+        <members>Account_BBVA_Information__c.account_id__c</members>
+        <members>Account_BBVA_Information__c.average_balance_amount__c</members>
+        <members>Account_BBVA_Information__c.current_balance_amount__c</members>
+        <members>Account_BBVA_Information__c.current_balance_var_day_amount__c</members>
+        <members>Account_BBVA_Information__c.current_balance_var_month_amount__c</members>
+        <members>Account_BBVA_Information__c.current_balance_var_quart_amount__c</members>
+        <members>Account_BBVA_Information__c.current_balance_var_year_amount__c</members>
+        <members>Account_BBVA_Information__c.product_desc__c</members>
+        <members>Account_BBVA_Information__c.product_desc_order__c</members>
+        <members>Account_BBVA_Information__c.product_group_classification_id__c</members>
+        <members>Account_BBVA_Information__c.product_group_classification_order__c</members>
+        <members>Account_BBVA_Information__c.type__c</members>
+        <members>Account_BBVA_Information__c.unique_id__c</members>
+        <members>Account_BBVA_Information__c.year_month_day_date__c</members>
+        <members>Account_Banking_System_Debt_Summary__c.account_id__c</members>
+        <members>Account_Banking_System_Debt_Summary__c.debt_current_vs_dec_balance_amount__c</members>
+        <members>Account_Banking_System_Debt_Summary__c.debt_current_vs_previous_balance_amount__c</members>
+        <members>Account_Banking_System_Debt_Summary__c.l2_product_group_name__c</members>
+        <members>Account_Banking_System_Debt_Summary__c.quote_impact_desc__c</members>
+        <members>Account_Banking_System_Debt_Summary__c.unique_id__c</members>
+        <members>Account_Banking_System_Debt_Summary__c.year_month_day_date__c</members>
+        <members>Account_Banking_System_Debt__c.account_id__c</members>
+        <members>Account_Banking_System_Debt__c.debt_current_balance_amount__c</members>
+        <members>Account_Banking_System_Debt__c.debt_quote_amount__c</members>
+        <members>Account_Banking_System_Debt__c.entity_name__c</members>
+        <members>Account_Banking_System_Debt__c.entity_order__c</members>
+        <members>Account_Banking_System_Debt__c.product_desc__c</members>
+        <members>Account_Banking_System_Debt__c.product_desc_calc__c</members>
+        <members>Account_Banking_System_Debt__c.product_desc_order__c</members>
+        <members>Account_Banking_System_Debt__c.product_group_classification_id__c</members>
+        <members>Account_Banking_System_Debt__c.product_group_classification_order__c</members>
+        <members>Account_Banking_System_Debt__c.ranking_number__c</members>
+        <members>Account_Banking_System_Debt__c.unique_id__c</members>
+        <members>Account_Banking_System_Debt__c.unpaid_days_number__c</members>
+        <members>Account_Banking_System_Debt__c.year_month_day_date__c</members>
+        <members>Account_Commercial_Strategy_Results__c.account_id__c</members>
+        <members>Account_Commercial_Strategy_Results__c.category_type__c</members>
+        <members>Account_Commercial_Strategy_Results__c.order__c</members>
+        <members>Account_Commercial_Strategy_Results__c.period__c</members>
+        <members>Account_Commercial_Strategy_Results__c.result__c</members>
+        <members>Account_Commercial_Strategy_Results__c.unique_id__c</members>
+        <members>Account_Commercial_Strategy_Results__c.year_month_day_date__c</members>
+        <members>Account_Payroll__c.account_id__c</members>
+        <members>Account_Payroll__c.employees_number__c</members>
+        <members>Account_Payroll__c.payroll_amount__c</members>
+        <members>Account_Payroll__c.payroll_quota_amount__c</members>
+        <members>Account_Payroll__c.payroll_var_month_amount__c</members>
+        <members>Account_Payroll__c.period__c</members>
+        <members>Account_Payroll__c.qualified_payroll_amount__c</members>
+        <members>Account_Payroll__c.unique_id__c</members>
+        <members>Account_Payroll__c.year_month_day_date__c</members>
+        <members>Account_Product__c.account_id__c</members>
+        <members>Account_Product__c.product_classification__c</members>
+        <members>Account_Product__c.product_contracted__c</members>
+        <members>Account_Product__c.product_contracted_calc__c</members>
+        <members>Account_Product__c.product_name__c</members>
+        <members>Account_Product__c.unique_id__c</members>
+        <members>Account_Profitability__c.account_id__c</members>
+        <members>Account_Profitability__c.currenct_mon_amount__c</members>
+        <members>Account_Profitability__c.currenct_mon_per__c</members>
+        <members>Account_Profitability__c.current_ydt_amount__c</members>
+        <members>Account_Profitability__c.period__c</members>
+        <members>Account_Profitability__c.previous_ydt_amount__c</members>
+        <members>Account_Profitability__c.profitability_category_type__c</members>
+        <members>Account_Profitability__c.profitability_category_type_order__c</members>
+        <members>Account_Profitability__c.profitability_subcategory_type__c</members>
+        <members>Account_Profitability__c.profitability_subcategory_type_order__c</members>
+        <members>Account_Profitability__c.profitability_type__c</members>
+        <members>Account_Profitability__c.unique_id__c</members>
+        <members>Account_Profitability__c.year_month_day_date__c</members>
+        <members>Account_Rating__c.account_id__c</members>
+        <members>Account_Rating__c.qualitative_rating_number__c</members>
+        <members>Account_Rating__c.quantitative_rating_number__c</members>
+        <members>Account_Rating__c.rating_class_type__c</members>
+        <members>Account_Rating__c.rating_period__c</members>
+        <members>Account_Rating__c.rating_scale_type__c</members>
+        <members>Account_Rating__c.total_rating_score_number__c</members>
+        <members>Account_Rating__c.unique_id__c</members>
+        <members>Account_Rating__c.year_month_day_date__c</members>
+        <members>Account_Renewals__c.account_id__c</members>
+        <members>Account_Renewals__c.cancellation_mtd_amount__c</members>
+        <members>Account_Renewals__c.cancellation_wtd_1_amount__c</members>
+        <members>Account_Renewals__c.cancellation_wtd_2_amount__c</members>
+        <members>Account_Renewals__c.cancellation_wtd_3_amount__c</members>
+        <members>Account_Renewals__c.cancellation_wtd_4_amount__c</members>
+        <members>Account_Renewals__c.cancellation_wtd_5_amount__c</members>
+        <members>Account_Renewals__c.product_cateogry_type__c</members>
+        <members>Account_Renewals__c.product_name__c</members>
+        <members>Account_Renewals__c.product_order__c</members>
+        <members>Account_Renewals__c.product_subcategory_type__c</members>
+        <members>Account_Renewals__c.product_subcategory_type_order__c</members>
+        <members>Account_Renewals__c.unique_id__c</members>
+        <members>Account_Banking_System_Classification__c.Unique_Id__c</members>
+        <members>Account_Banking_System_Classification__c.account_id__c</members>
+        <members>Account_Banking_System_Classification__c.banking_system_classification_desc__c</members>
+        <members>Account_Banking_System_Classification__c.banking_system_classification_quota_per__c</members>
+        <members>Account_Banking_System_Classification__c.banking_system_classification_type__c</members>
+        <members>Account_Banking_System_Classification__c.year_month_day_date__c</members>
         <name>CustomField</name>
     </types>
     <types>
         <members>Branch__c</members>
         <members>User_Branch__c</members>
-        <members>Account_BBVA_Classification__c</members>        
+        <members>Account_BBVA_Classification__c</members>
+        <members>Account_Indicator__c</members>
+        <members>Account_Accounting__c</members>
+        <members>Account_BBVA_Information__c</members>
+        <members>Account_Banking_System_Debt_Summary__c</members>
+        <members>Account_Banking_System_Debt__c</members>
+        <members>Account_Commercial_Strategy_Results__c</members>
+        <members>Account_Payroll__c</members>
+        <members>Account_Product__c</members>
+        <members>Account_Profitability__c</members>
+        <members>Account_Rating__c</members>
+        <members>Account_Renewals__c</members>
+        <members>Account_Banking_System_Classification__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -236,7 +470,18 @@
         <members>User_Branch__c.All</members>
         <members>Account.AllAccounts</members>
         <members>Account.MyAccounts</members>
-        <members>Account_BBVA_Classification__c.All</members>        
+        <members>Account_BBVA_Classification__c.All</members>
+        <members>Account_Accounting__c.All</members>
+        <members>Account_BBVA_Information__c.All</members>
+        <members>Account_Banking_System_Debt_Summary__c.All</members>
+        <members>Account_Banking_System_Debt__c.All</members>
+        <members>Account_Commercial_Strategy_Results__c.All</members>
+        <members>Account_Payroll__c.All</members>
+        <members>Account_Product__c.All</members>
+        <members>Account_Profitability__c.All</members>
+        <members>Account_Rating__c.All</members>
+        <members>Account_Renewals__c.All</members>
+        <members>Account_Banking_System_Classification__c.All</members>
         <name>ListView</name>
     </types>
     <types>
@@ -301,6 +546,18 @@
         <members>Red_Flag_Icon</members>
         <members>White_Circle_Icon</members>
         <name>StaticResource</name>
+    </types>
+    <types>
+        <members>Account_Reports</members>
+        <members>Account_Reports/Account_Billing</members>
+        <members>Account_Reports/Account_Spread</members>
+        <members>Account_Reports/Account_Credit_Bureau</members>
+        <members>Account_Reports/Account_Risk_Strategy</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>Account_with_Account_Indicator</members>
+        <name>ReportType</name>
     </types>
     <version>41.0</version>
 </Package>

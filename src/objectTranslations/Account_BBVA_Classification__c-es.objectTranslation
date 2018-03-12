@@ -14,20 +14,20 @@
         <relationshipLabel>Clasificación BBVA</relationshipLabel>
     </fields>
     <fields>
-        <label>Fecha</label>
-        <name>bank_classification_date__c</name>
-    </fields>
-    <fields>
         <label>Clasificación</label>
-        <name>bbva_customer_classification_desc__c</name>
+        <name>bbva_classification_desc__c</name>
     </fields>
     <fields>
         <label>Código de la clasificación</label>
-        <name>bbva_customer_classification_id__c</name>
+        <name>bbva_classification_type__c</name>
     </fields>
     <fields>
         <label>Identificador único</label>
         <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label>Fecha</label>
+        <name>year_month_day_date__c</name>
     </fields>
     <gender>Feminine</gender>
     <layouts>
