@@ -30,12 +30,12 @@
                 <field>entity_name__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>product_desc_order__c</field>
+                <behavior>Edit</behavior>
+                <field>debt_current_balance_amount__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>product_group_classification_order__c</field>
+                <behavior>Edit</behavior>
+                <field>debt_quote_amount__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -44,12 +44,16 @@
                 <field>CurrencyIsoCode</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>debt_current_balance_amount__c</field>
+                <behavior>Readonly</behavior>
+                <field>product_group_classification_order__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>debt_quote_amount__c</field>
+                <behavior>Readonly</behavior>
+                <field>product_desc_order__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>entity_order__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

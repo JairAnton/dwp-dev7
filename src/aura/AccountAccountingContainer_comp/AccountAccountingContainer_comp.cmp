@@ -20,6 +20,7 @@
                                                       CollapsedDefault="true"
                                                       Summarize="SUM,AVG"
                                                       showTotal="true"
+                                                      labelTotalApi="AccountAccountingType1TotalLabel"
                                                       Symbol="true"
                                                       PositionCurrency="Left"/>
         </lightning:layoutItem>
@@ -43,6 +44,7 @@
                                                       CollapsedDefault="true"
                                                       Summarize="SUM,AVG"
                                                       showTotal="true"
+                                                      labelTotalApi="AccountAccountingType2TotalLabel"
                                                       Symbol="true"
                                                       PositionCurrency="Left"/>
         </lightning:layoutItem>
@@ -65,7 +67,7 @@
                                                       Collapsed="true"
                                                       CollapsedDefault="true"
                                                       Summarize="SUM,AVG"
-                                                      showTotal="true"
+                                                      showTotal="false"
                                                       Symbol="true"
                                                       PositionCurrency="Left"/>
         </lightning:layoutItem>
@@ -88,7 +90,7 @@
                                                       Collapsed="true"
                                                       CollapsedDefault="true"
                                                       Summarize="SUM,AVG"
-                                                      showTotal="true"
+                                                      showTotal="false"
                                                       Symbol="true"
                                                       PositionCurrency="Left"/>
         </lightning:layoutItem>

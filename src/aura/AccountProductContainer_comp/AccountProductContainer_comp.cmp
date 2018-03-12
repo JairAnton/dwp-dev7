@@ -10,7 +10,7 @@
                                                       Object="Account_Product__c"
                                                       RelatedField="account_id__c"
                                                       Header="product_name__c,product_contracted_calc__c"
-                                                      FilterStatic="product_classification__c='Activos'"
+                                                      FilterStatic="{!'product_classification__c=\''+ $Label.c.AccountProductClassificationTable1 +'\''}"
                                                       Format='-,IMG'
                                                       headerApiName='-,empty_value__c'
                                                       Order='product_contracted_calc__c ASC'/>
@@ -25,7 +25,7 @@
                                                       Object="Account_Product__c"
                                                       RelatedField="account_id__c"
                                                       Header="product_name__c,product_contracted_calc__c"
-                                                      FilterStatic="product_classification__c='Pasivos'"
+                                                      FilterStatic="{!'product_classification__c=\''+ $Label.c.AccountProductClassificationTable2 +'\''}"
                                                       Format='-,IMG'
                                                       headerApiName='-,empty_value__c'
                                                       Order='product_contracted_calc__c ASC'/>
@@ -40,7 +40,7 @@
                                                       Object="Account_Product__c"
                                                       RelatedField="account_id__c"
                                                       Header="product_name__c,product_contracted_calc__c"
-                                                      FilterStatic="product_classification__c='Cobros'"
+                                                      FilterStatic="{!'product_classification__c=\''+ $Label.c.AccountProductClassificationTable3 +'\''}"
                                                       Format='-,IMG'
                                                       headerApiName='-,empty_value__c'
                                                       Order='product_contracted_calc__c ASC'/>
@@ -55,7 +55,7 @@
                                                       Object="Account_Product__c"
                                                       RelatedField="account_id__c"
                                                       Header="product_name__c,product_contracted_calc__c"
-                                                      FilterStatic="product_classification__c='Pagos'"
+                                                      FilterStatic="{!'product_classification__c=\''+ $Label.c.AccountProductClassificationTable4 +'\''}"
                                                       Format='-,IMG'
                                                       headerApiName='-,empty_value__c'
                                                       Order='product_contracted_calc__c ASC'/>
@@ -70,7 +70,7 @@
                                                       Object="Account_Product__c"
                                                       RelatedField="account_id__c"
                                                       Header="product_name__c,product_contracted_calc__c"
-                                                      FilterStatic="product_classification__c='Bxl'"
+                                                      FilterStatic="{!'product_classification__c=\''+ $Label.c.AccountProductClassificationTable5 +'\''}"
                                                       Format='-,IMG'
                                                       headerApiName='-,empty_value__c'
                                                       Order='product_contracted_calc__c ASC'/>
