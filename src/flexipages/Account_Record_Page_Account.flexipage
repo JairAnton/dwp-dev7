@@ -185,12 +185,6 @@
                 <value>Thousand</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>FilterDynamic</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>FilterDynamicField</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
                 <name>FilterStatic</name>
                 <value>type__c = &apos;01&apos; AND product_group_classification_id__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND year_month_day_date__c = LAST_MONTH</value>
             </componentInstanceProperties>
@@ -209,9 +203,6 @@
             <componentInstanceProperties>
                 <name>Header</name>
                 <value>product_desc__c,current_balance_amount__c,average_balance_amount__c,current_balance_var_day_amount__c,current_balance_var_month_amount__c,current_balance_var_quart_amount__c,current_balance_var_year_amount__c</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>HeaderGroup</name>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>LocaleCur</name>
@@ -254,17 +245,8 @@
                 <value>AccountNoData</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>headerApiName</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
                 <name>hidenSubHeadMatrix</name>
                 <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>labelFilterApi</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>reportTitleAPI</name>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showFilter</name>
@@ -284,7 +266,7 @@
             </componentInstanceProperties>
             <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
         </componentInstances>
-        <name>facet-24f20e16-8bb4-4d93-92bf-df49cf2659da</name>
+        <name>facet-78e235cc-de88-4281-aca9-ba1360189d63</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -405,7 +387,7 @@
         <componentInstances>
             <componentName>AccountBankingSystemRankingContainer_comp</componentName>
         </componentInstances>
-        <name>facet-74b96100-18e5-4967-8a6b-fb42cd84be25</name>
+        <name>facet-1165c577-630d-4a40-8d90-90cd335fea8b</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -523,7 +505,7 @@
             </componentInstanceProperties>
             <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
         </componentInstances>
-        <name>facet-ed6e42a1-12ec-4994-bb91-1a888deb072e</name>
+        <name>facet-11a00169-4e61-4cd0-b81f-cd59cdc5c6cc</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -640,68 +622,84 @@
             </componentInstanceProperties>
             <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
         </componentInstances>
-        <name>facet-f3ba841e-fca1-4c66-8cae-dd84948cacf1</name>
+        <name>facet-147227f5-7177-4a33-a469-890fc43d4e20</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>active</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-24f20e16-8bb4-4d93-92bf-df49cf2659da</value>
+                <value>facet-78e235cc-de88-4281-aca9-ba1360189d63</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>title</name>
+                <name>label</name>
                 <value>Deuda BBVA</value>
             </componentInstanceProperties>
-            <componentName>flexipage:tab</componentName>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-74b96100-18e5-4967-8a6b-fb42cd84be25</value>
+                <value>facet-1165c577-630d-4a40-8d90-90cd335fea8b</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>title</name>
+                <name>label</name>
                 <value>Deuda SBS</value>
             </componentInstanceProperties>
-            <componentName>flexipage:tab</componentName>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-ed6e42a1-12ec-4994-bb91-1a888deb072e</value>
+                <value>facet-11a00169-4e61-4cd0-b81f-cd59cdc5c6cc</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>title</name>
+                <name>label</name>
                 <value>Cuota SBS</value>
             </componentInstanceProperties>
-            <componentName>flexipage:tab</componentName>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--53ek4emfcc</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-f3ba841e-fca1-4c66-8cae-dd84948cacf1</value>
+                <value>facet-147227f5-7177-4a33-a469-890fc43d4e20</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>title</name>
+                <name>label</name>
                 <value>Cancelaciones</value>
             </componentInstanceProperties>
-            <componentName>flexipage:tab</componentName>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--enoq71sd4ww</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-        <name>facet-b690a10f-cb02-478e-aab1-a552e03a1e92</name>
+        <name>facet-f846a603-f199-4089-81bd-0add4ac53917</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>tabs</name>
-                <value>facet-b690a10f-cb02-478e-aab1-a552e03a1e92</value>
+                <name>accordionSections</name>
+                <value>facet-f846a603-f199-4089-81bd-0add4ac53917</value>
             </componentInstanceProperties>
-            <componentName>flexipage:tabset</componentName>
+            <componentInstanceProperties>
+                <name>defaultSectionName</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
         </componentInstances>
         <name>facet-aa38b4c0-f51b-49c0-91f5-45c1cae85261</name>
         <type>Facet</type>
