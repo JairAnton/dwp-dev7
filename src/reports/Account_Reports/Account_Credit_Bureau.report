@@ -24,7 +24,7 @@
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
         <textSize>12</textSize>
-        <title>Evolución Buro</title>
+        <title>Evolución Buró</title>
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
@@ -65,7 +65,7 @@
         <field>Account.Account_Indicators__r$indicator_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Evolución Buro</name>
+    <name>Evolución Buró</name>
     <params>
         <name>co</name>
         <value>1</value>
