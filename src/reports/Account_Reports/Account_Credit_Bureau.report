@@ -9,13 +9,11 @@
             <axisBinding>y</axisBinding>
             <column>Account.Account_Indicators__r$indicator_num__c</column>
         </chartSummaries>
-        <chartType>LineGrouped</chartType>
+        <chartType>Line</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Account.Account_Indicators__r$year_month_day_date__c</groupingColumn>
-        <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Account.Account_Indicators__r$indicator_type__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
