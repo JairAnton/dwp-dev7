@@ -35,17 +35,42 @@ public with sharing class Contact_Group_Handler {
         insert accs;
     }
     
+     public static void updateMainContact(list<Contact> Contacts,list<Contact> Contactsold){
+       Map<ID, AccountContactRelation> mapCuentaContacto = new Map<ID, AccountContactRelation>();     
+         Map<ID, Contact> mapOld = new Map<ID, contact>();
+         for(AccountContactRelation acr : [SELECT AccountID, prof_position_type__c, other_prof_prosition_type__c, decision_making_desc__c from AccountContactRelation]){
+          mapCuentaContacto.put(acr.AccountId, acr);   
+         }
+         for(Contact c : Contactsold){
+         MapOld.put(c.Id, c);   
+             
+         }
+         
+         list<Id>ContactsIds = new list<Id>();
+            for(Contact c : Contacts){
+               if(c.AccountId != mapOld.get(c.Id).AccountId){    
+             c.prof_position_type__c=mapCuentaContacto.get(c.AccountId).prof_position_type__c;
+             c.other_prof_prosition_type__c=mapCuentaContacto.get(c.AccountId).other_prof_prosition_type__c;
+             c.decision_making_desc__c=mapCuentaContacto.get(c.AccountId).decision_making_desc__c;    
+                }
+                } 
+  
+            
+     }
+      
+    
+    
     
     public static void updateGroupContact(list<Contact> Contacts){
        list<AccountContactRelation> accs = new list<AccountContactRelation>();
        list<Id>ContactsIds = new list<Id>();
             for(Contact c : Contacts){  
              ContactsIds.add(c.Id);
-            }               
+            } 
+        
         accs = [SELECT ID,AccountId,ContactId,isDirect, prof_position_type__c, other_prof_prosition_type__c, decision_making_desc__c from AccountContactRelation WHERE ContactId in : ContactsIDs AND IsDirect = true];
         AccountContactParentAssociation.ucontact=false;
-        AccountContactParentAssociation.setValuesRelation(accs);
-        
+        AccountContactParentAssociation.setValuesRelation(accs);       
       }
       
       
