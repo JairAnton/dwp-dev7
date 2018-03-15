@@ -809,7 +809,7 @@
     <fields>
         <fullName>Formula_Cliente__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(AccountId, Account.Name,&apos;SELF&apos;)</formula>
+        <formula>HYPERLINK(AccountId, Account.Name,&apos;_SELF&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Cliente</label>
         <required>false</required>
@@ -819,7 +819,7 @@
     <fields>
         <fullName>Formula_Fecha_de_nacimiento__c</fullName>
         <externalId>false</externalId>
-        <formula>text(DAY(Birthdate))+"-" +TEXT(MONTH(Birthdate))+"-" +TEXT(YEAR(Birthdate))</formula>
+        <formula>text(DAY(Birthdate))+"/" +TEXT(MONTH(Birthdate))+"/" +TEXT(YEAR(Birthdate))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Fecha de nacimiento</label>
         <required>false</required>

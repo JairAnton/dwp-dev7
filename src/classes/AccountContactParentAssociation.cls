@@ -37,16 +37,17 @@ public static boolean uContact= true;
         }
         for(AccountContactRelation objAccountContactRelation : lstAccountContactRelation) {
             for(Contact objContact : lstContact) {
-                if(objAccountContactRelation.IsDirect == TRUE) {
+                if(objAccountContactRelation.IsDirect == TRUE && objAccountContactRelation.ContactId == objContact.id ) {
                     objContact.prof_position_type__c = objAccountContactRelation.prof_position_type__c;
                     objContact.other_prof_prosition_type__c = objAccountContactRelation.other_prof_prosition_type__c;
                     objContact.decision_making_desc__c = objAccountContactRelation.decision_making_desc__c;
                 }
-                if(uContact){
+            }
+            
+        }
+           if(uContact){
                update lstContact;
                 }
-            }
-        }
     }  
     
 
