@@ -82,6 +82,7 @@
         <members>AccountFlashContainer_comp</members>
         <members>AccountProductContainer_comp</members>
         <members>AccountRatiosContainer_comp</members>
+        <members>BBVA_and_SBS_graphic_classification</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -545,6 +546,7 @@
         <members>Light_Blue_Circle_Icon</members>
         <members>Red_Flag_Icon</members>
         <members>White_Circle_Icon</members>
+        <members>ChartJS23</members>
         <name>StaticResource</name>
     </types>
     <types>
