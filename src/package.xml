@@ -70,6 +70,7 @@
         <members>AccountContact_Handler_TEST</members>
         <members>AccountContactParentAssociation</members>
         <members>Contact_Handler</members>
+        <members>BBVA_SBS_Classification_cls</members>
         <name>ApexClass</name>
     </types>
     <types>
