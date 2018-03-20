@@ -30,7 +30,7 @@
         <name>current_balance_var_month_amount__c</name>
     </fields>
     <fields>
-        <label>Var trimestre</label>
+        <label>Var trim</label>
         <name>current_balance_var_quart_amount__c</name>
     </fields>
     <fields>
