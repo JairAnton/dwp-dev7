@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>  
+		<members>Account.bbva_customer_classification_id__c</members>
+		<members>Account.bbva_customer_classification_desc__c</members>
+		<members>Account.banking_system_classification_id__c</members>
+		<members>Account.funds_operational_needs_amount__c</members>
+		<members>Account.bureau_code__c</members>
+		<members>Account.commercial_strategy_desc__c</members>
+		<members>Account.risk_strategy_desc__c</members>
+		<members>Account_BBVA_Classification__c.bbva_classification_desc__c</members>
+		<members>Account_BBVA_Classification__c.bbva_customer_classification_id__c</members>
+		<members>Account_BBVA_Classification__c.bank_classification_date__c</members>
+        <name>CustomField</name>
+    </types>
+	<version>41.0</version>
+</Package>

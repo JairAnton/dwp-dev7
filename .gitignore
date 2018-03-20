@@ -1,0 +1,15 @@
+*.DS_Store
+/config/
+/maxmixtral-release.sublime-project
+/maxmixtral-release.sublime-workspace
+debug/
+/config_kk/
+/file.txt
+/force.json
+/.vscode/
+/anonimous-cache.txt
+/migration/src/
+/migration/tmp/
+!/migration/src/package.xml
+soql/
+src/digital-workplace - Acceso directo.lnk

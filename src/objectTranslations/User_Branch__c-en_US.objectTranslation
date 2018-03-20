@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>User branch</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>User branches</value>
+    </caseValues>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- User branches --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Branch category --></label>
+        <name>branch_category_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch code --></label>
+        <name>branch_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch --></label>
+        <name>branch_name__c</name>
+        <relationshipLabel><!-- Branch users --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Primary --></label>
+        <name>primary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- User code --></label>
+        <name>user_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position --></label>
+        <name>user_prof_position_type__c</name>
+    </fields>
+    <nameFieldLabel><!-- Reference --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
