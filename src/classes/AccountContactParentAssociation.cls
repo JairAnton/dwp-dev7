@@ -1,4 +1,16 @@
-public with sharing class AccountContactParentAssociation {
+/**
+ * Handler of Trigger of the AccountContactRelation object.
+ * <p /><p />
+ * Modification log:<p />
+ * -------------------------------------------------------------------
+ * Developer                    Date                Description<p />
+ * -------------------------------------------------------------------
+ * Julio Medellin               22/02/2018          Original version.<p />
+ * Alberto Gómez                27/02/2018          Added updateValuesRelationInContact method.<p />
+ *
+ * @author Julio Medellin
+ */
+ public with sharing class AccountContactParentAssociation {
 public static boolean uContact= true;
     
     /**
@@ -32,9 +44,13 @@ public static boolean uContact= true;
      */
     public static void updateValuesRelationInContact(List<AccountContactRelation> lstAccountContactRelation) {
         List<Contact> lstContact = new List<Contact>();
+        set<Id> Ids = new set<Id>();
         for(AccountContactRelation objAccountContactRelation1 : lstAccountContactRelation) {
-            lstContact.add([SELECT Id, prof_position_type__c, other_prof_prosition_type__c, decision_making_desc__c FROM Contact WHERE Id =: objAccountContactRelation1.ContactId]);
+           Ids.add(objAccountContactRelation1.ContactId);
         }
+        if(!Ids.isEmpty()){
+        lstContact=[SELECT Id, prof_position_type__c, other_prof_prosition_type__c, decision_making_desc__c 
+                            FROM Contact WHERE Id in:Ids];
         for(AccountContactRelation objAccountContactRelation : lstAccountContactRelation) {
             for(Contact objContact : lstContact) {
                 if(objAccountContactRelation.IsDirect == TRUE && objAccountContactRelation.ContactId == objContact.id ) {
@@ -45,9 +61,10 @@ public static boolean uContact= true;
             }
             
         }
-           if(uContact){
+           if(uContact){//esta variable es actualizada mediante otro Proceso
                update lstContact;
                 }
+        }
     }  
     
 

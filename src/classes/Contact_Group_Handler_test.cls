@@ -32,6 +32,7 @@ public class Contact_Group_Handler_test {
      parent_account_assignment__c = 'Si'    
      );
      insert c;   
+     System.assertNotEquals(c.Id, null,'Se completo con exito');
      test.stopTest();
     }
 
