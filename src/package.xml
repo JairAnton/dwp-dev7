@@ -71,6 +71,8 @@
         <members>AccountContactParentAssociation</members>
         <members>Contact_Handler</members>
         <members>BBVA_SBS_Classification_cls</members>
+		<members>TriggerHandler</members>
+		<members>TriggerHandler_Test</members>
         <name>ApexClass</name>
     </types>
     <types>
