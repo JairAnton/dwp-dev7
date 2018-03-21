@@ -54,7 +54,7 @@
         <name>CustomLabel</name>
     </types>
     <types>
-        <members>es</members>
+        <members>*</members>
         <name>Translations</name>
     </types>
     <types>
