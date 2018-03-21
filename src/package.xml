@@ -70,6 +70,8 @@
         <members>AccountContact_Handler_TEST</members>
         <members>AccountContactParentAssociation</members>
         <members>Contact_Handler</members>
+        <members>GraphicsGenerator_cls</members>
+        <members>GraphicsGenerator_cls_test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -82,6 +84,8 @@
         <members>AccountFlashContainer_comp</members>
         <members>AccountProductContainer_comp</members>
         <members>AccountRatiosContainer_comp</members>
+        <members>GraphicEvolutionSBFee_comp</members>
+        <members>GraphicsGenerator_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -545,6 +549,7 @@
         <members>Light_Blue_Circle_Icon</members>
         <members>Red_Flag_Icon</members>
         <members>White_Circle_Icon</members>
+        <members>ChartjsAP</members>
         <name>StaticResource</name>
     </types>
     <types>
