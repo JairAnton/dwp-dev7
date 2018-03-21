@@ -58,6 +58,7 @@
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Account Accounting Record Page</masterLabel>
+    <pageTemplate>flexipage:recordHomeTemplateDesktop</pageTemplate>
     <parentFlexiPage>flexipage__default_rec_L</parentFlexiPage>
     <sobjectType>Account_Accounting__c</sobjectType>
     <template>
