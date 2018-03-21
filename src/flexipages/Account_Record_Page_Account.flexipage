@@ -392,6 +392,13 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentName>GraphicEvolutionSBFee_comp</componentName>
+        </componentInstances>
+        <name>facet-b5fca85a-6f7f-4c7c-ba69-aece6a429d03</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentName>AccountBankingSystemDebtQuoteContainer_comp</componentName>
         </componentInstances>
         <componentInstances>
@@ -653,6 +660,21 @@
             <componentInstanceProperties>
                 <name>name</name>
                 <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>facet-b5fca85a-6f7f-4c7c-ba69-aece6a429d03</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>EVOLUCIÓN CUOTA SBS</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--zhh7kzi0gke</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
