@@ -2247,7 +2247,9 @@
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Account Record Page Account</masterLabel>
-    <pageTemplate>flexipage:recordHomeTemplateDesktop</pageTemplate>
     <sobjectType>Account</sobjectType>
+    <template>
+        <name>flexipage:recordHomeTemplateDesktop</name>
+    </template>
     <type>RecordPage</type>
 </FlexiPage>
