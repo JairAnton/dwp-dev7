@@ -46,7 +46,7 @@ public class AccountContact_Handler_TEST {
             intJ++;
         }
         insert lstContacts;
-
+        system.assertNotEquals(lstContacts[0].Id,null,'Se registro de manera correcta');
         //Stop test.
         Test.stopTest();
     }
