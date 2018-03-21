@@ -10,16 +10,16 @@
  *
  * @author Julio Medellin
  */
-public class AccountContact_Handler {
+public without sharing class AccountContact_Handler extends TriggerHandler {
 
     /**
      * Method for set values in AccountContactRelation records.
      *
      * @param lstAccountContactRelation Account Contact Relation List.
      */
-    public static void setValuesRelation(List<AccountContactRelation> lstAccountContactRelation) {
+    protected override void afterInsert() {
       
-     AccountContactParentAssociation.setValuesRelation(lstAccountContactRelation);
+     AccountContactParentAssociation.setValuesRelation( (List<AccountContactRelation>)(trigger.new));
       
     }
 
@@ -28,7 +28,7 @@ public class AccountContact_Handler {
      *
      * @param lstAccountContactRelation Account Contact Relation List.
      */
-    public static void updateValuesRelationInContact(List<AccountContactRelation> lstAccountContactRelation) {
-      AccountContactParentAssociation.updateValuesRelationInContact(lstAccountContactRelation);  
+    protected override void afterUpdate() {
+      AccountContactParentAssociation.updateValuesRelationInContact((List<AccountContactRelation>)(trigger.new));  
     }
 }

@@ -54,7 +54,7 @@
         <name>CustomLabel</name>
     </types>
     <types>
-        <members>*</members>
+        <members>es</members>
         <name>Translations</name>
     </types>
     <types>
@@ -70,6 +70,8 @@
         <members>AccountContact_Handler_TEST</members>
         <members>AccountContactParentAssociation</members>
         <members>Contact_Handler</members>
+		<members>TriggerHandler</members>
+		<members>TriggerHandler_Test</members>
         <name>ApexClass</name>
     </types>
     <types>
