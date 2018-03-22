@@ -71,6 +71,10 @@
         <members>AccountContactParentAssociation</members>
         <members>Contact_Handler</members>
         <members>BBVA_SBS_Classification_cls</members>
+        <members>GraphicsGenerator_cls</members>
+        <members>GraphicsGenerator_cls_test</members>
+		<members>TriggerHandler</members>
+		<members>TriggerHandler_Test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -84,6 +88,8 @@
         <members>AccountProductContainer_comp</members>
         <members>AccountRatiosContainer_comp</members>
         <members>BBVA_and_SBS_graphic_classification</members>
+        <members>GraphicEvolutionSBFee_comp</members>
+        <members>GraphicsGenerator_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -548,6 +554,7 @@
         <members>Red_Flag_Icon</members>
         <members>White_Circle_Icon</members>
         <members>ChartJS23</members>
+        <members>ChartjsAP</members>
         <name>StaticResource</name>
     </types>
     <types>
