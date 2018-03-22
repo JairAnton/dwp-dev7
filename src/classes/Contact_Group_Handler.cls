@@ -4,7 +4,7 @@
  * Created date : Feb 14 2018
  * Developer name: Julio Medellín Oliva Indra(México)
 --------------------------------------------------------------------------*/
-public with sharing class Contact_Group_Handler {
+public without sharing class Contact_Group_Handler {
     
     public static void setDefaultCurrency(list<Contact> Contacts){
         for(Contact c : Contacts){    
@@ -16,8 +16,12 @@ public with sharing class Contact_Group_Handler {
     
     public static void createGroupContact(list<Contact> Contacts){
         list<AccountContactRelation> accs = new list<AccountContactRelation>();
-        Map<Id,Id> MapAccount = new Map<Id,Id>();  
-        for(Account acc : [SELECT Id,ParentId FROM account WHERE ParentId != null]){
+        Map<Id,Id> MapAccount = new Map<Id,Id>();
+        set<Id> Ids = new set<Id>();
+        for(Contact d: Contacts)
+            Ids.add(d.AccountId);
+
+        for(Account acc : [SELECT Id,ParentId FROM account WHERE Id in:Ids and ParentId != null]){
             MapAccount.put(acc.Id,acc.ParentId);    
         }
 
@@ -26,7 +30,10 @@ public with sharing class Contact_Group_Handler {
                 AccountContactRelation   acr = new AccountContactRelation(
                     AccountId= MapAccount.get(c.AccountId),
                     ContactId=c.id,   
-                    CurrencyIsoCode = c.CurrencyIsoCode    
+                    CurrencyIsoCode = c.CurrencyIsoCode ,
+                    prof_position_type__c=c.parent_account_prof_position_type__c,
+                    other_prof_prosition_type__c=c.parent_account_other_prof_prosition_type__c,
+                    decision_making_desc__c=c.parent_account_decision_making_desc__c   
                 );         
                 accs.add(acr); 
             }               
@@ -64,11 +71,13 @@ public with sharing class Contact_Group_Handler {
       
     public static void updateGroupContact(list<Contact> Contacts){
         list<AccountContactRelation> accs = new list<AccountContactRelation>();
-        list<Id>ContactsIds = new list<Id>();
+        set<Id>ContactsIds = new set<Id>();
             for(Contact c : Contacts){  
                 ContactsIds.add(c.Id);
             } 
-        accs = [SELECT ID,AccountId,ContactId,isDirect, prof_position_type__c, other_prof_prosition_type__c, decision_making_desc__c from AccountContactRelation WHERE ContactId in : ContactsIDs AND IsDirect = true];
+        accs = [SELECT ID,AccountId,ContactId,isDirect, prof_position_type__c, 
+                other_prof_prosition_type__c, decision_making_desc__c from 
+                AccountContactRelation WHERE ContactId IN: ContactsIDs AND IsDirect = true];
         AccountContactParentAssociation.ucontact=false;
         AccountContactParentAssociation.setValuesRelation(accs);       
     }      
