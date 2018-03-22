@@ -1,3 +1,14 @@
+/**BBVA_SBS_Classification
+ *  object.
+ * <p /><p />
+ * Modification log:<p />
+ * -------------------------------------------------------------------
+ * Developer                    Date                Description<p />
+ * -------------------------------------------------------------------
+ * Julio Medellin               21/03/2018          Original version.<p />
+ *
+ * @author Julio Medellin
+ */
 public with sharing class BBVA_SBS_Classification_cls {
 
 private static list<string> BBVA = new string[12];  
@@ -6,25 +17,31 @@ private static list<string> CPP = new  string[12];
 private static list<string> Def = new  string[12]; 
 private static list<string> Dud = new  string[12]; 
 private static list<string> Per = new  string[12];     
+private static list<string> SBS = new  string[12];    
     
     
-    
-    private static void fillArray(list<string> zeroList){ 
+    private static void fillArray(list<string> zeroList,string value){ 
         for(integer i =0;i<12;i++){
-          zeroList[i]='0';  
-        }
-            
+          zeroList[i]=value;  
+        }      
     }
+    
     
     
     @AuraEnabled
     public static list<list<String>> getJSON(){ 
-     fillArray(BBVA);
-     fillArray(Nor);
-     fillArray(CPP);
-     fillArray(Def);
-     fillArray(Dud);
-     fillArray(Per); 
+     List<List<String>> MonthSBS = new List<List<String>>();    
+     
+       
+        
+        
+     fillArray(BBVA,'0');
+     fillArray(Nor,'0');
+     fillArray(CPP,'0');
+     fillArray(Def,'0');
+     fillArray(Dud,'0');
+     fillArray(Per,'0');
+     fillArray(SBS,'100');   
      list<list<string>> json = new list<list<string>>(); 
      list<Account_Banking_System_Classification__c>   ABSC = new list<Account_Banking_System_Classification__c>(); 
         ABSC = [SELECT ID,
@@ -42,7 +59,6 @@ private static list<string> Per = new  string[12];
             }
             if(abc.banking_system_classification_type__c == '2'){ 
              CPP[abc.year_month_day_date__c.Month()]=(CPP[abc.year_month_day_date__c.Month()]!=null)?string.valueOf(decimal.valueOf(CPP[abc.year_month_day_date__c.Month()])+abc.banking_system_classification_quota_per__c):string.valueOf(abc.banking_system_classification_quota_per__c); 
-      
             } 
             if(abc.banking_system_classification_type__c == '3') {
              Def[abc.year_month_day_date__c.Month()]=(Def[abc.year_month_day_date__c.Month()]!=null)?string.valueOf(decimal.valueOf(Def[abc.year_month_day_date__c.Month()])+abc.banking_system_classification_quota_per__c):string.valueOf(abc.banking_system_classification_quota_per__c); 
@@ -53,7 +69,20 @@ private static list<string> Per = new  string[12];
             if(abc.banking_system_classification_type__c == '5'){
              Per[abc.year_month_day_date__c.Month()]=(Per[abc.year_month_day_date__c.Month()]!=null)?string.valueOf(decimal.valueOf(Per[abc.year_month_day_date__c.Month()])+abc.banking_system_classification_quota_per__c):string.valueOf(abc.banking_system_classification_quota_per__c); 
             }
-                     }     
+               } 
+      
+         for(integer i =0;i<12;i++){
+            
+          if(Nor[i]!='0')BBVA[i]=String.valueOf(Integer.valueOf(BBVA[i])+20);
+          if(CPP[i]!='0')BBVA[i]=String.valueOf(Integer.valueOf(BBVA[i])+20);
+          if(Def[i]!='0')BBVA[i]=String.valueOf(Integer.valueOf(BBVA[i])+20);
+          if(Dud[i]!='0')BBVA[i]=String.valueOf(Integer.valueOf(BBVA[i])+20);
+          if(Per[i]!='0')BBVA[i]=String.valueOf(Integer.valueOf(BBVA[i])+20);
+          
+          SBS[i] = String.valueOf(Integer.valueOf(SBS[i])-Integer.valueOf(Nor[i])-Integer.valueOf(CPP[i])-Integer.valueOf(Def[i])-Integer.valueOf(Dud[i])-Integer.valueOf(Per[i]));  
+             
+            
+            }      
         
               
      //Set Labels Months in Order 
@@ -63,24 +92,13 @@ private static list<string> Per = new  string[12];
      json.add(DEF);
      json.add(Dud); 
      json.add(Per);
-     json.add(BBVA);   
-    
+     json.add(BBVA);
+     json.add(SBS);   
+     
     
      return json;   
     }
   
-    
-    private static list<string> colors(){
-     list<string> colors = new list<string>();   
-     colors.add('rgba(223,123,11,1)');//Naranja;
-     colors.add('rgba(5,5,127,1)');//AzulOscuro;  
-     colors.add('rgba(0,91,58,1)');//rojo;   
-     colors.add('rgba(0,172,35,1)');//verde;
-     colors.add('rgba(223,123,11,1)');//Morado;
-     colors.add('rgba(102,207,34,1)');//AzulClaro;    
-     return colors;   
-    }
-   
 
     
     private static list<String> sortMonths(){

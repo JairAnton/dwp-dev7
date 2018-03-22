@@ -75,6 +75,7 @@
         <members>GraphicsGenerator_cls_test</members>
 		<members>TriggerHandler</members>
 		<members>TriggerHandler_Test</members>
+        <members>BBVA_SBS_Classification_Test</members>
         <name>ApexClass</name>
     </types>
     <types>

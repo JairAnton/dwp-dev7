@@ -9,7 +9,8 @@
       var Dud =[];
       var Per =[];  
       var meses =[];  
-      var bbva = [];    
+      var bbva = [];
+      var SBS =[];   
         action.setCallback(this, function(response) {
          var state = response.getState();
                 if (state === "SUCCESS") {  
@@ -42,6 +43,9 @@
                                      case 6: 
                                             bbva[j] = Informe[i][j]; 
                                             break;        
+                                     case 7: 
+                                            SBS[j] = Informe[i][j]; 
+                                            break;               
                                     }                                                  
                                 }   
                             } 
@@ -52,6 +56,7 @@
                       component.set("v.Dud", Dud);
                       component.set("v.Per", Per);  
                       component.set("v.valoresBBVA", bbva);
+                      component.set("v.SBS", SBS);  
                                   
         var barChartData = {       
         labels:  component.get("v.mesesLista"),
@@ -168,8 +173,30 @@
         fill: true,
         stack:'stack 0',    
         borderWidth: 1
-        }
+        },
         
+    {
+        type: 'bar',    
+        data: component.get("v.SBS"),
+        backgroundColor: ['rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)',
+                          'rgba(112, 128, 249,1)'],        
+        borderDash: [5, 5],
+        label:'SBS',    
+        fill: true,
+        stack:'stack 0',    
+        borderWidth: 1
+        }               
+                   
                                                 
                   ]            
      }
