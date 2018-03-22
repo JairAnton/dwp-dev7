@@ -20,10 +20,10 @@ public class GraphicsGenerator_cls_test {
 
 	    User u = new User();
 	    u.Username='u2@u.com.u';
-	    u.LastName='uLast';
+	    u.LastName='uLast2';
 	    u.Email='u2@u.com';
-	    u.Alias= 'uAlias';
-	    u.CommunityNickname='uComm';
+	    u.Alias= 'uAlias2';
+	    u.CommunityNickname='2uComm';
 	    u.TimeZoneSidKey='America/Mexico_City';
 	    u.LocaleSidKey='en_US';
 	    u.EmailEncodingKey='ISO-8859-1';
