@@ -13,32 +13,21 @@
 @isTest
 public class GraphicsGenerator_cls_test {
 	
-    static Map<String, Profile> perfilMapa = new Map<String, Profile>();    
-    static Map<String, UserRole> RolMapa = new Map<String, UserRole>();
-    static List<Profile> p;     
-    static List<UserRole> userRole;       
-    static{
-       
-        p = new List<Profile>([SELECT Id, Name FROM Profile]);
-        userRole = new List<UserRole>([SELECT Id, Name FROM UserRole]);
-        
-        for(Profile perfil:p){ perfilMapa.put(perfil.Name, perfil); }
-        for(UserRole ur:userRole){ RolMapa.put(ur.Name, ur); }   
-    }
+
 
 	@isTest static void TestSBSGrafica(){
 	    
 
 	    User u = new User();
-	    u.Username='u@u.com.u';
+	    u.Username='u2@u.com.u';
 	    u.LastName='uLast';
-	    u.Email='u@u.com';
+	    u.Email='u2@u.com';
 	    u.Alias= 'uAlias';
 	    u.CommunityNickname='uComm';
 	    u.TimeZoneSidKey='America/Mexico_City';
 	    u.LocaleSidKey='en_US';
 	    u.EmailEncodingKey='ISO-8859-1';
-	    u.ProfileId=  perfilMapa.get('Administrador del sistema').Id;
+	    u.ProfileId=  userinfo.getProfileId();
 	    u.LanguageLocaleKey='en_US';
 	    insert u;
 
