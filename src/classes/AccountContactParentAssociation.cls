@@ -20,9 +20,15 @@ public static boolean uContact= true;
      */
     public static void setValuesRelation(List<AccountContactRelation> lstAccountContactRelation) {
         List<AccountContactRelation> lstAccountContactRelationUpdated = new List<AccountContactRelation>();
-        Map<Id, Contact> mapContact = new Map<Id, Contact>([SELECT Id, AccountId,Account.ParentID,prof_position_type__c, other_prof_prosition_type__c, decision_making_desc__c, parent_account_prof_position_type__c,parent_account_other_prof_prosition_type__c,parent_account_decision_making_desc__c   FROM Contact]);
+        set<Id> Ids = new set<Id>();
+        for(AccountContactRelation tempcont:lstAccountContactRelation)
+            Ids.add(tempcont.contactId);
+        Map<Id, Contact> mapContact = new Map<Id, Contact>([SELECT Id, AccountId,Account.ParentID,prof_position_type__c, 
+                                                            other_prof_prosition_type__c, decision_making_desc__c, parent_account_prof_position_type__c,
+                                                                    parent_account_other_prof_prosition_type__c,parent_account_decision_making_desc__c   
+                                                                    FROM Contact where Id IN: Ids]);
         for(AccountContactRelation objAccountContactRelation : lstAccountContactRelation) {
-           if(objAccountContactRelation.IsDirect == TRUE) {
+           if(objAccountContactRelation.IsDirect) {
              AccountContactRelation objAccountContactRelation2  = new AccountContactRelation(
                     Id = objAccountContactRelation.Id,
                     prof_position_type__c = (objAccountContactRelation.AccountId != mapContact.get(objAccountContactRelation.contactId).Account.parentId) ? mapContact.get(objAccountContactRelation.contactId).prof_position_type__c : mapContact.get(objAccountContactRelation.contactId).parent_account_prof_position_type__c ,
