@@ -1,7 +1,8 @@
 ({
 	startGraph : function(component) {
-	 
-      var action = component.get("c.getJSON"); 
+      var action = component.get("c.getJSON");
+      action.setParams({ recordId : component.get("v.recordId") }); 
+        console.log(action+' : '+component.get("v.recordId"));  
       var lista =[];   
       var Nor =[];
       var CPP =[];
@@ -94,18 +95,18 @@
         {
         type: 'bar',    
         data:  component.get("v.CPP"),
-            backgroundColor: ['rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)',
-                              'rgba(255,99,132,1)'
+            backgroundColor: ['rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)',
+                              'rgba(246,64,18,1)'
                              ],    
         label:'CPP',    
         fill: true,
@@ -113,7 +114,7 @@
         borderWidth: 1
         },{
         type: 'bar',    
-        data:   component.get("v.Def", Def)  ,
+        data:   component.get("v.Def")  ,
         backgroundColor: ['rgba(96,114,230,1)',
                           'rgba(96,114,230,1)',
                           'rgba(96,114,230,1)',
@@ -178,18 +179,18 @@
     {
         type: 'bar',    
         data: component.get("v.SBS"),
-        backgroundColor: ['rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)',
-                          'rgba(112, 128, 249,1)'],        
+        backgroundColor: ['rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)',
+                          'rgba(192, 94, 40,1)'],        
         borderDash: [5, 5],
         label:'SBS',    
         fill: true,

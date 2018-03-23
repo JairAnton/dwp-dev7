@@ -27,6 +27,9 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentName>BBVA_and_SBS_graphic_classification</componentName>
+        </componentInstances>
         <name>facet-5d82925d-fa73-489a-9420-6dd46d6cea1e</name>
         <type>Facet</type>
     </flexiPageRegions>
