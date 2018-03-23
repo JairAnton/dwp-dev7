@@ -91,6 +91,7 @@
         <members>BBVA_and_SBS_graphic_classification</members>
         <members>GraphicEvolutionSBFee_comp</members>
         <members>GraphicsGenerator_comp</members>
+		<members>GraphicsEvolutionSBSDebt_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

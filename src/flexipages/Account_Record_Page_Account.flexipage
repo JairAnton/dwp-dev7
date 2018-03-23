@@ -388,6 +388,9 @@
             <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
         </componentInstances>
         <componentInstances>
+            <componentName>GraphicsEvolutionSBSDebt_comp</componentName>
+        </componentInstances>
+        <componentInstances>
             <componentName>AccountBankingSystemRankingContainer_comp</componentName>
         </componentInstances>
         <name>facet-1165c577-630d-4a40-8d90-90cd335fea8b</name>
