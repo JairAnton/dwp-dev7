@@ -1,21 +1,20 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL">	
   <aura:handler name="init" value="{!this}" action="{!c.init}" />
   <aura:attribute name="bGrafica" type="Boolean" default="false" />
-  <aura:attribute name="sFiltro" type="String" default="Total" />
-  <aura:attribute name="sFiltroRango" type="String" default="2017" />
+  <aura:attribute name="sFiltro" type="String" default="Total" />  
   <aura:attribute name="recordId" type="String" />
   <aura:attribute name="rows" type="List" />     
   <center>
     <div style="width:75%;">
       <aura:if isTrue="{!v.bGrafica}">
-    	  <c:GraphicsGenerator_comp NombreCanvas="{!v.sFiltro}"
+    	  <c:GraphicsGenerator_comp NombreCanvas=""
         posicionLeyenda="right" 
         NombreInforme="EVOLUCION_CUOTA_SBS"        
         TipoGrafica="line"
         Id="{!v.recordId}"
         Colores="#0000ff,#ff8000,#ff0000,#33cc33,#6b654b"
         Filtro="{!v.sFiltro}"
-        FiltroRango="{!v.sFiltroRango}"
+        
         />
       </aura:if>
     </div>    
@@ -32,11 +31,6 @@
                   <option value="Fianzas">Fianzas</option>
                   <option value="Carta crédito">Carta crédito</option> 
                   <option value="Otros indirectas">Otros indirectas</option>                              
-    </lightning:select>
-    <lightning:select aura:id="selFiltroRango" name="selFiltroRango" label="Año"  onchange="{!c.filtroGrafica}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  >
-        <aura:iteration items="{!v.rows}" var="row">
-                  <option value="{!row}">{!row}</option>                  
-        </aura:iteration>
     </lightning:select>
   </center>
 </aura:component>

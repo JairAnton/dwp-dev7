@@ -669,21 +669,6 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-b5fca85a-6f7f-4c7c-ba69-aece6a429d03</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>label</name>
-                <value>EVOLUCIÓN CUOTA SBS</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>name</name>
-                <value>accordionSection--zhh7kzi0gke</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:accordionSection</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
                 <value>facet-11a00169-4e61-4cd0-b81f-cd59cdc5c6cc</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
@@ -693,6 +678,21 @@
             <componentInstanceProperties>
                 <name>name</name>
                 <value>accordionSection--53ek4emfcc</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>facet-b5fca85a-6f7f-4c7c-ba69-aece6a429d03</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>EVOLUCIÓN CUOTA SBS</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--zhh7kzi0gke</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
