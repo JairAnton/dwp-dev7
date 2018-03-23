@@ -65,20 +65,28 @@ public class GraphicsGenerator_cls {
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
-
+        	List<Integer> agrupador = new List<Integer>();
+			for(Integer i=0;i<12 ;i++)
+        	{
+        		agrupador.add(fInicial.addMonths(i).month());	
+        	}
         	for(AggregateResult tab: registrosReporte){
 
 	            if(String.isEmpty(String.valueOf(tab.get('expr0')))) valores.add('0');
 	            else
 	            {
-	            	if(tab.get('expr1')!=fInicial.addMonths(mes).month()){for(Integer i=0; i<(12+Integer.valueOf(tab.get('expr1')))-fInicial.addMonths(mes).month();i++){valores.add('0'); 
-	            		}
-
-	            		mes=mes +(12+Integer.valueOf(tab.get('expr1')))-fInicial.addMonths(mes).month();
-	            		
+	            	if(tab.get('expr1')!=agrupador.get(mes)){
+	            		for(Integer i=mes; i<agrupador.size()-1;i++){
+	            			if(tab.get('expr1')==agrupador.get(mes))i =agrupador.size();
+	            			else
+	            			{
+	            				valores.add('0'); 
+	            				mes++;
+	            			}
+	            		}	            		
 	            	}
 
-	            	if(tab.get('expr1')==fInicial.addMonths(mes).month())
+	            	if(tab.get('expr1')==agrupador.get(mes))
 	            	{
 	            		valores.add(String.valueOf(tab.get('expr0')));	            		
 	            		mes++;
@@ -86,7 +94,7 @@ public class GraphicsGenerator_cls {
 
 	            }
 	        }
-	        if(mes<=12)
+	        if(mes<12)
 	        {
 	        	for(Integer j=mes; mes<=12;mes++)
 	        		valores.add('0');
