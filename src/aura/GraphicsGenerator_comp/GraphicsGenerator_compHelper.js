@@ -146,14 +146,14 @@
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Month'
+                                labelString: 'Mes'
                             }
                         }],
                         yAxes: [{
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Value'
+                                labelString: 'Valor'
                             }
                         }]
                     }

@@ -32,8 +32,8 @@
                   afterScriptsLoaded="{!c.iniciaGraficas}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />	
     <aura:handler name="change" value="{!v.BanderaEjecucion}" action="{!c.cambio}"/>    
-    <div class="c-container" onload="c.rerender">                                        
-    <div class="slds-text-heading_small" style="color:#292366" >{!v.NombreCanvas}</div>                   
-        <canvas aura:id="grafEvolucion"  ></canvas>                                            
+    <div class="c-container" onload="c.rerender">
+    <div class="slds-text-heading_small" style="color:#292366" >{!v.NombreCanvas}</div>
+        <canvas aura:id="grafEvolucion"  ></canvas>
     </div>
 </aura:component>

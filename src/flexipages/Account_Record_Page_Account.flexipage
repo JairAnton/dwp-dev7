@@ -388,6 +388,9 @@
             <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
         </componentInstances>
         <componentInstances>
+            <componentName>GraphicsEvolutionSBSDebt_comp</componentName>
+        </componentInstances>
+        <componentInstances>
             <componentName>AccountBankingSystemRankingContainer_comp</componentName>
         </componentInstances>
         <name>facet-1165c577-630d-4a40-8d90-90cd335fea8b</name>
@@ -395,14 +398,10 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>GraphicEvolutionSBFee_comp</componentName>
-        </componentInstances>
-        <name>facet-b5fca85a-6f7f-4c7c-ba69-aece6a429d03</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <componentInstances>
             <componentName>AccountBankingSystemDebtQuoteContainer_comp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>GraphicEvolutionSBFee_comp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -684,21 +683,6 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-b5fca85a-6f7f-4c7c-ba69-aece6a429d03</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>label</name>
-                <value>EVOLUCIÓN CUOTA SBS</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>name</name>
-                <value>accordionSection--zhh7kzi0gke</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:accordionSection</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
                 <value>facet-147227f5-7177-4a33-a469-890fc43d4e20</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
@@ -963,6 +947,9 @@
                 <value>false</value>
             </componentInstanceProperties>
             <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>GraphicVinculacion_comp</componentName>
         </componentInstances>
         <name>facet-757848ee-d6fc-4e70-8dad-ebb7a685b838</name>
         <type>Facet</type>
