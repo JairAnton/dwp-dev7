@@ -95,11 +95,15 @@
 
         for(i=0; i < concepto.length; i++)
         {                
+            var colorBorder=bibliotecaColor[i];
+            if (colorBorder =='#ffffff') 
+                colorBorder='#676767';
+             
              graficas[i]={
                 label: concepto[i],
                 data: ParametrosDinamicos[i],
                 backgroundColor: bibliotecaColor[i],
-                borderColor: bibliotecaColor[i],
+                borderColor: colorBorder,
                 borderWidth: 2,
                 fill: bfill
             };
@@ -117,11 +121,9 @@
             window.myDoughnutChart = new Chart(evolucion, {
             	type: parametros,
                 data: data,
-                legend: {
-                	display: false,
-                     position: posicion
-                },
+                  
                 options: {
+                    
                     legend: {
                         display: true,
                         position: posicion,
@@ -141,20 +143,23 @@
                         mode: 'nearest',
                         intersect: true
                     },
-                    scales: {
-                        xAxes: [{
-                            display: true,
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Mes'
-                            }
-                        }],
+                    scales: {                       
                         yAxes: [{
+                            
                             display: true,
                             scaleLabel: {
                                 display: true,
                                 labelString: 'Valor'
                             }
+                        }],
+                        xAxes: [{
+                               
+                            
+                            scaleLabel: {
+                            
+                                labelString: 'Mes'
+                            }
+                                 
                         }]
                     }
                 }
