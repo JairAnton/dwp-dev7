@@ -38,7 +38,7 @@ public class GraphicsGenerator_cls_test {
 	    Account_Banking_System_Debt__c sbs = new Account_Banking_System_Debt__c();        
 	    sbs.debt_quote_amount__c=100;
 	    sbs.entity_name__c='BBVA';
-	    sbs.year_month_day_date__c=date.parse('01/01/2017');
+	    sbs.year_month_day_date__c=date.parse('01/01/2018');
 	    sbs.account_id__c=ac.Id;
 	    insert sbs;
 
@@ -46,7 +46,7 @@ public class GraphicsGenerator_cls_test {
 	    Account_Banking_System_Debt__c sbs1 = new Account_Banking_System_Debt__c();        
 	    sbs1.debt_quote_amount__c=200;
 	    sbs1.entity_name__c='BBVA';
-	    sbs1.year_month_day_date__c=date.parse('03/01/2017');
+	    sbs1.year_month_day_date__c=date.parse('03/01/2018');
 	    sbs1.account_id__c=ac.Id;
 	    insert sbs1;
 	    
