@@ -34,8 +34,9 @@ year_month_day_date__c=System.date.today()));
 insert testSBS;
 }
 @isTest static void positiveMethod() {
+ID accid = [SELECT ID From Account limit 1].Id;   
 BBVA_SBS_Classification_cls sbs =  new BBVA_SBS_Classification_cls();
-system.assertNotEquals(null,BBVA_SBS_Classification_cls.getJSON());
+system.assertNotEquals(null,BBVA_SBS_Classification_cls.getJSON(accid));
 }
 
 }

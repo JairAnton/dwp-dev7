@@ -1,4 +1,4 @@
-<aura:component controller="BBVA_SBS_Classification_cls" implements="flexipage:availableForAllPageTypes" access="GLOBAL">
+<aura:component controller="BBVA_SBS_Classification_cls" implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" access="GLOBAL">
     <aura:attribute name="Indicador" type="String" />
     <aura:attribute name="JsonReporte" type="List" default=""/>
     <aura:attribute name="mesesLista" type="List"/>
