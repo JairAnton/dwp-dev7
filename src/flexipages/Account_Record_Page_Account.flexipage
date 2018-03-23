@@ -948,6 +948,9 @@
             </componentInstanceProperties>
             <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentName>GraphicVinculacion_comp</componentName>
+        </componentInstances>
         <name>facet-757848ee-d6fc-4e70-8dad-ebb7a685b838</name>
         <type>Facet</type>
     </flexiPageRegions>

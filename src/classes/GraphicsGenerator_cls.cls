@@ -103,6 +103,53 @@ public class GraphicsGenerator_cls {
 	 
 
         }
+
+        if(sNombreReporte.equals('VINCULACION') )
+        {
+        	fInicial=Date.today().toStartofMonth().addMonths(-5);
+        	fActual=Date.today().toStartofMonth().addMonths(1);
+			List<Account_Indicator__C > auxTab = [SELECT indicator_num__c,year_month_day_date__c
+	                                                                FROM Account_Indicator__C 
+	                                                                where account_id__c=:sId  and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and indicator_name__c=: sConcepto
+	                                                                order by year_month_day_date__c ];
+ 			
+ 			List<Integer> agrupador = new List<Integer>();
+			for(Integer i=0;i<6 ;i++)
+        	{
+        		agrupador.add(fInicial.addMonths(i).month());	
+        	}
+        	for(Account_Indicator__c tab: auxtab){
+
+	            if(String.isEmpty(String.valueOf(tab.year_month_day_date__c))) valores.add('0');
+	            else
+	            {
+	            	if(tab.year_month_day_date__c.month()!=agrupador.get(mes)){
+	            		for(Integer i=mes; i<agrupador.size()-1;i++){
+	            			if(tab.year_month_day_date__c.month()==agrupador.get(mes))i =agrupador.size();
+	            			else
+	            			{
+	            				valores.add('0'); 
+	            				mes++;
+	            			}
+	            		}	            		
+	            	}
+
+	            	if(tab.year_month_day_date__c.month()==agrupador.get(mes))
+	            	{	            	
+	            		valores.add(String.valueOf(tab.indicator_num__c));
+	            		mes++;
+	            	}
+
+	            }
+	        }
+	        if(mes<6)
+	        {
+	        	for(Integer j=mes; mes<=6;mes++)
+	        		valores.add('0');
+	        }
+	 
+
+        }
         
         return valores;
     }
@@ -118,6 +165,16 @@ public class GraphicsGenerator_cls {
         	}
             
         }
+
+        if(sNombreReporte.equals('VINCULACION')){
+        	Date fInicial=Date.today().toStartofMonth().addMonths(-6);
+        	String [] sMes= new String[]{'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'};
+        	for(Integer i=0;i<6 ;i++)
+        	{
+        		agrupadores.add(sMes[fInicial.addMonths(i).month()-1] +' '+fInicial.addMonths(i).year());	
+        	}
+            
+        }
         return agrupadores;
     }
 
@@ -130,6 +187,13 @@ public class GraphicsGenerator_cls {
 			concepto.add('IBK');
 			concepto.add('OTROS');
         }        
+
+        if(sNombreReporte.equals('VINCULACION')){
+            concepto.add('Azul');
+			concepto.add('Celeste');
+			concepto.add('Plomo');
+			concepto.add('Blanco');			
+        }      
         return concepto;
     }
 
@@ -152,6 +216,18 @@ public class GraphicsGenerator_cls {
 
            		conjunto.add(new List<String>(getValores(concepto.get(i),sFiltro,sFiltroRango,sNombreReporte,sId)));
             }
+        }
+        if(sNombreReporte.equals('VINCULACION'))
+        {
+        	agrupador = getAgrupadores(sNombreReporte);
+            concepto = getConceptos(sNombreReporte);
+            conjunto.add(concepto);
+			conjunto.add(agrupador);        	
+            for(Integer i=0; i< concepto.size(); i++)
+            {            
+
+           		conjunto.add(new List<String>(getValores(concepto.get(i),sFiltro,sFiltroRango,sNombreReporte,sId)));
+            }	
         }
         return conjunto;
 
