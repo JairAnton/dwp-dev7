@@ -103,7 +103,7 @@
 			</componentInstanceProperties>
 			<componentInstanceProperties>
 				<name>FilterStatic</name>
-				<value>product_group_classification_id__c != &apos;&apos; AND entity_name__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND unpaid_days_number__c &gt;=0</value>
+				<value>year_month_day_date__c = LAST_N_MONTHS: 6 AND product_group_classification_id__c != &apos;&apos; AND entity_name__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND unpaid_days_number__c &gt;=0</value>
 			</componentInstanceProperties>
 			<componentInstanceProperties>
 				<name>Format</name>
