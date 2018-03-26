@@ -26,7 +26,7 @@
         <name>l2_product_group_name__c</name>
     </fields>
     <fields>
-        <label>Impacto quota</label>
+        <label>Impacto cuota</label>
         <name>quote_impact_desc__c</name>
     </fields>
     <fields>
