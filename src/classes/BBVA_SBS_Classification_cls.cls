@@ -18,7 +18,7 @@ private static list<string> Def = new  string[12];
 private static list<string> Dud = new  string[12]; 
 private static list<string> Per = new  string[12];     
 private static list<string> SBS = new  string[12];    
-    
+private static date myDate = system.Date.today();     
     
     private static void fillArray(list<string> zeroList,string value){ 
         for(integer i =0;i<12;i++){
@@ -32,7 +32,7 @@ private static list<string> SBS = new  string[12];
     public static list<list<String>> getJSON(Id recordId){ 
      List<List<String>> MonthSBS = new List<List<String>>();         
      fillArray(BBVA,'0');
-     fillArray(Nor,'100');
+     fillArray(Nor,'0');
      fillArray(CPP,'0');
      fillArray(Def,'0');
      fillArray(Dud,'0');
@@ -41,10 +41,16 @@ private static list<string> SBS = new  string[12];
      list<list<string>> json = new list<list<string>>(); 
      list<Account_Banking_System_Classification__c>   ABSC = new list<Account_Banking_System_Classification__c>(); 
      list<Account_BBVA_Classification__c>  ABBVAC = new list<Account_BBVA_Classification__c>();  
-         
-        ABBVAC =[SELECT bbva_classification_type__c 
+     date myDate = system.Date.today();
+     integer index = myDate.month();
+     integer index2 =0 ;    
+     Integer currentMonth = myDate.month();
+     string flag = 'Nor';
+        Map<Integer,Integer> MonthsMap= new Map<Integer,Integer>();
+        ABBVAC =[SELECT bbva_classification_type__c,year_month_day_date__c 
                  FROM Account_BBVA_Classification__c 
                  WHERE account_id__c  =: recordId 
+                 AND year_month_day_date__c = LAST_N_DAYS:365
                  ORDER BY year_month_day_date__c 
                  LIMIT 12];
         
@@ -55,49 +61,59 @@ private static list<string> SBS = new  string[12];
                     banking_system_classification_type__c,
                     Name,Unique_Id__c,year_month_day_date__c 
                FROM Account_Banking_System_Classification__c 
-               WHERE account_id__c  =: recordId
+               WHERE account_id__c  =: recordId 
+               AND year_month_day_date__c = LAST_N_DAYS:365
                ORDER BY year_month_day_date__c LIMIT 12];
-        Integer index =0;
-        for(Account_Banking_System_Classification__c abc : ABSC ){
-          system.debug('Index : '+ index +' : '+abc.banking_system_classification_quota_per__c);  
-           if(abc.banking_system_classification_type__c == '0'){     
-             Nor[Index]=(Nor[Index]!=null)?string.valueOf(decimal.valueOf(Nor[Index])+abc.banking_system_classification_quota_per__c):string.valueOf(abc.banking_system_classification_quota_per__c);        
+     
+        
+        for(integer i=0;i<12;i++){
+            if((index+i)<12){    
+           MonthsMap.put(Index+i,i);
+            }else{     
+            MonthsMap.put(Index2,i);
+             index2++;  
+            }    
+        }  
+        
+        for(Account_Banking_System_Classification__c abc : ABSC ){          
+         Integer MonthRec = abc.year_month_day_date__c.Month()-1;
+            if(flag=='Nor')Nor[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
+            if(flag=='CPP')CPP[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
+            if(flag=='Def')Def[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
+            if(flag=='Dud')Dud[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
+            if(flag=='Per')Per[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
+
+            
+            If(abc.banking_system_classification_type__c=='0'){              
+               Nor[MonthsMap.get(MonthRec)]=(flag!='Nor')?string.valueOf(decimal.valueOf(Nor[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100';         
+               flag = 'Nor';
             }
-            if(abc.banking_system_classification_type__c == '10'){   
-             CPP[index]=(CPP[index]!=null)?string.valueOf(decimal.valueOf(CPP[index])+abc.banking_system_classification_quota_per__c):string.valueOf(abc.banking_system_classification_quota_per__c); 
-             Nor[Index]=string.valueOf(decimal.valueOf(Nor[index])-decimal.valueOf(CPP[index]));
-            } 
-            if(abc.banking_system_classification_type__c == '20') {
-             Def[index]=(Def[index]!=null)?string.valueOf(decimal.valueOf(Def[index])+abc.banking_system_classification_quota_per__c):string.valueOf(abc.banking_system_classification_quota_per__c); 
-             CPP[index]=string.valueOf(100-decimal.valueOf(Def[index]));
-             Nor[Index]='0';   
+            If(abc.banking_system_classification_type__c=='10'){
+               CPP[MonthsMap.get(MonthRec)]=(flag!='CPP')?string.valueOf(decimal.valueOf(CPP[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100'; 
+               flag = 'CPP';
             }
-            if(abc.banking_system_classification_type__c == '30') {
-             Dud[index]=(dud[index]!=null)?string.valueOf(decimal.valueOf(Dud[index])+abc.banking_system_classification_quota_per__c):string.valueOf(abc.banking_system_classification_quota_per__c);
-             Def[index]=string.valueOf(100-decimal.valueOf(Dud[index]));
-             CPP[index]='0';
-             Nor[Index]='0';
+            If(abc.banking_system_classification_type__c=='20'){
+               Def[MonthsMap.get(MonthRec)]=(flag!='Def')?string.valueOf(decimal.valueOf(Def[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100'; 
+               flag = 'Def';
             }
-            if(abc.banking_system_classification_type__c == '40'){
-             Per[index]=(Per[index]!=null)?string.valueOf(decimal.valueOf(Per[index])+abc.banking_system_classification_quota_per__c):string.valueOf(abc.banking_system_classification_quota_per__c); 
-             Dud[Index]=string.valueOf(100-decimal.valueOf(Per[index]));
-             CPP[index]='0';
-             Nor[Index]='0';
-             Def[Index]='0';    
+            If(abc.banking_system_classification_type__c=='30'){
+               Dud[MonthsMap.get(MonthRec)]=(flag!='Ded')?string.valueOf(decimal.valueOf(Dud[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100';
+               flag = 'Dud';
             }
-            index++;
-               } 
-      
-         for(integer i =0;i<12;i++){
-             try{   
-          if(ABBVAC[i].bbva_classification_type__c==0)  BBVA[i]= '100';
-          if(ABBVAC[i].bbva_classification_type__c==10)  BBVA[i]= '80';
-          if(ABBVAC[i].bbva_classification_type__c==20)  BBVA[i]= '60';
-          if(ABBVAC[i].bbva_classification_type__c==30)  BBVA[i]= '40';
-          if(ABBVAC[i].bbva_classification_type__c==40)  BBVA[i]= '20'; 
-             }catch(Exception e){
-               system.debug('Exception :'+ e.getMessage());  
-             }   
+            If(abc.banking_system_classification_type__c=='40'){ 
+               Per[MonthsMap.get(MonthRec)]=(flag!='Per')?string.valueOf(decimal.valueOf(Per[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100';    
+               flag = 'Per';          
+            }
+           
+        }
+            
+        for(Account_BBVA_Classification__c  abc : ABBVAC ){ 
+          Integer MonthRec = abc.year_month_day_date__c.Month()-1;
+          if(abc.bbva_classification_type__c==0)   BBVA[MonthsMap.get(MonthRec)]= '100';
+          if(abc.bbva_classification_type__c==10)  BBVA[MonthsMap.get(MonthRec)]= '80';
+          if(abc.bbva_classification_type__c==20)  BBVA[MonthsMap.get(MonthRec)]= '60';
+          if(abc.bbva_classification_type__c==30)  BBVA[MonthsMap.get(MonthRec)]= '40';
+          if(abc.bbva_classification_type__c==40)  BBVA[MonthsMap.get(MonthRec)]= '20';                      
          }      
         
               
@@ -114,11 +130,10 @@ private static list<string> SBS = new  string[12];
     
      return json;   
     }
-  
+ 
 
    private static list<String> sortMonths(){
         string mes = 'Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre';
-        date myDate = system.Date.today();
         list<string> Months = Mes.split(',');
         list<string> MonthsOrder= new list<String>();
         integer index = myDate.month();
@@ -131,9 +146,7 @@ private static list<string> SBS = new  string[12];
              index2++;  
             }    
         }     
-        
-        
-        
+              
      return MonthsOrder;   
     }
      

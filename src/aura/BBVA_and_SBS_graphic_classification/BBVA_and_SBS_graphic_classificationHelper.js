@@ -174,29 +174,9 @@
         fill: true,
         stack:'stack 0',    
         borderWidth: 1
-        },
+        }
         
-    {
-        type: 'bar',    
-        data: component.get("v.SBS"),
-        backgroundColor: ['rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)',
-                          'rgba(192, 94, 40,1)'],        
-        borderDash: [5, 5],
-        label:'SBS',    
-        fill: true,
-        stack:'stack 0',    
-        borderWidth: 1
-        }               
+                 
                    
                                                 
                   ]            
