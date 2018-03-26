@@ -45,7 +45,6 @@ private static date myDate = system.Date.today();
      integer index = myDate.month();
      integer index2 =0 ;    
      Integer currentMonth = myDate.month();
-     string flag = 'Nor';
         Map<Integer,Integer> MonthsMap= new Map<Integer,Integer>();
         ABBVAC =[SELECT bbva_classification_type__c,year_month_day_date__c 
                  FROM Account_BBVA_Classification__c 
@@ -77,32 +76,27 @@ private static date myDate = system.Date.today();
         
         for(Account_Banking_System_Classification__c abc : ABSC ){          
          Integer MonthRec = abc.year_month_day_date__c.Month()-1;
-            if(flag=='Nor')Nor[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
-            if(flag=='CPP')CPP[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
-            if(flag=='Def')Def[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
-            if(flag=='Dud')Dud[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
-            if(flag=='Per')Per[MonthsMap.get(MonthRec)]=string.valueOf(100-abc.banking_system_classification_quota_per__c);
-
+          
             
             If(abc.banking_system_classification_type__c=='0'){              
-               Nor[MonthsMap.get(MonthRec)]=(flag!='Nor')?string.valueOf(decimal.valueOf(Nor[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100';         
-               flag = 'Nor';
+               Nor[MonthsMap.get(MonthRec)]='100';         
+               
             }
             If(abc.banking_system_classification_type__c=='10'){
-               CPP[MonthsMap.get(MonthRec)]=(flag!='CPP')?string.valueOf(decimal.valueOf(CPP[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100'; 
-               flag = 'CPP';
+               CPP[MonthsMap.get(MonthRec)]=string.valueOf(decimal.valueOf(CPP[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c); 
+               Nor[MonthsMap.get(MonthRec)]=String.valueOf(100-Decimal.valueOf(CPP[MonthsMap.get(MonthRec)]));
             }
             If(abc.banking_system_classification_type__c=='20'){
-               Def[MonthsMap.get(MonthRec)]=(flag!='Def')?string.valueOf(decimal.valueOf(Def[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100'; 
-               flag = 'Def';
+               Def[MonthsMap.get(MonthRec)]=string.valueOf(decimal.valueOf(Def[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c); 
+               CPP[MonthsMap.get(MonthRec)]=String.valueOf(100-Decimal.valueOf(Def[MonthsMap.get(MonthRec)]));
             }
             If(abc.banking_system_classification_type__c=='30'){
-               Dud[MonthsMap.get(MonthRec)]=(flag!='Ded')?string.valueOf(decimal.valueOf(Dud[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100';
-               flag = 'Dud';
+               Dud[MonthsMap.get(MonthRec)]=string.valueOf(decimal.valueOf(Dud[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c);
+               Def[MonthsMap.get(MonthRec)]=String.valueOf(100-Decimal.valueOf(Dud[MonthsMap.get(MonthRec)]));
             }
             If(abc.banking_system_classification_type__c=='40'){ 
-               Per[MonthsMap.get(MonthRec)]=(flag!='Per')?string.valueOf(decimal.valueOf(Per[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c):'100';    
-               flag = 'Per';          
+               Per[MonthsMap.get(MonthRec)]=string.valueOf(decimal.valueOf(Per[abc.year_month_day_date__c.Month()-1])+abc.banking_system_classification_quota_per__c);    
+               Dud[MonthsMap.get(MonthRec)]=String.valueOf(100-Decimal.valueOf(Per[MonthsMap.get(MonthRec)]));    
             }
            
         }
