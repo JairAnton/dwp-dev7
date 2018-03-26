@@ -374,7 +374,7 @@
     <fields>
         <fullName>commercial_strategy__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE(UPPER(commercial_strategy_class_name__c),&apos;BLANCO&apos;,IMAGE(&apos;/resource/White_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; BLANCO&apos;,&apos;PLOMO&apos;,IMAGE(&apos;/resource/Grey_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; PLOMO&apos;,&apos;CELESTE&apos;,IMAGE(&apos;/resource/Light_Blue_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; CELESTE&apos;,&apos;AZUL&apos;,IMAGE(&apos;/resource/Blue_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; AZUL&apos;,&apos;&apos;)</formula>
+        <formula>CASE(UPPER(commercial_strategy_class_name__c),&apos;BLANCO&apos;,IMAGE(&apos;/resource/White_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; &apos; + commercial_strategy_class_name__c,&apos;PLOMO&apos;,IMAGE(&apos;/resource/Grey_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; &apos; + commercial_strategy_class_name__c,&apos;CELESTE&apos;,IMAGE(&apos;/resource/Light_Blue_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; &apos; + commercial_strategy_class_name__c,&apos;AZUL&apos;,IMAGE(&apos;/resource/Blue_Circle_Icon&apos;,&quot;&quot;,20,20) + &apos; &apos; + commercial_strategy_class_name__c,&apos;&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Commercial strategy</label>
         <required>false</required>

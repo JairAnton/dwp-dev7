@@ -10,15 +10,7 @@
  *
  * @author Julio Medellin
  */
-trigger AccountContact_tgr on AccountContactRelation (after insert, after update) {
-
-    //Is After event.
-    if(trigger.isAfter) {
-        if(trigger.isInsert) {
-            AccountContact_Handler.setValuesRelation(trigger.new);
-        }
-        if(Trigger.isUpdate) {
-            AccountContact_Handler.updateValuesRelationInContact(Trigger.new);
-        }
-    }
+trigger AccountContact_tgr on AccountContactRelation (after insert,before insert,before update,after update, after delete, before delete, after undelete) {
+    new AccountContact_Handler().run();
 }
+  

@@ -614,7 +614,7 @@
         <name>debt_EBITDA_per__c</name>
     </fields>
     <fields>
-        <label>DFB</label>
+        <label>DFB / Ventas</label>
         <name>dfb_sales_per__c</name>
     </fields>
     <fields>
