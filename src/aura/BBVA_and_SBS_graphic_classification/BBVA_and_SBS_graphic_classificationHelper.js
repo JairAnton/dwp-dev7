@@ -232,7 +232,7 @@
             display: true,
             labels: {
                 },
-            position:'right',
+            position:'bottom',
            stacked:true
              }
                    ,      
