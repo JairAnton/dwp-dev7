@@ -213,7 +213,7 @@
             }, {
              id:'BBVA',   
              display: true,
-             position: 'right',
+             position: 'bottom',
              ticks: {
                beginAtZero: true,
                max: 5,
