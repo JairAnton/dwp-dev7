@@ -62,7 +62,8 @@
         var barChartData = {       
         labels:  component.get("v.mesesLista"),
         datasets: [{
-        type: 'line',    
+        type: 'line',
+        yAxisID: 'BBVA',     
         data: component.get("v.valoresBBVA"),
         borderDash: [10, 5],
         label:'BBVA',   
@@ -72,7 +73,8 @@
         },
         {
         type: 'bar', 
-        data:  component.get("v.Nor"),
+        yAxisID: 'SBS',    
+        data:  component.get("v.Nor"),   
         backgroundColor: ['rgba(21,81,141,1)',
                               'rgba(21,81,141,1)',
                               'rgba(21,81,141,1)',
@@ -86,7 +88,7 @@
                               'rgba(21,81,141,1)'
                              ],            
         borderDash: [5, 5],
-        label:'Nor',    
+        label:'Nor (5)',    
         fill: true,
         stack:'stack 0',    
         borderWidth: 1
@@ -94,7 +96,7 @@
         {
         type: 'bar',    
         data:  component.get("v.CPP"),
-            backgroundColor: ['rgba(176,42,42,1)',
+        backgroundColor: ['rgba(176,42,42,1)',
                               'rgba(176,42,42,1)',
                               'rgba(176,42,42,1)',
                               'rgba(176,42,42,1)',
@@ -107,7 +109,7 @@
                               'rgba(176,42,42,1)',
                               'rgba(176,42,42,1)'
                              ],    
-        label:'CPP',    
+        label:'CPP (4)',    
         fill: true,
         stack:'stack 0',    
         borderWidth: 1
@@ -127,7 +129,7 @@
                           'rgba(132,191,73,1)',
                           'rgba(132,191,73,1)'],        
         borderDash: [5, 5],
-        label:'Def',    
+        label:'Def (3)',    
         fill: true,
         stack:'stack 0',    
         borderWidth: 1
@@ -149,7 +151,7 @@
                           'rgba(127,89,165,1)',
                           'rgba(127,89,165,1)'],        
         borderDash: [5, 5],
-        label:'Dud',    
+        label:'Dud (2)',    
         fill: true,
         stack:'stack 0',    
         borderWidth: 1
@@ -170,7 +172,7 @@
                           'rgba(63,191,191,1)',
                           'rgba(63,191,191,1)'],        
         borderDash: [5, 5],
-        label:'Per',    
+        label:'Per (1)',    
         fill: true,
         stack:'stack 0',    
         borderWidth: 1
@@ -195,18 +197,21 @@
                
          scales: {
             yAxes: [{
+                id:'SBS',
                 display: true,
                 position: 'left',
                 ticks: {
                     beginAtZero:true,             
                     min: 0,
                     max: 100,
+                    stepSize:20,
                     callback: function(value) {
                     return value + "%"
                     }      
                 },
                 stacked:true                 
             }, {
+             id:'BBVA',   
              display: true,
              position: 'right',
              ticks: {
@@ -214,7 +219,7 @@
                max: 5,
                min: 0,
                stepSize: 1,
-               stacked:true 
+               stacked:true
              }
             }],
             xAxes: [{
