@@ -132,7 +132,7 @@
 			</componentInstanceProperties>
 			<componentInstanceProperties>
 				<name>Order</name>
-				<value>product_desc_order__c ASC,entity_order__c ASC,year_month_day_date__c ASC</value>
+				<value>year_month_day_date__c ASC, product_desc_order__c ASC,entity_order__c ASC</value>
 			</componentInstanceProperties>
 			<componentInstanceProperties>
 				<name>PositionCurrency</name>
