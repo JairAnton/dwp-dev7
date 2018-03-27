@@ -103,11 +103,11 @@ private static date myDate = system.Date.today();
             
         for(Account_BBVA_Classification__c  abc : ABBVAC ){ 
           Integer MonthRec = abc.year_month_day_date__c.Month()-1;
-          if(abc.bbva_classification_type__c==0)   BBVA[MonthsMap.get(MonthRec)]= '100';
-          if(abc.bbva_classification_type__c==10)  BBVA[MonthsMap.get(MonthRec)]= '80';
-          if(abc.bbva_classification_type__c==20)  BBVA[MonthsMap.get(MonthRec)]= '60';
-          if(abc.bbva_classification_type__c==30)  BBVA[MonthsMap.get(MonthRec)]= '40';
-          if(abc.bbva_classification_type__c==40)  BBVA[MonthsMap.get(MonthRec)]= '20';                      
+          if(abc.bbva_classification_type__c==0)   BBVA[MonthsMap.get(MonthRec)]= '5';
+          if(abc.bbva_classification_type__c==10)  BBVA[MonthsMap.get(MonthRec)]= '4';
+          if(abc.bbva_classification_type__c==20)  BBVA[MonthsMap.get(MonthRec)]= '3';
+          if(abc.bbva_classification_type__c==30)  BBVA[MonthsMap.get(MonthRec)]= '2';
+          if(abc.bbva_classification_type__c==40)  BBVA[MonthsMap.get(MonthRec)]= '1';                      
          }      
         
               
