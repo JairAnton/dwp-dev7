@@ -26,7 +26,7 @@ public class GraphicsGenerator_cls {
         	}
         	else if(sFiltro=='Indirecta' || sFiltro=='Directa')
  			{
-        		registrosReporte = [SELECT sum(debt_quote_amount__c),entity_name__c,calendar_month(year_month_day_date__c)
+        		registrosReporte = [SELECT entity_name__c,calendar_month(year_month_day_date__c)
 	                                                                FROM Account_Banking_System_Debt__c 
 	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and CALENDAR_YEAR(year_month_day_date__c) =:Integer.valueOf(sFiltroRango) and product_group_classification_id__c=:sFiltro
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
