@@ -41,11 +41,12 @@ public class GraphicsGenerator_cls {
  			}
  			else if(sFiltro=='Otros indirectas')
  			{
-        		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
+
+
+        		registrosReporte = [SELECT debt_quote_amount__c,calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
 	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='Otros'
-	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
-	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
+	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)  ASC];
  			}
  			else if(sFiltro=='Otros directas')
  			{
