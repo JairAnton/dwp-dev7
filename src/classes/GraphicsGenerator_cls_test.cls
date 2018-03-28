@@ -38,7 +38,7 @@ public class GraphicsGenerator_cls_test {
 	    Account_Banking_System_Debt__c sbs = new Account_Banking_System_Debt__c();        
 	    sbs.debt_quote_amount__c=100;
 	    sbs.entity_name__c='BBVA';
-	    sbs.year_month_day_date__c=date.parse('01/01/2017');
+	    sbs.year_month_day_date__c=Date.today().addMonths(-1);
 	    sbs.account_id__c=ac.Id;
 	    insert sbs;
 
@@ -46,9 +46,16 @@ public class GraphicsGenerator_cls_test {
 	    Account_Banking_System_Debt__c sbs1 = new Account_Banking_System_Debt__c();        
 	    sbs1.debt_quote_amount__c=200;
 	    sbs1.entity_name__c='BBVA';
-	    sbs1.year_month_day_date__c=date.parse('03/01/2017');
+	    sbs1.year_month_day_date__c=Date.today().addMonths(-1);
 	    sbs1.account_id__c=ac.Id;
 	    insert sbs1;
+
+   	    Account_Indicator__c v1 = new Account_Indicator__c();        
+	    v1.indicator_num__c=3;
+	    v1.indicator_name__c='Celeste';
+	    v1.year_month_day_date__c=Date.today().addMonths(-1);
+	    v1.account_id__c=ac.Id;
+	    insert v1;
 	    
 	    test.startTest();
 	    System.runAs(u){                       
@@ -58,9 +65,11 @@ public class GraphicsGenerator_cls_test {
 			GraphicsGenerator_cls.getGeneraJSONReporte('EVOLUCION_CUOTA_SBS','Otros directas','2017',ac.Id);
 			GraphicsGenerator_cls.getGeneraJSONReporte('EVOLUCION_CUOTA_SBS','Otros indirectas','2017',ac.Id);
 			GraphicsGenerator_cls.getGeneraJSONReporte('EVOLUCION_CUOTA_SBS','','2017',ac.Id);
+			GraphicsGenerator_cls.getGeneraJSONReporte('VINCULACION','','2017',ac.Id);
 	        System.assert(true,'This Works!');            
 	    } 
 	    test.stopTest();
 	}
+
 
 }

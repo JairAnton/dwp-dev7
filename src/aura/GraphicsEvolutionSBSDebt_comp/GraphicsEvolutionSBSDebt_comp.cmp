@@ -7,9 +7,9 @@
   <center>
     <div style="width:75%;">
       <aura:if isTrue="{!v.bGrafica}">
-    	  <c:GraphicsGenerator_comp NombreCanvas="EVOLUCIÓN CUOTA SBS"
+    	  <c:GraphicsGenerator_comp NombreCanvas="EVOLUCIÓN DEUDA SBS"
         posicionLeyenda="right" 
-        NombreInforme="EVOLUCION_CUOTA_SBS"        
+        NombreInforme="EVOLUCION_DEUDA_SBS"        
         TipoGrafica="line"
         Id="{!v.recordId}"
         Colores="#0000ff,#ff8000,#ff0000,#33cc33,#6b654b"
