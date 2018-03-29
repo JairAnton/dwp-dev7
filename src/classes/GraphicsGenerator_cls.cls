@@ -33,20 +33,19 @@ public class GraphicsGenerator_cls {
         	}
         	else if(sFiltro=='Indirecta' || sFiltro=='Directa')
  			{
-        		registrosReporte = [SELECT Max(debt_quote_amount__c),entity_name__c,calendar_month(year_month_day_date__c)
+        		registrosReporte = [SELECT max(debt_quote_amount__c),entity_name__c,calendar_month(year_month_day_date__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro
+	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c =:sFiltro
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
  			else if(sFiltro=='Otros indirectas')
  			{
-
-
-        		registrosReporte = [SELECT debt_quote_amount__c,calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
+        		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
 	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='Otros'
-	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)  ASC];
+	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
+	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
  			else if(sFiltro=='Otros directas')
  			{
