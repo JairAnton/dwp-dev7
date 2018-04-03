@@ -106,7 +106,7 @@ public class GraphicsGenerator_cls {
 
         if(sNombreReporte.equals('VINCULACION') )
         {
-        	fInicial=Date.today().toStartofMonth().addMonths(-5);
+        	fInicial=Date.today().toStartofMonth().addMonths(-6);
         	fActual=Date.today().toStartofMonth().addMonths(1);
 			List<Account_Indicator__C > auxTab = [SELECT indicator_num__c,year_month_day_date__c
 	                                                                FROM Account_Indicator__C 
