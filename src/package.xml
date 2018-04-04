@@ -51,6 +51,7 @@
         <members>AccountProductClassificationTable5</members>
         <members>AccountRankingClassificationTable1</members>
         <members>AccountRankingClassificationTable2</members>
+		<members>AccountRankingClassificationTable3</members>
         <name>CustomLabel</name>
     </types>
     <types>
