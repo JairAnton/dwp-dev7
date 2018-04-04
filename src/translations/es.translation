@@ -80,10 +80,6 @@
         <label>Indirecta</label>
         <name>AccountRankingClassification2</name>
     </customLabels>
-	<customLabels>
-        <label>Total</label>
-        <name>AccountRankingClassification3</name>
-    </customLabels>
     <customLabels>
         <label>Oct</label>
         <name>Month10ShortName</name>
