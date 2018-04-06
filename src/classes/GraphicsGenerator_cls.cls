@@ -17,7 +17,7 @@ public class GraphicsGenerator_cls {
         List<String> valores = new List<String>();
         List<String> agrupadores = new List<String>();        
         List<AggregateResult> registrosReporte = new List<AggregateResult>();
-        Date fInicial=Date.today().toStartofMonth().addMonths(-11);
+        Date fInicial=Date.today().toStartofMonth().addMonths(-12);
         Date fActual=Date.today().toStartofMonth().addMonths(1);
         
         Integer mes=0;
@@ -27,7 +27,7 @@ public class GraphicsGenerator_cls {
  			{ 				
  				registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and   (year_month_day_date__c > :fInicial and year_month_day_date__c<=:fActual)
+	                                                                                                                           where account_id__c=:sId and entity_name__c =:sConcepto and   (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual)
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)  
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
@@ -157,7 +157,7 @@ public class GraphicsGenerator_cls {
     @AuraEnabled public Static List<String> getAgrupadores( String sNombreReporte){
         List<String> agrupadores= new List<String>();         
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
-        	Date fInicial=Date.today().toStartofMonth().addMonths(-11);
+        	Date fInicial=Date.today().toStartofMonth().addMonths(-12);
         	String [] sMes= new String[]{'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'};
         	for(Integer i=0;i<12 ;i++)
         	{
