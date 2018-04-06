@@ -23,17 +23,42 @@ public static boolean uContact= true;
         set<Id> Ids = new set<Id>();
         for(AccountContactRelation tempcont:lstAccountContactRelation)
             Ids.add(tempcont.contactId);
-        Map<Id, Contact> mapContact = new Map<Id, Contact>([SELECT Id, AccountId,Account.ParentID,prof_position_type__c, 
-                                                            other_prof_prosition_type__c, decision_making_desc__c, parent_account_prof_position_type__c,
-                                                                    parent_account_other_prof_prosition_type__c,parent_account_decision_making_desc__c   
-                                                                    FROM Contact where Id IN: Ids]);
+        Map<Id, Contact> mapContact = new Map<Id, Contact>([SELECT Id, 
+                                                            AccountId,
+                                                            Account.ParentID,
+                                                            prof_position_type__c, 
+                                                            other_prof_prosition_type__c, 
+                                                            decision_making_desc__c, 
+                                                            parent_account_prof_position_type__c,
+                                                            parent_account_other_prof_prosition_type__c,
+                                                            parent_account_decision_making_desc__c,
+                                                            MobilePhone,
+                                                            Email,
+                                                            phone_1_area_code__c,
+                                                            phone_2_area_code__c,
+                                                            phone_1__c,
+                                                            phone_2__c,
+                                                            events_info_type__c,
+                                                            Status_desc__c,
+                                                            Description
+                                                            FROM Contact 
+                                                            WHERE Id IN: Ids]);
         for(AccountContactRelation objAccountContactRelation : lstAccountContactRelation) {
            if(objAccountContactRelation.IsDirect) {
              AccountContactRelation objAccountContactRelation2  = new AccountContactRelation(
                     Id = objAccountContactRelation.Id,
                     prof_position_type__c = (objAccountContactRelation.AccountId != mapContact.get(objAccountContactRelation.contactId).Account.parentId) ? mapContact.get(objAccountContactRelation.contactId).prof_position_type__c : mapContact.get(objAccountContactRelation.contactId).parent_account_prof_position_type__c ,
                     other_prof_prosition_type__c = (objAccountContactRelation.AccountId != mapContact.get(objAccountContactRelation.contactId).Account.parentId) ? mapContact.get(objAccountContactRelation.contactId).other_prof_prosition_type__c : mapContact.get(objAccountContactRelation.contactId).parent_account_other_prof_prosition_type__c ,
-                    decision_making_desc__c = (objAccountContactRelation.AccountId != mapContact.get(objAccountContactRelation.contactId).Account.parentId) ? mapContact.get(objAccountContactRelation.contactId).decision_making_desc__c : mapContact.get(objAccountContactRelation.contactId).parent_account_decision_making_desc__c
+                    decision_making_desc__c = (objAccountContactRelation.AccountId != mapContact.get(objAccountContactRelation.contactId).Account.parentId) ? mapContact.get(objAccountContactRelation.contactId).decision_making_desc__c : mapContact.get(objAccountContactRelation.contactId).parent_account_decision_making_desc__c,
+                    MobilePhone__c=mapContact.get(objAccountContactRelation.contactId).MobilePhone,
+                    Email__c=mapContact.get(objAccountContactRelation.contactId).Email,
+                    phone_1_area_code__c=mapContact.get(objAccountContactRelation.contactId).phone_1_area_code__c,
+                    phone_2_area_code__c=mapContact.get(objAccountContactRelation.contactId).phone_2_area_code__c,
+                    phone_1__c=mapContact.get(objAccountContactRelation.contactId).phone_1__c,
+                    phone_2__c=mapContact.get(objAccountContactRelation.contactId).phone_2__c,
+                    events_info_type__c=mapContact.get(objAccountContactRelation.contactId).events_info_type__c,
+                    Status_desc__c=mapContact.get(objAccountContactRelation.contactId).Status_desc__c,
+                    Description__c=mapContact.get(objAccountContactRelation.contactId).Description
                     );
             lstAccountContactRelationUpdated.add(objAccountContactRelation2);
            }
