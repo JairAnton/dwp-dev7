@@ -454,6 +454,15 @@
         <members>Account_Banking_System_Classification__c.banking_system_classification_quota_per__c</members>
         <members>Account_Banking_System_Classification__c.banking_system_classification_type__c</members>
         <members>Account_Banking_System_Classification__c.year_month_day_date__c</members>
+        <members>AccountContactRelation.Description__c</members>
+        <members>AccountContactRelation.MobilePhone__c</members>
+        <members>AccountContactRelation.Status_desc__c</members>
+        <members>AccountContactRelation.email__c</members>
+        <members>AccountContactRelation.events_info_type__c</members>
+        <members>AccountContactRelation.phone_1__c</members>
+        <members>AccountContactRelation.phone_1_area_code__c</members>
+        <members>AccountContactRelation.phone_2__c</members>
+        <members>AccountContactRelation.phone_2_area_code__c</members>
         <name>CustomField</name>
     </types>
     <types>

@@ -236,7 +236,132 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>
+        </fields>
+        <fields>
+            <fullName>Description__c</fullName>
+            <description>input a description for the contact</description>
+            <externalId>false</externalId>
+            <label>Description</label>
+            <required>false</required>
+            <type>TextArea</type>
+        </fields>
+        <fields>
+            <fullName>MobilePhone__c</fullName>
+            <description>Saves the mobile phone</description>
+            <externalId>false</externalId>
+            <label>MobilePhone</label>
+            <required>false</required>
+            <type>Phone</type>
+        </fields>
+        <fields>
+            <fullName>Status_desc__c</fullName>
+            <description>set the status from Contact</description>
+            <externalId>false</externalId>
+            <label>Status</label>
+            <required>false</required>
+            <type>Picklist</type>
+            <valueSet>
+                <restricted>true</restricted>
+                <valueSetDefinition>
+                    <sorted>false</sorted>
+                    <value>
+                        <fullName>Activo</fullName>
+                        <default>false</default>
+                        <label>Activo</label>
+                    </value>
+                    <value>
+                        <fullName>Inactivo</fullName>
+                        <default>false</default>
+                        <label>Inactivo</label>
+                    </value>
+                </valueSetDefinition>
+            </valueSet>
+        </fields>
+        <fields>
+            <fullName>email__c</fullName>
+            <description>Saves the email</description>
+            <externalId>false</externalId>
+            <label>email</label>
+            <required>false</required>
+            <type>Email</type>
+            <unique>false</unique>
+        </fields>
+        <fields>
+            <fullName>events_info_type__c</fullName>
+            <description>Capture an event</description>
+            <externalId>false</externalId>
+            <label>Events</label>
+            <required>false</required>
+            <type>Picklist</type>
+            <valueSet>
+                <restricted>true</restricted>
+                <valueSetDefinition>
+                    <sorted>false</sorted>
+                    <value>
+                        <fullName>Calidad</fullName>
+                        <default>false</default>
+                        <label>Calidad</label>
+                    </value>
+                    <value>
+                        <fullName>Coyuntura</fullName>
+                        <default>false</default>
+                        <label>Coyuntura</label>
+                    </value>
+                    <value>
+                        <fullName>Desayunos</fullName>
+                        <default>false</default>
+                        <label>Desayunos</label>
+                    </value>
+                    <value>
+                        <fullName>EEFF</fullName>
+                        <default>false</default>
+                        <label>EEFF</label>
+                    </value>
+                    <value>
+                        <fullName>Emailing</fullName>
+                        <default>false</default>
+                        <label>Emailing</label>
+                    </value>
+                    <value>
+                        <fullName>Noche arte</fullName>
+                        <default>false</default>
+                        <label>Noche arte</label>
+                    </value>
+                </valueSetDefinition>
+            </valueSet>
+        </fields>
+        <fields>
+            <fullName>phone_1__c</fullName>
+            <description>Saves phone number 1</description>
+            <externalId>false</externalId>
+            <label>phone 1</label>
+            <required>false</required>
+            <type>Phone</type>
+        </fields>
+        <fields>
+            <fullName>phone_1_area_code__c</fullName>
+            <description>Saves the area code from phone number 1</description>
+            <externalId>false</externalId>
+            <label>phone area code</label>
+            <required>false</required>
+            <type>Phone</type>
+        </fields>
+        <fields>
+            <fullName>phone_2__c</fullName>
+            <description>saves phone number 2</description>
+            <externalId>false</externalId>
+            <label>phone_2</label>
+            <required>false</required>
+            <type>Phone</type>
+        </fields>
+        <fields>
+            <fullName>phone_2_area_code__c</fullName>
+            <description>saves phone area code number 2</description>
+            <externalId>false</externalId>
+            <label>phone 2 area code</label>
+            <required>false</required>
+            <type>Phone</type>
+        </fields>
     <validationRules>
         <fullName>ACR_ValidationRule_Position</fullName>
         <active>true</active>
