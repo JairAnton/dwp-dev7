@@ -292,7 +292,7 @@
             <externalId>false</externalId>
             <label>Events</label>
             <required>false</required>
-            <type>Picklist</type>
+            <type>MultiselectPicklist</type>
             <valueSet>
                 <restricted>true</restricted>
                 <valueSetDefinition>
@@ -329,6 +329,7 @@
                     </value>
                 </valueSetDefinition>
             </valueSet>
+            <visibleLines>6</visibleLines>
         </fields>
         <fields>
             <fullName>phone_1__c</fullName>
