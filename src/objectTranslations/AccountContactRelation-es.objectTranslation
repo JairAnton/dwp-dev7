@@ -129,7 +129,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Descripción</label>
+        <label>Comentarios</label>
         <name>Description__c</name>
     </fields>
     <fields>

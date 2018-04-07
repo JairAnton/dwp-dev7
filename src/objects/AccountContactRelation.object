@@ -345,7 +345,132 @@
             <externalId>false</externalId>
             <label>phone area code</label>
             <required>false</required>
-            <type>Phone</type>
+            <type>Picklist</type>
+            <valueSet>
+                <valueSetDefinition>
+                    <sorted>false</sorted>
+                    <value>
+                        <fullName>41</fullName>
+                        <default>false</default>
+                        <label>Amazonas - 41</label>
+                    </value>
+                    <value>
+                        <fullName>43</fullName>
+                        <default>false</default>
+                        <label>Ancash - 43</label>
+                    </value>
+                    <value>
+                        <fullName>83</fullName>
+                        <default>false</default>
+                        <label>Apurimac - 83</label>
+                    </value>
+                    <value>
+                        <fullName>54</fullName>
+                        <default>false</default>
+                        <label>Arequipa - 54</label>
+                    </value>
+                    <value>
+                        <fullName>66</fullName>
+                        <default>false</default>
+                        <label>Ayacucho - 66</label>
+                    </value>
+                    <value>
+                        <fullName>76</fullName>
+                        <default>false</default>
+                        <label>Cajamarca - 76</label>
+                    </value>
+                    <value>
+                        <fullName>84</fullName>
+                        <default>false</default>
+                        <label>Cusco - 84</label>
+                    </value>
+                    <value>
+                        <fullName>67</fullName>
+                        <default>false</default>
+                        <label>Huancavelica - 67</label>
+                    </value>
+                    <value>
+                        <fullName>62</fullName>
+                        <default>false</default>
+                        <label>Huanuco - 62</label>
+                    </value>
+                    <value>
+                        <fullName>56</fullName>
+                        <default>false</default>
+                        <label>Ica - 56</label>
+                    </value>
+                    <value>
+                        <fullName>64</fullName>
+                        <default>false</default>
+                        <label>Junin - 64</label>
+                    </value>
+                    <value>
+                        <fullName>44</fullName>
+                        <default>false</default>
+                        <label>La Libertad - 44</label>
+                    </value>
+                    <value>
+                        <fullName>74</fullName>
+                        <default>false</default>
+                        <label>Lambayeque - 74</label>
+                    </value>
+                    <value>
+                        <fullName>01</fullName>
+                        <default>false</default>
+                        <label>Lima y Callo - 01</label>
+                    </value>
+                    <value>
+                        <fullName>65</fullName>
+                        <default>false</default>
+                        <label>Loreto - 65</label>
+                    </value>
+                    <value>
+                        <fullName>82</fullName>
+                        <default>false</default>
+                        <label>Madre de Dios - 82</label>
+                    </value>
+                    <value>
+                        <fullName>53</fullName>
+                        <default>false</default>
+                        <label>Moquegua - 53</label>
+                    </value>
+                    <value>
+                        <fullName>63</fullName>
+                        <default>false</default>
+                        <label>Pasco - 63</label>
+                    </value>
+                    <value>
+                        <fullName>73</fullName>
+                        <default>false</default>
+                        <label>Piura - 73</label>
+                    </value>
+                    <value>
+                        <fullName>51</fullName>
+                        <default>false</default>
+                        <label>Puno - 51</label>
+                    </value>
+                    <value>
+                        <fullName>42</fullName>
+                        <default>false</default>
+                        <label>San Martin - 42</label>
+                    </value>
+                    <value>
+                        <fullName>52</fullName>
+                        <default>false</default>
+                        <label>Tacna - 52</label>
+                    </value>
+                    <value>
+                        <fullName>72</fullName>
+                        <default>false</default>
+                        <label>Tumbes - 72</label>
+                    </value>
+                    <value>
+                        <fullName>61</fullName>
+                        <default>false</default>
+                        <label>Ucayali - 61</label>
+                    </value>
+                </valueSetDefinition>
+            </valueSet>
         </fields>
         <fields>
             <fullName>phone_2__c</fullName>
@@ -361,7 +486,132 @@
             <externalId>false</externalId>
             <label>phone 2 area code</label>
             <required>false</required>
-            <type>Phone</type>
+            <type>Picklist</type>
+            <valueSet>
+                <valueSetDefinition>
+                    <sorted>false</sorted>
+                    <value>
+                        <fullName>41</fullName>
+                        <default>false</default>
+                        <label>Amazonas - 41</label>
+                    </value>
+                    <value>
+                        <fullName>43</fullName>
+                        <default>false</default>
+                        <label>Ancash - 43</label>
+                    </value>
+                    <value>
+                        <fullName>83</fullName>
+                        <default>false</default>
+                        <label>Apurimac - 83</label>
+                    </value>
+                    <value>
+                        <fullName>54</fullName>
+                        <default>false</default>
+                        <label>Arequipa - 54</label>
+                    </value>
+                    <value>
+                        <fullName>66</fullName>
+                        <default>false</default>
+                        <label>Ayacucho - 66</label>
+                    </value>
+                    <value>
+                        <fullName>76</fullName>
+                        <default>false</default>
+                        <label>Cajamarca - 76</label>
+                    </value>
+                    <value>
+                        <fullName>84</fullName>
+                        <default>false</default>
+                        <label>Cusco - 84</label>
+                    </value>
+                    <value>
+                        <fullName>67</fullName>
+                        <default>false</default>
+                        <label>Huancavelica - 67</label>
+                    </value>
+                    <value>
+                        <fullName>62</fullName>
+                        <default>false</default>
+                        <label>Huanuco - 62</label>
+                    </value>
+                    <value>
+                        <fullName>56</fullName>
+                        <default>false</default>
+                        <label>Ica - 56</label>
+                    </value>
+                    <value>
+                        <fullName>64</fullName>
+                        <default>false</default>
+                        <label>Junin - 64</label>
+                    </value>
+                    <value>
+                        <fullName>44</fullName>
+                        <default>false</default>
+                        <label>La Libertad - 44</label>
+                    </value>
+                    <value>
+                        <fullName>74</fullName>
+                        <default>false</default>
+                        <label>Lambayeque - 74</label>
+                    </value>
+                    <value>
+                        <fullName>01</fullName>
+                        <default>false</default>
+                        <label>Lima y Callo - 01</label>
+                    </value>
+                    <value>
+                        <fullName>65</fullName>
+                        <default>false</default>
+                        <label>Loreto - 65</label>
+                    </value>
+                    <value>
+                        <fullName>82</fullName>
+                        <default>false</default>
+                        <label>Madre de Dios - 82</label>
+                    </value>
+                    <value>
+                        <fullName>53</fullName>
+                        <default>false</default>
+                        <label>Moquegua - 53</label>
+                    </value>
+                    <value>
+                        <fullName>63</fullName>
+                        <default>false</default>
+                        <label>Pasco - 63</label>
+                    </value>
+                    <value>
+                        <fullName>73</fullName>
+                        <default>false</default>
+                        <label>Piura - 73</label>
+                    </value>
+                    <value>
+                        <fullName>51</fullName>
+                        <default>false</default>
+                        <label>Puno - 51</label>
+                    </value>
+                    <value>
+                        <fullName>42</fullName>
+                        <default>false</default>
+                        <label>San Martin - 42</label>
+                    </value>
+                    <value>
+                        <fullName>52</fullName>
+                        <default>false</default>
+                        <label>Tacna - 52</label>
+                    </value>
+                    <value>
+                        <fullName>72</fullName>
+                        <default>false</default>
+                        <label>Tumbes - 72</label>
+                    </value>
+                    <value>
+                        <fullName>61</fullName>
+                        <default>false</default>
+                        <label>Ucayali - 61</label>
+                    </value>
+                </valueSetDefinition>
+            </valueSet>
         </fields>
     <validationRules>
         <fullName>ACR_ValidationRule_Position</fullName>
@@ -370,5 +620,82 @@
         <errorConditionFormula>AND(ISPICKVAL(prof_position_type__c, &quot;OTROS&quot;), ISBLANK(other_prof_prosition_type__c))</errorConditionFormula>
         <errorDisplayField>other_prof_prosition_type__c</errorDisplayField>
         <errorMessage>Please, specify the other position information.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Mobile</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(MobilePhone__c)), OR(LEN(MobilePhone__c) &lt;&gt; 9, NOT(ISNUMBER(MobilePhone__c))))</errorConditionFormula>
+        <errorDisplayField>MobilePhone__c</errorDisplayField>
+        <errorMessage>Please, check that the Mobile phone contains 9 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Phone1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(phone_1_area_code__c, &quot;01&quot;)), NOT(ISPICKVAL(phone_1_area_code__c, &quot;&quot;)), NOT(ISBLANK(phone_1__c)), OR(LEN(phone_1__c) &lt;&gt; 6, NOT(ISNUMBER(phone_1__c))))</errorConditionFormula>
+        <errorDisplayField>phone_1__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 1 contains 6 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Phone1_Lima</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(phone_1_area_code__c, &quot;01&quot;),NOT(ISBLANK(phone_1__c)) , OR(LEN(phone_1__c) &lt;&gt; 7, NOT(ISNUMBER(phone_1__c))))</errorConditionFormula>
+        <errorDisplayField>phone_1__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 1 contains 7 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Phone2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(phone_2_area_code__c, &quot;01&quot;)), NOT(ISPICKVAL(phone_2_area_code__c, &quot;&quot;)), NOT(ISBLANK(phone_2__c)), OR(LEN(phone_2__c) &lt;&gt; 6, NOT(ISNUMBER(phone_2__c))))</errorConditionFormula>
+        <errorDisplayField>phone_2__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 2 contains 6 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Phone2_Lima</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(phone_2_area_code__c, &quot;01&quot;),NOT(ISBLANK(phone_2__c)) , OR(LEN(phone_2__c) &lt;&gt; 7, NOT(ISNUMBER(phone_2__c))))</errorConditionFormula>
+        <errorDisplayField>phone_2__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 2 contains 7 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Position</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(prof_position_type__c, &quot;OTROS&quot;), ISBLANK(other_prof_prosition_type__c))</errorConditionFormula>
+        <errorDisplayField>other_prof_prosition_type__c</errorDisplayField>
+        <errorMessage>Please, specify the Other position information.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Req_AC1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(phone_1__c)), ISBLANK(TEXT(phone_1_area_code__c)))</errorConditionFormula>
+        <errorDisplayField>phone_1_area_code__c</errorDisplayField>
+        <errorMessage>Please, select the Phone 1 area code.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Req_AC2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(phone_2__c)), ISBLANK(TEXT(phone_2_area_code__c)))</errorConditionFormula>
+        <errorDisplayField>phone_2_area_code__c</errorDisplayField>
+        <errorMessage>Please, select the Phone 2 area code.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Req_Phone1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(TEXT(phone_1_area_code__c))), ISBLANK(phone_1__c))</errorConditionFormula>
+        <errorDisplayField>phone_1__c</errorDisplayField>
+        <errorMessage>Please, full the Phone 1 field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Req_Phone2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(TEXT(phone_2_area_code__c))), ISBLANK(phone_2__c))</errorConditionFormula>
+        <errorDisplayField>phone_2__c</errorDisplayField>
+        <errorMessage>Please, full the Phone 2 field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Required_Decisor</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK(TEXT(decision_making_desc__c))</errorConditionFormula>
+        <errorDisplayField>decision_making_desc__c</errorDisplayField>
+        <errorMessage>Please, complete the Decisor.</errorMessage>
     </validationRules>
 </CustomObject>
