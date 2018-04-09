@@ -1,4 +1,4 @@
-({
+ ({
   graficaConsulta: function(component, evolucion, parametros){
   var NomInforme = component.get("v.NombreInforme");
   var sFiltro = component.get("v.Filtro");
@@ -80,7 +80,7 @@
   var bibliotecaColor = component.get("v.Colores");
   var posicion = component.get("v.posicionLeyenda");
   var ParametrosDinamicos=[];
-  var InformeName = component.get("v.NombreInforme");   
+  var InformeName = component.get("v.NombreInforme");
   var scaleMin = (InformeName=='VINCULACION'?0:0);
   var scaleMax = (InformeName=='VINCULACION'?4:100);
   var scaleStep = (InformeName=='VINCULACION'?1:20);
