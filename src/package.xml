@@ -30,6 +30,7 @@
         <members>AccountProfitabilityTotalLabel</members>
         <members>AccountRankingClassification1</members>
         <members>AccountRankingClassification2</members>
+		<members>AccountRankingClassification3</members>
         <members>Month10ShortName</members>
         <members>Month11ShortName</members>
         <members>Month12ShortName</members>

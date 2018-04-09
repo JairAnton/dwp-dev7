@@ -128,6 +128,74 @@
             <translation><!-- PRESIDENTE DE DIRECTORIO --></translation>
         </picklistValues>
     </fields>
+    <fields>
+        <label>Comentarios</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label>Celular</label>
+        <name>MobilePhone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status_desc__c</name>
+        <picklistValues>
+            <masterLabel>Activo</masterLabel>
+            <translation><!-- Activo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactivo</masterLabel>
+            <translation><!-- Inactivo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Email</label>
+        <name>email__c</name>
+    </fields>
+    <fields>
+        <label>Eventos e información</label>
+        <name>events_info_type__c</name>
+        <picklistValues>
+            <masterLabel>Calidad</masterLabel>
+            <translation><!-- Calidad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coyuntura</masterLabel>
+            <translation><!-- Coyuntura --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desayunos</masterLabel>
+            <translation><!-- Desayunos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EEFF</masterLabel>
+            <translation><!-- EEFF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emailing</masterLabel>
+            <translation><!-- Emailing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Noche arte</masterLabel>
+            <translation><!-- Noche arte --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Teléfono oficina 1</label>
+        <name>phone_1__c</name>
+    </fields>
+    <fields>
+        <label>Prefijo ciudad teléfono oficina 1</label>
+        <name>phone_1_area_code__c</name>
+    </fields>
+    <fields>
+        <label>Teléfono oficina 2</label>
+        <name>phone_2__c</name>
+    </fields>
+    <fields>
+        <label>Prefijo ciudad teléfono oficina 2</label>
+        <name>phone_2_area_code__c</name>
+    </fields>
     <validationRules>
         <errorMessage>Por favor, especifique el otro cargo.</errorMessage>
         <name>ACR_ValidationRule_Position</name>
