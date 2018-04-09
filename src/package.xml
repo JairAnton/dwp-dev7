@@ -535,6 +535,17 @@
         <members>Contact.Contact_Validation_Rule_Required_FN</members>
         <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
         <members>AccountContactRelation.ACR_ValidationRule_Position</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Mobile</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Phone1</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Phone1_Lima</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Phone2</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Phone2_Lima</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Position</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Req_AC1</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Req_AC2</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone1</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Required_Decisor</members>
         <name>ValidationRule</name>
     </types>
     <types>

@@ -17,7 +17,7 @@ public class GraphicsGenerator_cls {
         List<String> valores = new List<String>();
         List<String> agrupadores = new List<String>();        
         List<AggregateResult> registrosReporte = new List<AggregateResult>();
-        Date fInicial=Date.today().toStartofMonth().addMonths(-11);
+        Date fInicial=Date.today().toStartofMonth().addMonths(-12);
         Date fActual=Date.today().toStartofMonth().addMonths(1);
         
         Integer mes=0;
@@ -157,7 +157,7 @@ public class GraphicsGenerator_cls {
     @AuraEnabled public Static List<String> getAgrupadores( String sNombreReporte){
         List<String> agrupadores= new List<String>();         
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
-        	Date fInicial=Date.today().toStartofMonth().addMonths(-11);
+        	Date fInicial=Date.today().toStartofMonth().addMonths(-12);
         	String [] sMes= new String[]{'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'};
         	for(Integer i=0;i<12 ;i++)
         	{
