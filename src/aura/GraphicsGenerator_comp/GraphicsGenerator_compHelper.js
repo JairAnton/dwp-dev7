@@ -1,4 +1,4 @@
- ({
+({
   graficaConsulta: function(component, evolucion, parametros){
   var NomInforme = component.get("v.NombreInforme");
   var sFiltro = component.get("v.Filtro");
@@ -11,7 +11,7 @@
                    "sFiltroRango" : sFiltroRango,
                    "sId" : sId
                    });
-  
+ 
   action.setCallback(this, function(response) {
                      var state = response.getState();
                      if (state === "SUCCESS") {
@@ -81,10 +81,15 @@
   var posicion = component.get("v.posicionLeyenda");
   var ParametrosDinamicos=[];
   var InformeName = component.get("v.NombreInforme");
-  var scaleMin = (InformeName=='VINCULACION'?0:0);
-  var scaleMax = (InformeName=='VINCULACION'?4:100);
-  var scaleStep = (InformeName=='VINCULACION'?1:20);
-  
+ 
+  var scaleDes =  (InformeName=='VINCULACION')?{
+                                             beginAtZero:true,
+                                             min: 0,
+                                             max: 4,
+                                             stepSize:1
+  }:{
+                                             beginAtZero:true,
+  }
   ParametrosDinamicos[0] = component.get("v.ParametrosDina");
   ParametrosDinamicos[1] = component.get("v.ParametrosDina2");
   ParametrosDinamicos[2] = component.get("v.ParametrosDina3");
@@ -97,13 +102,13 @@
   var graficas = [];
   var linea100 = [];
   var valortamano;
-  
+ 
   for(i=0; i < concepto.length; i++)
   {
   var colorBorder=bibliotecaColor[i];
   if (colorBorder =='#ffffff')
   colorBorder='#676767';
-  
+ 
   graficas[i]={
   label: concepto[i],
   data: ParametrosDinamicos[i],
@@ -113,14 +118,14 @@
   fill: bfill
   };
   }
-  
+ 
   var i=0;
   var data = {
   labels: nombreColumnas,
   datasets: graficas,
   fill: bfill
   }
-  
+ 
   //Draw Graphic
   data;
   window.myDoughnutChart = new Chart(evolucion, {
@@ -156,12 +161,7 @@
                                              labelString: 'Valor'
                                              }
                                              ,
-                                             ticks: {
-                                             beginAtZero:true,
-                                             min: scaleMin,
-                                             max: scaleMax,
-                                             stepSize:scaleStep
-                                             }
+                                             ticks:scaleDes
                                              
                                              }],
                                      xAxes: [{
