@@ -173,7 +173,7 @@
         <members>Account_Rating__c-es</members>
         <members>Account_Renewals__c-en_US</members>
         <members>Account_Renewals__c-es</members>
-        <members>Account_Banking_System_Classification__c-es</members>  
+        <members>Account_Banking_System_Classification__c-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -454,6 +454,15 @@
         <members>Account_Banking_System_Classification__c.banking_system_classification_quota_per__c</members>
         <members>Account_Banking_System_Classification__c.banking_system_classification_type__c</members>
         <members>Account_Banking_System_Classification__c.year_month_day_date__c</members>
+        <members>AccountContactRelation.Description__c</members>
+        <members>AccountContactRelation.MobilePhone__c</members>
+        <members>AccountContactRelation.Status_desc__c</members>
+        <members>AccountContactRelation.email__c</members>
+        <members>AccountContactRelation.events_info_type__c</members>
+        <members>AccountContactRelation.phone_1__c</members>
+        <members>AccountContactRelation.phone_1_area_code__c</members>
+        <members>AccountContactRelation.phone_2__c</members>
+        <members>AccountContactRelation.phone_2_area_code__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -524,6 +533,16 @@
         <members>Contact.Contact_Validation_Rule_Required_Decisor</members>
         <members>Contact.Contact_Validation_Rule_Required_FN</members>
         <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
+        <members>AccountContactRelation.ACR_ValidationRule_Position</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Mobile</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Phone1</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Phone1_Lima</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Phone2</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Phone2_Lima</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Req_AC1</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Req_AC2</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone1</members>
+        <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
         <name>ValidationRule</name>
     </types>
     <types>
