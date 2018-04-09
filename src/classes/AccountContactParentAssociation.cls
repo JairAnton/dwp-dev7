@@ -58,7 +58,7 @@ public static boolean uContact= true;
                     phone_2__c=mapContact.get(objAccountContactRelation.contactId).phone_2__c,
                     events_info_type__c=mapContact.get(objAccountContactRelation.contactId).events_info_type__c,
                     Status_desc__c=mapContact.get(objAccountContactRelation.contactId).Status_desc__c,
-                    Description__c=mapContact.get(objAccountContactRelation.contactId).Descriptionsubstring(0,250);
+                    Description__c=mapContact.get(objAccountContactRelation.contactId).Description
                     );
             lstAccountContactRelationUpdated.add(objAccountContactRelation2);
            }
@@ -96,7 +96,7 @@ public static boolean uContact= true;
                     objContact.phone_2__c=objAccountContactRelation.phone_2__c;
                     objContact.events_info_type__c=objAccountContactRelation.events_info_type__c;
                     objContact.Status_desc__c=objAccountContactRelation.Status_desc__c;
-                    objContact.Description=objAccountContactRelation.Description__c.substring(0,250);
+                    objContact.Description=objAccountContactRelation.Description__c;
 
                 }
             }
