@@ -174,7 +174,7 @@
         <members>Account_Rating__c-es</members>
         <members>Account_Renewals__c-en_US</members>
         <members>Account_Renewals__c-es</members>
-        <members>Account_Banking_System_Classification__c-es</members>  
+        <members>Account_Banking_System_Classification__c-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -540,12 +540,10 @@
         <members>AccountContactRelation.ACR_Validation_Rule_Phone1_Lima</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Phone2</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Phone2_Lima</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Position</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_AC1</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_AC2</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone1</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Required_Decisor</members>
         <name>ValidationRule</name>
     </types>
     <types>

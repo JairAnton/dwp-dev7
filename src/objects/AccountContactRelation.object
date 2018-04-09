@@ -236,383 +236,383 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-        </fields>
-        <fields>
-            <fullName>Description__c</fullName>
-            <description>input a description for the contact</description>
-            <externalId>false</externalId>
-            <label>Description</label>
-            <required>false</required>
-            <type>TextArea</type>
-        </fields>
-        <fields>
-            <fullName>MobilePhone__c</fullName>
-            <description>Saves the mobile phone</description>
-            <externalId>false</externalId>
-            <label>MobilePhone</label>
-            <required>false</required>
-            <type>Phone</type>
-        </fields>
-        <fields>
-            <fullName>Status_desc__c</fullName>
-            <description>set the status from Contact</description>
-            <externalId>false</externalId>
-            <label>Status</label>
-            <required>false</required>
-            <type>Picklist</type>
-            <valueSet>
-                <restricted>true</restricted>
-                <valueSetDefinition>
-                    <sorted>false</sorted>
-                    <value>
-                        <fullName>Activo</fullName>
-                        <default>false</default>
-                        <label>Activo</label>
-                    </value>
-                    <value>
-                        <fullName>Inactivo</fullName>
-                        <default>false</default>
-                        <label>Inactivo</label>
-                    </value>
-                </valueSetDefinition>
-            </valueSet>
-        </fields>
-        <fields>
-            <fullName>email__c</fullName>
-            <description>Saves the email</description>
-            <externalId>false</externalId>
-            <label>email</label>
-            <required>false</required>
-            <type>Email</type>
-            <unique>false</unique>
-        </fields>
-        <fields>
-            <fullName>events_info_type__c</fullName>
-            <description>Capture an event</description>
-            <externalId>false</externalId>
-            <label>Events</label>
-            <required>false</required>
-            <type>MultiselectPicklist</type>
-            <valueSet>
-                <restricted>true</restricted>
-                <valueSetDefinition>
-                    <sorted>false</sorted>
-                    <value>
-                        <fullName>Calidad</fullName>
-                        <default>false</default>
-                        <label>Calidad</label>
-                    </value>
-                    <value>
-                        <fullName>Coyuntura</fullName>
-                        <default>false</default>
-                        <label>Coyuntura</label>
-                    </value>
-                    <value>
-                        <fullName>Desayunos</fullName>
-                        <default>false</default>
-                        <label>Desayunos</label>
-                    </value>
-                    <value>
-                        <fullName>EEFF</fullName>
-                        <default>false</default>
-                        <label>EEFF</label>
-                    </value>
-                    <value>
-                        <fullName>Emailing</fullName>
-                        <default>false</default>
-                        <label>Emailing</label>
-                    </value>
-                    <value>
-                        <fullName>Noche arte</fullName>
-                        <default>false</default>
-                        <label>Noche arte</label>
-                    </value>
-                </valueSetDefinition>
-            </valueSet>
-            <visibleLines>6</visibleLines>
-        </fields>
-        <fields>
-            <fullName>phone_1__c</fullName>
-            <description>Saves phone number 1</description>
-            <externalId>false</externalId>
-            <label>phone 1</label>
-            <required>false</required>
-            <type>Phone</type>
-        </fields>
-        <fields>
-            <fullName>phone_1_area_code__c</fullName>
-            <description>Saves the area code from phone number 1</description>
-            <externalId>false</externalId>
-            <label>phone area code</label>
-            <required>false</required>
-            <type>Picklist</type>
-            <valueSet>
-                <valueSetDefinition>
-                    <sorted>false</sorted>
-                    <value>
-                        <fullName>41</fullName>
-                        <default>false</default>
-                        <label>Amazonas - 41</label>
-                    </value>
-                    <value>
-                        <fullName>43</fullName>
-                        <default>false</default>
-                        <label>Ancash - 43</label>
-                    </value>
-                    <value>
-                        <fullName>83</fullName>
-                        <default>false</default>
-                        <label>Apurimac - 83</label>
-                    </value>
-                    <value>
-                        <fullName>54</fullName>
-                        <default>false</default>
-                        <label>Arequipa - 54</label>
-                    </value>
-                    <value>
-                        <fullName>66</fullName>
-                        <default>false</default>
-                        <label>Ayacucho - 66</label>
-                    </value>
-                    <value>
-                        <fullName>76</fullName>
-                        <default>false</default>
-                        <label>Cajamarca - 76</label>
-                    </value>
-                    <value>
-                        <fullName>84</fullName>
-                        <default>false</default>
-                        <label>Cusco - 84</label>
-                    </value>
-                    <value>
-                        <fullName>67</fullName>
-                        <default>false</default>
-                        <label>Huancavelica - 67</label>
-                    </value>
-                    <value>
-                        <fullName>62</fullName>
-                        <default>false</default>
-                        <label>Huanuco - 62</label>
-                    </value>
-                    <value>
-                        <fullName>56</fullName>
-                        <default>false</default>
-                        <label>Ica - 56</label>
-                    </value>
-                    <value>
-                        <fullName>64</fullName>
-                        <default>false</default>
-                        <label>Junin - 64</label>
-                    </value>
-                    <value>
-                        <fullName>44</fullName>
-                        <default>false</default>
-                        <label>La Libertad - 44</label>
-                    </value>
-                    <value>
-                        <fullName>74</fullName>
-                        <default>false</default>
-                        <label>Lambayeque - 74</label>
-                    </value>
-                    <value>
-                        <fullName>01</fullName>
-                        <default>false</default>
-                        <label>Lima y Callo - 01</label>
-                    </value>
-                    <value>
-                        <fullName>65</fullName>
-                        <default>false</default>
-                        <label>Loreto - 65</label>
-                    </value>
-                    <value>
-                        <fullName>82</fullName>
-                        <default>false</default>
-                        <label>Madre de Dios - 82</label>
-                    </value>
-                    <value>
-                        <fullName>53</fullName>
-                        <default>false</default>
-                        <label>Moquegua - 53</label>
-                    </value>
-                    <value>
-                        <fullName>63</fullName>
-                        <default>false</default>
-                        <label>Pasco - 63</label>
-                    </value>
-                    <value>
-                        <fullName>73</fullName>
-                        <default>false</default>
-                        <label>Piura - 73</label>
-                    </value>
-                    <value>
-                        <fullName>51</fullName>
-                        <default>false</default>
-                        <label>Puno - 51</label>
-                    </value>
-                    <value>
-                        <fullName>42</fullName>
-                        <default>false</default>
-                        <label>San Martin - 42</label>
-                    </value>
-                    <value>
-                        <fullName>52</fullName>
-                        <default>false</default>
-                        <label>Tacna - 52</label>
-                    </value>
-                    <value>
-                        <fullName>72</fullName>
-                        <default>false</default>
-                        <label>Tumbes - 72</label>
-                    </value>
-                    <value>
-                        <fullName>61</fullName>
-                        <default>false</default>
-                        <label>Ucayali - 61</label>
-                    </value>
-                </valueSetDefinition>
-            </valueSet>
-        </fields>
-        <fields>
-            <fullName>phone_2__c</fullName>
-            <description>saves phone number 2</description>
-            <externalId>false</externalId>
-            <label>phone_2</label>
-            <required>false</required>
-            <type>Phone</type>
-        </fields>
-        <fields>
-            <fullName>phone_2_area_code__c</fullName>
-            <description>saves phone area code number 2</description>
-            <externalId>false</externalId>
-            <label>phone 2 area code</label>
-            <required>false</required>
-            <type>Picklist</type>
-            <valueSet>
-                <valueSetDefinition>
-                    <sorted>false</sorted>
-                    <value>
-                        <fullName>41</fullName>
-                        <default>false</default>
-                        <label>Amazonas - 41</label>
-                    </value>
-                    <value>
-                        <fullName>43</fullName>
-                        <default>false</default>
-                        <label>Ancash - 43</label>
-                    </value>
-                    <value>
-                        <fullName>83</fullName>
-                        <default>false</default>
-                        <label>Apurimac - 83</label>
-                    </value>
-                    <value>
-                        <fullName>54</fullName>
-                        <default>false</default>
-                        <label>Arequipa - 54</label>
-                    </value>
-                    <value>
-                        <fullName>66</fullName>
-                        <default>false</default>
-                        <label>Ayacucho - 66</label>
-                    </value>
-                    <value>
-                        <fullName>76</fullName>
-                        <default>false</default>
-                        <label>Cajamarca - 76</label>
-                    </value>
-                    <value>
-                        <fullName>84</fullName>
-                        <default>false</default>
-                        <label>Cusco - 84</label>
-                    </value>
-                    <value>
-                        <fullName>67</fullName>
-                        <default>false</default>
-                        <label>Huancavelica - 67</label>
-                    </value>
-                    <value>
-                        <fullName>62</fullName>
-                        <default>false</default>
-                        <label>Huanuco - 62</label>
-                    </value>
-                    <value>
-                        <fullName>56</fullName>
-                        <default>false</default>
-                        <label>Ica - 56</label>
-                    </value>
-                    <value>
-                        <fullName>64</fullName>
-                        <default>false</default>
-                        <label>Junin - 64</label>
-                    </value>
-                    <value>
-                        <fullName>44</fullName>
-                        <default>false</default>
-                        <label>La Libertad - 44</label>
-                    </value>
-                    <value>
-                        <fullName>74</fullName>
-                        <default>false</default>
-                        <label>Lambayeque - 74</label>
-                    </value>
-                    <value>
-                        <fullName>01</fullName>
-                        <default>false</default>
-                        <label>Lima y Callo - 01</label>
-                    </value>
-                    <value>
-                        <fullName>65</fullName>
-                        <default>false</default>
-                        <label>Loreto - 65</label>
-                    </value>
-                    <value>
-                        <fullName>82</fullName>
-                        <default>false</default>
-                        <label>Madre de Dios - 82</label>
-                    </value>
-                    <value>
-                        <fullName>53</fullName>
-                        <default>false</default>
-                        <label>Moquegua - 53</label>
-                    </value>
-                    <value>
-                        <fullName>63</fullName>
-                        <default>false</default>
-                        <label>Pasco - 63</label>
-                    </value>
-                    <value>
-                        <fullName>73</fullName>
-                        <default>false</default>
-                        <label>Piura - 73</label>
-                    </value>
-                    <value>
-                        <fullName>51</fullName>
-                        <default>false</default>
-                        <label>Puno - 51</label>
-                    </value>
-                    <value>
-                        <fullName>42</fullName>
-                        <default>false</default>
-                        <label>San Martin - 42</label>
-                    </value>
-                    <value>
-                        <fullName>52</fullName>
-                        <default>false</default>
-                        <label>Tacna - 52</label>
-                    </value>
-                    <value>
-                        <fullName>72</fullName>
-                        <default>false</default>
-                        <label>Tumbes - 72</label>
-                    </value>
-                    <value>
-                        <fullName>61</fullName>
-                        <default>false</default>
-                        <label>Ucayali - 61</label>
-                    </value>
-                </valueSetDefinition>
-            </valueSet>
-        </fields>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>input a description for the contact</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>MobilePhone__c</fullName>
+        <description>Saves the mobile phone</description>
+        <externalId>false</externalId>
+        <label>MobilePhone</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Status_desc__c</fullName>
+        <description>set the status from Contact</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Activo</fullName>
+                    <default>false</default>
+                    <label>Activo</label>
+                </value>
+                <value>
+                    <fullName>Inactivo</fullName>
+                    <default>false</default>
+                    <label>Inactivo</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>email__c</fullName>
+        <description>Saves the email</description>
+        <externalId>false</externalId>
+        <label>email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>events_info_type__c</fullName>
+        <description>Capture an event</description>
+        <externalId>false</externalId>
+        <label>Events</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Calidad</fullName>
+                    <default>false</default>
+                    <label>Calidad</label>
+                </value>
+                <value>
+                    <fullName>Coyuntura</fullName>
+                    <default>false</default>
+                    <label>Coyuntura</label>
+                </value>
+                <value>
+                    <fullName>Desayunos</fullName>
+                    <default>false</default>
+                    <label>Desayunos</label>
+                </value>
+                <value>
+                    <fullName>EEFF</fullName>
+                    <default>false</default>
+                    <label>EEFF</label>
+                </value>
+                <value>
+                    <fullName>Emailing</fullName>
+                    <default>false</default>
+                    <label>Emailing</label>
+                </value>
+                <value>
+                    <fullName>Noche arte</fullName>
+                    <default>false</default>
+                    <label>Noche arte</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>phone_1__c</fullName>
+        <description>Saves phone number 1</description>
+        <externalId>false</externalId>
+        <label>phone 1</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>phone_1_area_code__c</fullName>
+        <description>Saves the area code from phone number 1</description>
+        <externalId>false</externalId>
+        <label>phone area code</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>41</fullName>
+                    <default>false</default>
+                    <label>Amazonas - 41</label>
+                </value>
+                <value>
+                    <fullName>43</fullName>
+                    <default>false</default>
+                    <label>Ancash - 43</label>
+                </value>
+                <value>
+                    <fullName>83</fullName>
+                    <default>false</default>
+                    <label>Apurimac - 83</label>
+                </value>
+                <value>
+                    <fullName>54</fullName>
+                    <default>false</default>
+                    <label>Arequipa - 54</label>
+                </value>
+                <value>
+                    <fullName>66</fullName>
+                    <default>false</default>
+                    <label>Ayacucho - 66</label>
+                </value>
+                <value>
+                    <fullName>76</fullName>
+                    <default>false</default>
+                    <label>Cajamarca - 76</label>
+                </value>
+                <value>
+                    <fullName>84</fullName>
+                    <default>false</default>
+                    <label>Cusco - 84</label>
+                </value>
+                <value>
+                    <fullName>67</fullName>
+                    <default>false</default>
+                    <label>Huancavelica - 67</label>
+                </value>
+                <value>
+                    <fullName>62</fullName>
+                    <default>false</default>
+                    <label>Huanuco - 62</label>
+                </value>
+                <value>
+                    <fullName>56</fullName>
+                    <default>false</default>
+                    <label>Ica - 56</label>
+                </value>
+                <value>
+                    <fullName>64</fullName>
+                    <default>false</default>
+                    <label>Junin - 64</label>
+                </value>
+                <value>
+                    <fullName>44</fullName>
+                    <default>false</default>
+                    <label>La Libertad - 44</label>
+                </value>
+                <value>
+                    <fullName>74</fullName>
+                    <default>false</default>
+                    <label>Lambayeque - 74</label>
+                </value>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Lima y Callo - 01</label>
+                </value>
+                <value>
+                    <fullName>65</fullName>
+                    <default>false</default>
+                    <label>Loreto - 65</label>
+                </value>
+                <value>
+                    <fullName>82</fullName>
+                    <default>false</default>
+                    <label>Madre de Dios - 82</label>
+                </value>
+                <value>
+                    <fullName>53</fullName>
+                    <default>false</default>
+                    <label>Moquegua - 53</label>
+                </value>
+                <value>
+                    <fullName>63</fullName>
+                    <default>false</default>
+                    <label>Pasco - 63</label>
+                </value>
+                <value>
+                    <fullName>73</fullName>
+                    <default>false</default>
+                    <label>Piura - 73</label>
+                </value>
+                <value>
+                    <fullName>51</fullName>
+                    <default>false</default>
+                    <label>Puno - 51</label>
+                </value>
+                <value>
+                    <fullName>42</fullName>
+                    <default>false</default>
+                    <label>San Martin - 42</label>
+                </value>
+                <value>
+                    <fullName>52</fullName>
+                    <default>false</default>
+                    <label>Tacna - 52</label>
+                </value>
+                <value>
+                    <fullName>72</fullName>
+                    <default>false</default>
+                    <label>Tumbes - 72</label>
+                </value>
+                <value>
+                    <fullName>61</fullName>
+                    <default>false</default>
+                    <label>Ucayali - 61</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>phone_2__c</fullName>
+        <description>saves phone number 2</description>
+        <externalId>false</externalId>
+        <label>phone_2</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>phone_2_area_code__c</fullName>
+        <description>saves phone area code number 2</description>
+        <externalId>false</externalId>
+        <label>phone 2 area code</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>41</fullName>
+                    <default>false</default>
+                    <label>Amazonas - 41</label>
+                </value>
+                <value>
+                    <fullName>43</fullName>
+                    <default>false</default>
+                    <label>Ancash - 43</label>
+                </value>
+                <value>
+                    <fullName>83</fullName>
+                    <default>false</default>
+                    <label>Apurimac - 83</label>
+                </value>
+                <value>
+                    <fullName>54</fullName>
+                    <default>false</default>
+                    <label>Arequipa - 54</label>
+                </value>
+                <value>
+                    <fullName>66</fullName>
+                    <default>false</default>
+                    <label>Ayacucho - 66</label>
+                </value>
+                <value>
+                    <fullName>76</fullName>
+                    <default>false</default>
+                    <label>Cajamarca - 76</label>
+                </value>
+                <value>
+                    <fullName>84</fullName>
+                    <default>false</default>
+                    <label>Cusco - 84</label>
+                </value>
+                <value>
+                    <fullName>67</fullName>
+                    <default>false</default>
+                    <label>Huancavelica - 67</label>
+                </value>
+                <value>
+                    <fullName>62</fullName>
+                    <default>false</default>
+                    <label>Huanuco - 62</label>
+                </value>
+                <value>
+                    <fullName>56</fullName>
+                    <default>false</default>
+                    <label>Ica - 56</label>
+                </value>
+                <value>
+                    <fullName>64</fullName>
+                    <default>false</default>
+                    <label>Junin - 64</label>
+                </value>
+                <value>
+                    <fullName>44</fullName>
+                    <default>false</default>
+                    <label>La Libertad - 44</label>
+                </value>
+                <value>
+                    <fullName>74</fullName>
+                    <default>false</default>
+                    <label>Lambayeque - 74</label>
+                </value>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Lima y Callo - 01</label>
+                </value>
+                <value>
+                    <fullName>65</fullName>
+                    <default>false</default>
+                    <label>Loreto - 65</label>
+                </value>
+                <value>
+                    <fullName>82</fullName>
+                    <default>false</default>
+                    <label>Madre de Dios - 82</label>
+                </value>
+                <value>
+                    <fullName>53</fullName>
+                    <default>false</default>
+                    <label>Moquegua - 53</label>
+                </value>
+                <value>
+                    <fullName>63</fullName>
+                    <default>false</default>
+                    <label>Pasco - 63</label>
+                </value>
+                <value>
+                    <fullName>73</fullName>
+                    <default>false</default>
+                    <label>Piura - 73</label>
+                </value>
+                <value>
+                    <fullName>51</fullName>
+                    <default>false</default>
+                    <label>Puno - 51</label>
+                </value>
+                <value>
+                    <fullName>42</fullName>
+                    <default>false</default>
+                    <label>San Martin - 42</label>
+                </value>
+                <value>
+                    <fullName>52</fullName>
+                    <default>false</default>
+                    <label>Tacna - 52</label>
+                </value>
+                <value>
+                    <fullName>72</fullName>
+                    <default>false</default>
+                    <label>Tumbes - 72</label>
+                </value>
+                <value>
+                    <fullName>61</fullName>
+                    <default>false</default>
+                    <label>Ucayali - 61</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <validationRules>
         <fullName>ACR_ValidationRule_Position</fullName>
         <active>true</active>
@@ -690,12 +690,5 @@
         <errorConditionFormula>AND(NOT(ISBLANK(TEXT(phone_2_area_code__c))), ISBLANK(phone_2__c))</errorConditionFormula>
         <errorDisplayField>phone_2__c</errorDisplayField>
         <errorMessage>Please, full the Phone 2 field.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>ACR_Validation_Rule_Required_Decisor</fullName>
-        <active>true</active>
-        <errorConditionFormula>ISBLANK(TEXT(decision_making_desc__c))</errorConditionFormula>
-        <errorDisplayField>decision_making_desc__c</errorDisplayField>
-        <errorMessage>Please, complete the Decisor.</errorMessage>
     </validationRules>
 </CustomObject>
