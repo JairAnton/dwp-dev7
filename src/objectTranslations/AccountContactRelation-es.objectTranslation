@@ -137,7 +137,7 @@
         <name>MobilePhone__c</name>
     </fields>
     <fields>
-        <label><!-- Status --></label>
+        <label>Estado</label>
         <name>Status_desc__c</name>
         <picklistValues>
             <masterLabel>Activo</masterLabel>
@@ -199,5 +199,45 @@
     <validationRules>
         <errorMessage>Por favor, especifique el otro cargo.</errorMessage>
         <name>ACR_ValidationRule_Position</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, compruebe que el Celular contiene 9 dígitos.</errorMessage>
+        <name>ACR_Validation_Rule_Mobile</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 1 contiene 6 dígitos.</errorMessage>
+        <name>ACR_Validation_Rule_Phone1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 1 contiene 7 dígitos.</errorMessage>
+        <name>ACR_Validation_Rule_Phone1_Lima</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 2 contiene 6 dígitos.</errorMessage>
+        <name>ACR_Validation_Rule_Phone2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, compruebe que el Teléfono oficina 2 contiene 7 dígitos.</errorMessage>
+        <name>ACR_Validation_Rule_Phone2_Lima</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please, specify the Other position information. --></errorMessage>
+        <name>ACR_Validation_Rule_Position</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, seleccione el Prefijo ciudad teléfono oficina 1.</errorMessage>
+        <name>ACR_Validation_Rule_Req_AC1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, seleccione el Prefijo ciudad teléfono oficina 2.</errorMessage>
+        <name>ACR_Validation_Rule_Req_AC2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, ingrese el Teléfono de oficina 1.</errorMessage>
+        <name>ACR_Validation_Rule_Req_Phone1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, ingrese el Teléfono de oficina 2.</errorMessage>
+        <name>ACR_Validation_Rule_Req_Phone2</name>
     </validationRules>
 </CustomObjectTranslation>
