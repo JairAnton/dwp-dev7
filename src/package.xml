@@ -524,7 +524,6 @@
         <members>Contact.Contact_Validation_Rule_Required_Decisor</members>
         <members>Contact.Contact_Validation_Rule_Required_FN</members>
         <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
-        <members>AccountContactRelation.ACR_ValidationRule_Position</members>
         <name>ValidationRule</name>
     </types>
     <types>
