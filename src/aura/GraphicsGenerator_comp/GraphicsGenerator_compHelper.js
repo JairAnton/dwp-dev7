@@ -89,9 +89,11 @@
         stepSize:1
 }:(InformeName=='EVOLUCION_DEUDA_SBS')?{
         beginAtZero:true,
-        callback: function(valueP) {
-                   return 'S/. '+Number(valueP.value).toFixed(2).replace(',','.')
-        }
+ callback: function(valueP) {
+ return 'S/. '+valueP.toFixed(2).replace(/./g, function(c, i, a) {
+                                         return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+                                         });
+ }
 
 }:{
         beginAtZero:true,
