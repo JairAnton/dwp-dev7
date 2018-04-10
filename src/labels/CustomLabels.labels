@@ -141,6 +141,14 @@
         <shortDescription>AccountRankingClassification2</shortDescription>
         <value>Indirect</value>
     </labels>
+	<labels>
+	    <fullName>AccountRankingClassification3</fullName>
+        <categories>Título Tabla</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>TOTAL</shortDescription>
+        <value>Total</value>
+    </labels>
     <labels>
         <fullName>Month10ShortName</fullName>
         <language>en_US</language>

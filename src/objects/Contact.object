@@ -951,5 +951,13 @@
         <errorDisplayField>Salutation</errorDisplayField>
         <errorMessage>Please, select the Salutation.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>Contact_Validation_Rule_Description</fullName>
+        <active>true</active>
+        <description>Limit chars</description>
+        <errorConditionFormula>LEN( Description ) &gt; 255</errorConditionFormula>
+        <errorDisplayField>Description</errorDisplayField>
+        <errorMessage>Commentary no to be longer than 255 characters</errorMessage>
+    </validationRules>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
