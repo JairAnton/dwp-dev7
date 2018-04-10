@@ -221,10 +221,6 @@
         <name>ACR_Validation_Rule_Phone2_Lima</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Please, specify the Other position information. --></errorMessage>
-        <name>ACR_Validation_Rule_Position</name>
-    </validationRules>
-    <validationRules>
         <errorMessage>Por favor, seleccione el Prefijo ciudad teléfono oficina 1.</errorMessage>
         <name>ACR_Validation_Rule_Req_AC1</name>
     </validationRules>
