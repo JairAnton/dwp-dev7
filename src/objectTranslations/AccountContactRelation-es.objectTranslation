@@ -137,7 +137,7 @@
         <name>MobilePhone__c</name>
     </fields>
     <fields>
-        <label><!-- Status --></label>
+        <label>Estado</label>
         <name>Status_desc__c</name>
         <picklistValues>
             <masterLabel>Activo</masterLabel>
