@@ -18,7 +18,7 @@ public class GraphicsGenerator_cls {
         List<String> agrupadores = new List<String>();        
         List<AggregateResult> registrosReporte = new List<AggregateResult>();
         Date fInicial=Date.today().toStartofMonth().addMonths(-12);
-        Date fActual=Date.today().toStartofMonth().addMonths(1);
+        Date fActual=Date.today().toStartofMonth().addMonths(0);
         
         Integer mes=0;
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
