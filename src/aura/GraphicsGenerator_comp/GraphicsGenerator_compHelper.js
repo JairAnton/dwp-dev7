@@ -83,13 +83,19 @@
   var InformeName = component.get("v.NombreInforme");
  
   var scaleDes =  (InformeName=='VINCULACION')?{
-                                             beginAtZero:true,
-                                             min: 0,
-                                             max: 4,
-                                             stepSize:1
-  }:{
-                                             beginAtZero:true,
-  }
+        beginAtZero:true,
+        min: 0,
+        max: 4,
+        stepSize:1
+}:(InformeName=='EVOLUCION_DEUDA_SBS')?{
+        beginAtZero:true,
+        callback: function(valueP) {
+                   return 'S/. '+Number(valueP.value).toFixed(2).replace(',','.')
+        }
+
+}:{
+        beginAtZero:true,
+}
   ParametrosDinamicos[0] = component.get("v.ParametrosDina");
   ParametrosDinamicos[1] = component.get("v.ParametrosDina2");
   ParametrosDinamicos[2] = component.get("v.ParametrosDina3");
