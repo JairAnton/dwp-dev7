@@ -17,23 +17,23 @@ public class GraphicsGenerator_cls {
         List<String> valores = new List<String>();
         List<String> agrupadores = new List<String>();        
         List<AggregateResult> registrosReporte = new List<AggregateResult>();
-        Date fInicial=Date.today().toStartofMonth().addMonths(-11);
-        Date fActual=Date.today().toStartofMonth().addMonths(1);
+        Date fInicial=Date.today().toStartofMonth().addMonths(-12);
+        Date fActual=Date.today().toStartofMonth().addMonths(0);
         
         Integer mes=0;
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
 
  			if(sFiltro=='Total')
  			{ 				
- 				registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
+ 				registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c) 
 	                                                                FROM Account_Banking_System_Debt__c 
-	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and   (year_month_day_date__c > :fInicial and year_month_day_date__c<=:fActual)
+	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and   (year_month_day_date__c > :fInicial and year_month_day_date__c<=:fActual) and product_group_classification_id__c='Total' and product_desc__c='Total'
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)  
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
         	else if(sFiltro=='Indirecta' || sFiltro=='Directa')
  			{
-        		registrosReporte = [SELECT max(debt_quote_amount__c),entity_name__c,calendar_month(year_month_day_date__c)
+        		              registrosReporte = [SELECT max(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
 	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c =:sFiltro
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
@@ -106,7 +106,7 @@ public class GraphicsGenerator_cls {
 
         if(sNombreReporte.equals('VINCULACION') )
         {
-        	fInicial=Date.today().toStartofMonth().addMonths(-5);
+        	fInicial=Date.today().toStartofMonth().addMonths(-6);
         	fActual=Date.today().toStartofMonth().addMonths(1);
 			List<Account_Indicator__C > auxTab = [SELECT indicator_num__c,year_month_day_date__c
 	                                                                FROM Account_Indicator__C 
@@ -157,7 +157,7 @@ public class GraphicsGenerator_cls {
     @AuraEnabled public Static List<String> getAgrupadores( String sNombreReporte){
         List<String> agrupadores= new List<String>();         
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
-        	Date fInicial=Date.today().toStartofMonth().addMonths(-11);
+        	Date fInicial=Date.today().toStartofMonth().addMonths(-12);
         	String [] sMes= new String[]{'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'};
         	for(Integer i=0;i<12 ;i++)
         	{

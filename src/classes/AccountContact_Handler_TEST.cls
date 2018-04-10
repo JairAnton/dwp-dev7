@@ -40,6 +40,7 @@ public class AccountContact_Handler_TEST {
                     LastName = 'LastName' + intJ,
                     Salutation = 'Mr.',
                     decision_making_desc__c = 'Si',
+                    description='something',
                     AccountId = objAccount.Id
                 )
             );
