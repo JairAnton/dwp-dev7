@@ -691,11 +691,4 @@
         <errorDisplayField>phone_2__c</errorDisplayField>
         <errorMessage>Please, full the Phone 2 field.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>ACR_Validation_Rule_Required_Decisor</fullName>
-        <active>true</active>
-        <errorConditionFormula>ISBLANK(TEXT(decision_making_desc__c))</errorConditionFormula>
-        <errorDisplayField>decision_making_desc__c</errorDisplayField>
-        <errorMessage>Please, complete the Decisor.</errorMessage>
-    </validationRules>
 </CustomObject>

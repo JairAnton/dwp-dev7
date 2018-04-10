@@ -514,5 +514,9 @@
     <validationRules>
         <errorMessage>Por favor, seleccione el Tratamiento.</errorMessage>
         <name>Contact_Validation_Rule_Required_Salutat</name>
-    </validationRules>	
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, el comentario no debe exceder a 255 caracteres</errorMessage>
+        <name>Contact_Validation_Rule_Description</name>
+    </validationRules>
 </CustomObjectTranslation>
