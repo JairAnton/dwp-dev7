@@ -1,192 +1,192 @@
 ({
 	startGraph : function(component) {
       var action = component.get("c.getJSON");
-      action.setParams({ recordId : component.get("v.recordId") }); 
-        console.log(action+' : '+component.get("v.recordId"));  
-      var lista =[];   
+      action.setParams({ recordId : component.get("v.recordId") });
+        console.log(action+' : '+component.get("v.recordId"));
+      var lista =[];
       var Nor =[];
       var CPP =[];
       var Def =[];
       var Dud =[];
-      var Per =[];  
-      var meses =[];  
+      var Per =[];
+      var meses =[];
       var bbva = [];
-      var SBS =[];   
+      var SBS =[];
         action.setCallback(this, function(response) {
          var state = response.getState();
-                if (state === "SUCCESS") {  
-                component.set("v.JsonReporte", response.getReturnValue());  
+                if (state === "SUCCESS") {
+                component.set("v.JsonReporte", response.getReturnValue());
                 var Informe = component.get("v.JsonReporte");
                    
-                    if(Informe != null){                          
+                    if(Informe != null){
                         for(var i=0; i<Informe.length; i++ ){
                                 for(var j=0; j<Informe[i].length; j++){
-                                    switch (i){    
-                            
-                                     case 0: 
-                                            meses[j] = Informe[i][j]; 
+                                    switch (i){
+                           
+                                     case 0:
+                                            meses[j] = Informe[i][j];
                                             break;
-                                     case 1: 
-                                            Nor[j] = Informe[i][j]; 
+                                     case 1:
+                                            Nor[j] = Informe[i][j];
                                             break;
-                                     case 2: 
-                                            CPP[j] = Informe[i][j]; 
+                                     case 2:
+                                            CPP[j] = Informe[i][j];
                                             break;
-                                     case 3: 
-                                            Def[j] = Informe[i][j]; 
+                                     case 3:
+                                            Def[j] = Informe[i][j];
                                             break;
-                                     case 4: 
-                                            Dud[j] = Informe[i][j]; 
-                                            break; 
-                                     case 5: 
-                                            Per[j] = Informe[i][j]; 
+                                     case 4:
+                                            Dud[j] = Informe[i][j];
                                             break;
-                                     case 6: 
-                                            bbva[j] = Informe[i][j]; 
-                                            break;        
-                                     case 7: 
-                                            SBS[j] = Informe[i][j]; 
-                                            break;               
-                                    }                                                  
-                                }   
-                            } 
+                                     case 5:
+                                            Per[j] = Informe[i][j];
+                                            break;
+                                     case 6:
+                                            bbva[j] = Informe[i][j];
+                                            break;
+                                     case 7:
+                                            SBS[j] = Informe[i][j];
+                                            break;
+                                    }
+                                }
+                            }
                       component.set("v.mesesLista", meses);
                       component.set("v.Nor", Nor);
-                      component.set("v.CPP", CPP);  
+                      component.set("v.CPP", CPP);
                       component.set("v.Def", Def);
                       component.set("v.Dud", Dud);
-                      component.set("v.Per", Per);  
+                      component.set("v.Per", Per);
                       component.set("v.valoresBBVA", bbva);
-                      component.set("v.SBS", SBS);  
-                                  
-        var barChartData = {       
+                      component.set("v.SBS", SBS);
+                           
+        var barChartData = {
         labels:  component.get("v.mesesLista"),
         datasets: [{
         type: 'line',
-        yAxisID: 'BBVA',     
+        yAxisID: 'BBVA',
         data: component.get("v.valoresBBVA"),
         borderDash: [10, 5],
-        label:'BBVA',   
-        fill: false,    
+        label:'BBVA',
+        fill: false,
         borderColor: 'rgba(255,117,35,1)',
-        borderWidth: 5,   
+        borderWidth: 5,
         },
         {
-        type: 'bar', 
-        yAxisID: 'SBS',    
-        data:  component.get("v.Nor"),   
-        backgroundColor: ['rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)',
-                              'rgba(21,81,141,1)'
-                             ],            
+        type: 'bar',
+        yAxisID: 'SBS',
+        data:  component.get("v.Nor"),
+        backgroundColor: ['rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)',
+                          'rgba(10,95,180,1)'
+                             ],
         borderDash: [5, 5],
-        label:'Nor (5)',    
+        label:'Nor (5)',
         fill: true,
-        stack:'stack 0',    
+        stack:'stack 0',
         borderWidth: 1
         },
         {
-        type: 'bar',    
+        type: 'bar',
         data:  component.get("v.CPP"),
-        backgroundColor: ['rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)',
-                              'rgba(176,42,42,1)'
-                             ],    
-        label:'CPP (4)',    
+        backgroundColor: ['rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)',
+                          'rgba(72,174,100,1)'
+                             ],
+        label:'CPP (4)',
         fill: true,
-        stack:'stack 0',    
+        stack:'stack 0',
         borderWidth: 1
         },{
-        type: 'bar',    
+        type: 'bar',
         data:   component.get("v.Def")  ,
-        backgroundColor: ['rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)',
-                          'rgba(132,191,73,1)'],        
+        backgroundColor: ['rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)',
+                          'rgba(216,190,117,1)'],
         borderDash: [5, 5],
-        label:'Def (3)',    
+        label:'Def (3)',
         fill: true,
-        stack:'stack 0',    
+        stack:'stack 0',
         borderWidth: 1
         },
        {
-        type: 'bar',    
+        type: 'bar',
         data: component.get("v.Dud"),
-        backgroundColor: ['rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)',
-                          'rgba(127,89,165,1)'],        
+        backgroundColor: ['rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)',
+                          'rgba(248,205,81,1)'],
         borderDash: [5, 5],
-        label:'Dud (2)',    
+        label:'Dud (2)',
         fill: true,
-        stack:'stack 0',    
+        stack:'stack 0',
         borderWidth: 1
         },
         {
-        type: 'bar',    
+        type: 'bar',
         data: component.get("v.Per"),
-        backgroundColor: ['rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)',
-                          'rgba(63,191,191,1)'],        
+        backgroundColor: ['rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)',
+                          'rgba(243,94,97,1)'],
         borderDash: [5, 5],
-        label:'Per (1)',    
+        label:'Per (1)',
         fill: true,
-        stack:'stack 0',    
+        stack:'stack 0',
         borderWidth: 1
         }
         
                  
                    
-                                                
-                  ]            
+                   
+                  ]
      }
        
-     var ctx = document.getElementById("DWPChart").getContext('2d');                 
+     var ctx = document.getElementById("DWPChart").getContext('2d');
      var myChart = new Chart(ctx, {
-         type:'bar',     
+         type:'bar',
          data: barChartData,
          options: {
                  elements: {
@@ -201,17 +201,17 @@
                 display: true,
                 position: 'left',
                 ticks: {
-                    beginAtZero:true,             
+                    beginAtZero:true,
                     min: 0,
                     max: 100,
                     stepSize:20,
                     callback: function(value) {
                     return value + "%"
-                    }      
+                    }
                 },
-                stacked:true                 
+                stacked:true
             }, {
-             id:'BBVA',   
+             id:'BBVA',
              display: true,
              position: 'right',
              ticks: {
@@ -223,7 +223,7 @@
              }
             }],
             xAxes: [{
-                stacked:true 
+                stacked:true
                  
             }],
             
@@ -235,7 +235,7 @@
             position:'bottom',
            stacked:true
              }
-                   ,      
+                   ,
              
     }
 });
@@ -248,9 +248,9 @@
         });
          $A.enqueueAction(action);
         lista = component.get("v.mesesLista");
-       
-   
-           
-        
+ 
+ 
+ 
+ 
 	}
 })

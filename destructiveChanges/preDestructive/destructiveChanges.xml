@@ -17,5 +17,9 @@
         <members>Contact.Mis_Contactos_No_Cliente</members>
         <name>ListView</name>
     </types>
+    <types>
+        <members>AccountContactRelation.ACR_Validation_Rule_Position</members>
+        <name>ValidationRule</name>
+    </types>
 	<version>41.0</version>
 </Package>
