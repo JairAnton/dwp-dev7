@@ -129,6 +129,7 @@
         <members>AccountContactRelation</members>
         <members>Account</members>
         <members>Contact</members>
+        <members>Opportunity</members>
         <members>Account_BBVA_Classification__c</members>
         <members>Account_Indicator__c</members>
         <members>Account_Accounting__c</members>
@@ -621,6 +622,7 @@
         <members>AccountContactRelation.ACR_Validation_Rule_Req_AC2</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone1</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
+        <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
         <name>ValidationRule</name>
     </types>
     <types>
