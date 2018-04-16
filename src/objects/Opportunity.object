@@ -45,7 +45,7 @@
         <type>Flexipage</type>
     </actionOverrides>
     <businessProcesses>
-        <fullName>DWP Peru Generic</fullName>
+        <fullName>DWP_Peru_Generic</fullName>
         <isActive>true</isActive>
         <values>
             <fullName>01</fullName>

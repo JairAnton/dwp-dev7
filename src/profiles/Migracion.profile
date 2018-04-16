@@ -2520,7 +2520,7 @@
         <name>ViewPublicDashboards</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ViewPublicReports</name>
     </userPermissions>
     <userPermissions>

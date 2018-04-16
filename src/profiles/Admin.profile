@@ -1872,17 +1872,7 @@
         <tab>Account_Banking_System_Classification__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>   
-        <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Opportunity.Opp_RT_01</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Opp_RT_02</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <tabVisibilities>
+	<tabVisibilities>
         <tab>standard-Opportunity</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

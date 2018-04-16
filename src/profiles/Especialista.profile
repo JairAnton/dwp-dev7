@@ -2529,6 +2529,6 @@
     </userPermissions>
 	<userPermissions>
         <enabled>true</enabled>
-        <name>ViewRolesViewRoles</name>
+        <name>ViewRoles</name>
     </userPermissions>
 </Profile>
