@@ -117,6 +117,8 @@
         <members>Account_Record_Page_Account</members>
         <members>Account_Renewals_Record_Page</members>
         <members>Account_Banking_System_Classification</members>
+		<members>Opportunity_Record_Page</members>
+        <members>Opportunity_Record_Page1</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -176,6 +178,7 @@
         <members>Account_Renewals__c-en_US</members>
         <members>Account_Renewals__c-es</members>
         <members>Account_Banking_System_Classification__c-es</members>
+		<members>Opportunity-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -202,6 +205,9 @@
         <members>Account_Renewals__c-Account Renewals Layout</members>
         <members>Account_Banking_System_Classification__c-Formato Account Banking System Classification</members>
         <members>Global-Global Layout</members>
+		<members>Opportunity-Opportunity Layout</members>
+        <members>OpportunityLineItem-Opportunity Product Layout</members>
+        <members>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</members>
         <name>Layout</name>
     </types>
     <types>
@@ -465,6 +471,47 @@
         <members>AccountContactRelation.phone_1_area_code__c</members>
         <members>AccountContactRelation.phone_2__c</members>
         <members>AccountContactRelation.phone_2_area_code__c</members>
+		<members>Opportunity.AccountId</members>
+        <members>Opportunity.Amount</members>
+        <members>Opportunity.Branch_id__c</members>
+        <members>Opportunity.Budget_Confirmed__c</members>
+        <members>Opportunity.CampaignId</members>
+        <members>Opportunity.CloseDate</members>
+        <members>Opportunity.ContractId</members>
+        <members>Opportunity.CurrencyIsoCode</members>
+        <members>Opportunity.Customer_alert__c</members>
+        <members>Opportunity.Description</members>
+        <members>Opportunity.Discovery_Completed__c</members>
+        <members>Opportunity.ExpectedRevenue</members>
+        <members>Opportunity.IqScore</members>
+        <members>Opportunity.IsPrivate</members>
+        <members>Opportunity.LeadSource</members>
+        <members>Opportunity.Loss_Reason__c</members>
+        <members>Opportunity.Name</members>
+        <members>Opportunity.NextStep</members>
+        <members>Opportunity.OwnerId</members>
+        <members>Opportunity.Pricebook2Id</members>
+        <members>Opportunity.Probability</members>
+        <members>Opportunity.ROI_Analysis_Completed__c</members>
+        <members>Opportunity.StageName</members>
+        <members>Opportunity.SyncedQuoteId</members>
+        <members>Opportunity.TotalOpportunityQuantity</members>
+        <members>Opportunity.Type</members>
+        <members>Opportunity.contract_id__c</members>
+        <members>Opportunity.opportunity_expiry_date__c</members>
+        <members>Opportunity.opportunity_origin_name__c</members>
+        <members>Opportunity.opportunity_planning_date__c</members>
+        <members>Opportunity.opportunity_product__c</members>
+        <members>Opportunity.opportunity_product_family__c</members>
+        <members>Opportunity.opportunity_status_type__c</members>
+        <members>Opportunity.rejection_amount__c</members>
+        <members>Opportunity.rejection_period_num__c</members>
+        <members>Opportunity.rejection_rate_per__c</members>
+        <members>Opportunity.rejection_reason_id__c</members>
+        <members>Opportunity.rejection_winner_entity_name__c</members>
+        <members>Opportunity.renewal_contract_id__c</members>
+        <members>Opportunity.success_probability_desc__c</members>
+        <members>Opportunity.unique_id__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -589,6 +636,18 @@
         <members>Account_Reports/Account_Credit_Bureau</members>
         <members>Account_Reports/Account_Risk_Strategy</members>
         <name>Report</name>
+    </types>
+	<types>
+        <members>Default_Opportunity</members>
+        <name>PathAssistant</name>
+    </types>
+	    <types>
+        <members>*</members>
+        <name>ProfileSessionSetting</name>
+    </types>
+    <types>
+        <members>Opportunity</members>
+        <name>SharingRules</name>
     </types>
     <types>
         <members>Account_with_Account_Indicator</members>
