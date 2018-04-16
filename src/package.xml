@@ -142,6 +142,7 @@
         <members>Account_Rating__c</members>
         <members>Account_Renewals__c</members>
         <members>Account_Banking_System_Classification__c</members>
+		<members>Product2</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -216,6 +217,7 @@
         <members>Account.Account_Compact_Layout_Group</members>
         <members>Contact.Contact</members>
         <members>User_Branch__c.Relation_User_Branch</members>
+		<members>Opportunity.New_Awesome_Companct_Layout</members>
         <name>CompactLayout</name>
     </types>
     <types>
@@ -511,6 +513,17 @@
         <members>Opportunity.renewal_contract_id__c</members>
         <members>Opportunity.success_probability_desc__c</members>
         <members>Opportunity.unique_id__c</members>
+		<members>Product2.CurrencyIsoCode</members>
+		<members>Product2.DisplayUrl</members>
+		<members>Product2.ExternalDataSourceId</members>
+		<members>Product2.ExternalId</members>
+		<members>Product2.Family</members>
+		<members>Product2.IsActive</members>
+		<members>Product2.Name</members>
+		<members>Product2.ProductCode</members>
+		<members>Product2.QuantityUnitOfMeasure</members>
+		<members>Product2.StockKeepingUnit</members>
+		<members>Product2.Description</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -550,17 +563,33 @@
         <members>Account_Rating__c.All</members>
         <members>Account_Renewals__c.All</members>
         <members>Account_Banking_System_Classification__c.All</members>
+		
+		<members>Opportunity.AllOpportunities</members>
+		<members>Opportunity.ClosingNextMonth</members>
+		<members>Opportunity.ClosingThisMonth</members>
+		<members>Opportunity.Default_Opportunity_Pipeline</members>
+		<members>Opportunity.MyOpportunities</members>
+		<members>Opportunity.NewThisWeek</members>
+		<members>Opportunity.Won</members>
+		<members>Product2.AllProducts</members>
         <name>ListView</name>
     </types>
     <types>
         <members>Account.Record_Type_Client</members>
         <members>Account.Record_Type_Economic_Group</members>
+		<members>Opportunity.Opp_RT_01</members>
+		<members>Opportunity.Opp_RT_02</members>
         <name>RecordType</name>
     </types>
     <types>
         <members>Override_Standard_Button_Message.Contact</members>
         <name>CustomMetadata</name>
     </types>
+	  <types>
+    <members>Opportunity.Ruta</members>
+	<members>Opportunity.DWP_Peru_Generic</members>
+    <name>BusinessProcess</name>
+  </types>
     <types>
         <members>Contact</members>
         <members>AccountContactRelation</members>
