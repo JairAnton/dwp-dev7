@@ -565,6 +565,7 @@
     <types>
         <members>Contact</members>
         <members>AccountContactRelation</members>
+        <members>Opportunity</members>
         <name>Workflow</name>
     </types>
     <types>
