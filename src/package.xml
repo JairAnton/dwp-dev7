@@ -144,6 +144,7 @@
         <members>Account_Renewals__c</members>
         <members>Account_Banking_System_Classification__c</members>
 		<members>Product2</members>
+		<members>OpportunityTeamMember</members>
         <name>CustomObject</name>
     </types>
     <types>
