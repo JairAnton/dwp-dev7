@@ -627,7 +627,6 @@
         <members>AccountContactRelation.ACR_Validation_Rule_Req_AC2</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone1</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
-        <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
         <name>ValidationRule</name>
     </types>
     <types>
