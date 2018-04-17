@@ -687,5 +687,9 @@
         <members>Account_with_Account_Indicator</members>
         <name>ReportType</name>
     </types>
+	    <types>
+        <members>*</members>
+        <name>StandardValueSetTranslation</name>
+    </types>
     <version>41.0</version>
 </Package>
