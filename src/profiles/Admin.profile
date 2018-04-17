@@ -1965,6 +1965,10 @@
         <enabled>false</enabled>
         <name>ChatterComposeUiCodesnippet</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>false</enabled>
+        <name>ChangeDashboardColors</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ChatterEditOwnPost</name>
