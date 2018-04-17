@@ -623,7 +623,6 @@
         <members>AccountContactRelation.ACR_Validation_Rule_Req_AC2</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone1</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
-        <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
         <name>ValidationRule</name>
     </types>
     <types>
@@ -682,6 +681,10 @@
     <types>
         <members>Account_with_Account_Indicator</members>
         <name>ReportType</name>
+    </types>
+    <types>
+        <members>OpportunityStage</members>
+        <name>StandardValueSet</name>
     </types>
     <version>41.0</version>
 </Package>
