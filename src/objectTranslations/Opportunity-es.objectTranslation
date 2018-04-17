@@ -27,6 +27,90 @@
     <fields>
         <caseValues>
             <plural>false</plural>
+            <value>Comentarios</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>opportunity_description</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Gestor principal</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Gestores principales</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_owner</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Alias del gestor principal</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_owner_alias</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Email del gestor principal</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_owner_email</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Tipología</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Tipologías</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_record_type</name>
+    </fields>
+    <validationRules>
+        <errorMessage>No puedes cambiar a este estado de la oportunidad</errorMessage>
+        <name>Opportunity_Validation_ChangeStage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>No se puede crear otro estado de la oportunidad que no sea acciones comerciales</errorMessage>
+        <name>Opportunity_Validation_Commercial_Action</name>
+    </validationRules>
+</CustomObjectTranslation>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Fecha estimada de cierre</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>close_date_opportunity</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Comentarios</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>description_opportunity</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Divisa</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>opportunity_currency</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
             <value>Gestor principal</value>
         </caseValues>
         <caseValues>
