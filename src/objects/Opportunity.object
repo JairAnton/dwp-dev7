@@ -1456,17 +1456,6 @@
     </searchLayouts>
     <sharingModel>Read</sharingModel>
     <validationRules>
-        <fullName>Opportunity_Validation_Commercial_Action</fullName>
-        <active>true</active>
-        <description>Only create Opportunities  if is Comercial Action</description>
-        <errorConditionFormula>AND(isNew(),
- Name  == &apos;NoComercial&apos;
-)</errorConditionFormula>
-        <errorMessage>You can not create a opportunity with no commercial  name</errorMessage>
-    </validationRules>
-</CustomObject>
-
-    <validationRules>
         <fullName>Opportunity_Validation_ChangeStage</fullName>
         <active>true</active>
         <description>Can not  change stage opportunity manually</description>
@@ -1496,3 +1485,4 @@
             )</errorConditionFormula>
         <errorMessage>you can not create an opportunity with  stage other than Comercial Actions</errorMessage>
     </validationRules>
+</CustomObject>
