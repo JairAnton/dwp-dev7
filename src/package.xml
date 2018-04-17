@@ -176,6 +176,7 @@
         <members>Account_Renewals__c-en_US</members>
         <members>Account_Renewals__c-es</members>
         <members>Account_Banking_System_Classification__c-es</members>
+        <members>Opportunity-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -547,6 +548,7 @@
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone1</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
         <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
+        <members>Opportunity.Opportunity_Validation_ChangeStage</members>
         <name>ValidationRule</name>
     </types>
     <types>
