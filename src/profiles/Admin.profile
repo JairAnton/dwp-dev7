@@ -1965,8 +1965,8 @@
         <enabled>false</enabled>
         <name>ChatterComposeUiCodesnippet</name>
     </userPermissions>
-	    <userPermissions>
-        <enabled>true</enabled>
+	<userPermissions>
+        <enabled>false</enabled>
         <name>ChangeDashboardColors</name>
     </userPermissions>
     <userPermissions>
