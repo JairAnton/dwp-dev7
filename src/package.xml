@@ -686,9 +686,5 @@
         <members>Account_with_Account_Indicator</members>
         <name>ReportType</name>
     </types>
-    <types>
-        <members>OpportunityStage</members>
-        <name>StandardValueSet</name>
-    </types>
     <version>41.0</version>
 </Package>
