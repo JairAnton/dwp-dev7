@@ -54,8 +54,8 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
-  <fieldPermissions>
-        <editable>true</editable>
+   <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
