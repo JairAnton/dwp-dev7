@@ -1455,4 +1455,34 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>Opportunity_Validation_ChangeStage</fullName>
+        <active>true</active>
+        <description>Can not  change stage opportunity manually</description>
+        <errorConditionFormula>AND(
+            ISCHANGED(StageName),
+            OR(
+            NOT(ISPICKVAL(StageName,&apos;02&apos;)),
+            NOT(ISPICKVAL(StageName,&apos;03&apos;))
+            ),
+            OR(
+            $Profile.Name == &apos;Ejecutivo&apos;,
+            $Profile.Name == &apos;Gerente&apos;)
+            
+            )</errorConditionFormula>
+        <errorMessage>Can not  change to this stage opportunity</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Opportunity_Validation_Commercial_Action</fullName>
+        <active>true</active>
+        <description>you can not create an opportunity with  stage other than Comercial Actions</description>
+        <errorConditionFormula>AND(
+            IsNew(),
+            NOT(isPickVal(StageName, &apos;01&apos;)),
+            OR($Profile.Name == &apos;Ejecutivo&apos;,
+            $Profile.Name == &apos;Gerente&apos;)
+            
+            )</errorConditionFormula>
+        <errorMessage>you can not create an opportunity with  stage other than Comercial Actions</errorMessage>
+    </validationRules>
 </CustomObject>

@@ -39,14 +39,6 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>Alias del gestor principal</value>
-        </caseValues>
-        <gender>Masculine</gender>
-        <name>opportunity_owner_alias</name>
-    </fields>
-    <fields>
-        <caseValues>
-            <plural>false</plural>
             <value>Email del gestor principal</value>
         </caseValues>
         <gender>Masculine</gender>
@@ -63,6 +55,18 @@
         </caseValues>
         <gender>Masculine</gender>
         <name>opportunity_record_type</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Gestor principal</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Gestores principales</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_owner</name>
     </fields>
     <fields>
         <caseValues>
@@ -370,4 +374,12 @@
         <label>Cancelación</label>
         <name>Opp_RT_02</name>
     </recordTypes>
+    <validationRules>
+        <errorMessage>No puedes cambiar a este estado de la oportunidad</errorMessage>
+        <name>Opportunity_Validation_ChangeStage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>No se puede crear otro estado de la oportunidad que no sea acciones comerciales</errorMessage>
+        <name>Opportunity_Validation_Commercial_Action</name>
+    </validationRules>
 </CustomObjectTranslation>
