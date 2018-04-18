@@ -630,6 +630,7 @@
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
         <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
         <members>Opportunity.Opportunity_Validation_ChangeStage</members>
+        <members>Opportunity.pportunity_Validation_02_OnlyCommercial</members>
         <name>ValidationRule</name>
     </types>
     <types>
