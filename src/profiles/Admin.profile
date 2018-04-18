@@ -55,7 +55,7 @@
     </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
