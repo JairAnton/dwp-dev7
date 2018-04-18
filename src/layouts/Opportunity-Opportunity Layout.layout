@@ -67,6 +67,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>success_probability_desc__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>opportunity_status_type__c</field>
             </layoutItems>
         </layoutColumns>
