@@ -36,8 +36,8 @@
         <active>true</active>
         <criteriaItems>
             <field>User.ProfileId</field>
-            <operation>contains</operation>
-            <value>Ejecutivo,Gerente,Asistente</value>
+            <operation>equals</operation>
+            <value>Ejecutivo</value>
         </criteriaItems>
         <description>Cuando la oportunidad se crea, si el perfil del usuario que crea la oportunidad es: 
 &apos;Ejecutivo&apos;, &apos;Gerente&apos; o &apos;Asistente&apos;, Source = 01</description>
