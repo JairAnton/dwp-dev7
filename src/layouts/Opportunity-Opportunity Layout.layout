@@ -28,6 +28,10 @@
                 <field>opportunity_origin_name__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Opp_Creation_Date__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>CloseDate</field>
             </layoutItems>
@@ -41,6 +45,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Probability</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>OwnerId</field>
@@ -60,10 +68,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>opportunity_planning_date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Probability</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
