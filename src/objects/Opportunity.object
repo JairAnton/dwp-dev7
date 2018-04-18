@@ -1456,6 +1456,14 @@
     </searchLayouts>
     <sharingModel>Read</sharingModel>
     <validationRules>
+        <fullName>Opportunity_Validation_02_OnlyCommercial</fullName>
+        <active>true</active>
+        <description>Validate the creation in this Stage only for a Commercial Profile</description>
+        <errorConditionFormula>AND(IsNew(), and(isPickVal(StageName,&apos;02&apos;)) , and($Profile.Name!=&apos;Ejecutivo&apos;) )</errorConditionFormula>
+        <errorDisplayField>StageName</errorDisplayField>
+        <errorMessage>Only Commercial profile can create Opportunities for this stage</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Opportunity_Validation_ChangeStage</fullName>
         <active>true</active>
         <description>Can not  change stage opportunity manually</description>

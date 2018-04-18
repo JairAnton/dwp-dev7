@@ -371,6 +371,10 @@
         <name>Opp_RT_02</name>
     </recordTypes>
     <validationRules>
+        <errorMessage>Solo un perfil Ejecutivo puede asignar esta etapa</errorMessage>
+        <name>Opportunity_Validation_02_OnlyCommercial</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>No puedes cambiar a este estado de la oportunidad</errorMessage>
         <name>Opportunity_Validation_ChangeStage</name>
     </validationRules>
