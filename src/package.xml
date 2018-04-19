@@ -569,7 +569,6 @@
         <members>Account_Rating__c.All</members>
         <members>Account_Renewals__c.All</members>
         <members>Account_Banking_System_Classification__c.All</members>
-		
 		<members>Opportunity.AllOpportunities</members>
 		<members>Opportunity.ClosingNextMonth</members>
 		<members>Opportunity.ClosingThisMonth</members>
@@ -692,6 +691,18 @@
 	    <types>
         <members>*</members>
         <name>StandardValueSetTranslation</name>
+    </types>
+    <types>
+        <members>Email_Update_Opportunity</members>
+        <members>Event_update_Opportunity</members>
+        <members>Task_update_Opportunity</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>Email_Update_Opportunity</members>
+        <members>Task_update_Opportunity</members>
+        <members>Event_update_Opportunity</members>
+    <name>FlowDefinition</name>
     </types>
     <version>41.0</version>
 </Package>
