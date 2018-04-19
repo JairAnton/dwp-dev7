@@ -418,7 +418,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+<fields>
         <fullName>opportunity_status_type__c</fullName>
         <description>Status of an opportunity</description>
         <externalId>false</externalId>
@@ -428,6 +428,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>StageName</controllingField>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -612,6 +613,75 @@
                     <label>36</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>07</controllingFieldValue>
+                <valueName>36</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>01</controllingFieldValue>
+                <valueName>01</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>02</controllingFieldValue>
+                <valueName>02</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>02</controllingFieldValue>
+                <valueName>03</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>04</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>05</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>06</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>07</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>08</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>09</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>10</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>11</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>12</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <valueName>32</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <valueName>33</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <valueName>34</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <controllingFieldValue>06</controllingFieldValue>
+                <valueName>35</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
