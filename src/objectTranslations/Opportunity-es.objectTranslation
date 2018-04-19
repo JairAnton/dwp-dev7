@@ -8,6 +8,10 @@
         <gender>Feminine</gender>
         <name>close_date_opportunity</name>
     </fields>
+	<fields>
+        <label>Fecha creación</label>
+        <name>Opp_Creation_Date__c</name>
+    </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
