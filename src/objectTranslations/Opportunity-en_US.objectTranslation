@@ -1,71 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
-        <caseValues>
-            <plural>false</plural>
-            <value>Fecha estimada de cierre</value>
-        </caseValues>
-        <gender>Feminine</gender>
-        <name>close_date_opportunity</name>
-    </fields>
-    <fields>
-        <caseValues>
-            <plural>false</plural>
-            <value>Comentarios</value>
-        </caseValues>
-        <gender>Feminine</gender>
-        <name>description_opportunity</name>
-    </fields>
-    <fields>
-        <caseValues>
-            <plural>false</plural>
-            <value>Moneda</value>
-        </caseValues>
-        <gender>Feminine</gender>
-        <name>opportunity_currency</name>
-    </fields>
-    <fields>
-        <caseValues>
-            <plural>false</plural>
-            <value>Gestor de la oportunidad</value>
-        </caseValues>
-        <caseValues>
-            <plural>true</plural>
-            <value>Gestores de la oportunidad</value>
-        </caseValues>
-        <gender>Masculine</gender>
-        <name>opportunity_owner</name>
-    </fields>
-    <fields>
-        <caseValues>
-            <plural>false</plural>
-            <value>Email del gestor principal</value>
-        </caseValues>
-        <gender>Masculine</gender>
-        <name>opportunity_owner_email</name>
-    </fields>
-    <fields>
-        <caseValues>
-            <plural>false</plural>
-            <value>Tipología</value>
-        </caseValues>
-        <caseValues>
-            <plural>true</plural>
-            <value>Tipologías</value>
-        </caseValues>
-        <gender>Masculine</gender>
-        <name>opportunity_record_type</name>
-    </fields>
-    <fields>
-        <caseValues>
-            <plural>false</plural>
-            <value>Tipologia</value>
-        </caseValues>
-        <gender>Masculine</gender>
-        <name>type_opportunity</name>
-    </fields>
-    <fields>
-        <label>Oficina de la oportunidad</label>
+        <label><!-- Branch --></label>
         <name>Branch_id__c</name>
         <relationshipLabel><!-- Oportunidades --></relationshipLabel>
     </fields>
@@ -74,7 +10,7 @@
         <name>Budget_Confirmed__c</name>
     </fields>
     <fields>
-        <label>Alerta</label>
+        <label><!-- Account Alert --></label>
         <name>Customer_alert__c</name>
     </fields>
     <fields>
@@ -82,7 +18,7 @@
         <name>Discovery_Completed__c</name>
     </fields>
     <fields>
-        <label>Motivo de desetimación</label>
+        <label><!-- Loss Reason --></label>
         <name>Loss_Reason__c</name>
         <picklistValues>
             <masterLabel>Lost to Competitor</masterLabel>
@@ -110,208 +46,208 @@
         <name>ROI_Analysis_Completed__c</name>
     </fields>
     <fields>
-        <label>Contrato</label>
+        <label><!-- Contract --></label>
         <name>contract_id__c</name>
     </fields>
     <fields>
-        <label>Fecha de vencimiento</label>
+        <label><!-- Renewal expiry date --></label>
         <name>opportunity_expiry_date__c</name>
     </fields>
     <fields>
-        <label>Origen de la oportunidad</label>
+        <label><!-- Source --></label>
         <name>opportunity_origin_name__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation>Propuesta por ejecutivo</translation>
+            <translation><!-- 01 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation>Propuesta por especialista</translation>
+            <translation><!-- 02 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>03</masterLabel>
-            <translation>Centralizado</translation>
+            <translation><!-- 03 --></translation>
         </picklistValues>
     </fields>
     <fields>
-        <label>Fecha de planificación</label>
+        <label><!-- Planning date --></label>
         <name>opportunity_planning_date__c</name>
     </fields>
     <fields>
-        <label>Producto</label>
+        <label><!-- Product --></label>
         <name>opportunity_product__c</name>
         <relationshipLabel><!-- Oportunidades --></relationshipLabel>
     </fields>
     <fields>
-        <label>Familia producto</label>
+        <label><!-- Product family --></label>
         <name>opportunity_product_family__c</name>
     </fields>
     <fields>
-        <label>Estado</label>
+        <label><!-- Status --></label>
         <name>opportunity_status_type__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation>Inactiva</translation>
+            <translation><!-- 01 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation>Planificada</translation>
+            <translation><!-- 02 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>03</masterLabel>
-            <translation>No planificada</translation>
+            <translation><!-- 03 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>04</masterLabel>
-            <translation>Pendiente oferta al cliente</translation>
+            <translation><!-- 04 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>05</masterLabel>
-            <translation>Pendiente respuesta del cliente</translation>
+            <translation><!-- 05 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>06</masterLabel>
-            <translation>Aceptada por el cliente</translation>
+            <translation><!-- 06 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>07</masterLabel>
-            <translation>No aceptada por el cliente</translation>
+            <translation><!-- 07 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>08</masterLabel>
-            <translation>Precio autorizado bajo delegación oficina</translation>
+            <translation><!-- 08 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>09</masterLabel>
-            <translation>Enviado para autorización a precios</translation>
+            <translation><!-- 09 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>10</masterLabel>
-            <translation>Autorizado por precios</translation>
+            <translation><!-- 10 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>11</masterLabel>
-            <translation>Precio aprobado</translation>
+            <translation><!-- 11 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>12</masterLabel>
-            <translation>Enviado para reevaluación a precios</translation>
+            <translation><!-- 12 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>13</masterLabel>
-            <translation>1er Ingreso a Controller</translation>
+            <translation><!-- 13 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>14</masterLabel>
-            <translation>Devuelve Controller</translation>
+            <translation><!-- 14 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>15</masterLabel>
-            <translation>Ingreso Controller</translation>
+            <translation><!-- 15 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>16</masterLabel>
-            <translation>Asignación RVGL</translation>
+            <translation><!-- 16 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>17</masterLabel>
-            <translation>Consulta de Riesgos a Cliente</translation>
+            <translation><!-- 17 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>18</masterLabel>
-            <translation>Consulta de BE a Cliente</translation>
+            <translation><!-- 18 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>19</masterLabel>
-            <translation>Devolución</translation>
+            <translation><!-- 19 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>20</masterLabel>
-            <translation>Reingreso con Respuestas (1)</translation>
+            <translation><!-- 20 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>21</masterLabel>
-            <translation>Consulta de Riesgos a Cliente (2)</translation>
+            <translation><!-- 21 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>22</masterLabel>
-            <translation>Consulta de BE a Cliente (2)</translation>
+            <translation><!-- 22 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>23</masterLabel>
-            <translation>Devolución (2)</translation>
+            <translation><!-- 23 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>24</masterLabel>
-            <translation>Reingreso con Respuestas (2)</translation>
+            <translation><!-- 24 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>25</masterLabel>
-            <translation>Fin de Evaluación (VB Jefe)</translation>
+            <translation><!-- 25 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>26</masterLabel>
-            <translation>Asignación Evaluación II</translation>
+            <translation><!-- 26 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>27</masterLabel>
-            <translation>Consulta de Riesgos a Cliente (3)</translation>
+            <translation><!-- 27 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>28</masterLabel>
-            <translation>Consulta de BE a Cliente (3)</translation>
+            <translation><!-- 28 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>29</masterLabel>
-            <translation>Devolución (3)</translation>
+            <translation><!-- 29 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>30</masterLabel>
-            <translation>Reingreso con Respuestas (3)</translation>
+            <translation><!-- 30 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>31</masterLabel>
-            <translation>Fin de Evaluación (VB Jefe) (2)</translation>
+            <translation><!-- 31 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>32</masterLabel>
-            <translation>Enviada para formalización</translation>
+            <translation><!-- 32 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>33</masterLabel>
-            <translation>Devuelta por documentación</translation>
+            <translation><!-- 33 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>34</masterLabel>
-            <translation>Enviada a unidad de producto</translation>
+            <translation><!-- 34 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>35</masterLabel>
-            <translation>Formalizada</translation>
+            <translation><!-- 35 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>36</masterLabel>
-            <translation>Desestimada</translation>
+            <translation><!-- 36 --></translation>
         </picklistValues>
     </fields>
     <fields>
-        <label>Importe</label>
+        <label><!-- Loss amount --></label>
         <name>rejection_amount__c</name>
     </fields>
     <fields>
-        <label>Plazo de la operación perdida</label>
+        <label><!-- Loss period --></label>
         <name>rejection_period_num__c</name>
     </fields>
     <fields>
-        <label>Tasa</label>
+        <label><!-- Loss rate --></label>
         <name>rejection_rate_per__c</name>
     </fields>
     <fields>
-        <label>Motivo de desetimación</label>
+        <label><!-- Loss reason --></label>
         <name>rejection_reason_id__c</name>
     </fields>
     <fields>
-        <label>Banco ganador</label>
+        <label><!-- Loss winner bank --></label>
         <name>rejection_winner_entity_name__c</name>
         <picklistValues>
             <masterLabel>Bank</masterLabel>
@@ -319,11 +255,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Contrato cancelación</label>
+        <label><!-- Renwal contract --></label>
         <name>renewal_contract_id__c</name>
     </fields>
     <fields>
-        <label>Probabilidad de éxito</label>
+        <label><!-- Success probability --></label>
         <name>success_probability_desc__c</name>
         <picklistValues>
             <masterLabel>0%</masterLabel>
@@ -351,27 +287,15 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Identificador único</label>
+        <label><!-- Unique identifier --></label>
         <name>unique_id__c</name>
     </fields>
     <recordTypes>
-        <label>Nueva</label>
+        <label><!-- New Business --></label>
         <name>Opp_RT_01</name>
     </recordTypes>
     <recordTypes>
-        <label>Cancelación</label>
+        <label><!-- Renewal --></label>
         <name>Opp_RT_02</name>
     </recordTypes>
-    <validationRules>
-        <errorMessage>Solo un perfil Ejecutivo puede asignar esta etapa</errorMessage>
-        <name>Opportunity_Validation_02_OnlyCommercial</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage>No puedes cambiar a este estado de la oportunidad</errorMessage>
-        <name>Opportunity_Validation_ChangeStage</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage>No se puede crear otro estado de la oportunidad que no sea acciones comerciales</errorMessage>
-        <name>Opportunity_Validation_Commercial_Action</name>
-    </validationRules>
 </CustomObjectTranslation>

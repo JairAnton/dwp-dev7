@@ -110,7 +110,7 @@
         </values>
     </businessProcesses>
     <compactLayoutAssignment>New_Awesome_Companct_Layout</compactLayoutAssignment>
-    <compactLayouts>
+	<compactLayouts>
         <fullName>New_Awesome_Companct_Layout</fullName>
         <fields>Name</fields>
         <fields>AccountId</fields>
@@ -123,6 +123,16 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <fields>
+        <fullName>Opp_Creation_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fecha creacion</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
@@ -408,7 +418,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+<fields>
         <fullName>opportunity_status_type__c</fullName>
         <description>Status of an opportunity</description>
         <externalId>false</externalId>
@@ -418,6 +428,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>StageName</controllingField>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -602,6 +613,75 @@
                     <label>36</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>07</controllingFieldValue>
+                <valueName>36</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>01</controllingFieldValue>
+                <valueName>01</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>02</controllingFieldValue>
+                <valueName>02</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>02</controllingFieldValue>
+                <valueName>03</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>04</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>05</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>06</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>07</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>08</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>09</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>10</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>11</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>12</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <valueName>32</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <valueName>33</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <valueName>34</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <controllingFieldValue>06</controllingFieldValue>
+                <valueName>35</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -1455,6 +1535,14 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>Opportunity_Validation_02_OnlyCommercial</fullName>
+        <active>true</active>
+        <description>Validate the creation in this Stage only for a Commercial Profile</description>
+        <errorConditionFormula>AND(IsNew(), and(isPickVal(StageName,&apos;02&apos;)) , and($Profile.Name!=&apos;Ejecutivo&apos;) )</errorConditionFormula>
+        <errorDisplayField>StageName</errorDisplayField>
+        <errorMessage>Only Commercial profile can create Opportunities for this stage</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Opportunity_Validation_ChangeStage</fullName>
         <active>true</active>

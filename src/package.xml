@@ -9,6 +9,11 @@
         <members>Gerente</members>
         <name>Profile</name>
     </types>
+	<types>
+        <members>FlujoEstadosOportunidad-6</members>
+        <members>Opp_PB_Opportunidad-7</members>
+        <name>Flow</name>
+    </types>
     <types>
         <members>Hangout</members>
         <members>Agree</members>
@@ -77,6 +82,10 @@
 		<members>TriggerHandler</members>
 		<members>TriggerHandler_Test</members>
         <members>BBVA_SBS_Classification_Test</members>
+        <members>Activity_Tsk_Evt_Email_Handlers_Test</members>
+        <members>EmailMessage_Handler</members>
+        <members>Event_Handler</members>
+        <members>Task_Handler</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -629,6 +638,7 @@
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
         <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
         <members>Opportunity.Opportunity_Validation_ChangeStage</members>
+        <members>Opportunity.Opportunity_Validation_02_OnlyCommercial</members>
         <name>ValidationRule</name>
     </types>
     <types>
@@ -643,6 +653,9 @@
     <types>
         <members>Contact_Tgr</members>
         <members>AccountContact_tgr</members>
+        <members>EmailMessage_tgr</members>
+        <members>Event_tgr</members>
+        <members>Task_tgr</members>
         <name>ApexTrigger</name>
     </types>
     <types>
