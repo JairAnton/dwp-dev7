@@ -59,18 +59,6 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>Gestor principal</value>
-        </caseValues>
-        <caseValues>
-            <plural>true</plural>
-            <value>Gestores principales</value>
-        </caseValues>
-        <gender>Masculine</gender>
-        <name>opportunity_owner</name>
-    </fields>
-    <fields>
-        <caseValues>
-            <plural>false</plural>
             <value>Tipologia</value>
         </caseValues>
         <gender>Masculine</gender>
