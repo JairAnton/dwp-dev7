@@ -9,6 +9,11 @@
         <members>Gerente</members>
         <name>Profile</name>
     </types>
+	<types>
+        <members>FlujoEstadosOportunidad-6</members>
+        <members>Opp_PB_Opportunidad-7</members>
+        <name>Flow</name>
+    </types>
     <types>
         <members>Hangout</members>
         <members>Agree</members>
