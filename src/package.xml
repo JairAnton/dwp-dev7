@@ -9,6 +9,18 @@
         <members>Gerente</members>
         <name>Profile</name>
     </types>
+		  <types>
+        <members>*</members>
+        <name>FlowDefinition</name>
+    </types>
+    <types>
+        <members>FlujoEstadosOportunidad</members>
+        <name>FlowDefinition</name>
+    </types>
+    <types>
+        <members>Opp_PB_Opportunidad</members>
+        <name>FlowDefinition</name>
+    </types>
 	<types>
         <members>FlujoEstadosOportunidad-6</members>
         <members>Opp_PB_Opportunidad-7</members>

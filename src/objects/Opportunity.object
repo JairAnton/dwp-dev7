@@ -109,7 +109,7 @@
             <default>false</default>
         </values>
     </businessProcesses>
-    <compactLayoutAssignment>New_Awesome_Companct_Layout</compactLayoutAssignment>
+    <compactLayoutAssignment>Opportunity_Compact_Layout</compactLayoutAssignment>
 	<compactLayouts>
         <fullName>New_Awesome_Companct_Layout</fullName>
         <fields>Name</fields>
@@ -119,6 +119,17 @@
         <fields>OwnerId</fields>
         <label>New Awesome Compact Layout</label>
     </compactLayouts>
+	<compactLayouts>
+        <fullName>Opportunity_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>AccountId</fields>
+        <fields>Amount</fields>
+        <fields>StageName</fields>
+        <fields>CloseDate</fields>
+        <fields>CreatedById</fields>
+        <fields>Customer_alert__c</fields>
+        <label>Opportunity Compact Layout</label>
+    </compactLayouts>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -127,7 +138,7 @@
         <externalId>false</externalId>
         <formula>CreatedDate</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Fecha creacion</label>
+        <label>Creation date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -678,7 +689,6 @@
                 <valueName>34</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>05</controllingFieldValue>
                 <controllingFieldValue>06</controllingFieldValue>
                 <valueName>35</valueName>
             </valueSettings>
@@ -918,6 +928,7 @@
         <fullName>Opp_RT_01</fullName>
         <active>true</active>
         <businessProcess>Ruta</businessProcess>
+		<compactLayoutAssignment>Opportunity_Compact_Layout</compactLayoutAssignment>
         <label>New Business</label>
         <picklistValues>
             <picklist>ForecastCategoryName</picklist>
@@ -1220,6 +1231,7 @@
         <fullName>Opp_RT_02</fullName>
         <active>true</active>
         <businessProcess>Ruta</businessProcess>
+		<compactLayoutAssignment>Opportunity_Compact_Layout</compactLayoutAssignment>
         <label>Renewal</label>
         <picklistValues>
             <picklist>ForecastCategoryName</picklist>
@@ -1518,21 +1530,50 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts>
+ <searchLayouts>
         <customTabListAdditionalFields>OPPORTUNITY.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OPPORTUNITY.AMOUNT</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OPPORTUNITY.STAGE_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>OPPORTUNITY.CLOSE_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CORE.USERS.FIRST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Customer_alert__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
         <lookupDialogsAdditionalFields>OPPORTUNITY.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OPPORTUNITY.AMOUNT</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OPPORTUNITY.STAGE_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OPPORTUNITY.CLOSE_DATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.FIRST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Customer_alert__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>OPPORTUNITY.NAME</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
+        <lookupFilterFields>OPPORTUNITY.AMOUNT</lookupFilterFields>
+        <lookupFilterFields>OPPORTUNITY.STAGE_NAME</lookupFilterFields>
+        <lookupFilterFields>OPPORTUNITY.CLOSE_DATE</lookupFilterFields>
+        <lookupFilterFields>CORE.USERS.FIRST_NAME</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.AMOUNT</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.STAGE_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.CLOSE_DATE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.FIRST_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Customer_alert__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>OPPORTUNITY.NAME</searchFilterFields>
+        <searchFilterFields>ACCOUNT.NAME</searchFilterFields>
+        <searchFilterFields>OPPORTUNITY.STAGE_NAME</searchFilterFields>
+        <searchFilterFields>OPPORTUNITY.CLOSE_DATE</searchFilterFields>
+        <searchFilterFields>OPPORTUNITY.AMOUNT</searchFilterFields>
+        <searchFilterFields>CORE.USERS.FIRST_NAME</searchFilterFields>
+        <searchFilterFields>Customer_alert__c</searchFilterFields>
         <searchResultsAdditionalFields>OPPORTUNITY.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OPPORTUNITY.AMOUNT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.STAGE_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.CLOSE_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Customer_alert__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
     <validationRules>
