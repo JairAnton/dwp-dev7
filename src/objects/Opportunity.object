@@ -1549,11 +1549,11 @@
         <description>Can not  change stage opportunity manually</description>
         <errorConditionFormula>AND(
             ISCHANGED(StageName),
-            OR(
+            AND(
             NOT(ISPICKVAL(StageName,&apos;02&apos;)),
             NOT(ISPICKVAL(StageName,&apos;03&apos;))
             ),
-            OR(
+            AND(
             $Profile.Name == &apos;Ejecutivo&apos;,
             $Profile.Name == &apos;Gerente&apos;)
             
