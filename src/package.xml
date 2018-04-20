@@ -706,13 +706,13 @@
         <name>StandardValueSetTranslation</name>
     </types>
     <types>
-        <members>Email_Update_Opportunity</members>
-        <members>Event_update_Opportunity</members>
-        <members>Task_update_Opportunity</members>
+        <members>Email_Message_update_Opportunity-1</members>
+        <members>Event_update_Opportunity-1</members>
+        <members>Task_update_Opportunity-1</members>
         <name>Flow</name>
     </types>
     <types>
-        <members>Email_Update_Opportunity</members>
+        <members>Email_Message_update_Opportunity</members>
         <members>Task_update_Opportunity</members>
         <members>Event_update_Opportunity</members>
     <name>FlowDefinition</name>

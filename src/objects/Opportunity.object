@@ -1547,8 +1547,8 @@
         <fullName>Opportunity_Validation_ChangeStage</fullName>
         <active>true</active>
         <description>Can not  change stage opportunity manually</description>
-        <errorConditionFormula>AND(
-            
+        <errorConditionFormula>IF(OR(ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;),ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)),IF($Profile.Name != &apos;Administrador del sistema&apos;,IF($Profile.Name != &apos;Migracion&apos;,true,false),false)        ,
+            AND(
             ISCHANGED(StageName),
             
             NOT(ISPICKVAL(StageName,&apos;02&apos;)),
@@ -1561,9 +1561,9 @@
             ),
             
             
-            IF($User.Id !=OwnerId,IF(OR($Profile.Name!=&apos;Admin&apos;,$Profile.Name!=&apos;Migracion&apos;),true,false),IF(NOT(ISPICKVAL(StageName,&apos;07&apos;)),true,false))
+            IF($User.Id !=OwnerId,IF(OR($Profile.Name!=&apos;Administrador del sistema&apos;,$Profile.Name!=&apos;Migracion&apos;),true,false),IF(NOT(ISPICKVAL(StageName,&apos;07&apos;)),true,false))
             
-            
+            )
             )</errorConditionFormula>
         <errorMessage>Can not  change to this stage opportunity</errorMessage>
     </validationRules>
