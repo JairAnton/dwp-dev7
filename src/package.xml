@@ -21,9 +21,14 @@
         <members>Opp_PB_Opportunidad</members>
         <name>FlowDefinition</name>
     </types>
+    <types>
+        <members>Opp_Owner_Changed</members>
+        <name>FlowDefinition</name>
+    </types>
 	<types>
         <members>FlujoEstadosOportunidad-6</members>
         <members>Opp_PB_Opportunidad-7</members>
+        <members>Opp_Owner_Changed</members>
         <name>Flow</name>
     </types>
     <types>
