@@ -10,7 +10,7 @@ public without sharing class Event_Handler extends TriggerHandler {
         Set<Id> opIds = new Set<Id>();
 	    for(Event e : (List<Event>)(trigger.new)){
 	        String wId = e.WhatId;
-	        if(wId!=null && wId.startsWith('006') && !opIds.contains(e.WhatId)){
+	        if(wId!=null && wId.startsWith(Label.OppId) && !opIds.contains(e.WhatId)){
 	            opIds.add(e.WhatId);
 	        }
 	    }	    
