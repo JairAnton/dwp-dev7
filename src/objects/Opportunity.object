@@ -1588,16 +1588,23 @@
         <fullName>Opportunity_Validation_ChangeStage</fullName>
         <active>true</active>
         <description>Can not  change stage opportunity manually</description>
-        <errorConditionFormula>AND(
+        <errorConditionFormula>IF(OR(ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;),ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)),IF($Profile.Name != &apos;Administrador del sistema&apos;,IF($Profile.Name != &apos;Migracion&apos;,true,false),false)        ,
+            AND(
             ISCHANGED(StageName),
-            AND(
-            NOT(ISPICKVAL(StageName,&apos;02&apos;)),
-            NOT(ISPICKVAL(StageName,&apos;03&apos;))
-            ),
-            AND(
-            $Profile.Name == &apos;Ejecutivo&apos;,
-            $Profile.Name == &apos;Gerente&apos;)
             
+            NOT(ISPICKVAL(StageName,&apos;02&apos;)),
+            NOT(ISPICKVAL(StageName,&apos;03&apos;)),
+            OR(
+            $Profile.Name == &apos;Ejecutivo&apos;,
+            $Profile.Name == &apos;Gerente&apos;,
+            $Profile.Name == &apos;Asistente&apos;,
+            $Profile.Name == &apos;Especialista&apos;
+            ),
+            
+            
+            IF($User.Id !=OwnerId,IF(OR($Profile.Name!=&apos;Administrador del sistema&apos;,$Profile.Name!=&apos;Migracion&apos;),true,false),IF(NOT(ISPICKVAL(StageName,&apos;07&apos;)),true,false))
+            
+            )
             )</errorConditionFormula>
         <errorMessage>Can not  change to this stage opportunity</errorMessage>
     </validationRules>
@@ -1608,8 +1615,10 @@
         <errorConditionFormula>AND(
             IsNew(),
             NOT(isPickVal(StageName, &apos;01&apos;)),
-            OR($Profile.Name == &apos;Ejecutivo&apos;,
-            $Profile.Name == &apos;Gerente&apos;)
+            OR( $Profile.Name == &apos;Ejecutivo&apos;,
+            $Profile.Name == &apos;Gerente&apos;,
+            $Profile.Name == &apos;Asistente&apos;,
+            $Profile.Name == &apos;Especialista&apos;)
             
             )</errorConditionFormula>
         <errorMessage>you can not create an opportunity with  stage other than Comercial Actions</errorMessage>

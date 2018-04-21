@@ -11,7 +11,7 @@ public without sharing class Task_Handler extends TriggerHandler {
         List<SObject> OpsUpdate = new LIST<SObject>();
 	    for(Task e : (List<Task>)(trigger.new)){
 	        String wId = e.WhatId;
-	        if(wId!=null && wId.startsWith('006') && !opIds.contains(e.WhatId)){
+	        if(wId!=null && wId.startsWith(Label.OppId) && !opIds.contains(e.WhatId)){
 	            opIds.add(e.WhatId);
 	        }
 	    }	    

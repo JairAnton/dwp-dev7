@@ -10,7 +10,7 @@ public without sharing class EmailMessage_Handler extends TriggerHandler {
         Set<Id> opIds = new Set<Id>();
 	    for(EmailMessage e : (List<EmailMessage>)(trigger.new)){
 	        String wId = e.RelatedToId;
-	        if(wId!=null && wId.startsWith('006') && !opIds.contains(e.RelatedToId)){
+	        if(wId!=null && wId.startsWith(Label.OppId) && !opIds.contains(e.RelatedToId)){
 	            opIds.add(e.RelatedToId);
 	        }
 	    }	    

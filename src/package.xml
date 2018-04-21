@@ -21,9 +21,14 @@
         <members>Opp_PB_Opportunidad</members>
         <name>FlowDefinition</name>
     </types>
+    <types>
+        <members>Opp_Owner_Changed</members>
+        <name>FlowDefinition</name>
+    </types>
 	<types>
         <members>FlujoEstadosOportunidad-6</members>
         <members>Opp_PB_Opportunidad-7</members>
+        <members>Opp_Owner_Changed-2</members>
         <name>Flow</name>
     </types>
     <types>
@@ -69,6 +74,7 @@
         <members>AccountProductClassificationTable5</members>
         <members>AccountRankingClassificationTable1</members>
         <members>AccountRankingClassificationTable2</members>
+		<members>OppId</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -590,7 +596,6 @@
         <members>Account_Rating__c.All</members>
         <members>Account_Renewals__c.All</members>
         <members>Account_Banking_System_Classification__c.All</members>
-		
 		<members>Opportunity.AllOpportunities</members>
 		<members>Opportunity.ClosingNextMonth</members>
 		<members>Opportunity.ClosingThisMonth</members>
