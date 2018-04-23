@@ -1596,7 +1596,7 @@
     <validationRules>
         <fullName>Opportunity_Validation_ChangeOwner</fullName>
         <active>true</active>
-        <errorConditionFormula>ISCHANGED(OwnerId) &amp;&amp;(Owner.Profile.Name=&apos;Operativo&apos; &amp;&amp; Owner.Profile.Name=&apos;Gerente&apos; &amp;&amp; Owner.Profile.Name=&apos;Analista&apos; &amp;&amp;
+        <errorConditionFormula>ISCHANGED(OwnerId) &amp;&amp;(Owner.Profile.Name=&apos;Operativo&apos; || Owner.Profile.Name=&apos;Gerente&apos; || Owner.Profile.Name=&apos;Analista&apos; ||
 Owner.Profile.Name=&apos;Asistente&apos;) &amp;&amp; (!ISPICKVAL(StageName, &apos;01&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;02&apos;) &amp;&amp; !ISPICKVAL(StageName ,&apos;03&apos;))</errorConditionFormula>
         <errorMessage>Cannot change the owner of this opportunity.</errorMessage>
     </validationRules>
