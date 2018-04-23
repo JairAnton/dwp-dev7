@@ -1620,7 +1620,7 @@ Owner.Profile.Name=&apos;Asistente&apos;) &amp;&amp; (!ISPICKVAL(StageName, &apo
         <description>you can not create an opportunity with  stage other than Comercial Actions</description>
         <errorConditionFormula>AND(
             IsNew(),
-            NOT(isPickVal(StageName, &apos;01&apos;)),
+            isPickVal(StageName, &apos;01&apos;),
             OR( $Profile.Name == &apos;Ejecutivo&apos;,
             $Profile.Name == &apos;Gerente&apos;,
             $Profile.Name == &apos;Asistente&apos;,
