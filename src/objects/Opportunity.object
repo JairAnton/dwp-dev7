@@ -1604,21 +1604,21 @@ Owner.Profile.Name=&apos;Asistente&apos;) &amp;&amp; (!ISPICKVAL(StageName, &apo
         <fullName>Opportunity_Validation_ChangeStage</fullName>
         <active>true</active>
         <description>Can not  change stage opportunity manually</description>
-        <errorConditionFormula>IF(OR(ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;),ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)),IF($Profile.Name != &apos;Administrador del sistema&apos;,IF($Profile.Name != &apos;Migracion&apos;,true,false),false)        ,
+        <errorConditionFormula>IF(OR(ISPICKVAL(PRIORVALUE(StageName),'07'),ISPICKVAL(PRIORVALUE(StageName),'06')),IF($Profile.Name != 'Administrador del sistema',IF($Profile.Name != 'Migracion',IF(isProcess__c==false,true,false),false),false) ,
             AND(
             ISCHANGED(StageName),
             
-            NOT(ISPICKVAL(StageName,&apos;02&apos;)),
-            NOT(ISPICKVAL(StageName,&apos;03&apos;)),
+            NOT(ISPICKVAL(StageName,'02')),
+            NOT(ISPICKVAL(StageName,'03')),
             OR(
-            $Profile.Name == &apos;Ejecutivo&apos;,
-            $Profile.Name == &apos;Gerente&apos;,
-            $Profile.Name == &apos;Asistente&apos;,
-            $Profile.Name == &apos;Especialista&apos;
+            $Profile.Name == 'Ejecutivo',
+            $Profile.Name == 'Gerente',
+            $Profile.Name == 'Asistente',
+            $Profile.Name == 'Especialista'
             ),
             
             
-            IF($User.Id !=OwnerId,IF(OR($Profile.Name!=&apos;Administrador del sistema&apos;,$Profile.Name!=&apos;Migracion&apos;),true,false),IF(NOT(ISPICKVAL(StageName,&apos;07&apos;)),true,false))
+            IF($User.Id !=OwnerId,IF(OR($Profile.Name!='Administrador del sistema',$Profile.Name!='Migracion'),true,false),IF(NOT(ISPICKVAL(StageName,'07')),true,false))
             
             )
             )</errorConditionFormula>
