@@ -1322,7 +1322,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Customer_alert__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

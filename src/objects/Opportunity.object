@@ -126,7 +126,7 @@
         <fields>Amount</fields>
         <fields>StageName</fields>
         <fields>CloseDate</fields>
-        <fields>CreatedById</fields>
+        <fields>OwnerId</fields>
         <fields>Customer_alert__c</fields>
         <label>Opportunity Compact Layout</label>
     </compactLayouts>
@@ -1549,31 +1549,31 @@
         <customTabListAdditionalFields>CORE.USERS.FIRST_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Customer_alert__c</customTabListAdditionalFields>
         <excludedStandardButtons>New</excludedStandardButtons>
-        <lookupDialogsAdditionalFields>OPPORTUNITY.NAME</lookupDialogsAdditionalFields>
+		<lookupDialogsAdditionalFields>OPPORTUNITY.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>OPPORTUNITY.AMOUNT</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>OPPORTUNITY.STAGE_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>OPPORTUNITY.CLOSE_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CORE.USERS.FIRST_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Customer_alert__c</lookupDialogsAdditionalFields>
-        <lookupFilterFields>OPPORTUNITY.NAME</lookupFilterFields>
+		<lookupFilterFields>OPPORTUNITY.NAME</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>OPPORTUNITY.AMOUNT</lookupFilterFields>
         <lookupFilterFields>OPPORTUNITY.STAGE_NAME</lookupFilterFields>
         <lookupFilterFields>OPPORTUNITY.CLOSE_DATE</lookupFilterFields>
         <lookupFilterFields>CORE.USERS.FIRST_NAME</lookupFilterFields>
-        <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.NAME</lookupPhoneDialogsAdditionalFields>
+		<lookupPhoneDialogsAdditionalFields>OPPORTUNITY.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.AMOUNT</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.STAGE_NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.CLOSE_DATE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.FIRST_NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Customer_alert__c</lookupPhoneDialogsAdditionalFields>
-        <searchFilterFields>OPPORTUNITY.NAME</searchFilterFields>
+		<searchFilterFields>OPPORTUNITY.NAME</searchFilterFields>
         <searchFilterFields>ACCOUNT.NAME</searchFilterFields>
-        <searchFilterFields>OPPORTUNITY.STAGE_NAME</searchFilterFields>
-        <searchFilterFields>OPPORTUNITY.CLOSE_DATE</searchFilterFields>
         <searchFilterFields>OPPORTUNITY.AMOUNT</searchFilterFields>
+		<searchFilterFields>OPPORTUNITY.STAGE_NAME</searchFilterFields>
+        <searchFilterFields>OPPORTUNITY.CLOSE_DATE</searchFilterFields>
         <searchFilterFields>CORE.USERS.FIRST_NAME</searchFilterFields>
         <searchFilterFields>Customer_alert__c</searchFilterFields>
         <searchResultsAdditionalFields>OPPORTUNITY.NAME</searchResultsAdditionalFields>
@@ -1581,7 +1581,6 @@
         <searchResultsAdditionalFields>OPPORTUNITY.AMOUNT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.STAGE_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.CLOSE_DATE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.FIRST_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Customer_alert__c</searchResultsAdditionalFields>
     </searchLayouts>
@@ -1590,7 +1589,7 @@
         <fullName>Opportunity_Validation_02_OnlyCommercial</fullName>
         <active>true</active>
         <description>Validate the creation in this Stage only for a Commercial Profile</description>
-        <errorConditionFormula>AND(IsNew(), and(isPickVal(StageName,&apos;02&apos;)) , and($Profile.Name!=&apos;Ejecutivo&apos;) )</errorConditionFormula>
+        <errorConditionFormula>AND(IsNew()||ISCHANGED(StageName), and(isPickVal(StageName,&apos;02&apos;)) , and($Profile.Name!=&apos;Ejecutivo&apos;&amp;&amp;$Profile.Name!=&apos;Especialista&apos;) )</errorConditionFormula>
         <errorDisplayField>StageName</errorDisplayField>
         <errorMessage>Only Commercial profile can create Opportunities for this stage</errorMessage>
     </validationRules>
