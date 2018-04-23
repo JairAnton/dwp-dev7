@@ -50,15 +50,13 @@ private class Activity_Tsk_Evt_Email_Handlers_Test {
             
          Opportunity opp = new Opportunity();
          opp.Name = 'Test Opportunity';
-         opp.StageName = '01';
-		 opp.opportunity_status_type__c = '01';
+         opp.StageName = '02';
+		 opp.opportunity_status_type__c = '02';
          opp.CloseDate = Date.today();
          opp.AccountId = acc.Id;
          
          insert opp;
-         opp.StageName = '02';
-		 opp.opportunity_status_type__c = '02';
-         update opp;
+         
             
          Task tsk = new Task(WhatId = opp.Id, Subject = 'Test Subject', Status = 'In Progress');
          insert tsk;
