@@ -833,6 +833,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>isProcess__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>activated by Process</description>
+        <externalId>false</externalId>
+        <label>isProcess</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>

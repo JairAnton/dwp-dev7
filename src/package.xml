@@ -9,18 +9,17 @@
         <members>Gerente</members>
         <name>Profile</name>
     </types>
-    <types>
-        <members>FlujoEstadosOportunidad</members>
-        <name>FlowDefinition</name>
-    </types>
-    <types>
-        <members>Opp_Owner_Changed</members>
+		  <types>
+        <members>*</members>
         <name>FlowDefinition</name>
     </types>
 	<types>
         <members>FlujoEstadosOportunidad-6</members>
-        <members>Opp_PB_Opportunidad-7</members>
-        <members>Opp_Owner_Changed-3</members>
+        <members>Opp_PB_Opportunidad-8</members>
+        <members>Opp_Owner_Changed-2</members>
+        <members>Email_Message_update_Opportunity-1</members>
+        <members>Event_update_Opportunity-1</members>
+        <members>Task_update_Opportunity-1</members>
         <name>Flow</name>
     </types>
     <types>
@@ -549,6 +548,7 @@
 		<members>Product2.QuantityUnitOfMeasure</members>
 		<members>Product2.StockKeepingUnit</members>
 		<members>Product2.Description</members>
+        <members>Opportunity.isProcess__c</members>
         <name>CustomField</name>
     </types>
     <types>
