@@ -1579,9 +1579,16 @@
         <fullName>Opportunity_Validation_02_OnlyCommercial</fullName>
         <active>true</active>
         <description>Validate the creation in this Stage only for a Commercial Profile</description>
-        <errorConditionFormula>AND(IsNew()||ISCHANGED(StageName), and(isPickVal(StageName,&apos;02&apos;)) , and($Profile.Name!=&apos;Ejecutivo&apos;&amp;&amp;$Profile.Name!=&apos;Especialista&apos;) )</errorConditionFormula>
+        <errorConditionFormula>AND(IsNew(), and(isPickVal(StageName,&apos;02&apos;)) , and($Profile.Name!=&apos;Ejecutivo&apos;) )</errorConditionFormula>
         <errorDisplayField>StageName</errorDisplayField>
         <errorMessage>Only Commercial profile can create Opportunities for this stage</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Opportunity_Validation_ChangeOwner</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED(OwnerId) &amp;&amp;(Owner.Profile.Name=&apos;Operativo&apos; &amp;&amp; Owner.Profile.Name=&apos;Gerente&apos; &amp;&amp; Owner.Profile.Name=&apos;Analista&apos; &amp;&amp;
+Owner.Profile.Name=&apos;Asistente&apos;) &amp;&amp; (!ISPICKVAL(StageName, &apos;01&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;02&apos;) &amp;&amp; !ISPICKVAL(StageName ,&apos;03&apos;))</errorConditionFormula>
+        <errorMessage>Cannot change the owner of this opportunity.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Opportunity_Validation_ChangeStage</fullName>
