@@ -147,7 +147,7 @@
         <relationshipLabel><!-- Oportunidades --></relationshipLabel>
     </fields>
     <fields>
-        <label>Familia productos</label>
+        <label>Familia de productos</label>
         <name>opportunity_product_family__c</name>
     </fields>
     <fields>
@@ -371,7 +371,7 @@
         <name>Opportunity_Validation_02_OnlyCommercial</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Cannot change the owner of this opportunity. --></errorMessage>
+     <errorMessage>No se puede cambiar el propietario de esta Oportunidad.</errorMessage>
         <name>Opportunity_Validation_ChangeOwner</name>
     </validationRules>
     <validationRules>
