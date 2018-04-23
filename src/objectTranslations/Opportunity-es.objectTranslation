@@ -147,7 +147,7 @@
         <relationshipLabel><!-- Oportunidades --></relationshipLabel>
     </fields>
     <fields>
-        <label>Familia producto</label>
+        <label>Familia productos</label>
         <name>opportunity_product_family__c</name>
     </fields>
     <fields>
