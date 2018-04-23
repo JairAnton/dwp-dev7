@@ -371,6 +371,10 @@
         <name>Opportunity_Validation_02_OnlyCommercial</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Cannot change the owner of this opportunity. --></errorMessage>
+        <name>Opportunity_Validation_ChangeOwner</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>No puedes cambiar a este estado de la oportunidad</errorMessage>
         <name>Opportunity_Validation_ChangeStage</name>
     </validationRules>
