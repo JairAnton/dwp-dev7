@@ -1612,7 +1612,7 @@ Owner.Profile.Name=&apos;Asistente&apos;) || (!ISPICKVAL(StageName, &apos;01&apo
         ||
         ($Profile.Name != &apos;Ejecutivo&apos; &amp;&amp;$Profile.Name != &apos;Especialista&apos;)                         
         || 
-        (ISPICKVAL(PRIORVALUE(StageName),&apos;01&apos;) || ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;)) 
+        ((ISPICKVAL(PRIORVALUE(StageName),&apos;01&apos;) || ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;)) &amp;&amp; (ISPICKVAL(StageName,&apos;03&apos;)|| ISPICKVAL(StageName,&apos;02&apos;)))
         ||
         ($User.Id ==OwnerId &amp;&amp; $Profile.Name != &apos;Ejecutivo&apos; &amp;&amp; (ISPICKVAL(StageName,&apos;06&apos;) || ISPICKVAL(StageName,&apos;07&apos;))   )
 )</errorConditionFormula>
