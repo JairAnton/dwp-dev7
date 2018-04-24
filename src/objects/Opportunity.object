@@ -853,7 +853,6 @@
         <columns>OPPORTUNITY.PROBABILITY</columns>
         <columns>OPPORTUNITY.TYPE</columns>
         <columns>OPPORTUNITY.LEAD_SOURCE</columns>
-        <columns>CORE.USERS.FULL_NAME</columns>
 		<columns>CORE.USERS.FULL_NAME</columns>
 		<columns>Customer_alert__c</columns>
         <filterScope>Everything</filterScope>
