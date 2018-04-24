@@ -1605,7 +1605,7 @@ Owner.Profile.Name=&apos;Asistente&apos;) || (!ISPICKVAL(StageName, &apos;01&apo
         <fullName>Opportunity_Validation_ChangeStage</fullName>
         <active>true</active>
         <description>Can not  change stage opportunity manually</description>
-        <errorConditionFormula>IF(OR(ISPICKVAL(PRIORVALUE(StageName),'07'),ISPICKVAL(PRIORVALUE(StageName),'06')),IF($Profile.Name != 'Administrador del sistema',IF($Profile.Name != 'Migracion',IF(isProcess__c==false,true,false),false),false) ,
+        <errorConditionFormula>IF(NOT(ISCHANGED(isProcess__c)),IF(OR(ISPICKVAL(PRIORVALUE(StageName),'07'),ISPICKVAL(PRIORVALUE(StageName),'06')),IF($Profile.Name != 'Administrador del sistema',IF($Profile.Name != 'Migracion',IF(isProcess__c==false,true,false),false),false) ,
             AND(
             ISCHANGED(StageName),
             
@@ -1622,6 +1622,7 @@ Owner.Profile.Name=&apos;Asistente&apos;) || (!ISPICKVAL(StageName, &apos;01&apo
             IF($User.Id !=OwnerId,IF(OR($Profile.Name!='Administrador del sistema',$Profile.Name!='Migracion'),true,false),IF(NOT(ISPICKVAL(StageName,'07')),true,false))
             
             )
+            ),false
             )</errorConditionFormula>
         <errorMessage>Can not  change to this stage opportunity</errorMessage>
     </validationRules>
