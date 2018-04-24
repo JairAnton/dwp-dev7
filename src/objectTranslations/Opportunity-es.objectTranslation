@@ -379,7 +379,7 @@
         <name>Opportunity_Validation_ChangeStage</name>
     </validationRules>
     <validationRules>
-        <errorMessage>No se puede crear otro estado de la oportunidad que no sea acciones comerciales</errorMessage>
+        <errorMessage>No se puede crear otro estado de la oportunidad que no sea Pendiente de Iniciar</errorMessage>
         <name>Opportunity_Validation_Commercial_Action</name>
     </validationRules>
 </CustomObjectTranslation>
