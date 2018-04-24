@@ -34,35 +34,20 @@ public without sharing class Opportunity_Trigger_cls {
             opp.isprocess__c = true;
             if(opp.OwnerId!=Opps_OldMap.get(opp.Id).OwnerId && opp.StageName =='01' || 
                opp.StageName =='02'&& opp.StageName =='03'){
-                if(MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).Profile.Name=='Ejecutivo'){
-					if(MapUser.get(opp.OwnerId).UserRole.Name =='Gerente de oficina' || MapUser.get(opp.OwnerId).Profile.Name =='Gerente' ||
-                        MapUser.get(opp.OwnerId).UserRole.Name =='Asistente BE' || MapUser.get(opp.OwnerId).Profile.Name =='Asistente' ||
-                        MapUser.get(opp.OwnerId).UserRole.Name =='Especialista' || MapUser.get(opp.OwnerId).Profile.Name =='Especialista'){
-                           Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');
+                if(MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).Profile.Name=='Ejecutivo'||
+                   MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).UserRole.Name =='Ejecutivo'){
+					if(MapUser.get(opp.OwnerId).Profile.Name !='Ejecutivo'&&
+                       MapUser.get(opp.OwnerId).Profile.Name !='Especialista'){
+                           Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente1');
                        }
-                    
                 } else
-				if(MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).Profile.Name=='Asistente'|| 
-                   MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).UserRole.Name =='Asistente BE'){
-                       if(MapUser.get(opp.OwnerId).UserRole.Name =='Gerente de oficina' || MapUser.get(opp.OwnerId).Profile.Name =='Gerente' || 
-                          MapUser.get(opp.OwnerId).UserRole.Name =='Ejecutivo de cuenta' || MapUser.get(opp.OwnerId).Profile.Name =='Ejecutivo' ||
-                          MapUser.get(opp.OwnerId).UserRole.Name =='Especialista' || MapUser.get(opp.OwnerId).Profile.Name =='Especialista'  )
-                           Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');                    
-                } else
- 				if(MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).Profile.Name=='Especialista'){
-                       if(MapUser.get(opp.OwnerId).UserRole.Name =='Gerente de oficina' || MapUser.get(opp.OwnerId).Profile.Name =='Gerente' ||
-                          MapUser.get(opp.OwnerId).UserRole.Name =='Ejecutivo de cuenta' ||MapUser.get(opp.OwnerId).Profile.Name =='Ejecutivo' ||
-                          MapUser.get(opp.OwnerId).UserRole.Name =='Asistente BE'||MapUser.get(opp.OwnerId).Profile.Name =='Asistente' )
-                    Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');
-                } else
-				if(MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).Profile.Name=='Gerente'|| 
-                   MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).UserRole.Name =='Gerente de oficina'){
-                       if(MapUser.get(opp.OwnerId).UserRole.Name =='Especialista' || MapUser.get(opp.OwnerId).Profile.Name =='Especialista' ||
-                          MapUser.get(opp.OwnerId).UserRole.Name =='Ejecutivo de cuenta' || MapUser.get(opp.OwnerId).Profile.Name =='Ejecutivo' ||
-                          MapUser.get(opp.OwnerId).UserRole.Name =='Asistente BE' || MapUser.get(opp.OwnerId).Profile.Name =='Asistente' )
-                    Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');
-                }
-                   else if(MapUser.get(opp.OwnerId).Profile.Name=='Analista'||MapUser.get(opp.OwnerId).UserRole.Name =='Analista'){
+				if(MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).Profile.Name=='Especialista'|| 
+                   MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).UserRole.Name =='Especialista'){
+                       if(MapUser.get(opp.OwnerId).Profile.Name !='Especialista'&&
+                          MapUser.get(opp.OwnerId).Profile.Name !='Especialista' )
+                           Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente2');                    
+                } 
+                   else if(MapUser.get(opp.OwnerId).Profile.Name=='Asistente'||MapUser.get(opp.OwnerId).Profile.Name =='Gerente'){
                     Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');   
                    }
                }
