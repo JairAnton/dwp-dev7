@@ -52,6 +52,7 @@
         <members>AccountProductClassificationTable5</members>
         <members>AccountRankingClassificationTable1</members>
         <members>AccountRankingClassificationTable2</members>
+		<members>OppId</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -77,6 +78,13 @@
 		<members>TriggerHandler</members>
 		<members>TriggerHandler_Test</members>
         <members>BBVA_SBS_Classification_Test</members>
+        <members>Activity_Tsk_Evt_Email_Handlers_Test</members>
+        <members>EmailMessage_Handler</members>
+        <members>Event_Handler</members>
+        <members>Task_Handler</members>
+		<members>Opportunity_Handler_cls</members>
+        <members>Opportunity_Trigger_Test</members>
+        <members>Opportunity_Trigger_cls</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -117,6 +125,8 @@
         <members>Account_Record_Page_Account</members>
         <members>Account_Renewals_Record_Page</members>
         <members>Account_Banking_System_Classification</members>
+		<members>Opportunity_Record_Page</members>
+        <members>Opportunity_Record_Page1</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -127,6 +137,7 @@
         <members>AccountContactRelation</members>
         <members>Account</members>
         <members>Contact</members>
+        <members>Opportunity</members>
         <members>Account_BBVA_Classification__c</members>
         <members>Account_Indicator__c</members>
         <members>Account_Accounting__c</members>
@@ -140,7 +151,13 @@
         <members>Account_Rating__c</members>
         <members>Account_Renewals__c</members>
         <members>Account_Banking_System_Classification__c</members>
+		<members>Product2</members>
+		<members>OpportunityTeamMember</members>
         <name>CustomObject</name>
+    </types>
+	<types>
+        <members>OpportunityStage</members>
+        <name>StandardValueSet</name>
     </types>
     <types>
         <members>User-es</members>
@@ -175,6 +192,7 @@
         <members>Account_Renewals__c-en_US</members>
         <members>Account_Renewals__c-es</members>
         <members>Account_Banking_System_Classification__c-es</members>
+        <members>Opportunity-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -201,6 +219,9 @@
         <members>Account_Renewals__c-Account Renewals Layout</members>
         <members>Account_Banking_System_Classification__c-Formato Account Banking System Classification</members>
         <members>Global-Global Layout</members>
+		<members>Opportunity-Opportunity Layout</members>
+        <members>OpportunityLineItem-Opportunity Product Layout</members>
+        <members>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</members>
         <name>Layout</name>
     </types>
     <types>
@@ -210,6 +231,7 @@
         <members>Account.Account_Compact_Layout_Group</members>
         <members>Contact.Contact</members>
         <members>User_Branch__c.Relation_User_Branch</members>
+		<members>Opportunity.New_Awesome_Companct_Layout</members>
         <name>CompactLayout</name>
     </types>
     <types>
@@ -464,6 +486,59 @@
         <members>AccountContactRelation.phone_1_area_code__c</members>
         <members>AccountContactRelation.phone_2__c</members>
         <members>AccountContactRelation.phone_2_area_code__c</members>
+		<members>Opportunity.AccountId</members>
+        <members>Opportunity.Amount</members>
+        <members>Opportunity.Branch_id__c</members>
+        <members>Opportunity.Budget_Confirmed__c</members>
+        <members>Opportunity.CampaignId</members>
+        <members>Opportunity.CloseDate</members>
+        <members>Opportunity.ContractId</members>
+        <members>Opportunity.CurrencyIsoCode</members>
+        <members>Opportunity.Customer_alert__c</members>
+        <members>Opportunity.Description</members>
+        <members>Opportunity.Discovery_Completed__c</members>
+        <members>Opportunity.ExpectedRevenue</members>
+        <members>Opportunity.IqScore</members>
+        <members>Opportunity.IsPrivate</members>
+        <members>Opportunity.LeadSource</members>
+        <members>Opportunity.Loss_Reason__c</members>
+        <members>Opportunity.Name</members>
+        <members>Opportunity.NextStep</members>
+        <members>Opportunity.OwnerId</members>
+        <members>Opportunity.Pricebook2Id</members>
+        <members>Opportunity.Probability</members>
+        <members>Opportunity.ROI_Analysis_Completed__c</members>
+        <members>Opportunity.StageName</members>
+        <members>Opportunity.SyncedQuoteId</members>
+        <members>Opportunity.TotalOpportunityQuantity</members>
+        <members>Opportunity.Type</members>
+        <members>Opportunity.contract_id__c</members>
+        <members>Opportunity.opportunity_expiry_date__c</members>
+        <members>Opportunity.opportunity_origin_name__c</members>
+        <members>Opportunity.opportunity_planning_date__c</members>
+        <members>Opportunity.opportunity_product__c</members>
+        <members>Opportunity.opportunity_product_family__c</members>
+        <members>Opportunity.opportunity_status_type__c</members>
+        <members>Opportunity.rejection_amount__c</members>
+        <members>Opportunity.rejection_period_num__c</members>
+        <members>Opportunity.rejection_rate_per__c</members>
+        <members>Opportunity.rejection_reason_id__c</members>
+        <members>Opportunity.rejection_winner_entity_name__c</members>
+        <members>Opportunity.renewal_contract_id__c</members>
+        <members>Opportunity.success_probability_desc__c</members>
+        <members>Opportunity.unique_id__c</members>
+		<members>Product2.CurrencyIsoCode</members>
+		<members>Product2.DisplayUrl</members>
+		<members>Product2.ExternalDataSourceId</members>
+		<members>Product2.ExternalId</members>
+		<members>Product2.Family</members>
+		<members>Product2.IsActive</members>
+		<members>Product2.Name</members>
+		<members>Product2.ProductCode</members>
+		<members>Product2.QuantityUnitOfMeasure</members>
+		<members>Product2.StockKeepingUnit</members>
+		<members>Product2.Description</members>
+        <members>Opportunity.isProcess__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -503,20 +578,36 @@
         <members>Account_Rating__c.All</members>
         <members>Account_Renewals__c.All</members>
         <members>Account_Banking_System_Classification__c.All</members>
+		<members>Opportunity.AllOpportunities</members>
+		<members>Opportunity.ClosingNextMonth</members>
+		<members>Opportunity.ClosingThisMonth</members>
+		<members>Opportunity.Default_Opportunity_Pipeline</members>
+		<members>Opportunity.MyOpportunities</members>
+		<members>Opportunity.NewThisWeek</members>
+		<members>Opportunity.Won</members>
+		<members>Product2.AllProducts</members>
         <name>ListView</name>
     </types>
     <types>
         <members>Account.Record_Type_Client</members>
         <members>Account.Record_Type_Economic_Group</members>
+		<members>Opportunity.Opp_RT_01</members>
+		<members>Opportunity.Opp_RT_02</members>
         <name>RecordType</name>
     </types>
     <types>
         <members>Override_Standard_Button_Message.Contact</members>
         <name>CustomMetadata</name>
     </types>
+	  <types>
+    <members>Opportunity.Ruta</members>
+	<members>Opportunity.DWP_Peru_Generic</members>
+    <name>BusinessProcess</name>
+  </types>
     <types>
         <members>Contact</members>
         <members>AccountContactRelation</members>
+        <members>Opportunity</members>
         <name>Workflow</name>
     </types>
     <types>
@@ -545,6 +636,10 @@
         <members>AccountContactRelation.ACR_Validation_Rule_Req_AC2</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone1</members>
         <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
+        <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
+        <members>Opportunity.Opportunity_Validation_ChangeStage</members>
+        <members>Opportunity.Opportunity_Validation_02_OnlyCommercial</members>
+        <members>Opportunity.Opportunity_Validation_ChangeOwner</members>
         <name>ValidationRule</name>
     </types>
     <types>
@@ -559,6 +654,10 @@
     <types>
         <members>Contact_Tgr</members>
         <members>AccountContact_tgr</members>
+        <members>EmailMessage_tgr</members>
+        <members>Event_tgr</members>
+        <members>Task_tgr</members>
+		<members>Opportunity_tgr</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -588,9 +687,27 @@
         <members>Account_Reports/Account_Risk_Strategy</members>
         <name>Report</name>
     </types>
+	<types>
+        <members>Default_Opportunity</members>
+        <members>New_Bussiness_Route</members>
+        <members>Renewal_Route</members>
+        <name>PathAssistant</name>
+    </types>
+	    <types>
+        <members>*</members>
+        <name>ProfileSessionSetting</name>
+    </types>
+    <types>
+        <members>Opportunity</members>
+        <name>SharingRules</name>
+    </types>
     <types>
         <members>Account_with_Account_Indicator</members>
         <name>ReportType</name>
+    </types>
+	    <types>
+        <members>*</members>
+        <name>StandardValueSetTranslation</name>
     </types>
     <version>41.0</version>
 </Package>

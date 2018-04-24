@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label><!-- AccountAccountingType1 --></label>
+        <name>AccountAccountingType1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType1TotalLabel --></label>
+        <name>AccountAccountingType1TotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType2 --></label>
+        <name>AccountAccountingType2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType2TotalLabel --></label>
+        <name>AccountAccountingType2TotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType3 --></label>
+        <name>AccountAccountingType3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType4 --></label>
+        <name>AccountAccountingType4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountBBVAResourcesTotalLabel --></label>
+        <name>AccountBBVAResourcesTotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountNoData --></label>
+        <name>AccountNoData</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification1 --></label>
+        <name>AccountProductClassification1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification2 --></label>
+        <name>AccountProductClassification2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification3 --></label>
+        <name>AccountProductClassification3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification4 --></label>
+        <name>AccountProductClassification4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification5 --></label>
+        <name>AccountProductClassification5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable1 --></label>
+        <name>AccountProductClassificationTable1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable2 --></label>
+        <name>AccountProductClassificationTable2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable3 --></label>
+        <name>AccountProductClassificationTable3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable4 --></label>
+        <name>AccountProductClassificationTable4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable5 --></label>
+        <name>AccountProductClassificationTable5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProfitabilityTotalLabel --></label>
+        <name>AccountProfitabilityTotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountRankingClassification1 --></label>
+        <name>AccountRankingClassification1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountRankingClassification2 --></label>
+        <name>AccountRankingClassification2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TOTAL --></label>
+        <name>AccountRankingClassification3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountRankingClassificationTable1 --></label>
+        <name>AccountRankingClassificationTable1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountRankingClassificationTable2 --></label>
+        <name>AccountRankingClassificationTable2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Agree --></label>
+        <name>Agree</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hangout --></label>
+        <name>Hangout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month10ShortName --></label>
+        <name>Month10ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month11ShortName --></label>
+        <name>Month11ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month12ShortName --></label>
+        <name>Month12ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month1ShortName --></label>
+        <name>Month1ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month2ShortName --></label>
+        <name>Month2ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month3ShortName --></label>
+        <name>Month3ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month4ShortName --></label>
+        <name>Month4ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month5ShortName --></label>
+        <name>Month5ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month6ShortName --></label>
+        <name>Month6ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month7ShortName --></label>
+        <name>Month7ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month8ShortName --></label>
+        <name>Month8ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month9ShortName --></label>
+        <name>Month9ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NewContactWarning --></label>
+        <name>NewContactWarning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Warning --></label>
+        <name>Warning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- assignationApproval --></label>
+        <name>assignationApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_AllProducts --></label>
+        <name>fprd__GBL_AllProducts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_AvailableProducts --></label>
+        <name>fprd__GBL_AvailableProducts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_Cancel --></label>
+        <name>fprd__GBL_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ErrorServer --></label>
+        <name>fprd__GBL_ErrorServer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_InactiveProduct --></label>
+        <name>fprd__GBL_InactiveProduct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_InferiorLimit --></label>
+        <name>fprd__GBL_InferiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_LoadingProduct --></label>
+        <name>fprd__GBL_LoadingProduct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_LoadingProductSelector --></label>
+        <name>fprd__GBL_LoadingProductSelector</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_MandatoryField --></label>
+        <name>fprd__GBL_MandatoryField</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_Modify --></label>
+        <name>fprd__GBL_Modify</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ProductLimitMessage --></label>
+        <name>fprd__GBL_ProductLimitMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ProductsSaveSuccess --></label>
+        <name>fprd__GBL_ProductsSaveSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_Save --></label>
+        <name>fprd__GBL_Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_SelectedProducts --></label>
+        <name>fprd__GBL_SelectedProducts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_SuperiorLimit --></label>
+        <name>fprd__GBL_SuperiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ToastSavedOk --></label>
+        <name>fprd__GBL_ToastSavedOk</name>
+    </customLabels>
+</Translations>

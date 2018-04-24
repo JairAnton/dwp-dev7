@@ -29,6 +29,13 @@
         <value>To create an contact you must go to the client&apos;s detail page and click on the &quot;New Contact&quot; button</value>
     </labels>
     <labels>
+        <fullName>OppId</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>OppId</shortDescription>
+        <value>006</value>
+    </labels>    
+    <labels>
         <fullName>Warning</fullName>
         <language>en_US</language>
         <protected>false</protected>
