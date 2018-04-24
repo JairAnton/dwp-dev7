@@ -82,6 +82,9 @@
         <members>EmailMessage_Handler</members>
         <members>Event_Handler</members>
         <members>Task_Handler</members>
+		<members>Opportunity_Handler_cls</members>
+        <members>Opportunity_Trigger_Test</members>
+        <members>Opportunity_Trigger_cls</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -637,6 +640,7 @@
         <members>Opportunity.Opportunity_Validation_ChangeStage</members>
         <members>Opportunity.Opportunity_Validation_02_OnlyCommercial</members>
         <members>Opportunity.Opportunity_Validation_ChangeOwner</members>
+		<members>Opportunity.Opportunity_validate_change_owner</members>
         <name>ValidationRule</name>
     </types>
     <types>
@@ -654,6 +658,7 @@
         <members>EmailMessage_tgr</members>
         <members>Event_tgr</members>
         <members>Task_tgr</members>
+		<members>Opportunity_tgr</members>
         <name>ApexTrigger</name>
     </types>
     <types>
