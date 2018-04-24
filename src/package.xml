@@ -640,7 +640,6 @@
         <members>Opportunity.Opportunity_Validation_ChangeStage</members>
         <members>Opportunity.Opportunity_Validation_02_OnlyCommercial</members>
         <members>Opportunity.Opportunity_Validation_ChangeOwner</members>
-		<members>Opportunity.Opportunity_validate_change_owner</members>
         <name>ValidationRule</name>
     </types>
     <types>
