@@ -1640,20 +1640,4 @@ Owner.Profile.Name=&apos;Asistente&apos;) || (!ISPICKVAL(StageName, &apos;01&apo
             )</errorConditionFormula>
         <errorMessage>you can not create an opportunity with  stage other than Comercial Actions</errorMessage>
     </validationRules>
-	<validationRules>
-        <fullName>Opportunity_validate_change_owner</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(
-   ISCHANGED(OwnerId),
-   IF( AND(ISPICKVAL(StageName,&apos;01&apos;),ISPICKVAL(StageName,&apos;02&apos;),ISPICKVAL(StageName,&apos;03&apos;)),true,false)
-)</errorConditionFormula>
-        <errorMessage>No es posible Reasignar Valores en esta etapa</errorMessage>
-    </validationRules>
-	<validationRules>
-        <fullName>Opportunity_Validation_ChangeOwner</fullName>
-        <active>true</active>
-        <errorConditionFormula>ISCHANGED(OwnerId) &amp;&amp;((Owner.Profile.Name=&apos;Operativo&apos; || Owner.Profile.Name=&apos;Gerente&apos; || Owner.Profile.Name=&apos;Analista&apos; ||
-		Owner.Profile.Name=&apos;Asistente&apos;) || (!ISPICKVAL(StageName, &apos;01&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;02&apos;) &amp;&amp; !ISPICKVAL(StageName ,&apos;03&apos;)))</errorConditionFormula>
-        <errorMessage>Cannot change the owner of this opportunity.</errorMessage>
-    </validationRules>
 </CustomObject>
