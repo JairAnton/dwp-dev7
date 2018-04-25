@@ -1607,14 +1607,37 @@ Owner.Profile.Name=&apos;Asistente&apos;) || (!ISPICKVAL(StageName, &apos;01&apo
         <description>Can not  change stage opportunity manually</description>
         <errorConditionFormula>ISCHANGED(StageName) &amp;&amp;($Profile.Name != &apos;Administrador del sistema&apos;&amp;&amp;$Profile.Name != &apos;Migracion&apos; ) 
 &amp;&amp; 
-(        
-        (!ISPICKVAL(StageName,&apos;03&apos;)&amp;&amp;!ISPICKVAL(StageName,&apos;02&apos;)&amp;&amp;!ISPICKVAL(StageName,&apos;06&apos;)&amp;&amp;!ISPICKVAL(StageName,&apos;07&apos;)) 
-        ||
-        ($Profile.Name != &apos;Ejecutivo&apos; &amp;&amp;$Profile.Name != &apos;Especialista&apos;)                         
-        || 
-        ((ISPICKVAL(PRIORVALUE(StageName),&apos;01&apos;) || ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;)) &amp;&amp; (ISPICKVAL(StageName,&apos;03&apos;)|| ISPICKVAL(StageName,&apos;02&apos;)))
-        ||
-        ($User.Id ==OwnerId &amp;&amp; $Profile.Name != &apos;Ejecutivo&apos; &amp;&amp; (ISPICKVAL(StageName,&apos;06&apos;) || ISPICKVAL(StageName,&apos;07&apos;))   )
+(       IF($Profile.Name == &apos;Ejecutivo&apos;,
+        (
+            (
+                !ISPICKVAL(StageName,&apos;03&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;02&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;07&apos;)
+            ) 
+            ||            
+            ( 
+                (ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;) || ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;) )
+                &amp;&amp; 
+                (ISPICKVAL(StageName,&apos;03&apos;)|| ISPICKVAL(StageName,&apos;02&apos;)) 
+            )
+            ||
+            ( 
+                $User.Id ==OwnerId &amp;&amp; $Profile.Name != &apos;Ejecutivo&apos; &amp;&amp;  ISPICKVAL(StageName,&apos;07&apos;)   
+            )
+        )
+        ,
+        IF($Profile.Name == &apos;Especialista&apos;,
+        (
+            (
+                !ISPICKVAL(StageName,&apos;03&apos;)&amp;&amp;!ISPICKVAL(StageName,&apos;02&apos;)
+            ) 
+            || 
+            (
+                (
+                    ISPICKVAL(PRIORVALUE(StageName),&apos;01&apos;) || ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;) 
+                )
+            )
+        ),
+        true)
+        )
 )</errorConditionFormula>
         <errorMessage>Can not  change to this stage opportunity</errorMessage>
     </validationRules>
