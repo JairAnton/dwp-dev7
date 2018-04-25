@@ -9,6 +9,15 @@
         <members>Gerente</members>
         <name>Profile</name>
     </types>
+	<types>
+       <members>Email_Message_update_Opportunity-1</members>
+       <members>Event_update_Opportunity-1</members>
+       <members>FlujoEstadosOportunidad-6</members>
+       <members>Opp_Owner_Changed-3</members>
+       <members>Opp_PB_Opportunidad-8</members>
+       <members>Task_update_Opportunity-1</members>
+       <name>Flow</name>
+   </types>
     <types>
         <members>Hangout</members>
         <members>Agree</members>
