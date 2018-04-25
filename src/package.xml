@@ -618,6 +618,14 @@
         <name>Workflow</name>
     </types>
     <types>
+        <members>Opportunity.Stage_created_by_executive</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Opportunity.Change Stage Opportunity</members>
+        <name>WorkflowRule</name>
+    </types>
+    <types>
         <members>Contact.Contact_Validation_Rule_Mobile</members>
         <members>Contact.Contact_Validation_Rule_Phone1</members>
         <members>Contact.Contact_Validation_Rule_Phone1_Lima</members>

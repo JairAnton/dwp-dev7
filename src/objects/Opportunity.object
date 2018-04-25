@@ -1647,13 +1647,11 @@ Owner.Profile.Name=&apos;Asistente&apos;) || (!ISPICKVAL(StageName, &apos;01&apo
         <description>you can not create an opportunity with  stage other than Comercial Actions</description>
         <errorConditionFormula>AND(
             IsNew(),
-            isPickVal(StageName, &apos;01&apos;),
-            OR( $Profile.Name == &apos;Ejecutivo&apos;,
-            $Profile.Name == &apos;Gerente&apos;,
-            $Profile.Name == &apos;Asistente&apos;,
-            $Profile.Name == &apos;Especialista&apos;)
+            OR(
+            $Profile.Name == 'Administrador del sistema',
+            $Profile.Name == 'Migracion')
             
             )</errorConditionFormula>
-        <errorMessage>you can not create an opportunity with  stage other than Comercial Actions</errorMessage>
+        <errorMessage>you can not create an opportunity</errorMessage>
     </validationRules>
 </CustomObject>
