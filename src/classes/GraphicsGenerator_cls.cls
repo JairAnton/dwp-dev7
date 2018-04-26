@@ -192,7 +192,7 @@ public class GraphicsGenerator_cls {
             concepto.add('Estrella');
             concepto.add('Transaccional');
             concepto.add('Potencial');
-            concepto.add('Basico'); 	
+            concepto.add('Básico'); 	
         }      
         return concepto;
     }
