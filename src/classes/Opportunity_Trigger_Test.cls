@@ -26,10 +26,11 @@ private class Opportunity_Trigger_Test {
   @isTest
   static void testEjecutivo() {
       
-        CreatOpp();
+
 		User u=CreaUsuario('Ejecutivo');	
 		User g=CreaUsuario('Gerente');
-		test.startTest();
+          CreatOpp(u);
+       test.startTest();
       	try{    
 		Opp.ownerId=u.Id;
 			Update Opp;
@@ -44,10 +45,12 @@ private class Opportunity_Trigger_Test {
       @isTest
   static void testGerente() {
       
-        CreatOpp();
+
 		User u=CreaUsuario('Gerente');	
-		User a=CreaUsuario('Asistente');          
-		test.startTest();
+		User a=CreaUsuario('Asistente');
+        User e=CreaUsuario('Especialista');
+        CreatOpp(e);
+       test.startTest();
       	try{
 		Opp.ownerId=u.Id;
 			Update Opp;          
@@ -60,9 +63,10 @@ private class Opportunity_Trigger_Test {
     @isTest
 static void testEspecialista() {
       
-        CreatOpp();
+
 		User u=CreaUsuario('Ejecutivo');	
-		User e=CreaUsuario('Especialista');         
+		User e=CreaUsuario('Especialista');
+        CreatOpp(u);
 		test.startTest();
       	try{
 		Opp.ownerId=u.Id;
@@ -75,11 +79,11 @@ static void testEspecialista() {
   }
     @isTest
 static void testAsistente() {
-      
-        CreatOpp();
+
 		User u=CreaUsuario('Ejecutivo');	
 		User a=CreaUsuario('Asistente');          
-		test.startTest();
+       CreatOpp(u);
+test.startTest();
       	try{
 		Opp.ownerId=u.Id;
 			Update Opp;          
@@ -92,10 +96,11 @@ static void testAsistente() {
     @isTest
 static void testAsistente2() {
       
-        CreatOpp();
+
 		User u=CreaUsuario('Especialista');	
 		User a=CreaUsuario('Asistente');          
-		test.startTest();
+      CreatOpp(u);
+       test.startTest();
       	try{
 		Opp.ownerId=a.Id;
 			Update Opp;          
@@ -108,10 +113,11 @@ static void testAsistente2() {
     @isTest
 static void testAsistente3() {
       
-        CreatOpp();
+
 		User u=CreaUsuario('Especialista');	
 		User a=CreaUsuario('Asistente');          
-		test.startTest();
+           CreatOpp(u);
+test.startTest();
       	try{
 		Opp.ownerId=u.Id;
 			Update Opp;          
@@ -121,13 +127,16 @@ static void testAsistente3() {
           }
       	test.stopTest();
   }     
-    static void CreatOpp(){
+    static void CreatOpp(User u){
        Opp = new Opportunity(
 			Name='Test',
 			CloseDate=system.today(),
-			Stagename='01'
-       ); 
+			Stagename='02'
+       );
+system.RunAs(u)
+{
         insert Opp;
+}
     }
     static User CreaUsuario(String Perfil){
 		User u = new User();
