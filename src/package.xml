@@ -102,6 +102,7 @@
         <members>GraphicsGenerator_comp</members>
 		<members>GraphicsEvolutionSBSDebt_comp</members>
 		<members>GraphicVinculacion_comp</members>
+        <members>OpportunityProduct_Comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -539,6 +540,7 @@
 		<members>Product2.StockKeepingUnit</members>
 		<members>Product2.Description</members>
         <members>Opportunity.isProcess__c</members>
+        <members>Opportunity.Modality__c</members>
         <name>CustomField</name>
     </types>
     <types>
