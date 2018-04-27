@@ -82,7 +82,7 @@
         <members>Migracion</members>
         <members>Operativo</members>
         <name>Profile</name>
-    </types>
+    </types>	
     <types>
         <members>Hangout</members>
         <members>Agree</members>
@@ -176,6 +176,7 @@
         <members>GraphicsGenerator_comp</members>
 		<members>GraphicsEvolutionSBSDebt_comp</members>
 		<members>GraphicVinculacion_comp</members>
+        <members>OpportunityProduct_Comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -613,6 +614,7 @@
 		<members>Product2.StockKeepingUnit</members>
 		<members>Product2.Description</members>
         <members>Opportunity.isProcess__c</members>
+        <members>Opportunity.Modality__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -683,6 +685,14 @@
         <members>AccountContactRelation</members>
         <members>Opportunity</members>
         <name>Workflow</name>
+    </types>
+    <types>
+        <members>Opportunity.Stage_created_by_executive</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Opportunity.Change Stage Opportunity</members>
+        <name>WorkflowRule</name>
     </types>
     <types>
         <members>Contact.Contact_Validation_Rule_Mobile</members>

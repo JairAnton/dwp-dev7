@@ -25,6 +25,47 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentName>OpportunityProduct_Comp</componentName>
+        </componentInstances>
+        <name>facet-87da3e48-eb82-428f-b9a1-4d1455e3f17a</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>facet-87da3e48-eb82-428f-b9a1-4d1455e3f17a</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Información de modalidad</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <name>facet-80c1491d-66c1-43b3-9430-6e92a6ed76f4</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>facet-80c1491d-66c1-43b3-9430-6e92a6ed76f4</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>defaultSectionName</name>
+                <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
+        <name>facet-3b5c3e61-fb36-41ea-a3bd-5a6e7703e88f</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>disbleManageProducts</name>
                 <value>false</value>
@@ -99,6 +140,17 @@
             <componentInstanceProperties>
                 <name>title</name>
                 <value>Seguimiento</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>facet-3b5c3e61-fb36-41ea-a3bd-5a6e7703e88f</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Detalle producto</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
