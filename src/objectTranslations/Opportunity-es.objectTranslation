@@ -358,6 +358,18 @@
         <label>Identificador único</label>
         <name>unique_id__c</name>
     </fields>
+    <fields>
+        <label>Modalidad</label>
+        <name>Modality__c</name>
+        <picklistValues>
+            <masterLabel>Inside line</masterLabel>
+            <translation>Dentro de línea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requires authorization</masterLabel>
+            <translation>Requiere autorización</translation>
+        </picklistValues>
+    </fields>
     <recordTypes>
         <label>Nueva</label>
         <name>Opp_RT_01</name>

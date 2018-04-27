@@ -843,6 +843,32 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+    <fields>
+        <fullName>Modality__c</fullName>
+        <description>Describe de modaltiy of product</description>
+        <externalId>false</externalId>
+        <label>Modality</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Inside line</fullName>
+                    <default>false</default>
+                    <label>Inside line</label>
+                </value>
+                <value>
+                    <fullName>Requires authorization</fullName>
+                    <default>false</default>
+                    <label>Requires authorization</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>
