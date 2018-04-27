@@ -2011,7 +2011,7 @@
         <name>ChatterComposeUiCodesnippet</name>
     </userPermissions>
 	    <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ChangeDashboardColors</name>
     </userPermissions>
     <userPermissions>
