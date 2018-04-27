@@ -67,6 +67,47 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>disbleManageProducts</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>enableMultiple</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maxProductNumber</name>
+                <value>1</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showClone</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>fprd:GBL_Opportunity_Products_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>disbleEdit</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>fprd:GBL_Product_buttons_cmp</componentName>
+        </componentInstances>
+        <name>facet-d624af49-5f4c-4622-9ee7-6ae565d5cc2c</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>context</name>
+                <value>RECORD</value>
+            </componentInstanceProperties>
+            <componentName>forceChatter:exposedFeed</componentName>
+        </componentInstances>
+        <name>facet-4009d5e6-0996-4471-b00d-07f6f354eddd</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>active</name>
                 <value>true</value>
             </componentInstanceProperties>
@@ -76,7 +117,29 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Origen Oportunidad</value>
+                <value>Oportunidad</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>facet-d624af49-5f4c-4622-9ee7-6ae565d5cc2c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Productos</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>facet-4009d5e6-0996-4471-b00d-07f6f354eddd</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Seguimiento</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>

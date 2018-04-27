@@ -1,12 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+        <types>
+        <members>ASISTENTE_BANCA_EMPRESAS_AREQUIPA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CALLAO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CENTRAL</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CHACARILLA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CHICLAYO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CHINCHA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_COLONIAL</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CUSCO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_DOS_DE_MAYO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_HUANCAYO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_IQUITOS</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_LA_MOLINA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_LIMA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_LIMA_NORTE</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_MIRAFLORES</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_PIURA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_REP_DE_PANAMA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_SANTA_CRUZ</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_SAN_ISIDRO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_TRUJILLO</members>
+        <members>ASISTENTE_BANCA_INSTITUCIONAL</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_AREQUIPA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CALLAO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CENTRAL</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CHACARILLA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CHICLAYO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CHINCHA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_COLONIAL</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CUSCO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_DOS_DE_MAYO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_HUANCAYO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_IQUITOS</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_LA_MOLINA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_LIMA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_LIMA_NORTE</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_MIRAFLORES</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_PIURA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_REP_DE_PANAMA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_SANTA_CRUZ</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_SAN_ISIDRO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_TRUJILLO</members>
+        <members>EJECUTIVO_BANCA_INSTITUCIONAL</members>
+        <members>GERENTE_BANCA_EMPRESAS_AREQUIPA</members>
+        <members>GERENTE_BANCA_EMPRESAS_CALLAO</members>
+        <members>GERENTE_BANCA_EMPRESAS_CENTRAL</members>
+        <members>GERENTE_BANCA_EMPRESAS_CHACARILLA</members>
+        <members>GERENTE_BANCA_EMPRESAS_CHICLAYO</members>
+        <members>GERENTE_BANCA_EMPRESAS_CHINCHA</members>
+        <members>GERENTE_BANCA_EMPRESAS_COLONIAL</members>
+        <members>GERENTE_BANCA_EMPRESAS_CUSCO</members>
+        <members>GERENTE_BANCA_EMPRESAS_DOS_DE_MAYO</members>
+        <members>GERENTE_BANCA_EMPRESAS_E_INSTITUCIONES</members>
+        <members>GERENTE_BANCA_EMPRESAS_HUANCAYO</members>
+        <members>GERENTE_BANCA_EMPRESAS_IQUITOS</members>
+        <members>GERENTE_BANCA_EMPRESAS_LA_MOLINA</members>
+        <members>GERENTE_BANCA_EMPRESAS_LIMA</members>
+        <members>GERENTE_BANCA_EMPRESAS_LIMA_NORTE</members>
+        <members>GERENTE_BANCA_EMPRESAS_MIRAFLORES</members>
+        <members>GERENTE_BANCA_EMPRESAS_PIURA</members>
+        <members>GERENTE_BANCA_EMPRESAS_REP_DE_PANAMA</members>
+        <members>GERENTE_BANCA_EMPRESAS_SANTA_CRUZ</members>
+        <members>GERENTE_BANCA_EMPRESAS_SAN_ISIDRO</members>
+        <members>GERENTE_BANCA_EMPRESAS_TRUJILLO</members>
+        <members>GERENTE_BANCA_INSTITUCIONAL</members>
+        <members>GERENTE_DISTRIBUCION_RED</members>
+        <members>GERENTE_REGIONAL_BE_1</members>
+        <members>GERENTE_REGIONAL_BE_2</members>
+        <members>GERENTE_REGIONAL_BE_3</members>
+        <members>JEFE_PROMOCION_DE_NEGOCIO_BE_1</members>
+        <members>JEFE_PROMOCION_DE_NEGOCIO_BE_2</members>
+        <members>JEFE_PROMOCION_DE_NEGOCIO_BE_3</members>
+        <name>Role</name>
+    </types>
     <types>
         <members>Admin</members>
+        <members>Analista</members>
         <members>Ejecutivo</members>
         <members>Especialista</members>
         <members>Migracion</members>
-        <members>Asistente</members>
-        <members>Gerente</members>
+        <members>Operativo</members>
         <name>Profile</name>
     </types>	
     <types>
