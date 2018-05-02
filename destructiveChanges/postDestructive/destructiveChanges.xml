@@ -16,6 +16,7 @@
     <types>
         <members>EmailMessage_tgr</members>
         <members>Event_tgr</members>
+        <members>Task_tgr</members>
         <name>ApexTrigger</name>
     </types>
 	<version>41.0</version>
