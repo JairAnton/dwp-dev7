@@ -21,5 +21,10 @@
         <members>AccountContactRelation.ACR_Validation_Rule_Position</members>
         <name>ValidationRule</name>
     </types>
+    <types>
+        <members>EmailMessage_Handler</members>
+        <members>Event_Handler</members>
+        <name>ApexClass</name>
+    </types>
 	<version>41.0</version>
 </Package>

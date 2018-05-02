@@ -13,5 +13,10 @@
 		<members>Account_BBVA_Classification__c.bank_classification_date__c</members>
         <name>CustomField</name>
     </types>
+    <types>
+        <members>EmailMessage_tgr</members>
+        <members>Event_tgr</members>
+        <name>ApexTrigger</name>
+    </types>
 	<version>41.0</version>
 </Package>
