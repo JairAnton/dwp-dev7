@@ -153,8 +153,6 @@
 		<members>TriggerHandler_Test</members>
         <members>BBVA_SBS_Classification_Test</members>
         <members>Activity_Tsk_Evt_Email_Handlers_Test</members>
-        <members>EmailMessage_Handler</members>
-        <members>Event_Handler</members>
         <members>Task_Handler</members>
 		<members>Opportunity_Handler_cls</members>
         <members>Opportunity_Trigger_Test</members>
@@ -740,8 +738,6 @@
     <types>
         <members>Contact_Tgr</members>
         <members>AccountContact_tgr</members>
-        <members>EmailMessage_tgr</members>
-        <members>Event_tgr</members>
         <members>Task_tgr</members>
 		<members>Opportunity_tgr</members>
         <name>ApexTrigger</name>
