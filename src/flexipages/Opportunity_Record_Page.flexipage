@@ -140,7 +140,6 @@
             <componentInstanceProperties>
                 <name>title</name>
                 <value>Seguimiento</value>
-                <value>Origen Oportunidad</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
