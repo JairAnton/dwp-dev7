@@ -24,6 +24,8 @@
     <types>
         <members>EmailMessage_Handler</members>
         <members>Event_Handler</members>
+        <members>Activity_Tsk_Evt_Email_Handlers_Test</members>
+        <members>Task_Handler</members>
         <name>ApexClass</name>
     </types>
 	<version>41.0</version>
