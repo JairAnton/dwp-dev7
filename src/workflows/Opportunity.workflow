@@ -23,6 +23,10 @@
         <field>opportunity_origin_name__c</field>
         <literalValue>03</literalValue>
         <name>Opportunity Field Update Source</name>
+        <fullName>Change_Stage_Opportunity_to_Approval</fullName>
+        <field>StageName</field>
+        <literalValue>04</literalValue>
+        <name>Change Stage Opportunity to  Appoval</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>

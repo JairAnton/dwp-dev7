@@ -615,6 +615,7 @@
 		<members>Product2.Description</members>
         <members>Opportunity.isProcess__c</members>
         <members>Opportunity.Modality__c</members>
+        <members>Opportunity.SIOCode__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -687,6 +688,7 @@
         <name>Workflow</name>
     </types>
     <types>
+        <members>Opportunity.Change_Stage_Opportunity_to_Approval</members>
         <members>Opportunity.Stage_created_by_executive</members>
         <name>WorkflowFieldUpdate</name>
     </types>
