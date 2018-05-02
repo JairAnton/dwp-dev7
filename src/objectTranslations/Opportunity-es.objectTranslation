@@ -394,4 +394,8 @@
         <errorMessage>No se puede crear otro estado de la oportunidad que no sea Pendiente de Iniciar</errorMessage>
         <name>Opportunity_Validation_Commercial_Action</name>
     </validationRules>
+    <fields>
+        <label>Código SIO</label>
+        <name>SIOCode__c</name>
+    </fields>
 </CustomObjectTranslation>

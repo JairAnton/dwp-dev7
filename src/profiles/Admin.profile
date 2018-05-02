@@ -1594,7 +1594,12 @@
         <field>Opportunity.Modality__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	    <layoutAssignments>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.SIOCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
