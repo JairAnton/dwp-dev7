@@ -37,10 +37,6 @@
         <name>DateHigherThan</name>
     </customLabels>    
     <customLabels>
-        <label>Cancelar</label>
-        <name>Cancel</name>
-    </customLabels>
-    <customLabels>
         <label>Para dar de alta un nuevo Contacto, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nuevo contacto&quot;</label>
         <name>NewContactWarning</name>
     </customLabels>
