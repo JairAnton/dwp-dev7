@@ -221,6 +221,10 @@
         <name>NewEvent</name>
     </quickActions>
     <quickActions>
+        <label>Nueva oportunidad</label>
+        <name>NewOpportunity</name>
+    </quickActions>
+    <quickActions>
         <label>Tarea</label>
         <name>NewTask</name>
     </quickActions>

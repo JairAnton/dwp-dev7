@@ -11,7 +11,7 @@ public with sharing class Opportunity_cls {
     	String resultado;
     	date CDate;
     	date PDate;
-    		
+    	try{
     		if(!String.isBlank(PlanningDate)) PDate = Date.valueOf(PlanningDate);
 	       
     		if(!String.isBlank(CloseDate)) CDate = Date.valueOf(CloseDate);			
@@ -33,8 +33,15 @@ public with sharing class Opportunity_cls {
 	        row.success_probability_desc__c	=cProbability;	        
 	        insert row;  	        
 	        resultado = row.Id;      
-	        row.CloseDate=CDate;
-	        update row;
+	    
+	    } catch (DMLException e){
+        
+               throw new AuraHandledException('ERROR: '
+                    + e.getMessage());    
+        }
+        finally {
+                // Something executed whether there was an error or not
+        }
        
         return resultado;
     }
