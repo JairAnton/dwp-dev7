@@ -9,8 +9,9 @@
 		component.set("v.lblAmount", $A.get("$Label.c.Amount"));
 		component.set("v.lblCurrency", $A.get("$Label.c.Currency"));
 		component.set("v.lblComments", $A.get("$Label.c.Comments"));	
-		component.set("v.lblProbability", $A.get("$Label.c.Probability"));	
-		
+		component.set("v.lblProbability", $A.get("$Label.c.Probability"));
+		component.set("v.lblSave", $A.get("$Label.c.Save"));
+		component.set("v.lblCancel", $A.get("$Label.c.Cancel"));
 	},
 	 toggleDialog : function(component, event, helper) {
         $A.get("e.force:closeQuickAction").fire();

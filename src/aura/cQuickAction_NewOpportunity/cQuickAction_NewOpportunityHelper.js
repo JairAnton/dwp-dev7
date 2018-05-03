@@ -35,7 +35,7 @@
 	        if(!$A.util.isEmpty(closeDate) && !$A.util.isEmpty(planningDate))
 	        {
 	        	
-	        	if(closeDate<planningDate)
+	        	if(closeDate<=planningDate)
 	        	{
 	        		component.set("v.errMessage",component.get("v.lblCloseDate")+" "+ $A.get("$Label.c.DateHigherThan")+" "+component.get("v.lblPlanningDate"));
 	        		helper.handleShowToast(component,event,helper);   
