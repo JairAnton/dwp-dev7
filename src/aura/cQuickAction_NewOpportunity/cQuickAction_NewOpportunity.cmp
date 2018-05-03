@@ -8,6 +8,8 @@
    <aura:attribute name="lblCurrency" type="String" default=""/>
    <aura:attribute name="lblComments" type="String" default=""/>
    <aura:attribute name="lblProbability" type="String" default=""/>
+   <aura:attribute name="lblCancel" type="String" default=""/>
+   <aura:attribute name="lblSave" type="String" default=""/>
    <aura:attribute name="errMessage" type="String" default=""/>
    <aura:handler name="init" value="{!this}" action="{!c.init}" />
    <aura:attribute name="recordId" type="Id" />
@@ -71,8 +73,8 @@
                 <lightning:textarea aura:id="txtComments" name="txtComments" value="" label="{!v.lblComments}" maxlength="300" class="slds-size_1-of-2 slds-p-horizontal_x-small"/>
 </div>
 <footer class="slds-modal__footer" style="padding: 0.50rem 1rem;">
-	 <button class="slds-button slds-button_neutral" onclick="{!c.toggleDialog}">Cancel</button>
-                <lightning:button class="slds-button slds-button_brand" onclick="{!c.cSaveAction}">Save</lightning:button>
+	 <button class="slds-button slds-button_neutral" onclick="{!c.toggleDialog}">{!v.lblCancel}</button>
+                <lightning:button class="slds-button slds-button_brand" onclick="{!c.cSaveAction}">{!v.lblSave}</lightning:button>
            
 </footer>
 </aura:component>

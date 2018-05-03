@@ -337,7 +337,14 @@
         <protected>false</protected>
         <shortDescription>Probability</shortDescription>
         <value>Probability</value>
-    </labels>    
+    </labels>   
+    <labels>
+        <fullName>Save</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>     
     <labels>
         <fullName>CloseDate</fullName>
         <language>es</language>
