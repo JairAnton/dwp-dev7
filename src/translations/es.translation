@@ -61,6 +61,10 @@
         <name>Probability</name>
     </customLabels>
     <customLabels>
+        <label>Guardar</label>
+        <name>Save</name>
+    </customLabels>    
+    <customLabels>
         <label>Aviso</label>
         <name>Warning</name>
     </customLabels>
