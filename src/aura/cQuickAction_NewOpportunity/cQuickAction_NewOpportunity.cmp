@@ -45,20 +45,21 @@
       </button>
     </div>
   </div>
+          <lightning:input aura:id="txtAccountName" name="txtAccountName"  label="{!v.lblAccountName}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  value="{!v.simpleRecord.Name}" readonly="true"/>                 
 	      	<lightning:input required="true" aura:id="txtlblOpportunityName" name="txtlblOpportunityName"  label="{!v.lblOpportunityName}" class="slds-size_1-of-2 slds-p-horizontal_x-small" />   
-            	<lightning:input aura:id="txtAccountName" name="txtAccountName"  label="{!v.lblAccountName}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  value="{!v.simpleRecord.Name}" readonly="true"/>   
+          <div class="slds-size_1-of-2 slds-p-horizontal_x-small" >           
+              <lightning:input aura:id="txtAmount" name="txtAmount" type="number" label="{!v.lblAmount}" value="" />   </div>
+              <lightning:select aura:id="selCurrency" name="selCurrency" label="{!v.lblCurrency}" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
+                    <option value="PEN">Nuevo sol peruano</option>
+                    <option value="USD">Dólar EE.UU.</option>                    
+                </lightning:select>
             	<div class="slds-size_1-of-2 slds-p-horizontal_x-small" >
             	<ui:inputDate aura:id="dtPlanningDate" label="{!v.lblPlanningDate}"    displayDatePicker="true" class="slds-size_1-of-2 " />
             	</div>
             	<div class="slds-size_1-of-2 slds-p-horizontal_x-small" >
             	<ui:inputDate aura:id="dtCloseDate" label="{!v.lblCloseDate}"    displayDatePicker="true" class="slds-size_1-of-2 " />
             	</div>   
-              <div class="slds-size_1-of-2 slds-p-horizontal_x-small" >         	
-            	<lightning:input aura:id="txtAmount" name="txtAmount" type="number" label="{!v.lblAmount}" value="" />   </div>
-            	<lightning:select aura:id="selCurrency" name="selCurrency" label="{!v.lblCurrency}" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
-                    <option value="PEN">Nuevo sol peruano</option>
-                    <option value="USD">Dólar EE.UU.</option>                    
-                </lightning:select>
+              
               <lightning:select aura:id="selSuccessPro" name="selSuccessPro" label="{!v.lblProbability}" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
                     <option value="0%">0%</option>
                     <option value="20%">20%</option>
