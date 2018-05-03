@@ -13,12 +13,56 @@
         <name>Agree</name>
     </customLabels>
     <customLabels>
+        <label>Importe</label>
+        <name>Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha estimada de cierre</label>
+        <name>CloseDate</name>
+    </customLabels>
+    <customLabels>
+        <label>Comentarios</label>
+        <name>Comments</name>
+    </customLabels>
+    <customLabels>
+        <label>Moneda</label>
+        <name>Currency</name>
+    </customLabels>
+    <customLabels>
+        <label>debe ser mayor que la fecha</label>
+        <name>DateHigherThan</name>
+    </customLabels>    
+    <customLabels>
         <label>Cancelar</label>
         <name>Cancel</name>
     </customLabels>
     <customLabels>
         <label>Para dar de alta un nuevo Contacto, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nuevo contacto&quot;</label>
         <name>NewContactWarning</name>
+    </customLabels>
+        <customLabels>
+        <label>Nueva oportunidad</label>
+        <name>New_Opportunity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OppId --></label>
+        <name>OppId</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre de la Oportunidad</label>
+        <name>OpportunityName</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha de planificación</label>
+        <name>PlannigDate</name>
+    </customLabels>
+    <customLabels>
+        <label>Probabilidad de éxito</label>
+        <name>Probability</name>
     </customLabels>
     <customLabels>
         <label>Aviso</label>
@@ -44,6 +88,10 @@
         <label>Recursos gestionados</label>
         <name>AccountBBVAResourcesTotalLabel</name>
     </customLabels>
+    <customLabels>
+        <label>Cliente</label>
+        <name>AccountName</name>
+    </customLabels>    
     <customLabels>
         <label>Información no disponible</label>
         <name>AccountNoData</name>

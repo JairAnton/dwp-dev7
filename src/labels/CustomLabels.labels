@@ -86,6 +86,13 @@
         <value>Recursos gestionados</value>
     </labels>
     <labels>
+        <fullName>AccountName</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Account_Name</shortDescription>
+        <value>Account  Name</value>
+    </labels>
+    <labels>
         <fullName>AccountNoData</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -156,6 +163,40 @@
         <shortDescription>TOTAL</shortDescription>
         <value>Total</value>
     </labels>
+    <labels>
+        <fullName>Amount</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Amount</shortDescription>
+        <value>Amount</value>
+    </labels>
+    <labels>
+        <fullName>CloseDate</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>CloseDate</shortDescription>
+        <value>CloseDate</value>
+    </labels>
+    <labels>
+        <fullName>Comments</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Comments</shortDescription>
+        <value>Comments</value>
+    </labels>
+    <labels>
+        <fullName>Currency</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Currency</shortDescription>
+        <value>Currency</value>
+    </labels>
+    <labels>
+        <fullName>DateHigherThan</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>DateHigherThan</shortDescription>
+        <value>DateHigherThan</value>
     <labels>
         <fullName>Month10ShortName</fullName>
         <language>en_US</language>
@@ -248,39 +289,39 @@
         <value>Total Active</value>
     </labels>
     <labels>
-        <fullName>AccountAccountingType2TotalLabel</fullName>
-        <language>en_US</language>
+        <fullName>New_Opportunity</fullName>
+        <language>es</language>
         <protected>false</protected>
-        <shortDescription>AccountAccountingType2TotalLabel</shortDescription>
-        <value>Total Pasive</value>
+        <shortDescription>New Opportunity</shortDescription>
+        <value>New Opportunity</value>
     </labels>
     <labels>
-        <fullName>AccountProductClassificationTable1</fullName>
-        <language>en_US</language>
+        <fullName>OppId</fullName>
+        <language>es</language>
         <protected>false</protected>
-        <shortDescription>AccountProductClassificationTable1</shortDescription>
-        <value>Activos</value>
+        <shortDescription>OppId</shortDescription>
+        <value>006</value>
     </labels>
     <labels>
-        <fullName>AccountProductClassificationTable2</fullName>
-        <language>en_US</language>
+        <fullName>OpportunityName</fullName>
+        <language>es</language>
         <protected>false</protected>
-        <shortDescription>AccountProductClassificationTable2</shortDescription>
-        <value>Pasivos</value>
+        <shortDescription>OpportunityName</shortDescription>
+        <value>Opportunity Name</value>
     </labels>
     <labels>
-        <fullName>AccountProductClassificationTable3</fullName>
-        <language>en_US</language>
+        <fullName>PlannigDate</fullName>
+        <language>es</language>
         <protected>false</protected>
-        <shortDescription>AccountProductClassificationTable3</shortDescription>
-        <value>Cobros</value>
+        <shortDescription>PlannigDate</shortDescription>
+        <value>PlannigDate</value>
     </labels>
     <labels>
-        <fullName>AccountProductClassificationTable4</fullName>
-        <language>en_US</language>
+        <fullName>Probability</fullName>
+        <language>es</language>
         <protected>false</protected>
-        <shortDescription>AccountProductClassificationTable4</shortDescription>
-        <value>Pagos</value>
+        <shortDescription>Probability</shortDescription>
+        <value>Probability</value>
     </labels>
     <labels>
         <fullName>AccountProductClassificationTable5</fullName>

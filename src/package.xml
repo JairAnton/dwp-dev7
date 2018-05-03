@@ -155,6 +155,8 @@
 		<members>Opportunity_Handler_cls</members>
         <members>Opportunity_Trigger_Test</members>
         <members>Opportunity_Trigger_cls</members>
+        <members>Opportunity_cls</members>
+        <members>Opportunity_cls_test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -173,6 +175,7 @@
 		<members>GraphicsEvolutionSBSDebt_comp</members>
 		<members>GraphicVinculacion_comp</members>
         <members>OpportunityProduct_Comp</members>
+        <members>cQuickAction_NewOpportunity</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
