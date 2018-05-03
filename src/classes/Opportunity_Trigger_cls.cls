@@ -47,7 +47,7 @@ public without sharing class Opportunity_Trigger_cls {
                           MapUser.get(opp.OwnerId).Profile.Name !='Especialista' )
                            Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente2');                    
                 } 
-                   else if(MapUser.get(opp.OwnerId).Profile.Name=='Asistente'||MapUser.get(opp.OwnerId).Profile.Name =='Gerente'){
+                   else if(MapUser.get(opp.OwnerId).Profile.Name=='Analista'||MapUser.get(opp.OwnerId).Profile.Name =='Operativo'){
                     Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');   
                    }
                }

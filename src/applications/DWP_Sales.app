@@ -15,7 +15,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Record_Type_Client</recordType>
         <type>Flexipage</type>
-        <profile>Asistente</profile>
+        <profile>Analista</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -42,7 +42,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Record_Type_Client</recordType>
         <type>Flexipage</type>
-        <profile>Gerente</profile>
+        <profile>Operativo</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>

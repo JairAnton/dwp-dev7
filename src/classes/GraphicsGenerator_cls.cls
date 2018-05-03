@@ -189,10 +189,10 @@ public class GraphicsGenerator_cls {
         }        
 
         if(sNombreReporte.equals('VINCULACION')){
-            concepto.add('Azul');
-			concepto.add('Celeste');
-			concepto.add('Plomo');
-			concepto.add('Blanco');			
+            concepto.add('Estrella');
+            concepto.add('Transaccional');
+            concepto.add('Potencial');
+            concepto.add('Básico'); 	
         }      
         return concepto;
     }

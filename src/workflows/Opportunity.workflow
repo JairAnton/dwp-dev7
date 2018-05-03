@@ -27,6 +27,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Stage_created_by_executive</fullName>
+        <field>StageName</field>
+        <literalValue>02</literalValue>
+        <name>Stage created by executive</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Opportunity_Workflow_Rule_Source_01</fullName>
         <actions>
@@ -39,8 +48,8 @@
             <operation>equals</operation>
             <value>Ejecutivo</value>
         </criteriaItems>
-        <description>Cuando la oportunidad se crea, si el perfil del usuario que crea la oportunidad es: 
-&apos;Ejecutivo&apos;, &apos;Gerente&apos; o &apos;Asistente&apos;, Source = 01</description>
+        <description>Cuando la oportunidad se crea, si el perfil del usuario que crea la oportunidad es:
+            &apos;Ejecutivo&apos;, &apos;Gerente&apos; o &apos;Asistente&apos;, Source = 01</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
@@ -71,6 +80,27 @@
             <value>Migracion</value>
         </criteriaItems>
         <description>Cuando la oportunidad se crea, si el perfil del usuario que crea la oportunidad es &apos;Migracion&apos;, se actualiza el campo Source = 03</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Change Stage Opportunity</fullName>
+        <actions>
+            <name>Stage_created_by_executive</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Ejecutivo</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Especialista</value>
+        </criteriaItems>
+        <description>Change Stage Opportunity</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>
