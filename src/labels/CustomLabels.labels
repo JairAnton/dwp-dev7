@@ -288,6 +288,26 @@
         <shortDescription>AccountAccountingType1TotalLabel</shortDescription>
         <value>Total Active</value>
     </labels>
+	<customLabels>
+       <label>Total Pasivo</label>
+       <name>AccountAccountingType2TotalLabel</name>
+	</customLabels>
+	<customLabels>
+		<label>Activos</label>
+		<name>AccountProductClassificationTable1</name>
+	</customLabels>
+	<customLabels>
+		<label>Pasivos</label>
+		<name>AccountProductClassificationTable2</name>
+	</customLabels>
+	<customLabels>
+		<label>Cobros</label>
+		<name>AccountProductClassificationTable3</name>
+	</customLabels>
+	<customLabels>
+		<label>Pagos</label>
+		<name>AccountProductClassificationTable4</name>
+	</customLabels>    
     <labels>
         <fullName>New_Opportunity</fullName>
         <language>es</language>
