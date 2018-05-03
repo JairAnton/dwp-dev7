@@ -168,6 +168,8 @@
         <members>Opportunity_Trigger_cls</members>
         <members>Opportunity_cls</members>
         <members>Opportunity_cls_test</members>
+		<members>PE_DWP_Correo_cls</members>
+        <members>PE_DWP_Correo_tst</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -625,6 +627,7 @@
 		<members>Product2.Description</members>
         <members>Opportunity.isProcess__c</members>
         <members>Opportunity.Modality__c</members>
+		<members>OpportunityLineItem.Siocode__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -683,6 +686,7 @@
     </types>
     <types>
         <members>Override_Standard_Button_Message.Contact</members>
+		<members>fprd__GBL_product_config.Codigo_SIO</members>
         <name>CustomMetadata</name>
     </types>
 	  <types>
@@ -695,6 +699,10 @@
         <members>AccountContactRelation</members>
         <members>Opportunity</members>
         <name>Workflow</name>
+    </types>
+	<types>
+        <members>FlujoEstadosOportunidad-12</members>
+        <name>Flow</name>
     </types>
     <types>
         <members>Opportunity.Stage_created_by_executive</members>
