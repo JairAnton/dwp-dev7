@@ -625,7 +625,6 @@
 		<members>Product2.Description</members>
         <members>Opportunity.isProcess__c</members>
         <members>Opportunity.Modality__c</members>
-        <members>Opportunity.SIOCode__c</members>
         <name>CustomField</name>
     </types>
     <types>

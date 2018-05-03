@@ -28,5 +28,9 @@
         <members>Task_Handler</members>
         <name>ApexClass</name>
     </types>
+    <types>
+        <members>Opportunity.Change Stage SIO Code</members>
+        <name>WorkflowRule</name>
+    </types>
 	<version>41.0</version>
 </Package>

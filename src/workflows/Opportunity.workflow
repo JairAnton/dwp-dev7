@@ -36,15 +36,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_Stage_Opportunity_to_Approval</fullName>
-        <field>StageName</field>
-        <literalValue>04</literalValue>
-        <name>Change Stage Opportunity to  Appoval</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
     <rules>
         <fullName>Opportunity_Workflow_Rule_Source_01</fullName>
         <actions>
@@ -111,19 +102,5 @@
         </criteriaItems>
         <description>Change Stage Opportunity</description>
         <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>Change Stage SIO Code</fullName>
-        <actions>
-            <name>Change_Stage_Opportunity_to_Approval</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Opportunity.SIOCode__c</field>
-            <operation>notEqual</operation>
-            <value>NULL</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
