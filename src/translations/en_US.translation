@@ -29,6 +29,10 @@
         <name>AccountBBVAResourcesTotalLabel</name>
     </customLabels>
     <customLabels>
+        <label><!-- Account_Name --></label>
+        <name>AccountName</name>
+    </customLabels>
+    <customLabels>
         <label><!-- AccountNoData --></label>
         <name>AccountNoData</name>
     </customLabels>
@@ -101,8 +105,28 @@
         <name>Agree</name>
     </customLabels>
     <customLabels>
+        <label><!-- Amount --></label>
+        <name>Amount</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Cancel --></label>
         <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CloseDate --></label>
+        <name>CloseDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Comments --></label>
+        <name>Comments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Currency --></label>
+        <name>Currency</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DateHigherThan --></label>
+        <name>DateHigherThan</name>
     </customLabels>
     <customLabels>
         <label><!-- Hangout --></label>
@@ -159,6 +183,26 @@
     <customLabels>
         <label><!-- NewContactWarning --></label>
         <name>NewContactWarning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Opportunity --></label>
+        <name>New_Opportunity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OppId --></label>
+        <name>OppId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OpportunityName --></label>
+        <name>OpportunityName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PlannigDate --></label>
+        <name>PlannigDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Probability --></label>
+        <name>Probability</name>
     </customLabels>
     <customLabels>
         <label><!-- Warning --></label>

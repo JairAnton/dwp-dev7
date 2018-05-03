@@ -1,0 +1,77 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="Opportunity_cls">
+	 <aura:attribute name="lblTitle" type="String" default=""/>
+   <aura:attribute name="lblAccountName" type="String" default=""/>
+   <aura:attribute name="lblOpportunityName" type="String" default=""/>
+   <aura:attribute name="lblPlanningDate" type="String" default=""/>
+   <aura:attribute name="lblCloseDate" type="String" default=""/>
+   <aura:attribute name="lblAmount" type="String" default=""/>
+   <aura:attribute name="lblCurrency" type="String" default=""/>
+   <aura:attribute name="lblComments" type="String" default=""/>
+   <aura:attribute name="lblProbability" type="String" default=""/>
+   <aura:attribute name="errMessage" type="String" default=""/>
+   <aura:handler name="init" value="{!this}" action="{!c.init}" />
+   <aura:attribute name="recordId" type="Id" />
+   <aura:attribute name="recordIdOpp" type="Id" />
+   <aura:attribute name="record" type="Object" />
+   <aura:attribute name="simpleRecord" type="Object" />
+   <aura:attribute name="recordError" type="String" />
+<force:recordData aura:id="recordEditor"
+    layoutType="COMPACT"
+    recordId="{!v.recordId}"
+    targetError="{!v.recordError}"
+    targetRecord="{!v.record}"
+    targetFields="{!v.simpleRecord}"
+    mode="EDIT" />
+<ltng:require styles="{!$Resource.quickActionStyle}"/>
+  
+<header class="slds-modal__header">
+	<h2 class="slds-text-heading_medium">
+		 <h2 class="slds-text-heading--medium">{!v.lblTitle}</h2>
+	</h2>
+</header>
+<div height="300px" style="height:300px; overflow-y:auto !important;" class="slds-grid slds-wrap">
+	 <div aura:id="divToast" class="slds-notify_container slds-hide" style="width:95%">
+    <div class="slds-notify slds-notify_toast slds-theme_error" role="alert" style="width:95%">
+      <span class="slds-assistive-text"></span>
+      <span class="slds-icon_container slds-icon-utility-error slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+       
+      </span>
+      <div class="slds-notify__content">
+        <h2 class="slds-text-heading_small ">{!v.errMessage}</h2>
+      </div>
+      <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close">
+       
+        <span class="slds-assistive-text">Close</span>
+      </button>
+    </div>
+  </div>
+	      	<lightning:input required="true" aura:id="txtlblOpportunityName" name="txtlblOpportunityName"  label="{!v.lblOpportunityName}" class="slds-size_1-of-2 slds-p-horizontal_x-small" />   
+            	<lightning:input aura:id="txtAccountName" name="txtAccountName"  label="{!v.lblAccountName}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  value="{!v.simpleRecord.Name}" readonly="true"/>   
+            	<div class="slds-size_1-of-2 slds-p-horizontal_x-small" >
+            	<ui:inputDate aura:id="dtPlanningDate" label="{!v.lblPlanningDate}"    displayDatePicker="true" class="slds-size_1-of-2 " />
+            	</div>
+            	<div class="slds-size_1-of-2 slds-p-horizontal_x-small" >
+            	<ui:inputDate aura:id="dtCloseDate" label="{!v.lblCloseDate}"    displayDatePicker="true" class="slds-size_1-of-2 " />
+            	</div>   
+              <div class="slds-size_1-of-2 slds-p-horizontal_x-small" >         	
+            	<lightning:input aura:id="txtAmount" name="txtAmount" type="number" label="{!v.lblAmount}" value="" />   </div>
+            	<lightning:select aura:id="selCurrency" name="selCurrency" label="{!v.lblCurrency}" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
+                    <option value="PEN">Nuevo sol peruano</option>
+                    <option value="USD">Dólar EE.UU.</option>                    
+                </lightning:select>
+              <lightning:select aura:id="selSuccessPro" name="selSuccessPro" label="{!v.lblProbability}" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
+                    <option value="0%">0%</option>
+                    <option value="20%">20%</option>
+                    <option value="40%">40%</option>
+                    <option value="60%">60%</option>
+                    <option value="80%">80%</option>
+                    <option value="100%">100%</option>
+                </lightning:select>
+                <lightning:textarea aura:id="txtComments" name="txtComments" value="" label="{!v.lblComments}" maxlength="300" class="slds-size_1-of-2 slds-p-horizontal_x-small"/>
+</div>
+<footer class="slds-modal__footer" style="padding: 0.50rem 1rem;">
+	 <button class="slds-button slds-button_neutral" onclick="{!c.toggleDialog}">Cancel</button>
+                <lightning:button class="slds-button slds-button_brand" onclick="{!c.cSaveAction}">Save</lightning:button>
+           
+</footer>
+</aura:component>

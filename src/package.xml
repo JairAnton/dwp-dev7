@@ -126,7 +126,17 @@
         <members>AccountProductClassificationTable5</members>
         <members>AccountRankingClassificationTable1</members>
         <members>AccountRankingClassificationTable2</members>
-		<members>OppId</members>
+	<members>OppId</members>
+        <members>Amount</members>
+        <members>CloseDate</members>
+        <members>New_Opportunity</members>
+        <members>OpportunityName</members>
+        <members>PlannigDate</members>
+        <members>Probability</members>        
+        <members>Comments</members>
+        <members>Currency</members>
+        <members>DateHigherThan</members>
+        <members>AccountName</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -155,6 +165,8 @@
 		<members>Opportunity_Handler_cls</members>
         <members>Opportunity_Trigger_Test</members>
         <members>Opportunity_Trigger_cls</members>
+        <members>Opportunity_cls</members>
+        <members>Opportunity_cls_test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -173,6 +185,7 @@
 		<members>GraphicsEvolutionSBSDebt_comp</members>
 		<members>GraphicVinculacion_comp</members>
         <members>OpportunityProduct_Comp</members>
+        <members>cQuickAction_NewOpportunity</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -731,6 +744,7 @@
         <members>LogACall</members>
         <members>NewEvent</members>
         <members>NewTask</members>
+        <members>Account.cQuickAc_NewOpportunity</members>
         <name>QuickAction</name>
     </types>
     <types>
@@ -756,6 +770,7 @@
         <members>White_Circle_Icon</members>
         <members>ChartJS23</members>
         <members>ChartjsAP</members>
+        <members>quickActionStyle</members>
         <name>StaticResource</name>
     </types>
     <types>
