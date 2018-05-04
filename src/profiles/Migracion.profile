@@ -5,6 +5,7 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
+	    <custom>true</custom>
 	<classAccesses>
         <apexClass>PE_DWP_Correo_cls</apexClass>
         <enabled>false</enabled>
@@ -13,7 +14,6 @@
         <apexClass>PE_DWP_Correo_tst</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <custom>true</custom>
     <classAccesses>
         <apexClass>Hangout_ctrl</apexClass>
         <enabled>true</enabled>
