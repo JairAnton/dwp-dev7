@@ -5,7 +5,15 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
+	<classAccesses>
+        <apexClass>PE_DWP_Correo_cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
+        <apexClass>PE_DWP_Correo_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>Hangout_ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -592,6 +600,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.fund_operational_needs_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Siocode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
