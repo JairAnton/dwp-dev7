@@ -2644,9 +2644,4 @@
         <apexClass>PE_DWP_Correo_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.Siocode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
 </Profile>

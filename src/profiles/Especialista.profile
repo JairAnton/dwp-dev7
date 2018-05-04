@@ -12,17 +12,7 @@
     <classAccesses>
         <apexClass>PE_DWP_Correo_tst</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.main_code_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.Siocode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>	
+    </classAccesses>	
     <classAccesses>
         <apexClass>Hangout_ctrl</apexClass>
         <enabled>true</enabled>
@@ -71,7 +61,16 @@
         <apexClass>BBVA_SBS_Classification_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <custom>true</custom>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account.main_code_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Siocode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>
