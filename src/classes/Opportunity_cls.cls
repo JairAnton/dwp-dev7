@@ -22,11 +22,10 @@ public with sharing class Opportunity_cls {
 						
 	        Opportunity row= new Opportunity();
 	        row.StageName='02';
-	        row.opportunity_status_type__c = '02';
 	        row.Name=OpportunityName;
 	        row.AccountId=AccountId;
 			row.CloseDate=CDate;
-	        if(!String.isBlank(PlanningDate)) row.opportunity_planning_date__c=PDate;	        
+	        if(!String.isBlank(PlanningDate)) { row.opportunity_planning_date__c=PDate;	row.opportunity_status_type__c = '02';} else row.opportunity_status_type__c = '03';
 	        if(cAmount!=0) row.Amount=cAmount;
 	       	if(!String.isBlank(cCurrencyIsoCode)) row.CurrencyIsoCode=cCurrencyIsoCode;
 	        row.Description=cComment;
