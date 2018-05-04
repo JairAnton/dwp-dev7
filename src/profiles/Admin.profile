@@ -5,6 +5,14 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
+	<classAccesses>
+        <apexClass>PE_DWP_Correo_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PE_DWP_Correo_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
      <apexClass>Hangout_ctrl</apexClass> 
         <enabled>true</enabled> 
@@ -2636,12 +2644,4 @@
         <enabled>true</enabled>					   
         <name>ViewSetup</name>
     </userPermissions>
-	<classAccesses>
-        <apexClass>PE_DWP_Correo_cls</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>PE_DWP_Correo_tst</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
 </Profile>

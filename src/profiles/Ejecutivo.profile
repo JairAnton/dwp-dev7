@@ -5,16 +5,6 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Account.main_code_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.Siocode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
 	<classAccesses>
         <apexClass>PE_DWP_Correo_cls</apexClass>
         <enabled>false</enabled>
@@ -610,6 +600,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.fund_operational_needs_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Siocode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
