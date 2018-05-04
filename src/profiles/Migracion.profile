@@ -72,7 +72,6 @@
         <apexClass>BBVA_SBS_Classification_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <custom>true</custom>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>
