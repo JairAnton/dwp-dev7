@@ -12,13 +12,6 @@
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>objectLabel</name>
-                <value>Subsidiaries</value>
-            </componentInstanceProperties>
-            <componentName>dwp_acmh:GBL_DataTableMH</componentName>
-        </componentInstances>
         <mode>Replace</mode>
         <name>header</name>
         <type>Region</type>
