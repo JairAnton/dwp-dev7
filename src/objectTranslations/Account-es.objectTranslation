@@ -755,6 +755,10 @@
             <section>Fields</section>
         </sections>
     </layouts>
+    <quickActions>
+        <label>Nueva oportunidad</label>
+        <name>cQuickAc_NewOpportunity</name>
+    </quickActions>    
     <recordTypes>
         <label>Cliente</label>
         <name>Record_Type_Client</name>

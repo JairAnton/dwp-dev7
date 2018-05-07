@@ -869,18 +869,6 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
-    <fields>
-        <fullName>SIOCode__c</fullName>
-        <description>saves the SIO code</description>
-        <externalId>false</externalId>
-        <label>SIOCode</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>
