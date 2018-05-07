@@ -68,7 +68,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>maxProductNumber</name>
-                <value>none</value>
+                <value>1</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showClone</name>
@@ -147,17 +147,6 @@
             <componentInstanceProperties>
                 <name>title</name>
                 <value>Seguimiento</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:tab</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
-                <value>facet-3b5c3e61-fb36-41ea-a3bd-5a6e7703e88f</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Detalle producto</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
