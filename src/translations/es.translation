@@ -216,6 +216,74 @@
 		<label>Indirecta</label>
 		<name>AccountRankingClassificationTable2</name>
 	</customLabels>
+    <customLabels>
+        <label>Todos los productos</label>
+        <name>fprd__GBL_AllProducts</name>
+    </customLabels>
+    <customLabels>
+        <label>Productos disponibles</label>
+        <name>fprd__GBL_AvailableProducts</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>fprd__GBL_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ErrorServer --></label>
+        <name>fprd__GBL_ErrorServer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_InactiveProduct --></label>
+        <name>fprd__GBL_InactiveProduct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_InferiorLimit --></label>
+        <name>fprd__GBL_InferiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_LoadingProduct --></label>
+        <name>fprd__GBL_LoadingProduct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_LoadingProductSelector --></label>
+        <name>fprd__GBL_LoadingProductSelector</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_MandatoryField --></label>
+        <name>fprd__GBL_MandatoryField</name>
+    </customLabels>
+    <customLabels>
+        <label>Modificar</label>
+        <name>fprd__GBL_Modify</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ProductClonedSuccess --></label>
+        <name>fprd__GBL_ProductClonedSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ProductLimitMessage --></label>
+        <name>fprd__GBL_ProductLimitMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ProductsSaveSuccess --></label>
+        <name>fprd__GBL_ProductsSaveSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Guardar</label>
+        <name>fprd__GBL_Save</name>
+    </customLabels>
+    <customLabels>
+        <label>Productos seleccionados</label>
+        <name>fprd__GBL_SelectedProducts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_SuperiorLimit --></label>
+        <name>fprd__GBL_SuperiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ToastSavedOk --></label>
+        <name>fprd__GBL_ToastSavedOk</name>
+    </customLabels>    
 	<quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
