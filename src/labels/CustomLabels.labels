@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>NewOpportunityWarning</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>NewOpportunityWarning</shortDescription>
+        <value>To create an Opportunity you must go to the client&apos;s detail page and click on the &quot;New Opportunity&quot; button</value>
+    </labels>   
+   <labels>
         <fullName>Hangout</fullName>
         <language>en_US</language>
         <protected>false</protected>

@@ -138,6 +138,7 @@
         <members>DateHigherThan</members>
         <members>AccountName</members>
         <members>Save</members>
+        <members>NewOpportunityWarning</members>		
         <name>CustomLabel</name>
     </types>
     <types>
@@ -189,6 +190,7 @@
 		<members>GraphicVinculacion_comp</members>
         <members>OpportunityProduct_Comp</members>
         <members>cQuickAction_NewOpportunity</members>
+        <members>submitTODiscart</members>		
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -712,7 +714,7 @@
         <name>Workflow</name>
     </types>
 	<types>
-        <members>FlujoEstadosOportunidad-12</members>
+        <members>Motivo_Descarte_Oportunidad_V0</members>
         <name>Flow</name>
     </types>
     <types>
@@ -763,6 +765,7 @@
         <members>NewEvent</members>
         <members>NewTask</members>
         <members>Account.cQuickAc_NewOpportunity</members>
+		<members>Opportunity.Descarta_Oportunidad</members>
         <name>QuickAction</name>
     </types>
     <types>

@@ -60,7 +60,7 @@ global class PE_DWP_Correo_cls implements Messaging.InboundEmailHandler {
                 
             	Oppsele = [select id,opportunityId, opportunity.StageName,opportunity.Opportunity_status_type__c 
                             from OpportunityLineItem where SioCode__c=:SioCode limit 1];
-                if(Oppsele.size()>0&&(Oppsele[0].opportunity.StageName=='04')){
+                if(!Oppsele.isEmpty() &&(Oppsele[0].opportunity.StageName=='04')){
                     
                     Opportunity OppStatus = new Opportunity(
                         id=Oppsele[0].opportunityId,
@@ -68,6 +68,9 @@ global class PE_DWP_Correo_cls implements Messaging.InboundEmailHandler {
                         Opportunity_status_type__c=SioStatus
                     );
                     Update OppStatus;
+                    newTask[0].Status='Inbound update Email';
+                }else if(!Oppsele.isEmpty()){
+                    newTask[0].Status='Inbound update Email';
                 }
             // insert the new task
              insert newTask;
