@@ -628,6 +628,18 @@
         <members>Opportunity.isProcess__c</members>
         <members>Opportunity.Modality__c</members>
 		<members>OpportunityLineItem.Siocode__c</members>
+        <members>OpportunityLineItem.Tipo_amortizacion__c</members>        
+        <members>OpportunityLineItem.cpliq_Amortizacion__c</members>
+        <members>OpportunityLineItem.cpliq_Codigo_Simulacion__c</members>
+        <members>OpportunityLineItem.cpliq_Cuenta_vinculada__c</members>
+        <members>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</members>
+        <members>OpportunityLineItem.cpliq_Periodicidad__c</members>
+        <members>OpportunityLineItem.cpliq_Periodicidad_gracia__c</members>
+        <members>OpportunityLineItem.cpliq_Tipo_amortizacion__c</members>
+        <members>OpportunityLineItem.cpliq_n__c</members>
+        <members>OpportunityLineItem.cpliq_n_gracia__c</members>
+        <members>OpportunityLineItem.fprd__GBL_Sample_Checkbox__c</members>
+        <members>OpportunityLineItem.fprd__GBL_Sample_Datetime__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -684,9 +696,8 @@
 		<members>Opportunity.Opp_RT_02</members>
         <name>RecordType</name>
     </types>
-    <types>
-        <members>Override_Standard_Button_Message.Contact</members>
-		<members>fprd__GBL_product_config.Codigo_SIO</members>
+    <types>        
+		<members>*</members>
         <name>CustomMetadata</name>
     </types>
 	  <types>
