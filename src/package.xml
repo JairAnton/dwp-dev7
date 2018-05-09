@@ -720,8 +720,7 @@
         <members>ProductOpp_DueDate</members>
         <name>FlowDefinition</name>
     </types>
-	<types>
-        <members>Motivo_Descarte_Oportunidad_V0-20</members>
+	<types>        
         <members>ProductOpp_DueDate-3</members>
         <name>Flow</name>
     </types>
