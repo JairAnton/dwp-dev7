@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Tipo_amortización</label>
+    <label>Tipo amortización</label>
     <protected>false</protected>
     <values>
         <field>fprd__Dependent_field__c</field>
@@ -72,7 +72,7 @@
     </values>
     <values>
         <field>fprd__section__c</field>
-        <value xsi:type="xsd:string">Criterio de Pago/Liquidación</value>
+        <value xsi:type="xsd:string">Criterios de pago y liquidación</value>
     </values>
     <values>
         <field>fprd__section_order__c</field>
