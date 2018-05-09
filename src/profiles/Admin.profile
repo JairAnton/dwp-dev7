@@ -5,6 +5,14 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
+	<classAccesses>
+        <apexClass>PE_DWP_Correo_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PE_DWP_Correo_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
      <apexClass>Hangout_ctrl</apexClass> 
         <enabled>true</enabled> 
@@ -51,6 +59,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BBVA_SBS_Classification_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+   <classAccesses>
+        <apexClass>OpportunityProduct_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityProduct_Controller_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -223,6 +239,31 @@
         <editable>true</editable>
         <field>Opportunity.unique_id__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Body_Label_API__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Button_Label_API_Agree__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Button_Label_API_Cancel__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Object_Api_Name_to_Redirect__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Title_Label_API__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1589,9 +1630,22 @@
         <field>Opportunity.isProcess__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	    <layoutAssignments>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Modality__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.SIOCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
+    </layoutAssignments>	
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
         <recordType>Opportunity.Opp_RT_01</recordType>
@@ -2039,7 +2093,7 @@
         <name>ChatterOwnGroups</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>false</enabled>					
         <name>ConfigCustomRecs</name>
     </userPermissions>
     <userPermissions>
@@ -2258,7 +2312,7 @@
         <enabled>true</enabled>
         <name>ListEmailSend</name>
     </userPermissions>
-    <userPermissions>
+    <userPermissions>				 
         <enabled>true</enabled>
         <name>ManageAnalyticSnapshots</name>
     </userPermissions>
@@ -2419,6 +2473,10 @@
         <name>ManageTranslation</name>
     </userPermissions>
     <userPermissions>
+		<enabled>false</enabled>
+        <name>ManageTwoFactor</name>
+    </userPermissions>		 
+	<userPermissions>				 
         <enabled>true</enabled>
         <name>ManageUnlistedGroups</name>
     </userPermissions>
@@ -2525,22 +2583,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeReportToOtherUsers</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeReportsRunAsUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeToLightningDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

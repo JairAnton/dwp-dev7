@@ -5,7 +5,15 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
+	<classAccesses>
+        <apexClass>PE_DWP_Correo_cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
+        <apexClass>PE_DWP_Correo_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>Hangout_ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -53,7 +61,22 @@
         <apexClass>BBVA_SBS_Classification_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+   <classAccesses>
+        <apexClass>OpportunityProduct_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityProduct_Controller_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses> 
     <custom>true</custom>
+	<description>Los cargos pueden ser:
+Gerente de Banca de Empresas
+Gerentes Regionales
+Jefes de Promoción de Negocio
+Gerentes de oficina
+Ejecutivo de Banca de Empresas
+Asistente BE</description>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>
@@ -592,6 +615,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.fund_operational_needs_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Siocode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1374,6 +1402,31 @@
         <field>Opportunity.TotalOpportunityQuantity</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Body_Label_API__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Button_Label_API_Agree__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Button_Label_API_Cancel__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Object_Api_Name_to_Redirect__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Title_Label_API__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Type</field>
@@ -1534,6 +1587,19 @@
         <field>Opportunity.isProcess__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Modality__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.SIOCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<layoutAssignments>
+        <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
+    </layoutAssignments>	
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>

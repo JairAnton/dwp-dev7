@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Siocode__c</fullName>
+        <externalId>false</externalId>
+        <label>Siocode</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tipo_amortizacion__c</fullName>
+        <externalId>false</externalId>
+        <label>Tipo amortización</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Al vencimiento</fullName>
+                    <default>false</default>
+                    <label>Al vencimiento</label>
+                </value>
+                <value>
+                    <fullName>En cuotas</fullName>
+                    <default>false</default>
+                    <label>En cuotas</label>
+                </value>
+                <value>
+                    <fullName>A medida</fullName>
+                    <default>false</default>
+                    <label>A medida</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>cpliq_Amortizacion__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq_Amortizacion</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>cpliq_Codigo_Simulacion__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq__Codigo_Simulacion</label>
+        <length>128</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>cpliq_Cuenta_vinculada__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq__Cuenta_vinculada</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>cpliq_Fecha_Vencimiento__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq_Fecha_Vencimiento</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>cpliq_Periodicidad__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq_Periodicidad</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>cpliq_Periodicidad_gracia__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq_Periodicidad_gracia</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>cpliq_Tipo_amortizacion__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq_Tipo_amortización</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>cpliq_n__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq_n</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>cpliq_n_gracia__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq_n_gracia</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fprd__GBL_Sample_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Field for test class</description>
+        <externalId>false</externalId>
+        <label>Sample Checkbox</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>fprd__GBL_Sample_Datetime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field for test class</description>
+        <externalId>false</externalId>
+        <label>Sample Datetime</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <validationRules>
+        <fullName>LinkedAccount_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(
+OR(
+ISBLANK( cpliq_Cuenta_vinculada__c ),
+REGEX( cpliq_Cuenta_vinculada__c , &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
+)
+)</errorConditionFormula>
+        <errorMessage>Linked Account format not valid, correct: 0000-0000-000000000</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ValidDueDate</fullName>
+        <active>true</active>
+        <errorConditionFormula>cpliq_Fecha_Vencimiento__c &lt;=Today()</errorConditionFormula>
+        <errorMessage>Due Date must be major than today.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ValidTerm</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(cpliq_n__c&lt;0 ,true,If( cpliq_n_gracia__c&lt;0 &amp;&amp;  IsPickVal(cpliq_Tipo_amortizacion__c,&apos;02&apos;),true,false))</errorConditionFormula>
+        <errorMessage>Please define a valid term, should be major than zero.</errorMessage>
+    </validationRules>
+</CustomObject>

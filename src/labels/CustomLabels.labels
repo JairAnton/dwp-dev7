@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>NewOpportunityWarning</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>NewOpportunityWarning</shortDescription>
+        <value>To create an Opportunity you must go to the client&apos;s detail page and click on the &quot;New Opportunity&quot; button</value>
+    </labels>   
+   <labels>
         <fullName>Hangout</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -13,6 +20,13 @@
         <protected>false</protected>
         <shortDescription>Agree</shortDescription>
         <value>OK</value>
+    </labels>
+    <labels>
+        <fullName>Amount</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Amount</shortDescription>
+        <value>Amount</value>
     </labels>
     <labels>
         <fullName>Cancel</fullName>
@@ -302,5 +316,83 @@
         <protected>false</protected>
         <shortDescription>AccountRankingClassificationTable2</shortDescription>
         <value>Indirecta</value>
+    </labels>
+    <labels>
+        <fullName>New_Opportunity</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>New Opportunity</shortDescription>
+        <value>New Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>OpportunityName</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>OpportunityName</shortDescription>
+        <value>Opportunity Name</value>
+    </labels>
+    <labels>
+        <fullName>PlannigDate</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>PlannigDate</shortDescription>
+        <value>PlannigDate</value>
+    </labels>
+    <labels>
+        <fullName>Probability</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Probability</shortDescription>
+        <value>Probability</value>
+    </labels>   
+    <labels>
+        <fullName>Save</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>     
+    <labels>
+        <fullName>CloseDate</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>CloseDate</shortDescription>
+        <value>CloseDate</value>
+    </labels>
+    <labels>
+        <fullName>Comments</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Comments</shortDescription>
+        <value>Comments</value>
+    </labels>
+    <labels>
+        <fullName>Currency</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Currency</shortDescription>
+        <value>Currency</value>
+    </labels>
+    <labels>
+        <fullName>DateHigherThan</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>DateHigherThan</shortDescription>
+        <value>DateHigherThan</value>
+    </labels>    
+    <labels>
+        <fullName>AccountName</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Account_Name</shortDescription>
+        <value>Account  Name</value>
+    </labels>
+    <labels>
+        <fullName>taskFilter</fullName>
+        <categories>task label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>taskStatusFilter</shortDescription>
+        <value>Inbound Email</value>
     </labels>
 </CustomLabels>

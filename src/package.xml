@@ -1,21 +1,88 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+        <types>
+        <members>ASISTENTE_BANCA_EMPRESAS_AREQUIPA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CALLAO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CENTRAL</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CHACARILLA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CHICLAYO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CHINCHA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_COLONIAL</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_CUSCO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_DOS_DE_MAYO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_HUANCAYO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_IQUITOS</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_LA_MOLINA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_LIMA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_LIMA_NORTE</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_MIRAFLORES</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_PIURA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_REP_DE_PANAMA</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_SANTA_CRUZ</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_SAN_ISIDRO</members>
+        <members>ASISTENTE_BANCA_EMPRESAS_TRUJILLO</members>
+        <members>ASISTENTE_BANCA_INSTITUCIONAL</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_AREQUIPA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CALLAO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CENTRAL</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CHACARILLA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CHICLAYO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CHINCHA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_COLONIAL</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_CUSCO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_DOS_DE_MAYO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_HUANCAYO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_IQUITOS</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_LA_MOLINA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_LIMA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_LIMA_NORTE</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_MIRAFLORES</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_PIURA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_REP_DE_PANAMA</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_SANTA_CRUZ</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_SAN_ISIDRO</members>
+        <members>EJECUTIVO_BANCA_EMPRESAS_TRUJILLO</members>
+        <members>EJECUTIVO_BANCA_INSTITUCIONAL</members>
+        <members>GERENTE_BANCA_EMPRESAS_AREQUIPA</members>
+        <members>GERENTE_BANCA_EMPRESAS_CALLAO</members>
+        <members>GERENTE_BANCA_EMPRESAS_CENTRAL</members>
+        <members>GERENTE_BANCA_EMPRESAS_CHACARILLA</members>
+        <members>GERENTE_BANCA_EMPRESAS_CHICLAYO</members>
+        <members>GERENTE_BANCA_EMPRESAS_CHINCHA</members>
+        <members>GERENTE_BANCA_EMPRESAS_COLONIAL</members>
+        <members>GERENTE_BANCA_EMPRESAS_CUSCO</members>
+        <members>GERENTE_BANCA_EMPRESAS_DOS_DE_MAYO</members>
+        <members>GERENTE_BANCA_EMPRESAS_E_INSTITUCIONES</members>
+        <members>GERENTE_BANCA_EMPRESAS_HUANCAYO</members>
+        <members>GERENTE_BANCA_EMPRESAS_IQUITOS</members>
+        <members>GERENTE_BANCA_EMPRESAS_LA_MOLINA</members>
+        <members>GERENTE_BANCA_EMPRESAS_LIMA</members>
+        <members>GERENTE_BANCA_EMPRESAS_LIMA_NORTE</members>
+        <members>GERENTE_BANCA_EMPRESAS_MIRAFLORES</members>
+        <members>GERENTE_BANCA_EMPRESAS_PIURA</members>
+        <members>GERENTE_BANCA_EMPRESAS_REP_DE_PANAMA</members>
+        <members>GERENTE_BANCA_EMPRESAS_SANTA_CRUZ</members>
+        <members>GERENTE_BANCA_EMPRESAS_SAN_ISIDRO</members>
+        <members>GERENTE_BANCA_EMPRESAS_TRUJILLO</members>
+        <members>GERENTE_BANCA_INSTITUCIONAL</members>
+        <members>GERENTE_DISTRIBUCION_RED</members>
+        <members>GERENTE_REGIONAL_BE_1</members>
+        <members>GERENTE_REGIONAL_BE_2</members>
+        <members>GERENTE_REGIONAL_BE_3</members>
+        <members>JEFE_PROMOCION_DE_NEGOCIO_BE_1</members>
+        <members>JEFE_PROMOCION_DE_NEGOCIO_BE_2</members>
+        <members>JEFE_PROMOCION_DE_NEGOCIO_BE_3</members>
+        <name>Role</name>
+    </types>
     <types>
         <members>Admin</members>
+        <members>Analista</members>
         <members>Ejecutivo</members>
         <members>Especialista</members>
         <members>Migracion</members>
-        <members>Asistente</members>
-        <members>Gerente</members>
+        <members>Operativo</members>
         <name>Profile</name>
-    </types>
-	<members>Email_Message_update_Opportunity-1</members>
-	<members>Event_update_Opportunity-1</members>
-	<members>FlujoEstadosOportunidad-6</members>
-	<members>Opp_Owner_Changed-3</members>
-	<members>Opp_PB_Opportunidad-8</members>
-	<members>Task_update_Opportunity-1</members>
-	<name>Flow</name>
+    </types>	
     <types>
         <members>Hangout</members>
         <members>Agree</members>
@@ -59,7 +126,20 @@
         <members>AccountProductClassificationTable5</members>
         <members>AccountRankingClassificationTable1</members>
         <members>AccountRankingClassificationTable2</members>
-		<members>OppId</members>
+	    <members>OppId</members>
+        <members>Amount</members>
+        <members>CloseDate</members>
+        <members>New_Opportunity</members>
+        <members>OpportunityName</members>
+        <members>PlannigDate</members>
+        <members>Probability</members>        
+        <members>Comments</members>
+        <members>Currency</members>
+        <members>DateHigherThan</members>
+        <members>AccountName</members>
+        <members>Save</members>
+        <members>NewOpportunityWarning</members>
+        <members>taskFilter</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -85,13 +165,15 @@
 		<members>TriggerHandler</members>
 		<members>TriggerHandler_Test</members>
         <members>BBVA_SBS_Classification_Test</members>
-        <members>Activity_Tsk_Evt_Email_Handlers_Test</members>
-        <members>EmailMessage_Handler</members>
-        <members>Event_Handler</members>
-        <members>Task_Handler</members>
 		<members>Opportunity_Handler_cls</members>
         <members>Opportunity_Trigger_Test</members>
         <members>Opportunity_Trigger_cls</members>
+        <members>Opportunity_cls</members>
+        <members>Opportunity_cls_test</members>
+		<members>PE_DWP_Correo_cls</members>
+        <members>PE_DWP_Correo_tst</members>
+        <members>OpportunityProduct_Controller</members>
+        <members>OpportunityProduct_Controller_tst</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -109,6 +191,9 @@
         <members>GraphicsGenerator_comp</members>
 		<members>GraphicsEvolutionSBSDebt_comp</members>
 		<members>GraphicVinculacion_comp</members>
+        <members>OpportunityProduct_Comp</members>
+        <members>cQuickAction_NewOpportunity</members>
+        <members>submitTODiscart</members>		
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -200,6 +285,7 @@
         <members>Account_Renewals__c-es</members>
         <members>Account_Banking_System_Classification__c-es</members>
         <members>Opportunity-es</members>
+        <members>OpportunityLineItem-es</members>        
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -546,6 +632,20 @@
 		<members>Product2.StockKeepingUnit</members>
 		<members>Product2.Description</members>
         <members>Opportunity.isProcess__c</members>
+        <members>Opportunity.Modality__c</members>
+		<members>OpportunityLineItem.Siocode__c</members>
+        <members>OpportunityLineItem.Tipo_amortizacion__c</members>        
+        <members>OpportunityLineItem.cpliq_Amortizacion__c</members>
+        <members>OpportunityLineItem.cpliq_Codigo_Simulacion__c</members>
+        <members>OpportunityLineItem.cpliq_Cuenta_vinculada__c</members>
+        <members>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</members>
+        <members>OpportunityLineItem.cpliq_Periodicidad__c</members>
+        <members>OpportunityLineItem.cpliq_Periodicidad_gracia__c</members>
+        <members>OpportunityLineItem.cpliq_Tipo_amortizacion__c</members>
+        <members>OpportunityLineItem.cpliq_n__c</members>
+        <members>OpportunityLineItem.cpliq_n_gracia__c</members>
+        <members>OpportunityLineItem.fprd__GBL_Sample_Checkbox__c</members>
+        <members>OpportunityLineItem.fprd__GBL_Sample_Datetime__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -602,8 +702,8 @@
 		<members>Opportunity.Opp_RT_02</members>
         <name>RecordType</name>
     </types>
-    <types>
-        <members>Override_Standard_Button_Message.Contact</members>
+    <types>        
+		<members>*</members>
         <name>CustomMetadata</name>
     </types>
 	  <types>
@@ -616,6 +716,28 @@
         <members>AccountContactRelation</members>
         <members>Opportunity</members>
         <name>Workflow</name>
+    </types>
+    <types>
+        <members>ProductOpp_DueDate</members>
+        <name>FlowDefinition</name>
+    </types>
+	<types> 
+	    <members>Email_Message_update_Opportunity-1</members>
+        <members>Event_update_Opportunity-1</members>
+        <members>FlujoEstadosOportunidad-6</members>
+        <members>Opp_Owner_Changed-3</members>
+        <members>Opp_PB_Opportunidad-8</members>
+        <members>Task_update_Opportunity-1</members>
+        <members>ProductOpp_DueDate-3</members>		
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>Opportunity.Stage_created_by_executive</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Opportunity.Change Stage Opportunity</members>
+        <name>WorkflowRule</name>
     </types>
     <types>
         <members>Contact.Contact_Validation_Rule_Mobile</members>
@@ -646,7 +768,10 @@
         <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
         <members>Opportunity.Opportunity_Validation_ChangeStage</members>
         <members>Opportunity.Opportunity_Validation_02_OnlyCommercial</members>
-        <members>Opportunity.Opportunity_Validation_ChangeOwner</members>
+        <members>Opportunity.Opportunity_Validation_ChangeOwner</members> 
+        <members>OpportunityLineItem.LinkedAccount_Validation</members>
+        <members>OpportunityLineItem.ValidDueDate</members>
+        <members>OpportunityLineItem.ValidTerm</members>
         <name>ValidationRule</name>
     </types>
     <types>
@@ -656,14 +781,13 @@
         <members>LogACall</members>
         <members>NewEvent</members>
         <members>NewTask</members>
+        <members>Account.cQuickAc_NewOpportunity</members>
+		<members>Opportunity.Descarta_Oportunidad</members>
         <name>QuickAction</name>
     </types>
     <types>
         <members>Contact_Tgr</members>
         <members>AccountContact_tgr</members>
-        <members>EmailMessage_tgr</members>
-        <members>Event_tgr</members>
-        <members>Task_tgr</members>
 		<members>Opportunity_tgr</members>
         <name>ApexTrigger</name>
     </types>
@@ -684,6 +808,7 @@
         <members>White_Circle_Icon</members>
         <members>ChartJS23</members>
         <members>ChartjsAP</members>
+        <members>quickActionStyle</members>
         <name>StaticResource</name>
     </types>
     <types>
