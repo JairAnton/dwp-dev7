@@ -1419,9 +1419,6 @@ Asistente BE</description>
         <field>Override_Standard_Button_Message__mdt.Title_Label_API__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	<layoutAssignments>
-        <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
-    </layoutAssignments>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Type</field>
@@ -1591,7 +1588,10 @@ Asistente BE</description>
         <editable>true</editable>
         <field>Opportunity.SIOCode__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
+	<layoutAssignments>
+        <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
+    </layoutAssignments>	
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>

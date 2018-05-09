@@ -2085,10 +2085,6 @@
         <name>ChatterOwnGroups</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-		<name>CloseConversations</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>false</enabled>					
         <name>ConfigCustomRecs</name>
     </userPermissions>
