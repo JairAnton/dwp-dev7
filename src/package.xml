@@ -284,6 +284,7 @@
         <members>Account_Renewals__c-es</members>
         <members>Account_Banking_System_Classification__c-es</members>
         <members>Opportunity-es</members>
+        <members>OpportunityLineItem-es</members>        
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -715,8 +716,13 @@
         <members>Opportunity</members>
         <name>Workflow</name>
     </types>
+    <types>
+        <members>ProductOpp_DueDate</members>
+        <name>FlowDefinition</name>
+    </types>
 	<types>
         <members>Motivo_Descarte_Oportunidad_V0-20</members>
+        <members>ProductOpp_DueDate-2</members>
         <name>Flow</name>
     </types>
     <types>
@@ -756,7 +762,8 @@
         <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
         <members>Opportunity.Opportunity_Validation_ChangeStage</members>
         <members>Opportunity.Opportunity_Validation_02_OnlyCommercial</members>
-        <members>Opportunity.Opportunity_Validation_ChangeOwner</members>
+        <members>Opportunity.Opportunity_Validation_ChangeOwner</members> 
+        <members>OpportunityLineItem.LinkedAccount_Validation</members>
         <name>ValidationRule</name>
     </types>
     <types>
