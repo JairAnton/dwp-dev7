@@ -58,10 +58,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>Event_Handler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>GraphicsGenerator_cls</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -112,10 +108,6 @@
     <classAccesses>
         <apexClass>PE_DWP_Correo_tst</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>Task_Handler</apexClass>
-        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerHandler</apexClass>
