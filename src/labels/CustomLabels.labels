@@ -386,5 +386,13 @@
         <protected>false</protected>
         <shortDescription>Account_Name</shortDescription>
         <value>Account  Name</value>
-    </labels>    
+    </labels>
+    <labels>
+        <fullName>taskFilter</fullName>
+        <categories>task label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>taskStatusFilter</shortDescription>
+        <value>Inbound Email</value>
+    </labels>
 </CustomLabels>

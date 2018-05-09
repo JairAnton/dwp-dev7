@@ -138,7 +138,8 @@
         <members>DateHigherThan</members>
         <members>AccountName</members>
         <members>Save</members>
-        <members>NewOpportunityWarning</members>		
+        <members>NewOpportunityWarning</members>
+        <members>taskFilter</members>
         <name>CustomLabel</name>
     </types>
     <types>
