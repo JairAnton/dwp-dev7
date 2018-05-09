@@ -112,4 +112,12 @@
         <errorMessage>Cuenta Vinculada no valida, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>LinkedAccount_Validation</name>
     </validationRules>
+    <validationRules>
+        <errorMessage>La fecha de Vencimiento debe ser mayor al día de hoy.</errorMessage>
+        <name>ValidDueDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor defina un plazo mayor a 0.</errorMessage>
+        <name>ValidTerm</name>
+    </validationRules>
 </CustomObjectTranslation>

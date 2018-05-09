@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>fprd__default_value__c</field>
-        <value xsi:type="xsd:string">Meses</value>
+        <value xsi:type="xsd:string">02</value>
     </values>
     <values>
         <field>fprd__dependent_parent_field__c</field>
