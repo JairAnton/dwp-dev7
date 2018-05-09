@@ -171,6 +171,8 @@
         <members>Opportunity_cls_test</members>
 		<members>PE_DWP_Correo_cls</members>
         <members>PE_DWP_Correo_tst</members>
+        <members>OpportunityProduct_Controller</members>
+        <members>OpportunityProduct_Controller_tst</members>
         <name>ApexClass</name>
     </types>
     <types>
