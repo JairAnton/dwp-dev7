@@ -61,6 +61,14 @@
         <apexClass>BBVA_SBS_Classification_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+   <classAccesses>
+        <apexClass>OpportunityProduct_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityProduct_Controller_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses> 
     <custom>true</custom>
 	<description>Los cargos pueden ser:
 Gerente de Banca de Empresas

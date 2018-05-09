@@ -117,6 +117,14 @@
         <apexClass>TriggerHandler_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+   <classAccesses>
+        <apexClass>OpportunityProduct_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityProduct_Controller_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses> 
     <custom>true</custom>
     <description>Puede Tomar los siguientes cargos:
 Ejecutivos de servicios transaccionales (EST)
