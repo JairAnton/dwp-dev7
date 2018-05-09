@@ -126,7 +126,19 @@
         <members>AccountProductClassificationTable5</members>
         <members>AccountRankingClassificationTable1</members>
         <members>AccountRankingClassificationTable2</members>
-		<members>OppId</members>
+	    <members>OppId</members>
+        <members>Amount</members>
+        <members>CloseDate</members>
+        <members>New_Opportunity</members>
+        <members>OpportunityName</members>
+        <members>PlannigDate</members>
+        <members>Probability</members>        
+        <members>Comments</members>
+        <members>Currency</members>
+        <members>DateHigherThan</members>
+        <members>AccountName</members>
+        <members>Save</members>
+        <members>NewOpportunityWarning</members>		
         <name>CustomLabel</name>
     </types>
     <types>
@@ -155,8 +167,10 @@
 		<members>Opportunity_Handler_cls</members>
         <members>Opportunity_Trigger_Test</members>
         <members>Opportunity_Trigger_cls</members>
-        <members>OpportunityProduct_Controller</members>
-        <members>OpportunityProduct_Controller_tst</members>
+        <members>Opportunity_cls</members>
+        <members>Opportunity_cls_test</members>
+		<members>PE_DWP_Correo_cls</members>
+        <members>PE_DWP_Correo_tst</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -175,6 +189,8 @@
 		<members>GraphicsEvolutionSBSDebt_comp</members>
 		<members>GraphicVinculacion_comp</members>
         <members>OpportunityProduct_Comp</members>
+        <members>cQuickAction_NewOpportunity</members>
+        <members>submitTODiscart</members>		
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -613,6 +629,19 @@
 		<members>Product2.Description</members>
         <members>Opportunity.isProcess__c</members>
         <members>Opportunity.Modality__c</members>
+		<members>OpportunityLineItem.Siocode__c</members>
+        <members>OpportunityLineItem.Tipo_amortizacion__c</members>        
+        <members>OpportunityLineItem.cpliq_Amortizacion__c</members>
+        <members>OpportunityLineItem.cpliq_Codigo_Simulacion__c</members>
+        <members>OpportunityLineItem.cpliq_Cuenta_vinculada__c</members>
+        <members>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</members>
+        <members>OpportunityLineItem.cpliq_Periodicidad__c</members>
+        <members>OpportunityLineItem.cpliq_Periodicidad_gracia__c</members>
+        <members>OpportunityLineItem.cpliq_Tipo_amortizacion__c</members>
+        <members>OpportunityLineItem.cpliq_n__c</members>
+        <members>OpportunityLineItem.cpliq_n_gracia__c</members>
+        <members>OpportunityLineItem.fprd__GBL_Sample_Checkbox__c</members>
+        <members>OpportunityLineItem.fprd__GBL_Sample_Datetime__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -669,8 +698,8 @@
 		<members>Opportunity.Opp_RT_02</members>
         <name>RecordType</name>
     </types>
-    <types>
-        <members>Override_Standard_Button_Message.Contact</members>
+    <types>        
+		<members>*</members>
         <name>CustomMetadata</name>
     </types>
 	  <types>
@@ -683,6 +712,10 @@
         <members>AccountContactRelation</members>
         <members>Opportunity</members>
         <name>Workflow</name>
+    </types>
+	<types>
+        <members>Motivo_Descarte_Oportunidad_V0</members>
+        <name>Flow</name>
     </types>
     <types>
         <members>Opportunity.Stage_created_by_executive</members>
@@ -731,6 +764,8 @@
         <members>LogACall</members>
         <members>NewEvent</members>
         <members>NewTask</members>
+        <members>Account.cQuickAc_NewOpportunity</members>
+		<members>Opportunity.Descarta_Oportunidad</members>
         <name>QuickAction</name>
     </types>
     <types>
@@ -756,6 +791,7 @@
         <members>White_Circle_Icon</members>
         <members>ChartJS23</members>
         <members>ChartjsAP</members>
+        <members>quickActionStyle</members>
         <name>StaticResource</name>
     </types>
     <types>

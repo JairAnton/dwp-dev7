@@ -8,7 +8,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>numVisibleActions</name>
-                <value>4</value>
+                <value>7</value>
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
@@ -27,14 +27,14 @@
         <componentInstances>
             <componentName>OpportunityProduct_Comp</componentName>
         </componentInstances>
-        <name>facet-87da3e48-eb82-428f-b9a1-4d1455e3f17a</name>
+        <name>Facet-72f73894-f51f-4bc2-8a6d-7d42127c08b4</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-87da3e48-eb82-428f-b9a1-4d1455e3f17a</value>
+                <value>Facet-72f73894-f51f-4bc2-8a6d-7d42127c08b4</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
@@ -42,26 +42,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>
-                <value>accordionSection2</value>
+                <value>accordionSection1</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-        <name>facet-80c1491d-66c1-43b3-9430-6e92a6ed76f4</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>accordionSections</name>
-                <value>facet-80c1491d-66c1-43b3-9430-6e92a6ed76f4</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>defaultSectionName</name>
-                <value>accordionSection2</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:accordion</componentName>
-        </componentInstances>
-        <name>facet-3b5c3e61-fb36-41ea-a3bd-5a6e7703e88f</name>
+        <name>Facet-76d345b6-daff-4537-a0ba-1378ceed2f55</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -91,6 +76,17 @@
             </componentInstanceProperties>
             <componentName>fprd:GBL_Product_buttons_cmp</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-76d345b6-daff-4537-a0ba-1378ceed2f55</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>defaultSectionName</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
         <name>facet-d624af49-5f4c-4622-9ee7-6ae565d5cc2c</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -109,7 +105,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>active</name>
-                <value>true</value>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>body</name>
@@ -123,12 +119,16 @@
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
+                <name>active</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>body</name>
                 <value>facet-d624af49-5f4c-4622-9ee7-6ae565d5cc2c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Productos</value>
+                <value>Producto</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
@@ -140,17 +140,6 @@
             <componentInstanceProperties>
                 <name>title</name>
                 <value>Seguimiento</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:tab</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
-                <value>facet-3b5c3e61-fb36-41ea-a3bd-5a6e7703e88f</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Detalle producto</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
