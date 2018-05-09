@@ -70,7 +70,6 @@
         <apexClass>OpportunityProduct_Controller_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses> 
-    <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.main_code_id__c</field>
