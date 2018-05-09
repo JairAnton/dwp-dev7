@@ -2184,11 +2184,6 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.gcal__GBL_Google_Event_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Idea.Attachment</field>
         <readable>false</readable>
     </fieldPermissions>
