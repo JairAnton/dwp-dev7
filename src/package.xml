@@ -717,10 +717,6 @@
         <members>Opportunity</members>
         <name>Workflow</name>
     </types>
-    <types>
-        <members>ProductOpp_DueDate</members>
-        <name>FlowDefinition</name>
-    </types>
 	<types> 
 	    <members>Email_Message_update_Opportunity-1</members>
         <members>Event_update_Opportunity-1</members>
