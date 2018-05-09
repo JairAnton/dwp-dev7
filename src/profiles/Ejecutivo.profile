@@ -62,6 +62,13 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
+	<description>Los cargos pueden ser:
+Gerente de Banca de Empresas
+Gerentes Regionales
+Jefes de Promoción de Negocio
+Gerentes de oficina
+Ejecutivo de Banca de Empresas
+Asistente BE</description>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>
@@ -1387,6 +1394,34 @@
         <field>Opportunity.TotalOpportunityQuantity</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Body_Label_API__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Button_Label_API_Agree__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Button_Label_API_Cancel__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Object_Api_Name_to_Redirect__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Title_Label_API__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	<layoutAssignments>
+        <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
+    </layoutAssignments>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Type</field>
