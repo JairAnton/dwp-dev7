@@ -155,6 +155,8 @@
 		<members>Opportunity_Handler_cls</members>
         <members>Opportunity_Trigger_Test</members>
         <members>Opportunity_Trigger_cls</members>
+        <members>OpportunityProduct_Controller</members>
+        <members>OpportunityProduct_Controller_tst</members>
         <name>ApexClass</name>
     </types>
     <types>
