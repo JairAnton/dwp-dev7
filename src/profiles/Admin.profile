@@ -233,6 +233,31 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Body_Label_API__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Button_Label_API_Agree__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Button_Label_API_Cancel__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Object_Api_Name_to_Redirect__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Override_Standard_Button_Message__mdt.Title_Label_API__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.Description</field>
         <readable>true</readable>
@@ -1611,6 +1636,9 @@
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
+    </layoutAssignments>	
+    <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
         <recordType>Opportunity.Opp_RT_01</recordType>
     </layoutAssignments>
@@ -2058,6 +2086,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+		<name>CloseConversations</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>					
         <name>ConfigCustomRecs</name>
     </userPermissions>
     <userPermissions>
@@ -2277,6 +2309,10 @@
         <name>ListEmailSend</name>
     </userPermissions>
     <userPermissions>
+        <enabled>false</enabled>
+        <name>LtngPromoReserved01UserPerm</name>
+    </userPermissions>
+    <userPermissions>				 
         <enabled>true</enabled>
         <name>ManageAnalyticSnapshots</name>
     </userPermissions>
@@ -2437,6 +2473,10 @@
         <name>ManageTranslation</name>
     </userPermissions>
     <userPermissions>
+		<enabled>false</enabled>
+        <name>ManageTwoFactor</name>
+    </userPermissions>		 
+	<userPermissions>				 
         <enabled>true</enabled>
         <name>ManageUnlistedGroups</name>
     </userPermissions>
@@ -2463,6 +2503,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ModifyAllData</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ModifyMetadata</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -2546,6 +2590,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>SubscribeDashboardToOtherUsers</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled> 
         <name>SubscribeReportToOtherUsers</name>
     </userPermissions>
     <userPermissions>
