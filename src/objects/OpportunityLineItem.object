@@ -207,4 +207,15 @@
         <required>false</required>
         <type>DateTime</type>
     </fields>
+    <validationRules>
+        <fullName>LinkedAccount_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(
+OR(
+ISBLANK( cpliq_Cuenta_vinculada__c ),
+REGEX( cpliq_Cuenta_vinculada__c , &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
+)
+)</errorConditionFormula>
+        <errorMessage>Linked Account format not valid, correct: 0000-0000-000000000</errorMessage>
+    </validationRules>
 </CustomObject>

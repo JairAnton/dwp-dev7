@@ -4,4 +4,112 @@
         <label><!-- Siocode --></label>
         <name>Siocode__c</name>
     </fields>
+    <fields>
+        <label><!-- Tipo amortización --></label>
+        <name>Tipo_amortizacion__c</name>
+        <picklistValues>
+            <masterLabel>A medida</masterLabel>
+            <translation><!-- A medida --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Al vencimiento</masterLabel>
+            <translation><!-- Al vencimiento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En cuotas</masterLabel>
+            <translation><!-- En cuotas --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- cpliq_Amortizacion --></label>
+        <name>cpliq_Amortizacion__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation><!-- 03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation><!-- 04 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- cpliq__Codigo_Simulacion --></label>
+        <name>cpliq_Codigo_Simulacion__c</name>
+    </fields>
+    <fields>
+        <label><!-- cpliq__Cuenta_vinculada --></label>
+        <name>cpliq_Cuenta_vinculada__c</name>
+    </fields>
+    <fields>
+        <label><!-- cpliq_Fecha_Vencimiento --></label>
+        <name>cpliq_Fecha_Vencimiento__c</name>
+    </fields>
+    <fields>
+        <label><!-- cpliq_Periodicidad --></label>
+        <name>cpliq_Periodicidad__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- cpliq_Periodicidad_gracia --></label>
+        <name>cpliq_Periodicidad_gracia__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- cpliq_Tipo_amortización --></label>
+        <name>cpliq_Tipo_amortizacion__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation><!-- 03 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- cpliq_n --></label>
+        <name>cpliq_n__c</name>
+    </fields>
+    <fields>
+        <label><!-- cpliq_n_gracia --></label>
+        <name>cpliq_n_gracia__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sample Checkbox --></label>
+        <name>fprd__GBL_Sample_Checkbox__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sample Datetime --></label>
+        <name>fprd__GBL_Sample_Datetime__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage>Cuenta Vinculada no valida, el formato correcto: 0000-0000-000000000</errorMessage>
+        <name>LinkedAccount_Validation</name>
+    </validationRules>
 </CustomObjectTranslation>
