@@ -721,8 +721,14 @@
         <members>ProductOpp_DueDate</members>
         <name>FlowDefinition</name>
     </types>
-	<types>        
-        <members>ProductOpp_DueDate-3</members>
+	<types> 
+	    <members>Email_Message_update_Opportunity-1</members>
+        <members>Event_update_Opportunity-1</members>
+        <members>FlujoEstadosOportunidad-6</members>
+        <members>Opp_Owner_Changed-3</members>
+        <members>Opp_PB_Opportunidad-8</members>
+        <members>Task_update_Opportunity-1</members>
+        <members>ProductOpp_DueDate-3</members>		
         <name>Flow</name>
     </types>
     <types>
