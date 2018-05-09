@@ -283,7 +283,11 @@
     <customLabels>
         <label><!-- GBL_ToastSavedOk --></label>
         <name>fprd__GBL_ToastSavedOk</name>
-    </customLabels>    
+    </customLabels>
+   <customLabels>
+        <label>Para dar de alta una nueva Oportunidad, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nueva Oportunidad&quot;</label>
+        <name>NewOpportunityWarning</name>
+    </customLabels>
 	<quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

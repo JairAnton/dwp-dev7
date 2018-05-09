@@ -43,6 +43,14 @@
     <fields>
         <caseValues>
             <plural>false</plural>
+            <value>Alias del gestor principal</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_owner_alias</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>								  
             <value>Email del gestor principal</value>
         </caseValues>
         <gender>Masculine</gender>
@@ -398,4 +406,8 @@
         <errorMessage>No se puede crear otro estado de la oportunidad que no sea Pendiente de Iniciar</errorMessage>
         <name>Opportunity_Validation_Commercial_Action</name>
     </validationRules>
+	<quickActions>
+        <label><!-- Descarte --></label>
+        <name>Descarta_Oportunidad</name>
+    </quickActions>
 </CustomObjectTranslation>
