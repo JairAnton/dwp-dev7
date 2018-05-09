@@ -722,7 +722,7 @@
     </types>
 	<types>
         <members>Motivo_Descarte_Oportunidad_V0-20</members>
-        <members>ProductOpp_DueDate-2</members>
+        <members>ProductOpp_DueDate-3</members>
         <name>Flow</name>
     </types>
     <types>
@@ -764,6 +764,8 @@
         <members>Opportunity.Opportunity_Validation_02_OnlyCommercial</members>
         <members>Opportunity.Opportunity_Validation_ChangeOwner</members> 
         <members>OpportunityLineItem.LinkedAccount_Validation</members>
+        <members>OpportunityLineItem.ValidDueDate</members>
+        <members>OpportunityLineItem.ValidTerm</members>
         <name>ValidationRule</name>
     </types>
     <types>

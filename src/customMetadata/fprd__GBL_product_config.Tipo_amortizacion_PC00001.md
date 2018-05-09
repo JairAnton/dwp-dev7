@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>fprd__default_value__c</field>
-        <value xsi:type="xsd:string">Al vencimiento</value>
+        <value xsi:type="xsd:string">01</value>
     </values>
     <values>
         <field>fprd__dependent_parent_field__c</field>
