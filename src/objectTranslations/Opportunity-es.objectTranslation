@@ -8,7 +8,7 @@
         <gender>Feminine</gender>
         <name>close_date_opportunity</name>
     </fields>
-	<fields>
+    <fields>
         <label>Fecha creación</label>
         <name>Opp_Creation_Date__c</name>
     </fields>
@@ -43,6 +43,14 @@
     <fields>
         <caseValues>
             <plural>false</plural>
+            <value>Alias del gestor principal</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_owner_alias</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>								  
             <value>Email del gestor principal</value>
         </caseValues>
         <gender>Masculine</gender>
@@ -358,6 +366,22 @@
         <label>Identificador único</label>
         <name>unique_id__c</name>
     </fields>
+    <fields>
+        <label>Modalidad</label>
+        <name>Modality__c</name>
+        <picklistValues>
+            <masterLabel>Inside line</masterLabel>
+            <translation>Dentro de línea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requires authorization</masterLabel>
+            <translation>Requiere autorización</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Código SIO</label>
+        <name>SIOCode__c</name>
+    </fields>
     <recordTypes>
         <label>Nueva</label>
         <name>Opp_RT_01</name>
@@ -371,7 +395,7 @@
         <name>Opportunity_Validation_02_OnlyCommercial</name>
     </validationRules>
     <validationRules>
-     <errorMessage>No se puede cambiar el propietario de esta Oportunidad.</errorMessage>
+        <errorMessage>No se puede cambiar el propietario de esta Oportunidad.</errorMessage>
         <name>Opportunity_Validation_ChangeOwner</name>
     </validationRules>
     <validationRules>
@@ -382,4 +406,8 @@
         <errorMessage>No se puede crear otro estado de la oportunidad que no sea Pendiente de Iniciar</errorMessage>
         <name>Opportunity_Validation_Commercial_Action</name>
     </validationRules>
+	<quickActions>
+        <label><!-- Descarte --></label>
+        <name>Descarta_Oportunidad</name>
+    </quickActions>
 </CustomObjectTranslation>

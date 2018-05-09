@@ -8,7 +8,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>numVisibleActions</name>
-                <value>4</value>
+                <value>7</value>
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
@@ -25,9 +25,87 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentName>OpportunityProduct_Comp</componentName>
+        </componentInstances>
+        <name>Facet-72f73894-f51f-4bc2-8a6d-7d42127c08b4</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-72f73894-f51f-4bc2-8a6d-7d42127c08b4</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Información de modalidad</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <name>Facet-76d345b6-daff-4537-a0ba-1378ceed2f55</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>disbleManageProducts</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>enableMultiple</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maxProductNumber</name>
+                <value>1</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showClone</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>fprd:GBL_Opportunity_Products_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>disbleEdit</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>fprd:GBL_Product_buttons_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-76d345b6-daff-4537-a0ba-1378ceed2f55</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>defaultSectionName</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
+        <name>facet-d624af49-5f4c-4622-9ee7-6ae565d5cc2c</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>context</name>
+                <value>RECORD</value>
+            </componentInstanceProperties>
+            <componentName>forceChatter:exposedFeed</componentName>
+        </componentInstances>
+        <name>facet-4009d5e6-0996-4471-b00d-07f6f354eddd</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>active</name>
-                <value>true</value>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>body</name>
@@ -35,7 +113,33 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Origen Oportunidad</value>
+                <value>Oportunidad</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>active</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>facet-d624af49-5f4c-4622-9ee7-6ae565d5cc2c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Producto</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>facet-4009d5e6-0996-4471-b00d-07f6f354eddd</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Seguimiento</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
