@@ -16,7 +16,7 @@ public class OpportunityProduct_Controller {
     public static list<Task> getTasks(String val){    
     string Search ='%'+val+'%';    
     list<Task>  tasks = new list<task>();   
-    tasks = [SELECT Status,Subject FROM Task WHERE /*Status =: System.Label.taskFilter AND*/ Subject LIKE : Search LIMIT 10];
+    tasks = [SELECT Status,Subject FROM Task WHERE Status =: System.Label.taskFilter AND Subject LIKE : Search LIMIT 10];
     return tasks;    
     }    
 
@@ -30,11 +30,14 @@ public class OpportunityProduct_Controller {
     public static void saveSIO(String opp,String savedRow){
     Opportunity op  = new Opportunity();
     op = [SELECT StageName FROM Opportunity WHERE ID =:opp];
-    op.StageName='04';    
+    op.StageName='04';
+    op.isProcess__c=true;    
     OpportunityLineItem  oli = new OpportunityLineItem();   
     oli = [SELECT Id FROM OpportunityLineItem WHERE OpportunityID =:opp LIMIT 1];   
     oli.SIOCode__c = savedRow;
     update oli;
+    update op;    
+    op.isProcess__c=false;
     update op;    
     }
  @AuraEnabled     
@@ -42,7 +45,10 @@ public class OpportunityProduct_Controller {
     Opportunity op  = new Opportunity();
     op = [SELECT StageName FROM Opportunity WHERE ID =:opp];
     op.StageName='04';
+    op.isProcess__c=true;    
     op.opportunity_status_type__c = '08';    
+    update op;    
+    op.isProcess__c=false;
     update op;    
     }          
 }
