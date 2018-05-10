@@ -77,6 +77,11 @@ Jefes de Promoción de Negocio
 Gerentes de oficina
 Ejecutivo de Banca de Empresas
 Asistente BE</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.rejection_coin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>

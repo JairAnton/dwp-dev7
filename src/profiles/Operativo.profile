@@ -25,7 +25,6 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-
     <classAccesses>
         <apexClass>AccountContactParentAssociation</apexClass>
         <enabled>true</enabled>
@@ -314,6 +313,11 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.collection_days_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.rejection_coin__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
