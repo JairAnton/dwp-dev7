@@ -725,7 +725,7 @@
 	<members>Opp_PB_Opportunidad</members>
 	<members>ProductOpp_DueDate</members>
 	<members>Task_update_Opportunity</members>
-	<name>flowDefinitions</name>
+	<name>FlowDefinition</name>
   </types>
   <types>
 	<members>Email_Message_update_Opportunity-4</members>
@@ -736,7 +736,7 @@
 	<members>Opp_PB_Opportunidad-8</members>
 	<members>ProductOpp_DueDate-3</members>
 	<members>Task_update_Opportunity-3</members>
-	<name>flows</name>
+	<name>Flow</name>
   </types>
     <types>
         <members>Contact</members>
