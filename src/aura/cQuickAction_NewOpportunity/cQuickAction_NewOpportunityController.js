@@ -2,7 +2,7 @@
 	init : function(component, event, helper) {		
 		//Static Labels
 		component.set("v.lblTitle", $A.get("$Label.c.New_Opportunity"));
-		component.set("v.lblAccountName", $A.get("!$ObjectType.Account.fields.Name.Label"));
+		component.set("v.lblAccountName", $A.get("$Label.c.AccountName"));
 		component.set("v.lblOpportunityName", $A.get("$Label.c.OpportunityName"));
 		component.set("v.lblPlanningDate", $A.get("$Label.c.PlannigDate"));
 		component.set("v.lblCloseDate", $A.get("$Label.c.CloseDate"));
