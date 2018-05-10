@@ -717,7 +717,7 @@
 	<members>Opportunity.DWP_Peru_Generic</members>
     <name>BusinessProcess</name>
   </types>
-  <type>
+  <types>
 	<members>Email_Message_update_Opportunity</members>
 	<members>Event_update_Opportunity</members>
 	<members>FlujoEstadosOportunidad</members>
@@ -726,8 +726,8 @@
 	<members>ProductOpp_DueDate</members>
 	<members>Task_update_Opportunity</members>
 	<name>flowDefinition</name>
-  </type>
-  <type>
+  </types>
+  <types>
 	<members>Email_Message_update_Opportunity-4</members>
 	<members>Event_update_Opportunity-3</members>
 	<members>FlujoEstadosOportunidad-12</members>
@@ -737,7 +737,7 @@
 	<members>ProductOpp_DueDate-3</members>
 	<members>Task_update_Opportunity-3</members>
 	<name>flow</name>
-  </type>
+  </types>
     <types>
         <members>Contact</members>
         <members>AccountContactRelation</members>
