@@ -1592,11 +1592,6 @@ Asistente BE</description>
         <field>Opportunity.Modality__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.SIOCode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
 	<layoutAssignments>
         <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
     </layoutAssignments>	
