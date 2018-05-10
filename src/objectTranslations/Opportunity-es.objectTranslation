@@ -378,10 +378,6 @@
             <translation>Requiere autorización</translation>
         </picklistValues>
     </fields>
-    <fields>
-        <label>Código SIO</label>
-        <name>SIOCode__c</name>
-    </fields>
     <recordTypes>
         <label>Nueva</label>
         <name>Opp_RT_01</name>
