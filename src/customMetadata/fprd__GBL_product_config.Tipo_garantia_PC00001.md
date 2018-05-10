@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>fprd__default_value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">03</value>
     </values>
     <values>
         <field>fprd__dependent_parent_field__c</field>
@@ -72,7 +72,7 @@
     </values>
     <values>
         <field>fprd__section__c</field>
-        <value xsi:type="xsd:string">Información General del Producto</value>
+        <value xsi:type="xsd:string">Información general del producto</value>
     </values>
     <values>
         <field>fprd__section_order__c</field>
