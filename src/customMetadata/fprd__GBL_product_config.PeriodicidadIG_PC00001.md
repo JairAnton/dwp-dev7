@@ -56,7 +56,7 @@
     </values>
     <values>
         <field>fprd__map_field__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">gipr_Periodicidad__c</value>
     </values>
     <values>
         <field>fprd__order__c</field>
