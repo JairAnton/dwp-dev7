@@ -61,10 +61,6 @@
         <apexClass>BBVA_SBS_Classification_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	<classAccesses>
-        <apexClass>Activity_Tsk_Evt_Email_Handlers_Test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <classAccesses>
         <apexClass>EmailMessage_Handler</apexClass>
         <enabled>true</enabled>
