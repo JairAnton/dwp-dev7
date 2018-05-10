@@ -620,39 +620,40 @@
         <members>Opportunity.renewal_contract_id__c</members>
         <members>Opportunity.success_probability_desc__c</members>
         <members>Opportunity.unique_id__c</members>
-	<members>Product2.CurrencyIsoCode</members>
-	<members>Product2.DisplayUrl</members>
-	<members>Product2.ExternalDataSourceId</members>
-	<members>Product2.ExternalId</members>
-	<members>Product2.Family</members>
-	<members>Product2.IsActive</members>
-	<members>Product2.Name</members>
-	<members>Product2.ProductCode</members>
-	<members>Product2.QuantityUnitOfMeasure</members>
-	<members>Product2.StockKeepingUnit</members>
-	<members>Product2.Description</members>
-       	<members>Opportunity.isProcess__c</members>
-       	<members>Opportunity.Modality__c</members>
-	<members>OpportunityLineItem.Siocode__c</members>
-       	<members>OpportunityLineItem.Tipo_amortizacion__c</members>        
-       	<members>OpportunityLineItem.cpliq_Amortizacion__c</members>
-       	<members>OpportunityLineItem.cpliq_Codigo_Simulacion__c</members>
-	<members>OpportunityLineItem.cpliq_Cuenta_vinculada__c</members>
-       	<members>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</members>
-       	<members>OpportunityLineItem.cpliq_Periodicidad__c</members>
-       	<members>OpportunityLineItem.cpliq_Periodicidad_gracia__c</members>
-       	<members>OpportunityLineItem.cpliq_Tipo_amortizacion__c</members>
-       	<members>OpportunityLineItem.cpliq_n__c</members>
-       	<members>OpportunityLineItem.cpliq_n_gracia__c</members>
-       	<members>OpportunityLineItem.fprd__GBL_Sample_Checkbox__c</members>
-       	<members>OpportunityLineItem.fprd__GBL_Sample_Datetime__c</members>
-       	<members>OpportunityLineItem.gipr_Cobertura__c</members>
-       	<members>OpportunityLineItem.gipr_Destino__c</members>
-       	<members>OpportunityLineItem.gipr_Garantia__c</members>
-       	<members>OpportunityLineItem.gipr_Periodicidad__c</members>
-       	<members>OpportunityLineItem.gipr_Plazo__c</members>
-       	<members>OpportunityLineItem.gipr_Tipo_Garantia__c</members>
-       	<name>CustomField</name>
+		<members>Product2.CurrencyIsoCode</members>
+		<members>Product2.DisplayUrl</members>
+		<members>Product2.ExternalDataSourceId</members>
+		<members>Product2.ExternalId</members>
+		<members>Product2.Family</members>
+		<members>Product2.IsActive</members>
+		<members>Product2.Name</members>
+		<members>Product2.ProductCode</members>
+		<members>Product2.QuantityUnitOfMeasure</members>
+		<members>Product2.StockKeepingUnit</members>
+		<members>Product2.Description</members>
+        <members>Opportunity.isProcess__c</members>
+        <members>Opportunity.Modality__c</members>
+		<members>OpportunityLineItem.Siocode__c</members>
+        <members>OpportunityLineItem.Tipo_amortizacion__c</members>        
+        <members>OpportunityLineItem.cpliq_Amortizacion__c</members>
+        <members>OpportunityLineItem.cpliq_Codigo_Simulacion__c</members>
+        <members>OpportunityLineItem.cpliq_Cuenta_vinculada__c</members>
+        <members>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</members>
+        <members>OpportunityLineItem.cpliq_Periodicidad__c</members>
+        <members>OpportunityLineItem.cpliq_Periodicidad_gracia__c</members>
+        <members>OpportunityLineItem.cpliq_Tipo_amortizacion__c</members>
+        <members>OpportunityLineItem.cpliq_n__c</members>
+        <members>OpportunityLineItem.cpliq_n_gracia__c</members>
+        <members>OpportunityLineItem.fprd__GBL_Sample_Checkbox__c</members>
+        <members>OpportunityLineItem.fprd__GBL_Sample_Datetime__c</members>
+        <members>OpportunityLineItem.gipr_Cobertura__c</members>
+        <members>OpportunityLineItem.gipr_Destino__c</members>
+        <members>OpportunityLineItem.gipr_Garantia__c</members>
+        <members>OpportunityLineItem.gipr_Periodicidad__c</members>
+        <members>OpportunityLineItem.gipr_Plazo__c</members>
+        <members>OpportunityLineItem.gipr_Tipo_Garantia__c</members>
+        <members>Opportunity.LastSIOcode__c</members>
+        <name>CustomField</name>
     </types>
     <types>
         <members>Branch__c</members>
@@ -716,6 +717,27 @@
     <members>Opportunity.Ruta</members>
 	<members>Opportunity.DWP_Peru_Generic</members>
     <name>BusinessProcess</name>
+  </types>
+  <types>
+	<members>Email_Message_update_Opportunity</members>
+	<members>Event_update_Opportunity</members>
+	<members>FlujoEstadosOportunidad</members>
+	<members>Opp_Owner_Changed</members>
+	<members>Opp_PB_Opportunidad</members>
+	<members>ProductOpp_DueDate</members>
+	<members>Task_update_Opportunity</members>
+	<name>FlowDefinition</name>
+  </types>
+  <types>
+	<members>Email_Message_update_Opportunity-4</members>
+	<members>Event_update_Opportunity-3</members>
+	<!-- <members>FlujoEstadosOportunidad-12</members> -->
+	<!-- <members>Motivo_Descarte_Oportunidad_V0-20</members> -->
+	<!-- <members>Opp_Owner_Changed-3</members> -->
+	<!-- <members>Opp_PB_Opportunidad-8</members> -->
+	<!-- <members>ProductOpp_DueDate-3</members> -->
+	<members>Task_update_Opportunity-3</members>
+	<name>Flow</name>
   </types>
     <types>
         <members>Contact</members>

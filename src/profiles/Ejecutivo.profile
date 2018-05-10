@@ -1594,7 +1594,7 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.SIOCode__c</field>
+        <field>Opportunity.LastSIOcode__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<layoutAssignments>

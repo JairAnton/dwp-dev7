@@ -285,6 +285,11 @@
         <field>OpportunityLineItem.ProductCode</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Siocode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.ServiceDate</field>
@@ -1635,9 +1640,9 @@
         <field>Opportunity.Modality__c</field>
         <readable>true</readable>
     </fieldPermissions>
-     <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.SIOCode__c</field>
+        <field>Opportunity.LastSIOcode__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<layoutAssignments>

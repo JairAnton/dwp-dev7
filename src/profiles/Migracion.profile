@@ -1565,9 +1565,9 @@
         <field>Opportunity.Modality__c</field>
         <readable>true</readable>
     </fieldPermissions>
-     <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.SIOCode__c</field>
+        <field>Opportunity.LastSIOcode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
