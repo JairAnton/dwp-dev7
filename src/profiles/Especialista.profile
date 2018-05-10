@@ -117,6 +117,14 @@
         <apexClass>TriggerHandler_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+   <classAccesses>
+        <apexClass>OpportunityProduct_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityProduct_Controller_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses> 
     <custom>true</custom>
     <description>Puede Tomar los siguientes cargos:
 Ejecutivos de servicios transaccionales (EST)
@@ -2769,9 +2777,6 @@ Ejecutivos de REDES</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ListEmail-Formato Correo electrónico de lista</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Macro-Macro Layout</layout>

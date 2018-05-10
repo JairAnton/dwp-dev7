@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>fprd__default_value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">01</value>
     </values>
     <values>
         <field>fprd__dependent_parent_field__c</field>
@@ -60,7 +60,7 @@
     </values>
     <values>
         <field>fprd__order__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:double">7.0</value>
     </values>
     <values>
         <field>fprd__parent_value__c</field>
@@ -72,11 +72,11 @@
     </values>
     <values>
         <field>fprd__section__c</field>
-        <value xsi:type="xsd:string">Criterio de Pago/Liquidación</value>
+        <value xsi:type="xsd:string">Criterios de pago y liquidación</value>
     </values>
     <values>
         <field>fprd__section_order__c</field>
-        <value xsi:type="xsd:double">7.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>fprd__type__c</field>

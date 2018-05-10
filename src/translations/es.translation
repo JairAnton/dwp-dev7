@@ -49,7 +49,7 @@
         <name>OppId</name>
     </customLabels>
     <customLabels>
-        <label>Nombre de la Oportunidad</label>
+        <label>Nombre de la oportunidad</label>
         <name>OpportunityName</name>
     </customLabels>
     <customLabels>

@@ -72,7 +72,7 @@
     </values>
     <values>
         <field>fprd__section__c</field>
-        <value xsi:type="xsd:string">Criterio de Pago/Liquidación</value>
+        <value xsi:type="xsd:string">Criterios de pago y liquidación</value>
     </values>
     <values>
         <field>fprd__section_order__c</field>

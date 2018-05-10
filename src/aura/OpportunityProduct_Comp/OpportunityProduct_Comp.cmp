@@ -1,86 +1,87 @@
-<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName,forceCommunity:searchInterface">	
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName,forceCommunity:searchInterface" controller="OpportunityProduct_Controller">
   <aura:attribute name="Modality" type="String" />
-  <aura:attribute name="showButton" type="boolean" default="true"/> 
-  <aura:attribute name="showSIO" type="boolean" default="false"/> 
+  <aura:attribute name="showButton" type="boolean" default="true"/>
+  <aura:attribute name="showSIO" type="boolean" default="false"/>
   <aura:attribute name="isOpen" type="boolean" default="false"/>
-   
+  <aura:attribute name="mydata" type="Object"/>
+  <aura:attribute name="selectedRow" type="String"/>
+  <aura:attribute name="saveRow" type="String" />
+  <aura:attribute name="searchText" type="String"/>
+  <aura:attribute name="recordOLI" type="Id"/>
   <lightning:layout >
-  <lightning:layoutItem flexibility="auto" padding="around-small">
+  <lightning:layoutItem flexibility="auto" padding="around-small" >
   <lightning:recordEditForm aura:id="recordViewForm" recordId="{!v.recordId}" objectApiName="Opportunity">
   <lightning:messages />
-  <div class="demo-only demo-only--sizing slds-grid slds-wrap" >    
+  <div class="demo-only demo-only--sizing slds-grid slds-wrap" >
   <div class="slds-size_1-of-2">
             <lightning:inputField fieldName="Modality__c" aura:id="input_modal" onchange="{!c.setValue}"/>
-            <aura:renderIf isTrue="{!v.showButton}">   
-            <lightning:button aura:id="submit" type="submit" label="Aprobar" class="slds-m-top_medium" />
+            <aura:renderIf isTrue="{!v.showButton}">
+            <lightning:button onclick="{!c.sendApprove}" label="Aprobar" class="slds-m-top_medium" />
             </aura:renderIf>
-  </div> 
+  </div>
    </div>
       <br/>
-  <div class="demo-only demo-only--sizing slds-grid slds-wrap" >     
-  <div class="slds-size_1-of-2"> 
-            <aura:renderIf isTrue="{!v.showSIO}">   
-            <lightning:inputField fieldName="SIOCode__c"/>
-             <lightning:button aura:id="submit" type="submit" label="Buscar ISO" class="slds-m-top_medium" onclick="{!c.openModel}" />    
+  <div class="demo-only demo-only--sizing slds-grid slds-wrap" >
+  <div class="slds-size_1-of-2">
+            <aura:renderIf isTrue="{!v.showSIO}">
+             <lightning:messages />
+                <lightning:inputField fieldName = "LastSIOcode__c"/>
+             <lightning:button aura:id="submit" type="submit" label="Buscar SIO" class="slds-m-top_medium" onclick="{!c.openModel}" />
             </aura:renderIf>
-      </div> 
-   </div>   
+      </div>
+   </div>
   </lightning:recordEditForm>
-        </lightning:layoutItem>
-
-  <div class="slds-m-around--xx-large">    
+  </lightning:layoutItem>
+  <div class="slds-m-around--xx-large">
     <aura:if isTrue="{!v.isOpen}">
       <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
         <div class="slds-modal__container">
           <div class="slds-modal__header">
-            <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+            <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Cerrar" onclick="{!c.closeModel}">
             X
-            <span class="slds-assistive-text">Close</span>
+            <span class="slds-assistive-text">Cerrar</span>
             </button>
             <h2 id="header99" class="slds-text-heading--medium">Código SIO</h2>
           </div>
-         
           <div class="slds-modal__content slds-p-around--medium">
            <div class="slds-form-element slds-lookup" data-select="single">
                 <div class="slds-form-element__control">
                     <div class="slds-input-has-icon slds-input-has-icon--right">
-                        <lightning:buttonIcon iconName="utility:search" variant="bare" onclick="{! c.handleClick }" alternativeText="Search" class="slds-input__icon" />
-                        <input type="search" class="slds-lookup__search-input slds-input" placeholder="Search" />
+                        <lightning:buttonIcon iconName="utility:search" variant="bare" onclick="{!c.setValue}" alternativeText="Buscar" class="slds-input__icon" />
+                        <ui:inputText value="{!v.searchText}" updateOn="change"/>
                     </div>
                 </div>
            </div>
-           <!-- Borrar dummy -->
-            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
-  <thead>
-    <tr class="slds-text-title_caps">
-      <th scope="col">
-        <div class="slds-truncate" title="Código SIO">Código SIO</div>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>    
-      <td data-label="Amount">
-        <div class="slds-truncate" title="Código SIO">SIO12345</div>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<!-- Borrar -->              
-              
-           <div class="slds-page-header" role="banner">
-             </div>   
+ <div class="slds-m-around_medium">
+      <div class="slds-scrollable--y">
+     <table id="tableId" class="slds-table slds-table_bordered slds-table_cell-buffer" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Código SIO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.mydata}" var="task">
+                    <tr>
+                        <td><lightning:button variant="none" aura:id="{!task.Subject}" title="{!task.Subject}" value="{!task.Subject}"   label="{!task.Subject}" onclick="{!c.selectedRow}" /></td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+       </div>
+    </div>
           </div>
 
-          <div class="slds-modal__footer">
-            <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}" >Cancel</button>
+            <div class="slds-modal__footer">
+             <aura:renderIf isTrue="{!v.selectedRow!=Null}">
+             <lightning:button class="slds-button slds-button--neutral" aura:id="submit" type="submit" onclick="{!c.saveModel}">Vincular</lightning:button>
+              </aura:renderIf>
+                 <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">Cerrar</button>
           </div>
         </div>
       </div>
       <div class="slds-backdrop slds-backdrop--open"></div>
-    
-    
  </aura:if>
-  </div>   
+  </div>
     </lightning:layout>
 </aura:component>
