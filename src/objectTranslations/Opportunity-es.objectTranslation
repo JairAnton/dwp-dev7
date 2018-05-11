@@ -93,6 +93,10 @@
         <label><!-- Discovery Completed --></label>
         <name>Discovery_Completed__c</name>
     </fields>
+	<fields>
+        <label>Código SIO</label>
+        <name>LastSIOcode__c</name>
+    </fields>
     <fields>
         <label>Motivo de desetimación</label>
         <name>Loss_Reason__c</name>
@@ -458,9 +462,8 @@
         <errorMessage>No se puede crear otro estado de la oportunidad que no sea Pendiente de Iniciar</errorMessage>
         <name>Opportunity_Validation_Commercial_Action</name>
     </validationRules>
-	<quickActions>
-        <label><!-- Descarte --></label>
+    <quickActions>
+        <label><!-- Desestimación --></label>
         <name>Descarta_Oportunidad</name>
     </quickActions>
-	
 </CustomObjectTranslation>
