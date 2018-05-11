@@ -268,7 +268,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+ <fields>
         <fullName>Loss_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Loss Reason</label>
@@ -280,29 +280,29 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Lost to Competitor</fullName>
+                    <fullName>01</fullName>
                     <default>false</default>
-                    <label>Lost to Competitor</label>
+                    <label>01</label>
                 </value>
                 <value>
-                    <fullName>No Budget / Lost Funding</fullName>
+                    <fullName>02</fullName>
                     <default>false</default>
-                    <label>No Budget / Lost Funding</label>
+                    <label>02</label>
                 </value>
                 <value>
-                    <fullName>No Decision / Non-Responsive</fullName>
+                    <fullName>03</fullName>
                     <default>false</default>
-                    <label>No Decision / Non-Responsive</label>
+                    <label>03</label>
                 </value>
                 <value>
-                    <fullName>Price</fullName>
+                    <fullName>04</fullName>
                     <default>false</default>
-                    <label>Price</label>
+                    <label>04</label>
                 </value>
                 <value>
-                    <fullName>Other</fullName>
+                    <fullName>05</fullName>
                     <default>false</default>
-                    <label>Other</label>
+                    <label>05</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -843,7 +843,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+   <fields>
         <fullName>rejection_winner_entity_name__c</fullName>
         <description>bank institution who wins the opportunity</description>
         <externalId>false</externalId>
@@ -855,11 +855,66 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>false</sorted>
+                <sorted>true</sorted>
                 <value>
-                    <fullName>Bank</fullName>
+                    <fullName>01</fullName>
                     <default>false</default>
-                    <label>Bank</label>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+                <value>
+                    <fullName>05</fullName>
+                    <default>false</default>
+                    <label>05</label>
+                </value>
+                <value>
+                    <fullName>06</fullName>
+                    <default>false</default>
+                    <label>06</label>
+                </value>
+                <value>
+                    <fullName>07</fullName>
+                    <default>false</default>
+                    <label>07</label>
+                </value>
+                <value>
+                    <fullName>08</fullName>
+                    <default>false</default>
+                    <label>08</label>
+                </value>
+                <value>
+                    <fullName>09</fullName>
+                    <default>false</default>
+                    <label>09</label>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                    <label>10</label>
+                </value>
+                <value>
+                    <fullName>11</fullName>
+                    <default>false</default>
+                    <label>11</label>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                    <label>12</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1146,26 +1201,26 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+         <picklistValues>
             <picklist>Loss_Reason__c</picklist>
             <values>
-                <fullName>Lost to Competitor</fullName>
+                <fullName>01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Budget %2F Lost Funding</fullName>
+                <fullName>02</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Decision %2F Non-Responsive</fullName>
+                <fullName>03</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
+                <fullName>04</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Price</fullName>
+                <fullName>05</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1342,10 +1397,65 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>rejection_coin__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>rejection_winner_entity_name__c</picklist>
             <values>
-                <fullName>Bank</fullName>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>03</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>04</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>05</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>06</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>07</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>08</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>09</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1452,23 +1562,34 @@
         <picklistValues>
             <picklist>Loss_Reason__c</picklist>
             <values>
-                <fullName>Lost to Competitor</fullName>
+                <fullName>01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Budget %2F Lost Funding</fullName>
+                <fullName>02</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Decision %2F Non-Responsive</fullName>
+                <fullName>03</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
+                <fullName>04</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Price</fullName>
+                <fullName>05</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>rejection_coin__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1648,7 +1769,51 @@
         <picklistValues>
             <picklist>rejection_winner_entity_name__c</picklist>
             <values>
-                <fullName>Bank</fullName>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>03</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>04</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>05</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>06</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>07</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>08</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>09</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1740,27 +1905,33 @@
 Owner.Profile.Name=&apos;Asistente&apos;) || (!ISPICKVAL(StageName, &apos;01&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;02&apos;) &amp;&amp; !ISPICKVAL(StageName ,&apos;03&apos;)))</errorConditionFormula>
         <errorMessage>Cannot change the owner of this opportunity.</errorMessage>
     </validationRules>
-    <validationRules>
+        <validationRules>
         <fullName>Opportunity_Validation_ChangeStage</fullName>
         <active>true</active>
         <description>Can not  change stage opportunity manually</description>
         <errorConditionFormula>ISCHANGED(StageName) &amp;&amp;($Profile.Name != &apos;Administrador del sistema&apos;&amp;&amp;$Profile.Name != &apos;Migracion&apos; ) 
 &amp;&amp; 
 (       IF($Profile.Name == &apos;Ejecutivo&apos;,
-        (
-            (
-                !ISPICKVAL(StageName,&apos;03&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;02&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;07&apos;)
-            ) 
-            ||            
-            ( 
-                (ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;) || ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;) )
-                &amp;&amp; 
-                (ISPICKVAL(StageName,&apos;03&apos;)|| ISPICKVAL(StageName,&apos;02&apos;)) 
-            )
-            ||
-            ( 
-                $User.Id ==OwnerId &amp;&amp; $Profile.Name != &apos;Ejecutivo&apos; &amp;&amp;  ISPICKVAL(StageName,&apos;07&apos;)   
-            )
+        (	IF(isProcess__c ,false,
+				(
+					(
+						!ISPICKVAL(StageName,&apos;03&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;02&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;07&apos;)
+					) 
+					||            
+					( 
+						(ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;) || 
+						 ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| 
+						 ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| 
+						 ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;) )
+						&amp;&amp; 
+						(ISPICKVAL(StageName,&apos;03&apos;)|| ISPICKVAL(StageName,&apos;02&apos;)) 
+					)
+					||
+					( 
+						$User.Id ==OwnerId &amp;&amp; $Profile.Name != &apos;Ejecutivo&apos; &amp;&amp;  ISPICKVAL(StageName,&apos;07&apos;)   
+					)
+				)
+			)
         )
         ,
         IF($Profile.Name == &apos;Especialista&apos;,
