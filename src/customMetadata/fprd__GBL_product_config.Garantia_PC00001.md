@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>fprd__Dependent_field__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Tipo_garantia_PC00001</value>
     </values>
     <values>
         <field>fprd__Limite_Inferior__c</field>
@@ -24,15 +24,15 @@
     </values>
     <values>
         <field>fprd__LoV_labels__c</field>
-        <value xsi:type="xsd:string">Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fianza solidaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants</value>
+        <value xsi:type="xsd:string">Cuenta en garantía,Depósito cuenta a plazo,Super depósitos,Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fianza solidaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants</value>
     </values>
     <values>
         <field>fprd__LoV_values__c</field>
-        <value xsi:type="xsd:string">04,05,06,07,08,09,10,11,12,13,14,15,16,17</value>
+        <value xsi:type="xsd:string">01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17</value>
     </values>
     <values>
         <field>fprd__default_value__c</field>
-        <value xsi:type="xsd:string">10</value>
+        <value xsi:type="xsd:string">02</value>
     </values>
     <values>
         <field>fprd__dependent_parent_field__c</field>
@@ -64,11 +64,11 @@
     </values>
     <values>
         <field>fprd__parent_value__c</field>
-        <value xsi:type="xsd:string">No dineraria</value>
+        <value xsi:type="xsd:string">No dineraria,Dineraria</value>
     </values>
     <values>
         <field>fprd__product__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">PC00001</value>
     </values>
     <values>
         <field>fprd__section__c</field>
