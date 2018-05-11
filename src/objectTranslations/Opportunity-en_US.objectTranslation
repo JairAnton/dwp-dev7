@@ -21,24 +21,36 @@
         <label><!-- Loss Reason --></label>
         <name>Loss_Reason__c</name>
         <picklistValues>
-            <masterLabel>Lost to Competitor</masterLabel>
-            <translation><!-- Lost to Competitor --></translation>
+            <masterLabel>01</masterLabel>
+            <translation>Client</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>No Budget / Lost Funding</masterLabel>
-            <translation><!-- No Budget / Lost Funding --></translation>
+            <masterLabel>02</masterLabel>
+            <translation>Risk</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>No Decision / Non-Responsive</masterLabel>
-            <translation><!-- No Decision / Non-Responsive --></translation>
+            <masterLabel>03</masterLabel>
+            <translation>Price</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
+            <masterLabel>04</masterLabel>
+            <translation>Product</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Price</masterLabel>
-            <translation><!-- Price --></translation>
+            <masterLabel>05</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+    </fields>
+	    <fields>
+        <label><!-- Loss coin --></label>
+        <name>rejection_coin__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>PEN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>USD</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -246,12 +258,56 @@
         <label><!-- Loss reason --></label>
         <name>rejection_reason_id__c</name>
     </fields>
-    <fields>
+<fields>
         <label><!-- Loss winner bank --></label>
         <name>rejection_winner_entity_name__c</name>
         <picklistValues>
-            <masterLabel>Bank</masterLabel>
-            <translation><!-- Bank --></translation>
+            <masterLabel>01</masterLabel>
+            <translation>BCP</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Scotiabank</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Interbank</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>BIF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Banco Financiero</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>GNB</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>Santander</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>Citibank Perú</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>ICBC PERU BANK</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>Banco de Comercio</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>MiBanco</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>Banco Azteca</translation>
         </picklistValues>
     </fields>
     <fields>

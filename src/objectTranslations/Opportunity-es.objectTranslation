@@ -97,24 +97,24 @@
         <label>Motivo de desetimación</label>
         <name>Loss_Reason__c</name>
         <picklistValues>
-            <masterLabel>Lost to Competitor</masterLabel>
-            <translation><!-- Lost to Competitor --></translation>
+            <masterLabel>01</masterLabel>
+            <translation>Por razones del cliente</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>No Budget / Lost Funding</masterLabel>
-            <translation><!-- No Budget / Lost Funding --></translation>
+            <masterLabel>02</masterLabel>
+            <translation>Por condiciones de riesgos</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>No Decision / Non-Responsive</masterLabel>
-            <translation><!-- No Decision / Non-Responsive --></translation>
+            <masterLabel>03</masterLabel>
+            <translation>Por condiciones de precio</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
+            <masterLabel>04</masterLabel>
+            <translation>Por condiciones de producto</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Price</masterLabel>
-            <translation><!-- Price --></translation>
+            <masterLabel>05</masterLabel>
+            <translation>Otra</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -322,12 +322,56 @@
         <label>Motivo de desetimación</label>
         <name>rejection_reason_id__c</name>
     </fields>
-    <fields>
+ <fields>
         <label>Banco ganador</label>
         <name>rejection_winner_entity_name__c</name>
         <picklistValues>
-            <masterLabel>Bank</masterLabel>
-            <translation><!-- Bank --></translation>
+            <masterLabel>01</masterLabel>
+            <translation>BCP</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Scotiabank</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Interbank</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>BIF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Banco Financiero</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>GNB</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>Santander</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>Citibank Perú</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>ICBC PERU BANK</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>Banco de Comercio</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>MiBanco</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>Banco Azteca</translation>
         </picklistValues>
     </fields>
     <fields>
