@@ -166,6 +166,11 @@ Ejecutivos de REDES</description>
         <field>Account.EBITDA_amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.LastSIOcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.EBITDA_per__c</field>

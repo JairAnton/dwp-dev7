@@ -2,12 +2,13 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
         <fullName>Siocode__c</fullName>
+        <caseSensitive>false</caseSensitive>
         <externalId>false</externalId>
         <label>Siocode</label>
         <length>255</length>
         <required>false</required>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>Tipo_amortizacion__c</fullName>

@@ -165,6 +165,11 @@ Sub Gerentes de oficina</description>
         <field>Account.Industry</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.LastSIOcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Jigsaw</field>
