@@ -59,11 +59,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GraphicsGenerator_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GraphicsGenerator_cls_test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Hangout_ctrl</apexClass>
@@ -75,23 +75,23 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Opportunity_Handler_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Opportunity_Trigger_Test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Opportunity_Trigger_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Opportunity_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Opportunity_cls_test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>OverrideButtonMessage_ctrl</apexClass>
@@ -111,11 +111,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerHandler_Test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
     <description>Los cargos para este perfil pueden ser:
@@ -154,6 +154,11 @@ Analistas de riesgos</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.EBITDA_per__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.rejection_coin__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

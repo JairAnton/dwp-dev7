@@ -132,6 +132,11 @@ Ejecutivos de unidad de financiación estructurada (UFE)
 Ejecutivos de COMEX
 Ejecutivos de REDES</description>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.rejection_coin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>
         <readable>true</readable>

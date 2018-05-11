@@ -65,7 +65,7 @@ global class PE_DWP_Correo_cls implements Messaging.InboundEmailHandler {
                     Opportunity OppStatus = new Opportunity(
                         id=Oppsele[0].opportunityId,
                         StageName=Oppsele[0].opportunity.StageName,
-                        Opportunity_status_type__c=SioStatus
+                        Opportunity_status_type__c=varieble.get(SioStatus)
                     );
                     Update OppStatus;
                     newTask[0].Status='Inbound update Email';

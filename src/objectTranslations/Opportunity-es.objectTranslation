@@ -378,6 +378,18 @@
             <translation>Requiere autorización</translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>Moneda de perdida</label>
+        <name>rejection_coin__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>PEN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>USD</translation>
+        </picklistValues>
+    </fields>
     <recordTypes>
         <label>Nueva</label>
         <name>Opp_RT_01</name>
@@ -406,4 +418,5 @@
         <label><!-- Descarte --></label>
         <name>Descarta_Oportunidad</name>
     </quickActions>
+	
 </CustomObjectTranslation>

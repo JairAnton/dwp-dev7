@@ -7,11 +7,11 @@
     </applicationVisibilities>
 	<classAccesses>
         <apexClass>PE_DWP_Correo_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PE_DWP_Correo_tst</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
         <apexClass>Hangout_ctrl</apexClass>
@@ -77,6 +77,11 @@ Jefes de Promoción de Negocio
 Gerentes de oficina
 Ejecutivo de Banca de Empresas
 Asistente BE</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.rejection_coin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>
