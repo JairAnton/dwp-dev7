@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
         <name>chat</name>
         <label>chat</label>
-        <locationX>561</locationX>
-        <locationY>258</locationY>
+        <locationX>523</locationX>
+        <locationY>476</locationY>
         <actionName>chatterPost</actionName>
         <actionType>chatterPost</actionType>
         <inputParameters>
@@ -27,8 +27,8 @@
     <assignments>
         <name>Actualiza_Etapa</name>
         <label>Actualiza Etapa</label>
-        <locationX>378</locationX>
-        <locationY>255</locationY>
+        <locationX>341</locationX>
+        <locationY>453</locationY>
         <assignmentItems>
             <assignToReference>SO_Oportunidad.Id</assignToReference>
             <operator>Assign</operator>
@@ -50,18 +50,86 @@
                 <stringValue>36</stringValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.isProcess__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Actualizacion_Oportunidad</targetReference>
         </connector>
     </assignments>
-    <choices>
-        <name>Banco_Azteca</name>
-        <choiceText>Banco Azteca</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>Banco Azteca</stringValue>
-        </value>
-    </choices>
+    <assignments>
+        <name>Asignacion_valor</name>
+        <label>Asignacion valor</label>
+        <locationX>47</locationX>
+        <locationY>447</locationY>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.Loss_Reason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Motivo_Desestimacion</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.rejection_amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Importe</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.rejection_rate_per__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Tasa</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.rejection_winner_entity_name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Banco_ganador_1</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Actualiza_Etapa</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>RejectRazon</name>
+        <label>RejectRazon</label>
+        <locationX>336</locationX>
+        <locationY>277</locationY>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.rejection_reason_id__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RazonPerdida1</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Actualiza_Etapa</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Updateproces</name>
+        <label>Updateproces</label>
+        <locationX>520</locationX>
+        <locationY>291</locationY>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.isProcess__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>update</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>Banco_de_Comercio</name>
         <choiceText>Banco de Comercio</choiceText>
@@ -218,11 +286,53 @@
             <stringValue>USD</stringValue>
         </value>
     </choices>
+    <constants>
+        <name>OtraSeleccion</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>05</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>Valor01</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>01</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>Valor02</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>02</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>valor03</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>03</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>Valor04</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>04</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>Valor5</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>05</stringValue>
+        </value>
+    </constants>
     <decisions>
         <name>Desestimacion_desi1</name>
         <label>Desestimacion_desi1</label>
-        <locationX>148</locationX>
-        <locationY>161</locationY>
+        <locationX>50</locationX>
+        <locationY>171</locationY>
         <defaultConnectorLabel>[Resultado predeterminado]</defaultConnectorLabel>
         <rules>
             <name>Desestimacion_ruta1</name>
@@ -231,14 +341,14 @@
                 <leftValueReference>Motivo_Desestimacion</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>Por_condiciones_de_riesgos</elementReference>
+                    <elementReference>Valor02</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
                 <leftValueReference>Motivo_Desestimacion</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>Por_condiciones_de_precio</elementReference>
+                    <elementReference>valor03</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -248,19 +358,26 @@
         </rules>
         <rules>
             <name>Desestimacion_ruta2</name>
-            <conditionLogic>or</conditionLogic>
+            <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Motivo_Desestimacion</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>Por_condiciones_de_precio</elementReference>
+                    <elementReference>Valor02</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
                 <leftValueReference>Motivo_Desestimacion</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>Por_condiciones_de_riesgos</elementReference>
+                    <elementReference>valor03</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Motivo_Desestimacion</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Valor5</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -268,7 +385,46 @@
             </connector>
             <label>Desestimacion_ruta2</label>
         </rules>
+        <rules>
+            <name>Other</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Motivo_Desestimacion</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Valor5</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Other_expla</targetReference>
+            </connector>
+            <label>Other</label>
+        </rules>
     </decisions>
+    <dynamicChoiceSets>
+        <name>Listaprecios</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Loss_Reason__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>lossCoinlist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>rejection_coin__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>LostBank</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>rejection_winner_entity_name__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
     <interviewLabel>Motivo Descarte Oportunidad V0 {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Motivo Descarte Oportunidad</label>
     <processType>Flow</processType>
@@ -301,8 +457,18 @@
     <recordUpdates>
         <name>Actualizacion_Oportunidad</name>
         <label>Actualizacion Oportunidad</label>
-        <locationX>513</locationX>
-        <locationY>160</locationY>
+        <locationX>510</locationX>
+        <locationY>176</locationY>
+        <connector>
+            <targetReference>Updateproces</targetReference>
+        </connector>
+        <inputReference>SO_Oportunidad</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update</name>
+        <label>update</label>
+        <locationX>518</locationX>
+        <locationY>390</locationY>
         <connector>
             <targetReference>chat</targetReference>
         </connector>
@@ -311,28 +477,17 @@
     <screens>
         <name>Descarte_1</name>
         <label>Motivo Descarte Riesgos</label>
-        <locationX>151</locationX>
-        <locationY>313</locationY>
+        <locationX>48</locationX>
+        <locationY>325</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Actualiza_Etapa</targetReference>
+            <targetReference>Asignacion_valor</targetReference>
         </connector>
         <fields>
             <name>Banco_ganador_1</name>
-            <choiceReferences>BCP_1</choiceReferences>
-            <choiceReferences>Scotiabank_1</choiceReferences>
-            <choiceReferences>Interbank</choiceReferences>
-            <choiceReferences>BIF</choiceReferences>
-            <choiceReferences>Banco_Financiero</choiceReferences>
-            <choiceReferences>GNB</choiceReferences>
-            <choiceReferences>Santander</choiceReferences>
-            <choiceReferences>Citibank_Per</choiceReferences>
-            <choiceReferences>ICBC_PERU_BANK</choiceReferences>
-            <choiceReferences>Banco_de_Comercio</choiceReferences>
-            <choiceReferences>MiBanco</choiceReferences>
-            <choiceReferences>Banco_Azteca</choiceReferences>
+            <choiceReferences>LostBank</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Banco ganador:</fieldText>
             <fieldType>DropdownBox</fieldType>
@@ -341,8 +496,7 @@
         </fields>
         <fields>
             <name>Moneda</name>
-            <choiceReferences>PEN</choiceReferences>
-            <choiceReferences>USD</choiceReferences>
+            <choiceReferences>lossCoinlist</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Moneda</fieldText>
             <fieldType>DropdownBox</fieldType>
@@ -366,12 +520,21 @@
             <isRequired>true</isRequired>
             <scale>0</scale>
         </fields>
+        <fields>
+            <name>Plazo_de_la_operaci_n_perdida</name>
+            <dataType>Number</dataType>
+            <fieldText>Plazo de la operación perdida</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>expresado en días</helpText>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+        </fields>
     </screens>
     <screens>
         <name>Desestimacion</name>
         <label>Desestimacion</label>
         <locationX>149</locationX>
-        <locationY>61</locationY>
+        <locationY>47</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -380,16 +543,30 @@
         </connector>
         <fields>
             <name>Motivo_Desestimacion</name>
-            <choiceReferences>Por_razones_del_cliente</choiceReferences>
-            <choiceReferences>Por_condiciones_de_riesgos</choiceReferences>
-            <choiceReferences>Por_condiciones_de_precio</choiceReferences>
-            <choiceReferences>Por_condiciones_de_producto</choiceReferences>
-            <choiceReferences>Otra</choiceReferences>
+            <choiceReferences>Listaprecios</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Motivo Desestimacion</fieldText>
             <fieldType>DropdownBox</fieldType>
             <helpText>{!Otra} Ingrasa Infrmacion Especial</helpText>
             <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>Other_expla</name>
+        <label>Other</label>
+        <locationX>340</locationX>
+        <locationY>177</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>RejectRazon</targetReference>
+        </connector>
+        <fields>
+            <name>RazonPerdida1</name>
+            <fieldText>Motivo Perdida</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>true</isRequired>
         </fields>
     </screens>
     <startElementReference>Busqueda_Oportunidad</startElementReference>
@@ -403,6 +580,14 @@
         <value>
             <stringValue>Introduzca sus comentarios</stringValue>
         </value>
+    </variables>
+    <variables>
+        <name>false</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
     </variables>
     <variables>
         <description>Ejemplo</description>

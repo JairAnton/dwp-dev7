@@ -69,7 +69,21 @@
        saveSIO.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-               alert("Código SIO actualizado corretamente ");
+               //alert("Código SIO actualizado correctamente ");
+                var toastEvent = $A.get("e.force:showToast");
+				toastEvent.setParams({
+    				title: "Success!",
+	    			message: "Etapa y estado actualizado correctamente ",
+    				type: "success"
+				});
+				toastEvent.fire();
+                var outputVar = component.get("v.recordId");
+            	var urlEvent = $A.get("e.force:navigateToSObject");
+            	urlEvent.setParams({
+          			"recordId": outputVar,
+          			"slideDevName": "related"
+        		});
+            urlEvent.fire();
             }
         }
         );
@@ -92,7 +106,21 @@
       sendApproval.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-               alert("Etapa y estado actualizado corretamente ");
+               //alert("Etapa y estado actualizado correctamente ");
+                var toastEvent = $A.get("e.force:showToast");
+				toastEvent.setParams({
+    				title: "Success!",
+	    			message: "Etapa y estado actualizado correctamente ",
+    				type: "success"
+				});
+				toastEvent.fire();
+                var outputVar = component.get("v.recordId");
+            var urlEvent = $A.get("e.force:navigateToSObject");
+            urlEvent.setParams({
+          		"recordId": outputVar,
+          		"slideDevName": "related"
+        	});
+            urlEvent.fire();
             }
         }
         );
