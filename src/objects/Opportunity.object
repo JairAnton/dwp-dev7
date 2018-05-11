@@ -855,7 +855,7 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
-                <sorted>true</sorted>
+                <sorted>false</sorted>
                 <value>
                     <fullName>01</fullName>
                     <default>false</default>
