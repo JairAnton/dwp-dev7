@@ -1,51 +1,51 @@
 ({
-	
+ 
     getIni :function(component, event, helper) {
-      var oppId = component.get('v.recordId'); 
-      var actionOLI = component.get('c.getOppLI');  
-      var saveSIO = component.get('c.saveSIO'); 
-        
+      var oppId = component.get('v.recordId');
+      var actionOLI = component.get('c.getOppLI');
+      var saveSIO = component.get('c.saveSIO');
+ 
       actionOLI.setParams({
-                    "opp":oppId                     
-                });  
+                    "opp":oppId
+                });
        actionOLI.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 component.set('v.recordOLI', response.getReturnValue());
             }
-        }                    
+        }
         );
-         $A.enqueueAction(actionOLI);  
+         $A.enqueueAction(actionOLI);
     },
-    
+ 
     setValue : function(component, event, helper) {
-    var fieldValue; 
+    var fieldValue;
     fieldValue= component.find('input_modal').get('v.value');
     component.set("v.Modality", fieldValue);
-   
-    (fieldValue=='Inside line')?component.set("v.showButton", true):component.set("v.showButton", false);      
-    (fieldValue=='Requires authorization')?component.set("v.showSIO", true):component.set("v.showSIO", false);          
-    var a = component.get('c.rerender'); 
-    var action = component.get('c.getTasks');   
-    var st = component.get('v.searchText'); 
+ 
+    (fieldValue=='Inside line')?component.set("v.showButton", true):component.set("v.showButton", false);
+    (fieldValue=='Requires authorization')?component.set("v.showSIO", true):component.set("v.showSIO", false);
+    var a = component.get('c.rerender');
+    var action = component.get('c.getTasks');
+    var st = component.get('v.searchText');
         action.setParams({
-                    "val":st                     
+                    "val":st
                 });
-       
+ 
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-                component.set('v.mydata', response.getReturnValue());       
+                component.set('v.mydata', response.getReturnValue());
             }
-        }                    
+        }
         );
-      
-        
-    $A.enqueueAction(action);    
+ 
+ 
+    $A.enqueueAction(action);
     $A.enqueueAction(a);
 	},
     rerender : function(component,event,helper){
-       this.reRender(); 
+       this.reRender();
     },
     openModel: function(component, event, helper) {
       component.set("v.isOpen", true);
@@ -54,50 +54,78 @@
    closeModel: function(component, event, helper) {
          component.set("v.isOpen", false);
    },
-   saveModel: function(component, event, helper) { 
-       var sel;  
+   saveModel: function(component, event, helper) {
+       var sel;
        sel = component.get("v.selectedRow")
        component.set("v.isOpen", false);
        component.set("v.saveRow",sel);
-       var oppId = component.get('v.recordId'); 
-       var saveSIO = component.get('c.saveSIO'); 
-        
+       var oppId = component.get('v.recordId');
+       var saveSIO = component.get('c.saveSIO');
+ 
       saveSIO.setParams({
                     "opp":oppId,
                      "savedRow":sel
-                });  
+                });
        saveSIO.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-               alert("Código SIO actualizado corretamente ");
+               //alert("Código SIO actualizado correctamente ");
+                var toastEvent = $A.get("e.force:showToast");
+				toastEvent.setParams({
+    				title: "Success!",
+	    			message: "Etapa y estado actualizado correctamente ",
+    				type: "success"
+				});
+				toastEvent.fire();
+                var outputVar = component.get("v.recordId");
+            	var urlEvent = $A.get("e.force:navigateToSObject");
+            	urlEvent.setParams({
+          			"recordId": outputVar,
+          			"slideDevName": "related"
+        		});
+            urlEvent.fire();
             }
-        }                    
+        }
         );
-         $A.enqueueAction(saveSIO); 
-       
-   }, 
+         $A.enqueueAction(saveSIO);
+ 
+   },
     selectedRow: function(component,event){
      var sel;
-     sel = event.getSource().get("v.label");   
+     sel = event.getSource().get("v.label");
      component.set("v.selectedRow",sel);
-     var a = component.get('c.rerender'); 
-    $A.enqueueAction(a);  
-   }, 
+     var a = component.get('c.rerender');
+    $A.enqueueAction(a);
+   },
     sendApprove:function(component){
-     var sendApproval = component.get('c.sendApproval'); 
-     var oppId = component.get('v.recordId');        
+     var sendApproval = component.get('c.sendApproval');
+     var oppId = component.get('v.recordId');
       sendApproval.setParams({
                     "opp":oppId
-                }); 
+                });
       sendApproval.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-               alert("Etapa y estado actualizado corretamente ");
+               //alert("Etapa y estado actualizado correctamente ");
+                var toastEvent = $A.get("e.force:showToast");
+				toastEvent.setParams({
+    				title: "Success!",
+	    			message: "Etapa y estado actualizado correctamente ",
+    				type: "success"
+				});
+				toastEvent.fire();
+                var outputVar = component.get("v.recordId");
+            var urlEvent = $A.get("e.force:navigateToSObject");
+            urlEvent.setParams({
+          		"recordId": outputVar,
+          		"slideDevName": "related"
+        	});
+            urlEvent.fire();
             }
-        }                    
+        }
         );
-         $A.enqueueAction(sendApproval);    
-        
-    } 
-    
+         $A.enqueueAction(sendApproval);
+ 
+    }
+ 
 })

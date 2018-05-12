@@ -1,5 +1,5 @@
-<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="Opportunity_cls">
-	 <aura:attribute name="lblTitle" type="String" default=""/>
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,lightningsnapin:prechatUI" controller="Opportunity_cls">
+   <aura:attribute name="lblTitle" type="String" default=""/>
    <aura:attribute name="lblAccountName" type="String" default=""/>
    <aura:attribute name="lblOpportunityName" type="String" default=""/>
    <aura:attribute name="lblPlanningDate" type="String" default=""/>
@@ -47,12 +47,12 @@
       </button>
     </div>
   </div>
-          <lightning:input aura:id="txtAccountName" name="txtAccountName"  label="{!v.lblAccountName}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  value="{!v.simpleRecord.Name}" readonly="true"/>                 
+          <lightning:input aura:id="txtAccountName" name="txtAccountName" label="{!v.lblAccountName}" class="slds-size_1-of-2 slds-p-horizontal_x-small" value="{!v.simpleRecord.Name}" readonly="true"/>
 	      	<lightning:input required="true" aura:id="txtlblOpportunityName" name="txtlblOpportunityName"  label="{!v.lblOpportunityName}" class="slds-size_1-of-2 slds-p-horizontal_x-small" />   
           <div class="slds-size_1-of-2 slds-p-horizontal_x-small" >           
-              <lightning:input aura:id="txtAmount" name="txtAmount" type="number" label="{!v.lblAmount}" value="" />   </div>
+              <lightning:input aura:id="txtAmount" name="txtAmount" type="number" step="0.01" label="{!v.lblAmount}" value="" />   </div>
               <lightning:select aura:id="selCurrency" name="selCurrency" label="{!v.lblCurrency}" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
-                    <option value="PEN">Nuevo sol peruano</option>
+                    <option value="PEN">Sol peruano</option>
                     <option value="USD">Dólar EE.UU.</option>                    
                 </lightning:select>
             	<div class="slds-size_1-of-2 slds-p-horizontal_x-small" >

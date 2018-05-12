@@ -31,7 +31,7 @@ public without sharing class Opportunity_Trigger_cls {
         	MapUser.put(us.Id,us);
             
         for(Opportunity opp:Opps_New){
-            opp.isprocess__c = true;
+            
             if(opp.OwnerId!=Opps_OldMap.get(opp.Id).OwnerId && opp.StageName =='01' || 
                opp.StageName =='02'&& opp.StageName =='03'){
                 if(MapUser.get(Opps_OldMap.get(opp.Id).OwnerID).Profile.Name=='Ejecutivo'||
