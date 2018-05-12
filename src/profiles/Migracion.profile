@@ -8,11 +8,11 @@
 	    <custom>true</custom>
 	<classAccesses>
         <apexClass>PE_DWP_Correo_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PE_DWP_Correo_tst</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Hangout_ctrl</apexClass>
@@ -73,6 +73,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.main_code_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.rejection_coin__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1563,6 +1568,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Modality__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.LastSIOcode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
