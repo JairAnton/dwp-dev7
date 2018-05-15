@@ -1,0 +1,211 @@
+<apex:page renderAs="pdf" applyBodyTag="false" standardController="Opportunity" extensions="PDF_formalizacion_ctrl">
+        <head>
+                <style type="text/css" media="print">
+                       @page {
+                           @top-center {
+                                       content: element(header);
+                                       }
+                           @bottom-left{
+                                        content: element(footer);
+                                       }
+                            }
+                            div.header {
+                                      padding: 10px;
+                                      position: running(header);
+                           }
+                            div.footer {
+                                display: block;
+                                padding: 5px;
+                                position: running(footer);
+                                 }
+                           div.title{
+                                background:#ededed;
+                                color:#42517c;
+                                font-family:  comic-sans;
+                                font-size:20px;
+                                font-style:	normal;
+                            }
+                            div.subtitle{
+                                background:#ededed;
+                                color:#42517c;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size=20px;
+                            }
+                           .pagenumber:before {
+                                        content: counter(page);
+                            }
+                          .pagecount:before {
+                             content: counter(pages);
+                             }
+                               table {
+                                    border-collapse: collapse;
+                                    width: 100%;
+                                }
+                                
+                                th, td {
+                                    padding: 8px;
+                                    text-align: left;
+                                    border-bottom: 1px solid #ddd;
+                                }
+                           tr:nth-child(even) {background-color: #f2f2f2;}
+                          table.classTableBack{
+                                border-bottom: 1px solid #ddd;
+                                width:100%;
+                                alignment:rigth;
+                                                      
+                          }
+                          th.cb{
+                          padding: 8px;
+                          border-bottom: 1px solid #ddd;
+                          background-color:#6699ff;
+                          alignment:center;
+                          }
+                          td.cd{
+                          padding: 8px;
+                          border-bottom: 1px solid #ddd;
+                          background-color:#ffffff;
+                          alignment:center;
+                    }
+                    
+                    </style>
+              </head>
+         <div style="page-break-after:always;">
+            <div class="title">
+            <h2>Formalización de la oportunidad : {!Opportunity.Name}  </h2>
+            </div>
+              <div class="title"> 
+              <b>Datos del cliente</b>
+             </div>    
+         <br/>
+         <table>
+          <tr>
+             <th>Cliente: {!Opportunity.Account.Name}</th>
+             <th></th> 
+          </tr>
+          <tr>
+            <td>Código central: {!Opportunity.Account.Name} </td>
+            <td>Nombre ejecutivo: {!Opportunity.Owner.Name} </td>  
+         </tr>
+         <tr>
+           <td>RUE: {!Opportunity.Account.ROE_per__c} </td>
+           <td>Registro de ejecutivo: {!Opportunity.Owner.user_id__c } </td>    
+         </tr> 
+         <tr>
+           <td>Oficina: {!Opportunity.Account.branch_id__c}</td>
+           <td>Código cartera : {!Opportunity.Account.main_code_id__c}</td>    
+         </tr>        
+         </table>
+         <br/>
+               <div class="title"> 
+               <b>Datos de riesgo</b>
+               </div>    
+         <br/>
+         <table>
+          <tr>
+            <td>Clasificación BBVA:{!ABBVAC.bbva_classification_desc__c } </td>
+            <td>Alerta: {!Opportunity.Name}</td>  
+         </tr>
+         <tr>
+           <td>Clasificación SBS: {!Opportunity.Name} </td>
+           <td>Etiqueta: {!Opportunity.Name} </td>    
+         </tr> 
+         <tr>
+           <td>Buró: {!Opportunity.Name} </td>
+           <td>Rating: {!Opportunity.Name} </td>    
+         </tr>        
+         </table>
+            <br/>
+               <div class="title"> 
+               <b>Sanción de riesgos</b>
+               </div>     
+         <br/>
+         <table>
+          <tr>
+            <td>No cotización: {!Opportunity.Name} </td>
+            <td>Fecha de autorización: {!Opportunity.Name} </td>  
+         </tr>
+         <tr>
+           <td>Tasa aprobada: {!Opportunity.Name} </td>
+           <td>Vigencia: {!Opportunity.Name} </td>    
+         </tr> 
+         <tr>
+           <td>Plazo: {!Opportunity.Name} </td>
+           <td>Tipo garantía: {!Opportunity.Name}</td>    
+         </tr> 
+         <tr>
+           <td>Compromisos: {!Opportunity.Name} </td>
+           <td>Sancionados: {!Opportunity.Name} </td>    
+         </tr> 
+         </table>     
+         <br/>
+              <div class="title"> 
+               <b>Datos de oportunidad</b>
+              </div>
+         <br/> 
+         <ul>
+         <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
+         <li>Destino: {!OLI.Destination__c}</li>
+         <li>Familia Producto: {!Product.Family}</li>
+         <li>Producto: {!Product.Name}</li>
+         <li>Divisa: {!Product.CurrencyIsoCode}</li>
+         <li>Importe: {!Opportunity.Amount} </li>
+         <li>Cuenta vinculada: {!Opportunity.Name}</li>
+         <li>Tipo de amortización: {!Opportunity.Name} </li>
+         <li>Plazo: {!Opportunity.Name}</li>
+         <li>Periodicidad: {!Opportunity.Name}</li>
+         <li>Periodo de gracia: {!Opportunity.Name}</li>
+         <li>Fecha de vencimiento: {!Opportunity.Name}</li>
+         <li>Código simulación: {!Opportunity.Name}</li>    
+        </ul>
+        </div> 
+              <div class="title"> 
+               <h3>
+               <b>Garantias e intervinientes</b>    
+                  </h3>
+              </div>    
+         <br/>
+         <div class="title"> 
+         Garantias
+        </div>   
+         <table class="classTableBack">
+            <tr>
+              <th class="cb">Garantia</th>
+              <th class="cb">Modalidad</th>
+              <th class="cb">Estado</th>
+              <th class="cb">Plazo</th>
+              <th class="cb">Formalización</th>
+              <th class="cb">No. garantía</th>
+              <th class="cb">Importe</th>  
+            </tr>
+            <tr>
+            <td class="cd">{!Opportunity.Name}</td>
+            <td class="cd">{!Opportunity.Modality__c}</td>
+            <td class="cd">{!Opportunity.StageName}</td>
+            <td class="cd">{!OLI.Term__c}</td>
+            <td class="cd">{!Opportunity.Name}</td>
+            <td class="cd">{!OLI.Warranty__c}</td>
+            <td class="cd">{!Opportunity.Amount}</td>    
+            </tr> 
+         </table>
+        <br/>
+        <div class="title"> 
+         Intervinientes
+        </div>
+            <table class="classTableBack">
+             <tr>
+              <th class="cb">Nombre/Cliente</th>
+              <th class="cb">DOI</th>
+              <th class="cb">Participación</th>
+              <th class="cb">Estado cívil</th>  
+            </tr>
+            <tr>
+            <td class="cd">{!Opportunity.Name}</td>
+            <td class="cd">{!Opportunity.Name}</td>
+            <td class="cd">{!Opportunity.Name}</td>
+            <td class="cd">{!Opportunity.Name}</td>    
+            </tr> 
+         </table>
+           <div class="footer">
+                <div>Página <span class="pagenumber"/> de <span class="pagecount"/></div>
+          </div>
+</apex:page>
