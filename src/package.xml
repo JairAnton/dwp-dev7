@@ -174,6 +174,9 @@
         <members>PE_DWP_Correo_tst</members>
         <members>OpportunityProduct_Controller</members>
         <members>OpportunityProduct_Controller_tst</members>
+        <members>OpportunityPDFWrap</members>
+        <members>PDF_formalizacion_ctrl</members>
+        <members>PDF_formalizacion_ctrl_tst</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -726,18 +729,20 @@
 	<!--<members>Opp_PB_Opportunidad</members> -->
 	<!--<members>ProductOpp_DueDate</members> -->
 	<!--<members>Task_update_Opportunity</members> -->
+    <members>Opp_PDF_Creation</members>
 	<name>FlowDefinition</name>
   </types>
   <types>
 	<!--<members>Email_Message_update_Opportunity-4</members> -->
 	<!--<members>Event_update_Opportunity-3</members> -->
 	<!--<members>FlujoEstadosOportunidad-12</members> -->
-	<members>Motivo_Descarte_Oportunidad_V0-32</members>
+	<!--members>Motivo_Descarte_Oportunidad_V0-32</members -->
 	<!--<members>Opp_Owner_Changed-3</members> -->
 	<!--<members>Opp_PB_Opportunidad-8</members> -->
 	<!--<members>ProductOpp_DueDate-3</members> -->
 	<!--<members>Task_update_Opportunity-3</members> -->
 	<!--<members>Motivo_Descarte_Oportunidad_V0-25</members> -->
+     <members>Opp_PDF_Creation-7</members>
 	<name>Flow</name>
   </types>
     <types>
@@ -856,5 +861,9 @@
         <members>*</members>
         <name>StandardValueSetTranslation</name>
     </types>
+    <types>
+        <members>PDF_formalizacion_vfp</members>
+        <name>ApexPage</name>
+     </types>
     <version>41.0</version>
 </Package>
