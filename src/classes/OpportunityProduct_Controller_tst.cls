@@ -17,11 +17,14 @@ public class OpportunityProduct_Controller_tst {
         //Create Accounts.
        test.startTest();
         Opportunity Opp = new Opportunity(Name='testopp', StageName='01', CloseDate=system.Date.today(),opportunity_status_type__c='01');
-      
+       
         List<Account> lstAccounts = new List<Account>();
+        List<task> lstTasks = new List<task>(); 
         for(Integer intI = 0; intI < 2; intI++) {
             lstAccounts.add(new Account(Name = 'AccountName'+ intI));
+            lstTasks.add(new Task(Subject='SIO1234567##'+(intI+1)+'er Ingreso a Controller##',Status='Inbound Email'));
         }
+        insert lstTasks;
         insert lstAccounts;
         insert opp;
        
@@ -43,11 +46,12 @@ public class OpportunityProduct_Controller_tst {
     }
 
 static testMethod  void positiveTest(){
+    task t = [SELECT Id FROM TASK LIMIT 1];
     opportunity  opp = [SELECT ID FROM Opportunity LIMIT 1];
     OpportunityProduct_Controller OPC = new OpportunityProduct_Controller();
     OpportunityProduct_Controller.getTasks(opp.Id);
     OpportunityProduct_Controller.getOppLI(opp.id);
-    OpportunityProduct_Controller.saveSIO(opp.Id,'SIO123');
+    OpportunityProduct_Controller.saveSIO(opp.Id,t.Id);
     OpportunityProduct_Controller.sendApproval(opp.Id);
     
     
