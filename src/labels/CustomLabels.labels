@@ -395,4 +395,39 @@
         <shortDescription>taskStatusFilter</shortDescription>
         <value>Inbound Email</value>
     </labels>
+    <labels>
+        <fullName>lblFormalize</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalize</shortDescription>
+        <value>Formalizar</value>
+    </labels>
+    <labels>
+        <fullName>lblPenalizeRisk</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPenalizeRisk</shortDescription>
+        <value>Penalize risk</value>
+    </labels>
+    <labels>
+        <fullName>lblReevaluate</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblReevaluate</shortDescription>
+        <value>Re-evaluate</value>
+    </labels>
+    <labels>
+        <fullName>lblReject</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblReject</shortDescription>
+        <value>Reject</value>
+    </labels>
+    <labels>
+        <fullName>lblSanctionPrice</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblSanctionPrice</shortDescription>
+        <value>Sanction price</value>
+    </labels>
 </CustomLabels>

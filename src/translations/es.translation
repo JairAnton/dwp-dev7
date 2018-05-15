@@ -284,6 +284,26 @@
         <label><!-- GBL_ToastSavedOk --></label>
         <name>fprd__GBL_ToastSavedOk</name>
     </customLabels>
+    <customLabels>
+        <label>Formalizar</label>
+        <name>lblFormalize</name>
+    </customLabels>
+    <customLabels>
+        <label>Sancionar riesgo</label>
+        <name>lblPenalizeRisk</name>
+    </customLabels>
+    <customLabels>
+        <label>Reevaluar</label>
+        <name>lblReevaluate</name>
+    </customLabels>
+    <customLabels>
+        <label>Desestimar</label>
+        <name>lblReject</name>
+    </customLabels>
+    <customLabels>
+        <label>Sancionar precio</label>
+        <name>lblSanctionPrice</name>
+    </customLabels>    
    <customLabels>
         <label>Para dar de alta una nueva Oportunidad, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nueva Oportunidad&quot;</label>
         <name>NewOpportunityWarning</name>

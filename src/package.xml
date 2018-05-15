@@ -140,6 +140,11 @@
         <members>Save</members>
         <members>NewOpportunityWarning</members>
         <members>taskFilter</members>
+        <members>lblFormalize</members>
+        <members>lblPenalizeRisk</members>
+        <members>lblReevaluate</members>
+        <members>lblReject</members>
+        <members>lblSanctionPrice</members>
         <name>CustomLabel</name>
     </types>
     <types>
