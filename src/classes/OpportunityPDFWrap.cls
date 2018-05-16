@@ -15,7 +15,7 @@ public virtual class OpportunityPDFWrap {
 
     public static void setValues(String Oppid){
       opportunity opp = [SELECT AccountId,OwnerId FROM Opportunity WHERE id =:Oppid LIMIT 1];
-      OLI = [SELECT ID,gipr_Destino__c,Product2Id,Term__c,Warranty__c FROM OpportunityLineItem WHERE  OpportunityID =:Oppid ORDER BY CreatedDate DESC LIMIT 1];
+      OLI = [SELECT ID,gipr_Destino__c,Product2Id,gipr_Plazo__c ,gipr_Garantia__c  FROM OpportunityLineItem WHERE  OpportunityID =:Oppid ORDER BY CreatedDate DESC LIMIT 1];
       Product = [SELECT ID,Family,Name,CurrencyIsoCode FROM Product2 WHERE Id =:OLI.Product2Id LIMIT 1];
       Client =[SELECT ID,Name FROM Account WHERE Id =: opp.AccountId LIMIT 1];
       ABBVAC = [SELECT ID FROM Account_BBVA_Classification__c WHERE account_id__c =:Client.Id LIMIT 1];

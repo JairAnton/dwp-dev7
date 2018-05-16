@@ -144,7 +144,7 @@
          <br/>
          <ul>
          <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-         <li>Destino: {!OLI.Destination__c}</li>
+         <li>Destino: {!OLI.gipr_Destino__c}</li>
          <li>Familia Producto: {!Product.Family}</li>
          <li>Producto: {!Product.Name}</li>
          <li>Divisa: {!Product.CurrencyIsoCode}</li>
@@ -181,9 +181,9 @@
             <td class="cd">{!Opportunity.Name}</td>
             <td class="cd">{!Opportunity.Modality__c}</td>
             <td class="cd">{!Opportunity.StageName}</td>
-            <td class="cd">{!OLI.Term__c}</td>
+            <td class="cd">{!OLI.gipr_Plazo__c}</td>
             <td class="cd">{!Opportunity.Name}</td>
-            <td class="cd">{!OLI.Warranty__c}</td>
+            <td class="cd">{!OLI.gipr_Garantia__c }</td>
             <td class="cd">{!Opportunity.Amount}</td>
             </tr>
          </table>
