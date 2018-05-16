@@ -151,7 +151,7 @@
          <li>Importe: {!Opportunity.Amount} </li>
          <li>Cuenta vinculada: {!Opportunity.Name}</li>
          <li>Tipo de amortización: {!Opportunity.Name} </li>
-         <li>Plazo: {!Oli.Term__c}</li>
+         <li>Plazo: {!Oli.gipr_Plazo__c}</li>
          <li>Periodicidad: {!Opportunity.Name}</li>
          <li>Periodo de gracia: {!Opportunity.Name}</li>
          <li>Fecha de vencimiento: {!Opportunity.Name}</li>
