@@ -145,6 +145,7 @@
         <members>lblReevaluate</members>
         <members>lblReject</members>
         <members>lblSanctionPrice</members>
+        <members>lblQuote</members>
         <name>CustomLabel</name>
     </types>
     <types>
