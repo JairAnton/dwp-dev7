@@ -153,6 +153,7 @@
         <members>UserNotAllowedToCreatePDF</members>
         <members>AccountType1</members>
         <members>AccountType2</members>
+        <members>lblQuote</members>
         <name>CustomLabel</name>
     </types>
     <types>
