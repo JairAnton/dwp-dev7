@@ -118,7 +118,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PDFClassButton</apexClass>
+        <apexClass>PDFclassButton</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>

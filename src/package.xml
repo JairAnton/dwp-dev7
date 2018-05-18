@@ -145,6 +145,14 @@
         <members>lblReevaluate</members>
         <members>lblReject</members>
         <members>lblSanctionPrice</members>
+        <members>PDFError</members>
+        <members>stageIncorrectToPDF</members>
+        <members>lblErrorReevaluateBtn</members>
+        <members>lblbtnPDF_cfg</members>
+        <members>reevaluateBtnLabel</members>
+        <members>UserNotAllowedToCreatePDF</members>
+        <members>AccountType1</members>
+        <members>AccountType2</members>
         <name>CustomLabel</name>
     </types>
     <types>
