@@ -466,11 +466,10 @@
         <value>You can not create a PDF on this stage</value>
     </labels>
     <labels>
-        <fullName>taskFilter</fullName>
-        <categories>task label</categories>
+        <fullName>UserNotAllowedToCreatePDF</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>taskStatusFilter</shortDescription>
-        <value>Inbound Email</value>
+        <shortDescription>UserNotAllowedToCreatePDF</shortDescription>
+        <value>Only Operative users are allowed to create the PDF</value>
     </labels>
 </CustomLabels>
