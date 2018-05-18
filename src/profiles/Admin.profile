@@ -117,6 +117,10 @@
         <apexClass>OpportunityPDFWrap</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>PDFclassButton</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
@@ -1950,7 +1954,11 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account_Banking_System_Classification__c</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>       
+    </objectPermissions> 
+   <pageAccesses>
+        <apexPage>PDF_formalizacion_vfp</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>       
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>

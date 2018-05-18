@@ -1,7 +1,7 @@
-public class PDF_formalizacion_ctrl extends OpportunityPDFWrap  {
-
+public class PDF_formalizacion_ctrl extends OpportunityPDFWrap   {
     @InvocableMethod(label='Create PDF on Opportunity' description='Creates a PDF on an Opportunity')
     public static void PDF_formalization(list<String> oppIds){
+        system.debug('Por tlaloc dime que llegaste aquí');
         list<attachment> insertAttachment = new list<attachment>();
         list<opportunityLineItem> OLI = new list<opportunityLineItem>();
 
