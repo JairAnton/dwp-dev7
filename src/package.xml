@@ -182,6 +182,7 @@
         <members>OpportunityPDFWrap</members>
         <members>PDF_formalizacion_ctrl</members>
         <members>PDF_formalizacion_ctrl_tst</members>
+        <members>PDFclassButton</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -201,7 +202,8 @@
 		<members>GraphicVinculacion_comp</members>
         <members>OpportunityProduct_Comp</members>
         <members>cQuickAction_NewOpportunity</members>
-        <members>submitTODiscart</members>		
+        <members>submitTODiscart</members>
+        <members>PDFLigthingComponent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

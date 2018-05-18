@@ -308,6 +308,18 @@
         <label>Para dar de alta una nueva Oportunidad, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nueva Oportunidad&quot;</label>
         <name>NewOpportunityWarning</name>
     </customLabels>
+   <customLabels>
+       <label>EL PDF contiene datos incorrectos favor de verificar que toda la informacion viene correcta</label>
+       <name>PDFError</name>
+   </customLabels>
+   <customLabels>
+       <label>No puede generar PDF en esta etapa</label>
+       <name>stageIncorrectToPDF</name>
+   </customLabels>
+   <customLabels>
+       <label>El usuario no tiene permisos para generar PDF</label>
+       <name>UserNotAllowedToCreatePDF</name>
+   </customLabels>
 	<quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

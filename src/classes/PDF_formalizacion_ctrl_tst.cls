@@ -2,7 +2,22 @@
 public class PDF_formalizacion_ctrl_tst {
 
     @testSetup
-    static void setupData() {
+    static void setupData() {    
+     User u = new User(
+     ProfileId = [SELECT Id FROM Profile WHERE Name = 'Ejecutivo'].Id,
+     LastName = 'last',
+     Email = 'user@BBVA.com',
+     Username = 'userBBVA@BBVA.com' + System.currentTimeMillis(),
+     CompanyName = 'BBVA',
+     Title = 'title',
+     Alias = 'alias',
+     TimeZoneSidKey = 'America/Los_Angeles',
+     EmailEncodingKey = 'UTF-8',
+     LanguageLocaleKey = 'en_US',
+     LocaleSidKey = 'en_US'); 
+     insert u;   
+        
+        
         //Create Accounts.
         List<Account> lstAccounts = new List<Account>();
         List<Opportunity> lstOpportunities = new List<Opportunity>();
@@ -67,4 +82,29 @@ public class PDF_formalizacion_ctrl_tst {
    ApexPages.StandardController sc = new ApexPages.standardController(lstOpportunities[0]);
    PDF_formalizacion_ctrl pdf = new PDF_formalizacion_ctrl(sc);
     }
+    
+    public static testMethod void positiveTestPDFClassButton(){
+    Opportunity opp =[SELECT Id FROM  Opportunity LIMIT 1];
+       opp.StageName='05';
+        update opp;
+        test.startTest();
+       string recordId = opp.Id;
+       PDFclassButton.getErrorMessagesList(recordId,'','');
+      test.stopTest();          
+    }
+    
+     public static testMethod void negativeTestPDFClassButton(){
+     User u = [SELECT Id FROM USER WHERE email ='user@BBVA.com']; 
+      Opportunity opp =[SELECT Id FROM  Opportunity LIMIT 1];
+       opp.StageName='01';
+        update opp;  
+        test.startTest();
+         system.runAs(u){  
+       string recordId =[SELECT Id FROM  Opportunity LIMIT 1].Id;
+       PDFclassButton.getErrorMessagesList(recordId,'','');
+         }      
+      test.stopTest();          
+    }
+    
+    
 }

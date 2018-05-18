@@ -199,10 +199,10 @@
               <th class="cb">Estado cívil</th>
             </tr>
             <tr>
-            <td class="cd">{!Opportunity.Name}</td>
-            <td class="cd">{!Opportunity.Name}</td>
-            <td class="cd">{!Opportunity.Name}</td>
-            <td class="cd">{!Opportunity.Name}</td>
+            <td class="cd">{!Contacto.Name}</td>
+            <td class="cd">{!Contacto.Name}</td>
+            <td class="cd">{!Contacto.Name}</td>
+            <td class="cd">{!Contacto.Status_desc__c}</td>
             </tr>
          </table>
            <div class="footer">

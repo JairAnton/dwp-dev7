@@ -332,6 +332,13 @@
         <value>Opportunity Name</value>
     </labels>
     <labels>
+        <fullName>PDFError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PDFError</shortDescription>
+        <value>Unable to create PDF, please make sure that all information is complete</value>
+    </labels>
+    <labels>
         <fullName>PlannigDate</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -429,5 +436,34 @@
         <protected>false</protected>
         <shortDescription>lblSanctionPrice</shortDescription>
         <value>Sanction price</value>
+    </labels>
+    <labels>
+        <fullName>lblbtnPDF_cfg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PDF</shortDescription>
+        <value>PDF</value>
+    </labels>
+    <labels>
+        <fullName>reevaluateBtnLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>creates the label for button</shortDescription>
+        <value>Reevaluate</value>
+    </labels>
+    <labels>
+        <fullName>stageIncorrectToPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>stageIncorrectToPDF</shortDescription>
+        <value>You can not create a PDF on this stage</value>
+    </labels>
+    <labels>
+        <fullName>taskFilter</fullName>
+        <categories>task label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>taskStatusFilter</shortDescription>
+        <value>Inbound Email</value>
     </labels>
 </CustomLabels>
