@@ -417,6 +417,13 @@
         <value>Penalize risk</value>
     </labels>
     <labels>
+        <fullName>lblQuote</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblQuote</shortDescription>
+        <value>Quote</value>
+    </labels>
+    <labels>
         <fullName>lblReevaluate</fullName>
         <language>es</language>
         <protected>false</protected>

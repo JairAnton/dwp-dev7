@@ -174,7 +174,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsAlignment</name>
-                <value>left,left,right,right,right,</value>
+                <value>left,left,left,right,right,right,</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsCollectionUniqueIdentifier</name>
@@ -182,11 +182,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsStyles</name>
-                <value>neutral,neutral,brand,brand,brand</value>
+                <value>neutral,neutral,neutral,brand,brand,brand</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsUniqueIdentifiers</name>
-                <value>btnReject,btnReevaluate,btnPenalizeRisk,btnSanctionPrice,btnFormalize</value>
+                <value>btnReject,btnReevaluate,btnQuote,btnPenalizeRisk,btnSanctionPrice,btnFormalize</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>

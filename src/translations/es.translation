@@ -293,6 +293,10 @@
         <name>lblPenalizeRisk</name>
     </customLabels>
     <customLabels>
+        <label>Cotizar</label>
+        <name>lblQuote</name>
+    </customLabels>
+    <customLabels>
         <label>Reevaluar</label>
         <name>lblReevaluate</name>
     </customLabels>

@@ -263,6 +263,7 @@
         <members>Account_Banking_System_Classification__c</members>
 		<members>Product2</members>
 		<members>OpportunityTeamMember</members>
+        <members>Task</members>
         <name>CustomObject</name>
     </types>
 	<types>
