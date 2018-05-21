@@ -14,7 +14,7 @@
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     component.set("v.PGuarantee", response.getReturnValue());
-                    component.set("v.PGuaranteeId",component.get("v.PGuarantee")[0].Product2Id);
+                    component.set("v.PGuaranteeId",component.get("v.PGuarantee")[0].Id);
 					component.find("selGuaranteeType").set("v.value",component.get("v.PGuarantee")[0].GuaranteeType__c);
 					if(component.get("v.PGuarantee")[0].GuaranteeType__c=="01")
 		    		{
