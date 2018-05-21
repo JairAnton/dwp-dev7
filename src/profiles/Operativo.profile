@@ -117,6 +117,22 @@
         <apexClass>TriggerHandler_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>PDF_formalizacion_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>    
+    <classAccesses>
+        <apexClass>PDF_formalizacion_ctrl_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityPDFWrap</apexClass>
+        <enabled>true</enabled>
+    </classAccesses> 
+   <classAccesses>
+        <apexClass>PDFclassButton</apexClass>
+        <enabled>true</enabled>
+    </classAccesses> 
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
@@ -3190,6 +3206,10 @@ Sub Gerentes de oficina</description>
         <object>StreamingChannel</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <pageAccesses>
+        <apexPage>PDF_formalizacion_vfp</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>

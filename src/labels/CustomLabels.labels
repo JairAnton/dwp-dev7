@@ -332,6 +332,13 @@
         <value>Opportunity Name</value>
     </labels>
     <labels>
+        <fullName>PDFError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PDFError</shortDescription>
+        <value>Unable to create PDF, please make sure that all information is complete</value>
+    </labels>
+    <labels>
         <fullName>PlannigDate</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -394,5 +401,75 @@
         <protected>false</protected>
         <shortDescription>taskStatusFilter</shortDescription>
         <value>Inbound Email</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalize</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalize</shortDescription>
+        <value>Formalizar</value>
+    </labels>
+    <labels>
+        <fullName>lblPenalizeRisk</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPenalizeRisk</shortDescription>
+        <value>Penalize risk</value>
+    </labels>
+    <labels>
+        <fullName>lblQuote</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblQuote</shortDescription>
+        <value>Quote</value>
+    </labels>
+    <labels>
+        <fullName>lblReevaluate</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblReevaluate</shortDescription>
+        <value>Re-evaluate</value>
+    </labels>
+    <labels>
+        <fullName>lblReject</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblReject</shortDescription>
+        <value>Reject</value>
+    </labels>
+    <labels>
+        <fullName>lblSanctionPrice</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblSanctionPrice</shortDescription>
+        <value>Sanction price</value>
+    </labels>
+    <labels>
+        <fullName>lblbtnPDF_cfg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PDF</shortDescription>
+        <value>PDF</value>
+    </labels>
+    <labels>
+        <fullName>reevaluateBtnLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>creates the label for button</shortDescription>
+        <value>Reevaluate</value>
+    </labels>
+    <labels>
+        <fullName>stageIncorrectToPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>stageIncorrectToPDF</shortDescription>
+        <value>You can not create a PDF on this stage</value>
+    </labels>
+    <labels>
+        <fullName>UserNotAllowedToCreatePDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UserNotAllowedToCreatePDF</shortDescription>
+        <value>Only Operative users are allowed to create the PDF</value>
     </labels>
 </CustomLabels>
