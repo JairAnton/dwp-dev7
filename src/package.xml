@@ -189,6 +189,8 @@
         <members>PDF_formalizacion_ctrl</members>
         <members>PDF_formalizacion_ctrl_tst</members>
         <members>PDFclassButton</members>
+        <members>Product_cls</members>
+        <members>Product_cls_test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -210,6 +212,9 @@
         <members>cQuickAction_NewOpportunity</members>
         <members>submitTODiscart</members>
         <members>PDFLigthingComponent</members>
+        <members>ProductGuarantee_comp</members>
+        <members>modalAddGurantee_comp</members>
+        <members>ReloadTable_evt</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -262,6 +267,7 @@
 		<members>Product2</members>
 		<members>OpportunityTeamMember</members>
         <members>Task</members>
+        <members>Product_Gurantee__c</members>
         <name>CustomObject</name>
     </types>
 	<types>
@@ -303,6 +309,7 @@
         <members>Account_Banking_System_Classification__c-es</members>
         <members>Opportunity-es</members>
         <members>OpportunityLineItem-es</members>        
+        <members>Product_Gurantee__c-es</members>  
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -332,6 +339,7 @@
 		<members>Opportunity-Opportunity Layout</members>
         <members>OpportunityLineItem-Opportunity Product Layout</members>
         <members>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</members>
+        <members>Product_Gurantee__c-Formato Product_Gurantee</members>
         <name>Layout</name>
     </types>
     <types>

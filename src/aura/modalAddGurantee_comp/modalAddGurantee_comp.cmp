@@ -1,0 +1,106 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL" controller="Product_cls" >
+	<ltng:require styles="{!$Resource.quickActionStyle}"/>
+	<aura:attribute name="isActive" type="Boolean" default="false" required="true" />
+	<aura:attribute name="lblCancel" type="String" default=""/>
+	<aura:attribute name="lblSave" type="String" default=""/>
+	<aura:attribute name="lblAmount" type="String" default=""/>
+	<aura:attribute name="OpportunityId" type="Id" />
+	<aura:attribute name="ProductId" type="Id" />
+	<aura:attribute name="PGuaranteeId" type="Id" />
+	<aura:attribute name="PGuarantee" type="Object[]"  default="null"/>
+	<aura:attribute name="bStauts" type="Boolean" default="flase"/>
+	<aura:attribute name="bStautsF" type="Boolean" default="flase"/>
+	<aura:attribute name="errMessage" type="String" default=""/>
+	<aura:attribute name="optPeriodicity" type="List" default="[]"/>
+	<aura:attribute name="optStatus" type="List" default="[]"/>
+	<aura:attribute name="optModality" type="List" default="[]"/>
+	<aura:attribute name="optGuaranteeType" type="List" default="[]"/>
+	<aura:attribute name="optGuarantee" type="List" default="[]"/>
+	<aura:registerEvent  name="PasoParametrosPadre" type="c:ReloadTable_evt" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+
+    <div>
+        <aura:renderIf isTrue="{!v.isActive}">
+            <div role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open"  style="z-index=9000 !important">
+    
+        <div class="slds-modal__container style-general" >
+
+            <!-- HEADER -->
+            <header class="slds-modal__header">                       
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Añadir garantía</h2>
+            </header>                    
+            <!-- END HEADER -->
+            <!-- CONTENT -->
+            <div class="slds-modal__content slds-p-around_medium slds-grid slds-wrap slds-grid_align-spread" id="modal-content-id-1">
+            	<div aura:id="divToast" class="slds-notify_container slds-hide" style="width:95%">
+				    <div class="slds-notify slds-notify_toast slds-theme_error" role="alert" style="width:95%">
+				      <span class="slds-assistive-text"></span>
+				      <span class="slds-icon_container slds-icon-utility-error slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+				       
+				      </span>
+				      <div class="slds-notify__content">
+				        <h2 class="slds-text-heading_small ">{!v.errMessage}</h2>
+				      </div>
+				      <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close">
+				       
+				        <span class="slds-assistive-text">Close</span>
+				      </button>
+				    </div>
+				</div>
+            <lightning:select aura:id="selGuaranteeType" name="selGuaranteeType" label="Tipo garantía" class="slds-size_1-of-2 slds-p-horizontal_x-small" onchange="{!c.onGuaranteeTypeChanged}" >
+                    <option value="">----</option>
+                    <aura:iteration items="{!v.optGuaranteeType}" var="item">
+                        <option value="{!item.value}">{!item.label}</option>
+                    </aura:iteration>
+            </lightning:select>
+            <lightning:select aura:id="selGuarantee" name="selGuarantee" label="Garantía" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
+                    <option value="">----</option>
+                    <aura:iteration items="{!v.optGuarantee}" var="item">
+                        <option value="{!item.value}">{!item.label}</option>
+                    </aura:iteration>
+            </lightning:select>
+            <lightning:select aura:id="selModality" name="selModality" label="Modalidad" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
+                    <option value="">----</option>
+                    <aura:iteration items="{!v.optModality}" var="item">
+                        <option value="{!item.value}">{!item.label}</option>
+                    </aura:iteration>
+            </lightning:select>
+            <lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small" aura:id="txtAmount" name="txtAmount" type="number" step="0.01" label="{!v.lblAmount}" value="" /> 
+			<lightning:select aura:id="selStatus" name="selStatus" label="Estado" class="slds-size_1-of-2 slds-p-horizontal_x-small" onchange="{!c.onStatusChanged}" >
+                    <option value="">----</option>
+                    <aura:iteration items="{!v.optStatus}" var="item">
+                        <option value="{!item.value}">{!item.label}</option>
+                    </aura:iteration>
+            </lightning:select>
+            <aura:if isTrue="{!v.bStautsF}">
+	            <lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtnGuarantee" name="txtnGuarantee" type="number"  label="N° Garantía" value="" /> 
+	            
+	        </aura:if>
+           	<aura:if isTrue="{!v.bStauts}">
+	            <lightning:input  aura:id="txtTerm" name="txtTerm" type="number"  label="Plazo" value="" /> 
+	            <lightning:select aura:id="selPeriodicity" name="selPeriodicity" label="Periodicidad" class="slds-p-horizontal_x-small"  >
+	            	<aura:iteration items="{!v.optPeriodicity}" var="item">
+                        <option value="{!item.value}">{!item.label}</option>
+                    </aura:iteration>	                    
+	            </lightning:select>
+	        </aura:if>
+	        <br/>
+	        <!-- {!v.OpportunityId} {!v.ProductId} -->
+            </div>
+            <!-- END CONTENT -->
+			<!-- FOOTER -->
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">{!v.lblCancel}</button>
+                <lightning:button class="slds-button slds-button_brand" onclick="{!c.saveRecord}" value="SaveN" >{!v.lblSave} y nuevo</lightning:button>
+                <lightning:button class="slds-button slds-button_brand" onclick="{!c.saveRecord}" value="Save">{!v.lblSave}</lightning:button>
+            </div>
+			<!-- END FOOTER -->            
+        </div>
+    </div>
+            </aura:renderIf>
+            
+            <div class="{!'slds-backdrop ' + ((v.isActive) ? 'slds-backdrop_open' : 'slds-backdrop_close')}"></div>
+        </div>
+
+</aura:component>
