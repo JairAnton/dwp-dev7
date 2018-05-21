@@ -21,7 +21,7 @@ global class PDFclassButton implements dwp_dbpn.DynamicFlowValidationInterface{
  
             String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;   
                 
-            if(prof=='Operativo' || prof=='System Administrator' || prof=='Migracion'){    
+            if(prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion'){    
              if(op.StageName =='05'){
              list<String>oppIDs = new list<String>();
              oppIDs.add(recordId);                 
