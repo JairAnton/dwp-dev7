@@ -1129,6 +1129,108 @@
         </filters>
         <label>Won</label>
     </listViews>
+	    <listViews>
+        <fullName>Mis_cancelaciones_del_mes</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>opportunity_expiry_date__c</columns>
+        <columns>rejection_amount__c</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Opportunity.Opp_RT_02</value>
+        </filters>
+        <filters>
+            <field>opportunity_expiry_date__c</field>
+            <operation>equals</operation>
+            <value>THIS_MONTH</value>
+        </filters>
+        <label>Mis cancelaciones del mes</label>
+    </listViews>
+    <listViews>
+        <fullName>Oportunidades_en_Formalizacion</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <operation>equals</operation>
+            <value>05</value>
+        </filters>
+        <label>Oportunidades en Formalización</label>
+    </listViews>
+    <listViews>
+        <fullName>Oportunidades_en_sancion_de_Riesgo_o_Pre</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <operation>equals</operation>
+            <value>04</value>
+        </filters>
+        <label>Oport en sanción de Riesgo o Precio</label>
+    </listViews>
+    <listViews>
+        <fullName>Oportunidades_que_cierran_este_mes</fullName>
+        <booleanFilter>1</booleanFilter>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <operation>equals</operation>
+            <value>THIS_MONTH</value>
+        </filters>
+        <label>Oportunidades que cierran este mes</label>
+    </listViews>
+    <listViews>
+        <fullName>Soy_parte_del_Op_Team</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Team</filterScope>
+        <label>Soy parte del Op Team</label>
+    </listViews>
+    <listViews>
+        <fullName>Todas_mis_Oportunidades</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>Todas mis Oportunidades</label>
+    </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
         <fullName>Opp_RT_01</fullName>
