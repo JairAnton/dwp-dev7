@@ -105,6 +105,22 @@
         <apexClass>TriggerHandler_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>PDF_formalizacion_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>    
+    <classAccesses>
+        <apexClass>PDF_formalizacion_ctrl_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityPDFWrap</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PDFclassButton</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
@@ -1938,7 +1954,11 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account_Banking_System_Classification__c</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>       
+    </objectPermissions> 
+   <pageAccesses>
+        <apexPage>PDF_formalizacion_vfp</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>       
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
@@ -2111,7 +2131,7 @@
         <name>ChatterComposeUiCodesnippet</name>
     </userPermissions>
 	    <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ChangeDashboardColors</name>
     </userPermissions>
     <userPermissions>

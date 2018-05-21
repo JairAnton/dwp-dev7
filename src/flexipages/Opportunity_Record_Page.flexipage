@@ -25,12 +25,53 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentName>ProductGuarantee_comp</componentName>
+        </componentInstances>
+        <name>Facet-8590b1da-3905-4e4f-9e3e-ae80af07f2e4</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>Facet-fe02cf6c-7531-4961-be65-25de3463e80d</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentName>OpportunityProduct_Comp</componentName>
         </componentInstances>
         <name>Facet-72f73894-f51f-4bc2-8a6d-7d42127c08b4</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-8590b1da-3905-4e4f-9e3e-ae80af07f2e4</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Garantías</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--obk0trmtejg</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-fe02cf6c-7531-4961-be65-25de3463e80d</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Intervinientes</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--ek94rgdcpw</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
@@ -166,6 +207,33 @@
                 <value>false</value>
             </componentInstanceProperties>
             <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>buttonHiddenIfNotAvailable</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>buttonsAlignment</name>
+                <value>left,left,right,right,right,right</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>buttonsCollectionUniqueIdentifier</name>
+                <value>OppDynamicButtonCollection</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>buttonsStyles</name>
+                <value>neutral,neutral,brand,brand,brand,brand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>buttonsUniqueIdentifiers</name>
+                <value>btnReject,btnReevaluate,btnPenalizeRisk,btnSanctionPrice,btnFormalize,btnPDF</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>refreshOnRefreshView</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>dwp_dbpn:DynamicButtonCollection_comp</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>subheader</name>
