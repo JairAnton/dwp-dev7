@@ -1129,13 +1129,15 @@
         </filters>
         <label>Won</label>
     </listViews>
-	    <listViews>
+	<listViews>
         <fullName>Mis_cancelaciones_del_mes</fullName>
         <columns>OPPORTUNITY.NAME</columns>
         <columns>ACCOUNT.NAME</columns>
         <columns>opportunity_product__c</columns>
+        <columns>contract_id__c</columns>
         <columns>opportunity_expiry_date__c</columns>
-        <columns>rejection_amount__c</columns>
+        <columns>OPPORTUNITY.CURRENCY_ISO_CODE</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
         <columns>OPPORTUNITY.STAGE_NAME</columns>
         <columns>CORE.USERS.FULL_NAME</columns>
         <filterScope>Mine</filterScope>
@@ -1150,6 +1152,7 @@
             <value>THIS_MONTH</value>
         </filters>
         <label>Mis cancelaciones del mes</label>
+        <language>es</language>
     </listViews>
     <listViews>
         <fullName>Oportunidades_en_Formalizacion</fullName>
