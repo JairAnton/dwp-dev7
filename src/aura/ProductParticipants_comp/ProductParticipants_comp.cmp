@@ -1,0 +1,54 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL" controller="Product_cls">
+<aura:attribute name="rowsP" type="Object[]" />   
+<aura:attribute name="recordId" type="Id" />
+<aura:attribute name="ProductId" type="Id" />
+<aura:attribute name="PParticipant" type="Object[]" />
+<aura:attribute name="showModal" type="Boolean" default="false" />
+<aura:attribute name="refreshTable" type="Boolean" default="true" />
+<aura:handler name="init" value="{!this}" action="{!c.init}" />
+<aura:handler name="PasoParametrosPadre" event="c:ReloadTable_evt" action="{!c.RecibeParametros}"/>
+<aura:renderIf isTrue="{!v.refreshTable}">
+ <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout" role="grid">
+            <thead>
+                <tr >
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Garantia">Nombre</div>
+                    </th>      
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Modalidad">DOI</div>
+                    </th>       
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Estado Gtia">Participación</div>
+                    </th>       
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Plazo formalizar">Estado civil</div>
+                    </th>                                                        
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Acción">Acción</div>
+                    </th>                  
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.rowsP}" var="row" indexVar="rowIndex">
+                        <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">                          
+                            <th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
+                                <div class="slds-truncate" title="{!row.Name}">{!row.Name}</div>
+                            </th>
+                            <th><div class="slds-truncate" title="{!row.DOI__c}">{!row.DOI__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.Participation__c}">{!row.Participation__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.Marital_Status__c}">{!row.Marital_Status__c}&nbsp;{!row.Periodicity__c}</div></th>
+                            <th>
+                                <lightning:button variant="none" iconName="utility:edit" aura:id="editR" title="{!row.Id}" value="{!row}"   onclick="{!c.editRow}" />
+                                &nbsp;
+                                <lightning:button variant="none" iconName="utility:delete" aura:id="deleteR" title="{!row.Id}" value="{!row.Id}" onclick="{!c.deleteRow}" />
+                                </th>
+                        </tr>                  
+                </aura:iteration>
+            </tbody>
+        </table>       	
+        <lightning:button class="addButton" iconName="utility:add" onclick="{!c.addRecord}">Añadir interviniente</lightning:button>
+        <aura:if isTrue="{!v.showModal}">
+            <c:modalAddParticipants_comp  isActive="{!v.showModal}" OpportunityId="{!v.recordId}" ProductId="{!v.ProductId}" PParticipant="{!v.PParticipant}" />  
+        </aura:if>
+       
+</aura:renderIf></aura:component>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product_Participant</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product_Participants</value>
+    </caseValues>
+    <fields>
+        <label><!-- DOI --></label>
+        <name>DOI__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>RUC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>DNI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>CE</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Marital_Status --></label>
+        <name>Marital_Status__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Casado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Soltero</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Divorciado/Viudo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>N/A</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- N_DOI --></label>
+        <name>N_DOI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Product_Participants --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Participation --></label>
+        <name>Participation__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Titular</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Fiador</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Product_Participants --></relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

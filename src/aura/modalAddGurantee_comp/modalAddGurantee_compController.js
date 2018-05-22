@@ -63,6 +63,7 @@
 					{
 						component.set("v.bStauts",false);
 						component.set("v.bStautsF",true);
+						component.find("txtnGuarantee").set("v.value",component.get("v.PGuarantee")[0].nGuarantee__c);
 					}
 					else
 					{

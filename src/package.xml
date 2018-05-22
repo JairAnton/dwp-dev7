@@ -215,6 +215,8 @@
         <members>ProductGuarantee_comp</members>
         <members>modalAddGurantee_comp</members>
         <members>ReloadTable_evt</members>
+        <members>ProductParticipants_comp</members>
+        <members>modalAddParticipants_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -268,6 +270,7 @@
 		<members>OpportunityTeamMember</members>
         <members>Task</members>
         <members>Product_Gurantee__c</members>
+        <members>Product_Participants__c</members>
         <name>CustomObject</name>
     </types>
 	<types>
@@ -310,6 +313,7 @@
         <members>Opportunity-es</members>
         <members>OpportunityLineItem-es</members>        
         <members>Product_Gurantee__c-es</members>  
+        <members>Product_Participants__c-es</members>  
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -340,6 +344,7 @@
         <members>OpportunityLineItem-Opportunity Product Layout</members>
         <members>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</members>
         <members>Product_Gurantee__c-Formato Product_Gurantee</members>
+        <members>Product_Participants__c-Formato Product_Participant</members>
         <name>Layout</name>
     </types>
     <types>

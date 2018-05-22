@@ -54,11 +54,27 @@ public class Product_cls_test {
 			testPG.Product__c=testPr.Id;
 			insert testPG;
 
+			Product_Participants__c testPP = new Product_Participants__c();			
+			testPP.Opportunity__c=testOP.Id;
+			testPP.Product__c=testPr.Id;
+			insert testPP;
+
 			Product_cls.getIdProductByOpportunity(testOP.Id);
+			
 			Product_cls.getGuaranteeDataByProduct(testOP.Id,testPr.Id);
 			Product_cls.getGuaranteeDataByProductValues(testPG.Id);
+
+			Product_cls.getParticipantDataByProduct(testOP.Id,testPr.Id);
+			Product_cls.getParticipantDataByProductValues(testPG.Id);
+			
 			Product_cls.saveGuaranteeDataByProduct(testPG.Id,testOP.Id,testPr.Id,'01','01','01',1,'01',1,'01',1);
+			
+			Product_cls.saveParticipantDataByProduct(testPP.Id,testOP.Id,testPr.Id,'Name','01',1,'01','01');
+
        		Product_cls.deleteGuaranteeDataByProduct(testPG.Id);
+       		Product_cls.deleteParticipantDataByProduct(testPP.Id);
+     		System.assert(true,'This Works!');
+
 		test.stopTest();
 	}
 	

@@ -6,16 +6,15 @@
 	<aura:attribute name="lblAmount" type="String" default=""/>
 	<aura:attribute name="OpportunityId" type="Id" />
 	<aura:attribute name="ProductId" type="Id" />
-	<aura:attribute name="PGuaranteeId" type="Id" />
-	<aura:attribute name="PGuarantee" type="Object[]"  default="null"/>
+	<aura:attribute name="PParticipantId" type="Id" />
+	<aura:attribute name="PParticipant" type="Object[]"  default="null"/>
 	<aura:attribute name="bStauts" type="Boolean" default="flase"/>
 	<aura:attribute name="bStautsF" type="Boolean" default="flase"/>
 	<aura:attribute name="errMessage" type="String" default=""/>
-	<aura:attribute name="optPeriodicity" type="List" default="[]"/>
-	<aura:attribute name="optStatus" type="List" default="[]"/>
-	<aura:attribute name="optModality" type="List" default="[]"/>
-	<aura:attribute name="optGuaranteeType" type="List" default="[]"/>
-	<aura:attribute name="optGuarantee" type="List" default="[]"/>
+	<aura:attribute name="optDOI" type="List" default="[]"/>
+	<aura:attribute name="optParticipation" type="List" default="[]"/>
+	<aura:attribute name="optMaritalStatus" type="List" default="[]"/>
+	
 	<aura:registerEvent  name="PasoParametrosPadre" type="c:ReloadTable_evt" />
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
 
@@ -28,7 +27,7 @@
 
             <!-- HEADER -->
             <header class="slds-modal__header">                       
-                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Añadir garantía</h2>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Añadir intervinietne</h2>
             </header>                    
             <!-- END HEADER -->
             <!-- CONTENT -->
@@ -48,43 +47,28 @@
 				      </button>
 				    </div>
 				</div>
-            <lightning:select aura:id="selGuaranteeType" name="selGuaranteeType" label="Tipo garantía" class="slds-size_1-of-2 slds-p-horizontal_x-small" onchange="{!c.onGuaranteeTypeChanged}" >
+
+           
+	        <lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtName" name="txtName" label="Nombre/Cliente" value="" /> 
+	        <lightning:select aura:id="selDOI" name="selDOI" label="DOI" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
                     <option value="">----</option>
-                    <aura:iteration items="{!v.optGuaranteeType}" var="item">
+                    <aura:iteration items="{!v.optDOI}" var="item">
                         <option value="{!item.value}">{!item.label}</option>
                     </aura:iteration>
             </lightning:select>
-            <lightning:select aura:id="selGuarantee" name="selGuarantee" label="Garantía" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
+	       	<lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtNDOI" name="txtNDOI" type="number" label="N°DOI" value="" step="0"/> 
+	        <lightning:select aura:id="selParticipation" name="selParticipation" label="Participatión" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
                     <option value="">----</option>
-                    <aura:iteration items="{!v.optGuarantee}" var="item">
+                    <aura:iteration items="{!v.optParticipation}" var="item">
                         <option value="{!item.value}">{!item.label}</option>
                     </aura:iteration>
-            </lightning:select>
-            <lightning:select aura:id="selModality" name="selModality" label="Modalidad" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
+            </lightning:select>	       	
+            <lightning:select aura:id="selMaritalStatus" name="selMaritalStatus" label="Estado civil" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
                     <option value="">----</option>
-                    <aura:iteration items="{!v.optModality}" var="item">
+                    <aura:iteration items="{!v.optMaritalStatus}" var="item">
                         <option value="{!item.value}">{!item.label}</option>
                     </aura:iteration>
-            </lightning:select>
-            <lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small" aura:id="txtAmount" name="txtAmount" type="number" step="0.01" label="{!v.lblAmount}" value="" /> 
-			<lightning:select aura:id="selStatus" name="selStatus" label="Estado" class="slds-size_1-of-2 slds-p-horizontal_x-small" onchange="{!c.onStatusChanged}" >
-                    <option value="">----</option>
-                    <aura:iteration items="{!v.optStatus}" var="item">
-                        <option value="{!item.value}">{!item.label}</option>
-                    </aura:iteration>
-            </lightning:select>
-            <aura:if isTrue="{!v.bStautsF}">
-	            <lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtnGuarantee" name="txtnGuarantee" type="number"  label="N° Garantía" value="" /> 
-	            
-	        </aura:if>
-           	<aura:if isTrue="{!v.bStauts}">
-	            <lightning:input size="20" aura:id="txtTerm" name="txtTerm" type="number"  label="Plazo" value="" /> 
-	            <lightning:select aura:id="selPeriodicity" name="selPeriodicity" label="Periodicidad" class="slds-p-horizontal_x-small"  >
-	            	<aura:iteration items="{!v.optPeriodicity}" var="item">
-                        <option value="{!item.value}">{!item.label}</option>
-                    </aura:iteration>	                    
-	            </lightning:select>
-	        </aura:if>
+            </lightning:select>	    
 	        <br/>
 	        <!-- {!v.OpportunityId} {!v.ProductId} -->
             </div>
