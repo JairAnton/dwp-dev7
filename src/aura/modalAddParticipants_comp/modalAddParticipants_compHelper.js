@@ -109,6 +109,8 @@
 		                      		component.set('v.isActive', false);
 		                      else
 		                      {
+	                      			component.set("v.PParticipant", null);
+	                      			component.set("v.PParticipantId", null);		                      	
 		                      		component.set('v.isActive', false);
 		                      		component.set('v.isActive', true);
 		                      }
