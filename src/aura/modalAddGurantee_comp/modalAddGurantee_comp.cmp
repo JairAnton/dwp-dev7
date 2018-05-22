@@ -78,7 +78,7 @@
 	            
 	        </aura:if>
            	<aura:if isTrue="{!v.bStauts}">
-	            <lightning:input size="20" aura:id="txtTerm" name="txtTerm" type="number"  label="Plazo" value="" /> 
+	            <lightning:input class="slds-p-horizontal_x-small"  aura:id="txtTerm" name="txtTerm" type="number"  label="Plazo" value="" /> 
 	            <lightning:select aura:id="selPeriodicity" name="selPeriodicity" label="Periodicidad" class="slds-p-horizontal_x-small"  >
 	            	<aura:iteration items="{!v.optPeriodicity}" var="item">
                         <option value="{!item.value}">{!item.label}</option>
