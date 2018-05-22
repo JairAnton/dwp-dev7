@@ -32,18 +32,22 @@
         cmp.set("v.refreshTable",true);
 	},
     deleteGuarantee : function(cmp, evt, helper) {
-       var action = cmp.get("c.deleteGuaranteeDataByProduct");
-        action.setParams({
-            "IdProductGuarantee" : evt.getSource().get("v.value")
-        });
-        action.setCallback(this, function(response) {
-            var state = response.getState();
-            if (state === "SUCCESS") {                                
-                cmp.set("v.refreshTable",false);               
-                helper.bringData(cmp, evt, helper); 
-            }
-        });        
-        $A.enqueueAction(action);
+       
+        if(!evt.getSource().get("v.title"))
+        {
+           var action = cmp.get("c.deleteGuaranteeDataByProduct");
+            action.setParams({
+                "IdProductGuarantee" : evt.getSource().get("v.value")
+            });
+            action.setCallback(this, function(response) {
+                var state = response.getState();
+                if (state === "SUCCESS") {                                
+                    cmp.set("v.refreshTable",false);               
+                    helper.bringData(cmp, evt, helper); 
+                }
+            });        
+            $A.enqueueAction(action);
+        }
     }
 
 })

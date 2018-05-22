@@ -47,11 +47,13 @@ public class Product_cls_test {
         	testLOPP.PricebookEntryId=testPE.Id;
         	testLOPP.Quantity=1;
             testLOPP.TotalPrice=120;
+        	testLOPP.gipr_Tipo_Garantia__c='03';
 			insert testLOPP;
 
 			Product_Gurantee__c testPG = new Product_Gurantee__c();			
 			testPG.Opportunity__c=testOP.Id;
 			testPG.Product__c=testPr.Id;
+        	
 			insert testPG;
 
 			Product_Participants__c testPP = new Product_Participants__c();			
@@ -73,6 +75,9 @@ public class Product_cls_test {
 
        		Product_cls.deleteGuaranteeDataByProduct(testPG.Id);
        		Product_cls.deleteParticipantDataByProduct(testPP.Id);
+        
+        	testLOPP.gipr_Tipo_Garantia__c='02';
+        	update testLOPP;
      		System.assert(true,'This Works!');
 
 		test.stopTest();
