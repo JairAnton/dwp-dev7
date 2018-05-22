@@ -190,6 +190,7 @@
         <members>PDF_formalizacion_ctrl_tst</members>
         <members>PDFclassButton</members>
         <members>Product_cls</members>
+        <members>classMasterGuarantee_cls</members>
         <members>Product_cls_test</members>
         <name>ApexClass</name>
     </types>
@@ -756,6 +757,7 @@
 	<!--<members>Opp_PB_Opportunidad</members> -->
 	<!--<members>ProductOpp_DueDate</members> -->
 	<!--<members>Task_update_Opportunity</members> -->
+	<members>Guarantee_MasterRecord</members>
 	<name>FlowDefinition</name>
   </types>
   <types>
@@ -768,6 +770,7 @@
 	<!--<members>ProductOpp_DueDate-3</members> -->
 	<!--<members>Task_update_Opportunity-3</members> -->
 	<!--<members>Motivo_Descarte_Oportunidad_V0-25</members> -->
+    <members>Guarantee_MasterRecord-1</members> -->
 	<name>Flow</name>
   </types>
     <types>

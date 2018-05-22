@@ -48,7 +48,7 @@
                             <th>
                                 <lightning:button variant="none" iconName="utility:edit" aura:id="editR" title="{!row.Id}" value="{!row}"   onclick="{!c.editRow}" />
                                 &nbsp;
-                                <lightning:button variant="none" iconName="utility:delete" aura:id="deleteR" title="{!row.Id}" value="{!row.Id}" onclick="{!c.deleteRow}" />
+                                <lightning:button variant="none" iconName="utility:delete" aura:id="deleteR" title="{!row.isMaster__c}" value="{!row.Id}" onclick="{!c.deleteRow}" />
                                 </th>
                         </tr>                  
                 </aura:iteration>
