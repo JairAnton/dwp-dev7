@@ -31,6 +31,9 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentName>ProductParticipants_comp</componentName>
+        </componentInstances>
         <name>Facet-fe02cf6c-7531-4961-be65-25de3463e80d</name>
         <type>Facet</type>
     </flexiPageRegions>
