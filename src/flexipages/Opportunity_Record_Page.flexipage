@@ -31,6 +31,9 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentName>ProductParticipants_comp</componentName>
+        </componentInstances>
         <name>Facet-fe02cf6c-7531-4961-be65-25de3463e80d</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -215,7 +218,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsAlignment</name>
-                <value>left,left,right,right,right,right</value>
+                <value>left,left,left,right,right,right,right</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsCollectionUniqueIdentifier</name>
@@ -223,11 +226,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsStyles</name>
-                <value>neutral,neutral,brand,brand,brand,brand</value>
+                <value>neutral,neutral,neutral,brand,brand,brand,brand</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsUniqueIdentifiers</name>
-                <value>btnReject,btnReevaluate,btnPenalizeRisk,btnSanctionPrice,btnFormalize,btnPDF</value>
+                <value>btnReject,btnReevaluate,btnQuote,btnPenalizeRisk,btnSanctionPrice,btnFormalize,btnPDF</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>
