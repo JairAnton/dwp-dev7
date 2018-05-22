@@ -30,12 +30,62 @@
         component.set("v.optModality", optModality);
         var optGuaranteeType = [			
 			{ value: "01", label: "Dineraria" },
-            { value: "02", label: "No dineraria" },
-            { value: "03", label: "Sin garantía" }
+            { value: "02", label: "No dineraria" }
+            
         ];
         component.set("v.optGuaranteeType", optGuaranteeType);
+        var optGuarantee = [			
+							{ value: "04", label: "Accions y bono" },
+				            { value: "05", label: "Cartas de crédito" },
+				            { value: "06", label: "Certificados bancarios" },
+				            { value: "07", label: "Fianza bancaria" },
+				            { value: "08", label: "Fianza solidaria" },
+				            { value: "09", label: "Fondos mutuos" },
+				            { value: "10", label: "Hipoteca" },
+				            { value: "11", label: "Leasing" },
+				            { value: "12", label: "Prenda agrícola" },
+				            { value: "13", label: "Prenda industrial" },
+				            { value: "14", label: "Prenda minera" },
+				            { value: "15", label: "Prenda transporte" },
+				            { value: "16", label: "Prenda vehicular" },
+				            { value: "17", label: "Warants" }
+				        ];
+				        component.set("v.optGuarantee", optGuarantee);
     },
-    saveGuarantee: function(component, event, helper) {
+	getListValuesDependent : function(component) {
+    		if(component.get("v.PGuarantee")[0].GuaranteeType__c=="01")
+		    		{
+			    		var optGuarantee = [			
+							{ value: "01", label: "Cuenta en garantía" },
+				            { value: "02", label: "Depósito cuenta a plazo" },
+				            { value: "03", label: "Super depósitos" }
+				        ];
+				        component.set("v.optGuarantee", optGuarantee);
+			    	}
+			    	else if(component.get("v.PGuarantee")[0].GuaranteeType__c=="02")
+			    	{
+			    		var optGuarantee = [			
+							{ value: "04", label: "Accions y bono" },
+				            { value: "05", label: "Cartas de crédito" },
+				            { value: "06", label: "Certificados bancarios" },
+				            { value: "07", label: "Fianza bancaria" },
+				            { value: "08", label: "Fianza solidaria" },
+				            { value: "09", label: "Fondos mutuos" },
+				            { value: "10", label: "Hipoteca" },
+				            { value: "11", label: "Leasing" },
+				            { value: "12", label: "Prenda agrícola" },
+				            { value: "13", label: "Prenda industrial" },
+				            { value: "14", label: "Prenda minera" },
+				            { value: "15", label: "Prenda transporte" },
+				            { value: "16", label: "Prenda vehicular" },
+				            { value: "17", label: "Warants" }
+				        ];
+				        component.set("v.optGuarantee", optGuarantee);
+			    	}
+			    	else
+			    		component.set("v.optGuarantee", null);
+	},
+	saveGuarantee: function(component, event, helper) {
 
     	var errMsg=false;
  			if(!errMsg)
@@ -47,18 +97,18 @@
 	                var GuaranteeType=component.find("selGuaranteeType").get("v.value");
 	                var Guarantee=component.find("selGuarantee").get("v.value");
 	                var Modality=component.find("selModality").get("v.value");
-	                var Amount=component.find("txtAmount").get("v.value");
+	                var Amount=component.find("txtAmount").get("v.value")+"";
 	                var Status=component.find("selStatus").get("v.value");
 	                var Term=null;
 	                var Periodicity='';
 	                if(Status=='02')
 	                {
-	                	Term=component.find("txtTerm").get("v.value");
+	                	Term=component.find("txtTerm").get("v.value")+"";
 	                	Periodicity=component.find("selPeriodicity").get("v.value");
 	                }
 	                var nGuarantee=null;
 	                if(Status=='01')
-	        			nGuarantee=component.find("txtnGuarantee").get("v.value");
+	        			nGuarantee=component.find("txtnGuarantee").get("v.value")+"";
 
 	        		var action =  component.get("c.saveGuaranteeDataByProduct");
 	                action.setParams({
@@ -92,8 +142,12 @@
 	                      		component.set('v.isActive', false);
 	                      else
 	                      {
+	                      		component.set("v.PGuarantee", null);
+	                      		component.set("v.PGuaranteeId", null);
 	                      		component.set('v.isActive', false);
 	                      		component.set('v.isActive', true);
+	                      		//component.set('PGuaranteeId',null);
+	                      		
 	                      }
 
 	                       //helper.navigateToRecord(component, event, helper);
