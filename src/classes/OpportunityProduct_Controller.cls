@@ -96,7 +96,7 @@ public without sharing class OpportunityProduct_Controller {
     op = [SELECT StageName FROM Opportunity WHERE ID =:opp];
     op.StageName='04';
     op.isProcess__c=true;
-    op.opportunity_status_type__c = '08';
+    op.opportunity_status_type__c = '46';
     op.Modality__c='Inside line';
     update op;
     op.isProcess__c=false;

@@ -94,152 +94,192 @@
         <label><!-- Product family --></label>
         <name>opportunity_product_family__c</name>
     </fields>
-    <fields>
+        <fields>
         <label><!-- Status --></label>
         <name>opportunity_status_type__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation><!-- 01 --></translation>
+            <translation>Inactive</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation><!-- 02 --></translation>
+            <translation>Planned</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>03</masterLabel>
-            <translation><!-- 03 --></translation>
+            <translation>Not planned</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>04</masterLabel>
-            <translation><!-- 04 --></translation>
+            <translation>Pending offer to the client</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>05</masterLabel>
-            <translation><!-- 05 --></translation>
+            <translation>Pending customer response</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>06</masterLabel>
-            <translation><!-- 06 --></translation>
+            <translation>Accepted by the client</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>07</masterLabel>
-            <translation><!-- 07 --></translation>
+            <translation>Not accepted by the client</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>08</masterLabel>
-            <translation><!-- 08 --></translation>
+            <translation>Authorized price under office delegation</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>09</masterLabel>
-            <translation><!-- 09 --></translation>
+            <translation>Sent for authorization at prices</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>10</masterLabel>
-            <translation><!-- 10 --></translation>
+            <translation>Authorized by prices</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>11</masterLabel>
-            <translation><!-- 11 --></translation>
+            <translation>Approved price</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>12</masterLabel>
-            <translation><!-- 12 --></translation>
+            <translation>Sent for reevaluation at prices</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>13</masterLabel>
-            <translation><!-- 13 --></translation>
+            <translation>1st Entry to Controller</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>14</masterLabel>
-            <translation><!-- 14 --></translation>
+            <translation>Returns Controller</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>15</masterLabel>
-            <translation><!-- 15 --></translation>
+            <translation>Controller entry</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>16</masterLabel>
-            <translation><!-- 16 --></translation>
+            <translation>RVGL Assignment</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>17</masterLabel>
-            <translation><!-- 17 --></translation>
+            <translation>Consultation of Risks to Client</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>18</masterLabel>
-            <translation><!-- 18 --></translation>
+            <translation>Consultation from BE to Client</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>19</masterLabel>
-            <translation><!-- 19 --></translation>
+            <translation>Return</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>20</masterLabel>
-            <translation><!-- 20 --></translation>
+            <translation>Re-entry with answers (1)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>21</masterLabel>
-            <translation><!-- 21 --></translation>
+            <translation>Consultation of Risks to Client (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>22</masterLabel>
-            <translation><!-- 22 --></translation>
+            <translation>Consultation from BE to Client (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>23</masterLabel>
-            <translation><!-- 23 --></translation>
+            <translation>Refund (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>24</masterLabel>
-            <translation><!-- 24 --></translation>
+            <translation>Re-entry with answers (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>25</masterLabel>
-            <translation><!-- 25 --></translation>
+            <translation>End of Evaluation (VB Boss) (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>26</masterLabel>
-            <translation><!-- 26 --></translation>
+            <translation>Assignment Evaluation II</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>27</masterLabel>
-            <translation><!-- 27 --></translation>
+            <translation>Customer Risk Consultation (3)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>28</masterLabel>
-            <translation><!-- 28 --></translation>
+            <translation>Consultation from BE to Client (3)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>29</masterLabel>
-            <translation><!-- 29 --></translation>
+            <translation>Refund (3)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>30</masterLabel>
-            <translation><!-- 30 --></translation>
+            <translation>Re-Entry with Answers (3)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>31</masterLabel>
-            <translation><!-- 31 --></translation>
+            <translation>End of Evaluation (VB Boss) (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>32</masterLabel>
-            <translation><!-- 32 --></translation>
+            <translation>Sent for formalization</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>33</masterLabel>
-            <translation><!-- 33 --></translation>
+            <translation>Returned by documentation</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>34</masterLabel>
-            <translation><!-- 34 --></translation>
+            <translation>Sent to product unit</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>35</masterLabel>
-            <translation><!-- 35 --></translation>
+            <translation>Formalized</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>36</masterLabel>
-            <translation><!-- 36 --></translation>
+            <translation>Dismissed</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>37</masterLabel>
+            <translation>Approved Sanction SM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>38</masterLabel>
+            <translation>Approved Sanction CM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>39</masterLabel>
+            <translation>Denied sanction</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40</masterLabel>
+            <translation>Returned Penalty</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>41</masterLabel>
+            <translation>Approved Sanction SM (2)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>42</masterLabel>
+            <translation>Approved Sanction CM (2)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>43</masterLabel>
+            <translation>Sanction Denied (2)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>44</masterLabel>
+            <translation>Returned Penalty (2)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>45</masterLabel>
+            <translation>Sent for authorization at Risk</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>46</masterLabel>
+            <translation>Approved risk within line</translation>
         </picklistValues>
     </fields>
     <fields>
