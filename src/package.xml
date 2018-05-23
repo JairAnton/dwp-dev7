@@ -752,7 +752,7 @@
   <types>
 	<!--<members>Email_Message_update_Opportunity</members> -->
 	<!--<members>Event_update_Opportunity</members> -->
-	<members>FlujoEstadosOportunidad</members>
+	<!--<members>FlujoEstadosOportunidad</members> -->
 	<!--<members>Opp_Owner_Changed</members> -->
 	<!--<members>Opp_PB_Opportunidad</members> -->
 	<!--<members>ProductOpp_DueDate</members> -->
@@ -770,7 +770,7 @@
 	<!--<members>ProductOpp_DueDate-3</members> -->
 	<!--<members>Task_update_Opportunity-3</members> -->
 	<!--<members>Motivo_Descarte_Oportunidad_V0-25</members> -->
-    <members>FlujoEstadosOportunidad-13</members> -->
+    <!--<members>FlujoEstadosOportunidad-13</members> -->
 	<name>Flow</name>
   </types>
     <types>

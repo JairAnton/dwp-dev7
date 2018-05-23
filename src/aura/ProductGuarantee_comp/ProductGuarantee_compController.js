@@ -3,6 +3,7 @@
 	    	helper.bringData(component, event, helper); 
     },
     addRecord: function(component, event, helper) {
+            component.set('v.title', 'Agregar garantía');
     		component.set("v.PGuarantee",null);
 	    	component.set("v.showModal",true);
     },    
@@ -10,7 +11,8 @@
         helper.deleteGuarantee(cmp, evt, helper);
     },
     editRow : function(component, evt, helper) {
-    	component.set("v.PGuarantee",evt.getSource().get("v.value"))
+    	component.set("v.PGuarantee",evt.getSource().get("v.value"));
+        component.set('v.title', 'Modificar garantía');
     	//alert(component.get("v.PGuarantee"));
         component.set("v.showModal",true);
     },
