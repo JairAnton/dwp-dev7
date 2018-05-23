@@ -221,7 +221,7 @@
         <members>OpportunityProduct_Comp</members>
         <members>cQuickAction_NewOpportunity</members>
         <members>submitTODiscart</members>
-        <members>PDFLigthingComponent</members>
+        <members>PDFLightingComponent</members>
         <members>ProductGuarantee_comp</members>
         <members>modalAddGurantee_comp</members>
         <members>ReloadTable_evt</members>

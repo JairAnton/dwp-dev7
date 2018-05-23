@@ -20,10 +20,10 @@
     </values>
     <values>
         <field>dwp_dbpn__initial_component__c</field>
-        <value xsi:nil="true"/>
+            <value xsi:type="xsd:string">c:c:FormalizationBtn_cmp</value>
     </values>
     <values>
         <field>dwp_dbpn__validation_apex_class_name__c</field>
-        <value xsi:nil="true"/>
+         <value xsi:type="xsd:string">formalizationButtonClass</value>
     </values>
 </CustomMetadata>

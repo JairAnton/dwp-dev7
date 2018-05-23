@@ -1,0 +1,3 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" access="GLOBAL">
+<!--No content Needed just to work Global component Buttons-->	
+</aura:component>
