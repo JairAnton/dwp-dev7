@@ -661,6 +661,56 @@
                     <default>false</default>
                     <label>36</label>
                 </value>
+                <value>
+                    <fullName>37</fullName>
+                    <default>false</default>
+                    <label>37</label>
+                </value>
+                <value>
+                    <fullName>38</fullName>
+                    <default>false</default>
+                    <label>38</label>
+                </value>
+                <value>
+                    <fullName>39</fullName>
+                    <default>false</default>
+                    <label>39</label>
+                </value>
+                <value>
+                    <fullName>40</fullName>
+                    <default>false</default>
+                    <label>40</label>
+                </value>
+                <value>
+                    <fullName>41</fullName>
+                    <default>false</default>
+                    <label>41</label>
+                </value>
+                <value>
+                    <fullName>42</fullName>
+                    <default>false</default>
+                    <label>42</label>
+                </value>
+                <value>
+                    <fullName>43</fullName>
+                    <default>false</default>
+                    <label>43</label>
+                </value>
+                <value>
+                    <fullName>44</fullName>
+                    <default>false</default>
+                    <label>44</label>
+                </value>
+                <value>
+                    <fullName>45</fullName>
+                    <default>false</default>
+                    <label>45</label>
+                </value>
+                <value>
+                    <fullName>46</fullName>
+                    <default>false</default>
+                    <label>46</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>07</controllingFieldValue>
@@ -790,7 +840,47 @@
                 <controllingFieldValue>04</controllingFieldValue>
                 <valueName>31</valueName>
             </valueSettings>
-            <valueSettings>					   
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>37</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>38</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>39</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>40</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>41</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>42</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>43</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>44</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>45</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>46</valueName>
+            </valueSettings>
+            <valueSettings>
                 <controllingFieldValue>05</controllingFieldValue>
                 <valueName>32</valueName>
             </valueSettings>
@@ -1038,6 +1128,16 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <fields>
+        <fullName>reevaluate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Only for Code Propurse</description>
+        <externalId>false</externalId>
+        <label>re-evaluate</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>
@@ -1128,6 +1228,112 @@
             <value>1</value>
         </filters>
         <label>Won</label>
+    </listViews>
+	<listViews>
+        <fullName>Mis_cancelaciones_del_mes</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>contract_id__c</columns>
+        <columns>opportunity_expiry_date__c</columns>
+        <columns>OPPORTUNITY.CURRENCY_ISO_CODE</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Opportunity.Opp_RT_02</value>
+        </filters>
+        <filters>
+            <field>opportunity_expiry_date__c</field>
+            <operation>equals</operation>
+            <value>THIS_MONTH</value>
+        </filters>
+        <label>Mis cancelaciones del mes</label>
+        <language>es</language>
+    </listViews>
+    <listViews>
+        <fullName>Oportunidades_en_Formalizacion</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <operation>equals</operation>
+            <value>05</value>
+        </filters>
+        <label>Oportunidades en Formalización</label>
+    </listViews>
+    <listViews>
+        <fullName>Oportunidades_en_sancion_de_Riesgo_o_Pre</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+		<columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <operation>equals</operation>
+            <value>04</value>
+        </filters>
+        <label>Oport en sanción de Riesgo o Precio</label>
+    </listViews>
+    <listViews>
+        <fullName>Oportunidades_que_cierran_este_mes</fullName>
+        <booleanFilter>1</booleanFilter>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <operation>equals</operation>
+            <value>THIS_MONTH</value>
+        </filters>
+        <label>Oportunidades que cierran este mes</label>
+    </listViews>
+    <listViews>
+        <fullName>Soy_parte_del_Op_Team</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Team</filterScope>
+        <label>Soy parte del Op Team</label>
+    </listViews>
+    <listViews>
+        <fullName>Todas_mis_Oportunidades</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>Todas mis Oportunidades</label>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
@@ -1395,6 +1601,46 @@
             </values>
             <values>
                 <fullName>36</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>37</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>38</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>41</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>42</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>43</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>44</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>45</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>46</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

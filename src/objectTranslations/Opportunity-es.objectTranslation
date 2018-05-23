@@ -9,10 +9,6 @@
         <name>close_date_opportunity</name>
     </fields>
     <fields>
-        <label>Fecha creación</label>
-        <name>Opp_Creation_Date__c</name>
-    </fields>
-    <fields>
         <caseValues>
             <plural>false</plural>
             <value>Comentarios</value>
@@ -27,6 +23,14 @@
         </caseValues>
         <gender>Feminine</gender>
         <name>opportunity_currency</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Comentarios</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>opportunity_description</name>
     </fields>
     <fields>
         <caseValues>
@@ -50,7 +54,7 @@
     </fields>
     <fields>
         <caseValues>
-            <plural>false</plural>								  
+            <plural>false</plural>
             <value>Email del gestor principal</value>
         </caseValues>
         <gender>Masculine</gender>
@@ -76,93 +80,7 @@
         <gender>Masculine</gender>
         <name>type_opportunity</name>
     </fields>
-    <fields>
-        <label>Oficina de la oportunidad</label>
-        <name>Branch_id__c</name>
-        <relationshipLabel><!-- Oportunidades --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Budget Confirmed --></label>
-        <name>Budget_Confirmed__c</name>
-    </fields>
-    <fields>
-        <label>Alerta</label>
-        <name>Customer_alert__c</name>
-    </fields>
-    <fields>
-        <label><!-- Discovery Completed --></label>
-        <name>Discovery_Completed__c</name>
-    </fields>
-	<fields>
-        <label>Código SIO</label>
-        <name>LastSIOcode__c</name>
-    </fields>
-    <fields>
-        <label>Motivo de desetimación</label>
-        <name>Loss_Reason__c</name>
-        <picklistValues>
-            <masterLabel>01</masterLabel>
-            <translation>Por razones del cliente</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>02</masterLabel>
-            <translation>Por condiciones de riesgos</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>03</masterLabel>
-            <translation>Por condiciones de precio</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>04</masterLabel>
-            <translation>Por condiciones de producto</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>05</masterLabel>
-            <translation>Otra</translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- ROI Analysis Completed --></label>
-        <name>ROI_Analysis_Completed__c</name>
-    </fields>
-    <fields>
-        <label>Contrato</label>
-        <name>contract_id__c</name>
-    </fields>
-    <fields>
-        <label>Fecha de vencimiento</label>
-        <name>opportunity_expiry_date__c</name>
-    </fields>
-    <fields>
-        <label>Origen de la oportunidad</label>
-        <name>opportunity_origin_name__c</name>
-        <picklistValues>
-            <masterLabel>01</masterLabel>
-            <translation>Propuesta por ejecutivo</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>02</masterLabel>
-            <translation>Propuesta por especialista</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>03</masterLabel>
-            <translation>Centralizado</translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label>Fecha de planificación</label>
-        <name>opportunity_planning_date__c</name>
-    </fields>
-    <fields>
-        <label>Producto</label>
-        <name>opportunity_product__c</name>
-        <relationshipLabel><!-- Oportunidades --></relationshipLabel>
-    </fields>
-    <fields>
-        <label>Familia de productos</label>
-        <name>opportunity_product_family__c</name>
-    </fields>
-    <fields>
+	    <fields>
         <label>Estado</label>
         <name>opportunity_status_type__c</name>
         <picklistValues>
@@ -309,161 +227,45 @@
             <masterLabel>36</masterLabel>
             <translation>Desestimada</translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label>Importe</label>
-        <name>rejection_amount__c</name>
-    </fields>
-    <fields>
-        <label>Plazo de la operación perdida</label>
-        <name>rejection_period_num__c</name>
-    </fields>
-    <fields>
-        <label>Tasa</label>
-        <name>rejection_rate_per__c</name>
-    </fields>
-    <fields>
-        <label>Motivo de desetimación</label>
-        <name>rejection_reason_id__c</name>
-    </fields>
- <fields>
-        <label>Banco ganador</label>
-        <name>rejection_winner_entity_name__c</name>
         <picklistValues>
-            <masterLabel>01</masterLabel>
-            <translation>BCP</translation>
+            <masterLabel>37</masterLabel>
+            <translation>Sanción Aprobado SM</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>02</masterLabel>
-            <translation>Scotiabank</translation>
+            <masterLabel>38</masterLabel>
+            <translation>Sanción Aprobado CM</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>03</masterLabel>
-            <translation>Interbank</translation>
+            <masterLabel>39</masterLabel>
+            <translation>Sanción Denegado</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>04</masterLabel>
-            <translation>BIF</translation>
+            <masterLabel>40</masterLabel>
+            <translation>Sanción Devuelto</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>05</masterLabel>
-            <translation>Banco Financiero</translation>
+            <masterLabel>41</masterLabel>
+            <translation>Sanción Aprobado SM (2)</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>06</masterLabel>
-            <translation>GNB</translation>
+            <masterLabel>42</masterLabel>
+            <translation>Sanción Aprobado CM (2)</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>07</masterLabel>
-            <translation>Santander</translation>
+            <masterLabel>43</masterLabel>
+            <translation>Sanción Denegado (2)</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>08</masterLabel>
-            <translation>Citibank Perú</translation>
+            <masterLabel>44</masterLabel>
+            <translation>Sanción Devuelto (2)</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>09</masterLabel>
-            <translation>ICBC PERU BANK</translation>
+            <masterLabel>45</masterLabel>
+            <translation>Enviado para reevaluación a riesgos</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>10</masterLabel>
-            <translation>Banco de Comercio</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>11</masterLabel>
-            <translation>MiBanco</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>12</masterLabel>
-            <translation>Banco Azteca</translation>
+            <masterLabel>46</masterLabel>
+            <translation>Riesgo Aprobado dentro de linea</translation>
         </picklistValues>
     </fields>
-    <fields>
-        <label>Contrato cancelación</label>
-        <name>renewal_contract_id__c</name>
-    </fields>
-    <fields>
-        <label>Probabilidad de éxito</label>
-        <name>success_probability_desc__c</name>
-        <picklistValues>
-            <masterLabel>0%</masterLabel>
-            <translation><!-- 0% --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>100%</masterLabel>
-            <translation><!-- 100% --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>20%</masterLabel>
-            <translation><!-- 20% --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>40%</masterLabel>
-            <translation><!-- 40% --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>60%</masterLabel>
-            <translation><!-- 60% --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>80%</masterLabel>
-            <translation><!-- 80% --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label>Identificador único</label>
-        <name>unique_id__c</name>
-    </fields>
-    <fields>
-        <label>Modalidad</label>
-        <name>Modality__c</name>
-        <picklistValues>
-            <masterLabel>Inside line</masterLabel>
-            <translation>Dentro de línea</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Requires authorization</masterLabel>
-            <translation>Requiere autorización</translation>
-        </picklistValues>
-    </fields>
-	<fields>
-        <label>Moneda de perdida</label>
-        <name>rejection_coin__c</name>
-        <picklistValues>
-            <masterLabel>01</masterLabel>
-            <translation>PEN</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>02</masterLabel>
-            <translation>USD</translation>
-        </picklistValues>
-    </fields>
-    <recordTypes>
-        <label>Nueva</label>
-        <name>Opp_RT_01</name>
-    </recordTypes>
-    <recordTypes>
-        <label>Cancelación</label>
-        <name>Opp_RT_02</name>
-    </recordTypes>
-    <validationRules>
-        <errorMessage>Solo un perfil Ejecutivo puede asignar esta etapa</errorMessage>
-        <name>Opportunity_Validation_02_OnlyCommercial</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage>No se puede cambiar el propietario de esta Oportunidad.</errorMessage>
-        <name>Opportunity_Validation_ChangeOwner</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage>No puedes cambiar a este estado de la oportunidad</errorMessage>
-        <name>Opportunity_Validation_ChangeStage</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage>No se puede crear otro estado de la oportunidad que no sea Pendiente de Iniciar</errorMessage>
-        <name>Opportunity_Validation_Commercial_Action</name>
-    </validationRules>
-    <quickActions>
-        <label><!-- Desestimación --></label>
-        <name>Descarta_Oportunidad</name>
-    </quickActions>
 </CustomObjectTranslation>

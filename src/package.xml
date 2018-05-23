@@ -140,6 +140,23 @@
         <members>Save</members>
         <members>NewOpportunityWarning</members>
         <members>taskFilter</members>
+        <members>lblFormalize</members>
+        <members>lblPenalizeRisk</members>
+        <members>lblReevaluate</members>
+        <members>lblReject</members>
+        <members>lblSanctionPrice</members>
+        <members>PDFError</members>
+        <members>stageIncorrectToPDF</members>
+        <members>lblbtnPDF_cfg</members>
+        <members>reevaluateBtnLabel</members>
+        <members>UserNotAllowedToCreatePDF</members>
+        <members>lblQuote</members>
+        <members>lblErrorReevaluateBtn</members>
+        <members>lblFormalize</members>
+        <members>lblMsgFormalization</members>
+        <members>lblMsgReevaluate</members>
+        <members>lblTitleFormalization</members>
+        <members>lblTitleReevaluate</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -174,6 +191,16 @@
         <members>PE_DWP_Correo_tst</members>
         <members>OpportunityProduct_Controller</members>
         <members>OpportunityProduct_Controller_tst</members>
+        <members>OpportunityPDFWrap</members>
+        <members>PDF_formalizacion_ctrl</members>
+        <members>PDF_formalizacion_ctrl_tst</members>
+        <members>PDFclassButton</members>
+        <members>Product_cls</members>
+        <members>classMasterGuarantee_cls</members>
+        <members>Product_cls_test</members>
+        <members>ReevaluateButtonClass</members>
+        <members>formalizationButtonClass</members>
+        <members>statusButtonClass</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -193,7 +220,15 @@
 		<members>GraphicVinculacion_comp</members>
         <members>OpportunityProduct_Comp</members>
         <members>cQuickAction_NewOpportunity</members>
-        <members>submitTODiscart</members>		
+        <members>submitTODiscart</members>
+        <members>PDFLightingComponent</members>
+        <members>ProductGuarantee_comp</members>
+        <members>modalAddGurantee_comp</members>
+        <members>ReloadTable_evt</members>
+        <members>ProductParticipants_comp</members>
+        <members>modalAddParticipants_comp</members>
+        <members>FormalizationBtn_cmp</members>
+        <members>reevaluateButton_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -245,6 +280,9 @@
         <members>Account_Banking_System_Classification__c</members>
 		<members>Product2</members>
 		<members>OpportunityTeamMember</members>
+        <members>Task</members>
+        <members>Product_Gurantee__c</members>
+        <members>Product_Participants__c</members>
         <name>CustomObject</name>
     </types>
 	<types>
@@ -286,6 +324,8 @@
         <members>Account_Banking_System_Classification__c-es</members>
         <members>Opportunity-es</members>
         <members>OpportunityLineItem-es</members>        
+        <members>Product_Gurantee__c-es</members>  
+        <members>Product_Participants__c-es</members>  
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -315,6 +355,8 @@
 		<members>Opportunity-Opportunity Layout</members>
         <members>OpportunityLineItem-Opportunity Product Layout</members>
         <members>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</members>
+        <members>Product_Gurantee__c-Formato Product_Gurantee</members>
+        <members>Product_Participants__c-Formato Product_Participant</members>
         <name>Layout</name>
     </types>
     <types>
@@ -653,6 +695,7 @@
         <members>OpportunityLineItem.gipr_Plazo__c</members>
         <members>OpportunityLineItem.gipr_Tipo_Garantia__c</members>
         <members>Opportunity.LastSIOcode__c</members>
+        <members>Opportunity.reevaluate__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -721,23 +764,25 @@
   <types>
 	<!--<members>Email_Message_update_Opportunity</members> -->
 	<!--<members>Event_update_Opportunity</members> -->
-	<!--<members>FlujoEstadosOportunidad</members>-->
+	<!--<members>FlujoEstadosOportunidad</members> -->
 	<!--<members>Opp_Owner_Changed</members> -->
 	<!--<members>Opp_PB_Opportunidad</members> -->
 	<!--<members>ProductOpp_DueDate</members> -->
 	<!--<members>Task_update_Opportunity</members> -->
+	<!-- <members>Guarantee_MasterRecord</members> -->
 	<name>FlowDefinition</name>
   </types>
   <types>
 	<!--<members>Email_Message_update_Opportunity-4</members> -->
 	<!--<members>Event_update_Opportunity-3</members> -->
 	<!--<members>FlujoEstadosOportunidad-12</members> -->
-	<members>Motivo_Descarte_Oportunidad_V0-32</members>
+	<!--members>Motivo_Descarte_Oportunidad_V0-32</members -->
 	<!--<members>Opp_Owner_Changed-3</members> -->
 	<!--<members>Opp_PB_Opportunidad-8</members> -->
 	<!--<members>ProductOpp_DueDate-3</members> -->
 	<!--<members>Task_update_Opportunity-3</members> -->
 	<!--<members>Motivo_Descarte_Oportunidad_V0-25</members> -->
+    <!--<members>FlujoEstadosOportunidad-13</members> -->
 	<name>Flow</name>
   </types>
     <types>
@@ -856,5 +901,9 @@
         <members>*</members>
         <name>StandardValueSetTranslation</name>
     </types>
+    <types>
+        <members>PDF_formalizacion_vfp</members>
+        <name>ApexPage</name>
+     </types>
     <version>41.0</version>
 </Package>
