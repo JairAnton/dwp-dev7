@@ -68,6 +68,10 @@
     <classAccesses>
         <apexClass>OpportunityProduct_Controller_tst</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+     <classAccesses>
+        <apexClass>ReevaluateButtonClass</apexClass>
+        <enabled>true</enabled>
     </classAccesses> 
     <custom>true</custom>
 	<description>Los cargos pueden ser:
@@ -77,6 +81,11 @@ Jefes de Promoción de Negocio
 Gerentes de oficina
 Ejecutivo de Banca de Empresas
 Asistente BE</description>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.reevaluate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.rejection_coin__c</field>

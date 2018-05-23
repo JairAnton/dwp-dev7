@@ -132,10 +132,23 @@
    <classAccesses>
         <apexClass>PDFclassButton</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReevaluateButtonClass</apexClass>
+        <enabled>true</enabled>
     </classAccesses> 
+    <classAccesses>
+        <apexClass>formalizationButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>  
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.reevaluate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>

@@ -121,6 +121,14 @@
         <apexClass>PDFclassButton</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+     <classAccesses>
+        <apexClass>ReevaluateButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses> 
+    <classAccesses>
+        <apexClass>formalizationButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>  
     <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>

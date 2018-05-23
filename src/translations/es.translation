@@ -324,7 +324,23 @@
        <label>El usuario no tiene permisos para generar PDF</label>
        <name>UserNotAllowedToCreatePDF</name>
    </customLabels>
-	<quickActions>
+   <customLabels>
+       <label>Esta seguro de formalizar esta oportunidad</label>
+       <name>lblMsgFormalization</name>
+   </customLabels>
+   <customLabels>
+       <label>Esta seguro de reevaluar esta oportunidad</label>
+       <name>lblMsgReevaluate</name>
+   </customLabels>
+   <customLabels>
+       <label>Formalización</label>
+       <name>lblTitleFormalization</name>
+   </customLabels>
+   <customLabels>
+       <label>Reevaluar</label>
+       <name>lblTitleReevaluate</name>
+   </customLabels>
+    <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
     </quickActions>
