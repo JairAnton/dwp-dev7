@@ -1128,6 +1128,16 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <fields>
+        <fullName>reevaluate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Only for Code Propurse</description>
+        <externalId>false</externalId>
+        <label>re-evaluate</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>

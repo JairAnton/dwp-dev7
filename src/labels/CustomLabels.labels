@@ -445,6 +445,34 @@
         <value>Sanction price</value>
     </labels>
     <labels>
+        <fullName>lblTitleFormalization</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleFormalization</shortDescription>
+        <value>formalizate Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblTitleReevaluate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleReevaluate</shortDescription>
+        <value>Reevaluate opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblMsgFormalization</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>Are you sure that you want formalizate the Opportunity?</value>
+    </labels>
+    <labels>
+        <fullName>lblMsgReevaluate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgReevaluate</shortDescription>
+        <value>Are you sure that you want reevaluate the Opportunity?</value>
+    </labels>
+    <labels>
         <fullName>lblbtnPDF_cfg</fullName>
         <language>en_US</language>
         <protected>false</protected>

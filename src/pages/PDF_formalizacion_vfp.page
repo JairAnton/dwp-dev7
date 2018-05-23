@@ -83,16 +83,16 @@
              <th></th>
           </tr>
           <tr>
-            <td>Código central: {!Client.Name} </td>
-            <td>Nombre ejecutivo: {!Client.Name} </td>
+            <td>Código central: {!Client.main_code_id__c} </td>
+            <td>Nombre ejecutivo: {!Opportunity.Owner.Name} </td>
          </tr>
          <tr>
-           <td>RUE: {!Client.ROE_per__c} </td>
-           <td>Registro de ejecutivo: {!Opportunity.Owner.user_id__c } </td>
+           <td>RUC: {!Client.AccountNumber} </td>
+           <td>Registro de ejecutivo: {!Opportunity.Owner.user_id__c} </td>
          </tr>
          <tr>
            <td>Oficina: {!Oficina.Name}</td>
-           <td>Código cartera : {!Oficina.branch_id__c}</td>
+           <td>Código cartera : {!Opportunity.Owner.portfolio_classification_id__c}</td>
          </tr>
          </table>
          <br/>
@@ -102,15 +102,15 @@
          <br/>
          <table>
           <tr>
-            <td>Clasificación BBVA:{!ABBVAC.bbva_classification_desc__c } </td>
-            <td>Alerta: {!ABBVAC.Name}</td>
+            <td>Clasificación BBVA:{!Client.bbva_classification_desc__c} </td>
+            <td>Alerta: {!Client.alert_desc__c}</td>
          </tr>
          <tr>
-           <td>Clasificación SBS: {!CSBS.Name} </td>
+           <td>Clasificación SBS: {!Client.banking_system_classification_desc__c } </td>
            <td>Etiqueta: {!CSBS.Name} </td>
          </tr>
          <tr>
-           <td>Buró: {!CSBS.Name} </td>
+           <td>Buró: {!Client.bureau_classification_type__c } </td>
            <td>Rating: {!CSBS.Name} </td>
          </tr>
          </table>
@@ -121,20 +121,20 @@
          <br/>
          <table>
           <tr>
-            <td>No cotización: {!Opportunity.Name} </td>
-            <td>Fecha de autorización: {!Opportunity.Name} </td>
+            <td>No cotización: COT-12345 </td>
+              <td>Fecha de autorización: 16/06/2018:9:00 </td>
          </tr>
          <tr>
-           <td>Tasa aprobada: {!Opportunity.Name} </td>
-           <td>Vigencia: {!Opportunity.Name} </td>
+           <td>Tasa aprobada: 5% </td>
+           <td>Vigencia: 12/07/2018 </td>
          </tr>
          <tr>
-           <td>Plazo: {!Opportunity.Name} </td>
-           <td>Tipo garantía: {!Opportunity.Name}</td>
+           <td>Plazo: 12 meses </td>
+           <td>Tipo garantía: 001</td>
          </tr>
          <tr>
-           <td>Compromisos: {!Opportunity.Name} </td>
-           <td>Sancionados: {!Opportunity.Name} </td>
+           <td>Compromisos: 3 </td>
+           <td>Sancionados: 1 </td>
          </tr>
          </table>
          <br/>
@@ -153,9 +153,9 @@
          <li>Tipo de amortización: {!Opportunity.Name} </li>
          <li>Plazo: {!Oli.gipr_Plazo__c}</li>
          <li>Periodicidad: {!Opportunity.Name}</li>
-         <li>Periodo de gracia: {!Opportunity.Name}</li>
-         <li>Fecha de vencimiento: {!Opportunity.Name}</li>
-         <li>Código simulación: {!OLI.SIOCode__c}</li>
+         <li>Periodo de gracia: 1 Mes</li>
+          <li>Fecha de vencimiento: 12/07/2018</li>
+         <li>Código simulación: ABC12345</li>
         </ul>
         </div>
               <div class="title">
