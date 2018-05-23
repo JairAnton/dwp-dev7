@@ -11,6 +11,7 @@
 	<aura:attribute name="bStauts" type="Boolean" default="false"/>
 	<aura:attribute name="bStautsF" type="Boolean" default="false"/>
 	<aura:attribute name="errMessage" type="String" default=""/>
+    <aura:attribute name="title" type="String" default="Añadir intervinietne"/>
 	<aura:attribute name="optDOI" type="List" default="[]"/>
 	<aura:attribute name="optParticipation" type="List" default="[]"/>
 	<aura:attribute name="optMaritalStatus" type="List" default="[]"/>
@@ -27,7 +28,7 @@
 
             <!-- HEADER -->
             <header class="slds-modal__header">                       
-                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Añadir intervinietne</h2>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!v.title}</h2>
             </header>                    
             <!-- END HEADER -->
             <!-- CONTENT -->
@@ -76,7 +77,7 @@
 			<!-- FOOTER -->
             <div class="slds-modal__footer">
                 <button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">{!v.lblCancel}</button>
-                <lightning:button class="slds-button slds-button_brand" onclick="{!c.saveRecord}" value="SaveN" >{!v.lblSave} y nuevo</lightning:button>
+                <lightning:button class="slds-button slds-button_neutral" onclick="{!c.saveRecord}" value="SaveN" >{!v.lblSave} y nuevo</lightning:button>
                 <lightning:button class="slds-button slds-button_brand" onclick="{!c.saveRecord}" value="Save">{!v.lblSave}</lightning:button>
             </div>
 			<!-- END FOOTER -->            

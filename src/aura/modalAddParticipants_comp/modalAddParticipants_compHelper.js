@@ -113,6 +113,7 @@
 	                      			component.set("v.PParticipantId", null);		                      	
 		                      		component.set('v.isActive', false);
 		                      		component.set('v.isActive', true);
+		                      		component.set('v.title', 'Añadir interviniente');
 		                      }
 
 		                       //helper.navigateToRecord(component, event, helper);
