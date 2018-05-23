@@ -1593,6 +1593,46 @@
                 <fullName>36</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>37</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>38</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>41</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>42</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>43</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>44</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>45</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>46</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
 		<picklistValues>
             <picklist>rejection_coin__c</picklist>
