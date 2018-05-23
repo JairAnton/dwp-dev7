@@ -500,4 +500,11 @@
         <shortDescription>UserNotAllowedToCreatePDF</shortDescription>
         <value>Only Operative users are allowed to create the PDF</value>
     </labels>
+    <labels>
+        <fullName>lblErrorReevaluateBtn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Erro on Reevaluate Button</shortDescription>
+        <value>Error in reevaluate the opportunity</value>
+    </labels>
 </CustomLabels>
