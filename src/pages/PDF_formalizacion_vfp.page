@@ -103,15 +103,22 @@
          <table>
           <tr>
             <td>Clasificación BBVA:{!Client.bbva_classification_desc__c} </td>
-            <td>Alerta: {!Client.alert_desc__c}</td>
+              <td>
+              <apex:outputPanel rendered="{!IF(Client.alert_desc__c,true,false)}">
+              Alerta: Sí
+              </apex:outputPanel>
+             <apex:outputPanel rendered="{!IF(Client.alert_desc__c == false,true,false)}">
+              Alerta: No
+              </apex:outputPanel>
+              </td>
          </tr>
          <tr>
            <td>Clasificación SBS: {!Client.banking_system_classification_desc__c } </td>
-           <td>Etiqueta: {!CSBS.Name} </td>
+           <td>Estrategia: {!Client.risk_strategy_class_name__c } </td>
          </tr>
          <tr>
            <td>Buró: {!Client.bureau_classification_type__c } </td>
-           <td>Rating: {!CSBS.Name} </td>
+           <td>Rating: {!Rating.total_rating_score_number__c } </td>
          </tr>
          </table>
             <br/>
@@ -144,18 +151,18 @@
          <br/>
          <ul>
          <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-         <li>Destino: {!OLI.gipr_Destino__c}</li>
+         <li>Destino: {!OLI.Destination__c}</li>
          <li>Familia Producto: {!Product.Family}</li>
          <li>Producto: {!Product.Name}</li>
          <li>Divisa: {!Product.CurrencyIsoCode}</li>
          <li>Importe: {!Opportunity.Amount} </li>
-         <li>Cuenta vinculada: {!Opportunity.Name}</li>
-         <li>Tipo de amortización: {!Opportunity.Name} </li>
+         <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
+         <li>Tipo de amortización: {!OLI.cpliq_Amortizacion__c } </li>
          <li>Plazo: {!Oli.gipr_Plazo__c}</li>
-         <li>Periodicidad: {!Opportunity.Name}</li>
-         <li>Periodo de gracia: 1 Mes</li>
-          <li>Fecha de vencimiento: 12/07/2018</li>
-         <li>Código simulación: ABC12345</li>
+         <li>Periodicidad: {!Oli.cpliq_Periodicidad__c	}</li>
+         <li>Periodo de gracia: {!Oli.cpliq_Periodicidad_gracia__c}</li>
+          <li>Fecha de vencimiento: {!Oli.cpliq_Fecha_Vencimiento__c }</li>
+         <li>Código simulación: {!Oli.cpliq_Codigo_Simulacion__c}</li>
         </ul>
         </div>
               <div class="title">
@@ -172,20 +179,20 @@
               <th class="cb">Garantia</th>
               <th class="cb">Modalidad</th>
               <th class="cb">Estado</th>
-              <th class="cb">Plazo</th>
-              <th class="cb">Formalización</th>
-              <th class="cb">No. garantía</th>
+              <th class="cb">Plazo Formalización</th>
+              <th class="cb">No.garantía</th>
               <th class="cb">Importe</th>
             </tr>
+            <apex:repeat value="{!Garantias}" var="Garantia" id="Garantias">
             <tr>
-            <td class="cd">{!Opportunity.Name}</td>
-            <td class="cd">{!Opportunity.Modality__c}</td>
-            <td class="cd">{!Opportunity.StageName}</td>
-            <td class="cd">{!OLI.gipr_Plazo__c}</td>
-            <td class="cd">{!Opportunity.Name}</td>
-            <td class="cd">{!OLI.gipr_Garantia__c}</td>
-            <td class="cd">{!Opportunity.Amount}</td>
+            <td class="cd">{!Garantia.Guarantee__c}</td>
+            <td class="cd">{!Garantia.Modality__c}</td>
+            <td class="cd">{!Garantia.Status__c}</td>
+            <td class="cd">{!Garantia.Term__c} {!Garantia.Periodicity__c}</td>
+            <td class="cd">{!Garantia.nGuarantee__c }</td>
+            <td class="cd">{!Garantia.Amount__c }</td>
             </tr>
+           </apex:repeat>
          </table>
         <br/>
         <div class="title">
@@ -198,12 +205,14 @@
               <th class="cb">Participación</th>
               <th class="cb">Estado cívil</th>
             </tr>
+            <apex:repeat value="{!Intervenientes}" var="Interveniente" id="Intervenientes">
             <tr>
-            <td class="cd">{!Contacto.Name}</td>
-            <td class="cd">{!Contacto.Name}</td>
-            <td class="cd">{!Contacto.Name}</td>
-            <td class="cd">{!Contacto.Status_desc__c}</td>
+            <td class="cd">{!Interveniente.Name}</td>
+            <td class="cd">{!Interveniente.DOI__c}</td>
+            <td class="cd">{!Interveniente.Participation__c }</td>
+            <td class="cd">{!Interveniente.Marital_Status__c}</td>
             </tr>
+          </apex:repeat>
          </table>
            <div class="footer">
                 <div>Página <span class="pagenumber"/> de <span class="pagecount"/></div>
