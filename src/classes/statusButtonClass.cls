@@ -1,30 +1,35 @@
 Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface {
- 
+
     Global Set<String> getDynamicButtonStatus(String recordId, String sObjectName)
         {
             list<string> IdsRecord = new list<string>();
             IdsRecord.add(recordId);
             Map<String,Set<String>> PdfBtn=   dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','ButtonVisibility');
-            Map<String,Set<String>> reevaluate=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','Reevaluate');
-            Map<String,Set<String>> reevaluate2=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','Reevaluate');
-            Map<String,Set<String>> Formalizate=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','Reevaluate');
+            Map<String,Set<String>> reevaluatePrice=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','SanctionPrice');
+            Map<String,Set<String>> reevaluateRisk=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','PenalizeRisk');
+            Map<String,Set<String>> Formalizate=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','Approvalformalization');
 
-            
             Set<String> buttonsStatusSet = new Set<String>();
             id id1 = userinfo.getProfileId();
- 
-            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;        
-            if(PdfBtn.get(recordId).contains('PDFBtn') &&(prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion'))
-                 buttonsStatusSet.add('btnPDF'); 
-                 buttonsStatusSet.add('btnReevaluate');
-            if(prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion')
+            Opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  recordId LIMIT 1];
+
+            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+            if(PdfBtn.get(recordId).contains('PDFBtn') &&(prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion') && (!reevaluatePrice.get(recordId).contains('Sanction Price') &&  !reevaluateRisk.get(recordId).contains('Penalize Risk'))  )
+                 buttonsStatusSet.add('btnPDF');
+                buttonsStatusSet.add('btnReevaluate');
+            if(Formalizate.get(recordId).contains('formalizate') && (prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion') && (!reevaluatePrice.get(recordId).contains('Sanction Price') &&  !reevaluateRisk.get(recordId).contains('Penalize Risk')) )
                  buttonsStatusSet.add('btnFormalize');
-            if(prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion')
+            if(reevaluatePrice.get(recordId).contains('Sanction Price') &&( prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion')){
                  buttonsStatusSet.add('btnSanctionPrice');
-             if(prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion')
+                 opp.opportunity_status_type__c='12';
+              }
+            if(reevaluateRisk.get(recordId).contains('Penalize Risk') && (prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion')){
                  buttonsStatusSet.add('btnPenalizeRisk');
+               opp.opportunity_status_type__c='45';
+              }
+            update opp;
             return buttonsStatusSet;
-        }    
-    
-    
+        }
+
+
 }
