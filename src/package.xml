@@ -237,6 +237,7 @@
         <members>Componet_Cotizacion</members>
         <members>CustomTable_V1</members>
         <members>call_Quote_component</members>
+        <members>Sanction_Price_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -797,8 +798,8 @@
 	<members>Opp_PB_Opportunidad</members>
 	<members>ProductOpp_DueDate</members>
 	 <members>Task_update_Opportunity</members>
-    <members>Guarantee_MasterRecord</members>-->
-    <members>Participant_MasterRecord</members>
+    <members>Guarantee_MasterRecord</members>
+    <members>Participant_MasterRecord</members>-->
 	<name>FlowDefinition</name>
   </types>
   <types>
@@ -812,8 +813,8 @@
     <members>FlujoEstadosOportunidad-13</members>
     <members>Guarantee_MasterRecord-1</members>
 	<members>Compromisos-8</members>
-	<members>Flujo_Cotizacion_V0-2</members>-->
-    <members>Participant_MasterRecord-1</members>
+	<members>Flujo_Cotizacion_V0-2</members>
+    <members>Participant_MasterRecord-1</members>-->
 	<name>Flow</name>
   </types>
     <types>
