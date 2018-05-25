@@ -21,6 +21,14 @@
 					component.find("selDOI").set("v.value",component.get("v.PParticipant")[0].DOI__c);
 					component.find("selParticipation").set("v.value",component.get("v.PParticipant")[0].Participation__c);
 					component.find("selMaritalStatus").set("v.value",component.get("v.PParticipant")[0].Marital_Status__c);
+
+                    if(component.get("v.PParticipant")[0].isMaster__c)
+                    {
+                        component.find("btnSaveNew").set("v.disabled", true);
+                        component.find("txtName").set("v.disabled", true);
+                        
+
+                    }
                 }
             });        
             $A.enqueueAction(action2);

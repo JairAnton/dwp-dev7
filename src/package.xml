@@ -797,6 +797,7 @@
 	<members>ProductOpp_DueDate</members>
 	 <members>Task_update_Opportunity</members>
     <members>Guarantee_MasterRecord</members>-->
+    <members>Participant_MasterRecord</members>
 	<name>FlowDefinition</name>
   </types>
   <types>
@@ -809,9 +810,9 @@
 	<members>Task_update_Opportunity-3</members>
     <members>FlujoEstadosOportunidad-13</members>
     <members>Guarantee_MasterRecord-1</members>
-	-->
 	<members>Compromisos-8</members>
-	<members>Flujo_Cotizacion_V0-2</members>
+	<members>Flujo_Cotizacion_V0-2</members>-->
+    <members>Participant_MasterRecord-1</members>
 	<name>Flow</name>
   </types>
     <types>
