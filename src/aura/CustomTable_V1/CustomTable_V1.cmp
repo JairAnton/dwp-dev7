@@ -1,0 +1,16 @@
+<aura:component controller="Object_Controller">
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="Filtro" type="String" default=""/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <div style="height: 400px; max-height=400px;">
+	<lightning:datatable data="{! v.mydata }" 
+        				 columns="{! v.mycolumns }" 
+        				 keyField="Id"
+        				 hideCheckboxColumn="true"
+		 			     resizeColumnDisabled="true"
+                         enableInfiniteLoading="true"
+                         />
+    </div>
+    <lightning:spinner aura:id="spinner" variant="brand" size="large" alternativeText="Charge"/>
+</aura:component>
