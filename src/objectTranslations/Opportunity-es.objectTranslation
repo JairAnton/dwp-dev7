@@ -229,35 +229,35 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>37</masterLabel>
-            <translation>Sanción Aprobado SM</translation>
+            <translation>Sanción aprobado SM</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>38</masterLabel>
-            <translation>Sanción Aprobado CM</translation>
+            <translation>Sanción aprobado CM</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>39</masterLabel>
-            <translation>Sanción Denegado</translation>
+            <translation>Sanción denegado</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>40</masterLabel>
-            <translation>Sanción Devuelto</translation>
+            <translation>Sanción devuelto</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>41</masterLabel>
-            <translation>Sanción Aprobado SM (2)</translation>
+            <translation>Sanción aprobado SM (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>42</masterLabel>
-            <translation>Sanción Aprobado CM (2)</translation>
+            <translation>Sanción aprobado CM (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>43</masterLabel>
-            <translation>Sanción Denegado (2)</translation>
+            <translation>Sanción denegado (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>44</masterLabel>
-            <translation>Sanción Devuelto (2)</translation>
+            <translation>Sanción devuelto (2)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>45</masterLabel>
@@ -265,7 +265,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>46</masterLabel>
-            <translation>Riesgo Aprobado dentro de linea</translation>
+            <translation>Riesgo aprobado dentro de linea</translation>
         </picklistValues>
     </fields>
 </CustomObjectTranslation>

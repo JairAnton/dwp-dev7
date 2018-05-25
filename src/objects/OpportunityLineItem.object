@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <fullName>PE_DATE_Fecha_cotizacion__c</fullName>
+        <externalId>false</externalId>
+        <label>Fecha cotizacion</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>PE_POR_Comision_estructuracion__c</fullName>
+        <externalId>false</externalId>
+        <label>PE_POR_Comision_estructuracion</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PE_POR_Comision_liquidacion_anticipada__c</fullName>
+        <externalId>false</externalId>
+        <label>PE_POR_Comision_liquidacion_anticipada</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PE_POR_Spread__c</fullName>
+        <externalId>false</externalId>
+        <label>PE_POR_Spread</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PE_POR_TEA_minima__c</fullName>
+        <description>se ingresa la tasa que arroja el cotizador</description>
+        <externalId>false</externalId>
+        <label>PE_POR_TEA_minima</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PE_POR_TEA_propuesta__c</fullName>
+        <description>se ingresará la tasa que se solicita para la oportunidad</description>
+        <externalId>false</externalId>
+        <label>PE_POR_TEA_propuesta</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PE_POR_TEA_sugerida__c</fullName>
+        <description>se ingresa la tasa que arroja el cotizador</description>
+        <externalId>false</externalId>
+        <inlineHelpText>se ingresa la tasa que arroja el cotizador</inlineHelpText>
+        <label>PE_POR_TEA_sugerida</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+	<fields>
         <fullName>Siocode__c</fullName>
         <caseSensitive>false</caseSensitive>
         <externalId>false</externalId>
