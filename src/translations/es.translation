@@ -382,9 +382,6 @@
                 <fields>
                     <name>PREVIOS</name>
                 </fields>
-                <fields>
-                    <name>TablaCompromisosPrevios</name>
-                </fields>
                 <name>Compromisos</name>
             </screens>
             <screens>
