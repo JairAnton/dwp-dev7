@@ -290,6 +290,7 @@
         <members>Task</members>
         <members>Product_Gurantee__c</members>
         <members>Product_Participants__c</members>
+		<members>compromiso__c</members>
         <name>CustomObject</name>
     </types>
 	<types>
