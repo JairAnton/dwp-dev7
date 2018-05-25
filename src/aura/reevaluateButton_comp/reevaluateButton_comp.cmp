@@ -1,10 +1,10 @@
-<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
+<aura:component controller="ReevaluateButtonClass" implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
 <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleReevaluate}" access="global" description="Specify the modal"/>
 <div class="slds-modal__content slds-p-around_medium slds-theme_shade">
       {!$Label.c.lblMsgReevaluate}
    </div>
    <footer class="slds-modal__footer slds-theme_default">
-       <lightning:button variant="neutral" label="Sí" onclick=""/>
-       <lightning:button variant="neutral" label="No" onclick=""/>
-   </footer>	
+       <lightning:button variant="neutral" label="Sí" onclick="{!c.doReevaluate}"/>
+       <lightning:button variant="neutral" label="No" onclick="{!c.close}"/>
+   </footer>
 </aura:component>
