@@ -51,13 +51,15 @@
 
            
 	        <lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtName" name="txtName" label="Nombre/Cliente" value="" /> 
+
 	        <lightning:select aura:id="selDOI" name="selDOI" label="DOI" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
                     <option value="">----</option>
                     <aura:iteration items="{!v.optDOI}" var="item">
                         <option value="{!item.value}">{!item.label}</option>
                     </aura:iteration>
             </lightning:select>
-	       	<lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtNDOI" name="txtNDOI" type="number" label="N°DOI" value="" step="0"/> 
+
+	       	<lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtNDOI" name="txtNDOI"  label="N°DOI" pattern="[0-9.]+" maxlenght="11" onchange="{!c.formPress}" />
 	        <lightning:select aura:id="selParticipation" name="selParticipation" label="Participatión" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
                     <option value="">----</option>
                     <aura:iteration items="{!v.optParticipation}" var="item">
@@ -77,7 +79,7 @@
 			<!-- FOOTER -->
             <div class="slds-modal__footer">
                 <button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">{!v.lblCancel}</button>
-                <lightning:button class="slds-button slds-button_neutral" onclick="{!c.saveRecord}" value="SaveN" >{!v.lblSave} y nuevo</lightning:button>
+                <lightning:button  aura:id="btnSaveNew" name="btnSaveNew"  class="slds-button slds-button_neutral" onclick="{!c.saveRecord}" value="SaveN" >{!v.lblSave} y nuevo</lightning:button>
                 <lightning:button class="slds-button slds-button_brand" onclick="{!c.saveRecord}" value="Save">{!v.lblSave}</lightning:button>
             </div>
 			<!-- END FOOTER -->            

@@ -1,0 +1,119 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp"  access="GLOBAL" controller="Product_cls">
+<aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
+<aura:attribute name="recordId" type="Id" />
+<aura:attribute name="ProductId" type="Id" />
+<aura:attribute name="rowsP" type="Object[]" />   
+<aura:handler name="init" value="{!this}" action="{!c.init}" />
+<aura:attribute name="modalWidthCustom" type="String" default="64rem" access="global" description="Specify the modal" />
+<aura:attribute name="closeButton" type="Boolean" default="true"/>
+
+
+<div class="slds-modal__content style-general"  >
+	<br/><br/>
+	<table style="width:95%" align="center" cellspacing="2">
+	<tr>
+	<td >
+    <lightning:tabset variant="scoped"  >
+        <lightning:tab >
+            <aura:set attribute="label">
+            Detalles
+            </aura:set>            
+            Intervinientes
+            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout">
+            	<thead>
+	            	<tr>
+	            		<th>NOMBRE</th>
+	            	</tr>
+            	</thead>
+            	<tr>
+            	    <aura:iteration items="{!v.rowsP}" var="row" indexVar="rowIndex">
+            		<th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
+                        <div class="slds-truncate" title="{!row.Name}">{!row.Name}</div>
+                    </th>
+                    </aura:iteration>
+            	</tr>
+            </table>
+            Compromiso
+            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout">
+            	<thead>
+	            	<tr>
+	            		<th>PRODUCTO</th>
+	            		<th>SALDO MEDIO</th>
+	            		<th>PLAZO</th>
+	            		<th>TIPO</th>
+	            	</tr>
+            	</thead>
+            	<tr>
+            		<td></td>
+            		<td></td>
+            		<td></td>
+            		<td></td>
+            	</tr>
+            </table>
+            Documentos<br/>
+            <lightning:input type="file" label="Attachment" name="file" multiple="true" accept="image/png, .zip" onchange="{! c.handleFilesChange }"/>
+
+        </lightning:tab>
+        <lightning:tab >
+            <aura:set attribute="label">
+                Comentarios<br/>
+            </aura:set>
+            
+        </lightning:tab>
+    </lightning:tabset>     
+</td>
+<td width="350px" align="center">
+ 	<table class="slds-table slds-table_bordered slds-table_cell-buffer " >
+ 		<thead>
+       	<tr>
+       		<th>
+       			Producto<br/>
+       		</th>
+       		<th>
+       			Importe(PEN)
+       		</th>
+       	</tr>
+       	<tr>
+       		<th>
+       			Plazo
+       		</th>
+       		<th>
+       			TEA Propuesta(%)
+       		</th>
+       	</tr>
+       	<tr>
+       		<th>
+       			Spread(%)
+       		</th>
+       		<th>
+       			
+       		</th>
+       	</tr>
+       </thead>       	
+    </table>
+    <br/>
+    <br/>
+    <table style="width:90%" align="center">
+    <tr>
+    <td>
+    <lightning:button  aura:id="btnApprove" name="btnApprove" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick=""  ><lightning:icon iconName="utility:check" size="small" /><br/>Aprobar</lightning:button>
+	</td>
+	<td>
+    <lightning:button  aura:id="btnRaise" name="btnRaise" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="" ><lightning:icon iconName="utility:share" size="small" /><br/>Elevar</lightning:button>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+<br/><br/>
+   </div>
+   <footer class="slds-modal__footer slds-theme_default">
+   	
+      	<lightning:button variant="neutral" label="Close" onclick="{!c.close}" class="slds-float_left"/>
+    
+       <lightning:button variant="neutral" label="Desestimar" onclick=""/>
+       <lightning:button variant="brand" label="Continuar" onclick="" disabled="true"/>
+   
+   </footer>
+</aura:component>
