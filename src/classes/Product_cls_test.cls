@@ -71,7 +71,7 @@ public class Product_cls_test {
 			
 			Product_cls.saveGuaranteeDataByProduct(testPG.Id,testOP.Id,testPr.Id,'01','01','01',1,'01',1,'01',1);
 			
-			Product_cls.saveParticipantDataByProduct(testPP.Id,testOP.Id,testPr.Id,'Name','01',1,'01','01');
+			Product_cls.saveParticipantDataByProduct(testPP.Id,testOP.Id,testPr.Id,'Name','01','01','01','01');
 
        		Product_cls.deleteGuaranteeDataByProduct(testPG.Id);
        		Product_cls.deleteParticipantDataByProduct(testPP.Id);
