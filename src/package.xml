@@ -797,8 +797,6 @@
 	<members>ProductOpp_DueDate</members>
 	 <members>Task_update_Opportunity</members>
     <members>Guarantee_MasterRecord</members>-->
-	<members>Compromisos</members>
-	<members>Flujo_Cotizacion_V0</members>
 	<name>FlowDefinition</name>
   </types>
   <types>
