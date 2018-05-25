@@ -59,7 +59,7 @@
                     </aura:iteration>
             </lightning:select>
 
-	       	<lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtNDOI" name="txtNDOI"  label="N°DOI" pattern="[0-9.]+" maxlenght="11" onchange="{!c.formPress}" />
+	       	<lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtNDOI" name="txtNDOI"  label="N°DOI" pattern="[0-9.]+"  onchange="{!c.formPress}" />
 	        <lightning:select aura:id="selParticipation" name="selParticipation" label="Participatión" class="slds-size_1-of-2 slds-p-horizontal_x-small" >
                     <option value="">----</option>
                     <aura:iteration items="{!v.optParticipation}" var="item">

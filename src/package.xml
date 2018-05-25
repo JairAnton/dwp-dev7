@@ -203,6 +203,7 @@
         <members>statusButtonClass</members>
 		<members>Object_Controller</members>
         <members>SubmitToDiscart_ValidationClass</members>
+        <members>classMasterParticipant</members>
         <name>ApexClass</name>
     </types>
     <types>
