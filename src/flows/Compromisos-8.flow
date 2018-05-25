@@ -316,18 +316,6 @@
             <fieldText>&lt;DIV ALIGN=&quot;CENTER&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;&lt;U&gt;COMPROMISOS PREVIOS&lt;/U&gt;&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
-        <fields>
-            <name>TablaCompromisosPrevios</name>
-            <extensionName>c:Componet_Cotizacion</extensionName>
-            <fieldType>ComponentInstance</fieldType>
-            <inputParameters>
-                <name>recordId</name>
-                <value>
-                    <elementReference>ID_Init</elementReference>
-                </value>
-            </inputParameters>
-            <isRequired>true</isRequired>
-        </fields>
     </screens>
     <screens>
         <name>Error</name>
