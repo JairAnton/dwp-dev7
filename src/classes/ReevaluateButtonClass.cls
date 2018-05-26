@@ -1,0 +1,30 @@
+global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInterface {
+
+
+    global static List<String> getErrorMessagesList(String recordId, String source, String validationClass)
+    {
+
+        id id1 = userinfo.getProfileId();
+        List<String> lstErrorMessage = new List<String>();
+        String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+
+
+       return lstErrorMessage;
+    }
+
+
+    @auraenabled
+    public static void updateOpp(String Idopp){
+        id id1 = userinfo.getProfileId();
+       String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+
+        if(prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'){
+        Opportunity opp =[SELECT Id,reevaluate__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
+        opp.reevaluate__c=true;
+        update opp;
+
+        }
+
+    }
+
+}

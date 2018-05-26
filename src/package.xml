@@ -151,6 +151,12 @@
         <members>reevaluateBtnLabel</members>
         <members>UserNotAllowedToCreatePDF</members>
         <members>lblQuote</members>
+        <members>lblErrorReevaluateBtn</members>
+        <members>lblFormalize</members>
+        <members>lblMsgFormalization</members>
+        <members>lblMsgReevaluate</members>
+        <members>lblTitleFormalization</members>
+        <members>lblTitleReevaluate</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -190,7 +196,14 @@
         <members>PDF_formalizacion_ctrl_tst</members>
         <members>PDFclassButton</members>
         <members>Product_cls</members>
+        <members>classMasterGuarantee_cls</members>
         <members>Product_cls_test</members>
+        <members>ReevaluateButtonClass</members>
+        <members>formalizationButtonClass</members>
+        <members>statusButtonClass</members>
+		<members>Object_Controller</members>
+        <members>SubmitToDiscart_ValidationClass</members>
+        <members>classMasterParticipant</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -211,12 +224,20 @@
         <members>OpportunityProduct_Comp</members>
         <members>cQuickAction_NewOpportunity</members>
         <members>submitTODiscart</members>
-        <members>PDFLigthingComponent</members>
+        <members>PDFLightingComponent</members>
         <members>ProductGuarantee_comp</members>
         <members>modalAddGurantee_comp</members>
         <members>ReloadTable_evt</members>
         <members>ProductParticipants_comp</members>
         <members>modalAddParticipants_comp</members>
+        <members>FormalizationBtn_cmp</members>
+        <members>reevaluateButton_comp</members>
+        <members>Call_Component_Compromiso</members>
+        <members>Call_submitTODiscart</members>
+        <members>Componet_Cotizacion</members>
+        <members>CustomTable_V1</members>
+        <members>call_Quote_component</members>
+        <members>Sanction_Price_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -271,6 +292,7 @@
         <members>Task</members>
         <members>Product_Gurantee__c</members>
         <members>Product_Participants__c</members>
+		<members>compromiso__c</members>
         <name>CustomObject</name>
     </types>
 	<types>
@@ -314,6 +336,8 @@
         <members>OpportunityLineItem-es</members>        
         <members>Product_Gurantee__c-es</members>  
         <members>Product_Participants__c-es</members>  
+		<members>compromiso__c-en_US</members>
+        <members>compromiso__c-es</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -345,6 +369,7 @@
         <members>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</members>
         <members>Product_Gurantee__c-Formato Product_Gurantee</members>
         <members>Product_Participants__c-Formato Product_Participant</members>
+		<members>compromiso__c-Formato compromiso</members>
         <name>Layout</name>
     </types>
     <types>
@@ -355,6 +380,7 @@
         <members>Contact.Contact</members>
         <members>User_Branch__c.Relation_User_Branch</members>
 		<members>Opportunity.New_Awesome_Companct_Layout</members>
+		<members>Opportunity.Opportunity_Compact_Layout</members>
         <name>CompactLayout</name>
     </types>
     <types>
@@ -683,7 +709,23 @@
         <members>OpportunityLineItem.gipr_Plazo__c</members>
         <members>OpportunityLineItem.gipr_Tipo_Garantia__c</members>
         <members>Opportunity.LastSIOcode__c</members>
-        <name>CustomField</name>
+        <members>Opportunity.reevaluate__c</members>
+		<members>compromiso__c.Client__c</members>
+        <members>compromiso__c.Oportunidad__c</members>
+        <members>compromiso__c.PE_DIVISA_Importe__c</members>
+        <members>compromiso__c.PE_FM_PRODUCT__c</members>
+        <members>compromiso__c.PE_FOR_Fecha_Vcto__c</members>
+        <members>compromiso__c.PE_NUM_Permanencia__c</members>
+        <members>compromiso__c.PE_NUM_Plazo_Vcto__c</members>
+        <members>compromiso__c.PE_SH_PRODUCT__c</members>
+        <members>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</members>
+        <members>OpportunityLineItem.PE_POR_Comision_estructuracion__c</members>
+        <members>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</members>
+        <members>OpportunityLineItem.PE_POR_Spread__c</members>
+        <members>OpportunityLineItem.PE_POR_TEA_minima__c</members>
+        <members>OpportunityLineItem.PE_POR_TEA_propuesta__c</members>
+        <members>OpportunityLineItem.PE_POR_TEA_sugerida__c</members>
+		<name>CustomField</name>
     </types>
     <types>
         <members>Branch__c</members>
@@ -749,25 +791,30 @@
     <name>BusinessProcess</name>
   </types>
   <types>
-	<!--<members>Email_Message_update_Opportunity</members> -->
-	<!--<members>Event_update_Opportunity</members> -->
-	<!--<members>FlujoEstadosOportunidad</members>-->
-	<!--<members>Opp_Owner_Changed</members> -->
-	<!--<members>Opp_PB_Opportunidad</members> -->
-	<!--<members>ProductOpp_DueDate</members> -->
-	<!--<members>Task_update_Opportunity</members> -->
+	<!--<members>Email_Message_update_Opportunity</members>
+	<members>Event_update_Opportunity</members>
+	<members>FlujoEstadosOportunidad</members>
+	<members>Opp_Owner_Changed</members>
+	<members>Opp_PB_Opportunidad</members>
+	<members>ProductOpp_DueDate</members>
+	 <members>Task_update_Opportunity</members>
+    <members>Guarantee_MasterRecord</members>
+    <members>Participant_MasterRecord</members>-->
 	<name>FlowDefinition</name>
   </types>
   <types>
-	<!--<members>Email_Message_update_Opportunity-4</members> -->
-	<!--<members>Event_update_Opportunity-3</members> -->
-	<!--<members>FlujoEstadosOportunidad-12</members> -->
-	<!--members>Motivo_Descarte_Oportunidad_V0-32</members -->
-	<!--<members>Opp_Owner_Changed-3</members> -->
-	<!--<members>Opp_PB_Opportunidad-8</members> -->
-	<!--<members>ProductOpp_DueDate-3</members> -->
-	<!--<members>Task_update_Opportunity-3</members> -->
-	<!--<members>Motivo_Descarte_Oportunidad_V0-25</members> -->
+	<!--<members>Email_Message_update_Opportunity-4</members>
+	<members>Event_update_Opportunity-3</members>
+	<members>Motivo_Descarte_Oportunidad_V0-32</members>
+	<members>Opp_Owner_Changed-3</members>
+	<members>Opp_PB_Opportunidad-8</members>
+	<members>ProductOpp_DueDate-3</members>
+	<members>Task_update_Opportunity-3</members>
+    <members>FlujoEstadosOportunidad-13</members>
+    <members>Guarantee_MasterRecord-1</members>
+	<members>Compromisos-8</members>
+	<members>Flujo_Cotizacion_V0-2</members>
+    <members>Participant_MasterRecord-1</members>-->
 	<name>Flow</name>
   </types>
     <types>

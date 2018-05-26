@@ -3,11 +3,28 @@
 <aura:attribute name="recordId" type="Id" />
 <aura:attribute name="ProductId" type="Id" />
 <aura:attribute name="PGuarantee" type="Object[]" />
+<aura:attribute name="title" type="String" default="Añadir garantía"/>
 <aura:attribute name="showModal" type="Boolean" default="false" />
+<aura:attribute name="errMessage" type="String" default=""/>
 <aura:attribute name="refreshTable" type="Boolean" default="true" />
 <aura:handler name="init" value="{!this}" action="{!c.init}" />
 <aura:handler name="PasoParametrosPadre" event="c:ReloadTable_evt" action="{!c.RecibeParametros}"/>
 <aura:renderIf isTrue="{!v.refreshTable}">
+                <div aura:id="divToast" class="slds-notify_container slds-hide" style="width:95%">
+                    <div class="slds-notify slds-notify_toast " role="alert" style="width:95%">
+                      <span class="slds-assistive-text"></span>
+                      <span class="slds-icon_container slds-icon-utility-error slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+                       
+                      </span>
+                      <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small ">{!v.errMessage}</h2>
+                      </div>
+                      <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close">
+                       
+                        <span class="slds-assistive-text">Close</span>
+                      </button>
+                    </div>
+                </div>   
  <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout" role="grid">
             <thead>
                 <tr >
@@ -46,9 +63,9 @@
                             <th><div class="slds-truncate" title="{!row.nGuarantee__c}">{!row.nGuarantee__c}</div></th>
                             <th><div class="slds-truncate" title="{!row.Amount__c +'.00'}"> <ui:outputCurrency value="{!row.Amount__c}" /></div></th>
                             <th>
-                                <lightning:button variant="none" iconName="utility:edit" aura:id="editR" title="{!row.Id}" value="{!row}"   onclick="{!c.editRow}" />
+                                <lightning:button variant="none" iconName="utility:edit" aura:id="editR" title="Modificar" value="{!row}"   onclick="{!c.editRow}" />
                                 &nbsp;
-                                <lightning:button variant="none" iconName="utility:delete" aura:id="deleteR" title="{!row.Id}" value="{!row.Id}" onclick="{!c.deleteRow}" />
+                                <lightning:button variant="none" iconName="utility:delete" aura:id="deleteR" name="{!row.isMaster__c}" title="Eliminar" value="{!row.Id}"  onclick="{!c.deleteRow}" />
                                 </th>
                         </tr>                  
                 </aura:iteration>
@@ -56,7 +73,7 @@
         </table>       	
         <lightning:button class="addButton" iconName="utility:add" onclick="{!c.addRecord}">Añadir garantía</lightning:button>
         <aura:if isTrue="{!v.showModal}">
-            <c:modalAddGurantee_comp  isActive="{!v.showModal}" OpportunityId="{!v.recordId}" ProductId="{!v.ProductId}" PGuarantee="{!v.PGuarantee}" />  
+            <c:modalAddGurantee_comp  isActive="{!v.showModal}" OpportunityId="{!v.recordId}" ProductId="{!v.ProductId}" PGuarantee="{!v.PGuarantee}"  title="{!v.title}"/>  
         </aura:if>
        
 </aura:renderIf></aura:component>

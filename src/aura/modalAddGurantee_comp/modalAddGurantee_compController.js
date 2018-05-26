@@ -14,6 +14,7 @@
             action2.setCallback(this, function(response) {
                 var state = response.getState();
                 if (state === "SUCCESS") {
+                	component.set("v.isMaster", component.get("v.PGuarantee")[0].isMaster__c);
                     component.set("v.PGuarantee", response.getReturnValue());
                     component.set("v.PGuaranteeId",component.get("v.PGuarantee")[0].Id);
 					component.find("selGuaranteeType").set("v.value",component.get("v.PGuarantee")[0].GuaranteeType__c);								
@@ -42,6 +43,13 @@
 					component.find("selGuarantee").set("v.value",component.get("v.PGuarantee")[0].Guarantee__c);
 					//
 					component.find("txtAmount").set("v.value",component.get("v.PGuarantee")[0].Amount__c);
+					if(component.get("v.PGuarantee")[0].isMaster__c)
+					{
+						component.find("btnSaveNew").set("v.disabled", true);
+						component.find("selGuarantee").set("v.disabled", true);
+						component.find("selGuaranteeType").set("v.disabled", true);
+
+					}
                 }
             });        
             $A.enqueueAction(action2);

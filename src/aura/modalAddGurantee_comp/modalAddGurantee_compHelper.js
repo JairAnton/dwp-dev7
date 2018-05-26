@@ -146,6 +146,8 @@
 	                      		component.set("v.PGuaranteeId", null);
 	                      		component.set('v.isActive', false);
 	                      		component.set('v.isActive', true);
+	                      		component.set('v.title', 'Añadir garantía');
+	                      		
 	                      		//component.set('PGuaranteeId',null);
 	                      		
 	                      }

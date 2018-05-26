@@ -77,6 +77,20 @@
 	                		helper.handleShowToast(component,event,helper);   
 	                	}
 	                }
+
+	                var inputCmp = component.find("txtNDOI");
+			        var value = inputCmp.get("v.value");
+
+			        
+			        if (isNaN(value)) {
+			            event.getSource().set("v.disabled", false);
+
+			            errMsg=true;
+			            component.set("v.errMessage","El valor no es numérico: " + value);
+	                	helper.handleShowToast(component,event,helper);   
+			            //inputCmp.set("v.errors", [{message:"El valor no es numérico: " + value}]);
+			        }
+			          
 	                
 		 			if(!errMsg)
 			        {  
@@ -113,6 +127,7 @@
 	                      			component.set("v.PParticipantId", null);		                      	
 		                      		component.set('v.isActive', false);
 		                      		component.set('v.isActive', true);
+		                      		component.set('v.title', 'Añadir interviniente');
 		                      }
 
 		                       //helper.navigateToRecord(component, event, helper);

@@ -12,23 +12,23 @@ public with sharing class Product_cls {
 	}
 
 	@AuraEnabled public static List<Product_Gurantee__c> getGuaranteeDataByProduct(String IdOpportunity,String IdProduct){	
-		List<Product_Gurantee__c> objData= [SELECT Id,GuaranteeType__c,toLabel(Guarantee__c), toLabel(Modality__c), toLabel(Status__c),Term__c, toLabel(Periodicity__c),nGuarantee__c,Amount__c FROM Product_Gurantee__c Where Product__c=: IdProduct AND Opportunity__c=: IdOpportunity];
+		List<Product_Gurantee__c> objData= [SELECT Id,GuaranteeType__c,toLabel(Guarantee__c), toLabel(Modality__c), toLabel(Status__c),Term__c, toLabel(Periodicity__c),nGuarantee__c,Amount__c,isMaster__c FROM Product_Gurantee__c Where Product__c=: IdProduct AND Opportunity__c=: IdOpportunity Order by isMaster__c desc];
 		return objData;
 	}
 
 	@AuraEnabled public static List<Product_Gurantee__c> getGuaranteeDataByProductValues(String PGuaranteeId){	
 
-		List<Product_Gurantee__c> objData= [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c FROM Product_Gurantee__c Where Id=: PGuaranteeId];
+		List<Product_Gurantee__c> objData= [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c,isMaster__c FROM Product_Gurantee__c Where Id=: PGuaranteeId];
 		return objData;
 	}
 
 	@AuraEnabled public static List<Product_Participants__c> getParticipantDataByProduct(String IdOpportunity,String IdProduct){	
-		List<Product_Participants__c> objData= [SELECT Id,Name,toLabel(DOI__c), toLabel(Marital_Status__c), toLabel(Participation__c),N_DOI__c FROM Product_Participants__c Where Product__c=: IdProduct AND Opportunity__c=: IdOpportunity];
+		List<Product_Participants__c> objData= [SELECT Id,Name,toLabel(DOI__c), toLabel(Marital_Status__c), toLabel(Participation__c),N_DOI__c,isMaster__c FROM Product_Participants__c Where Product__c=: IdProduct AND Opportunity__c=: IdOpportunity Order by isMaster__c desc];
 		return objData;
 	}
 
 	@AuraEnabled public static List<Product_Participants__c> getParticipantDataByProductValues(String PParticipantId){	
-		List<Product_Participants__c> objData= [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c FROM Product_Participants__c Where  Id=: PParticipantId];
+		List<Product_Participants__c> objData= [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c,isMaster__c FROM Product_Participants__c Where  Id=: PParticipantId];
 		return objData;
 	}
 
@@ -59,7 +59,7 @@ public with sharing class Product_cls {
 		row.Modality__c=Modality;
 		row.Amount__c=Amount;
 		row.Status__c=Status;
-		row.Term__c=Term;
+		row.Term__c=integer.valueOf(Term);
 		row.Periodicity__c=Periodicity;
 		row.Term__c=Term;
 
@@ -70,7 +70,7 @@ public with sharing class Product_cls {
 	}
 
 
-	@AuraEnabled public static Boolean saveParticipantDataByProduct(String PParticipantId,String IdOpportunity,String IdProuduct,String Name,String DOI,Decimal N_DOI,String Participation,String Marital_Status){
+	@AuraEnabled public static Boolean saveParticipantDataByProduct(String PParticipantId,String IdOpportunity,String IdProuduct,String Name,String DOI,String N_DOI,String Participation,String Marital_Status){
 		
 		Product_Participants__c row;
 		if(PParticipantId!=null)		
@@ -91,4 +91,19 @@ public with sharing class Product_cls {
 		
 		return true;
 	}
+
+	
+
+  	@InvocableMethod(label='Delete Master Guarantee' description='Delete the row from Product_Guarantee')
+ 	public static void deleteMasterGuarantee(List<OpportunityLineItem> listRow)
+    {
+        List<Product_Gurantee__c> row =[SELECT Id FROM Product_Gurantee__c WHERE Product__c=: listRow[0].Product2Id and Opportunity__c=: listRow[0].OpportunityId and  isMaster__c=true LIMIT 1];
+ 		
+ 		if(!row.isEmpty())
+        	delete row;
+    }
+
+
+
+
 }

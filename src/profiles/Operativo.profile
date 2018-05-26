@@ -132,10 +132,23 @@
    <classAccesses>
         <apexClass>PDFclassButton</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReevaluateButtonClass</apexClass>
+        <enabled>true</enabled>
     </classAccesses> 
+    <classAccesses>
+        <apexClass>formalizationButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>  
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.reevaluate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>
@@ -2686,6 +2699,106 @@ Sub Gerentes de oficina</description>
         <field>Task.WhoId</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Gurantee__c.Guarantee__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+  <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Gurantee__c.Modality__c</field>
+        <readable>true</readable>
+  </fieldPermissions>
+  <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Gurantee__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+ <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Gurantee__c.Term__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Gurantee__c.Periodicity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+ <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Gurantee__c.Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Gurantee__c.nGuarantee__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_participants__c.DOI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
+  <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_participants__c.Participation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_participants__c.Name</field>
+        <readable>true</readable>
+    </fieldPermissions>  
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_participants__c.Marital_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
+      <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Periodicidad__c</field>
+        <readable>true</readable>
+</fieldPermissions>       
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Codigo_Simulacion__c</field>
+        <readable>true</readable>
+</fieldPermissions>       
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</field>
+        <readable>true</readable>
+</fieldPermissions>       
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Periodicidad_gracia__c</field>
+        <readable>true</readable>
+</fieldPermissions>  
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Destino__c</field>
+        <readable>true</readable>
+</fieldPermissions> 
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Cuenta_vinculada__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Amortizacion__c</field>
+        <readable>true</readable>
+</fieldPermissions> 
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Plazo__c</field>
+        <readable>true</readable>
+</fieldPermissions>     
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Garantia__c</field>
+        <readable>true</readable>
+</fieldPermissions>    
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>

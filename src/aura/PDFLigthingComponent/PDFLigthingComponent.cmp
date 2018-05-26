@@ -1,7 +1,0 @@
-<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" access="GLOBAL">
-    var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
-    compEvent.setParams({'inputAttributes': inputObject, 'nextComponent': 'c:TestScreen2' });
-    compEvent.fire();
-    var cancelEvent = cmp.getEvent('dynamicFlowWizardCancel');
-    cancelEvent.fire();
-</aura:component>

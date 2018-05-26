@@ -8,9 +8,11 @@
 	<aura:attribute name="ProductId" type="Id" />
 	<aura:attribute name="PGuaranteeId" type="Id" />
 	<aura:attribute name="PGuarantee" type="Object[]"  default="null"/>
-	<aura:attribute name="bStauts" type="Boolean" default="flase"/>
-	<aura:attribute name="bStautsF" type="Boolean" default="flase"/>
+	<aura:attribute name="bStauts" type="Boolean" default="false"/>
+    <aura:attribute name="isMaster" type="Boolean" default="false"/>
+	<aura:attribute name="bStautsF" type="Boolean" default="false"/>
 	<aura:attribute name="errMessage" type="String" default=""/>
+    <aura:attribute name="title" type="String" default="Añadir garantía"/>    
 	<aura:attribute name="optPeriodicity" type="List" default="[]"/>
 	<aura:attribute name="optStatus" type="List" default="[]"/>
 	<aura:attribute name="optModality" type="List" default="[]"/>
@@ -28,7 +30,7 @@
 
             <!-- HEADER -->
             <header class="slds-modal__header">                       
-                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Añadir garantía</h2>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!v.title}</h2>
             </header>                    
             <!-- END HEADER -->
             <!-- CONTENT -->
@@ -92,7 +94,7 @@
 			<!-- FOOTER -->
             <div class="slds-modal__footer">
                 <button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">{!v.lblCancel}</button>
-                <lightning:button class="slds-button slds-button_brand" onclick="{!c.saveRecord}" value="SaveN" >{!v.lblSave} y nuevo</lightning:button>
+                <lightning:button aura:id="btnSaveNew" name="btnSaveNew" class="slds-button slds-button_neutral" onclick="{!c.saveRecord}" value="SaveN" >{!v.lblSave} y nuevo</lightning:button>
                 <lightning:button class="slds-button slds-button_brand" onclick="{!c.saveRecord}" value="Save">{!v.lblSave}</lightning:button>
             </div>
 			<!-- END FOOTER -->            
