@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>dwp_dbpn__buttons_status_apex_class_name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">statusButtonClass</value>
     </values>
     <values>
         <field>dwp_dbpn__no_buttons_message_custom_label_api_name__c</field>
