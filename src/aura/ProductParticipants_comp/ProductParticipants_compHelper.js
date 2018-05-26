@@ -43,21 +43,24 @@
         cmp.set("v.refreshTable",true);
 	},
     deleteParticipant : function(cmp, evt, helper) {
-        if(confirm("¿Desea continuar con la eliminación del registro?"))
+        if(!evt.getSource().get("v.name"))
         {
-            var action = cmp.get("c.deleteParticipantDataByProduct");       
-            action.setParams({
-                "IdProductParticipant" : evt.getSource().get("v.value")
-            });
-            action.setCallback(this, function(response) {
-                var state = response.getState();
-                if (state === "SUCCESS") {               
-                    
-                    cmp.set("v.refreshTable",false);               
-                    helper.bringData(cmp, evt, helper); 
-                }
-            });        
-            $A.enqueueAction(action);
+            if(confirm("¿Desea continuar con la eliminación del registro?"))
+            {
+                var action = cmp.get("c.deleteParticipantDataByProduct");       
+                action.setParams({
+                    "IdProductParticipant" : evt.getSource().get("v.value")
+                });
+                action.setCallback(this, function(response) {
+                    var state = response.getState();
+                    if (state === "SUCCESS") {               
+                        
+                        cmp.set("v.refreshTable",false);               
+                        helper.bringData(cmp, evt, helper); 
+                    }
+                });        
+                $A.enqueueAction(action);
+            }
         }
     }
 
