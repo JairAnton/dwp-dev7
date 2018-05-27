@@ -69,12 +69,12 @@ insert lstOpportunitiesLineItem;
 
 
 public static testMethod void positiveTest(){
-List<Opportunity> lstOpportunities=[SELECT Id FROM  Opportunity LIMIT 1];
+Opportunity opp=[SELECT Id FROM  Opportunity LIMIT 1];
 PageReference pageRef = Page.PDF_formalizacion_vfp;
-PDFclassButton.PDF_formalization(lstOpportunities[0].Id);
-pageRef.getParameters().put('id',lstOpportunities[0].id);
+PDFclassButton.PDF_formalization(opp.Id);
+pageRef.getParameters().put('id',opp.id);
 test.setCurrentPage(pageRef);
-ApexPages.StandardController sc = new ApexPages.standardController(lstOpportunities[0].Id);
+ApexPages.StandardController sc = new ApexPages.standardController(opp);
 PDF_formalizacion_ctrl pdf = new PDF_formalizacion_ctrl(sc);
 }
 
@@ -103,4 +103,3 @@ test.stopTest();
 
 
 }
-
