@@ -1,14 +1,34 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp"  access="GLOBAL" controller="Product_cls">
 <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
+<aura:attribute name="sanAction" type="String" />
 <aura:attribute name="recordId" type="Id" />
 <aura:attribute name="ProductId" type="Id" />
+<aura:attribute name="errMessage" type="String" default=""/>
 <aura:attribute name="rowsP" type="Object[]" />   
+<aura:attribute name="rowsComp" type="Object[]" />
+<aura:attribute name="rowsOppLineItem" type="Object[]" />
+<aura:attribute name="lblComments" type="String" default=""/>   
 <aura:handler name="init" value="{!this}" action="{!c.init}" />
 <aura:attribute name="modalWidthCustom" type="String" default="64rem" access="global" description="Specify the modal" />
-<aura:attribute name="closeButton" type="Boolean" default="true"/>
+<aura:attribute name="closeButton" type="Boolean" default="false"/>
 
 
 <div class="slds-modal__content style-general"  >
+              <div aura:id="divToast" class="slds-notify_container slds-hide" style="width:95%">
+            <div class="slds-notify slds-notify_toast slds-theme_error" role="alert" style="width:95%">
+              <span class="slds-assistive-text"></span>
+              <span class="slds-icon_container slds-icon-utility-error slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+               
+              </span>
+              <div class="slds-notify__content">
+                <h2 class="slds-text-heading_small ">{!v.errMessage}</h2>
+              </div>
+              <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close">
+               
+                <span class="slds-assistive-text">Close</span>
+              </button>
+            </div>
+        </div>  
 	<br/><br/>
 	<table style="width:95%" align="center" cellspacing="2">
 	<tr>
@@ -19,22 +39,25 @@
             Detalles
             </aura:set>            
             Intervinientes
-            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout">
+            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout" role="grid">
             	<thead>
 	            	<tr>
 	            		<th>NOMBRE</th>
 	            	</tr>
             	</thead>
+              <aura:iteration items="{!v.rowsP}" var="row" indexVar="rowIndex">
             	<tr>
-            	    <aura:iteration items="{!v.rowsP}" var="row" indexVar="rowIndex">
-            		<th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
+            	    
+            		<td role="gridcell" class="slds-is-sortable slds-is-resizable"> 
                         <div class="slds-truncate" title="{!row.Name}">{!row.Name}</div>
-                    </th>
-                    </aura:iteration>
+                </td>                    
             	</tr>
+              </aura:iteration>
             </table>
+            <br/>
+            <br/>
             Compromiso
-            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout">
+            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout" role="grid">
             	<thead>
 	            	<tr>
 	            		<th>PRODUCTO</th>
@@ -43,22 +66,26 @@
 	            		<th>TIPO</th>
 	            	</tr>
             	</thead>
+              <aura:iteration items="{!v.rowsComp}" var="row" indexVar="rowIndex">
             	<tr>
-            		<td></td>
-            		<td></td>
+            		<td>{!row.Name}</td>
+            		<td>1</td>
             		<td></td>
             		<td></td>
             	</tr>
+            </aura:iteration>
             </table>
-            Documentos<br/>
+            <br/>
+            <br/>
+        <!--    Documentos<br/>
             <lightning:input type="file" label="Attachment" name="file" multiple="true" accept="image/png, .zip" onchange="{! c.handleFilesChange }"/>
-
+-->
         </lightning:tab>
         <lightning:tab >
             <aura:set attribute="label">
                 Comentarios<br/>
             </aura:set>
-            
+              <lightning:textarea aura:id="txtComments" name="txtComments" value="" label="{!v.lblComments}" maxlength="300" class="slds-size_2-of-2 slds-p-horizontal_x-small"/>
         </lightning:tab>
     </lightning:tabset>     
 </td>
@@ -68,22 +95,28 @@
        	<tr>
        		<th>
        			Producto<br/>
+            {!v.rowsOppLineItem[0].Product2.Name}
        		</th>
        		<th>
-       			Importe(PEN)
-       		</th>
-       	</tr>
-       	<tr>
-       		<th>
-       			Plazo
-       		</th>
-       		<th>
-       			TEA Propuesta(%)
+       			Importe<br/>
+            {!v.rowsOppLineItem[0].Opportunity.Amount}
+
        		</th>
        	</tr>
        	<tr>
        		<th>
-       			Spread(%)
+       			Plazo<br/>
+            {!v.rowsOppLineItem[0].gipr_Plazo__c} {!v.rowsOppLineItem[0].gipr_Periodicidad__c}
+       		</th>
+       		<th>
+       			TEA Propuesta(%)<br/>
+            {!v.rowsOppLineItem[0].PE_POR_TEA_propuesta__c}
+       		</th>
+       	</tr>
+       	<tr>
+       		<th>
+       			Spread(%)<br/>
+            {!v.rowsOppLineItem[0].PE_POR_Spread__c}
        		</th>
        		<th>
        			
@@ -96,10 +129,10 @@
     <table style="width:90%" align="center">
     <tr>
     <td>
-    <lightning:button  aura:id="btnApprove" name="btnApprove" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick=""  ><lightning:icon iconName="utility:check" size="small" /><br/>Aprobar</lightning:button>
+    <lightning:button  aura:id="btnApprove" name="btnApprove" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}"  ><lightning:icon iconName="utility:check" size="small" /><br/>Aprobar</lightning:button>
 	</td>
 	<td>
-    <lightning:button  aura:id="btnRaise" name="btnRaise" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="" ><lightning:icon iconName="utility:share" size="small" /><br/>Elevar</lightning:button>
+    <lightning:button  aura:id="btnRaise" name="btnRaise" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}" ><lightning:icon iconName="utility:share" size="small" /><br/>Elevar</lightning:button>
 	</td>
 	</tr>
 	</table>
@@ -112,8 +145,8 @@
    	
       	<lightning:button variant="neutral" label="Close" onclick="{!c.close}" class="slds-float_left"/>
     
-       <lightning:button variant="neutral" label="Desestimar" onclick=""/>
-       <lightning:button variant="brand" label="Continuar" onclick="" disabled="true"/>
+       <lightning:button aura:id="btnDes" name="btnDes" variant="neutral" label="Desestimar" onclick="{!c.desestimar}"/>
+       <lightning:button aura:id="btnContinue" name="btnContinue" variant="brand" label="Continuar" onclick="{!c.continue}" disabled="true"/>
    
    </footer>
 </aura:component>

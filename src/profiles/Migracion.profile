@@ -94,6 +94,14 @@
         <apexClass>formalizationButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>  
+    <classAccesses>
+        <apexClass>Object_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SubmitToDiscart_ValidationClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
      <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.reevaluate__c</field>
@@ -1723,6 +1731,81 @@
         <editable>true</editable>
         <field>Product_participants__c.Marital_Status__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision_estructuracion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Spread__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_TEA_minima__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_TEA_propuesta__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_TEA_sugerida__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.Client__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.Oportunidad__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.PE_DIVISA_Importe__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>compromiso__c.PE_FM_PRODUCT__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.PE_FOR_Fecha_Vcto__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.PE_NUM_Permanencia__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.PE_NUM_Plazo_Vcto__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.PE_SH_PRODUCT__c</field>
+        <readable>true</readable>
     </fieldPermissions>      
     <layoutAssignments>
         <layout>User-User Layout</layout>
@@ -1806,6 +1889,18 @@
     <layoutAssignments>
         <layout>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>compromiso__c-Formato compromiso</layout>
+    </layoutAssignments>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>compromiso__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

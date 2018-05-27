@@ -443,17 +443,14 @@
     </fields>
     <fields>
         <fullName>opportunity_product__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>a product related to an opportunity</description>
         <externalId>false</externalId>
         <label>Product</label>
-        <referenceTo>Product2</referenceTo>
-        <relationshipLabel>Oportunidades</relationshipLabel>
-        <relationshipName>Oportunidades</relationshipName>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>opportunity_product_family__c</fullName>
