@@ -1,16 +1,33 @@
-<aura:component controller="Object_Controller">
+<aura:component controller="Object_Controller" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL">
     <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="Controls" type="Boolean" default="false" />
     <aura:attribute name="mycolumns" type="List"/>
-    <aura:attribute name="Filtro" type="String" default=""/>
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="Filtro" type="String" default="{!v.recordId}"/>
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
-    <div style="height: 400px; max-height=400px;">
-	<lightning:datatable data="{! v.mydata }" 
-        				 columns="{! v.mycolumns }" 
-        				 keyField="Id"
-        				 hideCheckboxColumn="true"
-		 			     resizeColumnDisabled="true"
-                         enableInfiniteLoading="true"
-                         />
+    <aura:handler name="PasoParametrosPadre" event="dwp_mdal:modalTemplateClose_evt" action="{!c.destroyCmp}"/>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col">
+            <lightning:datatable data="{! v.mydata }" 
+                                 columns="{! v.mycolumns }" 
+                                 keyField="Id"
+                                 hideCheckboxColumn="true"
+                                 resizeColumnDisabled="true"
+                                 enableInfiniteLoading="true"
+                                 />
+        </div>
+        <div></div>
+        <div class="slds-col">
+            <aura:if isTrue="{!v.Controls}">
+                <lightning:button class="addButton" iconName="utility:add" onclick="{!c.addRecord}">Añadir Compromiso</lightning:button>
+            </aura:if>
+        </div>
     </div>
+    <aura:if isTrue="{!v.showModal}">
+        <c:Call_Component_Compromiso isActive="{!v.showModal}" recordId="{!v.recordId}" closeButton="false" />
+    </aura:if>
+    
+    
     <lightning:spinner aura:id="spinner" variant="brand" size="large" alternativeText="Charge"/>
 </aura:component>
