@@ -1,3 +1,4 @@
 <design:component>
 	<design:attribute name="Filtro" label="ID Filtro" default="" description="Objeto que donde se buscara" />   
+    <design:attribute name="Controls" label="Controls" default="false" description="Activa Control" />   
 </design:component>
