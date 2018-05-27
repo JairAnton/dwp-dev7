@@ -157,6 +157,8 @@
         <members>lblMsgReevaluate</members>
         <members>lblTitleFormalization</members>
         <members>lblTitleReevaluate</members>
+        <members>lblMsgPDF</members>
+        <members>lblTitlePDF</members>
         <name>CustomLabel</name>
     </types>
     <types>
