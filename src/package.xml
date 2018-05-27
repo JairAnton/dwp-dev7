@@ -817,6 +817,7 @@
     <members>Guarantee_MasterRecord-1</members>
 	<members>Flujo_Cotizacion_V0-2</members>
     <members>Participant_MasterRecord-1</members>-->
+	<members>Flujo_Cotizacion_V0-3</members>
 	<members>Compromisos-9</members>
 	<name>Flow</name>
   </types>

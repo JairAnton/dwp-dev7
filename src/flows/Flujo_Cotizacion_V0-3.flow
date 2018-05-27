@@ -35,8 +35,8 @@
     <assignments>
         <name>Asignacion_OportunityLineItem</name>
         <label>Asignacion OportunityLineItem</label>
-        <locationX>358</locationX>
-        <locationY>300</locationY>
+        <locationX>359</locationX>
+        <locationY>298</locationY>
         <assignmentItems>
             <assignToReference>OportunityProduct.PE_POR_Comision_liquidacion_anticipada__c</assignToReference>
             <operator>Assign</operator>
@@ -109,7 +109,7 @@
     <assignments>
         <name>Cotizacion_Asingacion</name>
         <label>Cotizacion Asingacion</label>
-        <locationX>589</locationX>
+        <locationX>587</locationX>
         <locationY>292</locationY>
         <assignmentItems>
             <assignToReference>OportunityProduct.PE_POR_Spread__c</assignToReference>
@@ -125,6 +125,27 @@
                 <elementReference>$Flow.CurrentDateTime</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>OportunityProduct.PE_POR_TEA_minima__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TEAmnima</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>OportunityProduct.PE_POR_TEA_propuesta__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TEA_propuesta</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>OportunityProduct.PE_POR_TEA_sugerida__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TEAsugeridaContate</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>updateOpline</targetReference>
         </connector>
@@ -132,8 +153,8 @@
     <assignments>
         <name>tarifario</name>
         <label>tarifario</label>
-        <locationX>893</locationX>
-        <locationY>520</locationY>
+        <locationX>895</locationX>
+        <locationY>519</locationY>
         <assignmentItems>
             <assignToReference>OportunityProduct.PE_POR_TEA_minima__c</assignToReference>
             <operator>Assign</operator>
@@ -146,6 +167,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>OportunityProduct.PE_POR_TEA_propuesta__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Comisi_n_propuesta</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -455,7 +483,7 @@
         <name>updateOpline</name>
         <label>updateOpline</label>
         <locationX>165</locationX>
-        <locationY>501</locationY>
+        <locationY>500</locationY>
         <connector>
             <targetReference>Genera_Compromiso</targetReference>
         </connector>
@@ -487,7 +515,7 @@
         </fields>
         <fields>
             <name>SpreadV2</name>
-            <fieldText>Spread (%):  %</fieldText>
+            <fieldText>Spread (%):  {!Spread_Constante} %</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -501,6 +529,8 @@
             <isRequired>true</isRequired>
             <scale>0</scale>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Cotizacion_TARIFARIO</name>
@@ -529,6 +559,8 @@
             <isRequired>true</isRequired>
             <scale>0</scale>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Cotizar_panel1</name>
@@ -589,6 +621,8 @@
             <isRequired>true</isRequired>
             <scale>0</scale>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Pantalla_Error</name>
@@ -603,6 +637,8 @@
             <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Se ha Generado un Error Contacta con el administrador&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Producto_no_Cotizador</name>
@@ -617,6 +653,8 @@
             <fieldText>El producto no es apto para el ciclo de cotizacion</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
     </screens>
     <startElementReference>Busqueda_de_OpportunityLineItem</startElementReference>
     <subflows>
