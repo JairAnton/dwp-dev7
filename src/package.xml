@@ -241,6 +241,7 @@
         <members>call_Quote_component</members>
         <members>Sanction_Price_comp</members>
 		<members>Tabla_Compromiso_2</members>
+        <members>submitToDiscardModal_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
