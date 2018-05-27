@@ -27,7 +27,14 @@
     </fields>
     <fields>
         <fullName>PE_POR_Spread__c</fullName>
+		<defaultValue>0</defaultValue>
+        <description>La diferencia entre los intereses que pagan las entidades bancarias
+por sus operaciones pasivas y los que estas reciben como rentabilidad por sus
+operaciones activas</description>
         <externalId>false</externalId>
+<inlineHelpText>La diferencia entre los intereses que pagan las entidades bancarias
+por sus operaciones pasivas y los que estas reciben como rentabilidad por sus
+operaciones activas</inlineHelpText>			
         <label>PE_POR_Spread</label>
         <precision>18</precision>
         <required>false</required>
@@ -36,6 +43,7 @@
     </fields>
     <fields>
         <fullName>PE_POR_TEA_minima__c</fullName>
+		<defaultValue>0</defaultValue>									  
         <description>se ingresa la tasa que arroja el cotizador</description>
         <externalId>false</externalId>
         <label>PE_POR_TEA_minima</label>
@@ -46,6 +54,7 @@
     </fields>
     <fields>
         <fullName>PE_POR_TEA_propuesta__c</fullName>
+		<defaultValue>0</defaultValue>									  									  
         <description>se ingresará la tasa que se solicita para la oportunidad</description>
         <externalId>false</externalId>
         <label>PE_POR_TEA_propuesta</label>
@@ -59,6 +68,7 @@
         <description>se ingresa la tasa que arroja el cotizador</description>
         <externalId>false</externalId>
         <inlineHelpText>se ingresa la tasa que arroja el cotizador</inlineHelpText>
+		<defaultValue>0</defaultValue>									  
         <label>PE_POR_TEA_sugerida</label>
         <precision>18</precision>
         <required>false</required>

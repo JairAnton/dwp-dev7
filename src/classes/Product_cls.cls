@@ -11,6 +11,15 @@ public with sharing class Product_cls {
 		return row;
 	}
 
+	@AuraEnabled public static Boolean verifyIfHasQuoted(String IdOpportunity){
+		List<OpportunityLineItem> rowOpp=getIdProductByOpportunity(IdOpportunity);
+		if(!rowOpp.isEmpty())
+		{
+			List<compromiso__c> row= getCompromisoDataByProductValues(IdOpportunity,rowOpp[0].Product2Id);
+			if(row.isEmpty()) return false; else return true;
+		}else return false; 
+	}
+
 	@AuraEnabled public static List<Product_Gurantee__c> getGuaranteeDataByProduct(String IdOpportunity,String IdProduct){	
 		List<Product_Gurantee__c> objData= [SELECT Id,GuaranteeType__c,toLabel(Guarantee__c), toLabel(Modality__c), toLabel(Status__c),Term__c, toLabel(Periodicity__c),nGuarantee__c,Amount__c,isMaster__c FROM Product_Gurantee__c Where Product__c=: IdProduct AND Opportunity__c=: IdOpportunity Order by isMaster__c desc];
 		return objData;
@@ -29,6 +38,16 @@ public with sharing class Product_cls {
 
 	@AuraEnabled public static List<Product_Participants__c> getParticipantDataByProductValues(String PParticipantId){	
 		List<Product_Participants__c> objData= [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c,isMaster__c FROM Product_Participants__c Where  Id=: PParticipantId];
+		return objData;
+	}
+
+	@AuraEnabled public static List<compromiso__c> getCompromisoDataByProductValues(String IdOpportunity,String IdProduct){	
+		List<compromiso__c> objData= [SELECT Name FROM compromiso__c Where  Oportunidad__c=:IdOpportunity and PE_SH_PRODUCT__c=:IdProduct];
+		return objData;
+	}
+
+		@AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){	
+		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
 		return objData;
 	}
 
@@ -92,7 +111,40 @@ public with sharing class Product_cls {
 		return true;
 	}
 
-	
+	@AuraEnabled public static String setSanctionPrice(String OpportunityId,String sanAction){
+		try
+		{
+			List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,reevaluate__c FROM Opportunity WHERE Id=: OpportunityId];
+			if(!itemOpp.isEmpty())
+			{
+				if(sanAction=='btnApprove'){//08
+					itemOpp[0].StageName='04';
+					itemOpp[0].opportunity_status_type__c='08';
+					itemOpp[0].reevaluate__c=false;
+					//itemOpp[0].rejection_reason_id__c='TEST0100001';
+					//itemOpp[0].Name=itemOpp[0].Name+'Approve';
+
+				}
+				else if(sanAction=='btnRaise'){//09
+					itemOpp[0].StageName='04';
+					itemOpp[0].opportunity_status_type__c='09';
+					//itemOpp[0].Name=itemOpp[0].Name+'Raise';
+				}
+				update itemOpp[0];
+				return 'true';
+			}
+			else
+			{
+				return 'Error';
+			}
+			
+		}
+		catch(Dmlexception exp)
+		{
+			return exp.getMessage();
+		}
+		
+	}
 
   	@InvocableMethod(label='Delete Master Guarantee' description='Delete the row from Product_Guarantee')
  	public static void deleteMasterGuarantee(List<OpportunityLineItem> listRow)

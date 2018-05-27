@@ -157,6 +157,8 @@
         <members>lblMsgReevaluate</members>
         <members>lblTitleFormalization</members>
         <members>lblTitleReevaluate</members>
+        <members>lblMsgPDF</members>
+        <members>lblTitlePDF</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -238,6 +240,8 @@
         <members>CustomTable_V1</members>
         <members>call_Quote_component</members>
         <members>Sanction_Price_comp</members>
+		<members>Tabla_Compromiso_2</members>
+        <members>submitToDiscardModal_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -334,6 +338,7 @@
         <members>Account_Banking_System_Classification__c-es</members>
         <members>Opportunity-es</members>
         <members>OpportunityLineItem-es</members>        
+		<members>OpportunityLineItem-en_US</members>
         <members>Product_Gurantee__c-es</members>  
         <members>Product_Participants__c-es</members>  
 		<members>compromiso__c-en_US</members>
@@ -800,6 +805,7 @@
 	 <members>Task_update_Opportunity</members>
     <members>Guarantee_MasterRecord</members>
     <members>Participant_MasterRecord</members>-->
+    <members>Compromisos</members>
 	<name>FlowDefinition</name>
   </types>
   <types>
@@ -812,9 +818,10 @@
 	<members>Task_update_Opportunity-3</members>
     <members>FlujoEstadosOportunidad-13</members>
     <members>Guarantee_MasterRecord-1</members>
-	<members>Compromisos-8</members>
 	<members>Flujo_Cotizacion_V0-2</members>
     <members>Participant_MasterRecord-1</members>-->
+	<members>Flujo_Cotizacion_V0-3</members>
+	<members>Compromisos-9</members>
 	<name>Flow</name>
   </types>
     <types>
