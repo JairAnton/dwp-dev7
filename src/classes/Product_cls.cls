@@ -118,6 +118,7 @@ public with sharing class Product_cls {
 			if(!itemOpp.isEmpty())
 			{
 				if(sanAction=='btnApprove'){//08
+					itemOpp[0].StageName='04';
 					itemOpp[0].opportunity_status_type__c='08';
 					itemOpp[0].reevaluate__c=false;
 					//itemOpp[0].rejection_reason_id__c='TEST0100001';
@@ -125,6 +126,7 @@ public with sharing class Product_cls {
 
 				}
 				else if(sanAction=='btnRaise'){//09
+					itemOpp[0].StageName='04';
 					itemOpp[0].opportunity_status_type__c='09';
 					//itemOpp[0].Name=itemOpp[0].Name+'Raise';
 				}
