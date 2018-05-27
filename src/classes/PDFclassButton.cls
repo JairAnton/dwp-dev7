@@ -9,7 +9,7 @@
 *
 * @author Julio Medellin
 */
-global class PDFclassButton implements dwp_dbpn.DynamicFlowValidationInterface{
+global class PDFclassButton  implements dwp_dbpn.DynamicFlowValidationInterface{
 
     global static List<String> getErrorMessagesList(String recordId, String source, String validationClass)
         {
@@ -22,11 +22,7 @@ global class PDFclassButton implements dwp_dbpn.DynamicFlowValidationInterface{
             String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
 
             if(prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion'){
-             if(op.StageName =='05'){
-             list<String>oppIDs = new list<String>();
-             oppIDs.add(recordId);
-             PDF_formalizacion_ctrl.PDF_formalization(oppIds);
-             }else{
+             if(op.StageName !='05'){
               lstErrorMessage.add(label.stageIncorrectToPDF);
              }
             }else{
@@ -38,4 +34,34 @@ global class PDFclassButton implements dwp_dbpn.DynamicFlowValidationInterface{
             }
            return lstErrorMessage;
         }
+
+    @auraenabled
+    public static void PDF_formalization(String recordId){
+     {
+        list<Attachment> deleteAttach =[SELECT ID from Attachment WHERE ParentId =:recordId];
+        delete deleteAttach;
+        list<opportunityLineItem> OLI = new list<opportunityLineItem>();
+        Map<ID, Opportunity> m = new Map<ID, Opportunity>([SELECT Id, Name FROM Opportunity WHERE ID = :recordId  LIMIT 1]);
+
+            pageReference pdf = Page.PDF_formalizacion_vfp;
+            pdf.getParameters().put('id',recordId);
+            Attachment attach = new Attachment();
+            Blob body;
+            if(!test.isRunningTest()){
+                body = pdf.getContent();
+            }else{
+                body=blob.valueOf('TestString');
+            }
+            attach.Body = body;
+            attach.Name = 'Oportunidad formalizada '+m.get(recordId).Name+'.pdf';
+            attach.IsPrivate = false;
+            attach.ParentId = recordId;
+
+
+         insert attach;
+
+
+             }
+    }
+
 }
