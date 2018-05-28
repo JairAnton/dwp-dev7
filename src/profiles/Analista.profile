@@ -125,6 +125,10 @@
         <apexClass>TriggerHandler_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+   <classAccesses>
+        <apexClass>statusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>   
     <custom>true</custom>
     <description>Los cargos para este perfil pueden ser:
 Analistas de precios

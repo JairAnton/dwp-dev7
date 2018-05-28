@@ -4,7 +4,7 @@
       {!$Label.c.lblMsgReevaluate}
    </div>
    <footer class="slds-modal__footer slds-theme_default">
-       <lightning:button variant="neutral" label="Sí" onclick="{!c.doReevaluate}"/>
-       <lightning:button variant="neutral" label="No" onclick="{!c.close}"/>
+       <lightning:button variant="neutral" label="Aceptar" onclick="{!c.doReevaluate}"/>
+       <lightning:button variant="neutral" label="Cancelar" onclick="{!c.close}"/>
    </footer>
 </aura:component>

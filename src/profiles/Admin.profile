@@ -136,7 +136,11 @@
     <classAccesses>
         <apexClass>formalizationButtonClass</apexClass>
         <enabled>true</enabled>
-    </classAccesses>  
+    </classAccesses>
+    <classAccesses>
+        <apexClass>statusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>    
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>

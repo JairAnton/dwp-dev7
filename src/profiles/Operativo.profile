@@ -148,7 +148,11 @@
     <classAccesses>
         <apexClass>formalizationButtonClass</apexClass>
         <enabled>true</enabled>
-    </classAccesses>  
+    </classAccesses>
+    <classAccesses>
+        <apexClass>statusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>     
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
