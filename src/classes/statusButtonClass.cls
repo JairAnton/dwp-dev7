@@ -14,6 +14,7 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
             Opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  recordId LIMIT 1];
 
             String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+            buttonsStatusSet.add('btnQuote_cfg');
             if(PdfBtn.get(recordId).contains('PDFBtn') &&(prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion') && (!reevaluatePrice.get(recordId).contains('Sanction Price') &&  !reevaluateRisk.get(recordId).contains('Penalize Risk'))  )
                  buttonsStatusSet.add('btnPDF');
                 buttonsStatusSet.add('btnReevaluate');
