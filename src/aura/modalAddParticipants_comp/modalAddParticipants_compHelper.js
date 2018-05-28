@@ -77,6 +77,20 @@
 	                		helper.handleShowToast(component,event,helper);   
 	                	}
 	                }
+
+	                var inputCmp = component.find("txtNDOI");
+			        var value = inputCmp.get("v.value");
+
+			        
+			        if (isNaN(value)) {
+			            event.getSource().set("v.disabled", false);
+
+			            errMsg=true;
+			            component.set("v.errMessage","El valor no es numérico: " + value);
+	                	helper.handleShowToast(component,event,helper);   
+			            //inputCmp.set("v.errors", [{message:"El valor no es numérico: " + value}]);
+			        }
+			          
 	                
 		 			if(!errMsg)
 			        {  

@@ -46,6 +46,27 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentName>Tabla_Compromiso_2</componentName>
+        </componentInstances>
+        <name>Facet-3ec2fcf8-8c88-43d9-bbde-242aab99cf9a</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>Controls</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Filtro</name>
+            </componentInstanceProperties>
+            <componentName>CustomTable_V1</componentName>
+        </componentInstances>
+        <name>Facet-231966ae-0897-4138-be9c-8407c255ace8</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
                 <value>Facet-8590b1da-3905-4e4f-9e3e-ae80af07f2e4</value>
@@ -90,6 +111,36 @@
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-3ec2fcf8-8c88-43d9-bbde-242aab99cf9a</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Pagos</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--i042e3vzw2i</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-231966ae-0897-4138-be9c-8407c255ace8</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Compromisos</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--3b0dtq1fqpf</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
         <name>Facet-76d345b6-daff-4537-a0ba-1378ceed2f55</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -127,7 +178,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>defaultSectionName</name>
-                <value>accordionSection1</value>
+                <value>accordionSection--3b0dtq1fqpf</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordion</componentName>
         </componentInstances>

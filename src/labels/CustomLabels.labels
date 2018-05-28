@@ -507,4 +507,18 @@
         <shortDescription>Erro on Reevaluate Button</shortDescription>
         <value>Error in reevaluate the opportunity</value>
     </labels>
+    <labels>
+        <fullName>lblTitlePDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleReevaluate</shortDescription>
+        <value>Create PDF on Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblMsgPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>Are you sure that you want to create PDF of the Opportunity?</value>
+    </labels>
 </CustomLabels>

@@ -1,0 +1,7 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:appHostable,flexiPage:AvailableForAllPageTypes,flexiPage:availableForRecordHome,force:hasRecordId" access="Global" 
+                extends="dwp_mdal:ModalTemplate_cmp">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <div class="slds-form-element" Style="background-color: white; height: auto; max-height: 600px">
+    <lightning:flow aura:id="flowData" onstatuschange="{!c.handleStatusChange}"  />
+    </div>
+</aura:component>

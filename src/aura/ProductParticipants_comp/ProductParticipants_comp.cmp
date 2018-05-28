@@ -35,6 +35,9 @@
                         <div class="slds-truncate" title="DOI">DOI</div>
                     </th>       
                     <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="N°DOI">N°DOI</div>
+                    </th>    
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
                         <div class="slds-truncate" title="Participación">Participación</div>
                     </th>       
                     <th scope="col" class="slds-is-sortable slds-is-resizable">
@@ -52,12 +55,13 @@
                                 <div class="slds-truncate" title="{!row.Name}">{!row.Name}</div>
                             </th>
                             <th><div class="slds-truncate" title="{!row.DOI__c}">{!row.DOI__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.NDOI__c}">{!row.N_DOI__c}</div></th>
                             <th><div class="slds-truncate" title="{!row.Participation__c}">{!row.Participation__c}</div></th>
                             <th><div class="slds-truncate" title="{!row.Marital_Status__c}">{!row.Marital_Status__c}&nbsp;{!row.Periodicity__c}</div></th>
                             <th>
-                                <lightning:button variant="none" iconName="utility:edit" aura:id="editR" title="Modificar" value="{!row}"   onclick="{!c.editRow}" />
+                                <lightning:button variant="none" iconName="utility:edit" aura:id="editR" title="Modificar" value="{!row}"  name="{!row.isMaster__c}"   onclick="{!c.editRow}" />
                                 &nbsp;
-                                <lightning:button variant="none" iconName="utility:delete" aura:id="deleteR" title="Eliminar" value="{!row.Id}" onclick="{!c.deleteRow}" />
+                                <lightning:button variant="none" iconName="utility:delete" aura:id="deleteR" title="Eliminar"  name="{!row.isMaster__c}" value="{!row.Id}" onclick="{!c.deleteRow}" />
                                 </th>
                         </tr>                  
                 </aura:iteration>
