@@ -521,4 +521,18 @@
         <shortDescription>lblMsgFormalization</shortDescription>
         <value>Are you sure that you want to create PDF of the Opportunity?</value>
     </labels>
+    <labels>
+        <fullName>LblStatusResultbtnSanctionPrice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>12</value>
+    </labels>
+    <labels>
+        <fullName>LblStatusResultbtnSanctionRisk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>45</value>
+    </labels>
 </CustomLabels>
