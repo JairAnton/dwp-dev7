@@ -22,13 +22,13 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
                  buttonsStatusSet.add('btnFormalize');
           //  if(reevaluatePrice.get(recordId).contains('Sanction Price') &&( prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion')){
                  buttonsStatusSet.add('btnSanctionPrice');
-                 opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionPrice;
+            //     opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionPrice;
             //  }
            // if(reevaluateRisk.get(recordId).contains('Penalize Risk') && (prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion')){
                  buttonsStatusSet.add('btnPenalizeRisk');
-               opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
+           //    opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
              // }
-            update opp;
+          //  update opp;
             return buttonsStatusSet;
         }
 
