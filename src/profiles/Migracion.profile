@@ -85,11 +85,7 @@
    <classAccesses>
         <apexClass>PDFclassButton</apexClass>
         <enabled>true</enabled>
-    </classAccesses> 
-    <classAccesses>
-        <apexClass>ReevaluateButtonClass</apexClass>
-        <enabled>true</enabled>
-    </classAccesses> 
+    </classAccesses>  
     <classAccesses>
         <apexClass>formalizationButtonClass</apexClass>
         <enabled>true</enabled>
@@ -106,11 +102,6 @@
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>   
-     <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.reevaluate__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.main_code_id__c</field>

@@ -544,9 +544,23 @@
     </labels>
     <labels>
         <fullName>LblStatusResultbtnSanctionRisk</fullName>
-        <language>en_US</language>
+        <language>es</language>
         <protected>false</protected>
         <shortDescription>lblMsgFormalization</shortDescription>
         <value>45</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalizarStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalizarStatus</shortDescription>
+        <value>32</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalizarEtapa</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalizarEtapa</shortDescription>
+        <value>5</value>
     </labels>
 </CustomLabels>

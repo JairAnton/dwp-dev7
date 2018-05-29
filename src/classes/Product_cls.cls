@@ -143,7 +143,7 @@ public with sharing class Product_cls {
 	@AuraEnabled public static String setFormalization(String OpportunityId,String Action){
 		try
 		{
-			List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,reevaluate__c FROM Opportunity WHERE Id=: OpportunityId];
+			List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id=: OpportunityId];
 			if(!itemOpp.isEmpty())
 			{
 				if(Action=='btnApprove'){
