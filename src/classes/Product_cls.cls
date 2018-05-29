@@ -67,8 +67,7 @@ public with sharing class Product_cls {
 		Product_Gurantee__c row;
 		if(PGuaranteeId!=null)		
 			row = [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c FROM Product_Gurantee__c Where Id=: PGuaranteeId];
-		else
-			row = new Product_Gurantee__c();
+		else row = new Product_Gurantee__c();
 
 		row.Opportunity__c=IdOpportunity;
 		row.Product__c=IdProuduct;
@@ -82,9 +81,7 @@ public with sharing class Product_cls {
 		row.Periodicity__c=Periodicity;
 		row.Term__c=Term;
 
-		if(PGuaranteeId!=null)
-			update row;			
-		else insert row;	
+		if(PGuaranteeId!=null) update row; else insert row;	
 		return true;
 	}
 
@@ -104,9 +101,7 @@ public with sharing class Product_cls {
 		row.Participation__c=Participation;		
 		row.Marital_Status__c=Marital_Status;		
 
-		if(PParticipantId!=null)		
-			update row;			
-		else insert row;	
+		if(PParticipantId!=null) update row; else insert row;	
 		
 		return true;
 	}
@@ -128,6 +123,32 @@ public with sharing class Product_cls {
 					itemOpp[0].StageName='04';
 					itemOpp[0].opportunity_status_type__c='09';
 					//itemOpp[0].Name=itemOpp[0].Name+'Raise';
+				}
+				update itemOpp[0];
+				return 'true';
+			}
+			else
+			{
+				return 'Error';
+			}
+			
+		}
+		catch(Dmlexception exp)
+		{
+			return exp.getMessage();
+		}
+		
+	}
+
+	@AuraEnabled public static String setFormalization(String OpportunityId,String Action){
+		try
+		{
+			List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,reevaluate__c FROM Opportunity WHERE Id=: OpportunityId];
+			if(!itemOpp.isEmpty())
+			{
+				if(Action=='btnApprove'){
+					itemOpp[0].StageName='05';
+					itemOpp[0].opportunity_status_type__c='32';
 				}
 				update itemOpp[0];
 				return 'true';

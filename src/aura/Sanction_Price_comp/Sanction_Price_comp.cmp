@@ -77,9 +77,8 @@
             </table>
             <br/>
             <br/>
-        <!--    Documentos<br/>
-            <lightning:input type="file" label="Attachment" name="file" multiple="true" accept="image/png, .zip" onchange="{! c.handleFilesChange }"/>
--->
+            Documentos<br/>
+            <c:fileUpload_comp parentId="{!v.recordId}" />
         </lightning:tab>
         <lightning:tab >
             <aura:set attribute="label">
