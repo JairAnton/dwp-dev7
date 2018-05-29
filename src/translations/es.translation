@@ -285,6 +285,14 @@
         <name>fprd__GBL_ToastSavedOk</name>
     </customLabels>
     <customLabels>
+        <label>Formalización</label>
+        <name>lbFormalization</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Erro on Reevaluate Button --></label>
+        <name>lblErrorReevaluateBtn</name>
+    </customLabels>
+    <customLabels>
         <label>Formalizar</label>
         <name>lblFormalize</name>
     </customLabels>
@@ -340,6 +348,10 @@
        <label>Reevaluar</label>
        <name>lblTitleReevaluate</name>
    </customLabels>
+   <customLabels>
+        <label>Sanción de Precio</label>
+        <name>lblTitleSanctionPrice</name>
+   </customLabels>   
    <customLabels>
        <label>Esta seguro de crear un PDF para esta oportunidad</label>
        <name>lblMsgPDF</name>
