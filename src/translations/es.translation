@@ -340,6 +340,14 @@
        <label>Reevaluar</label>
        <name>lblTitleReevaluate</name>
    </customLabels>
+   <customLabels>
+       <label>Esta seguro de crear un PDF para esta oportunidad</label>
+       <name>lblMsgPDF</name>
+   </customLabels>
+   <customLabels>
+       <label>creación PDF</label>
+       <name>lblTitlePDF</name>
+   </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

@@ -7,28 +7,55 @@
             name :"ID_Init", 
             type :"SObject", 
             value :component.get("v.recordId") 
-         }];
+        }];
         flow.startFlow("Compromisos",inputVariables); 
     },
-	handleStatusChange : function(component, event, helper) {
-        console.log("HOla");
-        var nombre = component.find("modal-heading-01");
-        console.log("nombre"+(nombre));
+    destroyCmp: function (cmp, event, helper) {
+        console.log("funciona");
+        cmp.set("v.showModal",false);
+    },
+    handleStatusChange : function(component, event, helper) {
         if(event.getParam("status")==="FINISHED"){ 
-             var toastEvent = $A.get("e.force:showToast"); 
-				toastEvent.setParams({ 
-    				title: "Success!",
-	    			message: "Cotizacion Terminada", 
-    				type: "success" 
-				});
-				toastEvent.fire(); 
+            var toastEvent = $A.get("e.force:showToast"); 
+            toastEvent.setParams({ 
+                title: "Success!",
+                message: "Cotizacion Terminada", 
+                type: "success" 
+            });
+            toastEvent.fire(); 
             var outputVar = component.get("v.recordId");
             var urlEvent = $A.get("e.force:navigateToSObject");
             urlEvent.setParams({
-          		"recordId": outputVar,
-          		"slideDevName": "related"
-        	});
+                "recordId": outputVar,
+                "slideDevName": "related"
+            });
             urlEvent.fire();
         }
-	}
+        if(event.getParam("status")==="FINISHED_SCREEN"){
+            var outputVar = component.get("v.recordId");
+            var urlEvent = $A.get("e.force:navigateToSObject");
+            urlEvent.setParams({
+                "recordId": outputVar,
+                "slideDevName": "related"
+            });
+            urlEvent.fire();
+        }
+        if(event.getParam("status")==="ERROR"){
+            var toastEvent = $A.get("e.force:showToast"); 
+            toastEvent.setParams({ 
+                title: "Error Message!",
+                message: "Cotizacion Terminada", 
+                type: "error" 
+            });
+            toastEvent.fire(); 
+            var outputVar = component.get("v.recordId");
+            var urlEvent = $A.get("e.force:navigateToSObject");
+            urlEvent.setParams({
+                "recordId": outputVar,
+                "slideDevName": "related"
+            });
+            urlEvent.fire();
+        }
+        
+    }
 })

@@ -102,6 +102,10 @@
         <apexClass>SubmitToDiscart_ValidationClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+   <classAccesses>
+        <apexClass>statusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>   
      <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.reevaluate__c</field>
