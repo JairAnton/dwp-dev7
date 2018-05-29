@@ -424,6 +424,13 @@
         <value>Quote</value>
     </labels>
     <labels>
+        <fullName>lbFormalization</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lbFormalization</shortDescription>
+        <value>lbFormalization</value>
+    </labels>    
+    <labels>
         <fullName>lblReevaluate</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -472,6 +479,13 @@
         <shortDescription>lblMsgReevaluate</shortDescription>
         <value>Are you sure that you want reevaluate the Opportunity?</value>
     </labels>
+    <labels>
+        <fullName>lblTitleSanctionPrice</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleSanctionPrice</shortDescription>
+        <value>lblTitleSanctionPrice</value>
+    </labels>    
     <labels>
         <fullName>lblbtnPDF_cfg</fullName>
         <language>en_US</language>

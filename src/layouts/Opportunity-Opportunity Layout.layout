@@ -248,6 +248,13 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>AddAccTeamMemberOnOpp</excludeButtons>
+        <excludeButtons>AddAccountTeam</excludeButtons>
+        <excludeButtons>AddDefaultTeam</excludeButtons>
+        <excludeButtons>AddOppTeam</excludeButtons>
+        <excludeButtons>AddOppTeamMember</excludeButtons>
+        <excludeButtons>DeleteTeam</excludeButtons>
+        <excludeButtons>DisplayAccess</excludeButtons>
         <fields>MemberName</fields>
         <fields>OppAccessLevel</fields>
         <fields>TeamMemberRole</fields>

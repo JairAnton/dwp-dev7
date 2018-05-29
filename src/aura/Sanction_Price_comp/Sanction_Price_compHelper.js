@@ -119,7 +119,7 @@
                 component.set("v.errMessage",response.getReturnValue());
                 helper.handleShowToast(component,event,helper);       
                 if(response.getReturnValue()=="true")
-                    helper.destroyCmp(component, event, helper);
+                    helper.navigateToRecord(component, event, helper);
 
             }
             else if (state === "INCOMPLETE") {
@@ -133,6 +133,14 @@
             }
         });        
         $A.enqueueAction(action);
+    },  
+    navigateToRecord : function(component, event, helper) {
+         var navEvent = $A.get("e.force:navigateToSObject");
+         navEvent.setParams({
+              recordId: component.get("v.recordId"),
+              slideDevName: "detail"
+         });
+         navEvent.fire(); 
     }
 
 })
