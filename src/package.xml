@@ -163,6 +163,8 @@
         <members>LblStatusResultbtnSanctionPrice</members>
         <members>lbFormalization</members>
         <members>lblTitleSanctionPrice</members>
+        <members>lblFormalizarEtapa</members>
+        <members>lblFormalizarStatus</members>
         <name>CustomLabel</name>
     </types>
     <types>

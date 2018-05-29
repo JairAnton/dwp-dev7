@@ -143,11 +143,6 @@ Ejecutivos de servicios transaccionales (EST)
 Ejecutivos de unidad de financiación estructurada (UFE)
 Ejecutivos de COMEX
 Ejecutivos de REDES</description>
-     <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.reevaluate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.rejection_coin__c</field>
