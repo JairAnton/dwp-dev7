@@ -109,13 +109,12 @@ public with sharing class Product_cls {
 	@AuraEnabled public static String setSanctionPrice(String OpportunityId,String sanAction){
 		try
 		{
-			List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,reevaluate__c FROM Opportunity WHERE Id=: OpportunityId];
+			List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id=: OpportunityId];
 			if(!itemOpp.isEmpty())
 			{
 				if(sanAction=='btnApprove'){//08
 					itemOpp[0].StageName='04';
 					itemOpp[0].opportunity_status_type__c='08';
-					itemOpp[0].reevaluate__c=false;
 					//itemOpp[0].rejection_reason_id__c='TEST0100001';
 					//itemOpp[0].Name=itemOpp[0].Name+'Approve';
 
