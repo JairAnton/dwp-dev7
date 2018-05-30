@@ -156,8 +156,10 @@ public with sharing class Product_cls {
             post.Body = body;
             if(!string.isBlank(Body))
             insert post;
+            else{
             return label.lblNoCommentsFormalization;
-             }
+            }
+            }
 
 
 				}
