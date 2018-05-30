@@ -1,9 +1,9 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" 
                 access="global"  
                 controller="Object_Controller">
-	<aura:handler name="init" value="{!this}" action="{!c.init}" />
- 	<aura:attribute name="mydata" type="Id"/>
     <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="mydata" type="String"/>
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
     <div class="slds-p-bottom_large slds-p-left_large" >
         <lightning:recordViewForm recordId="{!v.mydata}" objectApiName="OpportunityLineItem">
             <div class="slds-grid slds-gutters">
