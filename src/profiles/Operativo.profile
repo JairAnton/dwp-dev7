@@ -156,6 +156,16 @@
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.Type_of_quote__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.Product_relate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</field>

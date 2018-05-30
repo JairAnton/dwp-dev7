@@ -1,0 +1,6 @@
+<design:component>
+	<design:attribute name="formcoti" label="Zone cotiza" default="false" description="Muestra la zona de cotizar" />
+    <design:attribute name="table" label="Zone compromisos" default="false" description="Objeto que donde se buscara" />   
+    <design:attribute name="truthy" label="Zone Nuevos compromisos" default="false" description="Objeto que donde se buscara" />   
+    <design:attribute name="toButton" label="Call to Button" default="true" description="Se esta llamando desde un boton"  />   
+</design:component>

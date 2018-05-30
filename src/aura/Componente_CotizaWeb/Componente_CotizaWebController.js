@@ -1,36 +1,52 @@
 ({
 	init : function(cmp, event, helper) {    
-        console.log("cotiza "+cmp.get("v.recordId"));
-		var action = cmp.get("c.getCompromisosSytem");
+        if(cmp.get("v.toButton"))
+	   	cmp.set("v.recordId",cmp.get("v.inputAttributes").recordId);	
+        
+        cmp.set("v.title" , "Cotizacion");      
+        var action = cmp.get("c.getOportunityLineItemID");
         action.setParams({
             "Filtro":cmp.get("v.recordId")
                });
         
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
-            if (state === "SUCCESS") {                
-				cmp.set("v.rows", response.getReturnValue());                
+            if (state === "SUCCESS") {
+                cmp.set("v.mydata", response.getReturnValue());
             } else if (state === "ERROR") {
                 var errors = response.getError();
             }
         }));
         $A.enqueueAction(action);
+        helper.calculaProducto(cmp, event, helper);
 	},
     cancel : function(cmp, event, helper) {
         cmp.set("v.hide" , true);
     },
+    cotiza : function(cmp, event, helper) {
+		helper.cotiza(cmp, event, helper);  
+    },
+    recarga:function(cmp, event, helper) {
+        helper.exit(cmp, event, helper);
+    },
+    continua:function(cmp, event, helper) {
+        helper.gridDate(cmp, event);
+        cmp.set("v.table" , true);
+        cmp.set("v.formcoti" , false);
+    },
     nuevo:function(cmp, event, helper) {
-        cmp.set("v.Controls" , true);
+        cmp.set("v.truthy" , true);
         cmp.set("v.table" , false);
     },
     closenew:function(cmp, event, helper) {
+        helper.gridDate(cmp, event);
         $A.get('e.force:refreshView').fire();
         cmp.set("v.table" , true);
-        cmp.set("v.Controls" , false);
+        cmp.set("v.truthy" , false);
         var toastEvent = $A.get("e.force:showToast"); 
             toastEvent.setParams({ 
                 title: "Success!",
-                message: "Compromiso Creado", 
+                message: "Compromiso Terminada", 
                 type: "success" 
             });
             toastEvent.fire();

@@ -101,7 +101,17 @@
    <classAccesses>
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
-    </classAccesses>   
+    </classAccesses> 
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.Type_of_quote__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.Product_relate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.main_code_id__c</field>

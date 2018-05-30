@@ -43,6 +43,14 @@
         <name>PE_SH_PRODUCT__c</name>
         <relationshipLabel><!-- compromisos --></relationshipLabel>
     </fields>
+	<fields>
+        <label><!-- Producto --></label>
+        <name>Product_relate__c</name>
+        <picklistValues>
+            <masterLabel>P. Comercial</masterLabel>
+            <translation><!-- P. Comercial --></translation>
+        </picklistValues>
+    </fields>
     <nameFieldLabel><!-- Nombre de compromiso --></nameFieldLabel>
     <startsWith><!-- Consonant --></startsWith>
 </CustomObjectTranslation>
