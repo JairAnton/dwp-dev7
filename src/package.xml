@@ -214,6 +214,7 @@
         <members>SubmitToDiscart_ValidationClass</members>
         <members>classMasterParticipant</members>
         <members>FileUploadController_cls</members>
+		<members>Object_Controller</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -252,6 +253,7 @@
         <members>submitToDiscardModal_comp</members>
         <members>fileUpload_comp</members>
         <members>Formalization_comp</members>
+		<members>Componente_CotizaWeb</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -354,6 +356,17 @@
 		<members>compromiso__c-en_US</members>
         <members>compromiso__c-es</members>
         <name>CustomObjectTranslation</name>
+		<members>Product2-en_US</members>
+        <members>Product2-es</members>
+    </types>
+	<types>
+        <members>Type_of_quote_stock</members>
+        <name>GlobalValueSet</name>
+    </types>
+    <types>
+        <members>Type_of_quote_stock-en_US</members>
+        <members>Type_of_quote_stock-es</members>
+        <name>GlobalValueSetTranslation</name>
     </types>
     <types>
         <members>User-User Layout</members>
@@ -739,6 +752,8 @@
         <members>OpportunityLineItem.PE_POR_TEA_minima__c</members>
         <members>OpportunityLineItem.PE_POR_TEA_propuesta__c</members>
         <members>OpportunityLineItem.PE_POR_TEA_sugerida__c</members>
+		<members>compromiso__c.Product_relate__c</members>
+		<members>Product2.Type_of_quote__c</members>
 		<name>CustomField</name>
     </types>
     <types>
