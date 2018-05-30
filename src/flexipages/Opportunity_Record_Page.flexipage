@@ -148,19 +148,19 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>cloneButton</name>
-                <value>clone</value>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>compareButton</name>
-                <value>compare</value>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>deleteButton</name>
-                <value>delete</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>editButton</name>
-                <value>edit</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>maxProductNumber</name>
@@ -168,7 +168,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>newButton</name>
-                <value>add</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>fprd:GBL_Opportunity_Products_cmp</componentName>
         </componentInstances>

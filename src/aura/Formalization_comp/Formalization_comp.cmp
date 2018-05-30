@@ -46,7 +46,7 @@
    </div>
    <footer class="slds-modal__footer slds-theme_default">
 
-      	<lightning:button variant="neutral" label="Close" onclick="{!c.close}" class="slds-float_left"/>
+      	<lightning:button variant="neutral" label="Cancelar" onclick="{!c.close}" class="slds-float_left"/>
 
 
        <lightning:button aura:id="btnContinue" name="btnContinue" variant="brand" label="Continuar" onclick="{!c.continue}" disabled="true"/>
