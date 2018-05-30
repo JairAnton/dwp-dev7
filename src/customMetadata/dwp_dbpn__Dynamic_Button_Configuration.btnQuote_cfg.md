@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>dwp_dbpn__initial_component__c</field>
-        <value xsi:type="xsd:string">c:call_Quote_Component</value>
+        <value xsi:type="xsd:string">c:Componente_CotizaWeb</value>
     </values>
     <values>
         <field>dwp_dbpn__validation_apex_class_name__c</field>
