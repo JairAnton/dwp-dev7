@@ -183,11 +183,15 @@
          <li>Familia Producto: {!Product.Family}</li>
          <li>Producto: {!Product.Name}</li>
          <li>Divisa: {!Product.CurrencyIsoCode}</li>
-         <li>Importe: {!Opportunity.Amount} </li>
+         <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
+               <apex:param value="{!Opportunity.Amount}" />
+         	   </apex:outputText>
+         </li>
          <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
          <li>Tipo de amortización: {!OLI.cpliq_Amortizacion__c } </li>
-         <li>Plazo: {!Oli.gipr_Plazo__c}</li>
-         <li>Periodicidad: {!Oli.cpliq_Periodicidad__c	}</li>
+         <li>Plazo: <apex:outputText value="{0, number,0}">
+               <apex:param value="{!Oli.gipr_Plazo__c}" />
+         	   </apex:outputText> {!Oli.cpliq_Periodicidad__c}</li>
          <li>Periodo de gracia: {!Oli.cpliq_Periodicidad_gracia__c}</li>
           <li>Fecha de vencimiento: {!Oli.cpliq_Fecha_Vencimiento__c }</li>
          <li>Código simulación: {!Oli.cpliq_Codigo_Simulacion__c}</li>
@@ -215,9 +219,16 @@
             <td class="cd">{!Garantia.Guarantee__c}</td>
             <td class="cd">{!Garantia.Modality__c}</td>
             <td class="cd">{!Garantia.Status__c}</td>
-            <td class="cd">{!Garantia.Term__c} {!Garantia.Periodicity__c}</td>
-            <td class="cd">{!Garantia.nGuarantee__c}</td>
-            <td class="cd">{!Garantia.Amount__c}</td>
+            <td class="cd"><apex:outputText value="{0, number,0}">
+               <apex:param value="{!Garantia.Term__c}"/>
+         	   </apex:outputText> {!Garantia.Periodicity__c}</td>
+            <td class="cd"><apex:outputText value="{0, number,0}">
+               <apex:param value="{!Garantia.nGuarantee__c}" />
+         	   </apex:outputText></td>
+            <td class="cd"><apex:outputText value=" S/. {0, number, .00}">
+               <apex:param value="{!Garantia.Amount__c}" />
+         	   </apex:outputText>
+            </td>
             </tr>
            </apex:repeat>
          </table>

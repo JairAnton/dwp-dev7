@@ -12,11 +12,11 @@
     </values>
     <values>
         <field>fprd__LoV_labels__c</field>
-        <value xsi:type="xsd:string">Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fianza solidaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants</value>
+        <value xsi:type="xsd:string">Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants</value>
     </values>
     <values>
         <field>fprd__LoV_values__c</field>
-        <value xsi:type="xsd:string">04,05,06,07,08,09,10,11,12,13,14,15,16,17</value>
+        <value xsi:type="xsd:string">04,05,06,07,09,10,11,12,13,14,15,16,17</value>
     </values>
     <values>
         <field>fprd__dependent_value__c</field>

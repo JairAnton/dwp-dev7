@@ -424,6 +424,13 @@
         <value>Quote</value>
     </labels>
     <labels>
+        <fullName>lbFormalization</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lbFormalization</shortDescription>
+        <value>lbFormalization</value>
+    </labels>    
+    <labels>
         <fullName>lblReevaluate</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -473,6 +480,13 @@
         <value>Are you sure that you want reevaluate the Opportunity?</value>
     </labels>
     <labels>
+        <fullName>lblTitleSanctionPrice</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleSanctionPrice</shortDescription>
+        <value>lblTitleSanctionPrice</value>
+    </labels>    
+    <labels>
         <fullName>lblbtnPDF_cfg</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -520,5 +534,40 @@
         <protected>false</protected>
         <shortDescription>lblMsgFormalization</shortDescription>
         <value>Are you sure that you want to create PDF of the Opportunity?</value>
+    </labels>
+    <labels>
+        <fullName>LblStatusResultbtnSanctionPrice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>12</value>
+    </labels>
+    <labels>
+        <fullName>LblStatusResultbtnSanctionRisk</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>45</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalizarStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalizarStatus</shortDescription>
+        <value>32</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalizarEtapa</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalizarEtapa</shortDescription>
+        <value>05</value>
+    </labels>
+    <labels>
+        <fullName>lblNoCommentsFormalization</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblNoCommentsFormalization</shortDescription>
+        <value>comments can not be empty</value>
     </labels>
 </CustomLabels>

@@ -75,6 +75,30 @@
     <fields>
         <caseValues>
             <plural>false</plural>
+            <value>Equipo de gestión de la oportunidad</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Equipos de gestión de la oportunidad</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_team</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>miembros del equipo de gestión de la oportunidad</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>miembros del equipo de gestión de la oportunidad</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_team_member</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
             <value>Tipologia</value>
         </caseValues>
         <gender>Masculine</gender>

@@ -208,11 +208,6 @@ Analistas de riesgos</description>
         <field>compromiso__c.PE_SH_PRODUCT__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.reevaluate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>
