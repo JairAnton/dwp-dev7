@@ -4,9 +4,10 @@
  * Created date : May 15 2018
  * Developer name: Isaías Velázquez Cortés Indra(México)
 --------------------------------------------------------------------------*/
-public with sharing class Product_cls {   
+
+public with sharing class Product_cls {
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
-		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
+		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,PE_DATE_Fecha_cotizacion__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
 		return row;
 	}
 
@@ -14,9 +15,8 @@ public with sharing class Product_cls {
 		List<OpportunityLineItem> rowOpp=getIdProductByOpportunity(IdOpportunity);
 		if(!rowOpp.isEmpty())
 		{
-			List<compromiso__c> row= getCompromisoDataByProductValues(IdOpportunity,rowOpp[0].Product2Id);
-			if(row.isEmpty()) return false; else return true;
-		}else return false; 
+			if(rowOpp[0].PE_DATE_Fecha_cotizacion__c!=null && String.valueOf(rowOpp[0].PE_DATE_Fecha_cotizacion__c)!='') return true; else return false;
+		}else return false;
 	}
 
 	@AuraEnabled public static List<Product_Gurantee__c> getGuaranteeDataByProduct(String IdOpportunity,String IdProduct){	
@@ -39,9 +39,9 @@ public with sharing class Product_cls {
 		List<Product_Participants__c> objData= [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c,isMaster__c FROM Product_Participants__c Where  Id=: PParticipantId];
 		return objData;
 	}
-
+               
 	@AuraEnabled public static List<compromiso__c> getCompromisoDataByProductValues(String IdOpportunity,String IdProduct){	
-		List<compromiso__c> objData= [SELECT Name FROM compromiso__c Where  Oportunidad__c=:IdOpportunity and PE_SH_PRODUCT__c=:IdProduct];
+		List<compromiso__c> objData= [SELECT PE_FM_PRODUCT__c,PE_DIVISA_Importe__c,PE_NUM_Plazo_Vcto__c,PE_FOR_Fecha_Vcto__c,PE_NUM_Permanencia__c FROM compromiso__c Where  Oportunidad__c=:IdOpportunity and PE_SH_PRODUCT__c=:IdProduct];
 		return objData;
 	}
 
