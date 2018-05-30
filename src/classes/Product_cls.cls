@@ -4,7 +4,6 @@
  * Created date : May 15 2018
  * Developer name: Isaías Velázquez Cortés Indra(México)
 --------------------------------------------------------------------------*/
-
 public with sharing class Product_cls {
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
 		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
@@ -115,14 +114,11 @@ public with sharing class Product_cls {
 				if(sanAction=='btnApprove'){//08
 					itemOpp[0].StageName='04';
 					itemOpp[0].opportunity_status_type__c='08';
-					//itemOpp[0].rejection_reason_id__c='TEST0100001';
-					//itemOpp[0].Name=itemOpp[0].Name+'Approve';
 
 				}
 				else if(sanAction=='btnRaise'){//09
 					itemOpp[0].StageName='04';
 					itemOpp[0].opportunity_status_type__c='09';
-					//itemOpp[0].Name=itemOpp[0].Name+'Raise';
 				}
 				update itemOpp[0];
 				return 'true';
@@ -140,7 +136,7 @@ public with sharing class Product_cls {
 
 	}
 
-	@AuraEnabled public static String setFormalization(String OpportunityId,String Action){
+	@AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body){
 		try
 		{
 			List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,StageName,OwnerId FROM Opportunity WHERE Id=: OpportunityId];
@@ -153,7 +149,15 @@ public with sharing class Product_cls {
         if((prof=='Ejecutivo'&& userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' || prof=='Migracion'){
             itemOpp[0].StageName=label.lblFormalizarEtapa;
             itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;
-        }
+
+
+            FeedItem post = new FeedItem();
+            post.ParentId = OpportunityId;
+            post.Body = body;
+            if(!string.isBlank(Body))
+            insert post;
+            return label.lblNoCommentsFormalization;
+             }
 
 
 				}

@@ -360,6 +360,10 @@
        <label>creación PDF</label>
        <name>lblTitlePDF</name>
    </customLabels>
+   <customLabels>
+       <label>No se puede formalizar sin comentarios</label>
+       <name>lblNoCommentsFormalization</name>
+   </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
