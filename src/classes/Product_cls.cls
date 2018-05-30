@@ -147,16 +147,21 @@ public with sharing class Product_cls {
        String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
 
         if((prof=='Ejecutivo'&& userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' || prof=='Migracion'){
+
+
+
+            itemOpp[0].IsProcess__c=true;
+            update itemOpp[0];
             itemOpp[0].StageName=label.lblFormalizarEtapa;
             itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;
-
-
             FeedItem post = new FeedItem();
             post.ParentId = OpportunityId;
             post.Body = body;
             if(!string.isBlank(Body))
             insert post;
             else{
+            itemOpp[0].IsProcess__c=false;
+            update itemOpp[0];
             return label.lblNoCommentsFormalization;
             }
             }
@@ -164,6 +169,8 @@ public with sharing class Product_cls {
 
 				}
 				update itemOpp[0];
+                itemOpp[0].IsProcess__c=false;
+                update itemOpp[0];
 				return 'true';
 			}
 			else
