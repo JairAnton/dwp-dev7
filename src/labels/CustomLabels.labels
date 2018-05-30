@@ -561,6 +561,13 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblFormalizarEtapa</shortDescription>
-        <value>5</value>
+        <value>05</value>
+    </labels>
+    <labels>
+        <fullName>lblNoCommentsFormalization</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblNoCommentsFormalization</shortDescription>
+        <value>comments can not be empty</value>
     </labels>
 </CustomLabels>
