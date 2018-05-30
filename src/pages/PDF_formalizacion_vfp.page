@@ -179,7 +179,7 @@
          <br/>
          <ul>
          <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-         <li>Destino: {!OLI.Destination__c}</li>
+         <li>Destino: {!OLI.gipr_Destino__c}</li>
          <li>Familia Producto: {!Product.Family}</li>
          <li>Producto: {!Product.Name}</li>
          <li>Divisa: {!Product.CurrencyIsoCode}</li>

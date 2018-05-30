@@ -147,20 +147,28 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>disbleManageProducts</name>
-                <value>false</value>
+                <name>cloneButton</name>
+                <value>clone</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>enableMultiple</name>
-                <value>false</value>
+                <name>compareButton</name>
+                <value>compare</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>deleteButton</name>
+                <value>delete</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>editButton</name>
+                <value>edit</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>maxProductNumber</name>
                 <value>1</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>showClone</name>
-                <value>false</value>
+                <name>newButton</name>
+                <value>add</value>
             </componentInstanceProperties>
             <componentName>fprd:GBL_Opportunity_Products_cmp</componentName>
         </componentInstances>

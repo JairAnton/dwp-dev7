@@ -165,6 +165,7 @@
         <members>lblTitleSanctionPrice</members>
         <members>lblFormalizarEtapa</members>
         <members>lblFormalizarStatus</members>
+        <members>lblNoCommentsFormalization</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -813,8 +814,8 @@
 	 <members>Task_update_Opportunity</members>
     <members>Guarantee_MasterRecord</members>
     <members>Participant_MasterRecord</members>-->
-    <!--members>Compromisos</members-->
-    <members>Opp_Stage_Changed_notify</members>
+    <!--members>Compromisos</members>
+    <members>Opp_Stage_Changed_notify</members-->
 	<name>FlowDefinition</name>
   </types>
   <types>
@@ -830,8 +831,8 @@
 	<members>Flujo_Cotizacion_V0-2</members>
     <members>Participant_MasterRecord-1</members>-->
 	<!--members>Flujo_Cotizacion_V0-3</members>
-	<members>Compromisos-9</members-->
-    <members>Opp_Stage_Changed_notify-2</members>
+	<members>Compromisos-9</members>
+    <members>Opp_Stage_Changed_notify-2</members-->
 	<name>Flow</name>
   </types>
     <types>
