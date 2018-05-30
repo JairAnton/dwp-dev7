@@ -145,6 +145,16 @@ Ejecutivos de COMEX
 Ejecutivos de REDES</description>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Product2.Type_of_quote__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.Product_relate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.rejection_coin__c</field>
         <readable>true</readable>
     </fieldPermissions>
