@@ -19,7 +19,6 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
                 buttonsStatusSet.add('btnReevaluate');
             if(Formalizate.get(recordId).contains('formalizate') && (prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'))
                  buttonsStatusSet.add('btnFormalize');
-                 buttonsStatusSet.add('btnFormalization');
             if(reevaluatePrice.get(recordId).contains('BtnPriceValue') &&( prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion'))
                  buttonsStatusSet.add('btnSanctionPrice');
             if(reevaluateRisk.get(recordId).contains('BtnRiskValue') && (prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion'))
