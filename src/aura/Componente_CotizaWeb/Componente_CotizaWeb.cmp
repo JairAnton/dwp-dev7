@@ -60,7 +60,8 @@
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_TEA_sugerida__c" />
+                            <label class="slds-form-element__label" for="text-input-id-1">Comisión Propuesta (%)</label>
+                            <lightning:inputField fieldName="PE_POR_TEA_sugerida__c" variant="label-hidden" />
                         </div>
                         
                     </div>
