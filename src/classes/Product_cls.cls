@@ -39,9 +39,9 @@ public with sharing class Product_cls {
 		List<Product_Participants__c> objData= [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c,isMaster__c FROM Product_Participants__c Where  Id=: PParticipantId];
 		return objData;
 	}
-               
-	@AuraEnabled public static List<compromiso__c> getCompromisoDataByProductValues(String IdOpportunity,String IdProduct){	
-		List<compromiso__c> objData= [SELECT PE_FM_PRODUCT__c,PE_DIVISA_Importe__c,PE_NUM_Plazo_Vcto__c,PE_FOR_Fecha_Vcto__c,PE_NUM_Permanencia__c FROM compromiso__c Where  Oportunidad__c=:IdOpportunity and PE_SH_PRODUCT__c=:IdProduct];
+
+	@AuraEnabled public static List<compromiso__c> getCompromisoDataByProductValues(String IdOpportunity,String IdProduct){
+		List<compromiso__c> objData= [SELECT Name FROM compromiso__c Where  Oportunidad__c=:IdOpportunity and PE_SH_PRODUCT__c=:IdProduct];
 		return objData;
 	}
 
@@ -147,16 +147,21 @@ public with sharing class Product_cls {
        String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
 
         if((prof=='Ejecutivo'&& userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' || prof=='Migracion'){
+
+
+
+            itemOpp[0].IsProcess__c=true;
+            update itemOpp[0];
             itemOpp[0].StageName=label.lblFormalizarEtapa;
             itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;
-
-
             FeedItem post = new FeedItem();
             post.ParentId = OpportunityId;
             post.Body = body;
             if(!string.isBlank(Body))
             insert post;
             else{
+            itemOpp[0].IsProcess__c=false;
+            update itemOpp[0];
             return label.lblNoCommentsFormalization;
             }
             }
@@ -164,6 +169,8 @@ public with sharing class Product_cls {
 
 				}
 				update itemOpp[0];
+                itemOpp[0].IsProcess__c=false;
+                update itemOpp[0];
 				return 'true';
 			}
 			else
