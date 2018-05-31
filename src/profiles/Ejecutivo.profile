@@ -2394,6 +2394,10 @@ Asistente BE</description>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+	    <name>LtngPromoReserved01UserPerm</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>					
         <name>ManageAnalyticSnapshots</name>
     </userPermissions>
     <userPermissions>
@@ -2550,6 +2554,10 @@ Asistente BE</description>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+		<name>ManageTranslation</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>					
         <name>ManageTwoFactor</name>
     </userPermissions>
     <userPermissions>

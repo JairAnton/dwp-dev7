@@ -76,9 +76,8 @@
                 <div><p><br/></p></div>
                 
                 <div class="slds-modal__footer slds-modal__footer">
-                    <lightning:button aura:id="cancel" type="submit" label="Cancel" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}"/>
+                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}"/>
                     <lightning:button aura:id="continue" type="submit" label="Continue" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
-                    
                 </div>
             </lightning:recordEditForm> 
             
@@ -117,7 +116,7 @@
                 <div><p><br/></p></div>
                 
                 <div class="slds-modal__footer slds-modal__footer_directional">
-                    <lightning:button aura:id="cancel" type="submit" label="Cancel" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
                     <lightning:button aura:id="continue" type="submit" label="Continue" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
                     <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update" onclick="{!c.cotiza}" />
                 </div>
@@ -171,8 +170,8 @@
         </div>
         <div>
             <div class="slds-modal__footer">
-                <lightning:button aura:id="cancel" type="submit" label="Cancel" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
-                <lightning:button aura:id="cancel" type="submit" label="Envia Cotizacion" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                <lightning:button aura:id="Send" type="submit" label="Envia Cotizacion" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
             </div>
         </div>	
     </div>

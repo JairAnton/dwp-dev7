@@ -16,5 +16,6 @@
             }
         }));
         $A.enqueueAction(action);
+        helper.producto(cmp, event, helper);
 	}
 })

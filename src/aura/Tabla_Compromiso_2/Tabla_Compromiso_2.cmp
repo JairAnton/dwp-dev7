@@ -2,29 +2,50 @@
                 access="global"  
                 controller="Object_Controller">
     <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="cotiweb" type="boolean" default="true"/>
+    <aura:attribute name="cotiTarif" type="boolean" default="false"/>    
     <aura:attribute name="mydata" type="String"/>
-	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
     <div class="slds-p-bottom_large slds-p-left_large" >
-        <lightning:recordViewForm recordId="{!v.mydata}" objectApiName="OpportunityLineItem">
-            <div class="slds-grid slds-gutters">
-                <div class="slds-col" role="listitem">
-                	<div class="slds-border_bottom">
-                		<lightning:outputField fieldName="PE_POR_TEA_minima__c" />
-                	</div>
-                	<div class="slds-border_bottom">
-                		<lightning:outputField fieldName="PE_POR_TEA_propuesta__c" />
-					</div>
+        <div class="{!v.cotiweb ? 'slds-box' : 'slds-hide'}">
+            <lightning:recordViewForm recordId="{!v.mydata}" objectApiName="OpportunityLineItem">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col" role="listitem">
+                        <div class="slds-border_bottom">
+                            <lightning:outputField fieldName="PE_POR_TEA_sugerida__c" />
+                        </div>
+                        <div class="slds-border_bottom">
+                            <lightning:outputField fieldName="PE_POR_TEA_propuesta__c" />
+                        </div>
+                    </div>
+                    <div class="slds-col" role="listitem">
+                        <div class="slds-border_bottom">
+                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" />
+                        </div>
+                        <div class="slds-border_bottom">
+                            <lightning:outputField fieldName="PE_POR_Spread__c" />
+                        </div>
+                    </div>
                 </div>
-                <div class="slds-col" role="listitem">
-                	<div class="slds-border_bottom">
-                		<lightning:outputField fieldName="PE_POR_Spread__c" />
-                	</div>
-                	<div class="slds-border_bottom">
-                		<lightning:outputField fieldName="PE_POR_TEA_sugerida__c" />
-                	</div>
+            </lightning:recordViewForm>
+        </div>
+        <div class="{!v.cotiweb ? 'slds-hide' : 'slds-box'}">
+            <lightning:recordViewForm recordId="{!v.mydata}" objectApiName="OpportunityLineItem">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col" role="listitem">
+                        <div class="slds-border_bottom">
+                            <label class="slds-form-element__label" for="text-input-id-1">Comisión mínima (%)</label>
+                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" variant="label-hidden" />
+                        </div>
+                    </div>
+                    <div class="slds-col" role="listitem">
+                        <div class="slds-border_bottom">
+                            <label class="slds-form-element__label" for="text-input-id-1">Comisión propuesta (%)</label>
+                            <lightning:outputField fieldName="PE_POR_TEA_propuesta__c" variant="label-hidden"/>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </lightning:recordViewForm>
+            </lightning:recordViewForm>
+        </div>
     </div>
-	
 </aura:component>
