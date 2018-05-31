@@ -161,7 +161,7 @@
              <td>Fecha autorización: 16/06/2018:9:00 </td>
          </tr>
          <tr>
-           <td>TEA aprobada: {Oli.PE_POR_TEA_propuesta__c} </td>
+           <td>TEA aprobada: {!Oli.PE_POR_TEA_propuesta__c} </td>
            <td>Vigencia: 12/07/2018 </td>
          </tr>
          <tr>
