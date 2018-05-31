@@ -2778,6 +2778,11 @@ Ejecutivos de REDES</description>
         <field>compromiso__c.PE_SH_PRODUCT__c</field>
         <readable>true</readable>
     </fieldPermissions>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_participants__c.N_DOI__c</field>
+        <readable>true</readable>
+  </fieldPermissions>      
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

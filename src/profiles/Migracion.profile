@@ -1811,7 +1811,12 @@
         <editable>true</editable>
         <field>compromiso__c.PE_SH_PRODUCT__c</field>
         <readable>true</readable>
-    </fieldPermissions>      
+    </fieldPermissions>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_participants__c.N_DOI__c</field>
+        <readable>true</readable>
+</fieldPermissions>            
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
