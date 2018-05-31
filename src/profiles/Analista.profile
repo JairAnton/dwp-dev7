@@ -3496,10 +3496,6 @@ Analistas de riesgos</description>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>CloseConversations</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>ConfigCustomRecs</name>
     </userPermissions>
     <userPermissions>
@@ -3717,10 +3713,6 @@ Analistas de riesgos</description>
     <userPermissions>
         <enabled>false</enabled>
         <name>ListEmailSend</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>LtngPromoReserved01UserPerm</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
