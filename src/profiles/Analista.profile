@@ -2768,6 +2768,11 @@ Analistas de riesgos</description>
         <field>Task.WhoId</field>
         <readable>true</readable>
     </fieldPermissions>
+   <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_participants__c.N_DOI__c</field>
+        <readable>true</readable>
+</fieldPermissions>      
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>
