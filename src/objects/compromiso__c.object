@@ -65,10 +65,20 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>P. Comercial</fullName>
-                    <default>false</default>
-                    <label>P. Comercial</label>
+                    <fullName>COTIZADOR</fullName>
+					<default>false</default>
+					<label>COTIZADOR</label>
                 </value>
+                <value>
+                    <fullName>Tarifario</fullName>
+					<default>false</default>
+					<label>Tarifario</label>
+                </value>
+				<value>
+					<fullName>Web</fullName>
+					<default>false</default>
+					<label>Web</label>
+				</value>
             </valueSetDefinition>
         </valueSet>
     </fields>
