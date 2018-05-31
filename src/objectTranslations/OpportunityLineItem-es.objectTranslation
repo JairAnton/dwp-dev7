@@ -267,6 +267,14 @@ operaciones activas --></help>
             <translation><!-- 03 --></translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>Comisión estructuración (%)</label>
+        <name>PE_POR_Comision_estructuracion__c</name>
+    </fields>
+    <fields>
+        <label>Comisión liquidación anticipada (%)</label>
+        <name>PE_POR_Comision_liquidacion_anticipada__c</name>
+    </fields>
     <validationRules>
         <errorMessage>Cuenta Vinculada no valida, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>LinkedAccount_Validation</name>
