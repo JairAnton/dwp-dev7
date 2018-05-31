@@ -3908,10 +3908,6 @@ Analistas de riesgos</description>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>ModifyMetadata</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>NewReportBuilder</name>
     </userPermissions>
     <userPermissions>
