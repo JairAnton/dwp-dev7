@@ -40,8 +40,8 @@ public with sharing class Product_cls {
 		return objData;
 	}
                
-	@AuraEnabled public static List<compromiso__c> getCompromisoDataByProductValues(String IdOpportunity,String IdProduct){	
-		List<compromiso__c> objData= [SELECT PE_FM_PRODUCT__c,PE_DIVISA_Importe__c,PE_NUM_Plazo_Vcto__c,PE_FOR_Fecha_Vcto__c,PE_NUM_Permanencia__c,CurrencyIsoCode FROM compromiso__c Where  Oportunidad__c=:IdOpportunity and PE_SH_PRODUCT__c=:IdProduct];
+	@AuraEnabled public static List<compromiso__c> getCompromisoDataByProduct(String IdOpportunity){	
+		List<compromiso__c> objData= [SELECT PE_FM_PRODUCT__c,PE_DIVISA_Importe__c,PE_NUM_Plazo_Vcto__c,PE_FOR_Fecha_Vcto__c,PE_NUM_Permanencia__c,CurrencyIsoCode FROM compromiso__c Where  Oportunidad__c=:IdOpportunity];
 		return objData;
 	}
 

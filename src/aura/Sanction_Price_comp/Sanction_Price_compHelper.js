@@ -58,11 +58,10 @@
                             $A.enqueueAction(action2); 
 
                             ///COMPROMISOS
-                            var action3 = cmp.get("c.getCompromisoDataByProductValues");                
+                            var action3 = cmp.get("c.getCompromisoDataByProduct");                
                             
                             action3.setParams({            
-                                "IdOpportunity" : OpportunityId,
-                                "IdProduct" : ProductId
+                                "IdOpportunity" : OpportunityId
                             });
                             action3.setCallback(this, function(response) {
                                 var state = response.getState();
