@@ -7,7 +7,6 @@
     <aura:attribute name="showModal" type="Boolean" default="false" />
     <aura:attribute name="Filtro" type="String" default="{!v.recordId}"/>
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
-    
     <div style="background-color: white;" id="IdCompromiso" class="{!v.table ? '' : 'slds-hide'}">
         <div class="{!v.table ? 'slds-box' : 'slds-hide'}">
             <aura:renderIf isTrue="{!v.table}">
@@ -38,7 +37,7 @@
                         <aura:iteration items="{!v.rows}" var="row" indexVar="rowIndex">
                             <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">                          
                                 <th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
-                                    <div class="slds-truncate" title="{!row.PE_FM_PRODUCT__c}">{!row.PE_FM_PRODUCT__c}</div>
+                                    <div class="slds-truncate" title="{!row.Product_relate__c}">{!row.Product_relate__c}</div>
                                 </th>
                                 <th><div class="slds-truncate" title="{!row.CurrencyIsoCode}">{!row.CurrencyIsoCode}</div></th>
                                 <th><div class="slds-truncate" title="{!row.PE_DIVISA_Importe__c}">{!row.PE_DIVISA_Importe__c}</div></th>
@@ -80,5 +79,4 @@
             </lightning:recordEditForm>
         </div>
     </div>
-    
 </aura:component>

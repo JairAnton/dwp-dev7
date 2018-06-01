@@ -16,6 +16,10 @@ operaciones activas --></help>
         <name>PE_POR_TEA_minima__c</name>
     </fields>
     <fields>
+        <label>Comision propuesta (%)</label>
+        <name>PE_POR_Comision__c</name>
+    </fields>	
+    <fields>
         <label>TEA Propuesta (%)</label>
         <name>PE_POR_TEA_propuesta__c</name>
     </fields>

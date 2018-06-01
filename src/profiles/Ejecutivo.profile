@@ -115,6 +115,11 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2398,7 +2403,7 @@ Asistente BE</description>
         <name>ListEmailSend</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>					
+        <enabled>false</enabled>
         <name>ManageAnalyticSnapshots</name>
     </userPermissions>
     <userPermissions>
@@ -2555,10 +2560,6 @@ Asistente BE</description>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-		<name>ManageTranslation</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>					
         <name>ManageTwoFactor</name>
     </userPermissions>
     <userPermissions>

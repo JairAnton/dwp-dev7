@@ -18,6 +18,15 @@
         <type>Percent</type>
     </fields>
     <fields>
+	        <fullName>PE_POR_Comision__c</fullName>
+        <externalId>false</externalId>
+        <label>Comision propuesta</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
         <fullName>PE_POR_Comision_liquidacion_anticipada__c</fullName>
 		<defaultValue>2</defaultValue>
         <externalId>false</externalId>
