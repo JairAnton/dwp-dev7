@@ -42,7 +42,7 @@
                 <div><p><br/></p></div>
                 <div class="slds-modal__footer slds-modal__footer_directional">
                     <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
-                    <lightning:button aura:id="continue" class="slds-m-top_small" variant="brand" type="submit" name="update" label="Continue" onclick="{!c.continua}" />
+                    <lightning:button aura:id="continue" class="slds-m-top_small" variant="brand" type="submit" name="update" label="Continuar" onclick="{!c.continua}" />
                     <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Calcular" onclick="{!c.cotiza}" />
                 </div>
             </lightning:recordEditForm> 
