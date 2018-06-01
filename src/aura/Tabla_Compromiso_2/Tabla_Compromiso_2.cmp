@@ -35,13 +35,13 @@
                     <div class="slds-col" role="listitem">
                         <div class="slds-border_bottom">
                             <label class="slds-form-element__label" for="text-input-id-1">Comisión mínima (%)</label>
-                            <lightning:outputField fieldName="PE_POR_Comision__c" variant="label-hidden" />
+                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" variant="label-hidden" />
                         </div>
                     </div>
                     <div class="slds-col" role="listitem">
                         <div class="slds-border_bottom">
                             <label class="slds-form-element__label" for="text-input-id-1">Comisión propuesta (%)</label>
-                            <lightning:outputField fieldName="PE_POR_TEA_propuesta__c" variant="label-hidden"/>
+                            <lightning:outputField fieldName="PE_POR_Comision__c" variant="label-hidden"/>
                         </div>
                     </div>
                 </div>
