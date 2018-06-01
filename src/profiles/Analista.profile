@@ -2777,7 +2777,12 @@ Analistas de riesgos</description>
         <editable>false</editable>
         <field>Product_participants__c.N_DOI__c</field>
         <readable>true</readable>
-</fieldPermissions>      
+</fieldPermissions>  
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_n_gracia__c</field>
+        <readable>true</readable>
+</fieldPermissions>        
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

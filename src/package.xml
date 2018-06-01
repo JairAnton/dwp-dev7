@@ -309,6 +309,7 @@
         <members>Product_Gurantee__c</members>
         <members>Product_Participants__c</members>
 		<members>compromiso__c</members>
+        <members>OpportunityLineItem</members>
         <name>CustomObject</name>
     </types>
 	<types>
