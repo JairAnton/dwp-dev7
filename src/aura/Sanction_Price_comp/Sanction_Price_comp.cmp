@@ -5,8 +5,8 @@
 <aura:attribute name="ProductId" type="Id" />
 <aura:attribute name="errMessage" type="String" default=""/>
 <aura:attribute name="lblCancel" type="String" default=""/>
-<aura:attribute name="rowsP" type="Object[]" />   
 <aura:attribute name="rowsComp" type="Object[]" />
+<aura:attribute name="rowsP" type="Object[]" />   
 <aura:attribute name="rowsOppLineItem" type="Object[]" />
 <aura:attribute name="lblComments" type="String" default=""/>   
 <aura:handler name="init" value="{!this}" action="{!c.init}" />

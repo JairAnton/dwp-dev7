@@ -21,7 +21,6 @@
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
                 <lightning:messages />
-                
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
@@ -41,46 +40,38 @@
                     </div>              
                 </div> 
                 <div><p><br/></p></div>
-                
                 <div class="slds-modal__footer slds-modal__footer_directional">
-                    <lightning:button aura:id="cancel" type="submit" label="Cancel" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
-                    <lightning:button aura:id="continue" type="submit" label="Continue" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}"/>
-                    <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Cotizar" onclick="{!c.cotiza}" />
+                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                    <lightning:button aura:id="continue" class="slds-m-top_small" variant="brand" type="submit" name="update" label="Continue" onclick="{!c.continua}" />
+                    <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Calcular" onclick="{!c.cotiza}" />
                 </div>
             </lightning:recordEditForm> 
-            
         </div>
         <div class="{!v.cotiTarif ? 'slds-box' : 'slds-hide'}" id="cotizaTarifario" >
-            
             <lightning:recordEditForm aura:id="recordViewForm" 
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
                 <lightning:messages />
-                
                 <div class="slds-grid slds-gutters">
-                    <div class="slds-col slds-size_1-of-2" role="listitem">
-                        <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_TEA_sugerida__c" />
-                        </div>
-                        
-                    </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
                             <label class="slds-form-element__label" for="text-input-id-1">Comisión mínima (%)</label>
                             <lightning:outputField fieldName="PE_POR_TEA_minima__c" variant="label-hidden" />
                         </div>
-                        
-                    </div>              
+                    </div>
+                    <div class="slds-col slds-size_1-of-2" role="listitem">
+                        <div class="slds-border_bottom">
+                            <lightning:inputField class="slds-label-hide" fieldName="PE_POR_Comision__c" />
+                        </div>
+                    </div>
                 </div> 
                 <div><p><br/></p></div>
                 
                 <div class="slds-modal__footer slds-modal__footer">
-                    <lightning:button aura:id="cancel" type="submit" label="Cancel" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}"/>
-                    <lightning:button aura:id="continue" type="submit" label="Continue" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
-                    
+                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}"/>
+                    <lightning:button aura:id="continue" class="slds-m-top_small" variant="brand" type="submit" name="update" label="Continuar" onclick="{!c.continua}" />
                 </div>
             </lightning:recordEditForm> 
-            
         </div>
         <div class="{!v.coticoti ? 'slds-box' : 'slds-hide'}" id="cotizaCotizador" >
             
@@ -88,7 +79,6 @@
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
                 <lightning:messages />
-                
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
@@ -114,11 +104,10 @@
                     </div>              
                 </div> 
                 <div><p><br/></p></div>
-                
                 <div class="slds-modal__footer slds-modal__footer_directional">
-                    <lightning:button aura:id="cancel" type="submit" label="Cancel" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
-                    <lightning:button aura:id="continue" type="submit" label="Continue" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
-                    <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update" onclick="{!c.cotiza}" />
+                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                    <lightning:button aura:id="continue" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
+                    
                 </div>
             </lightning:recordEditForm> 
             
@@ -127,81 +116,82 @@
     <div style="background-color: white;" id="IdCompromiso" class="{!v.table ? '' : 'slds-hide'}">
         <div class="{!v.table ? 'slds-box' : 'slds-hide'}">
             <aura:renderIf isTrue="{!v.table}">
-            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout  slds-table_cell-buffer" role="grid">
-                <thead>
-                    <tr >
-                        <th scope="col" class="slds-is-sortable slds-is-resizable">
-                            <div class="slds-truncate" title="Producto">Producto</div>
-                        </th>      
-                        <th scope="col" class="slds-is-sortable slds-is-resizable">
-                            <div class="slds-truncate" title="Moneda">Moneda</div>
-                        </th>       
-                        <th scope="col" class="slds-is-sortable slds-is-resizable">
-                            <div class="slds-truncate" title="Importe">Importe</div>
-                        </th>       
-                        <th scope="col" class="slds-is-sortable slds-is-resizable">
-                            <div class="slds-truncate" title="Plazo Vcto">Plazo Vcto</div>
-                        </th>                                    
-                        <th scope="col" class="slds-is-sortable slds-is-resizable">
-                            <div class="slds-truncate" title="Fecha Vcto">Fecha Vcto</div>
-                        </th>     
-                        <th scope="col" class="slds-is-sortable slds-is-resizable">
-                            <div class="slds-truncate" title="Permanencia">Permanencia</div>
-                        </th>                 
-                    </tr>
-                </thead>
-                <tbody>
-                    <aura:iteration items="{!v.rows}" var="row" indexVar="rowIndex">
-                        <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">                          
-                            <th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
-                                <div class="slds-truncate" title="{!row.Product_relate__c}">{!row.Product_relate__c}</div>
-                            </th>
-                            <th><div class="slds-truncate" title="{!row.CurrencyIsoCode}">{!row.CurrencyIsoCode}</div></th>
-                            <th><div class="slds-truncate" title="{!row.PE_DIVISA_Importe__c}">{!row.PE_DIVISA_Importe__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.PE_NUM_Plazo_Vcto__c}">{!row.PE_NUM_Plazo_Vcto__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.PE_FOR_Fecha_Vcto__c}">{!row.PE_FOR_Fecha_Vcto__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.PE_NUM_Permanencia__c}">{!row.PE_NUM_Permanencia__c}</div></th>
-                        </tr>                  
-                    </aura:iteration>
-                </tbody>
-            </table> 
+                <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout  slds-table_cell-buffer" role="grid">
+                    <thead>
+                        <tr >
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Producto">Producto</div>
+                            </th>      
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Moneda">Moneda</div>
+                            </th>       
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Importe">Importe</div>
+                            </th>       
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Plazo Vcto">Plazo Vcto</div>
+                            </th>                                    
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Fecha Vcto">Fecha Vcto</div>
+                            </th>     
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Permanencia">Permanencia</div>
+                            </th>                 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.rows}" var="row" indexVar="rowIndex">
+                            <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">                          
+                                <th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
+                                    <div class="slds-truncate" title="{!row.Product_relate__c}">{!row.Product_relate__c}</div>
+                                </th>
+                                <th><div class="slds-truncate" title="{!row.CurrencyIsoCode}">{!row.CurrencyIsoCode}</div></th>
+                                <th><div class="slds-truncate" title="{!row.PE_DIVISA_Importe__c}">{!row.PE_DIVISA_Importe__c}</div></th>
+                                <th><div class="slds-truncate" title="{!row.PE_NUM_Plazo_Vcto__c}">{!row.PE_NUM_Plazo_Vcto__c}</div></th>
+                                <th><div class="slds-truncate" title="{!row.PE_FOR_Fecha_Vcto__c}">{!row.PE_FOR_Fecha_Vcto__c}</div></th>
+                                <th><div class="slds-truncate" title="{!row.PE_NUM_Permanencia__c}">{!row.PE_NUM_Permanencia__c}</div></th>
+                            </tr>                  
+                        </aura:iteration>
+                    </tbody>
+                </table> 
             </aura:renderIf>
             <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="New comp" label="Nuevo Compromiso" onclick="{!c.nuevo}" />
         </div>
         <div>
             <div class="slds-modal__footer">
-                <lightning:button aura:id="cancel" type="submit" label="Cancel" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
-                <lightning:button aura:id="cancel" type="submit" label="Envia Cotizacion" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                <lightning:button aura:id="Send" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
             </div>
         </div>	
     </div>
     <div class="{!v.truthy ? '' : 'slds-hide'}" id="nuevocompromiso">
         
-            <div class="slds-box" style="background-color: white;">
-                <lightning:recordEditForm aura:id="recordEditForm" 
-                                          objectApiName="compromiso__c">
-                    <lightning:messages />
-                    <div class="slds-grid slds-gutters">
-                        <div class="slds-col slds-size_1-of-2" role="listitem">
-                            <div><lightning:inputField fieldName="Name" /></div>
-                            <div><lightning:inputField fieldName="Product_relate__c" /></div>
-                            <div><lightning:inputField fieldName="PE_NUM_Plazo_Vcto__c" /></div>
-                            <div><lightning:inputField fieldName="PE_FOR_Fecha_Vcto__c" /></div>
-                            <div><lightning:inputField fieldName="Oportunidad__c" /></div>
-                        </div>
-                        <div class="slds-col slds-size_1-of-2" role="listitem">
-                            <div><lightning:inputField fieldName="CurrencyIsoCode" /></div>
-                            <div><lightning:inputField fieldName="PE_DIVISA_Importe__c" /></div>
-                            <div><lightning:inputField fieldName="PE_NUM_Permanencia__c" /></div>
-                            <div><lightning:inputField fieldName="Client__c" /></div>
-                        </div>            
+        <div class="slds-box" style="background-color: white;">
+            <lightning:recordEditForm aura:id="recordEditForm" 
+                                      objectApiName="compromiso__c">
+                <lightning:messages />
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2" role="listitem">
+                        <div><lightning:inputField fieldName="Name" /></div>
+                        <div><lightning:inputField fieldName="Product_relate__c" /></div>
+                        <div><lightning:inputField fieldName="PE_NUM_Plazo_Vcto__c" /></div>
+                        <div><lightning:inputField fieldName="PE_FOR_Fecha_Vcto__c" /></div>
+                        <div><lightning:inputField fieldName="Oportunidad__c" /></div>
                     </div>
-                    <div><br/><br/></div>
-                    <div class="slds-modal__footer slds-modal__footer">
-                        <lightning:button class="slds-m-top_small" type="submit" label="Create new" onclick="{!c.closenew}" />
-                    </div>
-                </lightning:recordEditForm>
-            </div>
+                    <div class="slds-col slds-size_1-of-2" role="listitem">
+                        <div><lightning:inputField fieldName="CurrencyIsoCode" /></div>
+                        <div><lightning:inputField fieldName="PE_DIVISA_Importe__c" /></div>
+                        <div><lightning:inputField fieldName="PE_NUM_Permanencia__c" /></div>
+                        <div><lightning:inputField fieldName="Client__c" /></div>
+                    </div>            
+                </div>
+                <div><br/><br/></div>
+                <div class="slds-modal__footer slds-modal__footer">
+                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                    <lightning:button class="slds-m-top_small" type="submit" label="Continuar" onclick="{!c.closenew}" />
+                </div>
+            </lightning:recordEditForm>
+        </div>
         
     </div>
 </aura:component>
