@@ -309,6 +309,7 @@
         <members>Product_Gurantee__c</members>
         <members>Product_Participants__c</members>
 		<members>compromiso__c</members>
+        <members>OpportunityLineItem</members>
         <name>CustomObject</name>
     </types>
 	<types>
@@ -355,9 +356,9 @@
         <members>Product_Participants__c-es</members>  
 		<members>compromiso__c-en_US</members>
         <members>compromiso__c-es</members>
-        <name>CustomObjectTranslation</name>
 		<members>Product2-en_US</members>
         <members>Product2-es</members>
+        <name>CustomObjectTranslation</name>
     </types>
 	<types>
         <members>Type_of_quote_stock</members>
