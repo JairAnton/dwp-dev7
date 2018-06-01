@@ -74,6 +74,7 @@
                 </div>
                 <div><br/><br/></div>
                 <div >
+                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.closenew}" />
                     <lightning:button class="slds-m-top_small" type="submit" label="Create new" onclick="{!c.closenew}" />
                 </div>
             </lightning:recordEditForm>

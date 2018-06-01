@@ -21,7 +21,6 @@
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
                 <lightning:messages />
-                
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
@@ -41,35 +40,30 @@
                     </div>              
                 </div> 
                 <div><p><br/></p></div>
-                
                 <div class="slds-modal__footer slds-modal__footer_directional">
                     <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
                     <lightning:button aura:id="continue" class="slds-m-top_small" variant="brand" type="submit" name="update" label="Continue" onclick="{!c.continua}" />
+                    <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Calcular" onclick="{!c.cotiza}" />
                 </div>
             </lightning:recordEditForm> 
-            
         </div>
         <div class="{!v.cotiTarif ? 'slds-box' : 'slds-hide'}" id="cotizaTarifario" >
-            
             <lightning:recordEditForm aura:id="recordViewForm" 
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
                 <lightning:messages />
-                
                 <div class="slds-grid slds-gutters">
-                    <div class="slds-col slds-size_1-of-2" role="listitem">
-                        <div class="slds-border_bottom">
-                           <lightning:inputField class="slds-label-hide" fieldName="PE_POR_Comision__c" />
-                        </div>
-                        
-                    </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
                             <label class="slds-form-element__label" for="text-input-id-1">Comisión mínima (%)</label>
                             <lightning:outputField fieldName="PE_POR_TEA_minima__c" variant="label-hidden" />
                         </div>
-                        
-                    </div>              
+                    </div>
+                    <div class="slds-col slds-size_1-of-2" role="listitem">
+                        <div class="slds-border_bottom">
+                            <lightning:inputField class="slds-label-hide" fieldName="PE_POR_Comision__c" />
+                        </div>
+                    </div>
                 </div> 
                 <div><p><br/></p></div>
                 
@@ -78,7 +72,6 @@
                     <lightning:button aura:id="continue" class="slds-m-top_small" variant="brand" type="submit" name="update" label="Continuar" onclick="{!c.continua}" />
                 </div>
             </lightning:recordEditForm> 
-            
         </div>
         <div class="{!v.coticoti ? 'slds-box' : 'slds-hide'}" id="cotizaCotizador" >
             
@@ -86,7 +79,6 @@
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
                 <lightning:messages />
-                
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
@@ -112,11 +104,10 @@
                     </div>              
                 </div> 
                 <div><p><br/></p></div>
-                
                 <div class="slds-modal__footer slds-modal__footer_directional">
                     <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
                     <lightning:button aura:id="continue" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
-                    <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update" onclick="{!c.cotiza}" />
+                    
                 </div>
             </lightning:recordEditForm> 
             
