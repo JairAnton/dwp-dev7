@@ -745,6 +745,7 @@
         <members>OpportunityLineItem.PE_POR_TEA_sugerida__c</members>
 		<members>compromiso__c.Product_relate__c</members>
 		<members>Product2.Type_of_quote__c</members>
+		<members>OpportunityLineItem.PE_POR_Comision__c</members>
 		<name>CustomField</name>
     </types>
     <types>
