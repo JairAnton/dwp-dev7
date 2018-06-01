@@ -3,7 +3,7 @@
         if(cmp.get("v.toButton"))
             cmp.set("v.recordId",cmp.get("v.inputAttributes").recordId);	
         
-        cmp.set("v.title" , "Cotizacion");      
+        cmp.set("v.title" , "Cotización");      
         var action = cmp.get("c.getOportunityLineItemID");
         action.setParams({
             "Filtro":cmp.get("v.recordId")
