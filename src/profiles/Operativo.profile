@@ -2890,7 +2890,12 @@ Sub Gerentes de oficina</description>
         <editable>true</editable>
         <field>OpportunityLineItem.gipr_Garantia__c</field>
         <readable>true</readable>
-</fieldPermissions>    
+</fieldPermissions> 
+<fieldPermissions>
+        <editable>false</editable>
+        <field>Product_participants__c.N_DOI__c</field>
+        <readable>true</readable>
+</fieldPermissions>        
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

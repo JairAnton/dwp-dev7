@@ -4,8 +4,9 @@
 <aura:attribute name="recordId" type="Id" />
 <aura:attribute name="ProductId" type="Id" />
 <aura:attribute name="errMessage" type="String" default=""/>
-<aura:attribute name="rowsP" type="Object[]" />   
+<aura:attribute name="lblCancel" type="String" default=""/>
 <aura:attribute name="rowsComp" type="Object[]" />
+<aura:attribute name="rowsP" type="Object[]" />   
 <aura:attribute name="rowsOppLineItem" type="Object[]" />
 <aura:attribute name="lblComments" type="String" default=""/>   
 <aura:handler name="init" value="{!this}" action="{!c.init}" />
@@ -60,18 +61,22 @@
             <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout" role="grid">
             	<thead>
 	            	<tr>
-	            		<th>PRODUCTO</th>
-	            		<th>SALDO MEDIO</th>
-	            		<th>PLAZO</th>
-	            		<th>TIPO</th>
+	            		<th>Producto</th>
+                  <th>Moneda</th>
+	            		<th>Importe</th>
+	            		<th>Plazo VCTO</th>
+                  <th>Fecha VCTO</th>
+	            		<th>Permanencia</th>
 	            	</tr>
             	</thead>
               <aura:iteration items="{!v.rowsComp}" var="row" indexVar="rowIndex">
             	<tr>
-            		<td>{!row.Name}</td>
-            		<td>1</td>
-            		<td></td>
-            		<td></td>
+            		<td> <div class="slds-truncate" title="{!row.PE_FM_PRODUCT__c}">{!row.PE_FM_PRODUCT__c}</div></td>            
+                <td> <div class="slds-truncate" title="{!row.CurrencyIsoCode}">{!row.CurrencyIsoCode}</div></td>                            
+            		<td> <div class="slds-truncate" title="{!row.PE_DIVISA_Importe__c}">{!row.PE_DIVISA_Importe__c}</div></td>
+                <td> <div class="slds-truncate" title="{!row.PE_NUM_Plazo_Vcto__c}">{!row.PE_NUM_Plazo_Vcto__c}</div></td>
+                <td> <div class="slds-truncate" title="{!row.PE_FOR_Fecha_Vcto__c}">{!row.PE_FOR_Fecha_Vcto__c}</div></td>            		
+                <td> <div class="slds-truncate" title="{!row.PE_NUM_Permanencia__c}">{!row.PE_NUM_Permanencia__c}</div></td>
             	</tr>
             </aura:iteration>
             </table>
@@ -128,7 +133,7 @@
     <table style="width:90%" align="center">
     <tr>
     <td>
-    <lightning:button  aura:id="btnApprove" name="btnApprove" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}"  ><lightning:icon iconName="utility:check" size="small" /><br/>Aprobar</lightning:button>
+    <lightning:button  aura:id="btnApprove" name="btnApprove" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}"  ><lightning:icon iconName="utility:check" size="small" /><br/>Sancionar</lightning:button>
 	</td>
 	<td>
     <lightning:button  aura:id="btnRaise" name="btnRaise" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}" ><lightning:icon iconName="utility:share" size="small" /><br/>Elevar</lightning:button>
@@ -142,9 +147,8 @@
    </div>
    <footer class="slds-modal__footer slds-theme_default">
    	
-      	<lightning:button variant="neutral" label="Close" onclick="{!c.close}" class="slds-float_left"/>
+      	<lightning:button variant="neutral" label="{!v.lblCancel}" onclick="{!c.close}" class="slds-float_left"/>
     
-       <lightning:button aura:id="btnDes" name="btnDes" variant="neutral" label="Desestimar" onclick="{!c.desestimar}"/>
        <lightning:button aura:id="btnContinue" name="btnContinue" variant="brand" label="Continuar" onclick="{!c.continue}" disabled="true"/>
    
    </footer>

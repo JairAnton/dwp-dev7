@@ -1,6 +1,7 @@
 ({
 	init: function(component, event, helper) {
-		component.set("v.lblComments", $A.get("$Label.c.Comments"));	
+		component.set("v.lblComments", $A.get("$Label.c.Comments"));
+		component.set("v.lblCancel", $A.get("$Label.c.Cancel"));
 	    helper.bringData(component, event, helper); 
     },
 	close : function(component, event, helper) {

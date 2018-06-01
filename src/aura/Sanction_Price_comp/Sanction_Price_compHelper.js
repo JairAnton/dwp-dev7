@@ -12,7 +12,7 @@
           }),0
         );
     },    
-	   bringData : function(cmp, evt, helper) {
+	   bringData : function(cmp, evt, helper) {        
 	   	var inputObject = cmp.get('v.inputAttributes');  
 	   	cmp.set('v.recordId',inputObject.recordId);	   	
         var OpportunityId = cmp.get("v.recordId");
@@ -25,8 +25,9 @@
         });
         action0.setCallback(this, function(response) {
             var state = response.getState();
-            if (state === "SUCCESS") {                       
+            if (state === "SUCCESS") {                        
                 ////VERIFY IF HAS QUOTE THE OPP
+                
                 if(response.getReturnValue())
                 {
 
@@ -57,11 +58,10 @@
                             $A.enqueueAction(action2); 
 
                             ///COMPROMISOS
-                            var action3 = cmp.get("c.getCompromisoDataByProductValues");                
+                            var action3 = cmp.get("c.getCompromisoDataByProduct");                
                             
                             action3.setParams({            
-                                "IdOpportunity" : OpportunityId,
-                                "IdProduct" : ProductId
+                                "IdOpportunity" : OpportunityId
                             });
                             action3.setCallback(this, function(response) {
                                 var state = response.getState();
@@ -94,11 +94,15 @@
                     
                     var inputObject=cmp.get('v.inputAttributes');  
                     var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
-                    compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:call_Quote_Component' });
+                    compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:call_Quote_component' });
                     compEvent.fire();
                     /*var cancelEvent = cmp.getEvent('dynamicFlowWizardCancel');
                     cancelEvent.fire();*/
                 }
+            }
+            else
+            {
+               
             }
         });        
         $A.enqueueAction(action0);

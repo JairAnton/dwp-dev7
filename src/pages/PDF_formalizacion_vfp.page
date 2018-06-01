@@ -132,7 +132,7 @@
             <td></td>
          </tr>
          <tr>
-           <td>Codigo SIO: SIO100124 </td>
+           <td>Codigo SIO: {!Opportunity.LastSIOcode__c} </td>
            <td>Fecha autorización: 12/07/2018 </td>
          </tr>
          <tr>
@@ -140,12 +140,14 @@
            <td>Sancionador: Andres figueroa</td>
          </tr>
          <tr>
-           <td>Importe: 3000 </td>
-           <td>Compromisos: 4 </td>
+           <td>Importe:  {!Opportunity.Amount}</td>
+           <td>Compromisos: {!totalC}</td>
          </tr>
          <tr>
-           <td>Plazo: 3 </td>
-           <td>Comentarios: Aprobadax</td>
+           <td>Plazo: <apex:outputText value="{0, number,0}">
+               <apex:param value="{!Oli.gipr_Plazo__c}" />
+         	   </apex:outputText> {!Oli.cpliq_Periodicidad__c}</td>
+           <td>Comentarios: Aprobada</td>
          </tr>
          </table>
             <br/>
@@ -159,7 +161,7 @@
              <td>Fecha autorización: 16/06/2018:9:00 </td>
          </tr>
          <tr>
-           <td>TEA aprobada: 5% </td>
+           <td>TEA aprobada: {!Oli.PE_POR_TEA_propuesta__c} </td>
            <td>Vigencia: 12/07/2018 </td>
          </tr>
          <tr>
@@ -240,6 +242,7 @@
              <tr>
               <th class="cb">Nombre/Cliente</th>
               <th class="cb">DOI</th>
+              <th class="cb">Nº DOI</th>
               <th class="cb">Participación</th>
               <th class="cb">Estado cívil</th>
             </tr>
@@ -247,6 +250,7 @@
             <tr>
             <td class="cd">{!Interveniente.Name}</td>
             <td class="cd">{!Interveniente.DOI__c}</td>
+            <td class="cd">{!Interveniente.N_DOI__c}</td>
             <td class="cd">{!Interveniente.Participation__c}</td>
             <td class="cd">{!Interveniente.Marital_Status__c}</td>
             </tr>
