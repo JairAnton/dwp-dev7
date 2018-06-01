@@ -9,6 +9,7 @@
     </fields>
     <fields>
         <fullName>PE_POR_Comision_estructuracion__c</fullName>
+		<defaultValue>1</defaultValue>
         <externalId>false</externalId>
         <label>PE_POR_Comision_estructuracion</label>
         <precision>18</precision>
@@ -17,7 +18,17 @@
         <type>Percent</type>
     </fields>
     <fields>
+	        <fullName>PE_POR_Comision__c</fullName>
+        <externalId>false</externalId>
+        <label>Comision propuesta</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
         <fullName>PE_POR_Comision_liquidacion_anticipada__c</fullName>
+		<defaultValue>2</defaultValue>
         <externalId>false</externalId>
         <label>PE_POR_Comision_liquidacion_anticipada</label>
         <precision>18</precision>

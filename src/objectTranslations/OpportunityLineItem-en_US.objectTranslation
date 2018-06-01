@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+		<label><!-- Fecha cotizacion --></label>
+        <name>PE_DATE_Fecha_cotizacion__c</name>
+    </fields>
+    <fields>
+        <label>Comisión estructuración (%)</label>
+        <name>PE_POR_Comision_estructuracion__c</name>
+    </fields>
+    <fields>
+        <label>Comisión liquidación anticipada (%)</label>
+        <name>PE_POR_Comision_liquidacion_anticipada__c</name>
+    </fields>
+    <fields>	
         <help><!-- La diferencia entre los intereses que pagan las entidades bancarias
 por sus operaciones pasivas y los que estas reciben como rentabilidad por sus
 operaciones activas --></help>
@@ -12,10 +24,15 @@ operaciones activas --></help>
         <name>PE_POR_TEA_minima__c</name>
     </fields>
     <fields>
+	 <label>Comision propuesta (%)</label>
+        <name>PE_POR_Comision__c</name>
+    </fields>	
+    <fields>
         <label>TEA Propuesta (%)</label>
         <name>PE_POR_TEA_propuesta__c</name>
     </fields>
     <fields>
+		<help><!-- se ingresa la tasa que arroja el cotizador --></help>																	
         <label>TEA Sugerida (%)</label>
         <name>PE_POR_TEA_sugerida__c</name>
     </fields>

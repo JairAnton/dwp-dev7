@@ -25,6 +25,31 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentName>Tabla_Compromiso_2</componentName>
+        </componentInstances>
+        <name>Facet-3859b103-fd1c-4c93-960a-daebb2eb42be</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>Controls</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Filtro</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>table</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>CustomTable_V1</componentName>
+        </componentInstances>
+        <name>Facet-6923b1f3-7207-499a-9e6f-63b5175bcf1d</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentName>ProductGuarantee_comp</componentName>
         </componentInstances>
         <name>Facet-8590b1da-3905-4e4f-9e3e-ae80af07f2e4</name>
@@ -46,26 +71,35 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>Tabla_Compromiso_2</componentName>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-3859b103-fd1c-4c93-960a-daebb2eb42be</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Precio</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--i042e3vzw2i</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-        <name>Facet-3ec2fcf8-8c88-43d9-bbde-242aab99cf9a</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>Controls</name>
-                <value>true</value>
+                <name>body</name>
+                <value>Facet-6923b1f3-7207-499a-9e6f-63b5175bcf1d</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>Filtro</name>
+                <name>label</name>
+                <value>Compromisos</value>
             </componentInstanceProperties>
-            <componentName>CustomTable_V1</componentName>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--3b0dtq1fqpf</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-        <name>Facet-231966ae-0897-4138-be9c-8407c255ace8</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
@@ -111,65 +145,36 @@
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
-                <value>Facet-3ec2fcf8-8c88-43d9-bbde-242aab99cf9a</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>label</name>
-                <value>Pagos</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>name</name>
-                <value>accordionSection--i042e3vzw2i</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:accordionSection</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
-                <value>Facet-231966ae-0897-4138-be9c-8407c255ace8</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>label</name>
-                <value>Compromisos</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>name</name>
-                <value>accordionSection--3b0dtq1fqpf</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:accordionSection</componentName>
-        </componentInstances>
         <name>Facet-76d345b6-daff-4537-a0ba-1378ceed2f55</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>disbleManageProducts</name>
-                <value>false</value>
+                <name>cloneButton</name>
+                <value>{&quot;style&quot;:&quot;neutral&quot;,&quot;unactiveStyle&quot;:&quot;hidden&quot;,&quot;active&quot;:false}</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>enableMultiple</name>
-                <value>false</value>
+                <name>compareButton</name>
+                <value>{&quot;style&quot;:&quot;neutral&quot;,&quot;unactiveStyle&quot;:&quot;hidden&quot;,&quot;active&quot;:true}</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>deleteButton</name>
+                <value>{&quot;style&quot;:&quot;neutral&quot;,&quot;unactiveStyle&quot;:&quot;hidden&quot;,&quot;active&quot;:true}</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>editButton</name>
+                <value>{&quot;style&quot;:&quot;neutral&quot;,&quot;unactiveStyle&quot;:&quot;hidden&quot;,&quot;active&quot;:true}</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>maxProductNumber</name>
                 <value>1</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>showClone</name>
-                <value>false</value>
+                <name>newButton</name>
+                <value>{&quot;style&quot;:&quot;neutral&quot;,&quot;unactiveStyle&quot;:&quot;hidden&quot;,&quot;active&quot;:true}</value>
             </componentInstanceProperties>
             <componentName>fprd:GBL_Opportunity_Products_cmp</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>disbleEdit</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentName>fprd:GBL_Product_buttons_cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -178,7 +183,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>defaultSectionName</name>
-                <value>accordionSection--3b0dtq1fqpf</value>
+                <value>accordionSection--i042e3vzw2i</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordion</componentName>
         </componentInstances>

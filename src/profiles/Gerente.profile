@@ -76,6 +76,16 @@
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Product2.Type_of_quote__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.Product_relate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -84,6 +94,11 @@
         <field>OpportunityLineItem.PE_POR_Comision_estructuracion__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</field>
@@ -1659,6 +1674,16 @@
         <field>Opportunity.Modality__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_participants__c.N_DOI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_n_gracia__c</field>
+        <readable>true</readable>
+    </fieldPermissions>         
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

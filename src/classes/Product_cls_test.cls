@@ -68,7 +68,7 @@ public class Product_cls_test {
 
 			Product_cls.getParticipantDataByProduct(testOP.Id,testPr.Id);
 			Product_cls.getParticipantDataByProductValues(testPG.Id);
-			Product_cls.getCompromisoDataByProductValues(testOP.Id,testPr.Id);
+			Product_cls.getCompromisoDataByProduct(testOP.Id);
             Product_cls.getOpportunityLineItemDataByProduct(testOP.Id,testPr.Id);
             Product_cls.verifyIfHasQuoted(testOP.Id);
 			Product_cls.saveGuaranteeDataByProduct(testPG.Id,testOP.Id,testPr.Id,'01','01','01',1,'01',1,'01',1);
@@ -77,7 +77,8 @@ public class Product_cls_test {
 
        		Product_cls.deleteGuaranteeDataByProduct(testPG.Id);
        		Product_cls.deleteParticipantDataByProduct(testPP.Id);
-        
+        	Product_cls.setSanctionPrice(testOP.Id,'btnApprove');
+        	Product_cls.setFormalization(testOP.Id,'btnApprove','id');
         	testLOPP.gipr_Tipo_Garantia__c='02';
         	update testLOPP;
      		System.assert(true,'This Works!');

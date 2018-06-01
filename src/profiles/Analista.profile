@@ -133,6 +133,16 @@
     <description>Los cargos para este perfil pueden ser:
 Analistas de precios
 Analistas de riesgos</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.Type_of_quote__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.Product_relate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</field>
@@ -143,6 +153,11 @@ Analistas de riesgos</description>
         <field>OpportunityLineItem.PE_POR_Comision_estructuracion__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</field>
@@ -206,11 +221,6 @@ Analistas de riesgos</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>compromiso__c.PE_SH_PRODUCT__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.reevaluate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2763,6 +2773,16 @@ Analistas de riesgos</description>
         <field>Task.WhoId</field>
         <readable>true</readable>
     </fieldPermissions>
+   <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_participants__c.N_DOI__c</field>
+        <readable>true</readable>
+</fieldPermissions>  
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_n_gracia__c</field>
+        <readable>true</readable>
+</fieldPermissions>        
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

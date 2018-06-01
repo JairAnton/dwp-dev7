@@ -1,22 +1,28 @@
 ({
-    getData : function(cmp,Filtro) {
-        var spinner = cmp.find("spinner");
-        $A.util.removeClass(spinner, "slds-hide");
-        var action = cmp.get('c.getContacts');
+    cotiza : function(component, event) {
+        console.log("cotiza "+component.get("v.recordId"));
+        var action = component.get("c.getOportunidadSytem");
         action.setParams({
-            "Filtro":cmp.get('v.Filtro') 
-               });
+            "Filtro":component.get("v.recordId"),
+        });
         
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-                cmp.set('v.mydata', response.getReturnValue());
-                $A.util.addClass(spinner, "slds-hide");
+                var toastEvent = $A.get("e.force:showToast"); 
+                toastEvent.setParams({ 
+                    title: "Success!",
+                    message: "Cotizacion Realizada", 
+                    type: "success" 
+                });
+                toastEvent.fire();
             } else if (state === "ERROR") {
                 var errors = response.getError();
-                console.error(errors);
             }
         }));
         $A.enqueueAction(action);
+        
     }
+    
+    
 })

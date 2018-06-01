@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <label><!-- Fecha cotizacion --></label>
+        <name>PE_DATE_Fecha_cotizacion__c</name>
+    </fields>									
+    <fields>			
         <help><!-- La diferencia entre los intereses que pagan las entidades bancarias
 por sus operaciones pasivas y los que estas reciben como rentabilidad por sus
 operaciones activas --></help>
@@ -12,10 +16,15 @@ operaciones activas --></help>
         <name>PE_POR_TEA_minima__c</name>
     </fields>
     <fields>
+        <label>Comision propuesta (%)</label>
+        <name>PE_POR_Comision__c</name>
+    </fields>	
+    <fields>
         <label>TEA Propuesta (%)</label>
         <name>PE_POR_TEA_propuesta__c</name>
     </fields>
     <fields>
+		<help><!-- se ingresa la tasa que arroja el cotizador --></help>																
         <label>TEA Sugerida (%)</label>
         <name>PE_POR_TEA_sugerida__c</name>
     </fields>
@@ -40,83 +49,83 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- cpliq_Amortizacion --></label>
+        <label>Amortización</label>
         <name>cpliq_Amortizacion__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation><!-- 01 --></translation>
+            <translation>Mensual</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation><!-- 02 --></translation>
+            <translation>Trismestral</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>03</masterLabel>
-            <translation><!-- 03 --></translation>
+            <translation>Semestral</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>04</masterLabel>
-            <translation><!-- 04 --></translation>
+            <translation>Anual</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- cpliq__Codigo_Simulacion --></label>
+        <label>Código de simulación</label>
         <name>cpliq_Codigo_Simulacion__c</name>
     </fields>
     <fields>
-        <label><!-- cpliq__Cuenta_vinculada --></label>
+        <label>Cuenta vinculada</label>
         <name>cpliq_Cuenta_vinculada__c</name>
     </fields>
     <fields>
-        <label><!-- cpliq_Fecha_Vencimiento --></label>
+        <label>Fecha de vencimiento</label>
         <name>cpliq_Fecha_Vencimiento__c</name>
     </fields>
     <fields>
-        <label><!-- cpliq_Periodicidad --></label>
+        <label>Periodicidad</label>
         <name>cpliq_Periodicidad__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation><!-- 01 --></translation>
+            <translation>Dias</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation><!-- 02 --></translation>
+            <translation>Meses</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- cpliq_Periodicidad_gracia --></label>
+        <label>Periodicidad de gracia</label>
         <name>cpliq_Periodicidad_gracia__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation><!-- 01 --></translation>
+            <translation>Dias</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation><!-- 02 --></translation>
+            <translation>Meses</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- cpliq_Tipo_amortización --></label>
+        <label>Tipo de amortización</label>
         <name>cpliq_Tipo_amortizacion__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation><!-- 01 --></translation>
+            <translation>Al vencimiento</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation><!-- 02 --></translation>
+            <translation>En cuotas</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>03</masterLabel>
-            <translation><!-- 03 --></translation>
+            <translation>A medida</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- cpliq_n --></label>
+        <label>Plazo</label>
         <name>cpliq_n__c</name>
     </fields>
     <fields>
-        <label><!-- cpliq_n_gracia --></label>
+        <label>Plazo de gracia</label>
         <name>cpliq_n_gracia__c</name>
     </fields>
     <fields>
@@ -128,144 +137,152 @@ operaciones activas --></help>
         <name>fprd__GBL_Sample_Datetime__c</name>
     </fields>
     <fields>
-        <label><!-- gipr_Cobertura --></label>
+        <label>Cobertura</label>
         <name>gipr_Cobertura__c</name>
     </fields>
     <fields>
-        <label><!-- gipr_Destino --></label>
+        <label>Destino</label>
         <name>gipr_Destino__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation><!-- 01 --></translation>
+            <translation>Campañas</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation><!-- 02 --></translation>
+            <translation>Capital de trabajo</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>03</masterLabel>
-            <translation><!-- 03 --></translation>
+            <translation>Pago de impuestos</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>04</masterLabel>
-            <translation><!-- 04 --></translation>
+            <translation>Pago haberes</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>05</masterLabel>
-            <translation><!-- 05 --></translation>
+            <translation>Pago proveedores</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>06</masterLabel>
-            <translation><!-- 06 --></translation>
+            <translation>Prórroga</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>07</masterLabel>
-            <translation><!-- 07 --></translation>
+            <translation>Subrrogación</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- gipr_Garantia --></label>
+        <label>Garantía</label>
         <name>gipr_Garantia__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation><!-- 01 --></translation>
+            <translation>Cuenta en garantía</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation><!-- 02 --></translation>
+            <translation>Depósito cuenta a plazo</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>03</masterLabel>
-            <translation><!-- 03 --></translation>
+            <translation>Super depósitos</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>04</masterLabel>
-            <translation><!-- 04 --></translation>
+            <translation>Acciones y bono</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>05</masterLabel>
-            <translation><!-- 05 --></translation>
+            <translation>Cartas de crédito</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>06</masterLabel>
-            <translation><!-- 06 --></translation>
+            <translation>Certificados bancarios</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>07</masterLabel>
-            <translation><!-- 07 --></translation>
+            <translation>Fianza bancaria</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>08</masterLabel>
-            <translation><!-- 08 --></translation>
+            <translation>Fianza solidaria</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>09</masterLabel>
-            <translation><!-- 09 --></translation>
+            <translation>Fondos mutuos</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>10</masterLabel>
-            <translation><!-- 10 --></translation>
+            <translation>Hipoteca</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>11</masterLabel>
-            <translation><!-- 11 --></translation>
+            <translation>Leasing</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>12</masterLabel>
-            <translation><!-- 12 --></translation>
+            <translation>Prenda agrícola</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>13</masterLabel>
-            <translation><!-- 13 --></translation>
+            <translation>Prenda industrial</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>14</masterLabel>
-            <translation><!-- 14 --></translation>
+            <translation>Prenda minera</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>15</masterLabel>
-            <translation><!-- 15 --></translation>
+            <translation>Prenda transporte</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>16</masterLabel>
-            <translation><!-- 16 --></translation>
+            <translation>Prenda vehicular</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>17</masterLabel>
-            <translation><!-- 17 --></translation>
+            <translation>Warrants</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- gipr_Periodicidad --></label>
+        <label>Periodicidad</label>
         <name>gipr_Periodicidad__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation><!-- 01 --></translation>
+            <translation>Días</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation><!-- 02 --></translation>
+            <translation>Meses</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- gipr_Plazo --></label>
+        <label>Plazo</label>
         <name>gipr_Plazo__c</name>
     </fields>
     <fields>
-        <label><!-- gipr_Tipo_Garantia --></label>
+        <label>Tipo garantía</label>
         <name>gipr_Tipo_Garantia__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation><!-- 01 --></translation>
+            <translation>Dineraria</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation><!-- 02 --></translation>
+            <translation>No dineraria</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>03</masterLabel>
-            <translation><!-- 03 --></translation>
+            <translation>Sin garantía</translation>
         </picklistValues>
+    </fields>
+	<fields>
+        <label>Comisión estructuración (%)</label>
+        <name>PE_POR_Comision_estructuracion__c</name>
+    </fields>
+    <fields>
+        <label>Comisión liquidación anticipada (%)</label>
+        <name>PE_POR_Comision_liquidacion_anticipada__c</name>
     </fields>
     <validationRules>
         <errorMessage>Cuenta Vinculada no valida, el formato correcto: 0000-0000-000000000</errorMessage>

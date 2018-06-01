@@ -85,11 +85,7 @@
    <classAccesses>
         <apexClass>PDFclassButton</apexClass>
         <enabled>true</enabled>
-    </classAccesses> 
-    <classAccesses>
-        <apexClass>ReevaluateButtonClass</apexClass>
-        <enabled>true</enabled>
-    </classAccesses> 
+    </classAccesses>  
     <classAccesses>
         <apexClass>formalizationButtonClass</apexClass>
         <enabled>true</enabled>
@@ -105,12 +101,17 @@
    <classAccesses>
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
-    </classAccesses>   
-     <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.reevaluate__c</field>
+    </classAccesses> 
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.Type_of_quote__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.Product_relate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.main_code_id__c</field>
@@ -1748,6 +1749,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1810,7 +1816,17 @@
         <editable>true</editable>
         <field>compromiso__c.PE_SH_PRODUCT__c</field>
         <readable>true</readable>
-    </fieldPermissions>      
+    </fieldPermissions>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_participants__c.N_DOI__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+ <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_n_gracia__c</field>
+        <readable>true</readable>
+</fieldPermissions>                
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>

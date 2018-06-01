@@ -1,50 +1,38 @@
 ({
-    init: function (cmp, event, helper) {
-        var spinner = cmp.find("spinner");
-        $A.util.removeClass(spinner, "slds-hide");
-        cmp.set('v.mycolumns', [
-            {label: 'Producto', fieldName: 'PE_FM_PRODUCT__c', type: 'text'},
-            {label: 'Divisa', fieldName: 'CurrencyIsoCode', type: 'text'},
-            {label: 'Importe (SM)', fieldName: 'PE_DIVISA_Importe__c', type: 'number'},
-            {label: 'Plazo Vcto (días)', fieldName: 'PE_NUM_Plazo_Vcto__c', type: 'number'},
-            {label: 'Fecha Vcto', fieldName: 'PE_FOR_Fecha_Vcto__c', type: 'date'},
-            {label: 'Permanencia', fieldName: 'PE_NUM_Permanencia__c', type: 'number'}
-        ]);
-        helper.getData(cmp);
+    init : function(cmp, event, helper) {    
+        console.log("cotiza "+cmp.get("v.recordId"));
+        var action = cmp.get("c.getCompromisosSytem");
+        action.setParams({
+            "Filtro":cmp.get("v.recordId")
+        });
+        
+        action.setCallback(this, $A.getCallback(function (response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {                
+                cmp.set("v.rows", response.getReturnValue());                
+            } else if (state === "ERROR") {
+                var errors = response.getError();
+            }
+        }));
+        $A.enqueueAction(action);
     },
-    destroyCmp: function (cmp, event, helper) {
-        console.log("funciona");
-        cmp.set("v.showModal",false);
+    cancel : function(cmp, event, helper) {
+        cmp.set("v.hide" , true);
     },
-    addRecord: function (cmp, event, helper) {
-        cmp.set("v.showModal",true);
+    nuevo:function(cmp, event, helper) {
+        cmp.set("v.Controls" , true);
+        cmp.set("v.table" , false);
     },
-    handleStatusChange : function(component, event, helper) {
-        if(event.getParam("status")==="FINISHED"){ 
-            var toastEvent = $A.get("e.force:showToast"); 
-            toastEvent.setParams({ 
-                title: "Success!",
-                message: "Compromiso Terminada", 
-                type: "success" 
-            });
-            toastEvent.fire(); 
-            var outputVar = component.get("v.recordId");
-            var urlEvent = $A.get("e.force:navigateToSObject");
-            urlEvent.setParams({
-                "recordId": outputVar,
-                "slideDevName": "related"
-            });
-            urlEvent.fire();
-        }
-        if(event.getParam("status")==="FINISHED_SCREEN"){
-            
-            var outputVar = component.get("v.recordId");
-            var urlEvent = $A.get("e.force:navigateToSObject");
-            urlEvent.setParams({
-                "recordId": outputVar,
-                "slideDevName": "related"
-            });
-            urlEvent.fire();
-        }
+    closenew:function(cmp, event, helper) {
+        $A.get('e.force:refreshView').fire();
+        cmp.set("v.table" , true);
+        cmp.set("v.Controls" , false);
+        var toastEvent = $A.get("e.force:showToast"); 
+        toastEvent.setParams({ 
+            title: "Success!",
+            message: "Compromiso Creado", 
+            type: "success" 
+        });
+        toastEvent.fire();
     }
 })

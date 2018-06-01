@@ -156,6 +156,16 @@
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.Type_of_quote__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>compromiso__c.Product_relate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</field>
@@ -166,6 +176,11 @@ Sub Gerentes de oficina</description>
         <field>OpportunityLineItem.PE_POR_Comision_estructuracion__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</field>
@@ -229,11 +244,6 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>compromiso__c.PE_SH_PRODUCT__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.reevaluate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2885,7 +2895,17 @@ Sub Gerentes de oficina</description>
         <editable>true</editable>
         <field>OpportunityLineItem.gipr_Garantia__c</field>
         <readable>true</readable>
-</fieldPermissions>    
+</fieldPermissions> 
+<fieldPermissions>
+        <editable>false</editable>
+        <field>Product_participants__c.N_DOI__c</field>
+        <readable>true</readable>
+</fieldPermissions>  
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_n_gracia__c</field>
+        <readable>true</readable>
+</fieldPermissions>          
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

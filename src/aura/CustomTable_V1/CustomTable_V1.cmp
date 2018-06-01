@@ -1,33 +1,83 @@
 <aura:component controller="Object_Controller" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL">
-    <aura:attribute name="mydata" type="Object"/>
-    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="rows" type="Object[]"/>
+    <aura:attribute name="recordId" type="Id" default="{!v.recordId}" />
     <aura:attribute name="Controls" type="Boolean" default="false" />
+    <aura:attribute name="table" type="Boolean" default="false" />
     <aura:attribute name="mycolumns" type="List"/>
     <aura:attribute name="showModal" type="Boolean" default="false" />
     <aura:attribute name="Filtro" type="String" default="{!v.recordId}"/>
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
-    <aura:handler name="PasoParametrosPadre" event="dwp_mdal:modalTemplateClose_evt" action="{!c.destroyCmp}"/>
-    <div class="slds-grid slds-wrap">
-        <div class="slds-col">
-            <lightning:datatable data="{! v.mydata }" 
-                                 columns="{! v.mycolumns }" 
-                                 keyField="Id"
-                                 hideCheckboxColumn="true"
-                                 resizeColumnDisabled="true"
-                                 enableInfiniteLoading="true"
-                                 />
-        </div>
-        <div></div>
-        <div class="slds-col">
-            <aura:if isTrue="{!v.Controls}">
-                <lightning:button class="addButton" iconName="utility:add" onclick="{!c.addRecord}">Añadir Compromiso</lightning:button>
-            </aura:if>
+    <div style="background-color: white;" id="IdCompromiso" class="{!v.table ? '' : 'slds-hide'}">
+        <div class="{!v.table ? 'slds-box' : 'slds-hide'}">
+            <aura:renderIf isTrue="{!v.table}">
+                <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout  slds-table_cell-buffer" role="grid">
+                    <thead>
+                        <tr >
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Producto">Producto</div>
+                            </th>      
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Moneda">Moneda</div>
+                            </th>       
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Importe">Importe</div>
+                            </th>       
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Plazo Vcto">Plazo Vcto</div>
+                            </th>                                    
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Fecha Vcto">Fecha Vcto</div>
+                            </th>     
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                <div class="slds-truncate" title="Permanencia">Permanencia</div>
+                            </th>                 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.rows}" var="row" indexVar="rowIndex">
+                            <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">                          
+                                <th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
+                                    <div class="slds-truncate" title="{!row.Product_relate__c}">{!row.Product_relate__c}</div>
+                                </th>
+                                <th><div class="slds-truncate" title="{!row.CurrencyIsoCode}">{!row.CurrencyIsoCode}</div></th>
+                                <th><div class="slds-truncate" title="{!row.PE_DIVISA_Importe__c}">{!row.PE_DIVISA_Importe__c}</div></th>
+                                <th><div class="slds-truncate" title="{!row.PE_NUM_Plazo_Vcto__c}">{!row.PE_NUM_Plazo_Vcto__c}</div></th>
+                                <th><div class="slds-truncate" title="{!row.PE_FOR_Fecha_Vcto__c}">{!row.PE_FOR_Fecha_Vcto__c}</div></th>
+                                <th><div class="slds-truncate" title="{!row.PE_NUM_Permanencia__c}">{!row.PE_NUM_Permanencia__c}</div></th>
+                            </tr>                  
+                        </aura:iteration>
+                    </tbody>
+                </table> 
+            </aura:renderIf>
+            <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="New comp" label="Nuevo Compromiso" onclick="{!c.nuevo}" />
         </div>
     </div>
-    <aura:if isTrue="{!v.showModal}">
-        <c:Call_Component_Compromiso isActive="{!v.showModal}" recordId="{!v.recordId}" closeButton="false" />
-    </aura:if>
-    
-    
-    <lightning:spinner aura:id="spinner" variant="brand" size="large" alternativeText="Charge"/>
+    <div style="background-color: white;" id="NewCompromiso" class="{!v.Controls ? '' : 'slds-hide'}">
+        <div class="slds-box" >
+            <lightning:recordEditForm aura:id="recordEditForm" 
+                                      objectApiName="compromiso__c">
+                <lightning:messages />
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2" role="listitem">
+                        <div><lightning:inputField fieldName="Name" /></div>
+                        <div><lightning:inputField fieldName="Product_relate__c" /></div>
+                        <div><lightning:inputField fieldName="PE_NUM_Plazo_Vcto__c" /></div>
+                        <div><lightning:inputField fieldName="PE_FOR_Fecha_Vcto__c" /></div>
+                        <div><lightning:inputField fieldName="Oportunidad__c" /></div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2" role="listitem">
+                        <div><lightning:inputField fieldName="CurrencyIsoCode" /></div>
+                        <div><lightning:inputField fieldName="PE_DIVISA_Importe__c" /></div>
+                        <div><lightning:inputField fieldName="PE_NUM_Permanencia__c" /></div>
+                        <div><lightning:inputField fieldName="Client__c" /></div>
+                    </div>            
+                </div>
+                <div><br/><br/></div>
+                <div >
+                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.closenew}" />
+                    <lightning:button class="slds-m-top_small" type="submit" label="Create new" onclick="{!c.closenew}" />
+                </div>
+            </lightning:recordEditForm>
+        </div>
+    </div>
 </aura:component>

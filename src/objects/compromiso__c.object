@@ -52,6 +52,26 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+	<fields>
+        <fullName>Product_relate__c</fullName>
+        <externalId>false</externalId>
+        <label>Producto</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>P. Comercial</fullName>
+                    <default>false</default>
+                    <label>P. Comercial</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <fields>
         <fullName>Client__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -103,6 +123,7 @@
     </fields>
     <fields>
         <fullName>PE_FOR_Fecha_Vcto__c</fullName>
+		<defaultValue>DATETIMEVALUE(DATE( YEAR(DATEVALUE($System.OriginDateTime)), MONTH( DATEVALUE($System.OriginDateTime )) + 2 ,  DAY( DATEVALUE($System.OriginDateTime ))))</defaultValue>
         <externalId>false</externalId>
         <label>Fecha vcto</label>
         <required>false</required>
