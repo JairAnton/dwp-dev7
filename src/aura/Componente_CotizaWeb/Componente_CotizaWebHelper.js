@@ -1,10 +1,10 @@
 ({
-	cotiza : function(component, event) {
+    cotiza : function(component, event) {
         console.log("cotiza "+component.get("v.recordId"));
         var action = component.get("c.getOportunidadSytem");
         action.setParams({
             "Filtro":component.get("v.recordId"),
-               });
+        });
         
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
@@ -21,32 +21,32 @@
             }
         }));
         $A.enqueueAction(action);
-          
-	},
+        
+    },
     exit : function(cmp, event) {
         console.log("exit "+cmp.get("v.recordId"));
         var outputVar = cmp.get("v.recordId");
-            var urlEvent = $A.get("e.force:navigateToSObject");
-            urlEvent.setParams({
-                "recordId": outputVar,
-                "slideDevName": "related"
-            });
-            urlEvent.fire();
-	},
+        var urlEvent = $A.get("e.force:navigateToSObject");
+        urlEvent.setParams({
+            "recordId": outputVar,
+            "slideDevName": "related"
+        });
+        urlEvent.fire();
+    },
     reload : function(cmp, event) {
- 		var outputVar = component.get("v.recordId");
-            	var urlEvent = $A.get("e.force:navigateToSObject");
-            	urlEvent.setParams({
-                	"recordId": outputVar,
-                	"slideDevName": "related"
-            	});
-            urlEvent.fire();
-	},
+        var outputVar = component.get("v.recordId");
+        var urlEvent = $A.get("e.force:navigateToSObject");
+        urlEvent.setParams({
+            "recordId": outputVar,
+            "slideDevName": "related"
+        });
+        urlEvent.fire();
+    },
     calculaProducto : function(cmp, event) {
-		var action = cmp.get("c.getOportunidadSytem");
+        var action = cmp.get("c.getOportunidadSytem");
         action.setParams({
             "Filtro":cmp.get("v.recordId")
-               });
+        });
         
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
@@ -67,18 +67,18 @@
             }
         }));
         $A.enqueueAction(action);
-	},
+    },
     gridDate: function(cmp, event){
         var action = cmp.get("c.getCompromisosSytem");
         action.setParams({
             "Filtro":cmp.get("v.recordId")
-               });
+        });
         
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {                
-				cmp.set("v.rows", null);
-				cmp.set("v.rows", response.getReturnValue());                
+                cmp.set("v.rows", null);
+                cmp.set("v.rows", response.getReturnValue());                
             } else if (state === "ERROR") {
                 var errors = response.getError();
             }

@@ -123,6 +123,7 @@
     </fields>
     <fields>
         <fullName>PE_FOR_Fecha_Vcto__c</fullName>
+		<defaultValue>DATETIMEVALUE(DATE( YEAR(DATEVALUE($System.OriginDateTime)), MONTH( DATEVALUE($System.OriginDateTime )) + 2 ,  DAY( DATEVALUE($System.OriginDateTime ))))</defaultValue>
         <externalId>false</externalId>
         <label>Fecha vcto</label>
         <required>false</required>

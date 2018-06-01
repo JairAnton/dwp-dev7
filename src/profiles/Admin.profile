@@ -159,6 +159,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.PE_POR_Comision_estructuracion__c</field>
         <readable>true</readable>
     </fieldPermissions>
