@@ -9,7 +9,7 @@
 *
 * @author Julio Medellin
 */
-global class PDFclassButton  implements dwp_dbpn.DynamicFlowValidationInterface{
+global without sharing class PDFclassButton  implements dwp_dbpn.DynamicFlowValidationInterface{
 
     global static List<String> getErrorMessagesList(String recordId, String source, String validationClass)
         {
@@ -58,7 +58,6 @@ global class PDFclassButton  implements dwp_dbpn.DynamicFlowValidationInterface{
             attach.Name = NamePDF;
             attach.IsPrivate = false;
             attach.ParentId = recordId;
-
 
          insert attach;
 
