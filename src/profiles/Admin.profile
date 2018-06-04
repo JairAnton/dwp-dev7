@@ -2220,6 +2220,69 @@
         <object>Product_Participants__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions> 
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_dace__Action__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_dace__Condition__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>  
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_dace__Rule__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>  
+     <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_dace__Rules_Set__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>   
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_dace__Rule_Action__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>   
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_dace__Rule_Condition__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>   
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_dace__Rules_Set_Rule__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>   
    <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
         <enabled>true</enabled>

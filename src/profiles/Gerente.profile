@@ -1967,6 +1967,69 @@
         <object>Product_Participants__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions> 
+     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_dace__Action__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_dace__Condition__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>  
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_dace__Rule__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>  
+     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_dace__Rules_Set__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>   
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_dace__Rule_Action__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>   
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_dace__Rule_Condition__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>   
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_dace__Rules_Set_Rule__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>  
 	<recordTypeVisibilities>
         <default>true</default>
         <recordType>Opportunity.Opp_RT_01</recordType>
