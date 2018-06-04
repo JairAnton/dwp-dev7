@@ -5,7 +5,6 @@
         action.setParams({
             "Filtro":cmp.get("v.recordId")
         });
-        
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {                
@@ -17,7 +16,9 @@
         $A.enqueueAction(action);
     },
     cancel : function(cmp, event, helper) {
-        cmp.set("v.hide" , true);
+        cmp.set("v.table" , true);
+        cmp.set("v.Controls" , false);
+        $A.get('e.force:refreshView').fire();
     },
     nuevo:function(cmp, event, helper) {
         cmp.set("v.Controls" , true);

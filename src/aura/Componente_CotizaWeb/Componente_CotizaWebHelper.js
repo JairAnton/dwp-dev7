@@ -1,6 +1,5 @@
 ({
     cotiza : function(component, event) {
-        console.log("cotiza "+component.get("v.recordId"));
         var action = component.get("c.getOportunidadSytem");
         action.setParams({
             "Filtro":component.get("v.recordId"),
@@ -24,7 +23,6 @@
         
     },
     exit : function(cmp, event) {
-        console.log("exit "+cmp.get("v.recordId"));
         var outputVar = cmp.get("v.recordId");
         var urlEvent = $A.get("e.force:navigateToSObject");
         urlEvent.setParams({
@@ -67,6 +65,10 @@
             }
         }));
         $A.enqueueAction(action);
+		var now = new Date();
+        var nowtime=($A.localizationService.formatDate(now, "YYYY-MM-DDTHH:mm:ss.SSSZ"));
+        cmp.set("v.Today",nowtime);
+
     },
     gridDate: function(cmp, event){
         var action = cmp.get("c.getCompromisosSytem");
