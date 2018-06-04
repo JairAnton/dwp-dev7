@@ -29,7 +29,7 @@ public with sharing class Object_Controller {
              CreatedDate, CreatedById, LastModifiedDate, LastModifiedById, SystemModstamp, 
              LastActivityDate,  PE_DIVISA_Importe__c, 
              PE_NUM_Plazo_Vcto__c, PE_NUM_Permanencia__c, PE_FOR_Fecha_Vcto__c, Client__c, 
-             Oportunidad__c FROM compromiso__c where Oportunidad__c =:Filtro order by createdDate desc limit 1];
+             Oportunidad__c FROM compromiso__c where Oportunidad__c =:Filtro order by createdDate desc limit 5];
         
         return OpLiItem;
         
