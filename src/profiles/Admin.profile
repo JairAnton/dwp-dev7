@@ -2201,6 +2201,24 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account_Banking_System_Classification__c</object>
         <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Product_Gurantee__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Product_Participants__c</object>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions> 
    <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>

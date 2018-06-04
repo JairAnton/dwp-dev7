@@ -928,6 +928,7 @@
         <members>ChartJS23</members>
         <members>ChartjsAP</members>
         <members>quickActionStyle</members>
+        <members>BBVALogo</members>
         <name>StaticResource</name>
     </types>
     <types>
