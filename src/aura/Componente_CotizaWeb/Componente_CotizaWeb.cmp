@@ -29,7 +29,7 @@
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" />
+                            <lightning:outputField fieldName="PE_POR_TEA_sugerida__c" />
                         </div>
                         <div> 
                             <lightning:inputField fieldName="PE_POR_TEA_propuesta__c" />
@@ -37,7 +37,7 @@
                     </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_TEA_sugerida__c" />
+                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" />
                         </div>
                         <div class="slds-border_bottom">
                             <lightning:outputField fieldName="PE_POR_Spread__c" />
