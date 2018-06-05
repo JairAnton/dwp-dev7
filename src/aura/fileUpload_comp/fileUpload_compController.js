@@ -3,12 +3,12 @@
         if (component.find("fileId").get("v.files").length > 0) {
             helper.uploadHelper(component, event);
         } else {
-            alert('Please Select a Valid File');
+            alert('Por favor seleccionar archivo valido');
         }
     },
  
     handleFilesChange: function(component, event, helper) {
-        var fileName = 'No File Selected..';
+        var fileName = 'Archivo no seleccionado..';
         if (event.getSource().get("v.files").length > 0) {
             fileName = event.getSource().get("v.files")[0]['name'];
         }

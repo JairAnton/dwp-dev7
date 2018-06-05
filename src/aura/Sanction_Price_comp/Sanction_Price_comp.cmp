@@ -1,4 +1,4 @@
-<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp"  access="GLOBAL" controller="Product_cls">
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp"   access="GLOBAL" controller="Product_cls">
 <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
 <aura:attribute name="sanAction" type="String" />
 <aura:attribute name="recordId" type="Id" />
@@ -6,13 +6,14 @@
 <aura:attribute name="errMessage" type="String" default=""/>
 <aura:attribute name="lblCancel" type="String" default=""/>
 <aura:attribute name="rowsComp" type="Object[]" />
-<aura:attribute name="rowsP" type="Object[]" />   
+<aura:attribute name="rowsP" type="Object[]" />
+<aura:attribute name="cotiweb" type="boolean" default="true"/>
 <aura:attribute name="rowsOppLineItem" type="Object[]" />
 <aura:attribute name="lblComments" type="String" default=""/>   
 <aura:handler name="init" value="{!this}" action="{!c.init}" />
 <aura:attribute name="modalWidthCustom" type="String" default="64rem" access="global" description="Specify the modal" />
 <aura:attribute name="closeButton" type="Boolean" default="false"/>
-
+<ltng:require styles="{!$Resource.IconCustomColor}"/>
 
 <div class="slds-modal__content style-general"  >
               <div aura:id="divToast" class="slds-notify_container slds-hide" style="width:95%">
@@ -30,22 +31,27 @@
               </button>
             </div>
         </div>  
-	<br/><br/>
+	<br/>
 	<table style="width:95%" align="center" cellspacing="2">
 	<tr>
 	<td >
-    <lightning:tabset variant="scoped"  >
+    <lightning:tabset variant="scoped"   >
         <lightning:tab >
             <aura:set attribute="label">
             Detalles
             </aura:set>            
             Intervinientes
-            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout" role="grid">
+            <div class="slds-table--header-fixed_container" style="height:100px;">
+            <div class="slds-scrollable_y" style="height:100%;">
+            <table class="slds-table slds-table_bordered slds-table--header-fixed" >
             	<thead>
-	            	<tr>
-	            		<th>NOMBRE</th>
+	            	<tr class="slds-text-title_caps">
+	            		<th scope="col">
+                    <div class="slds-truncate slds-cell-fixed" title="NOMBRE">NOMBRE</div>
+                  </th>
 	            	</tr>
             	</thead>
+              <tbody>
               <aura:iteration items="{!v.rowsP}" var="row" indexVar="rowIndex">
             	<tr>
             	    
@@ -53,22 +59,26 @@
                         <div class="slds-truncate" title="{!row.Name}">{!row.Name}</div>
                 </td>                    
             	</tr>
-              </aura:iteration>
+            </aura:iteration>
+            </tbody>            
             </table>
-            <br/>
+          </div></div>
             <br/>
             Compromiso
-            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout" role="grid">
+            <div class="slds-table--header-fixed_container" style="height:100px;">
+            <div class="slds-scrollable_y" style="height:100%;">
+            <table class="slds-table slds-table_bordered slds-table--header-fixed">
             	<thead>
 	            	<tr>
-	            		<th>Producto</th>
-                  <th>Moneda</th>
-	            		<th>Importe</th>
-	            		<th>Plazo VCTO</th>
-                  <th>Fecha VCTO</th>
-	            		<th>Permanencia</th>
+	            		<th><div class="slds-truncate slds-cell-fixed" title="Producto">Producto</div></th>
+                  <th><div class="slds-truncate slds-cell-fixed" title="Moneda">Moneda</div></th>
+	            		<th><div class="slds-truncate slds-cell-fixed" title="Importe">Importe</div></th>
+	            		<th><div class="slds-truncate slds-cell-fixed" title="Plazo VCTO">Plazo VCTO</div></th>
+                  <th><div class="slds-truncate slds-cell-fixed" title="Fecha VCTO">Fecha VCTO</div></th>
+	            		<th><div class="slds-truncate slds-cell-fixed" title="Permanencia">Permanencia</div></th>
 	            	</tr>
             	</thead>
+              <tbody>
               <aura:iteration items="{!v.rowsComp}" var="row" indexVar="rowIndex">
             	<tr>
             		<td> <div class="slds-truncate" title="{!row.PE_FM_PRODUCT__c}">{!row.PE_FM_PRODUCT__c}</div></td>            
@@ -79,17 +89,20 @@
                 <td> <div class="slds-truncate" title="{!row.PE_NUM_Permanencia__c}">{!row.PE_NUM_Permanencia__c}</div></td>
             	</tr>
             </aura:iteration>
+            </tbody>
             </table>
-            <br/>
+            </div></div>
             <br/>
             Documentos<br/>
             <c:fileUpload_comp parentId="{!v.recordId}" />
         </lightning:tab>
-        <lightning:tab >
+        <lightning:tab  >
             <aura:set attribute="label">
                 Comentarios<br/>
             </aura:set>
-              <lightning:textarea aura:id="txtComments" name="txtComments" value="" label="{!v.lblComments}" maxlength="300" class="slds-size_2-of-2 slds-p-horizontal_x-small"/>
+            <div style="height:200px;">
+              <lightning:textarea aura:id="txtComments" name="txtComments" value="" label="{!v.lblComments}" maxlength="300" class="slds-size_2-of-2 slds-p-horizontal_x-small topText" />
+             </div>
         </lightning:tab>
     </lightning:tabset>     
 </td>
@@ -113,14 +126,22 @@
             {!v.rowsOppLineItem[0].gipr_Plazo__c} {!v.rowsOppLineItem[0].gipr_Periodicidad__c}
        		</th>
        		<th>
+            <p class="{!v.cotiweb ? '' : 'slds-hide'}">
        			TEA Propuesta(%)<br/>
             {!v.rowsOppLineItem[0].PE_POR_TEA_propuesta__c}
+            </p>
+            <p class="{!v.cotiweb ? 'slds-hide' : ''}">
+            Comisión Propuesta(%)<br/>
+            {!v.rowsOppLineItem[0].PE_POR_Comision__c}
+            </p>
        		</th>
        	</tr>
        	<tr>
        		<th>
+            <p class="{!v.cotiweb ? '' : 'slds-hide'}">
        			Spread(%)<br/>
             {!v.rowsOppLineItem[0].PE_POR_Spread__c}
+            </p>
        		</th>
        		<th>
        			
@@ -133,10 +154,11 @@
     <table style="width:90%" align="center">
     <tr>
     <td>
-    <lightning:button  aura:id="btnApprove" name="btnApprove" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}"  ><lightning:icon iconName="utility:check" size="small" /><br/>Sancionar</lightning:button>
+    <lightning:button  aura:id="btnApprove" name="btnApprove" class="cButton slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}" ><lightning:icon iconName="utility:check" size="small" /><br/><p aura:id="tApprove">Sancionar</p></lightning:button>
+
 	</td>
 	<td>
-    <lightning:button  aura:id="btnRaise" name="btnRaise" class="slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}" ><lightning:icon iconName="utility:share" size="small" /><br/>Elevar</lightning:button>
+    <lightning:button  aura:id="btnRaise" name="btnRaise" class="cButton slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}" ><lightning:icon iconName="utility:share" size="small" /><br/><p aura:id="tRaise">Elevar</p></lightning:button>
 	</td>
 	</tr>
 	</table>
