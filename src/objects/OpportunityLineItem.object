@@ -9,7 +9,7 @@
     </fields>
     <fields>
         <fullName>PE_POR_Comision_estructuracion__c</fullName>
-		<defaultValue>1</defaultValue>
+		<defaultValue>0.01</defaultValue>
         <externalId>false</externalId>
         <label>PE_POR_Comision_estructuracion</label>
         <precision>18</precision>
@@ -28,7 +28,7 @@
     </fields>
     <fields>
         <fullName>PE_POR_Comision_liquidacion_anticipada__c</fullName>
-		<defaultValue>2</defaultValue>
+		<defaultValue>0.02</defaultValue>
         <externalId>false</externalId>
         <label>PE_POR_Comision_liquidacion_anticipada</label>
         <precision>18</precision>

@@ -114,7 +114,7 @@
                     
                     var inputObject=cmp.get('v.inputAttributes');  
                     var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
-                    compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:call_Quote_component' });
+                    compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:Componente_CotizaWeb' });
                     compEvent.fire();
                     /*var cancelEvent = cmp.getEvent('dynamicFlowWizardCancel');
                     cancelEvent.fire();*/
