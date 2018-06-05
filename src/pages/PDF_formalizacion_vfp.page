@@ -69,7 +69,6 @@
 
                     </style>
               </head>
-         <div style="page-break-after:always;">
              <apex:image value="{!URLFOR($Resource.BBVALogo)}"  width="350" height="100"/>
             <div class="title">
             <h2>PDF Formalización : {!Opportunity.Name}  </h2>
@@ -176,7 +175,6 @@
            <td>Comentarios: Aprobada </td>
          </tr>
          </table>
-       </div>
          <br/>
               <div class="title">
                <b>Datos de oportunidad</b>
