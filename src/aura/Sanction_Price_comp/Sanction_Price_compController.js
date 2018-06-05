@@ -34,7 +34,7 @@
 	desestimar : function(cmp, event, helper) {	
 		var inputObject=cmp.get('v.inputAttributes');  
 	    var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
-	    compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'Componente_CotizaWeb' });
+	    compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:Componente_CotizaWeb' });
 	    compEvent.fire();
 	    
 	}
