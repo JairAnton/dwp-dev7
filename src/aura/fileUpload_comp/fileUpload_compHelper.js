@@ -14,7 +14,7 @@
         // then show a alert msg to user,hide the loading spinner and return from function  
         if (file.size > self.MAX_FILE_SIZE) {
             component.set("v.showLoadingSpinner", false);
-            component.set("v.fileName", 'Alert : File size cannot exceed ' + self.MAX_FILE_SIZE + ' bytes.\n' + ' Selected file size: ' + file.size);
+            component.set("v.fileName", 'Alert : El archivo no puede exceder ' + self.MAX_FILE_SIZE + ' bytes.\n' + ' Tamaño del archivo seleccionado: ' + file.size);
             return;
         }
  
@@ -72,7 +72,7 @@
                 if (startPosition < endPosition) {
                     this.uploadInChunk(component, file, fileContents, startPosition, endPosition, attachId);
                 } else {
-                    alert('your File is uploaded successfully');
+                    alert('Archivo cargado con éxito');
                     component.set("v.showLoadingSpinner", false);
                 }
                 // handel the response errors        

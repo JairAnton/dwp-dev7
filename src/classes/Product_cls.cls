@@ -45,10 +45,14 @@ public with sharing class Product_cls {
 		return objData;
 	}
 
-		@AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){	
-		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
+	@AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){	
+		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
 		return objData;
 	}
+
+	@AuraEnabled public static String getOportunidadSytem(String Filtro) {       
+        return Object_Controller.getOportunidadSytem(Filtro);       
+    }
 
 	@AuraEnabled public static Boolean deleteGuaranteeDataByProduct(String IdProductGuarantee){
 		Product_Gurantee__c objData= [SELECT Id FROM Product_Gurantee__c Where Id=: IdProductGuarantee];

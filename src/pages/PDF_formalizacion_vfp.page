@@ -69,7 +69,7 @@
 
                     </style>
               </head>
-         <div style="page-break-after:always;">
+             <apex:image value="{!URLFOR($Resource.BBVALogo)}"  width="350" height="100"/>
             <div class="title">
             <h2>PDF Formalización : {!Opportunity.Name}  </h2>
             </div>
@@ -129,7 +129,7 @@
          <table>
           <tr>
             <td>Modalidad</td>
-            <td></td>
+            <td>{!Opportunity.Modality__c}</td>
          </tr>
          <tr>
            <td>Codigo SIO: {!Opportunity.LastSIOcode__c} </td>
@@ -165,7 +165,9 @@
            <td>Vigencia: 12/07/2018 </td>
          </tr>
          <tr>
-           <td>Plazo: 12 meses </td>
+           <td>Plazo: <apex:outputText value="{0, number,0}">
+               <apex:param value="{!Oli.gipr_Plazo__c}" />
+         	   </apex:outputText> {!Oli.cpliq_Periodicidad__c} </td>
            <td>Tipo garantía: 001</td>
          </tr>
          <tr>
@@ -173,7 +175,6 @@
            <td>Comentarios: Aprobada </td>
          </tr>
          </table>
-       </div>
          <br/>
               <div class="title">
                <b>Datos de oportunidad</b>
@@ -194,7 +195,9 @@
          <li>Plazo: <apex:outputText value="{0, number,0}">
                <apex:param value="{!Oli.gipr_Plazo__c}" />
          	   </apex:outputText> {!Oli.cpliq_Periodicidad__c}</li>
-         <li>Periodo de gracia: {!Oli.cpliq_Periodicidad_gracia__c}</li>
+         <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
+               <apex:param value="{!Oli.cpliq_n_gracia__c }" />
+         	   </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
           <li>Fecha de vencimiento: {!Oli.cpliq_Fecha_Vencimiento__c }</li>
          <li>Código simulación: {!Oli.cpliq_Codigo_Simulacion__c}</li>
         </ul>

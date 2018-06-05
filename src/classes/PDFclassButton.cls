@@ -9,7 +9,7 @@
 *
 * @author Julio Medellin
 */
-global class PDFclassButton  implements dwp_dbpn.DynamicFlowValidationInterface{
+global without sharing class PDFclassButton  implements dwp_dbpn.DynamicFlowValidationInterface{
 
     global static List<String> getErrorMessagesList(String recordId, String source, String validationClass)
         {
@@ -36,15 +36,18 @@ global class PDFclassButton  implements dwp_dbpn.DynamicFlowValidationInterface{
         }
 
     @auraenabled
-    public static void PDF_formalization(String recordId){
+    public static string  PDF_formalization(String recordId){
      {
-        list<Attachment> deleteAttach =[SELECT ID from Attachment WHERE ParentId =:recordId];
-        delete deleteAttach;
+      string msg;
         list<opportunityLineItem> OLI = new list<opportunityLineItem>();
         Map<ID, Opportunity> m = new Map<ID, Opportunity>([SELECT Id, Name FROM Opportunity WHERE ID = :recordId  LIMIT 1]);
+        String NamePDF = 'Oportunidad formalizada '+m.get(recordId).Name+'.pdf';
+        list<Attachment> deleteAttach =[SELECT ID from Attachment WHERE Name =:NamePDF AND ParentId =:recordId];
+        delete deleteAttach;
 
             pageReference pdf = Page.PDF_formalizacion_vfp;
             pdf.getParameters().put('id',recordId);
+            msg=PDF_formalizacion_ctrl.msg(recordId);
             Attachment attach = new Attachment();
             Blob body;
             if(!test.isRunningTest()){
@@ -53,13 +56,12 @@ global class PDFclassButton  implements dwp_dbpn.DynamicFlowValidationInterface{
                 body=blob.valueOf('TestString');
             }
             attach.Body = body;
-            attach.Name = 'Oportunidad formalizada '+m.get(recordId).Name+'.pdf';
+            attach.Name = NamePDF;
             attach.IsPrivate = false;
             attach.ParentId = recordId;
 
-
-         insert attach;
-
+           insert attach;
+           return msg;
 
              }
     }
