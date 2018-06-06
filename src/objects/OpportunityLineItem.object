@@ -100,24 +100,26 @@ operaciones activas</inlineHelpText>
         <fullName>Tipo_amortizacion__c</fullName>
         <externalId>false</externalId>
         <label>Tipo amortización</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Al vencimiento</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>En cuotas</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A medida</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>Al vencimiento</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>En cuotas</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>A medida</fullName>
+                <default>false</default>
+            </value>
+           </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>TotalPrice</fullName>
@@ -129,28 +131,30 @@ operaciones activas</inlineHelpText>
         <fullName>cpliq_Amortizacion__c</fullName>
         <externalId>false</externalId>
         <label>cpliq_Amortizacion</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>04</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>cpliq_Codigo_Simulacion__c</fullName>
@@ -181,62 +185,68 @@ operaciones activas</inlineHelpText>
         <fullName>cpliq_Periodicidad__c</fullName>
         <externalId>false</externalId>
         <label>cpliq_Periodicidad</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>cpliq_Periodicidad_gracia__c</fullName>
         <externalId>false</externalId>
         <label>cpliq_Periodicidad_gracia</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>cpliq_Tipo_amortizacion__c</fullName>
         <externalId>false</externalId>
         <label>cpliq_Tipo_amortización</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>cpliq_n__c</fullName>
@@ -312,287 +322,291 @@ operaciones activas</inlineHelpText>
         <fullName>da_Currency__c</fullName>
         <externalId>false</externalId>
         <label>da_Currency</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>da_Destination_Country__c</fullName>
         <externalId>false</externalId>
         <label>da_Destination_Country</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>04</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>05</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>06</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>07</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>08</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>09</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>10</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>11</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>12</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>13</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>14</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>15</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>16</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>17</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>18</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>19</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>20</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>21</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>22</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>23</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>24</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>25</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>26</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>27</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>28</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>29</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>30</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>31</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>32</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>33</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>34</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>35</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>36</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>37</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>38</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>39</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>40</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>41</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>42</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>43</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>44</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>45</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>46</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>47</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>48</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>49</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>50</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>51</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>52</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>53</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>54</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>55</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>56</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>57</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>58</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>59</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>60</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>61</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>62</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>63</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>05</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>06</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>07</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>08</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>09</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>10</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>11</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>12</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>13</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>14</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>15</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>16</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>17</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>18</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>19</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>20</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>21</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>22</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>23</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>24</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>25</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>26</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>27</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>28</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>29</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>30</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>31</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>32</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>33</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>34</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>35</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>36</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>37</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>38</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>39</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>40</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>41</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>42</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>43</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>44</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>45</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>46</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>47</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>48</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>49</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>50</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>51</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>52</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>53</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>54</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>55</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>56</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>57</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>58</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>59</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>60</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>61</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>62</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>63</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>da_Importer__c</fullName>
@@ -607,20 +621,22 @@ operaciones activas</inlineHelpText>
         <fullName>da_Line_Excess__c</fullName>
         <externalId>false</externalId>
         <label>da_Line_Excess</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>da_Merchandise_Detail__c</fullName>
@@ -644,55 +660,59 @@ operaciones activas</inlineHelpText>
         <fullName>da_Replacement_Reason__c</fullName>
         <externalId>false</externalId>
         <label>da_Replacement_Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>04</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>05</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>06</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>05</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>06</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>da_Replacement_financing__c</fullName>
         <externalId>false</externalId>
         <label>da_Replacement_financing</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>da_Used_Risk__c</fullName>
@@ -744,20 +764,22 @@ operaciones activas</inlineHelpText>
         <fullName>gipr_Comex_Bag__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Comex_Bag</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>gipr_Contract_Number__c</fullName>
@@ -772,188 +794,198 @@ operaciones activas</inlineHelpText>
         <fullName>gipr_Destino__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Destino</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>04</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>05</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>06</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>07</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>05</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>06</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>07</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>gipr_Garantia__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Garantia</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>04</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>05</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>06</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>07</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>08</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>09</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>10</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>11</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>12</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>13</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>14</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>15</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>16</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>17</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>05</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>06</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>07</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>08</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>09</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>10</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>11</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>12</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>13</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>14</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>15</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>16</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>17</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>gipr_Modality__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Modality</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>gipr_Payment_Method__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Payment_Method</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>04</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>gipr_Periodicidad__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Periodicidad</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>gipr_Plazo__c</fullName>
@@ -969,24 +1001,26 @@ operaciones activas</inlineHelpText>
         <fullName>gipr_Tipo_Garantia__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Tipo_Garantia</label>
-        <picklist>
-            <picklistValues>
-                <fullName>01</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>02</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>03</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <validationRules>
         <fullName>ContractNo_Validation</fullName>
