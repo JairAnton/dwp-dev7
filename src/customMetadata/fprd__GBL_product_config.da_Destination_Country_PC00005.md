@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Tipo amortización</label>
+    <label>País de destino</label>
     <protected>false</protected>
     <values>
         <field>fprd__Dependent_field__c</field>
@@ -28,11 +28,11 @@
     </values>
     <values>
         <field>fprd__LoV_labels__c</field>
-        <value xsi:type="xsd:string">Al vencimiento</value>
+        <value xsi:type="xsd:string">Afganistan,Albania,Alemania,Andorra,Argentina,Australia,Austria,Bangladesh,Bélgica,Bolivia,Bosnia y Hercegovina,Brasil,Canada,Chile,China,Chipre,Colombia,Corea del Sur,Costa Rica,Cuba,Dinamarca,Dominica,Ecuador,Egipto,Emiratos Arabes,España,Estados Unidos de América,Estonia,Filipinas,Francia,Grecia,Guatemala,Holanda,Honduras,Hong Kong,India,Indonesia,Israel,Italia,Japón,Macao,Malasya,Mexico,Pakistan,Panamá,Paraguay,Perú,Polonia,Portugal,Puerto Rico,Reino Unido,República Dominicana,Rumania,Rusia,Singapur,Sudáfrica,Suecia,Suiza,Taiwán,Thailandia,Turquía,Uruguay,Venezuela</value>
     </values>
     <values>
         <field>fprd__LoV_values__c</field>
-        <value xsi:type="xsd:string">01</value>
+        <value xsi:type="xsd:string">1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63</value>
     </values>
     <values>
         <field>fprd__Related_map_fields__c</field>
@@ -68,11 +68,11 @@
     </values>
     <values>
         <field>fprd__map_field__c</field>
-        <value xsi:type="xsd:string">cpliq_Tipo_amortizacion__c</value>
+        <value xsi:type="xsd:string">da_Destination_Country__c</value>
     </values>
     <values>
         <field>fprd__order__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">8.0</value>
     </values>
     <values>
         <field>fprd__parent_value__c</field>
@@ -80,15 +80,15 @@
     </values>
     <values>
         <field>fprd__product__c</field>
-        <value xsi:type="xsd:string">PC00007</value>
+        <value xsi:type="xsd:string">PC00005</value>
     </values>
     <values>
         <field>fprd__section__c</field>
-        <value xsi:type="xsd:string">Criterios de pago y liquidación</value>
+        <value xsi:type="xsd:string">Datos adicionales</value>
     </values>
     <values>
         <field>fprd__section_order__c</field>
-        <value xsi:type="xsd:double">3.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>fprd__type__c</field>

@@ -129,27 +129,27 @@ operaciones activas --></help>
         <name>cpliq_n_gracia__c</name>
     </fields>
     <fields>
-        <label><!-- da_Alt_Email --></label>
+        <label>E-mail del cliente alternativo</label>
         <name>da_Alt_Email__c</name>
     </fields>
     <fields>
-        <label><!-- da_Amount --></label>
+        <label>Importe</label>
         <name>da_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- da_Approved_Risk --></label>
+        <label>Riesgo Aprobado</label>
         <name>da_Approved_Risk__c</name>
     </fields>
     <fields>
-        <label><!-- da_Available_Balance --></label>
+        <label>Riesgo Aprobado</label>
         <name>da_Available_Balance__c</name>
     </fields>
     <fields>
-        <label><!-- da_Client_Email --></label>
+        <label>E-mail del cliente</label>
         <name>da_Client_Email__c</name>
     </fields>
     <fields>
-        <label><!-- da_Currency --></label>
+        <label>Moneda</label>
         <name>da_Currency__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
@@ -165,7 +165,7 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- da_Destination_Country --></label>
+        <label>País de destino</label>
         <name>da_Destination_Country__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
@@ -421,11 +421,11 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- da_Importer --></label>
+        <label>Importador</label>
         <name>da_Importer__c</name>
     </fields>
     <fields>
-        <label><!-- da_Line_Excess --></label>
+        <label>Exceso 25% linea</label>
         <name>da_Line_Excess__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
@@ -437,15 +437,15 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- da_Merchandise_Detail --></label>
+        <label>Detalle de mercadería</label>
         <name>da_Merchandise_Detail__c</name>
     </fields>
     <fields>
-        <label><!-- da_Observations --></label>
+        <label>Observaciones</label>
         <name>da_Observations__c</name>
     </fields>
     <fields>
-        <label><!-- da_Replacement_Reason --></label>
+        <label>Motivo de reemplazo</label>
         <name>da_Replacement_Reason__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
@@ -473,7 +473,7 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- da_Replacement_financing --></label>
+        <label>Financiamiento de reemplazo</label>
         <name>da_Replacement_financing__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
@@ -489,7 +489,7 @@ operaciones activas --></help>
         <name>da_Used_Risk__c</name>
     </fields>
     <fields>
-        <label><!-- da_nOperation --></label>
+        <label>N° Operación</label>
         <name>da_nOperation__c</name>
     </fields>
     <fields>
@@ -625,6 +625,34 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- gipr_Importation_Modality --></label>
+        <name>gipr_Importation_Modality__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Importación directa</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Pago de carta de crédito</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Pago de cobranza</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Recuperación de pagos de importación</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Pago adelantado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>Pago de derecho de aduanas</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>Modalidad</label>
         <name>gipr_Modality__c</name>
         <picklistValues>
@@ -699,6 +727,10 @@ operaciones activas --></help>
     <validationRules>
         <errorMessage>Cuenta Vinculada no valida, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>LinkedAccount_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>No. de Operación no válido, el formato correcto: 0000-0000-000000000</errorMessage>
+        <name>NOperation_Validation</name>
     </validationRules>
     <validationRules>
         <errorMessage>La fecha de Vencimiento debe ser mayor al día de hoy.</errorMessage>
