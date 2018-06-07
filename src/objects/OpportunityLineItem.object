@@ -1082,6 +1082,17 @@ REGEX( cpliq_Cuenta_vinculada__c , &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
         <errorMessage>Linked Account format not valid, correct: 0000-0000-000000000</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>NOperation_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( 
+OR( 
+ISBLANK(da_nOperation__c),
+REGEX(da_nOperation__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
+) 
+)</errorConditionFormula>
+        <errorMessage>Operation No format not valid, correct: 0000-0000-000000000</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>ValidDueDate</fullName>
         <active>true</active>
         <errorConditionFormula>cpliq_Fecha_Vencimiento__c &lt;=Today()</errorConditionFormula>
