@@ -1826,7 +1826,42 @@
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_n_gracia__c</field>
         <readable>true</readable>
-</fieldPermissions>                
+</fieldPermissions>  
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.dlf_Operation_Deadlines__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.dlf_Portfolio_effectiveness__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_Legal_VB_text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_Periodicity_commission__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_beneficiary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_type_bail_letter__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_type_beneficiary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>              
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
