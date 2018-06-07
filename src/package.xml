@@ -254,6 +254,7 @@
         <members>fileUpload_comp</members>
         <members>Formalization_comp</members>
 		<members>Componente_CotizaWeb</members>
+        <members>Collapsible_Section_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
