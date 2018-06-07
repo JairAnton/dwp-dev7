@@ -101,7 +101,7 @@
             <aura:set attribute="label">
                 Comentarios<br/>
             </aura:set>
-            <div style="height: 450px;">
+            <div style="height:422px;">
             <div style="height:200px;">
               <lightning:textarea aura:id="txtComments" name="txtComments" value="" label="{!v.lblComments}" maxlength="300" class="slds-size_2-of-2 slds-p-horizontal_x-small topText" />
              </div>

@@ -44,7 +44,7 @@
     </values>
     <values>
         <field>fprd__dependent_parent_field__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Tipo_amortizacion_PC00007</value>
     </values>
     <values>
         <field>fprd__isHeader__c</field>
@@ -72,11 +72,11 @@
     </values>
     <values>
         <field>fprd__order__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:double">3.0</value>
     </values>
     <values>
         <field>fprd__parent_value__c</field>
-        <value xsi:type="xsd:string">3</value>
+        <value xsi:type="xsd:string">Al vencimiento</value>
     </values>
     <values>
         <field>fprd__product__c</field>

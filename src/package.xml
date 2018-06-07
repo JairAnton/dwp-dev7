@@ -767,6 +767,7 @@
         <members>OpportunityLineItem.da_Available_Balance__c</members>
         <members>OpportunityLineItem.da_Line_Excess__c</members>
         <members>OpportunityLineItem.da_Observations__c</members>
+        <members>OpportunityLineItem.gipr_Importation_Modality__c</members>
 		<name>CustomField</name>
     </types>
     <types>
