@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Cuenta vinculada</label>
+    <label>Plazo</label>
     <protected>false</protected>
     <values>
         <field>fprd__Dependent_field__c</field>
@@ -68,7 +68,7 @@
     </values>
     <values>
         <field>fprd__map_field__c</field>
-        <value xsi:type="xsd:string">cpliq_Cuenta_vinculada__c</value>
+        <value xsi:type="xsd:string">gipr_Plazo__c</value>
     </values>
     <values>
         <field>fprd__order__c</field>
@@ -80,18 +80,18 @@
     </values>
     <values>
         <field>fprd__product__c</field>
-        <value xsi:type="xsd:string">PC00029</value>
+        <value xsi:type="xsd:string">PC00014</value>
     </values>
     <values>
         <field>fprd__section__c</field>
-        <value xsi:type="xsd:string">Criterios de pago y liquidación</value>
+        <value xsi:type="xsd:string">Información general del producto</value>
     </values>
     <values>
         <field>fprd__section_order__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>fprd__type__c</field>
-        <value xsi:type="xsd:string">text</value>
+        <value xsi:type="xsd:string">number</value>
     </values>
 </CustomMetadata>
