@@ -9,7 +9,7 @@
     </fields>
     <fields>
         <fullName>PE_POR_Comision_estructuracion__c</fullName>
-		<defaultValue>1</defaultValue>
+		<defaultValue>0.01</defaultValue>
         <externalId>false</externalId>
         <label>PE_POR_Comision_estructuracion</label>
         <precision>18</precision>
@@ -28,7 +28,7 @@
     </fields>
     <fields>
         <fullName>PE_POR_Comision_liquidacion_anticipada__c</fullName>
-		<defaultValue>2</defaultValue>
+		<defaultValue>0.02</defaultValue>
         <externalId>false</externalId>
         <label>PE_POR_Comision_liquidacion_anticipada</label>
         <precision>18</precision>
@@ -103,26 +103,29 @@ operaciones activas</inlineHelpText>
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Al vencimiento</fullName>
-                    <default>false</default>
-                    <label>Al vencimiento</label>
-                </value>
-                <value>
-                    <fullName>En cuotas</fullName>
-                    <default>false</default>
-                    <label>En cuotas</label>
-                </value>
-                <value>
-                    <fullName>A medida</fullName>
-                    <default>false</default>
-                    <label>A medida</label>
-                </value>
-            </valueSetDefinition>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>Al vencimiento</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>En cuotas</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>A medida</fullName>
+                <default>false</default>
+            </value>
+           </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>TotalPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>UnitPrice</fullName>
     </fields>
     <fields>
         <fullName>cpliq_Amortizacion__c</fullName>
@@ -131,29 +134,25 @@ operaciones activas</inlineHelpText>
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>01</fullName>
-                    <default>false</default>
-                    <label>01</label>
-                </value>
-                <value>
-                    <fullName>02</fullName>
-                    <default>false</default>
-                    <label>02</label>
-                </value>
-                <value>
-                    <fullName>03</fullName>
-                    <default>false</default>
-                    <label>03</label>
-                </value>
-                <value>
-                    <fullName>04</fullName>
-                    <default>false</default>
-                    <label>04</label>
-                </value>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -189,19 +188,17 @@ operaciones activas</inlineHelpText>
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>01</fullName>
-                    <default>false</default>
-                    <label>01</label>
-                </value>
-                <value>
-                    <fullName>02</fullName>
-                    <default>false</default>
-                    <label>02</label>
-                </value>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -212,19 +209,17 @@ operaciones activas</inlineHelpText>
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>01</fullName>
-                    <default>false</default>
-                    <label>01</label>
-                </value>
-                <value>
-                    <fullName>02</fullName>
-                    <default>false</default>
-                    <label>02</label>
-                </value>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -235,24 +230,21 @@ operaciones activas</inlineHelpText>
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>01</fullName>
-                    <default>false</default>
-                    <label>01</label>
-                </value>
-                <value>
-                    <fullName>02</fullName>
-                    <default>false</default>
-                    <label>02</label>
-                </value>
-                <value>
-                    <fullName>03</fullName>
-                    <default>false</default>
-                    <label>03</label>
-                </value>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -274,6 +266,471 @@ operaciones activas</inlineHelpText>
         <required>false</required>
         <scale>0</scale>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_Alt_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Alt_Email</label>
+        <length>150</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_Approved_Risk__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Approved_Risk</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_Available_Balance__c</fullName>
+        <externalId>false</externalId>
+        <formula>da_Approved_Risk__c - da_Used_Risk__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>da_Available_Balance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_Client_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Client_Email</label>
+        <length>150</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_Currency__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Currency</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>da_Destination_Country__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Destination_Country</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>05</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>06</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>07</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>08</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>09</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>10</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>11</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>12</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>13</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>14</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>15</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>16</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>17</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>18</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>19</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>20</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>21</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>22</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>23</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>24</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>25</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>26</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>27</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>28</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>29</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>30</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>31</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>32</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>33</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>34</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>35</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>36</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>37</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>38</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>39</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>40</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>41</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>42</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>43</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>44</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>45</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>46</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>47</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>48</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>49</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>50</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>51</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>52</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>53</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>54</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>55</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>56</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>57</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>58</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>59</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>60</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>61</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>62</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>63</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>da_Importer__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Importer</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_Line_Excess__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Line_Excess</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>da_Merchandise_Detail__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Merchandise_Detail</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_Observations__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Observations</label>
+        <length>250</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_Replacement_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Replacement_Reason</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>05</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>06</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>da_Replacement_financing__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Replacement_financing</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>da_Used_Risk__c</fullName>
+        <externalId>false</externalId>
+        <label>da_Used_Risk</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>da_nOperation__c</fullName>
+        <externalId>false</externalId>
+        <label>da_nOperation</label>
+        <length>22</length>
+        <required>false</required>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -304,50 +761,73 @@ operaciones activas</inlineHelpText>
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>gipr_Comex_Bag__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Comex_Bag</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Contract_Number</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>gipr_Destino__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Destino</label>
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>01</fullName>
-                    <default>false</default>
-                    <label>01</label>
-                </value>
-                <value>
-                    <fullName>02</fullName>
-                    <default>false</default>
-                    <label>02</label>
-                </value>
-                <value>
-                    <fullName>03</fullName>
-                    <default>false</default>
-                    <label>03</label>
-                </value>
-                <value>
-                    <fullName>04</fullName>
-                    <default>false</default>
-                    <label>04</label>
-                </value>
-                <value>
-                    <fullName>05</fullName>
-                    <default>false</default>
-                    <label>05</label>
-                </value>
-                <value>
-                    <fullName>06</fullName>
-                    <default>false</default>
-                    <label>06</label>
-                </value>
-                <value>
-                    <fullName>07</fullName>
-                    <default>false</default>
-                    <label>07</label>
-                </value>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>05</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>06</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>07</fullName>
+                <default>false</default>
+            </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -357,6 +837,234 @@ operaciones activas</inlineHelpText>
         <label>gipr_Garantia</label>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>05</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>06</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>07</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>08</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>09</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>10</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>11</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>12</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>13</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>14</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>15</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>16</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>17</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Importation_Modality__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Importation_Modality</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>05</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>06</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Modality__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Modality</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Payment_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Payment_Method</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>04</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Periodicidad__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Periodicidad</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Plazo__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Plazo</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>gipr_Tipo_Garantia__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Tipo_Garantia</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+        <sorted>false</sorted>
+            <value>
+                <fullName>01</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>02</fullName>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>03</fullName>
+                <default>false</default>
+            </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+	<fields>
+        <fullName>dlf_Operation_Deadlines__c</fullName>
+        <externalId>false</externalId>
+        <label>dlf_Operation_Deadlines</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
@@ -426,33 +1134,23 @@ operaciones activas</inlineHelpText>
                     <default>false</default>
                     <label>13</label>
                 </value>
-                <value>
-                    <fullName>14</fullName>
-                    <default>false</default>
-                    <label>14</label>
-                </value>
-                <value>
-                    <fullName>15</fullName>
-                    <default>false</default>
-                    <label>15</label>
-                </value>
-                <value>
-                    <fullName>16</fullName>
-                    <default>false</default>
-                    <label>16</label>
-                </value>
-                <value>
-                    <fullName>17</fullName>
-                    <default>false</default>
-                    <label>17</label>
-                </value>
             </valueSetDefinition>
         </valueSet>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>gipr_Periodicidad__c</fullName>
+        <fullName>dlf_Portfolio_effectiveness__c</fullName>
         <externalId>false</externalId>
-        <label>gipr_Periodicidad</label>
+        <label>dlf_Portfolio_effectiveness</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+	<fields>
+        <fullName>tcf_Legal_VB_text__c</fullName>
+        <externalId>false</externalId>
+        <label>tcf_Legal_VB_text</label>
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
@@ -473,19 +1171,9 @@ operaciones activas</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
-        <fullName>gipr_Plazo__c</fullName>
+        <fullName>tcf_Periodicity_commission__c</fullName>
         <externalId>false</externalId>
-        <label>gipr_Plazo</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>gipr_Tipo_Garantia__c</fullName>
-        <externalId>false</externalId>
-        <label>gipr_Tipo_Garantia</label>
+        <label>tcf_Periodicity_commission</label>
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
@@ -507,9 +1195,80 @@ operaciones activas</inlineHelpText>
                     <default>false</default>
                     <label>03</label>
                 </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <fields>
+        <fullName>tcf_beneficiary__c</fullName>
+        <externalId>false</externalId>
+        <label>tcf_beneficiary</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>tcf_type_bail_letter__c</fullName>
+        <externalId>false</externalId>
+        <label>type of bail letter</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>tcf_type_beneficiary__c</fullName>
+        <externalId>false</externalId>
+        <label>tcf_type_beneficiary</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <validationRules>
+        <fullName>ContractNo_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( 
+OR( 
+ISBLANK( gipr_Contract_Number__c ),
+REGEX( gipr_Contract_Number__c , &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
+) 
+)</errorConditionFormula>
+        <errorMessage>Contract No format not valid, correct: 0000-0000-000000000</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>LinkedAccount_Validation</fullName>
         <active>true</active>
@@ -520,6 +1279,17 @@ REGEX( cpliq_Cuenta_vinculada__c , &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
 )
 )</errorConditionFormula>
         <errorMessage>Linked Account format not valid, correct: 0000-0000-000000000</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NOperation_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( 
+OR( 
+ISBLANK(da_nOperation__c),
+REGEX(da_nOperation__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
+) 
+)</errorConditionFormula>
+        <errorMessage>Operation No format not valid, correct: 0000-0000-000000000</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>ValidDueDate</fullName>

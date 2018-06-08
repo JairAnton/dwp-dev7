@@ -254,6 +254,7 @@
         <members>fileUpload_comp</members>
         <members>Formalization_comp</members>
 		<members>Componente_CotizaWeb</members>
+        <members>Collapsible_Section_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -748,6 +749,26 @@
 		<members>Product2.Type_of_quote__c</members>
 		<members>OpportunityLineItem.PE_POR_Comision__c</members>
 		<members>Product_Participants__c.N_DOI__c</members>
+        <members>OpportunityLineItem.gipr_Comex_Bag__c</members>
+        <members>OpportunityLineItem.gipr_Contract_Number__c</members>
+        <members>OpportunityLineItem.gipr_Modality__c</members>
+        <members>OpportunityLineItem.gipr_Payment_Method__c</members>
+        <members>OpportunityLineItem.da_Replacement_financing__c</members>
+        <members>OpportunityLineItem.da_nOperation__c</members>
+        <members>OpportunityLineItem.da_Currency__c</members>
+        <members>OpportunityLineItem.da_Amount__c</members>
+        <members>OpportunityLineItem.da_Replacement_Reason__c</members>
+        <members>OpportunityLineItem.da_Importer__c</members>
+        <members>OpportunityLineItem.da_Merchandise_Detail__c</members>
+        <members>OpportunityLineItem.da_Destination_Country__c</members>
+        <members>OpportunityLineItem.da_Client_Email__c</members>
+        <members>OpportunityLineItem.da_Alt_Email__c</members>
+        <members>OpportunityLineItem.da_Approved_Risk__c</members>
+        <members>OpportunityLineItem.da_Used_Risk__c</members>
+        <members>OpportunityLineItem.da_Available_Balance__c</members>
+        <members>OpportunityLineItem.da_Line_Excess__c</members>
+        <members>OpportunityLineItem.da_Observations__c</members>
+        <members>OpportunityLineItem.gipr_Importation_Modality__c</members>
 		<name>CustomField</name>
     </types>
     <types>
@@ -891,6 +912,7 @@
         <members>OpportunityLineItem.LinkedAccount_Validation</members>
         <members>OpportunityLineItem.ValidDueDate</members>
         <members>OpportunityLineItem.ValidTerm</members>
+        <members>OpportunityLineItem.ContractNo_Validation</members>
         <name>ValidationRule</name>
     </types>
     <types>

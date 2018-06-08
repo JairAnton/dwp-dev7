@@ -84,7 +84,27 @@
                                     cmp.set("v.rowsOppLineItem", response.getReturnValue());
                                 }
                             });        
-                            $A.enqueueAction(action4); 
+                            $A.enqueueAction(action4);
+
+                            // COTIZACIÓN TARIFARIA O COTIZAWEB
+                            var action5 = cmp.get("c.getOportunidadSytem");
+                            action5.setParams({
+                                "Filtro":OpportunityId
+                            });
+                            action5.setCallback(this, $A.getCallback(function (response) {
+                                var state = response.getState();
+                                if (state === "SUCCESS") {
+                                    if(response.getReturnValue()=="Tarifario"){
+                                        cmp.set("v.cotiweb" , false);
+                                    }else {
+                                        cmp.set("v.cotiweb" , true);
+                                    }
+                                } else if (state === "ERROR") {
+                                    alert('ERROR');
+                                    var errors = response.getError();
+                                }
+                            }));
+                            $A.enqueueAction(action5);
                         }
                     });        
                     $A.enqueueAction(action);
