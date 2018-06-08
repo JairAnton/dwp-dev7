@@ -166,6 +166,7 @@
         <members>lblFormalizarEtapa</members>
         <members>lblFormalizarStatus</members>
         <members>lblNoCommentsFormalization</members>
+        <members>lblPDFMsgError</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -951,6 +952,7 @@
         <members>ChartjsAP</members>
         <members>quickActionStyle</members>
         <members>BBVALogo</members>
+        <members>stylePDF</members>
         <name>StaticResource</name>
     </types>
     <types>
