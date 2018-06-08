@@ -129,6 +129,370 @@ operaciones activas --></help>
         <name>cpliq_n_gracia__c</name>
     </fields>
     <fields>
+        <label>E-mail del cliente alternativo</label>
+        <name>da_Alt_Email__c</name>
+    </fields>
+    <fields>
+        <label>Importe</label>
+        <name>da_Amount__c</name>
+    </fields>
+    <fields>
+        <label>Riesgo Aprobado</label>
+        <name>da_Approved_Risk__c</name>
+    </fields>
+    <fields>
+        <label>Riesgo Aprobado</label>
+        <name>da_Available_Balance__c</name>
+    </fields>
+    <fields>
+        <label>E-mail del cliente</label>
+        <name>da_Client_Email__c</name>
+    </fields>
+    <fields>
+        <label>Moneda</label>
+        <name>da_Currency__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Soles</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Dólares</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Euros</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>País de destino</label>
+        <name>da_Destination_Country__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Afganistan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Albania</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Albania</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Andorra</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Argentina</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>Australia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>Austria</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>Bangladesh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>Bélgica</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>Bolivia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>Bosnia y Hercegovina</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>Brasil</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation>Canada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14</masterLabel>
+            <translation>Chile</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation>China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>16</masterLabel>
+            <translation>Chipre</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>17</masterLabel>
+            <translation>Colombia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18</masterLabel>
+            <translation>Corea del Sur</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>19</masterLabel>
+            <translation>Costa Rica</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20</masterLabel>
+            <translation>Cuba</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21</masterLabel>
+            <translation>Dinamarca</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>22</masterLabel>
+            <translation>Dominica</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>23</masterLabel>
+            <translation>Ecuador</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24</masterLabel>
+            <translation>Egipto</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>25</masterLabel>
+            <translation>Emiratos Arabes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>26</masterLabel>
+            <translation><!-- 26 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>27</masterLabel>
+            <translation><!-- 27 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>28</masterLabel>
+            <translation><!-- 28 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>29</masterLabel>
+            <translation><!-- 29 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30</masterLabel>
+            <translation><!-- 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31</masterLabel>
+            <translation><!-- 31 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>32</masterLabel>
+            <translation><!-- 32 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>33</masterLabel>
+            <translation><!-- 33 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>34</masterLabel>
+            <translation><!-- 34 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>35</masterLabel>
+            <translation><!-- 35 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>36</masterLabel>
+            <translation><!-- 36 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>37</masterLabel>
+            <translation><!-- 37 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>38</masterLabel>
+            <translation><!-- 38 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>39</masterLabel>
+            <translation><!-- 39 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40</masterLabel>
+            <translation><!-- 40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>41</masterLabel>
+            <translation><!-- 41 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>42</masterLabel>
+            <translation><!-- 42 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>43</masterLabel>
+            <translation><!-- 43 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>44</masterLabel>
+            <translation><!-- 44 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>45</masterLabel>
+            <translation><!-- 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>46</masterLabel>
+            <translation><!-- 46 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>47</masterLabel>
+            <translation><!-- 47 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>48</masterLabel>
+            <translation><!-- 48 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>49</masterLabel>
+            <translation><!-- 49 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50</masterLabel>
+            <translation><!-- 50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>51</masterLabel>
+            <translation><!-- 51 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>52</masterLabel>
+            <translation><!-- 52 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>53</masterLabel>
+            <translation><!-- 53 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>54</masterLabel>
+            <translation><!-- 54 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>55</masterLabel>
+            <translation><!-- 55 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>56</masterLabel>
+            <translation><!-- 56 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>57</masterLabel>
+            <translation><!-- 57 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>58</masterLabel>
+            <translation><!-- 58 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>59</masterLabel>
+            <translation><!-- 59 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60</masterLabel>
+            <translation><!-- 60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>61</masterLabel>
+            <translation><!-- 61 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62</masterLabel>
+            <translation><!-- 62 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>63</masterLabel>
+            <translation><!-- 63 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Importador</label>
+        <name>da_Importer__c</name>
+    </fields>
+    <fields>
+        <label>Exceso 25% linea</label>
+        <name>da_Line_Excess__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Si</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>No</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Detalle de mercadería</label>
+        <name>da_Merchandise_Detail__c</name>
+    </fields>
+    <fields>
+        <label>Observaciones</label>
+        <name>da_Observations__c</name>
+    </fields>
+    <fields>
+        <label>Motivo de reemplazo</label>
+        <name>da_Replacement_Reason__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Solarización</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Dolarización</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Protesto</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Pre a Post</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Pre a Post Sepymex</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>Cap. Intereses </translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Financiamiento de reemplazo</label>
+        <name>da_Replacement_financing__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>No</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Si</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- da_Used_Risk --></label>
+        <name>da_Used_Risk__c</name>
+    </fields>
+    <fields>
+        <label>N° Operación</label>
+        <name>da_nOperation__c</name>
+    </fields>
+    <fields>
         <label><!-- Sample Checkbox --></label>
         <name>fprd__GBL_Sample_Checkbox__c</name>
     </fields>
@@ -139,6 +503,22 @@ operaciones activas --></help>
     <fields>
         <label>Cobertura</label>
         <name>gipr_Cobertura__c</name>
+    </fields>
+    <fields>
+        <label>Bolsa Comex</label>
+        <name>gipr_Comex_Bag__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Si</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>No</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>N° Contrato</label>
+        <name>gipr_Contract_Number__c</name>
     </fields>
     <fields>
         <label>Destino</label>
@@ -245,6 +625,70 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- gipr_Importation_Modality --></label>
+        <name>gipr_Importation_Modality__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Importación directa</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Pago de carta de crédito</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Pago de cobranza</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Recuperación de pagos de importación</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Pago adelantado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>Pago de derecho de aduanas</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Modalidad</label>
+        <name>gipr_Modality__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Carta de crédito de exportación</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Orden de compra / Proforma / A pedido contrato</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Carta de crédito de exportación / Orden de compra</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Medio de pago</label>
+        <name>gipr_Payment_Method__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Sin medio de pago</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Carta de crédito</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Cobranza documentaria</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Transferencia</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>Periodicidad</label>
         <name>gipr_Periodicidad__c</name>
         <picklistValues>
@@ -276,14 +720,10 @@ operaciones activas --></help>
             <translation>Sin garantía</translation>
         </picklistValues>
     </fields>
-	<fields>
-        <label>Comisión estructuración (%)</label>
-        <name>PE_POR_Comision_estructuracion__c</name>
-    </fields>
-    <fields>
-        <label>Comisión liquidación anticipada (%)</label>
-        <name>PE_POR_Comision_liquidacion_anticipada__c</name>
-    </fields>
+    <validationRules>
+        <errorMessage>No Contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
+        <name>ContractNo_Validation</name>
+    </validationRules>
     <validationRules>
         <errorMessage>Cuenta Vinculada no valida, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>LinkedAccount_Validation</name>

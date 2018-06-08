@@ -1,0 +1,74 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL">	
+<aura:attribute name="recordId" type="Id" />
+   <div class="slds-page-header" style="cursor: pointer;" onclick="{!c.sectionZero}">
+      <section class="slds-clearfix">
+        <div class="slds-float--left ">
+            <lightning:icon class="slds-show" aura:id="articleZero" iconName="utility:chevronright" size="xx-small" alternativeText="Indicates add"/>
+            <lightning:icon class="slds-hide" aura:id="articleZero" iconName="utility:chevrondown" size="xx-small" alternativeText="Indicates dash"/>
+        </div>
+        <div class="slds-m-left--large" style="font-size:16px">Precio</div>
+      </section>
+    </div>
+      
+    <div class="slds-hide slds-p-around--medium" aura:id="articleZero">
+    <c:Tabla_Compromiso_2 recordId="{!v.recordId}"/>
+    </div>
+<br/>      
+   <div class="slds-page-header" style="cursor: pointer;" onclick="{!c.sectionOne}">
+      <section class="slds-clearfix">
+        <div class="slds-float--left ">
+            <lightning:icon class="slds-show" aura:id="articleOne" iconName="utility:chevronright" size="xx-small" alternativeText="Indicates add"/>
+            <lightning:icon class="slds-hide" aura:id="articleOne" iconName="utility:chevrondown" size="xx-small" alternativeText="Indicates dash"/>
+        </div>
+        <div class="slds-m-left--large" style="font-size:16px">Compromisos</div>
+      </section>
+    </div>
+      
+    <div class="slds-hide slds-p-around--medium" aura:id="articleOne">
+    		<c:CustomTable_V1 recordId="{!v.recordId}" table="true"/>
+    </div>
+<br/>      
+    <div class="slds-page-header" style="cursor: pointer;" onclick="{!c.sectionTwo}">
+      <section class="slds-clearfix">
+        <div class="slds-float--left">
+            <lightning:icon class="slds-show" aura:id="articleTwo" iconName="utility:chevronright" size="xx-small" alternativeText="Indicates add"/>
+            <lightning:icon class="slds-hide" aura:id="articleTwo" iconName="utility:chevrondown" size="xx-small" alternativeText="Indicates dash"/>
+        </div>
+        <div class="slds-m-left--large" style="font-size:16px">Garantías</div>
+      </section>
+    </div>
+      
+    <div class="slds-hide slds-p-around--medium" aura:id="articleTwo">
+		<c:ProductGuarantee_comp recordId="{!v.recordId}"/>
+    </div>
+<br/>      
+    <div class="slds-page-header"  style="cursor: pointer;" onclick="{!c.sectionThree}">
+      <section class="slds-clearfix">
+        <div class="slds-float--left"> 
+            <lightning:icon class="slds-show" aura:id="articleThree" iconName="utility:chevronright" size="xx-small" alternativeText="Indicates add"/>
+            <lightning:icon class="slds-hide" aura:id="articleThree" iconName="utility:chevrondown" size="xx-small" alternativeText="Indicates dash"/>
+        </div>
+        <div class="slds-m-left--large" style="font-size:16px">Intervinientes</div>
+      </section>
+    </div>
+      
+    <div aura:id="articleThree" class="slds-hide slds-p-around--medium">
+      <c:ProductParticipants_comp recordId="{!v.recordId}"/>
+    </div>
+<br/>
+    <div class="slds-page-header"  style="cursor: pointer;" onclick="{!c.sectionFour}">
+      <section class="slds-clearfix">
+        <div class="slds-float--left"> 
+            <lightning:icon class="slds-show" aura:id="articleFour" iconName="utility:chevronright" size="x-small" alternativeText="Indicates add"/>
+            <lightning:icon class="slds-hide" aura:id="articleFour" iconName="utility:chevrondown" size="x-small" alternativeText="Indicates dash"/>
+        </div>
+        <div class="slds-m-left--large" style="font-size:16px">Información de modalidad</div>
+      </section>
+    </div>
+      
+    <div aura:id="articleFour" class="slds-hide slds-p-around- -medium">
+      <c:OpportunityProduct_Comp recordId="{!v.recordId}" recordOLI="{!v.recordId}"/>
+    </div>
+      
+  
+</aura:component>
