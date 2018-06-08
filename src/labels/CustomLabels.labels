@@ -570,4 +570,11 @@
         <shortDescription>lblNoCommentsFormalization</shortDescription>
         <value>comments can not be empty</value>
     </labels>
+    <labels>
+        <fullName>lblPDFMsgError</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFMsgError</shortDescription>
+        <value>Datos incompletos en oportunidad,Datos incompletos en producto oportunidad,Datos incompletos en producto,Datos incompletos en cliente,Datos incompletos en clasificación BBVA-Cliente,Datos incompletos en SBS,Datos incompletos en contacto,Datos incompletos en usuario oficina,Datos incompletos en Oficina,Datos incompletos en calificación cliente,Datos incompletos en intervieniente,Datos incompletos en garantias,Datos de usuario Incorrectos, SUCCESS</value>
+    </labels>
 </CustomLabels>
