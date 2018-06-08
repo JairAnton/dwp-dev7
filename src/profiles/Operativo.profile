@@ -2941,7 +2941,6 @@ Sub Gerentes de oficina</description>
         <field>OpportunityLineItem.tcf_type_beneficiary__c</field>
         <readable>true</readable>
     </fieldPermissions>         
-</fieldPermissions> 
 <fieldPermissions>
         <editable>true</editable>
         <field>User.user_id__c</field>
