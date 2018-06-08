@@ -72,7 +72,7 @@
     </values>
     <values>
         <field>fprd__order__c</field>
-        <value xsi:type="xsd:double">8.0</value>
+        <value xsi:type="xsd:double">9.0</value>
     </values>
     <values>
         <field>fprd__parent_value__c</field>
