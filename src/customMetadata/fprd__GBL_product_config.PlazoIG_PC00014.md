@@ -68,7 +68,7 @@
     </values>
     <values>
         <field>fprd__map_field__c</field>
-        <value xsi:type="xsd:string">gipr_Plazo__c</value>
+        <value xsi:type="xsd:string">cpliq_n__c</value>
     </values>
     <values>
         <field>fprd__order__c</field>
