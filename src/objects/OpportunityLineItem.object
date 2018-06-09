@@ -1028,81 +1028,6 @@ operaciones activas</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
-        <fullName>gipr_Modality__c</fullName>
-        <externalId>false</externalId>
-        <label>gipr_Modality</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-        <restricted>true</restricted>
-        <valueSetDefinition>
-        <sorted>false</sorted>
-            <value>
-                <fullName>01</fullName>
-                <default>false</default>
-            </value>
-            <value>
-                <fullName>02</fullName>
-                <default>false</default>
-            </value>
-            <value>
-                <fullName>03</fullName>
-                <default>false</default>
-            </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>gipr_Payment_Method__c</fullName>
-        <externalId>false</externalId>
-        <label>gipr_Payment_Method</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-        <restricted>true</restricted>
-        <valueSetDefinition>
-        <sorted>false</sorted>
-            <value>
-                <fullName>01</fullName>
-                <default>false</default>
-            </value>
-            <value>
-                <fullName>02</fullName>
-                <default>false</default>
-            </value>
-            <value>
-                <fullName>03</fullName>
-                <default>false</default>
-            </value>
-            <value>
-                <fullName>04</fullName>
-                <default>false</default>
-            </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>gipr_Periodicidad__c</fullName>
-        <externalId>false</externalId>
-        <label>gipr_Periodicidad</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-        <restricted>true</restricted>
-        <valueSetDefinition>
-        <sorted>false</sorted>
-            <value>
-                <fullName>01</fullName>
-                <default>false</default>
-            </value>
-            <value>
-                <fullName>02</fullName>
-                <default>false</default>
-            </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>gipr_Plazo__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Plazo</label>
@@ -1249,49 +1174,6 @@ operaciones activas</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
-        <fullName>gipr_Importation_Modality__c</fullName>
-        <externalId>false</externalId>
-        <label>gipr_Importation_Modality</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>01</fullName>
-                    <default>false</default>
-                    <label>01</label>
-                </value>
-                <value>
-                    <fullName>02</fullName>
-                    <default>false</default>
-                    <label>02</label>
-                </value>
-                <value>
-                    <fullName>03</fullName>
-                    <default>false</default>
-                    <label>03</label>
-                </value>
-                <value>
-                    <fullName>04</fullName>
-                    <default>false</default>
-                    <label>04</label>
-                </value>
-                <value>
-                    <fullName>05</fullName>
-                    <default>false</default>
-                    <label>05</label>
-                </value>
-                <value>
-                    <fullName>06</fullName>
-                    <default>false</default>
-                    <label>06</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>gipr_Modality__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Modality</label>
@@ -1354,6 +1236,39 @@ operaciones activas</inlineHelpText>
     </fields>
     <fields>
         <fullName>gipr_Periodicidad__c</fullName>
+        <externalId>false</externalId>
+        <label>tcf_Periodicity_commission</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+	<fields>
+        <fullName>tcf_Periodicity_commission__c</fullName>
         <externalId>false</externalId>
         <label>tcf_Periodicity_commission</label>
         <required>false</required>
