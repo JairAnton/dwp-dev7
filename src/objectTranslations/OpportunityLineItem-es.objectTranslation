@@ -720,6 +720,126 @@ operaciones activas --></help>
             <translation>Sin garantía</translation>
         </picklistValues>
     </fields>
+	    <fields>
+        <label>Legal VB text</label>
+        <name>tcf_Legal_VB_text__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Si</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>No</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Periodicidad comisión</label>
+        <name>tcf_Periodicity_commission__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Bimestral</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Trismestral</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Semestral</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Anual</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Beneficiario</label>
+        <name>tcf_beneficiary__c</name>
+    </fields>
+    <fields>
+        <label>Tipo de carta fianza</label>
+        <name>tcf_type_bail_letter__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Técnica</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Económica</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Tipo de Beneficiario</label>
+        <name>tcf_type_beneficiary__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Pública</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Privada</translation>
+        </picklistValues>
+    </fields>
+	<fields>
+        <label>Plazo(s) Operación</label>
+        <name>dlf_Operation_Deadlines__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>15 días</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>30 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>60 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>90 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>120 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>150 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>180 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>210 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>240 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>270 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>300 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>330 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation>360 dias</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Efectividad cartera</label>
+        <name>dlf_Portfolio_effectiveness__c</name>
+    </fields>
     <validationRules>
         <errorMessage>No Contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>ContractNo_Validation</name>
@@ -727,6 +847,10 @@ operaciones activas --></help>
     <validationRules>
         <errorMessage>Cuenta Vinculada no valida, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>LinkedAccount_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>No. de Operación no válido, el formato correcto: 0000-0000-000000000</errorMessage>
+        <name>NOperation_Validation</name>
     </validationRules>
     <validationRules>
         <errorMessage>La fecha de Vencimiento debe ser mayor al día de hoy.</errorMessage>
