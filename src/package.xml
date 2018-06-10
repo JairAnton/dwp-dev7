@@ -167,6 +167,7 @@
         <members>lblFormalizarStatus</members>
         <members>lblNoCommentsFormalization</members>
         <members>lblPDFMsgError</members>
+        <members>lblSanctionRisk</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -770,6 +771,9 @@
         <members>OpportunityLineItem.da_Line_Excess__c</members>
         <members>OpportunityLineItem.da_Observations__c</members>
         <members>OpportunityLineItem.gipr_Importation_Modality__c</members>
+        <members>OpportunityLineItem.da_Exporter__c</members>
+        <members>OpportunityLineItem.da_Origin_Country__c</members>
+        <members>OpportunityLineItem.cpliq_Manual__c</members>
 		<name>CustomField</name>
     </types>
     <types>
@@ -914,6 +918,9 @@
         <members>OpportunityLineItem.ValidDueDate</members>
         <members>OpportunityLineItem.ValidTerm</members>
         <members>OpportunityLineItem.ContractNo_Validation</members>
+        <members>OpportunityLineItem.NOperation_Validation</members>
+        <members>OpportunityLineItem.Validation_Email</members>
+        <members>OpportunityLineItem.Validation_Term_Integer</members>
         <name>ValidationRule</name>
     </types>
     <types>

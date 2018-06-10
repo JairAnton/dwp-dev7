@@ -92,6 +92,6 @@
     </values>
     <values>
         <field>fprd__type__c</field>
-        <value xsi:type="xsd:string">currency</value>
+        <value xsi:type="xsd:string">number</value>
     </values>
 </CustomMetadata>

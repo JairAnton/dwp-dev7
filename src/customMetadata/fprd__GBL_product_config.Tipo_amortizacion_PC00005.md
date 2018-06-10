@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>fprd__LoV_values__c</field>
-        <value xsi:type="xsd:string">01,02,03</value>
+        <value xsi:type="xsd:string">01,02,04</value>
     </values>
     <values>
         <field>fprd__Related_map_fields__c</field>
