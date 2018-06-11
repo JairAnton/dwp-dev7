@@ -2624,7 +2624,7 @@
         <name>ChatterComposeUiCodesnippet</name>
     </userPermissions>
 	<userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ChangeDashboardColors</name>
     </userPermissions>
     <userPermissions>
