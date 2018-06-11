@@ -2,7 +2,7 @@
     <apex:stylesheet value="{!$Resource.stylePDF}"/>
     <apex:image value="{!URLFOR($Resource.BBVALogo)}"  width="350" height="100"/>
     <div class="title">
-        <h2>{!Title}</h2>
+        <h2>PDF Formalización {!Opportunity.Name}</h2>
     </div>
     <div class="title">
         <b>Datos cliente</b>
