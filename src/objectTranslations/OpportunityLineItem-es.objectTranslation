@@ -989,7 +989,7 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
 	    <fields>
-        <label>Legal VB text</label>
+        <label>Texto VB° Legal</label>
         <name>tcf_Legal_VB_text__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
