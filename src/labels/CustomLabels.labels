@@ -577,4 +577,32 @@
         <shortDescription>lblPDFMsgError</shortDescription>
         <value>Datos incompletos en oportunidad,Datos incompletos en producto oportunidad,Datos incompletos en producto,Datos incompletos en cliente,Datos incompletos en clasificación BBVA-Cliente,Datos incompletos en SBS,Datos incompletos en contacto,Datos incompletos en usuario oficina,Datos incompletos en Oficina,Datos incompletos en calificación cliente,Datos incompletos en intervieniente,Datos incompletos en garantias,Datos de usuario Incorrectos, SUCCESS</value>
     </labels>
+    <labels>
+        <fullName>lblPDFLeasingForniture</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFLeasingForniture</shortDescription>
+        <value>Leasing mobiliario</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFLeasingRealState</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFLeasingRealState</shortDescription>
+        <value>Leasing Inmobiliario</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductExport</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductExport</shortDescription>
+        <value>Financiamiento de Exportación Pre Embarque</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductImport</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductImport</shortDescription>
+        <value>Financiamiento de Importación</value>
+    </labels>
 </CustomLabels>

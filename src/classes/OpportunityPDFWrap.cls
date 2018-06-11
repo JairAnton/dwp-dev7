@@ -1,6 +1,5 @@
 public virtual class OpportunityPDFWrap {
 
-
     public static OpportunityLineItem OLI {get;set;}
     Public Static Account_BBVA_Classification__c ABBVAC {get;set;}
     Public static Account_Banking_System_Classification__c  CSBS {get;set;}
@@ -37,7 +36,7 @@ public virtual class OpportunityPDFWrap {
       msg= 'Datos incompletos en Oficina';
       oficina = [SELECT Id,Name,branch_id__c FROM Branch__c WHERE id =: usuarioOficina.branch_name__c LIMIT 1];
       msg= 'Datos incompletos en calificación cliente';
-      Rating = [SELECT Id,total_rating_score_number__c  FROM Account_Rating__c WHERE account_id__c  =: Client.Id  ORDER BY createdDate DESC LIMIT 1];
+      Rating = [SELECT Id,total_rating_score_number__c,Account_Rating__c.rating_scale_type__c  FROM Account_Rating__c WHERE account_id__c  =: Client.Id  ORDER BY createdDate DESC LIMIT 1];
       msg= 'Datos incompletos en intervieniente';
       Intervenientes =[SELECT toLabel(DOI__c),N_DOI__c, toLabel(Participation__c), Name,toLabel(Marital_Status__c)   FROM Product_participants__c WHERE Opportunity__c =:Oppid];
       msg= 'Datos incompletos en garantias';
