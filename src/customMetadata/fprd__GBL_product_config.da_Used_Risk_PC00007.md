@@ -80,7 +80,7 @@
     </values>
     <values>
         <field>fprd__product__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">PC00007</value>
     </values>
     <values>
         <field>fprd__section__c</field>
@@ -88,7 +88,7 @@
     </values>
     <values>
         <field>fprd__section_order__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>fprd__type__c</field>

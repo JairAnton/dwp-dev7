@@ -60,10 +60,75 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>context</name>
-                <value>RECORD</value>
+                <name>auditDisplayId</name>
+                <value>TRSR00001</value>
             </componentInstanceProperties>
-            <componentName>forceChatter:exposedFeed</componentName>
+            <componentInstanceProperties>
+                <name>refreshOnRefreshView</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelNoData</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelSection</name>
+                <value>lblSanctionRisk</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strTypes</name>
+                <value>TRSR00001</value>
+            </componentInstanceProperties>
+            <componentName>dwp_cvad:DynamicAuditDisplay_comp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>auditDisplayId</name>
+                <value>TRSP00001</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>refreshOnRefreshView</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelNoData</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelSection</name>
+                <value>lblSanctionPrice</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strTypes</name>
+                <value>TRSP00001</value>
+            </componentInstanceProperties>
+            <componentName>dwp_cvad:DynamicAuditDisplay_comp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>additionalInformation</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>auditDisplayId</name>
+                <value>TRFO00001</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>refreshOnRefreshView</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelNoData</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelSection</name>
+                <value>lbFormalization</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strTypes</name>
+                <value>TRFO00001</value>
+            </componentInstanceProperties>
+            <componentName>dwp_cvad:DynamicAuditDisplay_comp</componentName>
         </componentInstances>
         <name>facet-4009d5e6-0996-4471-b00d-07f6f354eddd</name>
         <type>Facet</type>
