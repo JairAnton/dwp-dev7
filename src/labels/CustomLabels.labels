@@ -582,27 +582,27 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblPDFLeasingForniture</shortDescription>
-        <value>Carta Fianza</value>
+        <value>PC00029</value>
     </labels>
     <labels>
         <fullName>lblPDFLeasingRealState</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblPDFLeasingRealState</shortDescription>
-        <value>Leasing Inmobiliario</value>
+        <value>PC00014</value>
     </labels>
     <labels>
         <fullName>lblPDFProductExport</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblPDFProductExport</shortDescription>
-        <value>Financiamiento de Exportación Pre Embarque</value>
+        <value>PC00007</value>
     </labels>
     <labels>
         <fullName>lblPDFProductImport</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblPDFProductImport</shortDescription>
-        <value>Financiamiento de Importación</value>
+        <value>PC00005</value>
     </labels>
 </CustomLabels>

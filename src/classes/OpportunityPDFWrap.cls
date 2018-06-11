@@ -14,7 +14,7 @@ public virtual class OpportunityPDFWrap {
     public static AggregateResult[] totalComprimisos{get;set;}
     public static Integer totalC {get;set;}
     public static String title{get;set;}
-
+    public static opportunity opp{get;set;}
   public static string setValues(String Oppid){
      string msg;
      try{
@@ -45,11 +45,11 @@ public virtual class OpportunityPDFWrap {
       totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM compromiso__c WHERE Oportunidad__c =:Oppid];
       totalC=Integer.valueOf(totalComprimisos[0].get('total'));
       msg= 'SUCCESS';
+      title = 'PDF Formalización '+Opportunity.Name;
      }catch(System.Exception e){
          system.debug('Exception : '+e.getMessage());
          return msg;
      }
-     title = 'PDF Formalización '+Opportunity.Name;
 
       return msg;
     }

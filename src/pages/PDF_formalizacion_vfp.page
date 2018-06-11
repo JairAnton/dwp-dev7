@@ -2,7 +2,7 @@
     <apex:stylesheet value="{!$Resource.stylePDF}"/>
     <apex:image value="{!URLFOR($Resource.BBVALogo)}"  width="350" height="100"/>
     <div class="title">
-        <h2>PDF Formalización {!Opportunity.Name}</h2>
+        <h2>PDF Formalización {!Opp.Name}</h2>
     </div>
     <div class="title">
         <b>Datos cliente</b>
@@ -62,10 +62,10 @@
     <table>
         <tr>
             <td>Modalidad: </td>
-            <td>{!Opportunity.Modality__c}</td>
+            <td>{!Opp.Modality__c}</td>
         </tr>
         <tr>
-            <td>Codigo SIO: {!Opportunity.LastSIOcode__c} </td>
+            <td>Codigo SIO: {!Opp.LastSIOcode__c} </td>
             <td>Fecha autorización: 12/07/2018 *</td>
         </tr>
         <tr>
@@ -156,7 +156,7 @@
         </div>
         <br/>
         <ul>
-            <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
+            <li>Nombre de la oportunidad: {!Opp.Name} </li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
@@ -179,11 +179,11 @@
         </div>
         <br/>
         <ul>
-            <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
+            <li>Nombre de la oportunidad: {!Opp.Name} </li>
             <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Modalidad: {!Opportunity.Modality__c}</li>
+            <li>Modalidad: {!Opp.Modality__c}</li>
             <li>Importe: <apex:outputText value=" S/.{0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
@@ -240,13 +240,13 @@
         </div>
         <br/>
         <ul>
-            <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
+            <li>Nombre de la oportunidad: {!Opp.Name} </li>
             <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Modalidad: {!Opportunity.Modality__c}</li>
+            <li>Modalidad: {!Opp.Modality__c}</li>
             <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
-                <apex:param value="{!Opportunity.Amount}" />
+                <apex:param value="{!Opp.Amount}" />
                 </apex:outputText>
             </li>
             <li>Divisa: {!Product.CurrencyIsoCode}</li>
@@ -274,7 +274,7 @@
                         <td>{!OLI.da_nOperation__c}</td>
                         <td>{!OLI.CurrencyIsoCode}</td>
                         <td> <apex:outputText value=" S/.{0, number,.00}">
-                            <apex:param value="{!Opportunity.Amount}" />
+                            <apex:param value="{!Opp.Amount}" />
                             </apex:outputText></td>
                         <td>{!OLI.da_Replacement_Reason__c}</td>
                     </tr>
@@ -294,7 +294,7 @@
                         <td>{!OLI.da_nOperation__c}</td>
                         <td>{!OLI.CurrencyIsoCode}</td>
                         <td> <apex:outputText value=" S/.{0, number,.00}">
-                            <apex:param value="{!Opportunity.Amount}" />
+                            <apex:param value="{!Opp.Amount}" />
                             </apex:outputText></td>
                         <td>{!OLI.da_Replacement_Reason__c}</td>
                     </tr>
@@ -317,11 +317,11 @@
         </div>
         <br/>
         <ul>
-            <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
+            <li>Nombre de la oportunidad: {!Opp.Name} </li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
-                <apex:param value="{!Opportunity.Amount}" />
+                <apex:param value="{!Opp.Amount}" />
                 </apex:outputText>
             </li>
             <li>Divisa: {!Product.CurrencyIsoCode}</li>
