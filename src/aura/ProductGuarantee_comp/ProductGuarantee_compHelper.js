@@ -20,23 +20,25 @@
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {            
-                
-                ProductId=response.getReturnValue()[0].Product2Id;
-                cmp.set('v.ProductId',ProductId);                
+                if(response.getReturnValue()!=null)
+                {
+                    ProductId=response.getReturnValue()[0].Product2Id;
+                    cmp.set('v.ProductId',ProductId);                
 
-                var action2 = cmp.get("c.getGuaranteeDataByProduct");                
-                
-                action2.setParams({            
-                    "IdOpportunity" : OpportunityId,
-                    "IdProduct" : ProductId
-                });
-                action2.setCallback(this, function(response) {
-                    var state = response.getState();
-                    if (state === "SUCCESS") {
-                        cmp.set("v.rows", response.getReturnValue());
-                    }
-                });        
-                $A.enqueueAction(action2);
+                    var action2 = cmp.get("c.getGuaranteeDataByProduct");                
+                    
+                    action2.setParams({            
+                        "IdOpportunity" : OpportunityId,
+                        "IdProduct" : ProductId
+                    });
+                    action2.setCallback(this, function(response) {
+                        var state = response.getState();
+                        if (state === "SUCCESS") {
+                            cmp.set("v.rows", response.getReturnValue());
+                        }
+                    });        
+                    $A.enqueueAction(action2);
+                }
             }
         });        
         $A.enqueueAction(action);

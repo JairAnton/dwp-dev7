@@ -1,5 +1,8 @@
-<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL">	
+<aura:component  implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL">	
 <aura:attribute name="recordId" type="Id" />
+<aura:attribute name="bProduct" type="Boolean" default="false" />
+<aura:handler event="fprd:GBL_SelectedProduct_evt" action="{!c.handleSelectedEvent}"/>
+<aura:if isTrue="{!v.bProduct}">
    <div class="slds-page-header" style="cursor: pointer;" onclick="{!c.sectionZero}">
       <section class="slds-clearfix">
         <div class="slds-float--left ">
@@ -69,6 +72,6 @@
     <div aura:id="articleFour" class="slds-hide slds-p-around- -medium">
       <c:OpportunityProduct_Comp recordId="{!v.recordId}" recordOLI="{!v.recordId}"/>
     </div>
-      
+</aura:if>
   
 </aura:component>
