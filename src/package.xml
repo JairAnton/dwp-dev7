@@ -167,6 +167,10 @@
         <members>lblFormalizarStatus</members>
         <members>lblNoCommentsFormalization</members>
         <members>lblPDFMsgError</members>
+        <members>lblPDFLeasingRealState</members>
+        <members>lblPDFProductExport</members>
+        <members>lblPDFProductImport</members>
+        <members>lblPDFLeasingForniture</members>
         <members>lblSanctionRisk</members>
         <name>CustomLabel</name>
     </types>
