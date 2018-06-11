@@ -2,7 +2,7 @@
     <apex:stylesheet value="{!$Resource.stylePDF}"/>
     <apex:image value="{!URLFOR($Resource.BBVALogo)}"  width="350" height="100"/>
     <div class="title">
-        <h2>PDF Formalización : {!Opportunity.Name}  </h2>
+        <h2>{!Title}</h2>
     </div>
     <div class="title">
         <b>Datos cliente</b>
@@ -66,11 +66,11 @@
         </tr>
         <tr>
             <td>Codigo SIO: {!Opportunity.LastSIOcode__c} </td>
-            <td>Fecha autorización: 12/07/2018 </td>
+            <td>Fecha autorización: 12/07/2018 *</td>
         </tr>
         <tr>
-            <td>Estado: Sanción aprobado SM </td>
-            <td>Sancionador: Andres figueroa</td>
+            <td>Estado: Sanción aprobado SM *</td>
+            <td>Sancionador: Andres figueroa *</td>
         </tr>
         <tr>
             <td>Importe: {!Opportunity.Amount}</td>
@@ -101,16 +101,28 @@
         </tr>
         <tr>
             <td>Plazo: <apex:outputText value="{0, number,0}">
-                <apex:param value="{!Oli.gipr_Plazo__c}" />
-                </apex:outputText>{!Oli.cpliq_Periodicidad__c}</td>
+                <apex:param value="{!Oli.gipr_Plazo__c}"/>
+                </apex:outputText> {!Oli.cpliq_Periodicidad__c}</td>
             <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
         </tr>
-        <tr>
-            <td>Compromisos: {!totalC} </td>
-            <td>Comentarios: Aprobada </td>
-        </tr>
+        <apex:outputPanel id="SancionPrecioNo450_449" rendered="{!Product.Name!=$Label.lblPDFProductExport}" layout="block">
+            <tr>
+                <td>Compromisos: {!totalC} </td>
+                <td>Comentarios: Aprobada </td>
+            </tr>
+        </apex:outputPanel>
+        <apex:outputPanel id="SancionPrecio450_449" rendered="{!Product.Name==$Label.lblPDFProductExport || Product.Name==$Label.lblPDFProductImport}" layout="block">
+            <tr>
+                <td>Compromisos: {!totalC} </td>
+                <td>Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Comentarios: Aprobada </td>
+            </tr>
+        </apex:outputPanel>
     </table>
-    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.Name!='$Label.lblPDFProductExport' && Product.Name==$Label.lblPDFLeasingRealState && Product.Name!=$Label.lblPDFProductExport && Product.Name!=$Label.lblPDFLeasingForniture}" layout="block">
+    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.Name!='$Label.lblPDFProductExport' && Product.Name==$Label.lblPDFLeasingRealState && Product.Name!=$Label.lblPDFProductImport && Product.Name!=$Label.lblPDFLeasingForniture}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -127,7 +139,7 @@
                 </apex:outputText>
             </li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
-            <li>Tipo de amortización: {!OLI.cpliq_Amortizacion__c } </li>
+            <li>Tipo de amortización: {!OLI.cpliq_Amortizacion__c} </li>
             <li>Plazo: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.gipr_Plazo__c}" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad__c}</li>
@@ -137,7 +149,7 @@
             <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /> </apex:outputText></li>
         </ul>
     </apex:outputPanel>
-     <apex:outputPanel id="DatosOportunidad440" rendered="{!Product.Name==$Label.lblPDFLeasingRealState}" layout="block">
+    <apex:outputPanel id="DatosOportunidad440" rendered="{!Product.Name==$Label.lblPDFLeasingRealState}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -157,7 +169,7 @@
                 <apex:param value="{!Oli.gipr_Plazo__c}" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad__c}</li>
             <li>Efectividad cartera: 100% *</li>
-            </ul>
+        </ul>
     </apex:outputPanel>
 
     <apex:outputPanel id="DatosOportunidad449" rendered="{!Product.Name==$Label.lblPDFProductImport}" layout="block">
@@ -172,13 +184,16 @@
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Modalidad: {!Opportunity.Modality__c}</li>
-            <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
+            <li>Importe: <apex:outputText value=" S/.{0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
             </li>
-             <li>Divisa: {!Product.CurrencyIsoCode}</li>
+            <li>Divisa: {!Product.CurrencyIsoCode}</li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
             <li>Tipo de amortización: {!OLI.cpliq_Amortizacion__c } </li>
+            <apex:outputPanel id="DatosOportunidad449Manual" rendered="{!OLI.cpliq_Amortizacion__c=='Manual'}" layout="block">
+                <li>{!OLI.cpliq_Manual__c}</li>
+            </apex:outputPanel>
             <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /> </apex:outputText></li>
             <li>Plazo: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.gipr_Plazo__c}" />
@@ -187,8 +202,9 @@
                 <apex:param value="{!Oli.cpliq_n_gracia__c }" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
             <li>Amortización: {!Opportunity.Modality__c}</li>
-            <li>Financiamiento de Reemplazo: Sí *</li>
-         <br/>
+            <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c }</li>
+            <br/>
+            <apex:outputPanel id="DatosOportunidad449Table" rendered="{!OLI.da_Replacement_financing__c=='02'}" layout="block">
                 <table class="classTableBack">
                     <tr>
                         <th>N° Operación</th>
@@ -197,20 +213,23 @@
                         <th>Motivo de Reemplazo</th>
                     </tr>
                     <tr>
-                        <td>1232345-AB *</td>
-                        <td>PEN *</td>
-                        <td>S/. 9,500.00 *</td>
-                        <td>Daño *</td>
+                        <td>{!OLI.da_nOperation__c}</td>
+                        <td>{!OLI.CurrencyIsoCode}</td>
+                        <td> <apex:outputText value=" S/.{0, number,.00}">
+                            <apex:param value="{!Opportunity.Amount}" />
+                            </apex:outputText></td>
+                        <td>{!OLI.da_Replacement_Reason__c}</td>
                     </tr>
                 </table>
-                <li>Importador: Importadores del perú * </li>
-                <li>Detalle de mercadería: Revizado *</li>
-                <li>País de origen: Mex *</li>
-                <li>E-mail del cliente: mexempr@mexpro.com *</li>
-                <li>Riesgo Aprobado: Sí*</li>
-                <li>Riesgo Utilizado: 40%*</li>
-                <li>Saldo Disponible: S/. 900,898,00 *</li>
-                <li>Observaciones: Ninguna*</li>
+            </apex:outputPanel>
+            <li>Importador: {!OLI.da_Importer__c }</li>
+            <li>Detalle de mercadería: {!OLI.da_Merchandise_Detail__c }</li>
+            <li>País de destino: {!OLI.da_Destination_Country__c}</li>
+            <li>E-mail del cliente: {Client.email__c}</li>
+            <li>Riesgo Aprobado: {!OLI.da_Approved_Risk__c}</li>
+            <li>Riesgo Utilizado: {!OLI.da_Used_Risk__c}</li>
+            <li>Saldo Disponible:{!OLI.da_Available_Balance__c }</li>
+            <li>Observaciones: {!OLI.da_Observations__c}</li>
         </ul>
     </apex:outputPanel>
 
@@ -226,23 +245,24 @@
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Modalidad: {!Opportunity.Modality__c}</li>
-            <li>Divisa: {!Product.CurrencyIsoCode}</li>
             <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
             </li>
+            <li>Divisa: {!Product.CurrencyIsoCode}</li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
-            <li>Tipo de amortización: {!OLI.cpliq_Amortizacion__c } </li>
+            <li>Tipo de amortización: {!OLI.cpliq_Amortizacion__c} </li>
             <li>Plazo: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.gipr_Plazo__c}" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad__c}</li>
             <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.cpliq_n_gracia__c }" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
-            <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /> </apex:outputText></li>
+            <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}"/> </apex:outputText></li>
             <li>Amortización: {!Opportunity.Modality__c}</li>
-            <li>Financiamiento de Reemplazo: Sí *</li>
-                <br/>
+            <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c }</li>
+            <br/>
+            <apex:outputPanel id="DatosOportunidad450Table" rendered="{!OLI.da_Replacement_financing__c=='02'}" layout="block">
                 <table class="classTableBack">
                     <tr>
                         <th>N° Operación</th>
@@ -251,24 +271,46 @@
                         <th>Motivo de Reemplazo</th>
                     </tr>
                     <tr>
-                        <tr>
-                        <td>9832345-FB *</td>
-                        <td>PEN *</td>
-                        <td>S/. 9,000.00 *</td>
-                        <td>Daño *</td>
+                        <td>{!OLI.da_nOperation__c}</td>
+                        <td>{!OLI.CurrencyIsoCode}</td>
+                        <td> <apex:outputText value=" S/.{0, number,.00}">
+                            <apex:param value="{!Opportunity.Amount}" />
+                            </apex:outputText></td>
+                        <td>{!OLI.da_Replacement_Reason__c}</td>
                     </tr>
                 </table>
-                <li>Exportador: Expo Perú*</li>
-                <li>Detalle de mercadería: Revizado *</li>
-                <li>País de origen: Mex *</li>
-                <li>E-mail del cliente: mexempr@mexpro.com *</li>
-                <li>Riesgo Aprobado: Sí*</li>
-                <li>Riesgo Utilizado: 80%*</li>
-                <li>Saldo Disponible: S/. 890,800,00 *</li>
-                <li>Observaciones: Ninguna*</li>
+            </apex:outputPanel>
+            <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c }</li>
+            <br/>
+            <apex:outputPanel id="DatosOportunidadTable" rendered="{!OLI.da_Replacement_financing__c=='02'}" layout="block">
+                <table class="classTableBack">
+                    <tr>
+                        <th>N° Operación</th>
+                        <th>Moneda</th>
+                        <th>Importe</th>
+                        <th>Motivo de Reemplazo</th>
+                    </tr>
+                    <tr>
+                        <td>{!OLI.da_nOperation__c}</td>
+                        <td>{!OLI.CurrencyIsoCode}</td>
+                        <td> <apex:outputText value=" S/.{0, number,.00}">
+                            <apex:param value="{!Opportunity.Amount}" />
+                            </apex:outputText></td>
+                        <td>{!OLI.da_Replacement_Reason__c}</td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+            <li>Exportador: {!OLI.da_Exporter__c}</li>
+            <li>Detalle de mercadería: {!OLI.da_Merchandise_Detail__c }</li>
+            <li>País de destino: {!OLI.da_Destination_Country__c}</li>
+            <li>E-mail del cliente: {Client.email__c}</li>
+            <li>Riesgo Aprobado: {!OLI.da_Approved_Risk__c}</li>
+            <li>Riesgo Utilizado: {!OLI.da_Used_Risk__c}</li>
+            <li>Saldo Disponible:{!OLI.da_Available_Balance__c }</li>
+            <li>Observaciones: {!OLI.da_Observations__c}</li>
         </ul>
     </apex:outputPanel>
-      <apex:outputPanel id="DatosOportunidad459" rendered="{!Product.Name==$label.lblPDFLeasingForniture}" layout="block">
+    <apex:outputPanel id="DatosOportunidad459" rendered="{!Product.Name==$Label.lblPDFLeasingForniture}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -283,12 +325,13 @@
                 </apex:outputText>
             </li>
             <li>Divisa: {!Product.CurrencyIsoCode}</li>
-            <li>Tipo de carta fianza: federal*  </li>
-            <li>Beneficiario: Andres Gómez *</li>
-            <li>Texto VB° legal:  Ok* </li>
+            <li>Tipo de carta fianza: {!OLI.tcf_type_bail_letter__c } </li>
+            <li>Beneficiario: {!OLI.tcf_beneficiary__c}</li>
+            <li>Tipo de beneficiario: {!OLI.tcf_type_beneficiary__c}</li>
+            <li>Texto VB° legal:  {!OLI.tcf_Legal_VB_text__c} </li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
-            <li>Periodicidad comisión: 1 mes* </li>
-          </ul>
+            <li>Periodicidad comisión: {!OLI.tcf_Periodicity_commission__c} </li>
+        </ul>
     </apex:outputPanel>
     <div class="title">
         <h3>

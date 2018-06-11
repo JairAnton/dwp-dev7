@@ -589,7 +589,7 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblPDFLeasingForniture</shortDescription>
-        <value>Leasing mobiliario</value>
+        <value>Carta Fianza</value>
     </labels>
     <labels>
         <fullName>lblPDFLeasingRealState</fullName>
