@@ -105,13 +105,13 @@
                 </apex:outputText> {!Oli.cpliq_Periodicidad__c}</td>
             <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
         </tr>
-        <apex:outputPanel id="SancionPrecioNo450_449" rendered="{!Product.Name!=$Label.lblPDFProductExport}" layout="block">
+        <apex:outputPanel id="SancionPrecioNo450_449" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport}" layout="block">
             <tr>
                 <td>Compromisos: {!totalC} </td>
                 <td>Comentarios: Aprobada </td>
             </tr>
         </apex:outputPanel>
-        <apex:outputPanel id="SancionPrecio450_449" rendered="{!Product.Name==$Label.lblPDFProductExport || Product.Name==$Label.lblPDFProductImport}" layout="block">
+        <apex:outputPanel id="SancionPrecio450_449" rendered="{!Product.ProductCode ==$Label.lblPDFProductExport || Product.ProductCode ==$Label.lblPDFProductImport}" layout="block">
             <tr>
                 <td>Compromisos: {!totalC} </td>
                 <td>Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
@@ -122,7 +122,7 @@
             </tr>
         </apex:outputPanel>
     </table>
-    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.Name!='$Label.lblPDFProductExport' && Product.Name==$Label.lblPDFLeasingRealState && Product.Name!=$Label.lblPDFProductImport && Product.Name!=$Label.lblPDFLeasingForniture}" layout="block">
+    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !='$Label.lblPDFProductExport' && Product.ProductCode ==$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -149,7 +149,7 @@
             <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /> </apex:outputText></li>
         </ul>
     </apex:outputPanel>
-    <apex:outputPanel id="DatosOportunidad440" rendered="{!Product.Name==$Label.lblPDFLeasingRealState}" layout="block">
+    <apex:outputPanel id="DatosOportunidad440" rendered="{!Product.ProductCode ==$Label.lblPDFLeasingRealState}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -172,7 +172,7 @@
         </ul>
     </apex:outputPanel>
 
-    <apex:outputPanel id="DatosOportunidad449" rendered="{!Product.Name==$Label.lblPDFProductImport}" layout="block">
+    <apex:outputPanel id="DatosOportunidad449" rendered="{!Product.ProductCode ==$Label.lblPDFProductImport}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -233,7 +233,7 @@
         </ul>
     </apex:outputPanel>
 
-    <apex:outputPanel id="DatosOportunidad450" rendered="{!Product.Name==$Label.lblPDFProductExport}" layout="block">
+    <apex:outputPanel id="DatosOportunidad450" rendered="{!Product.ProductCode ==$Label.lblPDFProductExport}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -310,7 +310,7 @@
             <li>Observaciones: {!OLI.da_Observations__c}</li>
         </ul>
     </apex:outputPanel>
-    <apex:outputPanel id="DatosOportunidad459" rendered="{!Product.Name==$Label.lblPDFLeasingForniture}" layout="block">
+    <apex:outputPanel id="DatosOportunidad459" rendered="{!Product.ProductCode ==$Label.lblPDFLeasingForniture}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -391,7 +391,7 @@
             </tr>
         </apex:repeat>
     </table>
-    <apex:outputPanel id="DocClienteExportacion" rendered="{!Product.Name==$Label.lblPDFProductExport}" layout="block">
+    <apex:outputPanel id="DocClienteExportacion" rendered="{!Product.ProductCode ==$Label.lblPDFProductExport}" layout="block">
         <br/>
         <table class="classTableBack">
             <tr>
@@ -416,7 +416,7 @@
             </tr>
         </table>
     </apex:outputPanel>
-    <apex:outputPanel id="DocClienteImportacion" rendered="{!Product.Name==$Label.lblPDFProductImport}" layout="block">
+    <apex:outputPanel id="DocClienteImportacion" rendered="{!Product.ProductCode ==$Label.lblPDFProductImport}" layout="block">
         <br/>
         <table class="classTableBack">
             <tr>

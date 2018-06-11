@@ -23,7 +23,7 @@ public virtual class OpportunityPDFWrap {
       msg= 'Datos incompletos en producto oportunidad';
       OLI = [SELECT ID,PE_POR_TEA_minima__c,da_Used_Risk__c,da_Observations__c,da_Available_Balance__c ,da_Exporter__c,CurrencyIsoCode,toLabel(da_Replacement_Reason__c) ,cpliq_Manual__c,da_nOperation__c,toLabel(tcf_type_beneficiary__c),toLabel(gipr_Comex_Bag__c),toLabel(tcf_Periodicity_commission__c),tcf_beneficiary__c,toLabel(tcf_type_bail_letter__c),toLabel(tcf_Legal_VB_text__c)gipr_Tipo_Garantia__c,cpliq_n_gracia__c  ,PE_POR_TEA_propuesta__c,PE_POR_TEA_sugerida__c, toLabel(cpliq_Periodicidad__c),cpliq_Codigo_Simulacion__c ,cpliq_Fecha_Vencimiento__c ,toLabel(cpliq_Periodicidad_gracia__c),Siocode__c,toLabel(gipr_Destino__c),cpliq_Cuenta_vinculada__c,toLabel(cpliq_Amortizacion__c),Product2Id,gipr_Plazo__c ,gipr_Garantia__c  FROM OpportunityLineItem WHERE  OpportunityID =:Oppid ORDER BY CreatedDate DESC LIMIT 1];
       msg= 'Datos incompletos en producto';
-      Product = [SELECT ID,Family,Name,CurrencyIsoCode FROM Product2 WHERE Id =:OLI.Product2Id LIMIT 1];
+      Product = [SELECT ID,Family,Name,CurrencyIsoCode, ProductCode  FROM Product2 WHERE Id =:OLI.Product2Id LIMIT 1];
       msg= 'Datos incompletos en cliente';
       Client =[SELECT ID,risk_strategy_class_name__c,email__c,Name,AccountNumber,branch_id__c,bbva_classification_desc__c,alert_desc__c,main_code_id__c,banking_system_classification_desc__c,bureau_classification_type__c FROM Account WHERE Id =: opp.AccountId LIMIT 1];
       msg= 'Datos incompletos en clasificación BBVA-Cliente';
