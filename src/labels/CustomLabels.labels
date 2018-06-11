@@ -452,6 +452,13 @@
         <value>Sanction price</value>
     </labels>
     <labels>
+        <fullName>lblSanctionRisk</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblSanctionRisk</shortDescription>
+        <value>lblSanctionRisk</value>
+    </labels>
+    <labels>
         <fullName>lblTitleFormalization</fullName>
         <language>en_US</language>
         <protected>false</protected>
