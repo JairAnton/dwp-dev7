@@ -170,7 +170,7 @@
         <members>lblPDFLeasingRealState</members>
         <members>lblPDFProductExport</members>
         <members>lblPDFProductImport</members>
-        <members>lblPDFLeasingForniture</members>        
+        <members>lblPDFLeasingForniture</members>
         <name>CustomLabel</name>
     </types>
     <types>
