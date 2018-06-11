@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>N° Contrato</label>
+    <label>Exportador</label>
     <protected>false</protected>
     <values>
         <field>fprd__Dependent_field__c</field>
@@ -44,7 +44,7 @@
     </values>
     <values>
         <field>fprd__dependent_parent_field__c</field>
-        <value xsi:type="xsd:string">gipr_PaymentM_PC00005</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>fprd__isHeader__c</field>
@@ -68,15 +68,15 @@
     </values>
     <values>
         <field>fprd__map_field__c</field>
-        <value xsi:type="xsd:string">gipr_Contract_Number__c</value>
+        <value xsi:type="xsd:string">da_Exporter__c</value>
     </values>
     <values>
         <field>fprd__order__c</field>
-        <value xsi:type="xsd:double">8.0</value>
+        <value xsi:type="xsd:double">6.0</value>
     </values>
     <values>
         <field>fprd__parent_value__c</field>
-        <value xsi:type="xsd:string">Carta de crédito,Cobranza documentaria</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>fprd__product__c</field>
@@ -84,11 +84,11 @@
     </values>
     <values>
         <field>fprd__section__c</field>
-        <value xsi:type="xsd:string">Información general del producto</value>
+        <value xsi:type="xsd:string">Datos adicionales</value>
     </values>
     <values>
         <field>fprd__section_order__c</field>
-        <value xsi:type="xsd:double">1.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>fprd__type__c</field>

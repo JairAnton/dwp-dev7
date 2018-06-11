@@ -92,6 +92,6 @@
     </values>
     <values>
         <field>fprd__type__c</field>
-        <value xsi:type="xsd:string">text</value>
+        <value xsi:type="xsd:string">textArea</value>
     </values>
 </CustomMetadata>
