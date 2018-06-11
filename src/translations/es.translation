@@ -316,7 +316,11 @@
         <label>Sancionar precio</label>
         <name>lblSanctionPrice</name>
     </customLabels>    
-   <customLabels>
+    <customLabels>
+        <label>Sancionar riesgo</label>
+        <name>lblSanctionRisk</name>
+    </customLabels>
+    <customLabels>
         <label>Para dar de alta una nueva Oportunidad, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nueva Oportunidad&quot;</label>
         <name>NewOpportunityWarning</name>
     </customLabels>
