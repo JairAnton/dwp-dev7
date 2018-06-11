@@ -222,14 +222,14 @@
                     </tr>
                 </table>
             </apex:outputPanel>
-            <li>Importador: Importadores del perú * </li>
-            <li>Detalle de mercadería: Revizado *</li>
-            <li>País de origen: Mex *</li>
-            <li>E-mail del cliente: mexempr@mexpro.com *</li>
-            <li>Riesgo Aprobado: Sí*</li>
-            <li>Riesgo Utilizado: 40%*</li>
-            <li>Saldo Disponible: S/. 900,898,00 *</li>
-            <li>Observaciones: Ninguna*</li>
+            <li>Importador: {!OLI.da_Importer__c }</li>
+            <li>Detalle de mercadería: {!OLI.da_Merchandise_Detail__c }</li>
+            <li>País de destino: {!OLI.da_Destination_Country__c}</li>
+            <li>E-mail del cliente: {Client.email__c}</li>
+            <li>Riesgo Aprobado: {!OLI.da_Approved_Risk__c}</li>
+            <li>Riesgo Utilizado: {!OLI.da_Used_Risk__c}</li>
+            <li>Saldo Disponible:{!OLI.da_Available_Balance__c }</li>
+            <li>Observaciones: {!OLI.da_Observations__c}</li>
         </ul>
     </apex:outputPanel>
 
@@ -300,14 +300,14 @@
                     </tr>
                 </table>
             </apex:outputPanel>
-            <li>Exportador: Expo Perú*</li>
-            <li>Detalle de mercadería: Revizado *</li>
-            <li>País de origen: Mex *</li>
-            <li>E-mail del cliente: mexempr@mexpro.com *</li>
-            <li>Riesgo Aprobado: Sí*</li>
-            <li>Riesgo Utilizado: 80%*</li>
-            <li>Saldo Disponible: S/. 890,800,00 *</li>
-            <li>Observaciones: Ninguna*</li>
+            <li>Exportador: {!OLI.da_Exporter__c}</li>
+            <li>Detalle de mercadería: {!OLI.da_Merchandise_Detail__c }</li>
+            <li>País de destino: {!OLI.da_Destination_Country__c}</li>
+            <li>E-mail del cliente: {Client.email__c}</li>
+            <li>Riesgo Aprobado: {!OLI.da_Approved_Risk__c}</li>
+            <li>Riesgo Utilizado: {!OLI.da_Used_Risk__c}</li>
+            <li>Saldo Disponible:{!OLI.da_Available_Balance__c }</li>
+            <li>Observaciones: {!OLI.da_Observations__c}</li>
         </ul>
     </apex:outputPanel>
     <apex:outputPanel id="DatosOportunidad459" rendered="{!Product.Name==$Label.lblPDFLeasingForniture}" layout="block">
