@@ -279,8 +279,6 @@
                     </tr>
                 </table>
             </apex:outputPanel>
-
-            <br/>
             <apex:outputPanel id="DatosOportunidadTable" rendered="{!OLI.da_Replacement_financing__c=='02'}" layout="block">
                 <table class="classTableBack">
                     <tr>
