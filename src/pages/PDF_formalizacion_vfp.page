@@ -61,11 +61,11 @@
     <br/>
     <table>
         <tr>
-            <td>Modalidad: </td>
-            <td>{!Opp.Modality__c}</td>
+            <td>Modalidad: {!opportunity.Modality__c}</td>
+            <td></td>
         </tr>
         <tr>
-            <td>Codigo SIO: {!Opp.LastSIOcode__c} </td>
+            <td>Codigo SIO: {!opportunity.LastSIOcode__c} </td>
             <td>Fecha autorización: 12/07/2018 *</td>
         </tr>
         <tr>
@@ -105,7 +105,7 @@
                 </apex:outputText> {!Oli.cpliq_Periodicidad__c}</td>
             <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
         </tr>
-        <apex:outputPanel id="SancionPrecioNo450_449" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport}" layout="block">
+        <apex:outputPanel id="SancionPrecioNo450_449" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFProductImport}" layout="block">
             <tr>
                 <td>Compromisos: {!totalC} </td>
                 <td>Comentarios: Aprobada </td>
@@ -122,7 +122,7 @@
             </tr>
         </apex:outputPanel>
     </table>
-    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !='$Label.lblPDFProductExport' && Product.ProductCode ==$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture}" layout="block">
+    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !='$Label.lblPDFProductExport' && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -134,7 +134,7 @@
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Divisa: {!Product.CurrencyIsoCode}</li>
-            <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
+            <li>Importe: <apex:outputText value=" S/.{0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
             </li>
@@ -159,7 +159,7 @@
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
+            <li>Importe: <apex:outputText value=" S/.{0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
             </li>
@@ -183,8 +183,8 @@
             <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Modalidad: {!Opp.Modality__c}</li>
-            <li>Importe: <apex:outputText value=" S/.{0, number,.00}">
+            <li>Modalidad: {!opportunity.Modality__c}</li>
+            <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
             </li>
@@ -202,7 +202,7 @@
                 <apex:param value="{!Oli.cpliq_n_gracia__c }" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
             <li>Amortización: {!Opportunity.Modality__c}</li>
-            <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c }</li>
+            <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c}</li>
             <br/>
             <apex:outputPanel id="DatosOportunidad449Table" rendered="{!OLI.da_Replacement_financing__c=='02'}" layout="block">
                 <table class="classTableBack">
@@ -225,7 +225,7 @@
             <li>Importador: {!OLI.da_Importer__c }</li>
             <li>Detalle de mercadería: {!OLI.da_Merchandise_Detail__c }</li>
             <li>País de destino: {!OLI.da_Destination_Country__c}</li>
-            <li>E-mail del cliente: {Client.email__c}</li>
+            <li>E-mail del cliente: {!Client.email__c}</li>
             <li>Riesgo Aprobado: {!OLI.da_Approved_Risk__c}</li>
             <li>Riesgo Utilizado: {!OLI.da_Used_Risk__c}</li>
             <li>Saldo Disponible:{!OLI.da_Available_Balance__c }</li>
@@ -244,9 +244,9 @@
             <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Modalidad: {!Opp.Modality__c}</li>
-            <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
-                <apex:param value="{!Opp.Amount}" />
+            <li>Modalidad: {!opportunity.Modality__c}</li>
+            <li>:<apex:outputText value=" S/.{0, number,.00}">
+                <apex:param value="{!opportunity.Amount}" />
                 </apex:outputText>
             </li>
             <li>Divisa: {!Product.CurrencyIsoCode}</li>
@@ -274,7 +274,7 @@
                         <td>{!OLI.da_nOperation__c}</td>
                         <td>{!OLI.CurrencyIsoCode}</td>
                         <td> <apex:outputText value=" S/.{0, number,.00}">
-                            <apex:param value="{!Opp.Amount}" />
+                            <apex:param value="{!opportunity.Amount}" />
                             </apex:outputText></td>
                         <td>{!OLI.da_Replacement_Reason__c}</td>
                     </tr>
@@ -294,7 +294,7 @@
                         <td>{!OLI.da_nOperation__c}</td>
                         <td>{!OLI.CurrencyIsoCode}</td>
                         <td> <apex:outputText value=" S/.{0, number,.00}">
-                            <apex:param value="{!Opp.Amount}" />
+                            <apex:param value="{!opportunity.Amount}" />
                             </apex:outputText></td>
                         <td>{!OLI.da_Replacement_Reason__c}</td>
                     </tr>
@@ -320,8 +320,8 @@
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
-                <apex:param value="{!Opp.Amount}" />
+            <li>Importe: <apex:outputText value=" S/.{0, number,.00}">
+                <apex:param value="{!opportunity.Amount}" />
                 </apex:outputText>
             </li>
             <li>Divisa: {!Product.CurrencyIsoCode}</li>
