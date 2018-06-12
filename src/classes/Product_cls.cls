@@ -8,7 +8,10 @@
 public with sharing class Product_cls {
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
 		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,PE_DATE_Fecha_cotizacion__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
-		return row;
+		if(!row.isEmpty())
+			return row;
+		else
+			return null;
 	}
 
 	@AuraEnabled public static Boolean verifyIfHasQuoted(String IdOpportunity){

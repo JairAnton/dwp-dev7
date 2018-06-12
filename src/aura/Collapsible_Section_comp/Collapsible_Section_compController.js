@@ -18,4 +18,12 @@
    sectionFour : function(component, event, helper) {
       helper.helperFun(component,event,'articleFour');
    },
+  handleSelectedEvent : function(cmp, evt, helper) {
+    var opportunityProductId = evt.getParam('productId');
+    if(opportunityProductId==="")
+      cmp.set('v.bProduct',false);
+    else
+      cmp.set('v.bProduct',true);
+  }
+
 })
