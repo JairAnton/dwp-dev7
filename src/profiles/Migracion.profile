@@ -1996,6 +1996,11 @@
         <editable>true</editable>
         <field>OpportunityLineItem.gipr_Garantia__c</field>
         <readable>true</readable>
+    </fieldPermissions> 
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Replacement_financing__c</field>
+        <readable>true</readable>
     </fieldPermissions>                 
     <layoutAssignments>
         <layout>User-User Layout</layout>

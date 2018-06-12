@@ -2101,8 +2101,13 @@
         <editable>true</editable>
         <field>OpportunityLineItem.gipr_Garantia__c</field>
         <readable>true</readable>
-    </fieldPermissions>              
-	<layoutAssignments>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Replacement_financing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>                 
+    <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>
 	<layoutAssignments>
