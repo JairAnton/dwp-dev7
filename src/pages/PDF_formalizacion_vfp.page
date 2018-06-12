@@ -133,8 +133,8 @@
             <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Divisa: {!Product.CurrencyIsoCode}</li>
-            <li>Importe: <apex:outputText value=" S/.{0, number,.00}">
+            <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
+            <li>Importe: <apex:outputText value=" {0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
             </li>
@@ -159,13 +159,13 @@
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Importe: <apex:outputText value=" S/.{0, number,.00}">
+            <li>Importe: <apex:outputText value=" {0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
             </li>
-            <li>Divisa: {!Product.CurrencyIsoCode}</li>
+            <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
-            <li>Plazo: <apex:outputText value="{0, number,0}">
+            <li>Plazo: <apex:outputText value=" {0, number,0}">
                 <apex:param value="{!Oli.gipr_Plazo__c}" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad__c}</li>
             <li>Efectividad cartera: 100% *</li>
@@ -184,11 +184,11 @@
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Modalidad: {!Modalidad}</li>
-            <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
+            <li>Importe:<apex:outputText value=" {0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
             </li>
-            <li>Divisa: {!Product.CurrencyIsoCode}</li>
+            <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
             <li>Tipo de amortización: {!OLI.cpliq_Amortizacion__c } </li>
             <apex:outputPanel id="DatosOportunidad449Manual" rendered="{!OLI.cpliq_Amortizacion__c=='Manual'}" layout="block">
@@ -215,7 +215,7 @@
                     <tr>
                         <td>{!OLI.da_nOperation__c}</td>
                         <td>{!OLI.CurrencyIsoCode}</td>
-                        <td> <apex:outputText value=" S/.{0, number,.00}">
+                        <td> <apex:outputText value=" {0, number,.00}">
                             <apex:param value="{!Opportunity.Amount}" />
                             </apex:outputText></td>
                         <td>{!OLI.da_Replacement_Reason__c}</td>
@@ -245,11 +245,11 @@
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Modalidad: {!Modalidad}</li>
-            <li>:<apex:outputText value=" S/.{0, number,.00}">
+            <li>Importe:<apex:outputText value=" {0, number,.00}">
                 <apex:param value="{!opportunity.Amount}" />
                 </apex:outputText>
             </li>
-            <li>Divisa: {!Product.CurrencyIsoCode}</li>
+            <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
             <li>Tipo de amortización: {!OLI.cpliq_Amortizacion__c} </li>
             <li>Plazo: <apex:outputText value="{0, number,0}">
@@ -272,7 +272,7 @@
                     <tr>
                         <td>{!OLI.da_nOperation__c}</td>
                         <td>{!OLI.CurrencyIsoCode}</td>
-                        <td> <apex:outputText value=" S/.{0, number,.00}">
+                        <td> <apex:outputText value=" {0, number,.00}">
                             <apex:param value="{!opportunity.Amount}" />
                             </apex:outputText></td>
                         <td>{!OLI.da_Replacement_Reason__c}</td>
@@ -290,7 +290,7 @@
                     <tr>
                         <td>{!OLI.da_nOperation__c}</td>
                         <td>{!OLI.CurrencyIsoCode}</td>
-                        <td> <apex:outputText value=" S/.{0, number,.00}">
+                        <td> <apex:outputText value=" {0, number,.00}">
                             <apex:param value="{!opportunity.Amount}" />
                             </apex:outputText></td>
                         <td>{!OLI.da_Replacement_Reason__c}</td>
@@ -317,11 +317,11 @@
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Importe: <apex:outputText value=" S/.{0, number,.00}">
+            <li>Importe: <apex:outputText value=" {0, number,.00}">
                 <apex:param value="{!opportunity.Amount}" />
                 </apex:outputText>
             </li>
-            <li>Divisa: {!Product.CurrencyIsoCode}</li>
+            <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
             <li>Tipo de carta fianza: {!OLI.tcf_type_bail_letter__c } </li>
             <li>Beneficiario: {!OLI.tcf_beneficiary__c}</li>
             <li>Tipo de beneficiario: {!OLI.tcf_type_beneficiary__c}</li>
@@ -359,7 +359,7 @@
                 <td class="cd"><apex:outputText value="{0, number,0}">
                     <apex:param value="{!Garantia.nGuarantee__c}" />
                     </apex:outputText></td>
-                <td class="cd"><apex:outputText value=" S/. {0, number, .00}">
+                <td class="cd"><apex:outputText value="{0, number, .00}">
                     <apex:param value="{!Garantia.Amount__c}" />
                     </apex:outputText>
                 </td>
