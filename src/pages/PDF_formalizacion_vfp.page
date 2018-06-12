@@ -2,7 +2,7 @@
     <apex:stylesheet value="{!$Resource.stylePDF}"/>
     <apex:image value="{!URLFOR($Resource.BBVALogo)}"  width="350" height="100"/>
     <div class="title">
-        <h2>PDF Formalización {!Opp.Name}</h2>
+        <h2>PDF Formalización {!Opportunity.Name}</h2>
     </div>
     <div class="title">
         <b>Datos cliente</b>
@@ -156,7 +156,7 @@
         </div>
         <br/>
         <ul>
-            <li>Nombre de la oportunidad: {!Opp.Name} </li>
+            <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
@@ -179,7 +179,7 @@
         </div>
         <br/>
         <ul>
-            <li>Nombre de la oportunidad: {!Opp.Name} </li>
+            <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
             <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
@@ -240,7 +240,7 @@
         </div>
         <br/>
         <ul>
-            <li>Nombre de la oportunidad: {!Opp.Name} </li>
+            <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
             <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
@@ -317,7 +317,7 @@
         </div>
         <br/>
         <ul>
-            <li>Nombre de la oportunidad: {!Opp.Name} </li>
+            <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Importe:<apex:outputText value=" S/.{0, number,.00}">
