@@ -122,7 +122,7 @@
             </tr>
         </apex:outputPanel>
     </table>
-    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !='$Label.lblPDFProductExport' && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture}" layout="block">
+    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -261,7 +261,6 @@
             <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}"/> </apex:outputText></li>
             <li>Amortización: {!Modalidad}</li>
             <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c }</li>
-            <br/>
             <apex:outputPanel id="DatosOportunidad450Table" rendered="{!OLI.da_Replacement_financing__c=='02'}" layout="block">
                 <table class="classTableBack">
                     <tr>
@@ -280,7 +279,7 @@
                     </tr>
                 </table>
             </apex:outputPanel>
-            <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c }</li>
+
             <br/>
             <apex:outputPanel id="DatosOportunidadTable" rendered="{!OLI.da_Replacement_financing__c=='02'}" layout="block">
                 <table class="classTableBack">
@@ -303,7 +302,7 @@
             <li>Exportador: {!OLI.da_Exporter__c}</li>
             <li>Detalle de mercadería: {!OLI.da_Merchandise_Detail__c }</li>
             <li>País de destino: {!OLI.da_Destination_Country__c}</li>
-            <li>E-mail del cliente: {Client.email__c}</li>
+            <li>E-mail del cliente: {!Client.email__c}</li>
             <li>Riesgo Aprobado: {!OLI.da_Approved_Risk__c}</li>
             <li>Riesgo Utilizado: {!OLI.da_Used_Risk__c}</li>
             <li>Saldo Disponible:{!OLI.da_Available_Balance__c }</li>
