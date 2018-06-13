@@ -1080,14 +1080,14 @@
     <fields>
         <fullName>unique_id__c</fullName>
         <description>Internal control code</description>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Unique identifier</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>isProcess__c</fullName>
