@@ -2121,7 +2121,12 @@
         <editable>true</editable>
         <field>OpportunityLineItem.da_Replacement_financing__c</field>
         <readable>true</readable>
-    </fieldPermissions>                 
+    </fieldPermissions>  
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Destination_Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>                  
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>
@@ -2644,7 +2649,7 @@
         <name>ChatterComposeUiCodesnippet</name>
     </userPermissions>
 	<userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ChangeDashboardColors</name>
     </userPermissions>
     <userPermissions>
