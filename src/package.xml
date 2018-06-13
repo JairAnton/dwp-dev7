@@ -311,6 +311,8 @@
         <members>Account_Renewals__c</members>
         <members>Account_Banking_System_Classification__c</members>
 		<members>Product2</members>
+		<members>PricebookEntry</members>
+		<members>Pricebook2</members>
 		<members>OpportunityTeamMember</members>
         <members>Task</members>
         <members>Product_Gurantee__c</members>
@@ -778,6 +780,10 @@
         <members>OpportunityLineItem.da_Exporter__c</members>
         <members>OpportunityLineItem.da_Origin_Country__c</members>
         <members>OpportunityLineItem.cpliq_Manual__c</members>
+		<members>Product2.Unique_id__c</members>
+		<members>PricebookEntry.Unique_id__c</members>
+		<members>Pricebook2.Unique_id__c</members>
+		
 		<name>CustomField</name>
     </types>
     <types>
