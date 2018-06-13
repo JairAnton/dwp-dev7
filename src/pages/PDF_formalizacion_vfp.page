@@ -103,35 +103,16 @@
             <td>Plazo: <apex:outputText value=" {0, number,0} ">
                 <apex:param value="{!Oli.cpliq_n__c}"/>
                 </apex:outputText> {!Oli.cpliq_Periodicidad__c}</td>
-            <td>Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
+            <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
         </tr>
-        <apex:outputPanel id="SancionPrecioNo450_449" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFProductImport}" layout="block">
-            <tr>
-                <td>Compromisos: {!totalC} </td>
-                <td>Comentarios: Aprobada </td>
-            </tr>
-        </apex:outputPanel>
-        <apex:outputPanel id="SancionPrecio449" rendered="{!Product.ProductCode ==$Label.lblPDFProductImport}" layout="block">
-            <tr>
-                <td>Medio de pago: {!OLI.gipr_Payment_Method__c}</td>
-                <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
-            </tr>
-            <tr>
-                <td>Compromisos: {!totalC} </td>
-                <td>Comentarios: Aprobada </td>
-            </tr>
-        </apex:outputPanel>
-        <apex:outputPanel id="SancionPrecio450" rendered="{!Product.ProductCode ==$Label.lblPDFProductExport}" layout="block">
-            <tr>
-                <td>Medio de pago: {!OLI.gipr_Payment_Method__c}</td>
-
-            </tr>
-            <tr>
-                <td>Compromisos: {!totalC} </td>
-                <td>Comentarios: Aprobada </td>
-            </tr>
-        </apex:outputPanel>
-
+        <tr rendered="{!Product.ProductCode == $Label.lblPDFProductExport} || !Product.ProductCode == $Label.lblPDFProductImport}">
+            <td>Medio de pago: {!OLI.gipr_Payment_Method__c}</td>
+            <td >Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
+        </tr>
+        <tr>
+            <td>Compromisos: {!totalC} </td>
+            <td>Comentarios: Aprobada </td>
+        </tr>
     </table>
     <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture}" layout="block">
         <br/>
