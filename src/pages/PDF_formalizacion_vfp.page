@@ -105,10 +105,12 @@
                 </apex:outputText> {!Oli.cpliq_Periodicidad__c}</td>
             <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
         </tr>
-        <tr rendered="{!Product.ProductCode == $Label.lblPDFProductExport} || !Product.ProductCode == $Label.lblPDFProductImport}">
+        <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductExport} || !Product.ProductCode == $Label.lblPDFProductImport}">
+        <tr>
             <td>Medio de pago: {!OLI.gipr_Payment_Method__c}</td>
-            <td >Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
+            <td>Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
         </tr>
+        </apex:outputPanel>
         <tr>
             <td>Compromisos: {!totalC} </td>
             <td>Comentarios: Aprobada </td>
@@ -197,7 +199,7 @@
             <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c}</li>
             <apex:outputPanel id="DatosOportunidad449Table" rendered="{!OLI.da_Replacement_financing__c=='Si'}" layout="block">
                 <table class="classTableBack">
-                    <tr style="background-color: #42517c;">
+                    <tr style="background-color: #f2f2f2;">
                         <th>N° Operación</th>
                         <th>Moneda</th>
                         <th>Importe</th>
@@ -205,7 +207,7 @@
                     </tr>
                     <tr>
                         <td>{!OLI.da_nOperation__c}</td>
-                        <td>{!Opportunity.CurrencyIsoCode}</td>
+                        <td>{!OLI.da_Currency__c}</td>
                         <td> <apex:outputText value=" {0, number,.00}">
                             <apex:param value="{!Oli.da_Amount__c}" />
                             </apex:outputText></td>
@@ -213,7 +215,7 @@
                     </tr>
                 </table>
             </apex:outputPanel>
-            <li>Exportador: {!OLI.da_Importer__c }</li>
+            <li>Exportador: {!OLI.da_Exporter__c }</li>
             <li>Detalle de mercadería: {!OLI.da_Merchandise_Detail__c }</li>
             <li>País de origen: {!OLI.da_Origin_Country__c }</li>
             <li>E-mail del cliente: {!Client.email__c}</li>
@@ -417,7 +419,7 @@
             </tr>
         </table>
     </apex:outputPanel>
-    <br>
+    <br/>
     <apex:outputPanel id="DocClienteImportacion" rendered="{!Product.ProductCode ==$Label.lblPDFProductImport}">
         <br/>
         <div class="title">
