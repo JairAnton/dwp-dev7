@@ -8,7 +8,10 @@
 public with sharing class Product_cls {
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
 		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,PE_DATE_Fecha_cotizacion__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
-		return row;
+		if(!row.isEmpty())
+			return row;
+		else
+			return null;
 	}
 
 	@AuraEnabled public static Boolean verifyIfHasQuoted(String IdOpportunity){
@@ -45,10 +48,14 @@ public with sharing class Product_cls {
 		return objData;
 	}
 
-		@AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){	
-		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
+	@AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){	
+		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
 		return objData;
 	}
+
+	@AuraEnabled public static String getOportunidadSytem(String Filtro) {       
+        return Object_Controller.getOportunidadSytem(Filtro);       
+    }
 
 	@AuraEnabled public static Boolean deleteGuaranteeDataByProduct(String IdProductGuarantee){
 		Product_Gurantee__c objData= [SELECT Id FROM Product_Gurantee__c Where Id=: IdProductGuarantee];

@@ -11,9 +11,12 @@
 */
 public virtual  class PDF_formalizacion_ctrl extends OpportunityPDFWrap   {
 
-    public PDF_formalizacion_ctrl(ApexPages.StandardController controller){
+    public  PDF_formalizacion_ctrl(ApexPages.StandardController controller){
        setValues(controller.getId());
+    }
 
+     public static string msg(string Id){
+      return setValues(Id);
     }
 
 }

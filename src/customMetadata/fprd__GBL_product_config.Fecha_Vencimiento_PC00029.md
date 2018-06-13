@@ -7,6 +7,10 @@
         <value xsi:nil="true"/>
     </values>
     <values>
+        <field>fprd__Header_order__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>fprd__Limite_Inferior__c</field>
         <value xsi:nil="true"/>
     </values>
@@ -31,12 +35,20 @@
         <value xsi:nil="true"/>
     </values>
     <values>
+        <field>fprd__Related_map_fields__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>fprd__default_value__c</field>
         <value xsi:nil="true"/>
     </values>
     <values>
         <field>fprd__dependent_parent_field__c</field>
         <value xsi:type="xsd:string">Tipo_amortizacion_PC00029</value>
+    </values>
+    <values>
+        <field>fprd__isHeader__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>fprd__isHidden__c</field>
@@ -60,11 +72,11 @@
     </values>
     <values>
         <field>fprd__order__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:double">4.0</value>
     </values>
     <values>
         <field>fprd__parent_value__c</field>
-        <value xsi:type="xsd:string">Al vencimiento</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>fprd__product__c</field>
@@ -72,11 +84,11 @@
     </values>
     <values>
         <field>fprd__section__c</field>
-        <value xsi:type="xsd:string">Criterios de pago y liquidación</value>
+        <value xsi:type="xsd:string">Información general del producto</value>
     </values>
     <values>
         <field>fprd__section_order__c</field>
-        <value xsi:type="xsd:double">5.0</value>
+        <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>fprd__type__c</field>

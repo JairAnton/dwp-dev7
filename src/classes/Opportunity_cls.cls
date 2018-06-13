@@ -44,4 +44,9 @@ public with sharing class Opportunity_cls {
        
         return resultado;
     }
+
+    @AuraEnabled public static String getAccountName(String IdAccount){
+		String  result = [SELECT  Name FROM Account Where Id=: IdAccount LIMIT 1][0].Name;
+		return result;
+	}
 }

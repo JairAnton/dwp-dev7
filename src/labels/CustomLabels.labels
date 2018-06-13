@@ -452,6 +452,13 @@
         <value>Sanction price</value>
     </labels>
     <labels>
+        <fullName>lblSanctionRisk</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblSanctionRisk</shortDescription>
+        <value>lblSanctionRisk</value>
+    </labels>
+    <labels>
         <fullName>lblTitleFormalization</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -569,5 +576,40 @@
         <protected>false</protected>
         <shortDescription>lblNoCommentsFormalization</shortDescription>
         <value>comments can not be empty</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFMsgError</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFMsgError</shortDescription>
+        <value>Datos incompletos en oportunidad,Datos incompletos en producto oportunidad,Datos incompletos en producto,Datos incompletos en cliente,Datos incompletos en clasificación BBVA-Cliente,Datos incompletos en SBS,Datos incompletos en contacto,Datos incompletos en usuario oficina,Datos incompletos en Oficina,Datos incompletos en calificación cliente,Datos incompletos en intervieniente,Datos incompletos en garantias,Datos de usuario Incorrectos, SUCCESS</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFLeasingForniture</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFLeasingForniture</shortDescription>
+        <value>PC00029</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFLeasingRealState</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFLeasingRealState</shortDescription>
+        <value>PC00014</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductExport</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductExport</shortDescription>
+        <value>PC00007</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductImport</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductImport</shortDescription>
+        <value>PC00005</value>
     </labels>
 </CustomLabels>

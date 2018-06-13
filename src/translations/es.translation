@@ -316,7 +316,11 @@
         <label>Sancionar precio</label>
         <name>lblSanctionPrice</name>
     </customLabels>    
-   <customLabels>
+    <customLabels>
+        <label>Sancionar riesgo</label>
+        <name>lblSanctionRisk</name>
+    </customLabels>
+    <customLabels>
         <label>Para dar de alta una nueva Oportunidad, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nueva Oportunidad&quot;</label>
         <name>NewOpportunityWarning</name>
     </customLabels>
@@ -333,11 +337,11 @@
        <name>UserNotAllowedToCreatePDF</name>
    </customLabels>
    <customLabels>
-       <label>Esta seguro de formalizar esta oportunidad</label>
+       <label>Está seguro de formalizar esta oportunidad</label>
        <name>lblMsgFormalization</name>
    </customLabels>
    <customLabels>
-       <label>Esta seguro de reevaluar esta oportunidad</label>
+       <label>Está seguro de reevaluar esta oportunidad</label>
        <name>lblMsgReevaluate</name>
    </customLabels>
    <customLabels>
@@ -353,11 +357,11 @@
         <name>lblTitleSanctionPrice</name>
    </customLabels>   
    <customLabels>
-       <label>Esta seguro de crear un PDF para esta oportunidad</label>
+       <label>Está seguro de crear un PDF para esta oportunidad</label>
        <name>lblMsgPDF</name>
    </customLabels>
    <customLabels>
-       <label>creación PDF</label>
+       <label>Creación PDF</label>
        <name>lblTitlePDF</name>
    </customLabels>
    <customLabels>

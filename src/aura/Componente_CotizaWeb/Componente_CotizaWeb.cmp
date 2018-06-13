@@ -12,6 +12,7 @@
     <aura:attribute name="truthy" type="boolean" default="false"/>
     <aura:attribute name="NewComp" type="boolean" default="false"/>
     <aura:attribute name="toButton" type="boolean" default="true"/>
+    <aura:attribute name="Today" type="DateTime" default=""/>
     <aura:attribute name="rows" type="Object[]" />
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
     <div style="background-color: white;" class="{!v.formcoti ? '' : 'slds-hide'}" id="IdCotizacion">
@@ -19,20 +20,24 @@
             
             <lightning:recordEditForm aura:id="recordViewForm" 
                                       recordId="{!v.mydata}"
-                                      objectApiName="OpportunityLineItem">
+                                      objectApiName="OpportunityLineItem"
+                                      >
                 <lightning:messages />
+                <div class="slds-hide">
+                	<lightning:inputField  fieldName="PE_DATE_Fecha_cotizacion__c" value="{!v.Today}"/>
+				</div>
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" />
+                            <lightning:outputField fieldName="PE_POR_TEA_sugerida__c" />
                         </div>
-                        <div>
+                        <div> 
                             <lightning:inputField fieldName="PE_POR_TEA_propuesta__c" />
                         </div>
                     </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_TEA_sugerida__c" />
+                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" />
                         </div>
                         <div class="slds-border_bottom">
                             <lightning:outputField fieldName="PE_POR_Spread__c" />
@@ -41,8 +46,8 @@
                 </div> 
                 <div><p><br/></p></div>
                 <div class="slds-modal__footer slds-modal__footer_directional">
-                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
-                    <lightning:button aura:id="continue" class="slds-m-top_small" variant="brand" type="submit" name="update" label="Continuar" onclick="{!c.continua}" />
+                    <lightning:button aura:id="cancel" type="button" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                    <lightning:button aura:id="continue" class="slds-m-top_small" variant="brand" type="button" name="update" label="Continue" onclick="{!c.continua}" />
                     <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Calcular" onclick="{!c.cotiza}" />
                 </div>
             </lightning:recordEditForm> 
@@ -52,6 +57,9 @@
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
                 <lightning:messages />
+                                <div class="slds-hide">
+                	<lightning:inputField  fieldName="PE_DATE_Fecha_cotizacion__c" value="{!v.Today}"/>
+				</div>
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
@@ -68,7 +76,7 @@
                 <div><p><br/></p></div>
                 
                 <div class="slds-modal__footer slds-modal__footer">
-                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}"/>
+                    <lightning:button aura:id="cancel" type="button" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}"/>
                     <lightning:button aura:id="continue" class="slds-m-top_small" variant="brand" type="submit" name="update" label="Continuar" onclick="{!c.continua}" />
                 </div>
             </lightning:recordEditForm> 
@@ -78,6 +86,9 @@
             <lightning:recordEditForm aura:id="recordViewForm" 
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
+                                <div class="slds-hide">
+                	<lightning:inputField  fieldName="PE_DATE_Fecha_cotizacion__c" value="{!v.Today}"/>
+				</div>
                 <lightning:messages />
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
@@ -105,10 +116,10 @@
                 </div> 
                 <div><p><br/></p></div>
                 <div class="slds-modal__footer slds-modal__footer_directional">
-                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                    <lightning:button aura:id="cancel" type="button" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
                     <lightning:button aura:id="continue" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
-                    
                 </div>
+                
             </lightning:recordEditForm> 
             
         </div>
@@ -159,7 +170,7 @@
         </div>
         <div>
             <div class="slds-modal__footer">
-                <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                <lightning:button aura:id="cancel" type="button" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
                 <lightning:button aura:id="Send" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
             </div>
         </div>	
@@ -168,21 +179,25 @@
         
         <div class="slds-box" style="background-color: white;">
             <lightning:recordEditForm aura:id="recordEditForm" 
-                                      objectApiName="compromiso__c">
+                                      objectApiName="compromiso__c"
+                                      onsuccess="{!c.recarga}">
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="Client__c" />
+                    <lightning:inputField fieldName="Oportunidad__c"  value="{!v.recordId}" />
+                </div>
                 <lightning:messages />
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
-                        <div><lightning:inputField fieldName="Name" /></div>
                         <div><lightning:inputField fieldName="Product_relate__c" /></div>
                         <div><lightning:inputField fieldName="PE_NUM_Plazo_Vcto__c" /></div>
                         <div><lightning:inputField fieldName="PE_FOR_Fecha_Vcto__c" /></div>
-                        <div><lightning:inputField fieldName="Oportunidad__c" /></div>
+                        
                     </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div><lightning:inputField fieldName="CurrencyIsoCode" /></div>
                         <div><lightning:inputField fieldName="PE_DIVISA_Importe__c" /></div>
                         <div><lightning:inputField fieldName="PE_NUM_Permanencia__c" /></div>
-                        <div><lightning:inputField fieldName="Client__c" /></div>
+                        
                     </div>            
                 </div>
                 <div><br/><br/></div>

@@ -54,28 +54,32 @@
     </div>
     <div style="background-color: white;" id="NewCompromiso" class="{!v.Controls ? '' : 'slds-hide'}">
         <div class="slds-box" >
-            <lightning:recordEditForm aura:id="recordEditForm" 
-                                      objectApiName="compromiso__c">
+<lightning:recordEditForm aura:id="recordEditForm" 
+                                      objectApiName="compromiso__c"
+                                      onsuccess="{!c.recarga}">
+                <div class="slds-hide">
+                    <lightning:inputField fieldName="Client__c" />
+                    <lightning:inputField fieldName="Oportunidad__c"  value="{!v.recordId}" />
+                </div>
                 <lightning:messages />
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
-                        <div><lightning:inputField fieldName="Name" /></div>
                         <div><lightning:inputField fieldName="Product_relate__c" /></div>
                         <div><lightning:inputField fieldName="PE_NUM_Plazo_Vcto__c" /></div>
                         <div><lightning:inputField fieldName="PE_FOR_Fecha_Vcto__c" /></div>
-                        <div><lightning:inputField fieldName="Oportunidad__c" /></div>
+                        
                     </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div><lightning:inputField fieldName="CurrencyIsoCode" /></div>
                         <div><lightning:inputField fieldName="PE_DIVISA_Importe__c" /></div>
                         <div><lightning:inputField fieldName="PE_NUM_Permanencia__c" /></div>
-                        <div><lightning:inputField fieldName="Client__c" /></div>
+                        
                     </div>            
                 </div>
                 <div><br/><br/></div>
-                <div >
-                    <lightning:button aura:id="cancel" type="submit" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.closenew}" />
-                    <lightning:button class="slds-m-top_small" type="submit" label="Create new" onclick="{!c.closenew}" />
+                <div class="slds-modal__footer slds-modal__footer">
+                    <lightning:button aura:id="cancel" type="button" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+                    <lightning:button class="slds-m-top_small" type="submit" label="Continuar" onclick="{!c.closenew}" />
                 </div>
             </lightning:recordEditForm>
         </div>

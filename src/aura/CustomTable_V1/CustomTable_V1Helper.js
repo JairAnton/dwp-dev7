@@ -1,11 +1,9 @@
 ({
     cotiza : function(component, event) {
-        console.log("cotiza "+component.get("v.recordId"));
         var action = component.get("c.getOportunidadSytem");
         action.setParams({
             "Filtro":component.get("v.recordId"),
         });
-        
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
@@ -21,8 +19,5 @@
             }
         }));
         $A.enqueueAction(action);
-        
-    }
-    
-    
+    } 
 })
