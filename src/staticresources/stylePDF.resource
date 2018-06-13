@@ -43,6 +43,7 @@
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            width: 50%;
             }
             tr:nth-child(even) {background-color: #f2f2f2;}
             table.classTableBack{
