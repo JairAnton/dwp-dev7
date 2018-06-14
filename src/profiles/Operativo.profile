@@ -4817,11 +4817,6 @@ Sub Gerentes de oficina</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Reply.Record_type_for_community_09a30000000JJ5OAAW_entity_Reply</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <default>true</default>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</recordType>
         <visible>true</visible>
