@@ -877,7 +877,7 @@
 	<!--members>Flujo_Cotizacion_V0-3</members>
 	<members>Compromisos-9</members>
     <members>Opp_Stage_Changed_notify-2</members-->
-	<members>ProductOpp_DueDate-6</members> 
+	<members>ProductOpp_DueDate-11</members> 
 	<name>Flow</name>
   </types>
     <types>
