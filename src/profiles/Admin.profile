@@ -2121,7 +2121,62 @@
         <editable>true</editable>
         <field>OpportunityLineItem.da_Replacement_financing__c</field>
         <readable>true</readable>
-    </fieldPermissions>                 
+    </fieldPermissions>  
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Destination_Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
+  <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Payment_Method__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Currency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Tipo_amortizacion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Origin_Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>   
+  <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.dlf_Portfolio_effectiveness__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
+  <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Destination_Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
+  <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Approved_Risk__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Merchandise_Detail__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Line_Excess__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
+ <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.da_Importer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>
