@@ -341,7 +341,7 @@
        <name>lblMsgFormalization</name>
    </customLabels>
    <customLabels>
-       <label>Está seguro de reevaluar esta oportunidad</label>
+       <label>Seleccione lo que desea reevaluar</label>
        <name>lblMsgReevaluate</name>
    </customLabels>
    <customLabels>
