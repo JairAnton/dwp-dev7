@@ -192,7 +192,9 @@
             <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
             <li>Tipo de amortización: {!OLI.cpliq_Tipo_amortizacion__c} </li>
-            <li rendered="{!OLI.cpliq_Tipo_amortizacion__c	=='Manual'}">Manual: {!OLI.cpliq_Manual__c}</li>
+            <apex:outputText rendered="{!OLI.cpliq_Tipo_amortizacion__c	=='Manual'}">
+            <li>Manual: {!OLI.cpliq_Manual__c}</li>
+            </apex:outputText>
             <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /> </apex:outputText></li>
             <li>Plazo: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.gipr_Plazo__c}" />
