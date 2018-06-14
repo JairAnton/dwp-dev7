@@ -133,9 +133,11 @@
 
         var action = component.get("c.setSanctionPrice");
         var sanAction = component.get("v.sanAction");
+        var Comments = component.find("txtComments").get("v.value");
         action.setParams({            
             "OpportunityId" : OpportunityId,
-            "sanAction" : sanAction
+            "sanAction" : sanAction,
+            "Comments" : Comments
         });
         action.setCallback(this, function(response) {
             var state = response.getState();

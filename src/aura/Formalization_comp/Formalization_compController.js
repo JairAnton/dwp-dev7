@@ -13,4 +13,9 @@
 	continue : function(component, event, helper) {
 		helper.Actions(component, event, helper);
 	},
+    RecibeParametros : function (cmp,event,helper){
+        var parametrohijo0= event.getParam("FileName");
+     	cmp.set("v.FileName",parametrohijo0);            
+    },    
+
 })
