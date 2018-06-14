@@ -860,7 +860,7 @@
     <members>Participant_MasterRecord</members>-->
     <!--members>Compromisos</members>
     <members>Opp_Stage_Changed_notify</members-->
-	<members>ProductOpp_DueDate</members>
+	<!-- <members>ProductOpp_DueDate</members> -->
 	<name>FlowDefinition</name>
   </types>
   <types>
@@ -877,7 +877,7 @@
 	<!--members>Flujo_Cotizacion_V0-3</members>
 	<members>Compromisos-9</members>
     <members>Opp_Stage_Changed_notify-2</members-->
-	<members>ProductOpp_DueDate-5</members>
+	<!-- <members>ProductOpp_DueDate-5</members> -->
 	<name>Flow</name>
   </types>
     <types>
