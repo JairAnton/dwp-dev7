@@ -1027,11 +1027,6 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_BBVA_Classification__c.bbva_classification_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account_BBVA_Classification__c.bbva_classification_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2499,11 +2494,6 @@ Sub Gerentes de oficina</description>
         <editable>true</editable>
         <field>Opportunity.ROI_Analysis_Completed__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.SIOCode__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
