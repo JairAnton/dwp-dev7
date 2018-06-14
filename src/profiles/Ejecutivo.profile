@@ -1037,11 +1037,6 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_BBVA_Classification__c.bbva_customer_classification_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account_BBVA_Classification__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
