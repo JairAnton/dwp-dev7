@@ -209,6 +209,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Periodicidad__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
         <field>compromiso__c.Client__c</field>
         <readable>true</readable>
     </fieldPermissions>
