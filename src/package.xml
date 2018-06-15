@@ -850,34 +850,38 @@
     <name>BusinessProcess</name>
   </types>
   <types>
-	<!--<members>Email_Message_update_Opportunity</members>
+	<!--
+	<members>Email_Message_update_Opportunity</members>
 	<members>Event_update_Opportunity</members>
 	<members>FlujoEstadosOportunidad</members>
 	<members>Opp_Owner_Changed</members>
 	<members>Opp_PB_Opportunidad</members>
-	<members>ProductOpp_DueDate</members>
-	 <members>Task_update_Opportunity</members>
+	<members>Task_update_Opportunity</members>
     <members>Guarantee_MasterRecord</members>
-    <members>Participant_MasterRecord</members>-->
-    <!--members>Compromisos</members>
-    <members>Opp_Stage_Changed_notify</members-->
+    <members>Participant_MasterRecord</members>
+    <members>Compromisos</members>
+    <members>Opp_PDF_Creation</members>
+    <members>Motivo_Descarte_Oportunidad_V0</members>
+    <members>Opp_Stage_Changed_notify</members>
+    <members>Flujo_Cotizacion_V0</members>
+	<members>ProductOpp_DueDate</members>  -->
 	<name>FlowDefinition</name>
   </types>
   <types>
-	<!--<members>Email_Message_update_Opportunity-4</members>
+	<!--
+	<members>Email_Message_update_Opportunity-4</members>
 	<members>Event_update_Opportunity-3</members>
 	<members>Motivo_Descarte_Oportunidad_V0-32</members>
 	<members>Opp_Owner_Changed-3</members>
 	<members>Opp_PB_Opportunidad-8</members>
-	<members>ProductOpp_DueDate-3</members>
 	<members>Task_update_Opportunity-3</members>
     <members>FlujoEstadosOportunidad-13</members>
     <members>Guarantee_MasterRecord-1</members>
-	<members>Flujo_Cotizacion_V0-2</members>
-    <members>Participant_MasterRecord-1</members>-->
-	<!--members>Flujo_Cotizacion_V0-3</members>
+    <members>Participant_MasterRecord-1</members>
+	<members>Flujo_Cotizacion_V0-3</members>
 	<members>Compromisos-9</members>
-    <members>Opp_Stage_Changed_notify-2</members-->
+    <members>Opp_Stage_Changed_notify-2</members>
+	<members>ProductOpp_DueDate-11</members>  -->
 	<name>Flow</name>
   </types>
     <types>

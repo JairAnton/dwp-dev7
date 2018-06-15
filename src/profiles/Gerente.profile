@@ -374,6 +374,11 @@
         <field>Contact.phone_1_area_code__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Periodicidad__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.phone_2__c</field>
