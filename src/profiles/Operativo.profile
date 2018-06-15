@@ -25,14 +25,31 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <classAccesses>
-        <apexClass>Object_Controller</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>SubmitToDiscart_ValidationClass</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    <applicationVisibilities>
+        <application>dwp_dace__Action_Engine</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Chatter</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Community</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSales</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSalesConsole</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>AccountContactParentAssociation</apexClass>
         <enabled>true</enabled>
@@ -66,6 +83,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FileUploadController_cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GraphicsGenerator_cls</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -80,6 +101,22 @@
     <classAccesses>
         <apexClass>Hangout_ctrl_TEST</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Object_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityPDFWrap</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityProduct_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityProduct_Controller_tst</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Opportunity_Handler_cls</apexClass>
@@ -110,11 +147,39 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>PDF_formalizacion_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PDF_formalizacion_ctrl_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PDFclassButton</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PE_DWP_Correo_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PE_DWP_Correo_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Product_cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Product_cls_test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReevaluateButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SubmitToDiscart_ValidationClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -126,126 +191,260 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PDF_formalizacion_ctrl</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>    
+        <apexClass>classMasterGuarantee_cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
-        <apexClass>PDF_formalizacion_ctrl_tst</apexClass>
+        <apexClass>classMasterParticipant</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_cvad__DynamicAuditDisplay_Ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>OpportunityPDFWrap</apexClass>
-        <enabled>true</enabled>
-    </classAccesses> 
-   <classAccesses>
-        <apexClass>PDFclassButton</apexClass>
+        <apexClass>dwp_cvad__DynamicAuditDisplay_Ctrl_TEST</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ReevaluateButtonClass</apexClass>
+        <apexClass>dwp_dace__DynamicActionsEngine_TestDataFactory</apexClass>
         <enabled>true</enabled>
-    </classAccesses> 
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dace__DynamicActionsEngine_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dace__DynamicActionsEngine_helper_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dbpn__DynamicButtonCollection_Ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dbpn__DynamicButtonCollection_Ctrl_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dbpn__DynamicButtonsStatusInterface</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dbpn__DynamicFlowValidationInterface</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dbpn__DynamicFlowWizard_Ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dbpn__DynamicFlowWizard_Ctrl_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dv__DynamicDetailRow_Ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dv__DynamicDetailRow_Ctrl_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dv__DynamicRelatedGrupedTable_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_dv__DynamicRelatedGrupedTable_ctrl_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__End_visit_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__End_visit_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Event_Handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Event_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Event_Helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Kit_Visit_TestFactory</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Kit_Visit_TestFactory_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Launch_Meeting_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Launch_Meeting_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Aux</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Contact_Handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Contact_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Contact_Helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Contact_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Contact_Validation</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Management_Team_Handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Management_Team_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Management_Team_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_Management_Team_Validate</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_form_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dwp_kitv__Visit_form_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>formalizationButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>fprd__GBL_OLITriggerHandler_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fprd__GBL_OpportunityLineItemTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fprd__GBL_ProductConfig_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fprd__GBL_Product_Config_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fprd__GBL_Product_Config_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fprd__TriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fprd__TriggerHandler_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Configuration_Exception</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_EventHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_Delete_Job</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_Event_VO</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_Mock_Generator</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_Session</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_Sync_Get_Job</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_Sync_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_Sync_Job</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_Sync_Service</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_Google_Calendar_To_SF_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>gcal__GBL_TestFactory</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
-    </classAccesses>     
+    </classAccesses>
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Product2.Type_of_quote__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.Product_relate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_Comision_estructuracion__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_Comision__c</field>
-        <readable>true</readable>
-    </fieldPermissions>	
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_Spread__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_minima__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_propuesta__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_sugerida__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.Client__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.Oportunidad__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_DIVISA_Importe__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>compromiso__c.PE_FM_PRODUCT__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_FOR_Fecha_Vcto__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_NUM_Permanencia__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_NUM_Plazo_Vcto__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_SH_PRODUCT__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>
@@ -289,11 +488,6 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Industry</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.LastSIOcode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -444,11 +638,6 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.collection_days_number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.rejection_coin__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -804,11 +993,6 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Accounting__c.year_month_day_date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_BBVA_Classification__c.bbva_classification_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2057,9 +2241,9 @@ Sub Gerentes de oficina</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Event.Type</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2069,6 +2253,21 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.WhoId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.dwp_kitv__visit_changed_bool__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.dwp_kitv__visit_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.gcal__GBL_Google_Event_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2228,6 +2427,11 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.LastSIOcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.LeadSource</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2237,9 +2441,9 @@ Sub Gerentes de oficina</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Opportunity.Modality__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2274,6 +2478,11 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.contract_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.dwp_kitv__TrackingNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2314,6 +2523,11 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.rejection_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.rejection_coin__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2364,6 +2578,46 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.ListPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision_estructuracion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_Spread__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_TEA_minima__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_TEA_propuesta__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_TEA_sugerida__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2462,7 +2716,7 @@ Sub Gerentes de oficina</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>OpportunityLineItem.da_Available_Balance__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2532,6 +2786,16 @@ Sub Gerentes de oficina</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.dlf_Operation_Deadlines__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.dlf_Portfolio_effectiveness__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.fprd__GBL_Sample_Checkbox__c</field>
         <readable>false</readable>
@@ -2594,6 +2858,31 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.gipr_Tipo_Garantia__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_Legal_VB_text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_Periodicity_commission__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_beneficiary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_type_bail_letter__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.tcf_type_beneficiary__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2757,6 +3046,16 @@ Sub Gerentes de oficina</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Pricebook2.Unique_id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>PricebookEntry.Unique_id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Product2.Description</field>
         <readable>true</readable>
@@ -2800,6 +3099,11 @@ Sub Gerentes de oficina</description>
         <editable>true</editable>
         <field>Product2.Type_of_quote__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product2.Unique_id__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3098,299 +3402,361 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Guarantee__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-  <fieldPermissions>
-        <editable>true</editable>
-        <field>Product_Gurantee__c.Modality__c</field>
-        <readable>true</readable>
-  </fieldPermissions>
-  <fieldPermissions>
-        <editable>true</editable>
-        <field>Product_Gurantee__c.Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
- <fieldPermissions>
-        <editable>true</editable>
-        <field>Product_Gurantee__c.Term__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-<fieldPermissions>
-        <editable>true</editable>
-        <field>Product_Gurantee__c.Periodicity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
- <fieldPermissions>
-        <editable>true</editable>
-        <field>Product_Gurantee__c.Amount__c</field>
+        <field>Task.dwp_kitv__visit_changed_bool__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.nGuarantee__c</field>
+        <field>Task.dwp_kitv__visit_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.DOI__c</field>
+        <field>Task.gcal__GBL_Google_Event_Id__c</field>
         <readable>true</readable>
-    </fieldPermissions>  
-  <fieldPermissions>
-        <editable>true</editable>
-        <field>Product_participants__c.Participation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>  
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.Name</field>
+        <field>User.gcal__GBL_Google_Calendar_Last_Retr_Time__c</field>
         <readable>true</readable>
-    </fieldPermissions>  
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.Marital_Status__c</field>
+        <field>User.gcal__GBL_Google_Calendar_Last_Update__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
-      <fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Periodicidad__c</field>
+        <field>User.gcal__GBL_Google_Calendar_Session_Id__c</field>
         <readable>true</readable>
-</fieldPermissions>       
-<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Codigo_Simulacion__c</field>
-        <readable>true</readable>
-</fieldPermissions>       
-<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</field>
-        <readable>true</readable>
-</fieldPermissions>       
-<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Periodicidad_gracia__c</field>
-        <readable>true</readable>
-</fieldPermissions>  
-<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Destino__c</field>
-        <readable>true</readable>
-</fieldPermissions> 
-<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Cuenta_vinculada__c</field>
-        <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Amortizacion__c</field>
-        <readable>true</readable>
-</fieldPermissions> 
-<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Plazo__c</field>
-        <readable>true</readable>
-</fieldPermissions>     
-<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Garantia__c</field>
-        <readable>true</readable>
-</fieldPermissions> 
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
-        <field>Product_participants__c.N_DOI__c</field>
-        <readable>true</readable>
-</fieldPermissions>  
-<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_n_gracia__c</field>
-        <readable>true</readable>
-</fieldPermissions> 
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.dlf_Operation_Deadlines__c</field>
-        <readable>true</readable>
+        <field>User.organizational_unit_id__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.dlf_Portfolio_effectiveness__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.tcf_Legal_VB_text__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>User.organizational_unit_name__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.tcf_Periodicity_commission__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>User.portfolio_classification_id__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.tcf_beneficiary__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>User.prof_position_id__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.tcf_type_bail_letter__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>User.prof_position_type__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.tcf_type_beneficiary__c</field>
-        <readable>true</readable>
-    </fieldPermissions>         
-<fieldPermissions>
         <editable>true</editable>
         <field>User.user_id__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.Primary__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.User__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.branch_category_type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.branch_id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.branch_level4__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.unique_id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.user_id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.user_prof_position_type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.Modality__c</field>
-        <readable>true</readable>
-</fieldPermissions>  
- <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.da_Used_Risk__c</field>
-        <readable>true</readable>
-    </fieldPermissions>  
-  <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.da_Observations__c</field>
+        <field>compromiso__c.Client__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.da_Available_Balance__c</field>
+        <field>compromiso__c.Oportunidad__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.da_Exporter__c</field>
+        <field>compromiso__c.PE_DIVISA_Importe__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>compromiso__c.PE_FM_PRODUCT__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.da_Replacement_Reason__c </field>
-        <readable>true</readable>
-    </fieldPermissions>
-     <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Manual__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-  <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.da_nOperation__c</field>
+        <field>compromiso__c.PE_FOR_Fecha_Vcto__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.tcf_type_beneficiary__c</field>
+        <field>compromiso__c.PE_NUM_Permanencia__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Comex_Bag__c</field>
+        <field>compromiso__c.PE_NUM_Plazo_Vcto__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.tcf_Periodicity_commission__c</field>
+        <field>compromiso__c.PE_SH_PRODUCT__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.tcf_beneficiary__c</field>
+        <field>compromiso__c.Product_relate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.tcf_type_bail_letter__c</field>
+        <field>dwp_cvad__Action_Audit_Detail__c.dwp_cvad__action_audit_detail_content__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.tcf_Legal_VB_text__c</field>
+        <field>dwp_cvad__Action_Audit_Detail__c.dwp_cvad__action_audit_detail_display_title__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Tipo_Garantia__c</field>
-        <readable>true</readable>
-    </fieldPermissions>  
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_n_gracia__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_propuesta__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_sugerida__c</field>
+        <field>dwp_cvad__Action_Audit__c.dwp_cvad__action_audit_user_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Periodicidad__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Codigo_Simulacion__c</field>
+        <field>dwp_cvad__Action_Audit__c.dwp_cvad__action_audit_user_name__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</field>
+        <field>dwp_cvad__Action_Audit__c.dwp_cvad__audit_audit_comments__c</field>
         <readable>true</readable>
     </fieldPermissions>
-   <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Periodicidad_gracia__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.Siocode__c</field>
+        <field>dwp_dace__Action__c.dwp_dace__action_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
-   <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Destino__c</field>
+        <field>dwp_dace__Condition__c.dwp_dace__condition_summary_calc__c</field>
         <readable>true</readable>
     </fieldPermissions>
-   <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Cuenta_vinculada__c</field>
+        <field>dwp_dace__Condition__c.dwp_dace__field_api_name__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
-   <fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Amortizacion__c</field>
+        <field>dwp_dace__Condition__c.dwp_dace__field_type__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
-   <fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Garantia__c</field>
+        <field>dwp_dace__Condition__c.dwp_dace__field_value_1__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
-      <fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.da_Replacement_financing__c</field>
+        <field>dwp_dace__Condition__c.dwp_dace__group_behaviour_type__c</field>
         <readable>true</readable>
-    </fieldPermissions>                 
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Condition__c.dwp_dace__operator_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__DynamicActionsEngine_Setup__mdt.dwp_dace__advanced_currency_enabled__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rule_Action__c.dwp_dace__action_link__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rule_Action__c.dwp_dace__rule_action_active_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rule_Action__c.dwp_dace__rule_link__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rule_Condition__c.dwp_dace__condition_link__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rule_Condition__c.dwp_dace__rule_condition_active_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rule_Condition__c.dwp_dace__rule_link__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rule__c.dwp_dace__rule_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rules_Set_Rule__c.dwp_dace__rule_link__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rules_Set_Rule__c.dwp_dace__rules_set_link__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rules_Set_Rule__c.dwp_dace__rules_set_rule_active_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dace__Rules_Set__c.dwp_dace__rules_set_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dbpn__Dynamic_Button_Collection_Configuration__mdt.dwp_dbpn__button_collection_unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dbpn__Dynamic_Button_Collection_Configuration__mdt.dwp_dbpn__buttons_status_apex_class_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dbpn__Dynamic_Button_Collection_Configuration__mdt.dwp_dbpn__no_buttons_message_custom_label_api_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dbpn__Dynamic_Button_Configuration__mdt.dwp_dbpn__active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dbpn__Dynamic_Button_Configuration__mdt.dwp_dbpn__button_collection__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dbpn__Dynamic_Button_Configuration__mdt.dwp_dbpn__button_unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dbpn__Dynamic_Button_Configuration__mdt.dwp_dbpn__custom_label_api_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dbpn__Dynamic_Button_Configuration__mdt.dwp_dbpn__initial_component__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_dbpn__Dynamic_Button_Configuration__mdt.dwp_dbpn__validation_apex_class_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>gcal__GBL_Google_Calendar_Sync__mdt.gcal__GBL_Service_User_Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>gcal__GBL_Google_Calendar_Sync__mdt.gcal__GBL_Session_Duration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account Layout</layout>
+        <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
+    </layoutAssignments>	
+    <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+        <recordType>Opportunity.Opp_RT_01</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+        <recordType>Opportunity.Opp_RT_02</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OpportunityLineItem-Opportunity Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Branch__c-Branch_Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>UserAlt-User Profile Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>User_Branch__c-User_Branch Layout</layout>
+    </layoutAssignments>
+     <layoutAssignments>
+        <layout>AccountContactRelation-Account Contact Relationship Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account_Page_Layout_Account</layout>
@@ -3401,19 +3767,16 @@ Sub Gerentes de oficina</description>
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>AccountContactRelation-Account Contact Relationship Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Accounting__c-Account Accounting Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account_BBVA_Classification__c-Account BBVA Classification Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_BBVA_Information__c-Account BBVA Information Layout</layout>
+        <layout>Account_Indicator__c-Account Indicator Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Account_Accounting__c-Account Accounting Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Banking_System_Classification__c-Formato Account Banking System Classification</layout>
+        <layout>Account_BBVA_Information__c-Account BBVA Information Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Banking_System_Debt_Summary__c-Account Banking System Debt Summary Layout</layout>
@@ -3423,9 +3786,6 @@ Sub Gerentes de oficina</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Commercial_Strategy_Results__c-Account Commercial Strategy Result Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Indicator__c-Account Indicator Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Payroll__c-Account Payroll Layout</layout>
@@ -3443,156 +3803,7 @@ Sub Gerentes de oficina</description>
         <layout>Account_Renewals__c-Account Renewals Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Asset-Asset Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>AssetRelationship-Asset Relationship Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Branch__c-Branch_Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Campaign Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CampaignMember-Campaign Member Page Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Case Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseInteraction-Case Feed Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CollaborationGroup-Group Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contact-Contact Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ContentVersion-Content Version</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contract-Contract Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>DuplicateRecordSet-Duplicate Record Set Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>FeedItem-Feed Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Global-Global Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Idea-Idea Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead-Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Macro-Macro Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
-        <recordType>Opportunity.Opp_RT_01</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
-        <recordType>Opportunity.Opp_RT_02</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>OpportunityLineItem-Opportunity Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Order-Order Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>OrderItem-Order Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Pricebook2-Price Book Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PricebookEntry-Price Book Entry Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Product2-Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ProfileSkill-Skill Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ProfileSkillEndorsement-Endorsement Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ProfileSkillUser-Skill User Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>QuickText-Formato de Texto rápido</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Quote-Quote Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>QuoteLineItem-Quote Line Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Scorecard-Scorecard Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ScorecardAssociation-Scorecard Association Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ScorecardMetric-Scorecard Metric Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>SocialPersona-Social Persona Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Solution-Solution Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Task Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>User-User Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>UserAlt-User Profile Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>UserAppMenuItem-Application Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>User_Branch__c-User_Branch Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WorkAccess-Access Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WorkBadge-Badge Received Layout 192</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WorkBadgeDefinition-Badge Layout 192</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WorkThanks-Thanks Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -3737,15 +3948,6 @@ Sub Gerentes de oficina</description>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Branch__c</object>
         <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-	<objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>compromiso__c</object>
-        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -3911,15 +4113,6 @@ Sub Gerentes de oficina</description>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>SocialPersona</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
@@ -3936,22 +4129,31 @@ Sub Gerentes de oficina</description>
         <object>StreamingChannel</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-     <objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>compromiso__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Product_Gurantee__c</object>
+        <object>dwp_cvad__Action_Audit_Detail__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Product_Participants__c</object>
+        <object>dwp_cvad__Action_Audit__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3971,25 +4173,7 @@ Sub Gerentes de oficina</description>
         <modifyAllRecords>true</modifyAllRecords>
         <object>dwp_dace__Condition__c</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>  
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>dwp_dace__Rule__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>  
-     <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>dwp_dace__Rules_Set__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>   
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -3998,7 +4182,7 @@ Sub Gerentes de oficina</description>
         <modifyAllRecords>true</modifyAllRecords>
         <object>dwp_dace__Rule_Action__c</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>   
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -4007,7 +4191,16 @@ Sub Gerentes de oficina</description>
         <modifyAllRecords>true</modifyAllRecords>
         <object>dwp_dace__Rule_Condition__c</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>   
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_dace__Rule__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -4016,7 +4209,34 @@ Sub Gerentes de oficina</description>
         <modifyAllRecords>true</modifyAllRecords>
         <object>dwp_dace__Rules_Set_Rule__c</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>   
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_dace__Rules_Set__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>fprd__GBL_Guarantee__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>fprd__GBL_Intervener__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
         <enabled>true</enabled>
@@ -4033,6 +4253,11 @@ Sub Gerentes de oficina</description>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Account.dwp_kitv__Customer</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Idea.InternalIdeasIdeaRecordType</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -4045,6 +4270,16 @@ Sub Gerentes de oficina</description>
         <default>false</default>
         <recordType>Opportunity.Opp_RT_02</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>dwp_kitv__Visit__c.dwp_kitv__LeadVisit</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Account_Accounting__c</tab>
@@ -4105,6 +4340,94 @@ Sub Gerentes de oficina</description>
     <tabVisibilities>
         <tab>User_Branch__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Account</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Asset</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Campaign</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Case</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-CollaborationGroup</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Contact</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Contract</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-DuplicateRecordSet</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Idea</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Lead</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Macro</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Opportunity</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Order</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Pricebook2</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Product2</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ProfileSkill</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Quote</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Scorecard</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Solution</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-StreamingChannel</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-WorkBadge</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-WorkBadgeDefinition</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

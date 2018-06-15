@@ -81,7 +81,7 @@
               <tbody>
               <aura:iteration items="{!v.rowsComp}" var="row" indexVar="rowIndex">
             	<tr>
-            		<td> <div class="slds-truncate" title="{!row.PE_FM_PRODUCT__c}">{!row.PE_FM_PRODUCT__c}</div></td>            
+            		<td> <div class="slds-truncate" title="{!row.Product_relate__c}">{!row.Product_relate__c}</div></td>            
                 <td> <div class="slds-truncate" title="{!row.CurrencyIsoCode}">{!row.CurrencyIsoCode}</div></td>                            
             		<td> <div class="slds-truncate" title="{!row.PE_DIVISA_Importe__c}">{!row.PE_DIVISA_Importe__c}</div></td>
                 <td> <div class="slds-truncate" title="{!row.PE_NUM_Plazo_Vcto__c}">{!row.PE_NUM_Plazo_Vcto__c}</div></td>
