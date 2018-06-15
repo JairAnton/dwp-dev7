@@ -73,6 +73,12 @@
                     this.uploadInChunk(component, file, fileContents, startPosition, endPosition, attachId);
                 } else {
                     alert('Archivo cargado con éxito');
+                    var EnvioParametros= component.getEvent("PasoParametrosPadre");
+                
+                    EnvioParametros.setParams({
+                       "FileName":component.get("v.fileName")
+                    });
+                    EnvioParametros.fire();
                     component.set("v.showLoadingSpinner", false);
                 }
                 // handel the response errors        

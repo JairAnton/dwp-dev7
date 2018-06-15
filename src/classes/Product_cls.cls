@@ -7,7 +7,7 @@
 
 public with sharing class Product_cls {
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
-		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,PE_DATE_Fecha_cotizacion__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
+		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,PE_DATE_Fecha_cotizacion__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
 		if(!row.isEmpty())
 			return row;
 		else
@@ -86,19 +86,16 @@ public with sharing class Product_cls {
 		row.Term__c=integer.valueOf(Term);
 		row.Periodicity__c=Periodicity;
 		row.Term__c=Term;
-
 		if(PGuaranteeId!=null) update row; else insert row;	
 		return true;
 	}
 
 
 	@AuraEnabled public static Boolean saveParticipantDataByProduct(String PParticipantId,String IdOpportunity,String IdProuduct,String Name,String DOI,String N_DOI,String Participation,String Marital_Status){
-		
 		Product_Participants__c row;
 		if(PParticipantId!=null)		
 			row = [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c FROM Product_Participants__c Where Id=:PParticipantId ];
 		else row = new Product_Participants__c();
-
 		row.Opportunity__c=IdOpportunity;
 		row.Product__c=IdProuduct;
 		row.Name=Name;
@@ -106,13 +103,11 @@ public with sharing class Product_cls {
 		row.N_DOI__c=N_DOI;
 		row.Participation__c=Participation;		
 		row.Marital_Status__c=Marital_Status;		
-
 		if(PParticipantId!=null) update row; else insert row;	
-		
 		return true;
 	}
 
-	@AuraEnabled public static String setSanctionPrice(String OpportunityId,String sanAction){
+	@AuraEnabled public static String setSanctionPrice(String OpportunityId,String sanAction,String Comments){
 		try
 		{
 			List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id=: OpportunityId];
@@ -121,13 +116,28 @@ public with sharing class Product_cls {
 				if(sanAction=='btnApprove'){//08
 					itemOpp[0].StageName='04';
 					itemOpp[0].opportunity_status_type__c='08';
-
 				}
 				else if(sanAction=='btnRaise'){//09
 					itemOpp[0].StageName='04';
 					itemOpp[0].opportunity_status_type__c='09';
 				}
 				update itemOpp[0];
+				//BEGIN Traceability - 2018-06-11
+			    //Isaías Vellázquez Cortés
+
+				List<OpportunityLineItem> itemOppProduct= getIdProductByOpportunity(itemOpp[0].Id);
+				String HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
+								'<b>Importe:</b> '+ String.valueOf(itemOppProduct[0].Opportunity.Amount) +'<br/>' +
+								'<b>Plazo:</b> '+itemOppProduct[0].gipr_Plazo__c +' '+ itemOppProduct[0].gipr_Periodicidad__c +'<br/>' +  /// EN CASO DE QUE APLIQUE
+					            '<b>Tasa propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>' +// o Comisión propuesta"+
+								'<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>' +
+								'<b>Comisión de liquidación anticipada (en caso aplique)</b>'+'<br/>' +
+								'<b>Comentarios:</b> ' +Comments;
+				
+			    if(sanAction=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability('Precio aprobado en delegación',HTMLComments,'Opportunity',itemOpp[0].Id,'approve','TRSP00001',UserInfo.getUserId(),'embedded',1,true);			    
+			   	else if(sanAction=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability('Elevado para sanción de precio',HTMLComments,'Opportunity',itemOpp[0].Id,'elevate','TRSP00001',UserInfo.getUserId(),'embedded',1,true);
+			   	
+			    //END Traceability
 				return 'true';
 			}
 			else
@@ -143,54 +153,54 @@ public with sharing class Product_cls {
 		
 	}
 
-	@AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body){
+	@AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body,String AttachedFiles){
 		try
 		{
 			List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,StageName,OwnerId FROM Opportunity WHERE Id=: OpportunityId];
 			if(!itemOpp.isEmpty())
 			{
 				if(Action=='btnApprove'){
-                      id id1 = userinfo.getProfileId();
-       String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+                    id id1 = userinfo.getProfileId();
+       				String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
      
-        if((prof=='Ejecutivo'&& userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' || prof=='Migracion'){
-            
-            
-            
-            itemOpp[0].IsProcess__c=true;
-            update itemOpp[0];   
-            itemOpp[0].StageName=label.lblFormalizarEtapa;
-            itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;          
-            FeedItem post = new FeedItem();
-            post.ParentId = OpportunityId;
-            post.Body = body;
-            if(!string.isBlank(Body))
-            insert post;
-            else{
-            itemOpp[0].IsProcess__c=false;
-            update itemOpp[0];     
-            return label.lblNoCommentsFormalization;
-            } 
-            }
-
-					
+		        	if((prof=='Ejecutivo'&& userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' || prof=='Migracion'){                                    
+				        itemOpp[0].IsProcess__c=true;
+			            update itemOpp[0];   
+			            itemOpp[0].StageName=label.lblFormalizarEtapa;
+			            itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;          
+			            FeedItem post = new FeedItem();
+			            post.ParentId = OpportunityId;
+			            post.Body = body;
+		            	if(!string.isBlank(Body))
+		            		insert post;
+			            else{
+				            itemOpp[0].IsProcess__c=false;
+				            update itemOpp[0];     
+				            return label.lblNoCommentsFormalization;
+		            	} 
+		            }
 				}
 				update itemOpp[0];
                 itemOpp[0].IsProcess__c=false;
                 update itemOpp[0]; 
+                update itemOpp[0];
+				//BEGIN Traceability - 2018-06-11
+			    //Isaías Vellázquez Cortés
+				List<OpportunityLineItem> itemOppProduct= getIdProductByOpportunity(itemOpp[0].Id);
+				String HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
+								'<b>Importe:</b> '+ String.valueOf(itemOppProduct[0].Opportunity.Amount) +'<br/>' +
+								'<b>Comentarios:</b> ' +Body+ '<br/><br/>'+
+								'<b>Archivos adjuntos:</b> <br/>' +AttachedFiles;
+			    	new OpportunityTraceability_cls().addOpportunityTraceability('Enviado para formalización',HTMLComments,'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+			    //END Traceability
 				return 'true';
 			}
-			else
-			{
-				return 'Error';
-			}
-			
+			else return 'Error';
 		}
 		catch(Dmlexception exp)
 		{
 			return exp.getMessage();
 		}
-		
 	}
 
   	@InvocableMethod(label='Delete Master Guarantee' description='Delete the row from Product_Guarantee')
@@ -198,8 +208,7 @@ public with sharing class Product_cls {
     {
         List<Product_Gurantee__c> row =[SELECT Id FROM Product_Gurantee__c WHERE Product__c=: listRow[0].Product2Id and Opportunity__c=: listRow[0].OpportunityId and  isMaster__c=true LIMIT 1];
  		
- 		if(!row.isEmpty())
-        	delete row;
+ 		if(!row.isEmpty())delete row;
     }
 
 

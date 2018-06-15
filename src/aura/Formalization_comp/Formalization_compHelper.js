@@ -23,10 +23,12 @@
         var action = component.get("c.setFormalization");
         var sanAction = component.get("v.Action");
         var body = component.get("v.comments");
+        var fileName = component.get("v.FileName");
         action.setParams({
             "OpportunityId" : OpportunityId,
             "Action" : sanAction,
-            "Body"  :  body
+            "Body"  :  body,
+            "AttachedFiles" : fileName
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
