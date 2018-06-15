@@ -4451,10 +4451,6 @@ Asistente BE</description>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>compromiso__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>dwp_dace__Action__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
