@@ -221,6 +221,7 @@
         <members>classMasterParticipant</members>
         <members>FileUploadController_cls</members>
 		<members>Object_Controller</members>
+        <members>OpportunityTraceability_cls</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -261,6 +262,7 @@
         <members>Formalization_comp</members>
 		<members>Componente_CotizaWeb</members>
         <members>Collapsible_Section_comp</members>
+        <members>UploadedFile_evt</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
