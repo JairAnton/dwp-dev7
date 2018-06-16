@@ -221,6 +221,9 @@
         <members>classMasterParticipant</members>
         <members>FileUploadController_cls</members>
 		<members>Object_Controller</members>
+		<members>OpportunityLineItem_Trigger_cls</members>
+        <members>OpportunityLineItem_test</members>
+        <members>PE_OpportunityLITTriggerHandler</members>
         <members>OpportunityTraceability_cls</members>
         <name>ApexClass</name>
     </types>
@@ -785,7 +788,17 @@
 		<members>Product2.Unique_id__c</members>
 		<members>PricebookEntry.Unique_id__c</members>
 		<members>Pricebook2.Unique_id__c</members>
-		
+		<members>OpportunityLineItem.PE_List_Mejorado__c</members>
+        <members>OpportunityLineItem.PE_List_Product_mode__c</members>
+        <members>OpportunityLineItem.dlf_Operation_Deadlines__c</members>
+        <members>OpportunityLineItem.dlf_Portfolio_effectiveness__c</members>
+        <members>OpportunityLineItem.gipr_CuotaInicial__c</members>
+        <members>OpportunityLineItem.gipr_Opcioncompra__c</members>
+        <members>OpportunityLineItem.tcf_Legal_VB_text__c</members>
+        <members>OpportunityLineItem.tcf_Periodicity_commission__c</members>
+        <members>OpportunityLineItem.tcf_beneficiary__c</members>
+        <members>OpportunityLineItem.tcf_type_bail_letter__c</members>
+        <members>OpportunityLineItem.tcf_type_beneficiary__c</members>
 		<name>CustomField</name>
     </types>
     <types>
@@ -954,6 +967,7 @@
         <members>Contact_Tgr</members>
         <members>AccountContact_tgr</members>
 		<members>Opportunity_tgr</members>
+		<members>OpportunityLineT</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -1012,5 +1026,5 @@
         <members>PDF_formalizacion_vfp</members>
         <name>ApexPage</name>
      </types>
-    <version>41.0</version>
+    <version>41.0</version> 
 </Package>
