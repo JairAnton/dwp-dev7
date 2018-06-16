@@ -291,5 +291,9 @@
             <masterLabel>46</masterLabel>
             <translation>Riesgo aprobado dentro de linea</translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>47</masterLabel>
+            <translation>Riesgo aprobado</translation>
+        </picklistValues>
     </fields>
 </CustomObjectTranslation>
