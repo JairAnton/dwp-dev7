@@ -6,7 +6,7 @@
  <!-- 'fileName' attribute for display the selected file name -->  
    <aura:attribute name="fileName" type="String" default="Archivo no seleccionado." />
  <!-- Lightning Input with file type and on file change call the 'handleFilesChange' controller --> 
- 
+      <aura:registerEvent  name="PasoParametrosPadre" type="c:UploadedFile_evt" />
    <lightning:input aura:id="fileId" onchange="{!c.handleFilesChange}" type="file" name="file" label="Cargar adjunto" multiple="false"/>
    <div class="slds-text-body_small slds-text-color_error">{!v.fileName} </div>
  

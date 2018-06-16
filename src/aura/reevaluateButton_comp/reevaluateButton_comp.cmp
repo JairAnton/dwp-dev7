@@ -1,8 +1,23 @@
 <aura:component controller="ReevaluateButtonClass" implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
+<aura:handler name="init" value="{!this}" action="{!c.doIni}"/>
 <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleReevaluate}" access="global" description="Specify the modal"/>
-<div class="slds-modal__content slds-p-around_medium slds-theme_shade">
-      {!$Label.c.lblMsgReevaluate}
-   </div>
+<aura:attribute name="Risk" type="Boolean" default="true" access="global"/>
+<aura:attribute name="Price" type="Boolean" default="true" access="global"/>    
+<div class="slds-modal__content slds-p-around_medium slds-theme_shade" >
+    <div class="slds-align_absolute-center">  
+    {!$Label.c.lblMsgReevaluate}
+    </div>    
+    <br/>
+     <br/>
+    <div class="slds-align_absolute-center">     
+    <aura:if isTrue="{!v.Risk}">
+      <lightning:button variant="neutral" label="Sancionar Riesgo" onclick="{!c.doRisk}"/>    
+    </aura:if>      
+    <aura:if isTrue="{!v.Price}">
+       <lightning:button variant="neutral" label="Sancionar Precio" onclick="{!c.doPrice}"/>  
+    </aura:if> 
+    </div>    
+ </div>
    <footer class="slds-modal__footer slds-theme_default">
        <lightning:button variant="neutral" label="Aceptar" onclick="{!c.doReevaluate}"/>
        <lightning:button variant="neutral" label="Cancelar" onclick="{!c.close}"/>
