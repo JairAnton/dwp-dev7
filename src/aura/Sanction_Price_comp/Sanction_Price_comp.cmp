@@ -103,7 +103,7 @@
             </aura:set>
             <div style="height:422px;">
             <div style="height:200px;">
-              <lightning:textarea aura:id="txtComments" name="txtComments" value="" label="{!v.lblComments}" maxlength="300" class="slds-size_2-of-2 slds-p-horizontal_x-small topText" />
+              <lightning:textarea aura:id="txtComments" name="txtComments" value=" " label="{!v.lblComments}" maxlength="254" class="slds-size_2-of-2 slds-p-horizontal_x-small topText" />
              </div>
            </div>
         </lightning:tab>

@@ -77,8 +77,8 @@ public class Product_cls_test {
 
        		Product_cls.deleteGuaranteeDataByProduct(testPG.Id);
        		Product_cls.deleteParticipantDataByProduct(testPP.Id);
-        	Product_cls.setSanctionPrice(testOP.Id,'btnApprove');
-        	Product_cls.setFormalization(testOP.Id,'btnApprove','id');
+        	Product_cls.setSanctionPrice(testOP.Id,'btnApprove','obs');
+        	Product_cls.setFormalization(testOP.Id,'btnApprove','id','obs');
         	testLOPP.gipr_Tipo_Garantia__c='02';
         	update testLOPP;
      		System.assert(true,'This Works!');
