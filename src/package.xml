@@ -172,6 +172,7 @@
         <members>lblPDFProductImport</members>
         <members>lblPDFLeasingForniture</members>
         <members>lblSanctionRisk</members>
+        <members>lblSanctionStage</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -266,6 +267,7 @@
 		<members>Componente_CotizaWeb</members>
         <members>Collapsible_Section_comp</members>
         <members>UploadedFile_evt</members>
+        <members>LastFormalization_comp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
