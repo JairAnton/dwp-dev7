@@ -1,0 +1,12 @@
+div.THIS{
+   align-content: center;
+}
+
+.THIS .tclickedButton {
+   color:white;   
+}
+
+.THIS .clickedButton{
+   background-color: #09864f;
+   width:150px;
+}
