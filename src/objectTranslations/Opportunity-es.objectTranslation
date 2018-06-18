@@ -105,6 +105,10 @@
         <name>type_opportunity</name>
     </fields>
 	    <fields>
+        <label>Número de contrato</label>
+        <name>frm_ContractNumber__c</name>
+    </fields>
+    <fields>
         <label>Estado</label>
         <name>opportunity_status_type__c</name>
         <picklistValues>
