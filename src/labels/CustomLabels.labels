@@ -612,4 +612,11 @@
         <shortDescription>lblPDFProductImport</shortDescription>
         <value>PC00005</value>
     </labels>
+    <labels>
+        <fullName>lblSanctionStage</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblSanctionStage</shortDescription>
+        <value>04</value>
+    </labels>
 </CustomLabels>

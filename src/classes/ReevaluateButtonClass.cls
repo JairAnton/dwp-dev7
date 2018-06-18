@@ -53,17 +53,21 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
     }
     
     @auraenabled
-    public static void  setToRisk(String Idopp){
-        Opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];       
+    public static string  setToRisk(String Idopp){
+        opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];       
+        opp.StageName=label.lblSanctionStage;
         opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
-        update opp;   
+        update opp;
+        return 'Updated';
     }
     
     @auraenabled
-    public static void  setToPrice(String Idopp){
-        Opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];        
+    public static string  setToPrice(String Idopp){
+        opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];        
+        opp.StageName=label.lblSanctionStage;
         opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionPrice;
-        update opp;   
+        update opp; 
+        return 'Updated';
     }
     
     
