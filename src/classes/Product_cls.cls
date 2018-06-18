@@ -7,7 +7,7 @@
 
 public with sharing class Product_cls {
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
-		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,PE_DATE_Fecha_cotizacion__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
+		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,PE_DATE_Fecha_cotizacion__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c,Product2.Type_of_quote__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
 		if(!row.isEmpty())
 			return row;
 		else
@@ -124,19 +124,8 @@ public with sharing class Product_cls {
 				update itemOpp[0];
 				//BEGIN Traceability - 2018-06-11
 			    //Isaías Vellázquez Cortés
-
-				List<OpportunityLineItem> itemOppProduct= getIdProductByOpportunity(itemOpp[0].Id);
-				String HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
-								'<b>Importe:</b> '+ String.valueOf(itemOppProduct[0].Opportunity.Amount) +'<br/>' +
-								'<b>Plazo:</b> '+itemOppProduct[0].gipr_Plazo__c +' '+ itemOppProduct[0].gipr_Periodicidad__c +'<br/>' +  /// EN CASO DE QUE APLIQUE
-					            '<b>Tasa propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>' +// o Comisión propuesta"+
-								'<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>' +
-								'<b>Comisión de liquidación anticipada (en caso aplique)</b>'+'<br/>' +
-								'<b>Comentarios:</b> ' +Comments;
-				
-			    if(sanAction=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability('Precio aprobado en delegación',HTMLComments,'Opportunity',itemOpp[0].Id,'approve','TRSP00001',UserInfo.getUserId(),'embedded',1,true);			    
-			   	else if(sanAction=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability('Elevado para sanción de precio',HTMLComments,'Opportunity',itemOpp[0].Id,'elevate','TRSP00001',UserInfo.getUserId(),'embedded',1,true);
-			   	
+			    if(sanAction=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Comments,''),'Opportunity',itemOpp[0].Id,'approve','TRSP00001',UserInfo.getUserId(),'embedded',1,true);			    
+			   	else if(sanAction=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Comments,''),'Opportunity',itemOpp[0].Id,'elevate','TRSP00001',UserInfo.getUserId(),'embedded',1,true);		   	
 			    //END Traceability
 				return 'true';
 			}
@@ -186,12 +175,7 @@ public with sharing class Product_cls {
                 update itemOpp[0];
 				//BEGIN Traceability - 2018-06-11
 			    //Isaías Vellázquez Cortés
-				List<OpportunityLineItem> itemOppProduct= getIdProductByOpportunity(itemOpp[0].Id);
-				String HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
-								'<b>Importe:</b> '+ String.valueOf(itemOppProduct[0].Opportunity.Amount) +'<br/>' +
-								'<b>Comentarios:</b> ' +Body+ '<br/><br/>'+
-								'<b>Archivos adjuntos:</b> <br/>' +AttachedFiles;
-			    	new OpportunityTraceability_cls().addOpportunityTraceability('Enviado para formalización',HTMLComments,'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+			    	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,AttachedFiles),'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
 			    //END Traceability
 				return 'true';
 			}
@@ -203,6 +187,42 @@ public with sharing class Product_cls {
 		}
 	}
 
+	@AuraEnabled public static String setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber){
+		if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
+        {
+        	List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id=: OpportunityId];
+			if(!itemOpp.isEmpty())
+			{
+				if(Action=='btnApprove'){//08
+					itemOpp[0].StageName='06';
+					itemOpp[0].opportunity_status_type__c='35';
+				}
+				else if(Action=='btnRaise'){//09
+					itemOpp[0].StageName='05';
+					itemOpp[0].opportunity_status_type__c='34';
+				}
+				else if(Action=='btnBack'){//09
+					itemOpp[0].StageName='05';
+					itemOpp[0].opportunity_status_type__c='33';
+				}
+				itemOpp[0].frm_ContractNumber__c=ContractNumber;
+				update itemOpp[0];
+				//BEGIN Traceability - 2018-06-11
+			    //Isaías Vellázquez Cortés				
+			    if(Action=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			    
+				   	else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+				   		else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			   	
+			    //END Traceability
+				return 'true';
+			}
+            return 'Error'; 
+            //success
+        }
+        else
+			return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';	
+	}
+
+
   	@InvocableMethod(label='Delete Master Guarantee' description='Delete the row from Product_Guarantee')
  	public static void deleteMasterGuarantee(List<OpportunityLineItem> listRow)
     {
@@ -211,6 +231,52 @@ public with sharing class Product_cls {
  		if(!row.isEmpty())delete row;
     }
 
+    public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)
+    {
+    	List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id=: OpportunityId];
+		List<OpportunityLineItem> itemOppProduct= getIdProductByOpportunity(itemOpp[0].Id);
+		String HTMLComments='';
+		if(OppStatus!='32')
+		{
+			HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
+				'<b>Importe:</b> '+ String.valueOf(itemOppProduct[0].Opportunity.Amount) +'<br/>' +
+				'<b>Plazo:</b> '+itemOppProduct[0].gipr_Plazo__c +' '+ itemOppProduct[0].gipr_Periodicidad__c +'<br/>';  /// EN CASO DE QUE APLIQUE
+           	if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZADOR')
+           	{
+				HTMLComments=HTMLComments+'<b>Tasa propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>' +
+					'<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>';
+
+           	}else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web')
+           	{
+           		HTMLComments=HTMLComments+'<b>Tasa propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>';
+           	}
+           	else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario')
+           	{
+           		HTMLComments=HTMLComments+'<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>';
+
+           	}
+			HTMLComments =HTMLComments+'<b>Comentarios:</b> ' +Body;
+		}
+		else
+		{			
+			HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
+								'<b>Importe:</b> '+ String.valueOf(itemOppProduct[0].Opportunity.Amount) +'<br/>' +
+								'<b>Comentarios:</b> ' +Body+ '<br/><br/>'+
+								'<b>Archivos adjuntos:</b> <br/>' +AttachedFiles;
+
+		}
+		return HTMLComments;
+    }
+
+    public static string getStatusLabel (String OppStatus)
+    {
+    	list<Schema.PicklistEntry> PicklistEntries = Opportunity.opportunity_status_type__c.getDescribe().getPicklistValues();
+		map<String,String> ApiToLabel = new map<String,String>();
+		for (Schema.PicklistEntry pe : PicklistEntries){
+		    ApiToLabel.put(pe.getValue(),pe.getLabel());
+		}
+		return ApiToLabel.get(OppStatus);
+    }
 
 
 

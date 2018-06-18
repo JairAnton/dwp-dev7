@@ -37,7 +37,7 @@
 	<td >
          <lightning:textarea aura:id="txtComments" name="txtComments" value="{!v.comments}" label="{!v.lblComments}" maxlength="300" class="slds-size_2-of-2 "/>
 			<br/> Documentos<br/>
-            <c:fileUpload_comp parentId="{!v.recordId}" /><lightning:button aura:id="btnApprove" name="btnApprove" class="slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:check" size="small" /><br/>Formalizar</lightning:button>
+            <c:fileUpload_comp parentId="{!v.recordId}" /><lightning:button aura:id="btnApprove" name="btnApprove" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:check" size="small" aura:id="iApprove" /><br/><p aura:id="tApprove">Formalizar</p></lightning:button>
 		<br/>
         </td>
     </tr>
