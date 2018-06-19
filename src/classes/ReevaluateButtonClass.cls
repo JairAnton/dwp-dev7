@@ -1,16 +1,16 @@
 global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInterface {
     private static boolean risk;
     private static boolean price;
-    
+
     global static List<String> getErrorMessagesList(String recordId, String source, String validationClass)
     {
-        
+
         id id1 = userinfo.getProfileId();
         List<String> lstErrorMessage = new List<String>();
         String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
         return lstErrorMessage;
     }
-     
+
     @auraenabled
     public static void updateOpp(String Idopp){
         id id1 = userinfo.getProfileId();
@@ -23,23 +23,23 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
             Opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
             if(reevaluatePrice.get(Idopp).contains('Sanction Price'))
                 opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionPrice;
-            if(reevaluateRisk.get(Idopp).contains('Penalize Risk'))                
+            if(reevaluateRisk.get(Idopp).contains('Penalize Risk'))
                 opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
-            
+
             update opp;
-            
+
         }
-        
+
     }
-    
+
     @auraenabled
     public static String start (String Idopp){
         id id1 = userinfo.getProfileId();
         list<String > lstIds = new list<String>();
         lstIds.add(Idopp);
-        string msg;   
-        Map<String,Set<String>> Price=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(lstIds,'Opportunity','BtnPrice');
-        Map<String,Set<String>> Risk=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(lstIds,'Opportunity','BtnRisk');
+        string msg;
+        Map<String,Set<String>> Price=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(lstIds,'Opportunity','BtnReevaluatePrice');
+        Map<String,Set<String>> Risk=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(lstIds,'Opportunity','BtnReevaluateRisk');
         String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
         if( prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion'){
         if(Price.get(Idopp).contains('BtnPriceValue'))
@@ -49,27 +49,27 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
         if(Price.get(Idopp).contains('BtnPriceValue') && Risk.get(Idopp).contains('BtnRiskValue'))
             msg = 'Both';
         }
-        return msg;   
+        return msg;
     }
-    
+
     @auraenabled
     public static string  setToRisk(String Idopp){
-        opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];       
+        opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
         opp.StageName=label.lblSanctionStage;
         opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
         update opp;
         return 'Updated';
     }
-    
+
     @auraenabled
     public static string  setToPrice(String Idopp){
-        opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];        
+        opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
         opp.StageName=label.lblSanctionStage;
         opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionPrice;
-        update opp; 
+        update opp;
         return 'Updated';
     }
-    
-    
-    
+
+
+
 }
