@@ -38,8 +38,8 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
         list<String > lstIds = new list<String>();
         lstIds.add(Idopp);
         string msg;
-        Map<String,Set<String>> Price=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(lstIds,'Opportunity','BtnPrice');
-        Map<String,Set<String>> Risk=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(lstIds,'Opportunity','BtnRisk');
+        Map<String,Set<String>> Price=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(lstIds,'Opportunity','BtnReevaluatePrice');
+        Map<String,Set<String>> Risk=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(lstIds,'Opportunity','BtnReevaluateRisk');
         String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
         if( prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion'){
         if(Price.get(Idopp).contains('BtnReevaluatePriceValue'))
