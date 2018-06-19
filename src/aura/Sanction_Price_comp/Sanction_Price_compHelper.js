@@ -129,13 +129,22 @@
     
 	},
     sanctionActions : function(component, event, helper) {
-        var OpportunityId = component.get("v.recordId");
-
+        var OpportunityId = component.get("v.recordId");        
+        var action = component.get("c.setSanctionPrice");        
         var action = component.get("c.setSanctionPrice");
         var sanAction = component.get("v.sanAction");
+        var Comments="";
+        if(component.find("txtComments")!=null)
+            Comments= component.find("txtComments").get("v.value");
+        else
+            Comments="";
+
+        
+       // alert(Comments);
         action.setParams({            
             "OpportunityId" : OpportunityId,
-            "sanAction" : sanAction
+            "sanAction" : sanAction,
+            "Comments" : ''+Comments
         });
         action.setCallback(this, function(response) {
             var state = response.getState();

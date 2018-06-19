@@ -391,6 +391,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>frm_ContractNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>frm_ContractNumber</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>opportunity_expiry_date__c</fullName>
         <description>opportunity expirition date</description>
         <externalId>false</externalId>
@@ -707,6 +718,11 @@
                     <fullName>46</fullName>
                     <default>false</default>
                     <label>46</label>
+                </value>
+                <value>
+                    <fullName>47</fullName>
+                    <default>false</default>
+                    <label>47</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
