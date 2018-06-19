@@ -2286,6 +2286,11 @@ Analistas de riesgos</description>
         <field>Opportunity.contract_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.frm_ContractNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.isProcess__c</field>

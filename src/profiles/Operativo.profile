@@ -2520,6 +2520,11 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.frm_ContractNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.isProcess__c</field>
         <readable>true</readable>
     </fieldPermissions>
