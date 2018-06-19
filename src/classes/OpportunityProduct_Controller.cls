@@ -71,6 +71,10 @@ public without sharing class OpportunityProduct_Controller {
         update op;
         update t;
         update ts;
+		//BEGIN Traceability - 2018-06-11
+		//Isaías Vellázquez Cortés
+		new OpportunityTraceability_cls().addOpportunityTraceability(valStatus[1],'Código SIO:' +valStatus[0],'Opportunity',op.Id,'quickText','TRSR00001',UserInfo.getUserId(),'embedded',1,true);
+		//END Traceability
     }
     
     private static  Map<string,string> getMapOppStatus(){
@@ -94,5 +98,9 @@ public without sharing class OpportunityProduct_Controller {
         update op;
         op.isProcess__c=false;
         update op;
+		//BEGIN Traceability - 2018-06-11
+		//Isaías Vellázquez Cortés
+		new OpportunityTraceability_cls().addOpportunityTraceability('Riesgo aprobado en delegación','Dentro de Linea','Opportunity',op.Id,'approve','TRSR00001',UserInfo.getUserId(),'embedded',1,true);
+		//END Traceability
     }
 }
