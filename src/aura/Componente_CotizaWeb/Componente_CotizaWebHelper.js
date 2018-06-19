@@ -4,15 +4,15 @@
         action.setParams({
             "Filtro":component.get("v.recordId"),
         });
-        
+ 
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-                var toastEvent = $A.get("e.force:showToast"); 
-                toastEvent.setParams({ 
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
                     title: "Success!",
-                    message: "Compromiso Terminada", 
-                    type: "success" 
+                    message: "Compromiso Terminada",
+                    type: "success"
                 });
                 toastEvent.fire();
             } else if (state === "ERROR") {
@@ -20,7 +20,7 @@
             }
         }));
         $A.enqueueAction(action);
-        
+ 
     },
     exit : function(cmp, event) {
         var outputVar = cmp.get("v.recordId");
@@ -45,7 +45,7 @@
         action.setParams({
             "Filtro":cmp.get("v.recordId")
         });
-        
+ 
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
@@ -75,17 +75,35 @@
         action.setParams({
             "Filtro":cmp.get("v.recordId")
         });
-        
+ 
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
-            if (state === "SUCCESS") {                
+            if (state === "SUCCESS") {
                 cmp.set("v.rows", null);
-                cmp.set("v.rows", response.getReturnValue());                
+                cmp.set("v.rows", response.getReturnValue());
             } else if (state === "ERROR") {
                 var errors = response.getError();
             }
         }));
         $A.enqueueAction(action);
-    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
-    
+    },
+    Sancionar : function(component, event) {
+      var action = cmp.get("c.sancionar");
+        action.setParams({
+            "Filtro":cmp.get("v.recordId")
+        });
+ 
+        action.setCallback(this, $A.getCallback(function (response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                cmp.set("v.rows", null);
+                cmp.set("v.rows", response.getReturnValue());
+            } else if (state === "ERROR") {
+                var errors = response.getError();
+            }
+        }));
+        $A.enqueueAction(action);
+ 
+    }
+ 
 })
