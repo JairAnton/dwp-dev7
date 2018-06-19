@@ -8,6 +8,7 @@
 <aura:attribute name="rowsP" type="Object[]" />
 <aura:attribute name="rowsComp" type="Object[]" />
 <aura:attribute name="rowsOppLineItem" type="Object[]" />
+<aura:attribute name="lblNContractError" type="String" default=""/>
 <aura:attribute name="lblComments" type="String" default=""/>
 <aura:attribute name="lblCancel" type="String" default=""/>
 <aura:attribute name="comments" type="String" default=""/>
@@ -37,18 +38,18 @@
 	<tr>
 	<td >
          <lightning:textarea aura:id="txtComments" name="txtComments" value="{!v.comments}" label="{!v.lblComments}" maxlength="254" class="slds-size_2-of-2 slds-p-horizontal_x-small topText"/><br/>
-          <lightning:input aura:id="txtContract" name="txtContract"  label="Número de contrato" value="" />
+          <lightning:input aura:id="txtContract" name="txtContract"  label="Número de contrato" value="" pattern="[0-9]{4}-[0-9]{4}-[0-9]{10}" messageWhenPatternMismatch="No Contrato no válido, el formato correcto: 0000-0000-000000000"  />
 			</td>
 			<td width="170px">
 			<table>
 			<tr><td>
-            <lightning:button aura:id="btnApprove" name="btnApprove" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:check" size="small" /><br/>Formalización</lightning:button>
+            <lightning:button aura:id="btnApprove" name="btnApprove" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:check" size="small" aura:id="iApprove"/><br/><p aura:id="tApprove">Formalización</p></lightning:button>
             </td></tr>
             <tr><td>
-            <lightning:button aura:id="btnApprove" name="btnApprove" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:share" size="small" /><br/>Enviado a unidad de producto</lightning:button>
+            <lightning:button aura:id="btnRaise" name="btnRaise" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:share" size="small" aura:id="iRaise"/><br/><p aura:id="tRaise">Enviado a unidad de producto</p></lightning:button>
             </td></tr>
             <tr><td>
-            <lightning:button aura:id="btnApprove" name="btnApprove" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:back" size="small" /><br/>Devuelto</lightning:button>
+            <lightning:button aura:id="btnBack" name="btnBack" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:back" size="small" aura:id="iBack"/><br/><p aura:id="tBack">Devuelto</p></lightning:button>
             </td></tr>
         </table>
 

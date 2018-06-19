@@ -14,19 +14,30 @@
 		var cmpTarget2 = component.find('btnRaise');
 		var cmpTarget3 = component.find('tApprove');
 		var cmpTarget4 = component.find('tRaise');
+		var cmpTarget5 = component.find('iApprove');
+		var cmpTarget6 = component.find('iRaise');
 		$A.util.removeClass(cmpTarget1, 'clickedButton');	
 		$A.util.removeClass(cmpTarget2, 'clickedButton');
 		$A.util.removeClass(cmpTarget3, 'tclickedButton');	
 		$A.util.removeClass(cmpTarget4, 'tclickedButton');
+		cmpTarget5.set("v.variant","normal");
+		cmpTarget6.set("v.variant","normal");
 
         $A.util.addClass(event.getSource(), 'clickedButton');
+        
 
 		component.find("btnContinue").set("v.disabled", false);
 
 		if(event.getSource().get("v.name")=='btnApprove')
+		{
+			cmpTarget5.set("v.variant","inverse");	
 			$A.util.addClass(cmpTarget3, 'tclickedButton');
+		}
 		else
+		{
+			cmpTarget6.set("v.variant","inverse");
 			$A.util.addClass(cmpTarget4, 'tclickedButton');
+		}
 	},
 	continue : function(component, event, helper) {
 		helper.sanctionActions(component, event, helper);

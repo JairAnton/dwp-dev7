@@ -157,11 +157,11 @@
     <table style="width:90%" align="center">
     <tr>
     <td>
-    <lightning:button  aura:id="btnApprove" name="btnApprove" class="cButton slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}" ><lightning:icon iconName="utility:check" size="small" /><br/><p aura:id="tApprove">Sancionar</p></lightning:button>
+    <lightning:button  aura:id="btnApprove" name="btnApprove" class="cButton slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}" ><lightning:icon iconName="utility:check" size="small" aura:id="iApprove"  /><br/><p aura:id="tApprove">Sancionar</p></lightning:button>
 
 	</td>
 	<td>
-    <lightning:button  aura:id="btnRaise" name="btnRaise" class="cButton slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}" ><lightning:icon iconName="utility:share" size="small" /><br/><p aura:id="tRaise">Elevar</p></lightning:button>
+    <lightning:button  aura:id="btnRaise" name="btnRaise" class="cButton slds-button slds-button_neutral slds-size_2-of-2 slds-p-horizontal_x-small" onclick="{!c.sanction}" ><lightning:icon iconName="utility:share" size="small" aura:id="iRaise" /><br/><p aura:id="tRaise">Elevar</p></lightning:button>
 	</td>
 	</tr>
 	</table>
