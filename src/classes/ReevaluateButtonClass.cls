@@ -21,13 +21,15 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
         String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
         if(prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'){
             Opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
+            opp.isProcess__c=true;
             if(reevaluatePrice.get(Idopp).contains('Sanction Price'))
                 opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionPrice;
             if(reevaluateRisk.get(Idopp).contains('Penalize Risk'))
                 opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
 
             update opp;
-
+            opp.isProcess__c=false;
+            update opp;
         }
 
     }
@@ -55,18 +57,24 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
     @auraenabled
     public static string  setToRisk(String Idopp){
         opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
+        opp.isProcess__c=true;
         opp.StageName=label.lblSanctionStage;
         opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
         update opp;
+        opp.isProcess__c=false;
         return 'Updated';
     }
 
     @auraenabled
     public static string  setToPrice(String Idopp){
         opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
+        opp.isProcess__c=true;
         opp.StageName=label.lblSanctionStage;
         opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionPrice;
         update opp;
+        opp.isProcess__c=false;
+        update opp;
+
         return 'Updated';
     }
 
