@@ -12,6 +12,7 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
 
             Set<String> buttonsStatusSet = new Set<String>();
             id id1 = userinfo.getProfileId();
+            buttonsStatusSet.add('btnFormalization');
 
             String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
             buttonsStatusSet.add('btnQuote');
