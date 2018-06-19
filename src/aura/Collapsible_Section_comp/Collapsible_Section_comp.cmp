@@ -3,8 +3,20 @@
 <aura:attribute name="bProduct" type="Boolean" default="false" />
 <aura:handler event="fprd:GBL_SelectedProduct_evt" action="{!c.handleSelectedEvent}"/>
 <aura:if isTrue="{!v.bProduct}">
-
+   <div class="slds-page-header" style="cursor: pointer;" onclick="{!c.sectionZero}">
+      <section class="slds-clearfix">
+        <div class="slds-float--left ">
+            <lightning:icon class="slds-show" aura:id="articleZero" iconName="utility:chevronright" size="xx-small" alternativeText="Indicates add"/>
+            <lightning:icon class="slds-hide" aura:id="articleZero" iconName="utility:chevrondown" size="xx-small" alternativeText="Indicates dash"/>
+        </div>
+        <div class="slds-m-left--large" style="font-size:16px">Precio</div>
+      </section>
+    </div>
       
+    <div class="slds-hide slds-p-around--medium" aura:id="articleZero">
+    <c:Tabla_Compromiso_2 recordId="{!v.recordId}"/>
+    </div>
+<br/>      
    <div class="slds-page-header" style="cursor: pointer;" onclick="{!c.sectionOne}">
       <section class="slds-clearfix">
         <div class="slds-float--left ">
@@ -47,19 +59,6 @@
       <c:ProductParticipants_comp recordId="{!v.recordId}"/>
     </div>
 <br/>
-    <div class="slds-page-header"  style="cursor: pointer;" onclick="{!c.sectionFour}">
-      <section class="slds-clearfix">
-        <div class="slds-float--left"> 
-            <lightning:icon class="slds-show" aura:id="articleFour" iconName="utility:chevronright" size="x-small" alternativeText="Indicates add"/>
-            <lightning:icon class="slds-hide" aura:id="articleFour" iconName="utility:chevrondown" size="x-small" alternativeText="Indicates dash"/>
-        </div>
-        <div class="slds-m-left--large" style="font-size:16px">Información de modalidad</div>
-      </section>
-    </div>
-      
-    <div aura:id="articleFour" class="slds-hide slds-p-around- -medium">
-      <c:OpportunityProduct_Comp recordId="{!v.recordId}" recordOLI="{!v.recordId}"/>
-    </div>
 </aura:if>
   
 </aura:component>
