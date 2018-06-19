@@ -1,14 +1,14 @@
 ({
-    init : function(cmp, event, helper) {    
+    init : function(cmp, event, helper) {
         if(cmp.get("v.toButton"))
-            cmp.set("v.recordId",cmp.get("v.inputAttributes").recordId);	
-        
-        cmp.set("v.title" , "Cotización");      
+            cmp.set("v.recordId",cmp.get("v.inputAttributes").recordId);
+ 
+        cmp.set("v.title" , "Cotización");
         var action = cmp.get("c.getOportunityLineItemID");
         action.setParams({
             "Filtro":cmp.get("v.recordId")
         });
-        
+ 
         action.setCallback(this, $A.getCallback(function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
@@ -24,7 +24,7 @@
         cmp.set("v.hide" , true);
     },
     cotiza : function(cmp, event, helper) {
-        helper.cotiza(cmp, event, helper);  
+        helper.cotiza(cmp, event, helper);
     },
     recarga:function(cmp, event, helper) {
         helper.exit(cmp, event, helper);
@@ -44,12 +44,24 @@
         $A.get('e.force:refreshView').fire();
         cmp.set("v.table" , true);
         cmp.set("v.truthy" , false);
-        var toastEvent = $A.get("e.force:showToast"); 
-        toastEvent.setParams({ 
+        var toastEvent = $A.get("e.force:showToast");
+        toastEvent.setParams({
             title: "Success!",
-            message: "Compromiso Terminada", 
-            type: "success" 
+            message: "Compromiso Terminada",
+            type: "success"
         });
         toastEvent.fire();
+    },
+    continuaCotiza:function(cmp, event, helper) {
+        cmp.set("v.title" , "Sancionar");
+        helper.gridDate(cmp, event);
+        cmp.set("v.table" , false);
+        cmp.set("v.formcoti" , false);
+        cmp.set('v.cotizaBeta',true);
+    },
+    sancionar:function(cmp, event, helper) {
+        helper.Sancionar(cmp, event);
     }
+ 
+ 
 })
