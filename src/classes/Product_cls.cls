@@ -210,6 +210,57 @@ public with sharing class Product_cls {
 		}
 	}
 
+	@AuraEnabled public static String setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber,String Email){
+		id id1 = userinfo.getProfileId();
+       	String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+		if(prof=='Operativo'|| prof=='Administrador del Sistema' )
+		{ 
+			if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
+	        {
+
+	        	List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name FROM Opportunity WHERE Id=: OpportunityId];
+				if(!itemOpp.isEmpty())
+				{
+					itemOpp[0].IsProcess__c=true;
+					update itemOpp[0];   
+					if(Action=='btnApprove'){//08
+						
+						itemOpp[0].StageName='06';
+						itemOpp[0].opportunity_status_type__c='35';
+					}
+					else if(Action=='btnRaise'){//09
+						itemOpp[0].StageName='05';
+						itemOpp[0].opportunity_status_type__c='34';
+						sendEmail(Email,getStatusLabel(itemOpp[0].opportunity_status_type__c),Body,itemOpp[0].Name);
+					}
+					else if(Action=='btnBack'){//09
+						itemOpp[0].StageName='05';
+						itemOpp[0].opportunity_status_type__c='33';
+					}
+					itemOpp[0].frm_ContractNumber__c=ContractNumber;
+					update itemOpp[0];
+
+					itemOpp[0].IsProcess__c=false;
+	                update itemOpp[0]; 
+					//BEGIN Traceability - 2018-06-11
+				    //Isaías Vellázquez Cortés				
+				    if(Action=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			    
+					   	else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+					   		else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			   	
+				    //END Traceability
+					return 'true';
+				}
+	            return 'Error'; 
+	            //success
+	        }
+	        else
+				return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';
+		}
+		else
+		return 'Usuario no autorizado.';
+	}
+
+
   	@InvocableMethod(label='Delete Master Guarantee' description='Delete the row from Product_Guarantee')
  	public static void deleteMasterGuarantee(List<OpportunityLineItem> listRow)
     {
@@ -218,6 +269,59 @@ public with sharing class Product_cls {
  		if(!row.isEmpty())delete row;
     }
 
+
+
+
+		}
+		return HTMLComments;
+    }
+
+    public static string getStatusLabel (String OppStatus)
+    {
+    	list<Schema.PicklistEntry> PicklistEntries = Opportunity.opportunity_status_type__c.getDescribe().getPicklistValues();
+		map<String,String> ApiToLabel = new map<String,String>();
+		for (Schema.PicklistEntry pe : PicklistEntries){
+		    ApiToLabel.put(pe.getValue(),pe.getLabel());
+		}
+		return ApiToLabel.get(OppStatus);
+    }
+
+    public static void sendEmail(String Email,String Subject,String Body,String OppName)
+    {
+
+		Messaging.reserveSingleEmailCapacity(2);
+		Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+		String[] toAddresses = new String[] {Email}; 
+	
+		  
+
+		// Assign the addresses for the To and CC lists to the mail object.
+		mail.setToAddresses(toAddresses);
+		
+		// Specify the address used when the recipients reply to the email. 
+		//mail.setReplyTo('support@acme.com');
+
+		// Specify the name used as the display name.
+		mail.setSenderDisplayName('Salesforce Support');
+
+		// Specify the subject line for your email address.
+		mail.setSubject(Subject +':' + OppName);
+
+		// Set to True if you want to BCC yourself on the email.
+		mail.setBccSender(false);
+
+		// Optionally append the salesforce.com email signature to the email.
+		// The email address of the user executing the Apex Code will be used.
+		mail.setUseSignature(false);
+
+		// Specify the text content of the email.
+		mail.setPlainTextBody(Body);
+
+		mail.setHtmlBody(Body);
+
+		// Send the email you have created.
+		Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+    }
 
 
 

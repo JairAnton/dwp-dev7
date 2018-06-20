@@ -9,10 +9,11 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
             Map<String,Set<String>> reevaluatePrice=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','BtnPrice');
             Map<String,Set<String>> reevaluateRisk=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','BtnRisk');
             Map<String,Set<String>> formalizate=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','Approvalformalization');
+            Map<String,Set<String>> formalization=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','btnFormalization_RuleSet');
 
             Set<String> buttonsStatusSet = new Set<String>();
             id id1 = userinfo.getProfileId();
-            buttonsStatusSet.add('btnFormalization');
+            
 
             String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
             buttonsStatusSet.add('btnQuote');
@@ -22,6 +23,8 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
                 buttonsStatusSet.add('btnReevaluate');
             if(Formalizate.get(recordId).contains('formalizate') && (prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'))
                  buttonsStatusSet.add('btnFormalize');
+            if(formalization.get(recordId).contains('btnFormalization') && (prof=='Ejecutivo' || prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion'))
+                 buttonsStatusSet.add('btnFormalization');
             if(reevaluatePrice.get(recordId).contains('BtnPriceValue') &&( prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion'))
                  buttonsStatusSet.add('btnSanctionPrice');
             if(reevaluateRisk.get(recordId).contains('BtnRiskValue') && (prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion'))
