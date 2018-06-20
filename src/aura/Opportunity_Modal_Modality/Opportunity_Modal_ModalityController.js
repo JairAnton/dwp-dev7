@@ -44,7 +44,7 @@
         (fieldValue=='Requires authorization')?component.set("v.showSIO", true):component.set("v.showSIO", false);          
     },
     rerender : function(component,event,helper){
-        var a=1;
+        this.reRender();
     },
     openModel: function(component, event, helper) {
         component.set("v.isOpen", true);
