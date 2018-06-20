@@ -7,6 +7,7 @@
 		helper.destroyCmp(component, event, helper);
 	},
 	formalize : function(component, event, helper) {
+
 		var cmpTarget1 = component.find('btnApprove');
 		var cmpTarget3 = component.find('tApprove');
 		var cmpTarget5 = component.find('iApprove');
@@ -21,7 +22,10 @@
 		}
 		
 		component.set('v.Action',event.getSource().get("v.name"));
-		component.find("btnContinue").set("v.disabled", false);
+		if(component.get("v.comments").get("v.value").length>0)
+			component.find("btnContinue").set("v.disabled", false);
+		else
+			component.find("btnContinue").set("v.disabled", true);
 	},
 	continue : function(component, event, helper) {
 		helper.Actions(component, event, helper);

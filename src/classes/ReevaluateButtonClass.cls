@@ -21,11 +21,14 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
         String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
         if(prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'){
             Opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
+            opp.isProcess__c=true;
             if(reevaluatePrice.get(Idopp).contains('Sanction Price'))
                 opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionPrice;
             if(reevaluateRisk.get(Idopp).contains('Penalize Risk'))
                 opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
 
+            update opp;
+            opp.isProcess__c=false;
             update opp;
 
         }
@@ -42,11 +45,11 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
         Map<String,Set<String>> Risk=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(lstIds,'Opportunity','BtnReevaluateRisk');
         String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
         if( prof=='Ejecutivo' || prof=='Administrador del Sistema'  || prof=='Migracion'){
-        if(Price.get(Idopp).contains('BtnReevaluatePriceValue'))
+        if(Price.get(Idopp).contains('BtnPriceValue'))
             msg = 'Price';
-        if(Risk.get(Idopp).contains('BtnReevaluateRiskValue'))
+        if(Risk.get(Idopp).contains('BtnRiskValue'))
             msg = 'Risk';
-        if(Price.get(Idopp).contains('BtnReevaluatePriceValue') && Risk.get(Idopp).contains('BtnReevaluateRiskValue'))
+        if(Price.get(Idopp).contains('BtnPriceValue') && Risk.get(Idopp).contains('BtnRiskValue'))
             msg = 'Both';
         }
         return msg;
@@ -55,18 +58,30 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
     @auraenabled
     public static string  setToRisk(String Idopp){
         opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
+        opp.isProcess__c=true;
         opp.StageName=label.lblSanctionStage;
         opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
         update opp;
+        opp.isProcess__c=false;
+        update opp;
+
+        new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel(opp.opportunity_status_type__c),Product_cls.TraceabilityMessage(opp.Id,opp.opportunity_status_type__c,'',''),'Opportunity',Opp.Id,'restudy','TRSR00001',UserInfo.getUserId(),'embedded',1,true);              
+                    
         return 'Updated';
     }
 
     @auraenabled
     public static string  setToPrice(String Idopp){
         opportunity opp =[SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id =:  Idopp LIMIT 1];
+        opp.isProcess__c=true;
         opp.StageName=label.lblSanctionStage;
         opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionPrice;
         update opp;
+        opp.isProcess__c=false;
+        update opp;
+
+        new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel(opp.opportunity_status_type__c),Product_cls.TraceabilityMessage(opp.Id,opp.opportunity_status_type__c,'',''),'Opportunity',Opp.Id,'restudy','TRSP00001',UserInfo.getUserId(),'embedded',1,true); 
+
         return 'Updated';
     }
 

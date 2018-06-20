@@ -188,38 +188,62 @@ public with sharing class Product_cls {
 	}
 
 	@AuraEnabled public static String setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber){
-		if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
-        {
-        	List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id=: OpportunityId];
-			if(!itemOpp.isEmpty())
-			{
-				if(Action=='btnApprove'){//08
-					itemOpp[0].StageName='06';
-					itemOpp[0].opportunity_status_type__c='35';
+		id id1 = userinfo.getProfileId();
+		id id2 = userinfo.getUserId();
+       	String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+       	String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;
+		if(prof=='Operativo'|| prof=='Administrador del Sistema' )
+		{ 
+			if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
+	        {
+
+	        	List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];
+
+	        	
+				if(!itemOpp.isEmpty())
+				{
+					String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;
+
+					if(OUCurrentUser!=OUOppUser)
+						return 'Usuario no autorizado.';
+						
+					if(Action=='btnApprove'){//08
+						itemOpp[0].IsProcess__c=true;
+						update itemOpp[0];   
+						
+						itemOpp[0].StageName='06';
+						itemOpp[0].opportunity_status_type__c='35';
+					}
+					else if(Action=='btnRaise'){//09
+						itemOpp[0].StageName='05';
+						itemOpp[0].opportunity_status_type__c='34';
+						
+					}
+					else if(Action=='btnBack'){//09
+						itemOpp[0].StageName='05';
+						itemOpp[0].opportunity_status_type__c='33';
+					}
+					itemOpp[0].frm_ContractNumber__c=ContractNumber;
+					update itemOpp[0];
+
+					itemOpp[0].IsProcess__c=false;
+	                update itemOpp[0]; 
+					//BEGIN Traceability - 2018-06-11
+				    //Isaías Vellázquez Cortés				
+				    if(Action=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			    
+					   	else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+					   		else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			   	
+				    //END Traceability
+					return 'true';
 				}
-				else if(Action=='btnRaise'){//09
-					itemOpp[0].StageName='05';
-					itemOpp[0].opportunity_status_type__c='34';
-				}
-				else if(Action=='btnBack'){//09
-					itemOpp[0].StageName='05';
-					itemOpp[0].opportunity_status_type__c='33';
-				}
-				itemOpp[0].frm_ContractNumber__c=ContractNumber;
-				update itemOpp[0];
-				//BEGIN Traceability - 2018-06-11
-			    //Isaías Vellázquez Cortés				
-			    if(Action=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			    
-				   	else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
-				   		else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			   	
-			    //END Traceability
-				return 'true';
-			}
-            return 'Error'; 
-            //success
-        }
-        else
-			return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';	
+	            return 'Error'; 
+	            //success
+	        }
+	        else
+				return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';
+		}
+		else
+		return 'Usuario no autorizado.';
 	}
 
 
@@ -278,6 +302,7 @@ public with sharing class Product_cls {
 		return ApiToLabel.get(OppStatus);
     }
 
+   
 
 
 }

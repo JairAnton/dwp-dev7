@@ -41,15 +41,18 @@
 		{
 			cmpTarget5.set("v.variant","inverse");	
 			$A.util.addClass(cmpTarget3, 'tclickedButton');
+
 		}
 		else if(event.getSource().get("v.name")=='btnRaise')
 		{
 			cmpTarget6.set("v.variant","inverse");
 			$A.util.addClass(cmpTarget4, 'tclickedButton');
+
 		}
 		else{
 			cmpTargetiB.set("v.variant","inverse");
 			$A.util.addClass(cmpTargettB, 'tclickedButton');
+
 		}
 
 		

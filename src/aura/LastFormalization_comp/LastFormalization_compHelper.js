@@ -1,5 +1,5 @@
 ({
-    handleShowToast: function(cmp, event, helper) {
+  handleShowToast: function(cmp, event, helper) {
 
 
         $A.util.removeClass(cmp.find('divToast'), "slds-hide");
@@ -11,24 +11,27 @@
             }
           }),0
         );
-    },
-    bringData : function(cmp, evt, helper) {
+  },
+  bringData : function(cmp, evt, helper) {
 	   	var inputObject = cmp.get('v.inputAttributes');
 	   	cmp.set('v.recordId',inputObject.recordId);
         var OpportunityId = cmp.get("v.recordId");
 	},
 	Actions : function(component, event, helper) {
-         var bValid=component.find("txtContract").get("v.validity").valid;
         
-        if(bValid==='true');
-        {
-         
+
+      
+       
             
             var OpportunityId = component.get("v.recordId");
             var action = component.get("c.setLastFormalization");
             var sanAction = component.get("v.Action");
             var body = component.find("txtComments").get("v.value");
             var ContractNumber = component.find("txtContract").get("v.value");
+           
+
+            if((sanAction=='btnApprove' && ContractNumber.length>0 ) || (sanAction=='btnRaise') || (sanAction=='btnBack' && body.length>0))
+            {
            
                 action.setParams({
                     "OpportunityId" : OpportunityId,
@@ -57,8 +60,23 @@
                     
                 });
                 $A.enqueueAction(action);
+            }
+            else
+            {
+                if(sanAction=='btnApprove')
+                {
+                  component.set("v.errMessage","El número de contrato es obligatorio.");
+                  helper.handleShowToast(component,event,helper);
+                }               
+                else
+                {
+                  component.set("v.errMessage","El comentario es obligatorio.");
+                  helper.handleShowToast(component,event,helper);
+                }
+            }
           
-        }
+          
+        
     },
     navigateToRecord : function(component, event, helper) {
          var navEvent = $A.get("e.force:navigateToSObject");
