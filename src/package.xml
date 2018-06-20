@@ -803,6 +803,7 @@
         <members>OpportunityLineItem.tcf_type_bail_letter__c</members>
         <members>OpportunityLineItem.tcf_type_beneficiary__c</members>
         <members>OpportunityLineItem.PE_POR_ID_COTIZA__c</members>
+        <members>Opportunity.frm_ContractNumber__c</members>
 		<name>CustomField</name>
     </types>
     <types>

@@ -37,8 +37,7 @@
                     "OpportunityId" : OpportunityId,
                     "Action" : sanAction,
                     "Body"  :  body,
-                    "ContractNumber" : ContractNumber,
-                    "Email" : ''
+                    "ContractNumber" : ContractNumber
                 });
                 action.setCallback(this, function(response) {
                     var state = response.getState();
