@@ -18,6 +18,22 @@
             }
         }));
         $A.enqueueAction(action);
+ 
+        var actionModality = cmp.get("c.getOportunityModality");
+        actionModality.setParams({
+            "Filtro":cmp.get("v.recordId")
+        });
+ 
+        actionModality.setCallback(this, $A.getCallback(function (response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                cmp.set("v.Modality", response.getReturnValue());
+            } else if (state === "ERROR") {
+                var errors = response.getError();
+            }
+        }));
+        $A.enqueueAction(actionModality);
+ 
         helper.calculaProducto(cmp, event, helper);
     },
     cancel : function(cmp, event, helper) {
@@ -54,13 +70,12 @@
     },
     continuaCotiza:function(cmp, event, helper) {
         cmp.set("v.title" , "Sancionar");
-        helper.gridDate(cmp, event);
         cmp.set("v.table" , false);
         cmp.set("v.formcoti" , false);
         cmp.set('v.cotizaBeta',true);
     },
-    sancionar:function(cmp, event, helper) {
-        helper.Sancionar(cmp, event);
+    doSancionar:function(cmp, event, helper) {
+     helper.Sanciona(cmp, event);
     }
  
  

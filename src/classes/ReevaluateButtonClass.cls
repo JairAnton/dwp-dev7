@@ -62,6 +62,7 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
         opp.opportunity_status_type__c=label.LblStatusResultbtnSanctionRisk;
         update opp;
         opp.isProcess__c=false;
+        update opp;
         return 'Updated';
     }
 
@@ -74,7 +75,6 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
         update opp;
         opp.isProcess__c=false;
         update opp;
-
         return 'Updated';
     }
 

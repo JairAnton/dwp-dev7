@@ -13,6 +13,7 @@
     <aura:attribute name="NewComp" type="boolean" default="false"/>
     <aura:attribute name="toButton" type="boolean" default="true"/>
     <aura:attribute name="Today" type="DateTime" default=""/>
+    <aura:attribute name="Modality" type="boolean" default="false"/>
     <aura:attribute name="rows" type="Object[]" />
     <aura:attribute name="cotizaBeta" type="boolean" default = "false" />
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
@@ -83,7 +84,6 @@
             </lightning:recordEditForm>
         </div>
         <div class="{!v.coticoti ? 'slds-box' : 'slds-hide'}" id="cotizaCotizador" >
-
             <lightning:recordEditForm aura:id="recordViewForm"
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
@@ -123,6 +123,49 @@
 
             </lightning:recordEditForm>
 
+        </div>
+        <div class="{!v.cotizaBeta ? 'slds-box' : 'slds-hide'}" id="cotizaBeta" >
+            <lightning:recordEditForm aura:id="recordViewForm"
+                                      recordId="{!v.mydata}"
+                                      objectApiName="OpportunityLineItem">
+                                <div class="slds-hide">
+                	<lightning:inputField  fieldName="PE_DATE_Fecha_cotizacion__c" value="{!v.Today}"/>
+				</div>
+                <lightning:messages />
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2" role="listitem">
+                        <div class="slds-border_bottom">
+                            <lightning:inputField fieldName="PE_POR_TEA_sugerida__c" />
+                        </div>
+                        <div>
+                            <lightning:inputField fieldName="PE_POR_TEA_propuesta__c" />
+                        </div>
+                        <div class="slds-border_bottom">
+                            <lightning:inputField fieldName="PE_POR_Comision_estructuracion__c" />
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2" role="listitem">
+                        <div class="slds-border_bottom">
+                            <lightning:inputField fieldName="PE_POR_TEA_minima__c" />
+                        </div>
+                        <div class="slds-border_bottom">
+                            <lightning:inputField fieldName="PE_POR_Spread__c" />
+                        </div>
+                        <div class="slds-border_bottom">
+                            <lightning:inputField fieldName="PE_POR_Comision_liquidacion_anticipada__c" />
+                        </div>
+                    </div>
+                </div>
+                <div><p><br/></p></div>
+                <div class="slds-modal__footer slds-modal__footer_directional">
+                    <lightning:button aura:id="cancel" type="button" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
+
+                    <aura:if isTrue="{!v.Modality=='Inside line'}">
+                     <lightning:button  class="slds-m-top_medium slds-button_neutral"  label="Sancionar" onclick="{!c.doSancionar}" />
+                    </aura:if>
+                        <lightning:button aura:id="continue" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
+                </div>
+            </lightning:recordEditForm>
         </div>
     </div>
     <div style="background-color: white;" id="IdCompromiso" class="{!v.table ? '' : 'slds-hide'}">
@@ -172,7 +215,7 @@
         <div>
             <div class="slds-modal__footer">
                 <lightning:button aura:id="cancel" type="button" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
-                <lightning:button aura:id="Send" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continuaCotiza}" />
+                <lightning:button aura:id="Send" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
             </div>
         </div>
     </div>
@@ -208,18 +251,4 @@
             </lightning:recordEditForm>
         </div>
     </div>
-
- <aura:if isTrue="{!v.cotizaBeta}">
-           <div class="slds-box" style="background-color: white;">
-            <lightning:recordEditForm aura:id="recordEditForm"
-                                      objectApiName="compromiso__c"
-                                      onsuccess="{!c.recarga}">                <div><br/><br/></div>
-                <!--div class="slds-modal__footer slds-modal__footer"-->
-
-                    <!--lightning:button class="slds-m-top_small" type="submit" label="Continuar" onclick="{!c.closenew}" />
-                </div -->
-            </lightning:recordEditForm>
-          <lightning:button aura:id="Sancionar"  type="submit" label="Sancionar " class="slds-button slds-button_success" onclick="{!c.sancionar}" />
-        </div>
-    </aura:if>
 </aura:component>
