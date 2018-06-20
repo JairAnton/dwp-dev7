@@ -1,5 +1,5 @@
 ({
-    handleShowToast: function(cmp, event, helper) {
+  handleShowToast: function(cmp, event, helper) {
 
 
         $A.util.removeClass(cmp.find('divToast'), "slds-hide");
@@ -11,30 +11,34 @@
             }
           }),0
         );
-    },
-    bringData : function(cmp, evt, helper) {
+  },
+  bringData : function(cmp, evt, helper) {
 	   	var inputObject = cmp.get('v.inputAttributes');
 	   	cmp.set('v.recordId',inputObject.recordId);
         var OpportunityId = cmp.get("v.recordId");
 	},
 	Actions : function(component, event, helper) {
-         var bValid=component.find("txtContract").get("v.validity").valid;
         
-        if(bValid==='true');
-        {
-         
+
+      
+       
             
             var OpportunityId = component.get("v.recordId");
             var action = component.get("c.setLastFormalization");
             var sanAction = component.get("v.Action");
             var body = component.find("txtComments").get("v.value");
             var ContractNumber = component.find("txtContract").get("v.value");
+            var Email = component.find("txtEmail").get("v.value");
+
+            if((sanAction=='btnApprove' && ContractNumber.length>0 ) || (sanAction=='btnRaise' && Email.length>0) || (sanAction=='btnBack' && body.length>0))
+            {
            
                 action.setParams({
                     "OpportunityId" : OpportunityId,
                     "Action" : sanAction,
                     "Body"  :  body,
-                    "ContractNumber" : ContractNumber
+                    "ContractNumber" : ContractNumber,
+                    "Email" : Email
                 });
                 action.setCallback(this, function(response) {
                     var state = response.getState();
@@ -57,8 +61,28 @@
                     
                 });
                 $A.enqueueAction(action);
+            }
+            else
+            {
+                if(sanAction=='btnApprove')
+                {
+                  component.set("v.errMessage","El número de contrato es obligatorio.");
+                  helper.handleShowToast(component,event,helper);
+                }
+                else if(sanAction=='btnRaise')
+                {
+                  component.set("v.errMessage","El E-mail es obligatorio.");
+                  helper.handleShowToast(component,event,helper);
+                }
+                else
+                {
+                  component.set("v.errMessage","El comentario es obligatorio.");
+                  helper.handleShowToast(component,event,helper);
+                }
+            }
           
-        }
+          
+        
     },
     navigateToRecord : function(component, event, helper) {
          var navEvent = $A.get("e.force:navigateToSObject");
