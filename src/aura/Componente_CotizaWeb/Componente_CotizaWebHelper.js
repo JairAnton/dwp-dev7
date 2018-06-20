@@ -55,6 +55,8 @@
                     cmp.set("v.cotiTarif" , true);
                 }else if(response.getReturnValue()==="COTIZADOR"){
                     cmp.set("v.coticoti" , true);
+                }else if(response.getReturnValue()==="COTIZA Beta"){
+                     cmp.set("v.cotizaBeta" , true);
                 }else{
                     cmp.set("v.cotiweb" , false);
                     cmp.set("v.cotiTarif" , false);
@@ -87,22 +89,25 @@
         }));
         $A.enqueueAction(action);
     },
-    Sancionar : function(component, event) {
-      var action = cmp.get("c.sancionar");
-        action.setParams({
-            "Filtro":cmp.get("v.recordId")
-        });
  
-        action.setCallback(this, $A.getCallback(function (response) {
-            var state = response.getState();
+ 
+    Sanciona : function(component, event) {
+     var action = component.get("c.setSanction");
+     action.setCallback(this, $A.getCallback(function (response) {
+     var state = response.getState();
             if (state === "SUCCESS") {
-                cmp.set("v.rows", null);
-                cmp.set("v.rows", response.getReturnValue());
             } else if (state === "ERROR") {
                 var errors = response.getError();
             }
         }));
         $A.enqueueAction(action);
+        var urlEvent = $A.get("e.force:navigateToSObject");
+        urlEvent.setParams({
+            "recordId":component.get("v.recordId"),
+            "slideDevName": "related"
+        });
+        urlEvent.fire();
+        component.destroy();
  
     }
  

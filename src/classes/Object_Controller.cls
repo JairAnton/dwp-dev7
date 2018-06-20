@@ -14,6 +14,15 @@ public with sharing class Object_Controller {
              where OpportunityId =:Filtro][0].Id;
         return OpLiItem;
     }
+
+    @AuraEnabled
+    public static String getOportunityModality(String Filtro) {
+        String Modality = [SELECT Modality__c FROM Opportunity
+             WHERE Id =:Filtro LIMIT 1].Modality__c;
+        return Modality;
+    }
+
+
     @AuraEnabled
     public static String getOportunidadSytem(String Filtro) {
         String OpLiItem =
@@ -36,7 +45,29 @@ public with sharing class Object_Controller {
     }
 
     @AuraEnabled
-    public static void  sancionar(String Filtro) {
+    public static void  setSanction(String Idopp){
+
+    Opportunity op  = new Opportunity();
+    Map<string,string> MapStatus = getMapOppStatus();
+    Task t = [SELECT Id,Subject,Status FROM Task WHERE whatId = : idopp ORDER BY CreatedDate DESC];
+    op = [SELECT StageName,Modality__c FROM Opportunity WHERE ID =:Idopp];
+    String[] valStatus = t.Subject.split('##');
+    String filter = '%'+valStatus[0]+'%';
+    Integer totalTrace;
+    AggregateResult[] countTrace  = [SELECT Count(Id) total FROM dwp_cvad__Action_Audit__c];
+    new OpportunityTraceability_cls().addOpportunityTraceability(valStatus[1],'Código SIO:' +valStatus[0],'Opportunity',op.Id,'Aprove',('AT-'+totalTrace),UserInfo.getUserId(),'embedded',1,true);
+
+    }
+    private static  Map<string,string> getMapOppStatus(){
+       Map<string,string> MapStatus = new Map<string,string>();
+       Schema.DescribeFieldResult fieldResult = Opportunity.opportunity_status_type__c.getDescribe();
+       List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+       for( Schema.PicklistEntry f : ple)
+       {
+               MapStatus.put(f.getLabel(), f.getValue());
+       }
+       return MapStatus;
+
 
     }
 
