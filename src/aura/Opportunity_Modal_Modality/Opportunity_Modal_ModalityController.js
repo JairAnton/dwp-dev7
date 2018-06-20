@@ -3,9 +3,10 @@
         var oppId = component.get("v.inputAttributes").recordId; 
         var actionOLI = component.get("c.getOppLI");  
         var saveSIO = component.get("c.saveSIO"); 
+        
         actionOLI.setParams({
             "opp":oppId                     
-        });  
+        });
         actionOLI.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
@@ -13,12 +14,12 @@
             }
         });
         $A.enqueueAction(actionOLI); 
-        
+		var a = component.get('c.InitValidateModali'); 
+        $A.enqueueAction(a);
     },
     setValue : function(component, event, helper) {
         var fieldValue; 
         fieldValue= component.find('input_modal').get('v.value');
-        component.set("v.Modality", fieldValue);
         (fieldValue=='Inside line')?component.set("v.showButton", true):component.set("v.showButton", false);      
         (fieldValue=='Requires authorization')?component.set("v.showSIO", true):component.set("v.showSIO", false);          
         var a = component.get('c.rerender'); 
@@ -36,8 +37,14 @@
         $A.enqueueAction(action);    
         $A.enqueueAction(a);
     },
+    renderload :function(component,event,helper){
+        var fieldValue; 
+        fieldValue= component.find('input_modal').get('v.value');
+        (fieldValue=='Inside line')?component.set("v.showButton", true):component.set("v.showButton", false);      
+        (fieldValue=='Requires authorization')?component.set("v.showSIO", true):component.set("v.showSIO", false);          
+    },
     rerender : function(component,event,helper){
-        this.reRender(); 
+        this.reRender();
     },
     openModel: function(component, event, helper) {
         component.set("v.isOpen", true);
@@ -110,5 +117,26 @@
             }
         });
         $A.enqueueAction(sendApproval);    
-    } 
+    },
+    InitValidateModali: function(component){
+        var oppId = component.get("v.inputAttributes").recordId; 
+        var requestModality = component.get("c.requestModality"); 
+        requestModality.setParams({
+            "opp":oppId
+        });
+        requestModality.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                var fro=response.getReturnValue();
+                console.log('Valida '+(fro));
+                if(fro!='' && fro!=null){
+                    (fro=='Inside line')?component.set("v.showButton", true):component.set("v.showButton", false);      
+                    (fro=='Requires authorization')?component.set("v.showSIO", true):component.set("v.showSIO", false);            
+                    component.find('input_modal').set('v.value', fro);
+                    console.log('Vl'+(component.find('input_modal').get('v.value')));
+                }
+            }
+        });
+        $A.enqueueAction(requestModality); 
+    }
 })
