@@ -84,6 +84,10 @@
             </lightning:recordEditForm>
         </div>
         <div class="{!v.coticoti ? 'slds-box' : 'slds-hide'}" id="cotizaCotizador" >
+
+
+
+
             <lightning:recordEditForm aura:id="recordViewForm"
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
@@ -140,8 +144,8 @@
                         <div>
                             <lightning:inputField fieldName="PE_POR_TEA_propuesta__c" />
                         </div>
-                        <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_Comision_estructuracion__c" />
+                       <div class="slds-border_bottom">
+                            <lightning:inputField fieldName="PE_POR_ID_COTIZA__c" />
                         </div>
                     </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
@@ -151,19 +155,12 @@
                         <div class="slds-border_bottom">
                             <lightning:inputField fieldName="PE_POR_Spread__c" />
                         </div>
-                        <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_Comision_liquidacion_anticipada__c" />
-                        </div>
                     </div>
                 </div>
                 <div><p><br/></p></div>
                 <div class="slds-modal__footer slds-modal__footer_directional">
                     <lightning:button aura:id="cancel" type="button" label="Cancelar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.cancel}" />
-
-                    <aura:if isTrue="{!v.Modality=='Inside line'}">
-                     <lightning:button  class="slds-m-top_medium slds-button_neutral"  label="Sancionar" onclick="{!c.doSancionar}" />
-                    </aura:if>
-                        <lightning:button aura:id="continue" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
+                    <lightning:button aura:id="continue" type="submit" label="Continuar" class="slds-m-top_medium slds-button_neutral" onclick="{!c.continua}" />
                 </div>
             </lightning:recordEditForm>
         </div>

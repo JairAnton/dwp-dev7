@@ -1,9 +1,10 @@
-<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" 
-                access="global"  
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId"
+                access="global"
                 controller="Object_Controller">
     <aura:attribute name="recordId" type="Id" />
     <aura:attribute name="cotiweb" type="boolean" default="true"/>
-    <aura:attribute name="cotiTarif" type="boolean" default="false"/>    
+    <aura:attribute name="cotiTarif" type="boolean" default="false"/>
+    <aura:attribute name="cotizaBeta" type="boolean" default="false"/>
     <aura:attribute name="mydata" type="String"/>
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
     <div class="slds-p-bottom_large slds-p-left_large" >
@@ -17,6 +18,11 @@
                         <div class="slds-border_bottom">
                             <lightning:outputField fieldName="PE_POR_TEA_propuesta__c" />
                         </div>
+                        <aura:if isTrue="{!v.cotizaBeta}">
+                        <div class="slds-border_bottom">
+                            <lightning:outputField fieldName="PE_POR_ID_COTIZA__c" />
+                        </div>
+                        </aura:if>
                     </div>
                     <div class="slds-col" role="listitem">
                         <div class="slds-border_bottom">

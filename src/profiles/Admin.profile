@@ -2219,6 +2219,11 @@
         <editable>true</editable>
         <field>OpportunityLineItem.da_Importer__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_ID_COTIZA__c</field>
+        <readable>true</readable>
     </fieldPermissions>    
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>

@@ -9,9 +9,10 @@
             if (state === "SUCCESS") {
                 if(response.getReturnValue()==="Tarifario"){
                     cmp.set("v.cotiweb" , false);
-                }else {
-                    cmp.set("v.cotiweb" , true);
-                }
+                }else if(response.getReturnValue()==="COTIZA Beta"){
+                    cmp.set("v.cotizaBeta" , true);
+                    cmp.set("v.title" , "Cotización beta");
+                } else {cmp.set("v.cotiweb" , true); }
             } else if (state === "ERROR") {
                 var errors = response.getError();
             }
