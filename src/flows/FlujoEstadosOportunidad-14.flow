@@ -473,6 +473,13 @@
                     <stringValue>46</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>Opp_Oportunidad.opportunity_status_type__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>47</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Precio_autorizado_bajo_delegaci_n_oficina</targetReference>
             </connector>
