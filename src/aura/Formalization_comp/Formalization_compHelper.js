@@ -18,6 +18,7 @@
         var OpportunityId = cmp.get("v.recordId");
 	},
 	Actions : function(component, event, helper) {
+        component.find("btnContinue").set("v.disabled", true);
         var OpportunityId = component.get("v.recordId");
 
         var action = component.get("c.setFormalization");
@@ -40,11 +41,13 @@
 
             }
             else if (state === "INCOMPLETE") {
+                component.find("btnContinue").set("v.disabled", false);
                 component.set("v.errMessage",response.getReturnValue());
                 helper.handleShowToast(component,event,helper);
                            
             }
             else if (state === "ERROR") {
+                component.find("btnContinue").set("v.disabled", false);
                 component.set("v.errMessage",response.getReturnValue());
                 helper.handleShowToast(component,event,helper);
             }
