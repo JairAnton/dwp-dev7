@@ -18,7 +18,7 @@
 	<customValue>
         <fullName>COTIZA Beta</fullName>
         <default>false</default>
-        <label>Web</label>
+        <label>COTIZA Beta</label>
     </customValue>
     <description>Valores del tipo de cotizacion</description>
     <masterLabel>Type of quote</masterLabel>
