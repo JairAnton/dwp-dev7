@@ -30,6 +30,7 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
             update opp;
             opp.isProcess__c=false;
             update opp;
+
         }
 
     }
@@ -63,6 +64,9 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
         update opp;
         opp.isProcess__c=false;
         update opp;
+
+        new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel(opp.opportunity_status_type__c),Product_cls.TraceabilityMessage(opp.Id,opp.opportunity_status_type__c,'',''),'Opportunity',Opp.Id,'restudy','TRSR00001',UserInfo.getUserId(),'embedded',1,true);              
+                    
         return 'Updated';
     }
 
@@ -75,6 +79,9 @@ global class ReevaluateButtonClass implements dwp_dbpn.DynamicFlowValidationInte
         update opp;
         opp.isProcess__c=false;
         update opp;
+
+        new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel(opp.opportunity_status_type__c),Product_cls.TraceabilityMessage(opp.Id,opp.opportunity_status_type__c,'',''),'Opportunity',Opp.Id,'restudy','TRSP00001',UserInfo.getUserId(),'embedded',1,true); 
+
         return 'Updated';
     }
 

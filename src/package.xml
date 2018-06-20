@@ -879,9 +879,9 @@
     <members>Participant_MasterRecord</members>
     <members>Compromisos</members>
     <members>Opp_PDF_Creation</members>
-    <members>Motivo_Descarte_Oportunidad_V0</members>
+    <members>Motivo_Descarte_Oportunidad_V0</members>-->
     <members>Opp_Stage_Changed_notify</members>
-    <members>Flujo_Cotizacion_V0</members>
+    <!--<members>Flujo_Cotizacion_V0</members>
 	<members>ProductOpp_DueDate</members>  -->
 	<name>FlowDefinition</name>
   </types>
@@ -897,9 +897,9 @@
     <members>Guarantee_MasterRecord-1</members>
     <members>Participant_MasterRecord-1</members>
 	<members>Flujo_Cotizacion_V0-3</members>
-	<members>Compromisos-9</members>
-    <members>Opp_Stage_Changed_notify-2</members>
-	<members>ProductOpp_DueDate-11</members>  -->
+	<members>Compromisos-9</members>-->
+    <members>Opp_Stage_Changed_notify-4</members>
+	<!--<members>ProductOpp_DueDate-11</members>  -->
 	<name>Flow</name>
   </types>
     <types>
