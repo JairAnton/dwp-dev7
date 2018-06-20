@@ -878,7 +878,7 @@
 	<!--
 	<members>Email_Message_update_Opportunity</members>
 	<members>Event_update_Opportunity</members-->
-	<members>FlujoEstadosOportunidad</members>
+	<!-- <members>FlujoEstadosOportunidad</members>--> <!--PARA UAT solo debes descomentar este--> 
 	<!--members>Opp_Owner_Changed</members>
 	<members>Opp_PB_Opportunidad</members>
 	<members>Task_update_Opportunity</members>
@@ -900,7 +900,7 @@
 	<members>Opp_Owner_Changed-3</members>
 	<members>Opp_PB_Opportunidad-8</members>
 	<members>Task_update_Opportunity-3</members-->
-    <members>FlujoEstadosOportunidad-14</members>
+    <!-- <members>FlujoEstadosOportunidad-14</members>--> <!--PARA UAT solo debes descomentar este--> 
     <!--members>Guarantee_MasterRecord-1</members>
     <members>Participant_MasterRecord-1</members>
 	<members>Flujo_Cotizacion_V0-3</members>
@@ -909,6 +909,10 @@
 	<members>ProductOpp_DueDate-11</members>  -->
 	<name>Flow</name>
   </types>
+      <types>
+        <members>Type_of_quote_stock</members>
+        <name>GlobalValueSet</name>
+    </types>
     <types>
         <members>Contact</members>
         <members>AccountContactRelation</members>
