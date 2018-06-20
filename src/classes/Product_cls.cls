@@ -189,18 +189,27 @@ public with sharing class Product_cls {
 
 	@AuraEnabled public static String setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber,String Email){
 		id id1 = userinfo.getProfileId();
+		id id2 = userinfo.getUserId();
        	String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+       	String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;
 		if(prof=='Operativo'|| prof=='Administrador del Sistema' )
 		{ 
 			if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
 	        {
 
-	        	List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name FROM Opportunity WHERE Id=: OpportunityId];
+	        	List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];
+
+	        	
 				if(!itemOpp.isEmpty())
 				{
-					itemOpp[0].IsProcess__c=true;
-					update itemOpp[0];   
+					String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;
+
+					if(OUCurrentUser!=OUOppUser)
+						return 'Usuario no autorizado.';
+						
 					if(Action=='btnApprove'){//08
+						itemOpp[0].IsProcess__c=true;
+						update itemOpp[0];   
 						
 						itemOpp[0].StageName='06';
 						itemOpp[0].opportunity_status_type__c='35';
@@ -208,7 +217,7 @@ public with sharing class Product_cls {
 					else if(Action=='btnRaise'){//09
 						itemOpp[0].StageName='05';
 						itemOpp[0].opportunity_status_type__c='34';
-						sendEmail(Email,getStatusLabel(itemOpp[0].opportunity_status_type__c),Body,itemOpp[0].Name);
+						
 					}
 					else if(Action=='btnBack'){//09
 						itemOpp[0].StageName='05';
