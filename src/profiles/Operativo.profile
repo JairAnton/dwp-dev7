@@ -3758,6 +3758,11 @@ Sub Gerentes de oficina</description>
         <field>gcal__GBL_Google_Calendar_Sync__mdt.gcal__GBL_Session_Duration__c</field>
         <readable>true</readable>
     </fieldPermissions>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_ID_COTIZA__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

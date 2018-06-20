@@ -39,10 +39,9 @@ public with sharing class Object_Controller {
              LastActivityDate,  PE_DIVISA_Importe__c,
              PE_NUM_Plazo_Vcto__c, PE_NUM_Permanencia__c, PE_FOR_Fecha_Vcto__c, Client__c,
              Oportunidad__c FROM compromiso__c where Oportunidad__c =:Filtro order by createdDate desc limit 5];
-
         return OpLiItem;
-
     }
+
 
     @AuraEnabled
     public static void  setSanction(String Idopp){
@@ -50,10 +49,12 @@ public with sharing class Object_Controller {
     Opportunity op  = new Opportunity();
     Map<string,string> MapStatus = getMapOppStatus();
     Task t = [SELECT Id,Subject,Status FROM Task WHERE whatId = : idopp ORDER BY CreatedDate DESC];
-    op = [SELECT StageName,Modality__c FROM Opportunity WHERE ID =:Idopp];
+    op = [SELECT StageName,Modality__c,opportunity_status_type__c FROM Opportunity WHERE ID =:Idopp];
+    op.opportunity_status_type__c='10';
     String[] valStatus = t.Subject.split('##');
     String filter = '%'+valStatus[0]+'%';
     Integer totalTrace;
+    update op;
     AggregateResult[] countTrace  = [SELECT Count(Id) total FROM dwp_cvad__Action_Audit__c];
     new OpportunityTraceability_cls().addOpportunityTraceability(valStatus[1],'Código SIO:' +valStatus[0],'Opportunity',op.Id,'Aprove',('AT-'+totalTrace),UserInfo.getUserId(),'embedded',1,true);
 

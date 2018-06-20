@@ -1841,6 +1841,16 @@ operaciones activas</inlineHelpText>
         <scale>2</scale>
         <type>Percent</type>
     </fields>
+    <fields>
+        <fullName>PE_POR_ID_COTIZA__c</fullName>
+        <description>Saves the id from a cotization</description>
+        <externalId>false</externalId>
+        <label>Id cotiza</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <validationRules>
         <fullName>ContractNo_Validation</fullName>
         <active>true</active>
