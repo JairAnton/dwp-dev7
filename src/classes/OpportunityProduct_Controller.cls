@@ -103,4 +103,23 @@ public without sharing class OpportunityProduct_Controller {
 		new OpportunityTraceability_cls().addOpportunityTraceability('Riesgo aprobado en delegación','Dentro de Linea','Opportunity',op.Id,'approve','TRSR00001',UserInfo.getUserId(),'embedded',1,true);
 		//END Traceability
     }
+    @AuraEnabled
+    public static string requestModality(String opp){
+        String val='';
+        list<Modality_Mode__c> mcs = Modality_Mode__c.getAll().values();
+        map<String,string> msc2 = new map<String,string>();
+        OpportunityLineItem  oli = new OpportunityLineItem();
+        oli = [SELECT Id,tolabel(PE_List_Product_mode__c), Opportunity.Modality__c, Product2.ProductCode FROM OpportunityLineItem 
+               WHERE OpportunityID =:opp LIMIT 1];
+        if(String.isEmpty(oli.Opportunity.Modality__c)){           
+            for(Modality_Mode__c m:mcs){
+                if(m.Product_Name__c==oli.Product2.ProductCode)
+                    msc2.put(m.Modalidad_producto__c,m.Modality_Select__c);
+            }
+            if(!msc2.isEmpty()){
+                val=msc2.get(Oli.PE_List_Product_mode__c);
+            }
+        }
+        return val;
+    }
 }

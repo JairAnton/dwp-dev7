@@ -18,9 +18,8 @@
             <lightning:recordEditForm aura:id="recordViewForm" 
                                       recordId="{!v.recordId2}" 
                                       objectApiName="Opportunity"
-                                      onload="{!c.setValue}">
+                                      >
                 <lightning:messages />
-                
                 <div class="{!v.isOpen?'slds-hide':'demo-only demo-only--sizing slds-grid slds-wrap'}">    
                     <div class="slds-size_1-of-1">
                         <lightning:inputField fieldName="Modality__c" aura:id="input_modal" onchange="{!c.setValue}"/>

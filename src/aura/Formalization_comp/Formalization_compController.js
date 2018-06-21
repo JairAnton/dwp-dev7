@@ -7,6 +7,7 @@
 		helper.destroyCmp(component, event, helper);
 	},
 	formalize : function(component, event, helper) {
+
 		var cmpTarget1 = component.find('btnApprove');
 		var cmpTarget3 = component.find('tApprove');
 		var cmpTarget5 = component.find('iApprove');
@@ -20,11 +21,17 @@
 			$A.util.addClass(cmpTarget3, 'tclickedButton');
 		}
 		
-		component.set('v.Action',event.getSource().get("v.name"));
+		component.set('v.Action',event.getSource().get("v.name"));		
 		component.find("btnContinue").set("v.disabled", false);
 	},
 	continue : function(component, event, helper) {
-		helper.Actions(component, event, helper);
+		if(component.find("txtComments").get("v.value").length>0)
+			helper.Actions(component, event, helper);
+		else
+		{
+			component.set("v.errMessage","Comentarios es un campo obligatorio.");
+            helper.handleShowToast(component,event,helper);
+		}
 	},
     RecibeParametros : function (cmp,event,helper){
         var parametrohijo0= event.getParam("FileName");

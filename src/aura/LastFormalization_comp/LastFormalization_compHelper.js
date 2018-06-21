@@ -28,17 +28,16 @@
             var sanAction = component.get("v.Action");
             var body = component.find("txtComments").get("v.value");
             var ContractNumber = component.find("txtContract").get("v.value");
-            var Email = component.find("txtEmail").get("v.value");
+           
 
-            if((sanAction=='btnApprove' && ContractNumber.length>0 ) || (sanAction=='btnRaise' && Email.length>0) || (sanAction=='btnBack' && body.length>0))
+            if((sanAction=='btnApprove' && ContractNumber.length>0 ) || (sanAction=='btnRaise') || (sanAction=='btnBack' && body.length>0))
             {
            
                 action.setParams({
                     "OpportunityId" : OpportunityId,
                     "Action" : sanAction,
                     "Body"  :  body,
-                    "ContractNumber" : ContractNumber,
-                    "Email" : Email
+                    "ContractNumber" : ContractNumber
                 });
                 action.setCallback(this, function(response) {
                     var state = response.getState();
@@ -68,12 +67,7 @@
                 {
                   component.set("v.errMessage","El número de contrato es obligatorio.");
                   helper.handleShowToast(component,event,helper);
-                }
-                else if(sanAction=='btnRaise')
-                {
-                  component.set("v.errMessage","El E-mail es obligatorio.");
-                  helper.handleShowToast(component,event,helper);
-                }
+                }               
                 else
                 {
                   component.set("v.errMessage","El comentario es obligatorio.");
