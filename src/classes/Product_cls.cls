@@ -231,7 +231,6 @@ public without sharing class Product_cls {
                     update itemOpp[0];
                     itemOpp[0].frm_ContractNumber__c=ContractNumber;
                     update itemOpp[0];
-                    system.debug('ITem al momebto'+(itemOpp[0]));
                     itemOpp[0].IsProcess__c=false;
                     update itemOpp[0]; 
                     //BEGIN Traceability - 2018-06-11
