@@ -12,7 +12,7 @@ operaciones activas --></help>
         <name>PE_POR_Spread__c</name>
     </fields>
     <fields>
-        <label>TEA Mínima (%)</label>
+        <label>TEA mínima (%)</label>
         <name>PE_POR_TEA_minima__c</name>
     </fields>
     <fields>
@@ -20,13 +20,18 @@ operaciones activas --></help>
         <name>PE_POR_Comision__c</name>
     </fields>	
     <fields>
-        <label>TEA Propuesta (%)</label>
+        <label>TEA propuesta (%)</label>
         <name>PE_POR_TEA_propuesta__c</name>
     </fields>
     <fields>
 		<help><!-- se ingresa la tasa que arroja el cotizador --></help>																
-        <label>TEA Sugerida (%)</label>
+        <label>TEA sugerida (%)</label>
         <name>PE_POR_TEA_sugerida__c</name>
+    </fields>
+    <fields>
+        <help><!-- se ingresa la tasa que arroja el cotizador --></help>
+        <label>ID COTIZA</label>
+        <name>PE_POR_ID_COTIZA__c</name>
     </fields>
 	<fields>
         <label><!-- Siocode --></label>

@@ -1845,7 +1845,7 @@ operaciones activas</inlineHelpText>
         <fullName>PE_POR_ID_COTIZA__c</fullName>
         <description>Saves the id from a cotization</description>
         <externalId>false</externalId>
-        <label>Id cotiza</label>
+        <label>ID COTIZA:</label>
         <length>20</length>
         <required>false</required>
         <type>Text</type>
