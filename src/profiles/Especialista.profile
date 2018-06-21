@@ -25,6 +25,18 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
+	<classAccesses>
+        <apexClass>OpportunityLineItem_Trigger_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityLineItem_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PE_OpportunityLITTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>Object_Controller</apexClass>
         <enabled>true</enabled>
@@ -173,6 +185,27 @@ Ejecutivos de REDES</description>
         <field>Account.AnnualRevenue</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_List_Mejorado__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_List_Product_mode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_CuotaInicial__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Opcioncompra__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.BillingAddress</field>
@@ -2185,6 +2218,11 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.frm_ContractNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.isProcess__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2827,7 +2865,12 @@ Ejecutivos de REDES</description>
         <editable>true</editable>
         <field>OpportunityLineItem.tcf_type_beneficiary__c</field>
         <readable>true</readable>
-    </fieldPermissions>         
+    </fieldPermissions>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_ID_COTIZA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>          
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

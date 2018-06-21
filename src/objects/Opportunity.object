@@ -391,6 +391,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>frm_ContractNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>frm_ContractNumber</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>opportunity_expiry_date__c</fullName>
         <description>opportunity expirition date</description>
         <externalId>false</externalId>
@@ -708,6 +719,11 @@
                     <default>false</default>
                     <label>46</label>
                 </value>
+                <value>
+                    <fullName>47</fullName>
+                    <default>false</default>
+                    <label>47</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>07</controllingFieldValue>
@@ -892,6 +908,10 @@
             <valueSettings>
                 <controllingFieldValue>06</controllingFieldValue>
                 <valueName>35</valueName>
+            </valueSettings>
+			<valueSettings>
+                <controllingFieldValue>04</controllingFieldValue>
+                <valueName>47</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -1630,6 +1650,10 @@
                 <fullName>46</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>47</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
 		<picklistValues>
             <picklist>rejection_coin__c</picklist>
@@ -2143,45 +2167,45 @@ Owner.Profile.Name=&apos;Asistente&apos;) || (!ISPICKVAL(StageName, &apos;01&apo
         <fullName>Opportunity_Validation_ChangeStage</fullName>
         <active>true</active>
         <description>Can not  change stage opportunity manually</description>
-        <errorConditionFormula>ISCHANGED(StageName) &amp;&amp;($Profile.Name != &apos;Administrador del sistema&apos;&amp;&amp;$Profile.Name != &apos;Migracion&apos; ) 
+        <errorConditionFormula>ISCHANGED(StageName) &amp;&amp;($Profile.Name != &apos;Administrador del sistema&apos; &amp;&amp; $Profile.Name != &apos;Migracion&apos; &amp;&amp;  isProcess__c!=true) 
 &amp;&amp; 
 (       IF($Profile.Name == &apos;Ejecutivo&apos;,
-        (	IF(isProcess__c ,false,
-				(
-					(
-						!ISPICKVAL(StageName,&apos;03&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;02&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;07&apos;)
-					) 
-					||            
-					( 
-						(ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;) || 
-						 ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| 
-						 ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| 
-						 ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;) )
-						&amp;&amp; 
-						(ISPICKVAL(StageName,&apos;03&apos;)|| ISPICKVAL(StageName,&apos;02&apos;)) 
-					)
-					||
-					( 
-						$User.Id ==OwnerId &amp;&amp; $Profile.Name != &apos;Ejecutivo&apos; &amp;&amp;  ISPICKVAL(StageName,&apos;07&apos;)   
-					)
-				)
-			)
-        )
-        ,
-        IF($Profile.Name == &apos;Especialista&apos;,
-        (
-            (
-                !ISPICKVAL(StageName,&apos;03&apos;)&amp;&amp;!ISPICKVAL(StageName,&apos;02&apos;)
-            ) 
-            || 
-            (
-                (
-                    ISPICKVAL(PRIORVALUE(StageName),&apos;01&apos;) || ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;) 
-                )
-            )
-        ),
-        true)
-        )
+       (IF(isProcess__c ,false,
+(
+(
+!ISPICKVAL(StageName,&apos;03&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;02&apos;) &amp;&amp; !ISPICKVAL(StageName,&apos;07&apos;)
+) 
+||            
+( 
+(ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;) || 
+ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| 
+ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| 
+ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;) )
+&amp;&amp; 
+(ISPICKVAL(StageName,&apos;03&apos;)|| ISPICKVAL(StageName,&apos;02&apos;)) 
+)
+||
+( 
+$User.Id ==OwnerId &amp;&amp; $Profile.Name != &apos;Ejecutivo&apos; &amp;&amp;  ISPICKVAL(StageName,&apos;07&apos;)   
+)
+)
+)
+       )
+       ,
+       IF($Profile.Name == &apos;Especialista&apos;,
+       (
+           (
+               !ISPICKVAL(StageName,&apos;03&apos;)&amp;&amp;!ISPICKVAL(StageName,&apos;02&apos;)
+           ) 
+           || 
+           (
+               (
+                   ISPICKVAL(PRIORVALUE(StageName),&apos;01&apos;) || ISPICKVAL(PRIORVALUE(StageName),&apos;04&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;05&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;06&apos;)|| ISPICKVAL(PRIORVALUE(StageName),&apos;07&apos;) 
+               )
+           )
+       ),
+       true)
+       )
 )</errorConditionFormula>
         <errorMessage>Can not  change to this stage opportunity</errorMessage>
     </validationRules>

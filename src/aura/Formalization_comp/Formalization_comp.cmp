@@ -1,6 +1,7 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp"  access="GLOBAL" controller="Product_cls">
 <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleFormalization}" access="global" description="Specify the modal"/>
 <aura:attribute name="Action" type="String" />
+<aura:attribute name="FileName" type="String" default="" />
 <aura:attribute name="recordId" type="Id" />
 <aura:attribute name="ProductId" type="Id" />
 <aura:attribute name="errMessage" type="String" default=""/>
@@ -10,7 +11,7 @@
 <aura:attribute name="lblComments" type="String" default=""/>
 <aura:attribute name="comments" type="String" default=""/>
 <aura:handler name="init" value="{!this}" action="{!c.init}" />
-
+<aura:handler name="PasoParametrosPadre" event="c:UploadedFile_evt" action="{!c.RecibeParametros}"/>
 <aura:attribute name="modalWidthCustom" type="String" default="44rem" access="global" description="Specify the modal" />
 <aura:attribute name="closeButton" type="Boolean" default="false"/>
 
@@ -34,9 +35,9 @@
 	<table style="width:95%" align="center" cellspacing="2">
 	<tr>
 	<td >
-         <lightning:textarea aura:id="txtComments" name="txtComments" value="{!v.comments}" label="{!v.lblComments}" maxlength="300" class="slds-size_2-of-2 "/>
+         <lightning:textarea aura:id="txtComments" name="txtComments" value="{!v.comments}" label="{!v.lblComments}" maxlength="300" class="slds-size_2-of-2 " required="true"/>
 			<br/> Documentos<br/>
-            <c:fileUpload_comp parentId="{!v.recordId}" /><lightning:button aura:id="btnApprove" name="btnApprove" class="slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:check" size="small" /><br/>Formalizar</lightning:button>
+            <c:fileUpload_comp parentId="{!v.recordId}" /><lightning:button aura:id="btnApprove" name="btnApprove" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:check" size="small" aura:id="iApprove" /><br/><p aura:id="tApprove">Formalizar</p></lightning:button>
 		<br/>
         </td>
     </tr>

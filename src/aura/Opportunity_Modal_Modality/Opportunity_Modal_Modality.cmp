@@ -1,0 +1,82 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,flexipage:availableForAllPageTypes,force:hasRecordId" 
+                access="global" controller="OpportunityProduct_Controller" extends="dwp_mdal:ModalTemplate_cmp">
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="recordId2" type="String" default="{!v.inputAttributes.recordId}"/>
+    <aura:attribute name="title" type="String" default="{!$Label.c.lblSanctionRisk}" access="global" description="Specify the modal"/>
+    <aura:attribute name="Modality" type="String" />
+    <aura:attribute name="showButton" type="boolean" default="true"/> 
+    <aura:attribute name="showSIO" type="boolean" default="false"/> 
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="selectedRow" type="String"/>
+    <aura:attribute name="saveRow" type="String" />
+    <aura:attribute name="searchText" type="String"/> 
+    <aura:attribute name="recordOLI" type="Id"/>  
+    <aura:handler name="init" value="{!this}" action="{!c.Inits}" />
+    <div class='slds-box' style='background-color: white;'> 
+        <lightning:layoutItem flexibility="auto" >
+            <lightning:recordEditForm aura:id="recordViewForm" 
+                                      recordId="{!v.recordId2}" 
+                                      objectApiName="Opportunity"
+                                      >
+                <lightning:messages />
+                <div class="{!v.isOpen?'slds-hide':'demo-only demo-only--sizing slds-grid slds-wrap'}">    
+                    <div class="slds-size_1-of-1">
+                        <lightning:inputField fieldName="Modality__c" aura:id="input_modal" onchange="{!c.setValue}"/>
+                        <aura:renderIf isTrue="{!v.showButton}">   
+                            <lightning:button onclick="{!c.sendApprove}" label="Aprobar" class="slds-m-top_medium slds-button slds-button_brand" />
+                        </aura:renderIf>
+                    </div> 
+                    <div class="slds-size_1-of-1">
+                        <br/>   
+                    </div>
+                    <aura:renderIf isTrue="{!v.showSIO}">
+                        <div class="slds-size_1-of-1"> 
+                            <lightning:inputField fieldName="LastSIOcode__c"/>
+                            <lightning:button aura:id="submit" type="submit" label="Buscar SIO" class="slds-m-top_medium" onclick="{!c.openModel}" />    
+                        </div> 
+                    </aura:renderIf>
+                </div>
+                <div class="{!v.isOpen?'':'slds-hide'}">
+                    <h2 id="header99" class="slds-text-heading--medium">Código SIO</h2>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <div class="slds-form-element slds-lookup" data-select="single">
+                            <div class="slds-form-element__control">
+                                <div class="slds-input-has-icon slds-input-has-icon--right">
+                                    <lightning:buttonIcon iconName="utility:search" variant="bare" onclick="{!c.setValue}" alternativeText="Buscar" class="slds-input__icon" />
+                                    <ui:inputText value="{!v.searchText}" updateOn="change"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <br/>
+                        </div>
+                        <table id="tableId" class="slds-table slds-table_bordered slds-table_cell-buffer slds-scrollable--y" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Seleccione un Código SIO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.mydata}" var="task">    
+                                    <tr>
+                                        <td><lightning:button variant="none" aura:id="{!task.Subject}" title="{!task.Subject}" value="{!task.Id}"   label="{!task.Subject}" onclick="{!c.selectedRow}" /></td>
+                                    </tr>                       
+                                </aura:iteration>                
+                            </tbody>
+                        </table>
+                        
+                        
+                    </div>
+                    
+                    <div class="slds-modal__footer">
+                        <aura:renderIf isTrue="{!v.selectedRow!=Null}"> 
+                            <lightning:button class="slds-button slds-button_brand" aura:id="submit" type="submit" onclick="{!c.saveModel}">Vincular</lightning:button>  
+                        </aura:renderIf>
+                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">Cerrar</button>
+                    </div>
+                </div>
+            </lightning:recordEditForm>
+        </lightning:layoutItem>
+    </div>
+</aura:component>

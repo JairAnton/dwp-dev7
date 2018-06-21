@@ -7,6 +7,18 @@
     </applicationVisibilities>
 	    <custom>true</custom>
 	<classAccesses>
+        <apexClass>OpportunityLineItem_Trigger_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityLineItem_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PE_OpportunityLITTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>PE_DWP_Correo_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -102,6 +114,27 @@
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_List_Mejorado__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_List_Product_mode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_CuotaInicial__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Opcioncompra__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>true</editable>
         <field>Pricebook2.Unique_id__c</field>
@@ -1474,6 +1507,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.frm_ContractNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.opportunity_expiry_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2066,7 +2104,12 @@
         <editable>true</editable>
         <field>OpportunityLineItem.da_Importer__c</field>
         <readable>true</readable>
-    </fieldPermissions>                    
+    </fieldPermissions>
+ <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_ID_COTIZA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>                       
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>

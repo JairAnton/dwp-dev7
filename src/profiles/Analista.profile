@@ -26,6 +26,18 @@
         <visible>true</visible>
     </applicationVisibilities>
 	<classAccesses>
+        <apexClass>OpportunityLineItem_Trigger_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunityLineItem_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PE_OpportunityLITTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>Object_Controller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -133,6 +145,27 @@
     <description>Los cargos para este perfil pueden ser:
 Analistas de precios
 Analistas de riesgos</description>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_List_Mejorado__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_List_Product_mode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_CuotaInicial__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Opcioncompra__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>true</editable>
         <field>Product2.Type_of_quote__c</field>
@@ -2253,6 +2286,11 @@ Analistas de riesgos</description>
         <field>Opportunity.contract_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.frm_ContractNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.isProcess__c</field>
@@ -3117,7 +3155,12 @@ Analistas de riesgos</description>
         <editable>true</editable>
         <field>OpportunityLineItem.tcf_type_beneficiary__c</field>
         <readable>true</readable>
-    </fieldPermissions>     
+    </fieldPermissions>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.PE_POR_ID_COTIZA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>      
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

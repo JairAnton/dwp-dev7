@@ -11,13 +11,12 @@
 */
 @istest
 public class OpportunityProduct_Controller_tst {      
-     //Setup data.
+    //Setup data.
     @testSetup
     static void setupData(){ 
         //Create Accounts.
-       test.startTest();
+        test.startTest();
         Opportunity Opp = new Opportunity(Name='testopp', StageName='01', CloseDate=system.Date.today(),opportunity_status_type__c='01');
-       
         List<Account> lstAccounts = new List<Account>();
         List<task> lstTasks = new List<task>(); 
         for(Integer intI = 0; intI < 2; intI++) {
@@ -26,8 +25,7 @@ public class OpportunityProduct_Controller_tst {
         }
         insert lstTasks;
         insert lstAccounts;
-        insert opp;
-       
+        insert opp;   
         Pricebook2 pb = new Pricebook2(Name='testPB');
         Product2 p = new  Product2(Name='testProduct');
         insert pb;
@@ -42,19 +40,15 @@ public class OpportunityProduct_Controller_tst {
                                                            PricebookEntryId=pe.Id,
                                                            Product2Id =p.id); 
         insert oli;
-       test.stopTest(); 
+        test.stopTest(); 
     }
-
-static testMethod  void positiveTest(){
-    task t = [SELECT Id FROM TASK LIMIT 1];
-    opportunity  opp = [SELECT ID FROM Opportunity LIMIT 1];
-    OpportunityProduct_Controller OPC = new OpportunityProduct_Controller();
-    OpportunityProduct_Controller.getTasks(opp.Id);
-    OpportunityProduct_Controller.getOppLI(opp.id);
-    OpportunityProduct_Controller.saveSIO(opp.Id,t.Id);
-    OpportunityProduct_Controller.sendApproval(opp.Id);
-    
-    
-}
-
+    static testMethod  void positiveTest(){
+        task t = [SELECT Id FROM TASK LIMIT 1];
+        opportunity  opp = [SELECT ID FROM Opportunity LIMIT 1];
+        OpportunityProduct_Controller OPC = new OpportunityProduct_Controller();
+        OpportunityProduct_Controller.getTasks(opp.Id);
+        OpportunityProduct_Controller.getOppLI(opp.id);
+        OpportunityProduct_Controller.saveSIO(opp.Id,t.Id);
+        OpportunityProduct_Controller.sendApproval(opp.Id);
+    }
 }

@@ -18,15 +18,18 @@
         var OpportunityId = cmp.get("v.recordId");
 	},
 	Actions : function(component, event, helper) {
+        component.find("btnContinue").set("v.disabled", true);
         var OpportunityId = component.get("v.recordId");
 
         var action = component.get("c.setFormalization");
         var sanAction = component.get("v.Action");
         var body = component.get("v.comments");
+        var fileName = component.get("v.FileName");
         action.setParams({
             "OpportunityId" : OpportunityId,
             "Action" : sanAction,
-            "Body"  :  body
+            "Body"  :  body,
+            "AttachedFiles" : fileName
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
@@ -38,11 +41,13 @@
 
             }
             else if (state === "INCOMPLETE") {
+                component.find("btnContinue").set("v.disabled", false);
                 component.set("v.errMessage",response.getReturnValue());
                 helper.handleShowToast(component,event,helper);
                            
             }
             else if (state === "ERROR") {
+                component.find("btnContinue").set("v.disabled", false);
                 component.set("v.errMessage",response.getReturnValue());
                 helper.handleShowToast(component,event,helper);
             }

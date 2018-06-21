@@ -132,7 +132,7 @@
     <fields>
         <fullName>user_id__c</fullName>
         <externalId>false</externalId>
-        <formula>$User.user_id__c</formula>
+        <formula>User__r.user_id__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>User code</label>
         <required>false</required>

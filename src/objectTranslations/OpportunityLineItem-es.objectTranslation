@@ -12,7 +12,7 @@ operaciones activas --></help>
         <name>PE_POR_Spread__c</name>
     </fields>
     <fields>
-        <label>TEA Mínima (%)</label>
+        <label>TEA mínima (%)</label>
         <name>PE_POR_TEA_minima__c</name>
     </fields>
     <fields>
@@ -20,13 +20,18 @@ operaciones activas --></help>
         <name>PE_POR_Comision__c</name>
     </fields>	
     <fields>
-        <label>TEA Propuesta (%)</label>
+        <label>TEA propuesta (%)</label>
         <name>PE_POR_TEA_propuesta__c</name>
     </fields>
     <fields>
 		<help><!-- se ingresa la tasa que arroja el cotizador --></help>																
-        <label>TEA Sugerida (%)</label>
+        <label>TEA sugerida (%)</label>
         <name>PE_POR_TEA_sugerida__c</name>
+    </fields>
+    <fields>
+        <help><!-- se ingresa la tasa que arroja el cotizador --></help>
+        <label>ID COTIZA</label>
+        <name>PE_POR_ID_COTIZA__c</name>
     </fields>
 	<fields>
         <label><!-- Siocode --></label>
@@ -819,7 +824,83 @@ operaciones activas --></help>
             <masterLabel>07</masterLabel>
             <translation>Subrrogación</translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>Inversión inmueble</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>Inversión maquinaria/equipos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>Construcción</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>Reestructuración</translation>
+        </picklistValues>
     </fields>
+    <fields>
+        <label>Modalidad Producto</label>
+        <name>PE_List_Product_mode__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Regular</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Reprogramado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Crédito líquido</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Promotor</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Sindicado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>Construcción</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>Mobiliario</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>Inmobiliario</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>Credito Puntual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>Compra de deuda</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>Pre embarque</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>Post embarque</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation>Sepymex</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14</masterLabel>
+            <translation>Refinanciado</translation>
+        </picklistValues>
+    </fields>	
     <fields>
         <label>Garantía</label>
         <name>gipr_Garantia__c</name>
