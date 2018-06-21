@@ -7,7 +7,7 @@
 
 public without sharing class Product_cls {
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
-		List<OpportunityLineItem> row= [SELECT  Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,PE_DATE_Fecha_cotizacion__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
+		List<OpportunityLineItem> row= [SELECT  PE_POR_ID_COTIZA__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,PE_DATE_Fecha_cotizacion__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
 		if(!row.isEmpty())
 			return row;
 		else
@@ -113,7 +113,7 @@ public without sharing class Product_cls {
             List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id=: OpportunityId];
             if(!itemOpp.isEmpty())
             {
-				List<OpportunityLineItem> itemOppProduct= getIdProductByOpportunity(itemOpp[0].Id);
+                List<OpportunityLineItem> itemOppProduct= getIdProductByOpportunity(itemOpp[0].Id);
                 if(sanAction=='btnApprove'){//08
                     itemOpp[0].StageName='04';
                     itemOpp[0].opportunity_status_type__c='08';
@@ -235,9 +235,9 @@ public without sharing class Product_cls {
                     update itemOpp[0]; 
                     //BEGIN Traceability - 2018-06-11
                     //Isaías Vellázquez Cortés				
-                    if(Action=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			    
-                    else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
-                    else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,''),'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);			   	
+                    if(Action=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Número de contrato:</b> '+ContractNumber +'<br/>'+'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                    else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                    else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
                     //END Traceability
                     return 'true';
                 }
@@ -272,16 +272,24 @@ public without sharing class Product_cls {
                 '<b>Plazo:</b> '+itemOppProduct[0].gipr_Plazo__c +' '+ itemOppProduct[0].gipr_Periodicidad__c +'<br/>';  /// EN CASO DE QUE APLIQUE
             if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZADOR')
             {
-                HTMLComments=HTMLComments+'<b>Tasa propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>' +
-                    '<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>';
+                HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>' +
+                    '<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>'+
+                    '<b>Comisión Liquidacion Anticipada(%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision_liquidacion_anticipada__c)+'% <br/>';
+                
                 
             }else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web')
             {
-                HTMLComments=HTMLComments+'<b>Tasa propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>';
+                HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>';
             }
             else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario')
             {
-                HTMLComments=HTMLComments+'<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>';
+                HTMLComments=HTMLComments+'<b>Comisión Propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>';
+                
+            }
+            else if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZA Beta')
+            {
+                HTMLComments=HTMLComments+'<b>TEA Propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+'% <br/>'
+                    +'<b>ID COTIZA:</b> '+String.valueOf(itemOppProduct[0].PE_POR_ID_COTIZA__c)+' <br/>';
                 
             }
             HTMLComments =HTMLComments+'<b>Comentarios:</b> ' +Body;
