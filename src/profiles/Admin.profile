@@ -2659,6 +2659,10 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>   
 	<tabVisibilities>
+        <tab>Portal_BEC</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Opportunity</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
