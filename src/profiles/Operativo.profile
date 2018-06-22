@@ -4386,6 +4386,10 @@ Sub Gerentes de oficina</description>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Portal_BEC</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>User_Branch__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>

@@ -62,11 +62,13 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+    <tab>standard-home</tab>
     <tab>standard-Account</tab>
     <tab>standard-Contact</tab>
     <tab>standard-Opportunity</tab>
     <tab>standard-Event</tab>
     <tab>standard-Task</tab>
+    <tab>Portal_BEC</tab>
     <tab>standard-Feed</tab>
     <tab>standard-Dashboard</tab>
     <tab>standard-report</tab>
