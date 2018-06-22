@@ -15,13 +15,6 @@
         <value>Start a Hangout</value>
     </labels>
 	<labels>
-        <fullName>lblReject</fullName>
-        <language>es</language>
-        <protected>false</protected>
-        <shortDescription>lblReject</shortDescription>
-        <value>Reject</value>
-    </labels>
-	<labels>
         <fullName>Agree</fullName>
         <language>en_US</language>
         <protected>false</protected>
