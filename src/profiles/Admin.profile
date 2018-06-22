@@ -2224,6 +2224,11 @@
         <editable>true</editable>
         <field>OpportunityLineItem.PE_POR_ID_COTIZA__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.PE_ImOwner__c</field>
+        <readable>true</readable>
     </fieldPermissions>    
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
