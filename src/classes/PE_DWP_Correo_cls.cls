@@ -68,6 +68,7 @@ global class PE_DWP_Correo_cls implements Messaging.InboundEmailHandler {
                         Opportunity_status_type__c=varieble.get(SioStatus)
                     );
                     Update OppStatus;
+					 new OpportunityTraceability_cls().addOpportunityTraceability(refg[1],'Código SIO:' +refg[0],'Opportunity',OppStatus.Id,'Aprove','TRSR00001',UserInfo.getUserId(),'embedded',1,true);
                     newTask[0].Status='Inbound update Email';
                 }else if(!Oppsele.isEmpty()){
                     newTask[0].Status='Inbound update Email';
