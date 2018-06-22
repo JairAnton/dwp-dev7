@@ -100,7 +100,7 @@ public without sharing class OpportunityProduct_Controller {
         update op;
 		//BEGIN Traceability - 2018-06-11
 		//Isaías Vellázquez Cortés
-		new OpportunityTraceability_cls().addOpportunityTraceability('Riesgo aprobado en delegación','Dentro de Linea','Opportunity',op.Id,'approve','TRSR00001',UserInfo.getUserId(),'embedded',1,true);
+		new OpportunityTraceability_cls().addOpportunityTraceability('Riesgo aprobado dentro de linea','Dentro de Linea','Opportunity',op.Id,'approve','TRSR00001',UserInfo.getUserId(),'embedded',1,true);
 		//END Traceability
     }
     @AuraEnabled

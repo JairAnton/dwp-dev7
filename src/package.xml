@@ -173,6 +173,7 @@
         <members>lblPDFLeasingForniture</members>
         <members>lblSanctionRisk</members>
         <members>lblSanctionStage</members>
+		<members>lblReject</members>
         <name>CustomLabel</name>
     </types>
     <types>
