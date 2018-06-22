@@ -10,13 +10,16 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
             Map<String,Set<String>> reevaluateRisk=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','BtnRisk');
             Map<String,Set<String>> formalizate=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','Approvalformalization');
             Map<String,Set<String>> formalization=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','btnFormalization_RuleSet');
+            Map<String,Set<String>> reject=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','btnReject');
 
             Set<String> buttonsStatusSet = new Set<String>();
             id id1 = userinfo.getProfileId();
-            
+
 
             String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
             buttonsStatusSet.add('btnQuote');
+             if(reject.get(recordId).contains('Reject') || prof=='Administrador del Sistema' || prof=='Migracion')
+            buttonsStatusSet.add('btnReject');
             if(PdfBtn.get(recordId).contains('PDFBtn') &&(prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion'))
                  buttonsStatusSet.add('btnPDF');
             if(reevaluate.get(recordId).contains('ButtonReevaluateVisible') && (prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'))

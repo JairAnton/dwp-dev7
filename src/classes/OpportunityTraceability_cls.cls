@@ -12,11 +12,13 @@ public without sharing class OpportunityTraceability_cls {
 		dwp_cvad__Action_Audit__c row =new dwp_cvad__Action_Audit__c();
 
 		row.dwp_cvad__action_audit_name__c=AudtiName;
-
-		if(!String.isEmpty(Comments) && Comments.length()>20)
-			row.dwp_cvad__audit_audit_comments__c=Comments.substring(0,20)+ '...';
+		
+        if(!String.isEmpty(Comments) && Comments.length()>35){
+            string valu =Comments.substring(0,35)+ '...';
+            row.dwp_cvad__audit_audit_comments__c=valu.stripHtmlTags();
+        }
 		else
-			row.dwp_cvad__audit_audit_comments__c=Comments;
+			row.dwp_cvad__audit_audit_comments__c=Comments.stripHtmlTags();
 
 		row.dwp_cvad__action_audit_object_api_name__c=ObjectAPIName;
 		row.dwp_cvad__action_audit_record_id__c=IdObject;
