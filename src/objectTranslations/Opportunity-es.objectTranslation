@@ -9,6 +9,10 @@
         <name>close_date_opportunity</name>
     </fields>
     <fields>
+        <label>Producto</label>
+        <name>opportunity_product__c</name>
+    </fields>
+    <fields>
         <caseValues>
             <plural>false</plural>
             <value>Comentarios</value>
