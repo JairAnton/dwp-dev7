@@ -829,6 +829,7 @@
         <members>Account_Rating__c</members>
         <members>Account_Renewals__c</members>
         <members>Account_Banking_System_Classification__c</members>
+        <members>Portal_BEC</members>
         <name>CustomTab</name>
     </types>
     <types>
