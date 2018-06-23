@@ -227,6 +227,7 @@
         <members>OpportunityLineItem_test</members>
         <members>PE_OpportunityLITTriggerHandler</members>
         <members>OpportunityTraceability_cls</members>
+        <members>approveButtonClass</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -270,6 +271,7 @@
         <members>UploadedFile_evt</members>
         <members>LastFormalization_comp</members>
         <members>Opportunity_Modal_Modality</members>
+        <members>Approve_cmp</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
