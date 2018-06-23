@@ -454,6 +454,10 @@
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+     <classAccesses>
+        <apexClass>approveButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>   
     <custom>true</custom>
     <description>Los cargos pueden ser:
 Gerente de Banca de Empresas
