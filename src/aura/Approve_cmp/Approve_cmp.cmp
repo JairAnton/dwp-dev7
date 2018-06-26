@@ -1,20 +1,23 @@
 <aura:component controller="approveButtonClass" implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
-<aura:handler name="init" value="{!this}" action="{!c.doIni}"/>
-<aura:attribute name="title" type="String" default="Approbar" access="global" description="Specify the modal"/>
-<aura:attribute name="Risk" type="Boolean"  access="global"/>
-<aura:attribute name="Price" type="Boolean" access="global"/>
-<aura:attribute name="RiskVal" type="Boolean"  access="global"/>
-<aura:attribute name="PriceVal" type="Boolean" access="global"/>    
-<div class="slds-modal__content slds-p-around_medium slds-theme_shade" >
-    <br/>
-     <br/>
-    <div class="slds-align_absolute-center">     
-    <aura:if isTrue="{!v.Risk}">
-      <lightning:button aura:id="btnRisk" class="slds-button slds-button_neutral"  label="Aprobar Riesgo" onclick="{!c.doRisk}"/>    
-    </aura:if>      
-    <aura:if isTrue="{!v.Price}">
-      <lightning:button aura:id="btnPrice" class="slds-button slds-button_neutral"  label="Aprobar Precio" onclick="{!c.doPrice}"/>  
-    </aura:if> 
-    </div>    
- </div>
+    <aura:handler name="init" value="{!this}" action="{!c.doIni}"/>
+    <aura:attribute name="title" type="String" default="Mensaje de confirmación" access="global" description="Specify the modal"/>
+    <aura:attribute name="Risk" type="Boolean"  access="global"/>
+    <aura:attribute name="Price" type="Boolean" access="global"/>
+    <aura:attribute name="RiskVal" type="Boolean"  access="global"/>
+    <aura:attribute name="PriceVal" type="Boolean" access="global"/>    
+    <div class="slds-modal__content slds-p-around_medium slds-theme_shade" >  
+        <br/>
+        <div class="slds-align_absolute-center">     
+            <aura:if isTrue="{!v.Risk}">
+                <div class = "approveMessage">¿Estar seguro de aprobar la sanción de riesgo?</div>
+            </aura:if>      
+            <aura:if isTrue="{!v.Price}">
+                <div class = "approveMessage">¿Estar seguro de aprobar la sanción de precio?</div>
+            </aura:if> 
+        </div>
+    </div>
+    <footer class="slds-modal__footer slds-theme_default">
+            <lightning:button variant="neutral" label="Aceptar" onclick="{!c.doApproval}"/>
+            <lightning:button variant="neutral" label="Cancelar" onclick="{!c.close}"/>
+    </footer>      
 </aura:component>
