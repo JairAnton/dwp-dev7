@@ -3575,9 +3575,17 @@ Ejecutivos de REDES</description>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Portal_BEC</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>User_Branch__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Case</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>    
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>

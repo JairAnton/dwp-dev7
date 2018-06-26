@@ -72,5 +72,6 @@
     <tab>standard-Feed</tab>
     <tab>standard-Dashboard</tab>
     <tab>standard-report</tab>
+    <tabs>standard-Case</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>
