@@ -30,9 +30,9 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
 
             String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
             buttonsStatusSet.add('btnQuote');
-            if(reject.get(recordId).contains('Approve') || prof=='Administrador del Sistema' || prof=='Migracion')
+            if(approve.get(recordId).contains('Approve') && (prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'))
             buttonsStatusSet.add('btnApprove');
-            if(reject.get(recordId).contains('Reject') || prof=='Administrador del Sistema' || prof=='Migracion')
+            if(reject.get(recordId).contains('Reject') && (prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'))
             buttonsStatusSet.add('btnReject');
             if(PdfBtn.get(recordId).contains('PDFBtn') &&(prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion'))
                  buttonsStatusSet.add('btnPDF');

@@ -368,6 +368,10 @@
        <label>No se puede formalizar sin comentarios</label>
        <name>lblNoCommentsFormalization</name>
    </customLabels>
+   <customLabels>
+       <label>Aprobar</label>
+       <name>lblbtnApprove_cfg</name>
+   </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

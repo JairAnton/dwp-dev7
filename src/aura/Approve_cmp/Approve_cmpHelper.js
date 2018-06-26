@@ -1,5 +1,6 @@
 ({
-    closeMe : function(component, event) {
+
+        closeMe : function(component, event) {
         component.destroy();
     },
        ini : function(component, event) { 
