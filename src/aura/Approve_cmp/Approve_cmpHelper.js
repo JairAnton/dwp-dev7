@@ -42,10 +42,6 @@
                 if (response.getReturnValue()=="Price"){ 
                     component.set('v.Price', true);
                 }
-                if (response.getReturnValue()=="Both"){    
-                    component.set('v.Price', true);
-                    component.set('v.Risk', true);   
-                }
             }
         });
         $A.enqueueAction(action);                   
