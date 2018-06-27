@@ -454,6 +454,10 @@
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+     <classAccesses>
+        <apexClass>approveButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>   
     <custom>true</custom>
     <description>Los cargos pueden ser:
 Gerente de Banca de Empresas
@@ -4325,6 +4329,10 @@ Asistente BE</description>
     <tabVisibilities>
         <tab>Branch__c</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Portal_BEC</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>User_Branch__c</tab>

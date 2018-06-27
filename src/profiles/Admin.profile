@@ -153,6 +153,10 @@
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>    
+     <classAccesses>
+        <apexClass>approveButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>    
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>
@@ -2659,6 +2663,10 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>   
 	<tabVisibilities>
+        <tab>Portal_BEC</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Opportunity</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

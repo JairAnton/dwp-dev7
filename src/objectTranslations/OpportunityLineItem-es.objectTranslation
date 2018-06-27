@@ -100,6 +100,10 @@ operaciones activas --></help>
             <masterLabel>02</masterLabel>
             <translation>Meses</translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Años</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>Periodicidad de gracia</label>
@@ -111,6 +115,10 @@ operaciones activas --></help>
         <picklistValues>
             <masterLabel>02</masterLabel>
             <translation>Meses</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Años</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1047,6 +1055,10 @@ operaciones activas --></help>
         <picklistValues>
             <masterLabel>02</masterLabel>
             <translation>Meses</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Años</translation>
         </picklistValues>
     </fields>
     <fields>

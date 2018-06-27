@@ -1,3 +1,14 @@
+/**statusButtonClass
+ *  object.
+ * <p /><p />
+ * Modification log:<p />
+ * -------------------------------------------------------------------
+ * Developer                    Date                Description<p />
+ * -------------------------------------------------------------------
+ * Julio Medellin               18/05/2018          Original version.<p />
+ *
+ * @author Julio Medellin
+ */
 Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface {
 
     Global Set<String> getDynamicButtonStatus(String recordId, String sObjectName)
@@ -11,6 +22,7 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
             Map<String,Set<String>> formalizate=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','Approvalformalization');
             Map<String,Set<String>> formalization=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','btnFormalization_RuleSet');
             Map<String,Set<String>> reject=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','btnReject');
+            Map<String,Set<String>> approve=  dwp_dace.DynamicActionsEngine_helper.getAvailableActions(IdsRecord,'Opportunity','btnApprove');
 
             Set<String> buttonsStatusSet = new Set<String>();
             id id1 = userinfo.getProfileId();
@@ -18,7 +30,9 @@ Global class statusButtonClass implements dwp_dbpn.DynamicButtonsStatusInterface
 
             String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
             buttonsStatusSet.add('btnQuote');
-             if(reject.get(recordId).contains('Reject') || prof=='Administrador del Sistema' || prof=='Migracion')
+            if(approve.get(recordId).contains('Approve') && (prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'))
+            buttonsStatusSet.add('btnApprove');
+            if(reject.get(recordId).contains('Reject') && (prof=='Ejecutivo' || prof=='Administrador del Sistema' || prof=='Migracion'))
             buttonsStatusSet.add('btnReject');
             if(PdfBtn.get(recordId).contains('PDFBtn') &&(prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion'))
                  buttonsStatusSet.add('btnPDF');

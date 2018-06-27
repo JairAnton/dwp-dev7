@@ -140,7 +140,11 @@
    <classAccesses>
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
-    </classAccesses>   
+    </classAccesses>
+    <classAccesses>
+        <apexClass>approveButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>       
     <custom>true</custom>
     <description>Los cargos para este perfil pueden ser:
 Analistas de precios
@@ -164,8 +168,7 @@ Analistas de riesgos</description>
         <editable>true</editable>
         <field>OpportunityLineItem.gipr_Opcioncompra__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Product2.Type_of_quote__c</field>
@@ -3847,6 +3850,22 @@ Analistas de riesgos</description>
     <tabVisibilities>
         <tab>Branch__c</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Portal_BEC</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Account</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Case</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Contact</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

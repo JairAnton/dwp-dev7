@@ -619,4 +619,11 @@
         <shortDescription>lblSanctionStage</shortDescription>
         <value>04</value>
     </labels>
+    <labels>
+        <fullName>lblbtnApprove_cfg</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblbtnApprove_cfg</shortDescription>
+        <value>Approve</value>
+    </labels>
 </CustomLabels>

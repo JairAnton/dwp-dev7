@@ -62,13 +62,16 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
-    <tab>standard-Account</tab>
-    <tab>standard-Contact</tab>
-    <tab>standard-Opportunity</tab>
-    <tab>standard-Event</tab>
-    <tab>standard-Task</tab>
-    <tab>standard-Feed</tab>
-    <tab>standard-Dashboard</tab>
-    <tab>standard-report</tab>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>standard-Event</tabs>
+    <tabs>standard-Task</tabs>
+    <tabs>Portal_BEC</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Case</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

@@ -454,6 +454,10 @@
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>approveButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>    
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
@@ -4386,6 +4390,10 @@ Sub Gerentes de oficina</description>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Portal_BEC</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>User_Branch__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
@@ -4403,7 +4411,7 @@ Sub Gerentes de oficina</description>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Case</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-CollaborationGroup</tab>
