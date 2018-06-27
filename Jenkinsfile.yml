@@ -1,0 +1,41 @@
+---
+domain: salesforce.app
+stages:
+  staticAnalysis:
+    skip: true
+  unitTesting:
+    skip: true
+  deploy:
+    skip: true
+  functionalTesting:
+    skip: true
+  structuralTesting:
+    skip: true
+branches:
+    feature:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_DEV
+                        command: testDeploy
+                        testLevel: NoTestRun
+    develop:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_DEV
+                        testLevel: NoTestRun
+    release:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_UAT
+    master:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_PROD
