@@ -214,6 +214,11 @@ operaciones activas</inlineHelpText>
                     <default>false</default>
                     <label>02</label>
                 </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -236,6 +241,11 @@ operaciones activas</inlineHelpText>
                     <fullName>02</fullName>
                     <default>false</default>
                     <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1642,6 +1652,11 @@ operaciones activas</inlineHelpText>
                     <default>false</default>
                     <label>02</label>
                 </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>		
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1911,7 +1926,8 @@ REGEX( da_Client_Email__c , &quot;([a-zA-Z0-9_\\-\\.]+)@((\\[a-z]{1,3}\\.[a-z]{1
     <validationRules>
         <fullName>Validation_Term_Integer</fullName>
         <active>true</active>
-        <errorConditionFormula>OR( 
+        <errorConditionFormula>If( Product2.ProductCode &lt;&gt;&apos;PC00018&apos;,
+OR( 
 NOT(OR( 
 ISBLANK( gipr_Plazo__c ), 
 REGEX(TEXT(gipr_Plazo__c), &quot;[1-9][0-9]{0,2}&quot;)
@@ -1925,7 +1941,7 @@ ISBLANK( cpliq_n_gracia__c ),
 REGEX(TEXT(cpliq_n_gracia__c), &quot;[1-9][0-9]{0,2}&quot;)
 )
 )
-)</errorConditionFormula>
+),False)</errorConditionFormula>
         <errorMessage>Invalid Term value, the value ca not have decimals and need to be less than 1000</errorMessage>
     </validationRules>
 </CustomObject>
