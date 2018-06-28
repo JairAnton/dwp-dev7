@@ -1926,7 +1926,7 @@ REGEX( da_Client_Email__c , &quot;([a-zA-Z0-9_\\-\\.]+)@((\\[a-z]{1,3}\\.[a-z]{1
     <validationRules>
         <fullName>Validation_Term_Integer</fullName>
         <active>true</active>
-        <errorConditionFormula>If( Product2.ProductCode &lt;&gt;&apos;PC00018&apos;,
+        <errorConditionFormula>If( Product2.ProductCode &lt;&gt;&apos;PC00018&apos;&amp;&amp; Product2.ProductCode &lt;&gt;&apos;PC00024&apos;,
 OR( 
 NOT(OR( 
 ISBLANK( gipr_Plazo__c ), 
