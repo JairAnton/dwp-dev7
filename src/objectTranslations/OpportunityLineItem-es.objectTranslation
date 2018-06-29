@@ -782,6 +782,26 @@ operaciones activas --></help>
         <name>fprd__GBL_Sample_Datetime__c</name>
     </fields>
     <fields>
+        <label>Número de contrato</label>
+        <name>frm_ContractNumber__c</name>
+    </fields>
+    <fields>
+        <label>Opción de compra (Monto)</label>
+        <name>gipr_Buy_Option_amt__c</name>
+    </fields>
+    <fields>
+        <label>Tipo opción de compra</label>
+        <name>gipr_Buy_Type_Option__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>%</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Monto</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>Cobertura</label>
         <name>gipr_Cobertura__c</name>
     </fields>
@@ -800,6 +820,10 @@ operaciones activas --></help>
     <fields>
         <label>N° Contrato</label>
         <name>gipr_Contract_Number__c</name>
+    </fields>
+    <fields>
+        <label>Cuota inicial</label>
+        <name>gipr_CuotaInicial__c</name>
     </fields>
     <fields>
         <label>Destino</label>
@@ -1026,6 +1050,58 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label>Moneda</label>
+        <name>gipr_OppIsoCurrency__c</name>
+    </fields>
+    <fields>
+        <label>Origen</label>
+        <name>gipr_Origin__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Nuevo flujo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Otros bancos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Incremento</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Migración</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Banco origen</label>
+        <name>gipr_Origin_bank__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>BCP</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Scotiabank</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Interbank</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>BIF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Banco Financiero</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>Otros</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>Medio de pago</label>
         <name>gipr_Payment_Method__c</name>
         <picklistValues>
@@ -1062,8 +1138,40 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label>Token físico</label>
+        <name>gipr_Physical_token__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Si</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>No</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>Plazo</label>
         <name>gipr_Plazo__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad</label>
+        <name>gipr_Quantity__c</name>
+    </fields>
+    <fields>
+        <label>Requerimiento</label>
+        <name>gipr_Request__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Contratación</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Upgrade</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Downgrade</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>Tipo garantía</label>
@@ -1079,6 +1187,42 @@ operaciones activas --></help>
         <picklistValues>
             <masterLabel>03</masterLabel>
             <translation>Sin garantía</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Tipo de haberes</label>
+        <name>gipr_Type_of_assets__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Decisores</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Calificados</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>No calificados</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Versión</label>
+        <name>gipr_Version__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Gratuita</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Negocios</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Empresas</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Premium</translation>
         </picklistValues>
     </fields>
 	    <fields>
