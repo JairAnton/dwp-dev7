@@ -6,6 +6,9 @@
 --------------------------------------------------------------------------*/
 
 public without sharing class Product_cls {
+	/*Description
+	Comments to describe the functionality of this method
+	*/
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
 		List<OpportunityLineItem> row= [SELECT  PE_POR_ID_COTIZA__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,PE_DATE_Fecha_cotizacion__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
 		if(!row.isEmpty())
@@ -13,7 +16,9 @@ public without sharing class Product_cls {
 		else
 			return null;
 	}
-
+	/*Description
+	Comments to describe the functionality of this method
+	*/
 	@AuraEnabled public static Boolean verifyIfHasQuoted(String IdOpportunity){
 		List<OpportunityLineItem> rowOpp=getIdProductByOpportunity(IdOpportunity);
 		if(!rowOpp.isEmpty())
@@ -21,28 +26,38 @@ public without sharing class Product_cls {
 			if(rowOpp[0].PE_DATE_Fecha_cotizacion__c!=null && String.valueOf(rowOpp[0].PE_DATE_Fecha_cotizacion__c)!='') return true; else return false;
 		}else return false;
 	}
-
+	/*Description
+	Comments to describe the functionality of this method
+	*/
 	@AuraEnabled public static List<Product_Gurantee__c> getGuaranteeDataByProduct(String IdOpportunity,String IdProduct){	
 		List<Product_Gurantee__c> objData= [SELECT Id,GuaranteeType__c,toLabel(Guarantee__c), toLabel(Modality__c), toLabel(Status__c),Term__c, toLabel(Periodicity__c),nGuarantee__c,Amount__c,isMaster__c FROM Product_Gurantee__c Where Product__c=: IdProduct AND Opportunity__c=: IdOpportunity Order by isMaster__c desc];
 		return objData;
 	}
-
+	/*Description
+	Comments to describe the functionality of this method
+	*/
 	@AuraEnabled public static List<Product_Gurantee__c> getGuaranteeDataByProductValues(String PGuaranteeId){	
 
 		List<Product_Gurantee__c> objData= [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c,isMaster__c FROM Product_Gurantee__c Where Id=: PGuaranteeId];
 		return objData;
 	}
-
+	/*Description
+	Comments to describe the functionality of this method
+	*/
 	@AuraEnabled public static List<Product_Participants__c> getParticipantDataByProduct(String IdOpportunity,String IdProduct){	
 		List<Product_Participants__c> objData= [SELECT Id,Name,toLabel(DOI__c), toLabel(Marital_Status__c), toLabel(Participation__c),N_DOI__c,isMaster__c FROM Product_Participants__c Where Product__c=: IdProduct AND Opportunity__c=: IdOpportunity Order by isMaster__c desc];
 		return objData;
 	}
-
+	/*Description
+	Comments to describe the functionality of this method
+	*/
 	@AuraEnabled public static List<Product_Participants__c> getParticipantDataByProductValues(String PParticipantId){	
 		List<Product_Participants__c> objData= [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c,isMaster__c FROM Product_Participants__c Where  Id=: PParticipantId];
 		return objData;
 	}
-               
+	/*Description
+	Comments to describe the functionality of this method
+	*/         
 	@AuraEnabled public static List<compromiso__c> getCompromisoDataByProduct(String IdOpportunity){	
 		List<compromiso__c> objData= [SELECT Product_relate__c,PE_DIVISA_Importe__c,PE_NUM_Plazo_Vcto__c,PE_FOR_Fecha_Vcto__c,PE_NUM_Permanencia__c,CurrencyIsoCode FROM compromiso__c Where  Oportunidad__c=:IdOpportunity];
 		return objData;

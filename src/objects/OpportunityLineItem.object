@@ -214,6 +214,11 @@ operaciones activas</inlineHelpText>
                     <default>false</default>
                     <label>02</label>
                 </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -236,6 +241,11 @@ operaciones activas</inlineHelpText>
                     <fullName>02</fullName>
                     <default>false</default>
                     <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1189,6 +1199,48 @@ operaciones activas</inlineHelpText>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>frm_ContractNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>frm_ContractNumber</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+     <fields>
+        <fullName>gipr_Buy_Option_amt__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Buy_Option_amt</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>gipr_Buy_Type_Option__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Buy_Type_Option</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>gipr_Cobertura__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Cobertura</label>
@@ -1590,6 +1642,92 @@ operaciones activas</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>gipr_OppIsoCurrency__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Opportunity.CurrencyIsoCode,&apos;PEN&apos;),&apos;Sol peruano&apos;,&apos;Dólar de EE.UU.&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>gipr_OppIsoCurrency</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>gipr_Origin__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Origin</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Origin_bank__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Origin_bank</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+                <value>
+                    <fullName>05</fullName>
+                    <default>false</default>
+                    <label>05</label>
+                </value>
+                <value>
+                    <fullName>06</fullName>
+                    <default>false</default>
+                    <label>06</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>gipr_Payment_Method__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Payment_Method</label>
@@ -1642,6 +1780,133 @@ operaciones activas</inlineHelpText>
                     <default>false</default>
                     <label>02</label>
                 </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Physical_token__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Physical_token</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Quantity</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>gipr_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Request</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Type_of_assets__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Type_of_assets</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gipr_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Version</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>		
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1885,6 +2150,17 @@ REGEX(da_nOperation__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
         <errorMessage>Operation No format not valid, correct: 0000-0000-000000000</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Quantity_ValidationRule</fullName>
+        <active>true</active>
+        <description>Verify the positive a</description>
+        <errorConditionFormula>NOT(OR( 
+ISBLANK( gipr_Quantity__c ), 
+REGEX(TEXT(gipr_Quantity__c), &quot;[0-9]+&quot;) 
+) 
+)</errorConditionFormula>
+        <errorMessage>The quantity must be positive and can not include decimals.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>ValidDueDate</fullName>
         <active>true</active>
         <errorConditionFormula>cpliq_Fecha_Vencimiento__c &lt;=Today()</errorConditionFormula>
@@ -1911,7 +2187,8 @@ REGEX( da_Client_Email__c , &quot;([a-zA-Z0-9_\\-\\.]+)@((\\[a-z]{1,3}\\.[a-z]{1
     <validationRules>
         <fullName>Validation_Term_Integer</fullName>
         <active>true</active>
-        <errorConditionFormula>OR( 
+        <errorConditionFormula>If( Product2.ProductCode &lt;&gt;&apos;PC00018&apos;&amp;&amp; Product2.ProductCode &lt;&gt;&apos;PC00024&apos;,
+OR( 
 NOT(OR( 
 ISBLANK( gipr_Plazo__c ), 
 REGEX(TEXT(gipr_Plazo__c), &quot;[1-9][0-9]{0,2}&quot;)
@@ -1925,7 +2202,7 @@ ISBLANK( cpliq_n_gracia__c ),
 REGEX(TEXT(cpliq_n_gracia__c), &quot;[1-9][0-9]{0,2}&quot;)
 )
 )
-)</errorConditionFormula>
+),False)</errorConditionFormula>
         <errorMessage>Invalid Term value, the value ca not have decimals and need to be less than 1000</errorMessage>
     </validationRules>
 </CustomObject>
