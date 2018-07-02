@@ -1358,6 +1358,10 @@ operaciones activas --></help>
         <name>NOperation_Validation</name>
     </validationRules>
     <validationRules>
+        <errorMessage>El valor de la cantidad debe ser positivo y entero.</errorMessage>
+        <name>Quantity_ValidationRule</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>La fecha de Vencimiento debe ser mayor al día de hoy.</errorMessage>
         <name>ValidDueDate</name>
     </validationRules>
