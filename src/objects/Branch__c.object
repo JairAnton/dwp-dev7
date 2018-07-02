@@ -279,7 +279,7 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <externalId>true</externalId>
         <label>Unique Identifier</label>
         <length>255</length>
-        <required>false</required>
+        <required>true</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
