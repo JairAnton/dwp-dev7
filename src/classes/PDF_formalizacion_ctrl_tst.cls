@@ -62,7 +62,7 @@ Pricebook2Id = customPB.Id, Product2Id = prod.Id,
 UnitPrice = 12000, IsActive = true);
 insert customPrice;
 
-lstOpportunitiesLineItem.add(New OpportunityLineItem(OpportunityId=lstOpportunities[0].Id ,Quantity=1,TotalPrice=10,PricebookEntryId=customPrice.Id));
+lstOpportunitiesLineItem.add(New OpportunityLineItem(OpportunityId=lstOpportunities[0].Id ,Quantity=1,UnitPrice=10,PricebookEntryId=customPrice.Id));
 
 insert lstOpportunitiesLineItem;
 }
