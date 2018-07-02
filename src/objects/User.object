@@ -71,6 +71,17 @@
         <trackFeedHistory>true</trackFeedHistory>
         <type>Hierarchy</type>
     </fields>
+	<fields>
+        <fullName>Unique_id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Unique_id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
     <fields>
         <fullName>organizational_unit_id__c</fullName>
         <description>stores the organizational Unit Code</description>

@@ -1040,6 +1040,31 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>renewal_contract_amount__c</fullName>
+        <description>renewal amount</description>
+        <externalId>false</externalId>
+        <label>Amount Renewal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renewal_contract_currency__c</fullName>
+        <description>renewal currency</description>
+        <externalId>false</externalId>
+        <label>Currency Renewal</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>renewal_contract_id__c</fullName>
         <description>Id from a renewal contract for opportunity</description>
         <externalId>false</externalId>
@@ -1047,6 +1072,17 @@
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renewal_import_curreny__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( renewal_contract_amount__c ) +&apos; &apos;+ renewal_contract_currency__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Import Renewal</label>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>

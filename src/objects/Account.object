@@ -707,10 +707,10 @@
         <externalId>true</externalId>
         <label>Unique identifier</label>
         <length>255</length>
-        <required>false</required>
+        <required>true</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>watchlist_calif_id__c</fullName>
