@@ -822,7 +822,10 @@
 		<members>Modality_Mode__c.Modalidad_producto__c</members>
         <members>Modality_Mode__c.Modality_Select__c</members>
         <members>Modality_Mode__c.Product_Name__c</members>
-        <members>Opportunity.PE_ImOwner__c</members>        
+        <members>Opportunity.PE_ImOwner__c</members> 
+		<members>Opportunity.renewal_contract_amount__c</members>
+		<members>Opportunity.renewal_contract_currency__c</members>
+		<members>Opportunity.renewal_import_curreny__c</members>
 		<name>CustomField</name>
     </types>
     <types>
@@ -842,7 +845,6 @@
         <members>Account_Renewals__c</members>
         <members>Account_Banking_System_Classification__c</members>
         <members>Portal_BEC</members>
-		<members>*</members>
         <name>CustomTab</name>
     </types>
     <types>
