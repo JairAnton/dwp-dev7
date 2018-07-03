@@ -12,7 +12,7 @@ public class TestFactory {
           u.EmailEncodingKey='ISO-8859-1';
           List<Profile> prof=new List<Profile>([SELECT Id, Name FROM Profile where Name=:Perfil]);
           u.ProfileId=  prof[0].Id;
-          u.LanguageLocaleKey='en_es';
+          u.LanguageLocaleKey='es';
           insert u;
     	return u;
     }
