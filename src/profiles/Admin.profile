@@ -2146,6 +2146,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.gipr_Type_of_assets__c</field>
         <readable>true</readable>
     </fieldPermissions>

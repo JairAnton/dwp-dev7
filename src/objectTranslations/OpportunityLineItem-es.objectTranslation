@@ -1190,6 +1190,26 @@ operaciones activas --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label>Tipo</label>
+        <name>gipr_Type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Nuevo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Renovación con incremento</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Renovación con reducción</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Renovación mismo importe</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>Tipo de haberes</label>
         <name>gipr_Type_of_assets__c</name>
         <picklistValues>
