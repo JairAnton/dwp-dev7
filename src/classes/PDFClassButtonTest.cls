@@ -1,19 +1,19 @@
-/**PDF_formalizacion_ctrl_tst
+/**PDFclassButtonTest
 *  object.
 * <p /><p />
 * Modification log:<p />
 * -------------------------------------------------------------------
 * Developer                    Date                Description<p />
 * -------------------------------------------------------------------
-* Julio Medellin               18/06/2018          Original version.<p />
+* Julio Medellin               18/05/2018          Original version.<p />
 *
 * @author Julio Medellin
 */
-@istest
-public class PDF_formalizacion_ctrl_tst {
+@isTest
+public class PDFClassButtonTest {
     
     @testSetup
-    static void setupData() {
+    static void setupData() {       
         User u = new User(
             ProfileId = [SELECT Id FROM Profile WHERE Name = 'Ejecutivo'].Id,
             LastName = 'last',
@@ -33,14 +33,10 @@ public class PDF_formalizacion_ctrl_tst {
         List<Account> lstAccounts = new List<Account>();
         List<Opportunity> lstOpportunities = new List<Opportunity>();
         List<OpportunityLineItem> lstOpportunitiesLineItem = new List<OpportunityLineItem>();
-        
-        lstAccounts.add(new Account(Name = 'AccountName'));
-        
-        
-        
+        lstAccounts.add(new Account(Name = 'AccountName'));    
         insert lstAccounts;
         
-        lstOpportunities.add(new Opportunity(Name='testopp',AccountId = lstAccounts[0].Id, StageName='01', CloseDate=system.Date.today(),opportunity_status_type__c='01',Amount=100,OwnerId=UserInfo.getUserId()));
+        lstOpportunities.add(new Opportunity(Name='testopp',AccountId = lstAccounts[0].Id,Amount=1000, StageName='01', CloseDate=system.Date.today(),opportunity_status_type__c='01',OwnerId=UserInfo.getUserId()));
         
         insert lstOpportunities;
         
@@ -73,44 +69,25 @@ public class PDF_formalizacion_ctrl_tst {
             UnitPrice = 12000, IsActive = true);
         insert customPrice;
         
-        lstOpportunitiesLineItem.add(New OpportunityLineItem(OpportunityId=lstOpportunities[0].Id ,Quantity=1,TotalPrice=10,PricebookEntryId=customPrice.Id));
-        
+        lstOpportunitiesLineItem.add(New OpportunityLineItem(OpportunityId=lstOpportunities[0].Id ,Quantity=1,TotalPrice=10.00,PricebookEntryId=customPrice.Id));
         insert lstOpportunitiesLineItem;
     }
     
     
-    public static testMethod void positiveTest(){
-        Opportunity opp=[SELECT Id FROM  Opportunity LIMIT 1];
-        PageReference pageRef = Page.PDF_formalizacion_vfp;
-        PDFclassButton.PDF_formalization(opp.Id);
-        pageRef.getParameters().put('id',opp.id);
-        test.setCurrentPage(pageRef);
-        ApexPages.StandardController sc = new ApexPages.standardController(opp);
-        PDF_formalizacion_ctrl pdf = new PDF_formalizacion_ctrl(sc);
+    
+    public static testMethod void test1(){
+        Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
+        PDFclassButton.getErrorMessagesList(rid,'Opportunity', '');
+        PDFclassButton.PDF_formalization(rid);
     }
     
-    public static testMethod void positiveTestPDFClassButton(){
-        Opportunity opp =[SELECT Id FROM  Opportunity LIMIT 1];
-        opp.StageName='05';
-        update opp;
-        test.startTest();
-        string recordId = opp.Id;
-        PDFclassButton.getErrorMessagesList(recordId,'','');
-        test.stopTest();
+    public static testMethod void test2(){
+        user usr = [SELECT ID FROM User LIMIT 1];
+        system.runAs(usr){ 
+            Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
+            PDFclassButton.getErrorMessagesList(rid,'Opportunity', '');
+            PDFclassButton.PDF_formalization(rid);
+        }      
     }
     
-    public static testMethod void negativeTestPDFClassButton(){
-        User u = [SELECT Id FROM USER WHERE email ='user@BBVA.com'];
-        Opportunity opp =[SELECT Id FROM  Opportunity LIMIT 1];
-        opp.StageName='01';
-        update opp;
-        test.startTest();
-        system.runAs(u){
-            string recordId =[SELECT Id FROM  Opportunity LIMIT 1].Id;
-            PDFclassButton.getErrorMessagesList(recordId,'','');
-        }
-        test.stopTest();
-    }
-
-
 }

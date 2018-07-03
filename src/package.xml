@@ -211,7 +211,6 @@
         <members>OpportunityProduct_Controller_tst</members>
         <members>OpportunityPDFWrap</members>
         <members>PDF_formalizacion_ctrl</members>
-        <members>PDF_formalizacion_ctrl_tst</members>
         <members>PDFclassButton</members>
         <members>Product_cls</members>
         <members>classMasterGuarantee_cls</members>
@@ -229,6 +228,11 @@
         <members>PE_OpportunityLITTriggerHandler</members>
         <members>OpportunityTraceability_cls</members>
         <members>approveButtonClass</members>
+        <members>PDFClassButtonTest</members>
+        <members>PDF_formalizacion_ctrl_tst</members>
+        <members>ReevaluateButtonClassTest</members>
+        <members>FormalizationButtonClass_Test</members>
+        <members>OpportunityPDFWrap_Test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -900,7 +904,6 @@
     <members>Guarantee_MasterRecord</members>
     <members>Participant_MasterRecord</members>
     <members>Compromisos</members>
-    <members>Opp_PDF_Creation</members>
     <members>Motivo_Descarte_Oportunidad_V0</members>
     <members>Opp_Stage_Changed_notify</members>
     <members>Flujo_Cotizacion_V0</members>-->
