@@ -211,7 +211,6 @@
         <members>OpportunityProduct_Controller_tst</members>
         <members>OpportunityPDFWrap</members>
         <members>PDF_formalizacion_ctrl</members>
-        <members>PDF_formalizacion_ctrl_tst</members>
         <members>PDFclassButton</members>
         <members>Product_cls</members>
         <members>classMasterGuarantee_cls</members>
@@ -229,6 +228,12 @@
         <members>PE_OpportunityLITTriggerHandler</members>
         <members>OpportunityTraceability_cls</members>
         <members>approveButtonClass</members>
+        <members>PDFClassButtonTest</members>
+        <members>PDF_formalizacion_ctrl_tst</members>
+        <members>ReevaluateButtonClassTest</members>
+        <members>FormalizationButtonClass_Test</members>
+        <members>OpportunityPDFWrap_Test</members>
+        <members>TestFactory</members>
         <name>ApexClass</name>
     </types>
     <types>

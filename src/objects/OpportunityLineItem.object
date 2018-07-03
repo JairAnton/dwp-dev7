@@ -2150,6 +2150,17 @@ REGEX(da_nOperation__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
         <errorMessage>Operation No format not valid, correct: 0000-0000-000000000</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Quantity_ValidationRule</fullName>
+        <active>true</active>
+        <description>Verify the positive a</description>
+        <errorConditionFormula>NOT(OR( 
+ISBLANK( gipr_Quantity__c ), 
+REGEX(TEXT(gipr_Quantity__c), &quot;[0-9]+&quot;) 
+) 
+)</errorConditionFormula>
+        <errorMessage>The quantity must be positive and can not include decimals.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>ValidDueDate</fullName>
         <active>true</active>
         <errorConditionFormula>cpliq_Fecha_Vencimiento__c &lt;=Today()</errorConditionFormula>
