@@ -233,6 +233,7 @@
         <members>ReevaluateButtonClassTest</members>
         <members>FormalizationButtonClass_Test</members>
         <members>OpportunityPDFWrap_Test</members>
+        <members>TestFactory</members>
         <name>ApexClass</name>
     </types>
     <types>
