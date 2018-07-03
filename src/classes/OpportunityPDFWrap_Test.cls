@@ -8,7 +8,7 @@ public class OpportunityPDFWrap_Test {
         TestFactory.createAccBankingSystClass(acc.id);
         
 		TestFactory.createContact(acc.id);
-        User user=TestFactory.createUser('TestAdmin','Administrador del sistema');
+        User user=TestFactory.createUser('TestAdmin','Migracion');
         TestFactory.createUserBranch(user.Id);
         
         Opportunity opp=TestFactory.createOpportunity(acc.Id,user.Id);                
