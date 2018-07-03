@@ -53,7 +53,9 @@ public class PDF_formalizacion_ctrl_tst {
         insert CSBS;
         Contact Contacto = new Contact(Salutation='Sr.',decision_making_desc__c='Si',LastName='testLast',FirstName='test',AccountId =lstAccounts[0].Id);
         insert Contacto;
+        Datetime time1 =  DateTime.now();
         Branch__c  oficina = new Branch__c();
+        oficina.unique_id__c='example'+time1.millisecondGmt();
         insert oficina;
         User_Branch__c usuarioOficina = new User_Branch__c(branch_name__c=oficina.Id,user__c=lstOpportunities[0].ownerId );
         insert usuarioOficina;
@@ -111,6 +113,5 @@ public class PDF_formalizacion_ctrl_tst {
         }
         test.stopTest();
     }
-
 
 }
