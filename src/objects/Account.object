@@ -708,7 +708,7 @@
 		<caseSensitive>false</caseSensitive>
         <label>Unique identifier</label>
         <length>255</length>
-        <required>true</required>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>true</unique>
