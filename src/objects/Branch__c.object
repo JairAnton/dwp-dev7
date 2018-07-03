@@ -275,7 +275,8 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
     </fields>
     <fields>
         <fullName>unique_id__c</fullName>
-        <description>Identificador Único</description>
+        <caseSensitive>false</caseSensitive>
+		<description>Identificador Único</description>
         <externalId>true</externalId>
         <label>Unique Identifier</label>
         <length>255</length>

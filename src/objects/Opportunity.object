@@ -1135,7 +1135,8 @@
     </fields>
     <fields>
         <fullName>unique_id__c</fullName>
-        <description>Internal control code</description>
+        <caseSensitive>false</caseSensitive>
+		<description>Internal control code</description>
         <externalId>true</externalId>
         <label>Unique identifier</label>
         <length>255</length>

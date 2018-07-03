@@ -120,7 +120,8 @@
     </fields>
     <fields>
         <fullName>unique_id__c</fullName>
-        <description>Identificador Único</description>
+        <caseSensitive>false</caseSensitive>
+		<description>Identificador Único</description>
         <externalId>true</externalId>
         <label>Unique identifier</label>
         <length>255</length>

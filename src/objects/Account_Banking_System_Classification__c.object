@@ -59,7 +59,8 @@
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Unique_Id__c</fullName>
-        <externalId>true</externalId>
+        <caseSensitive>false</caseSensitive>
+		<externalId>true</externalId>
         <label>Unique Identifier</label>
         <length>255</length>
         <required>true</required>
