@@ -120,14 +120,15 @@
     </fields>
     <fields>
         <fullName>unique_id__c</fullName>
-        <description>Identificador Único</description>
+        <caseSensitive>false</caseSensitive>
+		<description>Identificador Único</description>
         <externalId>true</externalId>
         <label>Unique identifier</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>user_id__c</fullName>

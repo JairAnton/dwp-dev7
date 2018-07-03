@@ -704,13 +704,14 @@
     </fields>
     <fields>
         <fullName>unique_id__c</fullName>
-        <externalId>true</externalId>
+		<externalId>true</externalId>
+		<caseSensitive>false</caseSensitive>
         <label>Unique identifier</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>watchlist_calif_id__c</fullName>

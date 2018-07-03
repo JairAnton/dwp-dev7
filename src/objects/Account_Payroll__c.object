@@ -136,13 +136,14 @@
     </fields>
     <fields>
         <fullName>unique_id__c</fullName>
-        <externalId>true</externalId>
+        <caseSensitive>false</caseSensitive>
+		<externalId>true</externalId>
         <label>Unique Identifier</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>year_month_day_date__c</fullName>
