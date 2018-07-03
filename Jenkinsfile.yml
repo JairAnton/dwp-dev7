@@ -33,9 +33,11 @@ branches:
                 params:
                     mdapiConfig:
                         credentialId: SFDC_UAT
+                        testLevel: RunLocalTests
     master:
         stages:
             publish:
                 params:
                     mdapiConfig:
                         credentialId: SFDC_PROD
+                        testLevel: RunLocalTests
