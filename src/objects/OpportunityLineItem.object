@@ -1850,6 +1850,39 @@ operaciones activas</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>gipr_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>gipr_Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>gipr_Type_of_assets__c</fullName>
         <externalId>false</externalId>
         <label>gipr_Type_of_assets</label>
