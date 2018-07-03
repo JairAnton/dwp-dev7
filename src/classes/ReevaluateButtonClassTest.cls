@@ -18,7 +18,7 @@ public  class ReevaluateButtonClassTest {
         Account acctest;
         Opportunity opptest;
         Product2 prod;
-        defaultUser = TestFactory.createUser('Test','Administrador del sistema');
+        defaultUser = TestFactory.createUser('Test','Migracion');
         acctest = TestFactory.createAccount();
         opptest = TestFactory.createOpportunity(acctest.Id,defaultUser.Id);
         prod = testFactory.createProduct();
