@@ -417,6 +417,13 @@
         <value>PC00018</value>
     </labels>
     <labels>
+        <fullName>lblPDFProductForfaitingImport</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductForfaitingImport</shortDescription>
+        <value>PC00012</value>
+    </labels>
+    <labels>
         <fullName>lblPDFProductFurnitureLeasing</fullName>
         <language>es</language>
         <protected>false</protected>

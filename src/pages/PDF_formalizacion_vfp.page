@@ -159,7 +159,7 @@
         </tr>
     </table>
     </apex:outputPanel>
-    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture} && Product.ProductCode!=$Label.lblPDFProductCommercialLoanLP && Product.ProductCode!=$Label.lblPDFProductFurnitureLeasing" layout="block">
+    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture} && Product.ProductCode!=$Label.lblPDFProductCommercialLoanLP && Product.ProductCode!=$Label.lblPDFProductFurnitureLeasing && Product.ProductCode!=$Label.lblPDFProductForfaitingImport" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -217,10 +217,10 @@
         <br/>
         <ul>
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-            <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Modalidad: {!Modalidad}</li>
+            <li>Destino: {!OLI.gipr_Destino__c}</li>
+            <li>Mejorado: {!If(Oli.PE_List_Mejorado__c,'Si','No')}</li>
             <li>Importe:<apex:outputText value=" {0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
                 </apex:outputText>
@@ -261,7 +261,7 @@
             <li>Exportador: {!OLI.da_Exporter__c }</li>
             <li>Detalle de mercadería: {!OLI.da_Merchandise_Detail__c }</li>
             <li>País de origen: {!OLI.da_Origin_Country__c }</li>
-            <li>E-mail del cliente: {!Client.email__c}</li>
+            <li>E-mail del cliente: {!OLI.da_Client_Email__c}</li>
             <li>Riesgo Aprobado: {!OLI.da_Approved_Risk__c}</li>
             <li>Riesgo Utilizado: {!OLI.da_Used_Risk__c}</li>
             <li>Saldo Disponible:{!OLI.da_Available_Balance__c }</li>
@@ -277,10 +277,11 @@
         <br/>
         <ul>
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-            <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Modalidad: {!Modalidad}</li>
+            <li>Modalidad Producto: {!Oli.PE_List_Product_mode__c}</li>
+            <li>Destino: {!OLI.gipr_Destino__c}</li>
+            <li>Mejorado: {!If(Oli.PE_List_Mejorado__c,'Si','No')}</li>
             <li>Importe:<apex:outputText value=" {0, number,.00}">
                 <apex:param value="{!opportunity.Amount}" />
                 </apex:outputText>
@@ -295,9 +296,6 @@
             <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.cpliq_n_gracia__c }" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
-            <li>Amortización: {!Modalidad}</li>
-            <li>Saldo Disponible:{!OLI.da_Available_Balance__c }</li>
-            <li>Observaciones: {!OLI.da_Observations__c}</li>
             <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c }</li>
             <apex:outputPanel id="DatosOportunidad450Table" rendered="{!OLI.da_Replacement_financing__c=='02'}" layout="block">
                 <table class="classTableBack">
@@ -338,7 +336,7 @@
             <li>Importador: {!OLI.da_Importer__c}</li>
             <li>Detalle de mercadería: {!OLI.da_Merchandise_Detail__c }</li>
             <li>País de destino: {!OLI.da_Destination_Country__c}</li>
-            <li>E-mail del cliente: {!Client.email__c}</li>
+            <li>E-mail del cliente: {!OLI.da_Client_Email__c}</li>
             <li>Riesgo Aprobado: {!OLI.da_Approved_Risk__c}</li>
             <li>Riesgo Utilizado: {!OLI.da_Used_Risk__c}</li>
             <li>Saldo Disponible:{!OLI.da_Available_Balance__c }</li>
@@ -369,7 +367,7 @@
             <li>Periodicidad comisión: {!OLI.tcf_Periodicity_commission__c} </li>
         </ul>
     </apex:outputPanel>
-    <apex:outputPanel id="DatosOportunidad460" rendered="{!Product.ProductCode ==$Label.lblPDFProductFurnitureLeasing || Product.ProductCode==$Label.lblPDFProductCommercialLoanLP}" layout="block">
+    <apex:outputPanel id="DatosOportunidad460" rendered="{!Product.ProductCode ==$Label.lblPDFProductFurnitureLeasing || Product.ProductCode==$Label.lblPDFProductCommercialLoanLP || Product.ProductCode==$Label.lblPDFProductForfaitingImport}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -377,14 +375,14 @@
         <br/>
         <ul>
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-         <li>Familia Producto: {!Product.Family}</li>
+            <li>Familia Producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
+            <apex:variable var="foo" value="" rendered="{!Product.ProductCode!=$Label.lblPDFProductForfaitingImport}">
             <li>Modalidad Producto: {!Oli.PE_List_Product_mode__c}</li>
-
-            <apex:variable var="foo" value="" rendered="{!Product.ProductCode==$Label.lblPDFProductCommercialLoanLP}">
-            <li >Destino: {!OLI.gipr_Destino__c}</li>
             </apex:variable>
-   
+            <apex:variable var="foo" value="" rendered="{!Product.ProductCode==$Label.lblPDFProductCommercialLoanLP || Product.ProductCode==$Label.lblPDFProductForfaitingImport}">
+            <li >Destino: {!OLI.gipr_Destino__c}</li>
+            </apex:variable>   
             <li>Mejorado: {!If(Oli.PE_List_Mejorado__c,'Si','No')}</li>
             <li>Importe: <apex:outputText value=" {0, number,.00}"><apex:param value="{!opportunity.Amount}" /></apex:outputText></li>
             <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
@@ -400,13 +398,18 @@
             <li>Tipo de amortización: {!OLI.cpliq_Tipo_amortizacion__c} </li>
             <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /></apex:outputText></li>
             <li>Plazo: <apex:outputText value=" {0, number,0} ">
-                <apex:param value="{!Oli.gipr_Plazo__c}" />
-                </apex:outputText> {!Oli.gipr_Periodicidad__c }</li>
+                <apex:param value="{!Oli.cpliq_n__c}" />
+                </apex:outputText> {!Oli.cpliq_Periodicidad__c }</li>
             <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.cpliq_n_gracia__c }" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
             <li>Amortización: {!Oli.cpliq_Amortizacion__c}</li>
+            <apex:variable var="foo" value="" rendered="{!Product.ProductCode!=$Label.lblPDFProductForfaitingImport}">
             <li>Código simulación: {!OLI.cpliq_Codigo_Simulacion__c}</li>
+            </apex:variable>
+            <apex:variable var="foo" value="" rendered="{!Product.ProductCode==$Label.lblPDFProductForfaitingImport}">
+            <li>Manual: {!OLI.cpliq_Manual__c}</li>
+            </apex:variable>
             
         </ul>
     </apex:outputPanel>    
