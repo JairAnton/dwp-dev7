@@ -1016,7 +1016,16 @@
     </types>
     <types>
         <members>LOGO_BBVA</members>
+		<members>avatargroupdwp_peru</members>
+        <members>bannerperu</members>
+        <members>bannerperu1</members>
+        <members>logocontinental</members>
+        <members>thumb_76179</members>
         <name>ContentAsset</name>
+    </types>
+	    <types>
+        <members>LEXTHEMINGBBVA_theme_1</members>
+        <name>BrandingSet</name>
     </types>
     <types>
         <members>Blue_Circle_Icon</members>
@@ -1066,5 +1075,9 @@
         <members>PDF_formalizacion_vfp</members>
         <name>ApexPage</name>
      </types>
+	 <types>
+        <members>BBVA_theme_1</members>
+        <name>LightningExperienceTheme</name>
+    </types>
     <version>42.0</version> 
 </Package>
