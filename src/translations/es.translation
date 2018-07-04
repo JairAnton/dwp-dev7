@@ -372,6 +372,14 @@
        <label>Aprobar</label>
        <name>lblbtnApprove_cfg</name>
    </customLabels>
+   <customLabels>
+       <label>No se puede cargar la ventana de cotización</label>
+       <name>lblQuoteGeneralError</name>
+   </customLabels>
+   <customLabels>
+       <label>No se puede cotizar esta oportunidad</label>
+       <name>lblQuoteError</name>
+   </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
