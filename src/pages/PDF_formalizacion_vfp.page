@@ -88,9 +88,10 @@
         <b>Sanción precio</b>
     </div>
     <br/>
+    <apex:outputPanel id="SanctionPrice1" rendered="{!Product.ProductCode !=$Label.lblPDFProductFurnitureLeasing && Product.ProductCode !=$Label.lblPDFProductCommercialLoanLP}" layout="block">
     <table>
         <tr>
-            <td>No cotización: COT-12345 </td>
+            <td>No cotización: {!Oli.PE_POR_ID_COTIZA__c } </td>
             <td>Fecha autorización: 16/06/2018:9:00 </td>
         </tr>
         <tr>
@@ -122,7 +123,43 @@
             <td>Comentarios: Aprobada </td>
         </tr>
     </table>
-    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture}" layout="block">
+    </apex:outputPanel>
+    <apex:outputPanel id="SanctionPrice2" rendered="{!Product.ProductCode==$Label.lblPDFProductFurnitureLeasing || Product.ProductCode==$Label.lblPDFProductCommercialLoanLP}" layout="block">
+    <table>
+        <tr>
+            <td>No cotización: {!Oli.PE_POR_ID_COTIZA__c } </td>
+            <td>Compromisos: {!totalC} </td>            
+        </tr>
+        <tr>
+            <td>TEA aprobada:<apex:outputText value=" {0, number,0.00} %">
+                <apex:param value="{!Oli.PE_POR_TEA_propuesta__c}"/>
+                </apex:outputText> </td>
+            <td>Fecha autorización: 16/06/2018:9:00 </td>
+            
+        </tr>
+        <tr>
+            <td>Plazo: <apex:outputText value=" {0, number,0} ">
+                <apex:param value="{!Oli.gipr_Plazo__c}"/>
+                </apex:outputText> {!Oli.gipr_Periodicidad__c }</td>
+            <td>Vigencia: 12/07/2018 </td>
+            
+        </tr>
+        <tr>
+            <td>Comisión liquidación anticipada:<apex:outputText value=" {0, number,0.00} %">
+                <apex:param value="{!Oli.PE_POR_Comision_liquidacion_anticipada__c}"/>
+                </apex:outputText> </td>
+            <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
+
+        </tr>
+        <tr>
+            <td>Comisión liquidación anticipada:<apex:outputText value=" {0, number,0.00} %">
+                <apex:param value="{!Oli.PE_POR_Comision_estructuracion__c}"/>
+                </apex:outputText> </td>
+            <td>Comentarios: Aprobada </td>
+        </tr>
+    </table>
+    </apex:outputPanel>
+    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture} && Product.ProductCode!=$Label.lblPDFProductCommercialLoanLP && Product.ProductCode!=$Label.lblPDFProductFurnitureLeasing" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -191,7 +228,7 @@
             <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
             <li>Tipo de amortización: {!OLI.cpliq_Tipo_amortizacion__c} </li>
-            <apex:outputText rendered="{!OLI.cpliq_Tipo_amortizacion__c	=='Manual'}">
+            <apex:outputText rendered="{!OLI.cpliq_Tipo_amortizacion__c =='Manual'}">
             <li>Manual: {!OLI.cpliq_Manual__c}</li>
             </apex:outputText>
             <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /> </apex:outputText></li>
@@ -332,6 +369,47 @@
             <li>Periodicidad comisión: {!OLI.tcf_Periodicity_commission__c} </li>
         </ul>
     </apex:outputPanel>
+    <apex:outputPanel id="DatosOportunidad460" rendered="{!Product.ProductCode ==$Label.lblPDFProductFurnitureLeasing || Product.ProductCode==$Label.lblPDFProductCommercialLoanLP}" layout="block">
+        <br/>
+        <div class="title">
+            <b>Datos de oportunidad</b>
+        </div>
+        <br/>
+        <ul>
+            <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
+         <li>Familia Producto: {!Product.Family}</li>
+            <li>Producto: {!Product.Name}</li>
+            <li>Modalidad Producto: {!Oli.PE_List_Product_mode__c}</li>
+
+            <apex:variable var="foo" value="" rendered="{!Product.ProductCode==$Label.lblPDFProductCommercialLoanLP}">
+            <li >Destino: {!OLI.gipr_Destino__c}</li>
+            </apex:variable>
+   
+            <li>Mejorado: {!If(Oli.PE_List_Mejorado__c,'Si','No')}</li>
+            <li>Importe: <apex:outputText value=" {0, number,.00}"><apex:param value="{!opportunity.Amount}" /></apex:outputText></li>
+            <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
+            <apex:variable var="foo" value="" rendered="{!Product.ProductCode==$Label.lblPDFProductFurnitureLeasing}">
+            <li>Cuota inicial: <apex:outputText value=" {0, number,0.00} %">
+                    <apex:param value="{!OLI.gipr_CuotaInicial__c }"/>
+                    </apex:outputText></li>
+            <li>Opción de compra: <apex:outputText value=" {0, number,0} ">
+                    <apex:param value="{!OLI.gipr_Opcioncompra__c}" />                
+                    </apex:outputText></li>
+                </apex:variable>
+            <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
+            <li>Tipo de amortización: {!OLI.cpliq_Tipo_amortizacion__c} </li>
+            <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /></apex:outputText></li>
+            <li>Plazo: <apex:outputText value=" {0, number,0} ">
+                <apex:param value="{!Oli.gipr_Plazo__c}" />
+                </apex:outputText> {!Oli.gipr_Periodicidad__c }</li>
+            <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
+                <apex:param value="{!Oli.cpliq_n_gracia__c }" />
+                </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
+            <li>Amortización: {!Oli.cpliq_Tipo_amortizacion__c}</li>
+            <li>Código simulación: {!OLI.cpliq_Codigo_Simulacion__c}</li>
+            
+        </ul>
+    </apex:outputPanel>    
     <div class="title">
         <h3>
             <b>Garantias e intervinientes</b>
