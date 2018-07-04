@@ -145,15 +145,15 @@
             
         </tr>
         <tr>
-            <td>Comisión liquidación anticipada:<apex:outputText value=" {0, number,0.00} %">
-                <apex:param value="{!Oli.PE_POR_Comision_liquidacion_anticipada__c}"/>
+            <td>Comisión estructuración: <apex:outputText value=" {0, number,0.00} %">
+                <apex:param value="{!Oli.PE_POR_Comision_estructuracion__c}"/>
                 </apex:outputText> </td>
             <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
 
         </tr>
         <tr>
-            <td>Comisión liquidación anticipada:<apex:outputText value=" {0, number,0.00} %">
-                <apex:param value="{!Oli.PE_POR_Comision_estructuracion__c}"/>
+            <td>Comisión liquidación anticipada: <apex:outputText value=" {0, number,0.00} %">
+                <apex:param value="{!Oli.PE_POR_Comision_liquidacion_anticipada__c}"/>
                 </apex:outputText> </td>
             <td>Comentarios: Aprobada </td>
         </tr>
@@ -405,7 +405,7 @@
             <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.cpliq_n_gracia__c }" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
-            <li>Amortización: {!Oli.cpliq_Tipo_amortizacion__c}</li>
+            <li>Amortización: {!Oli.cpliq_Amortizacion__c}</li>
             <li>Código simulación: {!OLI.cpliq_Codigo_Simulacion__c}</li>
             
         </ul>
