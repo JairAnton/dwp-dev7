@@ -228,6 +228,9 @@
             <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
             <li>Tipo de amortización: {!OLI.cpliq_Tipo_amortizacion__c} </li>
+            <apex:outputText rendered="{!OLI.cpliq_Tipo_amortizacion__c =='Manual'}">
+            <li>Manual: {!OLI.cpliq_Manual__c}</li>
+            </apex:outputText>
             <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /> </apex:outputText></li>
             <li>Plazo: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.cpliq_n__c }" />
@@ -235,8 +238,7 @@
             <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.cpliq_n_gracia__c }" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
-            <li>Amortización: {!Oli.cpliq_Amortizacion__c}</li>            
-            <li>Manual: {!OLI.cpliq_Manual__c}</li>
+            <li>Amortización: {!Modalidad}</li>
             <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c}</li>
             <apex:outputPanel id="DatosOportunidad449Table" rendered="{!OLI.da_Replacement_financing__c=='Si'}" layout="block">
                 <table class="classTableBack">
@@ -294,8 +296,6 @@
             <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.cpliq_n_gracia__c }" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
-            <li>Amortización: {!Oli.cpliq_Amortizacion__c}</li>            
-            <li>Manual: {!OLI.cpliq_Manual__c}</li>
             <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c }</li>
             <apex:outputPanel id="DatosOportunidad450Table" rendered="{!OLI.da_Replacement_financing__c=='02'}" layout="block">
                 <table class="classTableBack">
