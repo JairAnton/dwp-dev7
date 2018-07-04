@@ -238,7 +238,6 @@
             <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
                 <apex:param value="{!Oli.cpliq_n_gracia__c }" />
                 </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
-            <li>Amortización: {!Modalidad}</li>
             <li>Financiamiento de Reemplazo: {!OLI.da_Replacement_financing__c}</li>
             <apex:outputPanel id="DatosOportunidad449Table" rendered="{!OLI.da_Replacement_financing__c=='Si'}" layout="block">
                 <table class="classTableBack">
