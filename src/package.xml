@@ -175,6 +175,8 @@
         <members>lblSanctionStage</members>
 		<members>lblReject</members>
         <members>lblbtnApprove_cfg</members>
+        <members>lblQuoteGeneralError</members>
+        <members>lblQuoteError</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -234,6 +236,8 @@
         <members>FormalizationButtonClass_Test</members>
         <members>OpportunityPDFWrap_Test</members>
         <members>TestFactory</members>
+        <members>quoteClassButton</members>
+        <members>quoteClassButtonTest</members>
         <name>ApexClass</name>
     </types>
     <types>

@@ -626,4 +626,18 @@
         <shortDescription>lblbtnApprove_cfg</shortDescription>
         <value>Approve</value>
     </labels>
+    <labels>
+        <fullName>lblQuoteError</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblQuoteError</shortDescription>
+        <value>you can not make a quote on this opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblQuoteGeneralError</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblQuoteGeneralError</shortDescription>
+        <value>Unable to load the quote window</value>
+    </labels>
 </CustomLabels>
