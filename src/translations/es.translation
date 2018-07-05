@@ -45,7 +45,7 @@
         <name>New_Opportunity</name>
     </customLabels>
     <customLabels>
-        <label><!-- OppId --></label>
+        <label><!-- OppId --><!----></label>
         <name>OppId</name>
     </customLabels>
     <customLabels>
