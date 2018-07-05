@@ -168,7 +168,7 @@
         <ul>
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
             <li>Destino: {!OLI.gipr_Destino__c}</li>
-            <li>Familia Producto: {!Product.Family}</li>
+            <li>Familia producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
             <li>Importe: <apex:outputText value=" {0, number,.00}">
@@ -194,7 +194,7 @@
         <br/>
         <ul>
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-            <li>Familia Producto: {!Product.Family}</li>
+            <li>Familia producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Importe: <apex:outputText value=" {0, number,.00}">
                 <apex:param value="{!Opportunity.Amount}" />
@@ -217,7 +217,7 @@
         <br/>
         <ul>
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-            <li>Familia Producto: {!Product.Family}</li>
+            <li>Familia producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Mejorado: {!If(Oli.PE_List_Mejorado__c,'Si','No')}</li>
@@ -276,9 +276,9 @@
         <br/>
         <ul>
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-            <li>Familia Producto: {!Product.Family}</li>
+            <li>Familia producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
-            <li>Modalidad Producto: {!Oli.PE_List_Product_mode__c}</li>
+            <li>Modalidad producto: {!Oli.PE_List_Product_mode__c}</li>
             <li>Destino: {!OLI.gipr_Destino__c}</li>
             <li>Mejorado: {!If(Oli.PE_List_Mejorado__c,'Si','No')}</li>
             <li>Importe:<apex:outputText value=" {0, number,.00}">
@@ -351,7 +351,7 @@
         <br/>
         <ul>
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-            <li>Familia Producto: {!Product.Family}</li>
+            <li>Familia producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <li>Importe: <apex:outputText value=" {0, number,.00}">
                 <apex:param value="{!opportunity.Amount}" />
@@ -374,10 +374,10 @@
         <br/>
         <ul>
             <li>Nombre de la oportunidad: {!Opportunity.Name} </li>
-            <li>Familia Producto: {!Product.Family}</li>
+            <li>Familia producto: {!Product.Family}</li>
             <li>Producto: {!Product.Name}</li>
             <apex:variable var="foo" value="" rendered="{!Product.ProductCode!=$Label.lblPDFProductForfaitingImport}">
-            <li>Modalidad Producto: {!Oli.PE_List_Product_mode__c}</li>
+            <li>Modalidad producto: {!Oli.PE_List_Product_mode__c}</li>
             </apex:variable>
             <apex:variable var="foo" value="" rendered="{!Product.ProductCode==$Label.lblPDFProductCommercialLoanLP || Product.ProductCode==$Label.lblPDFProductForfaitingImport || Product.ProductCode==$Label.lblPDFProductCommercialLoanCP}">
             <li >Destino: {!OLI.gipr_Destino__c}</li>
