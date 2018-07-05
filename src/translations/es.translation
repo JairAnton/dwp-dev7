@@ -35,7 +35,7 @@
     <customLabels>
         <label>debe ser mayor que la fecha</label>
         <name>DateHigherThan</name>
-    </customLabels>
+    </customLabels>    
     <customLabels>
         <label>Para dar de alta un nuevo Contacto, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nuevo contacto&quot;</label>
         <name>NewContactWarning</name>
@@ -45,7 +45,7 @@
         <name>New_Opportunity</name>
     </customLabels>
     <customLabels>
-        <label><!-- OppId --><!----></label>
+        <label><!-- OppId --></label>
         <name>OppId</name>
     </customLabels>
     <customLabels>
@@ -464,7 +464,7 @@
        <label>No se puede cotizar esta oportunidad</label>
        <name>lblQuoteError</name>
    </customLabels>
-    <customLabels>
+   <customLabels>
         <label>Tu perfil no puede finalizar la visita</label>
         <name>dwp_kitv__Allowed_profile</name>
     </customLabels>
@@ -792,4 +792,5 @@
         </flows>
         <fullName>Motivo_Descarte_Oportunidad_V0</fullName>
     </flowDefinitions>
+    
 </Translations>
