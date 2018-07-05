@@ -439,7 +439,7 @@
    <customLabels>
         <label>Sanción de Precio</label>
         <name>lblTitleSanctionPrice</name>
-   </customLabels>   
+   </customLabels>
    <customLabels>
        <label>Está seguro de crear un PDF para esta oportunidad</label>
        <name>lblMsgPDF</name>
@@ -792,5 +792,4 @@
         </flows>
         <fullName>Motivo_Descarte_Oportunidad_V0</fullName>
     </flowDefinitions>
-    
 </Translations>
