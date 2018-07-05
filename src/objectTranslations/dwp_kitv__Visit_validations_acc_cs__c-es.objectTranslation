@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Bypass --></label>
+        <name>dwp_kitv__bypass__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days To Create --></label>
+        <name>dwp_kitv__days_to_create__c</name>
+    </fields>
+</CustomObjectTranslation>

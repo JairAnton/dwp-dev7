@@ -179,6 +179,7 @@
     </types>
     <types>
         <members>*</members>
+		<members>es</members>
         <name>Translations</name>
     </types>
     <types>
@@ -303,6 +304,7 @@
         <members>Account_Banking_System_Classification</members>
 		<members>Opportunity_Record_Page</members>
         <members>Opportunity_Record_Page1</members>
+		<members>Visit_Record_Page_Peru</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -337,6 +339,8 @@
 		<members>compromiso__c</members>
         <members>OpportunityLineItem</members>
 		<members>Modality_Mode__c</members>
+		<members>dwp_kitv__Visit_Contact__c</members>
+		<members>dwp_kitv__Visit_Management_Team__c</members>
         <name>CustomObject</name>
     </types>
 	<types>
@@ -386,6 +390,13 @@
 		<members>Product2-en_US</members>
         <members>Product2-es</members>
 		<members>Modality_Mode__c-es</members>
+		<members>dwp_kitv__End_visit_validations_acc_cs__c-es</members>
+		<members>dwp_kitv__Launch_meeting_validation_acc_cs__c-es</members>
+		<members>dwp_kitv__Visit__c-es</members>
+		<members>dwp_kitv__Visit_Contact__c-es</members>
+		<members>dwp_kitv__Visit_Management_Team__c-es</members>
+		<members>dwp_kitv__Visit_Topic__c-es</members>
+		<members>dwp_kitv__Visit_validations_acc_cs__c-es</members>
 		<name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -418,6 +429,10 @@
         <members>Product_Gurantee__c-Formato Product_Gurantee</members>
         <members>Product_Participants__c-Formato Product_Participant</members>
 		<members>compromiso__c-Formato compromiso</members>
+		<members>dwp_kitv__Visit__c-Visit Layout Account Peru</members>
+		<members>dwp_kitv__Visit_Contact__c-Visit Contact Layout Peru</members>
+		<members>dwp_kitv__Visit_Management_Team__c-Visit Management Team Layout Peru</members>
+		<members>dwp_kitv__Visit_Topic__c-Visit Topic Layout Peru</members>
         <name>Layout</name>
     </types>
     <types>
@@ -850,6 +865,10 @@
         <members>Account_Renewals__c</members>
         <members>Account_Banking_System_Classification__c</members>
         <members>Portal_BEC</members>
+		<members>dwp_kitv__Visit__c</members>
+		<members>dwp_kitv__Visit_Contact__c</members>
+		<members>dwp_kitv__Visit_Management_Team__c</members>
+		<members>dwp_kitv__Visit_Topic__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -997,13 +1016,17 @@
         <members>NewTask</members>
         <members>Account.cQuickAc_NewOpportunity</members>
 		<members>Opportunity.Descarta_Oportunidad</members>
-        <name>QuickAction</name>
+		<name>QuickAction</name>
     </types>
     <types>
         <members>Contact_Tgr</members>
         <members>AccountContact_tgr</members>
 		<members>Opportunity_tgr</members>
 		<members>OpportunityLineT</members>
+		<members>Visit_Contact_Trigger</members>
+		<members>Visit_Management_Team_Trigger</members>
+		<members>Visit_Trigger</members>
+		<members>Event_Trigger</members>
         <name>ApexTrigger</name>
     </types>
     <types>

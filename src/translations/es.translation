@@ -372,6 +372,166 @@
        <label>Aprobar</label>
        <name>lblbtnApprove_cfg</name>
    </customLabels>
+    <customLabels>
+        <label>Tu perfil no puede finalizar la visita</label>
+        <name>dwp_kitv__Allowed_profile</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>dwp_kitv__Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor revise los datos</label>
+        <name>dwp_kitv__Check_data</name>
+    </customLabels>
+    <customLabels>
+        <label>- Se necesitas la configuración personalizada End Visit Valdiation</label>
+        <name>dwp_kitv__Custom_finalize_error</name>
+    </customLabels>
+    <customLabels>
+        <label>No puedes iniciar una visita en una fecha pasada</label>
+        <name>dwp_kitv__Date_launch_past</name>
+    </customLabels>
+    <customLabels>
+        <label>Para que el tema se refleje en la oportunidad, es necesario activar la casilla de la izquierda</label>
+        <name>dwp_kitv__Done_topic_check</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmptyFields --></label>
+        <name>dwp_kitv__EmptyFields</name>
+    </customLabels>
+    <customLabels>
+        <label>- Usted no puede finalizar la visita sin un tema</label>
+        <name>dwp_kitv__Empty_topics</name>
+    </customLabels>
+    <customLabels>
+        <label>Usted no puede agregar el mismo contacto a la visita más de una vez</label>
+        <name>dwp_kitv__Error_Visit_Contact</name>
+    </customLabels>
+    <customLabels>
+        <label>Usted no tiene permiso para eliminar la visita en este estado</label>
+        <name>dwp_kitv__Error_Visit_Not_Finalized</name>
+    </customLabels>
+    <customLabels>
+        <label>Usted no puede agregar al mismo usuario más de una vez en la visita</label>
+        <name>dwp_kitv__Error_Visit_User</name>
+    </customLabels>
+    <customLabels>
+        <label>Error inesperado. Por favor contacte con el administrador del sistema</label>
+        <name>dwp_kitv__Error_server</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorcustomLeadInfo --></label>
+        <name>dwp_kitv__ErrorcustomLeadInfo</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Estás seguro de que quieres finalizar esta visita?</label>
+        <name>dwp_kitv__Finalize_visit</name>
+    </customLabels>
+    <customLabels>
+        <label>ATENCIÓN: estos comentarios serán enviados en el anuncio:</label>
+        <name>dwp_kitv__Launch_meeting_atention</name>
+    </customLabels>
+    <customLabels>
+        <label>Iniciar / actualizar reunión</label>
+        <name>dwp_kitv__Launch_title</name>
+    </customLabels>
+    <customLabels>
+        <label>Insuficiente cantidad de contactos para iniciar o actualizar la reunión.</label>
+        <name>dwp_kitv__Min_number_contacts_error</name>
+    </customLabels>
+    <customLabels>
+        <label>Cantidad insuficiente de temas para iniciar o actualizar la reunión.</label>
+        <name>dwp_kitv__Min_number_topics_error</name>
+    </customLabels>
+    <customLabels>
+        <label>Cantidad insuficiente de usuarios para iniciar o actualizar la reunión.</label>
+        <name>dwp_kitv__Min_number_users_error</name>
+    </customLabels>
+    <customLabels>
+        <label>No</label>
+        <name>dwp_kitv__No</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoAccNoLeadVisit --></label>
+        <name>dwp_kitv__NoAccNoLeadVisit</name>
+    </customLabels>
+    <customLabels>
+        <label>Es necesario completar la nota de la visita para poder finalizarla.</label>
+        <name>dwp_kitv__Note_visit_filled</name>
+    </customLabels>
+    <customLabels>
+        <label>De acuerdo</label>
+        <name>dwp_kitv__Ok</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Plan Visit --></label>
+        <name>dwp_kitv__Plan_Visit</name>
+    </customLabels>
+    <customLabels>
+        <label>Este perfil no tiene permiso para iniciar la reunión</label>
+        <name>dwp_kitv__Profile_can_not_launch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RTvisitAcc --></label>
+        <name>dwp_kitv__RTvisitAcc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RTvisitLead --></label>
+        <name>dwp_kitv__RTvisitLead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save --></label>
+        <name>dwp_kitv__Save</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviar</label>
+        <name>dwp_kitv__Send</name>
+    </customLabels>
+    <customLabels>
+        <label>No puede finalizar una visita que no se haya completado o no se haya cancelado</label>
+        <name>dwp_kitv__Status_visit_to_finalize</name>
+    </customLabels>
+    <customLabels>
+        <label>El registro no se ha guardado con éxito</label>
+        <name>dwp_kitv__Toast_saved_ko</name>
+    </customLabels>
+    <customLabels>
+        <label>El registro se ha guardado con éxito.</label>
+        <name>dwp_kitv__Toast_saved_ok</name>
+    </customLabels>
+    <customLabels>
+        <label>La visita ya está finalizada.</label>
+        <name>dwp_kitv__Visit_finalized</name>
+    </customLabels>
+    <customLabels>
+        <label>02</label>
+        <name>dwp_kitv__Visit_status_arranged</name>
+    </customLabels>
+    <customLabels>
+        <label>05</label>
+        <name>dwp_kitv__Visit_status_finalized</name>
+    </customLabels>
+    <customLabels>
+        <label>La visita no se puede iniciar en el estado en el que se encuentra.</label>
+        <name>dwp_kitv__Visit_status_not_valid</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Visit_status_planning --></label>
+        <name>dwp_kitv__Visit_status_planning</name>
+    </customLabels>
+    <customLabels>
+        <label>03</label>
+        <name>dwp_kitv__Visit_status_updated</name>
+    </customLabels>
+    <customLabels>
+        <label>sí</label>
+        <name>dwp_kitv__Yes</name>
+    </customLabels>
+    <customLabels>
+        <label>La descripción de una reunión no puede estar vacía</label>
+        <name>dwp_kitv__description_not_empty</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

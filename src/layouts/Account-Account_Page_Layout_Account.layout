@@ -222,15 +222,17 @@
         <fields>ACCCONRELATION.IS_DIRECT</fields>
         <relatedList>RelatedAccountContactRelationList</relatedList>
     </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>dwp_kitv__visit_start_date__c</fields>
+        <fields>dwp_kitv__visit_status_type__c</fields>
+        <relatedList>dwp_kitv__Visit__c.dwp_kitv__account_id__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <relatedList>RelatedContentNoteList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedFileList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>dwp_kitv__Visit__c.dwp_kitv__account_id__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
