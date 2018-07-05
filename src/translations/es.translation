@@ -399,7 +399,7 @@
     <customLabels>
         <label>Sancionar precio</label>
         <name>lblSanctionPrice</name>
-    </customLabels>    
+    </customLabels>
     <customLabels>
         <label>Sancionar riesgo</label>
         <name>lblSanctionRisk</name>
