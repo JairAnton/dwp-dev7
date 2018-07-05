@@ -159,7 +159,7 @@
         </tr>
     </table>
     </apex:outputPanel>
-    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture} && Product.ProductCode!=$Label.lblPDFProductCommercialLoanLP && Product.ProductCode!=$Label.lblPDFProductFurnitureLeasing && Product.ProductCode!=$Label.lblPDFProductForfaitingImport" layout="block">
+    <apex:outputPanel id="DatosOportunidad394" rendered="{!Product.ProductCode !=$Label.lblPDFProductExport && Product.ProductCode !=$Label.lblPDFLeasingRealState && Product.ProductCode !=$Label.lblPDFProductImport && Product.ProductCode !=$Label.lblPDFLeasingForniture} && Product.ProductCode!=$Label.lblPDFProductCommercialLoanLP && Product.ProductCode!=$Label.lblPDFProductFurnitureLeasing && Product.ProductCode!=$Label.lblPDFProductForfaitingImport && Product.ProductCode!=$Label.lblPDFProductCommercialLoanCP" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -366,7 +366,7 @@
             <li>Periodicidad comisión: {!OLI.tcf_Periodicity_commission__c} </li>
         </ul>
     </apex:outputPanel>
-    <apex:outputPanel id="DatosOportunidad460" rendered="{!Product.ProductCode ==$Label.lblPDFProductFurnitureLeasing || Product.ProductCode==$Label.lblPDFProductCommercialLoanLP || Product.ProductCode==$Label.lblPDFProductForfaitingImport}" layout="block">
+    <apex:outputPanel id="DatosOportunidad460" rendered="{!Product.ProductCode ==$Label.lblPDFProductFurnitureLeasing || Product.ProductCode==$Label.lblPDFProductCommercialLoanLP || Product.ProductCode==$Label.lblPDFProductForfaitingImport || Product.ProductCode==$Label.lblPDFProductCommercialLoanCP}" layout="block">
         <br/>
         <div class="title">
             <b>Datos de oportunidad</b>
@@ -379,7 +379,7 @@
             <apex:variable var="foo" value="" rendered="{!Product.ProductCode!=$Label.lblPDFProductForfaitingImport}">
             <li>Modalidad Producto: {!Oli.PE_List_Product_mode__c}</li>
             </apex:variable>
-            <apex:variable var="foo" value="" rendered="{!Product.ProductCode==$Label.lblPDFProductCommercialLoanLP || Product.ProductCode==$Label.lblPDFProductForfaitingImport}">
+            <apex:variable var="foo" value="" rendered="{!Product.ProductCode==$Label.lblPDFProductCommercialLoanLP || Product.ProductCode==$Label.lblPDFProductForfaitingImport || Product.ProductCode==$Label.lblPDFProductCommercialLoanCP}">
             <li >Destino: {!OLI.gipr_Destino__c}</li>
             </apex:variable>   
             <li>Mejorado: {!If(Oli.PE_List_Mejorado__c,'Si','No')}</li>
@@ -392,7 +392,7 @@
             <li>Opción de compra: <apex:outputText value=" {0, number,0} ">
                     <apex:param value="{!OLI.gipr_Opcioncompra__c}" />                
                     </apex:outputText></li>
-                </apex:variable>
+            </apex:variable>
             <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
             <li>Tipo de amortización: {!OLI.cpliq_Tipo_amortizacion__c} </li>
             <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" /></apex:outputText></li>

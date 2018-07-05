@@ -410,6 +410,13 @@
         <value>Formalizar</value>
     </labels>
     <labels>
+        <fullName>lblPDFProductCommercialLoanCP</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductCommercialLoanCP</shortDescription>
+        <value>PC00001</value>
+    </labels>
+    <labels>
         <fullName>lblPDFProductCommercialLoanLP</fullName>
         <language>es</language>
         <protected>false</protected>
