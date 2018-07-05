@@ -91,7 +91,7 @@
     <customLabels>
         <label>Cliente</label>
         <name>AccountName</name>
-    </customLabels>    
+    </customLabels>
     <customLabels>
         <label>Información no disponible</label>
         <name>AccountNoData</name>
