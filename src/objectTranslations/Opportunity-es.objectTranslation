@@ -304,4 +304,8 @@
             <translation>Riesgo aprobado</translation>
         </picklistValues>
     </fields>
+    <validationRules>
+        <errorMessage>El importe debe ser mayor a 0.</errorMessage>
+        <name>Amount_Negative_Value</name>
+    </validationRules>
 </CustomObjectTranslation>
