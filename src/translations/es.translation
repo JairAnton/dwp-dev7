@@ -439,7 +439,7 @@
    <customLabels>
         <label>Sanción de Precio</label>
         <name>lblTitleSanctionPrice</name>
-   </customLabels>   
+   </customLabels>
    <customLabels>
        <label>Está seguro de crear un PDF para esta oportunidad</label>
        <name>lblMsgPDF</name>
