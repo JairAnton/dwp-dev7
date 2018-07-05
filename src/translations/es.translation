@@ -456,14 +456,6 @@
        <label>Aprobar</label>
        <name>lblbtnApprove_cfg</name>
    </customLabels>
-   <customLabels>
-       <label>No se puede cargar la ventana de cotización</label>
-       <name>lblQuoteGeneralError</name>
-   </customLabels>
-   <customLabels>
-       <label>No se puede cotizar esta oportunidad</label>
-       <name>lblQuoteError</name>
-   </customLabels>
     <customLabels>
         <label>Tu perfil no puede finalizar la visita</label>
         <name>dwp_kitv__Allowed_profile</name>
