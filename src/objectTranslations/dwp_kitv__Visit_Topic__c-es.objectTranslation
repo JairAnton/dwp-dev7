@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>tema a tratar</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>temas a tratar</value>
+    </caseValues>
+    <fields>
+        <label>Más visitas recientes</label>
+        <name>dwp_kitv__More_Recent_Visits__c</name>
+    </fields>
+    <fields>
+        <label>Visitas mas recientes</label>
+        <name>dwp_kitv__most_recent_visits__c</name>
+    </fields>
+    <fields>
+        <label>Oportunidad</label>
+        <name>dwp_kitv__opportunity_id__c</name>
+        <relationshipLabel>Temas a tratar</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Resumen</label>
+        <name>dwp_kitv__summary__c</name>
+    </fields>
+    <fields>
+        <label>Tema a tratar</label>
+        <name>dwp_kitv__topic_desc__c</name>
+    </fields>
+    <fields>
+        <label>Tratado</label>
+        <name>dwp_kitv__visit_done_type__c</name>
+    </fields>
+    <fields>
+        <label>Visita</label>
+        <name>dwp_kitv__visit_id__c</name>
+        <relationshipLabel>Temas a tratar</relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>tema a tratar</nameFieldLabel>
+    <validationRules>
+        <errorMessage>No está permitido agregar un tema a tratar vacio</errorMessage>
+        <name>dwp_kitv__empty_topic</name>
+    </validationRules>
+</CustomObjectTranslation>
