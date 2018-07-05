@@ -990,6 +990,7 @@
         <members>OpportunityLineItem.NOperation_Validation</members>
         <members>OpportunityLineItem.Validation_Email</members>
         <members>OpportunityLineItem.Validation_Term_Integer</members>
+        <members>Opportunity.Amount_Negative_Value</members>
         <name>ValidationRule</name>
     </types>
     <types>
