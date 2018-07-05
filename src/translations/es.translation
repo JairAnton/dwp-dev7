@@ -216,9 +216,21 @@
 		<label>Indirecta</label>
 		<name>AccountRankingClassificationTable2</name>
 	</customLabels>
+   <customLabels>
+        <label>Agregar</label>
+        <name>fprd__GBL_Add</name>
+    </customLabels>
+    <customLabels>
+        <label>Agregar Producto</label>
+        <name>fprd__GBL_AddProduct</name>
+    </customLabels>
     <customLabels>
         <label>Todos los productos</label>
         <name>fprd__GBL_AllProducts</name>
+    </customLabels>
+    <customLabels>
+        <label>Atributo</label>
+        <name>fprd__GBL_Attribute</name>
     </customLabels>
     <customLabels>
         <label>Productos disponibles</label>
@@ -229,27 +241,55 @@
         <name>fprd__GBL_Cancel</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_ErrorServer --></label>
+        <label>Clonar</label>
+        <name>fprd__GBL_Clone</name>
+    </customLabels>
+    <customLabels>
+        <label>Comparar</label>
+        <name>fprd__GBL_Compare</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirmar eliminación</label>
+        <name>fprd__GBL_ConfirmDelete</name>
+    </customLabels>
+    <customLabels>
+        <label>Creación exitosa</label>
+        <name>fprd__GBL_CreatedSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Borrar</label>
+        <name>fprd__GBL_Delete</name>
+    </customLabels>
+    <customLabels>
+        <label>Borrado exitoso</label>
+        <name>fprd__GBL_DeletedSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Editar</label>
+        <name>fprd__GBL_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Error de servidor</label>
         <name>fprd__GBL_ErrorServer</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_InactiveProduct --></label>
+        <label>Producto inactivo</label>
         <name>fprd__GBL_InactiveProduct</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_InferiorLimit --></label>
+        <label>Límite inferior</label>
         <name>fprd__GBL_InferiorLimit</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_LoadingProduct --></label>
+        <label>Producto descartado</label>
         <name>fprd__GBL_LoadingProduct</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_LoadingProductSelector --></label>
+        <label>Cargando selección de producto</label>
         <name>fprd__GBL_LoadingProductSelector</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_MandatoryField --></label>
+        <label>Campo obligatorio</label>
         <name>fprd__GBL_MandatoryField</name>
     </customLabels>
     <customLabels>
@@ -257,16 +297,56 @@
         <name>fprd__GBL_Modify</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_ProductClonedSuccess --></label>
+        <label>Nuevo</label>
+        <name>fprd__GBL_New</name>
+    </customLabels>
+    <customLabels>
+        <label>Sin producto</label>
+        <name>fprd__GBL_NoProducts</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto clonado exitoso</label>
         <name>fprd__GBL_ProductClonedSuccess</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_ProductLimitMessage --></label>
+        <label>Comparar producto</label>
+        <name>fprd__GBL_ProductComparator</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto borrado exitosamente</label>
+        <name>fprd__GBL_ProductDeletedSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Familia de producto</label>
+        <name>fprd__GBL_ProductFamily</name>
+    </customLabels>
+    <customLabels>
+        <label>Mensaje de límite de productos</label>
         <name>fprd__GBL_ProductLimitMessage</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_ProductsSaveSuccess --></label>
+        <label>Nombre de producto</label>
+        <name>fprd__GBL_ProductName</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto seleccionado</label>
+        <name>fprd__GBL_ProductSelected</name>
+    </customLabels>
+    <customLabels>
+        <label>Nuevo producto</label>
+        <name>fprd__GBL_ProductSelector</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto guardado exitosamente</label>
         <name>fprd__GBL_ProductsSaveSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Productos seleccionados</label>
+        <name>fprd__GBL_ProductsSelected</name>
+    </customLabels>
+    <customLabels>
+        <label>Resetear</label>
+        <name>fprd__GBL_Reset</name>
     </customLabels>
     <customLabels>
         <label>Guardar</label>
@@ -277,12 +357,16 @@
         <name>fprd__GBL_SelectedProducts</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_SuperiorLimit --></label>
+        <label>Límite superior</label>
         <name>fprd__GBL_SuperiorLimit</name>
     </customLabels>
     <customLabels>
-        <label><!-- GBL_ToastSavedOk --></label>
+        <label>Para guardar OK</label>
         <name>fprd__GBL_ToastSavedOk</name>
+    </customLabels>
+    <customLabels>
+        <label>Actualización exitosa</label>
+        <name>fprd__GBL_UpdatedSuccess</name>
     </customLabels>
     <customLabels>
         <label>Formalización</label>
@@ -371,6 +455,14 @@
    <customLabels>
        <label>Aprobar</label>
        <name>lblbtnApprove_cfg</name>
+   </customLabels>
+   <customLabels>
+       <label>No se puede cargar la ventana de cotización</label>
+       <name>lblQuoteGeneralError</name>
+   </customLabels>
+   <customLabels>
+       <label>No se puede cotizar esta oportunidad</label>
+       <name>lblQuoteError</name>
    </customLabels>
     <customLabels>
         <label>Tu perfil no puede finalizar la visita</label>
@@ -700,6 +792,4 @@
         </flows>
         <fullName>Motivo_Descarte_Oportunidad_V0</fullName>
     </flowDefinitions>
-    
 </Translations>
-
