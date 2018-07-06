@@ -41,7 +41,7 @@ public without sharing class OpportunityProduct_Controller {
     @AuraEnabled
     public static OpportunityLineItem getOppLI(String opp){
         OpportunityLineItem  oli = new OpportunityLineItem();
-        oli = [SELECT Id,SIOCode__c FROM OpportunityLineItem WHERE OpportunityID =:opp LIMIT 1];
+        oli = [SELECT Id,SIOCode__c,PE_List_Product_mode__c FROM OpportunityLineItem WHERE OpportunityID =:opp LIMIT 1];
         return oli;
     }
     @AuraEnabled
