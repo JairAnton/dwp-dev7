@@ -114,9 +114,14 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>LogACall</actionName>
+            <actionName>Account.New_Contact</actionName>
             <actionType>QuickAction</actionType>
-            <sortOrder>0</sortOrder>
+            <sortOrder>4</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Account.cQuickAc_NewOpportunity</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>5</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>NewTask</actionName>
@@ -187,7 +192,7 @@
         <fields>ACCCONRELATION.IS_DIRECT</fields>
         <relatedList>RelatedAccountContactRelationList</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>dwp_kitv__visit_start_date__c</fields>
         <fields>dwp_kitv__visit_status_type__c</fields>
