@@ -111,6 +111,34 @@ public class TestFactory {
         insert guarant;
         return guarant; 
     }
-    
+    /**
+    *Method Created: dwp_kitv__Visit__c
+    **/
+     public static dwp_kitv__Visit__c createVisitKit (){
+        dwp_kitv__Visit__c visit = new dwp_kitv__Visit__c();
+        visit.dwp_kitv__visit_duration_number__c='2';
+        visit.dwp_kitv__visit_start_date__c=system.today();
+        insert visit;
+        return visit;
+    }
+    /**
+    *Method Created: dwp_kitv__Visit_Contact__c
+    **/
+    public static dwp_kitv__Visit_Contact__c VisitConta(Id visit)
+    {
+        dwp_kitv__Visit_Contact__c visitConta = new dwp_kitv__Visit_Contact__c(dwp_kitv__visit_id__c=visit);
+        insert visitConta;
+        return visitConta;
+    }
+    /**
+    *Method Created: dwp_kitv__Visit_Management_Team__c
+    **/    
+    public static dwp_kitv__Visit_Management_Team__c CreateVisitManagement(Id visitID,Id UserKit){
+        dwp_kitv__Visit_Management_Team__c kit_Manage = new dwp_kitv__Visit_Management_Team__c
+        (dwp_kitv__visit_id__c=visitID,
+         dwp_kitv__user_id__c=UserKit);
+        insert kit_Manage;
+        return kit_Manage;
+    }
   
 }

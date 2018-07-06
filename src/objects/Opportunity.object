@@ -2269,4 +2269,11 @@ $User.Id ==OwnerId &amp;&amp; $Profile.Name != &apos;Ejecutivo&apos; &amp;&amp; 
             )</errorConditionFormula>
         <errorMessage>you can not create an opportunity</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>Amount_Negative_Value</fullName>
+        <active>true</active>
+        <description>verify if amount on opportunity is negative</description>
+        <errorConditionFormula>Amount &lt; 0</errorConditionFormula>
+        <errorMessage>The amount must be greater than zero</errorMessage>
+    </validationRules>
 </CustomObject>

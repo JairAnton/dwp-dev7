@@ -2383,7 +2383,17 @@
         <editable>false</editable>
         <field>Opportunity.PE_ImOwner__c</field>
         <readable>true</readable>
-    </fieldPermissions>    
+    </fieldPermissions>   
+	<fieldPermissions>
+    <editable>false</editable>
+		<field>dwp_kitv__Visit_Contact__c.contact_prof_position_type__c</field>
+		<readable>true</readable>
+		</fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.user_prof_position_type__c</field>
+        <readable>true</readable>
+	</fieldPermissions>	
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>
@@ -2822,6 +2832,22 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Product2</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	 <tabVisibilities>
+        <tab>dwp_kitv__Visit_Contact__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_kitv__Visit_Management_Team__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_kitv__Visit_Topic__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_kitv__Visit__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>

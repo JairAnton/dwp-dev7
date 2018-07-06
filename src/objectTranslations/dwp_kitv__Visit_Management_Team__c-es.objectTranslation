@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>equipo BBVA</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>equipo BBVA</value>
+    </caseValues>
+    <fields>
+        <label>Correo</label>
+        <name>dwp_kitv__contact_email_desc__c</name>
+    </fields>
+    <fields>
+        <label>Celular</label>
+        <name>dwp_kitv__contact_phone_desc__c</name>
+    </fields>
+    <fields>
+        <label>Usuario</label>
+        <name>dwp_kitv__user_id__c</name>
+        <relationshipLabel>Equipo BBVA</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Visita</label>
+        <name>dwp_kitv__visit_id__c</name>
+        <relationshipLabel>Equipo BBVA</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Cargo</label>
+        <name>user_prof_position_type__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>equipo BBVA</nameFieldLabel>
+    <validationRules>
+        <errorMessage>No está permitido cambiar el usuario, Por favor, elimine el usuario de la visita</errorMessage>
+        <name>dwp_kitv__Change_user</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>No puedes agregar el usuario propietario a la visita</errorMessage>
+        <name>dwp_kitv__User_owner</name>
+    </validationRules>
+</CustomObjectTranslation>

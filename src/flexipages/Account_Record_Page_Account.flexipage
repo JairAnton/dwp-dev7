@@ -16,10 +16,6 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <name>facet-f6558981-5afa-45e0-b2a7-4e13c6ec492d</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
@@ -206,21 +202,6 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-f6558981-5afa-45e0-b2a7-4e13c6ec492d</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>label</name>
-                <value>Proyección Mensual</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>name</name>
-                <value>accordionSection1</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:accordionSection</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
                 <value>facet-532c9d2d-a0a9-4466-b707-6d34eec381ec</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
@@ -301,10 +282,6 @@
             <componentInstanceProperties>
                 <name>accordionSections</name>
                 <value>facet-fe929f34-30b4-4d46-bab2-49e33b1fe2c2</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>defaultSectionName</name>
-                <value>accordionSection1</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordion</componentName>
         </componentInstances>

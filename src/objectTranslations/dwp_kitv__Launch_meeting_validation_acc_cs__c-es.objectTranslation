@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label>lanzar reunión</label>
+        <name>dwp_kitv__launch_meeting__c</name>
+    </fields>
+    <fields>
+        <label>Número minimo de contactos</label>
+        <name>dwp_kitv__min_number_contacts__c</name>
+    </fields>
+    <fields>
+        <label>Número minimo de temas a tratar</label>
+        <name>dwp_kitv__min_number_topics__c</name>
+    </fields>
+    <fields>
+        <label>Número minimo de usuarios</label>
+        <name>dwp_kitv__min_number_users__c</name>
+    </fields>
+</CustomObjectTranslation>
