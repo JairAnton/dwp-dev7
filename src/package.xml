@@ -759,7 +759,7 @@
         <members>Opportunity.isProcess__c</members>
         <members>Opportunity.Modality__c</members>
 		<members>OpportunityLineItem.Siocode__c</members>
-        <members>OpportunityLineItem.Tipo_amortizacion__c</members>        
+        <members>OpportunityLineItem.Tipo_amortizacion__c</members>
         <members>OpportunityLineItem.cpliq_Amortizacion__c</members>
         <members>OpportunityLineItem.cpliq_Codigo_Simulacion__c</members>
         <members>OpportunityLineItem.cpliq_Cuenta_vinculada__c</members>
