@@ -345,6 +345,8 @@
 		<members>Modality_Mode__c</members>
 		<members>dwp_kitv__Visit_Contact__c</members>
 		<members>dwp_kitv__Visit_Management_Team__c</members>
+        <members>gcal__GBL_Google_Calendar_Sync__mdt</members>
+        <members>gcal__GBL_Google_Calendar_Sync_Environment__c</members>
         <name>CustomObject</name>
     </types>
 	<types>
@@ -911,7 +913,7 @@
 		<members>Opportunity.Opp_RT_02</members>
         <name>RecordType</name>
     </types>
-    <types>        
+    <types>
 		<members>*</members>
         <name>CustomMetadata</name>
     </types>
@@ -921,11 +923,10 @@
     <name>BusinessProcess</name>
   </types>
   <types>
-	<!--
 	<members>Email_Message_update_Opportunity</members>
-	<members>Event_update_Opportunity</members-->
-	<!-- <members>FlujoEstadosOportunidad</members>--> <!--PARA UAT solo debes descomentar este 20/06/2018--> 
-	<!--members>Opp_Owner_Changed</members>
+	<members>Event_update_Opportunity</members>
+	<members>FlujoEstadosOportunidad</members>
+	<members>Opp_Owner_Changed</members>
 	<members>Opp_PB_Opportunidad</members>
 	<members>Task_update_Opportunity</members>
     <members>Guarantee_MasterRecord</members>
@@ -933,25 +934,24 @@
     <members>Compromisos</members>
     <members>Motivo_Descarte_Oportunidad_V0</members>
     <members>Opp_Stage_Changed_notify</members>
-    <members>Flujo_Cotizacion_V0</members>-->
-	<!--<<members>ProductOpp_DueDate</members>  -->
+    <members>Flujo_Cotizacion_V0</members>
+	<members>ProductOpp_DueDate</members>
 	<name>FlowDefinition</name>
   </types>
   <types>
-	<!--
 	<members>Email_Message_update_Opportunity-4</members>
 	<members>Event_update_Opportunity-3</members>
 	<members>Motivo_Descarte_Oportunidad_V0-32</members>
 	<members>Opp_Owner_Changed-3</members>
 	<members>Opp_PB_Opportunidad-8</members>
-	<members>Task_update_Opportunity-3</members-->
-    <!-- <members>FlujoEstadosOportunidad-14</members>--> <!--PARA UAT solo debes descomentar este 20/06/2018--> 
-    <!--members>Guarantee_MasterRecord-1</members>
+	<members>Task_update_Opportunity-3</members>
+    <members>FlujoEstadosOportunidad-14</members>
+    members>Guarantee_MasterRecord-1</members>
     <members>Participant_MasterRecord-1</members>
 	<members>Flujo_Cotizacion_V0-3</members>
 	<members>Compromisos-9</members>
-    <members>Opp_Stage_Changed_notify-4</members>-->
-	<!--<members>ProductOpp_DueDate-16</members>  -->
+    <members>Opp_Stage_Changed_notify-4</members>
+	<members>ProductOpp_DueDate-16</members>
 	<name>Flow</name>
   </types>
       <types>
@@ -1090,5 +1090,5 @@
         <members>PDF_formalizacion_vfp</members>
         <name>ApexPage</name>
      </types>
-    <version>42.0</version> 
+    <version>42.0</version>
 </Package>
