@@ -128,15 +128,36 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var fro=response.getReturnValue();
-                console.log('Valida '+(fro));
+                
                 if(fro!='' && fro!=null){
                     (fro=='Inside line')?component.set("v.showButton", true):component.set("v.showButton", false);      
                     (fro=='Requires authorization')?component.set("v.showSIO", true):component.set("v.showSIO", false);            
                     component.find('input_modal').set('v.value', fro);
-                    console.log('Vl'+(component.find('input_modal').get('v.value')));
+                    
+                }
+                else
+                {
+                    if(component.get("v.recordOLI").PE_List_Product_mode__c!=null)
+                    {
+
+                        if(component.get("v.recordOLI").PE_List_Product_mode__c == '01' || component.get("v.recordOLI").PE_List_Product_mode__c =='03')
+                        {
+                            component.find('input_modal').set('v.value','Inside line');
+                            component.set("v.showSIO", false);   
+                            component.set("v.showButton", true);
+                        } 
+                        else if(component.get("v.recordOLI").PE_List_Product_mode__c == '09' || component.get("v.recordOLI").PE_List_Product_mode__c =='10' || component.get("v.recordOLI").PE_List_Product_mode__c =='02')
+                        {
+                            component.find('input_modal').set('v.value','Requires authorization')
+                            component.set("v.showSIO", true);
+                            component.set("v.showButton", false);
+                        }
+                    }
+                        
                 }
             }
         });
         $A.enqueueAction(requestModality); 
+
     }
 })

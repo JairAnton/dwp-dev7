@@ -22,7 +22,7 @@
                 <lightning:messages />
                 <div class="{!v.isOpen?'slds-hide':'demo-only demo-only--sizing slds-grid slds-wrap'}">    
                     <div class="slds-size_1-of-1">
-                        <lightning:inputField fieldName="Modality__c" aura:id="input_modal" onchange="{!c.setValue}"/>
+                        <lightning:inputField fieldName="Modality__c" aura:id="input_modal" onchange="{!c.setValue}" value=""/>
                         <aura:renderIf isTrue="{!v.showButton}">   
                             <lightning:button onclick="{!c.sendApprove}" label="Aprobar" class="slds-m-top_medium slds-button slds-button_brand" />
                         </aura:renderIf>
