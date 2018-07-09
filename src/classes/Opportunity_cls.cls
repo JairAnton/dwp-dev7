@@ -4,7 +4,7 @@
  * Created date : May 01 2018
  * Developer name: Isaías Velázquez Cortés Indra(México)
 --------------------------------------------------------------------------*/
-public with sharing class Opportunity_cls {
+public without sharing class Opportunity_cls {
 
 	@AuraEnabled 
     public static String InsertOpportunity (String OpportunityName,String AccountId,String CloseDate,String PlanningDate,Decimal cAmount,String cCurrencyIsoCode,String cComment,String cProbability){
@@ -18,13 +18,18 @@ public with sharing class Opportunity_cls {
 
 			if(!String.isBlank(PlanningDate) && String.isBlank(CloseDate)) CDate=PDate.addDays(45);			
 			else if(String.isBlank(PlanningDate) && String.isBlank(CloseDate))
-				CDate=Date.today().addDays(60);			
+				CDate=Date.today().addDays(60);		
+
+			Account acc = [select branch_id__c from Account where id=:AccountId Limit 1];	
 						
 	        Opportunity row= new Opportunity();
 	        row.StageName='02';
 	        row.Name=OpportunityName;
 	        row.AccountId=AccountId;
 			row.CloseDate=CDate;
+			if(acc!=null)
+				row.Branch_id__c=acc.branch_id__c;
+				
 	        if(!String.isBlank(PlanningDate)) { row.opportunity_planning_date__c=PDate;	row.opportunity_status_type__c = '02';} else row.opportunity_status_type__c = '03';
 	        if(cAmount!=0) row.Amount=cAmount;
 	       	if(!String.isBlank(cCurrencyIsoCode)) row.CurrencyIsoCode=cCurrencyIsoCode;
