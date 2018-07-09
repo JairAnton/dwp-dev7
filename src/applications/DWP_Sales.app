@@ -65,6 +65,7 @@
     <tabs>standard-home</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
+    <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Event</tabs>
     <tabs>standard-Task</tabs>
@@ -72,6 +73,5 @@
     <tabs>standard-Feed</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>standard-report</tabs>
-    <tabs>standard-Case</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>
