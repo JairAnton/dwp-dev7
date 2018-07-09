@@ -4,7 +4,7 @@
  * Created date : May 01 2018
  * Developer name: Isaías Velázquez Cortés Indra(México)
 --------------------------------------------------------------------------*/
-public with sharing class Opportunity_cls {
+public without sharing class Opportunity_cls {
 
 	@AuraEnabled 
     public static String InsertOpportunity (String OpportunityName,String AccountId,String CloseDate,String PlanningDate,Decimal cAmount,String cCurrencyIsoCode,String cComment,String cProbability){
