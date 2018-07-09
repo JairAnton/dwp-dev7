@@ -2519,7 +2519,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Branch_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
