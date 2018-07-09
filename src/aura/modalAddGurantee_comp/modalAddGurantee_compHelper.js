@@ -93,8 +93,6 @@
             vPlazo = component.find("txtTerm").get("v.value");
         }catch(exception){
             console.log('Exception: '+exception);   
-        }finally{
-            vPlazo=0;
         }
         if(vImporte<=0){
             validated =false;
