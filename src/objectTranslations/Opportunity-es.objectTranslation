@@ -113,6 +113,10 @@
         <name>frm_ContractNumber__c</name>
     </fields>
     <fields>
+        <label>Fecha de vencimiento origen</label>
+        <name>opportunity_expiry_date__c</name>
+    </fields>
+    <fields>
         <label>Estado</label>
         <name>opportunity_status_type__c</name>
         <picklistValues>
@@ -303,6 +307,10 @@
             <masterLabel>47</masterLabel>
             <translation>Riesgo aprobado</translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label>Importe origen</label>
+        <name>renewal_import_curreny__c</name>
     </fields>
     <validationRules>
         <errorMessage>El importe debe ser mayor a 0.</errorMessage>

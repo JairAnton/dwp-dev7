@@ -110,15 +110,11 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
-        <label>Información de cancelaciones</label>
+        <label>Información original</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>opportunity_expiry_date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>renewal_contract_amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -129,10 +125,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>renewal_contract_id__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>renewal_contract_currency__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -160,7 +152,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
-        <label>Información Original</label>
+        <label>Información motivo de desestimación</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
