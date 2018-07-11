@@ -215,10 +215,6 @@
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>dwp_kitv__Visit__c.dwp_kitv__account_id__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <relatedList>RelatedAccountSalesTeam</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
