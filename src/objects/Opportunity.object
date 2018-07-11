@@ -925,7 +925,7 @@
         <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>currency</type>
         <unique>false</unique>
     </fields>
     <fields>
