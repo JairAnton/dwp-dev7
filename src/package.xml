@@ -1049,6 +1049,7 @@
         <members>bannerperu1</members>
         <members>logocontinental</members>
         <members>thumb_76179</members>
+		<members>*</members> 
         <name>ContentAsset</name>
     </types>
 	    <types>

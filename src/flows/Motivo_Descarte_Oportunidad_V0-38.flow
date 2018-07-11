@@ -420,31 +420,6 @@
             <label>Other</label>
         </rules>
     </decisions>
-    <decisions>
-        <name>Owner_Opportunity</name>
-        <label>Owner_Opportunity</label>
-        <locationX>536</locationX>
-        <locationY>47</locationY>
-        <defaultConnector>
-            <targetReference>OwnerError</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>[Resultado predeterminado]</defaultConnectorLabel>
-        <rules>
-            <name>Owner_Productivit</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>SO_Oportunidad.OwnerId</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>$Flow.InterviewGuid</elementReference>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Desestimacion</targetReference>
-            </connector>
-            <label>Owner_Productivit</label>
-        </rules>
-    </decisions>
     <dynamicChoiceSets>
         <name>Listaprecios</name>
         <dataType>Picklist</dataType>
@@ -475,11 +450,11 @@
     <recordLookups>
         <name>Busqueda_Oportunidad</name>
         <label>Busqueda Oportunidad</label>
-        <locationX>703</locationX>
-        <locationY>43</locationY>
+        <locationX>358</locationX>
+        <locationY>47</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Owner_Opportunity</targetReference>
+            <targetReference>Desestimacion</targetReference>
         </connector>
         <filters>
             <field>Id</field>
@@ -622,22 +597,6 @@
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>OwnerError</name>
-        <label>Error</label>
-        <locationX>715</locationX>
-        <locationY>178</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <fields>
-            <name>ErrorOwnerTex</name>
-            <fieldText>No es usted el dueño de la oportunidad</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
     </screens>
     <startElementReference>Busqueda_Oportunidad</startElementReference>
     <variables>
