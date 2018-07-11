@@ -64,20 +64,13 @@
     <assignments>
         <name>Asignacion_valor</name>
         <label>Asignacion valor</label>
-        <locationX>47</locationX>
+        <locationX>48</locationX>
         <locationY>447</locationY>
         <assignmentItems>
             <assignToReference>SO_Oportunidad.Loss_Reason__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Motivo_Desestimacion</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>SO_Oportunidad.rejection_amount__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Importe</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -92,6 +85,27 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Banco_ganador_1</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.rejection_coin__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Moneda</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.rejection_period_num__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Plazo_de_la_operaci_n_perdida</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SO_Oportunidad.rejection_amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Importe2</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -406,6 +420,31 @@
             <label>Other</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Owner_Opportunity</name>
+        <label>Owner_Opportunity</label>
+        <locationX>536</locationX>
+        <locationY>47</locationY>
+        <defaultConnector>
+            <targetReference>OwnerError</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>[Resultado predeterminado]</defaultConnectorLabel>
+        <rules>
+            <name>Owner_Productivit</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SO_Oportunidad.OwnerId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.InterviewGuid</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Desestimacion</targetReference>
+            </connector>
+            <label>Owner_Productivit</label>
+        </rules>
+    </decisions>
     <dynamicChoiceSets>
         <name>Listaprecios</name>
         <dataType>Picklist</dataType>
@@ -436,11 +475,11 @@
     <recordLookups>
         <name>Busqueda_Oportunidad</name>
         <label>Busqueda Oportunidad</label>
-        <locationX>345</locationX>
-        <locationY>56</locationY>
+        <locationX>703</locationX>
+        <locationY>43</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Desestimacion</targetReference>
+            <targetReference>Owner_Opportunity</targetReference>
         </connector>
         <filters>
             <field>Id</field>
@@ -482,7 +521,7 @@
     <screens>
         <name>Descarte_1</name>
         <label>Motivo Descarte Riesgos</label>
-        <locationX>48</locationX>
+        <locationX>50</locationX>
         <locationY>325</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -513,8 +552,8 @@
             <isRequired>false</isRequired>
         </fields>
         <fields>
-            <name>Importe</name>
-            <dataType>Currency</dataType>
+            <name>Importe2</name>
+            <dataType>Number</dataType>
             <fieldText>Importe</fieldText>
             <fieldType>InputField</fieldType>
             <helpText>Importe por el que se gana la Oportunidad</helpText>
@@ -538,6 +577,8 @@
             <isRequired>false</isRequired>
             <scale>0</scale>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Desestimacion</name>
@@ -559,6 +600,8 @@
             <helpText>{!Otra} Ingrasa Infrmacion Especial</helpText>
             <isRequired>false</isRequired>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Other_expla</name>
@@ -577,6 +620,24 @@
             <fieldType>LargeTextArea</fieldType>
             <isRequired>true</isRequired>
         </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>OwnerError</name>
+        <label>Error</label>
+        <locationX>715</locationX>
+        <locationY>178</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>ErrorOwnerTex</name>
+            <fieldText>No es usted el dueño de la oportunidad</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
     </screens>
     <startElementReference>Busqueda_Oportunidad</startElementReference>
     <variables>
