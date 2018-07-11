@@ -853,6 +853,9 @@
 		<members>Opportunity.renewal_contract_amount__c</members>
 		<members>Opportunity.renewal_contract_currency__c</members>
 		<members>Opportunity.renewal_import_curreny__c</members>
+		<members>Product2.formalization__c</members>
+		<members>Product2.price_penalty__c</members>
+		<members>Product2.risk_sanction__c</members>
 		<name>CustomField</name>
     </types>
     <types>
