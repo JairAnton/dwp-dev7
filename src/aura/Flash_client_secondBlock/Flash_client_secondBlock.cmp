@@ -1,0 +1,37 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL" controller="Object_Controller">
+	<aura:attribute name="recordId" type="Id" default="{!v.recordId}" />
+	<aura:attribute name="varSaList" type="List"  />
+	<aura:attribute name="options" type="List" default="[
+    {'label': 'Directa', 'value': 'Directa'},
+    {'label': 'Indirecta', 'value': 'Indirecta'},
+    {'label': 'Recurso Gestionado', 'value': 'Recurso Gestionado'},
+    ]"/>
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+<div class='slds-box'>
+		<lightning:combobox name="Tipo" label="Tipo" value="Directa" placeholder="Directa" options="{! v.options }" onchange="{! c.handleActive }"/>
+<div class="c-container">
+		<lightning:layout>
+			<lightning:layoutItem flexibility="auto" padding="around-small">
+				<div class="custom-box">
+					<lightning:input name="input1" label="SALDO:" value="{!v.varSaList[0]}" disabled="true"/>
+				</div>
+			</lightning:layoutItem>
+			<lightning:layoutItem flexibility="auto" padding="around-small">
+				<div class="custom-box">
+					<lightning:input name="input2" label="CUOTA:" value="{!v.varSaList[1]}" disabled="true"/>
+				</div>
+			</lightning:layoutItem>
+			<lightning:layoutItem flexibility="auto" padding="around-small">
+				<div class="custom-box">
+					<lightning:input name="input3" label="VAR. AÑO:" value="{!v.varSaList[2]}" disabled="true"/>
+				</div>
+			</lightning:layoutItem>
+			<lightning:layoutItem flexibility="auto" padding="around-small">
+				<div class="custom-box">
+					<lightning:input name="input4" label="VAR. MES:" value="{!v.varSaList[3]}" disabled="true"/>
+				</div>
+			</lightning:layoutItem>
+		</lightning:layout>
+	</div>
+</div>	
+</aura:component>
