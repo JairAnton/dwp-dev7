@@ -2393,7 +2393,27 @@
         <editable>false</editable>
         <field>dwp_kitv__Visit_Management_Team__c.user_prof_position_type__c</field>
         <readable>true</readable>
-	</fieldPermissions>	
+	</fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Branch_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.branch_level2_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.branch_level3_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.branch_level4_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

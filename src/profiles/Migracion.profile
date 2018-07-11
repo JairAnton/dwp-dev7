@@ -2175,7 +2175,27 @@
         <editable>false</editable>
         <field>Opportunity.PE_ImOwner__c</field>
         <readable>true</readable>
-    </fieldPermissions>                        
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Branch_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.branch_level2_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.branch_level3_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.branch_level4_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	                         
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>

@@ -2120,6 +2120,65 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentName>Component_GroupDetail</componentName>
+        </componentInstances>
+        <name>Facet-b0ae2b05-e440-45b5-a44c-9b7fc1c2cea0</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentName>Component_HierarchyGroup</componentName>
+        </componentInstances>
+        <name>Facet-aaf00b1b-0648-4bd7-9ce4-758cef525f04</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-b0ae2b05-e440-45b5-a44c-9b7fc1c2cea0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>DETALLES DEL GRUPO</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-aaf00b1b-0648-4bd7-9ce4-758cef525f04</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Jerarquía del grupo</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--5d23d5hwnki</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <name>Facet-994a19e4-fcc9-4daa-bd3f-8801569ed50e</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-994a19e4-fcc9-4daa-bd3f-8801569ed50e</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
+        <name>Facet-35067a77-5eb3-45b6-832c-ca58dc6cc769</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>active</name>
                 <value>false</value>
@@ -2164,6 +2223,21 @@
             <componentInstanceProperties>
                 <name>title</name>
                 <value>RENTABILIDAD</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>active</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-35067a77-5eb3-45b6-832c-ca58dc6cc769</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>DATOS GRUPO</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
