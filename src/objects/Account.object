@@ -73,17 +73,22 @@
         <fullName>Account_Compact_Layout_Account</fullName>
         <fields>Name</fields>
         <fields>ParentId</fields>
-        <fields>main_code_id__c</fields>
         <fields>RecordTypeId</fields>
-        <fields>segment_desc__c</fields>
-        <fields>branch_id__c</fields>
+        <fields>main_code_id__c</fields>
         <fields>OwnerId</fields>
+        <fields>branch_level2_desc__c</fields>
+        <fields>branch_id__c</fields>
         <label>Account Compact Layout Account</label>
     </compactLayouts>
     <compactLayouts>
         <fullName>Account_Compact_Layout_Group</fullName>
         <fields>Name</fields>
+        <fields>ParentId</fields>
         <fields>RecordTypeId</fields>
+        <fields>main_code_id__c</fields>
+        <fields>OwnerId</fields>
+        <fields>branch_level2_desc__c</fields>
+        <fields>branch_id__c</fields>
         <label>Account Compact Layout Group</label>
     </compactLayouts>
     <enableEnhancedLookup>true</enableEnhancedLookup>
@@ -750,6 +755,46 @@
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Branch_code__c</fullName>
+        <externalId>false</externalId>
+        <formula>branch_id__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Branch code</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>branch_level2_desc__c</fullName>
+        <externalId>false</externalId>
+        <formula>branch_id__r.branch_level2_desc__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Business Area</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>branch_level3_desc__c</fullName>
+        <externalId>false</externalId>
+        <formula>branch_id__r.branch_level3_desc__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Banking</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>branch_level4_desc__c</fullName>
+        <externalId>false</externalId>
+        <formula>branch_id__r.branch_level4_desc__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Regional</label>
+        <required>false</required>
         <type>Text</type>
         <unique>false</unique>
     </fields>

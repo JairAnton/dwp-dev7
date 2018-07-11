@@ -721,6 +721,22 @@
         <label>Gestor principal</label>
         <name>Owner_calculated__c</name>
     </fields>
+    <fields>
+        <label>Código oficina principal</label>
+        <name>Branch_code__c</name>
+    </fields>
+    <fields>
+        <label>Área</label>
+        <name>branch_level2_desc__c</name>
+    </fields>
+    <fields>
+        <label>Banca</label>
+        <name>branch_level3_desc__c</name>
+    </fields>
+    <fields>
+        <label>Regional</label>
+        <name>branch_level4_desc__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Layout</layout>
