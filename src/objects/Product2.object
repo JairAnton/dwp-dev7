@@ -62,6 +62,31 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>formalization__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>formalization</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>price_penalty__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>price penalty</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>risk_sanction__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>product desc</description>
+        <externalId>false</externalId>
+        <label>risk sanction</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>CurrencyIsoCode</fullName>
         <trackHistory>false</trackHistory>
     </fields>

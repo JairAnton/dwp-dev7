@@ -16,8 +16,9 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         Map<Id,Opportunity> OportunidadMAp =new Map<Id,Opportunity>([select id, Amount from Opportunity where id in:IDs]);            
         if(!OportunidadMAp.isempty()){
             for(OpportunityLineItem OLI: Opps_New){
-                if(OLI.UnitPrice==null )
-                    OLI.TotalPrice=OportunidadMAp.get(OLI.OpportunityId).Amount;
+                if(OLI.UnitPrice==null){
+                    OLI.TotalPrice=OportunidadMAp.get(OLI.OpportunityId).Amount==null? 0:OportunidadMAp.get(OLI.OpportunityId).Amount;
+                }
             }
         }
     }
