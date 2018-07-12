@@ -4167,7 +4167,12 @@ Asistente BE</description>
         <editable>false</editable>
         <field>Account.branch_level4_desc__c</field>
         <readable>true</readable>
-    </fieldPermissions>	 	
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.Notify_meeting_changed_peru__c</field>
+        <readable>true</readable>
+    </fieldPermissions>		
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>
