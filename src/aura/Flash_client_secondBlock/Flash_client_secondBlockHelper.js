@@ -2,6 +2,7 @@
     QueryMethod : function(component, event,var1) {
         var opp = component.get("v.recordId");
         var action = component.get("c.getVflasClient");
+        console.log('var1'+var1);
         action.setParams({
             "Idopp" : opp,
             "tipex" : var1,
@@ -14,6 +15,7 @@
                 this.VarColor1(component, event, component.find("input2").get("v.value"),'input2');
                 this.VarColor1(component, event, component.find("input3").get("v.value"),'input3');
                 this.VarColor1(component, event, component.find("input4").get("v.value"),'input4');
+                this.showSection(component, event,var1);
             }
         });
         $A.enqueueAction(action);
@@ -23,5 +25,12 @@
         if(var1.includes("-")){
             $A.util.toggleClass(component.find(""+var2+""), "inputRed");
         }
+    },
+    showSection :function(component, event, var1){
+        $A.util.removeClass(component.find("cont2"), "slds-hide");
+        if(var1=="Recursos gestionados"){
+            $A.util.toggleClass(component.find("cont2"), "slds-hide");
+        }
     }
+    
 })
