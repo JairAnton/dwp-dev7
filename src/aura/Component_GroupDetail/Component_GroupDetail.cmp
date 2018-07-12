@@ -24,10 +24,10 @@
                 <lightning:outputField fieldName="Branch_code__c" />
             </div>
              <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
-                <lightning:outputField fieldName="branch_level3_desc__c" />
+                <lightning:outputField fieldName="branch_level4_desc__c" />
             </div>
             <div class="slds-size_1-of-2 slds-max-small-size_1-of-1 ">
-                <lightning:outputField fieldName="branch_level4_desc__c" />
+                <lightning:outputField fieldName="branch_level3_desc__c" />
             </div>     
         </div> 
     </lightning:recordViewForm>
