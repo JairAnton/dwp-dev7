@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Visit_Record_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>dwp_kitv__Visit_Compact_Layout_Account</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>dwp_kitv__Visit_Compact_Layout</fullName>
+        <fields>dwp_kitv__account_id__c</fields>
+        <fields>dwp_kitv__visit_start_date__c</fields>
+        <fields>dwp_kitv__visit_duration_number__c</fields>
+        <fields>dwp_kitv__notify_meeting_changed__c</fields>
+        <fields>dwp_kitv__visit_status_type__c</fields>
+        <label>Visit Compact Layout</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>dwp_kitv__Visit_Compact_Layout_Account</fullName>
+        <fields>dwp_kitv__account_id__c</fields>
+        <fields>dwp_kitv__account_type__c</fields>
+        <fields>dwp_kitv__visit_start_date__c</fields>
+        <fields>dwp_kitv__visit_duration_number__c</fields>
+        <fields>dwp_kitv__visit_status_type__c</fields>
+        <fields>Notify_meeting_changed_peru__c</fields>
+        <label>Visit Compact Layout Account</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>dwp_kitv__Visit_Compact_Layout_Lead</fullName>
+        <fields>dwp_kitv__lead_id__c</fields>
+        <fields>dwp_kitv__visit_start_date__c</fields>
+        <fields>dwp_kitv__visit_duration_number__c</fields>
+        <fields>dwp_kitv__visit_status_type__c</fields>
+        <fields>dwp_kitv__notify_meeting_changed__c</fields>
+        <label>Visit Compact Layout Lead</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Main object to manage visits</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>dwp_kitv__Fields_To_Identify_A_Visit_Change</fullName>
+        <description>It is used to list the fields to check if a visit has changed</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>dwp_kitv__visit_start_date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>dwp_kitv__visit_end_date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>dwp_kitv__visit_location_desc__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>dwp_kitv__visit_contact_persons_number__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>dwp_kitv__visit_users_number__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>dwp_kitv__visit_topics_number__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Fields To Identify A Visit Change</label>
+    </fieldSets>
+    <fields>
+        <fullName>Notify_meeting_changed_peru__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(dwp_kitv__visit_status_type__c,&quot;03&quot;),(IMAGE(&quot;/resource/bbva_icon_alert&quot;,&quot;Recuerda pulsar click en &apos;Crear / Actualizar visita&apos; para sincronizar el calendario del contacto seleccionado.&quot;,24,24)),&quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Notify meeting changed</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__account_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Account record related to this visit.</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Visits</relationshipLabel>
+        <relationshipName>Visits</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__account_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Define record type Account</description>
+        <externalId>false</externalId>
+        <formula>dwp_kitv__account_id__r.RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__dwp_kitv_TravelTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field allows you to indicate and knows a travel time that the executive takes between the branch office to the client office.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please indicate the time it will take to travel from the branch to the client&apos;s office.</inlineHelpText>
+        <label>Travel Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>10 Minutos</fullName>
+                    <default>false</default>
+                    <label>10 Minutos</label>
+                </value>
+                <value>
+                    <fullName>20 Minutos</fullName>
+                    <default>false</default>
+                    <label>20 Minutos</label>
+                </value>
+                <value>
+                    <fullName>30 Minutos</fullName>
+                    <default>false</default>
+                    <label>30 Minutos</label>
+                </value>
+                <value>
+                    <fullName>40 Minutos</fullName>
+                    <default>false</default>
+                    <label>40 Minutos</label>
+                </value>
+                <value>
+                    <fullName>60 Minutos</fullName>
+                    <default>false</default>
+                    <label>60 Minutos</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__event_changed_bool__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check if visit is changed from the related event.</description>
+        <externalId>false</externalId>
+        <label>Event changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__invitee_changed_type__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>True if there was a modification on the invitee list</description>
+        <externalId>false</externalId>
+        <label>Invitee changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__lead_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lead associated to the visit</description>
+        <externalId>false</externalId>
+        <label>Lead</label>
+        <referenceTo>Lead</referenceTo>
+        <relationshipLabel>Visits</relationshipLabel>
+        <relationshipName>Visits</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__meeting_changed_type__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>True: the meeting was updated after creation</description>
+        <externalId>false</externalId>
+        <label>Meeting Changed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__most_recent_visits__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field to order visits.First, visit not finalized in ascending order, then overdue and finalized visits.</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(dwp_kitv__visit_status_type__c,&apos;Finalized&apos;),TEXT(DATEVALUE(dwp_kitv__visit_start_date__c))&amp;&apos; (&apos;&amp;TEXT(dwp_kitv__visit_status_type__c)&amp;&apos;)&apos;,IF(dwp_kitv__visit_end_date__c&lt;NOW(),&apos;Overdue&apos;,&apos; &apos;&amp;TEXT(DATEVALUE(dwp_kitv__visit_start_date__c))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Most recent visits</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__notify_meeting_changed__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field to notify meeting changes.</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(dwp_kitv__visit_status_type__c,&quot;03&quot;),(IMAGE(&quot;/servlet/servlet.FileDownload?file=0157E000000Nx3O&quot;,&quot;Remember to click on &apos;Update visit&apos; to synchronize the calendar of the selected contacts.&quot;)),&quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Remember to click on &apos;Update visit&apos; to synchronize the calendar of the selected contacts.</inlineHelpText>
+        <label>Notify meeting changed</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__number_of_event_relations__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>dwp_kitv__visit_contact_persons_number__c  +  dwp_kitv__visit_users_number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Event Relations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_channel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Visit Channel</description>
+        <externalId>false</externalId>
+        <label>Channel</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Onsite</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>Online</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_contact_persons_number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of BBVA contacts in this visit</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of BBVA contacts in this visit</inlineHelpText>
+        <label>Contacts number</label>
+        <summaryForeignKey>dwp_kitv__Visit_Contact__c.dwp_kitv__visit_id__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Visit Description</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_duration_number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Time in minutes it takes to make the visit. The first hour will be intervals about 15 minutes, then 30 minutes intervals.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select a duration (minutes).</inlineHelpText>
+        <label>Duration</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>15</fullName>
+                    <default>false</default>
+                    <label>15</label>
+                </value>
+                <value>
+                    <fullName>30</fullName>
+                    <default>false</default>
+                    <label>30</label>
+                </value>
+                <value>
+                    <fullName>45</fullName>
+                    <default>false</default>
+                    <label>45</label>
+                </value>
+                <value>
+                    <fullName>60</fullName>
+                    <default>false</default>
+                    <label>60</label>
+                </value>
+                <value>
+                    <fullName>90</fullName>
+                    <default>false</default>
+                    <label>90</label>
+                </value>
+                <value>
+                    <fullName>120</fullName>
+                    <default>false</default>
+                    <label>120</label>
+                </value>
+                <value>
+                    <fullName>150</fullName>
+                    <default>false</default>
+                    <label>150</label>
+                </value>
+                <value>
+                    <fullName>180</fullName>
+                    <default>false</default>
+                    <label>180</label>
+                </value>
+                <value>
+                    <fullName>210</fullName>
+                    <default>false</default>
+                    <label>210</label>
+                </value>
+                <value>
+                    <fullName>240</fullName>
+                    <default>false</default>
+                    <label>240</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_end_date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field where the duration was added to start date.</description>
+        <externalId>false</externalId>
+        <formula>dwp_kitv__visit_start_date__c + VALUE(TEXT( dwp_kitv__visit_duration_number__c ))/1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_location_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field to determinate the place where the visit will be realized.</description>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_purpose_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Visit Type</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Commercial</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>Strategic</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>Acquisition</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_start_date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field to set the start date time of the visit.</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_status_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status visit</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>true</default>
+                    <label>Planning</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>Arranged</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>Arranged - Pending Updates</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>Visit Completed - Pending Feedback</label>
+                </value>
+                <value>
+                    <fullName>05</fullName>
+                    <default>false</default>
+                    <label>Finalized</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_summary_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Summary of the visit once finished.</description>
+        <externalId>false</externalId>
+        <label>Summary</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_topics_number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of topics in this visit</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of topics in this visit</inlineHelpText>
+        <label>Topics number</label>
+        <summaryForeignKey>dwp_kitv__Visit_Topic__c.dwp_kitv__visit_id__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_users_number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of BBVA users in this visit</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of BBVA users in this visit</inlineHelpText>
+        <label>Users number</label>
+        <summaryForeignKey>dwp_kitv__Visit_Management_Team__c.dwp_kitv__visit_id__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>Visit</label>
+    <nameField>
+        <label>Visit Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Visits</pluralLabel>
+    <recordTypes>
+        <fullName>dwp_kitv__AccountVisit</fullName>
+        <active>true</active>
+        <description>Visit Recordtype from Account</description>
+        <label>AccountVisit</label>
+        <picklistValues>
+            <picklist>dwp_kitv__dwp_kitv_TravelTime__c</picklist>
+            <values>
+                <fullName>10 Minutos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20 Minutos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30 Minutos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40 Minutos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Minutos</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__visit_channel__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__visit_duration_number__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>180</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>210</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__visit_purpose_type__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>03</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__visit_status_type__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>03</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>04</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>05</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>dwp_kitv__LeadVisit</fullName>
+        <active>true</active>
+        <description>Visit RecordType from Lead</description>
+        <label>LeadVisit</label>
+        <picklistValues>
+            <picklist>dwp_kitv__dwp_kitv_TravelTime__c</picklist>
+            <values>
+                <fullName>10 Minutos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20 Minutos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30 Minutos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40 Minutos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Minutos</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__visit_channel__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__visit_duration_number__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>180</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>210</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__visit_purpose_type__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>03</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__visit_status_type__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>03</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>04</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>05</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>dwp_kitv__Account_is_Changed</fullName>
+        <active>true</active>
+        <description>Change Account is not allowed.</description>
+        <errorConditionFormula>AND (ISCHANGED( dwp_kitv__account_id__c ),$Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c  = false,$Setup.dwp_kitv__Visit_validations_lead_cs__c.dwp_kitv__bypass__c = false)</errorConditionFormula>
+        <errorDisplayField>dwp_kitv__account_id__c</errorDisplayField>
+        <errorMessage>Change Account is not allowed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_kitv__Days_to_create_account</fullName>
+        <active>true</active>
+        <description>Visit from account can not be created before the days allowed. Check your configuration.</description>
+        <errorConditionFormula>AND((dwp_kitv__visit_start_date__c &lt; NOW() -   $Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__days_to_create__c), $Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c = False,
+RecordType.Name = &quot;AccountVisit&quot;)</errorConditionFormula>
+        <errorDisplayField>dwp_kitv__visit_start_date__c</errorDisplayField>
+        <errorMessage>Visit from account can not be created before the days allowed. Check your configuration.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_kitv__Days_to_create_lead</fullName>
+        <active>true</active>
+        <description>Visit from lead can not be created before the days allowed. Check your configuration.</description>
+        <errorConditionFormula>AND((dwp_kitv__visit_start_date__c &lt; NOW() -    $Setup.dwp_kitv__Visit_validations_lead_cs__c.dwp_kitv__days_to_create__c), $Setup.dwp_kitv__Visit_validations_lead_cs__c.dwp_kitv__bypass__c = False,
+RecordType.Name = &quot;LeadVisit&quot;)</errorConditionFormula>
+        <errorDisplayField>dwp_kitv__visit_start_date__c</errorDisplayField>
+        <errorMessage>Visit from lead can not be created before the days allowed. Check your configuration.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_kitv__Lead_is_Changed</fullName>
+        <active>true</active>
+        <description>Change Lead is not allowed.</description>
+        <errorConditionFormula>AND (ISCHANGED(dwp_kitv__lead_id__c),
+$Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c = false,$Setup.dwp_kitv__Visit_validations_lead_cs__c.dwp_kitv__bypass__c = false)</errorConditionFormula>
+        <errorDisplayField>dwp_kitv__lead_id__c</errorDisplayField>
+        <errorMessage>Change Lead is not allowed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_kitv__Max_number_of_contacts</fullName>
+        <active>true</active>
+        <description>It´s not possible to add more than 50 contacts to a visit</description>
+        <errorConditionFormula>dwp_kitv__number_of_event_relations__c &gt; 50</errorConditionFormula>
+        <errorMessage>It´s not possible to add more than 50 contacts to a visit</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

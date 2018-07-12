@@ -8,6 +8,14 @@
         <plural>true</plural>
         <value>Visitas</value>
     </caseValues>
+    <fieldSets>
+        <label><!-- Fields To Identify A Visit Change --></label>
+        <name>Fields_To_Identify_A_Visit_Change</name>
+    </fieldSets>
+    <fields>
+        <label>Notificación de reunión modificada</label>
+        <name>Notify_meeting_changed_peru__c</name>
+    </fields>
     <fields>
         <label>Cliente</label>
         <name>dwp_kitv__account_id__c</name>
@@ -16,6 +24,31 @@
     <fields>
         <label>Tipo</label>
         <name>dwp_kitv__account_type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please indicate the time it will take to travel from the branch to the client&apos;s office. --></help>
+        <label><!-- Travel Time --></label>
+        <name>dwp_kitv__dwp_kitv_TravelTime__c</name>
+        <picklistValues>
+            <masterLabel>10 Minutos</masterLabel>
+            <translation><!-- 10 Minutos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20 Minutos</masterLabel>
+            <translation><!-- 20 Minutos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 Minutos</masterLabel>
+            <translation><!-- 30 Minutos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40 Minutos</masterLabel>
+            <translation><!-- 40 Minutos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60 Minutos</masterLabel>
+            <translation><!-- 60 Minutos --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>Evento modificado</label>
@@ -197,10 +230,12 @@
     </layouts>
     <nameFieldLabel>Nombre visita</nameFieldLabel>
     <recordTypes>
+        <description><!-- Visit Recordtype from Account --></description>
         <label><!-- AccountVisit --></label>
         <name>AccountVisit</name>
     </recordTypes>
     <recordTypes>
+        <description><!-- Visit RecordType from Lead --></description>
         <label><!-- LeadVisit --></label>
         <name>LeadVisit</name>
     </recordTypes>
