@@ -1083,7 +1083,6 @@
 	<types>
         <members>Default_Opportunity</members>
         <members>New_Bussiness_Route</members>
-        <members>Renewal_Route</members>
         <name>PathAssistant</name>
     </types>
 	    <types>

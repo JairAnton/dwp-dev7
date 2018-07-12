@@ -4,6 +4,10 @@
         <members>Opportunity.reevaluate__c</members>
 		<name>CustomField</name>
     </types>
+	<types>
+		<members>Renewal_Route</members>
+		<name>PathAssistant</name>
+	</types>
 	<types>        
 		<members>fprd__GBL_product_config.Amortizacion_PC00029</members> 
 		<members>fprd__GBL_product_config.Cobertura_PC00029</members>
@@ -41,5 +45,5 @@
 		<members>fprd__GBL_product_config.Tipo_garantia_PC00014</members>
         <name>CustomMetadata</name>
     </types>
-	<version>41.0</version>
+	<version>42.0</version>
 </Package>

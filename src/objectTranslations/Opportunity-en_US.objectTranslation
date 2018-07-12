@@ -390,8 +390,5 @@
         <label><!-- New Business --></label>
         <name>Opp_RT_01</name>
     </recordTypes>
-    <recordTypes>
-        <label><!-- Renewal --></label>
-        <name>Opp_RT_02</name>
-    </recordTypes>
 </CustomObjectTranslation>
+
