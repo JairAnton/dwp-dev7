@@ -1295,8 +1295,8 @@ Analistas de riesgos</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Renewals__c.product_cateogry_type__c</field>
+        <editable>true</editable>
+        <field>Account_Renewals__c.product_category_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
