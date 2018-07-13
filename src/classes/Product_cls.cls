@@ -336,7 +336,7 @@ public without sharing class Product_cls {
     */
     @AuraEnabled public static List<WRP_Table> getAccountBBVAInformation (String AccountId)
     {
-        list<AggregateResult> listInfoBBVA = [select account_id__r.Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' AND year_month_day_date__c = LAST_MONTH group by account_id__r.Name,product_group_classification_id__c, type__c];        
+        list<AggregateResult> listInfoBBVA = [select account_id__r.Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' AND year_month_day_date__c = LAST_MONTH group by account_id__r.Name,product_group_classification_id__c, type__c];
         
         map<String, WRP_Table> mapResult = new map<String, WRP_Table>();
         integer i=0;
