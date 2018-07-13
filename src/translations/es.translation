@@ -133,11 +133,11 @@
         <name>AccountRankingClassification3</name>
     </customLabels>
     <customLabels>
-        <label>DEUDA DIRECTA</label>
+        <label>Directa</label>
         <name>LblDirectDebt</name>
     </customLabels>
     <customLabels>
-        <label>DEUDA INDIRECTA</label>
+        <label>Indirecta</label>
         <name>LblIndirectDebt</name>
     </customLabels>
     <customLabels>
