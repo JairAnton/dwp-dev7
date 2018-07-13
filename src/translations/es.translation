@@ -133,6 +133,18 @@
         <name>AccountRankingClassification3</name>
     </customLabels>
     <customLabels>
+        <label>DEUDA DIRECTA</label>
+        <name>LblDirectDebt</name>
+    </customLabels>
+    <customLabels>
+        <label>DEUDA INDIRECTA</label>
+        <name>LblIndirectDebt</name>
+    </customLabels>
+    <customLabels>
+        <label>Recursos gestionados</label>
+        <name>LblResources</name>
+    </customLabels>
+    <customLabels>
         <label>Oct</label>
         <name>Month10ShortName</name>
     </customLabels>

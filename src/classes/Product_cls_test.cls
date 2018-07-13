@@ -126,6 +126,7 @@ public class Product_cls_test {
             }
         	testLOPP.gipr_Tipo_Garantia__c='02';
         	update testLOPP;
+        	Product_cls.getAccountBBVAInformation(MyAcc.Id);
      		System.assert(true,'This Works!');
 		test.stopTest();
         }

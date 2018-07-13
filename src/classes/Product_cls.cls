@@ -330,7 +330,61 @@ public without sharing class Product_cls {
         return ApiToLabel.get(OppStatus);
     }
     
-    
-    
-    
+    /**
+        Get BBVA Information Grouped Table
+        Object: Account_BBVA_Information__c
+    */
+    @AuraEnabled public static List<WRP_Table> getAccountBBVAInformation (String AccountId)
+    {
+        list<AggregateResult> listInfoBBVA = [select account_id__r.Name,product_group_classification_id__c, type__c,SUM(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' group by account_id__r.Name,product_group_classification_id__c, type__c];
+        
+        map<String, WRP_Table> mapResult = new map<String, WRP_Table>();
+        integer i=0;
+        Double dd;
+        Double di;
+        Double r;
+        String aux='';
+        for (AggregateResult ar : listInfoBBVA)  {
+            dd=0;di=0;r=0;
+                for (AggregateResult ar2 : listInfoBBVA)  {
+                
+                    if((String)ar2.get('Name')==(String)ar.get('Name'))
+                        if((String)ar2.get('product_group_classification_id__c')==label.LblDirectDebt && (String)ar2.get('type__c')=='01')
+                            dd=(Double)ar2.get('exp2');
+                            else if((String)ar2.get('product_group_classification_id__c')==label.LblIndirectDebt && (String)ar2.get('type__c')=='01')
+                                di=(Double)ar2.get('exp2');
+                                else if((String)ar2.get('product_group_classification_id__c')==label.LblResources && (String)ar2.get('type__c')=='02')
+                                    r=(Double)ar2.get('exp2');
+                }
+                    
+            
+            if((string)ar.get('Name')!=aux)
+            {
+                mapResult.put(String.valueOf(i), new WRP_Table((string)ar.get('Name'),(Double)ar.get('exp1'),dd,di,r));
+                aux=(string)ar.get('Name');
+                i++;
+            }
+        }
+
+        return mapResult.values();
+    }
+    /**
+        Creation of WRAPER Classs to the Position Grouped Table 
+        Object: Account_BBVA_Information__c
+    */
+    public class WRP_Table{
+        @AuraEnabled public String Acc {get; set;}
+        @AuraEnabled public Double BusinessVolume  {get; set;}
+        @AuraEnabled public Double DirectDebt  {get; set;}
+        @AuraEnabled public Double IndirectDebt  {get; set;}
+        @AuraEnabled public Double Resources   {get; set;}
+        public WRP_Table(String toAcc, Double toBusinessVolume,Double toDirectDebt,Double toIndirectDebt,Double toResources){
+            this.Acc = toAcc;
+            this.BusinessVolume = toBusinessVolume;
+            this.DirectDebt = toDirectDebt;
+            this.IndirectDebt = toIndirectDebt;
+            this.Resources = toResources;
+        }
+    }
+       
 }

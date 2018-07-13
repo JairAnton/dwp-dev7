@@ -171,6 +171,27 @@
         <value>Total</value>
     </labels>
     <labels>
+        <fullName>LblDirectDebt</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>LblDirectDebt</shortDescription>
+        <value>DirectDebt</value>
+    </labels>
+    <labels>
+        <fullName>LblIndirectDebt</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>LblIndirectDebt</shortDescription>
+        <value>IndirectDebt</value>
+    </labels>
+    <labels>
+        <fullName>LblResources</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>LblResources</shortDescription>
+        <value>Resources</value>
+    </labels>
+    <labels>
         <fullName>Month10ShortName</fullName>
         <language>en_US</language>
         <protected>false</protected>
