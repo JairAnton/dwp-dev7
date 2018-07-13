@@ -130,7 +130,7 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>product_cateogry_type__c</fullName>
+        <fullName>product_category_type__c</fullName>
         <externalId>false</externalId>
         <label>Category</label>
         <length>255</length>

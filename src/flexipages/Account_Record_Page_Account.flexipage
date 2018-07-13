@@ -772,7 +772,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>product_cateogry_type__c = &apos;Activo&apos;</value>
+                <value>product_category_type__c = &apos;Activo&apos;</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -1331,7 +1331,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>product_cateogry_type__c = &apos;Pasivo&apos;</value>
+                <value>product_category_type__c = &apos;Pasivo&apos;</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
