@@ -686,7 +686,7 @@
         <members>Account_Renewals__c.cancellation_wtd_3_amount__c</members>
         <members>Account_Renewals__c.cancellation_wtd_4_amount__c</members>
         <members>Account_Renewals__c.cancellation_wtd_5_amount__c</members>
-        <members>Account_Renewals__c.product_cateogry_type__c</members>
+        <members>Account_Renewals__c.product_category_type__c</members>
         <members>Account_Renewals__c.product_name__c</members>
         <members>Account_Renewals__c.product_order__c</members>
         <members>Account_Renewals__c.product_subcategory_type__c</members>
