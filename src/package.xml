@@ -252,6 +252,8 @@
 		<members>Object_controller_tst</members>
 		<members>Visit_Trigger_tst</members>
 		<members>Account_Handler_cls</members>
+        <members>ProfitabilityController_cls</members>
+        <members>ProfitabilityController_cls_test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -299,6 +301,7 @@
         <members>Component_GroupDetail</members>
         <members>Component_HierarchyGroup</members>
         <members>Flash_client_secondBlock</members>
+        <members>Component_Profitability</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -704,7 +707,7 @@
         <members>Account_Renewals__c.cancellation_wtd_3_amount__c</members>
         <members>Account_Renewals__c.cancellation_wtd_4_amount__c</members>
         <members>Account_Renewals__c.cancellation_wtd_5_amount__c</members>
-        <members>Account_Renewals__c.product_cateogry_type__c</members>
+        <members>Account_Renewals__c.product_category_type__c</members>
         <members>Account_Renewals__c.product_name__c</members>
         <members>Account_Renewals__c.product_order__c</members>
         <members>Account_Renewals__c.product_subcategory_type__c</members>
