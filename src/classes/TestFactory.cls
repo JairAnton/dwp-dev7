@@ -67,6 +67,11 @@ public class TestFactory {
         insert acc;
         return acc;
     }
+     public static Account createAccount(string Parent){
+        Account acc=new Account(Name = 'TestAcct',ParentId=Parent);
+        insert acc;
+        return acc;
+    }
     
     public static Account_BBVA_Classification__c createAccBBVAClass(Id acc){
         Account_BBVA_Classification__c accClass = new  Account_BBVA_Classification__c(account_id__c=acc);
@@ -139,6 +144,18 @@ public class TestFactory {
          dwp_kitv__user_id__c=UserKit);
         insert kit_Manage;
         return kit_Manage;
+    }
+    
+    public static void createAccountProfit(Id Account){
+        Account_Profitability__c	accp = new Account_Profitability__c(
+        account_id__c=Account,      
+        profitability_type__c ='03',
+        profitability_category_type__c = 'Comisiones'    
+        );	
+        insert accp;
+        Datetime yesterday = Datetime.now().addDays(-1);
+         Test.setCreatedDate(accp.Id, yesterday);
+        
     }
   
 }
