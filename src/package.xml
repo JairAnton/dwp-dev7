@@ -239,6 +239,8 @@
         <members>TestFactory</members>
         <members>quoteClassButton</members>
         <members>quoteClassButtonTest</members>
+        <members>ProfitabilityController_cls</members>
+        <members>ProfitabilityController_cls_test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -286,6 +288,7 @@
         <members>Component_GroupDetail</members>
         <members>Component_HierarchyGroup</members>
         <members>Flash_client_secondBlock</members>
+        <members>Component_Profitability</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -312,6 +315,7 @@
 		<members>Opportunity_Record_Page</members>
         <members>Opportunity_Record_Page1</members>
 		<members>Visit_Record_Page_Peru</members>
+         <members>Group_Lightning_Record_Page2</members>
         <name>FlexiPage</name>
     </types>
     <types>
