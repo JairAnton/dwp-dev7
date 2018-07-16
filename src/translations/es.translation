@@ -638,7 +638,7 @@
     </customLabels>
     <customLabels>
         <label>No hay datos en la cuenta</label>
-        <name> Account_No_Data</name>
+        <name>Account_No_Data</name>
     </customLabels>
     <quickActions>
         <label>Llamada</label>
