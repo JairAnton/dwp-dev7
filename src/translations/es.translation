@@ -770,7 +770,7 @@
             <choices>
                 <name>Por_razones_del_cliente</name>
             </choices>
-            <fullName>Motivo_Descarte_Oportunidad_V0-32</fullName>
+            <fullName>Motivo_Descarte_Oportunidad_V0-38</fullName>
             <screens>
                 <fields>
                     <name>Motivo_Desestimacion</name>
@@ -782,7 +782,7 @@
                     <name>Banco_ganador_1</name>
                 </fields>
                 <fields>
-                    <name>Importe</name>
+                    <name>Importe2</name>
                 </fields>
                 <fields>
                     <name>Moneda</name>

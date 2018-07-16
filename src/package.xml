@@ -177,6 +177,13 @@
         <members>lblbtnApprove_cfg</members>
         <members>lblQuoteGeneralError</members>
         <members>lblQuoteError</members>
+		<members>LblDirectDebt</members>
+<members>LblIndirectDebt</members>
+<members>LblResources</members>
+<members>lblPDFProductCommercialLoanCP</members>
+<members>lblPDFProductCommercialLoanLP</members>
+<members>lblPDFProductForfaitingImport</members>
+<members>lblPDFProductFurnitureLeasing</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -239,6 +246,12 @@
         <members>TestFactory</members>
         <members>quoteClassButton</members>
         <members>quoteClassButtonTest</members>
+		<members>Account_Handler_test</members>
+		<members>Account_Trigger_cls</members>
+		<members>Event_Test</members>
+		<members>Object_controller_tst</members>
+		<members>Visit_Trigger_tst</members>
+		<members>Account_Handler_cls</members>
         <members>ProfitabilityController_cls</members>
         <members>ProfitabilityController_cls_test</members>
         <name>ApexClass</name>
@@ -315,7 +328,8 @@
 		<members>Opportunity_Record_Page</members>
         <members>Opportunity_Record_Page1</members>
 		<members>Visit_Record_Page_Peru</members>
-         <members>Group_Lightning_Record_Page2</members>
+		 <members>Group_Lightning_Record_Page1</members>
+        <members>Group_Lightning_Record_Page2</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -457,6 +471,9 @@
         <members>User_Branch__c.Relation_User_Branch</members>
 		<members>Opportunity.New_Awesome_Companct_Layout</members>
 		<members>Opportunity.Opportunity_Compact_Layout</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__Visit_Compact_Layout</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__Visit_Compact_Layout_Account</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__Visit_Compact_Layout_Lead</members>
         <name>CompactLayout</name>
     </types>
     <types>
@@ -862,6 +879,29 @@
 		<members>Product2.formalization__c</members>
 		<members>Product2.price_penalty__c</members>
 		<members>Product2.risk_sanction__c</members>
+		<members>dwp_kitv__Visit__c.Notify_meeting_changed_peru__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__account_id__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__account_type__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__dwp_kitv_TravelTime__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__event_changed_bool__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__invitee_changed_type__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__lead_id__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__meeting_changed_type__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__most_recent_visits__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__notify_meeting_changed__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__number_of_event_relations__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_channel__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_contact_persons_number__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_desc__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_duration_number__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_end_date__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_location_desc__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_purpose_type__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_status_type__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_summary_desc__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_topics_number__c</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__visit_users_number__c</members>
 		<name>CustomField</name>
     </types>
     <types>
@@ -921,6 +961,8 @@
         <members>Account.Record_Type_Economic_Group</members>
 		<members>Opportunity.Opp_RT_01</members>
 		<members>Opportunity.Opp_RT_02</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__LeadVisit</members>
         <name>RecordType</name>
     </types>
     <types>
@@ -933,35 +975,35 @@
     <name>BusinessProcess</name>
   </types>
   <types>
-	<members>Email_Message_update_Opportunity</members>
-	<members>Event_update_Opportunity</members>
-	<members>FlujoEstadosOportunidad</members>
-	<members>Opp_Owner_Changed</members>
-	<members>Opp_PB_Opportunidad</members>
-	<members>Task_update_Opportunity</members>
-    <members>Guarantee_MasterRecord</members>
-    <members>Participant_MasterRecord</members>
-    <members>Compromisos</members>
-    <members>Motivo_Descarte_Oportunidad_V0</members>
-    <members>Opp_Stage_Changed_notify</members>
-    <members>Flujo_Cotizacion_V0</members>
-	<members>ProductOpp_DueDate</members>
+	<!-- <members>Email_Message_update_Opportunity</members> -->
+	<!-- <members>Event_update_Opportunity</members> -->
+	<!-- <members>FlujoEstadosOportunidad</members> -->
+	<!-- <members>Opp_Owner_Changed</members> -->
+	<!-- <members>Opp_PB_Opportunidad</members> -->
+	<!-- <members>Task_update_Opportunity</members> -->
+    <!-- <members>Guarantee_MasterRecord</members> -->
+    <!-- <members>Participant_MasterRecord</members> -->
+    <!-- <members>Compromisos</members> -->
+    <!-- <members>Motivo_Descarte_Oportunidad_V0</members> -->
+    <!-- <members>Opp_Stage_Changed_notify</members> -->
+    <!-- <members>Flujo_Cotizacion_V0</members> -->
+	<!-- <members>ProductOpp_DueDate</members> -->
 	<name>FlowDefinition</name>
   </types>
   <types>
-	<members>Email_Message_update_Opportunity-4</members>
-	<members>Event_update_Opportunity-3</members>
-	<members>Motivo_Descarte_Oportunidad_V0-32</members>
-	<members>Opp_Owner_Changed-3</members>
-	<members>Opp_PB_Opportunidad-8</members>
-	<members>Task_update_Opportunity-3</members>
-    <members>FlujoEstadosOportunidad-14</members>
-    <members>Guarantee_MasterRecord-1</members>
-    <members>Participant_MasterRecord-1</members>
-	<members>Flujo_Cotizacion_V0-3</members>
-	<members>Compromisos-9</members>
-    <members>Opp_Stage_Changed_notify-4</members>
-	<members>ProductOpp_DueDate-16</members>
+	<!-- <members>Email_Message_update_Opportunity-4</members> -->
+	<!-- <members>Event_update_Opportunity-3</members> -->
+	<!-- <members>Motivo_Descarte_Oportunidad_V0-32</members> -->
+	<!-- <members>Opp_Owner_Changed-3</members> -->
+	<!-- <members>Opp_PB_Opportunidad-8</members> -->
+	<!-- <members>Task_update_Opportunity-3</members> -->
+    <!-- <members>FlujoEstadosOportunidad-14</members> -->
+    <!-- <members>Guarantee_MasterRecord-1</members> -->
+    <!-- <members>Participant_MasterRecord-1</members> -->
+	<!-- <members>Flujo_Cotizacion_V0-3</members> -->
+	<!-- <members>Compromisos-9</members> -->
+    <!-- <members>Opp_Stage_Changed_notify-4</members> -->
+	<!-- <members>ProductOpp_DueDate-16</members> -->
 	<name>Flow</name>
   </types>
       <types>
@@ -1020,6 +1062,11 @@
         <members>OpportunityLineItem.Validation_Email</members>
         <members>OpportunityLineItem.Validation_Term_Integer</members>
         <members>Opportunity.Amount_Negative_Value</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__Account_is_Changed</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__Days_to_create_account</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__Days_to_create_lead</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__Lead_is_Changed</members>
+		<members>dwp_kitv__Visit__c.dwp_kitv__Max_number_of_contacts</members>
         <name>ValidationRule</name>
     </types>
     <types>
@@ -1042,6 +1089,7 @@
 		<members>Visit_Management_Team_Trigger</members>
 		<members>Visit_Trigger</members>
 		<members>Event_Trigger</members>
+		<members>Account_tgr</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -1058,7 +1106,11 @@
 		<members>*</members> 
         <name>ContentAsset</name>
     </types>
-	    <types>
+    <types>
+        <members>dwp_kitv__Visit__c.dwp_kitv__Fields_To_Identify_A_Visit_Change</members>
+        <name>FieldSet</name>
+    </types>	    
+	<types>
         <members>LEXTHEMINGBBVA_theme_1</members>
         <name>BrandingSet</name>
     </types>
