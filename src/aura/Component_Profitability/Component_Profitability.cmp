@@ -22,16 +22,16 @@
    <aura:iteration items="{!v.newAccountProfit}" var="obj" indexVar="key">
        
     <tr>
-      <th scope="row" data-label="Account Name">
+      <th scope="row" data-label="Cuenta">
           <div class="slds-truncate" title="Cloudhub"><a href="{!'/'+obj[1]}">{!obj[0]}</a></div>
       </th>
-      <td data-label="Account Name">
+      <td data-label="Margen financiero">
         <div class="slds-truncate" title="Cloudhub">{!obj[2]}</div>
       </td>
-      <td data-label="Close Date">
-        <div class="slds-truncate" title="4/14/2015">{!obj[3]}</div>
+      <td data-label="Comisiones">
+        <div class="slds-truncate" title="">{!obj[3]}</div>
       </td>
-      <td data-label="Prospecting">
+      <td data-label="Margen Ordinario">
         <div class="slds-truncate" title="Prospecting">{!obj[4]}</div>
       </td>
     </tr>

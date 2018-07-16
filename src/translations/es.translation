@@ -636,6 +636,10 @@
         <label>La descripción de una reunión no puede estar vacía</label>
         <name>dwp_kitv__description_not_empty</name>
     </customLabels>
+    <customLabels>
+        <label>No hay datos en la cuenta</label>
+        <name>Account_No_Data</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

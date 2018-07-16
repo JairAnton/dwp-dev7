@@ -689,4 +689,11 @@
         <shortDescription>lblQuoteGeneralError</shortDescription>
         <value>Unable to load the quote window</value>
     </labels>
+    <labels>
+        <fullName>Account_No_Data</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Account_No_Data</shortDescription>
+        <value>No data Account</value>
+    </labels>
 </CustomLabels>
