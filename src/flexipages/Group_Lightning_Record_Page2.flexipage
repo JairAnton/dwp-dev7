@@ -227,120 +227,7 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentInstanceProperties>
-                <name>Collapsed</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>CollapsedDefault</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>CurrencyDimension</name>
-                <value>Thousand</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>FilterDynamic</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>FilterDynamicField</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>FilterStatic</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Format</name>
-                <value>-,,,</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>FormatDivisa</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Group</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Header</name>
-                <value>Name</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>HeaderGroup</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>LocaleCur</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Object</name>
-                <value>profitability_category_type__c</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Order</name>
-                <value>Name ASC</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>PositionCurrency</name>
-                <value>Left</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>RelatedField</name>
-                <value>Account_id__c</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Summarize</name>
-                <value>-,SUM,SUM,SUM,SUM</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Symbol</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Type</name>
-                <value>Summary</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>allFilter</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>customLabelAPInameError</name>
-                <value>Account_No_Data</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>headerApiName</name>
-                <value>Name</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>hidenSubHeadMatrix</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>labelFilterApi</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>labelTotalApi</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>reportTitleAPI</name>
-                <value>AQuI VA UN LABEL</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showFilter</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showLink</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showTitle</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showTotal</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Component_Profitability</componentName>
         </componentInstances>
         <name>facet-1a9d3154-c954-4ca8-8831-2d07c23b5186</name>
         <type>Facet</type>
@@ -405,6 +292,40 @@
         <componentInstances>
             <componentName>Component_GroupDetail</componentName>
         </componentInstances>
+        <name>Facet-2cc42a7f-080f-47a2-a809-27db04484b05</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-2cc42a7f-080f-47a2-a809-27db04484b05</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>DATOS DEL GRUPO</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <name>Facet-88477d46-f018-41cf-a051-c3f4546b3d7a</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-88477d46-f018-41cf-a051-c3f4546b3d7a</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>defaultSectionName</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
         <name>facet-5348a105-3a5d-4ec9-845d-194e28a3a8ae</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -446,7 +367,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Standard.Tab.detail</value>
+                <value>DETALLE GRUPO</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
