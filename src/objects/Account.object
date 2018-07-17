@@ -83,7 +83,6 @@
     <compactLayouts>
         <fullName>Account_Compact_Layout_Group</fullName>
         <fields>Name</fields>
-        <fields>ParentId</fields>
         <fields>RecordTypeId</fields>
         <fields>main_code_id__c</fields>
         <fields>OwnerId</fields>
