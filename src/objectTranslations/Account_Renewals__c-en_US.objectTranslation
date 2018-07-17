@@ -39,7 +39,7 @@
     </fields>
     <fields>
         <label><!-- Category --></label>
-        <name>product_cateogry_type__c</name>
+        <name>product_category_type__c</name>
     </fields>
     <fields>
         <label><!-- Product --></label>

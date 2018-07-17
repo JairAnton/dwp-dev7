@@ -15,7 +15,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>product_cateogry_type__c</field>
+                <field>product_category_type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

@@ -1770,11 +1770,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account_Renewals__c.product_cateogry_type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account_Renewals__c.product_name__c</field>
         <readable>true</readable>
     </fieldPermissions>

@@ -42,10 +42,6 @@
         <name>product_category_type__c</name>
     </fields>
     <fields>
-        <label>Categoria</label>
-        <name>product_cateogry_type__c</name>
-    </fields>
-    <fields>
         <label>Producto</label>
         <name>product_name__c</name>
     </fields>
