@@ -202,7 +202,7 @@
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>account_id__c</columns>
-        <columns>product_cateogry_type__c</columns>
+        <columns>product_category_type__c</columns>
         <columns>product_subcategory_type__c</columns>
         <columns>product_name__c</columns>
         <filterScope>Everything</filterScope>
