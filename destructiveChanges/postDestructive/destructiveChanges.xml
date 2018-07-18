@@ -2,624 +2,627 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>  
         <members>fprd__GBL_dependent_list.dependentNoDineraria</members>
-<members>fprd__GBL_dependent_list.dependentNoDineraria_PC00014</members>
-<members>fprd__GBL_dependent_list.dependentNoDineraria_PC00029</members>
-<members>fprd__GBL_dependent_list.dependientDineraria</members>
-<members>fprd__GBL_dependent_list.dependientDineraria_PC00014</members>
-<members>fprd__GBL_dependent_list.dependientDineraria_PC0029</members>
-<members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00005</members>
-<members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00007</members>
-<members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00001</members>
-<members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00005</members>
-<members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00007</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00001</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00002</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00003</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00004</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00005</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00006</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00007</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00008</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00009</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00010</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00011</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00012</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00013</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00015</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00016</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00017</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00018</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00019</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00020</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00021</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00022</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00023</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00024</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00025</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00026</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00027</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00028</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00030</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00031</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00032</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00033</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00034</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00035</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00036</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00037</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00038</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00039</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00040</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00041</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00042</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00043</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00044</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00045</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00046</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00047</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00048</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00049</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00050</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00051</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00052</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00053</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00054</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00055</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00056</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00057</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00058</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00059</members>
-<members>fprd__GBL_product_config.Amortizacion_PC00060</members>
-<members>fprd__GBL_product_config.Cobertura_PC00001</members>
-<members>fprd__GBL_product_config.Cobertura_PC00014</members>
-<members>fprd__GBL_product_config.Cobertura_PC00029</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00001</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00002</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00003</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00004</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00005</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00006</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00007</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00008</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00009</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00010</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00011</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00012</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00013</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00015</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00016</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00017</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00018</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00019</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00020</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00021</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00022</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00023</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00024</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00025</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00026</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00027</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00028</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00030</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00031</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00032</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00033</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00034</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00035</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00036</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00037</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00038</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00039</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00040</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00041</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00042</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00043</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00044</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00045</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00046</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00047</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00048</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00049</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00050</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00051</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00052</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00053</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00054</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00055</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00056</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00057</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00058</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00059</members>
-<members>fprd__GBL_product_config.Codigo_Simulacion_PC00060</members>
-<members>fprd__GBL_product_config.Codigo_SIO</members>
-<members>fprd__GBL_product_config.cpliq_Manual_PC00005</members>
-<members>fprd__GBL_product_config.CreatedBy</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00001</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00002</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00003</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00004</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00005</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00006</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00007</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00008</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00009</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00010</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00011</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00012</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00013</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00014</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00015</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00016</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00017</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00018</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00019</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00020</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00021</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00022</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00023</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00024</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00025</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00026</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00027</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00028</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00029</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00030</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00031</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00032</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00033</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00034</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00035</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00036</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00037</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00038</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00039</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00040</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00041</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00042</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00043</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00044</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00045</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00046</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00047</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00048</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00049</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00050</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00051</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00052</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00053</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00054</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00055</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00056</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00057</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00058</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00059</members>
-<members>fprd__GBL_product_config.Cuenta_vinculada_PC00060</members>
-<members>fprd__GBL_product_config.da_Alt_Email_PC00005</members>
-<members>fprd__GBL_product_config.da_Alt_Email_PC00007</members>
-<members>fprd__GBL_product_config.da_Amount_PC00005</members>
-<members>fprd__GBL_product_config.da_Amount_PC00007</members>
-<members>fprd__GBL_product_config.da_Available_Balance_PC00005</members>
-<members>fprd__GBL_product_config.da_Available_Balance_PC00007</members>
-<members>fprd__GBL_product_config.da_Client_Email_PC00005</members>
-<members>fprd__GBL_product_config.da_Client_Email_PC00007</members>
-<members>fprd__GBL_product_config.da_Currency_PC00005</members>
-<members>fprd__GBL_product_config.da_Currency_PC00007</members>
-<members>fprd__GBL_product_config.da_Destination_Country_PC00005</members>
-<members>fprd__GBL_product_config.da_Destination_Country_PC00007</members>
-<members>fprd__GBL_product_config.da_Exporter_PC00005</members>
-<members>fprd__GBL_product_config.da_Importer_PC00005</members>
-<members>fprd__GBL_product_config.da_Importer_PC00007</members>
-<members>fprd__GBL_product_config.da_Line_Excess_PC00005</members>
-<members>fprd__GBL_product_config.da_Line_Excess_PC00007</members>
-<members>fprd__GBL_product_config.da_Merchandise_Detail_PC00005</members>
-<members>fprd__GBL_product_config.da_Merchandise_Detail_PC00007</members>
-<members>fprd__GBL_product_config.da_nOperation_PC00005</members>
-<members>fprd__GBL_product_config.da_nOperation_PC00007</members>
-<members>fprd__GBL_product_config.da_Observations_PC00005</members>
-<members>fprd__GBL_product_config.da_Observations_PC00007</members>
-<members>fprd__GBL_product_config.da_Origin_Country_PC00005</members>
-<members>fprd__GBL_product_config.da_Replacement_financing_PC00005</members>
-<members>fprd__GBL_product_config.da_Replacement_financing_PC00007</members>
-<members>fprd__GBL_product_config.da_Replacement_Reason_PC00005</members>
-<members>fprd__GBL_product_config.da_Replacement_Reason_PC00007</members>
-<members>fprd__GBL_product_config.da_Riesgo_Aprobado_PC00005</members>
-<members>fprd__GBL_product_config.da_Riesgo_Aprobado_PC00007</members>
-<members>fprd__GBL_product_config.da_Used_Risk_PC00005</members>
-<members>fprd__GBL_product_config.da_Used_Risk_PC00007</members>
-<members>fprd__GBL_product_config.Destino_PC00001</members>
-<members>fprd__GBL_product_config.dlf_Portfolio_effectiveness_PC00014</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00001</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00002</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00003</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00004</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00005</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00006</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00007</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00008</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00009</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00010</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00011</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00012</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00013</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00015</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00016</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00017</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00018</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00019</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00020</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00021</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00022</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00023</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00024</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00025</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00026</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00027</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00028</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00029</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00030</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00031</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00032</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00033</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00034</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00035</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00036</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00037</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00038</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00039</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00040</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00041</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00042</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00043</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00044</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00045</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00046</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00047</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00048</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00049</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00050</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00051</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00052</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00053</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00054</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00055</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00056</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00057</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00058</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00059</members>
-<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00060</members>
-<members>fprd__GBL_product_config.GarantiaDineraria_PC00001</members>
-<members>fprd__GBL_product_config.GarantiaNoDineraria_PC00001</members>
-<members>fprd__GBL_product_config.Garantia_PC00001</members>
-<members>fprd__GBL_product_config.Garantia_PC00014</members>
-<members>fprd__GBL_product_config.Garantia_PC00029</members>
-<members>fprd__GBL_product_config.gipr_Cobertura_PC00005</members>
-<members>fprd__GBL_product_config.gipr_Cobertura_PC00007</members>
-<members>fprd__GBL_product_config.gipr_Comex_Bag_PC00005</members>
-<members>fprd__GBL_product_config.gipr_Comex_Bag_PC00007</members>
-<members>fprd__GBL_product_config.gipr_Contract_Number_PC00005</members>
-<members>fprd__GBL_product_config.gipr_Contract_Number_PC00007</members>
-<members>fprd__GBL_product_config.gipr_Garantia_PC00005</members>
-<members>fprd__GBL_product_config.gipr_Garantia_PC00007</members>
-<members>fprd__GBL_product_config.gipr_Importation_Modality_PC00005</members>
-<members>fprd__GBL_product_config.gipr_Modality_PC00005</members>
-<members>fprd__GBL_product_config.gipr_Modality_PC00007</members>
-<members>fprd__GBL_product_config.gipr_PaymentM_PC00005</members>
-<members>fprd__GBL_product_config.gipr_PaymentM_PC00007</members>
-<members>fprd__GBL_product_config.gipr_Periodicidad_PC00005</members>
-<members>fprd__GBL_product_config.gipr_Periodicidad_PC00007</members>
-<members>fprd__GBL_product_config.gipr_Tipo_garantia_PC00005</members>
-<members>fprd__GBL_product_config.gipr_Tipo_garantia_PC00007</members>
-<members>fprd__GBL_product_config.Importe_PC00014</members>
-<members>fprd__GBL_product_config.Importe_PC00029</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00001</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00002</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00003</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00004</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00005</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00006</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00007</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00008</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00009</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00010</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00011</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00012</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00013</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00015</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00016</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00017</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00018</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00019</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00020</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00021</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00022</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00023</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00024</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00025</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00026</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00027</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00028</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00030</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00031</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00032</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00033</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00034</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00035</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00036</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00037</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00038</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00039</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00040</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00041</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00042</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00043</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00044</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00045</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00046</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00047</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00048</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00049</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00050</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00051</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00052</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00053</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00054</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00055</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00056</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00057</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00058</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00059</members>
-<members>fprd__GBL_product_config.n_Gracia_PC00060</members>
-<members>fprd__GBL_product_config.n_PC00001</members>
-<members>fprd__GBL_product_config.n_PC00002</members>
-<members>fprd__GBL_product_config.n_PC00003</members>
-<members>fprd__GBL_product_config.n_PC00004</members>
-<members>fprd__GBL_product_config.n_PC00005</members>
-<members>fprd__GBL_product_config.n_PC00006</members>
-<members>fprd__GBL_product_config.n_PC00007</members>
-<members>fprd__GBL_product_config.n_PC00008</members>
-<members>fprd__GBL_product_config.n_PC00009</members>
-<members>fprd__GBL_product_config.n_PC00010</members>
-<members>fprd__GBL_product_config.n_PC00011</members>
-<members>fprd__GBL_product_config.n_PC00012</members>
-<members>fprd__GBL_product_config.n_PC00013</members>
-<members>fprd__GBL_product_config.n_PC00015</members>
-<members>fprd__GBL_product_config.n_PC00016</members>
-<members>fprd__GBL_product_config.n_PC00017</members>
-<members>fprd__GBL_product_config.n_PC00018</members>
-<members>fprd__GBL_product_config.n_PC00019</members>
-<members>fprd__GBL_product_config.n_PC00020</members>
-<members>fprd__GBL_product_config.n_PC00021</members>
-<members>fprd__GBL_product_config.n_PC00022</members>
-<members>fprd__GBL_product_config.n_PC00023</members>
-<members>fprd__GBL_product_config.n_PC00024</members>
-<members>fprd__GBL_product_config.n_PC00025</members>
-<members>fprd__GBL_product_config.n_PC00026</members>
-<members>fprd__GBL_product_config.n_PC00027</members>
-<members>fprd__GBL_product_config.n_PC00028</members>
-<members>fprd__GBL_product_config.n_PC00030</members>
-<members>fprd__GBL_product_config.n_PC00031</members>
-<members>fprd__GBL_product_config.n_PC00032</members>
-<members>fprd__GBL_product_config.n_PC00033</members>
-<members>fprd__GBL_product_config.n_PC00034</members>
-<members>fprd__GBL_product_config.n_PC00035</members>
-<members>fprd__GBL_product_config.n_PC00036</members>
-<members>fprd__GBL_product_config.n_PC00037</members>
-<members>fprd__GBL_product_config.n_PC00038</members>
-<members>fprd__GBL_product_config.n_PC00039</members>
-<members>fprd__GBL_product_config.n_PC00040</members>
-<members>fprd__GBL_product_config.n_PC00041</members>
-<members>fprd__GBL_product_config.n_PC00042</members>
-<members>fprd__GBL_product_config.n_PC00043</members>
-<members>fprd__GBL_product_config.n_PC00044</members>
-<members>fprd__GBL_product_config.n_PC00045</members>
-<members>fprd__GBL_product_config.n_PC00046</members>
-<members>fprd__GBL_product_config.n_PC00047</members>
-<members>fprd__GBL_product_config.n_PC00048</members>
-<members>fprd__GBL_product_config.n_PC00049</members>
-<members>fprd__GBL_product_config.n_PC00050</members>
-<members>fprd__GBL_product_config.n_PC00051</members>
-<members>fprd__GBL_product_config.n_PC00052</members>
-<members>fprd__GBL_product_config.n_PC00053</members>
-<members>fprd__GBL_product_config.n_PC00054</members>
-<members>fprd__GBL_product_config.n_PC00055</members>
-<members>fprd__GBL_product_config.n_PC00056</members>
-<members>fprd__GBL_product_config.n_PC00057</members>
-<members>fprd__GBL_product_config.n_PC00058</members>
-<members>fprd__GBL_product_config.n_PC00059</members>
-<members>fprd__GBL_product_config.n_PC00060</members>
-<members>fprd__GBL_product_config.PeriodicidadIG_PC00001</members>
-<members>fprd__GBL_product_config.PeriodicidadIG_PC00014</members>
-<members>fprd__GBL_product_config.PeriodicidadIG_PC00029</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00001</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00002</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00003</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00004</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00005</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00006</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00007</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00008</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00009</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00010</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00011</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00012</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00013</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00015</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00016</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00017</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00018</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00019</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00020</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00021</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00022</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00023</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00024</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00025</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00026</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00027</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00028</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00030</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00031</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00032</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00033</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00034</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00035</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00036</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00037</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00038</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00039</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00040</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00041</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00042</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00043</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00044</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00045</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00046</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00047</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00048</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00049</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00050</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00051</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00052</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00053</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00054</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00055</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00056</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00057</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00058</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00059</members>
-<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00060</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00001</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00002</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00003</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00004</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00005</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00006</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00007</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00008</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00009</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00010</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00011</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00012</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00013</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00015</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00016</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00017</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00018</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00019</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00020</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00021</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00022</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00023</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00024</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00025</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00026</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00027</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00028</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00030</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00031</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00032</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00033</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00034</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00035</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00036</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00037</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00038</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00039</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00040</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00041</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00042</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00043</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00044</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00045</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00046</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00047</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00048</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00049</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00050</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00051</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00052</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00053</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00054</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00055</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00056</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00057</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00058</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00059</members>
-<members>fprd__GBL_product_config.Periodicidad_PC00060</members>
-<members>fprd__GBL_product_config.Periodicity_commission_PC00029</members>
-<members>fprd__GBL_product_config.PlazoIG_PC00001</members>
-<members>fprd__GBL_product_config.PlazoIG_PC00005</members>
-<members>fprd__GBL_product_config.PlazoIG_PC00007</members>
-<members>fprd__GBL_product_config.PlazoIG_PC00014</members>
-<members>fprd__GBL_product_config.PlazoIG_PC00029</members>
-<members>fprd__GBL_product_config.Plazo_s_Operaci_n_PC00014</members>
-<members>fprd__GBL_product_config.TCartaFianzaG_PC00029</members>
-<members>fprd__GBL_product_config.tcf_beneficiary_PC00029</members>
-<members>fprd__GBL_product_config.tcf_Legal_VB_text_PC00029</members>
-<members>fprd__GBL_product_config.tcf_type_beneficiary_PC00029</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00001</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00002</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00003</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00004</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00005</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00006</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00007</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00008</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00009</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00010</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00011</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00012</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00013</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00015</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00016</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00017</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00018</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00019</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00020</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00021</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00022</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00023</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00024</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00025</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00026</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00027</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00028</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00030</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00031</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00032</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00033</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00034</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00035</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00036</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00037</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00038</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00039</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00040</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00041</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00042</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00043</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00044</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00045</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00046</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00047</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00048</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00049</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00050</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00051</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00052</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00053</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00054</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00055</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00056</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00057</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00058</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00059</members>
-<members>fprd__GBL_product_config.Tipo_amortizacion_PC00060</members>
-<members>fprd__GBL_product_config.Tipo_garantia_PC00001</members>
-<members>fprd__GBL_product_config.Tipo_garantia_PC00014</members>
-<members>fprd__GBL_product_config.Tipo_garantia_PC00029</members>
+        <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00014</members>
+        <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00029</members>
+        <members>fprd__GBL_dependent_list.dependientDineraria</members>
+        <members>fprd__GBL_dependent_list.dependientDineraria_PC00014</members>
+        <members>fprd__GBL_dependent_list.dependientDineraria_PC0029</members>
+        <members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00005</members>
+        <members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00007</members>
+        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00001</members>
+        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00005</members>
+        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00007</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00001</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00002</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00003</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00004</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00005</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00006</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00007</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00008</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00009</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00010</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00011</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00012</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00013</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00015</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00016</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00017</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00018</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00019</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00020</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00021</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00022</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00023</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00024</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00025</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00026</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00027</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00028</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00030</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00031</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00032</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00033</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00034</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00035</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00036</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00037</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00038</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00039</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00040</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00041</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00042</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00043</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00044</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00045</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00046</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00047</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00048</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00049</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00050</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00051</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00052</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00053</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00054</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00055</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00056</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00057</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00058</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00059</members>
+        <members>fprd__GBL_product_config.Amortizacion_PC00060</members>
+        <members>fprd__GBL_product_config.Cobertura_PC00001</members>
+        <members>fprd__GBL_product_config.Cobertura_PC00014</members>
+        <members>fprd__GBL_product_config.Cobertura_PC00029</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00001</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00002</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00003</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00004</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00005</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00006</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00007</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00008</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00009</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00010</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00011</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00012</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00013</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00015</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00016</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00017</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00018</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00019</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00020</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00021</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00022</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00023</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00024</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00025</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00026</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00027</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00028</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00030</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00031</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00032</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00033</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00034</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00035</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00036</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00037</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00038</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00039</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00040</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00041</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00042</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00043</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00044</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00045</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00046</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00047</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00048</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00049</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00050</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00051</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00052</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00053</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00054</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00055</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00056</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00057</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00058</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00059</members>
+        <members>fprd__GBL_product_config.Codigo_Simulacion_PC00060</members>
+        <members>fprd__GBL_product_config.Codigo_SIO</members>
+        <members>fprd__GBL_product_config.cpliq_Manual_PC00005</members>
+        <members>fprd__GBL_product_config.CreatedBy</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00001</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00002</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00003</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00004</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00005</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00006</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00007</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00008</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00009</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00010</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00011</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00012</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00013</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00014</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00015</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00016</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00017</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00018</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00019</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00020</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00021</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00022</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00023</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00024</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00025</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00026</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00027</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00028</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00029</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00030</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00031</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00032</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00033</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00034</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00035</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00036</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00037</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00038</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00039</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00040</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00041</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00042</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00043</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00044</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00045</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00046</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00047</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00048</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00049</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00050</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00051</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00052</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00053</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00054</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00055</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00056</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00057</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00058</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00059</members>
+        <members>fprd__GBL_product_config.Cuenta_vinculada_PC00060</members>
+        <members>fprd__GBL_product_config.da_Alt_Email_PC00005</members>
+        <members>fprd__GBL_product_config.da_Alt_Email_PC00007</members>
+        <members>fprd__GBL_product_config.da_Amount_PC00005</members>
+        <members>fprd__GBL_product_config.da_Amount_PC00007</members>
+        <members>fprd__GBL_product_config.da_Available_Balance_PC00005</members>
+        <members>fprd__GBL_product_config.da_Available_Balance_PC00007</members>
+        <members>fprd__GBL_product_config.da_Client_Email_PC00005</members>
+        <members>fprd__GBL_product_config.da_Client_Email_PC00007</members>
+        <members>fprd__GBL_product_config.da_Currency_PC00005</members>
+        <members>fprd__GBL_product_config.da_Currency_PC00007</members>
+        <members>fprd__GBL_product_config.da_Destination_Country_PC00005</members>
+        <members>fprd__GBL_product_config.da_Destination_Country_PC00007</members>
+        <members>fprd__GBL_product_config.da_Exporter_PC00005</members>
+        <members>fprd__GBL_product_config.da_Importer_PC00005</members>
+        <members>fprd__GBL_product_config.da_Importer_PC00007</members>
+        <members>fprd__GBL_product_config.da_Line_Excess_PC00005</members>
+        <members>fprd__GBL_product_config.da_Line_Excess_PC00007</members>
+        <members>fprd__GBL_product_config.da_Merchandise_Detail_PC00005</members>
+        <members>fprd__GBL_product_config.da_Merchandise_Detail_PC00007</members>
+        <members>fprd__GBL_product_config.da_nOperation_PC00005</members>
+        <members>fprd__GBL_product_config.da_nOperation_PC00007</members>
+        <members>fprd__GBL_product_config.da_Observations_PC00005</members>
+        <members>fprd__GBL_product_config.da_Observations_PC00007</members>
+        <members>fprd__GBL_product_config.da_Origin_Country_PC00005</members>
+        <members>fprd__GBL_product_config.da_Replacement_financing_PC00005</members>
+        <members>fprd__GBL_product_config.da_Replacement_financing_PC00007</members>
+        <members>fprd__GBL_product_config.da_Replacement_Reason_PC00005</members>
+        <members>fprd__GBL_product_config.da_Replacement_Reason_PC00007</members>
+        <members>fprd__GBL_product_config.da_Riesgo_Aprobado_PC00005</members>
+        <members>fprd__GBL_product_config.da_Riesgo_Aprobado_PC00007</members>
+        <members>fprd__GBL_product_config.da_Used_Risk_PC00005</members>
+        <members>fprd__GBL_product_config.da_Used_Risk_PC00007</members>
+        <members>fprd__GBL_product_config.Destino_PC00001</members>
+        <members>fprd__GBL_product_config.dlf_Portfolio_effectiveness_PC00014</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00001</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00002</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00003</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00004</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00005</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00006</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00007</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00008</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00009</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00010</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00011</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00012</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00013</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00015</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00016</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00017</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00018</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00019</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00020</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00021</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00022</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00023</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00024</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00025</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00026</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00027</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00028</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00029</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00030</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00031</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00032</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00033</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00034</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00035</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00036</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00037</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00038</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00039</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00040</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00041</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00042</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00043</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00044</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00045</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00046</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00047</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00048</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00049</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00050</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00051</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00052</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00053</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00054</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00055</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00056</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00057</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00058</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00059</members>
+        <members>fprd__GBL_product_config.Fecha_Vencimiento_PC00060</members>
+        <members>fprd__GBL_product_config.GarantiaDineraria_PC00001</members>
+        <members>fprd__GBL_product_config.GarantiaNoDineraria_PC00001</members>
+        <members>fprd__GBL_product_config.Garantia_PC00001</members>
+        <members>fprd__GBL_product_config.Garantia_PC00014</members>
+        <members>fprd__GBL_product_config.Garantia_PC00029</members>
+        <members>fprd__GBL_product_config.gipr_Cobertura_PC00005</members>
+        <members>fprd__GBL_product_config.gipr_Cobertura_PC00007</members>
+        <members>fprd__GBL_product_config.gipr_Comex_Bag_PC00005</members>
+        <members>fprd__GBL_product_config.gipr_Comex_Bag_PC00007</members>
+        <members>fprd__GBL_product_config.gipr_Contract_Number_PC00005</members>
+        <members>fprd__GBL_product_config.gipr_Contract_Number_PC00007</members>
+        <members>fprd__GBL_product_config.gipr_Garantia_PC00005</members>
+        <members>fprd__GBL_product_config.gipr_Garantia_PC00007</members>
+        <members>fprd__GBL_product_config.gipr_Importation_Modality_PC00005</members>
+        <members>fprd__GBL_product_config.gipr_Modality_PC00005</members>
+        <members>fprd__GBL_product_config.gipr_Modality_PC00007</members>
+        <members>fprd__GBL_product_config.gipr_PaymentM_PC00005</members>
+        <members>fprd__GBL_product_config.gipr_PaymentM_PC00007</members>
+        <members>fprd__GBL_product_config.gipr_Periodicidad_PC00005</members>
+        <members>fprd__GBL_product_config.gipr_Periodicidad_PC00007</members>
+        <members>fprd__GBL_product_config.gipr_Tipo_garantia_PC00005</members>
+        <members>fprd__GBL_product_config.gipr_Tipo_garantia_PC00007</members>
+        <members>fprd__GBL_product_config.Importe_PC00014</members>
+        <members>fprd__GBL_product_config.Importe_PC00029</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00001</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00002</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00003</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00004</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00005</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00006</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00007</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00008</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00009</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00010</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00011</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00012</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00013</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00015</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00016</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00017</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00018</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00019</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00020</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00021</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00022</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00023</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00024</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00025</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00026</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00027</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00028</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00030</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00031</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00032</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00033</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00034</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00035</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00036</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00037</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00038</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00039</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00040</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00041</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00042</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00043</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00044</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00045</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00046</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00047</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00048</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00049</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00050</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00051</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00052</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00053</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00054</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00055</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00056</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00057</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00058</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00059</members>
+        <members>fprd__GBL_product_config.n_Gracia_PC00060</members>
+        <members>fprd__GBL_product_config.n_PC00001</members>
+        <members>fprd__GBL_product_config.n_PC00002</members>
+        <members>fprd__GBL_product_config.n_PC00003</members>
+        <members>fprd__GBL_product_config.n_PC00004</members>
+        <members>fprd__GBL_product_config.n_PC00005</members>
+        <members>fprd__GBL_product_config.n_PC00006</members>
+        <members>fprd__GBL_product_config.n_PC00007</members>
+        <members>fprd__GBL_product_config.n_PC00008</members>
+        <members>fprd__GBL_product_config.n_PC00009</members>
+        <members>fprd__GBL_product_config.n_PC00010</members>
+        <members>fprd__GBL_product_config.n_PC00011</members>
+        <members>fprd__GBL_product_config.n_PC00012</members>
+        <members>fprd__GBL_product_config.n_PC00013</members>
+        <members>fprd__GBL_product_config.n_PC00015</members>
+        <members>fprd__GBL_product_config.n_PC00016</members>
+        <members>fprd__GBL_product_config.n_PC00017</members>
+        <members>fprd__GBL_product_config.n_PC00018</members>
+        <members>fprd__GBL_product_config.n_PC00019</members>
+        <members>fprd__GBL_product_config.n_PC00020</members>
+        <members>fprd__GBL_product_config.n_PC00021</members>
+        <members>fprd__GBL_product_config.n_PC00022</members>
+        <members>fprd__GBL_product_config.n_PC00023</members>
+        <members>fprd__GBL_product_config.n_PC00024</members>
+        <members>fprd__GBL_product_config.n_PC00025</members>
+        <members>fprd__GBL_product_config.n_PC00026</members>
+        <members>fprd__GBL_product_config.n_PC00027</members>
+        <members>fprd__GBL_product_config.n_PC00028</members>
+        <members>fprd__GBL_product_config.n_PC00030</members>
+        <members>fprd__GBL_product_config.n_PC00031</members>
+        <members>fprd__GBL_product_config.n_PC00032</members>
+        <members>fprd__GBL_product_config.n_PC00033</members>
+        <members>fprd__GBL_product_config.n_PC00034</members>
+        <members>fprd__GBL_product_config.n_PC00035</members>
+        <members>fprd__GBL_product_config.n_PC00036</members>
+        <members>fprd__GBL_product_config.n_PC00037</members>
+        <members>fprd__GBL_product_config.n_PC00038</members>
+        <members>fprd__GBL_product_config.n_PC00039</members>
+        <members>fprd__GBL_product_config.n_PC00040</members>
+        <members>fprd__GBL_product_config.n_PC00041</members>
+        <members>fprd__GBL_product_config.n_PC00042</members>
+        <members>fprd__GBL_product_config.n_PC00043</members>
+        <members>fprd__GBL_product_config.n_PC00044</members>
+        <members>fprd__GBL_product_config.n_PC00045</members>
+        <members>fprd__GBL_product_config.n_PC00046</members>
+        <members>fprd__GBL_product_config.n_PC00047</members>
+        <members>fprd__GBL_product_config.n_PC00048</members>
+        <members>fprd__GBL_product_config.n_PC00049</members>
+        <members>fprd__GBL_product_config.n_PC00050</members>
+        <members>fprd__GBL_product_config.n_PC00051</members>
+        <members>fprd__GBL_product_config.n_PC00052</members>
+        <members>fprd__GBL_product_config.n_PC00053</members>
+        <members>fprd__GBL_product_config.n_PC00054</members>
+        <members>fprd__GBL_product_config.n_PC00055</members>
+        <members>fprd__GBL_product_config.n_PC00056</members>
+        <members>fprd__GBL_product_config.n_PC00057</members>
+        <members>fprd__GBL_product_config.n_PC00058</members>
+        <members>fprd__GBL_product_config.n_PC00059</members>
+        <members>fprd__GBL_product_config.n_PC00060</members>
+        <members>fprd__GBL_product_config.PeriodicidadIG_PC00001</members>
+        <members>fprd__GBL_product_config.PeriodicidadIG_PC00014</members>
+        <members>fprd__GBL_product_config.PeriodicidadIG_PC00029</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00001</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00002</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00003</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00004</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00005</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00006</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00007</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00008</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00009</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00010</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00011</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00012</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00013</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00015</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00016</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00017</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00018</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00019</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00020</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00021</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00022</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00023</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00024</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00025</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00026</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00027</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00028</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00030</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00031</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00032</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00033</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00034</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00035</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00036</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00037</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00038</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00039</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00040</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00041</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00042</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00043</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00044</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00045</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00046</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00047</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00048</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00049</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00050</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00051</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00052</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00053</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00054</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00055</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00056</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00057</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00058</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00059</members>
+        <members>fprd__GBL_product_config.Periodicidad_Gracia_PC00060</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00001</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00002</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00003</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00004</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00005</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00006</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00007</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00008</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00009</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00010</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00011</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00012</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00013</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00015</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00016</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00017</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00018</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00019</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00020</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00021</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00022</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00023</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00024</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00025</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00026</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00027</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00028</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00030</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00031</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00032</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00033</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00034</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00035</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00036</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00037</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00038</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00039</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00040</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00041</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00042</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00043</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00044</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00045</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00046</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00047</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00048</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00049</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00050</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00051</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00052</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00053</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00054</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00055</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00056</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00057</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00058</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00059</members>
+        <members>fprd__GBL_product_config.Periodicidad_PC00060</members>
+        <members>fprd__GBL_product_config.Periodicity_commission_PC00029</members>
+        <members>fprd__GBL_product_config.PlazoIG_PC00001</members>
+        <members>fprd__GBL_product_config.PlazoIG_PC00005</members>
+        <members>fprd__GBL_product_config.PlazoIG_PC00007</members>
+        <members>fprd__GBL_product_config.PlazoIG_PC00014</members>
+        <members>fprd__GBL_product_config.PlazoIG_PC00029</members>
+        <members>fprd__GBL_product_config.Plazo_s_Operaci_n_PC00014</members>
+        <members>fprd__GBL_product_config.TCartaFianzaG_PC00029</members>
+        <members>fprd__GBL_product_config.tcf_beneficiary_PC00029</members>
+        <members>fprd__GBL_product_config.tcf_Legal_VB_text_PC00029</members>
+        <members>fprd__GBL_product_config.tcf_type_beneficiary_PC00029</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00001</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00002</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00003</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00004</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00005</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00006</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00007</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00008</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00009</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00010</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00011</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00012</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00013</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00015</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00016</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00017</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00018</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00019</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00020</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00021</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00022</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00023</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00024</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00025</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00026</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00027</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00028</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00030</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00031</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00032</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00033</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00034</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00035</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00036</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00037</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00038</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00039</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00040</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00041</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00042</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00043</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00044</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00045</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00046</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00047</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00048</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00049</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00050</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00051</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00052</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00053</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00054</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00055</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00056</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00057</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00058</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00059</members>
+        <members>fprd__GBL_product_config.Tipo_amortizacion_PC00060</members>
+        <members>fprd__GBL_product_config.Tipo_garantia_PC00001</members>
+        <members>fprd__GBL_product_config.Tipo_garantia_PC00014</members>
+        <members>fprd__GBL_product_config.Tipo_garantia_PC00029</members>
         <name>CustomMetadata</name>
     </types>
-	
+    <types>
+        <members>Opportunity.Ruta</members>
+        <name>BusinessProcess</name>
+    </types>
 	<version>42.0</version>
 </Package>
