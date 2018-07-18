@@ -33,7 +33,7 @@ public class BBVA_SBS_Classification_Test {
         year_month_day_date__c=System.date.today()));
         BBVAC.add(new Account_BBVA_Classification__c(
         account_id__c=testAccts[i].Id,
-        bbva_classification_type__c=((i+1)*10),
+        bbva_classification_type__c=String.valueOf((i+1)*10),
         Unique_Id__c=string.valueOf(i),
         year_month_day_date__c=System.date.today()));
     }
