@@ -166,6 +166,11 @@ Analistas de riesgos</description>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Product2.pdf__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Product2.formalization__c</field>
         <readable>true</readable>
     </fieldPermissions>
