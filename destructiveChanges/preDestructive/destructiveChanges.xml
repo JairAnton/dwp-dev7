@@ -6,6 +6,20 @@
 		<name>CustomField</name>
     </types>
 	<types>
+		<members>fprd__GBL_dependent_list.dependentNoDineraria</members>
+        <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00014</members>
+        <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00029</members>
+        <members>fprd__GBL_dependent_list.dependientDineraria</members>
+        <members>fprd__GBL_dependent_list.dependientDineraria_PC00014</members>
+        <members>fprd__GBL_dependent_list.dependientDineraria_PC0029</members>
+        <members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00005</members>
+        <members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00007</members>
+        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00001</members>
+        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00005</members>
+        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00007</members>
+		<name>CustomMetadata</name>
+	</types>
+	<types>
 		<members>Renewal_Route</members>
 		<members>New_Bussiness_Route</members>
 		<name>PathAssistant</name>

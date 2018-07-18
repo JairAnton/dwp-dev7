@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>  
-        <members>fprd__GBL_dependent_list.dependentNoDineraria</members>
-        <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00014</members>
-        <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00029</members>
-        <members>fprd__GBL_dependent_list.dependientDineraria</members>
-        <members>fprd__GBL_dependent_list.dependientDineraria_PC00014</members>
-        <members>fprd__GBL_dependent_list.dependientDineraria_PC0029</members>
-        <members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00005</members>
-        <members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00007</members>
-        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00001</members>
-        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00005</members>
-        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00007</members>
+    <types>
         <members>fprd__GBL_product_config.Amortizacion_PC00001</members>
         <members>fprd__GBL_product_config.Amortizacion_PC00002</members>
         <members>fprd__GBL_product_config.Amortizacion_PC00003</members>
@@ -619,10 +608,6 @@
         <members>fprd__GBL_product_config.Tipo_garantia_PC00014</members>
         <members>fprd__GBL_product_config.Tipo_garantia_PC00029</members>
         <name>CustomMetadata</name>
-    </types>
-    <types>
-        <members>Opportunity.Ruta</members>
-        <name>BusinessProcess</name>
     </types>
 	<version>42.0</version>
 </Package>
