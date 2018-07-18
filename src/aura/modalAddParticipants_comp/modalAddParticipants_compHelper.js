@@ -78,6 +78,20 @@
 	                	}
 	                }
 
+	                if(Name.length<=0 || Name==null)
+	                {
+	                	errMsg=true;
+	                	component.set("v.errMessage","El Nombre es obligatorio.");
+	                	helper.handleShowToast(component,event,helper);   
+	                }
+
+	                if (NDOI!=parseInt(NDOI) || parseInt(NDOI)<0)
+	                {
+	                	errMsg=true;
+	                	component.set("v.errMessage","El campo de N° DOI debe ser entero y positivo.");
+	                	helper.handleShowToast(component,event,helper);   
+	                }
+
 	                var inputCmp = component.find("txtNDOI");
 			        var value = inputCmp.get("v.value");
 

@@ -87,28 +87,33 @@ public without sharing class Product_cls {
     @AuraEnabled public static Boolean saveGuaranteeDataByProduct(String PGuaranteeId,String IdOpportunity,String IdProuduct,String GuaranteeType,String Guarantee,String Modality,Decimal Amount,String Status,Integer Term,String Periodicity,Integer nGuarantee){
         try
         {     
-            fprd__GBL_Guarantee__c row;
-            if(PGuaranteeId!=null)		
-                row = [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c FROM fprd__GBL_Guarantee__c Where Id=: PGuaranteeId];
-            else row = new fprd__GBL_Guarantee__c();
+            List<Opportunity> isAuth = [select id from Opportunity  where OwnerId=:UserInfo.getUserId() and Id=:IdOpportunity Limit 1];
+            if(!isAuth.isEmpty())
+            {
+                fprd__GBL_Guarantee__c row;
+                if(PGuaranteeId!=null)		
+                    row = [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c FROM fprd__GBL_Guarantee__c Where Id=: PGuaranteeId];
+                else row = new fprd__GBL_Guarantee__c();
 
-            System.debug(row+'-'+PGuaranteeId+'-'+IdOpportunity+'-'+IdProuduct+'-'+GuaranteeType+'-'+Guarantee+'-'+Modality+'-'+Amount+'-'+Status+'-'+Term+'-'+Periodicity+'-'+nGuarantee);
+                System.debug(row+'-'+PGuaranteeId+'-'+IdOpportunity+'-'+IdProuduct+'-'+GuaranteeType+'-'+Guarantee+'-'+Modality+'-'+Amount+'-'+Status+'-'+Term+'-'+Periodicity+'-'+nGuarantee);
+              
+
           
-
-      
-            row.Opportunity__c=IdOpportunity;
-            row.fprd__GBL_Opportunity_product__c=IdOpportunity;
-            row.Product__c=IdProuduct;
-            row.GuaranteeType__c=GuaranteeType;
-            row.Guarantee__c=Guarantee;
-            if(nGuarantee!=null) row.nGuarantee__c=nGuarantee;
-            row.Modality__c=Modality;
-            if(Amount!=null) row.Amount__c=Amount;
-            if(Status!=null) row.Status__c=Status;
-            if(Periodicity!=null) row.Periodicity__c=Periodicity;
-            if(Term!=null)  row.Term__c=Term;
-            if(PGuaranteeId!=null) update row; else insert row;	
-            return true;
+                row.Opportunity__c=IdOpportunity;
+                row.fprd__GBL_Opportunity_product__c=IdOpportunity;
+                row.Product__c=IdProuduct;
+                row.GuaranteeType__c=GuaranteeType;
+                row.Guarantee__c=Guarantee;
+                if(nGuarantee!=null) row.nGuarantee__c=nGuarantee;
+                row.Modality__c=Modality;
+                if(Amount!=null) row.Amount__c=Amount;
+                if(Status!=null) row.Status__c=Status;
+                if(Periodicity!=null) row.Periodicity__c=Periodicity;
+                if(Term!=null)  row.Term__c=Term;
+                if(PGuaranteeId!=null) update row; else insert row;	
+                return true;
+            }
+            else return false;
         }
         catch(Dmlexception exp)
         {
@@ -119,20 +124,25 @@ public without sharing class Product_cls {
     
     
     @AuraEnabled public static Boolean saveParticipantDataByProduct(String PParticipantId,String IdOpportunity,String IdProuduct,String Name,String DOI,String N_DOI,String Participation,String Marital_Status){
-        fprd__GBL_Intervener__c row;
-        if(PParticipantId!=null)		
-            row = [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c FROM fprd__GBL_Intervener__c Where Id=:PParticipantId ];
-        else row = new fprd__GBL_Intervener__c();
-        row.Opportunity__c=IdOpportunity;
-        row.fprd__GBL_Opportunity_product__c=IdOpportunity;
-        row.Product__c=IdProuduct;
-        row.Name=Name;
-        row.DOI__c=DOI;
-        row.N_DOI__c=N_DOI;
-        row.Participation__c=Participation;		
-        row.Marital_Status__c=Marital_Status;		
-        if(PParticipantId!=null) update row; else insert row;	
-        return true;
+        List<Opportunity> isAuth = [select id from Opportunity  where OwnerId=:UserInfo.getUserId() and Id=:IdOpportunity Limit 1];
+        if(!isAuth.isEmpty())
+        {
+            fprd__GBL_Intervener__c row;
+            if(PParticipantId!=null)		
+                row = [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c FROM fprd__GBL_Intervener__c Where Id=:PParticipantId ];
+            else row = new fprd__GBL_Intervener__c();
+            row.Opportunity__c=IdOpportunity;
+            row.fprd__GBL_Opportunity_product__c=IdOpportunity;
+            row.Product__c=IdProuduct;
+            row.Name=Name;
+            row.DOI__c=DOI;
+            row.N_DOI__c=N_DOI;
+            row.Participation__c=Participation;		
+            row.Marital_Status__c=Marital_Status;		
+            if(PParticipantId!=null) update row; else insert row;	
+            return true;
+        }
+        else return false;
     }
     
     @AuraEnabled public static String setSanctionPrice(String OpportunityId,String sanAction,String Comments){
