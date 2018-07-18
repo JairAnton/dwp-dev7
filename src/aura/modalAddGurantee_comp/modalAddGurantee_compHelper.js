@@ -132,6 +132,12 @@
                 if(Status=='02')
                 {
                     Term=component.find("txtTerm").get("v.value")+"";
+                    if (Term!=parseInt(Term) || parseInt(Term)<0 || parseInt(Term)>999)
+                    {
+                        errMsg=true;
+                        component.set("v.errMessage","El campo de Plazo debe ser entero, positivo y menor a 999.");
+                        helper.handleShowToast(component,event,helper);   
+                    }
                     Periodicity=component.find("selPeriodicity").get("v.value");
                 }
                 var nGuarantee=null;
@@ -139,10 +145,10 @@
                 {
                  
                     nGuarantee=component.find("txtnGuarantee").get("v.value")+"";
-                    if (nGuarantee!=parseInt(nGuarantee) || parseInt(nGuarantee)<0)
+                    if (nGuarantee!=parseInt(nGuarantee) || parseInt(nGuarantee)<0 || parseInt(nGuarantee)>8)
                     {
                         errMsg=true;
-                        component.set("v.errMessage","El campo de N°Garantía debe ser entero y positivo.");
+                        component.set("v.errMessage","El campo de N°Garantía debe ser entero, positivo y maximo de 8 digitos.");
                         helper.handleShowToast(component,event,helper);   
                     }
                 }
