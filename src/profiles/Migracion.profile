@@ -154,7 +154,12 @@
         <field>Product2.Unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-<fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.pdf__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
         <editable>true</editable>
         <field>Product2.formalization__c</field>
         <readable>true</readable>

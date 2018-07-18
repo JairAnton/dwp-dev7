@@ -195,6 +195,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Product2.pdf__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
         <field>compromiso__c.Product_relate__c</field>
         <readable>true</readable>
     </fieldPermissions>
