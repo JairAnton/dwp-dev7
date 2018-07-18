@@ -477,7 +477,7 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lbFormalization</shortDescription>
-        <value>lbFormalization</value>
+        <value>Formalization</value>
     </labels>    
     <labels>
         <fullName>lblReevaluate</fullName>
@@ -695,5 +695,33 @@
         <protected>false</protected>
         <shortDescription>Account_No_Data</shortDescription>
         <value>No data Account</value>
+    </labels>
+    <labels>
+        <fullName>No_Buttons_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No_Buttons_Message</shortDescription>
+        <value>No actions available</value>
+    </labels>
+    <labels>
+        <fullName>lblComplete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblComplete</shortDescription>
+        <value>Complete</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalize</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalize</shortDescription>
+        <value>Formalize</value>
+    </labels>
+    <labels>
+        <fullName>lblUnlink</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblUnlink</shortDescription>
+        <value>Unlikn</value>
     </labels>
 </CustomLabels>

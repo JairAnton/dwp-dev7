@@ -118,6 +118,10 @@
         <apexClass>approveButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>    
+    <classAccesses>
+        <apexClass>statusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
 	<fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_List_Mejorado__c</field>
@@ -138,7 +142,6 @@
         <field>OpportunityLineItem.gipr_Opcioncompra__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    
     <fieldPermissions>
         <editable>true</editable>
         <field>Pricebook2.Unique_id__c</field>
@@ -2216,6 +2219,36 @@
         <field>Account.branch_level4_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>	                         
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_formalization_indicator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_pdf_indicator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_price_approval_indicator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_price_approval_method__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_risk_approval_indicator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Risk_modality_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>

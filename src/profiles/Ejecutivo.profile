@@ -544,6 +544,10 @@
         <apexClass>dwp_kitv__Visit_form_ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>	
+    <classAccesses>
+        <apexClass>statusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Los cargos pueden ser:
 Gerente de Banca de Empresas
@@ -4168,6 +4172,36 @@ Asistente BE</description>
         <field>dwp_kitv__Visit__c.Notify_meeting_changed_peru__c</field>
         <readable>true</readable>
     </fieldPermissions>		
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_formalization_indicator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_pdf_indicator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_price_approval_indicator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_price_approval_method__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.product_risk_approval_indicator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Risk_modality_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

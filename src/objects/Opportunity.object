@@ -441,7 +441,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-<fields>
+    <fields>
         <fullName>opportunity_status_type__c</fullName>
         <description>Status of an opportunity</description>
         <externalId>false</externalId>
@@ -458,254 +458,273 @@
                 <value>
                     <fullName>01</fullName>
                     <default>false</default>
-                    <label>01</label>
-                </value>
-                <value>
-                    <fullName>02</fullName>
-                    <default>false</default>
-                    <label>02</label>
+                    <label>Inactive</label>
                 </value>
                 <value>
                     <fullName>03</fullName>
                     <default>false</default>
-                    <label>03</label>
+                    <label>Not planned</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>Planned</label>
                 </value>
                 <value>
                     <fullName>04</fullName>
                     <default>false</default>
-                    <label>04</label>
+                    <label>Pending offer to the client</label>
                 </value>
                 <value>
                     <fullName>05</fullName>
                     <default>false</default>
-                    <label>05</label>
+                    <label>Pending customer response</label>
                 </value>
                 <value>
                     <fullName>06</fullName>
                     <default>false</default>
-                    <label>06</label>
+                    <label>Accepted by the client</label>
                 </value>
                 <value>
                     <fullName>07</fullName>
                     <default>false</default>
-                    <label>07</label>
-                </value>
-                <value>
-                    <fullName>08</fullName>
-                    <default>false</default>
-                    <label>08</label>
-                </value>
-                <value>
-                    <fullName>09</fullName>
-                    <default>false</default>
-                    <label>09</label>
-                </value>
-                <value>
-                    <fullName>10</fullName>
-                    <default>false</default>
-                    <label>10</label>
-                </value>
-                <value>
-                    <fullName>11</fullName>
-                    <default>false</default>
-                    <label>11</label>
-                </value>
-                <value>
-                    <fullName>12</fullName>
-                    <default>false</default>
-                    <label>12</label>
-                </value>
-                <value>
-                    <fullName>13</fullName>
-                    <default>false</default>
-                    <label>13</label>
-                </value>
-                <value>
-                    <fullName>14</fullName>
-                    <default>false</default>
-                    <label>14</label>
-                </value>
-                <value>
-                    <fullName>15</fullName>
-                    <default>false</default>
-                    <label>15</label>
-                </value>
-                <value>
-                    <fullName>16</fullName>
-                    <default>false</default>
-                    <label>16</label>
-                </value>
-                <value>
-                    <fullName>17</fullName>
-                    <default>false</default>
-                    <label>17</label>
+                    <label>Not accepted by the client</label>
                 </value>
                 <value>
                     <fullName>18</fullName>
                     <default>false</default>
-                    <label>18</label>
+                    <label>Risk approved directly</label>
                 </value>
                 <value>
-                    <fullName>19</fullName>
+                    <fullName>14</fullName>
                     <default>false</default>
-                    <label>19</label>
+                    <label>Sent for risk approval</label>
                 </value>
                 <value>
-                    <fullName>20</fullName>
+                    <fullName>15</fullName>
                     <default>false</default>
-                    <label>20</label>
+                    <label>Risk authorized</label>
                 </value>
                 <value>
-                    <fullName>21</fullName>
+                    <fullName>16</fullName>
                     <default>false</default>
-                    <label>21</label>
+                    <label>Risk denied</label>
                 </value>
                 <value>
-                    <fullName>22</fullName>
+                    <fullName>17</fullName>
                     <default>false</default>
-                    <label>22</label>
-                </value>
-                <value>
-                    <fullName>23</fullName>
-                    <default>false</default>
-                    <label>23</label>
+                    <label>Risk approved</label>
                 </value>
                 <value>
                     <fullName>24</fullName>
                     <default>false</default>
-                    <label>24</label>
+                    <label>Sent for risk reevaluation</label>
+                </value>
+                <value>
+                    <fullName>08</fullName>
+                    <default>false</default>
+                    <label>Price approved under office delegation</label>
+                </value>
+                <value>
+                    <fullName>09</fullName>
+                    <default>false</default>
+                    <label>Sent for price approval</label>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                    <label>Price authorized</label>
+                </value>
+                <value>
+                    <fullName>13</fullName>
+                    <default>false</default>
+                    <label>Price denied</label>
+                </value>
+                <value>
+                    <fullName>11</fullName>
+                    <default>false</default>
+                    <label>Price approved</label>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                    <label>Sent for price reevaluation</label>
+                </value>
+                <value>
+                    <fullName>19</fullName>
+                    <default>false</default>
+                    <label>Sent for formalization</label>
+                </value>
+                <value>
+                    <fullName>21</fullName>
+                    <default>false</default>
+                    <label>Sent to product unit</label>
+                </value>
+                <value>
+                    <fullName>20</fullName>
+                    <default>false</default>
+                    <label>Returned by documentation</label>
+                </value>
+                <value>
+                    <fullName>23</fullName>
+                    <default>false</default>
+                    <label>Formalized</label>
+                </value>
+                <value>
+                    <fullName>22</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
                 </value>
                 <value>
                     <fullName>25</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>25</label>
                 </value>
                 <value>
                     <fullName>26</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>26</label>
                 </value>
                 <value>
                     <fullName>27</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>27</label>
                 </value>
                 <value>
                     <fullName>28</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>28</label>
                 </value>
                 <value>
                     <fullName>29</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>29</label>
                 </value>
                 <value>
                     <fullName>30</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>30</label>
                 </value>
                 <value>
                     <fullName>31</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>31</label>
                 </value>
                 <value>
                     <fullName>32</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>32</label>
                 </value>
                 <value>
                     <fullName>33</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>33</label>
                 </value>
                 <value>
                     <fullName>34</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>34</label>
                 </value>
                 <value>
                     <fullName>35</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>35</label>
                 </value>
                 <value>
                     <fullName>36</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>36</label>
                 </value>
                 <value>
                     <fullName>37</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>37</label>
                 </value>
                 <value>
                     <fullName>38</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>38</label>
                 </value>
                 <value>
                     <fullName>39</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>39</label>
                 </value>
                 <value>
                     <fullName>40</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>40</label>
                 </value>
                 <value>
                     <fullName>41</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>41</label>
                 </value>
                 <value>
                     <fullName>42</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>42</label>
                 </value>
                 <value>
                     <fullName>43</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>43</label>
                 </value>
                 <value>
                     <fullName>44</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>44</label>
                 </value>
                 <value>
                     <fullName>45</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>45</label>
                 </value>
                 <value>
                     <fullName>46</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>46</label>
                 </value>
                 <value>
                     <fullName>47</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>47</label>
                 </value>
             </valueSetDefinition>
-            <valueSettings>
-                <controllingFieldValue>07</controllingFieldValue>
-                <valueName>36</valueName>
-            </valueSettings>
             <valueSettings>
                 <controllingFieldValue>01</controllingFieldValue>
                 <valueName>01</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>02</controllingFieldValue>
-                <valueName>02</valueName>
+                <valueName>03</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>02</controllingFieldValue>
-                <valueName>03</valueName>
+                <valueName>02</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>03</controllingFieldValue>
@@ -725,27 +744,7 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>04</controllingFieldValue>
-                <valueName>08</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>09</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>10</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>11</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>12</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>13</valueName>
+                <valueName>18</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>04</controllingFieldValue>
@@ -765,119 +764,51 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>04</controllingFieldValue>
-                <valueName>18</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>19</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>20</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>21</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>22</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>23</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
                 <valueName>24</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>04</controllingFieldValue>
-                <valueName>25</valueName>
+                <valueName>08</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>04</controllingFieldValue>
-                <valueName>26</valueName>
+                <valueName>09</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>04</controllingFieldValue>
-                <valueName>27</valueName>
+                <valueName>10</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>04</controllingFieldValue>
-                <valueName>28</valueName>
+                <valueName>13</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>04</controllingFieldValue>
-                <valueName>29</valueName>
+                <valueName>11</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>04</controllingFieldValue>
-                <valueName>30</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>31</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>37</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>38</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>39</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>40</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>41</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>42</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>43</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>44</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>45</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>46</valueName>
+                <valueName>12</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>05</controllingFieldValue>
-                <valueName>32</valueName>
+                <valueName>19</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>05</controllingFieldValue>
-                <valueName>33</valueName>
+                <valueName>21</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>05</controllingFieldValue>
-                <valueName>34</valueName>
+                <valueName>20</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>06</controllingFieldValue>
-                <valueName>35</valueName>
+                <valueName>23</valueName>
             </valueSettings>
-			<valueSettings>
-                <controllingFieldValue>04</controllingFieldValue>
-                <valueName>47</valueName>
+            <valueSettings>
+                <controllingFieldValue>07</controllingFieldValue>
+                <valueName>22</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -1157,6 +1088,31 @@
         <label>PE_ImOwner</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Risk_modality_type__c</fullName>
+        <externalId>false</externalId>
+        <label>Risk modality</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Inside line</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>Requires authorization</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>

@@ -2149,6 +2149,48 @@ operaciones activas</inlineHelpText>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>product_formalization_indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.formalization__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_formalization_indicator</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>product_pdf_indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.pdf__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_pdf_indicator</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>product_price_approval_indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.price_penalty__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_price_approval_indicator</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>product_price_approval_method__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(PricebookEntry.Product2.Type_of_quote__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_price_approval_method</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>product_risk_approval_indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.risk_sanction__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_risk_approval_indicator</label>
+        <type>Checkbox</type>
+    </fields>
     <validationRules>
         <fullName>ContractNo_Validation</fullName>
         <active>true</active>
