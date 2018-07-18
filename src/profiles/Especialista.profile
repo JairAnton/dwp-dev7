@@ -5210,11 +5210,6 @@ Ejecutivos de REDES</description>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account.TempRecordType</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <recordType>Account.dwp_kitv__Customer</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

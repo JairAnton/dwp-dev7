@@ -711,13 +711,6 @@
         <value>Complete</value>
     </labels>
     <labels>
-        <fullName>lblFormalize</fullName>
-        <language>es</language>
-        <protected>false</protected>
-        <shortDescription>lblFormalize</shortDescription>
-        <value>Formalize</value>
-    </labels>
-    <labels>
         <fullName>lblUnlink</fullName>
         <language>en_US</language>
         <protected>false</protected>
