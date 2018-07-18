@@ -3224,102 +3224,97 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Amount__c</field>
+        <field>fprd__GBL_Guarantee__c.Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.GuaranteeType__c</field>
+        <field>fprd__GBL_Guarantee__c.GuaranteeType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Guarantee__c</field>
+        <field>fprd__GBL_Guarantee__c.Guarantee__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Modality__c</field>
+        <field>fprd__GBL_Guarantee__c.Modality__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Opportunity__c</field>
+        <field>fprd__GBL_Guarantee__c.Opportunity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Periodicity__c</field>
+        <field>fprd__GBL_Guarantee__c.Periodicity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Product__c</field>
+        <field>fprd__GBL_Guarantee__c.Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Status__c</field>
+        <field>fprd__GBL_Guarantee__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Term__c</field>
+        <field>fprd__GBL_Guarantee__c.Term__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.isMaster__c</field>
+        <field>fprd__GBL_Guarantee__c.isMaster__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.nGuarantee__c</field>
+        <field>fprd__GBL_Guarantee__c.nGuarantee__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>fprd__GBL_Intervener__c.Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>fprd__GBL_Intervener__c.DOI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>fprd__GBL_Intervener__c.Marital_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Product_Gurantee__c.unique_id_c__c</field>
+        <field>fprd__GBL_Intervener__c.N_DOI__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Participants__c.Account__c</field>
+        <field>fprd__GBL_Intervener__c.Opportunity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Participants__c.DOI__c</field>
+        <field>fprd__GBL_Intervener__c.Participation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Participants__c.Marital_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Product_Participants__c.N_DOI__c</field>
+        <field>fprd__GBL_Intervener__c.Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Participants__c.Opportunity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Product_Participants__c.Participation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Product_Participants__c.Product__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Product_Participants__c.isMaster__c</field>
+        <field>fprd__GBL_Intervener__c.isMaster__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4197,7 +4192,7 @@ Sub Gerentes de oficina</description>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Product_Gurantee__c</object>
+        <object>fprd__GBL_Guarantee__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -4206,7 +4201,7 @@ Sub Gerentes de oficina</description>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Product_Participants__c</object>
+        <object>fprd__GBL_Intervener__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>

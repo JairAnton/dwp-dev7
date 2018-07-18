@@ -8,10 +8,10 @@ public with sharing class classMasterGuarantee_cls {
 	@InvocableMethod(label='Create Master Guarantee' description='Create the row from Product_Guarantee')
  	public static void createMasterGuarantee(List<OpportunityLineItem> listRow)
     {
-        List<Product_Gurantee__c> row =[SELECT Id FROM Product_Gurantee__c WHERE Product__c=: listRow[0].Product2Id and Opportunity__c=: listRow[0].OpportunityId and  isMaster__c=true];
+        List<fprd__GBL_Guarantee__c> row =[SELECT Id FROM fprd__GBL_Guarantee__c WHERE Product__c=: listRow[0].Product2Id and Opportunity__c=: listRow[0].OpportunityId and  isMaster__c=true];
  		if(row.isEmpty())
  		{
- 			Product_Gurantee__c nRow = new Product_Gurantee__c();
+ 			fprd__GBL_Guarantee__c nRow = new fprd__GBL_Guarantee__c();
  			nRow.Product__c=listRow[0].Product2Id;
  			nRow.Opportunity__c=listRow[0].OpportunityId;
  			nRow.GuaranteeType__c=listRow[0].gipr_Tipo_Garantia__c;

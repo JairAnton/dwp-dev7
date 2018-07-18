@@ -11,10 +11,10 @@ public with sharing class classMasterParticipant {
         opName[0].opportunity_product_family__c=opProduct[0].Family;
         update opName[0];
     }
-		List<Product_Participants__c> row =[SELECT Id FROM Product_Participants__c WHERE Product__c=: listRow[0].Product2Id and Opportunity__c=: listRow[0].OpportunityId and  isMaster__c=true];
+		List<fprd__GBL_Intervener__c> row =[SELECT Id FROM fprd__GBL_Intervener__c WHERE Product__c=: listRow[0].Product2Id and Opportunity__c=: listRow[0].OpportunityId and  isMaster__c=true];
  		if(row.isEmpty())
  		{
- 			Product_Participants__c nRow = new Product_Participants__c();
+ 			fprd__GBL_Intervener__c nRow = new fprd__GBL_Intervener__c();
  			nRow.Product__c=listRow[0].Product2Id;
  			nRow.Opportunity__c=listRow[0].OpportunityId; 			
  			nRow.Name=opName[0].Account.Name;
