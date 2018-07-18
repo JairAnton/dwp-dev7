@@ -1,16 +1,13 @@
 ({
     handleShowToast: function(cmp, event, helper) {
-        
-        
-        $A.util.removeClass(cmp.find('divToast'), "slds-hide");
-        
-        window.setTimeout(
-            $A.getCallback(function() {
-                if (cmp.isValid()) {
-                    $A.util.addClass(cmp.find('divToast'), "slds-is-relative");
-                }
-            }),0
-        );
+
+            var toastEvent = $A.get("e.force:showToast"); 
+            toastEvent.setParams({ 
+                title: "Error",
+                message: cmp.get('v.errMessage'), 
+                type: "error" 
+            });    
+            toastEvent.fire();  
     },
     getListValues : function(component) {
         var optPeriodicity = [			
@@ -85,7 +82,7 @@
     },
     saveGuarantee: function(component, event, helper) {
         var errMsg=false;
-        var validated =true;
+        
         var vImporte;
         var vPlazo;
         vImporte=component.find("txtAmount").get("v.value");
@@ -95,33 +92,31 @@
             console.log('Exception: '+exception);   
         }
         if(vImporte<=0){
-            validated =false;
+            errMsg =true;
             var toastEvent = $A.get("e.force:showToast"); 
             toastEvent.setParams({ 
                 title: "Validación en importe",
                 message: "El importe debe ser mayor a 0", 
-                type: "warning" 
+                type: "error" 
             });    
             toastEvent.fire();  
         }
         
         var estado = component.find("selStatus").get("v.value");
         if(vPlazo<=0 &&  estado =='02'){
-            validated =false;
+            errMsg =true;
             var toastEvent = $A.get("e.force:showToast"); 
             toastEvent.setParams({ 
                 title: "Validación en plazo",
                 message: "El plazo debe ser mayor a 0", 
-                type: "warning" 
+                type: "error" 
             });    
             toastEvent.fire();  
         }
         
         
-        if(validated){
-            if(!errMsg)
-            {   	 
-                event.getSource().set("v.disabled", true);	        		
+        
+        	    		
                 var IdOpportunity=component.get("v.OpportunityId");	        		
                 var IdProuduct=component.get("v.ProductId");
                 var PGuaranteeId=component.get("v.PGuaranteeId");
@@ -132,6 +127,7 @@
                 var Status=component.find("selStatus").get("v.value");
                 var Term=null;
                 var Periodicity='';
+                var nGuarantee='';
                 
                 if(Status=='02')
                 {
@@ -140,8 +136,21 @@
                 }
                 var nGuarantee=null;
                 if(Status=='01')
+                {
+                 
                     nGuarantee=component.find("txtnGuarantee").get("v.value")+"";
+                    if (nGuarantee!=parseInt(nGuarantee) || parseInt(nGuarantee)<0)
+                    {
+                        errMsg=true;
+                        component.set("v.errMessage","El campo de N°Garantía debe ser entero y positivo.");
+                        helper.handleShowToast(component,event,helper);   
+                    }
+                }
                 
+            if(!errMsg)
+            {  
+
+                event.getSource().set("v.disabled", true);       
                 var action =  component.get("c.saveGuaranteeDataByProduct");
                 action.setParams({
                     "PGuaranteeId" : PGuaranteeId,
@@ -215,7 +224,7 @@
             }     
             
             
-        }
+        
     }
     
 })

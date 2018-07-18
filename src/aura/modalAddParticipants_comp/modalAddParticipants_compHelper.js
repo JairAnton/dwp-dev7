@@ -2,15 +2,13 @@
 	handleShowToast: function(cmp, event, helper) {
 
 
-	    $A.util.removeClass(cmp.find('divToast'), "slds-hide");
-
-	    window.setTimeout(
-	      $A.getCallback(function() {
-	        if (cmp.isValid()) {
-	          $A.util.addClass(cmp.find('divToast'), "slds-is-relative");
-	        }
-	      }),0
-	    );
+            var toastEvent = $A.get("e.force:showToast"); 
+            toastEvent.setParams({ 
+                title: "Error",
+                message: cmp.get('v.errMessage'), 
+                type: "error" 
+            });    
+            toastEvent.fire();  
 	},
 	getListValues : function(component) {
 		var optDOI = [			
