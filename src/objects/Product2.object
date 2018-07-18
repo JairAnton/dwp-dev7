@@ -86,6 +86,14 @@
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
+	    <fields>
+        <fullName>pdf__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>pdf</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>CurrencyIsoCode</fullName>
         <trackHistory>false</trackHistory>

@@ -12,7 +12,10 @@
                 }else if(response.getReturnValue()==="COTIZA Beta"){
                     cmp.set("v.cotizaBeta" , true);
                     cmp.set("v.title" , "Cotización beta");
-                } else {cmp.set("v.cotiweb" , true); }
+                } else if(response.getReturnValue()==="COTIZADOR"){
+                    cmp.set("v.cotiweb" , true);
+                    cmp.set("v.cotiCotiza" , true);
+                }else {cmp.set("v.cotiweb" , true); }
             } else if (state === "ERROR") {
                 var errors = response.getError();
             }
