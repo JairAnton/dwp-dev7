@@ -88,10 +88,10 @@ public with sharing class BBVA_SBS_Classification_cls {
         for(Account_BBVA_Classification__c  abc : ABBVAC ){
             Integer MonthRec = abc.year_month_day_date__c.Month()-1;
             if(abc.bbva_classification_type__c=='00')   BBVA[MonthsMap.get(MonthRec)]= '5';
-            if(abc.bbva_classification_type__c=='10')  BBVA[MonthsMap.get(MonthRec)]= '4';
-            if(abc.bbva_classification_type__c=='20')  BBVA[MonthsMap.get(MonthRec)]= '3';
-            if(abc.bbva_classification_type__c=='30')  BBVA[MonthsMap.get(MonthRec)]= '2';
-            if(abc.bbva_classification_type__c=='40')  BBVA[MonthsMap.get(MonthRec)]= '1';
+            if(abc.bbva_classification_type__c=='10')  BBVA[MonthsMap.get(MonthRec)]= '1';
+            if(abc.bbva_classification_type__c=='20')  BBVA[MonthsMap.get(MonthRec)]= '2';
+            if(abc.bbva_classification_type__c=='30')  BBVA[MonthsMap.get(MonthRec)]= '3';
+            if(abc.bbva_classification_type__c=='40')  BBVA[MonthsMap.get(MonthRec)]= '4';
          }
 
 
