@@ -9,6 +9,10 @@
 		<members>Renewal_Route</members>
 		<name>PathAssistant</name>
 	</types>
+	<types>
+		<members>Opportunity.Opp_RT_02</members>
+		<name>RecordType</name>
+	</types>
 	<types>        
 <members>fprd__GBL_dependent_list.dependentNoDineraria</members>
 <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00014</members>
