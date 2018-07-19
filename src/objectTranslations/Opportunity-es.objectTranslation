@@ -241,10 +241,6 @@
         <name>sio_status_type__c</name>
     </fields>
     <fields>
-        <label>Visitas</label>
-        <name>Visit__c</name>
-    </fields>
-    <fields>
         <label>Cliente</label>
         <name>account_name__c</name>
     </fields>
