@@ -1912,72 +1912,72 @@
     </fieldPermissions>
    <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Guarantee__c</field>
+        <field>fprd__GBL_Guarantee__c.Guarantee__c</field>
         <readable>true</readable>
     </fieldPermissions>
   <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Modality__c</field>
+        <field>fprd__GBL_Guarantee__c.Modality__c</field>
         <readable>true</readable>
   </fieldPermissions>
   <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Status__c</field>
+        <field>fprd__GBL_Guarantee__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
  <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Term__c</field>
+        <field>fprd__GBL_Guarantee__c.Term__c</field>
         <readable>true</readable>
     </fieldPermissions>
 <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Periodicity__c</field>
+        <field>fprd__GBL_Guarantee__c.Periodicity__c</field>
         <readable>true</readable>
     </fieldPermissions>
  <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.Amount__c</field>
+        <field>fprd__GBL_Guarantee__c.Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
  <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.DOI__c</field>
+        <field>fprd__GBL_Intervener__c.DOI__c</field>
         <readable>true</readable>
     </fieldPermissions>  
   <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.Participation__c</field>
+        <field>fprd__GBL_Intervener__c.Participation__c</field>
         <readable>true</readable>
     </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.Name</field>
+        <field>fprd__GBL_Intervener__c.Name</field>
         <readable>true</readable>
     </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.Marital_Status__c</field>
+        <field>fprd__GBL_Intervener__c.Marital_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>    
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.DOI__c</field>
+        <field>fprd__GBL_Intervener__c.DOI__c</field>
         <readable>true</readable>
     </fieldPermissions>  
   <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.Participation__c</field>
+        <field>fprd__GBL_Intervener__c.Participation__c</field>
         <readable>true</readable>
     </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.Name</field>
+        <field>fprd__GBL_Intervener__c.Name</field>
         <readable>true</readable>
     </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.Marital_Status__c</field>
+        <field>fprd__GBL_Intervener__c.Marital_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>       
    <fieldPermissions>
@@ -1992,7 +1992,7 @@
 </fieldPermissions> 
  <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Gurantee__c.nGuarantee__c</field>
+        <field>fprd__GBL_Guarantee__c.nGuarantee__c</field>
         <readable>true</readable>
     </fieldPermissions>      
 <fieldPermissions>
@@ -2032,7 +2032,7 @@
 </fieldPermissions> 
 <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.N_DOI__c</field>
+        <field>fprd__GBL_Intervener__c.N_DOI__c</field>
         <readable>true</readable>
 </fieldPermissions> 
 <fieldPermissions>
@@ -2779,7 +2779,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Product_Gurantee__c</object>
+        <object>fprd__GBL_Guarantee__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -2788,7 +2788,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Product_Participants__c</object>
+        <object>fprd__GBL_Intervener__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions> 
     <objectPermissions>

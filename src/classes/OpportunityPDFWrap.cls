@@ -9,8 +9,8 @@ public  virtual class OpportunityPDFWrap {
     Public static User_Branch__c usuarioOficina {get;set;}
     Public static Branch__c Oficina {get;set;}
     Public static Account_Rating__c  Rating {get;set;}
-    Public static list<Product_participants__c> Intervenientes {get;set;}
-    Public static list<Product_Gurantee__c> Garantias {get;set;}
+    Public static list<fprd__GBL_Intervener__c> Intervenientes {get;set;}
+    Public static list<fprd__GBL_Guarantee__c> Garantias {get;set;}
     public static AggregateResult[] totalComprimisos{get;set;}
     public static Integer totalC {get;set;}
     public static String title{get;set;}
@@ -52,9 +52,9 @@ public  virtual class OpportunityPDFWrap {
             msg= 'Datos incompletos en calificación cliente';
             Rating = [SELECT Id,total_rating_score_number__c,Account_Rating__c.rating_scale_type__c  FROM Account_Rating__c WHERE account_id__c  =: Client.Id  ORDER BY createdDate DESC LIMIT 1];
             msg= 'Datos incompletos en intervieniente';
-            Intervenientes =[SELECT toLabel(DOI__c),N_DOI__c, toLabel(Participation__c), Name,toLabel(Marital_Status__c)   FROM Product_participants__c WHERE Opportunity__c =:Oppid];
+            Intervenientes =[SELECT toLabel(DOI__c),N_DOI__c, toLabel(Participation__c), Name,toLabel(Marital_Status__c)   FROM fprd__GBL_Intervener__c WHERE Opportunity__c =:Oppid];
             msg= 'Datos incompletos en garantias';
-            Garantias = [SELECT toLabel(Guarantee__c),nGuarantee__c,toLabel(Modality__c), toLabel(Status__c) , Term__c ,toLabel(Periodicity__c) , Amount__c    FROM Product_Gurantee__c  WHERE Opportunity__c =:Oppid];
+            Garantias = [SELECT toLabel(Guarantee__c),nGuarantee__c,toLabel(Modality__c), toLabel(Status__c) , Term__c ,toLabel(Periodicity__c) , Amount__c    FROM fprd__GBL_Guarantee__c  WHERE Opportunity__c =:Oppid];
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM compromiso__c WHERE Oportunidad__c =:Oppid];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
             docs = [SELECT ID,Name FROM attachment WHERE ParentId =:Oppid];

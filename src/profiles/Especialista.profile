@@ -2965,7 +2965,7 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
    <fieldPermissions>
         <editable>true</editable>
-        <field>Product_participants__c.N_DOI__c</field>
+        <field>fprd__GBL_Intervener__c.N_DOI__c</field>
         <readable>true</readable>
   </fieldPermissions>
  <fieldPermissions>
@@ -3830,7 +3830,7 @@ Ejecutivos de REDES</description>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Product_Gurantee__c</object>
+        <object>fprd__GBL_Guarantee__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3839,7 +3839,7 @@ Ejecutivos de REDES</description>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Product_Participants__c</object>
+        <object>fprd__GBL_Intervener__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
       <objectPermissions>
