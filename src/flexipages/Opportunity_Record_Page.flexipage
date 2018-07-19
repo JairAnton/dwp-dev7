@@ -36,12 +36,24 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>additionalInformation</name>
+                <value>action_opp_sio_code__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>auditDetailsLabel</name>
+                <value>NoAuditDetail</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>auditDisplayId</name>
-                <value>TRSR00001</value>
+                <value>RA</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>dateType</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>strLabelNoData</name>
@@ -53,18 +65,26 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>strTypes</name>
-                <value>TRSR00001</value>
+                <value>Risk Approval</value>
             </componentInstanceProperties>
             <componentName>dwp_cvad:DynamicAuditDisplay_comp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
+                <name>auditDetailsLabel</name>
+                <value>NoAuditDetail</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>auditDisplayId</name>
-                <value>TRSP00001</value>
+                <value>PA</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>dateType</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>strLabelNoData</name>
@@ -76,7 +96,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>strTypes</name>
-                <value>TRSP00001</value>
+                <value>Price Approval</value>
             </componentInstanceProperties>
             <componentName>dwp_cvad:DynamicAuditDisplay_comp</componentName>
         </componentInstances>
@@ -87,6 +107,10 @@
             <componentInstanceProperties>
                 <name>auditDisplayId</name>
                 <value>TRFO00001</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>dateType</name>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>

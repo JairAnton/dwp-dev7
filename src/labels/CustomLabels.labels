@@ -505,7 +505,7 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblSanctionRisk</shortDescription>
-        <value>lblSanctionRisk</value>
+        <value>Risk Approval</value>
     </labels>
     <labels>
         <fullName>lblTitleFormalization</fullName>
