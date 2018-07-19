@@ -780,10 +780,6 @@
         <label>Price Approval</label>
         <name>AuditPriceApproval</name>
     </customLabels>
-    <customLabels>
-        <label>Risk Approval</label>
-        <name>AuditRiskApproval</name>
-    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

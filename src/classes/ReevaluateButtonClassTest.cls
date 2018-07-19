@@ -46,7 +46,6 @@ public  class ReevaluateButtonClassTest {
          prod.price_penalty__c= false;
          update prod;
          ReevaluateButtonClass.start(opptest.Id);
-         ReevaluateButtonClass.getErrorMessagesList(opptest.Id,'Opportunity','');
          ReevaluateButtonClass.setToPrice(opptest.Id);
          ReevaluateButtonClass.setToRisk(opptest.Id);
          Test.stopTest();

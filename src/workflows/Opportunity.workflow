@@ -36,6 +36,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_isProcess_to_False</fullName>
+        <field>isProcess__c</field>
+        <literalValue>0</literalValue>
+        <name>Set isProcess to False</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Opportunity_Workflow_Rule_Source_01</fullName>
         <actions>
@@ -103,15 +112,6 @@
         <description>Change Stage Opportunity</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-    <fieldUpdates>
-        <fullName>Set_isProcess_to_False</fullName>
-        <field>isProcess__c</field>
-        <literalValue>0</literalValue>
-        <name>Set isProcess to False</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
     <rules>
         <fullName>Opp_isProcessStatus</fullName>
         <actions>
