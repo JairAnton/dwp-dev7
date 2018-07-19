@@ -1774,11 +1774,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.LastSIOcode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Product_Gurantee__c.Guarantee__c</field>
         <readable>true</readable>
     </fieldPermissions>
