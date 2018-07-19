@@ -212,6 +212,14 @@
         <label>Número de usuarios</label>
         <name>dwp_kitv__visit_users_number__c</name>
     </fields>
+    <fields>
+        <label>Cliente</label>
+        <name>account_name__c</name>
+    </fields>
+    <fields>
+        <label>Grupo</label>
+        <name>account_parent__c</name>
+    </fields>
     <gender>Feminine</gender>
     <layouts>
         <layout>Visit Layout Account Peru</layout>
