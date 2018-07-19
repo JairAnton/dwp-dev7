@@ -135,7 +135,7 @@
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <!--showGrandTotal>true</showGrandTotal-->
-    <showSubTotals>true</showSubTotals>
+    <!--showSubTotals>true</showSubTotals-->
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c$CreatedDate</dateColumn>
         <interval>INTERVAL_PREVCURFY</interval>

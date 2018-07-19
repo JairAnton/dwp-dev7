@@ -110,7 +110,7 @@
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <!--showGrandTotal>true</showGrandTotal-->
-    <showSubTotals>true</showSubTotals>
+    <!--showSubTotals>true</showSubTotals-->
     <sortColumn>OPPORTUNITY_NAME</sortColumn>
     <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
