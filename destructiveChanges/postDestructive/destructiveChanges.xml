@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-  <!--  <types>
+    <types>
         <members>Product_Gurantee__c</members>
         <members>Product_Participants__c</members>
         <name>CustomObject</name>
@@ -20,11 +20,7 @@
         <members>Product_Gurantee__c-Formato Product_Gurantee</members>
         <members>Product_Participants__c-Formato Product_Participant</members>
         <name>Layout</name>
-    </types>-->
-    <types>
-        <members>Participant_MasterRecord-1</members>
-        <members>Guarantee_MasterRecord-1</members>
-        <name>Flow</name>
+    </types>
     <types>
         <members>fprd__GBL_product_config.Amortizacion_PC00001</members>
         <members>fprd__GBL_product_config.Amortizacion_PC00002</members>
