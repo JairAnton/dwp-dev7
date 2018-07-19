@@ -1,0 +1,13 @@
+<aura:component controller="unlinkButtonClass" implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
+    <aura:attribute name="title" type="String" default="{!$Label.c.lblUnlink}" access="global" description="Specify the modal"/>
+    <div class="slds-modal__content slds-p-around_medium slds-theme_shade" > 
+        <br/>
+        <div class="slds-align_absolute-center">
+                {!$Label.c.msgUnlink}
+        </div>
+    </div>
+    <footer class="slds-modal__footer slds-theme_default">
+        <lightning:button variant="Brand" onclick="{!c.doUnlink}">{!$Label.c.Ok}</lightning:button>
+        <lightning:button variant="neutral" onclick="{!c.doclose}">{!$Label.c.Cancel}</lightning:button>
+    </footer>      
+</aura:component>

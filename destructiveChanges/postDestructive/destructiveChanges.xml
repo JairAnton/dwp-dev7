@@ -609,5 +609,20 @@
         <members>fprd__GBL_product_config.Tipo_garantia_PC00029</members>
         <name>CustomMetadata</name>
     </types>
+    <types>
+        <members>PE_DWP_Correo_cls</members>
+        <members>PE_DWP_Correo_cls_tst</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+		<members>Opportunity.Modality__c</members>
+        <members>Opportunity.LastSIOcode__c</members>
+		<name>CustomField</name>
+    </types>
+    <types>
+		<members>Opportunity_Modal_Modality</members>
+        <members>OpportunityProduct_Comp</members>
+		<name>AuraDefinitionBundle</name>
+    </types>
 	<version>42.0</version>
 </Package>

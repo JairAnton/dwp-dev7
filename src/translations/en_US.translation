@@ -276,4 +276,72 @@
         <label><!-- GBL_ToastSavedOk --></label>
         <name>fprd__GBL_ToastSavedOk</name>
     </customLabels>
+    <customLabels>
+        <label><!-- reevalRisk --></label>
+        <name>reevalRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RiskAuthorized --></label>
+        <name>RiskAuthorized</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- restudyStyle --></label>
+        <name>restudyStyle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reevalPrice --></label>
+        <name>reevalPrice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ApiNameAccount --></label>
+        <name>ApiNameAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditRiskApproval --></label>
+        <name>AuditRiskApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleElevate --></label>
+        <name>AuditStyleElevate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusApprovedInsideLine --></label>
+        <name>lblOpportunityStatusApprovedInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskAuth --></label>
+        <name>lblOpportunityStatusRiskAuth</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusSentRisk --></label>
+        <name>lblOpportunityStatusSentRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ApiNameOpp --></label>
+        <name>ApiNameOpp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RiskDenied --></label>
+        <name>RiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleDeny --></label>
+        <name>AuditStyleDeny</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskDenied --></label>
+        <name>lblOpportunityStatusRiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RiskSendToApproval --></label>
+        <name>RiskSendToApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PriceApproval --></label>
+        <name>PriceApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RiskApproval --></label>
+        <name>RiskApproval</name>
+    </customLabels>
 </Translations>
