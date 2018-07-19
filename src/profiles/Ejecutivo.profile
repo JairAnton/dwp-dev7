@@ -3263,6 +3263,11 @@ Asistente BE</description>
         <field>Product2.Description</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.pdf__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Product2.DisplayUrl</field>
@@ -4278,10 +4283,6 @@ Asistente BE</description>
         <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
     </layoutAssignments>	
     <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
-        <recordType>Opportunity.Opp_RT_01</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>OpportunityLineItem-Opportunity Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -4782,26 +4783,6 @@ Asistente BE</description>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Record_Type_Economic_Group</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account.dwp_kitv__Customer</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Idea.InternalIdeasIdeaRecordType</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Opportunity.Opp_RT_01</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-		<recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account.dwp_kitv__Customer</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>

@@ -1,51 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">	        
-	<types>
+    <types>
 		<members>Account_Renewals__c.product_cateogry_type__c</members>
-		<members>Opportunity.reevaluate__c</members>
-        <members>bbva_classification_type__c</members>
+        <members>Opportunity.reevaluate__c</members>
 		<name>CustomField</name>
+    </types>
+	<types>
+		<members>fprd__GBL_dependent_list.dependentNoDineraria</members>
+        <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00014</members>
+        <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00029</members>
+        <members>fprd__GBL_dependent_list.dependientDineraria</members>
+        <members>fprd__GBL_dependent_list.dependientDineraria_PC00014</members>
+        <members>fprd__GBL_dependent_list.dependientDineraria_PC0029</members>
+        <members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00005</members>
+        <members>fprd__GBL_dependent_list.gipr_dependentNoDineraria_PC00007</members>
+        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00001</members>
+        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00005</members>
+        <members>fprd__GBL_dependent_list.gipr_dependientDineraria_PC00007</members>
+		<name>CustomMetadata</name>
 	</types>
 	<types>
 		<members>Renewal_Route</members>
+		<members>New_Bussiness_Route</members>
 		<name>PathAssistant</name>
 	</types>
-	<types>        
-		<members>fprd__GBL_product_config.Amortizacion_PC00029</members> 
-		<members>fprd__GBL_product_config.Cobertura_PC00029</members>
-		<members>fprd__GBL_product_config.Codigo_Simulacion_PC00029</members> 
-		<members>fprd__GBL_product_config.Cuenta_vinculada_PC00029</members>
-		<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00029</members>
-		<members>fprd__GBL_product_config.Importe_PC00029</members>
-		<members>fprd__GBL_product_config.n_Gracia_PC00029</members>
-		<members>fprd__GBL_product_config.n_PC00029</members>
-		<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00029</members>
-		<members>fprd__GBL_product_config.Periodicidad_PC00029</members>
-		<members>fprd__GBL_product_config.PeriodicidadIG_PC00029</members>
-		<members>fprd__GBL_product_config.Periodicity_commission_PC00029</members>
-		<members>fprd__GBL_product_config.PlazoIG_PC00029</members>
-		<members>fprd__GBL_product_config.TCartaFianzaG_PC00029</members>
-		<members>fprd__GBL_product_config.tcf_beneficiary_PC00029</members>
-		<members>fprd__GBL_product_config.tcf_type_beneficiary_PC00029</members>
-		<members>fprd__GBL_product_config.Tipo_amortizacion_PC00029</members>
-		<members>fprd__GBL_product_config.Tipo_garantia_PC00029</members>
-		<members>fprd__GBL_product_config.Amortizacion_PC00014</members>
-		<members>fprd__GBL_product_config.Cobertura_PC00014</members>	 
-		<members>fprd__GBL_product_config.Codigo_Simulacion_PC00014</members>	 
-		<members>fprd__GBL_product_config.Cuenta_vinculada_PC00014</members>	 
-		<members>fprd__GBL_product_config.dlf_Portfolio_effectiveness_PC00014</members>	 
-		<members>fprd__GBL_product_config.Fecha_Vencimiento_PC00014</members>	 
-		<members>fprd__GBL_product_config.Importe_PC00014</members>	 
-		<members>fprd__GBL_product_config.n_Gracia_PC00014</members>	 
-		<members>fprd__GBL_product_config.n_PC00014</members>	 
-		<members>fprd__GBL_product_config.Periodicidad_Gracia_PC00014</members>	 
-		<members>fprd__GBL_product_config.Periodicidad_PC00014</members>	 
-		<members>fprd__GBL_product_config.PeriodicidadIG_PC00014</members>	 
-		<members>fprd__GBL_product_config.Plazo_s_Operaci_n_PC00014</members>	 
-		<members>fprd__GBL_product_config.PlazoIG_PC00014</members>	 
-		<members>fprd__GBL_product_config.Tipo_amortizacion_PC00014</members>	 
-		<members>fprd__GBL_product_config.Tipo_garantia_PC00014</members>
-        <name>CustomMetadata</name>
-    </types>
 	<version>42.0</version>
 </Package>

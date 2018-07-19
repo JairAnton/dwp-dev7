@@ -195,6 +195,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Product2.pdf__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
         <field>compromiso__c.Product_relate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2548,10 +2553,6 @@
     <layoutAssignments>
         <layout>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</layout>
     </layoutAssignments>	
-    <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
-        <recordType>Opportunity.Opp_RT_01</recordType>
-    </layoutAssignments>
     <layoutAssignments>
         <layout>OpportunityLineItem-Opportunity Product Layout</layout>
     </layoutAssignments>

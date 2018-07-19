@@ -12,7 +12,7 @@ public class Object_controller_tst {
     static List<SObject> mamlon;
     static ID idmamlon;
     static String strmamlon;
-    static Id RecordTypeIdContact = UserInfo.getLanguage()=='en_Us'?Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('New Business').getRecordTypeId():Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Nueva').getRecordTypeId();
+
     @testSetup static void loadData(){
         Account cliente= new Account(Name='Ejemplo',
                                      main_code_id__c='12345678');
@@ -22,8 +22,7 @@ public class Object_controller_tst {
                                        CloseDAte=system.today(),
                                        stageName='01',
                                        opportunity_status_type__c='01',
-                                       CurrencyIsoCode='USD',
-                                       recordtypeId=RecordTypeIdContact
+                                       CurrencyIsoCode='USD'
                                       );
         insert a;
         Product2 p1 = new Product2(Name='Product Monthly 1111', Family='Monthly', isActive=true, CurrencyIsoCode='USD');

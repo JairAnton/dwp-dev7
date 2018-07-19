@@ -154,7 +154,12 @@
         <field>Product2.Unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-<fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.pdf__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
         <editable>true</editable>
         <field>Product2.formalization__c</field>
         <readable>true</readable>
@@ -2385,10 +2390,6 @@
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
-        <recordType>Opportunity.Opp_RT_01</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>OpportunityLineItem-Opportunity Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -2670,11 +2671,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Record_Type_Economic_Group</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Opportunity.Opp_RT_01</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
