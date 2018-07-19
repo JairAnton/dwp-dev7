@@ -93,193 +93,104 @@
     <fields>
         <label><!-- Product family --></label>
         <name>opportunity_product_family__c</name>
-    </fields>
-        <fields>
+    <fields>
         <label><!-- Status --></label>
         <name>opportunity_status_type__c</name>
         <picklistValues>
-            <masterLabel>01</masterLabel>
-            <translation>Inactive</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>02</masterLabel>
-            <translation>Planned</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>03</masterLabel>
-            <translation>Not planned</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>04</masterLabel>
-            <translation>Pending offer to the client</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>05</masterLabel>
-            <translation>Pending customer response</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>06</masterLabel>
+            <masterLabel>Accepted by the client</masterLabel>
             <translation>Accepted by the client</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>07</masterLabel>
-            <translation>Not accepted by the client</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>08</masterLabel>
-            <translation>Authorized price under office delegation</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>09</masterLabel>
-            <translation>Sent for authorization at prices</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>10</masterLabel>
-            <translation>Authorized by prices</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>11</masterLabel>
-            <translation>Approved price</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>12</masterLabel>
-            <translation>Sent for reevaluation at prices</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>13</masterLabel>
-            <translation>1st Entry to Controller</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>14</masterLabel>
-            <translation>Returns Controller</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>15</masterLabel>
-            <translation>Controller entry</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>16</masterLabel>
-            <translation>RVGL Assignment</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>17</masterLabel>
-            <translation>Consultation of Risks to Client</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>18</masterLabel>
-            <translation>Consultation from BE to Client</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>19</masterLabel>
-            <translation>Return</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>20</masterLabel>
-            <translation>Re-entry with answers (1)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>21</masterLabel>
-            <translation>Consultation of Risks to Client (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>22</masterLabel>
-            <translation>Consultation from BE to Client (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>23</masterLabel>
-            <translation>Refund (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>24</masterLabel>
-            <translation>Re-entry with answers (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>25</masterLabel>
-            <translation>End of Evaluation (VB Boss) (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>26</masterLabel>
-            <translation>Assignment Evaluation II</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>27</masterLabel>
-            <translation>Customer Risk Consultation (3)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>28</masterLabel>
-            <translation>Consultation from BE to Client (3)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>29</masterLabel>
-            <translation>Refund (3)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>30</masterLabel>
-            <translation>Re-Entry with Answers (3)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>31</masterLabel>
-            <translation>End of Evaluation (VB Boss) (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>32</masterLabel>
-            <translation>Sent for formalization</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>33</masterLabel>
-            <translation>Returned by documentation</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>34</masterLabel>
-            <translation>Sent to product unit</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>35</masterLabel>
+            <masterLabel>Formalized</masterLabel>
             <translation>Formalized</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>36</masterLabel>
-            <translation>Dismissed</translation>
+            <masterLabel>Inactive</masterLabel>
+            <translation>Inactive</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>37</masterLabel>
-            <translation>Approved Sanction SM</translation>
+            <masterLabel>Not accepted by the client</masterLabel>
+            <translation>Not accepted by the client</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>38</masterLabel>
-            <translation>Approved Sanction CM</translation>
+            <masterLabel>Not planned</masterLabel>
+            <translation>Not planned</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>39</masterLabel>
-            <translation>Denied sanction</translation>
+            <masterLabel>Pending customer response</masterLabel>
+            <translation>Pending customer response</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>40</masterLabel>
-            <translation>Returned Penalty</translation>
+            <masterLabel>Pending offer to the client</masterLabel>
+            <translation>Pending offer to the client</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>41</masterLabel>
-            <translation>Approved Sanction SM (2)</translation>
+            <masterLabel>Planned</masterLabel>
+            <translation>Planned</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>42</masterLabel>
-            <translation>Approved Sanction CM (2)</translation>
+            <masterLabel>Price approved</masterLabel>
+            <translation>Price approved</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>43</masterLabel>
-            <translation>Sanction Denied (2)</translation>
+            <masterLabel>Price approved under office delegation</masterLabel>
+            <translation>Price approved under office delegation</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>44</masterLabel>
-            <translation>Returned Penalty (2)</translation>
+            <masterLabel>Price authorized</masterLabel>
+            <translation>Price authorized</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>45</masterLabel>
-            <translation>Sent for authorization at Risk</translation>
+            <masterLabel>Price denied</masterLabel>
+            <translation>Price denied</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>46</masterLabel>
-            <translation>Approved risk within line</translation>
+            <masterLabel>Rejected</masterLabel>
+            <translation>Rejected</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned by documentation</masterLabel>
+            <translation>Returned by documentation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk approved</masterLabel>
+            <translation>Risk approved</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk approved directly</masterLabel>
+            <translation>Risk approved directly</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk authorized</masterLabel>
+            <translation>Risk authorized</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk denied</masterLabel>
+            <translation>Risk denied</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for formalization</masterLabel>
+            <translation>Sent for formalization</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for price approval</masterLabel>
+            <translation>Sent for price approval</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for price reevaluation</masterLabel>
+            <translation>Sent for price reevaluation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for risk approval</masterLabel>
+            <translation>Sent for risk approval</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for risk reevaluation</masterLabel>
+            <translation>Sent for risk reevaluation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to product unit</masterLabel>
+            <translation>Sent to product unit</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -298,7 +209,7 @@
         <label><!-- Loss reason --></label>
         <name>rejection_reason_id__c</name>
     </fields>
-<fields>
+    <fields>
         <label><!-- Loss winner bank --></label>
         <name>rejection_winner_entity_name__c</name>
         <picklistValues>
@@ -385,6 +296,18 @@
     <fields>
         <label><!-- Unique identifier --></label>
         <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Risk modality --></label>
+        <name>Risk_modality_type__c</name>
+        <picklistValues>
+            <masterLabel>Inside line</masterLabel>
+            <translation>Inside line</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requires authorization</masterLabel>
+            <translation>Requires authorization</translation>
+        </picklistValues>
     </fields>
     <recordTypes>
         <label><!-- New Business --></label>
