@@ -1772,11 +1772,6 @@
         <field>Opportunity.isProcess__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Product_Gurantee__c.Guarantee__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
   <fieldPermissions>
         <editable>true</editable>
         <field>fprd__GBL_Guarantee__c.Modality__c</field>
@@ -2285,6 +2280,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.product_risk_approval_indicator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>

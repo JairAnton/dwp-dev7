@@ -158,14 +158,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>classMasterGuarantee_cls</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>classMasterParticipant</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>dwp_cvad__DynamicAuditDisplay_Ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
