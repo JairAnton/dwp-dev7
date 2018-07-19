@@ -3277,8 +3277,7 @@ Analistas de riesgos</description>
         <field>Account.branch_level4_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
-
-       <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Branch_name_path_desc__c</field>
         <readable>true</readable>
@@ -3377,8 +3376,7 @@ Analistas de riesgos</description>
         <editable>false</editable>
         <field>dwp_kitv__Visit__c.account_parent__c</field>
         <readable>true</readable>
-    </fieldPermissions>	      
-    </fieldPermissions>      
+    </fieldPermissions>	          
     <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.product_formalization_indicator__c</field>

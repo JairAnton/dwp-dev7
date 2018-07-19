@@ -3953,7 +3953,6 @@ Sub Gerentes de oficina</description>
         <field>dwp_kitv__Visit__c.account_parent__c</field>
         <readable>true</readable>
     </fieldPermissions> 	  
-    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Risk_modality_type__c</field>

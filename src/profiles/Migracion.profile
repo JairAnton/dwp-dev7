@@ -2340,8 +2340,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>dwp_kitv__Visit__c.account_parent__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 	                         
+        <readable>true</readable>	                         
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

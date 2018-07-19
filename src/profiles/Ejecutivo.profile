@@ -4205,7 +4205,6 @@ Asistente BE</description>
         <field>OpportunityLineItem.product_risk_approval_indicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    </fieldPermissions>
       <fieldPermissions>
         <editable>true</editable>
         <field>Account.Branch_name_path_desc__c</field>
