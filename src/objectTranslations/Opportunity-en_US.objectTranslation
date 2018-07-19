@@ -93,6 +93,7 @@
     <fields>
         <label><!-- Product family --></label>
         <name>opportunity_product_family__c</name>
+    </fields>
     <fields>
         <label><!-- Status --></label>
         <name>opportunity_status_type__c</name>
@@ -179,10 +180,10 @@
         <picklistValues>
             <masterLabel>Sent for price reevaluation</masterLabel>
             <translation>Sent for price reevaluation</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Sent for risk approval</masterLabel>
-            <translation>Sent for risk approval</translation>
+        </picklistValues>CustomFieldTranslation
+        <picklistValues>CustomFieldTranslation
+            <masterLabel>Sent for rCustomFieldTranslationisk approval</masterLabel>
+            <translation>Sent for rCustomFieldTranslationisk approval</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sent for risk reevaluation</masterLabel>
