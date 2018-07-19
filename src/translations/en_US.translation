@@ -276,4 +276,20 @@
         <label><!-- GBL_ToastSavedOk --></label>
         <name>fprd__GBL_ToastSavedOk</name>
     </customLabels>
+    <customLabels>
+        <label><!-- reevalRisk --></label>
+        <name>reevalRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RiskAuthorized --></label>
+        <name>RiskAuthorized</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- restudyStyle --></label>
+        <name>restudyStyle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reevalPrice --></label>
+        <name>reevalPrice</name>
+    </customLabels>
 </Translations>

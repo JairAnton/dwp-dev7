@@ -712,6 +712,22 @@
         <label>La Oportunidad ha sido correctamente enviada a reevaluar.</label>
         <name>reevalSuccess</name>
     </customLabels>
+    <customLabels>
+        <label>Riesgo autorizado</label>
+        <name>RiskAuthorized</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado para reevaluación de riesgo</label>
+        <name>reevalRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- restudyStyle --></label>
+        <name>restudyStyle</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado para reevaluación a precios</label>
+        <name>reevalPrice</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

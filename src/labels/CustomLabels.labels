@@ -927,4 +927,32 @@
         <shortDescription>reevalSuccess</shortDescription>
         <value>The Opportunity has been successfully sent to reevaluate.</value>
     </labels>
+    <labels>
+        <fullName>reevalRisk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>reevalRisk</shortDescription>
+        <value>Sent for reevaluation at risk</value>
+    </labels>
+    <labels>
+        <fullName>RiskAuthorized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RiskAuthorized</shortDescription>
+        <value>Risk authorized</value>
+    </labels>
+    <labels>
+        <fullName>restudyStyle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>restudyStyle</shortDescription>
+        <value>restudy</value>
+    </labels>
+    <labels>
+        <fullName>reevalPrice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>reevalPrice</shortDescription>
+        <value>Sent for reevaluation at prices</value>
+    </labels>
 </CustomLabels>
