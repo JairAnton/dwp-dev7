@@ -246,7 +246,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>Risk_Approval_cls_Test</apexClass>
+        <apexClass>Risk_Approval_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
