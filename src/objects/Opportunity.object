@@ -961,22 +961,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Visit__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Visit</label>
-        <referenceTo>dwp_kitv__Visit__c</referenceTo>
-        <relationshipLabel>Oportunidades</relationshipLabel>
-        <relationshipName>Oportunidades</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>account_name__c</fullName>
         <externalId>false</externalId>
-        <formula>Visit__r.dwp_kitv__account_id__c</formula>
+        <formula>Account.Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Name</label>
         <required>false</required>
