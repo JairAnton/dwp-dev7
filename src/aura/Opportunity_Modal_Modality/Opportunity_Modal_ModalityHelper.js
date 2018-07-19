@@ -1,4 +1,0 @@
-({
-    requestModal : function(component, event) {
-    }
-})

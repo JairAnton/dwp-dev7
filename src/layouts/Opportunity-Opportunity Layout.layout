@@ -61,6 +61,10 @@
                 <field>CurrencyIsoCode</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Type</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>opportunity_planning_date__c</field>
             </layoutItems>

@@ -24,6 +24,6 @@
     </values>
     <values>
         <field>dwp_dbpn__validation_apex_class_name__c</field>
-        <value xsi:type="xsd:string">approveButtonClass</value>
+        <value xsi:type="xsd:string"></value>
     </values>
 </CustomMetadata>

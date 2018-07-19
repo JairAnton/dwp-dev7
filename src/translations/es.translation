@@ -640,6 +640,162 @@
         <label>No hay datos en la cuenta</label>
         <name>Account_No_Data</name>
     </customLabels>
+    <customLabels>
+        <label>Etapa y estado actualizado correctamente.</label>
+        <name>Toast_opp_saved_ok</name>
+    </customLabels>
+    <customLabels>
+        <label>Riesgo</label>
+        <name>Risk</name>
+    </customLabels>
+    <customLabels>
+        <label>La Oportunidad ha sido correctamente aprobada.</label>
+        <name>approveSucess</name>
+    </customLabels>
+    <customLabels>
+        <label>Contenido del email de SIO</label>
+        <name>displayTitleAuditDetail</name>
+    </customLabels>
+    <customLabels>
+        <label>Aprobar</label>
+        <name>lblOpportunityApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Vincular</label>
+        <name>lblOpportunityLink</name>
+    </customLabels>
+    <customLabels>
+        <label>El código SIO actual es:</label>
+        <name>lblOpportunitySioCodeIs</name>
+    </customLabels>
+    <customLabels>
+        <label>No hay ningún código SIO para este cliente con el criterio de búsqueda solicitado.</label>
+        <name>lblRiskAnySioCode</name>
+    </customLabels>
+    <customLabels>
+        <label>Introduce un código SIO...</label>
+        <name>lblRiskEnterSio</name>
+    </customLabels>
+    <customLabels>
+        <label>Buscar código SIO</label>
+        <name>lblRiskSearchSio</name>
+    </customLabels>
+    <customLabels>
+        <label>El código SIO seleccionado es:</label>
+        <name>lblRiskSioCodeIs</name>
+    </customLabels>
+    <customLabels>
+        <label>No hay acciones disponibles</label>
+        <name>No_Buttons_Message</name>
+    </customLabels>
+    <customLabels>
+        <label>Completar</label>
+        <name>lblComplete</name>
+    </customLabels>
+    <customLabels>
+        <label>Desvincular SIO</label>
+        <name>lblUnlink</name>
+    </customLabels>
+    <customLabels>
+        <label>La oportunidad no tiene código SIO y no puede desvicularse.</label>
+        <name>msgEmptyAudit</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Está seguro de que quiere desvincular el código SIO?</label>
+        <name>msgUnlink</name>
+    </customLabels>
+    <customLabels>
+        <label>Código SIO correctamente desvinculado.</label>
+        <name>msgUnlinkedSIO</name>
+    </customLabels>
+    <customLabels>
+        <label>La Oportunidad ha sido correctamente enviada a reevaluar.</label>
+        <name>reevalSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Riesgo autorizado</label>
+        <name>RiskAuthorized</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado para reevaluación de riesgo</label>
+        <name>reevalRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- restudyStyle --></label>
+        <name>restudyStyle</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado para reevaluación a precios</label>
+        <name>reevalPrice</name>
+    </customLabels>
+     <customLabels>
+        <label><!-- ApiNameAccount --></label>
+        <name>ApiNameAccount</name>
+    </customLabels>
+    <customLabels>
+        <label>Risk Approval</label>
+        <name>AuditRiskApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleElevate --></label>
+        <name>AuditStyleElevate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusApprovedInsideLine --></label>
+        <name>lblOpportunityStatusApprovedInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskAuth --></label>
+        <name>lblOpportunityStatusRiskAuth</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskDenied --></label>
+        <name>lblOpportunityStatusRiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusSentRisk --></label>
+        <name>lblOpportunityStatusSentRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ApiNameOpp --></label>
+        <name>ApiNameOpp</name>
+    </customLabels>
+    <customLabels>
+        <label>Devuelto por riesgos</label>
+        <name>RiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleDeny --></label>
+        <name>AuditStyleDeny</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskDenied --></label>
+        <name>lblOpportunityStatusRiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviada a autorización de riesgos</label>
+        <name>RiskSendToApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Price Approval</label>
+        <name>AuditPriceApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OpportunityStatusInsideLine --></label>
+        <name>OpportunityStatusInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Esta seguro de aprobar la sanción de precio?</label>
+        <name>msgApprovePrice</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Está seguro de aprobar la sanción de riesgo?</label>
+        <name>msgApproveRisk</name>
+    </customLabels>
+    <customLabels>
+        <label>Aprobar Sanción</label>
+        <name>lblApprove</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
@@ -808,5 +964,4 @@
         </flows>
         <fullName>Motivo_Descarte_Oportunidad_V0</fullName>
     </flowDefinitions>
-    
 </Translations>
