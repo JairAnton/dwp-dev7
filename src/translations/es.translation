@@ -728,6 +728,62 @@
         <label>Enviado para reevaluación a precios</label>
         <name>reevalPrice</name>
     </customLabels>
+     <customLabels>
+        <label><!-- ApiNameAccount --></label>
+        <name>ApiNameAccount</name>
+    </customLabels>
+    <customLabels>
+        <label>Risk Approval</label>
+        <name>AuditRiskApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleElevate --></label>
+        <name>AuditStyleElevate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusApprovedInsideLine --></label>
+        <name>lblOpportunityStatusApprovedInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskAuth --></label>
+        <name>lblOpportunityStatusRiskAuth</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskDenied --></label>
+        <name>lblOpportunityStatusRiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusSentRisk --></label>
+        <name>lblOpportunityStatusSentRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ApiNameOpp --></label>
+        <name>ApiNameOpp</name>
+    </customLabels>
+    <customLabels>
+        <label>Devuelto por riesgos</label>
+        <name>RiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleDeny --></label>
+        <name>AuditStyleDeny</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskDenied --></label>
+        <name>lblOpportunityStatusRiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviada a autorización de riesgos</label>
+        <name>RiskSendToApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Price Approval</label>
+        <name>AuditPriceApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Risk Approval</label>
+        <name>AuditRiskApproval</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

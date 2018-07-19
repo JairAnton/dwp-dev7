@@ -955,4 +955,88 @@
         <shortDescription>reevalPrice</shortDescription>
         <value>Sent for reevaluation at prices</value>
     </labels>
+    <labels>
+        <fullName>ApiNameAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ApiNameAccount</shortDescription>
+        <value>Account</value>
+    </labels>
+    <labels>
+        <fullName>RiskApproval</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>RiskApproval</shortDescription>
+        <value>Risk approved</value>
+    </labels>
+    <labels>
+        <fullName>AuditStyleElevate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditStyleElevate</shortDescription>
+        <value>elevate</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityStatusApprovedInsideLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityStatusApprovedInsideLine</shortDescription>
+        <value>18</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityStatusRiskAuth</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityStatusRiskAuth</shortDescription>
+        <value>15</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityStatusRiskDenied</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityStatusRiskDenied</shortDescription>
+        <value>16</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityStatusSentRisk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityStatusSentRisk</shortDescription>
+        <value>14</value>
+    </labels>
+    <labels>
+        <fullName>ApiNameOpp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ApiNameOpp</shortDescription>
+        <value>Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>RiskDenied</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RiskDenied</shortDescription>
+        <value>Risk denied</value>
+    </labels>
+    <labels>
+        <fullName>AuditStyleDeny</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditStyleDeny</shortDescription>
+        <value>deny</value>
+    </labels>
+    <labels>
+        <fullName>RiskSendToApproval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RiskSendToApproval</shortDescription>
+        <value>Send for risk approval</value>
+    </labels>
+    <labels>
+        <fullName>PriceApproval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceApproval</shortDescription>
+        <value>Price approved</value>
+    </labels>
 </CustomLabels>
