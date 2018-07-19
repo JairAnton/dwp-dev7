@@ -4156,7 +4156,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Opportunity.Risk_modality_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4166,7 +4166,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Opportunity.sio_code__c</field>
         <readable>true</readable>
     </fieldPermissions>
