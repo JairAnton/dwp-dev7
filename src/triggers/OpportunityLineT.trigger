@@ -5,6 +5,6 @@
 @HIstorial de cambios:
 - Creacion del Desencadenador
 */
-trigger OpportunityLineT on OpportunityLineItem (Before Insert) {
+trigger OpportunityLineT on OpportunityLineItem (Before Insert,After Insert,After Update) {
     new PE_OpportunityLITTriggerHandler().run();
 }

@@ -90,13 +90,13 @@ public class Product_cls_test {
         	testLOPP.gipr_Tipo_Garantia__c='03';
 			insert testLOPP;
 
-			Product_Gurantee__c testPG = new Product_Gurantee__c();			
+			fprd__GBL_Guarantee__c testPG = new fprd__GBL_Guarantee__c();			
 			testPG.Opportunity__c=testOP.Id;
 			testPG.Product__c=testPr.Id;
         	
 			insert testPG;
 
-			Product_Participants__c testPP = new Product_Participants__c();			
+			fprd__GBL_Intervener__c testPP = new fprd__GBL_Intervener__c();			
 			testPP.Opportunity__c=testOP.Id;
 			testPP.Product__c=testPr.Id;
 			insert testPP;

@@ -23,21 +23,25 @@
     <pathAssistantSteps>
         <fieldNames>Amount</fieldNames>
         <fieldNames>opportunity_status_type__c</fieldNames>
+        <fieldNames>sio_status_type__c</fieldNames>
         <picklistValueName>04</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
         <fieldNames>Amount</fieldNames>
         <fieldNames>opportunity_status_type__c</fieldNames>
+        <fieldNames>sio_status_type__c</fieldNames>
         <picklistValueName>05</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
         <fieldNames>Amount</fieldNames>
         <fieldNames>opportunity_status_type__c</fieldNames>
+        <fieldNames>sio_status_type__c</fieldNames>
         <picklistValueName>06</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
         <fieldNames>Amount</fieldNames>
         <fieldNames>opportunity_status_type__c</fieldNames>
+        <fieldNames>sio_status_type__c</fieldNames>
         <picklistValueName>07</picklistValueName>
     </pathAssistantSteps>
 </PathAssistant>

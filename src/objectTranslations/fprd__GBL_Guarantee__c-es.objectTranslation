@@ -158,9 +158,5 @@
         <label>N Garantia</label>
         <name>nGuarantee__c</name>
     </fields>
-    <fields>
-        <label><!-- unique_id__c --></label>
-        <name>unique_id_c__c</name>
-    </fields>
     <gender>Feminine</gender>
 </CustomObjectTranslation>

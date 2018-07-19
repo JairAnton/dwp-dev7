@@ -76,7 +76,7 @@
                     </aura:iteration>
             </lightning:select>
             <aura:if isTrue="{!v.bStautsF}">
-	            <lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtnGuarantee" name="txtnGuarantee" type="number"  label="N°Garantía" value="" step="0"/> 
+	            <lightning:input class="slds-size_1-of-2 slds-p-horizontal_x-small"  aura:id="txtnGuarantee" name="txtnGuarantee" label="N°Garantía" value="" pattern="[0-9.]+"  /> 
 	            
 	        </aura:if>
            	<aura:if isTrue="{!v.bStauts}">

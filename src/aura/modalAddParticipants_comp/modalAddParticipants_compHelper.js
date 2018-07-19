@@ -2,15 +2,13 @@
 	handleShowToast: function(cmp, event, helper) {
 
 
-	    $A.util.removeClass(cmp.find('divToast'), "slds-hide");
-
-	    window.setTimeout(
-	      $A.getCallback(function() {
-	        if (cmp.isValid()) {
-	          $A.util.addClass(cmp.find('divToast'), "slds-is-relative");
-	        }
-	      }),0
-	    );
+            var toastEvent = $A.get("e.force:showToast"); 
+            toastEvent.setParams({ 
+                title: "Error",
+                message: cmp.get('v.errMessage'), 
+                type: "error" 
+            });    
+            toastEvent.fire();  
 	},
 	getListValues : function(component) {
 		var optDOI = [			
@@ -76,6 +74,20 @@
 	                		component.set("v.errMessage","El campo de N° DOI debe contener 9 digitos.");
 	                		helper.handleShowToast(component,event,helper);   
 	                	}
+	                }
+
+	                if(Name.length<=0 || Name==null)
+	                {
+	                	errMsg=true;
+	                	component.set("v.errMessage","El Nombre es obligatorio.");
+	                	helper.handleShowToast(component,event,helper);   
+	                }
+
+	                if (NDOI!=parseInt(NDOI) || parseInt(NDOI)<0)
+	                {
+	                	errMsg=true;
+	                	component.set("v.errMessage","El campo de N° DOI debe ser entero y positivo.");
+	                	helper.handleShowToast(component,event,helper);   
 	                }
 
 	                var inputCmp = component.find("txtNDOI");
