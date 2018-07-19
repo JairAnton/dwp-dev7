@@ -640,6 +640,18 @@
         <label>No hay datos en la cuenta</label>
         <name>Account_No_Data</name>
     </customLabels>
+    <customLabels>
+        <label>No hay acciones disponibles</label>
+        <name>No_Buttons_Message</name>
+    </customLabels>
+    <customLabels>
+        <label>Completar</label>
+        <name>lblComplete</name>
+    </customLabels>
+    <customLabels>
+        <label>Desvincular SIO</label>
+        <name>lblUnlink</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
