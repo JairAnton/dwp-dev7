@@ -739,7 +739,7 @@
     </fields>
     <fields>
         <label>Regional</label>
-    <field>Branch_name_path_desc__c</name>
+    <name>Branch_name_path_desc__c</name>
     </fields>
     <fields>
         <label>Oficina</label>
