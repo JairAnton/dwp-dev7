@@ -59,7 +59,7 @@ public without sharing class OpportunityProduct_Controller {
             td.Status='Completed';
         }
         op.opportunity_status_type__c=MapStatus.get(valStatus[1]);
-        op.Modality__c='Requires authorization';
+        op.Risk_modality_type__c='02';
         op.isProcess__c=true;
         op.LastSIOcode__c=valStatus[0];
         OpportunityLineItem  oli = new OpportunityLineItem();
@@ -93,8 +93,8 @@ public without sharing class OpportunityProduct_Controller {
         op = [SELECT StageName FROM Opportunity WHERE ID =:opp];
         op.StageName='04';
         op.isProcess__c=true;
-        op.opportunity_status_type__c = '46';
-        op.Modality__c='Inside line';
+        op.opportunity_status_type__c = '18';
+        op.Risk_modality_type__c='01';
         update op;
         op.isProcess__c=false;
         update op;
@@ -109,9 +109,9 @@ public without sharing class OpportunityProduct_Controller {
         list<Modality_Mode__c> mcs = Modality_Mode__c.getAll().values();
         map<String,string> msc2 = new map<String,string>();
         OpportunityLineItem  oli = new OpportunityLineItem();
-        oli = [SELECT Id,tolabel(PE_List_Product_mode__c), Opportunity.Modality__c, Product2.ProductCode FROM OpportunityLineItem 
+        oli = [SELECT Id,tolabel(PE_List_Product_mode__c), Opportunity.Risk_modality_type__c, Product2.ProductCode FROM OpportunityLineItem 
                WHERE OpportunityID =:opp LIMIT 1];
-        if(String.isEmpty(oli.Opportunity.Modality__c)){           
+        if(String.isEmpty(oli.Opportunity.Risk_modality_type__c)){           
             for(Modality_Mode__c m:mcs){
                 if(m.Product_Name__c==oli.Product2.ProductCode)
                     msc2.put(m.Modalidad_producto__c,m.Modality_Select__c);
