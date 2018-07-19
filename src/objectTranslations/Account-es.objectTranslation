@@ -746,10 +746,6 @@
     <name>branch_name__c</name>
     </fields>
     <fields>
-        <label>Clasificacion SBS</label>
-    <name>bureau_classification_type__c</name>
-    </fields>
-    <fields>
         <label>Oficinas</label>
     <name>business_area_desc__c</name>
     </fields>
@@ -764,10 +760,6 @@
     <fields>
         <label>Cantidad de retorno</label>
     <name>curr_company_turnover_amount__c</name>
-    </fields>
-    <fields>
-        <label>EBITDA</label>
-    <name>debt_EBITDA_per__c</name>
     </fields>
     <fields>
         <label>Cantidad de debito</label>
@@ -788,10 +780,6 @@
     <fields>
         <label>Cantidad de recursos</label>
     <name>managed_resources_amount__c</name>
-    </fields>
-    <fields>
-        <label>Cantidad de margen ordinario</label>
-    <name>margin_ordinary_amount__c</name>
     </fields>
     <fields>
         <label>Ingresos .net</label>
