@@ -1039,4 +1039,32 @@
         <shortDescription>PriceApproval</shortDescription>
         <value>Price approved</value>
     </labels>
+    <labels>
+        <fullName>OpportunityStatusInsideLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OpportunityStatusInsideLine</shortDescription>
+        <value>Risk approved directly</value>
+    </labels>
+    <labels>
+        <fullName>msgApprovePrice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>msgApprovePrice</shortDescription>
+        <value>Are you sure to approve the Price sanction?</value>
+    </labels>
+    <labels>
+        <fullName>msgApproveRisk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>msgApproveRisk</shortDescription>
+        <value>Are you sure to approve the risk sanction?</value>
+    </labels>
+    <labels>
+        <fullName>lblApprove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblApprove</shortDescription>
+        <value>Approve Sanction</value>
+    </labels>
 </CustomLabels>

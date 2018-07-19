@@ -780,6 +780,22 @@
         <label>Price Approval</label>
         <name>AuditPriceApproval</name>
     </customLabels>
+    <customLabels>
+        <label><!-- OpportunityStatusInsideLine --></label>
+        <name>OpportunityStatusInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Esta seguro de aprobar la sanción de precio?</label>
+        <name>msgApprovePrice</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Está seguro de aprobar la sanción de riesgo?</label>
+        <name>msgApproveRisk</name>
+    </customLabels>
+    <customLabels>
+        <label>Aprobar Sanción</label>
+        <name>lblApprove</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
