@@ -104,12 +104,12 @@
         <members>lblQuoteGeneralError</members>
         <members>lblQuoteError</members>
 		<members>LblDirectDebt</members>
-<members>LblIndirectDebt</members>
-<members>LblResources</members>
-<members>lblPDFProductCommercialLoanCP</members>
-<members>lblPDFProductCommercialLoanLP</members>
-<members>lblPDFProductForfaitingImport</members>
-<members>lblPDFProductFurnitureLeasing</members>
+        <members>LblIndirectDebt</members>
+        <members>LblResources</members>
+        <members>lblPDFProductCommercialLoanCP</members>
+        <members>lblPDFProductCommercialLoanLP</members>
+        <members>lblPDFProductForfaitingImport</members>
+        <members>lblPDFProductFurnitureLeasing</members>
         <name>CustomLabel</name>
     </types>
     <types>
@@ -877,6 +877,23 @@
 		<members>dwp_kitv__Visit__c.dwp_kitv__visit_summary_desc__c</members>
 		<members>dwp_kitv__Visit__c.dwp_kitv__visit_topics_number__c</members>
 		<members>dwp_kitv__Visit__c.dwp_kitv__visit_users_number__c</members>
+        <members>Account.Branch_name_path_desc__c</members>
+        <members>Account.branch_name__c</members>
+        <members>Account.business_area_desc__c</members>
+        <members>Account.business_group_id__c</members>
+        <members>Account.comercial_strategy_classification_name__c</members>
+        <members>Account.curr_company_turnover_amount__c</members>
+        <members>Account.direct_debt_amount__c</members>
+        <members>Account.fee_amount__c</members>
+        <members>Account.financial_margin_amount__c</members>
+        <members>Account.indirect_debt_amount__c</members>
+        <members>Account.managed_resources_amount__c</members>
+        <members>Account.margin_ordinary_amount__c</members>
+        <members>Account.net_income_amount__c</members>
+        <members>Account.regional_area_name__c</members>
+        <members>Account.sales_and_sale_cost_amount__c</members>
+        <members>Opportunity.Visit__c</members>
+        <members>Opportunity.account_name__c</members>
 		<name>CustomField</name>
     </types>
     <types>

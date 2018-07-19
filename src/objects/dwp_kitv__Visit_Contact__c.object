@@ -129,6 +129,28 @@
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
+    <fields>
+        <fullName>account_name__c</fullName>
+        <externalId>false</externalId>
+        <formula>dwp_kitv__account_id__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>account_parent__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(dwp_kitv__account_id__r.RecordType.DeveloperName==&apos;Group&apos;,CASESAFEID(dwp_kitv__account_id__c),CASESAFEID(dwp_kitv__account_id__r.ParentId))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Parent</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Visit Contact</label>
     <listViews>
         <fullName>All</fullName>

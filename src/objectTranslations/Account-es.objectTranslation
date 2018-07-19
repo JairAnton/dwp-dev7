@@ -737,6 +737,74 @@
         <label>Regional</label>
         <name>branch_level4_desc__c</name>
     </fields>
+    <fields>
+        <label>Regional</label>
+    <field>Branch_name_path_desc__c</name>
+    </fields>
+    <fields>
+        <label>Oficina</label>
+    <name>branch_name__c</name>
+    </fields>
+    <fields>
+        <label>Clasificacion SBS</label>
+    <name>bureau_classification_type__c</name>
+    </fields>
+    <fields>
+        <label>Oficinas</label>
+    <name>business_area_desc__c</name>
+    </fields>
+    <fields>
+        <label>Grupo</label>
+    <name>business_group_id__c</name>
+    </fields>
+    <fields>
+        <label>Clasificacion de estrategias comercial</label>
+    <name>comercial_strategy_classification_name__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de retorno</label>
+    <name>curr_company_turnover_amount__c</name>
+    </fields>
+    <fields>
+        <label>EBITDA</label>
+    <name>debt_EBITDA_per__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de debito</label>
+    <name>direct_debt_amount__c</name>
+    </fields>
+    <fields>
+        <label>Multa</label>
+    <name>fee_amount__c</name>
+    </fields>
+    <fields>
+        <label>Margen financiero</label>
+    <name>financial_margin_amount__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de deuda inderecta</label>
+    <name>indirect_debt_amount__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de recursos</label>
+    <name>managed_resources_amount__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de margen ordinario</label>
+    <name>margin_ordinary_amount__c</name>
+    </fields>
+    <fields>
+        <label>Ingresos .net</label>
+    <name>net_income_amount__c</name>
+    </fields>
+    <fields>
+        <label>Area regional</label>
+    <name>regional_area_name__c</name>
+    </fields>
+    <fields>
+        <label>Ventas y costo de ventas</label>
+    <name>sales_and_sale_cost_amount__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Layout</layout>
