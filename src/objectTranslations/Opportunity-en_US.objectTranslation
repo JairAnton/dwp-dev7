@@ -93,6 +93,7 @@
     <fields>
         <label><!-- Product family --></label>
         <name>opportunity_product_family__c</name>
+    </fields>
     <fields>
         <label><!-- Status --></label>
         <name>opportunity_status_type__c</name>
@@ -190,7 +191,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Sent to product unit</masterLabel>
-            <translation>Sent to product limit</translation>
+            <translation>Sent to product unit</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -209,7 +210,7 @@
         <label><!-- Loss reason --></label>
         <name>rejection_reason_id__c</name>
     </fields>
-<fields>
+    <fields>
         <label><!-- Loss winner bank --></label>
         <name>rejection_winner_entity_name__c</name>
         <picklistValues>

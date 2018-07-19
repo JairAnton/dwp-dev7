@@ -477,7 +477,7 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lbFormalization</shortDescription>
-        <value>lbFormalization</value>
+        <value>Formalization</value>
     </labels>    
     <labels>
         <fullName>lblReevaluate</fullName>
@@ -872,6 +872,20 @@
         <value>The selected SIO code is:</value>
     </labels>
     <labels>
+        <fullName>No_Buttons_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No_Buttons_Message</shortDescription>
+        <value>No actions available</value>
+    </labels>
+    <labels>
+        <fullName>lblComplete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblComplete</shortDescription>
+        <value>Complete</value>
+    </labels>
+    <labels>
         <fullName>lblUnlink</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -912,12 +926,5 @@
         <protected>false</protected>
         <shortDescription>reevalSuccess</shortDescription>
         <value>The Opportunity has been successfully sent to reevaluate.</value>
-    </labels>
-    <labels>
-        <fullName>lblFormalizarStatus</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>lblFormalizarStatus</shortDescription>
-        <value>19</value>
     </labels>
 </CustomLabels>

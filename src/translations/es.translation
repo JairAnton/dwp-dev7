@@ -685,6 +685,14 @@
         <name>lblRiskSioCodeIs</name>
     </customLabels>
     <customLabels>
+        <label>No hay acciones disponibles</label>
+        <name>No_Buttons_Message</name>
+    </customLabels>
+    <customLabels>
+        <label>Completar</label>
+        <name>lblComplete</name>
+    </customLabels>
+    <customLabels>
         <label>Desvincular SIO</label>
         <name>lblUnlink</name>
     </customLabels>
@@ -872,5 +880,4 @@
         </flows>
         <fullName>Motivo_Descarte_Oportunidad_V0</fullName>
     </flowDefinitions>
-    
 </Translations>

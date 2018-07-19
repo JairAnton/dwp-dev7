@@ -483,27 +483,27 @@
                     <label>Risk approved directly</label>
                 </value>
                 <value>
-                    <fullName>14</fullName>
+                    <fullName>08</fullName>
                     <default>false</default>
                     <label>Sent for risk approval</label>
                 </value>
                 <value>
-                    <fullName>15</fullName>
+                    <fullName>09</fullName>
                     <default>false</default>
                     <label>Risk authorized</label>
                 </value>
                 <value>
-                    <fullName>16</fullName>
+                    <fullName>10</fullName>
                     <default>false</default>
                     <label>Risk denied</label>
                 </value>
                 <value>
-                    <fullName>17</fullName>
+                    <fullName>13</fullName>
                     <default>false</default>
                     <label>Risk approved</label>
                 </value>
                 <value>
-                    <fullName>24</fullName>
+                    <fullName>22</fullName>
                     <default>false</default>
                     <label>Sent for risk reevaluation</label>
                 </value>
