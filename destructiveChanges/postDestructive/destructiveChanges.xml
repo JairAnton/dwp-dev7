@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-<<<<<<< HEAD
   <!--  <types>
         <members>Product_Gurantee__c</members>
         <members>Product_Participants__c</members>
@@ -26,7 +25,6 @@
         <members>Participant_MasterRecord-1</members>
         <members>Guarantee_MasterRecord-1</members>
         <name>Flow</name>
-=======
     <types>
         <members>fprd__GBL_product_config.Amortizacion_PC00001</members>
         <members>fprd__GBL_product_config.Amortizacion_PC00002</members>
@@ -635,7 +633,6 @@
         <members>fprd__GBL_product_config.Tipo_garantia_PC00014</members>
         <members>fprd__GBL_product_config.Tipo_garantia_PC00029</members>
         <name>CustomMetadata</name>
->>>>>>> FIX590
     </types>
 	<version>42.0</version>
 </Package>
