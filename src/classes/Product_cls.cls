@@ -231,16 +231,16 @@ public without sharing class Product_cls {
                     
                     if(Action=='btnApprove'){//08
                         itemOpp[0].StageName='06';
-                        itemOpp[0].opportunity_status_type__c='35';
+                        itemOpp[0].opportunity_status_type__c='23';
                     }
                     else if(Action=='btnRaise'){//09
                         itemOpp[0].StageName='05';
-                        itemOpp[0].opportunity_status_type__c='34';
+                        itemOpp[0].opportunity_status_type__c='21';
                         
                     }
                     else if(Action=='btnBack'){//09
                         itemOpp[0].StageName='05';
-                        itemOpp[0].opportunity_status_type__c='33';
+                        itemOpp[0].opportunity_status_type__c='20';
                     }
                     itemOpp[0].IsProcess__c=true;
                     update itemOpp[0];

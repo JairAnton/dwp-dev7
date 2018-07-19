@@ -26,11 +26,11 @@
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
-        <apexClass>PE_DWP_Correo_cls</apexClass>
+        <apexClass>Email_SIO</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PE_DWP_Correo_tst</apexClass>
+        <apexClass>Email_SIO_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -144,7 +144,7 @@
      <classAccesses>
         <apexClass>ReevaluateButtonClass</apexClass>
         <enabled>true</enabled>
-    </classAccesses> 
+    </classAccesses>
     <classAccesses>
         <apexClass>formalizationButtonClass</apexClass>
         <enabled>true</enabled>
@@ -152,11 +152,39 @@
     <classAccesses>
         <apexClass>statusButtonClass</apexClass>
         <enabled>true</enabled>
-    </classAccesses>    
+    </classAccesses>
      <classAccesses>
         <apexClass>approveButtonClass</apexClass>
         <enabled>true</enabled>
-    </classAccesses>    
+    </classAccesses>
+    <classAccesses>
+        <apexClass>approveButtonClass_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Action_Audit_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Action_Audit_Helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Risk_Approval_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Risk_Approval_cls_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>unlinkButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>unlinkButtonClass_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>
@@ -1878,11 +1906,6 @@
         <field>Opportunity.isProcess__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Modality__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
    <fieldPermissions>
         <editable>true</editable>
         <field>Product_Gurantee__c.Guarantee__c</field>
@@ -2433,12 +2456,37 @@
         <editable>false</editable>
         <field>Account.branch_level4_desc__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>dwp_kitv__Visit__c.Notify_meeting_changed_peru__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Risk_modality_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.sio_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.sio_status_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_cvad__Action_Audit__c.action_audit_email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_cvad__Action_Audit__c.action_opp_sio_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

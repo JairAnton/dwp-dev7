@@ -603,14 +603,14 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblMsgFormalization</shortDescription>
-        <value>45</value>
+        <value>24</value>
     </labels>
     <labels>
         <fullName>lblFormalizarStatus</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>lblFormalizarStatus</shortDescription>
-        <value>32</value>
+        <value>19</value>
     </labels>
     <labels>
         <fullName>lblFormalizarEtapa</fullName>
@@ -695,5 +695,229 @@
         <protected>false</protected>
         <shortDescription>Account_No_Data</shortDescription>
         <value>No data Account</value>
+    </labels>
+    <labels>
+        <fullName>AuditPriceApproval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditPriceApproval</shortDescription>
+        <value>Price Approval</value>
+    </labels>
+    <labels>
+        <fullName>AuditRiskApproval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditRiskApproval</shortDescription>
+        <value>Risk Approval</value>
+    </labels>
+    <labels>
+        <fullName>AuditStyleApproveTop</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditStyleApproveTop</shortDescription>
+        <value>approveTop</value>
+    </labels>
+    <labels>
+        <fullName>Authorized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Authorized</shortDescription>
+        <value>Authorized</value>
+    </labels>
+    <labels>
+        <fullName>Denied</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Denied</shortDescription>
+        <value>Denied</value>
+    </labels>
+    <labels>
+        <fullName>Embedded</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Embedded</shortDescription>
+        <value>Embedded</value>
+    </labels>
+    <labels>
+        <fullName>Ok</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ok</shortDescription>
+        <value>Ok</value>
+    </labels>
+    <labels>
+        <fullName>OppModalityDL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppModalityDL</shortDescription>
+        <value>01</value>
+    </labels>
+    <labels>
+        <fullName>OppModalityRA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppModalityRA</shortDescription>
+        <value>02</value>
+    </labels>
+    <labels>
+        <fullName>OpportunityObjectName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OpportunityObjectName</shortDescription>
+        <value>Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>Price</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price</shortDescription>
+        <value>Price</value>
+    </labels>
+    <labels>
+        <fullName>Risk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Risk</shortDescription>
+        <value>Risk</value>
+    </labels>
+    <labels>
+        <fullName>Toast_opp_saved_ok</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Toast_opp_saved_ok</shortDescription>
+        <value>Stage and status have been updated successfully.</value>
+    </labels>
+    <labels>
+        <fullName>approve</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>approve</shortDescription>
+        <value>approve</value>
+    </labels>
+    <labels>
+        <fullName>approveSucess</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>approveSucess</shortDescription>
+        <value>The Opportunity is successfully approved.</value>
+    </labels>
+    <labels>
+        <fullName>auditStyleSendBack</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>auditStyleSendBack</shortDescription>
+        <value>sendBack</value>
+    </labels>
+    <labels>
+        <fullName>deny</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deny</shortDescription>
+        <value>deny</value>
+    </labels>
+    <labels>
+        <fullName>displayTitleAuditDetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>displayTitleAuditDetail</shortDescription>
+        <value>SIO email content</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityApproval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityApproval</shortDescription>
+        <value>Approval</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityLink</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityLink</shortDescription>
+        <value>Link</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunitySioCodeIs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunitySioCodeIs</shortDescription>
+        <value>The current SIO Code is:</value>
+    </labels>
+    <labels>
+        <fullName>lblRiskAnySioCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblRiskAnySioCode</shortDescription>
+        <value>There isn&apos;t any SIO code available for this account with the search criteria.</value>
+    </labels>
+    <labels>
+        <fullName>lblRiskEnterSio</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblRiskEnterSio</shortDescription>
+        <value>Enter a SIO Code...</value>
+    </labels>
+    <labels>
+        <fullName>lblRiskSearchSio</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblRiskSearchSio</shortDescription>
+        <value>Search SIO Code</value>
+    </labels>
+    <labels>
+        <fullName>lblRiskSioCodeIs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblRiskSioCodeIs</shortDescription>
+        <value>The selected SIO code is:</value>
+    </labels>
+    <labels>
+        <fullName>lblUnlink</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblUnlink</shortDescription>
+        <value>Unlink SIO</value>
+    </labels>
+    <labels>
+        <fullName>msgEmptyAudit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>msgEmptyAudit</shortDescription>
+        <value>The opportunity has no code SIO and can not be unlinked.</value>
+    </labels>
+    <labels>
+        <fullName>msgUnlink</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>msgUnlink</shortDescription>
+        <value>Are you sure that you want to Unlink the SIO code?</value>
+    </labels>
+    <labels>
+        <fullName>msgUnlinkedSIO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>msgUnlinkedSIO</shortDescription>
+        <value>SIO code unlinked successfully.</value>
+    </labels>
+    <labels>
+        <fullName>quickText</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>quickText</shortDescription>
+        <value>quickText</value>
+    </labels>
+    <labels>
+        <fullName>reevalSuccess</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>reevalSuccess</shortDescription>
+        <value>The Opportunity has been successfully sent to reevaluate.</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalizarStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalizarStatus</shortDescription>
+        <value>19</value>
     </labels>
 </CustomLabels>

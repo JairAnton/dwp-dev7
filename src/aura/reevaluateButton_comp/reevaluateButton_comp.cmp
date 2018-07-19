@@ -13,15 +13,15 @@
      <br/>
     <div class="slds-align_absolute-center">     
     <aura:if isTrue="{!v.Risk}">
-      <lightning:button aura:id="btnRisk" class="slds-button slds-button_neutral" variant="neutral" label="Riesgo" onclick="{!c.doRisk}"/>    
+        <lightning:button aura:id="btnRisk" class="slds-button slds-button_neutral" variant="neutral" onclick="{!c.doRisk}">{!$Label.c.Risk}</lightning:button>    
     </aura:if>      
     <aura:if isTrue="{!v.Price}">
-      <lightning:button aura:id="btnPrice" class="slds-button slds-button_neutral" variant="neutral" label="Precio" onclick="{!c.doPrice}"/>  
+        <lightning:button aura:id="btnPrice" class="slds-button slds-button_neutral" variant="neutral" onclick="{!c.doPrice}">{!$Label.c.Price}</lightning:button>  
     </aura:if> 
     </div>    
  </div>
    <footer class="slds-modal__footer slds-theme_default">
-       <lightning:button variant="neutral" label="Aceptar" onclick="{!c.doReevaluate}"/>
-       <lightning:button variant="neutral" label="Cancelar" onclick="{!c.close}"/>
+       <lightning:button variant="brand" onclick="{!c.doReevaluate}">{!$Label.c.Ok}</lightning:button>
+       <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
    </footer>
 </aura:component>

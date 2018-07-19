@@ -640,6 +640,70 @@
         <label>No hay datos en la cuenta</label>
         <name>Account_No_Data</name>
     </customLabels>
+    <customLabels>
+        <label>Etapa y estado actualizado correctamente.</label>
+        <name>Toast_opp_saved_ok</name>
+    </customLabels>
+    <customLabels>
+        <label>Riesgo</label>
+        <name>Risk</name>
+    </customLabels>
+    <customLabels>
+        <label>La Oportunidad ha sido correctamente aprobada.</label>
+        <name>approveSucess</name>
+    </customLabels>
+    <customLabels>
+        <label>Contenido del email de SIO</label>
+        <name>displayTitleAuditDetail</name>
+    </customLabels>
+    <customLabels>
+        <label>Aprobar</label>
+        <name>lblOpportunityApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Vincular</label>
+        <name>lblOpportunityLink</name>
+    </customLabels>
+    <customLabels>
+        <label>El código SIO actual es:</label>
+        <name>lblOpportunitySioCodeIs</name>
+    </customLabels>
+    <customLabels>
+        <label>No hay ningún código SIO para este cliente con el criterio de búsqueda solicitado.</label>
+        <name>lblRiskAnySioCode</name>
+    </customLabels>
+    <customLabels>
+        <label>Introduce un código SIO...</label>
+        <name>lblRiskEnterSio</name>
+    </customLabels>
+    <customLabels>
+        <label>Buscar código SIO</label>
+        <name>lblRiskSearchSio</name>
+    </customLabels>
+    <customLabels>
+        <label>El código SIO seleccionado es:</label>
+        <name>lblRiskSioCodeIs</name>
+    </customLabels>
+    <customLabels>
+        <label>Desvincular SIO</label>
+        <name>lblUnlink</name>
+    </customLabels>
+    <customLabels>
+        <label>La oportunidad no tiene código SIO y no puede desvicularse.</label>
+        <name>msgEmptyAudit</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Está seguro de que quiere desvincular el código SIO?</label>
+        <name>msgUnlink</name>
+    </customLabels>
+    <customLabels>
+        <label>Código SIO correctamente desvinculado.</label>
+        <name>msgUnlinkedSIO</name>
+    </customLabels>
+    <customLabels>
+        <label>La Oportunidad ha sido correctamente enviada a reevaluar.</label>
+        <name>reevalSuccess</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
