@@ -109,7 +109,7 @@
     <reportType>Opportunity</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
+    <!--showGrandTotal>true</showGrandTotal-->
     <showSubTotals>true</showSubTotals>
     <sortColumn>OPPORTUNITY_NAME</sortColumn>
     <sortOrder>Asc</sortOrder>
