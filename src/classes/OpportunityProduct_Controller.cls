@@ -61,7 +61,7 @@ public without sharing class OpportunityProduct_Controller {
         op.opportunity_status_type__c=MapStatus.get(valStatus[1]);
         op.Risk_modality_type__c='02';
         op.isProcess__c=true;
-        op.LastSIOcode__c=valStatus[0];
+        op.sio_code__c=valStatus[0];
         OpportunityLineItem  oli = new OpportunityLineItem();
         oli = [SELECT Id FROM OpportunityLineItem WHERE OpportunityID =:opp LIMIT 1];
         oli.SIOCode__c = valStatus[0];
