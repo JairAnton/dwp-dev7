@@ -180,10 +180,10 @@
         <picklistValues>
             <masterLabel>Sent for price reevaluation</masterLabel>
             <translation>Sent for price reevaluation</translation>
-        </picklistValues>CustomFieldTranslation
-        <picklistValues>CustomFieldTranslation
-            <masterLabel>Sent for rCustomFieldTranslationisk approval</masterLabel>
-            <translation>Sent for rCustomFieldTranslationisk approval</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for risk approval</masterLabel>
+            <translation>Sent for risk approval</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sent for risk reevaluation</masterLabel>
