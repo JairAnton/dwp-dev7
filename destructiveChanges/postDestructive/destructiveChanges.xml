@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>Product_Gurantee__c</members>
+        <members>Product_Participants__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>    
+        <members>Product_Gurantee__c-es</members>  
+        <members>Product_Participants__c-es</members>  
+		<name>CustomObjectTranslation</name>
+    </types>
+    <types>
+        <members>classMasterGuarantee_cls</members>
+        <members>classMasterParticipant</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+     
+        <members>Product_Gurantee__c-Formato Product_Gurantee</members>
+        <members>Product_Participants__c-Formato Product_Participant</members>
+        <name>Layout</name>
+    </types>
+    <types>
         <members>fprd__GBL_product_config.Amortizacion_PC00001</members>
         <members>fprd__GBL_product_config.Amortizacion_PC00002</members>
         <members>fprd__GBL_product_config.Amortizacion_PC00003</members>
@@ -608,6 +629,21 @@
         <members>fprd__GBL_product_config.Tipo_garantia_PC00014</members>
         <members>fprd__GBL_product_config.Tipo_garantia_PC00029</members>
         <name>CustomMetadata</name>
+    </types>
+    <types>
+        <members>PE_DWP_Correo_cls</members>
+        <members>PE_DWP_Correo_cls_tst</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+		<members>Opportunity.Modality__c</members>
+        <members>Opportunity.LastSIOcode__c</members>
+		<name>CustomField</name>
+    </types>
+    <types>
+		<members>Opportunity_Modal_Modality</members>
+        <members>OpportunityProduct_Comp</members>
+		<name>AuraDefinitionBundle</name>
     </types>
 	<version>42.0</version>
 </Package>

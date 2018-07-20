@@ -5,6 +5,11 @@
         <members>Opportunity.reevaluate__c</members>
 		<name>CustomField</name>
     </types>
+    <types>
+        <members>Participant_MasterRecord-1</members>
+        <members>Guarantee_MasterRecord-1</members>
+        <name>Flow</name>
+    </types>
 	<types>
 		<members>fprd__GBL_dependent_list.dependentNoDineraria</members>
         <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00014</members>

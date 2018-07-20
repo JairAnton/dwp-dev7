@@ -104,90 +104,16 @@
         <members>lblQuoteGeneralError</members>
         <members>lblQuoteError</members>
 		<members>LblDirectDebt</members>
-<members>LblIndirectDebt</members>
-<members>LblResources</members>
-<members>lblPDFProductCommercialLoanCP</members>
-<members>lblPDFProductCommercialLoanLP</members>
-<members>lblPDFProductForfaitingImport</members>
-<members>lblPDFProductFurnitureLeasing</members>
+        <members>LblIndirectDebt</members>
+        <members>LblResources</members>
+        <members>lblPDFProductCommercialLoanCP</members>
+        <members>lblPDFProductCommercialLoanLP</members>
+        <members>lblPDFProductForfaitingImport</members>
+        <members>lblPDFProductFurnitureLeasing</members>
         <name>CustomLabel</name>
     </types>
     <types>
         <members>*</members>
-		<members>es</members>
-        <name>Translations</name>
-    </types>
-    <types>
-        <members>Hangout_ctrl</members>
-        <members>Hangout_ctrl_TEST</members>
-        <members>OverrideButtonMessage_ctrl</members>
-        <members>OverrideButtonMessage_ctrl_TEST</members>
-        <members>AccountContactParentAssociation</members>
-        <members>AccountContact_Handler</members>
-        <members>AccountContact_Handler_TEST</members>
-        <members>Account_Handler_cls</members>
-        <members>Account_Handler_test</members>
-        <members>Account_Trigger_cls</members>
-        <members>BBVA_SBS_Classification_Test</members>
-        <members>BBVA_SBS_Classification_cls</members>
-        <members>Contact_Group_Handler</members>
-        <members>Contact_Group_Handler_test</members>
-        <members>Contact_Handler</members>
-        <members>Event_Test</members>
-        <members>FileUploadController_cls</members>
-        <members>FormalizationButtonClass_Test</members>
-        <members>GraphicsGenerator_cls</members>
-        <members>GraphicsGenerator_cls_test</members>
-        <members>Hangout_ctrl</members>
-        <members>Hangout_ctrl_TEST</members>
-        <members>Object_Controller</members>
-        <members>Object_controller_tst</members>
-        <members>OpportunityLineItem_Trigger_cls</members>
-        <members>OpportunityLineItem_test</members>
-        <members>OpportunityPDFWrap</members>
-        <members>OpportunityPDFWrap_Test</members>
-        <members>OpportunityProduct_Controller</members>
-        <members>OpportunityProduct_Controller_tst</members>
-        <members>OpportunityTraceability_cls</members>
-        <members>Opportunity_Handler_cls</members>
-        <members>Opportunity_Trigger_Test</members>
-        <members>Opportunity_Trigger_cls</members>
-        <members>Opportunity_cls</members>
-        <members>Opportunity_cls_test</members>
-        <members>OverrideButtonMessage_ctrl</members>
-        <members>OverrideButtonMessage_ctrl_TEST</members>
-        <members>PDFClassButtonTest</members>
-        <members>PDF_formalizacion_ctrl</members>
-        <members>PDF_formalizacion_ctrl_tst</members>
-        <members>PDFclassButton</members>
-        <members>PE_DWP_Correo_cls</members>
-        <members>PE_DWP_Correo_tst</members>
-        <members>PE_OpportunityLITTriggerHandler</members>
-        <members>Product_cls</members>
-        <members>Product_cls_test</members>
-        <members>ProfitabilityController_cls</members>
-        <members>ProfitabilityController_cls_test</members>
-        <members>ReevaluateButtonClass</members>
-        <members>ReevaluateButtonClassTest</members>
-        <members>SubmitToDiscart_ValidationClass</members>
-        <members>TestFactory</members>
-        <members>TriggerHandler</members>
-        <members>TriggerHandler_Test</members>
-        <members>Visit_Trigger_tst</members>
-        <members>approveButtonClass</members>
-        <members>classMasterGuarantee_cls</members>
-        <members>classMasterParticipant</members>
-        <members>formalizationButtonClass</members>
-        <members>quoteClassButton</members>
-        <members>quoteClassButtonTest</members>
-		<members>Account_Handler_test</members>
-		<members>Account_Trigger_cls</members>
-		<members>Event_Test</members>
-		<members>Object_controller_tst</members>
-		<members>Visit_Trigger_tst</members>
-		<members>Account_Handler_cls</members>
-        <members>ProfitabilityController_cls</members>
-        <members>ProfitabilityController_cls_test</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -195,101 +121,33 @@
         <name>ApexPage</name>
     </types>
     <types>
-        <members>AccountContact_tgr</members>
-        <members>Account_tgr</members>
-        <members>Contact_Tgr</members>
-        <members>Event_Trigger</members>
-        <members>OpportunityLineT</members>
-        <members>Opportunity_tgr</members>
-        <members>Visit_Contact_Trigger</members>
-        <members>Visit_Management_Team_Trigger</members>
-        <members>Visit_Trigger</members>
+        <members>*</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>AccountAccountingContainer_comp</members>
-        <members>AccountBankingSystemDebtQuoteContainer_comp</members>
-        <members>AccountBankingSystemRankingContainer_comp</members>
-        <members>AccountFlashContainer_comp</members>
-        <members>AccountProductContainer_comp</members>
-        <members>AccountRatiosContainer_comp</members>
-        <members>Approve_cmp</members>
-        <members>BBVA_and_SBS_graphic_classification</members>
-        <members>Call_Component_Compromiso</members>
-        <members>Call_submitTODiscart</members>
-        <members>Collapsible_Section_comp</members>
-        <members>Component_GroupDetail</members>
-        <members>Component_HierarchyGroup</members>
-        <members>Component_Profitability</members>
-        <members>Componente_CotizaWeb</members>
-        <members>Componet_Cotizacion</members>
-        <members>CustomTable_V1</members>
-        <members>Flash_client_secondBlock</members>
-        <members>FormalizationBtn_cmp</members>
-        <members>Formalization_comp</members>
-        <members>GraphicEvolutionSBFee_comp</members>
-        <members>GraphicVinculacion_comp</members>
-        <members>GraphicsEvolutionSBSDebt_comp</members>
-        <members>GraphicsGenerator_comp</members>
-        <members>Hangouts_cmp</members>
-        <members>LastFormalization_comp</members>
-        <members>ModalTemplate_cmp</members>
-        <members>OpportunityProduct_Comp</members>
-        <members>Opportunity_Modal_Modality</members>
-        <members>OverrideStandardButtonMessage_cmp</members>
-        <members>PDFLightingComponent</members>
-        <members>PositionGroupTable_comp</members>
-        <members>ProductGuarantee_comp</members>
-        <members>ProductParticipants_comp</members>
-        <members>ReloadTable_evt</members>
-        <members>Sanction_Price_comp</members>
-        <members>Tabla_Compromiso_2</members>
-        <members>UploadedFile_evt</members>
-        <members>cQuickAction_NewOpportunity</members>
-        <members>call_Quote_component</members>
-        <members>fileUpload_comp</members>
-        <members>modalAddGurantee_comp</members>
-        <members>modalAddParticipants_comp</members>
-        <members>reevaluateButton_comp</members>
-        <members>submitTODiscart</members>
-        <members>submitToDiscardModal_comp</members>
+        <members>*</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
-        <members>User_Record_Page</members>
-        <members>Branch_LightningPage</members>
-        <members>Account_Record_Page_Account</members>
-        <members>Account_Record_Page_Group</members>
-        <members>Contact_Record_Page</members>
-        <members>User_Branch_LightningPage</members>
-        <members>Account_Bank_Classification_Record_Page</members>
-        <members>Account_Indicator_Record_Page</members>
-        <members>Account_Accounting_Record_Page</members>
-        <members>Account_BBVA_Information_Record_Page</members>
-        <members>Account_Banking_System_Debt_Record_Page</members>
-        <members>Account_Banking_System_Debt_Summary_Record_Page</members>
-        <members>Account_Commercial_Strategy_Result_Record_Page</members>
-        <members>Account_Payroll_Record_Page</members>
-        <members>Account_Product_Record_Page</members>
-        <members>Account_Profitability_Record_Page</members>
-        <members>Account_Rating_Record_Page</members>
-        <members>Account_Record_Page_Account</members>
-        <members>Account_Renewals_Record_Page</members>
-        <members>Account_Banking_System_Classification</members>
-		<members>Opportunity_Record_Page</members>
-        <members>Opportunity_Record_Page1</members>
-		<members>Visit_Record_Page_Peru</members>
-		 <members>Group_Lightning_Record_Page1</members>
-        <members>Group_Lightning_Record_Page2</members>
-        <name>FlexiPage</name>
+        <members>LOGO_BBVA</members>
+        <members>avatargroupdwp_peru</members>
+        <members>bannerperu</members>
+        <members>bannerperu1</members>
+        <members>logocontinental</members>
+        <members>thumb_76179</members>
+        <name>ContentAsset</name>
     </types>
     <types>
         <members>DWP_Sales</members>
         <name>CustomApplication</name>
     </types>
     <types>
-        <members>CustomLabels</members>
+        <members>*</members>
         <name>CustomLabels</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomFields</name>
     </types>
     <types>
         <members>Override_Standard_Button_Message.Contact</members>
@@ -345,60 +203,13 @@
         <members>dwp_kitv__Visit__c</members>
         <members>gcal__GBL_Google_Calendar_Sync_Environment__c</members>
         <members>gcal__GBL_Google_Calendar_Sync__mdt</members>
+        <members>fprd__GBL_Intervener__c</members>
+        <members>fprd__GBL_Guarantee__c</members>
+        <members>EmailMessage</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>Account-es</members>
-        <members>AccountContactRelation-es</members>
-        <members>Account_Accounting__c-en_US</members>
-        <members>Account_Accounting__c-es</members>
-        <members>Account_BBVA_Classification__c-en_US</members>
-        <members>Account_BBVA_Classification__c-es</members>
-        <members>Account_BBVA_Information__c-en_US</members>
-        <members>Account_BBVA_Information__c-es</members>
-        <members>Account_Banking_System_Classification__c-es</members>
-        <members>Account_Banking_System_Debt_Summary__c-en_US</members>
-        <members>Account_Banking_System_Debt_Summary__c-es</members>
-        <members>Account_Banking_System_Debt__c-en_US</members>
-        <members>Account_Banking_System_Debt__c-es</members>
-        <members>Account_Commercial_Strategy_Results__c-en_US</members>
-        <members>Account_Commercial_Strategy_Results__c-es</members>
-        <members>Account_Indicator__c-en_US</members>
-        <members>Account_Indicator__c-es</members>
-        <members>Account_Payroll__c-en_US</members>
-        <members>Account_Payroll__c-es</members>
-        <members>Account_Product__c-en_US</members>
-        <members>Account_Product__c-es</members>
-        <members>Account_Profitability__c-en_US</members>
-        <members>Account_Profitability__c-es</members>
-        <members>Account_Rating__c-en_US</members>
-        <members>Account_Rating__c-es</members>
-        <members>Account_Renewals__c-en_US</members>
-        <members>Account_Renewals__c-es</members>
-        <members>Branch__c-en_US</members>
-        <members>Branch__c-es</members>
-        <members>Contact-es</members>
-        <members>Modality_Mode__c-es</members>
-        <members>Opportunity-en_US</members>
-        <members>Opportunity-es</members>
-        <members>OpportunityLineItem-en_US</members>
-        <members>OpportunityLineItem-es</members>
-        <members>Product2-en_US</members>
-        <members>Product2-es</members>
-        <members>Product_Gurantee__c-es</members>
-        <members>Product_Participants__c-es</members>
-        <members>User-es</members>
-        <members>User_Branch__c-en_US</members>
-        <members>User_Branch__c-es</members>
-        <members>compromiso__c-en_US</members>
-        <members>compromiso__c-es</members>
-        <members>dwp_kitv__End_visit_validations_acc_cs__c-es</members>
-        <members>dwp_kitv__Launch_meeting_validation_acc_cs__c-es</members>
-        <members>dwp_kitv__Visit_Contact__c-es</members>
-        <members>dwp_kitv__Visit_Management_Team__c-es</members>
-        <members>dwp_kitv__Visit_Topic__c-es</members>
-        <members>dwp_kitv__Visit__c-es</members>
-        <members>dwp_kitv__Visit_validations_acc_cs__c-es</members>
+        <members>*</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
@@ -877,6 +688,22 @@
 		<members>dwp_kitv__Visit__c.dwp_kitv__visit_summary_desc__c</members>
 		<members>dwp_kitv__Visit__c.dwp_kitv__visit_topics_number__c</members>
 		<members>dwp_kitv__Visit__c.dwp_kitv__visit_users_number__c</members>
+        <members>Account.Branch_name_path_desc__c</members>
+        <members>Account.branch_name__c</members>
+        <members>Account.business_area_desc__c</members>
+        <members>Account.business_group_id__c</members>
+        <members>Account.comercial_strategy_classification_name__c</members>
+        <members>Account.curr_company_turnover_amount__c</members>
+        <members>Account.direct_debt_amount__c</members>
+        <members>Account.fee_amount__c</members>
+        <members>Account.financial_margin_amount__c</members>
+        <members>Account.indirect_debt_amount__c</members>
+        <members>Account.managed_resources_amount__c</members>
+        <members>Account.margin_ordinary_amount__c</members>
+        <members>Account.net_income_amount__c</members>
+        <members>Account.regional_area_name__c</members>
+        <members>Account.sales_and_sale_cost_amount__c</members>
+        <members>Opportunity.account_name__c</members>
 		<name>CustomField</name>
     </types>
     <types>
@@ -934,13 +761,24 @@
         <name>FlexiPage</name>
     </types>
     <types>
-        <members>Account.Record_Type_Client</members>
-        <members>Account.Record_Type_Economic_Group</members>
-		<members>Opportunity.Opp_RT_01</members>
-		<members>Opportunity.Opp_RT_02</members>
-		<members>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</members>
-		<members>dwp_kitv__Visit__c.dwp_kitv__LeadVisit</members>
-        <name>RecordType</name>
+        <members>Compromisos-9</members>
+        <members>Email_Message_update_Opportunity-4</members>
+        <members>Event_update_Opportunity-3</members>
+        <members>FlujoEstadosOportunidad-14</members>
+        <members>Flujo_Cotizacion_V0-3</members>
+        <members>Guarantee_MasterRecord-1</members>
+        <members>Motivo_Descarte_Oportunidad_V0-38</members>
+        <members>Opp_Owner_Changed-3</members>
+        <members>Opp_PB_Opportunidad-8</members>
+        <members>Opp_Stage_Changed_notify-2</members>
+        <members>Opp_Stage_Changed_notify-4</members>
+        <members>Participant_MasterRecord-1</members>
+        <members>ProductOpp_DueDate-11</members>
+        <members>ProductOpp_DueDate-13</members>
+        <members>ProductOpp_DueDate-14</members>
+        <members>ProductOpp_DueDate-16</members>
+        <members>Task_update_Opportunity-3</members>
+        <name>Flow</name>
     </types>
     <types>
         <members>Compromisos</members>
@@ -958,44 +796,7 @@
         <members>Task_update_Opportunity</members>
         <name>FlowDefinition</name>
     </types>
-	  <types>
-    <members>Opportunity.Ruta</members>
-	<members>Opportunity.DWP_Peru_Generic</members>
-    <name>BusinessProcess</name>
-  </types>
-  <types>
-	<!-- <members>Email_Message_update_Opportunity</members> -->
-	<!-- <members>Event_update_Opportunity</members> -->
-	<!-- <members>FlujoEstadosOportunidad</members> -->
-	<!-- <members>Opp_Owner_Changed</members> -->
-	<!-- <members>Opp_PB_Opportunidad</members> -->
-	<!-- <members>Task_update_Opportunity</members> -->
-    <!-- <members>Guarantee_MasterRecord</members> -->
-    <!-- <members>Participant_MasterRecord</members> -->
-    <!-- <members>Compromisos</members> -->
-    <!-- <members>Motivo_Descarte_Oportunidad_V0</members> -->
-    <!-- <members>Opp_Stage_Changed_notify</members> -->
-    <!-- <members>Flujo_Cotizacion_V0</members> -->
-	<!-- <members>ProductOpp_DueDate</members> -->
-	<name>FlowDefinition</name>
-  </types>
-  <types>
-	<!-- <members>Email_Message_update_Opportunity-4</members> -->
-	<!-- <members>Event_update_Opportunity-3</members> -->
-	<!-- <members>Motivo_Descarte_Oportunidad_V0-32</members> -->
-	<!-- <members>Opp_Owner_Changed-3</members> -->
-	<!-- <members>Opp_PB_Opportunidad-8</members> -->
-	<!-- <members>Task_update_Opportunity-3</members> -->
-    <!-- <members>FlujoEstadosOportunidad-14</members> -->
-    <!-- <members>Guarantee_MasterRecord-1</members> -->
-    <!-- <members>Participant_MasterRecord-1</members> -->
-	<!-- <members>Flujo_Cotizacion_V0-3</members> -->
-	<!-- <members>Compromisos-9</members> -->
-    <!-- <members>Opp_Stage_Changed_notify-4</members> -->
-	<!-- <members>ProductOpp_DueDate-16</members> -->
-	<name>Flow</name>
-  </types>
-      <types>
+    <types>
         <members>Type_of_quote_stock</members>
         <name>GlobalValueSet</name>
     </types>
@@ -1048,49 +849,20 @@
         <name>PathAssistant</name>
     </types>
     <types>
-        <members>Contact.Contact_Validation_Rule_Mobile</members>
-        <members>Contact.Contact_Validation_Rule_Phone1</members>
-        <members>Contact.Contact_Validation_Rule_Phone1_Lima</members>
-        <members>Contact.Contact_Validation_Rule_Phone2</members>
-        <members>Contact.Contact_Validation_Rule_Phone2_Lima</members>
-        <members>Contact.Contact_Validation_Rule_Position</members>
-        <members>Contact.Contact_Validation_Rule_Position_PA</members>
-        <members>Contact.Contact_Validation_Rule_Req_AC1</members>
-        <members>Contact.Contact_Validation_Rule_Req_AC2</members>
-        <members>Contact.Contact_Validation_Rule_Req_Phone1</members>
-        <members>Contact.Contact_Validation_Rule_Req_Phone2</members>
-        <members>Contact.Contact_Validation_Rule_Required_Decisor</members>
-        <members>Contact.Contact_Validation_Rule_Required_FN</members>
-        <members>Contact.Contact_Validation_Rule_Required_Salutat</members>
-        <members>Contact.Contact_Validation_Rule_Description</members>
-        <members>AccountContactRelation.ACR_ValidationRule_Position</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Mobile</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Phone1</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Phone1_Lima</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Phone2</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Phone2_Lima</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Req_AC1</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Req_AC2</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone1</members>
-        <members>AccountContactRelation.ACR_Validation_Rule_Req_Phone2</members>
-        <members>Opportunity.Opportunity_Validation_Commercial_Action</members>
-        <members>Opportunity.Opportunity_Validation_ChangeStage</members>
-        <members>Opportunity.Opportunity_Validation_02_OnlyCommercial</members>
-        <members>Opportunity.Opportunity_Validation_ChangeOwner</members> 
-        <members>OpportunityLineItem.LinkedAccount_Validation</members>
-        <members>OpportunityLineItem.ValidDueDate</members>
-        <members>OpportunityLineItem.ValidTerm</members>
-        <members>OpportunityLineItem.ContractNo_Validation</members>
-        <members>OpportunityLineItem.NOperation_Validation</members>
-        <members>OpportunityLineItem.Validation_Email</members>
-        <members>OpportunityLineItem.Validation_Term_Integer</members>
-        <members>Opportunity.Amount_Negative_Value</members>
-		<members>dwp_kitv__Visit__c.dwp_kitv__Account_is_Changed</members>
-		<members>dwp_kitv__Visit__c.dwp_kitv__Days_to_create_account</members>
-		<members>dwp_kitv__Visit__c.dwp_kitv__Days_to_create_lead</members>
-		<members>dwp_kitv__Visit__c.dwp_kitv__Lead_is_Changed</members>
-		<members>dwp_kitv__Visit__c.dwp_kitv__Max_number_of_contacts</members>
-        <name>ValidationRule</name>
+        <members>Analistas_de_precios</members>
+        <members>Analistas_de_riesgos</members>
+        <members>Asistente_BE</members>
+        <members>Ejecutivo_de_Banca_de_Empresas</members>
+        <members>Ejecutivos_de_COMEX</members>
+        <members>Ejecutivos_de_REDES</members>
+        <members>Ejecutivos_de_servicios_transaccionales_EST</members>
+        <members>Ejecutivos_de_unidad_de_financiaci_n_estructurada_UFE</members>
+        <members>Gerente_de_Banca_de_Empresas</members>
+        <members>Gerentes_Regionales</members>
+        <members>Gerentes_de_oficina</members>
+        <members>Jefes_de_Promoci_n_de_Negocio</members>
+        <members>Sub_Gerentes_de_oficina</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>Admin</members>
@@ -1113,16 +885,12 @@
         <name>QuickAction</name>
     </types>
     <types>
-        <members>Contact_Tgr</members>
-        <members>AccountContact_tgr</members>
-		<members>Opportunity_tgr</members>
-		<members>OpportunityLineT</members>
-		<members>Visit_Contact_Trigger</members>
-		<members>Visit_Management_Team_Trigger</members>
-		<members>Visit_Trigger</members>
-		<members>Event_Trigger</members>
-		<members>Account_tgr</members>
-        <name>ApexTrigger</name>
+        <members>Account_Reports</members>
+        <members>Account_Reports/Account_Billing</members>
+        <members>Account_Reports/Account_Credit_Bureau</members>
+        <members>Account_Reports/Account_Risk_Strategy</members>
+        <members>Account_Reports/Account_Spread</members>
+        <name>Report</name>
     </types>
     <types>
         <members>Account_with_Account_Indicator</members>
@@ -1203,12 +971,8 @@
         <name>Role</name>
     </types>
     <types>
-        <members>dwp_kitv__Visit__c.dwp_kitv__Fields_To_Identify_A_Visit_Change</members>
-        <name>FieldSet</name>
-    </types>	    
-	<types>
-        <members>LEXTHEMINGBBVA_theme_1</members>
-        <name>BrandingSet</name>
+        <members>Opportunity</members>
+        <name>SharingRules</name>
     </types>
     <types>
         <members>OpportunityStage</members>
@@ -1256,4 +1020,3 @@
     </types>
     <version>42.0</version>
 </Package>
-
