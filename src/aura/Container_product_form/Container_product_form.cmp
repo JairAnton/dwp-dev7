@@ -1,6 +1,5 @@
 <aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes" access="global" controller="Container_Product_Form_ctrl">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:handler event="force:refreshView" action="{!c.doInitRefreshViewEvent}" description="Standard event"/>
     <aura:attribute name="deleteJsonValue" type="String" access="global" default=""/>
     <aura:attribute name="newJsonValue" type="String" access="global" default=""/>
     <aura:attribute name="editJsonValue" type="String" access="global" default=""/>
