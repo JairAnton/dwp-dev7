@@ -11,7 +11,6 @@
                     cmp.set("v.cotiweb" , false);
                 }else if(response.getReturnValue()==="COTIZA Beta"){
                     cmp.set("v.cotizaBeta" , true);
-                    cmp.set("v.title" , "Cotización beta");
                 } else if(response.getReturnValue()==="COTIZADOR"){
                     cmp.set("v.cotiweb" , true);
                     cmp.set("v.cotiCotiza" , true);
