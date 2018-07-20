@@ -126,7 +126,7 @@
         <field>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Visits last 12 months</name>
+    <name>Visitas de hace 12 meses</name>
     <params>
         <name>co</name>
         <value>1</value>
