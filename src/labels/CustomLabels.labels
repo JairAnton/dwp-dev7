@@ -463,7 +463,7 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblPenalizeRisk</shortDescription>
-        <value>Penalize risk</value>
+        <value>Sanction risk</value>
     </labels>
     <labels>
         <fullName>lblQuote</fullName>
@@ -1066,5 +1066,26 @@
         <protected>false</protected>
         <shortDescription>lblApprove</shortDescription>
         <value>Approve Sanction</value>
+    </labels>
+    <labels>
+        <fullName>NoAuditDetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoAuditDetail</shortDescription>
+        <value>There are no additional audit details.</value>
+    </labels>
+    <labels>
+        <fullName>lblTitleRiskSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleRiskSanction</shortDescription>
+        <value>Risk Sanction</value>
+    </labels>
+    <labels>
+        <fullName>lblTitlePriceSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitlePriceSanction</shortDescription>
+        <value>Price Sanction</value>
     </labels>
 </CustomLabels>

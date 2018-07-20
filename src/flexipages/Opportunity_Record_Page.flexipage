@@ -61,7 +61,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>strLabelSection</name>
-                <value>lblSanctionRisk</value>
+                <value>lblTitleRiskSanction</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>strTypes</name>
@@ -92,7 +92,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>strLabelSection</name>
-                <value>lblSanctionPrice</value>
+                <value>lblTitlePriceSanction</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>strTypes</name>
