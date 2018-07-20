@@ -145,7 +145,7 @@
                 {
                  
                     nGuarantee=component.find("txtnGuarantee").get("v.value")+"";
-                    if (nGuarantee!=parseInt(nGuarantee) || parseInt(nGuarantee)<0 || parseInt(nGuarantee)>8)
+                    if (nGuarantee!=parseInt(nGuarantee) || parseInt(nGuarantee)<0 || nGuarantee.length>8)
                     {
                         errMsg=true;
                         component.set("v.errMessage","El campo de N°Garantía debe ser entero, positivo y maximo de 8 digitos.");
