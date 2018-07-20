@@ -104,12 +104,12 @@ public without sharing class Product_cls {
                 row.Product__c=IdProuduct;
                 row.GuaranteeType__c=GuaranteeType;
                 row.Guarantee__c=Guarantee;
-                if(nGuarantee!=null) row.nGuarantee__c=nGuarantee;
+                row.nGuarantee__c=nGuarantee;
                 row.Modality__c=Modality;
                 if(Amount!=null) row.Amount__c=Amount;
                 if(Status!=null) row.Status__c=Status;
-                if(Periodicity!=null) row.Periodicity__c=Periodicity;
-                if(Term!=null)  row.Term__c=Term;
+                row.Periodicity__c=Periodicity;
+                row.Term__c=Term;
                 if(PGuaranteeId!=null) update row; else insert row;	
                 return true;
             }
