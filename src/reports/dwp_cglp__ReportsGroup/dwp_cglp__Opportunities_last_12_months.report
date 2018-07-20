@@ -93,7 +93,7 @@
         <field>STAGE_NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Opportunidades de hace 12 meses</name>
+    <name>Oportunidades de hace 12 meses</name>
     <params>
         <name>open</name>
         <value>all</value>
