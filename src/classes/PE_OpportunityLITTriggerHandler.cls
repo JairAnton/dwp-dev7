@@ -15,4 +15,13 @@ public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
     public Override void beforeInsert(){
         new OpportunityLineItem_Trigger_cls().AsignBeforeInsert(Opps_New);
     }
+
+    public Override void afterInsert(){
+        new OpportunityLineItem_Trigger_cls().MasteRecord_Guarantee(Opps_New);
+        new OpportunityLineItem_Trigger_cls().upsertMasterParticipant(Opps_New);
+    }
+
+    public Override void afterUpdate(){
+        new OpportunityLineItem_Trigger_cls().MasteRecord_Guarantee(Opps_New);
+    }
 }

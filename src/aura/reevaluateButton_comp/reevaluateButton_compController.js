@@ -3,7 +3,7 @@
 	 	helper.closeMe(component, event, helper);
 	},
     doReevaluate: function(component, event, helper) {
-		helper.Reevaluar(component, event,helper);
+		helper.Reevaluate(component, event,helper);
     },
     doIni: function(component, event, helper) {
 		helper.ini(component, event,helper);

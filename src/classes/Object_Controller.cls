@@ -37,8 +37,8 @@ public with sharing class Object_Controller {
 **/
     @AuraEnabled
     public static String getOportunityModality(String Filtro) {
-        String Modality = [SELECT Modality__c FROM Opportunity
-                           WHERE Id =:Filtro LIMIT 1].Modality__c;
+        String Modality = [SELECT Risk_modality_type__c FROM Opportunity
+                           WHERE Id =:Filtro LIMIT 1].Risk_modality_type__c;
         return Modality;
     }
     /**
@@ -76,7 +76,7 @@ public with sharing class Object_Controller {
         Opportunity op  = new Opportunity();
         Map<string,string> MapStatus = getMapOppStatus();
         Task t = [SELECT Id,Subject,Status FROM Task WHERE whatId = : idopp ORDER BY CreatedDate DESC];
-        op = [SELECT StageName,Modality__c,opportunity_status_type__c FROM Opportunity WHERE ID =:Idopp];
+        op = [SELECT StageName,Risk_modality_type__c,opportunity_status_type__c FROM Opportunity WHERE ID =:Idopp];
         op.opportunity_status_type__c='10';
         String[] valStatus = t.Subject.split('##');
         String filter = '%'+valStatus[0]+'%';

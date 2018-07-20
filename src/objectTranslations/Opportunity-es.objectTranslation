@@ -120,200 +120,136 @@
         <label>Estado</label>
         <name>opportunity_status_type__c</name>
         <picklistValues>
-            <masterLabel>01</masterLabel>
-            <translation>Inactiva</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>02</masterLabel>
-            <translation>Planificada</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>03</masterLabel>
-            <translation>No planificada</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>04</masterLabel>
-            <translation>Pendiente oferta al cliente</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>05</masterLabel>
-            <translation>Pendiente respuesta del cliente</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>06</masterLabel>
+            <masterLabel>Accepted by the client</masterLabel>
             <translation>Aceptada por el cliente</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>07</masterLabel>
-            <translation>No aceptada por el cliente</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>08</masterLabel>
-            <translation>Precio autorizado bajo delegación oficina</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>09</masterLabel>
-            <translation>Enviado para autorización a precios</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>10</masterLabel>
-            <translation>Autorizado por precios</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>11</masterLabel>
-            <translation>Precio aprobado</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>12</masterLabel>
-            <translation>Enviado para reevaluación a precios</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>13</masterLabel>
-            <translation>1er Ingreso a Controller</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>14</masterLabel>
-            <translation>Devuelve Controller</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>15</masterLabel>
-            <translation>Ingreso Controller</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>16</masterLabel>
-            <translation>Asignación RVGL</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>17</masterLabel>
-            <translation>Consulta de Riesgos a Cliente</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>18</masterLabel>
-            <translation>Consulta de BE a Cliente</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>19</masterLabel>
-            <translation>Devolución</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>20</masterLabel>
-            <translation>Reingreso con Respuestas (1)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>21</masterLabel>
-            <translation>Consulta de Riesgos a Cliente (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>22</masterLabel>
-            <translation>Consulta de BE a Cliente (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>23</masterLabel>
-            <translation>Devolución (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>24</masterLabel>
-            <translation>Reingreso con Respuestas (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>25</masterLabel>
-            <translation>Fin de Evaluación (VB Jefe)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>26</masterLabel>
-            <translation>Asignación Evaluación II</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>27</masterLabel>
-            <translation>Consulta de Riesgos a Cliente (3)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>28</masterLabel>
-            <translation>Consulta de BE a Cliente (3)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>29</masterLabel>
-            <translation>Devolución (3)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>30</masterLabel>
-            <translation>Reingreso con Respuestas (3)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>31</masterLabel>
-            <translation>Fin de Evaluación (VB Jefe) (2)</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>32</masterLabel>
-            <translation>Enviada para formalización</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>33</masterLabel>
-            <translation>Devuelta por documentación</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>34</masterLabel>
-            <translation>Enviada a unidad de producto</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>35</masterLabel>
+            <masterLabel>Formalized</masterLabel>
             <translation>Formalizada</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>36</masterLabel>
+            <masterLabel>Inactive</masterLabel>
+            <translation>Inactiva</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not accepted by the client</masterLabel>
+            <translation>No aceptada por el cliente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not planned</masterLabel>
+            <translation>No planificada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending customer response</masterLabel>
+            <translation>Pendiente respuesta del cliente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending offer to the client</masterLabel>
+            <translation>Pendiente oferta al cliente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planned</masterLabel>
+            <translation>Planificada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price approved</masterLabel>
+            <translation>Precio aprobado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price approved under office delegation</masterLabel>
+            <translation>Precio autorizado bajo delegación oficina</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price authorized</masterLabel>
+            <translation>Autorizado por precios</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price denied</masterLabel>
+            <translation>Devuelta por precios</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
             <translation>Desestimada</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>37</masterLabel>
-            <translation>Sanción aprobado SM</translation>
+            <masterLabel>Returned by documentation</masterLabel>
+            <translation>Devuelta por documentación</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>38</masterLabel>
-            <translation>Sanción aprobado CM</translation>
+            <masterLabel>Risk approved</masterLabel>
+            <translation>Riesgo aprobado</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>39</masterLabel>
-            <translation>Sanción denegado</translation>
+            <masterLabel>Risk approved directly</masterLabel>
+            <translation>Riesgo aprobado dentro de línea</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>40</masterLabel>
-            <translation>Sanción devuelto</translation>
+            <masterLabel>Risk authorized</masterLabel>
+            <translation>Autorizado por riesgos</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>41</masterLabel>
-            <translation>Sanción aprobado SM (2)</translation>
+            <masterLabel>Risk denied</masterLabel>
+            <translation>Devuelta por riesgos</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>42</masterLabel>
-            <translation>Sanción aprobado CM (2)</translation>
+            <masterLabel>Sent for formalization</masterLabel>
+            <translation>Enviado a formalización</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>43</masterLabel>
-            <translation>Sanción denegado (2)</translation>
+            <masterLabel>Sent for price approval</masterLabel>
+            <translation>Enviado para autorización a precios</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>44</masterLabel>
-            <translation>Sanción devuelto (2)</translation>
+            <masterLabel>Sent for price reevaluation</masterLabel>
+            <translation>Enviado para reevaluación a precios</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>45</masterLabel>
+            <masterLabel>Sent for risk approval</masterLabel>
+            <translation>Enviado para autorización a riesgos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for risk reevaluation</masterLabel>
             <translation>Enviado para reevaluación a riesgos</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>46</masterLabel>
-            <translation>Riesgo aprobado dentro de linea</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>47</masterLabel>
-            <translation>Riesgo aprobado</translation>
+            <masterLabel>Sent to product unit</masterLabel>
+            <translation>Enviado a unidad de producto</translation>
         </picklistValues>
     </fields>
     <fields>
         <label>Importe origen</label>
         <name>renewal_import_curreny__c</name>
     </fields>
+    <fields>
+        <label>Modalidad</label>
+        <name>Risk_modality_type__c</name>
+        <picklistValues>
+            <masterLabel>Inside line</masterLabel>
+            <translation>Dentro de línea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requires authorization</masterLabel>
+            <translation>Requiere autorización</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Código SIO</label>
+        <name>sio_code__c</name>
+    </fields>
+    <fields>
+        <label>Estado SIO</label>
+        <name>sio_status_type__c</name>
+    </fields>
+    <fields>
+        <label>Cliente</label>
+        <name>account_name__c</name>
+    </fields>
     <validationRules>
         <errorMessage>El importe debe ser mayor a 0.</errorMessage>
         <name>Amount_Negative_Value</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, utilice los botones para progresar la oportunidad.</errorMessage>
+        <name>Opportunity_Validation_ChangeStage</name>
     </validationRules>
 </CustomObjectTranslation>

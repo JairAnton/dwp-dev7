@@ -105,14 +105,14 @@ public class TestFactory {
         return accRating; 
     }
     
-    public static Product_participants__c createParticipants (Id oppId){
-    	Product_participants__c part = new Product_participants__c (Name='Test');
+    public static fprd__GBL_Intervener__c createParticipants (Id oppId){
+    	fprd__GBL_Intervener__c part = new fprd__GBL_Intervener__c (Name='Test');
         insert part;
         return part; 
     }
     
-    public static Product_Gurantee__c createGuarantee (Id oppId){
-        Product_Gurantee__c guarant = new Product_Gurantee__c ();
+    public static fprd__GBL_Guarantee__c createGuarantee (Id oppId){
+        fprd__GBL_Guarantee__c guarant = new fprd__GBL_Guarantee__c ();
         insert guarant;
         return guarant; 
     }
