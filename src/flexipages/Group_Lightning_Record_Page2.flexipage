@@ -341,7 +341,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>COMMERCIAL ACTIVITY</value>
+                <value>ACTIVIDAD COMERCIAL</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
@@ -352,7 +352,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>BBVA BUSINESS</value>
+                <value>NEGOCIOS BBVA</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
