@@ -1,0 +1,13 @@
+ID,NAME,CURRENCYISOCODE,FPRD__LOV_LABELS__C,FPRD__LOV_VALUES__C,FPRD__VALUES_CONTROL_VALUE__C,FPRD__PRODUCT_CONFIGURATION__R.FPRD__DEVELOPERNAME__C
+,DV-000016,PEN,"Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17",No dineraria,gipr_Garantia_PC00024
+,DV-000017,PEN,"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",Dineraria,gipr_Garantia_PC00024
+,DV-000000,PEN,"Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17",No dineraria,Garantia_PC00029
+,DV-000001,PEN,"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",Dineraria,Garantia_PC00029
+,DV-000002,PEN,"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",Dineraria,gipr_Garantia_PC00007
+,DV-000003,PEN,"Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17",No dineraria,gipr_Garantia_PC00007
+,DV-000004,PEN,"Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17",No dineraria,Garantia_PC00001
+,DV-000005,PEN,"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",Dineraria,Garantia_PC00001
+,DV-000008,PEN,"Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17",No dineraria,gipr_Garantia_PC00005
+,DV-000009,PEN,"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",Dineraria,gipr_Garantia_PC00005
+,DV-000012,PEN,"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",Dineraria,gipr_Garantia_PC00018
+,DV-000013,PEN,"Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17",No dineraria,gipr_Garantia_PC00018
