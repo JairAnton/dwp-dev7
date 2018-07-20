@@ -95,9 +95,6 @@ public without sharing class Product_cls {
                     row = [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c FROM fprd__GBL_Guarantee__c Where Id=: PGuaranteeId];
                 else row = new fprd__GBL_Guarantee__c();
 
-                System.debug(row+'-'+PGuaranteeId+'-'+IdOpportunity+'-'+IdProuduct+'-'+GuaranteeType+'-'+Guarantee+'-'+Modality+'-'+Amount+'-'+Status+'-'+Term+'-'+Periodicity+'-'+nGuarantee);
-              
-
           
                 row.Opportunity__c=IdOpportunity;
                 row.fprd__GBL_Opportunity_product__c=IdOpportunity;
