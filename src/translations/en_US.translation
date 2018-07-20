@@ -344,4 +344,16 @@
         <label><!-- RiskApproval --></label>
         <name>RiskApproval</name>
     </customLabels>
+    <customLabels>
+        <label><!-- NoAuditDetail --></label>
+        <name>NoAuditDetail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OpportunityStatusInsideLine --></label>
+        <name>OpportunityStatusInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Price --></label>
+        <name>Price</name>
+    </customLabels>
 </Translations>

@@ -1067,4 +1067,11 @@
         <shortDescription>lblApprove</shortDescription>
         <value>Approve Sanction</value>
     </labels>
+    <labels>
+        <fullName>NoAuditDetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoAuditDetail</shortDescription>
+        <value>There are no additional audit details.</value>
+    </labels>
 </CustomLabels>
