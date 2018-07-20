@@ -356,4 +356,21 @@
         <label><!-- Price --></label>
         <name>Price</name>
     </customLabels>
+    <customLabels>
+        <label><!-- lblSanctionPrice --></label>
+        <name>lblSanctionPrice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblPenalizeRisk --></label>
+        <name>lblPenalizeRisk</name>
+    </customLabels>
+        <customLabels>
+        <label><!-- lblTitleRiskSanction --></label>
+        <name>lblTitleRiskSanction</name>
+    </customLabels>
+    </customLabels>
+        <customLabels>
+        <label><!-- lblTitlePriceSanction --></label>
+        <name>lblTitlePriceSanction</name>
+    </customLabels>
 </Translations>

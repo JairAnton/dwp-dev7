@@ -393,7 +393,7 @@
         <name>lblFormalize</name>
     </customLabels>
     <customLabels>
-        <label>Sanción de riesgo</label>
+        <label>Sancionar riesgo</label>
         <name>lblPenalizeRisk</name>
     </customLabels>
     <customLabels>
@@ -409,11 +409,11 @@
         <name>lblReject</name>
     </customLabels>
     <customLabels>
-        <label>Sanción de precio</label>
+        <label>Sancionar precio</label>
         <name>lblSanctionPrice</name>
     </customLabels>
     <customLabels>
-        <label>Sancionar riesgo</label>
+        <label>Sanción de riesgo</label>
         <name>lblSanctionRisk</name>
     </customLabels>
     <customLabels>
@@ -811,6 +811,14 @@
     <customLabels>
         <label>Precio</label>
         <name>Price</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción de riesgo</label>
+        <name>lblTitleRiskSanction</name>
+    </customLabels>
+        <customLabels>
+        <label>Sanción de precio</label>
+        <name>lblTitlePriceSanction</name>
     </customLabels>
     <quickActions>
         <label>Llamada</label>
