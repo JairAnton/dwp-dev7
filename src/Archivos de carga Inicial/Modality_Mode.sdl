@@ -1,0 +1,8 @@
+#Mapping values
+#Thu Jul 19 11:47:14 COT 2018
+PRODUCT_NAME__C=Product_Name__c
+CURRENCYISOCODE=CurrencyIsoCode
+SETUPOWNERID=SetupOwnerId
+MODALITY_SELECT__C=Modality_Select__c
+MODALIDAD_PRODUCTO__C=Modalidad_producto__c
+NAME=Name
