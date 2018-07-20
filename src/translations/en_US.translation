@@ -364,12 +364,11 @@
         <label><!-- lblPenalizeRisk --></label>
         <name>lblPenalizeRisk</name>
     </customLabels>
-        <customLabels>
+    <customLabels>
         <label><!-- lblTitleRiskSanction --></label>
         <name>lblTitleRiskSanction</name>
     </customLabels>
-    </customLabels>
-        <customLabels>
+    <customLabels>
         <label><!-- lblTitlePriceSanction --></label>
         <name>lblTitlePriceSanction</name>
     </customLabels>

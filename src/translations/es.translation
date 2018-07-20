@@ -816,7 +816,7 @@
         <label>Sanción de riesgo</label>
         <name>lblTitleRiskSanction</name>
     </customLabels>
-        <customLabels>
+    <customLabels>
         <label>Sanción de precio</label>
         <name>lblTitlePriceSanction</name>
     </customLabels>
