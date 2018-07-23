@@ -244,6 +244,10 @@
         <label>Cliente</label>
         <name>account_name__c</name>
     </fields>
+    <fields>
+        <label>Etapa</label>
+        <name>StageName_Formula__c</name>
+    </fields>
     <validationRules>
         <errorMessage>El importe debe ser mayor a 0.</errorMessage>
         <name>Amount_Negative_Value</name>

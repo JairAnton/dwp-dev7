@@ -971,6 +971,26 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>StageName_Formula__c</fullName>
+        <description>field to show in tthe opportunity datatableDynamic</description>
+        <externalId>false</externalId>
+        <formula>CASE(StageName,
+            &apos;01&apos;, &apos;Acciones Comerciales&apos;,
+            &apos;02&apos;, &apos;Pendiente de iniciar&apos;,
+            &apos;03&apos;, &apos;En gestión&apos;,
+            &apos;04&apos;, &apos;En sanción&apos;,
+            &apos;05&apos;, &apos;En formalizacion&apos;,
+            &apos;06&apos;, &apos;Formalizada&apos;,
+            &apos;07&apos;, &apos;Desestimada&apos;,
+            &apos;No se ha iniciado una etapa&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>StageName_Formula</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>

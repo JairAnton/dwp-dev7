@@ -51,7 +51,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
-                <value>Name,account_name__c,StageName,Amount,CloseDate,CreatedDate</value>
+                <value>Name,account_name__c,StageName_Formula__c,Amount,CloseDate,CreatedDate</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>HeaderGroup</name>
