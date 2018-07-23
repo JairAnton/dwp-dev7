@@ -7,5 +7,10 @@
             component.set('v.isLoad', false);
             helper.onInit(component);
         }
+    },
+    handleSaveEvent : function(component, event, helper) {
+        var appEvent = $A.get("e.dwp_dbpn:RefreshDynamicButtonCollection_evt"); 
+        appEvent.setParams({ "contextId" : component.get('v.recordId'), "buttonsCollectionsIdsList": "OppDynamicButtonCollection" });
+        appEvent.fire();
     }
 })
