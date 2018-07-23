@@ -18,6 +18,120 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>Collapsed</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CollapsedDefault</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CurrencyDimension</name>
+                <value>Thousand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamicField</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterStatic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Format</name>
+                <value>-,-,-,-,-,-</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FormatDivisa</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Group</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Header</name>
+                <value>Name,account_name__c,StageName,Amount,CloseDate,CreatedDate</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>HeaderGroup</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>LocaleCur</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Object</name>
+                <value>Opportunity</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Order</name>
+                <value>Amount DESC</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>PositionCurrency</name>
+                <value>Left</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>RelatedField</name>
+                <value>Account.ParentId</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Summarize</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Symbol</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Type</name>
+                <value>Summary</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>allFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>customLabelAPInameError</name>
+                <value>Account_No_Data</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>headerApiName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hidenSubHeadMatrix</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelFilterApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelTotalApi</name>
+                <value>5</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportTitleAPI</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLink</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotal</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>cacheAge</name>
                 <value>1440</value>
             </componentInstanceProperties>
@@ -184,7 +298,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
-                <value>OPPORTUNITIES</value>
+                <value>OPORTUNIDADES</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>
@@ -199,7 +313,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
-                <value>VISITS</value>
+                <value>VISITAS</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>
@@ -341,7 +455,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>COMMERCIAL ACTIVITY</value>
+                <value>ACTIVIDAD COMERCIAL</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
@@ -352,7 +466,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>BBVA BUSINESS</value>
+                <value>NEGOCIO BBVA</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>

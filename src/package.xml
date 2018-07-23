@@ -890,10 +890,17 @@
         <members>Account_Reports/Account_Credit_Bureau</members>
         <members>Account_Reports/Account_Risk_Strategy</members>
         <members>Account_Reports/Account_Spread</members>
+        <members>dwp_cglp__ReportsGroup/dwp_cglp__Opportunities_last_12_months</members>
+        <members>dwp_cglp__ReportsGroup/dwp_cglp__Visits_last_12_months</members>
         <name>Report</name>
     </types>
     <types>
+        <members>*</members>
+        <name>ReportFolder</name>
+    </types>
+    <types>
         <members>Account_with_Account_Indicator</members>
+        <members>dwp_cglp__Visits_History</members>
         <name>ReportType</name>
     </types>
     <types>

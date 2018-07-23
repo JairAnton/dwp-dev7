@@ -95,21 +95,18 @@ public without sharing class Product_cls {
                     row = [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c FROM fprd__GBL_Guarantee__c Where Id=: PGuaranteeId];
                 else row = new fprd__GBL_Guarantee__c();
 
-                System.debug(row+'-'+PGuaranteeId+'-'+IdOpportunity+'-'+IdProuduct+'-'+GuaranteeType+'-'+Guarantee+'-'+Modality+'-'+Amount+'-'+Status+'-'+Term+'-'+Periodicity+'-'+nGuarantee);
-              
-
           
                 row.Opportunity__c=IdOpportunity;
                 row.fprd__GBL_Opportunity_product__c=IdOpportunity;
                 row.Product__c=IdProuduct;
                 row.GuaranteeType__c=GuaranteeType;
                 row.Guarantee__c=Guarantee;
-                if(nGuarantee!=null) row.nGuarantee__c=nGuarantee;
+                row.nGuarantee__c=nGuarantee;
                 row.Modality__c=Modality;
                 if(Amount!=null) row.Amount__c=Amount;
                 if(Status!=null) row.Status__c=Status;
-                if(Periodicity!=null) row.Periodicity__c=Periodicity;
-                if(Term!=null)  row.Term__c=Term;
+                row.Periodicity__c=Periodicity;
+                row.Term__c=Term;
                 if(PGuaranteeId!=null) update row; else insert row;	
                 return true;
             }
@@ -158,12 +155,8 @@ public without sharing class Product_cls {
                 }
                 else if(sanAction=='btnRaise'){//09
                     itemOpp[0].StageName='04';
-                    if(itemOppProduct[0].Product2.Type_of_quote__c =='COTIZA Beta'){
-                        itemOpp[0].opportunity_status_type__c='10';
-                    }
-                    else{
-                        itemOpp[0].opportunity_status_type__c='09';
-                    }    
+                    if(itemOppProduct[0].Product2.Type_of_quote__c =='COTIZA Beta'){ itemOpp[0].opportunity_status_type__c='10';}
+                    else{itemOpp[0].opportunity_status_type__c='09';}    
                 }
                 update itemOpp[0];
                 //BEGIN Traceability - 2018-06-11
@@ -172,18 +165,9 @@ public without sharing class Product_cls {
                 else if(sanAction=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Comments,''),'Opportunity',itemOpp[0].Id,'elevate','TRSP00001',UserInfo.getUserId(),'embedded',1,true);		   	
                 //END Traceability
                 return 'true';
-            }
-            else
-            {
-                return 'Error';
-            }
-            
+            }else{return 'Error';}
         }
-        catch(Dmlexception exp)
-        {
-            return exp.getMessage();
-        }
-        
+        catch(Dmlexception exp) { return exp.getMessage();}
     }
     
     @AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body,String AttachedFiles){
@@ -239,19 +223,13 @@ public without sharing class Product_cls {
         if(prof=='Operativo'|| prof=='Administrador del Sistema' )
         { 
             if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
-            {
-                
-                List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];
-                
-                
+            {                
+                List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
                 if(!itemOpp.isEmpty())
                 {
-                    String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;
-                    
+                    String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;                   
                     if(OUCurrentUser!=OUOppUser)
-                        return 'Usuario no autorizado.';
-                    
-                    
+                        return 'Usuario no autorizado.';                                  
                     if(Action=='btnApprove'){//08
                         itemOpp[0].StageName='06';
                         itemOpp[0].opportunity_status_type__c='23';
@@ -282,20 +260,9 @@ public without sharing class Product_cls {
                 return 'Error'; 
                 //success
             }
-            else
-                return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';
+            else return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';
         }
-        else
-            return 'Usuario no autorizado.';
-    }
-    
-    
-    @InvocableMethod(label='Delete Master Guarantee' description='Delete the row from Product_Guarantee')
-    public static void deleteMasterGuarantee(List<OpportunityLineItem> listRow)
-    {
-        List<fprd__GBL_Guarantee__c> row =[SELECT Id FROM fprd__GBL_Guarantee__c WHERE Product__c=: listRow[0].Product2Id and Opportunity__c=: listRow[0].OpportunityId and  isMaster__c=true LIMIT 1];
-        
-        if(!row.isEmpty())delete row;
+        else return 'Usuario no autorizado.';
     }
     
     public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)
@@ -312,23 +279,13 @@ public without sharing class Product_cls {
             {
                 HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>' +
                     '<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>'+
-                    '<b>Comisión Liquidacion Anticipada(%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision_liquidacion_anticipada__c)+'% <br/>';
-                
-                
-            }else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web')
-            {
-                HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>';
-            }
-            else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario')
-            {
-                HTMLComments=HTMLComments+'<b>Comisión Propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>';
-                
-            }
+                    '<b>Comisión Liquidacion Anticipada(%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision_liquidacion_anticipada__c)+'% <br/>';                                
+            }else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web'){HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>';  }
+            else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario'){ HTMLComments=HTMLComments+'<b>Comisión Propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>';  }
             else if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZA Beta')
             {
                 HTMLComments=HTMLComments+'<b>TEA Propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+'% <br/>'
-                    +'<b>ID COTIZA:</b> '+String.valueOf(itemOppProduct[0].PE_POR_ID_COTIZA__c)+' <br/>';
-                
+                    +'<b>ID COTIZA:</b> '+String.valueOf(itemOppProduct[0].PE_POR_ID_COTIZA__c)+' <br/>';                
             }
             HTMLComments =HTMLComments+'<b>Comentarios:</b> ' +Body;
         }
@@ -337,8 +294,7 @@ public without sharing class Product_cls {
             HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
                 '<b>Importe:</b> '+ String.valueOf(itemOppProduct[0].Opportunity.Amount) +'<br/>' +
                 '<b>Comentarios:</b> ' +Body+ '<br/><br/>'+
-                '<b>Archivos adjuntos:</b> <br/>' +AttachedFiles;
-            
+                '<b>Archivos adjuntos:</b> <br/>' +AttachedFiles;            
         }
         return HTMLComments;
     }
@@ -359,8 +315,7 @@ public without sharing class Product_cls {
     */
     @AuraEnabled public static List<WRP_Table> getAccountBBVAInformation (String AccountId)
     {
-        list<AggregateResult> listInfoBBVA = [select account_id__r.Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' AND year_month_day_date__c = LAST_MONTH group by account_id__r.Name,product_group_classification_id__c, type__c];
-        
+        list<AggregateResult> listInfoBBVA = [select account_id__r.Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' AND year_month_day_date__c = LAST_MONTH group by account_id__r.Name,product_group_classification_id__c, type__c];        
         map<String, WRP_Table> mapResult = new map<String, WRP_Table>();
         integer i=0;
         Double dd;
@@ -378,17 +333,9 @@ public without sharing class Product_cls {
                                 di=(Double)ar2.get('exp2');
                                 else if((String)ar2.get('product_group_classification_id__c')==label.LblResources && (String)ar2.get('type__c')=='02')
                                     r=(Double)ar2.get('exp2');
-                }
-                    
-            
-            if((string)ar.get('Name')!=aux)
-            {
-                mapResult.put(String.valueOf(i), new WRP_Table((string)ar.get('Name'),(Double)ar.get('exp1'),dd,di,r));
-                aux=(string)ar.get('Name');
-                i++;
-            }
+                }                             
+            if((string)ar.get('Name')!=aux){ mapResult.put(String.valueOf(i), new WRP_Table((string)ar.get('Name'),(Double)ar.get('exp1'),dd,di,r)); aux=(string)ar.get('Name'); i++;}
         }
-
         return mapResult.values();
     }
     /**
@@ -409,5 +356,4 @@ public without sharing class Product_cls {
             this.Resources = toResources;
         }
     }
-       
 }

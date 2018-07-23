@@ -411,9 +411,9 @@
     <customLabels>
         <label>Sancionar precio</label>
         <name>lblSanctionPrice</name>
-    </customLabels>    
+    </customLabels>
     <customLabels>
-        <label>Sancionar riesgo</label>
+        <label>Sanción de riesgo</label>
         <name>lblSanctionRisk</name>
     </customLabels>
     <customLabels>
@@ -781,7 +781,7 @@
         <name>AuditPriceApproval</name>
     </customLabels>
     <customLabels>
-        <label><!-- OpportunityStatusInsideLine --></label>
+        <label>Riesgo aprobado dentro de línea</label>
         <name>OpportunityStatusInsideLine</name>
     </customLabels>
     <customLabels>
@@ -795,6 +795,30 @@
     <customLabels>
         <label>Aprobar Sanción</label>
         <name>lblApprove</name>
+    </customLabels>
+    <customLabels>
+        <label>No existen detalles adicionales de auditoría.</label>
+        <name>NoAuditDetail</name>
+    </customLabels>
+    <customLabels>
+        <label>Riesgo aprobado</label>
+        <name>RiskApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio aprobado</label>
+        <name>PriceApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio</label>
+        <name>Price</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción de riesgo</label>
+        <name>lblTitleRiskSanction</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción de precio</label>
+        <name>lblTitlePriceSanction</name>
     </customLabels>
     <quickActions>
         <label>Llamada</label>
@@ -816,57 +840,6 @@
         <label>Email</label>
         <name>SendEmail</name>
     </quickActions>
-	  <flowDefinitions>
-        <flows>
-            <choices>
-                <name>PEN</name>
-            </choices>
-            <choices>
-                <name>USD</name>
-            </choices>
-            <choices>
-                <name>Ninguno</name>
-            </choices>
-            <fullName>Compromisos-9</fullName>
-            <screens>
-                <fields>
-                    <name>ErrorGuardado</name>
-                </fields>
-                <name>Error</name>
-            </screens>
-            <screens>
-                <fields>
-                    <name>PREVIOS</name>
-                </fields>
-                <name>Compromisos</name>
-            </screens>
-            <screens>
-                <fields>
-                    <name>Divisa</name>
-                </fields>
-                <fields>
-                    <name>Fecha_Vcto_dd_mm_aaaa</name>
-                </fields>
-                <fields>
-                    <name>Importe_SM</name>
-                </fields>
-                <fields>
-                    <name>Nuevo</name>
-                </fields>
-                <fields>
-                    <name>Permanencia_d_as2</name>
-                </fields>
-                <fields>
-                    <name>Plazo_Vcto_d_as2</name>
-                </fields>
-                <fields>
-                    <name>ProductosList</name>
-                </fields>
-                <name>Compromiso</name>
-            </screens>
-        </flows>
-        <fullName>Compromisos</fullName>
-    </flowDefinitions>
     <flowDefinitions>
         <flows>
             <choices>
