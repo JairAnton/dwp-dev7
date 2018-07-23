@@ -14,21 +14,30 @@
         }else if(updatePrice){  
             save_action = component.get("c.setToPrice");
         }
+        if(save_action!=undefined){
+            save_action.setParams({Idopp : inputObject.recordId });        
+            save_action.setCallback(this, function(response){
+                var state = response.getState();
+                if (state === "SUCCESS") {
+                    if(response.getReturnValue()!="Updated"){
+                        this.toastEvent('Error!', response.getReturnValue(), 'error');
+                    } else{
+                        this.toastEvent('Success!', msgreeval, 'success');                    
+                    } 
+                    $A.get('e.force:refreshView').fire();
+                }
+            });
+            
+            $A.enqueueAction(save_action);
+        }else{
+            var disabledButton = $A.get("e.c:disabledButton_evt");            
+            disabledButton.setParams({ 
+				"idOpp" : inputObject.recordId,
+				"idButton" : 'idReevaluateOk',
+		 	});
+			disabledButton.fire();
+        }
         
-        save_action.setParams({Idopp : inputObject.recordId });        
-        save_action.setCallback(this, function(response){
-            var state = response.getState();
-            if (state === "SUCCESS") {
-                if(response.getReturnValue()!="Updated"){
-                    this.toastEvent('Error!', response.getReturnValue(), 'error');
-                } else{
-                    this.toastEvent('Success!', msgreeval, 'success');                    
-                } 
-                $A.get('e.force:refreshView').fire();
-            }
-        });
-        
-        $A.enqueueAction(save_action);
     },
     ini : function(component, event) { 
         var inputObject = component.get('v.inputAttributes');
