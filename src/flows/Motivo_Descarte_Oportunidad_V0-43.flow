@@ -3,8 +3,8 @@
     <actionCalls>
         <name>chat</name>
         <label>chat</label>
-        <locationX>523</locationX>
-        <locationY>476</locationY>
+        <locationX>535</locationX>
+        <locationY>329</locationY>
         <actionName>chatterPost</actionName>
         <actionType>chatterPost</actionType>
         <inputParameters>
@@ -126,22 +126,6 @@
         </assignmentItems>
         <connector>
             <targetReference>Actualiza_Etapa</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Updateproces</name>
-        <label>Updateproces</label>
-        <locationX>520</locationX>
-        <locationY>291</locationY>
-        <assignmentItems>
-            <assignToReference>SO_Oportunidad.isProcess__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>update</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -352,7 +336,7 @@
         <label>Desestimacion_desi1</label>
         <locationX>52</locationX>
         <locationY>170</locationY>
-        <defaultConnectorLabel>[Resultado predeterminado]</defaultConnectorLabel>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>Desestimacion_ruta1</name>
             <conditionLogic>or</conditionLogic>
@@ -377,7 +361,7 @@
         </rules>
         <rules>
             <name>Desestimacion_ruta2</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>Motivo_Desestimacion</leftValueReference>
                 <operator>EqualTo</operator>
@@ -465,22 +449,19 @@
         <queriedFields>OwnerId</queriedFields>
         <queriedFields>Amount</queriedFields>
         <queriedFields>Loss_Reason__c</queriedFields>
+        <queriedFields>opportunity_status_type__c</queriedFields>
+        <queriedFields>rejection_winner_entity_name__c</queriedFields>
+        <queriedFields>rejection_reason_id__c</queriedFields>
+        <queriedFields>rejection_rate_per__c</queriedFields>
+        <queriedFields>rejection_period_num__c</queriedFields>
+        <queriedFields>rejection_coin__c</queriedFields>
+        <queriedFields>rejection_amount__c</queriedFields>
     </recordLookups>
     <recordUpdates>
         <name>Actualizacion_Oportunidad</name>
         <label>Actualizacion Oportunidad</label>
         <locationX>510</locationX>
         <locationY>176</locationY>
-        <connector>
-            <targetReference>Updateproces</targetReference>
-        </connector>
-        <inputReference>SO_Oportunidad</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <name>update</name>
-        <label>update</label>
-        <locationX>518</locationX>
-        <locationY>390</locationY>
         <connector>
             <targetReference>chat</targetReference>
         </connector>
@@ -490,7 +471,7 @@
         <name>Descarte_1</name>
         <label>Motivo Descarte Riesgos</label>
         <locationX>51</locationX>
-        <locationY>325</locationY>
+        <locationY>321</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>

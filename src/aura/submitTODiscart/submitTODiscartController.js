@@ -11,16 +11,11 @@
          console.log('log1');
     },
 	handleStatusChange : function(component, event, helper) {
-        
+
         if(event.getParam("status")==="FINISHED"){
             console.log('log3');
             var outputVar = component.get("v.inputAttributes").recordId;
-            var urlEvent = $A.get("e.force:navigateToSObject");
-            urlEvent.setParams({
-          		"recordId": outputVar,
-          		"slideDevName": "related"
-        	});
-            urlEvent.fire();
+            $A.get('e.force:refreshView').fire();
         }
 	}
 })
