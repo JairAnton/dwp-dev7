@@ -1092,7 +1092,7 @@
     <language>es</language>
     <protected>false</protected>
     <shortDescription>lblEtapa01</shortDescription>
-    <value>Acciones Comerciales</value>
+    <value>Commercial actions</value>
 </labels>
 <labels>
     <fullName>lblEtapa02</fullName>
