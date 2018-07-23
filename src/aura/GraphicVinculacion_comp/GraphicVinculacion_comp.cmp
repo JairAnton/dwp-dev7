@@ -12,7 +12,7 @@
         NombreInforme="VINCULACION"
         TipoGrafica="bar"
         Id="{!v.recordId}"
-        Colores="##004481,#01A1DF,#75DFD9,#06A69E"
+        Colores="#004481,#01A1DF,#75DFD9,#06A69E"
         />
       </aura:if>
     </div>
