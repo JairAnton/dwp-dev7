@@ -1088,6 +1088,7 @@
         <shortDescription>lblTitlePriceSanction</shortDescription>
         <value>Price Sanction</value>
     </labels>
+   <labels>
     <fullName>lblEtapa01</fullName>
     <language>es</language>
     <protected>false</protected>
