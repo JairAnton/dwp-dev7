@@ -68,10 +68,10 @@
     </div>
     <div class="slds-modal__footer">
         <aura:if isTrue="{!and(or(v.selectedRow != null, v.oppRecord.Risk_modality_type__c == $Label.c.OppModalityRA), v.showSendApproveBtn == false)}"> 
-            <lightning:button variant="brand" aura:id="submit" onclick="{!c.saveModel}">{!$Label.c.lblOpportunityLink}</lightning:button>  
+            <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.saveModel}" aura:id="submit" label="{!$Label.c.lblOpportunityLink}" />
         </aura:if>
         <aura:if isTrue="{!v.showSendApproveBtn}">
-            <lightning:button variant="brand" onclick="{!c.sendApprove}" label="{!$Label.c.lblOpportunityApproval}"/>
+            <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.sendApprove}" label="{!$Label.c.lblOpportunityApproval}" />
         </aura:if>
         <lightning:button variant="neutral" label="{!$Label.c.Cancel}" onclick="{!c.closeModel}"/>
     </div>

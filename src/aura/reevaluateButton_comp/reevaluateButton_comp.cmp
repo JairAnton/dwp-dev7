@@ -21,7 +21,7 @@
     </div>    
  </div>
    <footer class="slds-modal__footer slds-theme_default">
-       <lightning:button variant="brand" onclick="{!c.doReevaluate}">{!$Label.c.Ok}</lightning:button>
+       <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doReevaluate}" label="{!$Label.c.Ok}" id="idReevaluateOk"/>
        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
    </footer>
 </aura:component>

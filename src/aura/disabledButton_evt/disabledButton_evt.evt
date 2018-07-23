@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="idOpp" type="String"/>
+    <aura:attribute name="idButton" type="String"/>
+</aura:event>

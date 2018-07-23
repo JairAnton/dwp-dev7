@@ -19,7 +19,7 @@
         </div>
     </div>
     <footer class="slds-modal__footer slds-theme_default">
-        <lightning:button variant="Brand" onclick="{!c.doApproval}">{!$Label.c.Ok}</lightning:button>
+        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doApproval}" label="{!$Label.c.Ok}"/>
         <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
     </footer>      
 </aura:component>

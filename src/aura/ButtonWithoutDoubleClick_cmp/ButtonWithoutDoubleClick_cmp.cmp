@@ -1,0 +1,13 @@
+<aura:component >
+	<aura:attribute name="label" type="String"/>
+	<aura:attribute name="variant" type="String" default="neutral"/>
+	<aura:attribute name="disabled" type="Boolean"/>
+	<aura:attribute name="style" type="String" default=""/>	
+	<aura:attribute name="class" type="String" default=""/>	
+	<aura:attribute name="id" type="String" default=""/>
+	<aura:attribute name="doubleClick" type="Boolean" default="true"/>		
+	<aura:registerEvent name="onclick" type="c:button_evt"/>
+	<aura:handler event="c:disabledButton_evt" action="{!c.disabledButton}"/>
+	
+    <lightning:button disabled="{!v.disabled}" variant="{!v.variant}" label="{!v.label}" onclick="{!c.handleClick}" class="{!v.class}" aura:id="{!v.id}"/>
+</aura:component>
