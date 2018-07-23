@@ -648,5 +648,12 @@
         <members>Opp_PB_Opportunidad-8</members>
         <name>Flow</name>
     </types>
+    <types>
+        <members>Compromisos</members>
+        <members>Flujo_Cotizacion_V0</members>
+        <members>FlujoEstadosOportunidad</members>
+        <members>Opp_PB_Opportunidad</members>
+        <name>FlowDefinition</name>
+    </types>
 	<version>42.0</version>
 </Package>
