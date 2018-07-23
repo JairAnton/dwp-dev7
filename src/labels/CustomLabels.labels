@@ -1088,4 +1088,59 @@
         <shortDescription>lblTitlePriceSanction</shortDescription>
         <value>Price Sanction</value>
     </labels>
+    <fullName>lblEtapa01</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa01</shortDescription>
+    <value>Acciones Comerciales</value>
+</labels>
+<labels>
+    <fullName>lblEtapa02</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa02</shortDescription>
+    <value>Pendiente de iniciar</value>
+</labels>
+<labels>
+    <fullName>lblEtapa03</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa03</shortDescription>
+    <value>En gestión</value>
+</labels>
+<labels>
+    <fullName>lblEtapa04</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa04</shortDescription>
+    <value>En sanción</value>
+</labels>
+<labels>
+    <fullName>lblEtapa05</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa05</shortDescription>
+    <value>En formalización</value>
+</labels>
+<labels>
+    <fullName>lblEtapa06</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa06</shortDescription>
+    <value>Formalizada</value>
+</labels>
+<labels>
+    <fullName>lblEtapa07</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa07</shortDescription>
+    <value>Desestimada</value>
+</labels>
+<labels>
+    <fullName>lblEtapaNoEncontrada</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapaNoEncontrada</shortDescription>
+    <value>No se ha iniciado una etapa</value>
+</labels>
 </CustomLabels>
