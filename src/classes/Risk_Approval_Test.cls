@@ -8,9 +8,9 @@ public class Risk_Approval_Test {
     static void setupData() {
 		acctest = TestFactory.createAccount();
         opptest = TestFactory.createOpportunity(acctest.Id,UserInfo.getUserId());
-        audit1 = Action_Audit_Helper.getAudit('Sanción Aprobado CM', Label.ApiNameAccount, acctest.Id, System.now(), Label.RiskApproval, UserInfo.getUserId(), Label.AuditStyleApproveTop, '1234', true);
-        audit2 = Action_Audit_Helper.getAudit('Sanción Denegado', Label.ApiNameAccount, acctest.Id, System.now(), Label.RiskApproval, UserInfo.getUserId(), Label.AuditStyleDeny, '5678', true);
-        audit3 = Action_Audit_Helper.getAudit('1er Ingreso a Controller', Label.ApiNameAccount, acctest.Id, System.now(), Label.RiskApproval, UserInfo.getUserId(), Label.AuditStyleElevate, '1900', true);
+        audit1 = Action_Audit_Helper.getAudit('Sanción Aprobado CM', Label.ApiNameAccount, acctest.Id, System.now(), Label.AuditRiskApproval, UserInfo.getUserId(), Label.AuditStyleApproveTop, '1234', true);
+        audit2 = Action_Audit_Helper.getAudit('Sanción Denegado', Label.ApiNameAccount, acctest.Id, System.now(), Label.AuditRiskApproval, UserInfo.getUserId(), Label.AuditStyleDeny, '5678', true);
+        audit3 = Action_Audit_Helper.getAudit('1er Ingreso a Controller', Label.ApiNameAccount, acctest.Id, System.now(), Label.AuditRiskApproval, UserInfo.getUserId(), Label.AuditStyleElevate, '1900', true);
     }
     @isTest
     static void oppModalityDL() {
