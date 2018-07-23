@@ -106,13 +106,13 @@ public class TestFactory {
     }
     
     public static fprd__GBL_Intervener__c createParticipants (Id oppId){
-    	fprd__GBL_Intervener__c part = new fprd__GBL_Intervener__c (Name='Test');
+    	fprd__GBL_Intervener__c part = new fprd__GBL_Intervener__c (Name='Test', fprd__GBL_Opportunity_product__c='IDOP');
         insert part;
         return part; 
     }
     
     public static fprd__GBL_Guarantee__c createGuarantee (Id oppId){
-        fprd__GBL_Guarantee__c guarant = new fprd__GBL_Guarantee__c ();
+        fprd__GBL_Guarantee__c guarant = new fprd__GBL_Guarantee__c (fprd__GBL_Opportunity_product__c='IDOP');
         insert guarant;
         return guarant; 
     }
