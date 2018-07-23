@@ -95,21 +95,18 @@ public without sharing class Product_cls {
                     row = [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c FROM fprd__GBL_Guarantee__c Where Id=: PGuaranteeId];
                 else row = new fprd__GBL_Guarantee__c();
 
-                System.debug(row+'-'+PGuaranteeId+'-'+IdOpportunity+'-'+IdProuduct+'-'+GuaranteeType+'-'+Guarantee+'-'+Modality+'-'+Amount+'-'+Status+'-'+Term+'-'+Periodicity+'-'+nGuarantee);
-              
-
           
                 row.Opportunity__c=IdOpportunity;
                 row.fprd__GBL_Opportunity_product__c=IdOpportunity;
                 row.Product__c=IdProuduct;
                 row.GuaranteeType__c=GuaranteeType;
                 row.Guarantee__c=Guarantee;
-                if(nGuarantee!=null) row.nGuarantee__c=nGuarantee;
+                row.nGuarantee__c=nGuarantee;
                 row.Modality__c=Modality;
                 if(Amount!=null) row.Amount__c=Amount;
                 if(Status!=null) row.Status__c=Status;
-                if(Periodicity!=null) row.Periodicity__c=Periodicity;
-                if(Term!=null)  row.Term__c=Term;
+                row.Periodicity__c=Periodicity;
+                row.Term__c=Term;
                 if(PGuaranteeId!=null) update row; else insert row;	
                 return true;
             }
