@@ -19,14 +19,14 @@ branches:
                     mdapiConfig:
                         credentialId: SFDC_DEV
                         command: testDeploy
-                        testLevel: NoTestRun
+                        testLevel: RunLocalTests
     develop:
         stages:
             publish:
                 params:
                     mdapiConfig:
                         credentialId: SFDC_DEV
-                        testLevel: NoTestRun
+                        testLevel: RunLocalTests
     release:
         stages:
             publish:

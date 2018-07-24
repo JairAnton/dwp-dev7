@@ -463,7 +463,7 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblPenalizeRisk</shortDescription>
-        <value>Penalize risk</value>
+        <value>Sanction risk</value>
     </labels>
     <labels>
         <fullName>lblQuote</fullName>
@@ -1067,4 +1067,81 @@
         <shortDescription>lblApprove</shortDescription>
         <value>Approve Sanction</value>
     </labels>
+    <labels>
+        <fullName>NoAuditDetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoAuditDetail</shortDescription>
+        <value>There are no additional audit details.</value>
+    </labels>
+    <labels>
+        <fullName>lblTitleRiskSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleRiskSanction</shortDescription>
+        <value>Risk Sanction</value>
+    </labels>
+    <labels>
+        <fullName>lblTitlePriceSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitlePriceSanction</shortDescription>
+        <value>Price Sanction</value>
+    </labels>
+   <labels>
+    <fullName>lblEtapa01</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa01</shortDescription>
+    <value>Commercial actions</value>
+</labels>
+<labels>
+    <fullName>lblEtapa02</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa02</shortDescription>
+    <value>Pending to start</value>
+</labels>
+<labels>
+    <fullName>lblEtapa03</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa03</shortDescription>
+    <value>In Management</value>
+</labels>
+<labels>
+    <fullName>lblEtapa04</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa04</shortDescription>
+    <value>In Sanction</value>
+</labels>
+<labels>
+    <fullName>lblEtapa05</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa05</shortDescription>
+    <value>Formalization</value>
+</labels>
+<labels>
+    <fullName>lblEtapa06</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa06</shortDescription>
+    <value>Formalizate</value>
+</labels>
+<labels>
+    <fullName>lblEtapa07</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa07</shortDescription>
+    <value>Rejected</value>
+</labels>
+<labels>
+    <fullName>lblEtapaNoEncontrada</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapaNoEncontrada</shortDescription>
+    <value>There is no stage in this opportunity</value>
+</labels>
 </CustomLabels>

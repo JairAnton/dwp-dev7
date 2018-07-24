@@ -5,18 +5,19 @@
         <members>Product_Participants__c</members>
         <name>CustomObject</name>
     </types>
-    <types>    
-        <members>Product_Gurantee__c-es</members>  
-        <members>Product_Participants__c-es</members>  
+    <types>
+        <members>Product_Gurantee__c-es</members>
+        <members>Product_Participants__c-es</members>
 		<name>CustomObjectTranslation</name>
     </types>
     <types>
         <members>classMasterGuarantee_cls</members>
         <members>classMasterParticipant</members>
+        <members>PE_DWP_Correo_cls</members>
+        <members>PE_DWP_Correo_tst</members>
         <name>ApexClass</name>
     </types>
     <types>
-     
         <members>Product_Gurantee__c-Formato Product_Gurantee</members>
         <members>Product_Participants__c-Formato Product_Participant</members>
         <name>Layout</name>
@@ -631,11 +632,6 @@
         <name>CustomMetadata</name>
     </types>
     <types>
-        <members>PE_DWP_Correo_cls</members>
-        <members>PE_DWP_Correo_cls_tst</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
 		<members>Opportunity.Modality__c</members>
         <members>Opportunity.LastSIOcode__c</members>
 		<name>CustomField</name>
@@ -644,6 +640,13 @@
 		<members>Opportunity_Modal_Modality</members>
         <members>OpportunityProduct_Comp</members>
 		<name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>Compromisos-9</members>
+        <members>Flujo_Cotizacion_V0-3</members>
+        <members>FlujoEstadosOportunidad-14</members>
+        <members>Opp_PB_Opportunidad-8</members>
+        <name>Flow</name>
     </types>
 	<version>42.0</version>
 </Package>

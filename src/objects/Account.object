@@ -285,11 +285,10 @@
         <fullName>banking_system_classification_type__c</fullName>
         <externalId>false</externalId>
         <label>Banking system classification</label>
-        <precision>18</precision>
+        <length>255</length>
         <required>false</required>
-        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -306,11 +305,10 @@
         <fullName>bbva_classification_type__c</fullName>
         <externalId>false</externalId>
         <label>BBVA classification</label>
-        <precision>18</precision>
+        <length>255</length>
         <required>false</required>
-        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
