@@ -1926,15 +1926,15 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Renewals__c.cancellation_wtd_5_amount__c</field>
-        <readable>true</readable>Class
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>Class
-        <field>Account_Renewals__Class
-        <readable>true</readable>Class
+        <editable>true</editable>
+        <field>Account_Renewals__c.product_category_type__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>Class
+        <editable>true</editable>
         <field>Account_Renewals__c.product_name__c</field>
         <readable>true</readable>
     </fieldPermissions>
