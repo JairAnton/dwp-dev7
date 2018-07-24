@@ -820,6 +820,38 @@
         <label>Sanción de precio</label>
         <name>lblTitlePriceSanction</name>
     </customLabels>
+    <customLabels>
+        <label>Acciones Comerciales</label>
+        <name>lblEtapa01</name>
+    </customLabels>
+    <customLabels>
+        <label>Pendiente de iniciar</label>
+        <name>lblEtapa02</name>
+    </customLabels>
+    <customLabels>
+        <label>En gestión</label>
+        <name>lblEtapa03</name>
+    </customLabels>
+    <customLabels>
+        <label>En sanción</label>
+        <name>lblEtapa04</name>
+    </customLabels>
+    <customLabels>
+        <label>En formalización</label>
+        <name>lblEtapa05</name>
+    </customLabels>
+    <customLabels>
+        <label>Formalizada</label>
+        <name>lblEtapa06</name>
+    </customLabels>
+    <customLabels>
+        <label>Desestimada</label>
+        <name>lblEtapa07</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha iniciado una etapa</label>
+        <name>lblEtapaNoEncontrada</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

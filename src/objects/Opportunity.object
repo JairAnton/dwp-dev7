@@ -971,6 +971,26 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+        <fields>
+            <fullName>StageName_Formula__c</fullName>
+            <description>field to show in tthe opportunity datatableDynamic</description>
+            <externalId>false</externalId>
+            <formula>CASE(StageName,
+                &apos;01&apos;, $Label.lblEtapa01,
+                &apos;02&apos;, $Label.lblEtapa02,
+                &apos;03&apos;, $Label.lblEtapa03,
+                &apos;04&apos;, $Label.lblEtapa04,
+                &apos;05&apos;, $Label.lblEtapa05,
+                &apos;06&apos;, $Label.lblEtapa06,
+                &apos;07&apos;, $Label.lblEtapa07,
+                $Label.lblEtapaNoEncontrada)</formula>
+            <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+            <label>StageName_Formula</label>
+            <required>false</required>
+            <trackTrending>false</trackTrending>
+            <type>Text</type>
+            <unique>false</unique>
+        </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>

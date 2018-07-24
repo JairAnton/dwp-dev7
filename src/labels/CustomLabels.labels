@@ -1088,4 +1088,60 @@
         <shortDescription>lblTitlePriceSanction</shortDescription>
         <value>Price Sanction</value>
     </labels>
+   <labels>
+    <fullName>lblEtapa01</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa01</shortDescription>
+    <value>Commercial actions</value>
+</labels>
+<labels>
+    <fullName>lblEtapa02</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa02</shortDescription>
+    <value>Pending to start</value>
+</labels>
+<labels>
+    <fullName>lblEtapa03</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa03</shortDescription>
+    <value>In Management</value>
+</labels>
+<labels>
+    <fullName>lblEtapa04</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa04</shortDescription>
+    <value>In Sanction</value>
+</labels>
+<labels>
+    <fullName>lblEtapa05</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa05</shortDescription>
+    <value>Formalization</value>
+</labels>
+<labels>
+    <fullName>lblEtapa06</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa06</shortDescription>
+    <value>Formalizate</value>
+</labels>
+<labels>
+    <fullName>lblEtapa07</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapa07</shortDescription>
+    <value>Rejected</value>
+</labels>
+<labels>
+    <fullName>lblEtapaNoEncontrada</fullName>
+    <language>es</language>
+    <protected>false</protected>
+    <shortDescription>lblEtapaNoEncontrada</shortDescription>
+    <value>There is no stage in this opportunity</value>
+</labels>
 </CustomLabels>

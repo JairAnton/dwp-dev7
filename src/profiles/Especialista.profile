@@ -3393,6 +3393,11 @@ Ejecutivos de REDES</description>
         <field>OpportunityLineItem.product_risk_approval_indicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.StageName_Formula__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>

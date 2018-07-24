@@ -2387,6 +2387,11 @@
         <field>User.Unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.StageName_Formula__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
