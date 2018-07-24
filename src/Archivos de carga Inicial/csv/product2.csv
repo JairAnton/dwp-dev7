@@ -1,16 +1,16 @@
-ID,NAME,PRODUCTCODE,DESCRIPTION,ISACTIVE,FAMILY,CURRENCYISOCODE,Unique_id__c ,Type_of_quote__c,risk_sanction__c,price_penalty__c,formalization__c,pdf__c 
-01t3B00000215lAQAQ,Prestamo comercial ,PC00001,Producto code 1,true,Financiamiento a Corto Plazo,PEN,0160010,Web,true,true,true,true
-01t3B00000215lEQAQ,Comex Importacion,PC00002,Producto code 2,true,Financiamiento a Corto Plazo,PEN,0161720,Cotiza Beta,true,true,true,true
-01t3B00000215lGQAQ,Comex Exportacion,PC00003,Producto code 3,true,Financiamiento a Corto Plazo,PEN,0161710,Cotiza Beta ,true,true,true,false
-01t3B00000215lNQAQ,Letras,PC00005,Producto code 5,true,Financiamiento a Corto Plazo,PEN,0159501,Cotiza Beta ,true,true,true,false
-01t3B00000215lRQAQ,Prestamo Comercial,PC00009,Producto code 9,true,Financiamiento a Largo Plazo,PEN,PC00009,COTIZADOR,true,true,true,true
-01t3B00000215lXQAQ,Leasing,PC00010,Producto code 10,true,Financiamiento a Largo Plazo,PEN,0159601,COTIZADOR,true,true,true,true
-01t3B00000215lcQAA,Carta fianza tecnica,PC00011,Producto code 11,true,Riesgo de firma ,PEN,0292235,Tarifario,true,true,true,true
-,Carta fianza economica,PC00012,Producto code 12,true,Riesgo de firma ,PEN,0292230,Tarifario,true,true,true,true
-01t3B00000215lgQAA,Vista PJ,PC00016,Producto code 16,true,Recursos ,PEN,0240011,,false,false,false,true
-01t3B00000215luQAA,Pago a proveedores,PC00029,Producto code 29,true,Serv. Transaccionales ,PEN,08,,false,false,false,true
-01t3B00000215lvQAA,Pago de haberes,PC00030,Producto code 30,true,Serv. Transaccionales ,PEN,09,,false,false,false,false
-01t3B00000215lxQAA,Net Cash,PC00032,Producto code 32,true,Serv. Transaccionales ,PEN,21,,false,false,false,false
-01t3B00000215m5QAA,PFL,PC00040,Producto code 40,true,Programa Financiero ,PEN,PC00040,,true,false,false,false
-01t3B00000215m6QAA,PFF,PC00041,Producto code 41,true,Programa Financiero ,PEN,PC00041,,true,false,false,false
-01t3B00000215m7QAA,PFA,PC00042,Producto code 42,true,Programa Financiero ,PEN,PC00042,,true,false,false,false
+"NAME","PRODUCTCODE","DESCRIPTION","ISACTIVE","FAMILY","CURRENCYISOCODE","TYPE_OF_QUOTE__C","UNIQUE_ID__C","FORMALIZATION__C","PRICE_PENALTY__C","RISK_SANCTION__C","PDF__C"
+"Prestamo comercial","PC00001","Producto code 1","true","Financiamiento a corto plazo","PEN","Web","0160010","true","true","true","true"
+"Comex Importacion","PC00002","Producto code 2","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0161720","true","true","true","true"
+"Comex Exportacion","PC00003","Producto code 3","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0161710","true","true","true","false"
+"Letras","PC00005","Producto code 5","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0159501","true","true","true","false"
+"Prestamo Comercial","PC00009","Producto code 9","true","Financiamiento a largo plazo","PEN","COTIZADOR","PC00009","true","true","true","true"
+"Leasing","PC00010","Producto code 10","true","Financiamiento a largo plazo","PEN","COTIZADOR","0159601","true","true","true","true"
+"Carta fianza tecnica","PC00011","Producto code 11","true","Riesgo de firma","PEN","Tarifario","0292235","true","true","true","true"
+"Carta fianza economica","PC00012","Producto code 12","true","Riesgo de firma","PEN","Tarifario","0292230","true","true","true","true"
+"Vista PJ","PC00016","Producto code 16","true","Recursos","PEN","","0240011","false","false","false","true"
+"Pago a proveedores","PC00029","Producto code 29","true","Serv. Transaccionales","PEN","","08","false","false","false","true"
+"Pago de haberes","PC00030","Producto code 30","true","Serv. Transaccionales","PEN","","09","false","false","false","false"
+"Net Cash","PC00032","Producto code 32","true","Serv. Transaccionales","PEN","","21","false","false","false","false"
+"PFL","PC00040","Producto code 40","true","Programa financiero","PEN","","PC00040","false","false","true","false"
+"PFF","PC00041","Producto code 41","true","Programa financiero","PEN","","PC00041","false","false","true","false"
+"PFA","PC00042","Producto code 42","true","Programa financiero","PEN","","PC00042","false","false","true","false"

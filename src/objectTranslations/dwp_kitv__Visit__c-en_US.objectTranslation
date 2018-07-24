@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Visit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Visits</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- Fields To Identify A Visit Change --></label>
+        <name>Fields_To_Identify_A_Visit_Change</name>
+    </fieldSets>
+    <fields>
+        <label><!-- Notify meeting changed --></label>
+        <name>Notify_meeting_changed_peru__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>account_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Parent --></label>
+        <name>account_parent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>dwp_kitv__account_id__c</name>
+        <relationshipLabel><!-- Visits --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Type --></label>
+        <name>dwp_kitv__account_type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please indicate the time it will take to travel from the branch to the client&apos;s office. --></help>
+        <label><!-- Travel Time --></label>
+        <name>dwp_kitv__dwp_kitv_TravelTime__c</name>
+        <picklistValues>
+            <masterLabel>10 Minutos</masterLabel>
+            <translation><!-- 10 Minutos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20 Minutos</masterLabel>
+            <translation><!-- 20 Minutos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 Minutos</masterLabel>
+            <translation><!-- 30 Minutos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40 Minutos</masterLabel>
+            <translation><!-- 40 Minutos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60 Minutos</masterLabel>
+            <translation><!-- 60 Minutos --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Event changed --></label>
+        <name>dwp_kitv__event_changed_bool__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invitee changed --></label>
+        <name>dwp_kitv__invitee_changed_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead --></label>
+        <name>dwp_kitv__lead_id__c</name>
+        <relationshipLabel><!-- Visits --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Changed --></label>
+        <name>dwp_kitv__meeting_changed_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Most recent visits --></label>
+        <name>dwp_kitv__most_recent_visits__c</name>
+    </fields>
+    <fields>
+        <help><!-- Remember to click on &apos;Update visit&apos; to synchronize the calendar of the selected contacts. --></help>
+        <label><!-- Notify meeting changed --></label>
+        <name>dwp_kitv__notify_meeting_changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Event Relations --></label>
+        <name>dwp_kitv__number_of_event_relations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel --></label>
+        <name>dwp_kitv__visit_channel__c</name>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onsite</masterLabel>
+            <translation><!-- Onsite --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Number of BBVA contacts in this visit --></help>
+        <label><!-- Contacts number --></label>
+        <name>dwp_kitv__visit_contact_persons_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>dwp_kitv__visit_desc__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select a duration (minutes). --></help>
+        <label><!-- Duration --></label>
+        <name>dwp_kitv__visit_duration_number__c</name>
+        <picklistValues>
+            <masterLabel>120</masterLabel>
+            <translation><!-- 120 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation><!-- 15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>150</masterLabel>
+            <translation><!-- 150 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>180</masterLabel>
+            <translation><!-- 180 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>210</masterLabel>
+            <translation><!-- 210 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>240</masterLabel>
+            <translation><!-- 240 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30</masterLabel>
+            <translation><!-- 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>45</masterLabel>
+            <translation><!-- 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60</masterLabel>
+            <translation><!-- 60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90</masterLabel>
+            <translation><!-- 90 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>dwp_kitv__visit_end_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>dwp_kitv__visit_location_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>dwp_kitv__visit_purpose_type__c</name>
+        <picklistValues>
+            <masterLabel>Acquisition</masterLabel>
+            <translation><!-- Acquisition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial</masterLabel>
+            <translation><!-- Commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic</masterLabel>
+            <translation><!-- Strategic --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>dwp_kitv__visit_start_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>dwp_kitv__visit_status_type__c</name>
+        <picklistValues>
+            <masterLabel>Arranged</masterLabel>
+            <translation><!-- Arranged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arranged - Pending Updates</masterLabel>
+            <translation><!-- Arranged - Pending Updates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalized</masterLabel>
+            <translation><!-- Finalized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visit Completed - Pending Feedback</masterLabel>
+            <translation><!-- Visit Completed - Pending Feedback --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Summary --></label>
+        <name>dwp_kitv__visit_summary_desc__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of topics in this visit --></help>
+        <label><!-- Topics number --></label>
+        <name>dwp_kitv__visit_topics_number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of BBVA users in this visit --></help>
+        <label><!-- Users number --></label>
+        <name>dwp_kitv__visit_users_number__c</name>
+    </fields>
+    <layouts>
+        <layout>Visit Layout Account Peru</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Detalle --></label>
+            <section>Detalle</section>
+        </sections>
+        <sections>
+            <label><!-- Notas de la visita --></label>
+            <section>Notas de la visita</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Visit</nameFieldLabel>
+    <recordTypes>
+        <description><!-- Visit Recordtype from Account --></description>
+        <label><!-- AccountVisit --></label>
+        <name>AccountVisit</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Visit RecordType from Lead --></description>
+        <label><!-- LeadVisit --></label>
+        <name>LeadVisit</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Change Account is not allowed. --></errorMessage>
+        <name>dwp_kitv__Account_is_Changed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Visit from account can not be created before the days allowed. Check your configuration. --></errorMessage>
+        <name>dwp_kitv__Days_to_create_account</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Visit from lead can not be created before the days allowed. Check your configuration. --></errorMessage>
+        <name>dwp_kitv__Days_to_create_lead</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Change Lead is not allowed. --></errorMessage>
+        <name>dwp_kitv__Lead_is_Changed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- It´s not possible to add more than 50 contacts to a visit --></errorMessage>
+        <name>dwp_kitv__Max_number_of_contacts</name>
+    </validationRules>
+</CustomObjectTranslation>
