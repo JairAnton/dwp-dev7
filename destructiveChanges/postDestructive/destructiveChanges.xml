@@ -14,7 +14,7 @@
         <members>classMasterGuarantee_cls</members>
         <members>classMasterParticipant</members>
         <members>PE_DWP_Correo_cls</members>
-        <members>PE_DWP_Correo_cls_tst</members>
+        <members>PE_DWP_Correo_tst</members>
         <name>ApexClass</name>
     </types>
     <types>
