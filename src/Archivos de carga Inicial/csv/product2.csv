@@ -1,43 +1,16 @@
-ID,NAME,PRODUCTCODE,DESCRIPTION,ISACTIVE,FAMILY,CURRENCYISOCODE,Unique_id__c ,Type_of_quote__c,risk_sanction__c,price_penalty__c,formalization__c
-01t3B00000215lAQAQ,Prestamo comercial ,PC00001,Producto code 1,true,Financiamiento a Corto Plazo,PEN,160010,Web,true,true,true
-01t3B00000215lEQAQ,Comex Importacion,PC00002,Producto code 2,true,Financiamiento a Corto Plazo,PEN,161720,Cotiza Beta,true,true,true
-01t3B00000215lGQAQ,Comex Exportacion,PC00003,Producto code 3,true,Financiamiento a Corto Plazo,PEN,161710,Cotiza Beta ,true,true,true
-01t3B00000215lLQAQ,Forfaiting,PC00004,Producto code 4,false,Financiamiento a Corto Plazo,PEN,161730,Cotiza Beta ,true,true,true
-01t3B00000215lNQAQ,Letras,PC00005,Producto code 5,true,Financiamiento a Corto Plazo,PEN,159501,Cotiza Beta ,true,true,true
-01t3B00000215lOQAQ,Factoring,PC00006,Producto code 6,false,Financiamiento a Corto Plazo,PEN,159502,Cotiza Beta ,true,true,true
-01t3B00000215lPQAQ,Línea en Cuenta Corriente,PC00007,Producto code 7,false,Financiamiento a Corto Plazo,PEN,PC00007,,true,false,true
-01t3B00000215lQQAQ,Tarjeta Empresa,PC00008,Producto code 8,false,Financiamiento a Corto Plazo,PEN,163000,,true,false,true
-01t3B00000215lRQAQ,Prestamo Comercial,PC00009,Producto code 9,true,Financiamiento a Largo Plazo,PEN,PC00009,COTIZADOR,true,true,true
-01t3B00000215lXQAQ,Leasing,PC00010,Producto code 10,true,Financiamiento a Largo Plazo,PEN,159601,COTIZADOR,true,true,true
-01t3B00000215lcQAA,Carta fianza tecnica,PC00011,Producto code 11,true,Riesgo de firma ,PEN,292235,Tarifario,true,true,true
-,Carta fianza economica,PC00012,Producto code 12,true,Riesgo de firma ,PEN,292230,Tarifario,true,true,true
-01t3B00000215ldQAA,Stand By Letter,PC00013,Producto code 13,false,Riesgo de firma ,PEN,292420,Cotiza Beta,true,true,true
-01t3B00000215leQAA,Carta de crédito de importación,PC00014,Producto code 14,false,Riesgo de firma ,PEN,292410,Tarifario,true,true,true
-01t3B00000215lfQAA,Carta de crédito de exportación,PC00015,Producto code 15,false,Riesgo de firma ,PEN,292430,Tarifario,true,true,true
-01t3B00000215lgQAA,Vista PJ,PC00016,Producto code 16,true,Recursos ,PEN,240011,,false,false,false
-01t3B00000215lhQAA,Ahorro PJ,PC00017,Producto code 17,false,Recursos ,PEN,240521,,false,false,false
-01t3B00000215liQAA,Deposito a plazo PJ,PC00018,Producto code 18,false,Recursos ,PEN,241041,,false,true,true
-01t3B00000215ljQAA,Divas PJ,PC00019,Producto code 19,false,Recursos ,PEN,241020,,false,false,true
-01t3B00000215lkQAA,Fondos Mutuos,PC00020,Producto code 20,false,Recursos ,PEN,255500,,false,false,true
-01t3B00000215llQAA,Cobros: recaudo internacional,PC00021,Producto code 21,false,Serv. Transaccionales ,PEN,PC00021,,false,true,true
-01t3B00000215lnQAA,Cobros: CDE,PC00022,Producto code 22,false,Serv. Transaccionales ,PEN,PC00022,,false,true,false
-01t3B00000215loQAA,Cobros: recaudo local,PC00023,Producto code 23,false,Serv. Transaccionales ,PEN,PC00023,,false,true,false
-01t3B00000215lpQAA,Cobros: visanet,PC00024,Producto code 24,false,Serv. Transaccionales ,PEN,PC00024,,false,false,false
-01t3B00000215lqQAA,Cobros: caudales,PC00025,Producto code 25,false,Serv. Transaccionales ,PEN,PC00025,,false,false,false
-01t3B00000215lrQAA,Cobros: letras,PC00026,Producto code 26,false,Serv. Transaccionales ,PEN,PC00026,,false,false,false
-01t3B00000215lsQAA,Pagos: transferencias al exterior,PC00027,Producto code 27,false,Serv. Transaccionales ,PEN,PC00027,,false,true,false
-01t3B00000215ltQAA,Pagos: CDI,PC00028,Producto code 28,false,Serv. Transaccionales ,PEN,PC00028,,false,true,false
-01t3B00000215luQAA,Pagos: pago a proveedores,PC00029,Producto code 29,true,Serv. Transaccionales ,PEN,PC00029,,false,false,false
-01t3B00000215lvQAA,Pagos: pago de haberes,PC00030,Producto code 30,true,Serv. Transaccionales ,PEN,PC00030,,false,false,false
-01t3B00000215lwQAA,Pagos: factoring,PC00031,Producto code 31,false,Serv. Transaccionales ,PEN,PC00031,,false,false,false
-01t3B00000215lxQAA,Banca electrónica: netcash,PC00032,Producto code 32,true,Serv. Transaccionales ,PEN,PC00032,,false,false,false
-01t3B00000215lyQAA,Banca electrrónica: H2H,PC00033,Producto code 33,false,Serv. Transaccionales ,PEN,PC00033,,false,false,false
-01t3B00000215lzQAA,Banca electrónica: swift,PC00034,Producto code 34,false,Serv. Transaccionales ,PEN,PC00034,,false,true,false
-01t3B00000215m0QAA,FX (Spot),PC00035,Producto code 35,false,Derivados ,PEN,PC00035,,false,true,true
-01t3B00000215m1QAA,Forward (FWD),PC00036,Producto code 36,false,Derivados ,PEN,PC00036,,true,true,false
-01t3B00000215m2QAA,Cross Currency Swap (CCS),PC00037,Producto code 37,false,Derivados ,PEN,PC00037,,true,true,false
-01t3B00000215m3QAA,Opciones,PC00038,Producto code 38,false,Derivados ,PEN,PC00038,,true,true,false
-01t3B00000215m4QAA,Collar,PC00039,Producto code 39,false,Derivados ,PEN,PC00039,,true,true,false
-01t3B00000215m5QAA,PFL,PC00040,Producto code 40,true,Programa Financiero ,PEN,PC00040,,true,false,false
-01t3B00000215m6QAA,PFF,PC00041,Producto code 41,true,Programa Financiero ,PEN,PC00041,,true,false,false
-01t3B00000215m7QAA,PFA,PC00042,Producto code 42,true,Programa Financiero ,PEN,PC00042,,true,false,false
+"NAME","PRODUCTCODE","DESCRIPTION","ISACTIVE","FAMILY","CURRENCYISOCODE","TYPE_OF_QUOTE__C","UNIQUE_ID__C","FORMALIZATION__C","PRICE_PENALTY__C","RISK_SANCTION__C","PDF__C"
+"Prestamo comercial","PC00001","Producto code 1","true","Financiamiento a corto plazo","PEN","Web","0160010","true","true","true","true"
+"Comex Importacion","PC00002","Producto code 2","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0161720","true","true","true","true"
+"Comex Exportacion","PC00003","Producto code 3","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0161710","true","true","true","false"
+"Letras","PC00005","Producto code 5","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0159501","true","true","true","false"
+"Prestamo Comercial","PC00009","Producto code 9","true","Financiamiento a largo plazo","PEN","COTIZADOR","PC00009","true","true","true","true"
+"Leasing","PC00010","Producto code 10","true","Financiamiento a largo plazo","PEN","COTIZADOR","0159601","true","true","true","true"
+"Carta fianza tecnica","PC00011","Producto code 11","true","Riesgo de firma","PEN","Tarifario","0292235","true","true","true","true"
+"Carta fianza economica","PC00012","Producto code 12","true","Riesgo de firma","PEN","Tarifario","0292230","true","true","true","true"
+"Vista PJ","PC00016","Producto code 16","true","Recursos","PEN","","0240011","false","false","false","true"
+"Pago a proveedores","PC00029","Producto code 29","true","Serv. Transaccionales","PEN","","08","false","false","false","true"
+"Pago de haberes","PC00030","Producto code 30","true","Serv. Transaccionales","PEN","","09","false","false","false","false"
+"Net Cash","PC00032","Producto code 32","true","Serv. Transaccionales","PEN","","21","false","false","false","false"
+"PFL","PC00040","Producto code 40","true","Programa financiero","PEN","","PC00040","false","false","true","false"
+"PFF","PC00041","Producto code 41","true","Programa financiero","PEN","","PC00041","false","false","true","false"
+"PFA","PC00042","Producto code 42","true","Programa financiero","PEN","","PC00042","false","false","true","false"
