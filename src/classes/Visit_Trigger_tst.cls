@@ -19,7 +19,7 @@ public class Visit_Trigger_tst{
     **/  
     @testSetup 
     static void setData() {
-        usuario = TestFactory.createUser('Ejecutivo1', 'Administrador del Sistema');
+        usuario = TestFactory.createUser('Ejecutivo1', 'System Administrator');
         visit= TestFactory.createVisitKit();
         contactVisit= TestFactory.VisitConta(visit.Id);
         VisitMana = TestFactory.CreateVisitManagement(visit.Id,usuario.Id);
