@@ -92,12 +92,14 @@ public class Product_cls_test {
 
 			fprd__GBL_Guarantee__c testPG = new fprd__GBL_Guarantee__c();			
 			testPG.Opportunity__c=testOP.Id;
+            testPG.fprd__GBL_Opportunity_product__c=testOP.Id;
 			testPG.Product__c=testPr.Id;
         	
 			insert testPG;
 
 			fprd__GBL_Intervener__c testPP = new fprd__GBL_Intervener__c();			
 			testPP.Opportunity__c=testOP.Id;
+            testPP.fprd__GBL_Opportunity_product__c=testOP.Id;
 			testPP.Product__c=testPr.Id;
 			insert testPP;
 
@@ -118,11 +120,14 @@ public class Product_cls_test {
        		Product_cls.deleteGuaranteeDataByProduct(testPG.Id);
        		Product_cls.deleteParticipantDataByProduct(testPP.Id);
         	Product_cls.setSanctionPrice(testOP.Id,'btnApprove','obs');
+            Product_cls.setSanctionPrice(testOP.Id,'btnRaise','obs');
+            Product_cls.setSanctionPrice(testOP.Id,'else','obs');
         	Product_cls.setFormalization(testOP.Id,'btnApprove','id','obs');
             System.runAs(u2){ 
 	        Product_cls.setLastFormalization(testOP.Id,'btnApprove','obs','1234-1234-1234567890');
        		Product_cls.setLastFormalization(testOP.Id,'btnRaise','obs','1234-1234-1234567890');
             Product_cls.setLastFormalization(testOP.Id,'btnBack','obs','1234-1234-1234567890');
+            Product_cls.TraceabilityMessage (testOP.Id,'32','String Body','');
             }
         	testLOPP.gipr_Tipo_Garantia__c='02';
         	update testLOPP;

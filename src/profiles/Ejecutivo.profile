@@ -4375,6 +4375,15 @@ Asistente BE</description>
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
 	<layoutAssignments>
+        <layout>dwp_kitv__Visit_Contact__c-Visit Contact Layout Peru</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>dwp_kitv__Visit_Management_Team__c-Visit Management Team Layout Peru</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>dwp_kitv__Visit_Topic__c-Visit Topic Layout Peru</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>dwp_kitv__Visit__c-Visit Layout Account Peru</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -4764,36 +4773,36 @@ Asistente BE</description>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_kitv__Visit_Contact__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_kitv__Visit_Management_Team__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_kitv__Visit_Topic__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_kitv__Visit__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
@@ -4973,19 +4982,19 @@ Asistente BE</description>
     </tabVisibilities>
 	<tabVisibilities>
         <tab>dwp_kitv__Visit_Contact__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>dwp_kitv__Visit_Management_Team__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>dwp_kitv__Visit_Topic__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>dwp_kitv__Visit__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

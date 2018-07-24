@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Topics about visits</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>dwp_kitv__More_Recent_Visits__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Deprecated</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c,&apos;Finalized&apos;),TEXT(DATEVALUE(dwp_kitv__visit_id__r.dwp_kitv__visit_start_date__c))&amp;&apos; (&apos;&amp;TEXT(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c)&amp;&apos;)&apos;,IF(dwp_kitv__visit_id__r.dwp_kitv__visit_end_date__c&lt;NOW(),&apos;Overdue&apos;,&apos; &apos;&amp;TEXT(DATEVALUE(dwp_kitv__visit_id__r.dwp_kitv__visit_start_date__c))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>More Recent Visits (Deprecated)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__most_recent_visits__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c,&apos;Finalized&apos;),TEXT(DATEVALUE(dwp_kitv__visit_id__r.dwp_kitv__visit_start_date__c))&amp;&apos; (&apos;&amp;TEXT(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c)&amp;&apos;)&apos;,IF(dwp_kitv__visit_id__r.dwp_kitv__visit_end_date__c&lt;NOW(),&apos;Overdue&apos;,&apos; &apos;&amp;TEXT(DATEVALUE(dwp_kitv__visit_id__r.dwp_kitv__visit_start_date__c))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Most recent visits</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__opportunity_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Related Opportunity</description>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Opportunity.IsClosed</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Visit Topics</relationshipLabel>
+        <relationshipName>Visit_Topics</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__summary__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field that gets the value from Opportunity Name and/or Topic Name.</description>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(dwp_kitv__opportunity_id__c )), IF(NOT(ISBLANK(dwp_kitv__topic_desc__c)), dwp_kitv__opportunity_id__r.Name + &apos; · &apos; + dwp_kitv__topic_desc__c, dwp_kitv__opportunity_id__r.Name), IF(NOT(ISBLANK(dwp_kitv__topic_desc__c)), dwp_kitv__topic_desc__c, &apos;&apos;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Summary Topic</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__topic_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Topic description</description>
+        <externalId>false</externalId>
+        <label>Topic</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_done_type__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check if the visit is complete</description>
+        <externalId>false</externalId>
+        <label>Done</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__visit_id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Parent Object</description>
+        <externalId>false</externalId>
+        <label>Visit</label>
+        <referenceTo>dwp_kitv__Visit__c</referenceTo>
+        <relationshipLabel>Visit Topics</relationshipLabel>
+        <relationshipName>Visit_Topics</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Visit Topic</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>VT-{0000000000}</displayFormat>
+        <label>Reference</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Visit Topics</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>dwp_kitv__empty_topic</fullName>
+        <active>true</active>
+        <description>It&apos;s not allowed add a visit topic empty</description>
+        <errorConditionFormula>ISBLANK(  dwp_kitv__topic_desc__c )</errorConditionFormula>
+        <errorMessage>It&apos;s not allowed add a visit topic empty</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
