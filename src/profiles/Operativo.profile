@@ -3802,20 +3802,10 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>gcal__GBL_Google_Calendar_Sync__mdt.gcal__GBL_Service_User_Email__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>gcal__GBL_Google_Calendar_Sync__mdt.gcal__GBL_Session_Duration__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-   <fieldPermissions>
-        <editable>true</editable>
         <field>OpportunityLineItem.PE_POR_ID_COTIZA__c</field>
         <readable>true</readable>
     </fieldPermissions> 
-   <fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.PE_ImOwner__c</field>
         <readable>true</readable>
@@ -3939,7 +3929,22 @@ Sub Gerentes de oficina</description>
         <editable>false</editable>
         <field>dwp_kitv__Visit__c.account_parent__c</field>
         <readable>true</readable>
-    </fieldPermissions> 	  
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit_Contact__c.contact_prof_position_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.user_prof_position_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.Notify_meeting_changed_peru__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Risk_modality_type__c</field>
@@ -3995,6 +4000,196 @@ Sub Gerentes de oficina</description>
         <field>Opportunity.StageName_Formula__c</field>
         <readable>true</readable>
     </fieldPermissions> 
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.dwp_kitv__visit_changed_bool__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.dwp_kitv__visit_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.dwp_kitv__TrackingNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Task.dwp_kitv__visit_changed_bool__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.dwp_kitv__visit_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Contact__c.dwp_kitv__contact_called_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Contact__c.dwp_kitv__contact_email_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Contact__c.dwp_kitv__contact_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Contact__c.dwp_kitv__contact_phone_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.dwp_kitv__contact_email_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.dwp_kitv__contact_phone_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.dwp_kitv__user_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Topic__c.dwp_kitv__More_Recent_Visits__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Topic__c.dwp_kitv__most_recent_visits__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Topic__c.dwp_kitv__opportunity_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Topic__c.dwp_kitv__summary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Topic__c.dwp_kitv__topic_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Topic__c.dwp_kitv__visit_done_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__account_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__account_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__dwp_kitv_TravelTime__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__event_changed_bool__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__invitee_changed_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__lead_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__meeting_changed_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__most_recent_visits__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__notify_meeting_changed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__number_of_event_relations__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_channel__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_contact_persons_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_end_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_location_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_purpose_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_status_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_summary_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_topics_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_users_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>
@@ -4071,6 +4266,22 @@ Sub Gerentes de oficina</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Global-Global Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>dwp_kitv__Visit_Contact__c-Visit Contact Layout Peru</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>dwp_kitv__Visit_Management_Team__c-Visit Management Team Layout Peru</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>dwp_kitv__Visit_Topic__c-Visit Topic Layout Peru</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>dwp_kitv__Visit__c-Visit Layout Account Peru</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>dwp_kitv__Visit__c-Visit Layout Account Peru</layout>
+        <recordType>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</recordType>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -4504,6 +4715,42 @@ Sub Gerentes de oficina</description>
         <object>fprd__GBL_Intervener__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_kitv__Visit_Contact__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_kitv__Visit_Management_Team__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_kitv__Visit_Topic__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_kitv__Visit__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
         <enabled>true</enabled>
@@ -4679,6 +4926,22 @@ Sub Gerentes de oficina</description>
     <tabVisibilities>
         <tab>standard-WorkBadgeDefinition</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_kitv__Visit_Contact__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_kitv__Visit_Management_Team__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_kitv__Visit_Topic__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_kitv__Visit__c</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
