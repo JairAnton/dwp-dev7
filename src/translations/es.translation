@@ -697,6 +697,10 @@
         <name>lblUnlink</name>
     </customLabels>
     <customLabels>
+        <label>Usuario no autorizado.</label>
+        <name>lblUserNotAuth</name>
+    </customLabels>
+    <customLabels>
         <label>La oportunidad no tiene código SIO y no puede desvicularse.</label>
         <name>msgEmptyAudit</name>
     </customLabels>
