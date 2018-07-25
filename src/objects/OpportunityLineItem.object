@@ -2095,6 +2095,94 @@
         <label>product_risk_approval_indicator</label>
         <type>Checkbox</type>
     </fields>
+    <fields>
+        <fullName>cancellation_fee_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancellation fee (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>minimun_apr_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Minimun APR (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>minimun_fee_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Minimun fee (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>price_quote_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last price quote date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>price_quote_id__c</fullName>
+        <externalId>false</externalId>
+        <label>Cotiza Id</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>proposed_apr_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Proposed APR (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>proposed_fee_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Proposed fee (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>restructuring_fee_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Restructuring fee (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>spread_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>suggested_apr_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Suggested APR (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
     <validationRules>
         <fullName>ContractNo_Validation</fullName>
         <active>true</active>

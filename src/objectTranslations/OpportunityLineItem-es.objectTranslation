@@ -1332,6 +1332,46 @@
         <label>Efectividad cartera</label>
         <name>dlf_Portfolio_effectiveness__c</name>
     </fields>
+    <fields>
+        <label>Comisión liquidación anticipada (%)</label>
+        <name>cancellation_fee_per__c</name>
+    </fields>
+    <fields>
+        <label>TEA Mínima (%)</label>
+        <name>minimun_apr_per__c</name>
+    </fields>
+    <fields>
+        <label>Comisión mínima (%)</label>
+        <name>minimun_fee_per__c</name>
+    </fields>
+    <fields>
+        <label>Fecha última cotización</label>
+        <name>price_quote_date__c</name>
+    </fields>
+    <fields>
+        <label>Id Cotiza</label>
+        <name>price_quote_id__c</name>
+    </fields>
+    <fields>
+        <label>TEA Propuesta (%)</label>
+        <name>proposed_apr_per__c</name>
+    </fields>
+    <fields>
+        <label>Comisión propuesta (%)</label>
+        <name>proposed_fee_per__c</name>
+    </fields>
+    <fields>
+        <label>Comisión estructuración (%)</label>
+        <name>restructuring_fee_per__c</name>
+    </fields>
+    <fields>
+        <label>Spread (%)</label>
+        <name>spread_per__c</name>
+    </fields>
+    <fields>
+        <label>TEA Sugerida (%)</label>
+        <name>suggested_apr_per__c</name>
+    </fields>
     <validationRules>
         <errorMessage>No Contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>ContractNo_Validation</name>
