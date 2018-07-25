@@ -2015,46 +2015,6 @@
         <field>fprd__GBL_Intervener__c.Marital_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_Comision_estructuracion__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_Comision__c</field>
-        <readable>true</readable>
-    </fieldPermissions>	
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_Comision_liquidacion_anticipada__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_Spread__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_minima__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_propuesta__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_sugerida__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>compromiso__c.Client__c</field>
@@ -2219,16 +2179,6 @@
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_n_gracia__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_propuesta__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_TEA_sugerida__c</field>
-        <readable>true</readable>
     </fieldPermissions>
    <fieldPermissions>
         <editable>true</editable>
@@ -2328,11 +2278,6 @@
  <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.da_Importer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
- <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.PE_POR_ID_COTIZA__c</field>
         <readable>true</readable>
     </fieldPermissions>
    <fieldPermissions>

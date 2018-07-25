@@ -1,38 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fields>
-        <label><!-- Fecha cotizacion --></label>
-        <name>PE_DATE_Fecha_cotizacion__c</name>
-    </fields>									
-    <fields>			
-        <help><!-- La diferencia entre los intereses que pagan las entidades bancarias
-por sus operaciones pasivas y los que estas reciben como rentabilidad por sus
-operaciones activas --></help>
-        <label>Spread (%)</label>
-        <name>PE_POR_Spread__c</name>
-    </fields>
-    <fields>
-        <label>TEA mínima (%)</label>
-        <name>PE_POR_TEA_minima__c</name>
-    </fields>
-    <fields>
-        <label>Comision propuesta (%)</label>
-        <name>PE_POR_Comision__c</name>
-    </fields>	
-    <fields>
-        <label>TEA propuesta (%)</label>
-        <name>PE_POR_TEA_propuesta__c</name>
-    </fields>
-    <fields>
-		<help><!-- se ingresa la tasa que arroja el cotizador --></help>																
-        <label>TEA sugerida (%)</label>
-        <name>PE_POR_TEA_sugerida__c</name>
-    </fields>
-    <fields>
-        <help><!-- se ingresa la tasa que arroja el cotizador --></help>
-        <label>ID COTIZA</label>
-        <name>PE_POR_ID_COTIZA__c</name>
-    </fields>
 	<fields>
         <label><!-- Siocode --></label>
         <name>Siocode__c</name>
