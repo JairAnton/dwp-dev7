@@ -91,12 +91,12 @@
     <apex:outputPanel id="SanctionPrice1" rendered="{!Product.ProductCode !=$Label.lblPDFProductFurnitureLeasing && Product.ProductCode !=$Label.lblPDFProductCommercialLoanLP}" layout="block">
     <table>
         <tr>
-            <td>No cotización: {!Oli.PE_POR_ID_COTIZA__c } </td>
+            <td>No cotización: {!Oli.price_quote_id__c } </td>
             <td>Fecha autorización: 16/06/2018:9:00 </td>
         </tr>
         <tr>
             <td>TEA aprobada:<apex:outputText value=" {0, number,0.00} %">
-                <apex:param value="{!Oli.PE_POR_TEA_propuesta__c}"/>
+                <apex:param value="{!Oli.proposed_apr_per__c}"/>
                 </apex:outputText> </td>
             <td>Vigencia: 12/07/2018 </td>
         </tr>
@@ -127,12 +127,12 @@
     <apex:outputPanel id="SanctionPrice2" rendered="{!Product.ProductCode==$Label.lblPDFProductFurnitureLeasing || Product.ProductCode==$Label.lblPDFProductCommercialLoanLP}" layout="block">
     <table>
         <tr>
-            <td>No cotización: {!Oli.PE_POR_ID_COTIZA__c } </td>
+            <td>No cotización: {!Oli.price_quote_id__c } </td>
             <td>Compromisos: {!totalC} </td>            
         </tr>
         <tr>
             <td>TEA aprobada:<apex:outputText value=" {0, number,0.00} %">
-                <apex:param value="{!Oli.PE_POR_TEA_propuesta__c}"/>
+                <apex:param value="{!Oli.proposed_apr_per__c}"/>
                 </apex:outputText> </td>
             <td>Fecha autorización: 16/06/2018:9:00 </td>
             
@@ -146,14 +146,14 @@
         </tr>
         <tr>
             <td>Comisión estructuración: <apex:outputText value=" {0, number,0.00} %">
-                <apex:param value="{!Oli.PE_POR_Comision_estructuracion__c}"/>
+                <apex:param value="{!Oli.restructuring_fee_per__c}"/>
                 </apex:outputText> </td>
             <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
 
         </tr>
         <tr>
             <td>Comisión liquidación anticipada: <apex:outputText value=" {0, number,0.00} %">
-                <apex:param value="{!Oli.PE_POR_Comision_liquidacion_anticipada__c}"/>
+                <apex:param value="{!Oli.cancellation_fee_per__c}"/>
                 </apex:outputText> </td>
             <td>Comentarios: Aprobada </td>
         </tr>

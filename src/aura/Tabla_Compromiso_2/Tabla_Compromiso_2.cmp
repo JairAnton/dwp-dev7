@@ -14,32 +14,32 @@
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_TEA_sugerida__c" />
+                            <lightning:outputField fieldName="suggested_apr_per__c" />
                         </div>
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_TEA_propuesta__c" />
+                            <lightning:outputField fieldName="proposed_apr_per__c" />
                         </div>
                         <aura:if isTrue="{!v.cotizaBeta}">
                             <div class="slds-border_bottom">
-                                <lightning:outputField fieldName="PE_POR_ID_COTIZA__c" />
+                                <lightning:outputField fieldName="price_quote_id__c" />
                             </div>
                         </aura:if>
                         <aura:if isTrue="{!v.cotiCotiza}">
                             <div class="slds-border_bottom">
-                                <lightning:outputField fieldName="PE_POR_Comision_estructuracion__c" />
+                                <lightning:outputField fieldName="restructuring_fee_per__c" />
                             </div>
                         </aura:if>
                     </div>
                     <div class="slds-col" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" />
+                            <lightning:outputField fieldName="minimun_apr_per__c" />
                         </div>
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_Spread__c" />
+                            <lightning:outputField fieldName="spread_per__c" />
                         </div>
                         <aura:if isTrue="{!v.cotiCotiza}">
                             <div class="slds-border_bottom">
-                                <lightning:outputField fieldName="PE_POR_Comision_liquidacion_anticipada__c" />
+                                <lightning:outputField fieldName="cancellation_fee_per__c" />
                             </div>
                         </aura:if>
                     </div>
@@ -52,13 +52,13 @@
                     <div class="slds-col" role="listitem">
                         <div class="slds-border_bottom">
                             <label class="slds-form-element__label" for="text-input-id-1">Comisión mínima (%)</label>
-                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" variant="label-hidden" />
+                            <lightning:outputField fieldName="minimun_apr_per__c" variant="label-hidden" />
                         </div>
                     </div>
                     <div class="slds-col" role="listitem">
                         <div class="slds-border_bottom">
                             <label class="slds-form-element__label" for="text-input-id-1">Comisión propuesta (%)</label>
-                            <lightning:outputField fieldName="PE_POR_Comision__c" variant="label-hidden"/>
+                            <lightning:outputField fieldName="minimun_fee_per__c" variant="label-hidden"/>
                         </div>
                     </div>
                 </div>

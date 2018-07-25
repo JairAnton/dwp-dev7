@@ -26,23 +26,23 @@
                                       >
                 <lightning:messages />
                 <div class="slds-hide">
-                	<lightning:inputField  fieldName="PE_DATE_Fecha_cotizacion__c" value="{!v.Today}"/>
+                	<lightning:inputField  fieldName="price_quote_date__c" value="{!v.Today}"/>
 				</div>
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_TEA_sugerida__c" />
+                            <lightning:outputField fieldName="suggested_apr_per__c" />
                         </div>
                         <div>
-                            <lightning:inputField fieldName="PE_POR_TEA_propuesta__c" />
+                            <lightning:inputField fieldName="proposed_apr_per__c" />
                         </div>
                     </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" />
+                            <lightning:outputField fieldName="minimun_apr_per__c" />
                         </div>
                         <div class="slds-border_bottom">
-                            <lightning:outputField fieldName="PE_POR_Spread__c" />
+                            <lightning:outputField fieldName="spread_per__c" />
                         </div>
                     </div>
                 </div>
@@ -60,18 +60,18 @@
                                       objectApiName="OpportunityLineItem">
                 <lightning:messages />
                                 <div class="slds-hide">
-                	<lightning:inputField  fieldName="PE_DATE_Fecha_cotizacion__c" value="{!v.Today}"/>
+                	<lightning:inputField  fieldName="price_quote_date__c" value="{!v.Today}"/>
 				</div>
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
                             <label class="slds-form-element__label" for="text-input-id-1">Comisión mínima (%)</label>
-                            <lightning:outputField fieldName="PE_POR_TEA_minima__c" variant="label-hidden" />
+                            <lightning:outputField fieldName="minimun_apr_per__c" variant="label-hidden" />
                         </div>
                     </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:inputField class="slds-label-hide" fieldName="PE_POR_Comision__c" />
+                            <lightning:inputField class="slds-label-hide" fieldName="minimun_fee_per__c" />
                         </div>
                     </div>
                 </div>
@@ -92,30 +92,30 @@
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
                                 <div class="slds-hide">
-                	<lightning:inputField  fieldName="PE_DATE_Fecha_cotizacion__c" value="{!v.Today}"/>
+                	<lightning:inputField  fieldName="price_quote_date__c" value="{!v.Today}"/>
 				</div>
                 <lightning:messages />
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_TEA_sugerida__c" />
+                            <lightning:inputField fieldName="suggested_apr_per__c" />
                         </div>
                         <div>
-                            <lightning:inputField fieldName="PE_POR_TEA_propuesta__c" />
+                            <lightning:inputField fieldName="proposed_apr_per__c" />
                         </div>
                         <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_Comision_estructuracion__c" />
+                            <lightning:inputField fieldName="restructuring_fee_per__c" />
                         </div>
                     </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_TEA_minima__c" />
+                            <lightning:inputField fieldName="minimun_apr_per__c" />
                         </div>
                         <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_Spread__c" />
+                            <lightning:inputField fieldName="spread_per__c" />
                         </div>
                         <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_Comision_liquidacion_anticipada__c" />
+                            <lightning:inputField fieldName="cancellation_fee_per__c" />
                         </div>
                     </div>
                 </div>
@@ -133,27 +133,27 @@
                                       recordId="{!v.mydata}"
                                       objectApiName="OpportunityLineItem">
                                 <div class="slds-hide">
-                	<lightning:inputField  fieldName="PE_DATE_Fecha_cotizacion__c" value="{!v.Today}"/>
+                	<lightning:inputField  fieldName="price_quote_date__c" value="{!v.Today}"/>
 				</div>
                 <lightning:messages />
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_TEA_sugerida__c" />
+                            <lightning:inputField fieldName="suggested_apr_per__c" />
                         </div>
                         <div>
-                            <lightning:inputField fieldName="PE_POR_TEA_propuesta__c" />
+                            <lightning:inputField fieldName="proposed_apr_per__c" />
                         </div>
                        <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_ID_COTIZA__c" />
+                            <lightning:inputField fieldName="price_quote_id__c" />
                         </div>
                     </div>
                     <div class="slds-col slds-size_1-of-2" role="listitem">
                         <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_TEA_minima__c" />
+                            <lightning:inputField fieldName="minimun_apr_per__c" />
                         </div>
                         <div class="slds-border_bottom">
-                            <lightning:inputField fieldName="PE_POR_Spread__c" />
+                            <lightning:inputField fieldName="spread_per__c" />
                         </div>
                     </div>
                 </div>
