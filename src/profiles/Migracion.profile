@@ -2848,9 +2848,6 @@
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>dwp_dace__Action__c-Action Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>dwp_dace__Condition__c-Condition Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
