@@ -16,7 +16,7 @@
     <standardValue>
         <fullName>02</fullName>
         <default>false</default>
-        <label>Escalated</label>
+        <label>Escalated request</label>
         <closed>false</closed>
     </standardValue>
     <standardValue>
