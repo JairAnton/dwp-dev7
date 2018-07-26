@@ -3907,18 +3907,6 @@ Analistas de riesgos</description>
         <layout>dwp_kitv__Visit__c-Visit Layout Account Peru</layout>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>dwp_dace__Rule_Action__c-Rule Action Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>dwp_dace__Rules_Set__c-Rules Set Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>dwp_dace__Rule_Condition__c-Rule Condition Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>dwp_dace__Rules_Set_Rule__c-Rules Set Rule Layout</layout>
-    </layoutAssignments>
 	<objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

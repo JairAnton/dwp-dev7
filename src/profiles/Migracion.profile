@@ -2847,18 +2847,6 @@
     <layoutAssignments>
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>dwp_dace__Rule_Action__c-Rule Action Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>dwp_dace__Rules_Set__c-Rules Set Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>dwp_dace__Rule_Condition__c-Rule Condition Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>dwp_dace__Rules_Set_Rule__c-Rules Set Rule Layout</layout>
-    </layoutAssignments>
 	<objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
