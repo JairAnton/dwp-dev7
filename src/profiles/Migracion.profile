@@ -3343,10 +3343,6 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>dwp_cvad__Action_Audit_Detail__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>fprd__GBL_Product_Configuration__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
