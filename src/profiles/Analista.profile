@@ -3908,9 +3908,6 @@ Analistas de riesgos</description>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>fprd__GBL_Guarantee__c-Guarantee Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>fprd__GBL_Intervener__c-Intervener Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

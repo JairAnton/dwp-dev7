@@ -4298,9 +4298,6 @@ Sub Gerentes de oficina</description>
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>fprd__GBL_Guarantee__c-Guarantee Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>fprd__GBL_Intervener__c-Intervener Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
