@@ -4405,9 +4405,6 @@ Asistente BE</description>
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>dwp_dace__Rule__c-Rule Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>dwp_dace__Rule_Action__c-Rule Action Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -4600,8 +4597,6 @@ Asistente BE</description>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete><objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
