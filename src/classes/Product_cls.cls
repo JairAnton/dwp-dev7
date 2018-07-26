@@ -180,7 +180,7 @@ public without sharing class Product_cls {
                     id id1 = userinfo.getProfileId();
                     String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
                     
-                    if((prof=='Ejecutivo'&& userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' || prof=='Migracion'){                                    
+                    if(((prof=='Ejecutivo'||prof=='Especialista')&& userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' || prof=='Migracion'){                                    
                         itemOpp[0].IsProcess__c=true;
                         update itemOpp[0];   
                         itemOpp[0].StageName=label.lblFormalizarEtapa;
@@ -216,53 +216,56 @@ public without sharing class Product_cls {
     }
     
     @AuraEnabled public static String setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber){
-        id id1 = userinfo.getProfileId();
-        id id2 = userinfo.getUserId();
-        String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
-        String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;
-        if(prof=='Operativo'|| prof=='Administrador del Sistema' )
-        { 
-            if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
-            {                
-                List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
-                if(!itemOpp.isEmpty())
-                {
-                    String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;                   
-                    if(OUCurrentUser!=OUOppUser)
-                        return label.lblUserNotAuth;                                  
-                    if(Action=='btnApprove'){//08
-                        itemOpp[0].StageName='06';
-                        itemOpp[0].opportunity_status_type__c='23';
-                    }
-                    else if(Action=='btnRaise'){//09
-                        itemOpp[0].StageName='05';
-                        itemOpp[0].opportunity_status_type__c='21';
-                        
-                    }
-                    else if(Action=='btnBack'){//09
-                        itemOpp[0].StageName='05';
-                        itemOpp[0].opportunity_status_type__c='20';
-                    }
-                    itemOpp[0].IsProcess__c=true;
-                    update itemOpp[0];
-                    itemOpp[0].frm_ContractNumber__c=ContractNumber;
-                    update itemOpp[0];
-                    itemOpp[0].IsProcess__c=false;
-                    update itemOpp[0]; 
-                    //BEGIN Traceability - 2018-06-11
-                    //Isaías Vellázquez Cortés				
-                    if(Action=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Número de contrato:</b> '+ContractNumber +'<br/>'+'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
-                    else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
-                    else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
-                    //END Traceability
-                    return 'true';
+        try
+        {
+            id id1 = userinfo.getProfileId();
+            id id2 = userinfo.getUserId();
+            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+            String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;
+            
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
+            String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;  
+            
+            if(OUCurrentUser!=OUOppUser)
+                            return label.lblUserNotAuth; 
+
+            if(((prof=='Ejecutivo'||prof=='Especialista') && userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Operativo'|| prof=='Administrador del Sistema' )
+            { 
+                if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
+                {                
+                                                  
+                        if(Action=='btnApprove'){//08
+                            itemOpp[0].StageName='06';
+                            itemOpp[0].opportunity_status_type__c='23';
+                        }
+                        else if(Action=='btnRaise'){//09
+                            itemOpp[0].StageName='05';
+                            itemOpp[0].opportunity_status_type__c='21';
+                            
+                        }
+                        else if(Action=='btnBack'){//09
+                            itemOpp[0].StageName='05';
+                            itemOpp[0].opportunity_status_type__c='20';
+                        }
+                        itemOpp[0].IsProcess__c=true;
+                        update itemOpp[0];
+                        itemOpp[0].frm_ContractNumber__c=ContractNumber;
+                        update itemOpp[0];
+                        itemOpp[0].IsProcess__c=false;
+                        update itemOpp[0]; 
+
+                        //BEGIN Traceability - 2018-06-11
+                        //Isaías Vellázquez Cortés				
+                        if(Action=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Número de contrato:</b> '+ContractNumber +'<br/>'+'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                        else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                        else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                        //END Traceability
+                        return 'true';                
                 }
-                return 'Error'; 
-                //success
+                else return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';
             }
-            else return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';
-        }
-        else return label.lblUserNotAuth;
+            else return label.lblUserNotAuth;
+        }catch(Dmlexception exp) { return exp.getMessage();}
     }
     
     public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)
