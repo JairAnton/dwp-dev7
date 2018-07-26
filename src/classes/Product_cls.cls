@@ -195,7 +195,7 @@ public without sharing class Product_cls {
                             update itemOpp[0];     
                             return label.lblNoCommentsFormalization;
                         } 
-                    }
+                    } else return label.lblUserNotAuth;
                 }
                 update itemOpp[0];
                 itemOpp[0].IsProcess__c=false;
@@ -229,7 +229,7 @@ public without sharing class Product_cls {
                 {
                     String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;                   
                     if(OUCurrentUser!=OUOppUser)
-                        return 'Usuario no autorizado.';                                  
+                        return label.lblUserNotAuth;                                  
                     if(Action=='btnApprove'){//08
                         itemOpp[0].StageName='06';
                         itemOpp[0].opportunity_status_type__c='23';
@@ -262,7 +262,7 @@ public without sharing class Product_cls {
             }
             else return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';
         }
-        else return 'Usuario no autorizado.';
+        else return label.lblUserNotAuth;
     }
     
     public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)

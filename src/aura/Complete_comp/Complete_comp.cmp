@@ -1,4 +1,4 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" extends="c:Formalization_comp"  access="GLOBAL" controller="Product_cls">
 	<aura:attribute name="title" type="String" default="{!$Label.c.lblComplete}" />
-	<aura:attribute name="isFormalization" type="Boolean" default="true"/>
+	<aura:attribute name="Action" type="String" default="btnApprove"/>
 </aura:component>
