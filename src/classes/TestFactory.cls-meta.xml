@@ -6,5 +6,10 @@
         <minorNumber>4</minorNumber>
         <namespace>dwp_kitv</namespace>
     </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>5</minorNumber>
+        <namespace>fprd</namespace>
+    </packageVersions>
     <status>Active</status>
 </ApexClass>

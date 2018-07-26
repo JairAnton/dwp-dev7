@@ -2,11 +2,11 @@
 public class TestFactory {
     public static User createUser(String userName, String Perfil){
     	User u = new User();
-        u.Username=userName+'u2@u.com.u';
+        Double random = Math.random();
+        u.Username=userName+'u2@u.com.u'+random;
 		u.LastName=userName+'uLast2';
           u.Email=userName+'u2@u.com';
-          u.Alias= userName.substring(0, 2)+'uAas2';
-          u.CommunityNickname=userName+'2uComm';
+          u.Alias= String.valueOf(random).substring(0, 3)+'uAas2';
           u.TimeZoneSidKey='America/Mexico_City';
           u.LocaleSidKey='en_US';
           u.EmailEncodingKey='ISO-8859-1';
@@ -106,13 +106,13 @@ public class TestFactory {
     }
     
     public static fprd__GBL_Intervener__c createParticipants (Id oppId){
-    	fprd__GBL_Intervener__c part = new fprd__GBL_Intervener__c (Name='Test', fprd__GBL_Opportunity_product__c='IDOP');
+    	fprd__GBL_Intervener__c part = new fprd__GBL_Intervener__c (Name='Test');
         insert part;
         return part; 
     }
     
     public static fprd__GBL_Guarantee__c createGuarantee (Id oppId){
-        fprd__GBL_Guarantee__c guarant = new fprd__GBL_Guarantee__c (fprd__GBL_Opportunity_product__c='IDOP');
+        fprd__GBL_Guarantee__c guarant = new fprd__GBL_Guarantee__c ();
         insert guarant;
         return guarant; 
     }
@@ -156,6 +156,14 @@ public class TestFactory {
         Datetime yesterday = Datetime.now().addDays(-1);
          Test.setCreatedDate(accp.Id, yesterday);
         
+    }
+    
+    public static Case createCase(Id userId){
+        Case casetest = new Case();
+        casetest.Status = 'New';
+        casetest.OwnerId = userId;
+        insert casetest;
+        return casetest;
     }
   
 }
