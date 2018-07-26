@@ -5044,14 +5044,6 @@ Asistente BE</description>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>fprd__GBL_Guarantee__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>fprd__GBL_Intervener__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>fprd__GBL_Dependent_value__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>

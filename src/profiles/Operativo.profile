@@ -4713,7 +4713,7 @@ Sub Gerentes de oficina</description>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_dace__Rules_Set_Rule__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
