@@ -4593,7 +4593,8 @@ Asistente BE</description>
         <object>dwp_dace__Condition__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <allowCreate>false</allowCreate>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
