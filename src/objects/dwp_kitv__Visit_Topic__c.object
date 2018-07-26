@@ -173,5 +173,4 @@
         <errorConditionFormula>ISBLANK(  dwp_kitv__topic_desc__c )</errorConditionFormula>
         <errorMessage>It&apos;s not allowed add a visit topic empty</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

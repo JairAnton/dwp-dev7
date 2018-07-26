@@ -41,66 +41,76 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>dwp_dace__Rule_Action_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>dwp_dace__Rule_Action_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>dwp_dace__rule_link__c</fields>
+        <fields>dwp_dace__action_link__c</fields>
+        <fields>dwp_dace__rule_action_active_type__c</fields>
+        <label>Rule Action Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <deprecated>false</deprecated>
-    <description>Object to relate users with visits</description>
+    <description>Relationship between rules and actions</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>dwp_kitv__contact_email_desc__c</fullName>
+        <fullName>dwp_dace__action_id__c</fullName>
         <deprecated>false</deprecated>
-        <description>User email</description>
+        <description>Relation with an action</description>
         <externalId>false</externalId>
-        <formula>dwp_kitv__user_id__r.Email</formula>
+        <inlineHelpText>Relation with an action</inlineHelpText>
+        <label>Action Reference</label>
+        <referenceTo>dwp_dace__Action__c</referenceTo>
+        <relationshipLabel>Rule Actions</relationshipLabel>
+        <relationshipName>Rule_Actions</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__action_link__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF($User.UIThemeDisplayed=&quot;Theme4d&quot;,HYPERLINK( &quot;#/sObject/&quot; + dwp_dace__action_id__c , dwp_dace__action_id__r.dwp_dace__action_unique_id__c ,&quot;_top&quot; ),HYPERLINK(dwp_dace__action_id__c , dwp_dace__action_id__r.dwp_dace__action_unique_id__c,&quot;_top&quot; ))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Email</label>
+        <label>Action</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>dwp_kitv__contact_phone_desc__c</fullName>
+        <fullName>dwp_dace__rule_action_active_type__c</fullName>
+        <defaultValue>true</defaultValue>
         <deprecated>false</deprecated>
-        <description>User phone</description>
+        <description>If checked, the relationship between the rules and the actions is considered as active</description>
         <externalId>false</externalId>
-        <formula>IF(ISBLANK( dwp_kitv__user_id__r.Phone ), dwp_kitv__user_id__r.MobilePhone, dwp_kitv__user_id__r.Phone )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Phone</label>
-        <required>false</required>
+        <inlineHelpText>If checked, the relationship between the rules and the actions is considered as active</inlineHelpText>
+        <label>Is Active?</label>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>dwp_kitv__user_id__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <fullName>dwp_dace__rule_id__c</fullName>
         <deprecated>false</deprecated>
-        <description>User visit</description>
+        <description>Relation with a rule</description>
         <externalId>false</externalId>
-        <label>User</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Visit_Management_Teams</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>dwp_kitv__visit_id__c</fullName>
-        <deprecated>false</deprecated>
-        <description>Parent Object</description>
-        <externalId>false</externalId>
-        <label>Visit</label>
-        <referenceTo>dwp_kitv__Visit__c</referenceTo>
-        <relationshipLabel>Visit Management Teams</relationshipLabel>
-        <relationshipName>Visit_Management_Teams</relationshipName>
+        <inlineHelpText>Relation with a rule</inlineHelpText>
+        <label>Rule Reference</label>
+        <referenceTo>dwp_dace__Rule__c</referenceTo>
+        <relationshipLabel>Rule Actions</relationshipLabel>
+        <relationshipName>Rule_Actions</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
@@ -108,43 +118,24 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>user_prof_position_type__c</fullName>
+        <fullName>dwp_dace__rule_link__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
-        <formula>dwp_kitv__user_id__r.prof_position_type__c</formula>
+        <formula>IF($User.UIThemeDisplayed=&quot;Theme4d&quot;,HYPERLINK( &quot;#/sObject/&quot; + dwp_dace__rule_id__c , dwp_dace__rule_id__r.dwp_dace__rule_unique_id__c ,&quot;_top&quot; ),HYPERLINK(dwp_dace__rule_id__c , dwp_dace__rule_id__r.dwp_dace__rule_unique_id__c,&quot;_top&quot; ))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>User position</label>
+        <label>Rule</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Visit Management Team</label>
-    <listViews>
-        <fullName>All</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
+    <label>Rule Action</label>
     <nameField>
-        <displayFormat>VM-{0000000000}</displayFormat>
+        <displayFormat>RA-{0000000000}</displayFormat>
         <label>Reference</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Visit Management Teams</pluralLabel>
+    <pluralLabel>Rule Actions</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>dwp_kitv__Change_user</fullName>
-        <active>true</active>
-        <description>You cannot change the user.</description>
-        <errorConditionFormula>ISCHANGED(  dwp_kitv__user_id__c )</errorConditionFormula>
-        <errorMessage>Is not allowed change the user. Please, delete the visit management team.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>dwp_kitv__User_owner</fullName>
-        <active>true</active>
-        <description>The user cannot be the same that visit owner.</description>
-        <errorConditionFormula>dwp_kitv__user_id__c  =  dwp_kitv__visit_id__r.OwnerId</errorConditionFormula>
-        <errorDisplayField>dwp_kitv__user_id__c</errorDisplayField>
-        <errorMessage>You cannot insert the Owner of the visit.</errorMessage>
-    </validationRules>
 </CustomObject>

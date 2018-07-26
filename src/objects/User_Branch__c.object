@@ -196,5 +196,4 @@
         <searchResultsAdditionalFields>branch_category_type__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
-    <visibility>Public</visibility>
 </CustomObject>
