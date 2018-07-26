@@ -893,6 +893,13 @@
         <value>Unlink SIO</value>
     </labels>
     <labels>
+        <fullName>lblUserNotAuth</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblUserNotAuth</shortDescription>
+        <value>User not Authorized</value>
+    </labels>
+    <labels>
         <fullName>msgEmptyAudit</fullName>
         <language>en_US</language>
         <protected>false</protected>

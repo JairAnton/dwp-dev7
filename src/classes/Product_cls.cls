@@ -10,7 +10,7 @@ public without sharing class Product_cls {
 	Comments to describe the functionality of this method
 	*/
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
-		List<OpportunityLineItem> row= [SELECT  PE_POR_Comision_liquidacion_anticipada__c,PE_POR_ID_COTIZA__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,PE_DATE_Fecha_cotizacion__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
+		List<OpportunityLineItem> row= [SELECT  cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
 		if(!row.isEmpty())
 			return row;
 		else
@@ -23,7 +23,7 @@ public without sharing class Product_cls {
 		List<OpportunityLineItem> rowOpp=getIdProductByOpportunity(IdOpportunity);
 		if(!rowOpp.isEmpty())
 		{
-			if(rowOpp[0].PE_DATE_Fecha_cotizacion__c!=null && String.valueOf(rowOpp[0].PE_DATE_Fecha_cotizacion__c)!='') return true; else return false;
+			if(rowOpp[0].price_quote_date__c!=null && String.valueOf(rowOpp[0].price_quote_date__c)!='') return true; else return false;
 		}else return false;
 	}
 	/*Description
@@ -64,7 +64,7 @@ public without sharing class Product_cls {
 	}
 
 	@AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){	
-		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),PE_POR_TEA_propuesta__c,PE_POR_Spread__c,PE_POR_Comision__c FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
+		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
 		return objData;
 	}
 
@@ -195,7 +195,7 @@ public without sharing class Product_cls {
                             update itemOpp[0];     
                             return label.lblNoCommentsFormalization;
                         } 
-                    }
+                    } else return label.lblUserNotAuth;
                 }
                 update itemOpp[0];
                 itemOpp[0].IsProcess__c=false;
@@ -229,7 +229,7 @@ public without sharing class Product_cls {
                 {
                     String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;                   
                     if(OUCurrentUser!=OUOppUser)
-                        return 'Usuario no autorizado.';                                  
+                        return label.lblUserNotAuth;                                  
                     if(Action=='btnApprove'){//08
                         itemOpp[0].StageName='06';
                         itemOpp[0].opportunity_status_type__c='23';
@@ -262,7 +262,7 @@ public without sharing class Product_cls {
             }
             else return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';
         }
-        else return 'Usuario no autorizado.';
+        else return label.lblUserNotAuth;
     }
     
     public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)
@@ -277,15 +277,15 @@ public without sharing class Product_cls {
                 '<b>Plazo:</b> '+itemOppProduct[0].gipr_Plazo__c +' '+ itemOppProduct[0].gipr_Periodicidad__c +'<br/>';  /// EN CASO DE QUE APLIQUE
             if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZADOR')
             {
-                HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>' +
-                    '<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>'+
-                    '<b>Comisión Liquidacion Anticipada(%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision_liquidacion_anticipada__c)+'% <br/>';                                
-            }else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web'){HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+ '% <br/>';  }
-            else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario'){ HTMLComments=HTMLComments+'<b>Comisión Propuesta:</b> '+String.valueOf(itemOppProduct[0].PE_POR_Comision__c)+'% <br/>';  }
+                HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].proposed_apr_per__c)+ '% <br/>' +
+                    '<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].proposed_fee_per__c )+'% <br/>'+
+                    '<b>Comisión Liquidacion Anticipada(%):</b> '+String.valueOf(itemOppProduct[0].cancellation_fee_per__c)+'% <br/>';                                
+            }else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web'){HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].proposed_apr_per__c)+ '% <br/>';  }
+            else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario'){ HTMLComments=HTMLComments+'<b>Comisión Propuesta:</b> '+String.valueOf(itemOppProduct[0].proposed_fee_per__c )+'% <br/>';  }
             else if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZA Beta')
             {
-                HTMLComments=HTMLComments+'<b>TEA Propuesta (%):</b> '+String.valueOf(itemOppProduct[0].PE_POR_TEA_propuesta__c)+'% <br/>'
-                    +'<b>ID COTIZA:</b> '+String.valueOf(itemOppProduct[0].PE_POR_ID_COTIZA__c)+' <br/>';                
+                HTMLComments=HTMLComments+'<b>TEA Propuesta (%):</b> '+String.valueOf(itemOppProduct[0].proposed_apr_per__c)+'% <br/>'
+                    +'<b>ID COTIZA:</b> '+String.valueOf(itemOppProduct[0].price_quote_id__c)+' <br/>';                
             }
             HTMLComments =HTMLComments+'<b>Comentarios:</b> ' +Body;
         }

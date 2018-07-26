@@ -20,11 +20,13 @@
 	Actions : function(component, event, helper) {
         component.find("btnContinue").set("v.disabled", true);
         var OpportunityId = component.get("v.recordId");
+        var body = component.get("v.comments");
+        var fileName = component.get("v.FileName");
+
 
         var action = component.get("c.setFormalization");
         var sanAction = component.get("v.Action");
-        var body = component.get("v.comments");
-        var fileName = component.get("v.FileName");
+
         action.setParams({
             "OpportunityId" : OpportunityId,
             "Action" : sanAction,
@@ -38,13 +40,18 @@
                 helper.handleShowToast(component,event,helper);
                 if(response.getReturnValue()=="true")
                     helper.navigateToRecord(component, event, helper);
+                else
+                {
+                    component.set("v.errMessage",response.getReturnValue());
+                    helper.handleShowToast(component,event,helper);
+                }
 
             }
             else if (state === "INCOMPLETE") {
                 component.find("btnContinue").set("v.disabled", false);
                 component.set("v.errMessage",response.getReturnValue());
                 helper.handleShowToast(component,event,helper);
-                           
+                               
             }
             else if (state === "ERROR") {
                 component.find("btnContinue").set("v.disabled", false);
@@ -62,6 +69,8 @@
             }
         });
         $A.enqueueAction(action);
+        
+       
     },
     navigateToRecord : function(component, event, helper) {
          var navEvent = $A.get("e.force:navigateToSObject");
