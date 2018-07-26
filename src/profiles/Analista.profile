@@ -4571,10 +4571,6 @@ Analistas de riesgos</description>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>dwp_dace__Rule_Action__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>dwp_dace__Rules_Set__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>

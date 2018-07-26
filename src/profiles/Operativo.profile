@@ -4597,7 +4597,6 @@ Sub Gerentes de oficina</description>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>ProfileSkillUser</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -5025,10 +5024,6 @@ Sub Gerentes de oficina</description>
     </tabVisibilities>
     <tabVisibilities>
         <tab>dwp_dace__Rule__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>dwp_dace__Rule_Action__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
