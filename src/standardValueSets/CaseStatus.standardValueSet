@@ -10,7 +10,7 @@
     <standardValue>
         <fullName>01</fullName>
         <default>false</default>
-        <label>New</label>
+        <label>New request</label>
         <closed>false</closed>
     </standardValue>
     <standardValue>

@@ -13,7 +13,7 @@
         <translation>Escalado</translation>
     </valueTranslation>
     <valueTranslation>
-        <masterLabel>New</masterLabel>
+        <masterLabel>New request</masterLabel>
         <translation>Nuevo</translation>
     </valueTranslation>
 </StandardValueSetTranslation>
