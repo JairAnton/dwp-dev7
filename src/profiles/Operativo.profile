@@ -4298,9 +4298,6 @@ Sub Gerentes de oficina</description>
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>fprd__GBL_Intervener__c-Intervener Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>fprd__GBL_Dependent_value__c-Dependent value Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -4995,14 +4992,6 @@ Sub Gerentes de oficina</description>
     </tabVisibilities>
     <tabVisibilities>
         <tab>fprd__GBL_Product_Configuration__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>fprd__GBL_Guarantee__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>fprd__GBL_Intervener__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
