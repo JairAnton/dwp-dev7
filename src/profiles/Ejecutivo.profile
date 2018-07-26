@@ -5063,10 +5063,6 @@ Asistente BE</description>
         <tab>dwp_dace__Rules_Set__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
-    <tabVisibilities>
-        <tab>dwp_dace__Rules_Set_Rule__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>

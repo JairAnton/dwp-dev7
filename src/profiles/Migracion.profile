@@ -3366,10 +3366,6 @@
         <tab>dwp_dace__Rules_Set__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    <tabVisibilities>
-        <tab>dwp_dace__Rules_Set_Rule__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>false</enabled>
