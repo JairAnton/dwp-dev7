@@ -2848,9 +2848,6 @@
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>fprd__GBL_Dependent_value__c-Dependent value Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>dwp_dace__Action__c-Action Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

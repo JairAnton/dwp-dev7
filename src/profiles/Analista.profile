@@ -3908,9 +3908,6 @@ Analistas de riesgos</description>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>fprd__GBL_Dependent_value__c-Dependent value Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>dwp_dace__Action__c-Action Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

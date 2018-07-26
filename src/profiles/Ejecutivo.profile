@@ -4405,9 +4405,6 @@ Asistente BE</description>
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>fprd__GBL_Dependent_value__c-Dependent value Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>dwp_dace__Action__c-Action Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -4590,6 +4587,8 @@ Asistente BE</description>
         <object>dwp_dace__Condition__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
