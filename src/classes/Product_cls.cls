@@ -195,7 +195,7 @@ public without sharing class Product_cls {
                             update itemOpp[0];     
                             return label.lblNoCommentsFormalization;
                         } 
-                    }
+                    } else return label.lblUserNotAuth;
                 }
                 update itemOpp[0];
                 itemOpp[0].IsProcess__c=false;
