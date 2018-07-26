@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Closed authorized</masterLabel>
+        <translation>Cerrado autorizado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Closed rejected</masterLabel>
+        <translation>Cerrado rechazado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalated</masterLabel>
+        <translation>Escalado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>New</masterLabel>
+        <translation>Nuevo</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

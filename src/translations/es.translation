@@ -852,6 +852,30 @@
         <label>No se ha iniciado una etapa</label>
         <name>lblEtapaNoEncontrada</name>
     </customLabels>
+    <customLabels>
+        <label>Analista</label>
+        <name>lblAnalistaProf</name>
+    </customLabels>
+    <customLabels>
+        <label>Reasignar propietario</label>
+        <name>lblReasign</name>
+    </customLabels>
+    <customLabels>
+        <label>Buscar...</label>
+        <name>lblSearch</name>
+    </customLabels>
+    <customLabels>
+        <label>Administrador del sistema</label>
+        <name>profAdministrator</name>
+    </customLabels>
+    <customLabels>
+        <label>El caso ha sido reasignado correctamente.</label>
+        <name>reasignSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Se debe insertar un usuario.</label>
+        <name>errorEmptyUser</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

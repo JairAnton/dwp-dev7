@@ -1144,4 +1144,46 @@
     <shortDescription>lblEtapaNoEncontrada</shortDescription>
     <value>There is no stage in this opportunity</value>
 </labels>
+<labels>
+    <fullName>lblAnalistaProf</fullName>
+    <language>en_US</language>
+    <protected>false</protected>
+    <shortDescription>lblAnalistaProf</shortDescription>
+    <value>Analista</value>
+</labels>
+<labels>
+    <fullName>lblReasign</fullName>
+    <language>en_US</language>
+    <protected>false</protected>
+    <shortDescription>lblReasign</shortDescription>
+    <value>Reasign Owner</value>
+</labels>
+<labels>
+    <fullName>lblSearch</fullName>
+    <language>en_US</language>
+    <protected>false</protected>
+    <shortDescription>lblSearch</shortDescription>
+    <value>Search...</value>
+</labels>
+<labels>
+    <fullName>profAdministrator</fullName>
+    <language>en_US</language>
+    <protected>false</protected>
+    <shortDescription>profAdministrator</shortDescription>
+    <value>System Administrator</value>
+</labels>
+<labels>
+    <fullName>reasignSuccess</fullName>
+    <language>en_US</language>
+    <protected>false</protected>
+    <shortDescription>reasignSuccess</shortDescription>
+    <value>The case has been reasigned succesfully,</value>
+</labels>
+<labels>
+        <fullName>errorEmptyUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>errorEmptyUser</shortDescription>
+        <value>You have to insert an user.</value>
+</labels>
 </CustomLabels>
