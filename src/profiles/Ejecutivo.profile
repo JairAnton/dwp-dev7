@@ -4592,7 +4592,7 @@ Asistente BE</description>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete><objectPermissions>
+        <allowDelete>false</allowDelete>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
@@ -5039,10 +5039,6 @@ Asistente BE</description>
     </tabVisibilities>
     <tabVisibilities>
         <tab>dwp_kitv__Visit__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>dwp_cvad__Action_Audit__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

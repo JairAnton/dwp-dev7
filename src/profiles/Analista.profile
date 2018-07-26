@@ -4551,10 +4551,6 @@ Analistas de riesgos</description>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>dwp_cvad__Action_Audit__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>dwp_cvad__Action_Audit_Detail__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
