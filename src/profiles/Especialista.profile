@@ -4264,10 +4264,6 @@ Ejecutivos de REDES</description>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>dwp_dace__Rule_Condition__c</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>dwp_dace__Rules_Set_Rule__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
