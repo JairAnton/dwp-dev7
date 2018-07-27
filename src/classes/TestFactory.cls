@@ -2,11 +2,11 @@
 public class TestFactory {
     public static User createUser(String userName, String Perfil){
     	User u = new User();
-        u.Username=userName+'u2@u.com.u';
+        Double random = Math.random();
+        u.Username=userName+'u2@u.com.u'+random;
 		u.LastName=userName+'uLast2';
           u.Email=userName+'u2@u.com';
-          u.Alias= userName.substring(0, 2)+'uAas2';
-          u.CommunityNickname=userName+'2uComm';
+          u.Alias= String.valueOf(random).substring(0, 3)+'uAas2';
           u.TimeZoneSidKey='America/Mexico_City';
           u.LocaleSidKey='en_US';
           u.EmailEncodingKey='ISO-8859-1';
@@ -16,12 +16,12 @@ public class TestFactory {
           insert u;
     	return u;
     }
-    public static Opportunity createOpportunity(Id accountId,Id userId){
+   public static Opportunity createOpportunity(Id accountId,Id userId){
     	Opportunity opp = new Opportunity(ownerId=userId,Name='testopp', AccountId=accountId,StageName='01',Amount=100 ,CloseDate=system.Date.today(),opportunity_status_type__c='01');
     	insert opp;
         return opp;
     }
-    
+
     public static Attachment createAttachment(Id parentId, String attachmentName){
     	Attachment attach=new Attachment(); 
         attach.Name= attachmentName; 
@@ -34,34 +34,34 @@ public class TestFactory {
         insert attach; 
     	return attach;
     
-	}    
+	}
     public static Product2 createProduct (){
     	Product2 prod = new Product2(Name = 'Swift',
                                      Family = 'Credit');
     	insert prod;
         return prod;
     }
-    
+
     public static OpportunityLineItem createOLI (Id oppId,Id prodId){
         Id pricebookId = Test.getStandardPricebookId();
-        
+
         PricebookEntry standardPrice = new PricebookEntry(
         Pricebook2Id = pricebookId, Product2Id = prodId,UnitPrice = 10000, IsActive = true);
         insert standardPrice;
-        
+
         Pricebook2 customPB = new Pricebook2(Name='PriceBook', isActive=true);
         insert customPB;
-        
+
         PricebookEntry customPrice = new PricebookEntry(
         Pricebook2Id = customPB.Id, Product2Id = prodId,
         UnitPrice = 12000, IsActive = true);
         insert customPrice;
-        
+
         OpportunityLineItem oli = New OpportunityLineItem(OpportunityId=oppId ,Quantity=1,TotalPrice=10.00,PricebookEntryId=customPrice.Id,Product2Id=prodId);
         insert oli;
         return oli;
     }
-    
+
     public static Account createAccount(){
         Account acc=new Account(Name = 'TestAcct');
         insert acc;
@@ -72,7 +72,7 @@ public class TestFactory {
         insert acc;
         return acc;
     }
-    
+
     public static Account_BBVA_Classification__c createAccBBVAClass(Id acc){
         Account_BBVA_Classification__c accClass = new  Account_BBVA_Classification__c(account_id__c=acc);
         insert accClass;
@@ -84,13 +84,13 @@ public class TestFactory {
         insert accClass;
         return accClass;
 	}
-    
+
     public static Contact createContact(Id acc){
         Contact c = new  Contact(accountid=acc,LastName='test',FirstName='test',Salutation='Mr.',decision_making_desc__c='Si');
         insert c;
         return c;
-	} 
-    
+	}
+
     public static User_Branch__c createUserBranch (Id userId){
     	Branch__c branch = new Branch__c (Name='Test');
         insert branch;
@@ -98,23 +98,23 @@ public class TestFactory {
     	insert userBranch;
         return userBranch; 
     }
-    
+
     public static Account_Rating__c createAccRating (Id accountId){
     	Account_Rating__c accRating = new Account_Rating__c (account_id__c=accountId,total_rating_score_number__c=1);
         insert accRating;
-        return accRating; 
+        return accRating;
     }
-    
+
     public static fprd__GBL_Intervener__c createParticipants (Id oppId){
     	fprd__GBL_Intervener__c part = new fprd__GBL_Intervener__c (Name='Test', fprd__GBL_Opportunity_product__c='IDOP');
         insert part;
-        return part; 
+        return part;
     }
-    
+
     public static fprd__GBL_Guarantee__c createGuarantee (Id oppId){
         fprd__GBL_Guarantee__c guarant = new fprd__GBL_Guarantee__c (fprd__GBL_Opportunity_product__c='IDOP');
         insert guarant;
-        return guarant; 
+        return guarant;
     }
     /**
     *Method Created: dwp_kitv__Visit__c
@@ -137,7 +137,7 @@ public class TestFactory {
     }
     /**
     *Method Created: dwp_kitv__Visit_Management_Team__c
-    **/    
+    **/
     public static dwp_kitv__Visit_Management_Team__c CreateVisitManagement(Id visitID,Id UserKit){
         dwp_kitv__Visit_Management_Team__c kit_Manage = new dwp_kitv__Visit_Management_Team__c
         (dwp_kitv__visit_id__c=visitID,
@@ -145,17 +145,24 @@ public class TestFactory {
         insert kit_Manage;
         return kit_Manage;
     }
-    
+
     public static void createAccountProfit(Id Account){
         Account_Profitability__c	accp = new Account_Profitability__c(
-        account_id__c=Account,      
+        account_id__c=Account,
         profitability_type__c ='03',
-        profitability_category_type__c = 'Comisiones'    
-        );	
+        profitability_category_type__c = 'Comisiones'
+        );
         insert accp;
         Datetime yesterday = Datetime.now().addDays(-1);
          Test.setCreatedDate(accp.Id, yesterday);
-        
+
     }
-  
+    public static Case createCase(Id userId){
+        Case casetest = new Case();
+        casetest.Status = 'New';
+        casetest.OwnerId = userId;
+        insert casetest;
+        return casetest;
+    }
+
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>03</fullName>
+        <default>false</default>
+        <label>Closed authorized</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>01</fullName>
+        <default>false</default>
+        <label>New request</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>02</fullName>
+        <default>false</default>
+        <label>Escalated request</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>04</fullName>
+        <default>false</default>
+        <label>Closed rejected</label>
+        <closed>true</closed>
+    </standardValue>
+</StandardValueSet>
