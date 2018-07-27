@@ -9,7 +9,7 @@ public  virtual class OpportunityPDFWrap {
     Public static User_Branch__c usuarioOficina {get;set;}
     Public static Branch__c Oficina {get;set;}
     Public static Account_Rating__c  Rating {get;set;}
-    Public static list<Product_participants__c> Intervenientes {get;set;}
+    Public static list<fprd__GBL_Intervener__c > Intervenientes {get;set;}
     Public static list<fprd__GBL_Guarantee__c> Garantias {get;set;}
     public static AggregateResult[] totalComprimisos{get;set;}
     public static Integer totalC {get;set;}
@@ -74,7 +74,7 @@ public  virtual class OpportunityPDFWrap {
             msg= 'Datos incompletos en calificación cliente';
             Rating =  database.query(getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+Client.Id+'\' ORDER BY createdDate LIMIT 1');
             msg= 'Datos incompletos en intervieniente';
-            Intervenientes = database.query(getQuery('Product_participants__c')+' WHERE  Opportunity__c =\''+OppId+'\'');
+            Intervenientes = database.query(getQuery('fprd__GBL_Intervener__c')+' WHERE  Opportunity__c =\''+OppId+'\'');
             msg= 'Datos incompletos en garantias';
             Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  Opportunity__c =\''+Oppid+'\'');
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM compromiso__c WHERE Oportunidad__c =:Oppid];
