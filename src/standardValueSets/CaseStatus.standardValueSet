@@ -9,7 +9,7 @@
     </standardValue>
     <standardValue>
         <fullName>01</fullName>
-        <default>false</default>
+        <default>true</default>
         <label>New request</label>
         <closed>false</closed>
     </standardValue>
