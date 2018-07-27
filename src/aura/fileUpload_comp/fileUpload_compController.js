@@ -1,6 +1,6 @@
 ({
     doSave: function(component, event, helper) {
-        if (component.find("fileId").get("v.files").length > 0) {
+        if (component.find("fileId").get("v.files")!=null) {
             helper.uploadHelper(component, event);
         } else {
             alert('Por favor seleccionar archivo valido');

@@ -41,6 +41,11 @@
                     helper.handleShowToast(component,event,helper);
                     if(response.getReturnValue()=="true")
                         helper.navigateToRecord(component, event, helper);
+                    else
+                    {
+                        component.set("v.errMessage",response.getReturnValue());
+                        helper.handleShowToast(component,event,helper);
+                    }
 
                 }
                 else if (state === "INCOMPLETE") {
@@ -81,6 +86,12 @@
                     
                         if(response.getReturnValue()=="true")
                             helper.navigateToRecord(component, event, helper);
+                        else
+                        {
+                            component.set("v.errMessage",response.getReturnValue());
+                            helper.handleShowToast(component,event,helper);
+                        }
+
 
                     }
                     else if (state === "INCOMPLETE") {

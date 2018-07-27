@@ -372,4 +372,28 @@
         <label><!-- lblTitlePriceSanction --></label>
         <name>lblTitlePriceSanction</name>
     </customLabels>
+    <customLabels>
+        <label><!-- lblAnalistaProf --></label>
+        <name>lblAnalistaProf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblReasign --></label>
+        <name>lblReasign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblSearch --></label>
+        <name>lblSearch</name>
+    </customLabels>ç
+    <customLabels>
+        <label><!-- profAdministrator --></label>
+        <name>profAdministrator</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reasignSuccess --></label>
+        <name>reasignSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- errorEmptyUser --></label>
+        <name>errorEmptyUser</name>
+    </customLabels>
 </Translations>
