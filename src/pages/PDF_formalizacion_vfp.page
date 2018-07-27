@@ -92,7 +92,7 @@
     <!--apex:outputPanel id="SanctionPrice1" rendered="{!Product.ProductCode !=$Label.lblPDFProductFurnitureLeasing && Product.ProductCode !=$Label.lblPDFProductCommercialLoanLP}" layout="block"-->
     <table>
         <tr>
-            <td>Nº cotización: {!Oli.PE_POR_ID_COTIZA__c } </td>
+            <td>Nº cotización: {!Oli.price_quote_id__c} </td>
             <td>Fecha autorización: 16/06/2018:9:00 </td>
         </tr>
         <tr>
@@ -191,7 +191,7 @@
                 <td class="cd"><apex:outputText value="{0, number,0}">
                     <apex:param value="{!Garantia.nGuarantee__c}" />
                     </apex:outputText></td>
-                <td class="cd"><apex:outputText value="{0, number, .00}">
+                <td class="cd"><apex:outputText value="{0,number,.00}">
                     <apex:param value="{!Garantia.Amount__c}" />
                     </apex:outputText>
                 </td>
