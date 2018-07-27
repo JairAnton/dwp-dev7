@@ -54,7 +54,7 @@ public  virtual class OpportunityPDFWrap {
         try{
             msg= 'Datos incompletos en oportunidad';
             opp = database.query(getQuery('Opportunity')+' WHERE id =\''+Oppid+'\' LIMIT 1');
-            Modalidad =opp.Modality__c;
+            Modalidad =opp.Risk_modality_type__c;
             msg= 'Datos incompletos en producto oportunidad';
             OLI = database.query(getQuery('OpportunityLineItem')+' WHERE  OpportunityID =\''+Oppid +'\'ORDER BY CreatedDate DESC LIMIT 1');
             msg= 'Datos incompletos en producto';
