@@ -123,6 +123,7 @@ public class Product_cls_test {
             Product_cls.setSanctionPrice(testOP.Id,'btnRaise','obs');
             Product_cls.setSanctionPrice(testOP.Id,'else','obs');
         	Product_cls.setFormalization(testOP.Id,'btnApprove','id','obs');
+			Product_cls.setRejectOpportunity(testOP.Id,'01',null,null,null,null,null,null);
             System.runAs(u2){ 
 	        Product_cls.setLastFormalization(testOP.Id,'btnApprove','obs','1234-1234-1234567890');
        		Product_cls.setLastFormalization(testOP.Id,'btnRaise','obs','1234-1234-1234567890');
