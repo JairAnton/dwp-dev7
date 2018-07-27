@@ -1,4 +1,4 @@
-  @page {
+@page {
             @top-center {
             content: element(header);
             }
@@ -16,17 +16,16 @@
             position: running(footer);
             }
             div.title{
-            background:#ededed;
             color:#42517c;
-            font-family:  comic-sans;
+            font-family: sans-serif;
             font-size:20px;
             font-style: normal;
             }
             div.subtitle{
             background:#ededed;
             color:#42517c;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size=20px;
+            font-family:sans-serif;
+            font-size=15px;
             }
             .pagenumber:before {
             content: counter(page);
@@ -38,7 +37,7 @@
             border-collapse: collapse;
             width: 100%;
             }
-            
+
             th, td {
             padding: 8px;
             text-align: left;
@@ -50,12 +49,13 @@
             border-bottom: 1px solid #ddd;
             width:100%;
             alignment:rigth;
-            
+
             }
             th.cb{
             padding: 8px;
             border-bottom: 1px solid #ddd;
-            background-color:#6699ff;
+            background-color:#004481;
+            color:#ffffff;
             alignment:center;
             }
             td.cd{
@@ -63,4 +63,4 @@
             border-bottom: 1px solid #ddd;
             background-color:#ffffff;
             alignment:center;
-            } 
+            }
