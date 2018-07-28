@@ -991,6 +991,26 @@
             <type>Text</type>
             <unique>false</unique>
         </fields>
+        <fields>
+            <fullName>CloseDate__c</fullName>
+            <externalId>false</externalId>
+            <formula>CloseDate</formula>
+            <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+            <label>CloseDate</label>
+            <required>false</required>
+            <trackTrending>false</trackTrending>
+            <type>Date</type>
+        </fields>
+        <fields>
+            <fullName>CreatedDate__c</fullName>
+            <externalId>false</externalId>
+            <formula>CreatedDate</formula>
+            <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+            <label>CreateDate</label>
+            <required>false</required>
+            <trackTrending>false</trackTrending>
+            <type>Date</type>
+        </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>
