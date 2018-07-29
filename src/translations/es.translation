@@ -697,6 +697,10 @@
         <name>lblUnlink</name>
     </customLabels>
     <customLabels>
+        <label>Usuario no autorizado.</label>
+        <name>lblUserNotAuth</name>
+    </customLabels>
+    <customLabels>
         <label>La oportunidad no tiene código SIO y no puede desvicularse.</label>
         <name>msgEmptyAudit</name>
     </customLabels>
@@ -851,6 +855,30 @@
     <customLabels>
         <label>No se ha iniciado una etapa</label>
         <name>lblEtapaNoEncontrada</name>
+    </customLabels>
+    <customLabels>
+        <label>Analista</label>
+        <name>lblAnalistaProf</name>
+    </customLabels>
+    <customLabels>
+        <label>Reasignar propietario</label>
+        <name>lblReasign</name>
+    </customLabels>
+    <customLabels>
+        <label>Buscar...</label>
+        <name>lblSearch</name>
+    </customLabels>
+    <customLabels>
+        <label>Administrador del sistema</label>
+        <name>profAdministrator</name>
+    </customLabels>
+    <customLabels>
+        <label>El caso ha sido reasignado correctamente.</label>
+        <name>reasignSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Se debe insertar un usuario.</label>
+        <name>errorEmptyUser</name>
     </customLabels>
     <quickActions>
         <label>Llamada</label>
