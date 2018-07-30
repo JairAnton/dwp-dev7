@@ -267,6 +267,37 @@ public without sharing class Product_cls {
             else return label.lblUserNotAuth;
         }catch(Dmlexception exp) { return exp.getMessage();}
     }
+
+    /*Dismiss oportunity Method*/
+    @AuraEnabled public static String setRejectOpportunity(String OpportunityId,String RejectReason,String WinnerBank,String IsoCurrency,Decimal Amount,Decimal Rate,Integer Term,String Comments){
+        try
+        {
+            id id1 = userinfo.getProfileId();
+            id id2 = userinfo.getUserId();
+            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+            String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;            
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
+            String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;              
+            if(OUCurrentUser!=OUOppUser)
+                            return label.lblUserNotAuth; 
+
+            if(((prof=='Ejecutivo'||prof=='Especialista') && userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' )
+            { 
+                itemOpp[0].StageName='07';
+                itemOpp[0].opportunity_status_type__c='22';
+                itemOpp[0].Loss_Reason__c=RejectReason;
+                itemOpp[0].rejection_winner_entity_name__c=WinnerBank;
+                itemOpp[0].rejection_reason_id__c=Comments;
+                itemOpp[0].rejection_amount__c=Amount;
+                itemOpp[0].rejection_rate_per__c=Rate;
+                itemOpp[0].rejection_period_num__c=Term;
+                itemOpp[0].rejection_coin__c= IsoCurrency;
+                update itemOpp[0];                      
+                return 'true';                             
+            }
+            else return label.lblUserNotAuth;
+        }catch(Dmlexception exp) { return exp.getMessage();}
+    }    
     
     public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)
     {
