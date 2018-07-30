@@ -331,6 +331,5 @@ IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(sta
         <searchResultsAdditionalFields>active_type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>branch_level4_desc__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
-    <visibility>Public</visibility>
+    <sharingModel>Read</sharingModel>
 </CustomObject>

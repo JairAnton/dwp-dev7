@@ -38,95 +38,88 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Account_Bank_Classification_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
+        <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Clasificación BBVA</description>
-    <enableActivities>false</enableActivities>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>account_id__c</fullName>
-        <description>Cliente</description>
+        <fullName>fprd__LoV_labels__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
-        <label>Account</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Account BBVA Classifications</relationshipLabel>
-        <relationshipName>Account_BBVA_Classifications</relationshipName>
+        <label>LoV labels</label>
+        <length>50000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>fprd__LoV_values__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>LoV values</label>
+        <length>50000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>fprd__Product_configuration__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Product configuration</label>
+        <referenceTo>fprd__GBL_Product_Configuration__c</referenceTo>
+        <relationshipLabel>Dependent values</relationshipLabel>
+        <relationshipName>Dependent_values</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>bbva_classification_desc__c</fullName>
-        <description>Clasificación</description>
+        <fullName>fprd__Values_control_value__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
-        <label>Classification</label>
+        <label>Values control value</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>bbva_classification_type__c</fullName>
-        <description>Código de la clasificación</description>
-        <externalId>false</externalId>
-        <label>Classification code</label>
-        <length>25</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>unique_id__c</fullName>
-        <caseSensitive>false</caseSensitive>
-		<description>Identificador único</description>
-        <externalId>true</externalId>
-        <label>Unique identifier</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>year_month_day_date__c</fullName>
-        <description>Fecha</description>
-        <externalId>false</externalId>
-        <label>Classification date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <gender>Feminine</gender>
-    <label>Clasificación BBVA</label>
+    <label>Dependent value</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>fprd__Values_control_value__c</columns>
+        <columns>fprd__Product_configuration__c</columns>
+        <columns>fprd__LoV_labels__c</columns>
+        <columns>fprd__LoV_values__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <displayFormat>ABC- {0000000000}</displayFormat>
-        <label>Reference</label>
+        <displayFormat>DV-{000000}</displayFormat>
+        <label>Dependent list Name</label>
+        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Clasificaciones BBVA</pluralLabel>
+    <pluralLabel>Dependent values</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

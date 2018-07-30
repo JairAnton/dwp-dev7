@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>dwp_dace__Condition_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>dwp_dace__Condition_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>dwp_dace__condition_unique_id__c</fields>
+        <fields>dwp_dace__condition_summary_calc__c</fields>
+        <label>Condition Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Condition of a field´s value</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>dwp_dace__condition_summary_calc__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>dwp_dace__object_api_name__c + IF(AND(NOT(ISBLANK(dwp_dace__object_api_name__c )),NOT(ISBLANK(dwp_dace__field_api_name__c))),&apos;-&apos;,&apos;&apos;) +  dwp_dace__field_api_name__c + &apos; &apos; +  CASE( dwp_dace__operator_type__c ,
+&apos;ID_IN&apos;,&apos;IN&apos;,
+&apos;ID_NOTIN&apos;,&apos;NOT IN&apos;,
+&apos;ID_EMPTY&apos;,&apos;EMPTY&apos;,
+&apos;ID_NOTEMPTY&apos;,&apos;NOT EMPTY&apos;,
+&apos;ID_GREATER&apos;,&apos;&gt;&apos;,
+&apos;ID_GREATEROREQUAL&apos;,&apos;&gt;=&apos;,
+&apos;ID_LESS&apos;,&apos;&lt;&apos;,
+&apos;ID_LESSOREQUAL&apos;,&apos;&lt;=&apos;,
+&apos;ID_EQUAL&apos;,&apos;=&apos;,
+&apos;ID_DISTINCT&apos;,&apos;&lt;&gt;&apos;,&apos;&apos;) + &apos; &apos; + dwp_dace__field_value_1__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Summary</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__condition_unique_id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Text that uniquely identifies the condition</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Text that uniquely identifies the condition</inlineHelpText>
+        <label>Unique Identifier</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__field_api_name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API Name of the field which value is evaluated in the condition</description>
+        <externalId>false</externalId>
+        <label>Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__field_type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Field Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Checkbox</fullName>
+                    <default>false</default>
+                    <label>Checkbox</label>
+                </value>
+                <value>
+                    <fullName>Currency</fullName>
+                    <default>false</default>
+                    <label>Currency</label>
+                </value>
+                <value>
+                    <fullName>Number</fullName>
+                    <default>false</default>
+                    <label>Number</label>
+                </value>
+                <value>
+                    <fullName>Percent</fullName>
+                    <default>false</default>
+                    <label>Percent</label>
+                </value>
+                <value>
+                    <fullName>Picklist</fullName>
+                    <default>false</default>
+                    <label>Picklist</label>
+                </value>
+                <value>
+                    <fullName>Text</fullName>
+                    <default>false</default>
+                    <label>Text</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__field_value_1__c</fullName>
+        <deprecated>false</deprecated>
+        <description>First field´s value used in the evaluation of the condition</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First field´s value used in the evaluation of the condition</inlineHelpText>
+        <label>Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__group_behaviour_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specified in the conditions applied to all or at least one record from the child object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specified in the conditions applied to all or at least one record from the child object</inlineHelpText>
+        <label>Group Behaviour</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ID_ALL</fullName>
+                    <default>false</default>
+                    <label>ALL</label>
+                </value>
+                <value>
+                    <fullName>ID_ATLEASTONE</fullName>
+                    <default>false</default>
+                    <label>AT LEAST ONE</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__object_api_name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API Name of the object which field´s value is evaluated in the condition or if is a child object, the API name of the relationship</description>
+        <externalId>false</externalId>
+        <inlineHelpText>API Name of the object which field´s value is evaluated in the condition or if is a child object, the API name of the relationship</inlineHelpText>
+        <label>Object</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__operator_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specifies the operator´s type used in the condition evaluation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies the operator´s type used in the condition evaluation</inlineHelpText>
+        <label>Operator</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>dwp_dace__field_type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ID_IN</fullName>
+                    <default>false</default>
+                    <label>IN</label>
+                </value>
+                <value>
+                    <fullName>ID_NOTIN</fullName>
+                    <default>false</default>
+                    <label>NOT IN</label>
+                </value>
+                <value>
+                    <fullName>ID_EMPTY</fullName>
+                    <default>false</default>
+                    <label>EMPTY</label>
+                </value>
+                <value>
+                    <fullName>ID_NOTEMPTY</fullName>
+                    <default>false</default>
+                    <label>NOT EMPTY</label>
+                </value>
+                <value>
+                    <fullName>ID_GREATER</fullName>
+                    <default>false</default>
+                    <label>&gt;</label>
+                </value>
+                <value>
+                    <fullName>ID_GREATEROREQUAL</fullName>
+                    <default>false</default>
+                    <label>&gt;=</label>
+                </value>
+                <value>
+                    <fullName>ID_LESS</fullName>
+                    <default>false</default>
+                    <label>&lt;</label>
+                </value>
+                <value>
+                    <fullName>ID_LESSOREQUAL</fullName>
+                    <default>false</default>
+                    <label>&lt;=</label>
+                </value>
+                <value>
+                    <fullName>ID_EQUAL</fullName>
+                    <default>false</default>
+                    <label>=</label>
+                </value>
+                <value>
+                    <fullName>ID_DISTINCT</fullName>
+                    <default>false</default>
+                    <label>&lt;&gt;</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Checkbox</controllingFieldValue>
+                <controllingFieldValue>Currency</controllingFieldValue>
+                <controllingFieldValue>Number</controllingFieldValue>
+                <valueName>ID_EQUAL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Checkbox</controllingFieldValue>
+                <controllingFieldValue>Currency</controllingFieldValue>
+                <controllingFieldValue>Number</controllingFieldValue>
+                <valueName>ID_DISTINCT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Currency</controllingFieldValue>
+                <controllingFieldValue>Number</controllingFieldValue>
+                <controllingFieldValue>Picklist</controllingFieldValue>
+                <controllingFieldValue>Text</controllingFieldValue>
+                <valueName>ID_EMPTY</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Currency</controllingFieldValue>
+                <controllingFieldValue>Number</controllingFieldValue>
+                <controllingFieldValue>Picklist</controllingFieldValue>
+                <controllingFieldValue>Text</controllingFieldValue>
+                <valueName>ID_NOTEMPTY</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Currency</controllingFieldValue>
+                <controllingFieldValue>Number</controllingFieldValue>
+                <valueName>ID_GREATER</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Currency</controllingFieldValue>
+                <controllingFieldValue>Number</controllingFieldValue>
+                <valueName>ID_GREATEROREQUAL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Currency</controllingFieldValue>
+                <controllingFieldValue>Number</controllingFieldValue>
+                <valueName>ID_LESS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Currency</controllingFieldValue>
+                <controllingFieldValue>Number</controllingFieldValue>
+                <valueName>ID_LESSOREQUAL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Picklist</controllingFieldValue>
+                <controllingFieldValue>Text</controllingFieldValue>
+                <valueName>ID_IN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Picklist</controllingFieldValue>
+                <controllingFieldValue>Text</controllingFieldValue>
+                <valueName>ID_NOTIN</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <label>Condition</label>
+    <listViews>
+        <fullName>dwp_dace__All</fullName>
+        <columns>NAME</columns>
+        <columns>dwp_dace__condition_unique_id__c</columns>
+        <columns>dwp_dace__condition_summary_calc__c</columns>
+        <columns>CURRENCY_ISO_CODE</columns>
+        <columns>dwp_dace__group_behaviour_type__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>C-{0000000000}</displayFormat>
+        <label>Reference</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Conditions</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>dwp_dace__condition_unique_id__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>dwp_dace__condition_summary_calc__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CURRENCY_ISO_CODE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>dwp_dace__group_behaviour_type__c</customTabListAdditionalFields>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>dwp_dace__condition_unique_id__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>dwp_dace__condition_summary_calc__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CURRENCY_ISO_CODE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>dwp_dace__group_behaviour_type__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>dwp_dace__condition_unique_id__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>dwp_dace__condition_summary_calc__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CURRENCY_ISO_CODE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>dwp_dace__group_behaviour_type__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>dwp_dace__condition_unique_id__c</searchFilterFields>
+        <searchFilterFields>dwp_dace__condition_summary_calc__c</searchFilterFields>
+        <searchFilterFields>CURRENCY_ISO_CODE</searchFilterFields>
+        <searchFilterFields>dwp_dace__group_behaviour_type__c</searchFilterFields>
+        <searchResultsAdditionalFields>dwp_dace__condition_unique_id__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>dwp_dace__condition_summary_calc__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CURRENCY_ISO_CODE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>dwp_dace__group_behaviour_type__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>dwp_dace__FieldTypeRequired</fullName>
+        <active>true</active>
+        <description>Validates if the field type has been specified when a field has been informed</description>
+        <errorConditionFormula>IF(AND(NOT(ISBLANK( dwp_dace__field_api_name__c )),ISBLANK(TEXT(dwp_dace__field_type__c) )),true,false)</errorConditionFormula>
+        <errorDisplayField>dwp_dace__field_type__c</errorDisplayField>
+        <errorMessage>Please, select a field type</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_dace__GroupBehaviourNotAllowedIfFieldSpecified</fullName>
+        <active>true</active>
+        <description>The group behaviour should not be defined if the a field has been specified</description>
+        <errorConditionFormula>IF(AND(NOT(ISBLANK(dwp_dace__field_api_name__c )),NOT(ISBLANK( TEXT(dwp_dace__group_behaviour_type__c) ))),true,false)</errorConditionFormula>
+        <errorDisplayField>dwp_dace__group_behaviour_type__c</errorDisplayField>
+        <errorMessage>Please, clear the group behaviour is a field has been specified</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_dace__GroupBehaviourReqIfFieldNotSpecified</fullName>
+        <active>true</active>
+        <description>Group behaviour is required if field has not been specified</description>
+        <errorConditionFormula>IF(AND(ISBLANK( dwp_dace__field_api_name__c ),ISBLANK(TEXT( dwp_dace__group_behaviour_type__c ))),true,false)</errorConditionFormula>
+        <errorDisplayField>dwp_dace__group_behaviour_type__c</errorDisplayField>
+        <errorMessage>Please, specified a group behaviour</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_dace__OpertorRequired</fullName>
+        <active>true</active>
+        <description>Validates if the operator has been specified when a field has been informed</description>
+        <errorConditionFormula>IF(AND(NOT(ISBLANK( dwp_dace__field_api_name__c )),ISBLANK(TEXT( dwp_dace__operator_type__c ) )),true,false)</errorConditionFormula>
+        <errorDisplayField>dwp_dace__operator_type__c</errorDisplayField>
+        <errorMessage>Please, select an operator</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_dace__ValueFormatWhenCheckboxFieldType</fullName>
+        <active>true</active>
+        <description>Check if the value has the correct format when the field type is Checkbox</description>
+        <errorConditionFormula>IF(AND(TEXT( dwp_dace__field_type__c )== &apos;Checkbox&apos; , UPPER(dwp_dace__field_value_1__c) &lt;&gt; UPPER(&apos;TRUE&apos;),UPPER(dwp_dace__field_value_1__c) &lt;&gt; UPPER(&apos;FALSE&apos;)),true,false)</errorConditionFormula>
+        <errorDisplayField>dwp_dace__field_value_1__c</errorDisplayField>
+        <errorMessage>Please, set the value to true or false</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_dace__ValueFormatWhenFieldTypeNumber</fullName>
+        <active>true</active>
+        <description>Check the value format when the field type is Number, Percent or Currency</description>
+        <errorConditionFormula>IF(AND(AND(TEXT( dwp_dace__operator_type__c ) &lt;&gt; &apos;ID_EMPTY&apos;,TEXT( dwp_dace__operator_type__c ) &lt;&gt; &apos;ID_NOTEMPTY&apos;),OR(TEXT( dwp_dace__field_type__c ) == &apos;Number&apos;,TEXT( dwp_dace__field_type__c ) == &apos;Percent&apos;,TEXT( dwp_dace__field_type__c ) == &apos;Currency&apos;),NOT(ISNUMBER( dwp_dace__field_value_1__c ))),true,false)</errorConditionFormula>
+        <errorDisplayField>dwp_dace__field_value_1__c</errorDisplayField>
+        <errorMessage>Enter a valid number format</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_dace__ValueRequired</fullName>
+        <active>true</active>
+        <description>Validates if the value has been specified when the operator has specific values</description>
+        <errorConditionFormula>IF(AND(AND(TEXT(dwp_dace__operator_type__c) &lt;&gt;  &apos;ID_EMPTY&apos; ,TEXT(dwp_dace__operator_type__c) &lt;&gt; &apos;ID_NOTEMPTY&apos;,NOT(ISBLANK(TEXT(dwp_dace__operator_type__c))) ),OR(ISBLANK( dwp_dace__field_value_1__c ),ISNULL(dwp_dace__field_value_1__c ))),true,false)</errorConditionFormula>
+        <errorDisplayField>dwp_dace__field_value_1__c</errorDisplayField>
+        <errorMessage>Please, specify a value</errorMessage>
+    </validationRules>
+</CustomObject>
