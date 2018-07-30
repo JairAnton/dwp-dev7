@@ -313,6 +313,14 @@
         <apexClass>gcal__GBL_TestFactory</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>ReasignButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReasignButtonClass_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Puede Tomar los siguientes cargos:
 Ejecutivos de servicios transaccionales (EST)
@@ -1790,14 +1798,14 @@ Ejecutivos de REDES</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.ContactId</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Description</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1810,9 +1818,9 @@ Ejecutivos de REDES</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Origin</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1820,9 +1828,9 @@ Ejecutivos de REDES</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Priority</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1830,9 +1838,9 @@ Ejecutivos de REDES</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Subject</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1842,7 +1850,7 @@ Ejecutivos de REDES</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.SuppliedEmail</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1855,8 +1863,18 @@ Ejecutivos de REDES</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.case_owner_calc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.opportunity_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3596,6 +3614,12 @@ Ejecutivos de REDES</description>
         <layout>dwp_kitv__Visit__c-Visit Layout Account Peru</layout>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Price Approval Case Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CaseClose-Price Approval Case Close Layout</layout>
+    </layoutAssignments>
 	<objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -3759,9 +3783,9 @@ Ejecutivos de REDES</description>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Case</object>
@@ -3921,7 +3945,7 @@ Ejecutivos de REDES</description>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
@@ -3930,7 +3954,7 @@ Ejecutivos de REDES</description>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
@@ -3945,7 +3969,7 @@ Ejecutivos de REDES</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_dace__Action__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -3954,8 +3978,8 @@ Ejecutivos de REDES</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_dace__Condition__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>  
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions> 
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -3963,8 +3987,8 @@ Ejecutivos de REDES</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_dace__Rule__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>  
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
      <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -3972,8 +3996,8 @@ Ejecutivos de REDES</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_dace__Rules_Set__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>   
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -3981,8 +4005,8 @@ Ejecutivos de REDES</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_dace__Rule_Action__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>   
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -3990,8 +4014,8 @@ Ejecutivos de REDES</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_dace__Rule_Condition__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>   
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -3999,7 +4023,7 @@ Ejecutivos de REDES</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>dwp_dace__Rules_Set_Rule__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions> 
 		<objectPermissions>
         <allowCreate>true</allowCreate>
@@ -4037,6 +4061,51 @@ Ejecutivos de REDES</description>
         <object>dwp_kitv__Visit__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>User_Branch__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_cvad__Action_Audit_Detail__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>dwp_cvad__Action_Audit__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>fprd__GBL_Product_Configuration__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>fprd__GBL_Dependent_value__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>
@@ -4055,7 +4124,7 @@ Ejecutivos de REDES</description>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__LeadVisit</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Account_Accounting__c</tab>
@@ -4139,6 +4208,50 @@ Ejecutivos de REDES</description>
     </tabVisibilities>
     <tabVisibilities>
         <tab>dwp_kitv__Visit__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Contact</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Account</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Opportunity</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Pricebook2</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Product2</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>fprd__GBL_Product_Configuration__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>fprd__GBL_Dependent_value__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_dace__Action__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_dace__Condition__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_dace__Rule__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>dwp_dace__Rules_Set__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
