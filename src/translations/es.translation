@@ -900,18 +900,6 @@
         <label>Email</label>
         <name>SendEmail</name>
     </quickActions>
-    <quickActions>
-        <label>Crear visita</label>
-        <name>dwp_kitv__Plan_Visit</name>
-    </quickActions>
-    <quickActions>
-        <label>Finalizar visita</label>
-        <name>dwp_kitv__End_Visit</name>
-    </quickActions>
-    <quickActions>
-        <label>Crear / Actualizar visita</label>
-        <name>dwp_kitv__Launch_Update_Meeting</name>
-    </quickActions>
     <flowDefinitions>
         <flows>
             <choices>
