@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Financiamiento a corto plazo</masterLabel>
+        <translation>Financiamiento a corto plazo</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Financiamiento a largo plazo</masterLabel>
+        <translation>Financiamiento a largo plazo</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>None</masterLabel>
+        <translation>None</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Programa financiero</masterLabel>
+        <translation>Programa financiero</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Recursos</masterLabel>
+        <translation>Recursos</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Riesgo de firma</masterLabel>
+        <translation>Riesgo de firma</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Serv. Transaccionales</masterLabel>
+        <translation>Serv. Transaccionales</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>
