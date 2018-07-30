@@ -657,5 +657,9 @@
         <members>Opp_PB_Opportunidad-8</members>
         <name>Flow</name>
     </types>
+    <types>
+        <members>Opportunity.Descarta_Oportunidad</members>
+        <name>QuickAction</name>
+    </types>
 	<version>42.0</version>
 </Package>
