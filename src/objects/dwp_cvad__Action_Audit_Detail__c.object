@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Stores the details of the audited action.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>dwp_cvad__action_audit_detail_content__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Contains the action audit detail content.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contains the action audit detail content.</inlineHelpText>
+        <label>Content</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>dwp_cvad__action_audit_detail_content_format__c</fullName>
+        <defaultValue>&apos;HTML&apos;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Specifies the action audit detail contact format.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies the action audit detail contact format.</inlineHelpText>
+        <label>Content Format</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>HTML</fullName>
+                    <default>false</default>
+                    <label>HTML</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_cvad__action_audit_detail_display_order__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specifies the order in which the action audit detail will be displayed within it´s display type grouping.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies the order in which the action audit detail will be displayed within it´s display type grouping.</inlineHelpText>
+        <label>Display Order</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_cvad__action_audit_detail_display_title__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specifies the link´s text used on the action audit details with type Link.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies the link´s text used on the action audit details with type Link.</inlineHelpText>
+        <label>Display Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_cvad__action_audit_detail_display_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specifies if the action audit detail content will be displayed embedded or in a pop-up window.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies if the action audit detail content will be displayed embedded or in a pop-up window.</inlineHelpText>
+        <label>Display Type</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Embedded</fullName>
+                    <default>false</default>
+                    <label>Embedded</label>
+                </value>
+                <value>
+                    <fullName>Link</fullName>
+                    <default>false</default>
+                    <label>Link</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_cvad__action_audit_id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Relation with the action audited.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Relation with the action audited.</inlineHelpText>
+        <label>Action Audit</label>
+        <referenceTo>dwp_cvad__Action_Audit__c</referenceTo>
+        <relationshipLabel>Action Audit Details</relationshipLabel>
+        <relationshipName>Action_Audit_Details</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Action Audit Detail</label>
+    <nameField>
+        <displayFormat>AAD-{0000000000}</displayFormat>
+        <label>Reference</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Action Audit Details</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>dwp_cvad__Title_Required</fullName>
+        <active>true</active>
+        <description>If the action audit detail display type is Link, the title is required.</description>
+        <errorConditionFormula>IF(AND( ISPICKVAL( dwp_cvad__action_audit_detail_display_type__c , &apos;Link&apos;),ISBLANK( dwp_cvad__action_audit_detail_display_title__c ) ),true,false)</errorConditionFormula>
+        <errorDisplayField>dwp_cvad__action_audit_detail_display_title__c</errorDisplayField>
+        <errorMessage>Please, enter a title for the action audit detail link.</errorMessage>
+    </validationRules>
+</CustomObject>

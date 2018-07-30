@@ -150,5 +150,4 @@
         <errorConditionFormula>ISCHANGED(  dwp_kitv__contact_id__c )</errorConditionFormula>
         <errorMessage>It is not allowed to change the contact. Please, delete the visit contact.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

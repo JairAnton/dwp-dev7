@@ -149,5 +149,4 @@
     <pluralLabel>Resumen Información SBS</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-    <visibility>Public</visibility>
 </CustomObject>

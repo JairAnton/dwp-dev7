@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Case Owner --></label>
+        <name>case_owner_calc__c</name>
+    </fields>
+    <fields>
+        <label>Oportunidad</label>
+        <name>opportunity_id__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Price Approval Case Close Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Price Approval Case Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Not visible --></label>
+            <section>Not visible</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage>No tiene permitido modificar este campo.</errorMessage>
+        <name>Status_Case</name>
+    </validationRules>
+</CustomObjectTranslation>

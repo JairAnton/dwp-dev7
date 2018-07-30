@@ -20,48 +20,93 @@
 	Actions : function(component, event, helper) {
         component.find("btnContinue").set("v.disabled", true);
         var OpportunityId = component.get("v.recordId");
-
-        var action = component.get("c.setFormalization");
-        var sanAction = component.get("v.Action");
         var body = component.get("v.comments");
         var fileName = component.get("v.FileName");
-        action.setParams({
-            "OpportunityId" : OpportunityId,
-            "Action" : sanAction,
-            "Body"  :  body,
-            "AttachedFiles" : fileName
-        });
-        action.setCallback(this, function(response) {
-            var state = response.getState();
-            if (state === "SUCCESS") {
-                component.set("v.errMessage",response.getReturnValue());
-                helper.handleShowToast(component,event,helper);
-                if(response.getReturnValue()=="true")
-                    helper.navigateToRecord(component, event, helper);
+        if(!component.get("v.isFormalization"))
+        {
 
-            }
-            else if (state === "INCOMPLETE") {
-                component.find("btnContinue").set("v.disabled", false);
-                component.set("v.errMessage",response.getReturnValue());
-                helper.handleShowToast(component,event,helper);
-                           
-            }
-            else if (state === "ERROR") {
-                component.find("btnContinue").set("v.disabled", false);
-                component.set("v.errMessage",response.getReturnValue());
-                helper.handleShowToast(component,event,helper);
-            }
-            else if (state === "NoComments") {
-                var toastEvent = $A.get("e.force:showToast");
-            toastEvent.setParams({
-                title: "Success!",
-                message: "Cotizacion Terminada",
-                type: "success"
+            var action = component.get("c.setFormalization");
+            var sanAction = component.get("v.Action");
+
+            action.setParams({
+                "OpportunityId" : OpportunityId,
+                "Action" : sanAction,
+                "Body"  :  body,
+                "AttachedFiles" : fileName
             });
-        toastEvent.fire();
-            }
-        });
-        $A.enqueueAction(action);
+            action.setCallback(this, function(response) {
+                var state = response.getState();
+                if (state === "SUCCESS") {
+                    component.set("v.errMessage",response.getReturnValue());
+                    helper.handleShowToast(component,event,helper);
+                    if(response.getReturnValue()=="true")
+                        helper.navigateToRecord(component, event, helper);
+                    else
+                    {
+                        component.set("v.errMessage",response.getReturnValue());
+                        helper.handleShowToast(component,event,helper);
+                    }
+
+                }
+                else if (state === "INCOMPLETE") {
+                    component.find("btnContinue").set("v.disabled", false);
+                    component.set("v.errMessage",response.getReturnValue());
+                    helper.handleShowToast(component,event,helper);
+                               
+                }
+                else if (state === "ERROR") {
+                    component.find("btnContinue").set("v.disabled", false);
+                    component.set("v.errMessage",response.getReturnValue());
+                    helper.handleShowToast(component,event,helper);
+                }
+                else if (state === "NoComments") {
+                    var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    title: "Success!",
+                    message: "Cotizacion Terminada",
+                    type: "success"
+                });
+            toastEvent.fire();
+                }
+            });
+            $A.enqueueAction(action);
+        }
+        else
+        {
+            var action = component.get("c.setLastFormalization");           
+                action.setParams({
+                    "OpportunityId" : OpportunityId,
+                    "Action" : 'btnApprove',
+                    "Body"  :  body,
+                    "ContractNumber" : ''
+                });
+                action.setCallback(this, function(response) {
+                    var state = response.getState();
+                    if (state === "SUCCESS") {
+                    
+                        if(response.getReturnValue()=="true")
+                            helper.navigateToRecord(component, event, helper);
+                        else
+                        {
+                            component.set("v.errMessage",response.getReturnValue());
+                            helper.handleShowToast(component,event,helper);
+                        }
+
+
+                    }
+                    else if (state === "INCOMPLETE") {
+                        component.set("v.errMessage",response.getReturnValue());
+                        helper.handleShowToast(component,event,helper);
+                                   
+                    }
+                    else if (state === "ERROR") {
+                        component.set("v.errMessage",response.getReturnValue());
+                        helper.handleShowToast(component,event,helper);
+                    }
+                    
+                });
+                $A.enqueueAction(action);   
+        }
     },
     navigateToRecord : function(component, event, helper) {
          var navEvent = $A.get("e.force:navigateToSObject");

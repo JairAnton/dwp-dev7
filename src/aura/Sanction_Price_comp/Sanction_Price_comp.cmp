@@ -131,11 +131,11 @@
        		<th>
             <p class="{!v.cotiweb ? '' : 'slds-hide'}">
        			TEA Propuesta(%)<br/>
-            {!v.rowsOppLineItem[0].PE_POR_TEA_propuesta__c}
+            {!v.rowsOppLineItem[0].proposed_apr_per__c}
             </p>
             <p class="{!v.cotiweb ? 'slds-hide' : ''}">
             Comisión Propuesta(%)<br/>
-            {!v.rowsOppLineItem[0].PE_POR_Comision__c}
+            {!v.rowsOppLineItem[0].minimun_fee_per__c}
             </p>
        		</th>
        	</tr>
@@ -143,7 +143,7 @@
        		<th>
             <p class="{!v.cotiweb ? '' : 'slds-hide'}">
        			Spread(%)<br/>
-            {!v.rowsOppLineItem[0].PE_POR_Spread__c}
+            {!v.rowsOppLineItem[0].spread_per__c}
             </p>
        		</th>
        		<th>

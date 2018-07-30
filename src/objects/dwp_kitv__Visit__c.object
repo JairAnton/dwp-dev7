@@ -817,7 +817,7 @@
         </picklistValues>
     </recordTypes>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Read</sharingModel>
     <validationRules>
         <fullName>dwp_kitv__Account_is_Changed</fullName>
         <active>true</active>
@@ -860,5 +860,4 @@ $Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c = false,$Setup.
         <errorConditionFormula>dwp_kitv__number_of_event_relations__c &gt; 50</errorConditionFormula>
         <errorMessage>It´s not possible to add more than 50 contacts to a visit</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>
