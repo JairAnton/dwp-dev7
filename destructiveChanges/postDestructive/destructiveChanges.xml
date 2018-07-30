@@ -648,6 +648,8 @@
     <types>
 		<members>Opportunity_Modal_Modality</members>
         <members>OpportunityProduct_Comp</members>
+        <members>submitToDiscardModal_comp</members>
+        <members>submitTODiscart</members>
 		<name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -655,6 +657,7 @@
         <members>Flujo_Cotizacion_V0-3</members>
         <members>FlujoEstadosOportunidad-14</members>
         <members>Opp_PB_Opportunidad-8</members>
+        <members>Motivo_Descarte_Oportunidad_V0</members>
         <name>Flow</name>
     </types>
     <types>
