@@ -880,7 +880,6 @@
         <members>LogACall</members>
         <members>NewEvent</members>
         <members>NewTask</members>
-        <members>Opportunity.Descarta_Oportunidad</members>
         <members>SendEmail</members>
         <name>QuickAction</name>
     </types>
