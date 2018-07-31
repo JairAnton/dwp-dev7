@@ -423,6 +423,24 @@
             <group>System_Administrators</group>
         </sharedTo>
     </listViews>
+    <listViews>
+        <fullName>Tier_1_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Tier 1</label>
+        <queue>Tier_1</queue>
+        <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Tier_2_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Tier 2</label>
+        <queue>Tier_2</queue>
+        <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>opportunity_id__c</customTabListAdditionalFields>
