@@ -437,6 +437,27 @@
         <shortDescription>lblPDFProductCommercialLoanCP</shortDescription>
         <value>PC00001</value>
     </labels>
+	<labels>
+        <fullName>lblPDFProductPrestamoLP</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductPrestamoLP</shortDescription>
+        <value>PC00009</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductCartaTecnicaImport</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductCartaTecnicaImport</shortDescription>
+        <value>PC00012</value>
+    </labels>	
+	<labels>
+        <fullName>lblPDFProductLeasing</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductLeasing</shortDescription>
+        <value>PC00010</value>
+    </labels>
     <labels>
         <fullName>lblPDFProductCommercialLoanLP</fullName>
         <language>es</language>
