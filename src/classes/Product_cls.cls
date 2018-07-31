@@ -283,6 +283,8 @@ public without sharing class Product_cls {
 
             if(((prof=='Ejecutivo'||prof=='Especialista') && userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' )
             { 
+                itemOpp[0].IsProcess__c=true;
+                update itemOpp[0]; 
                 itemOpp[0].StageName='07';
                 itemOpp[0].opportunity_status_type__c='22';
                 itemOpp[0].Loss_Reason__c=RejectReason;
@@ -292,7 +294,9 @@ public without sharing class Product_cls {
                 itemOpp[0].rejection_rate_per__c=Rate;
                 itemOpp[0].rejection_period_num__c=Term;
                 itemOpp[0].rejection_coin__c= IsoCurrency;
-                update itemOpp[0];                      
+                update itemOpp[0];      
+                itemOpp[0].IsProcess__c=false;
+                update itemOpp[0];                 
                 return 'true';                             
             }
             else return label.lblUserNotAuth;
