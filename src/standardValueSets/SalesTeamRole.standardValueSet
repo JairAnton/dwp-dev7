@@ -3,26 +3,17 @@
     <sorted>false</sorted>
     <standardValue>
         <fullName>01</fullName>
-        <default>true</default>
-        <label>New request</label>
-        <closed>false</closed>
+        <default>false</default>
+        <label>01</label>
     </standardValue>
     <standardValue>
         <fullName>02</fullName>
         <default>false</default>
-        <label>Escalated request</label>
-        <closed>false</closed>
+        <label>02</label>
     </standardValue>
     <standardValue>
         <fullName>03</fullName>
         <default>false</default>
-        <label>Closed authorized</label>
-        <closed>true</closed>
-    </standardValue>
-    <standardValue>
-        <fullName>04</fullName>
-        <default>false</default>
-        <label>Closed rejected</label>
-        <closed>true</closed>
+        <label>03</label>
     </standardValue>
 </StandardValueSet>

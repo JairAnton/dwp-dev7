@@ -1,9 +1,0 @@
-<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp"  access="Global" >
-<aura:attribute name="recordId" type="Id" />
-<aura:attribute name="title" type="String" default="Desestimar" access="global" description="Specify the modal"/>
-<aura:handler name="init" value="{!this}" action="{!c.init}" />
-<div class="slds-modal__content style-general"  >
-    
-    <lightning:flow aura:id="flowData" onstatuschange="{!c.handleStatusChange}" />
-</div>
-</aura:component>

@@ -444,7 +444,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>01</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Commercial</label>
                 </value>
                 <value>
@@ -660,7 +660,7 @@
             <picklist>dwp_kitv__visit_purpose_type__c</picklist>
             <values>
                 <fullName>01</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>02</fullName>

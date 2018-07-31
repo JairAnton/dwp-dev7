@@ -660,5 +660,25 @@
         <members>Motivo_Descarte_Oportunidad_V0</members>
         <name>Flow</name>
     </types>
+    <types>
+        <members>Opportunity.Descarta_Oportunidad</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>Analistas_de_precios</members>
+        <members>Analistas_de_riesgos</members>
+        <members>Asistente_BE</members>
+        <members>Ejecutivo_de_Banca_de_Empresas</members>
+        <members>Ejecutivos_de_COMEX</members>
+        <members>Ejecutivos_de_REDES</members>
+        <members>Ejecutivos_de_servicios_transaccionales_EST</members>
+        <members>Ejecutivos_de_unidad_de_financiaci_n_estructurada_UFE</members>
+        <members>Gerente_de_Banca_de_Empresas</members>
+        <members>Gerentes_Regionales</members>
+        <members>Gerentes_de_oficina</members>
+        <members>Jefes_de_Promoci_n_de_Negocio</members>
+        <members>Sub_Gerentes_de_oficina</members>
+        <name>PermissionSet</name>
+    </types>
 	<version>42.0</version>
 </Package>
