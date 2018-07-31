@@ -773,10 +773,6 @@
         <members>Opp_Stage_Changed_notify-2</members>
         <members>Opp_Stage_Changed_notify-4</members>
         <members>Participant_MasterRecord-1</members>
-        <members>ProductOpp_DueDate-11</members>
-        <members>ProductOpp_DueDate-13</members>
-        <members>ProductOpp_DueDate-14</members>
-        <members>ProductOpp_DueDate-16</members>
         <members>Task_update_Opportunity-3</members>
         <name>Flow</name>
     </types>
@@ -792,7 +788,6 @@
         <members>Opp_PB_Opportunidad</members>
         <members>Opp_Stage_Changed_notify</members>
         <members>Participant_MasterRecord</members>
-        <members>ProductOpp_DueDate</members>
         <members>Task_update_Opportunity</members>
         <name>FlowDefinition</name>
     </types>

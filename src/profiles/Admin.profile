@@ -328,6 +328,11 @@
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>fprd__GBL_Dependent_value__c.Unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Pricebook2.Unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
