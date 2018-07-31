@@ -366,73 +366,6 @@
             <group>Analysts_Tier_2</group>
             <group>System_Administrators</group>
         </sharedTo>
-    </listViews>        <fullName>MyPendingRequest</fullName>
-    _NUMBER</columns>
-        <columns>opportunity_id__c</columns>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.TYPE</columns>
-    rati>CASES.STA       <filters>
-            <field>CASES.CLOSED</field>
-            <opeon>equals</operation>
-            <value>0</value>
-        </filters>
-        <label>Mis peticiones pendientes</label>
-        <language>en_US</language>
-        <sharedTo>
-            <group>Analysts_Tier_1</group>
-            <group>Analysts_Tier_2</group>
-            <group>System_Administrators</group>
-        </sharedTo>
-    </listViews
-    <searchLayouts>
-        <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
-        <customTabL>istAdditionalFields>opportunity_id__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CASES.TYPE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CASES.STATUS</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CORE.USERS.ALIAS</customTabListAdditionalFields>
-        <excludedStandardButtons>NewCase</excludedStandardButtons>
-        <excludedStandardButtons>Accept</excludedStandardButtons>
-        <excludedStandardButtons>ChangeStatus</excludedStandardButtons>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
-        <excludedStandardButtons>MassialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>opportunity_id__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialClose</excludedStandardButtons>
-        <lookupD
-    <listViews>
-        <fullName>MyCases</fullName>
-        <filterScope>Mine</filterScope>
-        <label>My Cases</label>
-        <sharedTo>
-            <group>System_Administrators</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MyOpenCases</fullName>
-        <filterScope>Mine</filterScope>
-        <filters>
-            <field>CASES.CLOSED</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>
-        <label>My Open Cases</label>
-        <sharedTo>
-            <group>System_Administrators</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>AllOpenCases</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.CLOSED</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>
-        <label>All Open Cases</label>
-        <sharedTo>
-            <group>System_Administrators</group>
-        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MyPendingRequest</fullName>
@@ -456,6 +389,40 @@
             <group>System_Administrators</group>
         </sharedTo>
     </listViews>
+    <listViews>
+        <fullName>AllOpenCases</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All Open Cases</label>
+        <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyCases</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Cases</label>
+        <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyOpenCases</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>My Open Cases</label>
+        <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>opportunity_id__c</customTabListAdditionalFields>
@@ -463,11 +430,45 @@
         <customTabListAdditionalFields>CASES.TYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.STATUS</customTabListAdditionalFields>
         <customTabListAdditionalFields>CORE.USERS.ALIAS</customTabListAdditionalFields>
-        <excludedStandardButtons>NewCase</excludedStandarduttons>
-        <excludedStandardButtons>Accept</excludedStanardButtons>
-        <excludedStandardButtons>ChangeStatus</ecludedStandardButtons>
+        <excludedStandardButtons>NewCase</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeStatus</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>MassClose</excludedStandardButtons>
         <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>opportunity_id__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.TYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>opportunity_id__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.TYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>CASES.CASE_NUMBER</searchFilterFields>
+        <searchFilterFields>opportunity_id__c</searchFilterFields>
+        <searchFilterFields>ACCOUNT.NAME</searchFilterFields>
+        <searchFilterFields>CASES.TYPE</searchFilterFields>
+        <searchFilterFields>CASES.STATUS</searchFilterFields>
+        <searchFilterFields>CORE.USERS.ALIAS</searchFilterFields>
+        <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>opportunity_id__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.TYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWriteTransfer</sharingModel>
+    <validationRules>
+        <fullName>Status_Case</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(  ISCHANGED( Status ) , 
+$Profile.Name!=&apos;Administrador del sistema&apos;, 
+$Profile.Name!=&apos;System Administrator&apos;, 
+$Profile.Name!=&apos;Migracion&apos;)</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>You are not allowed to modify this field.</errorMessage>
+    </validationRules>
+</CustomObject>
