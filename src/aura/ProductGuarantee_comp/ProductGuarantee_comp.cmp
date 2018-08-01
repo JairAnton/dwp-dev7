@@ -55,13 +55,13 @@
                 <aura:iteration items="{!v.rows}" var="row" indexVar="rowIndex">
                         <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">                          
                             <th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
-                                <div class="slds-truncate" title="{!row.Guarantee__c}">{!row.Guarantee__c}</div>
+                                <div class="slds-truncate" title="{!row.guarantee_desc__c}">{!row.guarantee_desc__c}</div>
                             </th>
-                            <th><div class="slds-truncate" title="{!row.Modality__c}">{!row.Modality__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.Status__c}">{!row.Status__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.Term__c}">{!row.Term__c}&nbsp;{!row.Periodicity__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.nGuarantee__c}">{!row.nGuarantee__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.Amount__c +'.00'}"> <ui:outputCurrency value="{!row.Amount__c}" /></div></th>
+                            <th><div class="slds-truncate" title="{!row.guarantee_modality_type__c}">{!row.guarantee_modality_type__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.guarantee_status_type__c}">{!row.guarantee_status_type__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.guarantee_term_number__c}">{!row.guarantee_term_number__c}&nbsp;{!row.guarantee_periodicity_type__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.guarantee_id__c}">{!row.guarantee_id__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.guaranteed_amount__c +'.00'}"> <ui:outputCurrency value="{!row.guaranteed_amount__c}" /></div></th>
                             <th>
                                 <lightning:button variant="none" iconName="utility:edit" aura:id="editR" title="Modificar" value="{!row}"   onclick="{!c.editRow}" />
                                 &nbsp;

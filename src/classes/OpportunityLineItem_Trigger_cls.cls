@@ -30,30 +30,29 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     public void MasteRecord_Guarantee(list<OpportunityLineItem>Opps_New)
     {
         if(Opps_New[0].gipr_Tipo_Garantia__c=='01' || Opps_New[0].gipr_Tipo_Garantia__c=='02'){
-            List<fprd__GBL_Guarantee__c> row =[SELECT Id FROM fprd__GBL_Guarantee__c WHERE Product__c=: Opps_New[0].Product2Id and Opportunity__c=: Opps_New[0].OpportunityId and  isMaster__c=true];
+            List<fprd__GBL_Guarantee__c> row =[SELECT Id FROM fprd__GBL_Guarantee__c WHERE fprd__GBL_Opportunity_product__c=: Opps_New[0].OpportunityId and  isMaster__c=true];
             System.debug(Opps_New[0].gipr_Garantia__c);
             if(row.isEmpty())
             {
                 fprd__GBL_Guarantee__c nRow = new fprd__GBL_Guarantee__c();
-                nRow.Product__c=Opps_New[0].Product2Id;
                 nRow.fprd__GBL_Opportunity_product__c=Opps_New[0].OpportunityId;
-                nRow.Opportunity__c=Opps_New[0].OpportunityId;
-                nRow.GuaranteeType__c=Opps_New[0].gipr_Tipo_Garantia__c;
-                nRow.Guarantee__c=Opps_New[0].gipr_Garantia__c;
+                nRow.guarantee_type__c=Opps_New[0].gipr_Tipo_Garantia__c;
+                nRow.guarantee_desc__c=Opps_New[0].gipr_Garantia__c;
                 nRow.isMaster__c=true;
                 insert nRow;
             }
             else
             {
-                row[0].GuaranteeType__c=Opps_New[0].gipr_Tipo_Garantia__c;
-                row[0].Guarantee__c=Opps_New[0].gipr_Garantia__c;
+                row[0].guarantee_type__c=Opps_New[0].gipr_Tipo_Garantia__c;
+                row[0].guarantee_desc__c=Opps_New[0].gipr_Garantia__c;
                 update row;
             }        
         }
         else
         {
-            List<fprd__GBL_Guarantee__c> row =[SELECT Id FROM fprd__GBL_Guarantee__c WHERE Product__c=: Opps_New[0].Product2Id and Opportunity__c=: Opps_New[0].OpportunityId and  isMaster__c=true LIMIT 1];
-            if(!row.isEmpty())delete row;
+            List<fprd__GBL_Guarantee__c> row =[SELECT Id FROM fprd__GBL_Guarantee__c WHERE fprd__GBL_Opportunity_product__c=: Opps_New[0].OpportunityId and  isMaster__c=true LIMIT 1];
+            
+            if(!row.isEmpty()) delete row;
         }
     }
     
@@ -66,30 +65,29 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             opName[0].opportunity_product_family__c=opProduct[0].Family;
             update opName[0];
         }
-        List<fprd__GBL_Intervener__c> row =[SELECT Id FROM fprd__GBL_Intervener__c WHERE Product__c=: listRow[0].Product2Id and Opportunity__c=: listRow[0].OpportunityId and  isMaster__c=true];
-        if(row.isEmpty())
-        {
-            fprd__GBL_Intervener__c nRow = new fprd__GBL_Intervener__c();
-            nRow.Product__c=listRow[0].Product2Id;
-            nRow.Opportunity__c=listRow[0].OpportunityId; 
-            nRow.fprd__GBL_Opportunity_product__c=listRow[0].OpportunityId;    
-            nRow.Name=opName[0].Account.Name;
-            nRow.Participation__c='01';
-            nRow.DOI__c='01';
-            nRow.N_DOI__c=opName[0].Account.AccountNumber;
-            nRow.Marital_Status__c='04';
-            nRow.isMaster__c=true;
-            insert nRow;
-        }
-        else
-        {
-            row[0].Name=opName[0].Account.Name;             
-            row[0].Participation__c='01';
-            row[0].DOI__c='01';
-            row[0].Marital_Status__c='04';
-            row[0].N_DOI__c=opName[0].Account.AccountNumber;
-            update row;
-        }   
+            List<fprd__GBL_Intervener__c> row =[SELECT Id FROM fprd__GBL_Intervener__c WHERE  fprd__GBL_Opportunity_product__c=: listRow[0].OpportunityId and  main_intervener__c=true];
+            if(row.isEmpty())
+            {
+                fprd__GBL_Intervener__c nRow = new fprd__GBL_Intervener__c();
+                nRow.fprd__GBL_Opportunity_product__c=listRow[0].OpportunityId;    
+                nRow.Name=opName[0].Account.Name;
+                nRow.participant_type__c='01';
+                nRow.fiscal_identifier_type__c='01';
+                nRow.taxpayer_id__c=opName[0].Account.AccountNumber;
+                nRow.guarantor_marital_status_type__c='04';
+                nRow.main_intervener__c=true;
+                insert nRow;
+            }
+            else
+            {
+                row[0].Name=opName[0].Account.Name;             
+                row[0].participant_type__c='01';
+                row[0].fiscal_identifier_type__c='01';
+                row[0].guarantor_marital_status_type__c='04';
+                row[0].taxpayer_id__c=opName[0].Account.AccountNumber;
+                update row;
+            }   
+
     } 
     
     public void updateDateLine(List<OpportunityLineItem> listRow){

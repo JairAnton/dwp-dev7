@@ -54,7 +54,7 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Amount__c</fullName>
+        <fullName>guaranteed_amount__c</fullName>
         <externalId>false</externalId>
         <label>Amount</label>
         <precision>18</precision>
@@ -66,9 +66,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>GuaranteeType__c</fullName>
+        <fullName>guarantee_type__c</fullName>
         <externalId>false</externalId>
-        <label>GuaranteeType</label>
+        <label>Guarantee type</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -96,7 +96,7 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Guarantee__c</fullName>
+        <fullName>guarantee_desc__c</fullName>
         <externalId>false</externalId>
         <label>Guarantee</label>
         <required>false</required>
@@ -196,7 +196,7 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Modality__c</fullName>
+        <fullName>guarantee_modality_type__c</fullName>
         <externalId>false</externalId>
         <label>Modality</label>
         <required>false</required>
@@ -221,20 +221,7 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Opportunity__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Opportunity</label>
-        <referenceTo>Opportunity</referenceTo>
-        <relationshipLabel>guarantees</relationshipLabel>
-        <relationshipName>guarantees</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Periodicity__c</fullName>
+        <fullName>guarantee_periodicity_type__c</fullName>
         <externalId>false</externalId>
         <label>Periodicity</label>
         <required>false</required>
@@ -272,7 +259,7 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Status__c</fullName>
+        <fullName>guarantee_status_type__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
         <required>false</required>
@@ -297,7 +284,7 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Term__c</fullName>
+        <fullName>guarantee_term_number__c</fullName>
         <externalId>false</externalId>
         <label>Term</label>
         <precision>18</precision>
@@ -330,9 +317,9 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>nGuarantee__c</fullName>
+        <fullName>guarantee_id__c</fullName>
         <externalId>false</externalId>
-        <label>nGuarantee</label>
+        <label>Guarantee</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -350,4 +337,5 @@
     <pluralLabel>guarantees</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

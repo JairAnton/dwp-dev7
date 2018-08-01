@@ -48,11 +48,11 @@ global without sharing class quoteClassButton  implements dwp_dbpn.DynamicFlowVa
                  }
 
                  if(conf.fprd__map_field__c == 'gipr_Tipo_Garantia__c' && fieldToValue.get(conf.fprd__map_field__c)!='01'){
-                  String QryWarranty = 'SELECT '+showFields('fprd__GBL_Guarantee__c')+' FROM fprd__GBL_Guarantee__c WHERE Opportunity__c =\'' + recordId + '\'';
+                  String QryWarranty = 'SELECT '+showFields('fprd__GBL_Guarantee__c')+' FROM fprd__GBL_Guarantee__c WHERE fprd__GBL_Opportunity_product__c =\'' + recordId + '\'';
                    list<fprd__GBL_Guarantee__c> Garantias  = Database.query(QryWarranty);
                     if(Garantias.size()>0){
                        for(fprd__GBL_Guarantee__c garantia :Garantias){
-                       if(String.isBlank(garantia.Modality__c) || String.isBlank(garantia.Status__c) || garantia.Term__c == 0 || garantia.nGuarantee__c == 0)
+                       if(String.isBlank(garantia.guarantee_modality_type__c) || String.isBlank(garantia.guarantee_status_type__c) || garantia.guarantee_term_number__c == 0 || garantia.guarantee_id__c == 0)
                        mandatoryOk=false;
                         }
                      }

@@ -54,20 +54,7 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Account__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Account</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>interveners</relationshipLabel>
-        <relationshipName>interveners</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>DOI__c</fullName>
+        <fullName>fiscal_identifier_type__c</fullName>
         <externalId>false</externalId>
         <label>DOI</label>
         <required>false</required>
@@ -97,9 +84,9 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Marital_Status__c</fullName>
+        <fullName>guarantor_marital_status_type__c</fullName>
         <externalId>false</externalId>
-        <label>Marital_Status</label>
+        <label>Marital status</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -132,9 +119,9 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>N_DOI__c</fullName>
+        <fullName>taxpayer_id__c</fullName>
         <externalId>false</externalId>
-        <label>N_DOI</label>
+        <label>DOI number</label>
         <length>128</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -143,20 +130,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Opportunity__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Opportunity</label>
-        <referenceTo>Opportunity</referenceTo>
-        <relationshipLabel>interveners</relationshipLabel>
-        <relationshipName>interveners</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Participation__c</fullName>
+        <fullName>participant_type__c</fullName>
         <externalId>false</externalId>
         <label>Participation</label>
         <required>false</required>
@@ -181,19 +155,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Product__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Product</label>
-        <referenceTo>Product2</referenceTo>
-        <relationshipLabel>interveners</relationshipLabel>
-        <relationshipName>interveners</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>fprd__GBL_Opportunity_product__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -206,10 +167,10 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>isMaster__c</fullName>
+        <fullName>main_intervener__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>isMaster</label>
+        <label>Is Master?</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -223,4 +184,5 @@
     <pluralLabel>interveners</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>
