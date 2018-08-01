@@ -2057,11 +2057,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.N_DOI__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>OpportunityLineItem.cpliq_n_gracia__c</field>
         <readable>true</readable>
     </fieldPermissions>  
