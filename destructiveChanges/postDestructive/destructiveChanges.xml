@@ -665,6 +665,7 @@
         <members>FlujoEstadosOportunidad-14</members>
         <members>Opp_PB_Opportunidad-8</members>
         <members>Motivo_Descarte_Oportunidad_V0</members>
+        <members>ProductOpp_DueDate-16</members>
         <name>Flow</name>
     </types>
     <types>
