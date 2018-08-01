@@ -3595,6 +3595,14 @@
         <tab>Price_Fee__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
+    <tabVisibilities>
+        <tab>Commitment_Value__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Opportunity_Solution_Commitment__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>false</enabled>
