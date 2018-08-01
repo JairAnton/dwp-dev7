@@ -6,10 +6,8 @@
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
-            console.log('state: ', state);
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                console.log('ret: ', ret);
                 if(ret.hasOLI){
                     var objectInput = {
                         'IdOppLineItem':ret.IdOppLineItem,

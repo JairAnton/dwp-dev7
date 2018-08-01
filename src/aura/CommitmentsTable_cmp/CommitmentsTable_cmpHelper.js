@@ -8,7 +8,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {
 				var ret = response.getReturnValue();
-				console.log('ret: ', ret);
 				var ordenField = ['opp_solution_comt_product_name__c','CurrencyIsoCode','opp_solution_commitment_amount__c','opp_soln_comt_expiry_days_number__c','opp_soln_comt_stay_days_number__c'];
 				var objSetup = {'lstHead':[],
 								'lstData':[]};
@@ -24,7 +23,6 @@
 					objSetup['lstData'].push(row);
 					
 				}
-				console.log('objSetup: ', objSetup);
 				cmp.set('v.objSetup',objSetup);
 				cmp.set('v.isLoad',true);
 				cmp.set('v.hasRecord',(ret.lstCommitments.length==0?false:true));

@@ -1,6 +1,5 @@
 ({
 	deleteRecord : function(cmp, evt, helper) {
-		console.log('delete',cmp.get('v.row').id);
 		
 		var action = cmp.get("c.deleteCommitment");
 		action.setParams({
@@ -10,7 +9,6 @@
 			var state = response.getState();
 			if (state === "SUCCESS") {
 				var ret = response.getReturnValue();
-				console.log('ret: ', ret);
 				var compEvent = cmp.getEvent("CommitmentsDelete");
 				compEvent.fire();
 			}

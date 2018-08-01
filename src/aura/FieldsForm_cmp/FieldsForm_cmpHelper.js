@@ -9,7 +9,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {
 				   var ret = response.getReturnValue();
-				   console.log('ret: ', ret);
 				if(ret.isOk){
 					var fieldObject = [];
 					for(var i in ret.setFields){

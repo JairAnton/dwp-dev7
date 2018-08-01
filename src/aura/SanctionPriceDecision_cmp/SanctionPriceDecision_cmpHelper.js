@@ -13,7 +13,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                console.log('ret: ', ret);
                 var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name};
                 if(!ret.lstInfoIsEmpty){
                     var lstTile = [];
@@ -37,7 +36,6 @@
                 
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.lstOppLineItem[0]); 
                 component.set('v.objSetup',objSetup);
-                console.log('objSetup: ', objSetup);
             }
         }); 
         $A.enqueueAction(action);
@@ -133,7 +131,6 @@
                 };
             }
         }
-        console.log('objOli',objOli);
         return returnObj[strType];
     },
     doContinue : function(cmp, evt, helper){
@@ -153,7 +150,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                console.log('ret: ', ret);
                 if(ret.isOk){
                     $A.get('e.force:refreshView').fire();
                     helper.closeMe(cmp, evt, helper);

@@ -9,7 +9,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {
 				var ret = response.getReturnValue();
-				console.log('ret: ', ret);
 				var lstCommitments = ret.lstCommitments;
 				var objSetup = {
 								'valPicklistProd':[], 
@@ -80,7 +79,6 @@
 	saveCommitment : function(cmp, evt, helper){
 		var isOk = true;
 		var fields = cmp.find('field');
-		console.log('fields: ', fields);
 		var lstData = [];
 		var allValid = cmp.find('field').reduce(function (validSoFar, inputCmp) {
             inputCmp.showHelpMessageIfInvalid();
@@ -100,7 +98,6 @@
 				var state = response.getState();
 				if (state === "SUCCESS") {
 					var ret = response.getReturnValue();
-					console.log('ret: ', ret);
 					helper.doBack(cmp, evt, helper);
 				}
 			}); 

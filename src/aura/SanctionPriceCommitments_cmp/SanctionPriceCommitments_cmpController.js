@@ -9,7 +9,6 @@
 				helper.closeMe(cmp, evt, helper);
 				break;
 			case 'DONEW':
-				console.log('NUEVO');
 				cmp.set('v.step','2');
 				cmp.set('v.modalWidthCustom','37rem');
 				break;
