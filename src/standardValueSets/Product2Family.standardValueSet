@@ -8,22 +8,28 @@
         <label>None</label>
     </standardValue>
     <standardValue>
-        <fullName>Financiamiento a Corto Plazo</fullName>
+        <fullName>Financiamiento a corto plazo</fullName>
         <color>#1464A5</color>
         <default>false</default>
-        <label>Financiamiento a Corto Plazo</label>
+        <label>Financiamiento a corto plazo</label>
     </standardValue>
     <standardValue>
-        <fullName>Financiamiento a Largo Plazo</fullName>
+        <fullName>Financiamiento a largo plazo</fullName>
         <color>#D8BE75</color>
         <default>false</default>
-        <label>Financiamiento a Largo Plazo</label>
+        <label>Financiamiento a largo plazo</label>
     </standardValue>
     <standardValue>
-        <fullName>Riesgo de Firmas</fullName>
+        <fullName>Riesgo de firma</fullName>
         <color>#5AC4C4</color>
         <default>false</default>
-        <label>Riesgo de Firmas</label>
+        <label>Riesgo de firma</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Serv. Transaccionales</fullName>
+        <color>#5BBEFF</color>
+        <default>false</default>
+        <label>Serv. Transaccionales</label>
     </standardValue>
     <standardValue>
         <fullName>Recursos</fullName>
@@ -32,21 +38,9 @@
         <label>Recursos</label>
     </standardValue>
     <standardValue>
-        <fullName>Servicios Transaccionales</fullName>
-        <color>#5BBEFF</color>
-        <default>false</default>
-        <label>Servicios Transaccionales</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Derivados</fullName>
-        <color>#C0475E</color>
-        <default>false</default>
-        <label>Derivados</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Programa Financiero</fullName>
+        <fullName>Programa financiero</fullName>
         <color>#D8BE75</color>
         <default>false</default>
-        <label>Programa Financiero</label>
+        <label>Programa financiero</label>
     </standardValue>
 </StandardValueSet>
