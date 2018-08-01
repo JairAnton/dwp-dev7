@@ -4298,6 +4298,36 @@ Sub Gerentes de oficina</description>
         <field>Price_Fee__c.validity_start_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commitment_Value__c.commitment_expiry_days_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commitment_Value__c.commitment_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commitment_Value__c.commitment_product_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commitment_Value__c.commitment_stay_days_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commitment_Value__c.quote_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commitment_Value__c.web_product_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>compromiso__c-Formato compromiso</layout>
     </layoutAssignments>
@@ -4411,6 +4441,9 @@ Sub Gerentes de oficina</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Price_Fee__c-Price Fee Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Commitment_Value__c-Commitment Value Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -4905,6 +4938,15 @@ Sub Gerentes de oficina</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Price_Fee__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Commitment_Value__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
