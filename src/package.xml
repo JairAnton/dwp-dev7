@@ -110,6 +110,9 @@
         <members>lblPDFProductCommercialLoanLP</members>
         <members>lblPDFProductForfaitingImport</members>
         <members>lblPDFProductFurnitureLeasing</members>
+        <members>lblPDFProductPrestamoLP</members>
+        <members>lblPDFProductCartaTecnicaImport</members>
+        <members>lblPDFProductLeasing</members>
         <name>CustomLabel</name>
     </types>
     <types>
