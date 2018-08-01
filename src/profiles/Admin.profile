@@ -3179,6 +3179,16 @@
         <field>Commitment_Value__c.web_product_code__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.CloseDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.CreatedDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
