@@ -8,7 +8,12 @@
     <types>
         <members>Participant_MasterRecord-1</members>
         <members>Guarantee_MasterRecord-1</members>
+		<members>ProductOpp_DueDate-16</members>
         <name>Flow</name>
+    </types>
+	<types>
+        <members>ProductOpp_DueDate</members>        
+        <name>FlowDefinition</name>
     </types>
 	<types>
 		<members>fprd__GBL_dependent_list.dependentNoDineraria</members>
