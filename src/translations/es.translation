@@ -936,6 +936,10 @@
         <label>Por favor, complete esta información.</label>
         <name>lblFieldsFormRequired</name>
     </customLabels>
+    <customLabels>
+        <label>Por favor, especifique un número sin decimales.</label>
+        <name>lblFieldsFormValidateDecimal</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

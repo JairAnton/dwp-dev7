@@ -1284,4 +1284,11 @@
         <shortDescription>lblFieldsFormRequired</shortDescription>
         <value>Please complete this field.</value>
     </labels>
+    <labels>
+        <fullName>lblFieldsFormValidateDecimal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFieldsFormValidateDecimal</shortDescription>
+        <value>Please, specify a number without decimals.</value>
+    </labels>
 </CustomLabels>
