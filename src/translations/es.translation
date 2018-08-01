@@ -880,6 +880,62 @@
         <label>Se debe insertar un usuario.</label>
         <name>errorEmptyUser</name>
     </customLabels>
+    <customLabels>
+        <label>Añadir compromiso</label>
+        <name>AddCommitment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleApproveTop --></label>
+        <name>AuditStyleApproveTop</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromisos</label>
+        <name>Commitments</name>
+    </customLabels>
+    <customLabels>
+        <label>Detalles</label>
+        <name>Details</name>
+    </customLabels>
+    <customLabels>
+        <label>Aprobar en delegación</label>
+        <name>OppPriceDecision01</name>
+    </customLabels>
+    <customLabels>
+        <label>Elevar</label>
+        <name>OppPriceDecision02</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado en delegación</label>
+        <name>OppPriceDecision03</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado por precio</label>
+        <name>OppPriceDecision04</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio autorizado bajo delegación oficina</label>
+        <name>OppStatusLabel08</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado para autorización a precios</label>
+        <name>OppStatusLabel09</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio aprobado</label>
+        <name>OppStatusLabel11</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto</label>
+        <name>Product</name>
+    </customLabels>
+    <customLabels>
+        <label>Continuar</label>
+        <name>btnContinue</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor, complete esta información.</label>
+        <name>lblFieldsFormRequired</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
