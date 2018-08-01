@@ -77,7 +77,7 @@ public  virtual class OpportunityPDFWrap {
             Intervenientes = database.query(getQuery('fprd__GBL_Intervener__c')+' WHERE  Opportunity__c =\''+OppId+'\'');
             msg= 'Datos incompletos en garantias';
             Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  Opportunity__c =\''+Oppid+'\'');
-            totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM compromiso__c WHERE Oportunidad__c =:Oppid];
+            totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c =:Oppid];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
             docs = [SELECT ID,Name FROM attachment WHERE ParentId =:Oppid];
             for(attachment d : docs){

@@ -1,0 +1,42 @@
+<aura:component controller="FieldForm_ctrl" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="isInput" type="Boolean" default="true"/>
+    <aura:attribute name="lstFields" type="Object[]" default=""/>
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="objectApiName" type="String" default=""/>
+    <aura:attribute name="valueDynamic" type="String" default=""/>
+    <aura:attribute name="developerNameTable" type="String" default=""/>
+    <aura:attribute name="isOk" type="Boolean" default="false"/>
+    <aura:attribute name="hasDivider" type="Boolean" default="true"/>
+    <aura:method name="validateSave" action="{!c.doValidateSave}"> 
+    </aura:method>
+    <aura:registerEvent name="saveFieldsForm" type="c:FieldsForm_Save_evt"/>
+
+    <aura:if isTrue="{!v.isOk}">
+        <aura:if isTrue="{!v.isInput}">
+            
+            <lightning:layout multipleRows="true">
+                <aura:iteration items="{!v.lstFields}" var="field">
+                    <lightning:layoutItem padding="around-small" size="6">
+                        <!-- <lightning:inputField aura:id="input" id="1" fieldName="{!field.ApiName}" disabled="{!field.readOnly}" value="{!field.value}" onchange="{!c.changeValue}"/>-->
+                        <c:InputFieldCustom aura:id="input" fieldObject="{!field}" />
+                    </lightning:layoutItem>
+                </aura:iteration>    
+            </lightning:layout>
+
+
+            <aura:set attribute="else">
+
+                <lightning:layout multipleRows="true">
+                    <aura:iteration items="{!v.lstFields}" var="field">
+                        <lightning:layoutItem padding="around-small" size="6">
+                            <div class="{!v.hasDivider?'slds-has-divider--bottom':''}">
+                                <c:OutputFieldCustom fieldObject="{!field}" />
+                            </div>
+                        </lightning:layoutItem>
+                    </aura:iteration>    
+                </lightning:layout>
+            </aura:set>
+        </aura:if>
+    </aura:if>
+</aura:component>

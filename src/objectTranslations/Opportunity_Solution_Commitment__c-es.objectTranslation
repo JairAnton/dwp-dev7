@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Compromiso Precio</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Compromisos Precio</value>
+    </caseValues>
+    <fields>
+        <label><!-- Expiry date --></label>
+        <name>opp_soln_comt_expiry_date__c</name>
+    </fields>
+    <fields>
+        <label>Plazo Vcto (días)</label>
+        <name>opp_soln_comt_expiry_days_number__c</name>
+    </fields>
+    <fields>
+        <label>Permanencia (días)</label>
+        <name>opp_soln_comt_stay_days_number__c</name>
+    </fields>
+    <fields>
+        <label>Importe</label>
+        <name>opp_solution_commitment_amount__c</name>
+    </fields>
+    <fields>
+        <label>Identificador</label>
+        <name>opp_solution_commitment_id__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad</label>
+        <name>opp_solution_commitment_number__c</name>
+    </fields>
+    <fields>
+        <label>Producto</label>
+        <name>opp_solution_comt_product_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Product --></label>
+        <name>opp_solution_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>opportunity_id__c</name>
+        <relationshipLabel><!-- Opportunity Solution Commitments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Price quote date --></label>
+        <name>price_quote_date__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Referencia</nameFieldLabel>
+</CustomObjectTranslation>
