@@ -3,7 +3,7 @@
     <aura:attribute name="bProduct" type="Boolean" default="false" />
     <aura:attribute name="Prod2" type="Product2" />
     <aura:handler event="fprd:GBL_SelectedProduct_evt" action="{!c.handleSelectedEvent}"/>
-    <aura:if isTrue="{!v.bProduct}">     
+    <aura:if isTrue="{!v.bProduct}">    
         <div class="{!v.Prod2.risk_sanction__c ? 'slds-page-header' : 'slds-hide'}" style="cursor: pointer;" onclick="{!c.sectionTwo}">
             <section class="slds-clearfix">
                 <div class="slds-float--left">

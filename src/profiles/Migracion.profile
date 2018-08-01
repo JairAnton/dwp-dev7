@@ -378,11 +378,6 @@
         <field>Product2.Type_of_quote__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.Product_relate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.main_code_id__c</field>
@@ -2057,54 +2052,14 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>compromiso__c.Client__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.Oportunidad__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_DIVISA_Importe__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>compromiso__c.PE_FM_PRODUCT__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_FOR_Fecha_Vcto__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_NUM_Permanencia__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_NUM_Plazo_Vcto__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>compromiso__c.PE_SH_PRODUCT__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-   <fieldPermissions>
-        <editable>true</editable>
         <field>fprd__GBL_Intervener__c.N_DOI__c</field>
         <readable>true</readable>
-</fieldPermissions>
- <fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_n_gracia__c</field>
         <readable>true</readable>
-</fieldPermissions>  
+    </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.dlf_Operation_Deadlines__c</field>
@@ -2140,7 +2095,7 @@
         <field>OpportunityLineItem.tcf_type_beneficiary__c</field>
         <readable>true</readable>
     </fieldPermissions>
-     <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.da_Used_Risk__c</field>
         <readable>true</readable>
@@ -3080,9 +3035,6 @@
         <layout>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>compromiso__c-Formato compromiso</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>dwp_kitv__Visit_Contact__c-Visit Contact Layout Peru</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -3122,15 +3074,6 @@
     <layoutAssignments>
         <layout>Commitment_Value__c-Commitment Value Layout</layout>
     </layoutAssignments>
-	<objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>compromiso__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
