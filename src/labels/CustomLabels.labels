@@ -1214,4 +1214,95 @@
         <shortDescription>errorEmptyUser</shortDescription>
         <value>You have to insert an user.</value>
 </labels>
+<labels>
+        <fullName>AddCommitment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddCommitment</shortDescription>
+        <value>Add commitment</value>
+    </labels>
+    <labels>
+        <fullName>Commitments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Commitments</shortDescription>
+        <value>Commitments</value>
+    </labels>
+    <labels>
+        <fullName>Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Details</shortDescription>
+        <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>OppPriceDecision01</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision01</shortDescription>
+        <value>Approve under delegation</value>
+    </labels>
+    <labels>
+        <fullName>OppPriceDecision02</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision02</shortDescription>
+        <value>Escalate</value>
+    </labels>
+    <labels>
+        <fullName>OppPriceDecision03</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision03</shortDescription>
+        <value>Authorized under delegation</value>
+    </labels>
+    <labels>
+        <fullName>OppPriceDecision04</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision04</shortDescription>
+        <value>Authorized by price</value>
+    </labels>
+    <labels>
+        <fullName>OppStatusLabel08</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppStatusLabel08</shortDescription>
+        <value>Price approved under office delegation</value>
+    </labels>
+    <labels>
+        <fullName>OppStatusLabel09</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppStatusLabel09</shortDescription>
+        <value>Sent for price approval</value>
+    </labels>
+    <labels>
+        <fullName>OppStatusLabel11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppStatusLabel11</shortDescription>
+        <value>Price approved</value>
+    </labels>
+    <labels>
+        <fullName>Product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product</shortDescription>
+        <value>Product</value>
+    </labels>
+    <labels>
+        <fullName>btnContinue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Continue</shortDescription>
+        <value>Continue</value>
+    </labels>
+    <labels>
+        <fullName>lblFieldsFormRequired</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFieldsFormRequired</shortDescription>
+        <value>Please complete this field.</value>
+    </labels>
 </CustomLabels>

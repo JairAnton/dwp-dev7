@@ -1,0 +1,27 @@
+<aura:component >
+    <aura:attribute name="fieldObject" type="Object"/>
+
+    <aura:if isTrue="{!v.fieldObject.type == 'PERCENT'}">
+	    <lightning:input messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="inputField" type="number" label="{!v.fieldObject.label}" formatter="percent-fixed" value="{!v.fieldObject.value}" disabled="{!v.fieldObject.readOnly}" required="{!v.fieldObject.isMandatory}" step="0.01"/>
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.fieldObject.type == 'BOOLEAN'}">
+                <lightning:input messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="inputField" type="checkbox" label="{!v.fieldObject.label}" disabled="{!v.fieldObject.readOnly}" required="{!v.fieldObject.isMandatory}" checked="{!v.fieldObject.value}" />
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.fieldObject.type == 'DOUBLE'}"> 
+                        <lightning:input messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="inputField" type="number" label="{!v.fieldObject.label}" disabled="{!v.fieldObject.readOnly}" required="{!v.fieldObject.isMandatory}" value="{!v.fieldObject.value}" step="0.01" />
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.fieldObject.type == 'DATE'}"> 
+                                <lightning:input messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="inputField" type="date" label="{!v.fieldObject.label}" disabled="{!v.fieldObject.readOnly}" required="{!v.fieldObject.isMandatory}" value="{!v.fieldObject.value}" />
+                                <aura:set attribute="else">
+                                    <aura:if isTrue="{!v.fieldObject.type == 'STRING'}"> 
+                                        <lightning:input messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="inputField" type="text" label="{!v.fieldObject.label}" disabled="{!v.fieldObject.readOnly}" required="{!v.fieldObject.isMandatory}" value="{!v.fieldObject.value}" /> 
+                                    </aura:if>
+                                </aura:set>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </aura:if> 
+</aura:component>
