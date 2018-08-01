@@ -691,9 +691,5 @@
         <members>compromiso__c</members>
         <name>CustomTab</name>
     </types>
-    <types>
-        <members>Opportunity_Record_Page1</members>
-        <name>FlexiPage</name>
-    </types>
 	<version>42.0</version>
 </Package>
