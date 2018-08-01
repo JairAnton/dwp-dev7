@@ -28,6 +28,9 @@
             <componentName>Container_product_form</componentName>
         </componentInstances>
         <componentInstances>
+            <componentName>ProductPriceViewer_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
             <componentName>Collapsible_Section_comp</componentName>
         </componentInstances>
         <name>facet-d624af49-5f4c-4622-9ee7-6ae565d5cc2c</name>
