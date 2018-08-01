@@ -561,7 +561,7 @@
         <language>es</language>
         <protected>false</protected>
         <shortDescription>lblTitleSanctionPrice</shortDescription>
-        <value>lblTitleSanctionPrice</value>
+        <value>Price Approval</value>
     </labels>    
     <labels>
         <fullName>lblbtnPDF_cfg</fullName>
@@ -1304,5 +1304,12 @@
         <protected>false</protected>
         <shortDescription>lblFieldsFormRequired</shortDescription>
         <value>Please complete this field.</value>
+    </labels>
+    <labels>
+        <fullName>lblFieldsFormValidateDecimal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFieldsFormValidateDecimal</shortDescription>
+        <value>Please, specify a number without decimals.</value>
     </labels>
 </CustomLabels>
