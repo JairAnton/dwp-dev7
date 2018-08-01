@@ -2994,7 +2994,7 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.N_DOI__c</field>
+        <field>fprd__GBL_Intervener__c.taxpayer_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

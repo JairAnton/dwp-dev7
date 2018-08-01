@@ -643,6 +643,23 @@
         <members>OpportunityLineItem.PE_POR_TEA_sugerida__c</members>
         <members>OpportunityLineItem.PE_POR_ID_COTIZA__c</members>
         <members>OpportunityLineItem.PE_DATE_Fecha_cotizacion__c</members>
+        <members>fprd__GBL_Guarantee__c.Amount__c</members>
+        <members>fprd__GBL_Guarantee__c.GuaranteeType__c</members>
+        <members>fprd__GBL_Guarantee__c.Guarantee__c</members>
+        <members>fprd__GBL_Guarantee__c.Modality__c</members>
+        <members>fprd__GBL_Guarantee__c.Opportunity__c</members>
+        <members>fprd__GBL_Guarantee__c.Periodicity__c</members>
+        <members>fprd__GBL_Guarantee__c.Product__c</members>
+        <members>fprd__GBL_Guarantee__c.Status__c</members>
+        <members>fprd__GBL_Guarantee__c.Term__c</members>
+        <members>fprd__GBL_Guarantee__c.nGuarantee__c</members>
+        <members>fprd__GBL_Intervener__c.DOI__c</members>
+        <members>fprd__GBL_Intervener__c.Marital_Status__c</members>
+        <members>fprd__GBL_Intervener__c.N_DOI__c</members>
+        <members>fprd__GBL_Intervener__c.Opportunity__c</members>
+        <members>fprd__GBL_Intervener__c.Participation__c</members>
+        <members>fprd__GBL_Intervener__c.Product__c</members>
+        <members>fprd__GBL_Intervener__c.isMaster__c</members>        
 		<name>CustomField</name>
     </types>
     <types>

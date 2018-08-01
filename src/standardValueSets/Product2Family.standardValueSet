@@ -3,37 +3,50 @@
     <sorted>false</sorted>
     <standardValue>
         <fullName>None</fullName>
+        <color>#0B6FCE</color>
         <default>false</default>
         <label>None</label>
     </standardValue>
     <standardValue>
-        <fullName>Financiamiento a corto plazo</fullName>
+        <fullName>Financiamiento a Corto Plazo</fullName>
+        <color>#1464A5</color>
         <default>false</default>
-        <label>Financiamiento a corto plazo</label>
+        <label>Financiamiento a Corto Plazo</label>
     </standardValue>
     <standardValue>
-        <fullName>Financiamiento a largo plazo</fullName>
+        <fullName>Financiamiento a Largo Plazo</fullName>
+        <color>#D8BE75</color>
         <default>false</default>
-        <label>Financiamiento a largo plazo</label>
+        <label>Financiamiento a Largo Plazo</label>
     </standardValue>
     <standardValue>
-        <fullName>Riesgo de firma</fullName>
+        <fullName>Riesgo de Firmas</fullName>
+        <color>#5AC4C4</color>
         <default>false</default>
-        <label>Riesgo de firma</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Serv. Transaccionales</fullName>
-        <default>false</default>
-        <label>Serv. Transaccionales</label>
+        <label>Riesgo de Firmas</label>
     </standardValue>
     <standardValue>
         <fullName>Recursos</fullName>
+        <color>#043263</color>
         <default>false</default>
         <label>Recursos</label>
     </standardValue>
     <standardValue>
-        <fullName>Programa financiero</fullName>
+        <fullName>Servicios Transaccionales</fullName>
+        <color>#5BBEFF</color>
         <default>false</default>
-        <label>Programa financiero</label>
+        <label>Servicios Transaccionales</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Derivados</fullName>
+        <color>#C0475E</color>
+        <default>false</default>
+        <label>Derivados</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Programa Financiero</fullName>
+        <color>#D8BE75</color>
+        <default>false</default>
+        <label>Programa Financiero</label>
     </standardValue>
 </StandardValueSet>

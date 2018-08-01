@@ -1910,42 +1910,42 @@
     </fieldPermissions>
   <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Guarantee__c.Modality__c</field>
+        <field>fprd__GBL_Guarantee__c.guarantee_modality_type__c</field>
         <readable>true</readable>
   </fieldPermissions>
   <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Guarantee__c.Status__c</field>
+        <field>fprd__GBL_Guarantee__c.guarantee_status_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
  <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Guarantee__c.Term__c</field>
+        <field>fprd__GBL_Guarantee__c.guarantee_term_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
 <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Guarantee__c.Periodicity__c</field>
+        <field>fprd__GBL_Guarantee__c.guarantee_periodicity_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
    <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Guarantee__c.nGuarantee__c</field>
+        <field>fprd__GBL_Guarantee__c.guarantee_id__c</field>
         <readable>true</readable>
     </fieldPermissions>  
  <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Guarantee__c.Amount__c</field>
+        <field>fprd__GBL_Guarantee__c.guaranteed_amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.DOI__c</field>
+        <field>fprd__GBL_Intervener__c.fiscal_identifier_type__c</field>
         <readable>true</readable>
     </fieldPermissions>  
   <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.Participation__c</field>
+        <field>fprd__GBL_Intervener__c.participant_type__c</field>
         <readable>true</readable>
     </fieldPermissions>  
     <fieldPermissions>
@@ -1955,7 +1955,7 @@
     </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.Marital_Status__c</field>
+        <field>fprd__GBL_Intervener__c.guarantor_marital_status_type__c</field>
         <readable>true</readable>
     </fieldPermissions>  
       <fieldPermissions>
@@ -2005,12 +2005,12 @@
 </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.DOI__c</field>
+        <field>fprd__GBL_Intervener__c.fiscal_identifier_type__c</field>
         <readable>true</readable>
     </fieldPermissions>  
   <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.Participation__c</field>
+        <field>fprd__GBL_Intervener__c.participant_type__c</field>
         <readable>true</readable>
     </fieldPermissions>  
     <fieldPermissions>
@@ -2020,7 +2020,7 @@
     </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.Marital_Status__c</field>
+        <field>fprd__GBL_Intervener__c.guarantor_marital_status_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2065,7 +2065,7 @@
     </fieldPermissions>
    <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.N_DOI__c</field>
+        <field>fprd__GBL_Intervener__c.taxpayer_id__c</field>
         <readable>true</readable>
 </fieldPermissions>
  <fieldPermissions>

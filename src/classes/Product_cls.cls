@@ -29,8 +29,8 @@ public without sharing class Product_cls {
 	/*Description
 	Comments to describe the functionality of this method
 	*/
-	@AuraEnabled public static List<fprd__GBL_Guarantee__c> getGuaranteeDataByProduct(String IdOpportunity,String IdProduct){	
-		List<fprd__GBL_Guarantee__c> objData= [SELECT Id,GuaranteeType__c,toLabel(Guarantee__c), toLabel(Modality__c), toLabel(Status__c),Term__c, toLabel(Periodicity__c),nGuarantee__c,Amount__c,isMaster__c FROM fprd__GBL_Guarantee__c Where Product__c=: IdProduct AND Opportunity__c=: IdOpportunity Order by isMaster__c desc];
+	@AuraEnabled public static List<fprd__GBL_guarantee__c> getGuaranteeDataByProduct(String IdOpportunity,String IdProduct){	
+		List<fprd__GBL_guarantee__c> objData= [SELECT Id,guarantee_type__c,toLabel(guarantee_desc__c), toLabel(guarantee_modality_type__c), toLabel(guarantee_status_type__c),guarantee_term_number__c, toLabel(guarantee_periodicity_type__c),guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by isMaster__c desc];
 		return objData;
 	}
 	/*Description
@@ -38,21 +38,21 @@ public without sharing class Product_cls {
 	*/
 	@AuraEnabled public static List<fprd__GBL_Guarantee__c> getGuaranteeDataByProductValues(String PGuaranteeId){	
 
-		List<fprd__GBL_Guarantee__c> objData= [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c,isMaster__c FROM fprd__GBL_Guarantee__c Where Id=: PGuaranteeId];
+		List<fprd__GBL_guarantee__c> objData= [SELECT Id,guarantee_type__c,guarantee_desc__c, guarantee_modality_type__c, guarantee_status_type__c,guarantee_term_number__c, guarantee_periodicity_type__c,guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where Id=: PGuaranteeId];
 		return objData;
 	}
 	/*Description
 	Comments to describe the functionality of this method
 	*/
 	@AuraEnabled public static List<fprd__GBL_Intervener__c> getParticipantDataByProduct(String IdOpportunity,String IdProduct){	
-		List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,toLabel(DOI__c), toLabel(Marital_Status__c), toLabel(Participation__c),N_DOI__c,isMaster__c FROM fprd__GBL_Intervener__c Where Product__c=: IdProduct AND Opportunity__c=: IdOpportunity Order by isMaster__c desc];
+		List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,toLabel(fiscal_identifier_type__c), toLabel(guarantor_marital_status_type__c), toLabel(participant_type__c),taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by main_intervener__c desc];
 		return objData;
 	}
 	/*Description
 	Comments to describe the functionality of this method
 	*/
 	@AuraEnabled public static List<fprd__GBL_Intervener__c> getParticipantDataByProductValues(String PParticipantId){	
-		List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c,isMaster__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId];
+		List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId];
 		return objData;
 	}
 	/*Description
@@ -92,21 +92,17 @@ public without sharing class Product_cls {
             {
                 fprd__GBL_Guarantee__c row;
                 if(PGuaranteeId!=null)		
-                    row = [SELECT Id,GuaranteeType__c,Guarantee__c, Modality__c, Status__c,Term__c, Periodicity__c,nGuarantee__c,Amount__c FROM fprd__GBL_Guarantee__c Where Id=: PGuaranteeId];
-                else row = new fprd__GBL_Guarantee__c();
-
-          
-                row.Opportunity__c=IdOpportunity;
+                    row = [SELECT Id,guarantee_type__c,guarantee_desc__c, guarantee_modality_type__c, guarantee_status_type__c,guarantee_term_number__c, guarantee_periodicity_type__c,guarantee_id__c,guaranteed_amount__c FROM fprd__GBL_guarantee__c Where Id=: PGuaranteeId];
+                else row = new fprd__GBL_guarantee__c();
                 row.fprd__GBL_Opportunity_product__c=IdOpportunity;
-                row.Product__c=IdProuduct;
-                row.GuaranteeType__c=GuaranteeType;
-                row.Guarantee__c=Guarantee;
-                row.nGuarantee__c=nGuarantee;
-                row.Modality__c=Modality;
-                if(Amount!=null) row.Amount__c=Amount;
-                if(Status!=null) row.Status__c=Status;
-                row.Periodicity__c=Periodicity;
-                row.Term__c=Term;
+                row.guarantee_type__c=GuaranteeType;
+                row.guarantee_desc__c=Guarantee;
+                row.guarantee_id__c=nGuarantee;
+                row.guarantee_modality_type__c=Modality;
+                if(Amount!=null) row.guaranteed_amount__c=Amount;
+                if(Status!=null) row.guarantee_status_type__c=Status;
+                row.guarantee_periodicity_type__c=Periodicity;
+                row.guarantee_term_number__c=Term;
                 if(PGuaranteeId!=null) update row; else insert row;	
                 return true;
             }
@@ -126,16 +122,15 @@ public without sharing class Product_cls {
         {
             fprd__GBL_Intervener__c row;
             if(PParticipantId!=null)		
-                row = [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c FROM fprd__GBL_Intervener__c Where Id=:PParticipantId ];
+                row = [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c FROM fprd__GBL_Intervener__c Where Id=:PParticipantId ];
             else row = new fprd__GBL_Intervener__c();
-            row.Opportunity__c=IdOpportunity;
+
             row.fprd__GBL_Opportunity_product__c=IdOpportunity;
-            row.Product__c=IdProuduct;
             row.Name=Name;
-            row.DOI__c=DOI;
-            row.N_DOI__c=N_DOI;
-            row.Participation__c=Participation;		
-            row.Marital_Status__c=Marital_Status;		
+            row.fiscal_identifier_type__c=DOI;
+            row.taxpayer_id__c=N_DOI;
+            row.participant_type__c=Participation;		
+            row.guarantor_marital_status_type__c=Marital_Status;		
             if(PParticipantId!=null) update row; else insert row;	
             return true;
         }

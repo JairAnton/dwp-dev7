@@ -90,17 +90,12 @@ public class Product_cls_test {
         	testLOPP.gipr_Tipo_Garantia__c='03';
 			insert testLOPP;
 
-			fprd__GBL_Guarantee__c testPG = new fprd__GBL_Guarantee__c();			
-			testPG.Opportunity__c=testOP.Id;
-            testPG.fprd__GBL_Opportunity_product__c=testOP.Id;
-			testPG.Product__c=testPr.Id;
-        	
+			fprd__GBL_Guarantee__c testPG = new fprd__GBL_Guarantee__c();
+            testPG.fprd__GBL_Opportunity_product__c=testOP.Id;        	
 			insert testPG;
 
-			fprd__GBL_Intervener__c testPP = new fprd__GBL_Intervener__c();			
-			testPP.Opportunity__c=testOP.Id;
+			fprd__GBL_Intervener__c testPP = new fprd__GBL_Intervener__c();
             testPP.fprd__GBL_Opportunity_product__c=testOP.Id;
-			testPP.Product__c=testPr.Id;
 			insert testPP;
 
 			Product_cls.getIdProductByOpportunity(testOP.Id);
