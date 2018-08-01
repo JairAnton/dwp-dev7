@@ -1,3 +1,11 @@
+/**
+* @author Global_HUB developers
+* @date 01-08-2018
+*
+* @group Global_HUB
+*
+* @description Controller class from SanctionPrice_cmp
+**/
 public with sharing class SanctionPrice_ctrl {
  	@AuraEnabled
     public static Map<String,Object> getInfo(String recordId){
