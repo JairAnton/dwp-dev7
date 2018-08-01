@@ -12,10 +12,6 @@
         <name>Flow</name>
     </types>
 	<types>
-        <members>ProductOpp_DueDate</members>        
-        <name>FlowDefinition</name>
-    </types>
-	<types>
 		<members>fprd__GBL_dependent_list.dependentNoDineraria</members>
         <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00014</members>
         <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00029</members>
