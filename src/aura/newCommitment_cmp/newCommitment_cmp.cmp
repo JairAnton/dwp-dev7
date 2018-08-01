@@ -31,7 +31,7 @@
                 <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" type="number" label="{!v.objSetup.schemaSetup.mapLabel.opp_solution_commitment_amount__c}" value="{!v.objSetup.valImport}" step="0.01" required="true"/>
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small" size="6">
-                <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" type="number" label="{!v.objSetup.schemaSetup.mapLabel.opp_soln_comt_stay_days_number__c}" value="{!v.objSetup.valPer}" step="0.01" required="true"/>
+                <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" messageWhenStepMismatch="{!$Label.c.lblFieldsFormValidateDecimal}" type="number" label="{!v.objSetup.schemaSetup.mapLabel.opp_soln_comt_stay_days_number__c}" value="{!v.objSetup.valPer}" required="true"/>
             </lightning:layoutItem>
         </lightning:layout>
     </div>
