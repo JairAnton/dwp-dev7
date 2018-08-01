@@ -1,0 +1,42 @@
+<aura:component controller="Commitment_ctrl">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="commitmentsEvent" type="c:Commitments_evt" />
+    <aura:attribute name="approvalMethod" type="String" default=""/>
+    <aura:attribute name="oppRecordId" type="String" default=""/>
+    <aura:attribute name="objSetup" type="Object" />
+    
+
+	<div class="slds-modal__content slds-p-around_medium" >
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:select messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="field" label="{!v.objSetup.schemaSetup.mapLabel.opp_solution_comt_product_name__c}" value="{!v.objSetup.lstVal1value}" onchange="{! c.onChangeProduct }" required="true">
+                    <option value="">-</option>
+                    <aura:iteration items="{!v.objSetup.lstVal1}" var="item">
+                        <option value="{!item}">{!item}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:select messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="field" label="{!v.objSetup.schemaSetup.mapLabel.CurrencyIsoCode}" value="{!v.objSetup.lstVal2value}" onchange="{! c.onChangeDivisa }" required="true">
+                    <option value="">-</option>
+                    <aura:iteration items="{!v.objSetup.lstVal2}" var="item">
+                        <option value="{!item}">{!item}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input aura:id="field" label="{!v.objSetup.schemaSetup.mapLabel.opp_soln_comt_expiry_days_number__c}" value="{!v.objSetup.valExpvalue}" readonly="true"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" type="number" label="{!v.objSetup.schemaSetup.mapLabel.opp_solution_commitment_amount__c}" value="{!v.objSetup.valImport}" step="0.01" required="true"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" messageWhenStepMismatch="{!$Label.c.lblFieldsFormValidateDecimal}" type="number" label="{!v.objSetup.schemaSetup.mapLabel.opp_soln_comt_stay_days_number__c}" value="{!v.objSetup.valPer}" required="true"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    <footer class="slds-modal__footer slds-theme_default">
+        <lightning:button variant="brand" onclick="{!c.doSave}">{!$Label.c.Save}</lightning:button>
+        <lightning:button variant="neutral" onclick="{!c.doBack}">{!$Label.c.Cancel}</lightning:button>
+    </footer>
+</aura:component>

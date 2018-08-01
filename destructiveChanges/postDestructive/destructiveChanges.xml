@@ -3,6 +3,7 @@
     <types>
         <members>Product_Gurantee__c</members>
         <members>Product_Participants__c</members>
+        <members>compromiso__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -20,6 +21,7 @@
     <types>
         <members>Product_Gurantee__c-Formato Product_Gurantee</members>
         <members>Product_Participants__c-Formato Product_Participant</members>
+        <members>compromiso__c-Formato compromiso</members>
         <name>Layout</name>
     </types>
     <types>
@@ -667,6 +669,11 @@
         <members>OpportunityProduct_Comp</members>
         <members>submitToDiscardModal_comp</members>
         <members>submitTODiscart</members>
+        <members>Tabla_Compromiso_2</members>
+        <members>CustomTable_V1</members>
+        <members>Componet_Cotizacion</members>
+        <members>Sanction_Price_comp</members>
+        <members>Componente_CotizaWeb</members>
 		<name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -696,6 +703,10 @@
         <members>Jefes_de_Promoci_n_de_Negocio</members>
         <members>Sub_Gerentes_de_oficina</members>
         <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>compromiso__c</members>
+        <name>CustomTab</name>
     </types>
 	<version>42.0</version>
 </Package>

@@ -41,17 +41,6 @@ public class Object_controller_tst {
         Account_Banking_System_Debt__c Bank_Syste = new Account_Banking_System_Debt__c(account_id__c=cliente.Id, product_group_classification_id__c='Directa',product_desc__c='netcash',entity_name__c='BBVA',year_month_day_date__c=x.addMonths(-1));
         insert Bank_Syste;
     }
-    
-    @isTest static void getCompromisosSytem_Test() {
-        test.startTest();       
-        mamlon=Object_Controller.getCompromisosSytem('');
-        test.stopTest();
-    }
-    @isTest static void getContacts_Test() {
-        test.startTest();       
-        mamlon=Object_Controller.getContacts('');
-        test.stopTest();
-    }
     @isTest static void getOportunityLineItemID_Test() {
         Opportunity a =[select id from Opportunity limit 1];
         test.startTest();       

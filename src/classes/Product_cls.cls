@@ -55,13 +55,6 @@ public without sharing class Product_cls {
 		List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId];
 		return objData;
 	}
-	/*Description
-	Comments to describe the functionality of this method
-	*/         
-	@AuraEnabled public static List<compromiso__c> getCompromisoDataByProduct(String IdOpportunity){	
-		List<compromiso__c> objData= [SELECT Product_relate__c,PE_DIVISA_Importe__c,PE_NUM_Plazo_Vcto__c,PE_FOR_Fecha_Vcto__c,PE_NUM_Permanencia__c,CurrencyIsoCode FROM compromiso__c Where  Oportunidad__c=:IdOpportunity];
-		return objData;
-	}
 
 	@AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){	
 		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];

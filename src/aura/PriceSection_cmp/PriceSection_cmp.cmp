@@ -1,0 +1,8 @@
+<aura:component extends="c:Collapsable_comun" controller="SanctionPrice_ctrl" implements="force:hasRecordId">
+    <aura:attribute name="objectInput" type="Object" />
+
+	
+
+    <c:FieldsForm_cmp aura:id="table" recordId="{!v.objectInput.IdOppLineItem}" isInput="false" valueDynamic="-,-" developerNameTable="{!v.objectInput.approvalMethod + '_View'}"/>
+
+</aura:component>
