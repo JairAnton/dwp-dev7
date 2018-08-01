@@ -1264,6 +1264,13 @@
         <value>Price approved</value>
     </labels>
     <labels>
+        <fullName>Product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product</shortDescription>
+        <value>Product</value>
+    </labels>
+    <labels>
         <fullName>btnContinue</fullName>
         <language>en_US</language>
         <protected>false</protected>
