@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>dwp_dace__Rules_Set_Rule_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>dwp_dace__rules_set_link__c</fields>
+        <fields>dwp_dace__rule_link__c</fields>
+        <fields>dwp_dace__rule_order_num__c</fields>
+        <fields>dwp_dace__rules_set_rule_active_type__c</fields>
+        <label>Rules Set Rule Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Relationship between rules sets and rules</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>dwp_dace__rule_id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Relation with a rule</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Relation with a rule</inlineHelpText>
+        <label>Rule Reference</label>
+        <referenceTo>dwp_dace__Rule__c</referenceTo>
+        <relationshipLabel>Rules Set Rules</relationshipLabel>
+        <relationshipName>Rules_Set_Rules</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__rule_link__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the related rule</description>
+        <externalId>false</externalId>
+        <formula>IF($User.UIThemeDisplayed=&quot;Theme4d&quot;,HYPERLINK( &quot;#/sObject/&quot; +  dwp_dace__rule_id__c  ,   dwp_dace__rule_id__r.dwp_dace__rule_unique_id__c ,&quot;_top&quot; ),HYPERLINK(dwp_dace__rule_id__c  ,  dwp_dace__rule_id__r.dwp_dace__rule_unique_id__c,&quot;_top&quot; ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Unique identifier of the related rule</inlineHelpText>
+        <label>Rule</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__rule_order_num__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Represents the order of precedence in the rule evaluation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Represents the order of precedence in the rule evaluation</inlineHelpText>
+        <label>Order</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__rules_set_id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Relation with a rules set</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Relation with a rules set</inlineHelpText>
+        <label>Rules Set Reference</label>
+        <referenceTo>dwp_dace__Rules_Set__c</referenceTo>
+        <relationshipLabel>Rules Set Rules</relationshipLabel>
+        <relationshipName>Rules_Set_Rules</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__rules_set_link__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the related rules set</description>
+        <externalId>false</externalId>
+        <formula>IF($User.UIThemeDisplayed=&quot;Theme4d&quot;,HYPERLINK( &quot;#/sObject/&quot; + dwp_dace__rules_set_id__c ,  dwp_dace__rules_set_id__r.dwp_dace__rules_set_unique_id__c,&quot;_top&quot; ),HYPERLINK(dwp_dace__rules_set_id__c ,  dwp_dace__rules_set_id__r.dwp_dace__rules_set_unique_id__c,&quot;_top&quot; ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Unique identifier of the related rules set</inlineHelpText>
+        <label>Rules Set</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_dace__rules_set_rule_active_type__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked, the relationship between the rules set and the rule is considered as active</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, the relationship between the rules set and the rule is considered as active</inlineHelpText>
+        <label>Is Active?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Rules Set Rule</label>
+    <nameField>
+        <displayFormat>RSR-{0000000000}</displayFormat>
+        <label>Reference</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Rules Set Rules</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

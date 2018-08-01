@@ -177,5 +177,4 @@
     <pluralLabel>Pagos de Haberes</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-    <visibility>Public</visibility>
 </CustomObject>

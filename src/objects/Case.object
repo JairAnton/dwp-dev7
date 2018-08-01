@@ -228,7 +228,7 @@
      Owner:User.FirstName + &apos; &apos; + Owner:User.LastName
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Case Owner</label>
+        <label>Owner</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -386,6 +386,58 @@
         <sharedTo>
             <group>Analysts_Tier_1</group>
             <group>Analysts_Tier_2</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AllOpenCases</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All Open Cases</label>
+        <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyCases</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Cases</label>
+        <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyOpenCases</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>My Open Cases</label>
+        <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Tier_1_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Tier 1</label>
+        <queue>Tier_1</queue>
+        <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Tier_2_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Tier 2</label>
+        <queue>Tier_2</queue>
+        <sharedTo>
             <group>System_Administrators</group>
         </sharedTo>
     </listViews>

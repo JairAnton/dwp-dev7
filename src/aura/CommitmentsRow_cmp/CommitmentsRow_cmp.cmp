@@ -1,0 +1,17 @@
+<aura:component controller="Commitment_ctrl">
+    <aura:registerEvent name="CommitmentsDelete" type="c:CommitmentsDelete_evt" />
+    <aura:attribute name="row" type="Object" default="{'lstInfo':[]}"/>
+    <aura:attribute name="readOnly" type="Boolean" default="false"/>
+
+    <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">
+        <aura:iteration items="{!v.row.lstInfo}" var="data">
+            <th>{!data}</th>
+        </aura:iteration>
+        <aura:if isTrue="{!!v.readOnly}">
+            <th>
+                <lightning:buttonIcon iconName="utility:delete" variant="bare" alternativeText="Delete" onclick="{!c.onDelete}"/>
+            </th>
+        </aura:if>
+    </tr> 
+               
+</aura:component>

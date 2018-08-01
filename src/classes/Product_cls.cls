@@ -55,13 +55,6 @@ public without sharing class Product_cls {
 		List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,DOI__c, Marital_Status__c, Participation__c,N_DOI__c,isMaster__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId];
 		return objData;
 	}
-	/*Description
-	Comments to describe the functionality of this method
-	*/         
-	@AuraEnabled public static List<compromiso__c> getCompromisoDataByProduct(String IdOpportunity){	
-		List<compromiso__c> objData= [SELECT Product_relate__c,PE_DIVISA_Importe__c,PE_NUM_Plazo_Vcto__c,PE_FOR_Fecha_Vcto__c,PE_NUM_Permanencia__c,CurrencyIsoCode FROM compromiso__c Where  Oportunidad__c=:IdOpportunity];
-		return objData;
-	}
 
 	@AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){	
 		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
@@ -267,6 +260,41 @@ public without sharing class Product_cls {
             else return label.lblUserNotAuth;
         }catch(Dmlexception exp) { return exp.getMessage();}
     }
+
+    /*Dismiss oportunity Method*/
+    @AuraEnabled public static String setRejectOpportunity(String OpportunityId,String RejectReason,String WinnerBank,String IsoCurrency,Decimal Amount,Decimal Rate,Integer Term,String Comments){
+        try
+        {
+            id id1 = userinfo.getProfileId();
+            id id2 = userinfo.getUserId();
+            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+            String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;            
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
+            String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;              
+            if(OUCurrentUser!=OUOppUser)
+                            return label.lblUserNotAuth; 
+
+            if(((prof=='Ejecutivo'||prof=='Especialista') && userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' )
+            { 
+                itemOpp[0].IsProcess__c=true;
+                update itemOpp[0]; 
+                itemOpp[0].StageName='07';
+                itemOpp[0].opportunity_status_type__c='22';
+                itemOpp[0].Loss_Reason__c=RejectReason;
+                itemOpp[0].rejection_winner_entity_name__c=WinnerBank;
+                itemOpp[0].rejection_reason_id__c=Comments;
+                itemOpp[0].rejection_amount__c=Amount;
+                itemOpp[0].rejection_rate_per__c=Rate;
+                itemOpp[0].rejection_period_num__c=Term;
+                itemOpp[0].rejection_coin__c= IsoCurrency;
+                update itemOpp[0];      
+                itemOpp[0].IsProcess__c=false;
+                update itemOpp[0];                 
+                return 'true';                             
+            }
+            else return label.lblUserNotAuth;
+        }catch(Dmlexception exp) { return exp.getMessage();}
+    }    
     
     public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)
     {

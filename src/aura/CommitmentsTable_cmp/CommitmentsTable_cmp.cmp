@@ -1,0 +1,47 @@
+<aura:component controller="Commitment_ctrl">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="CommitmentsDelete" event="c:CommitmentsDelete_evt" action="{!c.doInit}"/>
+    <aura:registerEvent name="commitmentsEvent" type="c:Commitments_evt"/>
+    <aura:attribute name="oppRecordId" type="String" default=""/>
+    <aura:attribute name="objSetup" type="Object" />
+    <aura:attribute name="isLoad" type="Boolean" default="false"/>
+    <aura:attribute name="hasRecord" type="Boolean" default="false"/>
+    <aura:attribute name="readOnly" type="Boolean" default="false"/>
+
+	<div class="{!v.readOnly?'':'slds-modal__content slds-p-around_medium'}" >
+        <aura:if isTrue="{!v.isLoad}">
+            <aura:if isTrue="{!v.hasRecord}">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer" role="grid">
+                    <thead>
+                        <tr>
+                            <aura:iteration items="{!v.objSetup.lstHead}" var="head">
+                                <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                    {!head}
+                                </th>
+                            </aura:iteration>
+                            <aura:if isTrue="{!!v.readOnly}">
+                                <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                    
+                                </th>
+                            </aura:if>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.objSetup.lstData}" var="row">
+                            <c:CommitmentsRow_cmp row="{!row}" readOnly="{!v.readOnly}"/>
+                        </aura:iteration>            
+                    </tbody>
+                </table>
+            </aura:if>
+            <aura:if isTrue="{!!v.readOnly}">
+                <lightning:button class="slds-m-top_small" variant="brand" label="{!$Label.c.AddCommitment}" onclick="{!c.doNew}" />
+            </aura:if>
+        </aura:if>
+    </div>
+    <aura:if isTrue="{!!v.readOnly}">
+        <footer class="slds-modal__footer slds-theme_default">
+            <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPC"/>
+            <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+        </footer>
+    </aura:if>
+</aura:component>

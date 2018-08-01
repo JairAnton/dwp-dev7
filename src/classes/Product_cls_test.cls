@@ -110,7 +110,6 @@ public class Product_cls_test {
 
 			Product_cls.getParticipantDataByProduct(testOP.Id,testPr.Id);
 			Product_cls.getParticipantDataByProductValues(testPG.Id);
-			Product_cls.getCompromisoDataByProduct(testOP.Id);
             Product_cls.getOpportunityLineItemDataByProduct(testOP.Id,testPr.Id);
             Product_cls.verifyIfHasQuoted(testOP.Id);
 			Product_cls.saveGuaranteeDataByProduct(testPG.Id,testOP.Id,testPr.Id,'01','01','01',1,'01',1,'01',1);
@@ -123,6 +122,7 @@ public class Product_cls_test {
             Product_cls.setSanctionPrice(testOP.Id,'btnRaise','obs');
             Product_cls.setSanctionPrice(testOP.Id,'else','obs');
         	Product_cls.setFormalization(testOP.Id,'btnApprove','id','obs');
+			Product_cls.setRejectOpportunity(testOP.Id,'01',null,null,null,null,null,null);
             System.runAs(u2){ 
 	        Product_cls.setLastFormalization(testOP.Id,'btnApprove','obs','1234-1234-1234567890');
        		Product_cls.setLastFormalization(testOP.Id,'btnRaise','obs','1234-1234-1234567890');

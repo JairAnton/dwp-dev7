@@ -147,5 +147,4 @@
         <errorDisplayField>dwp_kitv__user_id__c</errorDisplayField>
         <errorMessage>You cannot insert the Owner of the visit.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>
