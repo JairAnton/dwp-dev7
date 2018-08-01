@@ -3225,11 +3225,6 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>fprd__GBL_Intervener__c.fiscal_identifier_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
