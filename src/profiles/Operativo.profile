@@ -4325,9 +4325,6 @@ Sub Gerentes de oficina</description>
         <field>Opportunity.CreatedDate__c</field>
         <readable>true</readable>
     </fieldPermissions> 
-    <layoutAssignments>
-        <layout>compromiso__c-Formato compromiso</layout>
-    </layoutAssignments> 
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
