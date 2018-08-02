@@ -297,7 +297,7 @@
         <name>fprd__GBL_LoadingProduct</name>
     </customLabels>
     <customLabels>
-        <label>Cargando selección de producto</label>
+        <label>Cargando condiciones del producto</label>
         <name>fprd__GBL_LoadingProductSelector</name>
     </customLabels>
     <customLabels>
@@ -593,7 +593,7 @@
         <name>dwp_kitv__Send</name>
     </customLabels>
     <customLabels>
-        <label>No puede finalizar una visita que no se haya completado o no se haya cancelado</label>
+        <label>No puede finalizar una visita que no se haya completado</label>
         <name>dwp_kitv__Status_visit_to_finalize</name>
     </customLabels>
     <customLabels>
@@ -939,6 +939,14 @@
     <customLabels>
         <label>Por favor, especifique un número sin decimales.</label>
         <name>lblFieldsFormValidateDecimal</name>
+    </customLabels>
+    <customLabels>
+        <label>REASIGN_CASE</label>
+        <name>lblREASIGN_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label>CREATE_CASE</label>
+        <name>lblCREATE_CASE</name>
     </customLabels>
     <quickActions>
         <label>Llamada</label>
