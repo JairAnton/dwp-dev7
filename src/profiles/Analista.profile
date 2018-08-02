@@ -393,6 +393,10 @@
         <apexClass>Case_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>Container_Product_Form_ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Los cargos para este perfil pueden ser:
 Analistas de precios

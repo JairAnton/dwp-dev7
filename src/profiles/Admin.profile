@@ -425,6 +425,10 @@
         <apexClass>Case_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>Container_Product_Form_ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>

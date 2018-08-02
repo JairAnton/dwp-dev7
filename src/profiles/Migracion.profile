@@ -386,6 +386,10 @@
         <apexClass>Case_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>Container_Product_Form_ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>fprd__GBL_Dependent_value__c.Unique_id__c</field>
