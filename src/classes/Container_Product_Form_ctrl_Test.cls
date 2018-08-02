@@ -187,7 +187,6 @@ public class Container_Product_Form_ctrl_Test {
         
         System.runAs(testUser1){
             Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-        	System.debug(actual);
             Map<String,Boolean> expected = new Map<String,Boolean>();
             expected.put('key', true);
             expected.put('key2', true);
@@ -215,7 +214,6 @@ public class Container_Product_Form_ctrl_Test {
         
         System.runAs(testUser2){
             Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-        	System.debug(actual);
             Map<String,Boolean> expected = new Map<String,Boolean>();
             expected.put('key', true);
             expected.put('key2', true);
@@ -242,7 +240,6 @@ public class Container_Product_Form_ctrl_Test {
         
         System.runAs(testUser1){
             Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-        	System.debug(actual);
             Map<String,Boolean> expected = new Map<String,Boolean>();
             expected.put('key', true);
             expected.put('key2', false);
@@ -269,7 +266,6 @@ public class Container_Product_Form_ctrl_Test {
         
         System.runAs(testUser2){
             Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-        	System.debug(actual);
             Map<String,Boolean> expected = new Map<String,Boolean>();
             expected.put('key', true);
             expected.put('key2', false);
@@ -295,7 +291,6 @@ public class Container_Product_Form_ctrl_Test {
         
         System.runAs(testUser1){
             Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-        	System.debug(actual);
             Map<String,Boolean> expected = new Map<String,Boolean>();
             expected.put('key', true);
             expected.put('key2', false);
@@ -321,7 +316,6 @@ public class Container_Product_Form_ctrl_Test {
         
         System.runAs(testUser1){
             Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-        	System.debug(actual);
             Map<String,Boolean> expected = new Map<String,Boolean>();
             expected.put('key', true);
             expected.put('key2', false);
