@@ -741,5 +741,9 @@
         <members>Opportunity</members>
         <name>Settings</name>
     </types>
+    <types>
+        <members>HOMEPAGE ESPECIALISTA</members>
+        <name>HomePageLayout</name>
+    </types>
     <version>42.0</version>
 </Package>
