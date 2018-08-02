@@ -1312,4 +1312,18 @@
         <shortDescription>lblFieldsFormValidateDecimal</shortDescription>
         <value>Please, specify a number without decimals.</value>
     </labels>
+    <labels>
+        <fullName>lblREASIGN_CASE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblREASIGN_CASE</shortDescription>
+        <value>REASIGN_CASE</value>
+    </labels>
+    <labels>
+        <fullName>lblCREATE_CASE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblCREATE_CASE</shortDescription>
+        <value>CREATE_CASE</value>
+    </labels>
 </CustomLabels>

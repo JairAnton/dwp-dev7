@@ -383,7 +383,7 @@
     <customLabels>
         <label><!-- lblSearch --></label>
         <name>lblSearch</name>
-    </customLabels>ç
+    </customLabels>
     <customLabels>
         <label><!-- profAdministrator --></label>
         <name>profAdministrator</name>
@@ -395,5 +395,13 @@
     <customLabels>
         <label><!-- errorEmptyUser --></label>
         <name>errorEmptyUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblREASIGN_CASE --></label>
+        <name>lblREASIGN_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblCREATE_CASE --></label>
+        <name>lblCREATE_CASE</name>
     </customLabels>
 </Translations>
