@@ -940,6 +940,14 @@
         <label>Por favor, especifique un número sin decimales.</label>
         <name>lblFieldsFormValidateDecimal</name>
     </customLabels>
+    <customLabels>
+        <label>REASIGN_CASE</label>
+        <name>lblREASIGN_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label>CREATE_CASE</label>
+        <name>lblCREATE_CASE</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
