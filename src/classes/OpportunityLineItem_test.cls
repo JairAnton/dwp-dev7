@@ -174,6 +174,10 @@ public class OpportunityLineItem_test {
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.cpliq_n__c=13;
         	OLI.cpliq_Periodicidad__c='02';
-        update OLI;	
-    }      
+        update OLI;
+        Opportunity_Solution_Commitment__c opsolcom = new Opportunity_Solution_Commitment__c ();
+        opsolcom.opp_solution_id__c = OLI.Id;
+        insert opsolcom;
+        delete OLI;
+    }
 }
