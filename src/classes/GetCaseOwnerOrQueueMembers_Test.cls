@@ -1,7 +1,7 @@
-@isTest
+@isTest(SeeAllData=true)
 public class GetCaseOwnerOrQueueMembers_Test {
 	
-    @TestSetup
+    @isTest
     public static void setup(){
         List<Group> gList = new List<Group>();
         Group g1 = new Group(Name = 'TestTier1', Type = 'Queue');
@@ -31,17 +31,18 @@ public class GetCaseOwnerOrQueueMembers_Test {
         gmList.add(gm6);
         insert gmList;
     }
-    
+
     @isTest
-    public static void caseA(){        
+    public static void caseA(){
+        setup();
         List<Group> groupList = [select Id from Group where Name='TestTier1'];
         List<User> listUser = [select Id, LastName from User where LastName='TestUser1uLast2'];
-        
+
         QueueSobject mappingObject = new QueueSobject(QueueId = groupList[0].Id, SobjectType = 'Case');
 		System.runAs(new User(Id = UserInfo.getUserId()))
 		{insert mappingObject;}
-        
-        List<Case> caseList = new List<Case>();        
+
+        List<Case> caseList = new List<Case>();
         Case case1 = new Case(OwnerId = groupList[0].Id);
         caseList.add(case1);
         insert caseList;
@@ -53,19 +54,20 @@ public class GetCaseOwnerOrQueueMembers_Test {
             Map<id,List<Id>> result = GetCaseOwnerOrQueueMembers.getRecipients(sendInfo, 'Case');
             List<Id> resultId = result.get(sendInfo[0]);
             System.assertEquals(2, resultId.size());
-        }       
+        }
     }
-    
+
     @isTest
     public static void caseB(){
+        setup();
         List<Group> groupList = [select Id from Group where Name='TestTier2'];
         List<User> listUser = [select Id, LastName from User where LastName='TestUser1uLast2'];
-        
+
         QueueSobject mappingObject = new QueueSobject(QueueId = groupList[0].Id, SobjectType = 'Case');
 		System.runAs(new User(Id = UserInfo.getUserId()))
 		{insert mappingObject;}
-        
-        List<Case> caseList = new List<Case>();        
+
+        List<Case> caseList = new List<Case>();
         Case case1 = new Case(OwnerId = groupList[0].Id);
         caseList.add(case1);
         insert caseList;
@@ -79,17 +81,18 @@ public class GetCaseOwnerOrQueueMembers_Test {
             System.assertEquals(1, resultId.size());
         }
     }
-    
+
     @isTest
     public static void caseC(){
+        setup();
         List<Group> groupList = [select Id from Group where Name='TestTier2'];
         List<User> listUser = [select Id, LastName from User where LastName='TestUser1uLast2'];
         System.debug(listUser);
         QueueSobject mappingObject = new QueueSobject(QueueId = groupList[0].Id, SobjectType = 'Case');
 		System.runAs(new User(Id = UserInfo.getUserId()))
 		{insert mappingObject;}
-        
-        List<Case> caseList = new List<Case>();        
+
+        List<Case> caseList = new List<Case>();
         Case case1 = new Case(OwnerId = groupList[0].Id);
         caseList.add(case1);
         insert caseList;
@@ -103,16 +106,17 @@ public class GetCaseOwnerOrQueueMembers_Test {
             System.assertEquals(1, resultId.size());
         }
     }
-    
+
     @isTest
     public static void caseD(){
+        setup();
         List<Group> groupList = [select Id from Group where Name='TestTier2'];
         List<User> listUser = [select Id, LastName from User where LastName='TestUser1uLast2'];
         QueueSobject mappingObject = new QueueSobject(QueueId = groupList[0].Id, SobjectType = 'Case');
 		System.runAs(new User(Id = UserInfo.getUserId()))
 		{insert mappingObject;}
-        
-        List<Case> caseList = new List<Case>();        
+
+        List<Case> caseList = new List<Case>();
         Case case1 = new Case(OwnerId = listUser[0].Id);
         caseList.add(case1);
         insert caseList;
@@ -122,7 +126,7 @@ public class GetCaseOwnerOrQueueMembers_Test {
         }
         System.runAs(listUser[0]){
             Map<id,List<Id>> result = GetCaseOwnerOrQueueMembers.getRecipients(sendInfo, 'Case');
-            System.assertEquals(0, result.size());        	
+            System.assertEquals(0, result.size());
         }
     }
 }

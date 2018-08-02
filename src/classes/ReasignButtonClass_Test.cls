@@ -1,8 +1,8 @@
-@istest
+@IsTest(SeeAllData=true)
 public class ReasignButtonClass_Test {
     static User user;
     static Case casetest;
-    @testSetup
+    @isTest
     static void setData() {
         user=TestFactory.createUser('reasignuser', Label.lblAnalistaProf);
         casetest=TestFactory.createCase(user.Id);
