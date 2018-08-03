@@ -600,6 +600,8 @@
         <members>dwp_cglp__ReportsGroup</members>
         <members>dwp_cglp__ReportsGroup/dwp_cglp__Opportunities_last_12_months</members>
         <members>dwp_cglp__ReportsGroup/dwp_cglp__Visits_last_12_months</members>
+        <members>unfiled$public/Oportunidades_en_curso</members>
+        <members>unfiled$public/Visitas_en_Progreso</members>
         <name>Report</name>
     </types>
     <types>
@@ -743,6 +745,7 @@
     </types>
     <types>
         <members>HOMEPAGE ESPECIALISTA</members>
+        <members>Dashboard Home Page Default</members>
         <name>HomePageLayout</name>
     </types>
     <version>42.0</version>
