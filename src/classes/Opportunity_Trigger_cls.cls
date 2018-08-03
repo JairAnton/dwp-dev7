@@ -28,21 +28,24 @@ public without sharing class Opportunity_Trigger_cls {
                 lstId.add(opNew.Id);                
             }            
         }
-        List<OpportunityLineItem> oliList = [select Id, price_quote_date__c from OpportunityLineItem where OpportunityId =:lstId];
-        if(!oliList.isEmpty()){
-            for(OpportunityLineItem oli : oliList) {
-                oli.price_quote_date__c = todayDate;
+        if(!lstId.isEmpty()) {
+            List<OpportunityLineItem> oliList = [select Id, price_quote_date__c from OpportunityLineItem where OpportunityId =:lstId];
+            if(!oliList.isEmpty()){
+                for(OpportunityLineItem oli : oliList) {
+                    oli.price_quote_date__c = todayDate;
+                }
             }
+            update oliList;
+            
+            List<Opportunity_Solution_Commitment__c> oscList = [select Id, price_quote_date__c from Opportunity_Solution_Commitment__c where opportunity_id__c =:lstId];
+            if(!oscList.isEmpty()){
+                for(Opportunity_Solution_Commitment__c osc : oscList) {
+                    osc.price_quote_date__c = todayDate;
+                }
+            }
+            update oscList;
         }
-        update oliList;
         
-        List<Opportunity_Solution_Commitment__c> oscList = [select Id, price_quote_date__c from Opportunity_Solution_Commitment__c where opportunity_id__c =:lstId];
-        if(!oscList.isEmpty()){
-            for(Opportunity_Solution_Commitment__c osc : oscList) {
-                osc.price_quote_date__c = todayDate;
-            }
-        }
-        update oscList;
     }
     
     /**/
