@@ -24,6 +24,6 @@
     </values>
     <values>
         <field>dwp_dbpn__validation_apex_class_name__c</field>
-        <value xsi:type="xsd:string">quoteClassButton</value>
+        <value xsi:type="xsd:string">SanctionPrice_ValidationClass</value>
     </values>
 </CustomMetadata>
