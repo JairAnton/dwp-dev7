@@ -8,7 +8,7 @@
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-				   var ret = response.getReturnValue();
+				var ret = response.getReturnValue();
 				if(ret.isOk){
 					var fieldObject = [];
 					for(var i in ret.setFields){
