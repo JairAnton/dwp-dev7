@@ -13,7 +13,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                console.log('ret: ', ret);
                 var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name};
                 if(!ret.lstInfoIsEmpty){
                     var lstTile = [];
@@ -37,8 +36,6 @@
                 
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.caseOpen); 
 				component.set('v.objSetup',objSetup);
-				console.log('inputObject.opportunityLineItem',inputObject.opportunityLineItem);
-				console.log('inputObject.approvalMethod: ', inputObject.approvalMethod); 
 				var objectInput = {
                     'IdOppLineItem':inputObject.opportunityLineItem,
 					'approvalMethod':inputObject.approvalMethod,

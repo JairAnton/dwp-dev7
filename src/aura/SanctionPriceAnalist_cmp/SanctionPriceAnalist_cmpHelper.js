@@ -22,7 +22,6 @@
                     objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
                 }
 				cmp.set('v.objectInput',objectInput);
-				console.log('objectInput: ', objectInput);
                 cmp.set('v.isLoad',true);
             }
         }); 
@@ -30,9 +29,7 @@
     },
     continue : function(cmp, evt, helper){
 		var fieldsForm = cmp.find('fieldsFormInput');
-		console.log('fieldsForm: ', fieldsForm); 
 		var inputs = fieldsForm.find('input');
-		console.log('inputs: ', inputs);
 		var isOk = true;
 		var lstApiField = [];
 		var lstvalueField = [];
@@ -47,7 +44,6 @@
                 }
             }
 		}
-		console.log('isOk: ', isOk);
         var inputObject=cmp.get('v.inputAttributes');
         inputObject['dynamicValuesInput'] = lstvalueField.join(',');
         inputObject['lstApiField'] = lstApiField;
