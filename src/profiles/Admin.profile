@@ -429,6 +429,22 @@
         <apexClass>Container_Product_Form_ctrl_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>Sanction_Price_Analist_Valid_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Sanction_Price_Analist_ValidationClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SimulatePrice_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SimulatePrice_ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>true</editable>

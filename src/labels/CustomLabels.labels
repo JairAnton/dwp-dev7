@@ -1333,4 +1333,60 @@
         <shortDescription>OppPriceDecision02_long</shortDescription>
         <value>Escalate request</value>
     </labels>
+    <labels>
+        <fullName>AuditStyleApprove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditStyleApprove</shortDescription>
+        <value>approve</value>
+    </labels>
+    <labels>
+        <fullName>CommitmentProposalSectionTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CommitmentProposalSectionTitle</shortDescription>
+        <value>Proposed commitments</value>
+    </labels>
+    <labels>
+        <fullName>OppPriceDecision05</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision05</shortDescription>
+        <value>Authorize</value>
+    </labels>
+    <labels>
+        <fullName>OppPriceDecision06</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision06</shortDescription>
+        <value>Deny</value>
+    </labels>
+    <labels>
+        <fullName>OppStatusLabel10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppStatusLabel10</shortDescription>
+        <value>Price authorized</value>
+    </labels>
+    <labels>
+        <fullName>OppStatusLabel13</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppStatusLabel13</shortDescription>
+        <value>Price denied</value>
+    </labels>
+    <labels>
+        <fullName>PriceProposalSectionTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceProposalSectionTitle</shortDescription>
+        <value>Proposed price</value>
+    </labels>
+    <labels>
+        <fullName>SanctionPriceAnalistValidationMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SanctionPriceAnalistValidationMessage</shortDescription>
+        <value>Only the case´s owner can authorize the price</value>
+    </labels>
 </CustomLabels>

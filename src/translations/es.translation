@@ -952,6 +952,38 @@
         <label>Elevar petición</label>
         <name>OppPriceDecision02_long</name>
     </customLabels>
+    <customLabels>
+        <label>approve</label>
+        <name>AuditStyleApprove</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromisos propuestos</label>
+        <name>CommitmentProposalSectionTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizar</label>
+        <name>OppPriceDecision05</name>
+    </customLabels>
+    <customLabels>
+        <label>Devolver</label>
+        <name>OppPriceDecision06</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado por precios</label>
+        <name>OppStatusLabel10</name>
+    </customLabels>
+    <customLabels>
+        <label>Devuelta por precios</label>
+        <name>OppStatusLabel13</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio propuesto</label>
+        <name>PriceProposalSectionTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Sólo puede sancionar el precio el propietario del caso.</label>
+        <name>SanctionPriceAnalistValidationMessage</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

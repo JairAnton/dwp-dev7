@@ -1,0 +1,30 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" controller="SanctionPrice_ctrl" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="objectInput" type="Object" />
+    <aura:attribute name="isLoad" type="Boolean" default="false"/>
+    <aura:attribute name="checkError" type="Boolean" default="false"/>
+    <aura:attribute name="errorMessage" type="String" default=""/>
+    <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
+
+    <div class="slds-modal__content slds-p-around_medium" >
+        <aura:if isTrue="{!v.isLoad}">
+            <aura:if isTrue="{!v.checkError}">
+                <ui:message title="Error" severity="error" >
+                    {!v.errorMessage}
+                </ui:message>
+            </aura:if>    
+            <c:FieldsForm_cmp aura:id="fieldsFormInput" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
+            <div class="slds-m-bottom_medium">
+                <c:PriceSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.PriceProposalSectionTitle}" recordId="{!v.recordId}" objectInput="{!v.objectInput}" typeView="_Proposal" hasDivider="false" />
+            </div>
+            <div class="slds-m-bottom_medium">
+                <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.CommitmentProposalSectionTitle}" recordId="{!v.recordId}" />
+            </div>
+        </aura:if>
+
+    </div>
+    <footer class="slds-modal__footer slds-theme_default">
+        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPA"/>
+        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+    </footer>
+</aura:component>
