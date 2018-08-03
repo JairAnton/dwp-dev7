@@ -984,6 +984,30 @@
         <label>Sólo puede sancionar el precio el propietario del caso.</label>
         <name>SanctionPriceAnalistValidationMessage</name>
     </customLabels>
+    <customLabels>
+        <label>Debe ser el propietario de la oportunidad</label>
+        <name>Error_validation_01</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe ser el propietario de la oportunidad o tener perfil Ejecutivo, cargo Asistente y estar en la misma oficina que la oportunidad</label>
+        <name>Error_validation_02</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe rellenar el campo:</label>
+        <name>Error_validation_031</name>
+    </customLabels>
+    <customLabels>
+        <label>Es necesario al menos un Interviniente</label>
+        <name>Error_validation_032</name>
+    </customLabels>
+    <customLabels>
+        <label>Es necesario al menos una Garantia</label>
+        <name>Error_validation_033</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe tener perfil operativo y estar en la misma oficina que la oportunidad</label>
+        <name>Error_validation_05</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

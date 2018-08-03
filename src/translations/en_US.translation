@@ -404,4 +404,28 @@
         <label><!-- lblCREATE_CASE --></label>
         <name>lblCREATE_CASE</name>
     </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_01 --></label>
+        <name>Error_validation_01</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_02 --></label>
+        <name>Error_validation_02</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_031 --></label>
+        <name>Error_validation_031</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_032 --></label>
+        <name>Error_validation_032</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_033 --></label>
+        <name>Error_validation_033</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_05 --></label>
+        <name>Error_validation_05</name>
+    </customLabels>
 </Translations>

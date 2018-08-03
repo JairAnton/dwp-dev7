@@ -1389,4 +1389,46 @@
         <shortDescription>SanctionPriceAnalistValidationMessage</shortDescription>
         <value>Only the case´s owner can authorize the price</value>
     </labels>
+    <labels>
+        <fullName>Error_validation_01</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_01</shortDescription>
+        <value>You must be the owner of the opportunity</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_02</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_02</shortDescription>
+        <value>Must be the owner of the opportunity or have an Executive profile, Assistant position and be in the same office as the opportunity</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_031</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_031</shortDescription>
+        <value>You need to fill the field:</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_032</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_032</shortDescription>
+        <value>At least one Intervener is required</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_033</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_033</shortDescription>
+        <value>At least one warranty is required</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_05</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_05</shortDescription>
+        <value>Must have an operational profile and be in the same office as the opportunity</value>
+    </labels>
 </CustomLabels>
