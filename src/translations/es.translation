@@ -29,7 +29,7 @@
         <name>Comments</name>
     </customLabels>
     <customLabels>
-        <label>Moneda</label>
+        <label>Divisa</label>
         <name>Currency</name>
     </customLabels>
     <customLabels>
@@ -947,6 +947,10 @@
     <customLabels>
         <label>CREATE_CASE</label>
         <name>lblCREATE_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label>Elevar petición</label>
+        <name>OppPriceDecision02_long</name>
     </customLabels>
     <quickActions>
         <label>Llamada</label>

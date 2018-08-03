@@ -17,7 +17,7 @@
                 </lightning:select>
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small" size="6">
-                <lightning:select messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="field" label="{!v.objSetup.schemaSetup.mapLabel.CurrencyIsoCode}" value="{!v.objSetup.lstVal2value}" onchange="{! c.onChangeDivisa }" required="true">
+                <lightning:select messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="field" label="{!$Label.c.Currency}" value="{!v.objSetup.lstVal2value}" onchange="{! c.onChangeDivisa }" required="true">
                     <option value="">-</option>
                     <aura:iteration items="{!v.objSetup.lstVal2}" var="item">
                         <option value="{!item}">{!item}</option>

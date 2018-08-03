@@ -16,8 +16,9 @@
                     <lightning:tab label="{!$Label.c.Details}" >
                         <h3 class="slds-text-heading_small">{!$Label.c.Price}</h3>
                         <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false"/>
-                        <h3 class="slds-text-heading_small">{!$Label.c.Commitments}</h3>
-                        <c:CommitmentsTable_cmp oppRecordId="{!v.inputAttributes.recordId}" readOnly="true"/>
+                        <div class="slds-m-bottom_medium">
+                            <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" />
+                        </div>
                     </lightning:tab>
                     <lightning:tab label="{!$Label.c.Comments}">
                         <lightning:textarea label="{!$Label.c.Comments}" value="{!v.strComments}" />
@@ -64,7 +65,12 @@
         
     </div>
     <footer class="slds-modal__footer slds-theme_default">
-        <c:ButtonWithoutDoubleClick_cmp disabled="{!!v.enableContinue}" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+        <aura:if isTrue="{!v.enableContinue}">
+            <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+            <aura:set attribute="else">
+                <c:ButtonWithoutDoubleClick_cmp disabled="true" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+            </aura:set>
+        </aura:if>
         <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
     </footer>
 </aura:component>

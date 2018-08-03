@@ -14,9 +14,9 @@
                 <table class="slds-table slds-table_bordered slds-table_cell-buffer" role="grid">
                     <thead>
                         <tr>
-                            <aura:iteration items="{!v.objSetup.lstHead}" var="head">
+                            <aura:iteration items="{!v.objSetup.lstHead}" var="head" indexVar="i">
                                 <th scope="col" class="slds-is-sortable slds-is-resizable">
-                                    {!head}
+                                    {! i==1?$Label.c.Currency:head}
                                 </th>
                             </aura:iteration>
                             <aura:if isTrue="{!!v.readOnly}">

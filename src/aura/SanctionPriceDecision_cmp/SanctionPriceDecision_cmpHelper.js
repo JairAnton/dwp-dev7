@@ -82,7 +82,7 @@
                         'createCase': false
                     },
                     {
-                        'label':$A.get('$Label.c.OppPriceDecision02'),
+                        'label':$A.get('$Label.c.OppPriceDecision02_long'),
                         'style':'science-blue',
                         'icon': 'utility:share',
                         'id': '1',
@@ -117,7 +117,7 @@
                 returnObj['Tarifario'] = {
                     'lstButtons':[
                         {
-                            'label':$A.get('$Label.c.OppPriceDecision02'),
+                            'label':$A.get('$Label.c.OppPriceDecision02_long'),
                             'style':'science-blue',
                             'icon': 'utility:share',
                             'id': '0',

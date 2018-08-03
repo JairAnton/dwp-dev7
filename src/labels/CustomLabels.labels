@@ -1325,5 +1325,12 @@
         <protected>false</protected>
         <shortDescription>lblCREATE_CASE</shortDescription>
         <value>CREATE_CASE</value>
+    </labels> 
+    <labels>
+        <fullName>OppPriceDecision02_long</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision02_long</shortDescription>
+        <value>Escalate request</value>
     </labels>
 </CustomLabels>
