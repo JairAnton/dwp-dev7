@@ -107,11 +107,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportName</name>
-                <value>Cases_by_Origin_and_Open_Status</value>
+                <value>Opportunity_variations_by_product_family</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
-                <value>true</value>
+                <value>false</value>
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
         </componentInstances>
