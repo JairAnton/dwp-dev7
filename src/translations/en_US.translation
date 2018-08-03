@@ -383,7 +383,7 @@
     <customLabels>
         <label><!-- lblSearch --></label>
         <name>lblSearch</name>
-    </customLabels>ç
+    </customLabels>
     <customLabels>
         <label><!-- profAdministrator --></label>
         <name>profAdministrator</name>
@@ -395,5 +395,37 @@
     <customLabels>
         <label><!-- errorEmptyUser --></label>
         <name>errorEmptyUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblREASIGN_CASE --></label>
+        <name>lblREASIGN_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblCREATE_CASE --></label>
+        <name>lblCREATE_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_01 --></label>
+        <name>Error_validation_01</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_02 --></label>
+        <name>Error_validation_02</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_031 --></label>
+        <name>Error_validation_031</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_032 --></label>
+        <name>Error_validation_032</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_033 --></label>
+        <name>Error_validation_033</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_05 --></label>
+        <name>Error_validation_05</name>
     </customLabels>
 </Translations>

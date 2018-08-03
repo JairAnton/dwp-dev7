@@ -3,35 +3,7 @@
     <aura:attribute name="bProduct" type="Boolean" default="false" />
     <aura:attribute name="Prod2" type="Product2" />
     <aura:handler event="fprd:GBL_SelectedProduct_evt" action="{!c.handleSelectedEvent}"/>
-    <aura:if isTrue="{!v.bProduct}">
-        <div class="{!v.Prod2.price_penalty__c ? 'slds-page-header' : 'slds-hide'}" style="cursor: pointer;" onclick="{!c.sectionZero}">
-            <section class="slds-clearfix">
-                <div class="slds-float--left ">
-                    <lightning:icon class="slds-show" aura:id="articleZero" iconName="utility:chevronright" size="xx-small" alternativeText="Indicates add"/>
-                    <lightning:icon class="slds-hide" aura:id="articleZero" iconName="utility:chevrondown" size="xx-small" alternativeText="Indicates dash"/>
-                </div>
-                <div class="slds-m-left--large" style="font-size:16px">Precio</div>
-            </section>
-        </div>
-        
-        <div class="slds-hide slds-p-around--medium" aura:id="articleZero">
-            <c:Tabla_Compromiso_2 recordId="{!v.recordId}"/>
-        </div>
-        <br/>   
-        <div class="{!v.Prod2.price_penalty__c ? 'slds-page-header' : 'slds-hide'}" style="cursor: pointer;" onclick="{!c.sectionOne}">
-            <section class="slds-clearfix">
-                <div class="slds-float--left ">
-                    <lightning:icon class="slds-show" aura:id="articleOne" iconName="utility:chevronright" size="xx-small" alternativeText="Indicates add"/>
-                    <lightning:icon class="slds-hide" aura:id="articleOne" iconName="utility:chevrondown" size="xx-small" alternativeText="Indicates dash"/>
-                </div>
-                <div class="slds-m-left--large" style="font-size:16px">Compromisos</div>
-            </section>
-        </div>
-        
-        <div class="slds-hide slds-p-around--medium" aura:id="articleOne">
-            <c:CustomTable_V1 recordId="{!v.recordId}" table="true"/>
-        </div>
-        <br/>      
+    <aura:if isTrue="{!v.bProduct}">    
         <div class="{!v.Prod2.risk_sanction__c ? 'slds-page-header' : 'slds-hide'}" style="cursor: pointer;" onclick="{!c.sectionTwo}">
             <section class="slds-clearfix">
                 <div class="slds-float--left">

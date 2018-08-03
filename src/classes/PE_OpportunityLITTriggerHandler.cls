@@ -8,12 +8,17 @@
 public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
     
     list<OpportunityLineItem>Opps_New = Trigger.new;
-    //list<OpportunityLineItem>Opps_Old = Trigger.Old;
+    list<OpportunityLineItem>Opps_Old = Trigger.Old;
     //Map<id,OpportunityLineItem>Opps_NewMap = ((Map<Id,OpportunityLineItem>)(Trigger.NewMap));
-    //Map<id,OpportunityLineItem>Opps_OldMap = ((Map<Id,OpportunityLineItem>)(Trigger.OldMap));
+    Map<id,OpportunityLineItem>Opps_OldMap = ((Map<Id,OpportunityLineItem>)(Trigger.OldMap));
     
     public Override void beforeInsert(){
         new OpportunityLineItem_Trigger_cls().AsignBeforeInsert(Opps_New);
+        new OpportunityLineItem_Trigger_cls().updateDateLine(Opps_New);
+    }
+    
+    public Override void beforeUpdate(){
+        new OpportunityLineItem_Trigger_cls().updateDateLine(Opps_New);
     }
 
     public Override void afterInsert(){
@@ -23,5 +28,8 @@ public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
 
     public Override void afterUpdate(){
         new OpportunityLineItem_Trigger_cls().MasteRecord_Guarantee(Opps_New);
+    }
+    public Override void afterDelete(){
+        new OpportunityLineItem_Trigger_cls().deleteOppSolComm(Opps_OldMap);
     }
 }

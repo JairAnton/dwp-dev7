@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Commitment Value</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Commitment Values</value>
+    </caseValues>
+    <fields>
+        <label><!-- Expiry days --></label>
+        <name>commitment_expiry_days_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commitment Id --></label>
+        <name>commitment_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>commitment_product_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stay days --></label>
+        <name>commitment_stay_days_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote type --></label>
+        <name>quote_type__c</name>
+        <picklistValues>
+            <masterLabel>COTIZA Beta</masterLabel>
+            <translation><!-- COTIZA Beta --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COTIZADOR</masterLabel>
+            <translation><!-- COTIZADOR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tarifario</masterLabel>
+            <translation><!-- Tarifario --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Web product code --></label>
+        <name>web_product_code__c</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

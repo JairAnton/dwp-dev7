@@ -29,7 +29,7 @@
         <name>Comments</name>
     </customLabels>
     <customLabels>
-        <label>Moneda</label>
+        <label>Divisa</label>
         <name>Currency</name>
     </customLabels>
     <customLabels>
@@ -297,7 +297,7 @@
         <name>fprd__GBL_LoadingProduct</name>
     </customLabels>
     <customLabels>
-        <label>Cargando selección de producto</label>
+        <label>Cargando condiciones del producto</label>
         <name>fprd__GBL_LoadingProductSelector</name>
     </customLabels>
     <customLabels>
@@ -593,7 +593,7 @@
         <name>dwp_kitv__Send</name>
     </customLabels>
     <customLabels>
-        <label>No puede finalizar una visita que no se haya completado o no se haya cancelado</label>
+        <label>No puede finalizar una visita que no se haya completado</label>
         <name>dwp_kitv__Status_visit_to_finalize</name>
     </customLabels>
     <customLabels>
@@ -880,6 +880,134 @@
         <label>Se debe insertar un usuario.</label>
         <name>errorEmptyUser</name>
     </customLabels>
+    <customLabels>
+        <label>Añadir compromiso</label>
+        <name>AddCommitment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleApproveTop --></label>
+        <name>AuditStyleApproveTop</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromisos</label>
+        <name>Commitments</name>
+    </customLabels>
+    <customLabels>
+        <label>Detalles</label>
+        <name>Details</name>
+    </customLabels>
+    <customLabels>
+        <label>Aprobar en delegación</label>
+        <name>OppPriceDecision01</name>
+    </customLabels>
+    <customLabels>
+        <label>Elevar</label>
+        <name>OppPriceDecision02</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado en delegación</label>
+        <name>OppPriceDecision03</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado por precio</label>
+        <name>OppPriceDecision04</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio autorizado bajo delegación oficina</label>
+        <name>OppStatusLabel08</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado para autorización a precios</label>
+        <name>OppStatusLabel09</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio aprobado</label>
+        <name>OppStatusLabel11</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto</label>
+        <name>Product</name>
+    </customLabels>
+    <customLabels>
+        <label>Continuar</label>
+        <name>btnContinue</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor, complete esta información.</label>
+        <name>lblFieldsFormRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor, especifique un número sin decimales.</label>
+        <name>lblFieldsFormValidateDecimal</name>
+    </customLabels>
+    <customLabels>
+        <label>REASIGN_CASE</label>
+        <name>lblREASIGN_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label>CREATE_CASE</label>
+        <name>lblCREATE_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label>Elevar petición</label>
+        <name>OppPriceDecision02_long</name>
+    </customLabels>
+    <customLabels>
+        <label>approve</label>
+        <name>AuditStyleApprove</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromisos propuestos</label>
+        <name>CommitmentProposalSectionTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizar</label>
+        <name>OppPriceDecision05</name>
+    </customLabels>
+    <customLabels>
+        <label>Devolver</label>
+        <name>OppPriceDecision06</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado por precios</label>
+        <name>OppStatusLabel10</name>
+    </customLabels>
+    <customLabels>
+        <label>Devuelta por precios</label>
+        <name>OppStatusLabel13</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio propuesto</label>
+        <name>PriceProposalSectionTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Sólo puede sancionar el precio el propietario del caso.</label>
+        <name>SanctionPriceAnalistValidationMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe ser el propietario de la oportunidad</label>
+        <name>Error_validation_01</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe ser el propietario de la oportunidad o tener perfil Ejecutivo, cargo Asistente y estar en la misma oficina que la oportunidad</label>
+        <name>Error_validation_02</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe rellenar el campo:</label>
+        <name>Error_validation_031</name>
+    </customLabels>
+    <customLabels>
+        <label>Es necesario al menos un Interviniente</label>
+        <name>Error_validation_032</name>
+    </customLabels>
+    <customLabels>
+        <label>Es necesario al menos una Garantia</label>
+        <name>Error_validation_033</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe tener perfil operativo y estar en la misma oficina que la oportunidad</label>
+        <name>Error_validation_05</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
@@ -900,101 +1028,4 @@
         <label>Email</label>
         <name>SendEmail</name>
     </quickActions>
-    <flowDefinitions>
-        <flows>
-            <choices>
-                <name>Por_condiciones_de_precio</name>
-            </choices>
-            <choices>
-                <name>Por_condiciones_de_producto</name>
-            </choices>
-            <choices>
-                <name>Otra</name>
-                <userInput/>
-            </choices>
-            <choices>
-                <name>PEN</name>
-            </choices>
-            <choices>
-                <name>Interbank</name>
-            </choices>
-            <choices>
-                <name>MiBanco</name>
-            </choices>
-            <choices>
-                <name>GNB</name>
-            </choices>
-            <choices>
-                <name>ICBC_PERU_BANK</name>
-            </choices>
-            <choices>
-                <name>BIF</name>
-            </choices>
-            <choices>
-                <name>Citibank_Per</name>
-            </choices>
-            <choices>
-                <name>BCP</name>
-            </choices>
-            <choices>
-                <name>BCP_1</name>
-            </choices>
-            <choices>
-                <name>Banco_de_Comercio</name>
-            </choices>
-            <choices>
-                <name>Banco_Financiero</name>
-            </choices>
-            <choices>
-                <name>USD</name>
-            </choices>
-            <choices>
-                <name>Ninguno</name>
-            </choices>
-            <choices>
-                <name>Santander</name>
-            </choices>
-            <choices>
-                <name>Scotiabank_1</name>
-            </choices>
-            <choices>
-                <name>Por_condiciones_de_riesgos</name>
-            </choices>
-            <choices>
-                <name>Por_razones_del_cliente</name>
-            </choices>
-            <fullName>Motivo_Descarte_Oportunidad_V0-43</fullName>
-            <screens>
-                <fields>
-                    <name>Motivo_Desestimacion</name>
-                </fields>
-                <name>Desestimacion</name>
-            </screens>
-            <screens>
-                <fields>
-                    <name>Banco_ganador_1</name>
-                </fields>
-                <fields>
-                    <name>Importe2</name>
-                </fields>
-                <fields>
-                    <name>Moneda</name>
-                </fields>
-                <fields>
-                    <name>Plazo_de_la_operaci_n_perdida</name>
-                </fields>
-                <fields>
-                    <name>Tasa</name>
-                </fields>
-                <name>Descarte_1</name>
-            </screens>
-            <screens>
-                <fields>
-                    <name>RazonPerdida1</name>
-                </fields>
-                <name>Other_expla</name>
-            </screens>
-        </flows>
-        <fullName>Motivo_Descarte_Oportunidad_V0</fullName>
-    </flowDefinitions>
 </Translations>

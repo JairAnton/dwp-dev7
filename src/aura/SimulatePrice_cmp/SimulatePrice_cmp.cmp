@@ -1,0 +1,15 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL" controller="SimulatePrice_ctrl">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="recordOli" type="String" />
+    <aura:attribute name="isLoad" type="Boolean" default="false" />
+    <aura:attribute name="title" type="String" default="{!$Label.c.lblQuote}" access="global" description="Specify the modal"/>
+
+    <div class="slds-modal__content slds-p-around_medium" >
+        <aura:if isTrue="{!v.isLoad}">
+            <c:FieldsForm_cmp aura:id="fieldsForm" valueDynamic="43,-" recordId="{!v.recordOli}" isInput="true" developerNameTable="Web_Simulation"/>
+        </aura:if>
+    </div>
+    <footer class="slds-modal__footer slds-theme_default">
+        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+    </footer>
+</aura:component>

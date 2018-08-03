@@ -3,6 +3,7 @@
     <types>
 		<members>Account_Renewals__c.product_cateogry_type__c</members>
         <members>Opportunity.reevaluate__c</members>
+        <members>fprd__GBL_Intervener__c.Account__c</members>
 		<name>CustomField</name>
     </types>
     <types>

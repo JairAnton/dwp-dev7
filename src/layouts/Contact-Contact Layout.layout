@@ -20,7 +20,7 @@
                 <field>prof_position_type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>decision_making_desc__c</field>
             </layoutItems>
             <layoutItems>

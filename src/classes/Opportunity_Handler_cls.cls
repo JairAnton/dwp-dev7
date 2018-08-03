@@ -21,6 +21,12 @@ public without sharing class Opportunity_Handler_cls extends TriggerHandler {
     protected override void beforeUpdate(){
         new Opportunity_Trigger_cls().AsignBeforeUpdate(Opps_New, Opps_NewMap, Opps_Old, Opps_OldMap);
     }
+    
+    @TestVisible
+    protected override void afterUpdate(){
+        new Opportunity_Trigger_cls().AsignAfterUpdate(Opps_New, Opps_OldMap);
+    }
+    
     /*
     @TestVisible
     protected override void beforeDelete(){}

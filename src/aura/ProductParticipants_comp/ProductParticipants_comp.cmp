@@ -54,14 +54,14 @@
                             <th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
                                 <div class="slds-truncate" title="{!row.Name}">{!row.Name}</div>
                             </th>
-                            <th><div class="slds-truncate" title="{!row.DOI__c}">{!row.DOI__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.NDOI__c}">{!row.N_DOI__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.Participation__c}">{!row.Participation__c}</div></th>
-                            <th><div class="slds-truncate" title="{!row.Marital_Status__c}">{!row.Marital_Status__c}&nbsp;{!row.Periodicity__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.fiscal_identifier_type__c}">{!row.fiscal_identifier_type__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.taxpayer_id__c}">{!row.taxpayer_id__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.participant_type__c}">{!row.participant_type__c}</div></th>
+                            <th><div class="slds-truncate" title="{!row.guarantor_marital_status_type__c}">{!row.guarantor_marital_status_type__c}&nbsp;{!row.Periodicity__c}</div></th>
                             <th>
-                                <lightning:button variant="none" iconName="utility:edit" aura:id="editR" title="Modificar" value="{!row}"  name="{!row.isMaster__c}"   onclick="{!c.editRow}" />
+                                <lightning:button variant="none" iconName="utility:edit" aura:id="editR" title="Modificar" value="{!row}"  name="{!row.main_intervener__c}"   onclick="{!c.editRow}" />
                                 &nbsp;
-                                <lightning:button variant="none" iconName="utility:delete" aura:id="deleteR" title="Eliminar"  name="{!row.isMaster__c}" value="{!row.Id}" onclick="{!c.deleteRow}" />
+                                <lightning:button variant="none" iconName="utility:delete" aura:id="deleteR" title="Eliminar"  name="{!row.main_intervener__c}" value="{!row.Id}" onclick="{!c.deleteRow}" />
                                 </th>
                         </tr>                  
                 </aura:iteration>

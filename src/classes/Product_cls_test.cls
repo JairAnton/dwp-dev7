@@ -90,17 +90,12 @@ public class Product_cls_test {
         	testLOPP.gipr_Tipo_Garantia__c='03';
 			insert testLOPP;
 
-			fprd__GBL_Guarantee__c testPG = new fprd__GBL_Guarantee__c();			
-			testPG.Opportunity__c=testOP.Id;
-            testPG.fprd__GBL_Opportunity_product__c=testOP.Id;
-			testPG.Product__c=testPr.Id;
-        	
+			fprd__GBL_Guarantee__c testPG = new fprd__GBL_Guarantee__c();
+            testPG.fprd__GBL_Opportunity_product__c=testOP.Id;        	
 			insert testPG;
 
-			fprd__GBL_Intervener__c testPP = new fprd__GBL_Intervener__c();			
-			testPP.Opportunity__c=testOP.Id;
+			fprd__GBL_Intervener__c testPP = new fprd__GBL_Intervener__c();
             testPP.fprd__GBL_Opportunity_product__c=testOP.Id;
-			testPP.Product__c=testPr.Id;
 			insert testPP;
 
 			Product_cls.getIdProductByOpportunity(testOP.Id);
@@ -110,7 +105,6 @@ public class Product_cls_test {
 
 			Product_cls.getParticipantDataByProduct(testOP.Id,testPr.Id);
 			Product_cls.getParticipantDataByProductValues(testPG.Id);
-			Product_cls.getCompromisoDataByProduct(testOP.Id);
             Product_cls.getOpportunityLineItemDataByProduct(testOP.Id,testPr.Id);
             Product_cls.verifyIfHasQuoted(testOP.Id);
 			Product_cls.saveGuaranteeDataByProduct(testPG.Id,testOP.Id,testPr.Id,'01','01','01',1,'01',1,'01',1);
@@ -123,6 +117,7 @@ public class Product_cls_test {
             Product_cls.setSanctionPrice(testOP.Id,'btnRaise','obs');
             Product_cls.setSanctionPrice(testOP.Id,'else','obs');
         	Product_cls.setFormalization(testOP.Id,'btnApprove','id','obs');
+			Product_cls.setRejectOpportunity(testOP.Id,'01',null,null,null,null,null,null);
             System.runAs(u2){ 
 	        Product_cls.setLastFormalization(testOP.Id,'btnApprove','obs','1234-1234-1234567890');
        		Product_cls.setLastFormalization(testOP.Id,'btnRaise','obs','1234-1234-1234567890');

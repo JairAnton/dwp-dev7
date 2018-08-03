@@ -60,7 +60,7 @@
             <sortOrder>4</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>NewOpportunity</actionName>
+            <actionName>Account.dwp_kitv__Plan_Visit</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>5</sortOrder>
         </platformActionListItems>
@@ -92,6 +92,9 @@
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>FeedItem.ContentNote</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>Account.dwp_kitv__Plan_Visit</quickActionName>
         </quickActionListItems>
     </quickActionList>
     <relatedContent>
