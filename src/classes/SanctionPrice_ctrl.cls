@@ -24,6 +24,7 @@ public with sharing class SanctionPrice_ctrl {
             mapReturn.put('IdOppLineItem',lstOpp[0].OpportunityLineItems[0].Id);
             mapReturn.put('approvalMethod',lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c);
             if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario'){
+                String strSegment = (lstOpp[0].Account.segment_desc__c == null?'':lstOpp[0].Account.segment_desc__c);
                 List<Price_Fee__c> lstPriceFee = [SELECT    Id,
                                         validity_start_date__c,
                                         validity_end_date__c, 
@@ -36,7 +37,7 @@ public with sharing class SanctionPrice_ctrl {
                                 WHERE validity_start_date__c <= TODAY 
                                 AND validity_end_date__c >= TODAY 
                                 AND product_id__c = :lstOpp[0].OpportunityLineItems[0].Product2Id
-                                AND calc_account_segment_desc__c = :lstOpp[0].Account.segment_desc__c.toUpperCase()];
+                                AND calc_account_segment_desc__c = :strSegment.toUpperCase()];
                 if(!lstOpp.isEmpty() && !lstPriceFee.isEmpty()){
                     mapReturn.put('dynamicValue',lstPriceFee[0].minimun_fee_per__c);
                 }
