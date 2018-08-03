@@ -19,6 +19,35 @@ public without sharing class Opportunity_Trigger_cls {
             
     }
     
+    public void AsignAfterUpdate(List<Opportunity> lstNew, Map<Id,Opportunity> mapOld) {
+        List <Id> lstId = new List <Id>();
+        Date todayDate = Date.today();
+        for (Opportunity opNew : lstNew){
+            Opportunity oldRecord = mapOld.get(opNew.Id);
+            if(opNew.opportunity_status_type__c != oldRecord.opportunity_status_type__c && (opNew.opportunity_status_type__c == '11' || opNew.opportunity_status_type__c == '08')){
+                lstId.add(opNew.Id);                
+            }            
+        }
+        if(!lstId.isEmpty()) {
+            List<OpportunityLineItem> oliList = [select Id, price_quote_date__c from OpportunityLineItem where OpportunityId =:lstId];
+            if(!oliList.isEmpty()){
+                for(OpportunityLineItem oli : oliList) {
+                    oli.price_quote_date__c = todayDate;
+                }
+            }
+            update oliList;
+            
+            List<Opportunity_Solution_Commitment__c> oscList = [select Id, price_quote_date__c from Opportunity_Solution_Commitment__c where opportunity_id__c =:lstId];
+            if(!oscList.isEmpty()){
+                for(Opportunity_Solution_Commitment__c osc : oscList) {
+                    osc.price_quote_date__c = todayDate;
+                }
+            }
+            update oscList;
+        }
+        
+    }
+    
     /**/
     private void Valida(list<Opportunity>Opps_New, Map<id,Opportunity>Opps_OldMap){
         set<Id> IdOwners = new set<ID>();
