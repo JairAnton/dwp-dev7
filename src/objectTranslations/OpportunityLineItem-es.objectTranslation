@@ -1337,7 +1337,7 @@
         <name>cancellation_fee_per__c</name>
     </fields>
     <fields>
-        <label>TEA Mínima (%)</label>
+        <label>TEA mínima (%)</label>
         <name>minimun_apr_per__c</name>
     </fields>
     <fields>
@@ -1353,7 +1353,7 @@
         <name>price_quote_id__c</name>
     </fields>
     <fields>
-        <label>TEA Propuesta (%)</label>
+        <label>TEA propuesta (%)</label>
         <name>proposed_apr_per__c</name>
     </fields>
     <fields>
@@ -1369,7 +1369,7 @@
         <name>spread_per__c</name>
     </fields>
     <fields>
-        <label>TEA Sugerida (%)</label>
+        <label>TEA sugerida (%)</label>
         <name>suggested_apr_per__c</name>
     </fields>
     <validationRules>
