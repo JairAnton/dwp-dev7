@@ -56,6 +56,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.Id = recordId;
         opp.StageName = stageName;
         opp.opportunity_status_type__c = status_opp;
+        opp.isProcess__c = true;
         try{
             update opp;
             lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
@@ -69,7 +70,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                 WHERE Type = 'Queue' 
                                                 AND DeveloperName = 'Tier_1'];
                 Case caseInsert = new Case();
-                caseInsert.Status = 'New';
+                caseInsert.Status = '01';
                 caseInsert.OwnerId = queueGroup[0].Id;
                 caseInsert.Type = 'Other';
                 caseInsert.opportunity_id__c = recordId;

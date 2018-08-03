@@ -49,10 +49,6 @@
         <label><!-- Price quote date --></label>
         <name>price_quote_date__c</name>
     </fields>
-    <fields>
-        <label>Divisa</label>
-        <name>CurrencyIsoCode</name>
-    </fields>
     <gender>Masculine</gender>
     <nameFieldLabel>Referencia</nameFieldLabel>
 </CustomObjectTranslation>

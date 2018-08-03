@@ -5,8 +5,9 @@
     <aura:attribute name="objectInput" type="Object" />
     <aura:attribute name="isLoad" type="Boolean" default="false"/>
     <aura:attribute name="hasOLI" type="Boolean" default="false"/>
+    <aura:attribute name="priceIndicator" type="Boolean" default="false"/>
 
-    <aura:if isTrue="{!and(v.isLoad, v.hasOLI)}">
+    <aura:if isTrue="{!v.isLoad &amp;&amp; v.hasOLI &amp;&amp; v.priceIndicator}">
         <div class="slds-m-bottom_medium">
             <c:PriceSection_cmp isCollapsed="true" sectionTitle="{!$Label.c.Price}" recordId="{!v.recordId}" objectInput="{!v.objectInput}" />
         </div>
