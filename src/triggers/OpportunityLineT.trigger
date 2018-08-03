@@ -6,6 +6,6 @@
 - Creacion del Desencadenador
 - Add After Delete
 */
-trigger OpportunityLineT on OpportunityLineItem (Before Insert,After Insert,After Update, After Delete) {
+trigger OpportunityLineT on OpportunityLineItem (Before Insert, Before Update,After Insert,After Update, After Delete) {
     new PE_OpportunityLITTriggerHandler().run();
 }
