@@ -106,8 +106,8 @@
     <reportType>OpportunityProduct</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
-    <!--<showGrandTotal>false</showGrandTotal>-->
-    <!--<showSubTotals>false</showSubTotals>-->
+    <!-- <showGrandTotal>false</showGrandTotal> -->
+<!--     <showSubTotals>false</showSubTotals> -->
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

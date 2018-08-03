@@ -3,7 +3,7 @@
     <buckets>
         <bucketType>text</bucketType>
         <developerName>BucketField_93033094</developerName>
-        <masterLabel>Activos</masterLabel>
+        <masterLabel>Familia de Producto</masterLabel>
         <nullTreatment>n</nullTreatment>
         <sourceColumnName>Opportunity.opportunity_product_family__c</sourceColumnName>
         <useOther>false</useOther>
@@ -139,8 +139,8 @@
     <reportType>OpportunityProduct</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <!--<showGrandTotal>true</showGrandTotal>-->
-    <!--<showSubTotals>true</showSubTotals>-->
+<!--     <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals> -->
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
