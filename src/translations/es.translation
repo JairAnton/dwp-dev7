@@ -1008,6 +1008,10 @@
         <label>Debe tener perfil operativo y estar en la misma oficina que la oportunidad</label>
         <name>Error_validation_05</name>
     </customLabels>
+    <customLabels>
+        <label>Error recuperando la visita</label>
+        <name>lblErrorRetrievingVisit</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

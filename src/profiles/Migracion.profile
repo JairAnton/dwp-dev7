@@ -458,6 +458,14 @@
         <apexClass>Unlink_ValidationClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>NavigateFromEventToVisit_cmp_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>NavigateFromEventToVisit_cmp_ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>fprd__GBL_Dependent_value__c.Unique_id__c</field>
