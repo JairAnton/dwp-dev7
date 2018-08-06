@@ -21,7 +21,7 @@
                                 <c:PriceSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.PriceProposalSectionTitle}" recordId="{!v.objectInput.IdOppLineItem}" objectInput="{!v.objectInput}" typeView="_Proposal" hasDivider="false" />
                             </div>
                             <div class="slds-m-bottom_medium">
-                                <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.CommitmentProposalSectionTitle}" recordId="{!v.recordId}" />
+                                <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.CommitmentProposalSectionTitle}" recordId="{!v.inputAttributes.recordId}" />
                             </div>
                         </lightning:tab>
                         <lightning:tab label="{!$Label.c.Comments}">

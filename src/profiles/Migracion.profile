@@ -3118,6 +3118,11 @@
         <field>Commitment_Value__c.web_product_code__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.bypass__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>

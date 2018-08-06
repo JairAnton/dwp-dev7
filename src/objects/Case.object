@@ -250,6 +250,16 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>bypass__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Bypass</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <listViews>
         <fullName>AllClosedRequest</fullName>
         <columns>CASES.CASE_NUMBER</columns>
@@ -482,10 +492,11 @@
     <validationRules>
         <fullName>Status_Case</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(  ISCHANGED( Status ) , 
+        <errorConditionFormula>AND(  ISCHANGED( Status ) ,
+NOT(bypass__c), 
 $Profile.Name!=&apos;Administrador del sistema&apos;, 
 $Profile.Name!=&apos;System Administrator&apos;, 
-$Profile.Name!=&apos;Migracion&apos;)</errorConditionFormula>
+$Profile.Name!=&apos;Migracion&apos; )</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You are not allowed to modify this field.</errorMessage>
     </validationRules>
