@@ -6,4 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>GERENTE DISTRIBUCION RED</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>SUB_GERENTE_PROGRAM_MANAGEMENT</parentRole>
 </Role>

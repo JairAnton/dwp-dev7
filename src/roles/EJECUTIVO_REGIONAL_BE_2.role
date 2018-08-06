@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>GERENTE BANCA EMPRESAS PIURA</description>
+    <description>EJECUTIVO REGIONAL BE 2</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>GERENTE BANCA EMPRESAS PIURA</name>
+    <name>EJECUTIVO REGIONAL BE 2</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>EJECUTIVO_REGIONAL_BE_1</parentRole>
+    <parentRole>JEFE_PROMOCION_DE_NEGOCIO_BE_2</parentRole>
 </Role>
