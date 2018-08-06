@@ -17,21 +17,21 @@
                 	component.set("v.isMaster", component.get("v.PGuarantee")[0].isMaster__c);
                     component.set("v.PGuarantee", response.getReturnValue());
                     component.set("v.PGuaranteeId",component.get("v.PGuarantee")[0].Id);
-					component.find("selGuaranteeType").set("v.value",component.get("v.PGuarantee")[0].GuaranteeType__c);								
-					component.find("selModality").set("v.value",component.get("v.PGuarantee")[0].Modality__c);
+					component.find("selGuaranteeType").set("v.value",component.get("v.PGuarantee")[0].guarantee_type__c);								
+					component.find("selModality").set("v.value",component.get("v.PGuarantee")[0].guarantee_modality_type__c);
 					
-					component.find("selStatus").set("v.value",component.get("v.PGuarantee")[0].Status__c);
-					if(component.get("v.PGuarantee")[0].Status__c=="02"){
+					component.find("selStatus").set("v.value",component.get("v.PGuarantee")[0].guarantee_status_type__c);
+					if(component.get("v.PGuarantee")[0].guarantee_status_type__c=="02"){
 						component.set("v.bStauts",true);
 						component.set("v.bStautsF",false);
-						component.find("selPeriodicity").set("v.value",component.get("v.PGuarantee")[0].Periodicity__c);
-						component.find("txtTerm").set("v.value",component.get("v.PGuarantee")[0].Term__c);
+						component.find("selPeriodicity").set("v.value",component.get("v.PGuarantee")[0].guarantee_periodicity_type__c);
+						component.find("txtTerm").set("v.value",component.get("v.PGuarantee")[0].guarantee_term_number__c);
 			    	} 
-					else if(component.get("v.PGuarantee")[0].Status__c=="01")
+					else if(component.get("v.PGuarantee")[0].guarantee_status_type__c=="01")
 					{
 						component.set("v.bStauts",false);
 						component.set("v.bStautsF",true);
-						component.find("txtnGuarantee").set("v.value",component.get("v.PGuarantee")[0].nGuarantee__c);
+						component.find("txtnGuarantee").set("v.value",component.get("v.PGuarantee")[0].guarantee_id__c);
 					}
 					else
 					{
@@ -39,10 +39,9 @@
 						component.set("v.bStautsF",false);
 
 					}
-					
-					component.find("selGuarantee").set("v.value",component.get("v.PGuarantee")[0].Guarantee__c);
+					component.find("selGuarantee").set("v.value",component.get("v.PGuarantee")[0].guarantee_desc__c);
 					//
-					component.find("txtAmount").set("v.value",component.get("v.PGuarantee")[0].Amount__c);
+					component.find("txtAmount").set("v.value",component.get("v.PGuarantee")[0].guaranteed_amount__c);
 					if(component.get("v.PGuarantee")[0].isMaster__c)
 					{
 						component.find("btnSaveNew").set("v.disabled", true);

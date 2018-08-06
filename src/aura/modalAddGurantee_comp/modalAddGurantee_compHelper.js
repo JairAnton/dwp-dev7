@@ -49,7 +49,7 @@
         component.set("v.optGuarantee", optGuarantee);
     },
     getListValuesDependent : function(component) {
-        if(component.get("v.PGuarantee")[0].GuaranteeType__c=="01")
+        if(component.get("v.PGuarantee")[0].guarantee_type__c=="01")
         {
             var optGuarantee = [			
                 { value: "01", label: "Cuenta en garantía" },
@@ -58,7 +58,7 @@
             ];
             component.set("v.optGuarantee", optGuarantee);
         }
-        else if(component.get("v.PGuarantee")[0].GuaranteeType__c=="02")
+        else if(component.get("v.PGuarantee")[0].guarantee_type__c=="02")
         {
             var optGuarantee = [			
                 { value: "04", label: "Accions y bono" },
