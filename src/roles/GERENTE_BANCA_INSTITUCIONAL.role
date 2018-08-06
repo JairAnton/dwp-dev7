@@ -5,5 +5,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>GERENTE BANCA INSTITUCIONAL</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_BANCA_EMPRESAS_E_INSTITUCIONES</parentRole>
+    <parentRole>ESPEC_PRECIOS_RED</parentRole>
 </Role>

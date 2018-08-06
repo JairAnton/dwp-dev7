@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>GERENTE BANCA EMPRESAS SAN ISIDRO</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_REGIONAL_BE_3</parentRole>
+    <parentRole>EJECUTIVO_REGIONAL_BE_3</parentRole>
 </Role>
