@@ -4044,11 +4044,11 @@ Analistas de riesgos</description>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Account</layout>
+        <layout>Account-Account_Page_Layout_Account_Analist</layout>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Economic_Group</layout>
+        <layout>Account-Account_Page_Layout_Economic_Group_Analist</layout>
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
