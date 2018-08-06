@@ -1431,4 +1431,11 @@
         <shortDescription>Error_validation_05</shortDescription>
         <value>Must have an operational profile and be in the same office as the opportunity</value>
     </labels>
+    <labels>
+        <fullName>lblErrorRetrievingVisit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblErrorRetrievingVisit</shortDescription>
+        <value>Error retrieving the visit</value>
+    </labels>
 </CustomLabels>

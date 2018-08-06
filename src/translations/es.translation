@@ -1009,6 +1009,10 @@
         <name>Error_validation_05</name>
     </customLabels>
     <customLabels>
+        <label>Error recuperando la visita</label>
+        <name>lblErrorRetrievingVisit</name>
+    </customLabels>
+    <customLabels>
         <label>Por favor, revise la siguiente información</label>
         <name>dwp_dbpn__DynamicFlowWizardError_ModalHeader</name>
     </customLabels>
