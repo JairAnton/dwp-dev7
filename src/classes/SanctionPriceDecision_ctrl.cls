@@ -69,10 +69,15 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                 FROM Group 
                                                 WHERE Type = 'Queue' 
                                                 AND DeveloperName = 'Tier_1'];
+                List<Opportunity> lstOpp = [SELECT  Id,
+                                                    AccountId
+                                            FROM Opportunity
+                                            WHERE Id = :recordId];
                 Case caseInsert = new Case();
                 caseInsert.Status = '01';
                 caseInsert.OwnerId = queueGroup[0].Id;
                 caseInsert.Type = 'Other';
+                caseInsert.AccountId = lstOpp[0].AccountId;
                 caseInsert.opportunity_id__c = recordId;
                 insert caseInsert;
             }
@@ -91,6 +96,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.Id = recordId;
         opp.StageName = stageName;
         opp.opportunity_status_type__c = status_opp;
+        opp.isProcess__c = true;
         try{
             update opp;
             lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
@@ -101,11 +107,13 @@ public with sharing class SanctionPriceDecision_ctrl {
                                         opportunity_id__c, 
                                         IsClosed,
                                         OwnerId,
-                                        Status
+                                        Status,
+                                        bypass__c
                                 FROM Case 
                                 WHERE opportunity_id__c = :recordId 
                                 AND IsClosed = false];
             lstCases[0].Status = statusCase;
+            lstCases[0].bypass__c = true;
             if(elevateCase){
                 List<Group> queueGroup = [SELECT    Id, 
                                                     DeveloperName,

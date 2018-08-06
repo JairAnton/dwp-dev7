@@ -4439,7 +4439,12 @@ Sub Gerentes de oficina</description>
         <editable>false</editable>
         <field>Opportunity.CreatedDate__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.bypass__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
@@ -4468,7 +4473,7 @@ Sub Gerentes de oficina</description>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Account</layout>
+        <layout>Account-Account_Page_Layout_Account_Operative</layout>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
