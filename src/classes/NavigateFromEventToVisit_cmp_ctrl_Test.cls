@@ -24,7 +24,7 @@ public class NavigateFromEventToVisit_cmp_ctrl_Test {
         insert visit_topic;
         Event e=new Event(DurationInMinutes=30,ActivityDateTime=Date.today(), dwp_kitv__visit_id__c=visit.Id);
         insert e;
-        String result = NavigateFromEventToVisit_ctrl.getInfo(e.Id);
+        String result = NavigateFromEventToVisit_cmp_ctrl.getInfo(e.Id);
         String actual = visit.Id;
 		System.assertEquals(result, actual);        
     }
