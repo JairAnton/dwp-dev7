@@ -22,4 +22,8 @@
         <field>Title_Label_API__c</field>
         <value xsi:type="xsd:string">Warning</value>
     </values>
+    <values>
+        <field>object_api_name__c</field>
+        <value xsi:type="xsd:string">Opportunity</value>
+    </values>
 </CustomMetadata>

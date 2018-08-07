@@ -8,9 +8,10 @@ public with sharing class OverrideButtonMessage_ctrl {
                               			Button_Label_API_Agree__c,
                               			Button_Label_API_Cancel__c,
                               			Object_Api_Name_to_Redirect__c, 
-                              			DeveloperName 
+                              			DeveloperName,
+                              			object_api_name__c
                               FROM Override_Standard_Button_Message__mdt 
-                              WHERE DeveloperName = :sObjectStr]);
+                              WHERE object_api_name__c = :sObjectStr]);
         return mapReturn;
     }
 }

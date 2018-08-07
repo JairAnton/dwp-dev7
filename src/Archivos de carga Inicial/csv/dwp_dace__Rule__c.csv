@@ -1,8 +1,8 @@
 "CURRENCYISOCODE","DWP_DACE__RULE_DESC__C","DWP_DACE__RULE_UNIQUE_ID__C"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
-- Precio aprobado en delegación
+- Precio aprobado en delegaciï¿½n
 - Precio aprobado
 - Producto con:
 F = false
@@ -16,21 +16,21 @@ Actions:
 - Autorizado por riesgos
 - Producto con:
 SP = true
-Método SP = Cotiza Web
+Mï¿½todo SP = Cotiza Web
 Actions:
 - Cotizar
 - Reevaluar
 - Desestimar
 - Aprobar","OPP_RULE_12"
 "PEN","Conditions:
--Acciones Comerciales, Pendiente de Iniciar, En Gestión
+-Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 -Ejecutivo
 -Producto con:SR = false,SP = true,Metodo SP = Web 
 Actions:
 -Desestimar
 -Sancionar Riesgo-Cotizar","OPP_RULE_03"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
 - Devuelto por riesgos
 - Devuelto por precios
@@ -38,9 +38,9 @@ Actions:
 - Reevaluar
 - Desestimar","OPP_RULE_15"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
--Enviado para reevaluación a riesgos
+-Enviado para reevaluaciï¿½n a riesgos
 - Producto con:
 Modalidad riesgo = requiere autorizacion
 Actions:
@@ -48,9 +48,9 @@ Actions:
 - Desvincular
 - Desestimar","OPP_RULE_16"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
-- Precio aprobado en delegación
+- Precio aprobado en delegaciï¿½n
 - Precio aprobado
 - Producto con:
 F = true
@@ -73,7 +73,7 @@ Actions:
 "PEN","Conditions:
 - En Formalizacion
 - Ejecutivo
-- Devuelta por documentación
+- Devuelta por documentaciï¿½n
 - Producto con:
 SP = false
 SR = false
@@ -81,17 +81,17 @@ Actions:
 - Desestimar
 - Formalizar","OPP_RULE_22"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
-- Enviado para reevaluación a riesgos o Enviado para reevaluación a precio
+- Enviado para reevaluaciï¿½n a riesgos o Enviado para reevaluaciï¿½n a precio
 Actions:
 - Editar Producto","OPP_RULE_P03"
 "PEN","Conditions:
-- Acciones Comerciales, Pendiente de Iniciar, En Gestión
+- Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 - Ejecutivo o Especialista
 - Tipologia Nueva
 Actions:
-- Añadir Producto
+- Aï¿½adir Producto
 - Eliminar Producto
 - Editar campos del Producto","OPP_RULE_P01"
 "PEN","Conditions: 
@@ -107,21 +107,21 @@ Actions:
 -Reevaluar
 -Formalizar","OPP_RULE_08"
 "PEN","Conditions:
--Acciones Comerciales, Pendiente de Iniciar, En Gestión
+-Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 -Ejecutivo
 -Producto con:SR = false,SP = false,F = true
 Actions:
 -Desestimar
 -Formalizar","OPP_RULE_05"
 "PEN","Conditions:
-- En Formalización
+- En Formalizaciï¿½n
 - Operativo
 - Enviada a unidad de producto
-- Enviada para formalización
+- Enviada para formalizaciï¿½n
 Actions:
 - Formalizacion","OPP_RULE_27"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
 - Autorizado por riesgos
 - Autorizado por precios
@@ -132,36 +132,36 @@ Actions:
 "PEN","Conditions: 
 - En Sancion
 - Ejecutivo
-- Enviado para autorización a riesgos
+- Enviado para autorizaciï¿½n a riesgos
 - Producto con:
 SP = true
-Método SP = Cotiza Web
+Mï¿½todo SP = Cotiza Web
 Actions:
 - Cotizar
 - Reevaluar","OPP_RULE_10"
 "PEN","Conditions:
--Acciones Comerciales, Pendiente de Iniciar, En Gestión
+-Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 -Ejecutivo
 -Producto con:SR = true,SP = false
 Actions:
 -Desestimar
 -Sancionar Riesgo","OPP_RULE_01"
 "PEN","Conditions:
--Acciones Comerciales, Pendiente de Iniciar, En Gestión
+-Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 -Ejecutivo
 -Producto con:SR = true,SP = true,Metodo SP = Web 
 Actions:
 -Desestimar
 -Sancionar Riesgo-Cotizar","OPP_RULE_02"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
-- Enviado para reevaluación a precio
+- Enviado para reevaluaciï¿½n a precio
 Actions:
 - Desestimar
 - Sancionar Precio","OPP_RULE_19"
 "PEN","Conditions:
--Acciones Comerciales, Pendiente de Iniciar, En Gestión
+-Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 -Ejecutivo
 -Especialista
 -Producto con:SR = false,SP = false,F = false
@@ -169,75 +169,76 @@ Actions:
 -Desestimar
 -Completar","OPP_RULE_06"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
--Enviado para reevaluación a riesgos
+-Enviado para reevaluaciï¿½n a riesgos
 - Producto con:
 SP = true
-Método SP = Cotiza Web
+Mï¿½todo SP = Cotiza Web
 Actions:
 - Sancionar Riesgo
 - Cotizar
 - Desestimar","OPP_RULE_17"
 "PEN","Conditions:
-- Acciones Comerciales, Pendiente de Iniciar, En Gestión
+- Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 - Especialista
+- Ejecutivo
 Actions:
 - Desestimar","OPP_RULE_24"
 "PEN","Conditions: 
 -En sancion
 -Ejecutivo
--Enviado para autorización a riesgos
+-Enviado para autorizaciï¿½n a riesgos
 Actions:
 -Reevaluar","OPP_RULE_11"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
--Enviado para reevaluación a riesgos
+-Enviado para reevaluaciï¿½n a riesgos
 Actions:
 - Desestimar
 - Sancionar Riesgo","OPP_RULE_18"
 "PEN","Conditions:
--En Formalización
+-En Formalizaciï¿½n
 - Ejecutivo
-- Devuelta por documentación
+- Devuelta por documentaciï¿½n
 Actions:
 - Revaluar
 - Desestimar
 - Formalizar","OPP_RULE_23"
 "PEN","Conditions:
-- Acciones Comerciales, Pendiente de Iniciar, En Gestión
+- Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 - Ejecutivo o Especialista
 - Tipologia Cancelacion
 Actions:
 - Editar campos del Producto","OPP_RULE_P02"
 "PEN","Conditions:
-- En Formalización
+- En Formalizaciï¿½n
 - Operativo
-- Enviada para formalización
+- Enviada para formalizaciï¿½n
 - Producto con PDF = true
 Actions:
 - PDF
 - Formalizacion","OPP_RULE_26"
 "PEN","Conditions:
 - En sancion
-- Enviado para autorización a precios
+- Enviado para autorizaciï¿½n a precios
 - Analista
 Actions:
 - Sancionar precio","OPP_RULE_25"
 "PEN","Conditions:
-- En Sanción
+- En Sanciï¿½n
 - Ejecutivo
 -Devuelto por riesgos
 - Producto con:
 SP = true
-Método SP = Cotiza Web
+Mï¿½todo SP = Cotiza Web
 Actions:
 - Cotizar
 - Reevaluar
 - Desestimar","OPP_RULE_14"
 "PEN","Conditions:
--Acciones Comerciales, Pendiente de Iniciar, En Gestión
+-Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 -Ejecutivo
 -Producto con:SR = false,SP = true
 Actions:
