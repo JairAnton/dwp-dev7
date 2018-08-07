@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>EJECUTIVO BANCA EMPRESAS CENTRAL</description>
+    <description>EJECUTIVO TRANSACCIONAL BANCA INSTITUCIONAL</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>EJECUTIVO BANCA EMPRESAS CENTRAL</name>
+    <name>EJECUTIVO TRANSACCIONAL BANCA INSTITUCIONAL</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>EJECUTIVO_TRANSACCIONAL_BANCA_EMPRESAS_CENTRA</parentRole>
+    <parentRole>GERENTE_BANCA_INSTITUCIONAL</parentRole>
 </Role>
