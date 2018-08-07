@@ -98,14 +98,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>Opportunity_cls</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>Opportunity_cls_test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>OverrideButtonMessage_ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -729,7 +721,9 @@ Jefes de Promoción de Negocio
 Gerentes de oficina
 Ejecutivo de Banca de Empresas
 Asistente BE</description>
-<fieldPermissions>
+	
+	
+	<fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_List_Mejorado__c</field>
         <readable>true</readable>
@@ -749,7 +743,16 @@ Asistente BE</description>
         <field>OpportunityLineItem.gipr_Opcioncompra__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Field_Sup_Closing_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Support_currency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>

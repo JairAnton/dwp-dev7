@@ -674,6 +674,7 @@
         <members>Componet_Cotizacion</members>
         <members>Sanction_Price_comp</members>
         <members>Componente_CotizaWeb</members>
+		<members>cQuickAction_NewOpportunity</members>
 		<name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -687,6 +688,7 @@
     </types>
     <types>
         <members>Opportunity.Descarta_Oportunidad</members>
+        <members>Account.cQuickAc_NewOpportunity</members>
         <name>QuickAction</name>
     </types>
     <types>

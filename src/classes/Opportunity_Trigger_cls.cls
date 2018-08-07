@@ -7,11 +7,41 @@
 */
 public without sharing class Opportunity_Trigger_cls {
   
-    /**/
-    //public void AsignBeforeInsert(list<Opportunity>Opps_New, Map<id,Opportunity>Opps_NewMap){
-
-    //}
-    /**/
+	/*
+	*
+	*/
+    public void AsignBeforeInsert(list<Opportunity>Opps_New, Map<id,Opportunity>Opps_NewMap){
+        date CDate;
+        date PDate;
+        for(Opportunity opp:Opps_New){
+            if(opp.Type=='01'){	
+                system.debug('Inicia el ejercicio');
+                if(opp.opportunity_planning_date__c !=null) 
+                    PDate = Date.valueOf(opp.opportunity_planning_date__c);
+                if(opp.opportunity_planning_date__c !=null) 
+                { 
+                    opp.opportunity_planning_date__c=PDate;	
+                    opp.opportunity_status_type__c = '02';
+                } 
+                else{ 
+                    system.debug('');
+                    opp.opportunity_status_type__c = '03';
+                }
+                
+                if(!String.isBlank(opp.Support_currency__c)) 
+                {
+                    system.debug('My PickList:'+ opp.Support_currency__c);
+                    opp.CurrencyIsoCode=opp.Support_currency__c=='01'?'PEN':'USD';
+                }
+                if(opp.opportunity_planning_date__c !=null && opp.Field_Sup_Closing_Date__c==null) 
+                    opp.CloseDate=PDate.addDays(45);			
+                else if(opp.opportunity_planning_date__c==null && opp.Field_Sup_Closing_Date__c==null)
+                    opp.CloseDate=Date.today().addDays(60);	
+                
+                system.debug('Finaliza con: '+opp);
+            }
+        }
+    }
     public void AsignBeforeUpdate(list<Opportunity>Opps_New, Map<id,Opportunity>Opps_NewMap,
                                   list<Opportunity>Opps_Old, Map<id,Opportunity>Opps_OldMap){
 

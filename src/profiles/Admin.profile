@@ -110,14 +110,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>Opportunity_cls</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>Opportunity_cls_test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -506,6 +498,16 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Field_Sup_Closing_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Support_currency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>fprd__GBL_Dependent_value__c.Unique_id__c</field>

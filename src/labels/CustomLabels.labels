@@ -6,7 +6,14 @@
         <protected>false</protected>
         <shortDescription>NewOpportunityWarning</shortDescription>
         <value>To create an Opportunity you must go to the client&apos;s detail page and click on the &quot;New Opportunity&quot; button</value>
-    </labels>   
+    </labels>
+    <labels>
+        <fullName>lblPDFProductCartaTecnicaEconomica</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductCartaTecnicaEconomica</shortDescription>
+        <value>PC00011</value>
+    </labels>	
    <labels>
         <fullName>Hangout</fullName>
         <language>en_US</language>
@@ -437,6 +444,13 @@
         <shortDescription>lblPDFProductCommercialLoanCP</shortDescription>
         <value>PC00001</value>
     </labels>
+    <labels>
+        <fullName>lblPDFProductExportComex</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductExportComex</shortDescription>
+        <value>PC00003</value>
+    </labels>	
 	<labels>
         <fullName>lblPDFProductPrestamoLP</fullName>
         <language>es</language>
@@ -681,6 +695,13 @@
         <protected>false</protected>
         <shortDescription>lblPDFProductImport</shortDescription>
         <value>PC00005</value>
+    </labels>
+	<labels>
+        <fullName>lblPDFProductImportComex</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductImportComex</shortDescription>
+        <value>PC00002</value>
     </labels>
     <labels>
         <fullName>lblSanctionStage</fullName>

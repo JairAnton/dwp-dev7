@@ -113,11 +113,16 @@
         <members>lblPDFProductPrestamoLP</members>
         <members>lblPDFProductCartaTecnicaImport</members>
         <members>lblPDFProductLeasing</members>
+        <members>*</members>
         <name>CustomLabel</name>
     </types>
     <types>
         <members>*</members>
         <name>ApexClass</name>
+    </types>
+	    <types>
+        <members>*</members>
+        <name>CustomField</name>
     </types>
     <types>
         <members>PDF_formalizacion_vfp</members>
@@ -191,7 +196,6 @@
         <members>UploadedFile_evt</members>
         <members>UserLookupResult</members>
         <members>button_evt</members>
-        <members>cQuickAction_NewOpportunity</members>
         <members>call_Quote_component</members>
         <members>disabledButton_evt</members>
         <members>fileUpload_comp</members>
@@ -584,7 +588,7 @@
     <types>
         <members>Account.New_Contact</members>
         <members>Account.New_Contact_Economic_Group</members>
-        <members>Account.cQuickAc_NewOpportunity</members>
+        <members>Account.New_Opportununity_type</members>
         <members>LogACall</members>
         <members>NewEvent</members>
         <members>NewTask</members>
@@ -681,6 +685,7 @@
         <members>JEFE_PROMOCION_DE_NEGOCIO_BE_1</members>
         <members>JEFE_PROMOCION_DE_NEGOCIO_BE_2</members>
         <members>JEFE_PROMOCION_DE_NEGOCIO_BE_3</members>
+        <members>*</members>
         <name>Role</name>
     </types>
     <types>
