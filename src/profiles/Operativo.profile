@@ -4477,7 +4477,7 @@ Sub Gerentes de oficina</description>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Economic_Group</layout>
+        <layout>Account-Account_Page_Layout_Economic_Group_Operative</layout>
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
