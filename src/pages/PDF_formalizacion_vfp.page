@@ -2,7 +2,7 @@
     <apex:stylesheet value="{!$Resource.stylePDF}"/>
     <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100"/>
     <div class="title">
-       <b>&nbsp;PDF Formalización {!Opportunity.Name}</b>
+        <b>&nbsp;PDF Formalización {!Opportunity.Name}</b>
     </div>
     <br/>
     <div class="subtitle">
@@ -46,10 +46,10 @@
         </tr>
         <tr>
             <td>Clasificación SBS: {!Client.banking_system_classification_desc__c } </td>
-            <td>Estrategia: {!Client.risk_strategy_class_name__c } </td>
+            <td>Estrategia: {!Client.risk_strategy_class_name__c} </td>
         </tr>
         <tr>
-            <td>Buró: <apex:outputText value="{0, number,0}">
+            <td>Buró:&nbsp;<apex:outputText value="{0, number,0}">
                 <apex:param value="{!Client.bureau_classification_type__c}"/>
                 </apex:outputText></td>
             <td>Rating: {!Rating.rating_scale_type__c} </td>
@@ -62,66 +62,64 @@
     <br/>
     <table>
         <tr>
-            <td>Modalidad: {!Modalidad}</td>
+            <td>Modalidad:&nbsp;<apex:outPutField value="{!opp.Risk_modality_type__c}"/></td>
             <td></td>
         </tr>
         <tr>
-            <td>Codigo SIO: {!opportunity.sio_code__c} </td>
-            <td>Fecha autorización: 12/07/2018 *</td>
+            <td>Condicionantes: {!numGnF}</td><!-- This is a guarantee no formalizated -->
+            <td>Fecha autorización: {!FechaAut}</td>
         </tr>
-        <tr>
-            <td>Estado: Sanción aprobado SM *</td>
-            <td>Sancionador: Andres figueroa *</td>
-        </tr>
-        <tr>
-            <td>Importe: {!Opportunity.Amount}</td>
-            <td>Compromisos: {!totalC}</td>
-        </tr>
-        <tr>
-            <td>Plazo: <apex:outputText value=" {0, number,0} ">
-                <apex:param value="{!Oli.gipr_Plazo__c}"/>
-                </apex:outputText> {!Oli.gipr_Periodicidad__c }</td>
-            <td>Comentarios: Aprobada</td>
-        </tr>
+        <apex:outputPanel rendered="{!Opportunity.Risk_modality_type__c == '02'}"> 
+            <tr>
+                <td>Codigo SIO: {!opportunity.sio_code__c} </td>
+                <td>Estado SIO: {!opportunity.sio_status_type__c}</td>
+            </tr>
+            <tr>
+                <td>Sancionador: Asunto Mail * </td>
+                <td>Comentarios: Cuerpo Mail SIO *</td>
+            </tr>
+        </apex:outputPanel>   
     </table>
     <br/>
     <div class="subtitle">
         <b>&nbsp;Sanción precio</b>
     </div>
     <br/>
-    <!--apex:outputPanel id="SanctionPrice1" rendered="{!Product.ProductCode !=$Label.lblPDFProductFurnitureLeasing && Product.ProductCode !=$Label.lblPDFProductCommercialLoanLP}" layout="block"-->
     <table>
         <tr>
             <td>Nº cotización: {!Oli.price_quote_id__c} </td>
-            <td>Fecha autorización: 16/06/2018:9:00 </td>
+            <td>Fecha autorización: 16/06/2018 * </td>
         </tr>
         <tr>
-            <td>TEA aprobada:<apex:outputText value=" {0, number,0.00} %">
+            <td>TEA aprobada:<apex:outputText value=" {0, number,000.00} %">
                 <apex:param value="{!Oli.proposed_apr_per__c}"/>
                 </apex:outputText> </td>
-            <td>Vigencia: 12/07/2018 </td>
+            <td>Vigencia: 12/07/2018 * </td>
         </tr>
+        <apex:outputPanel rendered="{!Product.Type_of_quote__c =='COTIZADOR'}">      
+            <tr>
+                <td>Comisión estructuración:<apex:outputText value=" {0, number,000.00} %">
+                    <apex:param value="{!Oli.restructuring_fee_per__c }"/>
+                    </apex:outputText> </td>
+                <td>Comisión liquidación anticipada:<apex:outputText value=" {0, number,000.00} %">
+                    <apex:param value="{!Oli.cancellation_fee_per__c}"/>
+                    </apex:outputText> </td>
+            </tr> 
+        </apex:outputPanel>    
         <tr>
-            <td>Plazo: <apex:outputText value=" {0, number,0} ">
-                <apex:param value="{!Oli.gipr_Plazo__c}"/>
-                </apex:outputText> {!Oli.gipr_Periodicidad__c }</td>
-            <td>Tipo garantía: {!Oli.gipr_Tipo_Garantia__c}</td>
+            <td>Plazo:&nbsp;<apex:outputfield value="{!Oli.gipr_Plazo__c}"/>&nbsp;
+                <apex:outputfield value="{!Oli.gipr_Periodicidad__c}"/></td>
+            <td>Tipo garantía:&nbsp; <apex:outputfield value="{!Oli.gipr_Tipo_Garantia__c}"/></td>
         </tr>
-        <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductExport}">
-        <tr>
-            <td>Medio de pago: {!OLI.gipr_Payment_Method__c}</td>
-            <td>Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
-        </tr>
-        </apex:outputPanel>
-      <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductImport}">
-        <tr>
-            <td>Medio de pago: {!OLI.gipr_Payment_Method__c}</td>
-            <td>Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
-        </tr>
+        <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductExport || Product.ProductCode == $Label.lblPDFProductImport}">
+            <tr>
+                <td>Medio de pago: {!OLI.gipr_Payment_Method__c}</td>
+                <td>Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
+            </tr>
         </apex:outputPanel>
         <tr>
             <td>Compromisos: {!totalC} </td>
-            <td>Comentarios: Aprobada </td>
+            <td>Comentarios: Aprobada *</td>
         </tr>
     </table>
     <apex:outputPanel id="DatosOportunidad"  layout="block">
@@ -130,43 +128,38 @@
             <b>&nbsp;Datos de oportunidad</b>
         </div>
         <br/>
-        <ul>
-            <li>Nombre de la oportunidad: {!Opportunity.Name}</li>
-            <li>Divisa: {!Opportunity.CurrencyIsoCode}</li>
-            <li>Importe: <apex:outputText value=" {0, number,.00}">
-                <apex:param value="{!Opportunity.Amount}" />
-                </apex:outputText>
-            </li>
-            <li>Familia producto: {!Product.Family}</li>
-            <li>Producto: {!Product.Name}</li>
-            <li>Modalidad producto: {!Oli.PE_List_Product_mode__c}</li>
-            <li>Destino: {!OLI.gipr_Destino__c}</li>
-            <li>Mejorado: {!If(Oli.PE_List_Mejorado__c,'Si','No')}</li>
-          </ul>
+        <table>
+            <tr>
+                <td>Nombre de la oportunidad: {!Opportunity.Name}</td>
+                <td>Familia producto: {!Product.Family}</td>
+            </tr>
+            <tr><td>Producto: {!Product.Name}</td></tr>
+        </table>
+        
     </apex:outputPanel>
     <apex:outputPanel id="pagoliquidación"  layout="block">
         <br/>
         <div class="subtitle">
             <b>&nbsp;Criterios de pago y liquidacíon</b>
         </div>
-        <br/>
-        <ul>
-            <li>Cuenta vinculada: {!OLI.cpliq_Cuenta_vinculada__c}</li>
-            <li>Tipo de amortización: {!OLI.cpliq_Tipo_amortizacion__c} </li>
-            <li>Fecha de vencimiento: <apex:outputText value="{0,date,dd/MM/yyyy}">
-                <apex:param value="{!Oli.cpliq_Fecha_Vencimiento__c}" />
-                </apex:outputText></li>
-            <li>Plazo: <apex:outputText value=" {0, number,0} ">
-                <apex:param value="{!Oli.gipr_Plazo__c}" />
-                </apex:outputText> {!Oli.gipr_Periodicidad__c }</li>
-            <li>Periodo de gracia: <apex:outputText value="{0, number,0}">
-                <apex:param value="{!Oli.cpliq_n_gracia__c }" />
-                </apex:outputText> {!Oli.cpliq_Periodicidad_gracia__c}</li>
-          </ul>
+        <br/>      
+        <table>
+            <apex:variable value="{!0}" var="rowNum"/>
+            <apex:repeat value="{!ProductConfiguration}" var="pc" id="Pagoliq">     
+                <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">                   
+                    <tr>                  
+                        <apex:panelGroup >   
+                            <td> {!ProductConfiguration[rowNum].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/> </td>                           
+                        </apex:panelGroup>
+                         <apex:panelGroup rendered="{!rowNum+1 < ProductConfiguration.size}">
+                            <td>{!ProductConfiguration[rowNum+1].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[ProductConfiguration[rowNum+1].fprd__Map_field__c]}"/></td>        
+                        </apex:panelGroup>                        
+                    </tr>
+                </apex:panelGroup> 
+                <apex:variable var="rowNum" value="{!rowNum + 1}"/>      
+            </apex:repeat>   
+        </table>
     </apex:outputPanel>
-    <div class="subtitle">
-            <b>&nbsp;Garantias e intervinientes</b>
-    </div>
     <br/>
     <div class="subtitle">
         &nbsp;Garantias
@@ -182,16 +175,16 @@
         </tr>
         <apex:repeat value="{!Garantias}" var="Garantia" id="Garantias">
             <tr>
-                <td class="cd">{!Garantia.guarantee_desc__c}</td>
+                <td class="cd">{!Garantia.guarantee_type__c}</td>
                 <td class="cd">{!Garantia.guarantee_modality_type__c}</td>
                 <td class="cd">{!Garantia.guarantee_status_type__c}</td>
                 <td class="cd"><apex:outputText value="{0, number,0}">
                     <apex:param value="{!Garantia.guarantee_term_number__c}"/>
                     </apex:outputText> {!Garantia.guarantee_periodicity_type__c}</td>
                 <td class="cd"><apex:outputText value="{0, number,0}">
-                    <apex:param value="{!Garantia.guarantee_id__c}" />
+                    <apex:param value="{!Garantia.guarantee_term_number__c}" />
                     </apex:outputText></td>
-                <td class="cd"><apex:outputText value="{0, number, .00}">
+                <td class="cd"><apex:outputText value="{0,number,000,000.00}">
                     <apex:param value="{!Garantia.guaranteed_amount__c}" />
                     </apex:outputText>
                 </td>
@@ -213,7 +206,7 @@
         <apex:repeat value="{!Intervenientes}" var="Interveniente" id="Intervenientes">
             <tr>
                 <td class="cd">{!Interveniente.Name}</td>
-                <td class="cd">{!Interveniente.fiscal_identifier_type__c}</td>
+                <td class="cd">{!Interveniente.Fiscal_identifier_type__c}</td>
                 <td class="cd">{!Interveniente.taxpayer_id__c}</td>
                 <td class="cd">{!Interveniente.participant_type__c}</td>
                 <td class="cd">{!Interveniente.guarantor_marital_status_type__c}</td>
