@@ -12,7 +12,8 @@ public class DynamicNotificationMessageStructure {
         
         Map <Id, String> mpMessage = new Map<Id,String>();
         String userInfo = UserInfo.getName();
-        String dates = String.valueOf(DateTime.now());
+        Datetime myDT = Datetime.now();
+        String dates = myDT.format('dd-MM-yyyy HH:mm');
         String query='';
         
         if(message.contains('#UserInfo#')){message = message.replace('#UserInfo#', userInfo);}
