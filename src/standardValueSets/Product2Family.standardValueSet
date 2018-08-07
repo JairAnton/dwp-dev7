@@ -9,13 +9,13 @@
     </standardValue>
     <standardValue>
         <fullName>Financiamiento a corto plazo</fullName>
-        <color>#1464A5</color>
+        <color>#004586</color>
         <default>false</default>
         <label>Financiamiento a corto plazo</label>
     </standardValue>
     <standardValue>
         <fullName>Financiamiento a largo plazo</fullName>
-        <color>#D8BE75</color>
+        <color>#1973B8</color>
         <default>false</default>
         <label>Financiamiento a largo plazo</label>
     </standardValue>
@@ -33,7 +33,7 @@
     </standardValue>
     <standardValue>
         <fullName>Recursos</fullName>
-        <color>#043263</color>
+        <color>#388D4F</color>
         <default>false</default>
         <label>Recursos</label>
     </standardValue>
