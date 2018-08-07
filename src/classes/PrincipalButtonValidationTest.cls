@@ -205,7 +205,7 @@ private class PrincipalButtonValidationTest {
         pcTipoAmortizacion.fprd__LoV_labels__c = 'Al vencimiento,En cuotas,Manual';
         pcTipoAmortizacion.fprd__LoV_values__c = '01,02,04'; 
         insert pcTipoAmortizacion;
-        oli1.gipr_Tipo_Garantia__c='03';//dineraria
+        oli1.gipr_Tipo_Garantia__c='01';//dineraria
         update oli1;
         System.runAs(userExecutiveOwner){
             List <String> response = Risk_Approval_ValidationClass.getErrorMessagesList(opp1.Id, 'Opportunity', 'validationClass');
