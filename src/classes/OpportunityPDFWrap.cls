@@ -115,7 +115,7 @@ public  virtual class OpportunityPDFWrap {
             Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  Opportunity__c =\''+Oppid+'\'');
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Commitment_Value__c WHERE commitment_product_name__c =:Product.ProductCode];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
-            totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM Product_Gurantee__c   WHERE Opportunity__c=:Oppid AND Status__c='02'];
+            totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE Opportunity__c=:Oppid AND Status__c='02'];
             numGnF=Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
 
             msg= 'SUCCESS';
