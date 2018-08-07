@@ -1024,6 +1024,10 @@
         <label>Criterios de pago y liquidación</label>
         <name>PDFSectionPayment</name>
     </customLabels>
+    <customLabels>
+        <label>No definida</label>
+        <name>lblNoAuthDate</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

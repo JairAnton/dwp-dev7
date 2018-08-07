@@ -1459,4 +1459,11 @@
         <shortDescription>PDFSectionPayment</shortDescription>
         <value>Criteria payment and end debt</value>
     </labels>
+    <labels>
+        <fullName>lblNoAuthDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblNoAuthDate</shortDescription>
+        <value>No defined</value>
+    </labels>
 </CustomLabels>
