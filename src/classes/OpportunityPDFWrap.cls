@@ -1,5 +1,5 @@
 public  virtual class OpportunityPDFWrap {
-    
+
     public static OpportunityLineItem OLI {get;set;}
     Public Static Account_BBVA_Classification__c ABBVAC {get;set;}
     Public static Account_Banking_System_Classification__c  CSBS {get;set;}
@@ -27,15 +27,15 @@ public  virtual class OpportunityPDFWrap {
         Map<String,Schema.SObjectField> Mfields = objType.getDescribe().fields.getMap();
         SOQLQuery = 'SELECT ';
         for(Schema.SObjectField mf : Mfields.values()){
-            schema.describefieldresult dfield = mf.getDescribe();                      
+            schema.describefieldresult dfield = mf.getDescribe();
                         SOQLQuery += dfield.getname() +', ';
         }
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
         SOQLQuery+=' FROM '+Objeto;
         return SOQLQuery;
     }
-    
-    
+
+
     private static void  filterVisibility(list<fprd__GBL_Product_Configuration__c> PrdConfg){
         fieldVisibility = new map<id,boolean>();
        list<fprd__GBL_Product_Configuration__c> PrdConfg2;
@@ -45,7 +45,7 @@ public  virtual class OpportunityPDFWrap {
         Map<String,Schema.SObjectField> Mfields = objType.getDescribe().fields.getMap();
         SOQLQuery = 'SELECT ';
         for(Schema.SObjectField mf : Mfields.values()){
-            schema.describefieldresult dfield = mf.getDescribe();                      
+            schema.describefieldresult dfield = mf.getDescribe();
                        if(String.valueOf(dfield.getType())=='PICKLIST'){
                 SOQLQuery += 'toLabel('+dfield.getname() +'), ';
                     } else{
@@ -53,7 +53,7 @@ public  virtual class OpportunityPDFWrap {
                     }
         }
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
-        SOQLQuery+=' FROM fprd__GBL_Product_Configuration__c WHERE FPRD__PRODUCT__R.UNIQUE_ID__C =\''+Product.ProductCode+'\' AND FPRD__SECTION_NAME__C =\''+label.PDFSectionPayment+'\''; 
+        SOQLQuery+=' FROM fprd__GBL_Product_Configuration__c WHERE FPRD__PRODUCT__R.UNIQUE_ID__C =\''+Product.ProductCode+'\' AND FPRD__SECTION_NAME__C =\''+label.PDFSectionPayment+'\'';
         PrdConfg2 = Database.query(SOQLQuery);
        system.debug('SSS'+Product.ProductCode+'s'+label.PDFSectionPayment);
         for(fprd__GBL_Product_Configuration__c pc : PrdConfg2){
@@ -61,32 +61,32 @@ public  virtual class OpportunityPDFWrap {
             If(String.isNotBlank(pc.FPRD__VISIBILITY_CONTROL_FIELD__C)){
                 fieldName = pc.FPRD__VISIBILITY_CONTROL_FIELD__C;
                 fieldName = fieldName.LEFT(fieldName.length()-Product.ProductCode.length())+'_c';
-                
-                
-                for(String val : pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',')){ 
-                    if(val==OLI.get(fieldName)) Found = true;   
+
+
+                for(String val : pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',')){
+                    if(val==OLI.get(fieldName)) Found = true;
                 }
-                
+
                 if(Found){
                     fieldVisibility.put(pc.Id, true);
-                }else{    
+                }else{
                     fieldVisibility.put(pc.Id, false);}
             }else{
                 fieldVisibility.put(pc.Id, true);
-            }    
+            }
         }
        for (integer index=0; index<ProductConfiguration.size();index++) {
            if(!fieldVisibility.get(ProductConfiguration[index].Id)){
                ProductConfiguration.remove(index);
-           }         
+           }
         }
     }
     public static string setValues(String Oppid){
         string msg;
         try{
             Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE id =\''+Oppid+'\' AND (dwp_cvad__action_audit_name__c=\''+Label.SIOstatus3+'\' OR dwp_cvad__action_audit_name__c=\''+Label.SIOstatus2+'\' OR dwp_cvad__action_audit_name__c=\''+Label.SIOstatus1+'\' )ORDER BY CreatedDate DESC');
-            
-            if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}  
+
+            if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}
             msg= 'Datos incompletos en oportunidad';
             opp = database.query(getQuery('Opportunity')+' WHERE id =\''+Oppid+'\' LIMIT 1');
             msg= 'Datos incompletos en producto oportunidad';
@@ -113,20 +113,20 @@ public  virtual class OpportunityPDFWrap {
             Intervenientes = database.query(getQuery('fprd__GBL_Intervener__c')+' WHERE  Opportunity__c =\''+OppId+'\'');
             msg= 'Datos incompletos en garantias';
             Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  Opportunity__c =\''+Oppid+'\'');
-            totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM compromiso__c WHERE Oportunidad__c =:Oppid];
+            totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Commitment_Value__c WHERE commitment_product_name__c =:Product.ProductCode];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
             totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM Product_Gurantee__c   WHERE Opportunity__c=:Oppid AND Status__c='02'];
             numGnF=Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
-            
+
             msg= 'SUCCESS';
             title = 'PDF Formalización '+Opportunity.Name;
         }catch(System.Exception e){
             system.debug('Exception : '+e.getMessage());
             return msg;
         }
-        
+
         return msg;
     }
-    
-    
+
+
 }
