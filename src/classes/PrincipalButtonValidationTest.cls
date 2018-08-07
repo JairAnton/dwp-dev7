@@ -174,7 +174,7 @@ private class PrincipalButtonValidationTest {
         pcTipoGarantia = new fprd__GBL_Product_Configuration__c();
         pcTipoGarantia.fprd__Label__c = 'Tipo garantía';
         pcTipoGarantia.fprd__DeveloperName__c = 'gipr_Tipo_garantia_PC00005';
-        pcTipoGarantia.fprd__Default_value__c = '03';
+        pcTipoGarantia.fprd__Default_value__c = '02';
         pcTipoGarantia.fprd__Map_field__c = 'gipr_Tipo_Garantia__c';
         pcTipoGarantia.fprd__Product__c = product.id;
         pcTipoGarantia.fprd__Section_name__c = 'Información general del producto';
