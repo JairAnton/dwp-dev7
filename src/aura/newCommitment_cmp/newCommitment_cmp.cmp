@@ -3,6 +3,7 @@
     <aura:registerEvent name="commitmentsEvent" type="c:Commitments_evt" />
     <aura:attribute name="approvalMethod" type="String" default=""/>
     <aura:attribute name="oppRecordId" type="String" default=""/>
+    <aura:attribute name="oppLineItem" type="String" default=""/>
     <aura:attribute name="objSetup" type="Object" />
     
 
