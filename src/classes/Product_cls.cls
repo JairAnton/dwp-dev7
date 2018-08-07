@@ -161,14 +161,22 @@ public without sharing class Product_cls {
     @AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body,String AttachedFiles){
         try
         {
-            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,StageName,OwnerId FROM Opportunity WHERE Id=: OpportunityId];
+            id id1 = userinfo.getProfileId();
+            id id2 = userinfo.getUserId();
+            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
+            String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;
+            
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
+            String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;  
+            
+            if(OUCurrentUser!=OUOppUser)
+                            return label.lblUserNotAuth; 
+            
             if(!itemOpp.isEmpty())
             {
                 if(Action=='btnApprove'){
-                    id id1 = userinfo.getProfileId();
-                    String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
                     
-                    if(((prof=='Ejecutivo'||prof=='Especialista')&& userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' || prof=='Migracion'){                                    
+                    if(((prof=='Ejecutivo'||prof=='Especialista')) || prof=='Administrador del Sistema' || prof=='Migracion'){                                    
                         itemOpp[0].IsProcess__c=true;
                         update itemOpp[0];   
                         itemOpp[0].StageName=label.lblFormalizarEtapa;
@@ -217,7 +225,7 @@ public without sharing class Product_cls {
             if(OUCurrentUser!=OUOppUser)
                             return label.lblUserNotAuth; 
 
-            if(((prof=='Ejecutivo'||prof=='Especialista') && userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Operativo'|| prof=='Administrador del Sistema' )
+            if(((prof=='Ejecutivo'||prof=='Especialista') ) || prof=='Operativo'|| prof=='Administrador del Sistema' )
             { 
                 if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
                 {                
