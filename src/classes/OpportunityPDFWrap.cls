@@ -110,9 +110,9 @@ public  virtual class OpportunityPDFWrap {
             msg= 'Datos incompletos en calificación cliente';
             Rating =  database.query(getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+Client.Id+'\' ORDER BY createdDate LIMIT 1');
             msg= 'Datos incompletos en intervieniente';
-            Intervenientes = database.query(getQuery('fprd__GBL_Intervener__c')+' WHERE  Opportunity__c =\''+OppId+'\'');
+            Intervenientes = database.query(getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+OppId+'\'');
             msg= 'Datos incompletos en garantias';
-            Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  Opportunity__c =\''+Oppid+'\'');
+            Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+Oppid+'\'');
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Commitment_Value__c WHERE commitment_product_name__c =:Product.ProductCode];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
             totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE Opportunity__c=:Oppid AND Status__c='02'];
