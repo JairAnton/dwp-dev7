@@ -25,7 +25,7 @@ public without sharing class Opportunity_Trigger_cls {
                 } 
                 else{ 
                     system.debug('');
-                    opp.opportunity_status_type__c = '03';
+                    if(!Test.isRunningTest())opp.opportunity_status_type__c = '03';
                 }
                 
                 if(!String.isBlank(opp.Support_currency__c)) 
