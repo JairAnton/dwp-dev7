@@ -160,23 +160,11 @@ public without sharing class Product_cls {
     
     @AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body,String AttachedFiles){
         try
-        {
-            id id1 = userinfo.getProfileId();
-            id id2 = userinfo.getUserId();
-            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
-            String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;
-            
-            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
-            String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;  
-            
-            if(OUCurrentUser!=OUOppUser)
-                            return label.lblUserNotAuth; 
-            
+        {   
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];
             if(!itemOpp.isEmpty())
             {
                 if(Action=='btnApprove'){
-                    
-                    if(((prof=='Ejecutivo'||prof=='Especialista')) || prof=='Administrador del Sistema' || prof=='Migracion'){                                    
                         itemOpp[0].IsProcess__c=true;
                         update itemOpp[0];   
                         itemOpp[0].StageName=label.lblFormalizarEtapa;
@@ -190,8 +178,7 @@ public without sharing class Product_cls {
                             itemOpp[0].IsProcess__c=false;
                             update itemOpp[0];     
                             return label.lblNoCommentsFormalization;
-                        } 
-                    } else return label.lblUserNotAuth;
+                        }
                 }
                 update itemOpp[0];
                 itemOpp[0].IsProcess__c=false;
@@ -213,22 +200,11 @@ public without sharing class Product_cls {
     
     @AuraEnabled public static String setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber){
         try
-        {
-            id id1 = userinfo.getProfileId();
-            id id2 = userinfo.getUserId();
-            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
-            String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;
-            
+        {            
             List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
-            String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;  
-            
-            if(OUCurrentUser!=OUOppUser)
-                            return label.lblUserNotAuth; 
-
-            if(((prof=='Ejecutivo'||prof=='Especialista') ) || prof=='Operativo'|| prof=='Administrador del Sistema' )
-            { 
-                if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
-                {                
+             
+            if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
+            {                
                                                   
                         if(Action=='btnApprove'){//08
                             itemOpp[0].StageName='06';
@@ -256,9 +232,8 @@ public without sharing class Product_cls {
                         else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
                         else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
                         //END Traceability
-                        return 'true';                
-                }
-                else return 'No Contrato no válido, el formato correcto: 0000-0000-000000000';
+                return 'true';                
+
             }
             else return label.lblUserNotAuth;
         }catch(Dmlexception exp) { return exp.getMessage();}
@@ -268,34 +243,24 @@ public without sharing class Product_cls {
     @AuraEnabled public static String setRejectOpportunity(String OpportunityId,String RejectReason,String WinnerBank,String IsoCurrency,Decimal Amount,Decimal Rate,Integer Term,String Comments){
         try
         {
-            id id1 = userinfo.getProfileId();
-            id id2 = userinfo.getUserId();
-            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
-            String OUCurrentUser = [SELECT organizational_unit_id__c FROM User WHERE id = :id2 LIMIT 1].organizational_unit_id__c;            
             List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
-            String OUOppUser = [SELECT organizational_unit_id__c FROM User WHERE id = :itemOpp[0].OwnerId LIMIT 1].organizational_unit_id__c;              
-            if(OUCurrentUser!=OUOppUser)
-                            return label.lblUserNotAuth; 
 
-            if(((prof=='Ejecutivo'||prof=='Especialista') && userinfo.getUserId()==itemOpp[0].OwnerId) || prof=='Administrador del Sistema' )
-            { 
-                itemOpp[0].IsProcess__c=true;
-                update itemOpp[0]; 
-                itemOpp[0].StageName='07';
-                itemOpp[0].opportunity_status_type__c='22';
-                itemOpp[0].Loss_Reason__c=RejectReason;
-                itemOpp[0].rejection_winner_entity_name__c=WinnerBank;
-                itemOpp[0].rejection_reason_id__c=Comments;
-                itemOpp[0].rejection_amount__c=Amount;
-                itemOpp[0].rejection_rate_per__c=Rate;
-                itemOpp[0].rejection_period_num__c=Term;
-                itemOpp[0].rejection_coin__c= IsoCurrency;
-                update itemOpp[0];      
-                itemOpp[0].IsProcess__c=false;
-                update itemOpp[0];                 
-                return 'true';                             
-            }
-            else return label.lblUserNotAuth;
+            itemOpp[0].IsProcess__c=true;
+            update itemOpp[0]; 
+            itemOpp[0].StageName='07';
+            itemOpp[0].opportunity_status_type__c='22';
+            itemOpp[0].Loss_Reason__c=RejectReason;
+            itemOpp[0].rejection_winner_entity_name__c=WinnerBank;
+            itemOpp[0].rejection_reason_id__c=Comments;
+            itemOpp[0].rejection_amount__c=Amount;
+            itemOpp[0].rejection_rate_per__c=Rate;
+            itemOpp[0].rejection_period_num__c=Term;
+            itemOpp[0].rejection_coin__c= IsoCurrency;
+            update itemOpp[0];      
+            itemOpp[0].IsProcess__c=false;
+            update itemOpp[0];                 
+            return 'true';                             
+    
         }catch(Dmlexception exp) { return exp.getMessage();}
     }    
     
