@@ -152,9 +152,9 @@ private class PrincipalButtonValidationTest {
         userBranchExe = TestFactory.createUserBranch(userExecutiveBranch.id);
 		userBranchOpe = TestFactory.createUserBranch(userOperativeBranch.id);
         intervener1 = TestFactory.createParticipants(oli1.Id);
-        guarantee1 = TestFactory.createGuarantee(oli1.Id);
+        //guarantee1 = TestFactory.createGuarantee(oli1.Id);
         intervener2 = TestFactory.createParticipants(oli2.Id);
-        guarantee2 = TestFactory.createGuarantee(oli2.Id);
+        //guarantee2 = TestFactory.createGuarantee(oli2.Id);
         opp1.Branch_id__c=userBranchExe.branch_id__c;
         opp2.Branch_id__c=userBranchOpe.branch_id__c;
         pcGarantia = new fprd__GBL_Product_Configuration__c();
@@ -174,7 +174,7 @@ private class PrincipalButtonValidationTest {
         pcTipoGarantia = new fprd__GBL_Product_Configuration__c();
         pcTipoGarantia.fprd__Label__c = 'Tipo garantía';
         pcTipoGarantia.fprd__DeveloperName__c = 'gipr_Tipo_garantia_PC00005';
-        pcTipoGarantia.fprd__Default_value__c = '02';
+        pcTipoGarantia.fprd__Default_value__c = '03';
         pcTipoGarantia.fprd__Map_field__c = 'gipr_Tipo_Garantia__c';
         pcTipoGarantia.fprd__Product__c = product.id;
         pcTipoGarantia.fprd__Section_name__c = 'Información general del producto';
