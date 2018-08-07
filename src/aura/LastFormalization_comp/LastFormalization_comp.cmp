@@ -1,4 +1,4 @@
-<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp"  access="GLOBAL" controller="Product_cls">
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp"  access="GLOBAL" controller="Product_cls">
 <aura:attribute name="title" type="String" default="Formalización" access="global" description="Specify the modal"/>
 <aura:attribute name="Action" type="String" />
 <aura:attribute name="FileName" type="String" default="" />

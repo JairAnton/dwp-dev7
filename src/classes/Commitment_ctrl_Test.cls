@@ -27,7 +27,7 @@ public class Commitment_ctrl_Test {
         lstData.add(34);
         lstData.add(12);
         lstData.add(3);
-        Map<String,Object> mapReturnSave = Commitment_ctrl.saveCommitment(lstOpp[0].Id,lstData);
+        Map<String,Object> mapReturnSave = Commitment_ctrl.saveCommitment(lstOpp[0].Id,lstData,null);
         System.assertEquals(true, (Boolean)mapReturnSave.get('isOK'));
 
         List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c];

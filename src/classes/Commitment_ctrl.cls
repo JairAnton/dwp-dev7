@@ -53,7 +53,7 @@ public with sharing class Commitment_ctrl {
     }
     
     @AuraEnabled
-    public static Map<String,Object> saveCommitment(String recordId, List<Object> lstData){
+    public static Map<String,Object> saveCommitment(String recordId, List<Object> lstData, String oppLineItem){
         Map<String,Object> mapReturn = new Map<String,Object>();
         Opportunity_Solution_Commitment__c oppSolCommitment = new Opportunity_Solution_Commitment__c();
         oppSolCommitment.opp_solution_comt_product_name__c = String.valueOf(lstData[0]);
@@ -62,6 +62,7 @@ public with sharing class Commitment_ctrl {
         oppSolCommitment.opp_solution_commitment_amount__c = Double.valueOf(lstData[3]);
         oppSolCommitment.opp_soln_comt_stay_days_number__c = Double.valueOf(lstData[4]);
         oppSolCommitment.opportunity_id__c = recordId;
+        oppSolCommitment.opp_solution_id__c = oppLineItem;
         insert oppSolCommitment;
         mapReturn.put('isOK', true);
         return mapReturn; 
