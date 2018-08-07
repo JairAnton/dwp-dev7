@@ -1431,4 +1431,32 @@
         <shortDescription>Error_validation_05</shortDescription>
         <value>Must have an operational profile and be in the same office as the opportunity</value>
     </labels>
+    <labels>
+        <fullName>SIOstatus1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIOstatus1</shortDescription>
+        <value>Risk approved inside line</value>
+    </labels>
+    <labels>
+        <fullName>SIOstatus2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIOstatus2</shortDescription>
+        <value>Sanction GM 1</value>
+    </labels>
+    <labels>
+        <fullName>SIOstatus3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SIOstatus3</shortDescription>
+        <value>Sanction GM 2</value>
+    </labels>
+    <labels>
+        <fullName>PDFSectionPayment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PDFSectionPayment</shortDescription>
+        <value>Criteria payment and end debt</value>
+    </labels>
 </CustomLabels>

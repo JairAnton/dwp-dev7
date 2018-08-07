@@ -13,6 +13,7 @@ public class OpportunityPDFWrap_Test {
         
         Opportunity opp=TestFactory.createOpportunity(acc.Id,user.Id);                
         Product2 prod=TestFactory.createProduct();
+        TestFactory.productConfiguration(Prod.ID);
         TestFactory.createOLI(opp.id,prod.id);
         TestFactory.createParticipants(opp.id);
         TestFactory.createGuarantee(opp.id);
@@ -31,11 +32,9 @@ public class OpportunityPDFWrap_Test {
         Account acc = [SELECT ID FROM Account LIMIT 1];
 
         String returnMsg=OpportunityPDFWrap.setValues(opp.id);
-        System.assertEquals(returnMsg, 'Datos incompletos en calificación cliente');
-
         TestFactory.createAccRating(acc.id); 
         returnMsg=OpportunityPDFWrap.setValues(opp.id);
 
-        //System.assertEquals(returnMsg, 'SUCCESS');
+        System.assertEquals(returnMsg, 'SUCCESS');
     }
 }

@@ -1008,6 +1008,22 @@
         <label>Debe tener perfil operativo y estar en la misma oficina que la oportunidad</label>
         <name>Error_validation_05</name>
     </customLabels>
+    <customLabels>
+        <label>Riesgo aprobado dentro de línea</label>
+        <name>SIOstatus1</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción aprobado  GM 1</label>
+        <name>SIOstatus2</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción aprobado  GM 2</label>
+        <name>SIOstatus3</name>
+    </customLabels>
+    <customLabels>
+        <label>Criterios de pago y liquidación</label>
+        <name>PDFSectionPayment</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
