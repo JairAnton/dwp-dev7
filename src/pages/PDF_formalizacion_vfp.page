@@ -175,17 +175,17 @@
         </tr>
         <apex:repeat value="{!Garantias}" var="Garantia" id="Garantias">
             <tr>
-                <td class="cd">{!Garantia.Guarantee__c}</td>
-                <td class="cd">{!Garantia.Modality__c}</td>
-                <td class="cd">{!Garantia.Status__c}</td>
+                <td class="cd">{!Garantia.guarantee_type__c}</td>
+                <td class="cd">{!Garantia.guarantee_modality_type__c}</td>
+                <td class="cd">{!Garantia.guarantee_status_type__c}</td>
                 <td class="cd"><apex:outputText value="{0, number,0}">
-                    <apex:param value="{!Garantia.Term__c}"/>
-                    </apex:outputText> {!Garantia.Periodicity__c}</td>
+                    <apex:param value="{!Garantia.guarantee_term_number__c}"/>
+                    </apex:outputText> {!Garantia.guarantee_periodicity_type__c}</td>
                 <td class="cd"><apex:outputText value="{0, number,0}">
-                    <apex:param value="{!Garantia.nGuarantee__c}" />
+                    <apex:param value="{!Garantia.guarantee_term_number__c}" />
                     </apex:outputText></td>
                 <td class="cd"><apex:outputText value="{0,number,000,000.00}">
-                    <apex:param value="{!Garantia.Amount__c}" />
+                    <apex:param value="{!Garantia.guaranteed_amount__c}" />
                     </apex:outputText>
                 </td>
             </tr>
@@ -206,10 +206,10 @@
         <apex:repeat value="{!Intervenientes}" var="Interveniente" id="Intervenientes">
             <tr>
                 <td class="cd">{!Interveniente.Name}</td>
-                <td class="cd">{!Interveniente.DOI__c}</td>
-                <td class="cd">{!Interveniente.N_DOI__c}</td>
-                <td class="cd">{!Interveniente.Participation__c}</td>
-                <td class="cd">{!Interveniente.Marital_Status__c}</td>
+                <td class="cd">{!Interveniente.Fiscal_identifier_type__c}</td>
+                <td class="cd">{!Interveniente.taxpayer_id__c}</td>
+                <td class="cd">{!Interveniente.participant_type__c}</td>
+                <td class="cd">{!Interveniente.guarantor_marital_status_type__c}</td>
             </tr>
         </apex:repeat>
     </table>
