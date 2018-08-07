@@ -152,9 +152,9 @@ private class PrincipalButtonValidationTest {
         userBranchExe = TestFactory.createUserBranch(userExecutiveBranch.id);
 		userBranchOpe = TestFactory.createUserBranch(userOperativeBranch.id);
         intervener1 = TestFactory.createParticipants(oli1.Id);
-        //guarantee1 = TestFactory.createGuarantee(oli1.Id);
+        guarantee1 = TestFactory.createGuarantee(oli1.Id);
         intervener2 = TestFactory.createParticipants(oli2.Id);
-        //guarantee2 = TestFactory.createGuarantee(oli2.Id);
+        guarantee2 = TestFactory.createGuarantee(oli2.Id);
         opp1.Branch_id__c=userBranchExe.branch_id__c;
         opp2.Branch_id__c=userBranchOpe.branch_id__c;
         pcGarantia = new fprd__GBL_Product_Configuration__c();
@@ -205,6 +205,8 @@ private class PrincipalButtonValidationTest {
         pcTipoAmortizacion.fprd__LoV_labels__c = 'Al vencimiento,En cuotas,Manual';
         pcTipoAmortizacion.fprd__LoV_values__c = '01,02,04'; 
         insert pcTipoAmortizacion;
+        oli1.gipr_Tipo_Garantia__c='03';//dineraria
+        update oli1;
         System.runAs(userExecutiveOwner){
             List <String> response = Risk_Approval_ValidationClass.getErrorMessagesList(opp1.Id, 'Opportunity', 'validationClass');
             System.assertEquals(3, response.size());
