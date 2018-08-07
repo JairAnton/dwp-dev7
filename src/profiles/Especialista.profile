@@ -493,6 +493,14 @@
         <apexClass>Unlink_ValidationClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>NavigateFromEventToVisit_cmp_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>NavigateFromEventToVisit_cmp_ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Puede Tomar los siguientes cargos:
 Ejecutivos de servicios transaccionales (EST)
@@ -3742,6 +3750,11 @@ Ejecutivos de REDES</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Commitment_Value__c.web_product_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.bypass__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>

@@ -1,5 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_70452246</developerName>
+        <masterLabel>Familia de Productos</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Otros</otherBucketLabel>
+        <sourceColumnName>Account_BBVA_Information__c.product_desc__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Préstamo Comercial CP</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Préstamo Comercial Mejorado</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Préstamo Comercial Reprogramado CP</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Préstamo Crédito Liquido</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Financiamiento de Importación</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Forfaiting de Importación</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Forfaiting de Importación Mejorado</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cartera- Descuento de letras / Facturas</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Factoring</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Lineas de crédito Cuenta Corriente (Sobregiro)</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Tarjetas de Crédito</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Préstamo Comercial LP</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Préstamo Comercial LP Mejorado</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Leasing Mobiliario</sourceValue>
+            </sourceValues>
+            <value>Inversión Rentable</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Vista (Cta Corriente)</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Ahorro</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Depósito a plazo</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Depósito sintético</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>DIVA</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Fondos Mutuos</sourceValue>
+            </sourceValues>
+            <value>Recursos gestionados</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Carta fianza</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Stand by letter of credit (SBLC)</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Carta de crédito de importación</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Carta de crédito de exportación</sourceValue>
+            </sourceValues>
+            <value>Riesgo de firma</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <aggregate>Sum</aggregate>
+            <axisBinding>y</axisBinding>
+            <column>Account_BBVA_Information__c.current_balance_var_day_amount__c</column>
+        </chartSummaries>
+        <chartSummaries>
+            <aggregate>Sum</aggregate>
+            <axisBinding>y</axisBinding>
+            <column>Account_BBVA_Information__c.current_balance_var_month_amount__c</column>
+        </chartSummaries>
+        <chartSummaries>
+            <aggregate>Sum</aggregate>
+            <axisBinding>y</axisBinding>
+            <column>Account_BBVA_Information__c.current_balance_var_quart_amount__c</column>
+        </chartSummaries>
+        <chartType>VerticalColumn</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>BucketField_70452246</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_BOTTOM</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>true</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <title>Importe de variación por periodicidad</title>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>Account_BBVA_Information__c.current_balance_var_day_amount__c</field>
@@ -13,10 +140,32 @@
         <field>Account_BBVA_Information__c.current_balance_var_quart_amount__c</field>
     </columns>
     <currency>PEN</currency>
+    <filter>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <criteriaItems>
+            <column>BucketField_70452246</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Inversión Rentable</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>BucketField_70452246</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Recursos gestionados</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>BucketField_70452246</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Riesgo de firma</value>
+        </criteriaItems>
+        <language>es</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account_BBVA_Information__c.product_desc__c</field>
+        <field>BucketField_70452246</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Mis variaciones por familia de producto</name>
@@ -26,11 +175,9 @@
     </params>
     <reportType>AccountCustomEntity$Account_BBVA_Information__c</reportType>
     <scope>user</scope>
-    <showDetails>true</showDetails>
-<!--     <showGrandTotal>false</showGrandTotal>
+    <showDetails>false</showDetails>
+<!--     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>false</showSubTotals> -->
-    <sortColumn>Account_BBVA_Information__c.current_balance_var_day_amount__c</sortColumn>
-    <sortOrder>Desc</sortOrder>
     <timeFrameFilter>
         <dateColumn>DUE_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

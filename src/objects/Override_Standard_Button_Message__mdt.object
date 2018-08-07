@@ -50,6 +50,17 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>object_api_name__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Object Api Name</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
     <label>Override Standard Button Message</label>
     <pluralLabel>Overrides Standards Buttons Messages</pluralLabel>
     <visibility>Public</visibility>

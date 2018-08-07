@@ -1466,4 +1466,18 @@
         <shortDescription>lblNoAuthDate</shortDescription>
         <value>No defined</value>
     </labels>
+    <labels>
+        <fullName>lblErrorRetrievingVisit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblErrorRetrievingVisit</shortDescription>
+        <value>Error retrieving the visit</value>
+    </labels>
+    <labels>
+        <fullName>NewVisitWarning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewVisitWarning</shortDescription>
+        <value>To create an Visit you must go to the client&apos;s detail page and click on the &quot;Plan Visit&quot; button</value>
+    </labels>
 </CustomLabels>
