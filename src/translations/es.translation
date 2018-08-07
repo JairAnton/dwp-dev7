@@ -1016,6 +1016,10 @@
         <label>Por favor, revise la siguiente información</label>
         <name>dwp_dbpn__DynamicFlowWizardError_ModalHeader</name>
     </customLabels>
+    <customLabels>
+        <label>Para dar de alta una nueva Visita, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Crear visita&quot;</label>
+        <name>NewVisitWarning</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
