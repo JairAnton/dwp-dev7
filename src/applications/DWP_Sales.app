@@ -125,6 +125,54 @@
         <type>Flexipage</type>
         <profile>Analista</profile>
     </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Event_Lightning_Record_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Event</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Event_Lightning_Record_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Event</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Event_Lightning_Record_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Event</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Especialista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Event_Lightning_Record_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Event</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Migracion</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Event_Lightning_Record_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Event</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Operativo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Event_Lightning_Record_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Event</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
     <tabs>standard-home</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
