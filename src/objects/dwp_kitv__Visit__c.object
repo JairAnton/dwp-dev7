@@ -92,7 +92,7 @@
     <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -567,6 +567,26 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>report_visit_status_type__c</fullName>
+        <description>Status to Vistit Reports</description>
+        <externalId>false</externalId>
+        <formula>IF(dwp_kitv__visit_start_date__c  &gt;  Now()   ,
+        &apos;No realizada&apos;
+        ,
+        IF(ISPICKVAL(dwp_kitv__visit_status_type__c, &quot;05&quot;),
+        &apos;Pendiente de feedback&apos;
+        ,
+        &apos;Finalizada&apos;
+        )
+        )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Estado de visitas</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>    
     <fields>
         <fullName>account_parent__c</fullName>
         <externalId>false</externalId>

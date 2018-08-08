@@ -46,7 +46,7 @@
     </columns>
     <currency>PEN</currency>
     <filter>
-        <booleanFilter>((1 OR 2 OR 4) AND 3) AND 5</booleanFilter>
+        <booleanFilter>(((1 OR 2 OR 4) AND 3) AND 5) AND 6</booleanFilter>
         <criteriaItems>
             <column>Opportunity.opportunity_planning_date__c</column>
             <isUnlocked>true</isUnlocked>
@@ -74,8 +74,14 @@
         <criteriaItems>
             <column>FAMILY</column>
             <isUnlocked>true</isUnlocked>
-            <operator>contains</operator>
-            <value>Financiamiento a Corto Plazo,Financiamiento a Largo Plazo,Riesgo de Firmas,Recursos</value>
+            <operator>notEqual</operator>
+            <value>None</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>PRODUCT_CUSTOMER_ID</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>PC00032,PC00030</value>
         </criteriaItems>
         <language>es</language>
     </filter>
@@ -106,8 +112,8 @@
     <reportType>OpportunityProduct</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
-    <!-- <showGrandTotal>false</showGrandTotal> -->
-<!--     <showSubTotals>false</showSubTotals> -->
+    <!-- <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals> -->
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
