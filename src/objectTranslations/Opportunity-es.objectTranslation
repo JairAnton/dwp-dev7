@@ -248,6 +248,14 @@
         <label>Etapa</label>
         <name>StageName_Formula__c</name>
     </fields>
+    <fields>
+        <label>Fecha de cierre</label>
+        <name>CloseDate__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de creación</label>
+        <name>createdDate__c</name>
+    </fields>
     <validationRules>
         <errorMessage>El importe debe ser mayor a 0.</errorMessage>
         <name>Amount_Negative_Value</name>

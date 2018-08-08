@@ -104,7 +104,7 @@ global class PrincipalValidationHub {
         List<fprd__GBL_Intervener__c> intervenerList = [select id, fprd__GBL_Opportunity_product__c from fprd__GBL_Intervener__c where fprd__GBL_Opportunity_product__c = :recordId];
         if(intervenerList.size() == 0) lstErrorMessage.add(Label.Error_validation_032);
         // listOli[0].gipr_Tipo_Garantia__c = 03. 03 = Sin garantía
-        if((oli[0].gipr_Tipo_Garantia__c != '03') && (guaranteeList.size() == 0)) lstErrorMessage.add(Label.Error_validation_033);
+        if((oli[0].gipr_Tipo_Garantia__c == '01' || oli[0].gipr_Tipo_Garantia__c == '02') && (guaranteeList.size() == 0)) lstErrorMessage.add(Label.Error_validation_033);
 		return lstErrorMessage;
     }
     

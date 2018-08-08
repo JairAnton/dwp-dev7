@@ -8,7 +8,7 @@
         <c:CommitmentsTable_cmp oppRecordId="{!v.inputAttributes.recordId}" />
         <aura:set attribute="else">
              <aura:if isTrue="{!v.step == '2'}">
-                <c:newCommitment_cmp approvalMethod="{!v.inputAttributes.approvalMethod}" oppRecordId="{!v.inputAttributes.recordId}"/>
+                <c:newCommitment_cmp oppLineItem="{!v.inputAttributes.opportunityLineItem}" approvalMethod="{!v.inputAttributes.approvalMethod}" oppRecordId="{!v.inputAttributes.recordId}"/>
             </aura:if>
         </aura:set>
     </aura:if>

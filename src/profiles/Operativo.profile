@@ -3656,27 +3656,27 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>User.organizational_unit_id__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>User.organizational_unit_name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>User.portfolio_classification_id__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>User.prof_position_id__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>User.prof_position_type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4485,7 +4485,7 @@ Sub Gerentes de oficina</description>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Economic_Group</layout>
+        <layout>Account-Account_Page_Layout_Economic_Group_Operative</layout>
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>

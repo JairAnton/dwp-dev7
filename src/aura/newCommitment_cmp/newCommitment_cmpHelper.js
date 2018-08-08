@@ -92,7 +92,8 @@
 			var action = cmp.get("c.saveCommitment");
 			action.setParams({
 				"recordId" : cmp.get('v.oppRecordId'),
-				"lstData":lstData
+				"lstData":lstData,
+				"oppLineItem": cmp.get('v.oppLineItem')
 			});
 			action.setCallback(this, function(response) {
 				var state = response.getState();

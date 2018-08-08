@@ -1009,6 +1009,26 @@
         <name>Error_validation_05</name>
     </customLabels>
     <customLabels>
+        <label>Riesgo aprobado dentro de línea</label>
+        <name>SIOstatus1</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción aprobado  GM 1</label>
+        <name>SIOstatus2</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción aprobado  GM 2</label>
+        <name>SIOstatus3</name>
+    </customLabels>
+    <customLabels>
+        <label>Criterios de pago y liquidación</label>
+        <name>PDFSectionPayment</name>
+    </customLabels>
+    <customLabels>
+        <label>No definida</label>
+        <name>lblNoAuthDate</name>
+    </customLabels>
+    <customLabels>
         <label>Error recuperando la visita</label>
         <name>lblErrorRetrievingVisit</name>
     </customLabels>

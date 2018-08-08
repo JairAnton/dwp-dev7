@@ -36,9 +36,10 @@ public class TestFactory {
     
 	}
     public static Product2 createProduct (){
-    	Product2 prod = new Product2(Name = 'Swift',
-                                     Family = 'Credit');
-    	insert prod;
+        Product2 prod = new Product2(Name = 'Swift',
+                                     Family = 'Credit',
+                                     ProductCode='PC00009');
+        insert prod;
         return prod;
     }
 
@@ -163,6 +164,39 @@ public class TestFactory {
         casetest.OwnerId = userId;
         insert casetest;
         return casetest;
+    }
+    
+    public static void productConfiguration(Id IDProduct){
+        
+     fprd__GBL_Product_Configuration__c  PC = new fprd__GBL_Product_Configuration__c(
+     FPRD__DEFAULT_VALUE__C	='2',
+     FPRD__DEVELOPERNAME__C	='gipr_Periodicidad_PC00007',
+     FPRD__HEADER__C =false,
+     FPRD__HEADER_ORDER__C =0,	
+     FPRD__HIDDEN__C =false,	
+     FPRD__IMPORTANT__C =false,	
+     FPRD__LABEL__C	='Periocidad',
+     FPRD__LOV_LABELS__C ='Días,Meses',	
+     FPRD__LOV_VALUES__C ='01,02',	
+     FPRD__LOWER_LIMIT__C =0,						
+     FPRD__MANDATORY__C	=false,
+     FPRD__MAP_FIELD__C	='gipr_Periodicidad__c',
+     FPRD__ORDER__C	=6,
+     FPRD__PRODUCT__C =IDProduct,	
+     FPRD__READ_ONLY__C	=false,
+     FPRD__RELATED_MAP_FIELDS__C='',	
+     FPRD__SECTION_NAME__C ='Criterios de pago y liquidación',	
+     FPRD__SECTION_ORDER__C	=1,
+     FPRD__TYPE__C ='List',	
+     FPRD__UPPER_LIMIT__C =	0,
+     FPRD__VALUES_CONTROL_FIELD__C ='gipr_Tipo_garantia_PC00005',	
+     FPRD__VISIBILITY_CONDITION__C	='',
+     FPRD__VISIBILITY_CONTROL_FIELD__C ='gipr_Tipo_garantia_PC00005', 	
+     FPRD__VISIBILITY_CONTROL_VALUE__C ='No dineraria,Dineraria' 
+     ); 
+     Insert PC;
+        
+        
     }
 
 }
