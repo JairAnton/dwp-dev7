@@ -344,6 +344,41 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Field_Sup_Closing_Date__c</fullName>
+        <description>Field support closing date</description>
+        <externalId>false</externalId>
+        <label>Closing Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Support_currency__c</fullName>
+        <externalId>false</externalId>
+        <label>Type coin</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>PEN</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>USD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>	
+    <fields>
         <fullName>frm_ContractNumber__c</fullName>
         <externalId>false</externalId>
         <label>frm_ContractNumber</label>

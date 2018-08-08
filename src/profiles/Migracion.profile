@@ -466,6 +466,16 @@
         <apexClass>NavigateFromEventToVisit_cmp_ctrl_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Field_Sup_Closing_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Support_currency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>fprd__GBL_Dependent_value__c.Unique_id__c</field>
