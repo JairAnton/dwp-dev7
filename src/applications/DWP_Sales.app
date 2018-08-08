@@ -24,8 +24,6 @@
         <logoVersion>1</logoVersion>
     </brand>
     <formFactors>Large</formFactors>
-    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
-    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>DWP Sales</label>
     <navType>Standard</navType>
     <profileActionOverrides>
