@@ -14,6 +14,8 @@
     <types>
         <members>classMasterGuarantee_cls</members>
         <members>classMasterParticipant</members>
+        <members>Opportunity_cls</members>
+        <members>Opportunity_cls_test</members>
         <members>PE_DWP_Correo_cls</members>
         <members>PE_DWP_Correo_tst</members>
         <name>ApexClass</name>
