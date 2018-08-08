@@ -16,7 +16,7 @@
         <field>Type</field>
         <literalValue>01</literalValue>
     </fieldOverrides>
-    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
     <quickActionLayout>
         <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
         <quickActionLayoutColumns>
@@ -37,7 +37,7 @@
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
-                <field>Probability</field>
+                <field>success_probability_desc__c</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
         </quickActionLayoutColumns>
