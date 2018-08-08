@@ -8,7 +8,7 @@ pipeline {
         script {
           globalBootstrap {
             libraryName = 'Ether.Salesforce'
-            libraryBranch = 'latest'
+            libraryBranch = '2.6.0'
             entrypointParams = [:]
           }
         }
