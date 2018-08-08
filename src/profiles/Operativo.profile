@@ -5459,4 +5459,8 @@ Sub Gerentes de oficina</description>
         <enabled>true</enabled>
         <name>ViewRoles</name>
     </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ImportPersonal</name>
+    </userPermissions>
 </Profile>
