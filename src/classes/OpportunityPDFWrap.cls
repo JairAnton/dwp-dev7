@@ -102,7 +102,6 @@ public  virtual class OpportunityPDFWrap {
 
     }
     public static string setValues(String Oppid){
-        oppid='0063B000007GCXxQAO';
         string msg;
         try{
             Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+oppid+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
