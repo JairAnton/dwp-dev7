@@ -5463,4 +5463,8 @@ Sub Gerentes de oficina</description>
         <enabled>false</enabled>
         <name>ImportPersonal</name>
     </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ConvertLeads</name>
+    </userPermissions>
 </Profile>
