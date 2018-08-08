@@ -69,7 +69,7 @@
             <td>Condicionantes: {!numGnF}</td><!-- This is a guarantee no formalizated -->
             <td>Fecha autorización: {!FechaAut}</td>
         </tr>
-        <apex:outputPanel rendered="{!Opportunity.Risk_modality_type__c == '02'}"> 
+        <apex:outputPanel rendered="{!Opportunity.Risk_modality_type__c == '02'}">
             <tr>
                 <td>Codigo SIO: {!opportunity.sio_code__c} </td>
                 <td>Estado SIO: {!opportunity.sio_status_type__c}</td>
@@ -78,7 +78,7 @@
                 <td>Sancionador: Asunto Mail * </td>
                 <td>Comentarios: Cuerpo Mail SIO *</td>
             </tr>
-        </apex:outputPanel>   
+        </apex:outputPanel>
     </table>
     <br/>
     <div class="subtitle">
@@ -88,7 +88,7 @@
     <table>
         <tr>
             <td>Nº cotización: {!Oli.price_quote_id__c} </td>
-            <td>Fecha autorización: 16/06/2018 * </td>
+            <td>Fecha autorización: {!FauthPrecio} </td>
         </tr>
         <tr>
             <td>TEA aprobada:<apex:outputText value=" {0, number,000.00} %">
@@ -96,7 +96,7 @@
                 </apex:outputText> </td>
             <td>Vigencia: 12/07/2018 * </td>
         </tr>
-        <apex:outputPanel rendered="{!Product.Type_of_quote__c =='COTIZADOR'}">      
+        <apex:outputPanel rendered="{!Product.Type_of_quote__c =='COTIZADOR'}">
             <tr>
                 <td>Comisión estructuración:<apex:outputText value=" {0, number,000.00} %">
                     <apex:param value="{!Oli.restructuring_fee_per__c }"/>
@@ -104,8 +104,8 @@
                 <td>Comisión liquidación anticipada:<apex:outputText value=" {0, number,000.00} %">
                     <apex:param value="{!Oli.cancellation_fee_per__c}"/>
                     </apex:outputText> </td>
-            </tr> 
-        </apex:outputPanel>    
+            </tr>
+        </apex:outputPanel>
         <tr>
             <td>Plazo:&nbsp;<apex:outputfield value="{!Oli.gipr_Plazo__c}"/>&nbsp;
                 <apex:outputfield value="{!Oli.gipr_Periodicidad__c}"/></td>
@@ -118,10 +118,16 @@
             </tr>
         </apex:outputPanel>
         <tr>
-            <td>Compromisos: {!totalC} </td>
-            <td>Comentarios: Aprobada *</td>
+            <td>Compromisos:&nbsp;{!totalC} </td>
+            <td>Comentarios:&nbsp;{!Comentarios}</td>
         </tr>
     </table>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+     <br/>
+    <br/>
     <apex:outputPanel id="DatosOportunidad"  layout="block">
         <br/>
         <div class="subtitle">
@@ -135,29 +141,53 @@
             </tr>
             <tr><td>Producto: {!Product.Name}</td></tr>
         </table>
-        
+
     </apex:outputPanel>
     <apex:outputPanel id="pagoliquidación"  layout="block">
         <br/>
         <div class="subtitle">
-            <b>&nbsp;Criterios de pago y liquidacíon</b>
+            <b>&nbsp;Información general del producto</b>
         </div>
-        <br/>      
+        <br/>
         <table>
             <apex:variable value="{!0}" var="rowNum"/>
-            <apex:repeat value="{!ProductConfiguration}" var="pc" id="Pagoliq">     
-                <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">                   
-                    <tr>                  
-                        <apex:panelGroup >   
-                            <td> {!ProductConfiguration[rowNum].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/> </td>                           
+            <apex:repeat value="{!A}" var="pc" id="Pagoliq">
+                <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
+                    <tr>
+                        <apex:panelGroup>
+                            <td> {!A[rowNum].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/> </td>
                         </apex:panelGroup>
-                         <apex:panelGroup rendered="{!rowNum+1 < ProductConfiguration.size}">
-                            <td>{!ProductConfiguration[rowNum+1].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[ProductConfiguration[rowNum+1].fprd__Map_field__c]}"/></td>        
-                        </apex:panelGroup>                        
+                         <apex:panelGroup rendered="{!rowNum+1 < A.size}">
+                            <td>{!A[rowNum+1].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[A[rowNum+1].fprd__Map_field__c]}"/></td>
+                        </apex:panelGroup>
                     </tr>
-                </apex:panelGroup> 
-                <apex:variable var="rowNum" value="{!rowNum + 1}"/>      
-            </apex:repeat>   
+                </apex:panelGroup>
+                <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+            </apex:repeat>
+        </table>
+    </apex:outputPanel>
+    <br/>
+     <apex:outputPanel id="InfoGral"  layout="block">
+        <br/>
+        <div class="subtitle">
+            <b>&nbsp;Criterios de pago y liquidacíon</b>
+        </div>
+        <br/>
+        <table>
+            <apex:variable value="{!0}" var="rowNum"/>
+            <apex:repeat value="{!B}" var="pc" id="InfoGral2">
+                <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
+                    <tr>
+                        <apex:panelGroup>
+                            <td> {!B[rowNum].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/> </td>
+                        </apex:panelGroup>
+                         <apex:panelGroup rendered="{!rowNum+1 < B.size}">
+                            <td>{!B[rowNum+1].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[B[rowNum+1].fprd__Map_field__c]}"/></td>
+                        </apex:panelGroup>
+                    </tr>
+                </apex:panelGroup>
+                <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+            </apex:repeat>
         </table>
     </apex:outputPanel>
     <br/>
@@ -175,12 +205,12 @@
         </tr>
         <apex:repeat value="{!Garantias}" var="Garantia" id="Garantias">
             <tr>
-                <td class="cd">{!Garantia.guarantee_type__c}</td>
-                <td class="cd">{!Garantia.guarantee_modality_type__c}</td>
-                <td class="cd">{!Garantia.guarantee_status_type__c}</td>
+                <td class="cd"><apex:outputField value="{!Garantia.guarantee_type__c}"/></td>
+                <td class="cd"><apex:outputField value="{!Garantia.guarantee_modality_type__c}"/></td>
+                <td class="cd"><apex:outputField value="{!Garantia.guarantee_status_type__c}"/></td>
                 <td class="cd"><apex:outputText value="{0, number,0}">
                     <apex:param value="{!Garantia.guarantee_term_number__c}"/>
-                    </apex:outputText> {!Garantia.guarantee_periodicity_type__c}</td>
+                    </apex:outputText>&nbsp;<apex:outputField value="{!Garantia.guarantee_periodicity_type__c}"/></td>
                 <td class="cd"><apex:outputText value="{0, number,0}">
                     <apex:param value="{!Garantia.guarantee_term_number__c}" />
                     </apex:outputText></td>
@@ -205,11 +235,11 @@
         </tr>
         <apex:repeat value="{!Intervenientes}" var="Interveniente" id="Intervenientes">
             <tr>
-                <td class="cd">{!Interveniente.Name}</td>
-                <td class="cd">{!Interveniente.Fiscal_identifier_type__c}</td>
-                <td class="cd">{!Interveniente.taxpayer_id__c}</td>
-                <td class="cd">{!Interveniente.participant_type__c}</td>
-                <td class="cd">{!Interveniente.guarantor_marital_status_type__c}</td>
+                <td class="cd"><apex:outputField value="{!Interveniente.Name}"/></td>
+                <td class="cd"><apex:outputField value="{!Interveniente.fiscal_identifier_type__c}"/></td>
+                <td class="cd"><apex:outputField value="{!Interveniente.taxpayer_id__c}"/></td>
+                <td class="cd"><apex:outputField value="{!Interveniente.participant_type__c}"/></td>
+                <td class="cd"><apex:outputField value="{!Interveniente.guarantor_marital_status_type__c}"/></td>
             </tr>
         </apex:repeat>
     </table>

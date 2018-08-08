@@ -1,6 +1,7 @@
 public  virtual class OpportunityPDFWrap {
 
     public static OpportunityLineItem OLI {get;set;}
+    public static OpportunityLineItem OLI2 {get;set;}
     Public Static Account_BBVA_Classification__c ABBVAC {get;set;}
     Public static Account_Banking_System_Classification__c  CSBS {get;set;}
     Public static Product2 Product {get;set;}
@@ -14,13 +15,21 @@ public  virtual class OpportunityPDFWrap {
     public static AggregateResult[] totalComprimisos{get;set;}
     public static AggregateResult[] totalGarantiasNoFormalizadas{get;set;}
     public static fprd__GBL_Product_Configuration__c[] ProductConfiguration{get;set;}
+    public static fprd__GBL_Product_Configuration__c[] A{get;set;}
+    public static fprd__GBL_Product_Configuration__c[] B{get;set;}
     public static Integer totalC {get;set;}
     public static Integer numGnF {get;set;}
     public static String title{get;set;}
     public static opportunity opp{get;set;}
     public static map<id,boolean> fieldVisibility{get;set;}
     private static list<dwp_cvad__Action_Audit__c> Audit {get;set;}
+    private static list<dwp_cvad__Action_Audit__c> Audit2 {get;set;}
+    Public static list<dwp_cvad__Action_Audit__c> Comen {get;set;}
     public static String FechaAut{get;set;}
+    public static String FauthPrecio{get;set;}
+    public static String Comentarios{get;set;}
+
+
     private static String getQuery(String Objeto){
         String SOQLQuery;
         SObjectType objType = Schema.getGlobalDescribe().get(Objeto);
@@ -37,11 +46,13 @@ public  virtual class OpportunityPDFWrap {
 
 
     private static void  filterVisibility(list<fprd__GBL_Product_Configuration__c> PrdConfg){
+        A = new list<fprd__GBL_Product_Configuration__c>();
+        B = new list<fprd__GBL_Product_Configuration__c>();
         fieldVisibility = new map<id,boolean>();
-       list<fprd__GBL_Product_Configuration__c> PrdConfg2;
         String fieldName;
         String SOQLQuery;
-        SObjectType objType = Schema.getGlobalDescribe().get('fprd__GBL_Product_Configuration__c');
+
+        SObjectType objType = Schema.getGlobalDescribe().get('OpportunityLineItem');
         Map<String,Schema.SObjectField> Mfields = objType.getDescribe().fields.getMap();
         SOQLQuery = 'SELECT ';
         for(Schema.SObjectField mf : Mfields.values()){
@@ -53,10 +64,9 @@ public  virtual class OpportunityPDFWrap {
                     }
         }
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
-        SOQLQuery+=' FROM fprd__GBL_Product_Configuration__c WHERE FPRD__PRODUCT__R.UNIQUE_ID__C =\''+Product.ProductCode+'\' AND FPRD__SECTION_NAME__C =\''+label.PDFSectionPayment+'\'';
-        PrdConfg2 = Database.query(SOQLQuery);
-       system.debug('SSS'+Product.ProductCode+'s'+label.PDFSectionPayment);
-        for(fprd__GBL_Product_Configuration__c pc : PrdConfg2){
+        SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =\''+Opp.Id+'\'';
+        OLI2 = Database.query(SOQLQuery);
+        for(fprd__GBL_Product_Configuration__c pc : PrdConfg){
             boolean Found = false;
             If(String.isNotBlank(pc.FPRD__VISIBILITY_CONTROL_FIELD__C)){
                 fieldName = pc.FPRD__VISIBILITY_CONTROL_FIELD__C;
@@ -64,7 +74,7 @@ public  virtual class OpportunityPDFWrap {
 
 
                 for(String val : pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',')){
-                    if(val==OLI.get(fieldName)) Found = true;
+                    if(val==OLI2.get(fieldName)) Found = true;
                 }
 
                 if(Found){
@@ -80,20 +90,34 @@ public  virtual class OpportunityPDFWrap {
                ProductConfiguration.remove(index);
            }
         }
+
+        for (integer index=0; index<ProductConfiguration.size();index++) {
+            if(ProductConfiguration[index].FPRD__SECTION_NAME__C=='Información general del producto'){
+                 A.add(ProductConfiguration[index]);
+            }
+            if(ProductConfiguration[index].FPRD__SECTION_NAME__C=='Criterios de pago y liquidación'){
+                 B.add(ProductConfiguration[index]);
+            }
+        }
+
     }
     public static string setValues(String Oppid){
+        oppid='0063B000007GCXxQAO';
         string msg;
         try{
-            Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE id =\''+Oppid+'\' AND (dwp_cvad__action_audit_name__c=\''+Label.SIOstatus3+'\' OR dwp_cvad__action_audit_name__c=\''+Label.SIOstatus2+'\' OR dwp_cvad__action_audit_name__c=\''+Label.SIOstatus1+'\' )ORDER BY CreatedDate DESC');
-
+            Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+oppid+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
             if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}
+            Audit2 = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por precios \',\'Precio autorizado bajo delagación de oficina\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+oppid+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
+            if(Audit2.size()>0){FauthPrecio = String.valueOf(Date.valueOf(Audit2[0].dwp_cvad__action_audit_date__c));}else{FauthPrecio=Label.lblNoAuthDate;}
+            Comen = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+oppid+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
+            if(Comen.size()>0){Comentarios = Comen[0].dwp_cvad__audit_audit_comments__c;}else{Comentarios=Label.lblNoAuthDate;}
             msg= 'Datos incompletos en oportunidad';
             opp = database.query(getQuery('Opportunity')+' WHERE id =\''+Oppid+'\' LIMIT 1');
             msg= 'Datos incompletos en producto oportunidad';
             OLI = database.query(getQuery('OpportunityLineItem')+' WHERE  OpportunityID =\''+Oppid +'\' ORDER BY CreatedDate DESC LIMIT 1');
             msg= 'Datos incompletos en producto';
             Product = database.query(getQuery('Product2')+' WHERE  Id =\''+OLI.Product2Id +'\' LIMIT 1');
-            ProductConfiguration = database.query(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.UNIQUE_ID__C =\''+Product.ProductCode+'\' AND FPRD__SECTION_NAME__C =\''+label.PDFSectionPayment+'\'');
+            ProductConfiguration = database.query(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__C =\''+Product.Id+'\' AND FPRD__SECTION_NAME__C IN ('+label.PDFSectionPayment+')');
             filterVisibility(ProductConfiguration);
             msg= 'Datos incompletos en cliente';
             Client =database.query(getQuery('Account')+' WHERE  Id =\''+opp.Accountid +'\' LIMIT 1');
@@ -110,12 +134,12 @@ public  virtual class OpportunityPDFWrap {
             msg= 'Datos incompletos en calificación cliente';
             Rating =  database.query(getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+Client.Id+'\' ORDER BY createdDate LIMIT 1');
             msg= 'Datos incompletos en intervieniente';
-            Intervenientes = database.query(getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+OLI.Id+'\'');
+            Intervenientes = database.query(getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+OppId+'\'');
             msg= 'Datos incompletos en garantias';
-            Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+OLI.Id+'\'');
-            totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Commitment_Value__c WHERE commitment_product_name__c =:Product.ProductCode];
+            Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+OppId+'\'');
+            totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Opportunity_Solution_Commitment__c  WHERE Opportunity_Id__c =:Oppid];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
-            totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE fprd__GBL_Opportunity_product__c=:OLI.Id AND guarantee_status_type__c='02'];
+            totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE fprd__GBL_Opportunity_product__c=:OppId AND guarantee_status_type__c='02'];
             numGnF=Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
 
             msg= 'SUCCESS';
