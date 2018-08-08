@@ -1,37 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
-    <buckets>
-        <bucketType>picklist</bucketType>
-        <developerName>BucketField_82349477</developerName>
-        <masterLabel>Estado de visitas</masterLabel>
-        <nullTreatment>n</nullTreatment>
-        <sourceColumnName>dwp_kitv__Visit__c$dwp_kitv__visit_status_type__c</sourceColumnName>
-        <useOther>false</useOther>
-        <values>
-            <sourceValues>
-                <sourceValue>03</sourceValue>
-            </sourceValues>
-            <sourceValues>
-                <sourceValue>02</sourceValue>
-            </sourceValues>
-            <sourceValues>
-                <sourceValue>01</sourceValue>
-            </sourceValues>
-            <value>No Finalizadas</value>
-        </values>
-        <values>
-            <sourceValues>
-                <sourceValue>04</sourceValue>
-            </sourceValues>
-            <value>Pendiente Feedback</value>
-        </values>
-        <values>
-            <sourceValues>
-                <sourceValue>05</sourceValue>
-            </sourceValues>
-            <value>Finalizadas</value>
-        </values>
-    </buckets>
     <chart>
         <backgroundColor1>#FFFFFF</backgroundColor1>
         <backgroundColor2>#FFFFFF</backgroundColor2>
@@ -43,7 +11,7 @@
         <chartType>Donut</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>false</expandOthers>
-        <groupingColumn>BucketField_82349477</groupingColumn>
+        <groupingColumn>dwp_kitv__Visit__c.report_visit_status_type__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>true</showAxisLabels>
@@ -59,50 +27,13 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c</field>
-    </columns>
-    <columns>
-        <field>dwp_kitv__Visit__c$dwp_kitv__most_recent_visits__c</field>
-    </columns>
-    <columns>
-        <field>dwp_kitv__Visit__c$dwp_kitv__visit_status_type__c</field>
-    </columns>
-    <columns>
-        <field>dwp_kitv__Visit__c$Id</field>
+        <field>CUST_NAME</field>
     </columns>
     <currency>PEN</currency>
-    <filter>
-        <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
-        <criteriaItems>
-            <column>dwp_kitv__Visit__c$CreatedDate</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>lessOrEqual</operator>
-            <value>THIS_MONTH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>dwp_kitv__Visit__c$CreatedDate</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>greaterOrEqual</operator>
-            <value>THIS_MONTH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>dwp_kitv__Visit__c$LastActivityDate</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>THIS_MONTH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>dwp_kitv__Visit__c$dwp_kitv__visit_end_date__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>THIS_MONTH</value>
-        </criteriaItems>
-        <language>es</language>
-    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>BucketField_82349477</field>
+        <field>dwp_kitv__Visit__c.report_visit_status_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Visitas del mes en curso</name>
@@ -110,13 +41,13 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>dwp_cglp__Visits_History__c</reportType>
+    <reportType>CustomEntity$dwp_kitv__Visit__c</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
-    <!-- <showGrandTotal>true</showGrandTotal>
+<!--     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals> -->
     <timeFrameFilter>
-        <dateColumn>dwp_kitv__Visit__c$CreatedDate</dateColumn>
-        <interval>INTERVAL_CUSTOM</interval>
+        <dateColumn>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</dateColumn>
+        <interval>INTERVAL_THISMONTH</interval>
     </timeFrameFilter>
 </Report>
