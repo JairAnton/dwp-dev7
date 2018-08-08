@@ -103,7 +103,7 @@ public  virtual class OpportunityPDFWrap {
     }
     public static string setValues(String Oppid){
         string msg;
-       // try{
+        try{
             Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+oppid+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
             if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}
             Audit2 = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por precios \',\'Precio autorizado bajo delagación de oficina\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+oppid+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
@@ -143,10 +143,10 @@ public  virtual class OpportunityPDFWrap {
 
             msg= 'SUCCESS';
             title = 'PDF Formalización '+Opportunity.Name;
-      //  }catch(System.Exception e){
-       //     system.debug('Exception : '+e.getMessage());
-        //    return msg;
-       // }
+        }catch(System.Exception e){
+            system.debug('Exception : '+e.getMessage());
+            return msg;
+        }
 
         return msg;
     }

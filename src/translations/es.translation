@@ -1021,7 +1021,7 @@
         <name>SIOstatus3</name>
     </customLabels>
     <customLabels>
-        <label>Información general del producto,Criterios de pago y liquidación</label>
+        <label>'Criterios de pago y liquidación','Información general del producto'</label>
         <name>PDFSectionPayment</name>
     </customLabels>
     <customLabels>

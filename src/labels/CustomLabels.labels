@@ -1457,7 +1457,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>PDFSectionPayment</shortDescription>
-        <value>Criteria payment and end debt</value>
+        <value>'Product General Information',' Criteria for payment'</value>
     </labels>
     <labels>
         <fullName>lblNoAuthDate</fullName>
