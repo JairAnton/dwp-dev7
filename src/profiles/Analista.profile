@@ -4927,7 +4927,11 @@ Analistas de riesgos</description>
         <name>ContentWorkspaces</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
+        <name>ViewSetup</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>false</enabled>
         <name>CreateCustomizeFilters</name>
     </userPermissions>
     <userPermissions>
