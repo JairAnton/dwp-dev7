@@ -75,7 +75,7 @@
             <column>FAMILY</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
-            <value>None</value>
+            <value>None,Serv. Transaccionales,Programa financiero</value>
         </criteriaItems>
         <criteriaItems>
             <column>PRODUCT_CUSTOMER_ID</column>
@@ -112,7 +112,7 @@
     <reportType>OpportunityProduct</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
-    <!-- <showGrandTotal>false</showGrandTotal>
+<!--     <showGrandTotal>false</showGrandTotal>
     <showSubTotals>false</showSubTotals> -->
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
