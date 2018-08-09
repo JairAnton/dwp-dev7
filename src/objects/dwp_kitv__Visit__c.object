@@ -575,9 +575,9 @@
         &apos;No realizada&apos;
         ,
         IF(ISPICKVAL(dwp_kitv__visit_status_type__c, &quot;05&quot;),
-        &apos;Pendiente de feedback&apos;
-        ,
         &apos;Finalizada&apos;
+        ,
+        &apos;Pendiente de feedback&apos;
         )
         )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
