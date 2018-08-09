@@ -9,6 +9,8 @@
 <aura:attribute name="refreshTable" type="Boolean" default="true" />
 <aura:handler name="init" value="{!this}" action="{!c.init}" />
 <aura:handler name="PasoParametrosPadre" event="c:ReloadTable_evt" action="{!c.RecibeParametros}"/>
+<aura:handler event="fprd:GBL_SelectedProduct_evt" action="{!c.changeProduct}"/>
+
 <aura:renderIf isTrue="{!v.refreshTable}">
                 <div aura:id="divToast" class="slds-notify_container slds-hide" style="width:95%">
                     <div class="slds-notify slds-notify_toast " role="alert" style="width:95%">
