@@ -1245,7 +1245,6 @@
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>OPPORTUNITY.AMOUNT</customTabListAdditionalFields>
         <customTabListAdditionalFields>OPPORTUNITY.STAGE_NAME</customTabListAdditionalFields>
-		<customTabListAdditionalFields>opportunity_status_type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>OPPORTUNITY.CLOSE_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CORE.USERS.FULL_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Customer_alert__c</customTabListAdditionalFields>
