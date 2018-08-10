@@ -1,0 +1,20 @@
+<aura:component implements="force:hasRecordId" controller="AssistantSection_ctrl">
+	<aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="lstDataCustom" type="Object[]"/>
+    <aura:attribute name="isCustom" type="Boolean" default="false"/>
+    <aura:attribute name="hideCheckbox" type="Boolean" default="true"/>
+    <aura:attribute name="hasRow" type="Boolean" default="true"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+    <aura:if isTrue="{!v.hasRow}">
+        <lightning:datatable data="{! v.mydata }"
+            columns="{! v.mycolumns }"
+            keyField="Id"
+            hideCheckboxColumn="{!v.hideCheckbox}"
+            resizeColumnDisabled="true"
+            aura:id="dataTable"/>
+    </aura:if>
+            
+</aura:component>
