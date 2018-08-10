@@ -17,8 +17,6 @@ public class OpportunityPDFWrap_Test {
         TestFactory.createOLI(opp.id,prod.id);
         TestFactory.createParticipants(opp.id);
         TestFactory.createGuarantee(opp.id);
-
-
     }
 
     public static testMethod void generatePDF(){

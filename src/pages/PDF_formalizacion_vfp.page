@@ -55,7 +55,8 @@
             <td>Rating: {!Rating.rating_scale_type__c} </td>
         </tr>
     </table>
-    <br/>
+    <apex:outputPanel rendered="{!product.risk_sanction__c}">
+     <br/>
     <div class="subtitle">
         <b>&nbsp;Sanción riesgo</b>
     </div>
@@ -75,12 +76,14 @@
                 <td>Estado SIO: {!opportunity.sio_status_type__c}</td>
             </tr>
             <tr>
-                <td>Sancionador: Asunto Mail * </td>
-                <td>Comentarios: Cuerpo Mail SIO *</td>
+                <td>Sancionador:  *</td>
+                <td>Comentarios:&nbsp;{!Comentarios}</td>
             </tr>
         </apex:outputPanel>
     </table>
     <br/>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!product.price_penalty__c}">
     <div class="subtitle">
         <b>&nbsp;Sanción precio</b>
     </div>
@@ -91,17 +94,17 @@
             <td>Fecha autorización: {!FauthPrecio} </td>
         </tr>
         <tr>
-            <td>TEA aprobada:<apex:outputText value=" {0, number,000.00} %">
+            <td>TEA aprobada:<apex:outputText value=" {0, number,.00} %">
                 <apex:param value="{!Oli.proposed_apr_per__c}"/>
                 </apex:outputText> </td>
             <td>Vigencia: 12/07/2018 * </td>
         </tr>
         <apex:outputPanel rendered="{!Product.Type_of_quote__c =='COTIZADOR'}">
             <tr>
-                <td>Comisión estructuración:<apex:outputText value=" {0, number,000.00} %">
+                <td>Comisión estructuración:<apex:outputText value=" {0, number,.00} %">
                     <apex:param value="{!Oli.restructuring_fee_per__c }"/>
                     </apex:outputText> </td>
-                <td>Comisión liquidación anticipada:<apex:outputText value=" {0, number,000.00} %">
+                <td>Comisión liquidación anticipada:<apex:outputText value=" {0, number,.00} %">
                     <apex:param value="{!Oli.cancellation_fee_per__c}"/>
                     </apex:outputText> </td>
             </tr>
@@ -113,8 +116,8 @@
         </tr>
         <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductExport || Product.ProductCode == $Label.lblPDFProductImport}">
             <tr>
-                <td>Medio de pago: {!OLI.gipr_Payment_Method__c}</td>
-                <td>Bolsa comex: {!OLI.gipr_Comex_Bag__c}</td>
+                <td>Medio de pago:&nbsp;{!OLI.gipr_Payment_Method__c}</td>
+                <td>Bolsa comex:&nbsp;{!OLI.gipr_Comex_Bag__c}</td>
             </tr>
         </apex:outputPanel>
         <tr>
@@ -128,6 +131,7 @@
     <br/>
      <br/>
     <br/>
+   </apex:outputPanel>
     <apex:outputPanel id="DatosOportunidad"  layout="block">
         <br/>
         <div class="subtitle">
@@ -139,9 +143,8 @@
                 <td>Nombre de la oportunidad: {!Opportunity.Name}</td>
                 <td>Familia producto: {!Product.Family}</td>
             </tr>
-            <tr><td>Producto: {!Product.Name}</td></tr>
+            <tr><td>Producto: {!Product.Name}</td><td/></tr>
         </table>
-
     </apex:outputPanel>
     <apex:outputPanel id="pagoliquidación"  layout="block">
         <br/>
@@ -154,19 +157,20 @@
             <apex:repeat value="{!A}" var="pc" id="Pagoliq">
                 <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
                     <tr>
-                        <apex:panelGroup>
-                            <td> {!A[rowNum].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/> </td>
-                        </apex:panelGroup>
+                        <td>
+                           {!A[rowNum].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/>
+                        </td>
+                        <td>
                          <apex:panelGroup rendered="{!rowNum+1 < A.size}">
-                            <td>{!A[rowNum+1].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[A[rowNum+1].fprd__Map_field__c]}"/></td>
+                            {!A[rowNum+1].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[A[rowNum+1].fprd__Map_field__c]}"/>
                         </apex:panelGroup>
+                        </td>
                     </tr>
                 </apex:panelGroup>
                 <apex:variable var="rowNum" value="{!rowNum + 1}"/>
             </apex:repeat>
         </table>
     </apex:outputPanel>
-    <br/>
      <apex:outputPanel id="InfoGral"  layout="block">
         <br/>
         <div class="subtitle">
@@ -178,12 +182,16 @@
             <apex:repeat value="{!B}" var="pc" id="InfoGral2">
                 <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
                     <tr>
-                        <apex:panelGroup>
-                            <td> {!B[rowNum].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/> </td>
+                        <td>
+                        <apex:panelGroup >
+                             {!B[rowNum].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/>
                         </apex:panelGroup>
+                        </td>
+                        <td>
                          <apex:panelGroup rendered="{!rowNum+1 < B.size}">
-                            <td>{!B[rowNum+1].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[B[rowNum+1].fprd__Map_field__c]}"/></td>
+                            {!B[rowNum+1].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[B[rowNum+1].fprd__Map_field__c]}"/>
                         </apex:panelGroup>
+                        </td>
                     </tr>
                 </apex:panelGroup>
                 <apex:variable var="rowNum" value="{!rowNum + 1}"/>
@@ -214,7 +222,7 @@
                 <td class="cd"><apex:outputText value="{0, number,0}">
                     <apex:param value="{!Garantia.guarantee_term_number__c}" />
                     </apex:outputText></td>
-                <td class="cd"><apex:outputText value="{0,number,000,000.00}">
+                <td class="cd"><apex:outputText value="{0,number,###,###.00}">
                     <apex:param value="{!Garantia.guaranteed_amount__c}" />
                     </apex:outputText>
                 </td>
