@@ -32,6 +32,9 @@
             <componentName>force:detailPanel</componentName>
         </componentInstances>
         <componentInstances>
+            <componentName>AssistantSectionContainer_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
             <componentName>forceChatter:recordFeedContainer</componentName>
         </componentInstances>
         <mode>Replace</mode>
