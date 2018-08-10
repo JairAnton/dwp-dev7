@@ -1501,4 +1501,25 @@
         <shortDescription>NewVisitWarning</shortDescription>
         <value>To create an Visit you must go to the client&apos;s detail page and click on the &quot;Plan Visit&quot; button</value>
     </labels>
+    <labels>
+        <fullName>AssistantValidationError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AssistantValidationError</shortDescription>
+        <value>There is no permission to manage the assistant team for this executive</value>
+    </labels>
+    <labels>
+        <fullName>lblSetupAssistant</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblSetupAssistant</shortDescription>
+        <value>Setup Assistant</value>
+    </labels>
+    <labels>
+        <fullName>btnAssistant</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>btnAssistant</shortDescription>
+        <value>Setup assistants</value>
+    </labels>
 </CustomLabels>
