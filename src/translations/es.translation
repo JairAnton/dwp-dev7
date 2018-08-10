@@ -1052,6 +1052,14 @@
         <label>Gestionar asistentes</label>
         <name>btnAssistant</name>
     </customLabels>
+    <customLabels>
+        <label>Nuevo</label>
+        <name>New</name>
+    </customLabels>
+    <customLabels>
+        <label>Delete</label>
+        <name>Delete</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
