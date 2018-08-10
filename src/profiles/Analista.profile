@@ -4083,6 +4083,16 @@ Analistas de riesgos</description>
         <field>dwp_kitv__Visit__c.report_visit_status_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Assistant_Team__c.assistant_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Assistant_Team__c.user_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
@@ -4211,6 +4221,9 @@ Analistas de riesgos</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Commitment_Value__c-Commitment Value Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>User_Assistant_Team__c-User Assistant Team Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -4723,6 +4736,15 @@ Analistas de riesgos</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>PushTopic</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>User_Assistant_Team__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <recordTypeVisibilities>
