@@ -13,6 +13,22 @@
         <name>opportunity_product__c</name>
     </fields>
     <fields>
+        <label>Fecha de Cierre</label>
+        <name>Field_Sup_Closing_Date__c</name>
+    </fields>
+    <fields>
+        <label>Moneda</label>
+        <name>Support_currency__c</name>
+        <picklistValues>
+            <masterLabel>PEN</masterLabel>
+            <translation>Sol peruano</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation>Dólar de EE.UU.</translation>
+        </picklistValues>
+    </fields>	
+    <fields>
         <caseValues>
             <plural>false</plural>
             <value>Comentarios</value>

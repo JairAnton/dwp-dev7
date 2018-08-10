@@ -11,12 +11,12 @@ public without sharing class Opportunity_Handler_cls extends TriggerHandler {
     list<Opportunity>Opps_Old = Trigger.Old;
     Map<id,Opportunity>Opps_NewMap = ((Map<Id,Opportunity>)(Trigger.NewMap));
     Map<id,Opportunity>Opps_OldMap = ((Map<Id,Opportunity>)(Trigger.OldMap));
-    /*
+    
     @TestVisible
     protected override void beforeInsert(){
         new Opportunity_Trigger_cls().AsignBeforeInsert(Opps_New,Opps_NewMap);
     }
-    */
+    
     @TestVisible
     protected override void beforeUpdate(){
         new Opportunity_Trigger_cls().AsignBeforeUpdate(Opps_New, Opps_NewMap, Opps_Old, Opps_OldMap);

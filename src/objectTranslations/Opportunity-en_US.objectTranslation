@@ -18,6 +18,22 @@
         <name>Discovery_Completed__c</name>
     </fields>
     <fields>
+        <label>Closing Date</label>
+        <name>Field_Sup_Closing_Date__c</name>
+    </fields>
+    <fields>
+        <label>coin</label>
+        <name>Support_currency__c</name>
+        <picklistValues>
+            <masterLabel>PEN</masterLabel>
+            <translation>Sol peruano</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation>Dólar de EE.UU.</translation>
+        </picklistValues>
+    </fields>	
+    <fields>
         <label><!-- Loss Reason --></label>
         <name>Loss_Reason__c</name>
         <picklistValues>

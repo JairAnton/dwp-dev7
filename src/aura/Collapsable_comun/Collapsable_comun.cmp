@@ -2,11 +2,12 @@
     <aura:attribute name="isCollapsed" type="boolean" default="false"/>
     <aura:attribute name="sectionTitle" type="String" default="Cambiar"/>
     <aura:attribute name="slds-hide" type="boolean" default="true"/>
+    <aura:attribute name="styleSection" type="String" default="padding-left:0px !important;" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
     <div class="slds-hide" aura:id="slds-hide">
         <div class="contdivProds">
-            <div class="slds-section-title--divider slds-media" style="padding-left:0px !important;" >   
+            <div class="slds-section-title--divider slds-media" style="{!v.styleSection}" >   
                 <ui:button press="{!c.hideMe}" class="removeborder slds-button--inverse  slds-section__title titleSpan slds-button--icon ">
                     <div class="slds-grid slds-wrap " style="width:100%">
                         <div class="slds-p-horizontal--small slds-size--1-of-16" >
