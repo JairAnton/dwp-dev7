@@ -2,7 +2,9 @@
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <aura:attribute name="showSection" type="Boolean" default="false" />
     
-    <div class="slds-card slds-p-around_small">
-        <c:AssistantSection_cmp recordId="{!v.recordId}" />
-    </div>
+    <aura:if isTrue="{!v.showSection}">
+        <div class="slds-card slds-p-around_small">
+            <c:AssistantSection_cmp recordId="{!v.recordId}" />
+        </div>
+    </aura:if>
 </aura:component>

@@ -19,7 +19,8 @@
                         buttonsAlignment="left"
                         buttonsStyles="brand"
                         buttonHiddenIfNotAvailable="false"
-                        refreshOnRefreshView="true" />
+                        refreshOnRefreshView="true"
+                        sObjectName="User" />
         </aura:if>
    
 </aura:component>
