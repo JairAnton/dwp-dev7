@@ -51,28 +51,6 @@
                                 'userName' : cmp.get('v.selectedRecord').Name
                                 };
             objReturn['isOk'] = true;
-            /*var action = cmp.get("c.insertAssistant");
-            console.log('dsf',cmp.get('v.recordId'));
-            console.log('dsf',cmp.get('v.selectedRecord').Id);
-            // set param to method 
-            action.setParams({
-                'recordId': cmp.get('v.recordId'),
-                'assistantId' :  cmp.get('v.selectedRecord').Id
-            });
-            // set a callBack    
-            action.setCallback(this, function(response) {
-                var state = response.getState();
-                if (state === "SUCCESS") {
-                    if(response.getReturnValue().isOk){
-                        var compEvent = cmp.getEvent("sendMessage");
-                        compEvent.setParams({	"message" : '1'});
-                        compEvent.fire(); 
-                    }
-                }
-                
-            });
-            // enqueue the Action  
-            $A.enqueueAction(action);*/
             
         }else{
             cmp.set('v.checkError',true);

@@ -58,7 +58,6 @@
     handleComponentEvent : function(component, event, helper) {
         // get the selected User record from the COMPONETN event 	 
         var selectedUserGetFromEvent = event.getParam("recordByEvent");
-        console.log('selectedUserGetFromEvent: ', selectedUserGetFromEvent);
         component.set("v.selectedRecord" , selectedUserGetFromEvent); 
         
         var forclose = component.find("lookup-pill");
@@ -79,7 +78,6 @@
         
     },
     saveAssistent : function(cmp, evt, helper){
-        console.log('eeeeeeeeeeeeeeeeeeeeee');
         return helper.doSave(cmp, evt, helper);
     }
 })

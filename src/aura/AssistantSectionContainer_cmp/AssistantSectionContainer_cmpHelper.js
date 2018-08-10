@@ -8,7 +8,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                console.log('ret: ', ret);
 				cmp.set('v.showSection',ret.showSection);
             }
         }));
