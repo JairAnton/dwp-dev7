@@ -85,14 +85,6 @@ public with sharing class AssistantSection_ctrl {
     }
 
     @AuraEnabled
-    public static Map<String,Object> deleteUsersAccount(List<String> lstIds){
-        Map<String,Object> mapReturn = new Map<String,Object>();
-        delete [SELECT Id FROM User_Assistant_Team__c WHERE Id IN :lstIds]; 
-        mapReturn.put('isOk',true);
-        return mapReturn;
-    }
-
-    @AuraEnabled
     public static Map<String,Object> saveAll(String recordId, List<String> lstNewAssistant, List<String> lstDeleteAssistant){
 
         Map<String,Object> mapReturn = new Map<String,Object>();
