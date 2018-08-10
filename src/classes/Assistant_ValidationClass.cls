@@ -11,7 +11,7 @@ global class Assistant_ValidationClass implements dwp_dbpn.DynamicFlowValidation
                                                                 WHERE PermissionSet.Name = 'Assistant_Teams_Management'
                                                                 AND AssigneeId = :UserInfo.getUserId()];
                 
-                if(lstPermissionSet.isEmpty())lstErrorMessage.add('No tiene permiso para gestionar el equipo de asistentes para este ejecutivo'); 
+                if(lstPermissionSet.isEmpty())lstErrorMessage.add(Label.AssistantValidationError); 
             }
         }
         return lstErrorMessage;

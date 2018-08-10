@@ -67,8 +67,6 @@ public with sharing class AssistantSection_ctrl {
                                 WHERE Name LIKE: searchKey 
                                 AND Profile.Name = 'Ejecutivo'
                                 ORDER BY Name DESC];
-        System.debug(lstUser);
-        System.debug(recordId);
         Integer limitList = 0;
         for(Integer i = 0; i<lstUser.size() && limitList<5; i++){
             User usr = lstUser[i];
@@ -89,7 +87,6 @@ public with sharing class AssistantSection_ctrl {
     @AuraEnabled
     public static Map<String,Object> deleteUsersAccount(List<String> lstIds){
         Map<String,Object> mapReturn = new Map<String,Object>();
-        System.debug(lstIds);
         delete [SELECT Id FROM User_Assistant_Team__c WHERE Id IN :lstIds]; 
         mapReturn.put('isOk',true);
         return mapReturn;
