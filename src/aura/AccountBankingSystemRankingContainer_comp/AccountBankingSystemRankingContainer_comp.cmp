@@ -10,7 +10,7 @@
                                                       Object="Account_Banking_System_Debt__c"
                                                       RelatedField="account_id__c"
                                                       Header="product_group_classification_id__c,ranking_number__c"
-                                                      FilterStatic="{!'year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c != \'\' AND product_desc__c = \'\' AND entity_name__c = \'\' AND product_group_classification_id__c = \''+ $Label.c.AccountRankingClassificationTable1 +'\' AND entity_name__c = \'BBVA\''}"
+                                                      FilterStatic="{!'year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c != \'\' AND product_desc__c = \'\' AND entity_name__c = \'BBVA\' AND product_group_classification_id__c = \''+ $Label.c.AccountRankingClassificationTable1 +'\''}"
                                                       Format='-,-'
                                                       Order='product_group_classification_order__c ASC'/>
         </lightning:layoutItem>
@@ -24,7 +24,7 @@
                                                       Object="Account_Banking_System_Debt__c"
                                                       RelatedField="account_id__c"
                                                       Header="product_group_classification_id__c,ranking_number__c"
-                                                      FilterStatic="{!'year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c != \'\' AND product_desc__c = \'\' AND entity_name__c = \'\' AND product_group_classification_id__c = \'' + $Label.c.AccountRankingClassificationTable2 + '\' AND entity_name__c = \'BBVA\''}"
+                                                      FilterStatic="{!'year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c != \'\' AND product_desc__c = \'\' AND entity_name__c = \'BBVA\' AND product_group_classification_id__c = \'' + $Label.c.AccountRankingClassificationTable2 + '\''}"
                                                       Format='-,-'
                                                       Order='product_group_classification_order__c ASC'/>
         </lightning:layoutItem>
@@ -37,7 +37,7 @@
                                                       Object="Account_Banking_System_Debt__c"
                                                       RelatedField="account_id__c"
                                                       Header="product_desc__c,ranking_number__c"
-                                                      FilterStatic="{!'year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c != \'\' AND product_desc__c != \'\' AND entity_name__c = \'\' AND product_group_classification_id__c = \''+ $Label.c.AccountRankingClassificationTable1 +'\' AND entity_name__c = \'BBVA\''}"
+                                                      FilterStatic="{!'year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c != \'\' AND product_desc__c != \'\' AND entity_name__c = \'BBVA\' AND product_group_classification_id__c = \''+ $Label.c.AccountRankingClassificationTable1 +'\''}"
                                                       Format='-,-'
                                                       Order='product_desc_order__c ASC'/>
         </lightning:layoutItem>
@@ -50,7 +50,7 @@
                                                       Object="Account_Banking_System_Debt__c"
                                                       RelatedField="account_id__c"
                                                       Header="product_desc__c,ranking_number__c"
-                                                      FilterStatic="{!'year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c != \'\' AND product_desc__c != \'\' AND entity_name__c = \'\' AND product_group_classification_id__c = \''+ $Label.c.AccountRankingClassificationTable2 +'\' AND entity_name__c = \'BBVA\''}"
+                                                      FilterStatic="{!'year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c != \'\' AND product_desc__c != \'\' AND entity_name__c = \'BBVA\' AND product_group_classification_id__c = \''+ $Label.c.AccountRankingClassificationTable2 +'\''}"
                                                       Format='-,-'
                                                       Order='product_desc_order__c ASC'/>
         </lightning:layoutItem>
