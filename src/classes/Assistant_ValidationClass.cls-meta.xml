@@ -3,13 +3,8 @@
     <apiVersion>43.0</apiVersion>
     <packageVersions>
         <majorNumber>1</majorNumber>
-        <minorNumber>4</minorNumber>
-        <namespace>dwp_kitv</namespace>
-    </packageVersions>
-    <packageVersions>
-        <majorNumber>1</majorNumber>
-        <minorNumber>4</minorNumber>
-        <namespace>gcal</namespace>
+        <minorNumber>1</minorNumber>
+        <namespace>dwp_dbpn</namespace>
     </packageVersions>
     <status>Active</status>
 </ApexClass>

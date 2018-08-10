@@ -4576,6 +4576,16 @@ Asistente BE</description>
         <field>dwp_kitv__Visit__c.report_visit_status_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Assistant_Team__c.assistant_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Assistant_Team__c.user_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
@@ -4689,6 +4699,9 @@ Asistente BE</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Commitment_Value__c-Commitment Value Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>User_Assistant_Team__c-User Assistant Team Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -5131,6 +5144,15 @@ Asistente BE</description>
         <object>PushTopic</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>User_Assistant_Team__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
         <enabled>false</enabled>
@@ -5401,7 +5423,11 @@ Asistente BE</description>
         <name>ContentWorkspaces</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
+        <name>ViewSetup</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>false</enabled>
         <name>CreateCustomizeFilters</name>
     </userPermissions>
     <userPermissions>

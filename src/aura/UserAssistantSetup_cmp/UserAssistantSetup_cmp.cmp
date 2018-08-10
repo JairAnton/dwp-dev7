@@ -1,0 +1,42 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" controller="AssistantSection_ctrl" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
+    <aura:attribute name="step" type="String" default="1" />
+    <aura:attribute name="lstDataCustom" type="Object[]" />
+    <aura:attribute name="lstDataDelete" type="String[]" />
+    <aura:attribute name="isLoad" type="Boolean" default="false" />
+    <aura:attribute name="posTable" type="Integer" />
+    <aura:attribute name="title" type="String" default="{!$Label.c.lblSetupAssistant}" access="global" description="Specify the modal"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="sendMessage" event="c:SendMessageCustom_evt" action="{!c.changeStep}"/>
+
+    <aura:if isTrue="{!v.isLoad}">
+        <aura:if isTrue="{!v.step == '1'}">
+            <div class="slds-modal__content slds-p-around_medium">
+                <c:AssistantTable_cmp lstDataCustom="{!v.lstDataCustom}" aura:id="tableCustom" recordId="{!v.inputAttributes.recordId}" hideCheckbox="false" isCustom="true" />
+                <br/>
+                <lightning:button
+                            label="{!$Label.c.New}"
+                            variant="brand"
+                            onclick="{!c.newRecord}"
+                    />
+                <lightning:button
+                        label="{!$Label.c.Delete}" 
+                        variant="brand"
+                        onclick="{!c.deleteRecords}"
+                />
+            </div>    
+            <footer class="slds-modal__footer slds-theme_default">
+                <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.save}" label="{!$Label.c.Save}"/>
+                <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+            </footer>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.step == '2'}">
+                    <c:newUserAccountTeamMember aura:id="newRecord" recordId="{!v.inputAttributes.recordId}" />
+                    <footer class="slds-modal__footer slds-theme_default">
+                        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doSaveAssistent}" id="idSave" label="{!$Label.c.Save}"/>
+                        <lightning:button variant="neutral" onclick="{!c.back}">{!$Label.c.Cancel}</lightning:button>
+                    </footer>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </aura:if>    
+</aura:component>

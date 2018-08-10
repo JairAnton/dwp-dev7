@@ -1,0 +1,26 @@
+<aura:component implements="force:hasRecordId" extends="c:Collapsable_comun" controller="AssistantSection_ctrl">
+	<aura:attribute name="isCollapsed" type="boolean" default="false"/>
+    <aura:attribute name="sectionTitle" type="String" default="{!$Label.c.lblSetupAssistant}"/>
+    <aura:attribute name="styleSection" type="String" default="padding:0px !important;" />
+    <aura:attribute name="slds-hide" type="boolean" default="true"/>
+    <aura:attribute name="showSection" type="Boolean" default="false" />
+    <aura:attribute name="selectedRows" type="List" access="PRIVATE"/>
+    <aura:attribute name="isLoad" type="Boolean" default="true" />
+
+    <aura:handler event="force:refreshView" action="{!c.doInitRefreshView}" />
+    
+        <aura:if isTrue="{!v.isLoad}">
+            <br/>
+            <c:AssistantTable_cmp recordId="{!v.recordId}" />
+            <br/>
+            <dwp_dbpn:DynamicButtonCollection_comp recordId="{!v.recordId}"
+                        buttonsCollectionUniqueIdentifier="UserAssistantButtonCollection"
+                        buttonsUniqueIdentifiers="btnAssistant"
+                        buttonsAlignment="left"
+                        buttonsStyles="brand"
+                        buttonHiddenIfNotAvailable="false"
+                        refreshOnRefreshView="true"
+                        sObjectName="User" />
+        </aura:if>
+   
+</aura:component>
