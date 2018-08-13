@@ -8,7 +8,7 @@
         <members>Migracion</members>
         <members>Operativo</members>
         <name>Profile</name>
-    </types>	
+    </types>
     <types>
         <members>Hangout</members>
         <members>Agree</members>
@@ -58,7 +58,7 @@
         <members>New_Opportunity</members>
         <members>OpportunityName</members>
         <members>PlannigDate</members>
-        <members>Probability</members>        
+        <members>Probability</members>
         <members>Comments</members>
         <members>Currency</members>
         <members>DateHigherThan</members>
@@ -118,119 +118,6 @@
     </types>
     <types>
         <members>*</members>
-        <members>AccountContactParentAssociation</members>
-        <members>AccountContact_Handler</members>
-        <members>AccountContact_Handler_TEST</members>
-        <members>Account_Handler_cls</members>
-        <members>Account_Handler_test</members>
-        <members>Account_Trigger_cls</members>
-        <members>Action_Audit_Helper</members>
-        <members>Action_Audit_Helper_Test</members>
-        <members>Approve_ValidationClass</members>
-        <members>BBVA_SBS_Classification_Test</members>
-        <members>BBVA_SBS_Classification_cls</members>
-        <members>Case_Handler</members>
-        <members>Case_Helper</members>
-        <members>Case_Test</members>
-        <members>Commitment_ctrl</members>
-        <members>Commitment_ctrl_Test</members>
-        <members>Complete_ValidationClass</members>
-        <members>Contact_Group_Handler</members>
-        <members>Contact_Group_Handler_test</members>
-        <members>Contact_Handler</members>
-        <members>Container_Product_Form_ctrl</members>
-        <members>Container_Product_Form_ctrl_Test</members>
-        <members>DynamicBatchChatterNotification</members>
-        <members>DynamicBatchChatterNotification_Test</members>
-        <members>DynamicNotificationInformation</members>
-        <members>DynamicNotificationInformation_Test</members>
-        <members>DynamicNotificationMessageRecipent</members>
-        <members>DynamicNotificationMessageStructure</members>
-        <members>DynamicNotificationMessageStructure_Test</members>
-        <members>DynamicNotificationMessageValidation</members>
-        <members>Email_SIO</members>
-        <members>Email_SIO_Test</members>
-        <members>Event_Test</members>
-        <members>FieldForm_ctrl</members>
-        <members>FieldForm_ctrl_Test</members>
-        <members>FileUploadController_cls</members>
-        <members>FormalizationButtonClass_Test</members>
-        <members>Formalization_ValidationClass</members>
-        <members>Formalize_ValidationClass</members>
-        <members>GetCaseOwnerOrQueueMembers</members>
-        <members>GetCaseOwnerOrQueueMembers_Test</members>
-        <members>GraphicsGenerator_cls</members>
-        <members>GraphicsGenerator_cls_test</members>
-        <members>Hangout_ctrl</members>
-        <members>Hangout_ctrl_TEST</members>
-        <members>MX_PickListValues_Test</members>
-        <members>MX_PickListValues_cls</members>
-        <members>NavigateFromEventToVisit_cmp_ctrl</members>
-        <members>NavigateFromEventToVisit_cmp_ctrl_Test</members>
-        <members>NotificationBatch</members>
-        <members>NotificationBatch_Test</members>
-        <members>Object_Controller</members>
-        <members>Object_controller_tst</members>
-        <members>OpportunityLineItem_Trigger_cls</members>
-        <members>OpportunityLineItem_test</members>
-        <members>OpportunityPDFWrap</members>
-        <members>OpportunityPDFWrap_Test</members>
-        <members>OpportunityProduct_Controller</members>
-        <members>OpportunityProduct_Controller_tst</members>
-        <members>OpportunityTraceability_cls</members>
-        <members>Opportunity_Handler_cls</members>
-        <members>Opportunity_Trigger_Test</members>
-        <members>Opportunity_Trigger_cls</members>
-        <members>Opportunity_cls</members>
-        <members>Opportunity_cls_test</members>
-        <members>OverrideButtonMessage_ctrl</members>
-        <members>OverrideButtonMessage_ctrl_TEST</members>
-        <members>PDFClassButtonTest</members>
-        <members>PDF_ValidationClass</members>
-        <members>PDF_formalizacion_ctrl</members>
-        <members>PDF_formalizacion_ctrl_tst</members>
-        <members>PDFclassButton</members>
-        <members>PE_OpportunityLITTriggerHandler</members>
-        <members>PrincipalButtonValidationTest</members>
-        <members>PrincipalValidationHub</members>
-        <members>Product_cls</members>
-        <members>Product_cls_test</members>
-        <members>ProfitabilityController_cls</members>
-        <members>ProfitabilityController_cls_test</members>
-        <members>Quote_ValidationClass</members>
-        <members>ReasignButtonClass</members>
-        <members>ReasignButtonClass_Test</members>
-        <members>ReevaluateButtonClass</members>
-        <members>ReevaluateButtonClassTest</members>
-        <members>Reevaluate_ValidationClass</members>
-        <members>Risk_Approval_Test</members>
-        <members>Risk_Approval_ValidationClass</members>
-        <members>Risk_Approval_cls</members>
-        <members>SanctionPriceDecision_ctrl</members>
-        <members>SanctionPriceDecision_ctrl_Test</members>
-        <members>SanctionPrice_ValidationClass</members>
-        <members>SanctionPrice_ctrl</members>
-        <members>SanctionPrice_ctrl_Test</members>
-        <members>Sanction_Price_Analist_Valid_Test</members>
-        <members>Sanction_Price_Analist_ValidationClass</members>
-        <members>SimulatePrice_ctrl</members>
-        <members>SimulatePrice_ctrl_Test</members>
-        <members>SubmitToDiscart_ValidationClass</members>
-        <members>TestFactory</members>
-        <members>TriggerHandler</members>
-        <members>TriggerHandler_Test</members>
-        <members>Unlink_ValidationClass</members>
-        <members>Visit_Trigger_tst</members>
-        <members>approveButtonClass</members>
-        <members>approveButtonClass_Test</members>
-        <members>checkIfUserNotOppAccountOwner</members>
-        <members>checkIfUserNotOppAccountOwner_Test</members>
-        <members>formalizationButtonClass</members>
-        <members>quoteClassButton</members>
-        <members>quoteClassButtonTest</members>
-        <members>statusButtonClass</members>
-        <members>unlinkButtonClass</members>
-        <members>unlinkButtonClass_Test</members>
         <name>ApexClass</name>
     </types>
 	    <types>
@@ -244,7 +131,6 @@
     <types>
         <members>AccountContact_tgr</members>
         <members>Account_tgr</members>
-        <members>Case_Trigger</members>
         <members>Contact_Tgr</members>
         <members>Event_Trigger</members>
         <members>OpportunityLineT</members>
@@ -292,7 +178,6 @@
         <members>LastFormalization_comp</members>
         <members>MX_PickListValues_comp</members>
         <members>ModalTemplate_cmp</members>
-        <members>NavigateFromEventToVisit_cmp</members>
         <members>OutputFieldCustom</members>
         <members>OverrideStandardButtonMessage_cmp</members>
         <members>PDFLightingComponent</members>
@@ -304,12 +189,9 @@
         <members>Reject_comp</members>
         <members>ReloadTable_evt</members>
         <members>Risk_Approval_cmp</members>
-        <members>SanctionPriceAnalist_cmp</members>
         <members>SanctionPriceCommitments_cmp</members>
-        <members>SanctionPriceDecisionAnalist_cmp</members>
         <members>SanctionPriceDecision_cmp</members>
         <members>SanctionPrice_cmp</members>
-        <members>SimulatePrice_cmp</members>
         <members>Unlink_cmp</members>
         <members>UploadedFile_evt</members>
         <members>UserLookupResult</members>
@@ -344,20 +226,12 @@
         <name>CustomLabels</name>
     </types>
     <types>
-        <members>Field.COTIZADOR_Prop_Aut_restructuring_fee_per</members>
-        <members>Field.COTIZADOR_Prop_Auth_cancellation_fee_per</members>
-        <members>Field.COTIZADOR_Prop_Auth_proposed_apr_per</members>
-        <members>Field.COTIZADOR_Prop_Auth_spread_per</members>
         <members>Field.COTIZADOR_Proposal_cancellation_fee_per</members>
         <members>Field.COTIZADOR_Proposal_minimun_apr_per</members>
         <members>Field.COTIZADOR_Proposal_proposed_apr_per</members>
         <members>Field.COTIZADOR_Proposal_restructuring_fee_per</members>
         <members>Field.COTIZADOR_Proposal_spread_per</members>
         <members>Field.COTIZADOR_Proposal_suggested_apr_per</members>
-        <members>Field.COTIZADOR_View_Aut_restructuring_fee_per</members>
-        <members>Field.COTIZADOR_View_Auth_cancellation_fee_per</members>
-        <members>Field.COTIZADOR_View_Auth_proposed_apr_per</members>
-        <members>Field.COTIZADOR_View_Auth_spread_per</members>
         <members>Field.COTIZADOR_View_cancellation_fee_per</members>
         <members>Field.COTIZADOR_View_minimun_apr_per</members>
         <members>Field.COTIZADOR_View_price_quote_date</members>
@@ -376,47 +250,31 @@
         <members>Field.COTIZA_Beta_View_proposed_apr_per</members>
         <members>Field.COTIZA_Beta_View_spread_per</members>
         <members>Field.COTIZA_Beta_View_suggested_apr_per</members>
-        <members>Field.Tarifario_Prop_Auth_minimun_fee_per</members>
-        <members>Field.Tarifario_Prop_Auth_proposed_fee_per</members>
         <members>Field.Tarifario_Proposal_minimun_fee_per</members>
         <members>Field.Tarifario_Proposal_proposed_fee_per</members>
-        <members>Field.Tarifario_View_Auth_minimun_fee_per</members>
-        <members>Field.Tarifario_View_Auth_proposed_fee_per</members>
         <members>Field.Tarifario_View_minimun_fee_per</members>
         <members>Field.Tarifario_View_price_quote_date</members>
         <members>Field.Tarifario_View_proposed_fee_per</members>
-        <members>Field.Web_Proposal_Auth_proposed_apr_per</members>
         <members>Field.Web_Proposal_minimun_apr_per</members>
         <members>Field.Web_Proposal_proposed_apr_per</members>
         <members>Field.Web_Proposal_suggested_apr_per</members>
         <members>Field.Web_Simulatio_Proposal_suggested_apr_per</members>
         <members>Field.Web_Simulation_Proposal_minimun_apr_per</members>
-        <members>Field.Web_View_Auth_proposed_apr_per</members>
         <members>Field.Web_View_minimun_apr_per</members>
         <members>Field.Web_View_price_quote_date</members>
         <members>Field.Web_View_proposed_apr_per</members>
         <members>Field.Web_View_suggested_apr_per</members>
         <members>Field_form.COTIZADOR_Proposal</members>
-        <members>Field_form.COTIZADOR_Proposal_Authorization</members>
         <members>Field_form.COTIZADOR_View</members>
-        <members>Field_form.COTIZADOR_View_Authorization</members>
         <members>Field_form.COTIZA_Beta_Proposal</members>
         <members>Field_form.COTIZA_Beta_View</members>
         <members>Field_form.Tarifario_Proposal</members>
-        <members>Field_form.Tarifario_Proposal_Authorization</members>
         <members>Field_form.Tarifario_View</members>
-        <members>Field_form.Tarifario_View_Authorization</members>
         <members>Field_form.Web_Proposal</members>
-        <members>Field_form.Web_Proposal_Authorization</members>
         <members>Field_form.Web_Simulation_Proposal</members>
         <members>Field_form.Web_View</members>
-        <members>Field_form.Web_View_Authorization</members>
-        <members>Notification_Message_Engine.CREATE_CASE</members>
-        <members>Notification_Message_Engine.REASIGN_CASE</members>
-        <members>Notification_Message_Engine.REJECT</members>
         <members>Override_Standard_Button_Message.Contact</members>
         <members>Override_Standard_Button_Message.Opportunity</members>
-        <members>Override_Standard_Button_Message.Visit</members>
         <members>SIO_Status_Mapping.Authorized01</members>
         <members>SIO_Status_Mapping.Authorized02</members>
         <members>SIO_Status_Mapping.Authorized03</members>
@@ -425,8 +283,6 @@
         <members>SIO_Status_Mapping.Denied02</members>
         <members>SIO_Status_Mapping.Denied03</members>
         <members>SIO_Status_Mapping.Denied04</members>
-        <members>User_Position_Mapping.code_E0B</members>
-        <members>User_Position_Mapping.code_I49</members>
         <members>dwp_dbpn__Dynamic_Button_Collection_Configuration.CaseDynamicButtonCollection</members>
         <members>dwp_dbpn__Dynamic_Button_Collection_Configuration.OppDynamicButtonCollection</members>
         <members>dwp_dbpn__Dynamic_Button_Configuration.btnApprove_cfg</members>
@@ -469,7 +325,6 @@
         <members>Field__mdt</members>
         <members>Field_form__mdt</members>
         <members>Modality_Mode__c</members>
-        <members>Notification_Message_Engine__mdt</members>
         <members>Opportunity</members>
         <members>OpportunityLineItem</members>
         <members>OpportunityTeamMember</members>
@@ -483,7 +338,6 @@
         <members>Task</members>
         <members>User</members>
         <members>User_Branch__c</members>
-        <members>User_Position_Mapping__mdt</members>
         <members>dwp_cvad__Action_Audit_Detail__c</members>
         <members>dwp_cvad__Action_Audit__c</members>
         <members>dwp_dace__Action__c</members>
@@ -553,7 +407,6 @@
         <members>User-es</members>
         <members>User_Branch__c-en_US</members>
         <members>User_Branch__c-es</members>
-        <members>User_Position_Mapping__mdt-es</members>
         <members>dwp_cvad__Action_Audit__c-es</members>
         <members>dwp_kitv__Visit_Contact__c-en_US</members>
         <members>dwp_kitv__Visit_Contact__c-es</members>
@@ -619,13 +472,10 @@
         <members>Branch_LightningPage</members>
         <members>Commitment_Value_Record_Page</members>
         <members>Contact_Record_Page</members>
-        <members>Event_Lightning_Record_Page_Peru</members>
         <members>Group_Lightning_Record_Page1</members>
         <members>Group_Lightning_Record_Page2</members>
         <members>Opportunity_Record_Page</members>
-        <members>Opportunity_Record_Page1</members>
         <members>Opportunity_Solution_Commitment_Record_Page</members>
-        <members>P_gina_de_inicio_predeterminada</members>
         <members>Price_Approval_Case_RecordPage</members>
         <members>Price_Fee_Record_Page</members>
         <members>User_Branch_LightningPage</members>
@@ -668,24 +518,15 @@
         <name>GlobalValueSetTranslation</name>
     </types>
     <types>
-        <members>Analist</members>
         <members>Analysts_Tier_1</members>
         <members>Analysts_Tier_2</members>
         <members>System_Administrators</members>
         <name>Group</name>
     </types>
     <types>
-        <members>Dashboard Home Page Default</members>
-        <members>HOMEPAGE ESPECIALISTA</members>
-        <name>HomePageLayout</name>
-    </types>
-    <types>
         <members>Account-Account Layout</members>
         <members>Account-Account_Page_Layout_Account</members>
-        <members>Account-Account_Page_Layout_Account_Analist</members>
-        <members>Account-Account_Page_Layout_Account_Operative</members>
         <members>Account-Account_Page_Layout_Economic_Group</members>
-        <members>Account-Account_Page_Layout_Economic_Group_Analist</members>
         <members>AccountContactRelation-Account Contact Relationship Layout</members>
         <members>Account_Accounting__c-Account Accounting Layout</members>
         <members>Account_BBVA_Classification__c-Account BBVA Classification Layout</members>
@@ -705,7 +546,6 @@
         <members>CaseClose-Price Approval Case Close Layout</members>
         <members>Commitment_Value__c-Commitment Value Layout</members>
         <members>Contact-Contact Layout</members>
-        <members>Event-Event Layout</members>
         <members>Field__mdt-Field Layout</members>
         <members>Field_form__mdt-Field table Layout</members>
         <members>Global-Global Layout</members>
@@ -715,9 +555,6 @@
         <members>Opportunity_Solution_Commitment__c-Opportunity Solution Commitment Layout</members>
         <members>Override_Standard_Button_Message__mdt-Override Standard Button Message Layout</members>
         <members>Price_Fee__c-Price Fee Layout</members>
-        <members>Pricebook2-Price Book Layout</members>
-        <members>PricebookEntry-Price Book Entry Layout</members>
-        <members>Product2-Product Layout</members>
         <members>User-User Layout</members>
         <members>UserAlt-User Profile Layout</members>
         <members>User_Branch__c-User_Branch Layout</members>
@@ -765,15 +602,6 @@
         <members>Account_Reports/Account_Credit_Bureau</members>
         <members>Account_Reports/Account_Risk_Strategy</members>
         <members>Account_Reports/Account_Spread</members>
-        <members>Home_Reports</members>
-        <members>Home_Reports/Oportunidades_en_curso</members>
-        <members>Home_Reports/Opportunities_current_month_7B7</members>
-        <members>Home_Reports/Opportunities_current_month_Renewals_30</members>
-        <members>Home_Reports/Opportunity_asset_balance_current_month</members>
-        <members>Home_Reports/Opportunity_balance_liabilities_current_month</members>
-        <members>Home_Reports/Opportunity_variations_by_product_family</members>
-        <members>Home_Reports/Visitas_en_Progreso</members>
-        <members>Home_Reports/Visits_current_month</members>
         <members>dwp_cglp__ReportsGroup</members>
         <members>dwp_cglp__ReportsGroup/dwp_cglp__Opportunities_last_12_months</members>
         <members>dwp_cglp__ReportsGroup/dwp_cglp__Visits_last_12_months</members>
@@ -829,12 +657,6 @@
         <members>EJECUTIVO_BANCA_EMPRESAS_SAN_ISIDRO</members>
         <members>EJECUTIVO_BANCA_EMPRESAS_TRUJILLO</members>
         <members>EJECUTIVO_BANCA_INSTITUCIONAL</members>
-        <members>EJECUTIVO_REGIONAL_BE_1</members>
-        <members>EJECUTIVO_REGIONAL_BE_2</members>
-        <members>EJECUTIVO_REGIONAL_BE_3</members>
-        <members>EJECUTIVO_TRANSACCIONAL_BANCA_EMPRESAS_CENTRA</members>
-        <members>EJECUTIVO_TRANSACCIONAL_BANCA_INSTITUCIONAL</members>
-        <members>ESPEC_PRECIOS_RED</members>
         <members>GERENTE_BANCA_EMPRESAS_AREQUIPA</members>
         <members>GERENTE_BANCA_EMPRESAS_CALLAO</members>
         <members>GERENTE_BANCA_EMPRESAS_CENTRAL</members>
@@ -861,14 +683,10 @@
         <members>GERENTE_REGIONAL_BE_1</members>
         <members>GERENTE_REGIONAL_BE_2</members>
         <members>GERENTE_REGIONAL_BE_3</members>
-        <members>GERENTE_SEGMENTO_PERSONAS_JURIDICAS</members>
         <members>JEFE_PROMOCION_DE_NEGOCIO_BE_1</members>
         <members>JEFE_PROMOCION_DE_NEGOCIO_BE_2</members>
         <members>JEFE_PROMOCION_DE_NEGOCIO_BE_3</members>
         <members>*</members>
-        <members>SUB_GERENTE_PRECIOS_RED</members>
-        <members>SUB_GERENTE_PROGRAM_MANAGEMENT</members>
-        <members>SUB_GERENTE_SEGMENTO_EMP_E_INSTITUCIONES</members>
         <name>Role</name>
     </types>
     <types>
@@ -923,7 +741,6 @@
     </types>
     <types>
         <members>AccountContactRelation</members>
-        <members>Case</members>
         <members>Contact</members>
         <members>Opportunity</members>
         <name>Workflow</name>
