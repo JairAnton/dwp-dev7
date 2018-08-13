@@ -77,8 +77,10 @@
 	            if (state === "SUCCESS") {
 	                component.set("v.errMessage",response.getReturnValue());
 	                helper.handleShowToast(component,event,helper);
-	                if(response.getReturnValue()=="true")
+	                if(response.getReturnValue()=="true"){
+                       $A.get('e.force:refreshView').fire();
 	                   helper.navigateToRecord(component, event, helper);
+                    }
 	                else
 	                {
 	                   component.set("v.errMessage",response.getReturnValue());

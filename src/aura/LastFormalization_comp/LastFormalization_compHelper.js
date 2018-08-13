@@ -41,11 +41,11 @@
                 });
                 action.setCallback(this, function(response) {
                     var state = response.getState();
-                    if (state === "SUCCESS") {
-                       // component.set("v.errMessage",response.getReturnValue());
-                        //helper.handleShowToast(component,event,helper);
-                        if(response.getReturnValue()=="true")
+                    if (state === "SUCCESS") {                       
+                        if(response.getReturnValue()=="true"){
+                            $A.get('e.force:refreshView').fire();
                             helper.navigateToRecord(component, event, helper);
+                        }
 
                     }
                     else if (state === "INCOMPLETE") {
