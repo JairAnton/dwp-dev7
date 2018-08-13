@@ -19,4 +19,23 @@
             <value>09</value>
         </criteriaItems>
     </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Opportunity_Access_Operative</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Opportunity objects with Operatives</description>
+        <label>Opportunity Access Operative</label>
+        <sharedTo>
+            <group>Operative</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>StageName</field>
+            <operation>equals</operation>
+            <value>05</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>opportunity_status_type__c</field>
+            <operation>equals</operation>
+            <value>19,21</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
 </SharingRules>

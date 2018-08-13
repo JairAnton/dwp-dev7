@@ -139,7 +139,7 @@
             <sortOrder>4</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Account.cQuickAc_NewOpportunity</actionName>
+            <actionName>Account.New_Opportununity_type</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>5</sortOrder>
         </platformActionListItems>
@@ -177,6 +177,9 @@
         <quickActionListItems>
             <quickActionName>FeedItem.ContentNote</quickActionName>
         </quickActionListItems>
+	        <quickActionListItems>
+            <quickActionName>Account.New_Opportununity_type</quickActionName>
+        </quickActionListItems>						  
     </quickActionList>
     <relatedContent>
         <relatedContentItems>

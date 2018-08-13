@@ -826,11 +826,7 @@
             <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
-    </layouts>
-    <quickActions>
-        <label>Nueva oportunidad</label>
-        <name>cQuickAc_NewOpportunity</name>
-    </quickActions>    
+    </layouts>   
     <recordTypes>
         <label>Cliente</label>
         <name>Record_Type_Client</name>

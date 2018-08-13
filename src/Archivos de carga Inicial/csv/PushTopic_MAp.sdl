@@ -1,0 +1,11 @@
+#Mapping values
+#Fri Aug 03 21:32:39 COT 2018
+ISACTIVE=IsActive
+NOTIFYFOROPERATIONUPDATE=NotifyForOperationUpdate
+NOTIFYFOROPERATIONCREATE=NotifyForOperationCreate
+QUERY=Query
+NOTIFYFOROPERATIONUNDELETE=NotifyForOperationUndelete
+NOTIFYFOROPERATIONDELETE=NotifyForOperationDelete
+NOTIFYFORFIELDS=NotifyForFields
+ApiVersion\ =ApiVersion
+NAME=Name

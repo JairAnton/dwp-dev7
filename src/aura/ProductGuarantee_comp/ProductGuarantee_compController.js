@@ -13,13 +13,17 @@
     editRow : function(component, evt, helper) {
     	component.set("v.PGuarantee",evt.getSource().get("v.value"));
         component.set('v.title', 'Modificar garantía');
-    	//alert(component.get("v.PGuarantee"));
         component.set("v.showModal",true);
     },
     RecibeParametros : function (cmp,event,helper){
         var parametrohijo0= event.getParam("ReloadTable");
         if(parametrohijo0)
         	 helper.bringData(cmp, event, helper);            
-    },       
+    },   
+    changeProduct : function (cmp,event,helper){
+        var parametrohijo0= event.getParam("productId");
+        if(parametrohijo0!='')
+             helper.bringData(cmp, event, helper);            
+    }    
 
 })

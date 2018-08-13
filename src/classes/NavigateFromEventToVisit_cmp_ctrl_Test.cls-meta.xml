@@ -8,7 +8,7 @@
     </packageVersions>
     <packageVersions>
         <majorNumber>1</majorNumber>
-        <minorNumber>3</minorNumber>
+        <minorNumber>4</minorNumber>
         <namespace>gcal</namespace>
     </packageVersions>
     <status>Active</status>

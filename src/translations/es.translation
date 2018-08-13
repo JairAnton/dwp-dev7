@@ -1040,6 +1040,26 @@
         <label>Para dar de alta una nueva Visita, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Crear visita&quot;</label>
         <name>NewVisitWarning</name>
     </customLabels>
+    <customLabels>
+        <label>No tiene permiso para gestionar el equipo de asistentes para este ejecutivo</label>
+        <name>AssistantValidationError</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestionar asistente</label>
+        <name>lblSetupAssistant</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestionar asistentes</label>
+        <name>btnAssistant</name>
+    </customLabels>
+    <customLabels>
+        <label>Nuevo</label>
+        <name>New</name>
+    </customLabels>
+    <customLabels>
+        <label>Delete</label>
+        <name>Delete</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

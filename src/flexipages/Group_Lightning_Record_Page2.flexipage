@@ -12,6 +12,17 @@
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>nameTopic</name>
+                <value>NewOppFromAccount,NewVisitFromAccount,NewContactFromAccount</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedApiName</name>
+                <value>AccountId,dwp_kitv__account_id__c,AccountId</value>
+            </componentInstanceProperties>
+            <componentName>DynamicRedirect_cmp</componentName>
+        </componentInstances>
         <name>header</name>
         <type>Region</type>
     </flexiPageRegions>
