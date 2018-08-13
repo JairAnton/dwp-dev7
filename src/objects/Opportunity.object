@@ -1053,6 +1053,7 @@
         <columns>OPPORTUNITY.AMOUNT</columns>
         <columns>OPPORTUNITY.CLOSE_DATE</columns>
         <columns>OPPORTUNITY.STAGE_NAME</columns>
+		<columns>opportunity_status_type__c</columns>
         <columns>OPPORTUNITY.PROBABILITY</columns>
         <columns>OPPORTUNITY.TYPE</columns>
         <columns>OPPORTUNITY.LEAD_SOURCE</columns>
@@ -1147,6 +1148,7 @@
         <columns>OPPORTUNITY.CURRENCY_ISO_CODE</columns>
         <columns>OPPORTUNITY.AMOUNT</columns>
         <columns>OPPORTUNITY.STAGE_NAME</columns>
+		<columns>opportunity_status_type__c</columns>
         <columns>CORE.USERS.FULL_NAME</columns>
         <filterScope>Mine</filterScope>
         <filters>
@@ -1243,34 +1245,38 @@
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>OPPORTUNITY.AMOUNT</customTabListAdditionalFields>
         <customTabListAdditionalFields>OPPORTUNITY.STAGE_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>opportunity_status_type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>OPPORTUNITY.CLOSE_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CORE.USERS.FULL_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Customer_alert__c</customTabListAdditionalFields>
         <excludedStandardButtons>New</excludedStandardButtons>
-		<lookupDialogsAdditionalFields>OPPORTUNITY.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OPPORTUNITY.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>OPPORTUNITY.AMOUNT</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>OPPORTUNITY.STAGE_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>opportunity_status_type__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>OPPORTUNITY.CLOSE_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CORE.USERS.FULL_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Customer_alert__c</lookupDialogsAdditionalFields>
-		<lookupFilterFields>OPPORTUNITY.NAME</lookupFilterFields>
+        <lookupFilterFields>OPPORTUNITY.NAME</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>OPPORTUNITY.AMOUNT</lookupFilterFields>
         <lookupFilterFields>OPPORTUNITY.STAGE_NAME</lookupFilterFields>
         <lookupFilterFields>OPPORTUNITY.CLOSE_DATE</lookupFilterFields>
         <lookupFilterFields>CORE.USERS.FULL_NAME</lookupFilterFields>
-		<lookupPhoneDialogsAdditionalFields>OPPORTUNITY.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.AMOUNT</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.STAGE_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>opportunity_status_type__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.CLOSE_DATE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.FULL_NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Customer_alert__c</lookupPhoneDialogsAdditionalFields>
-		<searchFilterFields>OPPORTUNITY.NAME</searchFilterFields>
+        <searchFilterFields>OPPORTUNITY.NAME</searchFilterFields>
         <searchFilterFields>ACCOUNT.NAME</searchFilterFields>
         <searchFilterFields>OPPORTUNITY.AMOUNT</searchFilterFields>
-		<searchFilterFields>OPPORTUNITY.STAGE_NAME</searchFilterFields>
+        <searchFilterFields>OPPORTUNITY.STAGE_NAME</searchFilterFields>
+        <searchFilterFields>opportunity_status_type__c</searchFilterFields>
         <searchFilterFields>OPPORTUNITY.CLOSE_DATE</searchFilterFields>
         <searchFilterFields>CORE.USERS.FULL_NAME</searchFilterFields>
         <searchFilterFields>Customer_alert__c</searchFilterFields>
@@ -1278,6 +1284,7 @@
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.AMOUNT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.STAGE_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>opportunity_status_type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.CLOSE_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.FULL_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Customer_alert__c</searchResultsAdditionalFields>
