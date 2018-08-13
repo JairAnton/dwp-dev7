@@ -1,0 +1,142 @@
+public class OpportunityChatterNotifications {
+    public static void statusChangeNotification(list<Opportunity> Opps_New, Map<id,Opportunity> Opps_NewMap, Map<id,Opportunity> Opps_OldMap){       
+        if(!Opps_New.isEmpty()) {
+            Id userId = UserInfo.getUserId();
+            //recorrer las opportunidades y comprobar las oportunidades que hayan cambiado de estado
+            List<Opportunity> oppStatusChangedList =new List<Opportunity>();
+            for(Opportunity oppNew : Opps_New){
+                if(oppNew.opportunity_status_type__c != Opps_OldMap.get(oppNew.Id). opportunity_status_type__c){
+                    oppStatusChangedList.add(oppNew);
+                }
+            }
+            List<Id> status10 = new List<Id>();
+            List<Id> status13 = new List<Id>();
+            List<Id> status19 = new List<Id>();
+            List<Id> status23 = new List<Id>();
+            List<Id> status12 = new List<Id>();
+            List<Id> status14 = new List<Id>();
+            List<Id> status18 = new List<Id>();
+            List<Id> status17 = new List<Id>();
+            List<Id> status08 = new List<Id>();
+            List<Id> status11 = new List<Id>();
+            List<Id> status09 = new List<Id>();
+            List<Id> status22 = new List<Id>();
+            for(Opportunity oppChanged : oppStatusChangedList) {
+                switch on oppChanged.opportunity_status_type__c {
+                    when '10'{
+                        if(userId != oppChanged.OwnerId){
+                            status10.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '13'{
+                        if(userId != oppChanged.OwnerId){
+                            status13.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '19'{
+                        if(userId != oppChanged.OwnerId){
+                            status19.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '23'{
+                        if(userId != oppChanged.OwnerId){
+                            status23.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '12'{
+                        if(userId != oppChanged.OwnerId){
+                            status12.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '14'{
+                        if(userId != oppChanged.OwnerId){
+                            status14.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '18'{
+                        if(userId != oppChanged.OwnerId){
+                            status18.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '17'{
+                        if(userId != oppChanged.OwnerId){
+                            status17.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '08'{
+                        if(userId != oppChanged.OwnerId){
+                            status10.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '11'{
+                        if(userId != oppChanged.OwnerId){
+                            status10.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '09'{
+                        if(userId != oppChanged.OwnerId){
+                            status10.add(oppChanged.ID);
+                        }                        
+                    }
+                    when '22'{
+                        if(userId != oppChanged.OwnerId){
+                            status22.add(oppChanged.ID);
+                        }                        
+                    }
+                }
+            }
+            if(!status10.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status10, 'Opportunity', 'AUTHORIZE_PRICE');
+            }
+            if(!status13.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status13, 'Opportunity', 'DENIED_PRICE');
+            }
+            if(!status19.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION_OPERATIVE');
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION');
+            }
+            if(!status23.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status23, 'Opportunity', 'FORMALIZE');
+            }
+            if(!status12.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status12, 'Opportunity', 'SENT_PRICE_REEVALUATION');
+            }
+            if(!status14.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status14, 'Opportunity', 'SENT_RISK_REEVALUATION');
+            }
+            if(!status18.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status18, 'Opportunity', 'APPROVE_RISK_DELEGATION');
+            }
+            if(!status17.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status17, 'Opportunity', 'APPROVE_RISK');
+            }
+            if(!status08.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status08, 'Opportunity', 'APPROVE_PRICE_DELEGATION');
+            }
+            if(!status11.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status11, 'Opportunity', 'APPROVE_PRICE');
+            }
+            if(!status09.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status09, 'Opportunity', 'SENT_PRICE_APPROVAL');
+            }
+            if(!status22.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status22, 'Opportunity', 'REJECT');
+            }
+        }
+    }
+    
+    public static void ownerChangeNotification(list<Opportunity> Opps_New, Map<id,Opportunity> Opps_NewMap, Map<id,Opportunity> Opps_OldMap){
+        //Recorrer oportunidades lista new y comprobar en que opp ha cambiado el owner
+        List<Id> oppOwnerChangedId = new List<Id>();
+        if(!Opps_New.isEmpty()) {
+            for(Opportunity oppNew : Opps_New) {
+                //para los que ha cambiado el owner se mete un una lista sus ids
+                if(oppNew.OwnerId != Opps_OldMap.get(oppNew.Id).OwnerId) {
+                    oppOwnerChangedId.add(oppNew.Id);
+                }
+        	}
+            //con la lista de ids llamamos a la clase de notificaciones 
+            DynamicBatchChatterNotification.getDynamicBatchChatterNotification(oppOwnerChangedId, 'Opportunity', 'OPP_CHANGE_OWNER');
+        }
+    }
+}
