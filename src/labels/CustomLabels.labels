@@ -816,6 +816,55 @@
         <value>Price</value>
     </labels>
     <labels>
+        <fullName>Reject_Amount_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reject_Amount_field</shortDescription>
+        <value>The Amount field is required.</value>
+    </labels>
+    <labels>
+        <fullName>Reject_Amount_valid_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reject_Amount_valid_field</shortDescription>
+        <value>Amount value not allowed, please enter positive value.</value>
+    </labels>
+    <labels>
+        <fullName>Reject_Currency_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reject_Currency_field</shortDescription>
+        <value>The Currency field is required.</value>
+    </labels>
+    <labels>
+        <fullName>Reject_Rate_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reject_Rate_field</shortDescription>
+        <value>The Rate field is required.</value>
+    </labels>
+    <labels>
+        <fullName>Reject_Rate_valid_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reject_Rate_valid_field</shortDescription>
+        <value>Rate value not allowed, MAX (100%).</value>
+    </labels>
+    <labels>
+        <fullName>Reject_Term_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reject_Term_field</shortDescription>
+        <value>The Term field must be integer and positive.</value>
+    </labels>
+    <labels>
+        <fullName>Reject_WBank_field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reject_WBank_field</shortDescription>
+        <value>The winning bank field is required.</value>
+    </labels>
+    <labels>
         <fullName>Risk</fullName>
         <language>en_US</language>
         <protected>false</protected>
