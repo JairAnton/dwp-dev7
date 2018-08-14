@@ -25,8 +25,8 @@ public  virtual class OpportunityPDFWrap {
     public static String FechaAut{get;set;}
     public static String FauthPrecio{get;set;}
     public static String Comentarios{get;set;}
-    
-    
+
+
     private static String getQuery(String Objeto){
         String SOQLQuery;
         SObjectType objType = Schema.getGlobalDescribe().get(Objeto);
@@ -48,7 +48,7 @@ public  virtual class OpportunityPDFWrap {
         fieldVisibility = new map<id,boolean>();
         String fieldName;
         String SOQLQuery;
-       
+
         SObjectType objType = Schema.getGlobalDescribe().get('OpportunityLineItem');
         Map<String,Schema.SObjectField> Mfields = objType.getDescribe().fields.getMap();
         SOQLQuery = 'SELECT ';
@@ -69,15 +69,14 @@ public  virtual class OpportunityPDFWrap {
                 fieldName = pc.FPRD__VISIBILITY_CONTROL_FIELD__C;
                 fieldName = fieldName.LEFT(fieldName.length()-Product.ProductCode.length())+'_c';
 
-
                 for(String val : pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',')){
                     if(val==OLI2.get(fieldName)) Found = true;
                 }
-                 
+
                 if(Found){
                     fieldVisibility.put(pc.Id, true);
                 }else{
-                    fieldVisibility.put(pc.Id, false);}
+                    fieldVisibility.put(pc.Id, true);}
             }else{
                 fieldVisibility.put(pc.Id, true);
             }
@@ -86,17 +85,17 @@ public  virtual class OpportunityPDFWrap {
            if(!fieldVisibility.get(ProductConfiguration[index].Id)){
                ProductConfiguration.remove(index);
            }
-        } 
-      
-        for (integer index=0; index<ProductConfiguration.size();index++) { 
+        }
+
+        for (integer index=0; index<ProductConfiguration.size();index++) {
             if(ProductConfiguration[index].FPRD__SECTION_NAME__C=='Información general del producto'){
-                 A.add(ProductConfiguration[index]); 
+                 A.add(ProductConfiguration[index]);
             }
             if(ProductConfiguration[index].FPRD__SECTION_NAME__C=='Criterios de pago y liquidación'){
-                 B.add(ProductConfiguration[index]);   
-            }        
+                 B.add(ProductConfiguration[index]);
+            }
         }
-      
+
     }
     public static string setValues(String Oppid){
         try{
@@ -121,7 +120,7 @@ public  virtual class OpportunityPDFWrap {
             Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+Opp.Id+'\'');
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Opportunity_Solution_Commitment__c  WHERE Opportunity_Id__c =:Opp.id];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
-            totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE fprd__GBL_Opportunity_product__c=:OppId AND guarantee_status_type__c='02'];
+            totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE fprd__GBL_Opportunity_product__c=:Opp.Id AND guarantee_status_type__c='02'];
             numGnF=Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
             title = 'PDF Formalización '+Opportunity.Name;
         }catch(System.Exception e){
