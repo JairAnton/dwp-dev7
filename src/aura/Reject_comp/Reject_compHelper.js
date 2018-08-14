@@ -20,8 +20,6 @@
 	   	component.set('v.recordId',inputObject.recordId);
         var OpportunityId = component.get("v.recordId");
         var isValid=true;
-        
-      
         var RejectReason = component.find("selRejectReason").get("v.value");
 		var WinnerBank = null;
         var Currency = null;
@@ -30,8 +28,6 @@
         var Term = null;
         var Comments = null;
         
-        
-
         if(RejectReason=='')
         	isValid=false;
         else if(RejectReason=='02' || RejectReason=='03'){
@@ -41,16 +37,65 @@
         	Rate = component.find("txtRate").get("v.value");
         	Term = component.find("txtTerm").get("v.value");
 
-            if (Term!=parseInt(Term))
+            if (Term!=parseInt(Term)&&Term!="")
             {
-                isValid=false;
-                component.set("v.errMessage","El campo de Plazo debe ser entero, positivo.");
+                isValid=false; 
+                component.set("v.errMessage",$A.get("$Label.c.Reject_Term_field"));
                 helper.handleShowToast(component,event,helper);   
                 return null;
             }
+            
+            if(Term=="")
+                Term=null;
+
         	
-        	if(WinnerBank=="" || Currency=="")        		
+        	if(WinnerBank=="" )
+            {
+                component.set("v.errMessage",$A.get("$Label.c.Reject_WBank_field"));
+                helper.handleShowToast(component,event,helper);   
         		isValid=false;
+                return null;
+            }
+            
+            if(Currency=="" )
+            {
+                component.set("v.errMessage",$A.get("$Label.c.Reject_Currency_field"));
+                helper.handleShowToast(component,event,helper); 
+                return null;
+            }
+            
+            if(Amount=="" )
+            {
+                component.set("v.errMessage",$A.get("$Label.c.Reject_Amount_field"));
+                helper.handleShowToast(component,event,helper); 
+                return null;
+            }
+            else
+            {
+                if(Amount<0)
+                {
+                    component.set("v.errMessage",$A.get("$Label.c.Reject_Amount_valid_field"));
+                    helper.handleShowToast(component,event,helper); 
+                    return null;
+                }
+            }
+            
+            if(Rate=="" )
+            {
+                component.set("v.errMessage",$A.get("$Label.c.Reject_Rate_field"));
+                helper.handleShowToast(component,event,helper); 
+                return null;
+            }
+            else
+            {
+                if(Rate>100)
+                {
+                    component.set("v.errMessage",$A.get("$Label.c.Reject_Rate_valid_field"));
+                    helper.handleShowToast(component,event,helper); 
+                    return null;
+                }
+            }
+            
         }
         else if(RejectReason=='05'){
         	Comments = component.find("txtComments").get("v.value");
@@ -95,7 +140,6 @@
 	                component.set("v.errMessage",'ERROR'+response.getReturnValue());
 	                helper.handleShowToast(component,event,helper);
 	            }
-	           
 	        });
 	        $A.enqueueAction(action);
     	}
@@ -113,6 +157,4 @@
          });
          navEvent.fire();
     }
- 
- 
 })

@@ -254,7 +254,7 @@ public without sharing class Product_cls {
             itemOpp[0].rejection_reason_id__c=Comments;
             itemOpp[0].rejection_amount__c=Amount;
             itemOpp[0].rejection_rate_per__c=Rate;
-            itemOpp[0].rejection_period_num__c=Term;
+            if(Term!=null) itemOpp[0].rejection_period_num__c=Term;
             itemOpp[0].rejection_coin__c= IsoCurrency;
             update itemOpp[0];      
             itemOpp[0].IsProcess__c=false;

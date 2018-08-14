@@ -8,14 +8,9 @@
         save_action.setParams({recordId : inputObject.recordId});
         save_action.setCallback(this, function(response) {
          var state = response.getReturnValue();
-           if (state === "SUCCESS") {
-       
-        var urlEvent = $A.get("e.force:navigateToSObject");
-            urlEvent.setParams({
-          		"recordId":inputObject.recordId,
-          		"slideDevName": "related"
-                });
-            urlEvent.fire();
+       if (state === "SUCCESS") {       
+        var urlEvent = $A.get("e.force:navigateToURL");
+           window.open('/apex/PDF_formalizacion_vfp?Id='+inputObject.recordId);
             component.destroy();
          }else{
                 alert(state);

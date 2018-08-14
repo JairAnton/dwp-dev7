@@ -8,7 +8,7 @@
         <members>Migracion</members>
         <members>Operativo</members>
         <name>Profile</name>
-    </types>	
+    </types>
     <types>
         <members>Hangout</members>
         <members>Agree</members>
@@ -58,7 +58,7 @@
         <members>New_Opportunity</members>
         <members>OpportunityName</members>
         <members>PlannigDate</members>
-        <members>Probability</members>        
+        <members>Probability</members>
         <members>Comments</members>
         <members>Currency</members>
         <members>DateHigherThan</members>
