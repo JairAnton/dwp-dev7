@@ -97,7 +97,7 @@
                 <td>TEA aprobada:<apex:outputText value=" {0, number,.00} %">
                     <apex:param value="{!Oli.proposed_apr_per__c}"/>
                     </apex:outputText> </td>
-                <td>Vigencia:  * </td>
+                <td>Vigencia:   </td>
             </tr>
             <apex:outputPanel rendered="{!Product.Type_of_quote__c =='COTIZADOR'}">
                 <tr>
