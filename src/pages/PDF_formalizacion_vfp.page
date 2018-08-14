@@ -213,7 +213,7 @@
         </tr>
         <apex:repeat value="{!Garantias}" var="Garantia" id="Garantias">
             <tr>
-                <td class="cd"><apex:outputField value="{!Garantia.Guarantee__c}"/></td>
+                <td class="cd"><apex:outputField value="{!Garantia.guarantee_desc__c}"/></td>
                 <td class="cd"><apex:outputField value="{!Garantia.guarantee_modality_type__c}"/></td>
                 <td class="cd"><apex:outputField value="{!Garantia.guarantee_status_type__c}"/></td>
                 <td class="cd">
