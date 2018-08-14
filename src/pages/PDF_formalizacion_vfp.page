@@ -76,7 +76,7 @@
                     <td>Estado SIO: {!opportunity.sio_status_type__c}</td>
                 </tr>
                 <tr>
-                    <td>Sancionador:  *</td>
+                    <td>Sancionador: </td>
                     <td>Comentarios:&nbsp;{!Comentarios}</td>
                 </tr>
             </apex:outputPanel>
@@ -226,7 +226,7 @@
                 <td>
                     <apex:outputPanel rendered="{!Garantia.guarantee_status_type__c=='01'}">
                         <apex:outputText value="{0, number,0}">
-                            <apex:param value="{!Garantia.nGuarantee__c}"/>
+                            <apex:param value="{!Garantia.guarantee_id__c}"/>
                         </apex:outputText>
                     </apex:outputPanel>
                 </td>

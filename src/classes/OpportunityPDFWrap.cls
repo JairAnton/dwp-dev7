@@ -106,8 +106,8 @@ public  virtual class OpportunityPDFWrap {
             Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
             if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}
             Audit2 = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por precios \',\'Precio autorizado bajo delagación de oficina\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
-            if(Audit2.size()>0){FauthPrecio = String.valueOf(Date.valueOf(Audit2[0].dwp_cvad__action_audit_date__c));}else{FauthPrecio=Label.lblNoAuthDate;}
-            Comen = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+oppid+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
+            if(Audit.size()>0){FauthPrecio = String.valueOf(OLI.PE_DATE_Fecha_cotizacion__c );}else{FauthPrecio=Label.lblNoAuthDate;}
+            Comen = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
             if(Comen.size()>0){Comentarios = Comen[0].dwp_cvad__audit_audit_comments__c;}else{Comentarios=Label.lblNoAuthDate;}
             Product = database.query(getQuery('Product2')+' WHERE  Id =\''+OLI.Product2Id +'\' LIMIT 1');
             ProductConfiguration = database.query(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__C =\''+Product.Id+'\' AND FPRD__SECTION_NAME__C IN ('+label.PDFSectionPayment+') ORDER BY FPRD__ORDER__C');
