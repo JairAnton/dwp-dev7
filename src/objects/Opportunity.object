@@ -706,7 +706,7 @@
         <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
-        <type>Currency</type>
+        <type>Number</type>
     </fields>
     <fields>
         <fullName>rejection_period_num__c</fullName>
