@@ -76,7 +76,7 @@ public  virtual class OpportunityPDFWrap {
                 if(Found){
                     fieldVisibility.put(pc.Id, true);
                 }else{
-                    fieldVisibility.put(pc.Id, true);}
+                    fieldVisibility.put(pc.Id, false);}
             }else{
                 fieldVisibility.put(pc.Id, true);
             }
