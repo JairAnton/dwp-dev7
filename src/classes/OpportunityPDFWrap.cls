@@ -34,7 +34,7 @@ public  virtual class OpportunityPDFWrap {
         SOQLQuery = 'SELECT ';
         for(Schema.SObjectField mf : Mfields.values()){
             schema.describefieldresult dfield = mf.getDescribe();
-                        SOQLQuery += dfield.getname() +', ';
+            SOQLQuery += dfield.getname() +', ';
         }
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
         SOQLQuery+=' FROM '+Objeto;
@@ -54,11 +54,11 @@ public  virtual class OpportunityPDFWrap {
         SOQLQuery = 'SELECT ';
         for(Schema.SObjectField mf : Mfields.values()){
             schema.describefieldresult dfield = mf.getDescribe();
-                       if(String.valueOf(dfield.getType())=='PICKLIST'){
+            if(String.valueOf(dfield.getType())=='PICKLIST'){
                 SOQLQuery += 'toLabel('+dfield.getname() +'), ';
-                    } else{
-                        SOQLQuery += dfield.getname() +', ';
-                    }
+            } else{
+                SOQLQuery += dfield.getname() +', ';
+            }
         }
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
         SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =\''+Opp.Id+'\'';
@@ -68,11 +68,21 @@ public  virtual class OpportunityPDFWrap {
             If(String.isNotBlank(pc.FPRD__VISIBILITY_CONTROL_FIELD__C)){
                 fieldName = pc.FPRD__VISIBILITY_CONTROL_FIELD__C;
                 fieldName = fieldName.LEFT(fieldName.length()-Product.ProductCode.length())+'_c';
-
-                for(String val : pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',')){
-                    if(val==OLI2.get(fieldName)) Found = true;
+                try{
+                    for(String val : pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',')){
+                        try{
+                        if(val==OLI2.get(fieldName)) Found = true;
+                        }catch(Exception e){
+                        system.debug('Exception: '+e.getMessage());
+                    }finally{
+                        Found = true;
+                    }
+                    }
+                }catch(Exception e){
+                    system.debug('Exception: '+e.getMessage());
+                }finally{
+                    Found = false;
                 }
-
                 if(Found){
                     fieldVisibility.put(pc.Id, true);
                 }else{
@@ -81,18 +91,18 @@ public  virtual class OpportunityPDFWrap {
                 fieldVisibility.put(pc.Id, true);
             }
         }
-       for (integer index=0; index<ProductConfiguration.size();index++) {
-           if(!fieldVisibility.get(ProductConfiguration[index].Id)){
-               ProductConfiguration.remove(index);
-           }
+        for (integer index=0; index<ProductConfiguration.size();index++) {
+            if(!fieldVisibility.get(ProductConfiguration[index].Id)){
+                ProductConfiguration.remove(index);
+            }
         }
 
         for (integer index=0; index<ProductConfiguration.size();index++) {
             if(ProductConfiguration[index].FPRD__SECTION_NAME__C=='Información general del producto'){
-                 A.add(ProductConfiguration[index]);
+                A.add(ProductConfiguration[index]);
             }
             if(ProductConfiguration[index].FPRD__SECTION_NAME__C=='Criterios de pago y liquidación'){
-                 B.add(ProductConfiguration[index]);
+                B.add(ProductConfiguration[index]);
             }
         }
 
@@ -106,10 +116,10 @@ public  virtual class OpportunityPDFWrap {
             Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
             if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}
             FauthPrecio = String.valueOf(OLI.price_quote_date__c);
-            Comen = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
+            Comen = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY dwp_cvad__action_audit_name__c');
             if(Comen.size()>0){Comentarios = Comen[0].dwp_cvad__audit_audit_comments__c;}else{Comentarios=Label.lblNoAuthDate;}
             Product = database.query(getQuery('Product2')+' WHERE  Id =\''+OLI.Product2Id +'\' LIMIT 1');
-            ProductConfiguration = database.query(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__C =\''+Product.Id+'\' AND FPRD__SECTION_NAME__C IN ('+label.PDFSectionPayment+') ORDER BY FPRD__ORDER__C');
+            ProductConfiguration = database.query(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.ProductCode =\''+Product.ProductCode+'\' AND FPRD__SECTION_NAME__C IN ('+label.PDFSectionPayment+') ORDER BY FPRD__SECTION_NAME__C,FPRD__ORDER__C');
             filterVisibility(ProductConfiguration);
             Client =database.query(getQuery('Account')+' WHERE  Id =\''+opp.Accountid +'\' LIMIT 1');
             usuarioOficina = database.query(getQuery('User_Branch__c')+' WHERE  User__c =\''+opp.ownerId +'\' LIMIT 1');
