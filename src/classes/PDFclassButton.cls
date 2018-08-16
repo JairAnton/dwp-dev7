@@ -17,17 +17,9 @@ global without sharing class PDFclassButton  implements dwp_dbpn.DynamicFlowVali
             list<String> lstErrorMessage = new List<String>();
             Opportunity op = [SELECT stageName FROM Opportunity WHERE Id = : recordId];
             try{
-            id id1 = userinfo.getProfileId();
-
-            String prof = [SELECT Name FROM profile WHERE id = :id1 LIMIT 1].Name;
-
-            if(prof=='Operativo' || prof=='Administrador del Sistema' || prof=='Migracion'){
              if(op.StageName !='05'){
               lstErrorMessage.add(label.stageIncorrectToPDF);
              }
-            }else{
-             lstErrorMessage.add(label.UserNotAllowedToCreatePDF);
-            }
             }
             catch(exception e){
             lstErrorMessage.add(label.PDFError);
@@ -35,7 +27,7 @@ global without sharing class PDFclassButton  implements dwp_dbpn.DynamicFlowVali
            return lstErrorMessage;
         }
 
-    @auraenabled
+   @auraenabled
     public static string  PDF_formalization(String recordId){
      {
       string msg;

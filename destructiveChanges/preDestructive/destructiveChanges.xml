@@ -30,5 +30,10 @@
 		<members>New_Bussiness_Route</members>
 		<name>PathAssistant</name>
 	</types>
+    <types>
+        <members>quoteClassButton</members>
+        <members>quoteClassButtonTest</members>
+        <name>ApexClass</name>
+    </types>    
 	<version>42.0</version>
 </Package>

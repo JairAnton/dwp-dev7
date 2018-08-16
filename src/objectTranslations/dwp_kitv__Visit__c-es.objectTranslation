@@ -267,4 +267,8 @@
         <errorMessage>No es posible agregar más de 50 contactos a la visita</errorMessage>
         <name>dwp_kitv__Max_number_of_contacts</name>
     </validationRules>
+    <validationRules>
+        <errorMessage>No puede editar la visita cuando esta finalizada</errorMessage>
+        <name>visit_change</name>
+    </validationRules>
 </CustomObjectTranslation>
