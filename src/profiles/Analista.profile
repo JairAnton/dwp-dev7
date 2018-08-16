@@ -478,7 +478,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>GetAccountOwnerOppTeam_Test</apexClass>
+        <apexClass>GetAccountOwnerAndOppTeam_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
