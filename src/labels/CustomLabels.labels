@@ -1536,4 +1536,25 @@
         <shortDescription>Delete</shortDescription>
         <value>Delete</value>
     </labels>
+    <labels>
+        <fullName>AccessLevelEdit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccessLevelEdit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>AccessLevelRead</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccessLevelRead</shortDescription>
+        <value>Read</value>
+    </labels>
+    <labels>
+        <fullName>TeamMemberRoleExecutive</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TeamMemberRoleExecutive</shortDescription>
+        <value>03</value>
+    </labels>
 </CustomLabels>
