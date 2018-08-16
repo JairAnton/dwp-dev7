@@ -2251,10 +2251,10 @@ REGEX( da_Client_Email__c , &quot;([a-zA-Z0-9_\\-\\.]+)@((\\[a-z]{1,3}\\.[a-z]{1
         <errorDisplayField>da_Client_Email__c</errorDisplayField>
         <errorMessage>Invalid e-mail, please enter a valid e-mail</errorMessage>
     </validationRules>
-    <validationRules>
+<validationRules>
         <fullName>Validation_Term_Integer</fullName>
         <active>true</active>
-        <errorConditionFormula>If( Product2.ProductCode &lt;&gt;&apos;PC00018&apos;&amp;&amp; Product2.ProductCode &lt;&gt;&apos;PC00024&apos;,
+        <errorConditionFormula>If( Product2.ProductCode &lt;&gt; $Label.lblPDFProductPrestamoLP &amp;&amp; Product2.ProductCode &lt;&gt; $Label.lblPDFProductLeasing ,
 OR( 
 NOT(OR( 
 ISBLANK( gipr_Plazo__c ), 
