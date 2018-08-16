@@ -502,11 +502,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>GetAccountAndOppTeam</apexClass>
+        <apexClass>GetAccountOwnerAndOppTeam</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>GetAccountOppTeam_Test</apexClass>
+        <apexClass>GetAccountOwnerOppTeam_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
