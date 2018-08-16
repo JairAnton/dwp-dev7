@@ -958,6 +958,14 @@
         <filterScope>Mine</filterScope>
         <label>My Accounts</label>
     </listViews>
+	<listViews>
+        <fullName>Org_Account_Hierarchy</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>bureau_classification_type__c</columns>
+        <columns>risk_strategy_class_name__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Org_Account_Hierarchy</label>
+    </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
         <fullName>Record_Type_Client</fullName>
