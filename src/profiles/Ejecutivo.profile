@@ -758,7 +758,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>OpportunityChatterNotifications_Test</apexClass>
+        <apexClass>OpportunityChatterNotification_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
