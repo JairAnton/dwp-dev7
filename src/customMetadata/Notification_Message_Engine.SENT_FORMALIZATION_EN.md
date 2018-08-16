@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>REJECT</label>
+    <label>SENT_FORMALIZATION_EN</label>
     <protected>false</protected>
     <values>
         <field>additional_validation_class_desc__c</field>
@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>message_structure__c</field>
-        <value xsi:type="xsd:string">\ the Opportunity #Name# from Account #Account.Name# has been rejected by #UserInfo# the day #CurrentDateTime#. You can access to the opportunity with the next link: #SalesforceBaseUrl#/#Id#</value>
+        <value xsi:type="xsd:string">\ the opportunity #Name# of the client #Account.Name# has been sent for formalization by #UserInfo# on #CurrentDateTime#. Navigate to the opportunity by clicking on the following link: #SalesforceBaseUrl#/#Id#</value>
     </values>
     <values>
         <field>object_api_name__c</field>
@@ -28,6 +28,6 @@
     </values>
     <values>
         <field>unique_id__c</field>
-        <value xsi:type="xsd:string">REJECT</value>
+        <value xsi:type="xsd:string">SENT_FORMALIZATION</value>
     </values>
 </CustomMetadata>

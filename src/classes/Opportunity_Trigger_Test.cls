@@ -5,7 +5,7 @@
  * 
  * V0-Creacion
 */
-@isTest
+@isTest(seeAllData=true)
 private class Opportunity_Trigger_Test {
 	private static final String TRIGGER_CONTEXT_ERROR = 'Trigger Error';
 	static Opportunity Opp = new Opportunity();
