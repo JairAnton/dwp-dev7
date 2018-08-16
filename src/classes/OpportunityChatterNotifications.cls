@@ -5,7 +5,7 @@ public class OpportunityChatterNotifications {
             //recorrer las opportunidades y comprobar las oportunidades que hayan cambiado de estado
             List<Opportunity> oppStatusChangedList =new List<Opportunity>();
             for(Opportunity oppNew : Opps_New){
-                if(oppNew.opportunity_status_type__c != Opps_OldMap.get(oppNew.Id). opportunity_status_type__c){
+                if(oppNew.opportunity_status_type__c != Opps_OldMap.get(oppNew.Id).opportunity_status_type__c){                    
                     oppStatusChangedList.add(oppNew);
                 }
             }
@@ -14,7 +14,7 @@ public class OpportunityChatterNotifications {
             List<Id> status19 = new List<Id>();
             List<Id> status23 = new List<Id>();
             List<Id> status12 = new List<Id>();
-            List<Id> status14 = new List<Id>();
+            List<Id> status24 = new List<Id>();
             List<Id> status18 = new List<Id>();
             List<Id> status17 = new List<Id>();
             List<Id> status08 = new List<Id>();
@@ -24,64 +24,40 @@ public class OpportunityChatterNotifications {
             for(Opportunity oppChanged : oppStatusChangedList) {
                 switch on oppChanged.opportunity_status_type__c {
                     when '10'{
-                        if(userId != oppChanged.OwnerId){
-                            status10.add(oppChanged.ID);
-                        }                        
+                        status10.add(oppChanged.ID);                 
                     }
                     when '13'{
-                        if(userId != oppChanged.OwnerId){
-                            status13.add(oppChanged.ID);
-                        }                        
+                        status13.add(oppChanged.ID);                 
                     }
                     when '19'{
-                        if(userId != oppChanged.OwnerId){
-                            status19.add(oppChanged.ID);
-                        }                        
+                        status19.add(oppChanged.ID);                      
                     }
                     when '23'{
-                        if(userId != oppChanged.OwnerId){
-                            status23.add(oppChanged.ID);
-                        }                        
+                        status23.add(oppChanged.ID);                  
                     }
                     when '12'{
-                        if(userId != oppChanged.OwnerId){
-                            status12.add(oppChanged.ID);
-                        }                        
+                        status12.add(oppChanged.ID);                   
                     }
-                    when '14'{
-                        if(userId != oppChanged.OwnerId){
-                            status14.add(oppChanged.ID);
-                        }                        
+                    when '24'{
+                        status24.add(oppChanged.ID);                   
                     }
                     when '18'{
-                        if(userId != oppChanged.OwnerId){
-                            status18.add(oppChanged.ID);
-                        }                        
+                        status18.add(oppChanged.ID);
                     }
                     when '17'{
-                        if(userId != oppChanged.OwnerId){
-                            status17.add(oppChanged.ID);
-                        }                        
+                        status17.add(oppChanged.ID);                
                     }
                     when '08'{
-                        if(userId != oppChanged.OwnerId){
-                            status10.add(oppChanged.ID);
-                        }                        
+                        status10.add(oppChanged.ID);                 
                     }
                     when '11'{
-                        if(userId != oppChanged.OwnerId){
-                            status10.add(oppChanged.ID);
-                        }                        
+                        status10.add(oppChanged.ID);                 
                     }
                     when '09'{
-                        if(userId != oppChanged.OwnerId){
-                            status10.add(oppChanged.ID);
-                        }                        
+                        status10.add(oppChanged.ID);                      
                     }
                     when '22'{
-                        if(userId != oppChanged.OwnerId){
-                            status22.add(oppChanged.ID);
-                        }                        
+                        status22.add(oppChanged.ID);                  
                     }
                 }
             }
@@ -101,8 +77,8 @@ public class OpportunityChatterNotifications {
             if(!status12.isEmpty()){
                 DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status12, 'Opportunity', 'SENT_PRICE_REEVALUATION');
             }
-            if(!status14.isEmpty()){
-                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status14, 'Opportunity', 'SENT_RISK_REEVALUATION');
+            if(!status24.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status24, 'Opportunity', 'SENT_RISK_REEVALUATION');
             }
             if(!status18.isEmpty()){
                 DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status18, 'Opportunity', 'APPROVE_RISK_DELEGATION');
@@ -135,8 +111,25 @@ public class OpportunityChatterNotifications {
                     oppOwnerChangedId.add(oppNew.Id);
                 }
         	}
-            //con la lista de ids llamamos a la clase de notificaciones 
-            DynamicBatchChatterNotification.getDynamicBatchChatterNotification(oppOwnerChangedId, 'Opportunity', 'OPP_CHANGE_OWNER');
+            //con la lista de ids llamamos a la clase de notificaciones
+            if(!oppOwnerChangedId.isEmpty()) {
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(oppOwnerChangedId, 'Opportunity', 'OPP_CHANGE_OWNER');
+            } 
+            
         }
+    }
+    
+    public static void notificationMethods(list<Opportunity> Opps_New, Map<id,Opportunity> Opps_NewMap, Map<id,Opportunity> Opps_OldMap) {
+        
+        List<Opportunity> oppIsProcessTrueId = new List<Opportunity>();
+        for(Opportunity opp : Opps_New) {
+            if(opp.isProcess__c == true) {
+                oppIsProcessTrueId.add(opp);
+            }
+        }
+        
+        statusChangeNotification(oppIsProcessTrueId, Opps_NewMap, Opps_OldMap);        
+        ownerChangeNotification(Opps_New, Opps_NewMap, Opps_OldMap);
+
     }
 }

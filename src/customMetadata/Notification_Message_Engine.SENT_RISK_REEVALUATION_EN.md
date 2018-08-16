@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>message_structure__c</field>
-        <value xsi:type="xsd:string">\ the opportunity #Name# of the client #Account.Name# has been sent for reevaluation by #UserInfo# on #CurrentDateTime#. Navigate to the opportunity by clicking on the following link: #SalesforceBaseUrl#/#Id#</value>
+        <value xsi:type="xsd:string">\ the opportunity #Name# of the client #Account.Name# has been reevaluated by #UserInfo# on #CurrentDateTime#. Navigate to the opportunity by clicking on the following link: #SalesforceBaseUrl#/#Id#</value>
     </values>
     <values>
         <field>object_api_name__c</field>
@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>recipient_class_desc__c</field>
-        <value xsi:type="xsd:string">GetAccountOwner</value>
+        <value xsi:type="xsd:string">getAccountOwner</value>
     </values>
     <values>
         <field>unique_id__c</field>

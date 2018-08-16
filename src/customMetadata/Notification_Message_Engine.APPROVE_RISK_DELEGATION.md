@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>recipient_class_desc__c</field>
-        <value xsi:type="xsd:string">GetAccountOwner</value>
+        <value xsi:type="xsd:string">getAccountOwner</value>
     </values>
     <values>
         <field>unique_id__c</field>

@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>additional_validation_class_desc__c</field>
-        <value xsi:type="xsd:string">checkIfUserNotOppAccountOwner</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>is_active__c</field>
@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>recipient_class_desc__c</field>
-        <value xsi:type="xsd:string">getAccountOwnerAndOppTeam</value>
+        <value xsi:type="xsd:string">GetAccountOwnerAndOppTeam</value>
     </values>
     <values>
         <field>unique_id__c</field>

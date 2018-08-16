@@ -1,5 +1,5 @@
 @isTest
-public class GetAccountOppTeam_Test {
+public class GetAccountOwnerAndOppTeam_Test {
     
     @isTest
     public static void test1(){
@@ -29,7 +29,7 @@ public class GetAccountOppTeam_Test {
         insert new List<OpportunityTeamMember>{optm1,optm2,optm3};
         List<Id> oppIdList = new List<Id>{opp1.Id,opp2.Id,opp3.Id,opp4.Id,opp5.Id};
         System.runAs(user1) {
-            Map<Id,List<Id>> result = GetAccountAndOppTeam.getRecipients(oppIdList, 'Opportunity');
+            Map<Id,List<Id>> result = GetAccountOwnerAndOppTeam.getRecipients(oppIdList, 'Opportunity');
             System.debug('user1: '+user1.Id+' ,user2: '+user2.Id+' ,user3: '+user3.Id);
             System.debug(result.size());
         }
