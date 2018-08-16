@@ -958,7 +958,7 @@
         <filterScope>Mine</filterScope>
         <label>My Accounts</label>
     </listViews>
-    <listViews>
+	<listViews>
         <fullName>Org_Account_Hierarchy</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>bureau_classification_type__c</columns>
