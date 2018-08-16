@@ -1,5 +1,5 @@
 @isTest
-public class GetAccountOwner_Test {
+public class getAccountOwner_Test {
 	
    @isTest
     public static void test1(){
