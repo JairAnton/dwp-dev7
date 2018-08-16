@@ -487,7 +487,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>GetAccountOwner_Test</apexClass>
+        <apexClass>getAccountOwner_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
