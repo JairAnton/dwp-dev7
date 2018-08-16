@@ -37,7 +37,7 @@
         	Rate = component.find("txtRate").get("v.value");
         	Term = component.find("txtTerm").get("v.value");
 
-            if (Term!=parseInt(Term)&&Term!="")
+            if ((Term!=parseInt(Term)&&Term!="")||parseInt(Term)<=0)
             {
                 isValid=false; 
                 component.set("v.errMessage",$A.get("$Label.c.Reject_Term_field"));
@@ -140,6 +140,7 @@
 	                component.set("v.errMessage",'ERROR'+response.getReturnValue());
 	                helper.handleShowToast(component,event,helper);
 	            }
+	           
 	        });
 	        $A.enqueueAction(action);
     	}
@@ -157,4 +158,6 @@
          });
          navEvent.fire();
     }
+ 
+ 
 })
