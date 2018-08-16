@@ -5,7 +5,7 @@
  * Developer name: Isaías Velázquez Cortés Indra(México)
 --------------------------------------------------------------------------*/
 
-@isTest
+@isTest(seeAllData=true)
 public class Product_cls_test {
 	static List<Profile> p; 
     static List<UserRole> userRole;

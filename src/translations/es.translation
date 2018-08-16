@@ -929,6 +929,34 @@
         <name>Product</name>
     </customLabels>
     <customLabels>
+        <label>El campo de Importe es requerido.</label>
+        <name>Reject_Amount_field</name>
+    </customLabels>
+    <customLabels>
+        <label>Valor de Importe no permitido, por favor ingresar valor positivo.</label>
+        <name>Reject_Amount_valid_field</name>
+    </customLabels>
+    <customLabels>
+        <label>El campo de Moneda es requerido.</label>
+        <name>Reject_Currency_field</name>
+    </customLabels>
+    <customLabels>
+        <label>El campo de Tasa es requerido.</label>
+        <name>Reject_Rate_field</name>
+    </customLabels>
+    <customLabels>
+        <label>Valor de Tasa no permitido, MAX(100%).</label>
+        <name>Reject_Rate_valid_field</name>
+    </customLabels>
+    <customLabels>
+        <label>El campo de Plazo debe ser entero, positivo.</label>
+        <name>Reject_Term_field</name>
+    </customLabels>
+    <customLabels>
+        <label>El campo de Banco ganador es requerido.</label>
+        <name>Reject_WBank_field</name>
+    </customLabels>
+    <customLabels>
         <label>Continuar</label>
         <name>btnContinue</name>
     </customLabels>
