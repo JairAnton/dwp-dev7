@@ -30,5 +30,9 @@
 		<members>New_Bussiness_Route</members>
 		<name>PathAssistant</name>
 	</types>
+	<types>
+        <members>Account.Org_Account_Hierarchy</members>
+        <name>ListView</name>
+    </types>
 	<version>42.0</version>
 </Package>

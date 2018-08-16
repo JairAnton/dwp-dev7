@@ -754,5 +754,9 @@
         <members>Dashboard Home Page Default</members>
         <name>HomePageLayout</name>
     </types>
+	<types>
+        <members>*</members>
+        <name>ListView</name>
+    </types>
     <version>42.0</version>
 </Package>
