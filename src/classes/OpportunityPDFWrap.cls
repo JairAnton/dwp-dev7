@@ -1,4 +1,4 @@
-public  virtual class OpportunityPDFWrap {
+public without sharing virtual class OpportunityPDFWrap {
     public static OpportunityLineItem OLI {get;set;}
     public static OpportunityLineItem OLI2 {get;set;}
     Public Static Account_BBVA_Classification__c ABBVAC {get;set;}
