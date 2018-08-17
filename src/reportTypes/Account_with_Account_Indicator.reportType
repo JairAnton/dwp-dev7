@@ -580,12 +580,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>is_date_type_1_within_last_12_months__c</field>
+            <table>Account.Account_Indicators__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>unique_id__c</field>
             <table>Account.Account_Indicators__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>year_month_day_date__c</field>
+            <table>Account.Account_Indicators__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>is_date_type_2_within_last_12_months__c</field>
             <table>Account.Account_Indicators__r</table>
         </columns>
         <masterLabel>Account Indicators</masterLabel>

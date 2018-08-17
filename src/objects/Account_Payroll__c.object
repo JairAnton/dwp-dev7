@@ -153,6 +153,15 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+    <fields>
+        <fullName>is_date_within_last_3_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  year_month_day_date__c &gt; ADDMONTHS(  account_id__r.account_payroll_last_date__c  ,-3) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is date within last 3 months?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <gender>Masculine</gender>
     <label>Pago de Haberes</label>
     <listViews>

@@ -793,6 +793,46 @@
         <label>Ventas y costo de ventas</label>
     <name>sales_and_sale_cost_amount__c</name>
     </fields>
+    <fields>
+        <label>Última fecha resumen deuda SBS</label>
+        <name>account_banking_syst_debt_sum_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha deuda SBS</label>
+        <name>account_banking_system_debt_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha información BBVA</label>
+        <name>account_bbva_information_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha resumen vinculación</label>
+        <name>account_comm_strategy_results_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha buró</label>
+        <name>account_indicator_type_1_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha estrategia</label>
+        <name>account_indicator_type_2_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha pago de haberes</label>
+        <name>account_payroll_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha facturación</label>
+        <name>account_profitability_type_1_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha spread</label>
+        <name>account_profitability_type_2_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha rentabilidad</label>
+        <name>account_profitability_type_3_last_date__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Layout</layout>

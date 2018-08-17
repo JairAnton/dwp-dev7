@@ -61,6 +61,30 @@
         <label>Fecha</label>
         <name>year_month_day_date__c</name>
     </fields>
+    <fields>
+        <label>Fecha facturación últimos 12 meses?</label>
+        <name>is_date_type_1_within_last_12_months__c</name>
+    </fields>
+    <fields>
+        <label>Fecha facturación últimos 6 meses?</label>
+        <name>is_date_type_1_within_last_6_months__c</name>
+    </fields>
+    <fields>
+        <label>Fecha spread últimos 12 meses?</label>
+        <name>is_date_type_2_within_last_12_months__c</name>
+    </fields>
+    <fields>
+        <label>Fecha spread últimos 6 meses?</label>
+        <name>is_date_type_2_within_last_6_months__c</name>
+    </fields>
+    <fields>
+        <label>Fecha rentabilidad últimos 6 meses?</label>
+        <name>is_date_type_3_within_last_6_months__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha rentabilidad?</label>
+        <name>is_type_3_last_date__c</name>
+    </fields>
     <gender>Feminine</gender>
     <nameFieldLabel>Referencia</nameFieldLabel>
 </CustomObjectTranslation>

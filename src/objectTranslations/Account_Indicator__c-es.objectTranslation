@@ -33,6 +33,14 @@
         <label>Fecha</label>
         <name>year_month_day_date__c</name>
     </fields>
+    <fields>
+        <label>Fecha buró en los últimos 6 meses?</label>
+        <name>is_date_type_1_within_last_12_months__c</name>
+    </fields>
+    <fields>
+        <label>Fecha estrategia en los últimos 6 meses?</label>
+        <name>is_date_type_2_within_last_12_months__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Indicator Layout</layout>

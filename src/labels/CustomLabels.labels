@@ -301,14 +301,14 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AccountProductClassificationTable1</shortDescription>
-        <value>Activos</value>
+        <value>ACTIVO</value>
     </labels>
     <labels>
         <fullName>AccountProductClassificationTable2</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AccountProductClassificationTable2</shortDescription>
-        <value>Pasivos</value>
+        <value>PASIVO</value>
     </labels>
     <labels>
         <fullName>AccountProductClassificationTable3</fullName>

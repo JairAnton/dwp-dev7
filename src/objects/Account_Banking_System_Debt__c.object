@@ -220,6 +220,24 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+    <fields>
+        <fullName>is_date_within_last_6_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( year_month_day_date__c &gt; ADDMONTHS( account_id__r.account_banking_system_debt_last_date__c ,-6) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is date within last 6 months?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>is_last_date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( year_month_day_date__c =  account_id__r.account_banking_system_debt_last_date__c  ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is last date?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <gender>Feminine</gender>
     <label>Información SBS</label>
     <listViews>

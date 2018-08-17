@@ -65,6 +65,10 @@
         <label>Fecha</label>
         <name>year_month_day_date__c</name>
     </fields>
+    <fields>
+        <label>Última fecha?</label>
+        <name>is_last_date__c</name>
+    </fields>
     <gender>Feminine</gender>
     <nameFieldLabel>Referencia</nameFieldLabel>
 </CustomObjectTranslation>
