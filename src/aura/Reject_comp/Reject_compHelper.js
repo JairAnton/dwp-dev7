@@ -88,7 +88,7 @@
             }
             else
             {
-                if(Rate>100)
+                if(Rate>100 || Rate<0)
                 {
                     component.set("v.errMessage",$A.get("$Label.c.Reject_Rate_valid_field"));
                     helper.handleShowToast(component,event,helper); 

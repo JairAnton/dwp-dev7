@@ -4,6 +4,6 @@
  * @Create by: Isaías Velázquez Cortés
 
 */
-trigger Account_tgr on Account (after update) {
+trigger Account_tgr on Account (after update, after insert) {
     new Account_Handler_cls().run();
 }
