@@ -134,6 +134,15 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+     <fields>
+        <fullName>is_date_type_2_within_last_12_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  year_month_day_date__c &gt; ADDMONTHS(  account_id__r.account_indicator_type_2_last_date__c  ,-12) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is date type 2 within last 12 months?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <gender>Masculine</gender>
     <label>Indicador</label>
     <listViews>
