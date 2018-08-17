@@ -37,13 +37,13 @@
             <column>Account_Profitability__c.profitability_type__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>02</value>
+            <value>01</value>
         </criteriaItems>
         <criteriaItems>
             <column>Account_Profitability__c.is_date_type_2_within_last_12_months__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>01</value>
+            <value>1</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
