@@ -945,7 +945,7 @@
         <name>Reject_Rate_field</name>
     </customLabels>
     <customLabels>
-        <label>Valor de Tasa no permitido, MAX(100%).</label>
+        <label>Valor de tasa no permitido, debe ser positivo y como máximo 100% .</label>
         <name>Reject_Rate_valid_field</name>
     </customLabels>
     <customLabels>
