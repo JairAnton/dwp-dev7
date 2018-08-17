@@ -686,8 +686,8 @@
         <members>Opp_PB_Opportunidad-8</members>
         <members>Motivo_Descarte_Oportunidad_V0-43</members>
         <members>ProductOpp_DueDate-16</members>
-        <members>Opp_Owner_Changed-4</members>
-        <members>Opp_Stage_Changed_notify-3</members>
+        <members>Opp_Owner_Changed-3</members>
+        <members>Opp_Stage_Changed_notify-4</members>
         <name>Flow</name>
     </types>
     <types>
