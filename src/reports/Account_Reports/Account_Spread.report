@@ -66,8 +66,6 @@
     <reportType>AccountCustomEntity$Account_Profitability__c</reportType>
     <scope>organization</scope>
     <showDetails>false</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>Account_Profitability__c.year_month_day_date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

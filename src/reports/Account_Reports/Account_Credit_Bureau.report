@@ -42,13 +42,13 @@
             <column>Account.Account_Indicators__r$indicator_type__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>01</value>
+            <value>LAST_N_DAYS:365</value>
         </criteriaItems>
         <criteriaItems>
             <column>Account.Account_Indicators__r$is_date_type_1_within_last_12_months__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>1</value>
+            <value>01</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
@@ -71,8 +71,6 @@
     <reportType>Account_with_Account_Indicator__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>Account.Account_Indicators__r$year_month_day_date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
