@@ -48,13 +48,13 @@ public class OpportunityChatterNotifications {
                         status17.add(oppChanged.ID);                
                     }
                     when '08'{
-                        status10.add(oppChanged.ID);                 
+                        status08.add(oppChanged.ID);                 
                     }
                     when '11'{
-                        status10.add(oppChanged.ID);                 
+                        status11.add(oppChanged.ID);                 
                     }
                     when '09'{
-                        status10.add(oppChanged.ID);                      
+                        status09.add(oppChanged.ID);                      
                     }
                     when '22'{
                         status22.add(oppChanged.ID);                  
