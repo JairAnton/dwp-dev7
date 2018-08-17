@@ -894,7 +894,15 @@ $Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c = false,$Setup.
         <fullName>visit_change</fullName>
         <active>true</active>
         <description></description>
-        <errorConditionFormula>AND(ISPICKVAL( dwp_kitv__visit_status_type__c , "05"), OR($Profile.Name != "Administrador del sistema",$Profile.Name != "Migracion"), ISCHANGED(dwp_kitv__visit_desc__c), ISCHANGED(dwp_kitv__account_id__c), ISCHANGED(dwp_kitv__visit_start_date__c), ISCHANGED(Name), ISCHANGED(dwp_kitv__visit_duration_number__c), ISCHANGED(dwp_kitv__visit_purpose_type__c), ISCHANGED(dwp_kitv__visit_location_desc__c))</errorConditionFormula>
-        <errorMessage>You can edit this visit if is finalizated</errorMessage>
+     <errorConditionFormula>AND( ISPICKVAL( PRIORVALUE( dwp_kitv__visit_status_type__c),"05") ,AND($Profile.Name ==  $Label.profAdministrator,
+            $Profile.Name == "Migracion"),
+            OR(
+            ISCHANGED(dwp_kitv__visit_desc__c),
+            ISCHANGED(dwp_kitv__visit_start_date__c),
+            ISCHANGED(Name),
+            ISCHANGED(dwp_kitv__visit_duration_number__c),
+            ISCHANGED(dwp_kitv__visit_purpose_type__c),
+            ISCHANGED(dwp_kitv__visit_location_desc__c)</errorConditionFormula>
+        <errorMessage>You can edit this visit if is finalized</errorMessage>
     </validationRules>
 </CustomObject>
