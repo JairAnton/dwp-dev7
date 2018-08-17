@@ -1022,6 +1022,20 @@
         <summaryOperation>max</summaryOperation>
         <type>Summary</type>
     </fields>
+    <fields>
+        <fullName>account_indicator_type_1_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Indicator Type 1 Last Date</label>
+        <summarizedField>Account_Indicator__c.year_month_day_date__c</summarizedField>
+        <summaryFilterItems>
+            <field>Account_Indicator__c.indicator_type__c</field>
+            <operation>equals</operation>
+            <value>01</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Account_Indicator__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
