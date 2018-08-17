@@ -64,22 +64,22 @@ public  virtual class OpportunityPDFWrap {
         SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =\''+Opp.Id+'\'';
         OLI2 = Database.query(SOQLQuery);
         boolean found;
+        List<String> ConditionValue;
         for(fprd__GBL_Product_Configuration__c pc : PrdConfg){
             found=false;
             If(String.isNotBlank(pc.FPRD__VISIBILITY_CONTROL_FIELD__C)){
                 fieldName = pc.FPRD__VISIBILITY_CONTROL_FIELD__C;
-                fieldName = fieldName.LEFT(fieldName.length()-Product.ProductCode.length())+'_c';
-
-                for(String val : pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',')){
-                  try{
-                    if(val===OLI2.get(fieldName)){
-                        found=true;
+                for(fprd__GBL_Product_Configuration__c prc : PrdConfg){
+                    If(fieldName ==  prc.fprd__DeveloperName__c){
+                      fieldName =  prc.fprd__Map_field__c;
+                      break;
                     }
-                  }catch(System.Exception e){
-                    system.debug('Exception: '+e);
-                  }
-                    finally{
-                       found=true;
+                }
+                if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C))
+                conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
+                for(String val :conditionValue){
+                    if(val==OLI2.get(fieldName)){
+                        found=true;
                     }
                 }
                   fieldVisibility.put(pc.Id, found);
@@ -90,6 +90,7 @@ public  virtual class OpportunityPDFWrap {
         }
 
         for (fprd__GBL_Product_Configuration__c pc : PrdConfg) {
+
 
             if(pc.FPRD__SECTION_NAME__C=='Información general del producto' && fieldVisibility.get(pc.Id)){
                 A.add(pc);
