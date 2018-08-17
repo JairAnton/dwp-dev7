@@ -63,52 +63,50 @@ public  virtual class OpportunityPDFWrap {
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
         SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =\''+Opp.Id+'\'';
         OLI2 = Database.query(SOQLQuery);
+        boolean found;
+        List<String> ConditionValue;
         for(fprd__GBL_Product_Configuration__c pc : PrdConfg){
-            boolean Found = false;
+            found=false;
             If(String.isNotBlank(pc.FPRD__VISIBILITY_CONTROL_FIELD__C)){
                 fieldName = pc.FPRD__VISIBILITY_CONTROL_FIELD__C;
-                fieldName = fieldName.LEFT(fieldName.length()-Product.ProductCode.length())+'_c';
-                try{
-                    for(String val : pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',')){
-                        try{
-                        if(val==OLI2.get(fieldName)) Found = true;
-                        }catch(Exception e){
-                        system.debug('Exception: '+e.getMessage());
-                    }finally{
-                        Found = true;
+                for(fprd__GBL_Product_Configuration__c prc : PrdConfg){
+                    If(fieldName ==  prc.fprd__DeveloperName__c){
+                      fieldName =  prc.fprd__Map_field__c;
+                      break;
                     }
-                    }
-                }catch(Exception e){
-                    system.debug('Exception: '+e.getMessage());
-                }finally{
-                    Found = false;
                 }
-                if(Found){
-                    fieldVisibility.put(pc.Id, true);
-                }else{
-                    fieldVisibility.put(pc.Id, false);}
+                if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C))
+                conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
+                for(String val :conditionValue){
+                    if(val==OLI2.get(fieldName)){
+                        found=true;
+                    }
+                }
+                  fieldVisibility.put(pc.Id, found);
+
             }else{
                 fieldVisibility.put(pc.Id, true);
             }
         }
-        for (integer index=0; index<ProductConfiguration.size();index++) {
-            if(!fieldVisibility.get(ProductConfiguration[index].Id)){
-                ProductConfiguration.remove(index);
+
+        for (fprd__GBL_Product_Configuration__c pc : PrdConfg) {
+
+
+            if(pc.FPRD__SECTION_NAME__C=='Información general del producto' && fieldVisibility.get(pc.Id)){
+                A.add(pc);
             }
+            if(pc.FPRD__SECTION_NAME__C=='Criterios de pago y liquidación' && fieldVisibility.get(pc.Id)){
+                B.add(pc);
+            }
+
+
         }
 
-        for (integer index=0; index<ProductConfiguration.size();index++) {
-            if(ProductConfiguration[index].FPRD__SECTION_NAME__C=='Información general del producto'){
-                A.add(ProductConfiguration[index]);
-            }
-            if(ProductConfiguration[index].FPRD__SECTION_NAME__C=='Criterios de pago y liquidación'){
-                B.add(ProductConfiguration[index]);
-            }
-        }
+
 
     }
     public static string setValues(String Oppid){
-        try{
+       try{
             oficina= new Branch__c();
             Rating = new Account_Rating__c();
             Opp = database.query(getQuery('Opportunity')+' WHERE id =\''+Oppid+'\' LIMIT 1');
