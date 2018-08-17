@@ -223,7 +223,7 @@
         <name>rejection_rate_per__c</name>
     </fields>
     <fields>
-        <label><!-- Loss reason --></label>
+        <label>Information reason for dismissal</label>
         <name>rejection_reason_id__c</name>
     </fields>
     <fields>

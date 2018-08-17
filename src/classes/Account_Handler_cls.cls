@@ -20,6 +20,10 @@ public without sharing class Account_Handler_cls extends TriggerHandler {
     @TestVisible
     protected override void afterUpdate(){
         new Account_Trigger_cls().AsignAfterUpdate(Opps_New, Opps_NewMap, Opps_Old, Opps_OldMap);
+        new Account_Trigger_cls().AfterUpdateOwner(Opps_New, Opps_OldMap);
+    }
+    protected override void afterInsert() {
+        new Account_Trigger_cls().AfterInsert(Opps_New);
     }
 
 }
