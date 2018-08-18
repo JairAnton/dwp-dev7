@@ -903,6 +903,7 @@ $Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c = false,$Setup.
             ISCHANGED(Name),
             ISCHANGED(dwp_kitv__visit_duration_number__c),
             ISCHANGED(dwp_kitv__visit_purpose_type__c),
+            ISCHANGED(dwp_kitv__visit_summary_desc__c),
             ISCHANGED(dwp_kitv__visit_location_desc__c)))</errorConditionFormula>
         <errorMessage>You can edit this visit if is finalized</errorMessage>
     </validationRules>
