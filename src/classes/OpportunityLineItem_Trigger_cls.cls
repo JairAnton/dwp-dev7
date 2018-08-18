@@ -10,7 +10,7 @@ Modificaciones:
 Isaías Velázquez Cortés  17-07-2018
 */
 public without sharing class OpportunityLineItem_Trigger_cls {
-
+    
     public void AsignBeforeInsert(list<OpportunityLineItem>Opps_New)
     {
         set<id> IDs = new set<id>();
@@ -26,7 +26,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             }
         }
     }
-
+    
     public void MasteRecord_Guarantee(list<OpportunityLineItem>Opps_New)
     {
         if(Opps_New[0].gipr_Tipo_Garantia__c=='01' || Opps_New[0].gipr_Tipo_Garantia__c=='02'){
@@ -51,11 +51,11 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         else
         {
             List<fprd__GBL_Guarantee__c> row =[SELECT Id FROM fprd__GBL_Guarantee__c WHERE fprd__GBL_Opportunity_product__c=: Opps_New[0].OpportunityId and  isMaster__c=true LIMIT 1];
-
+            
             if(!row.isEmpty()) delete row;
         }
     }
-
+    
     public  void upsertMasterParticipant (List<OpportunityLineItem> listRow) {
         List<Opportunity>  opName = [Select Id,Account.Name,Account.AccountNumber,opportunity_product__c,opportunity_product_family__c From Opportunity WHERE Id=:listRow[0].OpportunityId  LIMIT 1];
         List<Product2>  opProduct = [Select Name, Family From Product2 WHERE Id=:listRow[0].Product2Id LIMIT 1];
@@ -65,32 +65,32 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             opName[0].opportunity_product_family__c=opProduct[0].Family;
             update opName[0];
         }
-            List<fprd__GBL_Intervener__c> row =[SELECT Id FROM fprd__GBL_Intervener__c WHERE  fprd__GBL_Opportunity_product__c=: listRow[0].OpportunityId and  main_intervener__c=true];
-            if(row.isEmpty())
-            {
-                fprd__GBL_Intervener__c nRow = new fprd__GBL_Intervener__c();
-                nRow.fprd__GBL_Opportunity_product__c=listRow[0].OpportunityId;
-                nRow.Name=opName[0].Account.Name;
-                nRow.participant_type__c='01';
-                nRow.fiscal_identifier_type__c='01';
-                nRow.taxpayer_id__c=opName[0].Account.AccountNumber;
-                nRow.guarantor_marital_status_type__c='04';
-                nRow.main_intervener__c=true;
-                insert nRow;
-            }
-            else
-            {
-                row[0].Name=opName[0].Account.Name;
-                row[0].participant_type__c='01';
-                row[0].fiscal_identifier_type__c='01';
-                row[0].guarantor_marital_status_type__c='04';
-                row[0].taxpayer_id__c=opName[0].Account.AccountNumber;
-                update row;
-            }
-
+        List<fprd__GBL_Intervener__c> row =[SELECT Id FROM fprd__GBL_Intervener__c WHERE  fprd__GBL_Opportunity_product__c=: listRow[0].OpportunityId and  main_intervener__c=true];
+        if(row.isEmpty())
+        {
+            fprd__GBL_Intervener__c nRow = new fprd__GBL_Intervener__c();
+            nRow.fprd__GBL_Opportunity_product__c=listRow[0].OpportunityId;
+            nRow.Name=opName[0].Account.Name;
+            nRow.participant_type__c='01';
+            nRow.fiscal_identifier_type__c='01';
+            nRow.taxpayer_id__c=opName[0].Account.AccountNumber;
+            nRow.guarantor_marital_status_type__c='04';
+            nRow.main_intervener__c=true;
+            insert nRow;
+        }
+        else
+        {
+            row[0].Name=opName[0].Account.Name;
+            row[0].participant_type__c='01';
+            row[0].fiscal_identifier_type__c='01';
+            row[0].guarantor_marital_status_type__c='04';
+            row[0].taxpayer_id__c=opName[0].Account.AccountNumber;
+            update row;
+        }
+        
     }
-
-	public void updateDateLine(List<OpportunityLineItem> listRow){
+    
+    public void updateDateLine(List<OpportunityLineItem> listRow){
         
         for(OpportunityLineItem OLI: listRow){
             if(!String.isEmpty(String.valueOf(OLI.gipr_Plazo__c))&&
@@ -98,16 +98,16 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                 Label.lblPDFProductCartaTecnicaEconomica.equals(OLI.ProductCode)||
                 Label.lblPDFProductCartaTecnicaImport.equals(OLI.ProductCode)||
                 Label.lblPDFProductForfaitingImport.equals(OLI.ProductCode))&&
-                !Label.lblPDFProductCommercialLoanCP.equals(OLI.ProductCode)&&
-              	!Label.lblPDFProductImportComex.equals(OLI.ProductCode)&&
-                !Label.lblPDFProductExportComex.equals(OLI.ProductCode)&&
-              	!Label.lblPDFProductLeasing.equals(OLI.ProductCode)){
-                    system.debug('isPlazoNotEmpty2');
-                    //isPlazoNotEmpty2
-                    OLI.cpliq_Fecha_Vencimiento__c =OLI.gipr_Periodicidad__c=='01'?
-                        (Date.valueOf(OLI.LastModifiedDate).addDays(Integer.valueOf(OLI.gipr_Plazo__c))):
-                    (Date.valueOf(OLI.LastModifiedDate).addMonths(Integer.valueOf(OLI.gipr_Plazo__c)));
-                        }
+               !Label.lblPDFProductCommercialLoanCP.equals(OLI.ProductCode)&&
+               !Label.lblPDFProductImportComex.equals(OLI.ProductCode)&&
+               !Label.lblPDFProductExportComex.equals(OLI.ProductCode)&&
+               !Label.lblPDFProductLeasing.equals(OLI.ProductCode)){
+                   system.debug('isPlazoNotEmpty2');
+                   //isPlazoNotEmpty2
+                   OLI.cpliq_Fecha_Vencimiento__c =OLI.gipr_Periodicidad__c=='01'?
+                       (Date.valueOf(OLI.LastModifiedDate).addDays(Integer.valueOf(OLI.gipr_Plazo__c))):
+                   (Date.valueOf(OLI.LastModifiedDate).addMonths(Integer.valueOf(OLI.gipr_Plazo__c)));
+                       }
             else
                 if(String.isEmpty(String.valueOf(OLI.gipr_Plazo__c)) && 
                    !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c ))&&
@@ -123,14 +123,14 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             else
                 if((!String.isEmpty(String.valueOf(OLI.gipr_Plazo__c)))&&
                    (!Label.lblPDFProductImport.equals(OLI.ProductCode)&&
-                   	!Label.lblPDFProductCartaTecnicaEconomica.equals(OLI.ProductCode)&&
+                    !Label.lblPDFProductCartaTecnicaEconomica.equals(OLI.ProductCode)&&
                     !Label.lblPDFProductCartaTecnicaImport.equals(OLI.ProductCode)&&
                     !Label.lblPDFProductForfaitingImport.equals(OLI.ProductCode)&&
                     !Label.lblPDFProductImportComex.equals(OLI.ProductCode)&&
-                	!Label.lblPDFProductExportComex.equals(OLI.ProductCode)&&
-                   	!Label.lblPDFProductCommercialLoanCP.equals(OLI.ProductCode)&&
-                   	!Label.lblPDFProductLeasing.equals(OLI.ProductCode)&&
-                   	!Label.lblPDFProductPrestamoLP.equals(OLI.ProductCode))){
+                    !Label.lblPDFProductExportComex.equals(OLI.ProductCode)&&
+                    !Label.lblPDFProductCommercialLoanCP.equals(OLI.ProductCode)&&
+                    !Label.lblPDFProductLeasing.equals(OLI.ProductCode)&&
+                    !Label.lblPDFProductPrestamoLP.equals(OLI.ProductCode))){
                         system.debug('isPlazoNotEmpty');
                         //isPlazoNotEmpty
                         OLI.cpliq_Periodicidad__c=OLI.cpliq_Periodicidad__c==null?'01':OLI.cpliq_Periodicidad__c;
@@ -139,7 +139,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                         Date.ValueOf(OLI.LastModifiedDate).ADDMONTHS(Integer.valueOf(OLI.gipr_Plazo__c*12));
                     }
             else
-                    if((String.isEmpty(String.valueOf(OLI.cpliq_n__c)) && !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c )))&&
+                if((String.isEmpty(String.valueOf(OLI.cpliq_n__c)) && !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c )))&&
                    (!Label.lblPDFProductImport.equals(OLI.ProductCode)&&
                     !Label.lblPDFProductCartaTecnicaImport.equals(OLI.ProductCode)&&
                     !Label.lblPDFProductCartaTecnicaEconomica.equals(OLI.ProductCode)&&
@@ -165,15 +165,15 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             else
                 if(!String.isEmpty(String.valueOf(OLI.cpliq_n__c))&&
                    (Label.lblPDFProductImportComex.equals(OLI.ProductCode)||
-                	Label.lblPDFProductExportComex.equals(OLI.ProductCode)||
+                    Label.lblPDFProductExportComex.equals(OLI.ProductCode)||
                     Label.lblPDFProductCommercialLoanCP.equals(OLI.ProductCode))){
-                       system.debug('isDateDueNotEmpty41');
-                       //isDateDueNotEmpty3
-                       OLI.cpliq_Periodicidad__c=OLI.cpliq_Periodicidad__c==null?'01':OLI.cpliq_Periodicidad__c;
-                       OLI.cpliq_Fecha_Vencimiento__c =OLI.cpliq_Periodicidad__c=='01'?
-                           (Date.valueOf(OLI.LastModifiedDate).addDays(Integer.valueOf(OLI.cpliq_n__c))):
-                       	   (Date.valueOf(OLI.LastModifiedDate).addMonths(Integer.valueOf(OLI.cpliq_n__c)));
-                           }
+                        system.debug('isDateDueNotEmpty41');
+                        //isDateDueNotEmpty3
+                        OLI.cpliq_Periodicidad__c=OLI.cpliq_Periodicidad__c==null?'01':OLI.cpliq_Periodicidad__c;
+                        OLI.cpliq_Fecha_Vencimiento__c =OLI.cpliq_Periodicidad__c=='01'?
+                            (Date.valueOf(OLI.LastModifiedDate).addDays(Integer.valueOf(OLI.cpliq_n__c))):
+                        (Date.valueOf(OLI.LastModifiedDate).addMonths(Integer.valueOf(OLI.cpliq_n__c)));
+                            }
             else
                 if( !String.isEmpty(String.valueOf(OLI.cpliq_n__c))&&
                    !String.isEmpty(String.valueOf(OLI.cpliq_Periodicidad__c))&&
@@ -191,6 +191,29 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         List<Opportunity_Solution_Commitment__c> lstoppsolcom = [Select Id,opp_solution_id__c from Opportunity_Solution_Commitment__c where opp_solution_id__c =:Opps_OldMap.keySet()];
         if(!lstoppsolcom.isEmpty()){
             delete lstoppsolcom;
+        }
+    }
+    
+    Public void UpdateCaseAnalist(List<OpportunityLineItem> NEwlist,Map<id,OpportunityLineItem> Opps_NewMap,Map<id,OpportunityLineItem> Opps_OldMap){
+        Id profileId=userinfo.getProfileId();
+        String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+        if( Label.lblAnalistaProf.equals(profileName)){
+            List<Case> UpCase = new List<Case>();
+            Set<Id> IDs = new set<ID>();
+            for(OpportunityLineItem OLI1 :Opps_NewMap.values())
+                IDs.add(OLI1.OpportunityId);
+            Map<Id,Case> cas = new Map<Id,Case>();
+            for(Case ca:[select id,suggested_apr_per__c,opportunity_id__c from case where opportunity_id__c IN:IDs order by createdDate asc limit 1])
+                cas.put(ca.opportunity_id__c,ca);
+            for(OpportunityLineItem OLI1 :Opps_NewMap.values()){
+                if(OLI1.suggested_apr_per__c != cas.get(OLI1.OpportunityId).proposed_apr_per__c)
+                {
+                    cas.get(OLI1.OpportunityId).suggested_apr_per__c=OLI1.proposed_fee_per__c;
+                    UpCase.add(cas.get(OLI1.OpportunityId));
+                }
+            }
+            if(!UpCase.isempty())
+                update UpCase;
         }
     }
 }

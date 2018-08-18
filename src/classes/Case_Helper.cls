@@ -24,5 +24,25 @@ public with sharing class Case_Helper {
         }
         
     }
+    /**
+* Method using to Update rate
+* 
+*/
+    public static void UpdaterateCases(List<Case> lstNew){
+        set<id> iOpportuni = new set<Id>();
+        for(case cas : lstNew)
+            if(cas.opportunity_id__c!=null)
+            iOpportuni.add(cas.opportunity_id__c);
+        If(!iOpportuni.isempty()){   
+            Map<Id,OpportunityLineItem> MAOLI = new Map<Id,OpportunityLineItem>();
+            for(OpportunityLineItem OLI : [Select Id,OpportunityId, proposed_fee_per__c   from 
+                                           OpportunityLineItem where OpportunityId IN :iOpportuni])
+                MAOLI.put(OLI.OpportunityId, OLI); 
+            
+            for(case cas : lstNew){
+                cas.proposed_apr_per__c=MAOLI.get(cas.opportunity_id__c).proposed_fee_per__c;
+            }
+        }
+    }
     
 }

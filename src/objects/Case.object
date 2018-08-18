@@ -260,16 +260,97 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-    <listViews>
+    <fields>
+        <fullName>Owner_Account__c</fullName>
+        <description>Owner Account</description>
+        <externalId>false</externalId>
+        <formula>Account.Owner_calculated__c</formula>
+        <inlineHelpText>Owner Account</inlineHelpText>
+        <label>Owner Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Name_Fr__c</fullName>
+        <description>Product</description>
+        <externalId>false</externalId>
+        <formula>opportunity_id__r.opportunity_product__c</formula>
+        <inlineHelpText>Producto relacionado al caso</inlineHelpText>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>account_segment_desc__c</fullName>
+        <description>Segment to Client</description>
+        <externalId>false</externalId>
+        <formula>Account.segment_desc__c</formula>
+        <inlineHelpText>Segmento del cliente relacionado</inlineHelpText>
+        <label>Segment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>opportunity_amount__c</fullName>
+        <description>Amount Of Cient</description>
+        <externalId>false</externalId>
+        <formula>opportunity_id__r.Amount</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Monto de la oportunidad del cliente</inlineHelpText>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>proposed_apr_per__c</fullName>
+        <externalId>false</externalId>
+        <label>proposed rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>suggested_apr_per__c</fullName>
+        <externalId>false</externalId>
+        <label>suggested</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>	
+	<listViews>
         <fullName>AllClosedRequest</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>opportunity_id__c</columns>
         <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.TYPE</columns>
-        <columns>CASES.CREATED_DATE</columns>
+        <columns>Product_Name_Fr__c</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>proposed_apr_per__c</columns>
+        <columns>suggested_apr_per__c</columns>
+        <columns>Owner_Account__c</columns>
         <columns>CASES.CLOSED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CASES.CLOSED</field>
@@ -382,8 +463,11 @@
         <columns>CASES.CASE_NUMBER</columns>
         <columns>opportunity_id__c</columns>
         <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.TYPE</columns>
-        <columns>CASES.STATUS</columns>
+        <columns>account_segment_desc__c</columns>
+        <columns>Product_Name_Fr__c</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>proposed_apr_per__c</columns>
+        <columns>Owner_Account__c</columns>
         <columns>CASES.CREATED_DATE</columns>
         <filterScope>Mine</filterScope>
         <filters>

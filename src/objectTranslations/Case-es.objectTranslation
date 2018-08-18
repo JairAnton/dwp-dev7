@@ -9,6 +9,34 @@
         <name>opportunity_id__c</name>
         <relationshipLabel><!-- Cases --></relationshipLabel>
     </fields>
+	    <fields>
+        <help><!-- Owner Account --></help>
+        <label>Ejecutivo solicitante</label>
+        <name>Owner_Account__c</name>
+    </fields>
+    <fields>
+        <help>Producto relacionado al caso</help>
+        <label>Producto</label>
+        <name>Product_Name_Fr__c</name>
+    </fields>
+    <fields>
+        <help>Segmento del cliente relacionado</help>
+        <label>Segmento</label>
+        <name>account_segment_desc__c</name>
+    </fields>
+    <fields>
+        <help>Monto de la oportunidad del cliente</help>
+        <label>Importe</label>
+        <name>opportunity_amount__c</name>
+    </fields>
+    <fields>
+        <label>Tasa Propuesta</label>
+        <name>proposed_apr_per__c</name>
+    </fields>
+    <fields>
+        <label>Tasa Sugerida</label>
+        <name>suggested_apr_per__c</name>
+    </fields>
     <layouts>
         <layout>Price Approval Case Close Layout</layout>
         <layoutType>CaseClose</layoutType>
