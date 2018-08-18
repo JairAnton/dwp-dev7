@@ -388,13 +388,16 @@
             <group>System_Administrators</group>
         </sharedTo>
     </listViews>
-    <listViews>
+<listViews>
         <fullName>Level1PendingRequest</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>opportunity_id__c</columns>
         <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.TYPE</columns>
+        <columns>account_segment_desc__c</columns>
+        <columns>Product_Name_Fr__c</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>proposed_apr_per__c</columns>
+        <columns>Owner_Account__c</columns>
         <columns>CASES.CREATED_DATE</columns>
         <filterScope>Queue</filterScope>
         <filters>
@@ -416,9 +419,11 @@
         <columns>CASES.CASE_NUMBER</columns>
         <columns>opportunity_id__c</columns>
         <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.TYPE</columns>
-        <columns>CASES.PRIORITY</columns>
+        <columns>account_segment_desc__c</columns>
+        <columns>Product_Name_Fr__c</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>proposed_apr_per__c</columns>
+        <columns>Owner_Account__c</columns>
         <columns>CASES.CREATED_DATE</columns>
         <filterScope>Queue</filterScope>
         <filters>
