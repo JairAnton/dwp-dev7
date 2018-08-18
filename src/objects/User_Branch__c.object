@@ -144,7 +144,7 @@
     <fields>
         <fullName>user_prof_position_type__c</fullName>
         <externalId>false</externalId>
-        <formula>$User.prof_position_type__c</formula>
+        <formula>User__r.prof_position_type__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Position</label>
         <required>false</required>
