@@ -4648,6 +4648,11 @@ Sub Gerentes de oficina</description>
         <field>Account_Profitability__c.is_type_3_last_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+   <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.is_last_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
