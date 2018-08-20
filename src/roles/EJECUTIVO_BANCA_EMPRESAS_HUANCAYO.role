@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS HUANCAYO</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_BANCA_EMPRESAS_HUANCAYO</parentRole>
+    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_HUANCAYO</parentRole>
 </Role>

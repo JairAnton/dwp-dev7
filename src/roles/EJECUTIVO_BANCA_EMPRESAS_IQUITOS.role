@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS IQUITOS</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_BANCA_EMPRESAS_IQUITOS</parentRole>
+    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_IQUITOS</parentRole>
 </Role>

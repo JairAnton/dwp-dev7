@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS REP DE PANAMA</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_BANCA_EMPRESAS_REP_DE_PANAMA</parentRole>
+    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_REP_DE_PANAMA</parentRole>
 </Role>

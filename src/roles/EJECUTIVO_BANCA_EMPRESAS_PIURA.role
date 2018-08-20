@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS PIURA</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_BANCA_EMPRESAS_PIURA</parentRole>
+    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_PIURA</parentRole>
 </Role>

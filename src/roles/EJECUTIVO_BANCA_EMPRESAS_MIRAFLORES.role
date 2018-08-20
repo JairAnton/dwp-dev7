@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS MIRAFLORES</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_BANCA_EMPRESAS_MIRAFLORES</parentRole>
+    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_MIRAFLORES</parentRole>
 </Role>
