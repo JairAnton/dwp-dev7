@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>message_structure__c</field>
-        <value xsi:type="xsd:string">\ la Oportunidad #Nombre# de la Cuenta #Name# ha sido rechazada por #UserInfo# el día #CurrentDateTime#. Puede acceder a la oportunidad con el siguiente enlace: #SalesforceBaseUrl#/#Id#</value>
+        <value xsi:type="xsd:string">\ la Oportunidad #Name# de la Cuenta #Account.Name# ha sido rechazada por #UserInfo# el día #CurrentDateTime#. Puede acceder a la oportunidad con el siguiente enlace: #SalesforceBaseUrl#/#Id#</value>
     </values>
     <values>
         <field>object_api_name__c</field>
