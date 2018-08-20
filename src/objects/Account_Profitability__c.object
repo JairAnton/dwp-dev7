@@ -249,6 +249,13 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+    <fields>
+        <fullName>is_last_date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(year_month_day_date__c = account_id__r.account_bbva_information_last_date__c ,true,false)</formula>
+        <label>Is Last Date</label>
+        <type>Checkbox</type>
+    </fields>
     <gender>Feminine</gender>
     <label>Rentabilidad</label>
     <listViews>

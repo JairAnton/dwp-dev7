@@ -133,15 +133,15 @@
         <name>AccountRankingClassification3</name>
     </customLabels>
     <customLabels>
-        <label>Directa</label>
+        <label>DIRECTA</label>
         <name>LblDirectDebt</name>
     </customLabels>
     <customLabels>
-        <label>Indirecta</label>
+        <label>INDIRECTA</label>
         <name>LblIndirectDebt</name>
     </customLabels>
     <customLabels>
-        <label>Recursos gestionados</label>
+        <label>RECURSOS GESTIONADOS</label>
         <name>LblResources</name>
     </customLabels>
     <customLabels>
