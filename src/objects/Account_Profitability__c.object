@@ -195,6 +195,60 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+    <fields>
+        <fullName>is_date_type_1_within_last_12_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  year_month_day_date__c &gt; ADDMONTHS(  account_id__r.account_profitability_type_1_last_date__c  ,-12) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is date type 1 within last 12 months?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>is_date_type_1_within_last_6_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  year_month_day_date__c  &gt; ADDMONTHS(  account_id__r.account_profitability_type_1_last_date__c  ,-6) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is date type 1 within last 6 months?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>is_date_type_2_within_last_12_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( year_month_day_date__c &gt; ADDMONTHS(  account_id__r.account_profitability_type_2_last_date__c  ,-12) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is date type 2 within last 12 months?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>is_date_type_2_within_last_6_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( year_month_day_date__c &gt; ADDMONTHS(  account_id__r.account_profitability_type_2_last_date__c ,-6) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is date type 2 within last 6 months?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>is_date_type_3_within_last_6_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  year_month_day_date__c  &gt; ADDMONTHS(  account_id__r.account_profitability_type_3_last_date__c  ,-6) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is date type 3 within last 6 months?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>is_type_3_last_date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( year_month_day_date__c =  account_id__r.account_profitability_type_3_last_date__c ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is type 3 last date?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <gender>Feminine</gender>
     <label>Rentabilidad</label>
     <listViews>

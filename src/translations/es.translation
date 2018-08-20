@@ -201,11 +201,11 @@
        <name>AccountAccountingType2TotalLabel</name>
 	</customLabels>
 	<customLabels>
-		<label>Activos</label>
+		<label>ACTIVO</label>
 		<name>AccountProductClassificationTable1</name>
 	</customLabels>
 	<customLabels>
-		<label>Pasivos</label>
+		<label>PASIVO</label>
 		<name>AccountProductClassificationTable2</name>
 	</customLabels>
 	<customLabels>

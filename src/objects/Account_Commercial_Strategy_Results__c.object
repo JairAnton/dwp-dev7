@@ -133,6 +133,15 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+    <fields>
+        <fullName>is_date_within_last_6_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  year_month_day_date__c  &gt; ADDMONTHS(  account_id__r.account_comm_strategy_results_last_date__c  ,-6) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is date within last 6 months?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <gender>Masculine</gender>
     <label>Resumen Vinculación</label>
     <listViews>

@@ -37,6 +37,10 @@
         <label>Fecha</label>
         <name>year_month_day_date__c</name>
     </fields>
+    <fields>
+        <label>Fecha en los últimos 6 meses?</label>
+        <name>is_date_within_last_6_months__c</name>
+    </fields>
     <gender>Masculine</gender>
     <nameFieldLabel>Referencia</nameFieldLabel>
 </CustomObjectTranslation>

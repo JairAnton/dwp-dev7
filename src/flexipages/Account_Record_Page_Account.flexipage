@@ -3,7 +3,7 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-				<name>nameTopic</name>
+                <name>nameTopic</name>
                 <value>NewOppFromAccount,NewVisitFromAccount,NewContactFromAccount</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
@@ -13,7 +13,7 @@
             <componentName>DynamicRedirect_cmp</componentName>
         </componentInstances>
         <componentInstances>
-            <componentInstanceProperties>	 
+            <componentInstanceProperties>
                 <name>collapsed</name>
                 <value>false</value>
             </componentInstanceProperties>
@@ -44,7 +44,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>cacheAge</name>
-                <value>1440</value>
+                <value>10</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportFilter</name>
@@ -67,7 +67,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>cacheAge</name>
-                <value>1440</value>
+                <value>10</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportFilter</name>
@@ -79,7 +79,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
         </componentInstances>
@@ -102,7 +102,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterDynamic</name>
-                <value>Directa,Indirecta</value>
+                <value>DIRECTA,INDIRECTA</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterDynamicField</name>
@@ -110,7 +110,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>year_month_day_date__c = LAST_N_MONTHS: 6 AND product_group_classification_id__c != &apos;&apos; AND entity_name__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND unpaid_days_number__c &gt;=0</value>
+                <value>is_date_within_last_6_months__c	= true AND product_group_classification_id__c != &apos;&apos; AND entity_name__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND unpaid_days_number__c &gt;=0</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -315,7 +315,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>type__c = &apos;01&apos; AND product_group_classification_id__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND year_month_day_date__c = LAST_MONTH</value>
+                <value>type__c = &apos;01&apos; AND product_group_classification_id__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND is_last_date__c = true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -420,7 +420,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND entity_name__c != &apos;&apos;</value>
+                <value>is_last_date__c = true AND product_group_classification_id__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND entity_name__c != &apos;&apos;</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -544,7 +544,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>year_month_day_date__c = LAST_MONTH AND product_group_classification_id__c = &apos;Total&apos; AND product_desc__c = &apos;Total&apos;</value>
+                <value>is_last_date__c = true AND product_group_classification_id__c = &apos;TOTAL&apos; AND product_desc__c = &apos;&apos;</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -668,6 +668,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
+                <value>is_last_date__c = true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -783,7 +784,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>product_category_type__c = &apos;Activo&apos;</value>
+                <value>product_category_type__c = &apos;ACTIVO&apos;</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -979,7 +980,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>type__c = &apos;02&apos; AND product_group_classification_id__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND year_month_day_date__c = LAST_MONTH</value>
+                <value>type__c = &apos;02&apos; AND product_group_classification_id__c != &apos;&apos; AND product_desc__c != &apos;&apos; AND is_last_date__c = true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -1102,7 +1103,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>year_month_day_date__c = LAST_N_MONTHS:6</value>
+                <value>is_date_within_last_6_months__c = true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -1227,7 +1228,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>year_month_day_date__c = LAST_N_MONTHS:3</value>
+                <value>is_date_within_last_3_months__c = true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -1342,7 +1343,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>product_category_type__c = &apos;Pasivo&apos;</value>
+                <value>product_category_type__c = &apos;PASIVO&apos;</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -1551,7 +1552,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>profitability_type__c = &apos;01&apos; AND (year_month_day_date__c = THIS_MONTH OR year_month_day_date__c = LAST_N_MONTHS:5)</value>
+                <value>profitability_type__c = &apos;01&apos; AND is_date_type_1_within_last_6_months__c = true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -1647,7 +1648,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>cacheAge</name>
-                <value>1440</value>
+                <value>10</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportFilter</name>
@@ -1659,7 +1660,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
         </componentInstances>
@@ -1688,7 +1689,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>profitability_type__c = &apos;02&apos; AND (year_month_day_date__c = THIS_MONTH OR year_month_day_date__c = LAST_N_MONTHS:5)</value>
+                <value>profitability_type__c = &apos;02&apos; AND is_date_type_2_within_last_6_months__c = true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -1784,7 +1785,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>cacheAge</name>
-                <value>1440</value>
+                <value>10</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportName</name>
@@ -1792,7 +1793,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
         </componentInstances>
@@ -1862,7 +1863,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>profitability_type__c = &apos;03&apos; AND (year_month_day_date__c = THIS_MONTH OR year_month_day_date__c = LAST_N_MONTHS:5)</value>
+                <value>profitability_type__c = &apos;03&apos; AND is_date_type_3_within_last_6_months__c = true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -1980,7 +1981,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>profitability_type__c = &apos;03&apos; AND year_month_day_date__c = THIS_MONTH</value>
+                <value>profitability_type__c = &apos;03&apos; AND is_type_3_last_date__c = true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -2074,119 +2075,6 @@
             <componentInstanceProperties>
                 <name>showTotal</name>
                 <value>true</value>
-            </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>Collapsed</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>CollapsedDefault</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>CurrencyDimension</name>
-                <value>Thousand</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>FilterDynamic</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>FilterDynamicField</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>FilterStatic</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Format</name>
-                <value>All</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>FormatDivisa</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Group</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Header</name>
-                <value>Name</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>HeaderGroup</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>LocaleCur</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Object</name>
-                <value>Account</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Order</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>PositionCurrency</name>
-                <value>Left</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>RelatedField</name>
-                <value>ParentID</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Summarize</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Symbol</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Type</name>
-                <value>Summary</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>allFilter</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>customLabelAPInameError</name>
-                <value>AccountNoData</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>headerApiName</name>
-                <value>Grupo</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>hidenSubHeadMatrix</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>labelFilterApi</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>labelTotalApi</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>reportTitleAPI</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showFilter</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showLink</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showTitle</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showTotal</name>
-                <value>false</value>
             </componentInstanceProperties>
             <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
         </componentInstances>

@@ -935,6 +935,121 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
     </fields>
+    <fields>
+        <fullName>account_banking_syst_debt_sum_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Banking Syst. Debt Sum Last Date</label>
+        <summarizedField>Account_Banking_System_Debt_Summary__c.year_month_day_date__c</summarizedField>
+        <summaryForeignKey>Account_Banking_System_Debt_Summary__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_banking_system_debt_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Banking System Debt Last Date</label>
+        <summarizedField>Account_Banking_System_Debt__c.year_month_day_date__c</summarizedField>
+        <summaryForeignKey>Account_Banking_System_Debt__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_bbva_information_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account BBVA Information Last Date</label>
+        <summarizedField>Account_BBVA_Information__c.year_month_day_date__c</summarizedField>
+        <summaryForeignKey>Account_BBVA_Information__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_comm_strategy_results_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Comm Strategy Results Last Date</label>
+        <summarizedField>Account_Commercial_Strategy_Results__c.year_month_day_date__c</summarizedField>
+        <summaryForeignKey>Account_Commercial_Strategy_Results__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_payroll_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Payroll Last Date</label>
+        <summarizedField>Account_Payroll__c.year_month_day_date__c</summarizedField>
+        <summaryForeignKey>Account_Payroll__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_profitability_type_1_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Profitability Type 1 Last Date</label>
+        <summarizedField>Account_Profitability__c.year_month_day_date__c</summarizedField>
+        <summaryFilterItems>
+            <field>Account_Profitability__c.profitability_type__c</field>
+            <operation>equals</operation>
+            <value>01</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Account_Profitability__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_profitability_type_2_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Profitability Type 2 Last Date</label>
+        <summarizedField>Account_Profitability__c.year_month_day_date__c</summarizedField>
+        <summaryFilterItems>
+            <field>Account_Profitability__c.profitability_type__c</field>
+            <operation>equals</operation>
+            <value>02</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Account_Profitability__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_profitability_type_3_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Profitability Type 3 Last Date</label>
+        <summarizedField>Account_Profitability__c.year_month_day_date__c</summarizedField>
+        <summaryFilterItems>
+            <field>Account_Profitability__c.profitability_type__c</field>
+            <operation>equals</operation>
+            <value>03</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Account_Profitability__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_indicator_type_1_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Indicator Type 1 Last Date</label>
+        <summarizedField>Account_Indicator__c.year_month_day_date__c</summarizedField>
+        <summaryFilterItems>
+            <field>Account_Indicator__c.indicator_type__c</field>
+            <operation>equals</operation>
+            <value>01</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Account_Indicator__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_indicator_type_2_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Indicator Type 2 Last Date</label>
+        <summarizedField>Account_Indicator__c.year_month_day_date__c</summarizedField>
+        <summaryFilterItems>
+            <field>Account_Indicator__c.indicator_type__c</field>
+            <operation>equals</operation>
+            <value>02</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Account_Indicator__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
