@@ -488,6 +488,9 @@
         <members>dwp_dace__Rule_Lightning_Record_Page</members>
         <members>dwp_dace__Rules_Set_Lightning_Record_Page</members>
         <members>dwp_dace__Rules_Set_Rule_Lightning_Record_Page</members>
+        <members>HOMEPAGE_OPERATIVO</members>
+        <members>HOMEPAGE_ANALISTA</members>
+        <members>HOMEPAGE_ESPECIALISTA</members>
         <name>FlexiPage</name>
     </types>
     <!--<types>
