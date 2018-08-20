@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>language_code_id__c</field>
-        <value xsi:type="xsd:string">en_US</value>
+        <value xsi:type="xsd:string">es</value>
     </values>
     <values>
         <field>message_structure__c</field>
