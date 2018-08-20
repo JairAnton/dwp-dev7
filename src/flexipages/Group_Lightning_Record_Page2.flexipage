@@ -48,10 +48,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
+                <value>IsClosed = false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
-                <value>-,-,-,-,-,-</value>
+                <value>-,-,-,CUR,-,-</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FormatDivisa</name>
@@ -92,7 +93,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Symbol</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Type</name>
@@ -185,7 +186,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>dwp_kitv__visit_status_type__c =&apos;01&apos;</value>
+                <value>dwp_kitv__visit_status_type__c IN (&apos;01&apos;,&apos;02&apos;,&apos;03&apos;)</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -533,37 +534,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relatedListApiName</name>
-                <value>OpenActivities</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListComponentOverride</name>
-                <value>NONE</value>
-            </componentInstanceProperties>
-            <componentName>force:relatedListSingleContainer</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>parentFieldApiName</name>
-                <value>Account.Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListApiName</name>
-                <value>CombinedAttachments</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListComponentOverride</name>
-                <value>NONE</value>
-            </componentInstanceProperties>
-            <componentName>force:relatedListSingleContainer</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>parentFieldApiName</name>
-                <value>Account.Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListApiName</name>
-                <value>AccountTeamMembers</value>
+                <value>AttachedContentNotes</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
@@ -600,7 +571,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>context</name>
-                <value>RECORD</value>
+                <value>GLOBAL</value>
             </componentInstanceProperties>
             <componentName>forceChatter:publisher</componentName>
         </componentInstances>
