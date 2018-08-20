@@ -17,11 +17,17 @@ public class GraphicsGenerator_cls {
         List<String> valores = new List<String>();
         List<String> agrupadores = new List<String>();        
         List<AggregateResult> registrosReporte = new List<AggregateResult>();
-        Date fInicial=Date.today().toStartofMonth().addMonths(-12);
-        Date fActual=Date.today().toStartofMonth().addMonths(0);
+        Date fInicial;
+        Date fActual;
         
         Integer mes=0;
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
+            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c where account_id__c=:sId and entity_name__c in ('BBVA') ];
+            System.debug(lasDateD[0].get('dateP'));
+            if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
+            {
+                fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-12);
+                fActual=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(0);
 
  			if(sFiltro=='Total')
  			{ 				
@@ -35,7 +41,7 @@ public class GraphicsGenerator_cls {
  			{
         		              registrosReporte = [SELECT max(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c =:sFiltro
+	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c =''
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
@@ -43,7 +49,7 @@ public class GraphicsGenerator_cls {
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='Otros'
+	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='OTROS'
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
@@ -51,7 +57,7 @@ public class GraphicsGenerator_cls {
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Directa' and product_desc__c='Otros'
+	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Directa' and product_desc__c='ACEPTACIONES BANCARIAS'
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
@@ -61,7 +67,7 @@ public class GraphicsGenerator_cls {
 
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_desc__c=:sFiltro
+	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_desc__c=''
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
@@ -101,24 +107,28 @@ public class GraphicsGenerator_cls {
 	        		valores.add('0');
 	        }
 	 
-
+            }
         }
 
         if(sNombreReporte.equals('VINCULACION') )
         {
-        	fInicial=Date.today().toStartofMonth().addMonths(-6);
-        	fActual=Date.today().toStartofMonth().addMonths(1);
-			List<Account_Indicator__C > auxTab = [SELECT indicator_num__c,year_month_day_date__c
-	                                                                FROM Account_Indicator__C 
-	                                                                where account_id__c=:sId  and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and indicator_name__c=: sConcepto
-	                                                                order by year_month_day_date__c ];
- 			
- 			List<Integer> agrupador = new List<Integer>();
-			for(Integer i=0;i<6 ;i++)
-        	{
-        		agrupador.add(fInicial.addMonths(i).month());	
-        	}
-        	for(Account_Indicator__c tab: auxtab){
+            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where account_id__c=:sId and indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') ];
+            if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
+            {
+            	fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-6);
+            	fActual=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(1);
+                
+    			List<Account_Indicator__C > auxTab = [SELECT indicator_num__c,year_month_day_date__c
+    	                                                                FROM Account_Indicator__C 
+    	                                                                where account_id__c=:sId  and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and indicator_name__c=: sConcepto
+    	                                                                order by year_month_day_date__c ];
+     			
+     			List<Integer> agrupador = new List<Integer>();
+    			for(Integer i=0;i<6 ;i++)
+            	{
+            		agrupador.add(fInicial.addMonths(i).month());	
+            	}
+            	for(Account_Indicator__c tab: auxtab){
 
 	            if(String.isEmpty(String.valueOf(tab.year_month_day_date__c))) valores.add('0');
 	            else
@@ -148,7 +158,7 @@ public class GraphicsGenerator_cls {
 	        		valores.add('0');
 	        }
 	 
-
+            }
         }
         
         return valores;
