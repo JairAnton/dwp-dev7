@@ -17,8 +17,11 @@ public class GraphicsGenerator_cls {
         List<String> valores = new List<String>();
         List<String> agrupadores = new List<String>();        
         List<AggregateResult> registrosReporte = new List<AggregateResult>();
-        Date fInicial=Date.today().toStartofMonth().addMonths(-12);
-        Date fActual=Date.today().toStartofMonth().addMonths(0);
+
+        list<AggregateResult>  lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c where account_id__c=:sId and entity_name__c in ('Directa','Indirecta') ];
+           
+        Date fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-12);
+        Date fActual=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(0);
         
         Integer mes=0;
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
@@ -106,19 +109,23 @@ public class GraphicsGenerator_cls {
 
         if(sNombreReporte.equals('VINCULACION') )
         {
-        	fInicial=Date.today().toStartofMonth().addMonths(-6);
-        	fActual=Date.today().toStartofMonth().addMonths(1);
-			List<Account_Indicator__C > auxTab = [SELECT indicator_num__c,year_month_day_date__c
-	                                                                FROM Account_Indicator__C 
-	                                                                where account_id__c=:sId  and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and indicator_name__c=: sConcepto
-	                                                                order by year_month_day_date__c ];
- 			
- 			List<Integer> agrupador = new List<Integer>();
-			for(Integer i=0;i<6 ;i++)
-        	{
-        		agrupador.add(fInicial.addMonths(i).month());	
-        	}
-        	for(Account_Indicator__c tab: auxtab){
+            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where account_id__c=:sId and indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') ];
+            if(!lasDateData.isEmpty())
+            {
+            	fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-6);
+            	fActual=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(1);
+                
+    			List<Account_Indicator__C > auxTab = [SELECT indicator_num__c,year_month_day_date__c
+    	                                                                FROM Account_Indicator__C 
+    	                                                                where account_id__c=:sId  and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and indicator_name__c=: sConcepto
+    	                                                                order by year_month_day_date__c ];
+     			
+     			List<Integer> agrupador = new List<Integer>();
+    			for(Integer i=0;i<6 ;i++)
+            	{
+            		agrupador.add(fInicial.addMonths(i).month());	
+            	}
+            	for(Account_Indicator__c tab: auxtab){
 
 	            if(String.isEmpty(String.valueOf(tab.year_month_day_date__c))) valores.add('0');
 	            else
@@ -148,7 +155,7 @@ public class GraphicsGenerator_cls {
 	        		valores.add('0');
 	        }
 	 
-
+            }
         }
         
         return valores;
