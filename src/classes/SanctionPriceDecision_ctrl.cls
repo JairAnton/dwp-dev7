@@ -49,7 +49,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     }
 
     @AuraEnabled
-    public static Map<String,Object> saveDecision(String recordId, String status_opp, String stageName, Boolean createCase, String styleAudit, String nameAudit, String strComments){
+    public static Map<String,Object> saveDecision(String recordId, String status_opp, String stageName, Boolean createCase, String styleAudit, String nameAudit, String strComments, String storeHtml){
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
         Opportunity opp = new Opportunity();
@@ -62,6 +62,12 @@ public with sharing class SanctionPriceDecision_ctrl {
             lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
             lstAudit[0].dwp_cvad__audit_audit_comments__c = strComments;
             insert lstAudit;
+
+
+            List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
+            lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, storeHtml, 1, '', 'Embedded'));
+            insert lstDetails;
+           
             if(createCase){
                 List<Group> queueGroup = [SELECT    Id, 
                                                     DeveloperName,
@@ -89,7 +95,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     }
 
     @AuraEnabled
-    public static Map<String,Object> saveDecisionAnalist(String recordId, String status_opp, String stageName, Boolean elevateCase, String styleAudit, String nameAudit, String strComments, String recordOli, List<String> lstApiField, List<Object> lstValue, String statusCase){
+    public static Map<String,Object> saveDecisionAnalist(String recordId, String status_opp, String stageName, Boolean elevateCase, String styleAudit, String nameAudit, String strComments, String recordOli, List<String> lstApiField, List<Object> lstValue, String statusCase, String storeHtml){
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
         Opportunity opp = new Opportunity();
@@ -102,6 +108,10 @@ public with sharing class SanctionPriceDecision_ctrl {
             lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
             lstAudit[0].dwp_cvad__audit_audit_comments__c = strComments;
             insert lstAudit;
+
+            List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
+            lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, storeHtml, 1, '', 'Embedded'));
+            insert lstDetails;
 
             List<Case> lstCases = [SELECT   Id, 
                                         opportunity_id__c, 

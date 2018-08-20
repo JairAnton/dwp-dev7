@@ -1,55 +1,68 @@
 <aura:component >
     <aura:attribute name="fieldObject" type="Object"/>
+    <aura:attribute name="saveHtml" type="Boolean" default="false" />
 
-    <aura:if isTrue="{!v.fieldObject.type == 'PERCENT'}">
-	    <div class="slds-form-element">
+    <aura:if isTrue="{!v.saveHtml}">
+        <div>
             <span class="slds-form-element__label">{!v.fieldObject.label}</span>
             <div class="slds-form-element__control">
                 <span class="slds-form-element__static">
-                    <lightning:formattedNumber value="{!v.fieldObject.value}"/> %
+                    {!v.fieldObject.value}
                 </span>
             </div>
         </div>
         <aura:set attribute="else">
-            <aura:if isTrue="{!v.fieldObject.type == 'BOOLEAN'}">
+            <aura:if isTrue="{!v.fieldObject.type == 'PERCENT'}">
                 <div class="slds-form-element">
                     <span class="slds-form-element__label">{!v.fieldObject.label}</span>
                     <div class="slds-form-element__control">
                         <span class="slds-form-element__static">
-                            <ui:outputCheckbox value="{!v.fieldObject.value}"/>
+                            <lightning:formattedNumber value="{!v.fieldObject.value}"/> %
                         </span>
                     </div>
                 </div>
                 <aura:set attribute="else">
-                    <aura:if isTrue="{!v.fieldObject.type == 'DOUBLE'}"> 
+                    <aura:if isTrue="{!v.fieldObject.type == 'BOOLEAN'}">
                         <div class="slds-form-element">
                             <span class="slds-form-element__label">{!v.fieldObject.label}</span>
                             <div class="slds-form-element__control">
                                 <span class="slds-form-element__static">
-                                    <lightning:formattedNumber value="{!v.fieldObject.value}"/>
+                                    <ui:outputCheckbox value="{!v.fieldObject.value}"/>
                                 </span>
                             </div>
                         </div>
                         <aura:set attribute="else">
-                            <aura:if isTrue="{!v.fieldObject.type == 'DATE'}"> 
+                            <aura:if isTrue="{!v.fieldObject.type == 'DOUBLE'}"> 
                                 <div class="slds-form-element">
                                     <span class="slds-form-element__label">{!v.fieldObject.label}</span>
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
-                                            <ui:outputDate value="{!v.fieldObject.value}" />
+                                            <lightning:formattedNumber value="{!v.fieldObject.value}"/>
                                         </span>
                                     </div>
                                 </div>
                                 <aura:set attribute="else">
-                                    <aura:if isTrue="{!v.fieldObject.type == 'STRING'}"> 
+                                    <aura:if isTrue="{!v.fieldObject.type == 'DATE'}"> 
                                         <div class="slds-form-element">
                                             <span class="slds-form-element__label">{!v.fieldObject.label}</span>
                                             <div class="slds-form-element__control">
                                                 <span class="slds-form-element__static">
-                                                    <ui:outputText value="{!v.fieldObject.value}" />
+                                                    <ui:outputDate value="{!v.fieldObject.value}" />
                                                 </span>
                                             </div>
                                         </div>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!v.fieldObject.type == 'STRING'}"> 
+                                                <div class="slds-form-element">
+                                                    <span class="slds-form-element__label">{!v.fieldObject.label}</span>
+                                                    <div class="slds-form-element__control">
+                                                        <span class="slds-form-element__static">
+                                                            <ui:outputText value="{!v.fieldObject.value}" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </aura:if>
+                                        </aura:set>
                                     </aura:if>
                                 </aura:set>
                             </aura:if>
@@ -58,5 +71,5 @@
                 </aura:set>
             </aura:if>
         </aura:set>
-    </aura:if> 
+    </aura:if>  
 </aura:component>

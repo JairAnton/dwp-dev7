@@ -8,9 +8,12 @@
     <aura:attribute name="objectInput" type="Object" />
     <aura:attribute name="isLoad" type="Boolean" default="false"/>
     
-    
     <div class="slds-modal__content slds-p-around_medium" >
         <aura:if isTrue="{!v.isLoad}">
+            <div id="storeHTML" class="slds-hide">
+                <h3 class="slds-text-heading_small">{!$Label.c.Price}</h3>
+                <c:FieldsForm_cmp aura:id="fieldsFormInput" isHTML="true" recordId="{!v.objectInput.IdOppLineItem}" isInput="false" valueDynamic="{!v.inputAttributes.dynamicValuesInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
+            </div>
             <lightning:layout multipleRows="true">
                 
                 <lightning:layoutItem padding="around-small" size="8">
