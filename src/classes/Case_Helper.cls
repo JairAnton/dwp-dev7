@@ -36,7 +36,8 @@ public with sharing class Case_Helper {
         If(!iOpportuni.isempty()){   
             Map<Id,OpportunityLineItem> MAOLI = new Map<Id,OpportunityLineItem>();
             for(OpportunityLineItem OLI : [Select Id,OpportunityId, proposed_fee_per__c   from 
-                                           OpportunityLineItem where OpportunityId IN :iOpportuni])
+                                           OpportunityLineItem where OpportunityId IN :iOpportuni 
+                                           order by createdDate asc])
                 MAOLI.put(OLI.OpportunityId, OLI); 
             
             for(case cas : lstNew){
