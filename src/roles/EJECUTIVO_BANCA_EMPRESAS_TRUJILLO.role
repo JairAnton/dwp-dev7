@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS TRUJILLO</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_BANCA_EMPRESAS_TRUJILLO</parentRole>
+    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_TRUJILLO</parentRole>
 </Role>

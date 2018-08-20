@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO TRANSACCIONAL BANCA EMPRESAS CENTRAL</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_BANCA_EMPRESAS_CENTRAL</parentRole>
+    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_CENTRAL</parentRole>
 </Role>
