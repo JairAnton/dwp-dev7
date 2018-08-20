@@ -129,8 +129,6 @@
     <reportType>dwp_cglp__Visits_History__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c$CreatedDate</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
