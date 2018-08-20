@@ -134,6 +134,7 @@
         return returnObj[strType];
     },
     doContinue : function(cmp, evt, helper){
+        var storeHTML = document.getElementById('storeHTML');
         var objSetup = cmp.get('v.objSetup');
         var inputObject = cmp.get('v.inputAttributes');
         var action = cmp.get("c.saveDecision");
@@ -144,7 +145,8 @@
             "createCase" : objSetup['btnSelectConfig'].createCase,
             "styleAudit" : objSetup['btnSelectConfig'].styleAudit,
             "nameAudit" : objSetup['btnSelectConfig'].nameAudit,
-            "strComments" : cmp.get('v.strComments')
+            "strComments" : cmp.get('v.strComments'),
+            "storeHtml" : storeHTML.innerHTML
         });
         action.setCallback(this, function(response) {
             var state = response.getState();

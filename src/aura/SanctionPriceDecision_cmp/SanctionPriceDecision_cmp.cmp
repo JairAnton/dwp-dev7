@@ -6,6 +6,12 @@
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
     <aura:attribute name="strComments" type="String" default=""/>
     
+    <div id="storeHTML" class="slds-hide">
+        <h3 class="slds-text-heading_small">{!$Label.c.Price}</h3>
+        <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false" isHTML="true"/>
+        <h3 class="slds-text-heading_small">{!$Label.c.Commitments}</h3>
+        <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" />               
+    </div>
     
     <div class="slds-modal__content slds-p-around_medium" >
 
@@ -16,7 +22,7 @@
                     <lightning:tab label="{!$Label.c.Details}" >
                         <h3 class="slds-text-heading_small">{!$Label.c.Price}</h3>
                         <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false"/>
-                        <div class="slds-m-bottom_medium">
+                        <div class="slds-m-bottom_medium" id="divCommitments">
                             <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" />
                         </div>
                     </lightning:tab>

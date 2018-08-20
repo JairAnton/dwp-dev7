@@ -135,6 +135,7 @@
         return returnObj[strType];
     },
     doContinue : function(cmp, evt, helper){
+        var storeHTML = document.getElementById('storeHTML');
         var objSetup = cmp.get('v.objSetup');
         var inputObject = cmp.get('v.inputAttributes');
         //$A.get('e.force:refreshView').fire();
@@ -150,7 +151,8 @@
             "recordOli" : cmp.get('v.objectInput').IdOppLineItem,
             "lstApiField" : inputObject['lstApiField'],
             "lstValue" : inputObject['lstvalueField'],
-            "statusCase" : objSetup['btnSelectConfig'].statusCase
+            "statusCase" : objSetup['btnSelectConfig'].statusCase,
+            "storeHtml" : storeHTML.innerHTML
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
