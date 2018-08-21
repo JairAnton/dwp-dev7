@@ -598,6 +598,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>start_date_calculated__c</fullName>
+        <externalId>false</externalId>
+        <formula>dwp_kitv__visit_start_date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Start Date Calculated</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <label>Visit</label>
     <nameField>
         <label>Visit Name</label>

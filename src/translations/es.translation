@@ -293,7 +293,7 @@
         <name>fprd__GBL_InferiorLimit</name>
     </customLabels>
     <customLabels>
-        <label>Producto descartado</label>
+        <label>Cargando condiciones del producto</label>
         <name>fprd__GBL_LoadingProduct</name>
     </customLabels>
     <customLabels>

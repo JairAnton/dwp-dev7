@@ -155,6 +155,10 @@
         <name>dwp_kitv__visit_location_desc__c</name>
     </fields>
     <fields>
+        <label>Fecha de comienzo calculada</label>
+        <name>start_date_calculated__c</name>
+    </fields>
+    <fields>
         <label>Tipo visita</label>
         <name>dwp_kitv__visit_purpose_type__c</name>
         <picklistValues>
