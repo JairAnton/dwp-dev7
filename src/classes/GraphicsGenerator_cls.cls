@@ -26,8 +26,8 @@ public class GraphicsGenerator_cls {
             System.debug(lasDateD[0].get('dateP'));
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
-                fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-12);
-                fActual=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(0);
+                fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-11);
+                fActual=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(1);
 
  			if(sFiltro=='Total')
  			{ 				
@@ -170,12 +170,12 @@ public class GraphicsGenerator_cls {
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c ];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
-                Date fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-12);        
-        	String [] sMes= new String[]{'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'};
-        	for(Integer i=0;i<12 ;i++)
-        	{
-        		agrupadores.add(sMes[fInicial.addMonths(i).month()-1]);	
-        	}
+                Date fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-11);        
+            	String [] sMes= new String[]{'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'};
+            	for(Integer i=0;i<12 ;i++)
+            	{
+            		agrupadores.add(sMes[fInicial.addMonths(i).month()-1]);	
+            	}
             }
         }
 
