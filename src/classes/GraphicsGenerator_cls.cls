@@ -164,10 +164,10 @@ public class GraphicsGenerator_cls {
         return valores;
     }
 
-    @AuraEnabled public Static List<String> getAgrupadores( String sNombreReporte){
+    @AuraEnabled public Static List<String> getAgrupadores( String sNombreReporte, String sId){
         List<String> agrupadores= new List<String>();         
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
-            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c ];
+            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
                 Date fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-11);        
@@ -180,7 +180,7 @@ public class GraphicsGenerator_cls {
         }
 
         if(sNombreReporte.equals('VINCULACION')){
-            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') ];
+            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') account_id__c=:sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
                 Date fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-6);
@@ -224,7 +224,7 @@ public class GraphicsGenerator_cls {
 
         
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
-   			agrupador = getAgrupadores(sNombreReporte);
+   			agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte);
             conjunto.add(concepto);
 			conjunto.add(agrupador);        	
@@ -236,7 +236,7 @@ public class GraphicsGenerator_cls {
         }
         if(sNombreReporte.equals('VINCULACION'))
         {
-        	agrupador = getAgrupadores(sNombreReporte);
+        	agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte);
             conjunto.add(concepto);
 			conjunto.add(agrupador);        	
