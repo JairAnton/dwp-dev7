@@ -27,7 +27,7 @@ public with sharing class Case_Helper {
     /**
 * Method using to Update rate
 * 
-*/
+
     public static void UpdaterateCases(List<Case> lstNew){
         set<id> iOpportuni = new set<Id>();
         for(case cas : lstNew)
@@ -47,6 +47,6 @@ public with sharing class Case_Helper {
                 cas.proposed_apr_per__c=MAOLI.get(cas.opportunity_id__c).proposed_apr_per__c;
             }
         }
-    }
+    }*/
     
 }

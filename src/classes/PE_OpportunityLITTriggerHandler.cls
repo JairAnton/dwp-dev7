@@ -28,7 +28,7 @@ public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
 
     public Override void afterUpdate(){
         new OpportunityLineItem_Trigger_cls().MasteRecord_Guarantee(Opps_New);
-        new OpportunityLineItem_Trigger_cls().UpdateCaseAnalist(Opps_New,Opps_NewMap,Opps_OldMap);
+        //new OpportunityLineItem_Trigger_cls().UpdateCaseAnalist(Opps_New,Opps_NewMap,Opps_OldMap);
     }
     public Override void afterDelete(){
         new OpportunityLineItem_Trigger_cls().deleteOppSolComm(Opps_OldMap);
