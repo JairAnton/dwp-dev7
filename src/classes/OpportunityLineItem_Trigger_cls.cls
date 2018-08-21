@@ -206,11 +206,20 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             for(Case ca:[select id,suggested_apr_per__c,opportunity_id__c from case where opportunity_id__c IN:IDs order by createdDate asc limit 1])
                 cas.put(ca.opportunity_id__c,ca);
             for(OpportunityLineItem OLI1 :Opps_NewMap.values()){
-                if(OLI1.suggested_apr_per__c != cas.get(OLI1.OpportunityId).proposed_apr_per__c)
+                
+                if(OLI1.suggested_apr_per__c != cas.get(OLI1.OpportunityId).proposed_apr_per__c && 
+                   !String.isBlank(String.valueOf(OLI1.suggested_apr_per__c)))
                 {
                     cas.get(OLI1.OpportunityId).suggested_apr_per__c=OLI1.proposed_fee_per__c;
                     UpCase.add(cas.get(OLI1.OpportunityId));
+                }else 
+                if(OLI1.proposed_apr_per__c != cas.get(OLI1.OpportunityId).proposed_apr_per__c && 
+                   !String.isBlank(String.valueOf(OLI1.proposed_apr_per__c)))
+                {
+                    cas.get(OLI1.OpportunityId).suggested_apr_per__c=OLI1.proposed_apr_per__c;
+                    UpCase.add(cas.get(OLI1.OpportunityId));
                 }
+                
             }
             if(!UpCase.isempty())
                 update UpCase;
