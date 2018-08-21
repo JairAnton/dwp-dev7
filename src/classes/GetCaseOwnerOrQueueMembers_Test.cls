@@ -16,20 +16,22 @@ public class GetCaseOwnerOrQueueMembers_Test {
         User testUser1 = TestFactory.createUser('TestUser1', 'Ejecutivo');
         User testUser2 = TestFactory.createUser('TestUser2', 'Ejecutivo');
         User testUser3 = TestFactory.createUser('TestUser3', 'Ejecutivo');
-        List<GroupMember> gmList = new List<GroupMember>();
-        GroupMember gm1 = new GroupMember(GroupId = g3.Id, UserOrGroupId = testUser1.Id);
-        gmList.add(gm1);
-        GroupMember gm2 = new GroupMember(GroupId = g3.Id, UserOrGroupId = testUser2.Id);
-        gmList.add(gm2);
-        GroupMember gm3 = new GroupMember(GroupId = g3.Id, UserOrGroupId = g4.Id);
-        gmList.add(gm3);
-        GroupMember gm4 = new GroupMember(GroupId = g4.Id, UserOrGroupId = testUser3.Id);
-        gmList.add(gm4);
-        GroupMember gm5 = new GroupMember(GroupId = g1.Id, UserOrGroupId = g3.Id);
-        gmList.add(gm5);
-        GroupMember gm6 = new GroupMember(GroupId = g2.Id, UserOrGroupId = g4.Id);
-        gmList.add(gm6);
-        insert gmList;
+        System.runAs(new User(Id = UserInfo.getUserId())){
+            List<GroupMember> gmList = new List<GroupMember>();
+            GroupMember gm1 = new GroupMember(GroupId = g3.Id, UserOrGroupId = testUser1.Id);
+            gmList.add(gm1);
+            GroupMember gm2 = new GroupMember(GroupId = g3.Id, UserOrGroupId = testUser2.Id);
+            gmList.add(gm2);
+            GroupMember gm3 = new GroupMember(GroupId = g3.Id, UserOrGroupId = g4.Id);
+            gmList.add(gm3);
+            GroupMember gm4 = new GroupMember(GroupId = g4.Id, UserOrGroupId = testUser3.Id);
+            gmList.add(gm4);
+            GroupMember gm5 = new GroupMember(GroupId = g1.Id, UserOrGroupId = g3.Id);
+            gmList.add(gm5);
+            GroupMember gm6 = new GroupMember(GroupId = g2.Id, UserOrGroupId = g4.Id);
+            gmList.add(gm6);
+            insert gmList;
+        }
     }
 
     @isTest
