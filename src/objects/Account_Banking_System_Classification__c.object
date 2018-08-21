@@ -120,6 +120,15 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+    <fields>
+        <fullName>is_last_date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(   year_month_day_date__c   &gt; ADDMONTHS(  account_id__r.account_banking_syst_classif_last_date__c  ,-12) ,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is last date?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <gender>Feminine</gender>
     <label>Clasificación SBS</label>
     <listViews>

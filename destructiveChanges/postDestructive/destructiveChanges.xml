@@ -663,7 +663,8 @@
         <members>fprd__GBL_Intervener__c.Opportunity__c</members>
         <members>fprd__GBL_Intervener__c.Participation__c</members>
         <members>fprd__GBL_Intervener__c.Product__c</members>
-        <members>fprd__GBL_Intervener__c.isMaster__c</members>        
+        <members>fprd__GBL_Intervener__c.isMaster__c</members>
+        <members>Account_Profitability__c.is_last_date__c</members>
 		<name>CustomField</name>
     </types>
     <types>
