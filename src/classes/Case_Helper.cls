@@ -35,13 +35,16 @@ public with sharing class Case_Helper {
             iOpportuni.add(cas.opportunity_id__c);
         If(!iOpportuni.isempty()){   
             Map<Id,OpportunityLineItem> MAOLI = new Map<Id,OpportunityLineItem>();
-            for(OpportunityLineItem OLI : [Select Id,OpportunityId, proposed_fee_per__c   from 
+            for(OpportunityLineItem OLI : [Select Id,OpportunityId, proposed_fee_per__c,proposed_apr_per__c   from 
                                            OpportunityLineItem where OpportunityId IN :iOpportuni 
                                            order by createdDate asc])
                 MAOLI.put(OLI.OpportunityId, OLI); 
             
             for(case cas : lstNew){
+                if(!String.isBlank(String.valueOf(MAOLI.get(cas.opportunity_id__c).proposed_fee_per__c)))
                 cas.proposed_apr_per__c=MAOLI.get(cas.opportunity_id__c).proposed_fee_per__c;
+                else
+                cas.proposed_apr_per__c=MAOLI.get(cas.opportunity_id__c).proposed_apr_per__c;
             }
         }
     }

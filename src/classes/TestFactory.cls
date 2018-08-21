@@ -8,6 +8,7 @@ public class TestFactory {
           u.Email=userName+'u2@u.com';
           u.Alias= String.valueOf(random).substring(0, 3)+'uAas2';
           u.TimeZoneSidKey='America/Mexico_City';
+		  u.IsActive=true;
           u.LocaleSidKey='en_US';
           u.EmailEncodingKey='ISO-8859-1';
           List<Profile> prof=new List<Profile>([SELECT Id, Name FROM Profile where Name=:Perfil]);
