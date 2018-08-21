@@ -180,7 +180,7 @@ public class GraphicsGenerator_cls {
         }
 
         if(sNombreReporte.equals('VINCULACION')){
-            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') WHERE account_id__c =: sId];
+            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C WHERE indicator_name__c IN ('Estrella','Transaccional','Potencial','Básico') AND account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
                 Date fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-6);
