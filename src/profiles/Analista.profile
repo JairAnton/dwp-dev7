@@ -4293,6 +4293,11 @@ Analistas de riesgos</description>
         <field>Account_Banking_System_Classification__c.is_last_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.start_date_calculated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
