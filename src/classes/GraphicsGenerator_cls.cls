@@ -22,7 +22,7 @@ public class GraphicsGenerator_cls {
         
         Integer mes=0;
         if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
-            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c ];
+            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId];
             System.debug(lasDateD[0].get('dateP'));
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
@@ -112,7 +112,7 @@ public class GraphicsGenerator_cls {
 
         if(sNombreReporte.equals('VINCULACION') )
         {
-            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') ];
+            list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') AND account_id__c=:sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
             	fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-6);
