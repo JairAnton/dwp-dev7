@@ -17,7 +17,7 @@ public with sharing class Case_Handler extends TriggerHandler {
     @TestVisible
     protected override void beforeInsert(){
         //BeforeInsert
-        Case_Helper.UpdaterateCases(lstNew);
+       // Case_Helper.UpdaterateCases(lstNew);
     }
    /* 
     @TestVisible

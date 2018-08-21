@@ -193,7 +193,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             delete lstoppsolcom;
         }
     }
-    
+    /*
     Public void UpdateCaseAnalist(List<OpportunityLineItem> NEwlist,Map<id,OpportunityLineItem> Opps_NewMap,Map<id,OpportunityLineItem> Opps_OldMap){
         Id profileId=userinfo.getProfileId();
         String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
@@ -224,5 +224,5 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             if(!UpCase.isempty())
                 update UpCase;
         }
-    }
+    }*/
 }

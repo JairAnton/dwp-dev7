@@ -347,8 +347,6 @@
         <columns>ACCOUNT.NAME</columns>
         <columns>Product_Name_Fr__c</columns>
         <columns>opportunity_amount__c</columns>
-        <columns>proposed_apr_per__c</columns>
-        <columns>suggested_apr_per__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CLOSED_DATE</columns>
         <filterScope>Everything</filterScope>
@@ -373,7 +371,6 @@
         <columns>account_segment_desc__c</columns>
         <columns>Product_Name_Fr__c</columns>
         <columns>opportunity_amount__c</columns>
-        <columns>proposed_apr_per__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
@@ -398,7 +395,6 @@
         <columns>account_segment_desc__c</columns>
         <columns>Product_Name_Fr__c</columns>
         <columns>opportunity_amount__c</columns>
-        <columns>proposed_apr_per__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CREATED_DATE</columns>
         <filterScope>Queue</filterScope>
@@ -424,7 +420,6 @@
         <columns>account_segment_desc__c</columns>
         <columns>Product_Name_Fr__c</columns>
         <columns>opportunity_amount__c</columns>
-        <columns>proposed_apr_per__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CREATED_DATE</columns>
         <filterScope>Queue</filterScope>
@@ -449,8 +444,6 @@
         <columns>ACCOUNT.NAME</columns>
         <columns>Product_Name_Fr__c</columns>
         <columns>opportunity_amount__c</columns>
-        <columns>proposed_apr_per__c</columns>
-        <columns>suggested_apr_per__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CLOSED_DATE</columns>
         <filterScope>Mine</filterScope>
@@ -475,7 +468,6 @@
         <columns>account_segment_desc__c</columns>
         <columns>Product_Name_Fr__c</columns>
         <columns>opportunity_amount__c</columns>
-        <columns>proposed_apr_per__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CREATED_DATE</columns>
         <filterScope>Mine</filterScope>
