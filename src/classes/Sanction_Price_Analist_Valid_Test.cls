@@ -14,8 +14,9 @@ public class Sanction_Price_Analist_Valid_Test {
 
     @isTest
     static void test_method_one(){
+        setData();
         List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
-        List<User> listUser = [select Id, LastName from User where Profile.Name='Ejecutivo'];
+        List<User> listUser = [select Id, LastName, IsActive from User where Profile.Name='Ejecutivo' AND IsActive = true];
        
         System.runAs(listUser[0]){
             List<String> lstError = Sanction_Price_Analist_ValidationClass.getErrorMessagesList(lstOpp[0].Id, '','');
