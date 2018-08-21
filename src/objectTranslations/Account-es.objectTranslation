@@ -833,6 +833,14 @@
         <label>Última fecha rentabilidad</label>
         <name>account_profitability_type_3_last_date__c</name>
     </fields>
+    <fields>
+        <label>Última fecha clasificación BBVA</label>
+        <name>account_bank_classification_last_date__c</name>
+    </fields>
+    <fields>
+        <label>Última fecha clasificación SBS</label>
+        <name>account_banking_syst_classif_last_date__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Layout</layout>

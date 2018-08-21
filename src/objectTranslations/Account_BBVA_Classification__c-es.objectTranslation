@@ -29,6 +29,10 @@
         <label>Fecha</label>
         <name>year_month_day_date__c</name>
     </fields>
+    <fields>
+        <label>Última fecha clasificación BBVA?</label>
+        <name>is_last_date__c</name>
+    </fields>
     <gender>Feminine</gender>
     <layouts>
         <layout>Account BBVA Classification Layout</layout>

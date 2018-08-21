@@ -33,5 +33,9 @@
         <label>Fecha</label>
         <name>year_month_day_date__c</name>
     </fields>
+    <fields>
+        <label>Última fecha clasificación SBS?</label>
+        <name>is_last_date__c</name>
+    </fields>
     <gender>Feminine</gender>
 </CustomObjectTranslation>

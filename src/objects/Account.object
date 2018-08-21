@@ -1050,6 +1050,24 @@
         <summaryOperation>max</summaryOperation>
         <type>Summary</type>
     </fields>
+    <fields>
+        <fullName>account_bank_classification_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account BBVA Classification Last Date</label>
+        <summarizedField>Account_BBVA_Classification__c.year_month_day_date__c</summarizedField>
+        <summaryForeignKey>Account_BBVA_Classification__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>account_banking_syst_classif_last_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Banking Syst Classif Last Date</label>
+        <summarizedField>Account_Banking_System_Classification__c.year_month_day_date__c</summarizedField>
+        <summaryForeignKey>Account_Banking_System_Classification__c.account_id__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>

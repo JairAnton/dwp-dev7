@@ -50,7 +50,7 @@ public with sharing class BBVA_SBS_Classification_cls {
          ABBVAC = [SELECT bbva_classification_type__c,year_month_day_date__c
                    FROM Account_BBVA_Classification__c
                    WHERE account_id__c  =: recordId
-                   AND year_month_day_date__c = LAST_N_DAYS:365
+                   AND is_last_date__c = true
                    ORDER BY year_month_day_date__c LIMIT 12];
 
          ABSC = [SELECT ID,
@@ -61,7 +61,7 @@ public with sharing class BBVA_SBS_Classification_cls {
                     Name,Unique_Id__c,year_month_day_date__c
                  FROM Account_Banking_System_Classification__c
                  WHERE account_id__c  =: recordId
-                 AND year_month_day_date__c = LAST_N_DAYS:365
+                 AND is_last_date__c = true
                  ORDER BY year_month_day_date__c];
 
 
