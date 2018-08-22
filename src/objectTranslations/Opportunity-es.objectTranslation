@@ -284,4 +284,12 @@
         <errorMessage>Por favor, utilice los botones para progresar la oportunidad.</errorMessage>
         <name>Opportunity_Validation_ChangeStage</name>
     </validationRules>
+	<validationRules>
+        <errorMessage>No tiene permiso para modificar la fecha estimada de cierre.</errorMessage>
+        <name>Analist_OppCloseDate_Edition</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>No tiene permiso para modificar el nombre de la oportunidad.</errorMessage>
+        <name>Analist_OppName_Edition</name>
+    </validationRules>
 </CustomObjectTranslation>

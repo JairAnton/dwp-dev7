@@ -2718,7 +2718,7 @@ Analistas de riesgos</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.success_probability_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
