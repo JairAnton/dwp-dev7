@@ -1373,7 +1373,7 @@
         <name>suggested_apr_per__c</name>
     </fields>
     <validationRules>
-        <errorMessage>No Contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
+        <errorMessage>Nº de contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>ContractNo_Validation</name>
     </validationRules>
     <validationRules>
