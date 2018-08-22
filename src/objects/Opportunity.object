@@ -1386,4 +1386,18 @@ OR( OR(TEXT(StageName) = &apos;04&apos;, TEXT(StageName) = &apos;05&apos;, TEXT(
         <errorConditionFormula>Amount &lt; 0</errorConditionFormula>
         <errorMessage>The amount must be greater than zero</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Analist_OppCloseDate_Edition</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(AND($Profile.Name == &apos;Analista&apos;, ISCHANGED( CloseDate )), TRUE, FALSE)</errorConditionFormula>
+        <errorDisplayField>CloseDate</errorDisplayField>
+        <errorMessage>You don&apos;t have permission to modify the close date of the opportunity.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Analist_OppName_Edition</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(AND($Profile.Name == &apos;Analista&apos;, ISCHANGED( Name )), TRUE, FALSE)</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>You don&apos;t have permission to modify the name of the opportunity.</errorMessage>
+    </validationRules>
 </CustomObject>
