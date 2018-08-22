@@ -7,9 +7,15 @@
     <aura:attribute name="strComments" type="String" default=""/>
     
     <div id="storeHTML" class="slds-hide">
-        <h3 class="slds-text-heading_small">{!$Label.c.Price}</h3>
+        <h3 class="slds-section__title">{!$Label.c.Comments}</h3>
+        <div class="slds-form-element__control">
+            <span class="slds-form-element__static">
+                {!v.strComments}
+            </span>
+        </div>
+        <h3 class="slds-section__title">{!$Label.c.Price}</h3>
         <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false" isHTML="true"/>
-        <h3 class="slds-text-heading_small">{!$Label.c.Commitments}</h3>
+        <h3 class="slds-section__title">{!$Label.c.Commitments}</h3>
         <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" />               
     </div>
     
@@ -35,7 +41,7 @@
                 <lightning:layout multipleRows="true">
                     <lightning:layoutItem size="12">
                         <lightning:tile label="" class="slds-border_top slds-border_right slds-border_bottom slds-border_left slds-theme_shade slds-p-around_small">
-                            <h3 class="slds-tile__title slds-truncate">{!$Label.c.Product}</h3>
+                            <h3 class="slds-text-heading_small slds-truncate">{!$Label.c.Product}</h3>
                             <dl class="slds-dl_horizontal">
                                 <dt>
                                     <p>{!v.objSetup.nameProd}</p>
@@ -46,7 +52,7 @@
                     <aura:iteration items="{!v.objSetup.lstTile}" var="tile" indexVar='x'>
                         <lightning:layoutItem size="6">
                             <lightning:tile label="" class="slds-border_top slds-border_right slds-border_bottom slds-border_left slds-theme_shade slds-p-around_small">
-                                <h3 class="slds-tile__title slds-truncate">{!tile.label}</h3>
+                                <h3 class="slds-text-heading_small slds-truncate">{!tile.label}</h3>
                                 <dl class="slds-dl_horizontal">
                                     <dt class="">
                                         <p>{!tile.value}</p>
