@@ -75,11 +75,12 @@ public without sharing virtual class OpportunityPDFWrap {
                       break;
                     }
                 }
-                if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C))
-                conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
-                for(String val :conditionValue){
-                    if(val==OLI2.get(fieldName)){
-                        found=true;
+                if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C)){
+                    conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
+                    for(String val :conditionValue){
+                        if(val==OLI2.get(fieldName)){
+                            found=true;
+                        }
                     }
                 }
                   fieldVisibility.put(pc.Id, found);
