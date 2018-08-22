@@ -75,11 +75,12 @@ public without sharing virtual class OpportunityPDFWrap {
                       break;
                     }
                 }
-                if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C))
-                conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
-                for(String val :conditionValue){
-                    if(val==OLI2.get(fieldName)){
-                        found=true;
+                if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C)){
+                    conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
+                    for(String val :conditionValue){
+                        if(val==OLI2.get(fieldName)){
+                            found=true;
+                        }
                     }
                 }
                   fieldVisibility.put(pc.Id, found);
@@ -122,9 +123,15 @@ public without sharing virtual class OpportunityPDFWrap {
             Client =database.query(getQuery('Account')+' WHERE  Id =\''+opp.Accountid +'\' LIMIT 1');
             usuarioOficina = database.query(getQuery('User_Branch__c')+' WHERE  User__c =\''+opp.ownerId +'\' LIMIT 1');
             if(usuarioOficina.size()>0){oficina =  database.query(getQuery('Branch__c')+' WHERE  id =\''+usuarioOficina[0].branch_name__c +'\' LIMIT 1');}
-            Rating =  database.query(getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+Client.Id+'\' ORDER BY createdDate LIMIT 1');
+            //Fix When Account Rating is not present
+            if(!database.query(getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+Client.Id+'\' ORDER BY createdDate LIMIT 1').isEmpty())    
+                Rating=database.query(getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+Client.Id+'\' ORDER BY createdDate LIMIT 1');
+
             Intervenientes = database.query(getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+Opp.Id+'\'');
-            Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+Opp.Id+'\'');
+
+            //Fix When Guarantee Rating is not present
+            if(!database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+Opp.Id+'\'').isEmpty())
+                Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+Opp.Id+'\'');
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Opportunity_Solution_Commitment__c  WHERE Opportunity_Id__c =:Opp.id];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
             totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE fprd__GBL_Opportunity_product__c=:Opp.Id AND guarantee_status_type__c='02'];
