@@ -21,6 +21,8 @@ public class OpportunityChatterNotifications {
             List<Id> status11 = new List<Id>();
             List<Id> status09 = new List<Id>();
             List<Id> status22 = new List<Id>();
+            List<Id> status21 = new List<Id>();
+            List<Id> status20 = new List<Id>();
             for(Opportunity oppChanged : oppStatusChangedList) {
                 switch on oppChanged.opportunity_status_type__c {
                     when '10'{
@@ -58,6 +60,12 @@ public class OpportunityChatterNotifications {
                     }
                     when '22'{
                         status22.add(oppChanged.ID);                  
+                    }
+                    when '21'{
+                        status21.add(oppChanged.ID);                  
+                    }
+                    when '20'{
+                        status20.add(oppChanged.ID);                  
                     }
                 }
             }
@@ -97,6 +105,12 @@ public class OpportunityChatterNotifications {
             }
             if(!status22.isEmpty()){
                 DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status22, 'Opportunity', 'REJECT');
+            }
+            if(!status21.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status21, 'Opportunity', 'SENT_PRODUCT_UNIT');
+            }
+            if(!status20.isEmpty()){
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status20, 'Opportunity', 'DENIED_FORMALIZATION');
             }
         }
     }

@@ -164,6 +164,216 @@ private class Opportunity_Trigger_Test {
         System.assertEquals(result, actual);
         Test.stopTest();
     }
+
+    @isTest
+    static void state10(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '04';
+        	Opp.opportunity_status_type__c = '10';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state13(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '04';
+        	Opp.opportunity_status_type__c = '13';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state19(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '05';
+        	Opp.opportunity_status_type__c = '19';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state23(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '06';
+        	Opp.opportunity_status_type__c = '23';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state12(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '04';
+        	Opp.opportunity_status_type__c = '12';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state24(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '04';
+        	Opp.opportunity_status_type__c = '24';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state18(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '04';
+        	Opp.opportunity_status_type__c = '18';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+
+    @isTest
+    static void state17(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '04';
+        	Opp.opportunity_status_type__c = '17';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state08(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '04';
+        	Opp.opportunity_status_type__c = '19';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state11(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '04';
+        	Opp.opportunity_status_type__c = '19';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state09(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '04';
+        	Opp.opportunity_status_type__c = '09';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state22(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '07';
+        	Opp.opportunity_status_type__c = '22';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state21(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '05';
+        	Opp.opportunity_status_type__c = '21';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
+    
+    @isTest
+    static void state20(){
+    	User u=CreaUsuario('Ejecutivo');       
+    	CreatOpp(u);
+    	test.startTest();
+        try{
+        	Opp.StageName = '05';
+        	Opp.opportunity_status_type__c = '20';
+        	Opp.isProcess__c = true;
+        	Update Opp;
+        } catch(Exception ex){
+        }
+            test.stopTest();
+    }
     
     static void CreatOpp(User u){
     	Opp = new Opportunity(
