@@ -147,7 +147,7 @@
             "elevateCase" : objSetup['btnSelectConfig'].elevateCase,
             "styleAudit" : objSetup['btnSelectConfig'].styleAudit,
             "nameAudit" : objSetup['btnSelectConfig'].nameAudit,
-            "strComments" : cmp.get('v.strComments'),
+            "strComments" : null,
             "recordOli" : cmp.get('v.objectInput').IdOppLineItem,
             "lstApiField" : inputObject['lstApiField'],
             "lstValue" : inputObject['lstvalueField'],

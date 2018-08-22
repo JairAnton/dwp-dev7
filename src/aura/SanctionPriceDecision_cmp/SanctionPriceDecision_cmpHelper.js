@@ -145,7 +145,7 @@
             "createCase" : objSetup['btnSelectConfig'].createCase,
             "styleAudit" : objSetup['btnSelectConfig'].styleAudit,
             "nameAudit" : objSetup['btnSelectConfig'].nameAudit,
-            "strComments" : cmp.get('v.strComments'),
+            "strComments" : null,
             "storeHtml" : storeHTML.innerHTML
         });
         action.setCallback(this, function(response) {
