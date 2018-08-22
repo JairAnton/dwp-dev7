@@ -113,11 +113,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>dateType</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>strLabelNoData</name>
