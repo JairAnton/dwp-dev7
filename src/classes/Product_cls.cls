@@ -277,7 +277,7 @@ public without sharing class Product_cls {
             if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZADOR')
             {
                 HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].proposed_apr_per__c)+ '% <br/>' +
-                    '<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].proposed_fee_per__c )+'% <br/>'+
+                    '<b>Comisión estructuración:</b> '+String.valueOf(itemOppProduct[0].restructuring_fee_per__c )+'% <br/>'+
                     '<b>Comisión Liquidacion Anticipada(%):</b> '+String.valueOf(itemOppProduct[0].cancellation_fee_per__c)+'% <br/>';                                
             }else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web'){HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+String.valueOf(itemOppProduct[0].proposed_apr_per__c)+ '% <br/>';  }
             else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario'){ HTMLComments=HTMLComments+'<b>Comisión Propuesta:</b> '+String.valueOf(itemOppProduct[0].proposed_fee_per__c )+'% <br/>';  }
