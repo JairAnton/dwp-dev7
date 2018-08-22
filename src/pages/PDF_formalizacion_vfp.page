@@ -114,7 +114,7 @@
                     <apex:outputfield value="{!Oli.gipr_Periodicidad__c}"/></td>
                 <td>Tipo garantía:&nbsp; <apex:outputfield value="{!Oli.gipr_Tipo_Garantia__c}"/></td>
             </tr>
-            <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductExport || Product.ProductCode == $Label.lblPDFProductImport}">
+            <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductExportComex || Product.ProductCode == $Label.lblPDFProductImportComex}">
                 <tr>
                     <td>Medio de pago:&nbsp;{!OLI.gipr_Payment_Method__c}</td>
                     <td>Bolsa comex:&nbsp;{!OLI.gipr_Comex_Bag__c}</td>
