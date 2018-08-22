@@ -115,7 +115,7 @@ public class GraphicsGenerator_cls {
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') AND account_id__c=:sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
-            	fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-6);
+                fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-5);
             	fActual=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(1);
                 
     			List<Account_Indicator__C > auxTab = [SELECT indicator_num__c,year_month_day_date__c
@@ -133,23 +133,24 @@ public class GraphicsGenerator_cls {
 	            if(String.isEmpty(String.valueOf(tab.year_month_day_date__c))) valores.add('0');
 	            else
 	            {
-	            	if(tab.year_month_day_date__c.month()!=agrupador.get(mes)){
-	            		for(Integer i=mes; i<agrupador.size()-1;i++){
-	            			if(tab.year_month_day_date__c.month()==agrupador.get(mes))i =agrupador.size();
-	            			else
-	            			{
-	            				valores.add('0'); 
-	            				mes++;
-	            			}
-	            		}	            		
-	            	}
-
-	            	if(tab.year_month_day_date__c.month()==agrupador.get(mes))
-	            	{	            	
-	            		valores.add(String.valueOf(tab.indicator_num__c));
-	            		mes++;
-	            	}
-
+                       if(mes<agrupador.size())
+                       {
+                            if(tab.year_month_day_date__c.month()!=agrupador.get(mes)){
+                                for(Integer i=mes; i<agrupador.size()-1;i++){
+                                    if(tab.year_month_day_date__c.month()==agrupador.get(mes))i =agrupador.size();
+                                    else
+                                    {
+                                        valores.add('0'); 
+                                        mes++;
+                                    }
+                                }                       
+                            }
+                            if(tab.year_month_day_date__c.month()==agrupador.get(mes))
+                            {                   
+                                valores.add(String.valueOf(tab.indicator_num__c));
+                                mes++;
+                            }
+                        }
 	            }
 	        }
 	        if(mes<6)
@@ -183,7 +184,7 @@ public class GraphicsGenerator_cls {
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C WHERE indicator_name__c IN ('Estrella','Transaccional','Potencial','Básico') AND account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
-                Date fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-6);
+                Date fInicial=((Date)lasDateData[0].get('dateP')).toStartofMonth().addMonths(-5);
         	String [] sMes= new String[]{'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'};
         	for(Integer i=0;i<6 ;i++)
         	{
