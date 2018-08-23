@@ -86,6 +86,12 @@
             <operator>equals</operator>
             <value>1</value>
         </criteriaItems>
+        <criteriaItems>
+           <column>Account.Account_Indicators__r$indicator_num__c</column>
+           <isUnlocked>true</isUnlocked>
+           <operator>lessOrEqual</operator>
+           <value>5</value>
+        </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Summary</format>
