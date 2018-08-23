@@ -95,12 +95,12 @@
             </tr>
             <tr>
                 <td>
-                    <apex:outputPanel rendered="{!product.ProductCode == $Label.lblPDFProductCartaTecnicaEconomica || product.ProductCode ==$Label.lblPDFProductCartaTecnicaImport}" >
+                    <apex:outputPanel rendered="{!IF(product.ProductCode == $Label.lblPDFProductCartaTecnicaEconomica || product.ProductCode ==$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
                     Comisión aprobada:<apex:outputText value=" {0, number,.00} %">
                     <apex:param value="{!Oli.proposed_fee_per__c}"/>
                     </apex:outputText>
                     </apex:outputPanel>
-                    <apex:outputPanel rendered="{!product.ProductCode != $Label.lblPDFProductCartaTecnicaEconomica || product.ProductCode !=$Label.lblPDFProductCartaTecnicaImport}" >
+                    <apex:outputPanel rendered="{!IF(product.ProductCode != $Label.lblPDFProductCartaTecnicaEconomica && product.ProductCode !=$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
                     TEA aprobada:<apex:outputText value=" {0, number,.00} %">
                     <apex:param value="{!Oli.proposed_apr_per__c}"/>
                     </apex:outputText>
