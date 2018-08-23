@@ -77,7 +77,7 @@
                 </tr>
                 <tr>
                     <td>Sancionador: </td>
-                    <td>Comentarios:&nbsp;{!Comentarios}</td>
+                    <td></td>
                 </tr>
             </apex:outputPanel>
         </table>

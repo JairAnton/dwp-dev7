@@ -20,7 +20,6 @@ public without sharing virtual class OpportunityPDFWrap {
     public static opportunity Opp{get;set;}
     public static map<id,boolean> fieldVisibility{get;set;}
     private static list<dwp_cvad__Action_Audit__c> Audit {get;set;}
-    private static list<dwp_cvad__Action_Audit__c> Audit2 {get;set;}
     Public static list<dwp_cvad__Action_Audit__c> Comen {get;set;}
     public static String FechaAut{get;set;}
     public static String FauthPrecio{get;set;}
@@ -40,7 +39,6 @@ public without sharing virtual class OpportunityPDFWrap {
         SOQLQuery+=' FROM '+Objeto;
         return SOQLQuery;
     }
-
 
     private static void  filterVisibility(list<fprd__GBL_Product_Configuration__c> PrdConfg){
         A = new list<fprd__GBL_Product_Configuration__c>();
@@ -75,12 +73,11 @@ public without sharing virtual class OpportunityPDFWrap {
                       break;
                     }
                 }
-                if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C)){
-                    conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
-                    for(String val :conditionValue){
-                        if(val==OLI2.get(fieldName)){
-                            found=true;
-                        }
+                if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C))
+                conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
+                for(String val :conditionValue){
+                    if(val==OLI2.get(fieldName)){
+                        found=true;
                     }
                 }
                   fieldVisibility.put(pc.Id, found);
@@ -110,13 +107,22 @@ public without sharing virtual class OpportunityPDFWrap {
        try{
             oficina= new Branch__c();
             Rating = new Account_Rating__c();
+            list<dwp_cvad__Action_Audit_Detail__c> DetalleComentario = new list<dwp_cvad__Action_Audit_Detail__c>();
             Opp = database.query(getQuery('Opportunity')+' WHERE id =\''+Oppid+'\' LIMIT 1');
             OLI = database.query(getQuery('OpportunityLineItem')+' WHERE  OpportunityID =\''+Opp.id +'\' ORDER BY CreatedDate DESC LIMIT 1');
-            Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY dwp_cvad__action_audit_name__c DESC');
+            Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY CreatedDate DESC');
             if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}
             FauthPrecio = String.valueOf(OLI.price_quote_date__c);
-            Comen = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY dwp_cvad__action_audit_name__c');
-            if(Comen.size()>0){Comentarios = Comen[0].dwp_cvad__audit_audit_comments__c;}else{Comentarios=Label.lblNoAuthDate;}
+            Comen = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' AND dwp_cvad__action_audit_name__c =\'Enviado a formalización\'');
+            if(Comen.size()>0){
+            DetalleComentario =database.query(getQuery('dwp_cvad__Action_Audit_Detail__c')+' WHERE dwp_cvad__action_audit_id__c = \''+Comen[0].Id+'\'');
+            if(DetalleComentario.size()>0){
+             Comentarios = DetalleComentario[0].dwp_cvad__action_audit_detail_content__c;
+             Comentarios = Comentarios.stripHtmlTags();
+             Comentarios = Comentarios.substringAfterLast('Comentarios:');
+            }
+            }
+
             Product = database.query(getQuery('Product2')+' WHERE  Id =\''+OLI.Product2Id +'\' LIMIT 1');
             ProductConfiguration = database.query(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.ProductCode =\''+Product.ProductCode+'\' AND FPRD__SECTION_NAME__C IN ('+label.PDFSectionPayment+') ORDER BY FPRD__SECTION_NAME__C,FPRD__ORDER__C');
             filterVisibility(ProductConfiguration);
