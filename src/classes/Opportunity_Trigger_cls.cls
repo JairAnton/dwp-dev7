@@ -37,6 +37,8 @@ public without sharing class Opportunity_Trigger_cls {
                     opp.CloseDate=PDate.addDays(45);			
                 else if(opp.opportunity_planning_date__c==null && opp.Field_Sup_Closing_Date__c==null)
                     opp.CloseDate=Date.today().addDays(60);	
+				if(opp.Field_Sup_Closing_Date__c!=null)
+                	opp.CloseDate=opp.Field_Sup_Closing_Date__c;
                 
                 system.debug('Finaliza con: '+opp);
             }
