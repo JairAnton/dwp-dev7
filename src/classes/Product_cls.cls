@@ -10,7 +10,7 @@ public without sharing class Product_cls {
 	Comments to describe the functionality of this method
 	*/
 	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
-		List<OpportunityLineItem> row= [SELECT  cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
+		List<OpportunityLineItem> row= [SELECT  cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c, restructuring_fee_per__c  FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
 		if(!row.isEmpty())
 			return row;
 		else
