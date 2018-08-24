@@ -15,7 +15,7 @@ global class Email_SIO implements Messaging.InboundEmailHandler{
         String SioCode ='';
         String SioStatus ='';
         String myPlainText = '';
-        myPlainText = email.plainTextBody;        
+        myPlainText = email.htmlBody;        
         // Capture the record ID from the subject line
         list<String> subl = mySubject.split('##');
         Task task= new Task();
@@ -25,7 +25,6 @@ global class Email_SIO implements Messaging.InboundEmailHandler{
         List <dwp_cvad__Action_Audit__c> lstaction = new List <dwp_cvad__Action_Audit__c>();
         List <dwp_cvad__Action_Audit_Detail__c> lstactdetail = new List <dwp_cvad__Action_Audit_Detail__c>();
         List <SIO_Status_Mapping__mdt> lstsiomapping = [Select Id, sio_status__c, sio_status_type__c from SIO_Status_Mapping__mdt];   
-        
         
         try{
             //email with subject ClientCode##date
