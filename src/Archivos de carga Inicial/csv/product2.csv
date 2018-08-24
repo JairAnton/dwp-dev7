@@ -1,5 +1,5 @@
 "NAME","PRODUCTCODE","DESCRIPTION","ISACTIVE","FAMILY","CURRENCYISOCODE","TYPE_OF_QUOTE__C","UNIQUE_ID__C","FORMALIZATION__C","PRICE_PENALTY__C","RISK_SANCTION__C","PDF__C"
-"Prestamo comercial","PC00001","Producto code 1","true","Financiamiento a corto plazo","PEN","Web","0160010","true","true","true","true"
+"Prestamo comercial","PC00001","Producto code 1","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0160010","true","true","true","true"
 "Comex Importacion","PC00002","Producto code 2","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0161720","true","true","true","true"
 "Comex Exportacion","PC00003","Producto code 3","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0161710","true","true","true","true"
 "Letras","PC00005","Producto code 5","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0159501","true","true","true","true"
