@@ -1788,6 +1788,10 @@
                 <value>10</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>reportFilter</name>
+                <value>ACCOUNT_ID</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>reportName</name>
                 <value>Account_Spread</value>
             </componentInstanceProperties>

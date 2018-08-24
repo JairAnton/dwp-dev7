@@ -4661,6 +4661,10 @@ Ejecutivos de REDES</description>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__LeadVisit</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<tabVisibilities>
+		<tab>standard-File</tab>
+		<visibility>Hidden</visibility>
+	</tabVisibilities>
     <tabVisibilities>
         <tab>Account_Accounting__c</tab>
         <visibility>Hidden</visibility>
