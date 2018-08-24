@@ -59,16 +59,12 @@
             
             if(Currency=="" )
             {
-                component.set("v.errMessage",$A.get("$Label.c.Reject_Currency_field"));
-                helper.handleShowToast(component,event,helper); 
-                return null;
+                Currency==null;
             }
             
-            if(Amount=="" )
+            if(Amount=='')
             {
-                component.set("v.errMessage",$A.get("$Label.c.Reject_Amount_field"));
-                helper.handleShowToast(component,event,helper); 
-                return null;
+                Amount = null;
             }
             else
             {
@@ -80,11 +76,9 @@
                 }
             }
             
-            if(Rate=="" )
+            if(Rate=='')
             {
-                component.set("v.errMessage",$A.get("$Label.c.Reject_Rate_field"));
-                helper.handleShowToast(component,event,helper); 
-                return null;
+                Rate = null;
             }
             else
             {

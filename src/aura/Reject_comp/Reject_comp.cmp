@@ -51,13 +51,13 @@
 	                    <option value="{!item.Value}">{!item.Label}</option>
 	                </aura:iteration>			        
 			    </lightning:select>
-			    <lightning:select aura:id="selCurrency" name="selCurrency" label="{!$Label.c.Currency}" class="slds-size_1-of-2 slds-p-horizontal_x-small" required="true">
+			    <lightning:select aura:id="selCurrency" name="selCurrency" label="{!$Label.c.Currency}" class="slds-size_1-of-2 slds-p-horizontal_x-small">
 			        <option value="">--Ninguno--</option>
                     <option value="01">Sol peruano</option>
                     <option value="02">Dólar EE.UU.</option>                   
 			    </lightning:select>
-			    <lightning:input aura:id="txtAmount" name="txtAmount" type="number" step="0.01" label="{!$Label.c.Amount}" value="" class="slds-size_1-of-2 slds-p-horizontal_x-small" required="true"/> 
-			    <lightning:input aura:id="txtRate" name="txtRate" type="number" step="0.01" label="Tasa" value="" class="slds-size_1-of-2 slds-p-horizontal_x-small" required="true"/> 
+			    <lightning:input aura:id="txtAmount" name="txtAmount" type="number" step="0.01" label="{!$Label.c.Amount}" value="" class="slds-size_1-of-2 slds-p-horizontal_x-small" /> 
+			    <lightning:input aura:id="txtRate" name="txtRate" type="number" step="0.01" label="Tasa" value="" class="slds-size_1-of-2 slds-p-horizontal_x-small" /> 
 			    <lightning:input aura:id="txtTerm" name="txtTerm" pattern="[0-9.]+" label="Plazo de la operacion perdida (días)" value="" class="slds-size_1-of-2 slds-p-horizontal_x-small" /> 
 			</aura:if>
 			<aura:if isTrue="{!v.Box2}">
