@@ -118,7 +118,7 @@ public without sharing virtual class OpportunityPDFWrap {
                 DetalleComentario =database.query(getQuery('dwp_cvad__Action_Audit_Detail__c')+' WHERE dwp_cvad__action_audit_id__c = \''+Comen[0].Id+'\'');
                 if(DetalleComentario.size()>0){
                     Comentarios = DetalleComentario[0].dwp_cvad__action_audit_detail_content__c;
-                    Comentarios = Comentarios.substringAfterLast('data-aura-rendered-by="5:4051;a">');
+                    Comentarios = Comentarios.substringAfterLast('>Comentarios</h3>');
                     Comentarios = Comentarios.substringBefore('</span>');
                     Comentarios = Comentarios.stripHtmlTags();
                 }
