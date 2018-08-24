@@ -22,7 +22,7 @@
         <chartType>VerticalColumn</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>Account_BBVA_Information__c.product_desc__c</groupingColumn>
+        <groupingColumn>Account_BBVA_Information__c.product_group_classification_id__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>false</showAxisLabels>
@@ -51,12 +51,6 @@
     <currency>PEN</currency>
     <filter>
         <criteriaItems>
-            <column>Account_BBVA_Information__c.type__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>02</value>
-        </criteriaItems>
-        <criteriaItems>
             <column>Account_BBVA_Information__c.product_group_classification_id__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
@@ -79,10 +73,10 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account_BBVA_Information__c.product_desc__c</field>
+        <field>Account_BBVA_Information__c.product_group_classification_id__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis variaciones por producto</name>
+    <name>Mis variaciones</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -90,7 +84,7 @@
     <reportType>AccountCustomEntity$Account_BBVA_Information__c</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
-    <!-- <showGrandTotal>true</showGrandTotal>
+<!--     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals> -->
     <timeFrameFilter>
         <dateColumn>LAST_UPDATE</dateColumn>
