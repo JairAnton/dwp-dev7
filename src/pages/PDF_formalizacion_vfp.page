@@ -125,8 +125,8 @@
             </tr>
             <apex:outputPanel  rendered="{!Product.ProductCode == $Label.lblPDFProductExportComex || Product.ProductCode == $Label.lblPDFProductImportComex}">
                 <tr>
-                    <td>Medio de pago:&nbsp;{!OLI.gipr_Payment_Method__c}</td>
-                    <td>Bolsa comex:&nbsp;{!OLI.gipr_Comex_Bag__c}</td>
+                    <td>Medio de pago:&nbsp;<apex:outputfield value="{!OLI.gipr_Payment_Method__c}"/></td>
+                    <td>Bolsa comex:&nbsp;<apex:outputfield value="{!OLI.gipr_Comex_Bag__c}"/></td>
                 </tr>
             </apex:outputPanel>
             <tr>
