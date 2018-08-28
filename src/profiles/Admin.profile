@@ -4378,10 +4378,6 @@
         <name>CreatePackaging</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateReportFolders</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>false</enabled>
         <name>CreateReportInLightning</name>
     </userPermissions>
