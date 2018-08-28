@@ -4232,10 +4232,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>EditMyDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>EditMyReports</name>
     </userPermissions>
     <userPermissions>
