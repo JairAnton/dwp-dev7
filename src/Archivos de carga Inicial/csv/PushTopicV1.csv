@@ -1,0 +1,4 @@
+"NAME","ApiVersion ","QUERY","ISACTIVE","NOTIFYFORFIELDS","NOTIFYFOROPERATIONCREATE","NOTIFYFOROPERATIONUPDATE","NOTIFYFOROPERATIONDELETE","NOTIFYFOROPERATIONUNDELETE"
+"NewOppFromAccount",43,"SELECT Id, Name, OwnerId, AccountId FROM Opportunity","true","Referenced","true","false","false","false"
+"NewVisitFromAccount",43,"SELECT Id, Name, OwnerId, dwp_kitv__account_id__c  FROM dwp_kitv__Visit__c","true","Referenced","true","false","false","false"
+"NewContactFromAccount",43,"SELECT Id, Name, OwnerId, AccountId FROM Contact","true","Referenced","true","false","false","false"

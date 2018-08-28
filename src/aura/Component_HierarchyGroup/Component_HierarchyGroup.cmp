@@ -1,0 +1,19 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="newAccount" type="Object"/>
+    <aura:attribute name="Account" type="Object"/>
+    <aura:attribute name="newAccountError" type="String"/>
+    <aura:attribute name="Opportunities" type="Object" default="{}" />
+    <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Account">  
+        <div class="slds-grid slds-wrap  custom-container">
+            <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+                <lightning:outputField fieldName="Name" />           
+            </div>
+            <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+                <lightning:outputField fieldName="bureau_classification_type__c " />
+            </div>
+            <div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+                <lightning:outputField fieldName="risk_strategy_class_name__c" />
+            </div>
+         </div> 
+    </lightning:recordViewForm>
+</aura:component>

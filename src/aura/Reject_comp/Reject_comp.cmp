@@ -1,0 +1,81 @@
+<!-- @author: Isaías Velázquez Cortés ## Date: 2018-07-25 -->
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" 
+				extends="dwp_mdal:ModalTemplate_cmp"   
+				access="GLOBAL" 
+				controller="Product_cls">
+	<!--hander section-->
+
+	<!--atributes section-->
+	<aura:attribute name="title" type="String" default="{!$Label.c.lblReject}" access="global" description="Specify the modal"/>
+	<aura:attribute name="recordId" type="Id" />
+	<aura:attribute name="errMessage" type="String" default=""/>
+	<aura:attribute name="closeButton" type="Boolean" default="false"/>
+	<aura:attribute name="Box1" type="Boolean" default="false"/>
+	<aura:attribute name="Box2" type="Boolean" default="false"/>
+	<aura:attribute name="rejecReasonList" type="List" default="[]"/>
+	<aura:attribute name="pickReject" type="Object" />
+	<aura:attribute name="pickWBank" type="Object" />
+
+	<!-- embedded components -->
+	<c:MX_PickListValues_comp sObjectName="Opportunity" fieldName="Loss_Reason__c" picklistValues="{!v.pickReject}" />
+	<c:MX_PickListValues_comp sObjectName="Opportunity" fieldName="rejection_winner_entity_name__c" picklistValues="{!v.pickWBank}" />
+	
+    <!--content section-->
+	<div class="slds-scrollable slds-theme_shade" style="background:white;">
+		<!--alert message section-->
+		<div aura:id="divToast" class="slds-notify_container slds-hide" style="width:98%">
+            <div class="slds-notify slds-notify_toast slds-theme_error" role="alert" style="width:98%">
+              <span class="slds-assistive-text"></span>
+              <span class="slds-icon_container slds-icon-utility-error slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+              </span>
+              <div class="slds-notify__content">
+                <h2 class="slds-text-heading_small ">{!v.errMessage}</h2>
+              </div>
+              <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close">
+                <span class="slds-assistive-text">Close</span>
+              </button>
+            </div>
+        </div>
+			<!--form section-->
+            <div class="slds-m-around_medium slds-grid slds-wrap">
+			<lightning:select aura:id="selRejectReason" name="selRejectReason" required="true" label="Motivo de desestimación" class="slds-size_2-of-2 slds-p-horizontal_x-small" onchange="{!c.onChangeRejectReason}">
+		        <option value="">--Ninguno--</option>
+		        <aura:iteration items="{!v.pickReject}" var="item">
+                    <option value="{!item.Value}">{!item.Label}</option>
+                </aura:iteration>
+		    </lightning:select>	
+		    <aura:if isTrue="{!v.Box1}">
+			    <lightning:select aura:id="selWinnerBank" name="selWinnerBank" label="Banco ganador:" class="slds-size_1-of-2 slds-p-horizontal_x-small" required="true">
+			        <option value="">--Ninguno--</option>
+			        <aura:iteration items="{!v.pickWBank}" var="item">
+	                    <option value="{!item.Value}">{!item.Label}</option>
+	                </aura:iteration>			        
+			    </lightning:select>
+			    <lightning:select aura:id="selCurrency" name="selCurrency" label="{!$Label.c.Currency}" class="slds-size_1-of-2 slds-p-horizontal_x-small">
+			        <option value="">--Ninguno--</option>
+                    <option value="01">Sol peruano</option>
+                    <option value="02">Dólar EE.UU.</option>                   
+			    </lightning:select>
+			    <lightning:input aura:id="txtAmount" name="txtAmount" type="number" step="0.01" label="{!$Label.c.Amount}" value="" class="slds-size_1-of-2 slds-p-horizontal_x-small" /> 
+			    <lightning:input aura:id="txtRate" name="txtRate" type="number" step="0.01" label="Tasa" value="" class="slds-size_1-of-2 slds-p-horizontal_x-small" /> 
+			    <lightning:input aura:id="txtTerm" name="txtTerm" pattern="[0-9.]+" label="Plazo de la operacion perdida (días)" value="" class="slds-size_1-of-2 slds-p-horizontal_x-small" /> 
+			</aura:if>
+			<aura:if isTrue="{!v.Box2}">
+				<table style="width:97%" align="center" cellspacing="2">
+					<tr>
+						<td >
+						<lightning:textarea aura:id="txtComments" name="txtComments" value="" label="{!$Label.c.Comments}" maxlength="255"  required="true"/>
+						</td>
+					</tr>
+				</table>
+		    </aura:if>
+			</div>
+	
+	</div>
+
+	<!--footer section-->
+	<div class="slds-modal__footer" style="text-align:center;padding:1rem;border-radius:0em 0em .3em .3em;">
+        <lightning:button variant="neutral" label="{!$Label.c.Cancel}" onclick="{!c.close}" class="slds-float_left"/>
+	    <lightning:button class="slds-float_right" aura:id="btnSave" name="btnSave" variant="brand" label="{!$Label.c.Save}" onclick="{!c.save}" />
+	 </div>
+</aura:component>

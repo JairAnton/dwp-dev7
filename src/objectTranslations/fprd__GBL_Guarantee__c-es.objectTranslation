@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Garantía</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Garantias</value>
+    </caseValues>
+    <fields>
+        <label>Importe Gtia</label>
+        <name>guaranteed_amount__c</name>
+    </fields>
+    <fields>
+        <label>Tipo de garantía</label>
+        <name>guarantee_type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Dineraria</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>No dineraria</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Sin garantía</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Garantía</label>
+        <name>guarantee_desc__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Cuenta en garantía</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Depósito cuenta a plazo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Super depósitos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Acciones y bono</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Cartas de crédito</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>Certificados bancarios</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>Fianza bancaria</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>Fianza solidaria</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>Fondos mutuos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>Hipoteca</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>Leasing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>Prenda agrícola</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation>Prenda industrial</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14</masterLabel>
+            <translation>Prenda minera</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation>Prenda transporte</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>16</masterLabel>
+            <translation>Prenda vehicular</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>17</masterLabel>
+            <translation>Warrants</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Modalidad</label>
+        <name>guarantee_modality_type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Genérica</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Específica</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Producto de oportunidad</label>
+        <name>fprd__GBL_Opportunity_product__c</name>
+        <relationshipLabel>Oportunidad</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Periodicidad</label>
+        <name>guarantee_periodicity_type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Días</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Meses</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Estado Gtia</label>
+        <name>guarantee_status_type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Formalizada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>No Formalizada</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Plazo</label>
+        <name>guarantee_term_number__c</name>
+    </fields>
+    <fields>
+        <label>Principal?</label>
+        <name>isMaster__c</name>
+    </fields>
+    <fields>
+        <label>N° Gtia CRGA</label>
+        <name>guarantee_id__c</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

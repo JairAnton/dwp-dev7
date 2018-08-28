@@ -1,0 +1,1111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label>DWP Ventas</label>
+        <name>DWP_Sales</name>
+    </customApplications>
+    <customLabels>
+        <label>Iniciar Hangout</label>
+        <name>Hangout</name>
+    </customLabels>
+    <customLabels>
+        <label>Aceptar</label>
+        <name>Agree</name>
+    </customLabels>
+    <customLabels>
+        <label>Importe</label>
+        <name>Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha estimada de cierre</label>
+        <name>CloseDate</name>
+    </customLabels>
+    <customLabels>
+        <label>Comentarios</label>
+        <name>Comments</name>
+    </customLabels>
+    <customLabels>
+        <label>Divisa</label>
+        <name>Currency</name>
+    </customLabels>
+    <customLabels>
+        <label>debe ser mayor que la fecha</label>
+        <name>DateHigherThan</name>
+    </customLabels>    
+    <customLabels>
+        <label>Para dar de alta un nuevo Contacto, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nuevo contacto&quot;</label>
+        <name>NewContactWarning</name>
+    </customLabels>
+        <customLabels>
+        <label>Nueva oportunidad</label>
+        <name>New_Opportunity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OppId --></label>
+        <name>OppId</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre de la oportunidad</label>
+        <name>OpportunityName</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha de planificación</label>
+        <name>PlannigDate</name>
+    </customLabels>
+    <customLabels>
+        <label>Probabilidad de éxito</label>
+        <name>Probability</name>
+    </customLabels>
+    <customLabels>
+        <label>Guardar</label>
+        <name>Save</name>
+    </customLabels>    
+    <customLabels>
+        <label>Aviso</label>
+        <name>Warning</name>
+    </customLabels>
+	<customLabels>
+        <label>Activo</label>
+        <name>AccountAccountingType1</name>
+    </customLabels>
+    <customLabels>
+        <label>Pasivo</label>
+        <name>AccountAccountingType2</name>
+    </customLabels>
+    <customLabels>
+        <label>Estado de ganancias y pérdidas</label>
+        <name>AccountAccountingType3</name>
+    </customLabels>
+    <customLabels>
+        <label>Patrimonio</label>
+        <name>AccountAccountingType4</name>
+    </customLabels>
+    <customLabels>
+        <label>Recursos gestionados</label>
+        <name>AccountBBVAResourcesTotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliente</label>
+        <name>AccountName</name>
+    </customLabels>    
+    <customLabels>
+        <label>Información no disponible</label>
+        <name>AccountNoData</name>
+    </customLabels>
+    <customLabels>
+        <label>Activos</label>
+        <name>AccountProductClassification1</name>
+    </customLabels>
+    <customLabels>
+        <label>Pasivos</label>
+        <name>AccountProductClassification2</name>
+    </customLabels>
+    <customLabels>
+        <label>Cobros</label>
+        <name>AccountProductClassification3</name>
+    </customLabels>
+    <customLabels>
+        <label>Pagos</label>
+        <name>AccountProductClassification4</name>
+    </customLabels>
+    <customLabels>
+        <label>Bxl</label>
+        <name>AccountProductClassification5</name>
+    </customLabels>
+    <customLabels>
+        <label>Margen ordinario</label>
+        <name>AccountProfitabilityTotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Directa</label>
+        <name>AccountRankingClassification1</name>
+    </customLabels>
+    <customLabels>
+        <label>Indirecta</label>
+        <name>AccountRankingClassification2</name>
+    </customLabels>
+	<customLabels>
+        <label>Total</label>
+        <name>AccountRankingClassification3</name>
+    </customLabels>
+    <customLabels>
+        <label>DIRECTA</label>
+        <name>LblDirectDebt</name>
+    </customLabels>
+    <customLabels>
+        <label>INDIRECTA</label>
+        <name>LblIndirectDebt</name>
+    </customLabels>
+    <customLabels>
+        <label>RECURSOS GESTIONADOS</label>
+        <name>LblResources</name>
+    </customLabels>
+    <customLabels>
+        <label>Oct</label>
+        <name>Month10ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Nov</label>
+        <name>Month11ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Dic</label>
+        <name>Month12ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Ene</label>
+        <name>Month1ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Feb</label>
+        <name>Month2ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Mar</label>
+        <name>Month3ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Abr</label>
+        <name>Month4ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>May</label>
+        <name>Month5ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Jun</label>
+        <name>Month6ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Jul</label>
+        <name>Month7ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Ago</label>
+        <name>Month8ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label>Sep</label>
+        <name>Month9ShortName</name>
+    </customLabels>
+	<customLabels>
+		<label>Total Activo</label>
+		<name>AccountAccountingType1TotalLabel</name>
+	</customLabels>
+	<customLabels>
+       <label>Total Pasivo</label>
+       <name>AccountAccountingType2TotalLabel</name>
+	</customLabels>
+	<customLabels>
+		<label>ACTIVO</label>
+		<name>AccountProductClassificationTable1</name>
+	</customLabels>
+	<customLabels>
+		<label>PASIVO</label>
+		<name>AccountProductClassificationTable2</name>
+	</customLabels>
+	<customLabels>
+		<label>Cobros</label>
+		<name>AccountProductClassificationTable3</name>
+	</customLabels>
+	<customLabels>
+		<label>Pagos</label>
+		<name>AccountProductClassificationTable4</name>
+	</customLabels>
+	<customLabels>
+		<label>Bxl</label>
+		<name>AccountProductClassificationTable5</name>
+	</customLabels>
+	<customLabels>
+		<label>Directa</label>
+		<name>AccountRankingClassificationTable1</name>
+	</customLabels>
+	<customLabels>
+		<label>Indirecta</label>
+		<name>AccountRankingClassificationTable2</name>
+	</customLabels>
+   <customLabels>
+        <label>Agregar</label>
+        <name>fprd__GBL_Add</name>
+    </customLabels>
+    <customLabels>
+        <label>Agregar Producto</label>
+        <name>fprd__GBL_AddProduct</name>
+    </customLabels>
+    <customLabels>
+        <label>Todos los productos</label>
+        <name>fprd__GBL_AllProducts</name>
+    </customLabels>
+    <customLabels>
+        <label>Atributo</label>
+        <name>fprd__GBL_Attribute</name>
+    </customLabels>
+    <customLabels>
+        <label>Productos disponibles</label>
+        <name>fprd__GBL_AvailableProducts</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>fprd__GBL_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Clonar</label>
+        <name>fprd__GBL_Clone</name>
+    </customLabels>
+    <customLabels>
+        <label>Comparar</label>
+        <name>fprd__GBL_Compare</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirmar eliminación</label>
+        <name>fprd__GBL_ConfirmDelete</name>
+    </customLabels>
+    <customLabels>
+        <label>Creación exitosa</label>
+        <name>fprd__GBL_CreatedSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Borrar</label>
+        <name>fprd__GBL_Delete</name>
+    </customLabels>
+    <customLabels>
+        <label>Borrado exitoso</label>
+        <name>fprd__GBL_DeletedSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Editar</label>
+        <name>fprd__GBL_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Error de servidor</label>
+        <name>fprd__GBL_ErrorServer</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto inactivo</label>
+        <name>fprd__GBL_InactiveProduct</name>
+    </customLabels>
+    <customLabels>
+        <label>Límite inferior</label>
+        <name>fprd__GBL_InferiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label>Cargando condiciones del producto</label>
+        <name>fprd__GBL_LoadingProduct</name>
+    </customLabels>
+    <customLabels>
+        <label>Cargando condiciones del producto</label>
+        <name>fprd__GBL_LoadingProductSelector</name>
+    </customLabels>
+    <customLabels>
+        <label>Campo obligatorio</label>
+        <name>fprd__GBL_MandatoryField</name>
+    </customLabels>
+    <customLabels>
+        <label>Modificar</label>
+        <name>fprd__GBL_Modify</name>
+    </customLabels>
+    <customLabels>
+        <label>Nuevo</label>
+        <name>fprd__GBL_New</name>
+    </customLabels>
+    <customLabels>
+        <label>Sin producto</label>
+        <name>fprd__GBL_NoProducts</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto clonado exitoso</label>
+        <name>fprd__GBL_ProductClonedSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Comparar producto</label>
+        <name>fprd__GBL_ProductComparator</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto borrado exitosamente</label>
+        <name>fprd__GBL_ProductDeletedSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Familia de producto</label>
+        <name>fprd__GBL_ProductFamily</name>
+    </customLabels>
+    <customLabels>
+        <label>Mensaje de límite de productos</label>
+        <name>fprd__GBL_ProductLimitMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre de producto</label>
+        <name>fprd__GBL_ProductName</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto seleccionado</label>
+        <name>fprd__GBL_ProductSelected</name>
+    </customLabels>
+    <customLabels>
+        <label>Nuevo producto</label>
+        <name>fprd__GBL_ProductSelector</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto guardado exitosamente</label>
+        <name>fprd__GBL_ProductsSaveSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Productos seleccionados</label>
+        <name>fprd__GBL_ProductsSelected</name>
+    </customLabels>
+    <customLabels>
+        <label>Resetear</label>
+        <name>fprd__GBL_Reset</name>
+    </customLabels>
+    <customLabels>
+        <label>Guardar</label>
+        <name>fprd__GBL_Save</name>
+    </customLabels>
+    <customLabels>
+        <label>Productos seleccionados</label>
+        <name>fprd__GBL_SelectedProducts</name>
+    </customLabels>
+    <customLabels>
+        <label>Límite superior</label>
+        <name>fprd__GBL_SuperiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label>Para guardar OK</label>
+        <name>fprd__GBL_ToastSavedOk</name>
+    </customLabels>
+    <customLabels>
+        <label>Actualización exitosa</label>
+        <name>fprd__GBL_UpdatedSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Formalización</label>
+        <name>lbFormalization</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Erro on Reevaluate Button --></label>
+        <name>lblErrorReevaluateBtn</name>
+    </customLabels>
+    <customLabels>
+        <label>Formalizar</label>
+        <name>lblFormalize</name>
+    </customLabels>
+    <customLabels>
+        <label>Sancionar riesgo</label>
+        <name>lblPenalizeRisk</name>
+    </customLabels>
+    <customLabels>
+        <label>Cotizar</label>
+        <name>lblQuote</name>
+    </customLabels>
+    <customLabels>
+        <label>Reevaluar</label>
+        <name>lblReevaluate</name>
+    </customLabels>
+    <customLabels>
+        <label>Desestimar</label>
+        <name>lblReject</name>
+    </customLabels>
+    <customLabels>
+        <label>Sancionar precio</label>
+        <name>lblSanctionPrice</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción de riesgo</label>
+        <name>lblSanctionRisk</name>
+    </customLabels>
+    <customLabels>
+        <label>Para dar de alta una nueva Oportunidad, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Nueva Oportunidad&quot;</label>
+        <name>NewOpportunityWarning</name>
+    </customLabels>
+   <customLabels>
+       <label>EL PDF contiene datos incorrectos favor de verificar que toda la informacion viene correcta</label>
+       <name>PDFError</name>
+   </customLabels>
+   <customLabels>
+       <label>No puede generar PDF en esta etapa</label>
+       <name>stageIncorrectToPDF</name>
+   </customLabels>
+   <customLabels>
+       <label>El usuario no tiene permisos para generar PDF</label>
+       <name>UserNotAllowedToCreatePDF</name>
+   </customLabels>
+   <customLabels>
+       <label>Está seguro de formalizar esta oportunidad</label>
+       <name>lblMsgFormalization</name>
+   </customLabels>
+   <customLabels>
+       <label>Seleccione lo que desea reevaluar</label>
+       <name>lblMsgReevaluate</name>
+   </customLabels>
+   <customLabels>
+       <label>Formalizar</label>
+       <name>lblTitleFormalization</name>
+   </customLabels>
+   <customLabels>
+       <label>Reevaluar</label>
+       <name>lblTitleReevaluate</name>
+   </customLabels>
+   <customLabels>
+        <label>Sanción de Precio</label>
+        <name>lblTitleSanctionPrice</name>
+   </customLabels>   
+   <customLabels>
+       <label>Está seguro de crear un PDF para esta oportunidad</label>
+       <name>lblMsgPDF</name>
+   </customLabels>
+   <customLabels>
+       <label>Creación PDF</label>
+       <name>lblTitlePDF</name>
+   </customLabels>
+   <customLabels>
+       <label>No se puede formalizar sin comentarios</label>
+       <name>lblNoCommentsFormalization</name>
+   </customLabels>
+   <customLabels>
+       <label>Aprobar</label>
+       <name>lblbtnApprove_cfg</name>
+   </customLabels>
+   <customLabels>
+       <label>No se puede cargar la ventana de cotización</label>
+       <name>lblQuoteGeneralError</name>
+   </customLabels>
+   <customLabels>
+       <label>No se puede cotizar esta oportunidad</label>
+       <name>lblQuoteError</name>
+   </customLabels>
+      <customLabels>
+        <label>Tu perfil no puede finalizar la visita</label>
+        <name>dwp_kitv__Allowed_profile</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>dwp_kitv__Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor revise los datos</label>
+        <name>dwp_kitv__Check_data</name>
+    </customLabels>
+    <customLabels>
+        <label>- Se necesitas la configuración personalizada End Visit Valdiation</label>
+        <name>dwp_kitv__Custom_finalize_error</name>
+    </customLabels>
+    <customLabels>
+        <label>No puedes iniciar una visita en una fecha pasada</label>
+        <name>dwp_kitv__Date_launch_past</name>
+    </customLabels>
+    <customLabels>
+        <label>Para que el tema se refleje en la oportunidad, es necesario activar la casilla de la izquierda</label>
+        <name>dwp_kitv__Done_topic_check</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmptyFields --></label>
+        <name>dwp_kitv__EmptyFields</name>
+    </customLabels>
+    <customLabels>
+        <label>- Usted no puede finalizar la visita sin un tema</label>
+        <name>dwp_kitv__Empty_topics</name>
+    </customLabels>
+    <customLabels>
+        <label>Usted no puede agregar el mismo contacto a la visita más de una vez</label>
+        <name>dwp_kitv__Error_Visit_Contact</name>
+    </customLabels>
+    <customLabels>
+        <label>Usted no tiene permiso para eliminar la visita en este estado</label>
+        <name>dwp_kitv__Error_Visit_Not_Finalized</name>
+    </customLabels>
+    <customLabels>
+        <label>Usted no puede agregar al mismo usuario más de una vez en la visita</label>
+        <name>dwp_kitv__Error_Visit_User</name>
+    </customLabels>
+    <customLabels>
+        <label>Error inesperado. Por favor contacte con el administrador del sistema</label>
+        <name>dwp_kitv__Error_server</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorcustomLeadInfo --></label>
+        <name>dwp_kitv__ErrorcustomLeadInfo</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Estás seguro de que quieres finalizar esta visita?</label>
+        <name>dwp_kitv__Finalize_visit</name>
+    </customLabels>
+    <customLabels>
+        <label>ATENCIÓN: estos comentarios serán enviados en el anuncio:</label>
+        <name>dwp_kitv__Launch_meeting_atention</name>
+    </customLabels>
+    <customLabels>
+        <label>Iniciar / actualizar reunión</label>
+        <name>dwp_kitv__Launch_title</name>
+    </customLabels>
+    <customLabels>
+        <label>Insuficiente cantidad de contactos para iniciar o actualizar la reunión.</label>
+        <name>dwp_kitv__Min_number_contacts_error</name>
+    </customLabels>
+    <customLabels>
+        <label>Cantidad insuficiente de temas para iniciar o actualizar la reunión.</label>
+        <name>dwp_kitv__Min_number_topics_error</name>
+    </customLabels>
+    <customLabels>
+        <label>Cantidad insuficiente de usuarios para iniciar o actualizar la reunión.</label>
+        <name>dwp_kitv__Min_number_users_error</name>
+    </customLabels>
+    <customLabels>
+        <label>No</label>
+        <name>dwp_kitv__No</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoAccNoLeadVisit --></label>
+        <name>dwp_kitv__NoAccNoLeadVisit</name>
+    </customLabels>
+    <customLabels>
+        <label>Es necesario completar la nota de la visita para poder finalizarla.</label>
+        <name>dwp_kitv__Note_visit_filled</name>
+    </customLabels>
+    <customLabels>
+        <label>De acuerdo</label>
+        <name>dwp_kitv__Ok</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Plan Visit --></label>
+        <name>dwp_kitv__Plan_Visit</name>
+    </customLabels>
+    <customLabels>
+        <label>Este perfil no tiene permiso para iniciar la reunión</label>
+        <name>dwp_kitv__Profile_can_not_launch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RTvisitAcc --></label>
+        <name>dwp_kitv__RTvisitAcc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RTvisitLead --></label>
+        <name>dwp_kitv__RTvisitLead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save --></label>
+        <name>dwp_kitv__Save</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviar</label>
+        <name>dwp_kitv__Send</name>
+    </customLabels>
+    <customLabels>
+        <label>No puede finalizar una visita que no se haya completado</label>
+        <name>dwp_kitv__Status_visit_to_finalize</name>
+    </customLabels>
+    <customLabels>
+        <label>El registro no se ha guardado con éxito</label>
+        <name>dwp_kitv__Toast_saved_ko</name>
+    </customLabels>
+    <customLabels>
+        <label>El registro se ha guardado con éxito.</label>
+        <name>dwp_kitv__Toast_saved_ok</name>
+    </customLabels>
+    <customLabels>
+        <label>La visita ya está finalizada.</label>
+        <name>dwp_kitv__Visit_finalized</name>
+    </customLabels>
+    <customLabels>
+        <label>02</label>
+        <name>dwp_kitv__Visit_status_arranged</name>
+    </customLabels>
+    <customLabels>
+        <label>05</label>
+        <name>dwp_kitv__Visit_status_finalized</name>
+    </customLabels>
+    <customLabels>
+        <label>La visita no se puede iniciar en el estado en el que se encuentra.</label>
+        <name>dwp_kitv__Visit_status_not_valid</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Visit_status_planning --></label>
+        <name>dwp_kitv__Visit_status_planning</name>
+    </customLabels>
+    <customLabels>
+        <label>03</label>
+        <name>dwp_kitv__Visit_status_updated</name>
+    </customLabels>
+    <customLabels>
+        <label>sí</label>
+        <name>dwp_kitv__Yes</name>
+    </customLabels>
+    <customLabels>
+        <label>La descripción de una reunión no puede estar vacía</label>
+        <name>dwp_kitv__description_not_empty</name>
+    </customLabels>
+    <customLabels>
+        <label>No hay datos en la cuenta</label>
+        <name>Account_No_Data</name>
+    </customLabels>
+    <customLabels>
+        <label>Etapa y estado actualizado correctamente.</label>
+        <name>Toast_opp_saved_ok</name>
+    </customLabels>
+    <customLabels>
+        <label>Riesgo</label>
+        <name>Risk</name>
+    </customLabels>
+    <customLabels>
+        <label>La Oportunidad ha sido correctamente aprobada.</label>
+        <name>approveSucess</name>
+    </customLabels>
+    <customLabels>
+        <label>Contenido del email de SIO</label>
+        <name>displayTitleAuditDetail</name>
+    </customLabels>
+    <customLabels>
+        <label>Aprobar</label>
+        <name>lblOpportunityApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Vincular</label>
+        <name>lblOpportunityLink</name>
+    </customLabels>
+    <customLabels>
+        <label>El código SIO actual es:</label>
+        <name>lblOpportunitySioCodeIs</name>
+    </customLabels>
+    <customLabels>
+        <label>No hay ningún código SIO para este cliente con el criterio de búsqueda solicitado.</label>
+        <name>lblRiskAnySioCode</name>
+    </customLabels>
+    <customLabels>
+        <label>Introduce un código SIO...</label>
+        <name>lblRiskEnterSio</name>
+    </customLabels>
+    <customLabels>
+        <label>Buscar código SIO</label>
+        <name>lblRiskSearchSio</name>
+    </customLabels>
+    <customLabels>
+        <label>El código SIO seleccionado es:</label>
+        <name>lblRiskSioCodeIs</name>
+    </customLabels>
+    <customLabels>
+        <label>No hay acciones disponibles</label>
+        <name>No_Buttons_Message</name>
+    </customLabels>
+    <customLabels>
+        <label>Completar</label>
+        <name>lblComplete</name>
+    </customLabels>
+    <customLabels>
+        <label>Desvincular SIO</label>
+        <name>lblUnlink</name>
+    </customLabels>
+    <customLabels>
+        <label>Usuario no autorizado.</label>
+        <name>lblUserNotAuth</name>
+    </customLabels>
+    <customLabels>
+        <label>La oportunidad no tiene código SIO y no puede desvicularse.</label>
+        <name>msgEmptyAudit</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Está seguro de que quiere desvincular el código SIO?</label>
+        <name>msgUnlink</name>
+    </customLabels>
+    <customLabels>
+        <label>Código SIO correctamente desvinculado.</label>
+        <name>msgUnlinkedSIO</name>
+    </customLabels>
+    <customLabels>
+        <label>La Oportunidad ha sido correctamente enviada a reevaluar.</label>
+        <name>reevalSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Riesgo autorizado</label>
+        <name>RiskAuthorized</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado para reevaluación de riesgo</label>
+        <name>reevalRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- restudyStyle --></label>
+        <name>restudyStyle</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado para reevaluación a precios</label>
+        <name>reevalPrice</name>
+    </customLabels>
+     <customLabels>
+        <label><!-- ApiNameAccount --></label>
+        <name>ApiNameAccount</name>
+    </customLabels>
+    <customLabels>
+        <label>Risk Approval</label>
+        <name>AuditRiskApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleElevate --></label>
+        <name>AuditStyleElevate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusApprovedInsideLine --></label>
+        <name>lblOpportunityStatusApprovedInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskAuth --></label>
+        <name>lblOpportunityStatusRiskAuth</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskDenied --></label>
+        <name>lblOpportunityStatusRiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusSentRisk --></label>
+        <name>lblOpportunityStatusSentRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ApiNameOpp --></label>
+        <name>ApiNameOpp</name>
+    </customLabels>
+    <customLabels>
+        <label>Devuelto por riesgos</label>
+        <name>RiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleDeny --></label>
+        <name>AuditStyleDeny</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskDenied --></label>
+        <name>lblOpportunityStatusRiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviada a autorización de riesgos</label>
+        <name>RiskSendToApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Price Approval</label>
+        <name>AuditPriceApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Riesgo aprobado dentro de línea</label>
+        <name>OpportunityStatusInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Esta seguro de aprobar la sanción de precio?</label>
+        <name>msgApprovePrice</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Está seguro de aprobar la sanción de riesgo?</label>
+        <name>msgApproveRisk</name>
+    </customLabels>
+    <customLabels>
+        <label>Aprobar Sanción</label>
+        <name>lblApprove</name>
+    </customLabels>
+    <customLabels>
+        <label>No existen detalles adicionales de auditoría.</label>
+        <name>NoAuditDetail</name>
+    </customLabels>
+    <customLabels>
+        <label>Riesgo aprobado</label>
+        <name>RiskApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio aprobado</label>
+        <name>PriceApproval</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio</label>
+        <name>Price</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción de riesgo</label>
+        <name>lblTitleRiskSanction</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción de precio</label>
+        <name>lblTitlePriceSanction</name>
+    </customLabels>
+    <customLabels>
+        <label>Acciones Comerciales</label>
+        <name>lblEtapa01</name>
+    </customLabels>
+    <customLabels>
+        <label>Pendiente de iniciar</label>
+        <name>lblEtapa02</name>
+    </customLabels>
+    <customLabels>
+        <label>En gestión</label>
+        <name>lblEtapa03</name>
+    </customLabels>
+    <customLabels>
+        <label>En sanción</label>
+        <name>lblEtapa04</name>
+    </customLabels>
+    <customLabels>
+        <label>En formalización</label>
+        <name>lblEtapa05</name>
+    </customLabels>
+    <customLabels>
+        <label>Formalizada</label>
+        <name>lblEtapa06</name>
+    </customLabels>
+    <customLabels>
+        <label>Desestimada</label>
+        <name>lblEtapa07</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha iniciado una etapa</label>
+        <name>lblEtapaNoEncontrada</name>
+    </customLabels>
+    <customLabels>
+        <label>Analista</label>
+        <name>lblAnalistaProf</name>
+    </customLabels>
+    <customLabels>
+        <label>Reasignar propietario</label>
+        <name>lblReasign</name>
+    </customLabels>
+    <customLabels>
+        <label>Buscar...</label>
+        <name>lblSearch</name>
+    </customLabels>
+    <customLabels>
+        <label>Administrador del sistema</label>
+        <name>profAdministrator</name>
+    </customLabels>
+    <customLabels>
+        <label>El caso ha sido reasignado correctamente.</label>
+        <name>reasignSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label>Se debe insertar un usuario.</label>
+        <name>errorEmptyUser</name>
+    </customLabels>
+    <customLabels>
+        <label>Añadir compromiso</label>
+        <name>AddCommitment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleApproveTop --></label>
+        <name>AuditStyleApproveTop</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromisos</label>
+        <name>Commitments</name>
+    </customLabels>
+    <customLabels>
+        <label>Detalles</label>
+        <name>Details</name>
+    </customLabels>
+    <customLabels>
+        <label>Aprobar en delegación</label>
+        <name>OppPriceDecision01</name>
+    </customLabels>
+    <customLabels>
+        <label>Elevar</label>
+        <name>OppPriceDecision02</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado en delegación</label>
+        <name>OppPriceDecision03</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado por precio</label>
+        <name>OppPriceDecision04</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio autorizado bajo delegación oficina</label>
+        <name>OppStatusLabel08</name>
+    </customLabels>
+    <customLabels>
+        <label>Enviado para autorización a precios</label>
+        <name>OppStatusLabel09</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio aprobado</label>
+        <name>OppStatusLabel11</name>
+    </customLabels>
+    <customLabels>
+        <label>Producto</label>
+        <name>Product</name>
+    </customLabels>
+    <customLabels>
+        <label>El campo de Importe es requerido.</label>
+        <name>Reject_Amount_field</name>
+    </customLabels>
+    <customLabels>
+        <label>Valor de Importe no permitido, por favor ingresar valor positivo.</label>
+        <name>Reject_Amount_valid_field</name>
+    </customLabels>
+    <customLabels>
+        <label>El campo de Moneda es requerido.</label>
+        <name>Reject_Currency_field</name>
+    </customLabels>
+    <customLabels>
+        <label>El campo de Tasa es requerido.</label>
+        <name>Reject_Rate_field</name>
+    </customLabels>
+    <customLabels>
+        <label>Valor de tasa no permitido, debe ser positivo y como máximo 100% .</label>
+        <name>Reject_Rate_valid_field</name>
+    </customLabels>
+    <customLabels>
+        <label>El campo de Plazo debe ser entero, positivo.</label>
+        <name>Reject_Term_field</name>
+    </customLabels>
+    <customLabels>
+        <label>El campo de Banco ganador es requerido.</label>
+        <name>Reject_WBank_field</name>
+    </customLabels>
+    <customLabels>
+        <label>Continuar</label>
+        <name>btnContinue</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor, complete esta información.</label>
+        <name>lblFieldsFormRequired</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor, especifique un número sin decimales.</label>
+        <name>lblFieldsFormValidateDecimal</name>
+    </customLabels>
+    <customLabels>
+        <label>REASIGN_CASE</label>
+        <name>lblREASIGN_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label>CREATE_CASE</label>
+        <name>lblCREATE_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label>Elevar petición</label>
+        <name>OppPriceDecision02_long</name>
+    </customLabels>
+    <customLabels>
+        <label>approve</label>
+        <name>AuditStyleApprove</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromisos propuestos</label>
+        <name>CommitmentProposalSectionTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizar</label>
+        <name>OppPriceDecision05</name>
+    </customLabels>
+    <customLabels>
+        <label>Devolver</label>
+        <name>OppPriceDecision06</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado por precios</label>
+        <name>OppStatusLabel10</name>
+    </customLabels>
+    <customLabels>
+        <label>Devuelta por precios</label>
+        <name>OppStatusLabel13</name>
+    </customLabels>
+    <customLabels>
+        <label>Precio propuesto</label>
+        <name>PriceProposalSectionTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Sólo puede sancionar el precio el propietario del caso.</label>
+        <name>SanctionPriceAnalistValidationMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe ser el propietario de la oportunidad</label>
+        <name>Error_validation_01</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe ser el propietario de la oportunidad o tener perfil Ejecutivo, cargo Asistente y estar en la misma oficina que la oportunidad</label>
+        <name>Error_validation_02</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe rellenar el campo:</label>
+        <name>Error_validation_031</name>
+    </customLabels>
+    <customLabels>
+        <label>Es necesario al menos un Interviniente</label>
+        <name>Error_validation_032</name>
+    </customLabels>
+    <customLabels>
+        <label>Es necesario al menos una Garantia</label>
+        <name>Error_validation_033</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe tener perfil operativo y estar en la misma oficina que la oportunidad</label>
+        <name>Error_validation_05</name>
+    </customLabels>
+    <customLabels>
+        <label>Riesgo aprobado dentro de línea</label>
+        <name>SIOstatus1</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción aprobado  GM 1</label>
+        <name>SIOstatus2</name>
+    </customLabels>
+    <customLabels>
+        <label>Sanción aprobado  GM 2</label>
+        <name>SIOstatus3</name>
+    </customLabels>
+    <customLabels>
+        <label>'Criterios de pago y liquidación','Información general del producto'</label>
+        <name>PDFSectionPayment</name>
+    </customLabels>
+    <customLabels>
+        <label>No definida</label>
+        <name>lblNoAuthDate</name>
+    </customLabels>
+    <customLabels>
+        <label>Error recuperando la visita</label>
+        <name>lblErrorRetrievingVisit</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor, revise la siguiente información</label>
+        <name>dwp_dbpn__DynamicFlowWizardError_ModalHeader</name>
+    </customLabels>
+    <customLabels>
+        <label>Para dar de alta una nueva Visita, debes acceder previamente a la Ficha del Cliente y pulsar el botón &quot;Crear visita&quot;</label>
+        <name>NewVisitWarning</name>
+    </customLabels>
+    <customLabels>
+        <label>No tiene permiso para gestionar el equipo de asistentes para este ejecutivo</label>
+        <name>AssistantValidationError</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestionar asistente</label>
+        <name>lblSetupAssistant</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestionar asistentes</label>
+        <name>btnAssistant</name>
+    </customLabels>
+    <customLabels>
+        <label>Nuevo</label>
+        <name>New</name>
+    </customLabels>
+    <customLabels>
+        <label>Delete</label>
+        <name>Delete</name>
+    </customLabels>
+    <quickActions>
+        <label>Llamada</label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label>Evento</label>
+        <name>NewEvent</name>
+    </quickActions>
+    <quickActions>
+        <label>Nueva oportunidad</label>
+        <name>NewOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label>Tarea</label>
+        <name>NewTask</name>
+    </quickActions>
+    <quickActions>
+        <label>Email</label>
+        <name>SendEmail</name>
+    </quickActions>
+</Translations>

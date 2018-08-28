@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Opportunity Solution Commitment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Opportunity Solution Commitments</value>
+    </caseValues>
+    <fields>
+        <label><!-- Expiry date --></label>
+        <name>opp_soln_comt_expiry_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expiry days --></label>
+        <name>opp_soln_comt_expiry_days_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stay days --></label>
+        <name>opp_soln_comt_stay_days_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>opp_solution_commitment_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Identifier --></label>
+        <name>opp_solution_commitment_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>opp_solution_commitment_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>opp_solution_comt_product_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Product --></label>
+        <name>opp_solution_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>opportunity_id__c</name>
+        <relationshipLabel><!-- Opportunity Solution Commitments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Price quote date --></label>
+        <name>price_quote_date__c</name>
+    </fields>
+    <nameFieldLabel><!-- Reference --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

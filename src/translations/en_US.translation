@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label><!-- AccountAccountingType1 --></label>
+        <name>AccountAccountingType1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType1TotalLabel --></label>
+        <name>AccountAccountingType1TotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType2 --></label>
+        <name>AccountAccountingType2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType2TotalLabel --></label>
+        <name>AccountAccountingType2TotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType3 --></label>
+        <name>AccountAccountingType3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAccountingType4 --></label>
+        <name>AccountAccountingType4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountBBVAResourcesTotalLabel --></label>
+        <name>AccountBBVAResourcesTotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Account_Name --></label>
+        <name>AccountName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountNoData --></label>
+        <name>AccountNoData</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification1 --></label>
+        <name>AccountProductClassification1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification2 --></label>
+        <name>AccountProductClassification2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification3 --></label>
+        <name>AccountProductClassification3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification4 --></label>
+        <name>AccountProductClassification4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassification5 --></label>
+        <name>AccountProductClassification5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable1 --></label>
+        <name>AccountProductClassificationTable1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable2 --></label>
+        <name>AccountProductClassificationTable2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable3 --></label>
+        <name>AccountProductClassificationTable3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable4 --></label>
+        <name>AccountProductClassificationTable4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProductClassificationTable5 --></label>
+        <name>AccountProductClassificationTable5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountProfitabilityTotalLabel --></label>
+        <name>AccountProfitabilityTotalLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountRankingClassification1 --></label>
+        <name>AccountRankingClassification1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountRankingClassification2 --></label>
+        <name>AccountRankingClassification2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TOTAL --></label>
+        <name>AccountRankingClassification3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountRankingClassificationTable1 --></label>
+        <name>AccountRankingClassificationTable1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountRankingClassificationTable2 --></label>
+        <name>AccountRankingClassificationTable2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Agree --></label>
+        <name>Agree</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Amount --></label>
+        <name>Amount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CloseDate --></label>
+        <name>CloseDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Comments --></label>
+        <name>Comments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Currency --></label>
+        <name>Currency</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DateHigherThan --></label>
+        <name>DateHigherThan</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hangout --></label>
+        <name>Hangout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month10ShortName --></label>
+        <name>Month10ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month11ShortName --></label>
+        <name>Month11ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month12ShortName --></label>
+        <name>Month12ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month1ShortName --></label>
+        <name>Month1ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month2ShortName --></label>
+        <name>Month2ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month3ShortName --></label>
+        <name>Month3ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month4ShortName --></label>
+        <name>Month4ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month5ShortName --></label>
+        <name>Month5ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month6ShortName --></label>
+        <name>Month6ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month7ShortName --></label>
+        <name>Month7ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month8ShortName --></label>
+        <name>Month8ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month9ShortName --></label>
+        <name>Month9ShortName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NewContactWarning --></label>
+        <name>NewContactWarning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Opportunity --></label>
+        <name>New_Opportunity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OppId --></label>
+        <name>OppId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OpportunityName --></label>
+        <name>OpportunityName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PlannigDate --></label>
+        <name>PlannigDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Probability --></label>
+        <name>Probability</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Warning --></label>
+        <name>Warning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- assignationApproval --></label>
+        <name>assignationApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_AllProducts --></label>
+        <name>fprd__GBL_AllProducts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_AvailableProducts --></label>
+        <name>fprd__GBL_AvailableProducts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_Cancel --></label>
+        <name>fprd__GBL_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ErrorServer --></label>
+        <name>fprd__GBL_ErrorServer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_InactiveProduct --></label>
+        <name>fprd__GBL_InactiveProduct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_InferiorLimit --></label>
+        <name>fprd__GBL_InferiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_LoadingProduct --></label>
+        <name>fprd__GBL_LoadingProduct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_LoadingProductSelector --></label>
+        <name>fprd__GBL_LoadingProductSelector</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_MandatoryField --></label>
+        <name>fprd__GBL_MandatoryField</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_Modify --></label>
+        <name>fprd__GBL_Modify</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ProductLimitMessage --></label>
+        <name>fprd__GBL_ProductLimitMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ProductsSaveSuccess --></label>
+        <name>fprd__GBL_ProductsSaveSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_Save --></label>
+        <name>fprd__GBL_Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_SelectedProducts --></label>
+        <name>fprd__GBL_SelectedProducts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_SuperiorLimit --></label>
+        <name>fprd__GBL_SuperiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GBL_ToastSavedOk --></label>
+        <name>fprd__GBL_ToastSavedOk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reevalRisk --></label>
+        <name>reevalRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RiskAuthorized --></label>
+        <name>RiskAuthorized</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- restudyStyle --></label>
+        <name>restudyStyle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reevalPrice --></label>
+        <name>reevalPrice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ApiNameAccount --></label>
+        <name>ApiNameAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditRiskApproval --></label>
+        <name>AuditRiskApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleElevate --></label>
+        <name>AuditStyleElevate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusApprovedInsideLine --></label>
+        <name>lblOpportunityStatusApprovedInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskAuth --></label>
+        <name>lblOpportunityStatusRiskAuth</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusSentRisk --></label>
+        <name>lblOpportunityStatusSentRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ApiNameOpp --></label>
+        <name>ApiNameOpp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RiskDenied --></label>
+        <name>RiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuditStyleDeny --></label>
+        <name>AuditStyleDeny</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblOpportunityStatusRiskDenied --></label>
+        <name>lblOpportunityStatusRiskDenied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RiskSendToApproval --></label>
+        <name>RiskSendToApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PriceApproval --></label>
+        <name>PriceApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RiskApproval --></label>
+        <name>RiskApproval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoAuditDetail --></label>
+        <name>NoAuditDetail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OpportunityStatusInsideLine --></label>
+        <name>OpportunityStatusInsideLine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Price --></label>
+        <name>Price</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblSanctionPrice --></label>
+        <name>lblSanctionPrice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblPenalizeRisk --></label>
+        <name>lblPenalizeRisk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblTitleRiskSanction --></label>
+        <name>lblTitleRiskSanction</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblTitlePriceSanction --></label>
+        <name>lblTitlePriceSanction</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblAnalistaProf --></label>
+        <name>lblAnalistaProf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblReasign --></label>
+        <name>lblReasign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblSearch --></label>
+        <name>lblSearch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- profAdministrator --></label>
+        <name>profAdministrator</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reasignSuccess --></label>
+        <name>reasignSuccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- errorEmptyUser --></label>
+        <name>errorEmptyUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblREASIGN_CASE --></label>
+        <name>lblREASIGN_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblCREATE_CASE --></label>
+        <name>lblCREATE_CASE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_01 --></label>
+        <name>Error_validation_01</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_02 --></label>
+        <name>Error_validation_02</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_031 --></label>
+        <name>Error_validation_031</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_032 --></label>
+        <name>Error_validation_032</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_033 --></label>
+        <name>Error_validation_033</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error_validation_05 --></label>
+        <name>Error_validation_05</name>
+    </customLabels>
+    <customLabels>
+        <label>You cannot end a visit that hasn´t been completed</label>
+        <name>dwp_kitv__Status_visit_to_finalize</name>
+    </customLabels>
+</Translations>

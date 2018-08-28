@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Branch_LightningPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Branch_CompactLayout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Branch_CompactLayout</fullName>
+        <fields>Name</fields>
+        <fields>branch_id__c</fields>
+        <fields>branch_category_type__c</fields>
+        <fields>active_type__c</fields>
+        <label>Branch_CompactLayout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Objeto de Oficina</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>active_type__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Inactivo</description>
+        <externalId>false</externalId>
+        <label>Inactive</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>address_desc__c</fullName>
+        <description>Dirección</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK( street_desc__c ),&apos;&apos;,street_desc__c) + 
+IF(AND(NOT(ISBLANK(street_desc__c)),NOT(ISBLANK( city_name__c  ))),&apos;, &apos;,&apos;&apos;) + 
+IF(ISBLANK( city_name__c  ),&apos;&apos;,city_name__c  ) + 
+IF(AND(OR(NOT(ISBLANK(street_desc__c)),NOT(ISBLANK(city_name__c ))),OR(NOT(ISBLANK( state_name__c )),NOT(ISBLANK( zipcode_id__c )))),&apos;, &apos;,&apos;&apos;)+ 
+IF(NOT(ISBLANK(state_name__c )),IF(NOT(ISBLANK(zipcode_id__c )),state_name__c + &apos; &apos; +zipcode_id__c ,state_name__c),IF(NOT(ISBLANK(zipcode_id__c )),zipcode_id__c , &apos;&apos;))+
+IF(OR(NOT(ISBLANK(street_desc__c )),NOT(ISBLANK(city_name__c  )),NOT(ISBLANK(state_name__c )),NOT(ISBLANK(zipcode_id__c ))),IF(NOT(ISBLANK( country_name__c )),&apos;, &apos; + country_name__c ,&apos;&apos;),IF(NOT(ISBLANK( country_name__c )),country_name__c ,&apos;&apos;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Address</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>branch_category_type__c</fullName>
+        <description>Categoría</description>
+        <externalId>false</externalId>
+        <label>Branch category</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>branch_id__c</fullName>
+        <description>Código</description>
+        <externalId>false</externalId>
+        <label>Branch code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>branch_level1_desc__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Country</description>
+        <externalId>false</externalId>
+        <label>Branch hierarchy level 1</label>
+        <referenceTo>Branch__c</referenceTo>
+        <relationshipLabel>Branches (Branch  Hierarchy Level 1)</relationshipLabel>
+        <relationshipName>Branches1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>branch_level1_id__c</fullName>
+        <description>Código de País</description>
+        <externalId>false</externalId>
+        <formula>branch_level1_desc__r.branch_id__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Branch hierarchy level 1 code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>branch_level2_desc__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Área</description>
+        <externalId>false</externalId>
+        <label>Branch hierarchy level 2</label>
+        <referenceTo>Branch__c</referenceTo>
+        <relationshipLabel>Branches (Branch  Hierarchy Level 2)</relationshipLabel>
+        <relationshipName>Branches2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>branch_level2_id__c</fullName>
+        <description>Código de Área</description>
+        <externalId>false</externalId>
+        <formula>branch_level2_desc__r.branch_id__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Branch hierarchy level 2 code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>branch_level3_desc__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Banca</description>
+        <externalId>false</externalId>
+        <label>Branch hierarchy level 3</label>
+        <referenceTo>Branch__c</referenceTo>
+        <relationshipLabel>Branches (Branch Hierarchy Level 3)</relationshipLabel>
+        <relationshipName>Branch3</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>branch_level3_id__c</fullName>
+        <description>Código de Banca</description>
+        <externalId>false</externalId>
+        <formula>branch_level3_desc__r.branch_id__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Branch hierarchy level 3 code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>branch_level4_desc__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Regional</description>
+        <externalId>false</externalId>
+        <label>Branch hierarchy level 4</label>
+        <referenceTo>Branch__c</referenceTo>
+        <relationshipLabel>Branches (Branch Hierarchy Level 4)</relationshipLabel>
+        <relationshipName>Branches</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>branch_level4_id__c</fullName>
+        <description>Código de Regional</description>
+        <externalId>false</externalId>
+        <formula>branch_level4_desc__r.branch_id__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Branch hierarchy level 4 code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>city_name__c</fullName>
+        <description>Localidad/Ciudad</description>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>country_name__c</fullName>
+        <description>País</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>other_phone_number__c</fullName>
+        <description>Telefono 2</description>
+        <externalId>false</externalId>
+        <label>Other phone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>phone_number__c</fullName>
+        <description>Telefono 1</description>
+        <externalId>false</externalId>
+        <label>Phone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>state_name__c</fullName>
+        <description>Provincia</description>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>street_desc__c</fullName>
+        <description>Calle</description>
+        <externalId>false</externalId>
+        <label>Street</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>unique_id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+		<description>Identificador Único</description>
+        <externalId>true</externalId>
+        <label>Unique Identifier</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>zipcode_id__c</fullName>
+        <description>Código Postal</description>
+        <externalId>false</externalId>
+        <label>Postal code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <gender>Feminine</gender>
+    <label>Oficina</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>branch_id__c</columns>
+        <columns>branch_category_type__c</columns>
+        <columns>active_type__c</columns>
+        <columns>branch_level4_desc__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Todos</label>
+    </listViews>
+    <nameField>
+        <label>Branch name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Oficinas</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>branch_id__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>branch_category_type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>active_type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>branch_level4_desc__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>branch_id__c</searchFilterFields>
+        <searchFilterFields>branch_category_type__c</searchFilterFields>
+        <searchFilterFields>active_type__c</searchFilterFields>
+        <searchFilterFields>branch_level4_desc__c</searchFilterFields>
+        <searchResultsAdditionalFields>branch_id__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>branch_category_type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>active_type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>branch_level4_desc__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+</CustomObject>

@@ -1,0 +1,12 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:appHostable,flexiPage:AvailableForAllPageTypes,flexiPage:availableForRecordHome,force:hasRecordId" access="Global" 
+                extends="dwp_mdal:ModalTemplate_cmp">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="recordId" type="Id" default="{!c.recordId}"/>
+    <aura:attribute name="isActive" type="Boolean" default="false" required="true" />
+    <aura:handler name="PasoParametrosPadre" event="dwp_mdal:modalTemplateClose_evt" action="{!c.destroyCmp}"/>
+    <aura:renderIf isTrue="{!v.isActive}">
+        <div class="slds-scrollable slds-form-element" Style="background-color: white; ">
+            <lightning:flow aura:id="flowData" onstatuschange="{!c.handleStatusChange}" />
+        </div>
+    </aura:renderIf>
+</aura:component>

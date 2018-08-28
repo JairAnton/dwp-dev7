@@ -1,0 +1,27 @@
+<aura:component controller="ReevaluateButtonClass" implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
+<aura:handler name="init" value="{!this}" action="{!c.doIni}"/>
+<aura:attribute name="title" type="String" default="{!$Label.c.lblTitleReevaluate}" access="global" description="Specify the modal"/>
+<aura:attribute name="Risk" type="Boolean"  access="global"/>
+<aura:attribute name="Price" type="Boolean" access="global"/>
+<aura:attribute name="RiskVal" type="Boolean"  access="global"/>
+<aura:attribute name="PriceVal" type="Boolean" access="global"/>    
+<div class="slds-modal__content slds-p-around_medium slds-theme_shade" >
+    <div class="slds-align_absolute-center">  
+    {!$Label.c.lblMsgReevaluate}
+    </div>    
+    <br/>
+     <br/>
+    <div class="slds-align_absolute-center">     
+    <aura:if isTrue="{!v.Risk}">
+        <lightning:button aura:id="btnRisk" class="slds-button slds-button_neutral" variant="neutral" onclick="{!c.doRisk}">{!$Label.c.Risk}</lightning:button>    
+    </aura:if>      
+    <aura:if isTrue="{!v.Price}">
+        <lightning:button aura:id="btnPrice" class="slds-button slds-button_neutral" variant="neutral" onclick="{!c.doPrice}">{!$Label.c.Price}</lightning:button>  
+    </aura:if> 
+    </div>    
+ </div>
+   <footer class="slds-modal__footer slds-theme_default">
+       <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doReevaluate}" label="{!$Label.c.Ok}" id="idReevaluateOk"/>
+       <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+   </footer>
+</aura:component>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Visit Topic</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Visit Topics</value>
+    </caseValues>
+    <fields>
+        <label><!-- More Recent Visits (Deprecated) --></label>
+        <name>dwp_kitv__More_Recent_Visits__c</name>
+    </fields>
+    <fields>
+        <label><!-- Most recent visits --></label>
+        <name>dwp_kitv__most_recent_visits__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>dwp_kitv__opportunity_id__c</name>
+        <relationshipLabel><!-- Visit Topics --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Summary Topic --></label>
+        <name>dwp_kitv__summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Topic --></label>
+        <name>dwp_kitv__topic_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Done --></label>
+        <name>dwp_kitv__visit_done_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visit --></label>
+        <name>dwp_kitv__visit_id__c</name>
+        <relationshipLabel><!-- Visit Topics --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Visit Topic Layout Peru</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Reference --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- It&apos;s not allowed add a visit topic empty --></errorMessage>
+        <name>dwp_kitv__empty_topic</name>
+    </validationRules>
+</CustomObjectTranslation>

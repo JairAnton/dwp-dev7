@@ -1,0 +1,25 @@
+<aura:component controller="approveButtonClass" implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
+    <aura:handler name="init" value="{!this}" action="{!c.doIni}"/>
+    <aura:attribute name="title" type="String" default="{!$Label.c.lblApprove}" access="global" description="Specify the modal"/>
+    <aura:attribute name="Risk" type="Boolean"  access="global"/>
+    <aura:attribute name="Price" type="Boolean" access="global"/>
+    <aura:attribute name="RiskVal" type="Boolean"  access="global"/>
+    <aura:attribute name="PriceVal" type="Boolean" access="global"/>    
+    <div class="slds-modal__content slds-p-around_medium slds-theme_shade" >  
+        <br/>
+        <div class="slds-align_absolute-center">     
+            <aura:if isTrue="{!v.Risk}">
+                {!$Label.c.msgApproveRisk}      
+                <aura:set attribute="else">     
+                    <aura:if isTrue="{!v.Price}">
+                        {!$Label.c.msgApprovePrice}                        
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>
+    <footer class="slds-modal__footer slds-theme_default">
+        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doApproval}" label="{!$Label.c.Ok}"/>
+        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+    </footer>      
+</aura:component>

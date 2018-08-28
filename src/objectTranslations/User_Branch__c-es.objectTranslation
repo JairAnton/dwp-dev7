@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Oficina de usuario</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Oficinas del usuario</value>
+    </caseValues>
+    <fields>
+        <label>Usuario</label>
+        <name>User__c</name>
+        <relationshipLabel>Oficina del usuario</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Categoría de oficina</label>
+        <name>branch_category_type__c</name>
+    </fields>
+    <fields>
+        <label>Código de oficina</label>
+        <name>branch_id__c</name>
+    </fields>
+    <fields>
+        <label>Oficina</label>
+        <name>branch_name__c</name>
+        <relationshipLabel>Usuarios de la oficina</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Principal</label>              
+        <name>primary__c</name>
+    </fields>
+    <fields>
+        <label>Identificador único</label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label>Registro</label>
+        <name>user_id__c</name>
+    </fields>
+    <fields>
+        <label>Cargo</label>
+        <name>user_prof_position_type__c</name>
+    </fields>
+    <fields>
+        <label>Regional</label>
+        <name>branch_level4__c</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Branch --></label>
+        <name>Branch_id__c</name>
+        <relationshipLabel><!-- Oportunidades --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Budget Confirmed --></label>
+        <name>Budget_Confirmed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Alert --></label>
+        <name>Customer_alert__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discovery Completed --></label>
+        <name>Discovery_Completed__c</name>
+    </fields>
+    <fields>
+        <label>Closing Date</label>
+        <name>Field_Sup_Closing_Date__c</name>
+    </fields>
+    <fields>
+        <label>coin</label>
+        <name>Support_currency__c</name>
+        <picklistValues>
+            <masterLabel>PEN</masterLabel>
+            <translation>Sol peruano</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation>Dólar de EE.UU.</translation>
+        </picklistValues>
+    </fields>	
+    <fields>
+        <label><!-- Loss Reason --></label>
+        <name>Loss_Reason__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Client</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Risk</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Price</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Product</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+    </fields>
+	    <fields>
+        <label><!-- Loss coin --></label>
+        <name>rejection_coin__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>PEN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>USD</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ROI Analysis Completed --></label>
+        <name>ROI_Analysis_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract --></label>
+        <name>contract_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renewal expiry date --></label>
+        <name>opportunity_expiry_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source --></label>
+        <name>opportunity_origin_name__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation><!-- 03 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Planning date --></label>
+        <name>opportunity_planning_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>opportunity_product__c</name>
+        <relationshipLabel><!-- Oportunidades --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product family --></label>
+        <name>opportunity_product_family__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>opportunity_status_type__c</name>
+        <picklistValues>
+            <masterLabel>Accepted by the client</masterLabel>
+            <translation>Accepted by the client</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Formalized</masterLabel>
+            <translation>Formalized</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation>Inactive</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not accepted by the client</masterLabel>
+            <translation>Not accepted by the client</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not planned</masterLabel>
+            <translation>Not planned</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending customer response</masterLabel>
+            <translation>Pending customer response</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending offer to the client</masterLabel>
+            <translation>Pending offer to the client</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planned</masterLabel>
+            <translation>Planned</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price approved</masterLabel>
+            <translation>Price approved</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price approved under office delegation</masterLabel>
+            <translation>Price approved under office delegation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price authorized</masterLabel>
+            <translation>Price authorized</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price denied</masterLabel>
+            <translation>Price denied</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation>Rejected</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned by documentation</masterLabel>
+            <translation>Returned by documentation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk approved</masterLabel>
+            <translation>Risk approved</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk approved directly</masterLabel>
+            <translation>Risk approved directly</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk authorized</masterLabel>
+            <translation>Risk authorized</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk denied</masterLabel>
+            <translation>Risk denied</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for formalization</masterLabel>
+            <translation>Sent for formalization</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for price approval</masterLabel>
+            <translation>Sent for price approval</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for price reevaluation</masterLabel>
+            <translation>Sent for price reevaluation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for risk approval</masterLabel>
+            <translation>Sent for risk approval</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for risk reevaluation</masterLabel>
+            <translation>Sent for risk reevaluation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to product unit</masterLabel>
+            <translation>Sent to product unit</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Loss amount --></label>
+        <name>rejection_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loss period --></label>
+        <name>rejection_period_num__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loss rate --></label>
+        <name>rejection_rate_per__c</name>
+    </fields>
+    <fields>
+        <label>Information reason for dismissal</label>
+        <name>rejection_reason_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loss winner bank --></label>
+        <name>rejection_winner_entity_name__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>BCP</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Scotiabank</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Interbank</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>BIF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Banco Financiero</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>GNB</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>Santander</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>Citibank Perú</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>ICBC PERU BANK</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>Banco de Comercio</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>MiBanco</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>Banco Azteca</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Renwal contract --></label>
+        <name>renewal_contract_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Success probability --></label>
+        <name>success_probability_desc__c</name>
+        <picklistValues>
+            <masterLabel>0%</masterLabel>
+            <translation><!-- 0% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unique identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Risk Modality Type --></label>
+        <name>Risk_modality_type__c</name>
+        <picklistValues>
+            <masterLabel>Inside line</masterLabel>
+            <translation>Inside line</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requires authorization</masterLabel>
+            <translation>Requires authorization</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SIO Code --></label>
+        <name>sio_code__c</name>
+    </fields>
+    <fields>
+        <label><!-- SIO Status --></label>
+        <name>sio_status_type__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage>Please use the buttons to progress the opportunity.</errorMessage>
+        <name>Opportunity_Validation_ChangeStage</name>
+    </validationRules>
+</CustomObjectTranslation>
+

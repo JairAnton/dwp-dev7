@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Cancelaciones</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Cancelaciones</value>
+    </caseValues>
+    <fields>
+        <label>Cliente</label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Renewals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Total mes</label>
+        <name>cancellation_mtd_amount__c</name>
+    </fields>
+    <fields>
+        <label>Semana 1</label>
+        <name>cancellation_wtd_1_amount__c</name>
+    </fields>
+    <fields>
+        <label>Semana 2</label>
+        <name>cancellation_wtd_2_amount__c</name>
+    </fields>
+    <fields>
+        <label>Semana 3</label>
+        <name>cancellation_wtd_3_amount__c</name>
+    </fields>
+    <fields>
+        <label>Semana 4</label>
+        <name>cancellation_wtd_4_amount__c</name>
+    </fields>
+    <fields>
+        <label>Semana 5</label>
+        <name>cancellation_wtd_5_amount__c</name>
+    </fields>
+    <fields>
+        <label>Categoria</label>
+        <name>product_category_type__c</name>
+    </fields>
+    <fields>
+        <label>Producto</label>
+        <name>product_name__c</name>
+    </fields>
+    <fields>
+        <label>Orden producto</label>
+        <name>product_order__c</name>
+    </fields>
+    <fields>
+        <label>Subcategoria</label>
+        <name>product_subcategory_type__c</name>
+    </fields>
+    <fields>
+        <label>Orden subcategoria</label>
+        <name>product_subcategory_type_order__c</name>
+    </fields>
+    <fields>
+        <label>Indetificador único</label>
+        <name>unique_id__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Referencia</nameFieldLabel>
+</CustomObjectTranslation>

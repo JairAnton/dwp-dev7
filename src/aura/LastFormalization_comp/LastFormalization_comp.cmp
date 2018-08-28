@@ -1,0 +1,72 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp"  access="GLOBAL" controller="Product_cls">
+<aura:attribute name="title" type="String" default="Formalización" access="global" description="Specify the modal"/>
+<aura:attribute name="Action" type="String" />
+<aura:attribute name="FileName" type="String" default="" />
+<aura:attribute name="recordId" type="Id" />
+<aura:attribute name="ProductId" type="Id" />
+<aura:attribute name="errMessage" type="String" default=""/>
+<aura:attribute name="rowsP" type="Object[]" />
+<aura:attribute name="rowsComp" type="Object[]" />
+<aura:attribute name="rowsOppLineItem" type="Object[]" />
+<aura:attribute name="lblNContractError" type="String" default=""/>
+<aura:attribute name="lblComments" type="String" default=""/>
+<aura:attribute name="lblCancel" type="String" default=""/>
+<aura:attribute name="comments" type="String" default=""/>
+<aura:handler name="init" value="{!this}" action="{!c.init}" />
+<aura:handler name="PasoParametrosPadre" event="c:UploadedFile_evt" action="{!c.RecibeParametros}"/>
+<aura:attribute name="modalWidthCustom" type="String" default="44rem" access="global" description="Specify the modal" />
+<aura:attribute name="closeButton" type="Boolean" default="false"/>
+
+
+<div class="slds-modal__content style-general"  >
+              <div aura:id="divToast" class="slds-notify_container slds-hide" style="width:95%">
+            <div class="slds-notify slds-notify_toast slds-theme_error" role="alert" style="width:95%">
+              <span class="slds-assistive-text"></span>
+              <span class="slds-icon_container slds-icon-utility-error slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+
+              </span>
+              <div class="slds-notify__content">
+                <h2 class="slds-text-heading_small ">{!v.errMessage}</h2>
+              </div>
+              <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close">
+
+                <span class="slds-assistive-text">Close</span>
+              </button>
+            </div>
+        </div>
+	<table style="width:95%" align="center" cellspacing="2">
+	<tr>
+	<td >
+
+         <lightning:textarea aura:id="txtComments" name="txtComments" value="{!v.comments}" label="{!v.lblComments}" maxlength="254" class="slds-size_2-of-2 slds-p-horizontal_x-small topText"/><br/>
+           
+          <lightning:input aura:id="txtContract" name="txtContract"  label="Número de contrato" value="" pattern="[0-9]{4}-[0-9]{4}-[0-9]{10}" messageWhenPatternMismatch="Nº de contrato no válido, el formato correcto: 0000-0000-000000000"  />
+			</td>
+			<td width="170px">
+			<table>
+			<tr><td>
+            <lightning:button aura:id="btnApprove" name="btnApprove" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:check" size="small" aura:id="iApprove"/><br/><p aura:id="tApprove">Formalización</p></lightning:button>
+            </td></tr>
+            <tr><td>
+            <lightning:button aura:id="btnRaise" name="btnRaise" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:share" size="small" aura:id="iRaise"/><br/><p aura:id="tRaise">Enviado a unidad de producto</p></lightning:button>
+            </td></tr>
+            <tr><td>
+            <lightning:button aura:id="btnBack" name="btnBack" class="cButton slds-button  slds-p-horizontal_x-small slds-float_right" onclick="{!c.formalize}"  ><lightning:icon iconName="utility:back" size="small" aura:id="iBack"/><br/><p aura:id="tBack">Devuelto</p></lightning:button>
+            </td></tr>
+        </table>
+
+        </td>
+    </tr>
+	</table>
+<br/>
+
+   </div>
+   <footer class="slds-modal__footer slds-theme_default">
+
+      	<lightning:button variant="neutral" label="Cancelar" onclick="{!c.close}" class="slds-float_left"/>
+
+
+       <lightning:button aura:id="btnContinue" name="btnContinue" variant="brand" label="Continuar" onclick="{!c.continue}" disabled="true"/>
+
+   </footer>
+</aura:component>

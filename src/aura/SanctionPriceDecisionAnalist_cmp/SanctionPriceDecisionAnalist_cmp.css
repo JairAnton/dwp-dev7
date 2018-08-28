@@ -1,0 +1,111 @@
+.THIS .actionChoice {
+    margin: 0 -5px;
+  }
+    
+  .THIS  .actionChoice > *{
+    display: inline-block;
+    padding: 5px;
+  }
+  .THIS .picon {
+
+	fill: #ffb75d;
+	margin-right: 53px;
+	
+}
+
+.THIS .redAlert {
+
+	color:white;
+	background-color:#ffb75d; 
+	width:40%; 
+	text-align:left; 
+	margin-left: 370px;
+	margin-right: 14px;
+	border: 0px;
+}    
+  .THIS .actionChoice.count4 > *{ width: 25%; }
+  .THIS .actionChoice.count3 > *{ width: 33%; }
+  .THIS .actionChoice.count2 > *{ width: 50%; }
+  .THIS .actionChoice.count1 > *{ width: 100%; }
+    
+  .THIS .actionChoice label {
+    display: block;
+    text-align: center;
+    border: 2px solid;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .THIS .actionChoice label svg {
+    margin: 0 auto 0px;
+    display: block;
+    width: 100%;
+  }
+  
+  .THIS .actionChoice label.flush-mahogany { color: #c23934; background: #fefbfb}
+  .THIS .actionChoice label.flush-mahogany:hover { background: #fcf5f5; }
+  .THIS .actionChoice label.flush-mahogany .slds-icon-text-default { fill: #c23934; }
+  .THIS .actionChoice input[type="radio"]:checked + label.flush-mahogany { color: #fff; border-color: #c23934; background: #c23934; }
+  .THIS .actionChoice input[type="radio"]:checked + label.flush-mahogany .slds-icon-text-default { fill: #fff; }
+  
+  .THIS .actionChoice label.salem { color: #04844b; background: #fafdfc}
+  .THIS .actionChoice label.salem:hover { background: #f2f9f6; }
+  .THIS .actionChoice label.salem .slds-icon-text-default { fill: #04844b; }
+  .THIS .actionChoice input[type="radio"]:checked + label.salem { color: #fff; border-color: #04844b; background: #04844b; }
+  .THIS .actionChoice input[type="radio"]:checked + label.salem .slds-icon-text-default { fill: #fff; }
+  
+  .THIS .actionChoice label.science-blue { color: #0070d2; background: #fafcfe}
+  .THIS .actionChoice label.science-blue:hover { background: #f2f8fd; }
+  .THIS .actionChoice label.science-blue .slds-icon-text-default { fill: #0070d2; }
+  .THIS .actionChoice input[type="radio"]:checked + label.science-blue { color: #fff; border-color: #0070d2; background: #0070d2; }
+  .THIS .actionChoice input[type="radio"]:checked + label.science-blue .slds-icon-text-default { fill: #fff; }
+  
+  .THIS .actionChoice label.midnight-blue { color: #00396b; background: #fafbfc}
+  .THIS .actionChoice label.midnight-blue:hover { background: #f2f5f7; }
+  .THIS .actionChoice label.midnight-blue .slds-icon-text-default { fill: #00396b; }
+  .THIS .actionChoice input[type="radio"]:checked + label.midnight-blue { color: #fff; border-color: #00396b; background: #00396b; }
+  .THIS .actionChoice input[type="radio"]:checked + label.midnight-blue .slds-icon-text-default { fill: #fff; }
+  
+  .THIS .actionChoice label.koromiko { color: #e67907; background: #fffdfa}
+  .THIS .actionChoice label.koromiko:hover { background: #fdf8f2; }
+  .THIS .actionChoice label.koromiko .slds-icon-text-default { fill: #e67907; }
+  .THIS .actionChoice input[type="radio"]:checked + label.koromiko { color: #fff; border-color: #e67907; background: #e67907; }
+  .THIS .actionChoice input[type="radio"]:checked + label.koromiko .slds-icon-text-default { fill: #fff; }
+  
+  .THIS .actionChoice label.azure { color: #1589ee; background: #fafdff}
+  .THIS .actionChoice label.azure:hover { background: #f3f9fe; }
+  .THIS .actionChoice label.azure .slds-icon-text-default { fill: #1589ee; }
+  .THIS .actionChoice input[type="radio"]:checked + label.azure { color: #fff; border-color: #1589ee; background: #1589ee; }
+  .THIS .actionChoice input[type="radio"]:checked + label.azure .slds-icon-text-default { fill: #fff; }
+    
+  .THIS .actionChoice label:hover {
+    background: lightgray;
+  }
+    
+    
+  .THIS .actionChoice input[type="radio"]:checked + label{
+    background: black;
+    color: white;
+  }
+    
+  .THIS .actionChoice input {
+    display: none !important;
+  }
+
+  .THIS .fullHeight {
+    height: 100%;
+  }
+  
+  .THIS .h{
+
+    fill:#005FB2;
+  }
+
+  .THIS .TabScroll{
+    height: 350px;
+    overflow: auto;
+}

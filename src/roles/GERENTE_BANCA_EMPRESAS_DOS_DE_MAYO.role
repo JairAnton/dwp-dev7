@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>GERENTE BANCA EMPRESAS DOS DE MAYO</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>GERENTE BANCA EMPRESAS DOS DE MAYO</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>EJECUTIVO_REGIONAL_BE_3</parentRole>
+</Role>

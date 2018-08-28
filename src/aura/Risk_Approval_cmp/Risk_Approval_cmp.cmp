@@ -1,0 +1,78 @@
+<!--Component for Penalize Risk button-->
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,flexipage:availableForAllPageTypes,force:hasRecordId" controller="Risk_Approval_cls" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
+    <aura:attribute name="title" type="String" default="Titulo de sancion de riesgo" access="global" description="Specify the modal"/>
+    <aura:attribute name="recordId2" type="String" default="{!v.inputAttributes.recordId}"/>
+    <aura:attribute name="oppRecord" type="sObject" access="global"/>
+    <aura:attribute name="showSendApproveBtn" type="boolean" default="true"/> 
+    <aura:attribute name="showSIOSearch" type="boolean" default="false"/>
+    <aura:attribute name="isOpenModel" type="boolean" default="false" access="global" />
+    <aura:attribute name="searchText" type="String" default="" access="global" />
+    <aura:attribute name="SIOCodes" type="Object" access="global" />
+    <aura:attribute name="selectedRow" type="String" access="global" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="slds-box" style='background-color: white;'>
+        <lightning:layoutItem flexibility="auto"> 
+            <lightning:recordEditForm aura:id="recordViewForm" recordId="{!v.recordId2}" objectApiName="Opportunity">
+                <div class="slds-size_1-of-1">
+                    <aura:if isTrue="{!v.oppRecord.Risk_modality_type__c == $Label.c.OppModalityRA}">
+                        <lightning:outputField fieldName="Risk_modality_type__c"/>
+                        <ui:outputText aura:id="nameOutput" value=""/>
+                        <aura:set attribute="else">
+                            <lightning:inputField fieldName="Risk_modality_type__c" aura:id="input_modal" onchange="{!c.setValueModality}" value=""/>
+                            <aura:if isTrue="{!v.showSIOSearch}">
+                                <br/>
+                                <div class="slds-size_1-of-1"> 
+                                    <lightning:button aura:id="submit" label="{!$Label.c.lblRiskSearchSio}" variant="neutral" onclick="{!c.openModel}" />    
+                                </div> 
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                
+                <div class="{!v.isOpenModel ? '' : 'slds-hide'}">
+                    <br/>
+                    <div class="slds-form-element slds-lookup" data-select="single">
+                        <div class="slds-form-element__control">
+                            <div class="slds-input-has-icon slds-input-has-icon--right">
+                                <lightning:buttonIcon iconName="utility:search" variant="bare" onclick="{!c.searchSioCode}" alternativeText="Buscar" class="slds-input__icon" />
+                                <ui:inputText value="{!v.searchText}" placeholder="{!$Label.c.lblRiskEnterSio}"/>
+                            </div>
+                        </div>
+                    </div>
+                        <br/>
+                    <aura:if isTrue="{!v.SIOCodes == null}">
+                        <ui:outputText class="slds-hide" aura:id="messageOutput" value="{!$Label.c.lblRiskAnySioCode}"/>
+                        <aura:set attribute="else">
+                            <div aura:id="scrollDiv" class="slds-scrollable--y scroll-container slds-table slds-table_bordered" style="height:5.4rem">
+                                <table cellspacing="0">
+                                    <tbody>
+                                        <aura:iteration items="{!v.SIOCodes}" var="audit">
+                                            <tr class="slds-size_2-of-2">
+                                                <td class="slds-size_2-of-2 slds-align_absolute-center"><lightning:button variant="none" title="{!audit.action_opp_sio_code__c}" value="{!audit.action_opp_sio_code__c}" label="{!audit.action_opp_sio_code__c}" onclick="{!c.selectRow}"/></td>
+                                            </tr>
+                                        </aura:iteration>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <aura:if isTrue="{!v.selectedRow != null}">
+                                <br/>
+                                <ui:outputText aura:id="resultSelected" value=""/> 
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </lightning:recordEditForm>
+        </lightning:layoutItem>
+    </div>
+    <div class="slds-modal__footer">
+        <aura:if isTrue="{!and(or(v.selectedRow != null, v.oppRecord.Risk_modality_type__c == $Label.c.OppModalityRA), v.showSendApproveBtn == false)}"> 
+            <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.saveModel}" aura:id="submit" label="{!$Label.c.lblOpportunityLink}" />
+        </aura:if>
+        <aura:if isTrue="{!v.showSendApproveBtn}">
+            <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.sendApprove}" label="{!$Label.c.lblOpportunityApproval}" />
+        </aura:if>
+        <lightning:button variant="neutral" label="{!$Label.c.Cancel}" onclick="{!c.closeModel}"/>
+    </div>
+</aura:component>

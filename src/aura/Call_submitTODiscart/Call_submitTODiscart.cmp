@@ -1,0 +1,7 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" access="GLOBAL"  extends="dwp_mdal:ModalTemplate_cmp">
+    var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
+    compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:submitTODiscart' });
+    compEvent.fire();
+    var cancelEvent = cmp.getEvent('dynamicFlowWizardCancel');
+    cancelEvent.fire();
+</aura:component>

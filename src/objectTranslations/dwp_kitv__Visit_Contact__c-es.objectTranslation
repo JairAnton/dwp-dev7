@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>contacto de la visita</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>contactos de la visita</value>
+    </caseValues>
+    <fields>
+        <label>Cargo</label>
+        <name>contact_prof_position_type__c</name>
+    </fields>
+    <fields>
+        <label>Convocado</label>
+        <name>dwp_kitv__contact_called_type__c</name>
+    </fields>
+    <fields>
+        <label>Correo</label>
+        <name>dwp_kitv__contact_email_desc__c</name>
+    </fields>
+    <fields>
+        <label>Contacto</label>
+        <name>dwp_kitv__contact_id__c</name>
+        <relationshipLabel>Contactos de la visita</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Celular</label>
+        <name>dwp_kitv__contact_phone_desc__c</name>
+    </fields>
+    <fields>
+        <label>Visita</label>
+        <name>dwp_kitv__visit_id__c</name>
+        <relationshipLabel>Contactos de la visita</relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Contactos de la visita</nameFieldLabel>
+    <validationRules>
+        <errorMessage>No está permitido cambiar de contacto. Por favor, elimine el contacto de la visita</errorMessage>
+        <name>dwp_kitv__Change_contact</name>
+    </validationRules>
+</CustomObjectTranslation>

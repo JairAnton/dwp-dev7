@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Fecha estimada de cierre</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>close_date_opportunity</name>
+    </fields>
+    <fields>
+        <label>Producto</label>
+        <name>opportunity_product__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de Cierre</label>
+        <name>Field_Sup_Closing_Date__c</name>
+    </fields>
+    <fields>
+        <label>Moneda</label>
+        <name>Support_currency__c</name>
+        <picklistValues>
+            <masterLabel>PEN</masterLabel>
+            <translation>Sol peruano</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation>Dólar de EE.UU.</translation>
+        </picklistValues>
+    </fields>	
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Comentarios</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>description_opportunity</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Moneda</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>opportunity_currency</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Comentarios</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>opportunity_description</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Gestor de la oportunidad</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Gestores de la oportunidad</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_owner</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Alias del gestor principal</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_owner_alias</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Email del gestor principal</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_owner_email</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Tipología</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Tipologías</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_record_type</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Equipo de gestión de la oportunidad</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Equipos de gestión de la oportunidad</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_team</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>miembros del equipo de gestión de la oportunidad</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>miembros del equipo de gestión de la oportunidad</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>opportunity_team_member</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Tipologia</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>type_opportunity</name>
+    </fields>
+	    <fields>
+        <label>Número de contrato</label>
+        <name>frm_ContractNumber__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de vencimiento origen</label>
+        <name>opportunity_expiry_date__c</name>
+    </fields>
+    <fields>
+        <label>Estado</label>
+        <name>opportunity_status_type__c</name>
+        <picklistValues>
+            <masterLabel>Accepted by the client</masterLabel>
+            <translation>Aceptada por el cliente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Formalized</masterLabel>
+            <translation>Formalizada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation>Inactiva</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not accepted by the client</masterLabel>
+            <translation>No aceptada por el cliente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not planned</masterLabel>
+            <translation>No planificada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending customer response</masterLabel>
+            <translation>Pendiente respuesta del cliente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending offer to the client</masterLabel>
+            <translation>Pendiente oferta al cliente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planned</masterLabel>
+            <translation>Planificada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price approved</masterLabel>
+            <translation>Precio aprobado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price approved under office delegation</masterLabel>
+            <translation>Precio autorizado bajo delegación oficina</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price authorized</masterLabel>
+            <translation>Autorizado por precios</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price denied</masterLabel>
+            <translation>Devuelta por precios</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation>Desestimada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned by documentation</masterLabel>
+            <translation>Devuelta por documentación</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk approved</masterLabel>
+            <translation>Riesgo aprobado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk approved directly</masterLabel>
+            <translation>Riesgo aprobado dentro de línea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk authorized</masterLabel>
+            <translation>Autorizado por riesgos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk denied</masterLabel>
+            <translation>Devuelta por riesgos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for formalization</masterLabel>
+            <translation>Enviado a formalización</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for price approval</masterLabel>
+            <translation>Enviado para autorización a precios</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for price reevaluation</masterLabel>
+            <translation>Enviado para reevaluación a precios</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for risk approval</masterLabel>
+            <translation>Enviado para autorización a riesgos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent for risk reevaluation</masterLabel>
+            <translation>Enviado para reevaluación a riesgos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to product unit</masterLabel>
+            <translation>Enviado a unidad de producto</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Importe origen</label>
+        <name>renewal_import_curreny__c</name>
+    </fields>
+    <fields>
+        <label>Modalidad</label>
+        <name>Risk_modality_type__c</name>
+        <picklistValues>
+            <masterLabel>Inside line</masterLabel>
+            <translation>Dentro de línea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requires authorization</masterLabel>
+            <translation>Requiere autorización</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Código SIO</label>
+        <name>sio_code__c</name>
+    </fields>
+    <fields>
+        <label>Estado SIO</label>
+        <name>sio_status_type__c</name>
+    </fields>
+    <fields>
+        <label>Cliente</label>
+        <name>account_name__c</name>
+    </fields>
+    <fields>
+        <label>Etapa</label>
+        <name>StageName_Formula__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de cierre</label>
+        <name>CloseDate__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de creación</label>
+        <name>createdDate__c</name>
+    </fields>
+    <fields>
+        <label>Información motivo de desestimación</label>
+        <name>rejection_reason_id__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage>El importe debe ser mayor a 0.</errorMessage>
+        <name>Amount_Negative_Value</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, utilice los botones para progresar la oportunidad.</errorMessage>
+        <name>Opportunity_Validation_ChangeStage</name>
+    </validationRules>
+	<validationRules>
+        <errorMessage>No tiene permiso para modificar la fecha estimada de cierre.</errorMessage>
+        <name>Analist_OppCloseDate_Edition</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>No tiene permiso para modificar el nombre de la oportunidad.</errorMessage>
+        <name>Analist_OppName_Edition</name>
+    </validationRules>
+</CustomObjectTranslation>

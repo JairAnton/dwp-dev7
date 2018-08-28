@@ -1,0 +1,10 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId" extends="dwp_mdal:ModalTemplate_cmp" controller="formalizationButtonClass" access="GLOBAL">
+<aura:attribute name="title" type="String" default="Sancionar riesgo" access="global" description="Specify the modal"/>
+<div class="slds-modal__content slds-p-around_medium slds-theme_shade">
+      Sancionar Riesgo
+   </div>
+   <footer class="slds-modal__footer slds-theme_default">
+       <lightning:button variant="neutral" label="Cancelar" onclick="{!c.doInFormalization}"/>
+       <lightning:button variant="neutral" label="Aceptar" onclick="{!c.close}"/>
+   </footer>
+</aura:component>

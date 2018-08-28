@@ -1,0 +1,18 @@
+.THIS,
+.THIS:focus,
+.THIS.is-selected {
+	background-color: #26B14C;
+	color: #FFFFFF
+}
+
+.THIS:hover{
+    background-color: #4dea4d;
+    color: #FFFFFF;
+}
+
+
+.THIS .button-icon{
+	width: 2em;
+	height: 2em;
+	fill:currentColor;
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Office</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Offices</value>
+    </caseValues>
+    <fields>
+        <label><!-- Inactive --></label>
+        <name>active_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address --></label>
+        <name>address_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch category --></label>
+        <name>branch_category_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch code --></label>
+        <name>branch_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch hierarchy level 1 --></label>
+        <name>branch_level1_desc__c</name>
+        <relationshipLabel><!-- Offices (Branch hierarchy level 1) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Branch  hiearchy level 1 code --></label>
+        <name>branch_level1_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch hierarchy level 2 --></label>
+        <name>branch_level2_desc__c</name>
+        <relationshipLabel><!-- Offices (Branch hierarchy level 2) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Branch  hiearchy level 2 code --></label>
+        <name>branch_level2_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch hierarchy level 3 --></label>
+        <name>branch_level3_desc__c</name>
+        <relationshipLabel><!-- Offices (Branch hierarchy level 3) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Branch  hiearchy level 3 code --></label>
+        <name>branch_level3_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch hierarchy level 4 --></label>
+        <name>branch_level4_desc__c</name>
+        <relationshipLabel><!-- Offices (Branch hierarchy level 4) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Branch hiearchy level 4 code --></label>
+        <name>branch_level4_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>city_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>country_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other phone --></label>
+        <name>other_phone_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>phone_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>state_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>street_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Postal code --></label>
+        <name>zipcode_id__c</name>
+    </fields>
+    <nameFieldLabel><!-- Name --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

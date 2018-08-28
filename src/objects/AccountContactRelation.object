@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>AccountId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContactId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Primary_Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account.ParentId</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Primary Account</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_decisor__c</fullName>
+        <externalId>false</externalId>
+        <formula>text( Contact.decision_making_desc__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact decisor</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EndDate</fullName>
+    </fields>
+    <fields>
+        <fullName>IsActive</fullName>
+    </fields>
+    <fields>
+        <fullName>IsDirect</fullName>
+    </fields>
+    <fields>
+        <fullName>Relationship_Strength__c</fullName>
+        <externalId>false</externalId>
+        <label>Relationship Strength</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Strong</fullName>
+                    <default>false</default>
+                    <label>Strong</label>
+                </value>
+                <value>
+                    <fullName>Neutral</fullName>
+                    <default>false</default>
+                    <label>Neutral</label>
+                </value>
+                <value>
+                    <fullName>Weak</fullName>
+                    <default>false</default>
+                    <label>Weak</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Roles</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>StartDate</fullName>
+    </fields>
+    <fields>
+        <fullName>calc_prof_position_type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(prof_position_type__c ,&apos;OTROS&apos;),other_prof_prosition_type__c,text(prof_position_type__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calculated Position</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>decision_making_desc__c</fullName>
+        <externalId>false</externalId>
+        <label>Decision Making Level</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Si</fullName>
+                    <default>false</default>
+                    <label>Si</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>other_prof_prosition_type__c</fullName>
+        <externalId>false</externalId>
+        <label>Other position</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>prof_position_type__c</fullName>
+        <externalId>false</externalId>
+        <label>Position</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACCIONISTA</fullName>
+                    <default>false</default>
+                    <label>ACCIONISTA</label>
+                </value>
+                <value>
+                    <fullName>PRESIDENTE DE DIRECTORIO</fullName>
+                    <default>false</default>
+                    <label>PRESIDENTE DE DIRECTORIO</label>
+                </value>
+                <value>
+                    <fullName>APODERADO</fullName>
+                    <default>false</default>
+                    <label>APODERADO</label>
+                </value>
+                <value>
+                    <fullName>DIRECTORIO</fullName>
+                    <default>false</default>
+                    <label>DIRECTORIO</label>
+                </value>
+                <value>
+                    <fullName>GERENTE GENERAL</fullName>
+                    <default>false</default>
+                    <label>GERENTE GENERAL</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE FINANZAS</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE ADMINISTRACION</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE ADMINISTRACION</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE RRHH</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE RRHH</label>
+                </value>
+                <value>
+                    <fullName>GERENTE COMERCIAL</fullName>
+                    <default>false</default>
+                    <label>GERENTE COMERCIAL</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE OPERACIONES</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE OPERACIONES</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE FINANZAS</fullName>
+                    <default>false</default>
+                    <label>JEFE DE FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE TESORERIA</fullName>
+                    <default>false</default>
+                    <label>JEFE DE TESORERIA</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACIÓN</fullName>
+                    <default>false</default>
+                    <label>JEFE DE ADMINISTRACIÓN</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <label>JEFE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>ADMINISTRADOR</fullName>
+                    <default>false</default>
+                    <label>ADMINISTRADOR</label>
+                </value>
+                <value>
+                    <fullName>ASISTENTE</fullName>
+                    <default>false</default>
+                    <label>ASISTENTE</label>
+                </value>
+                <value>
+                    <fullName>OTROS</fullName>
+                    <default>false</default>
+                    <label>OTROS</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>input a description for the contact</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>MobilePhone__c</fullName>
+        <description>Saves the mobile phone</description>
+        <externalId>false</externalId>
+        <label>MobilePhone</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Status_desc__c</fullName>
+        <description>set the status from Contact</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Activo</fullName>
+                    <default>false</default>
+                    <label>Activo</label>
+                </value>
+                <value>
+                    <fullName>Inactivo</fullName>
+                    <default>false</default>
+                    <label>Inactivo</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>email__c</fullName>
+        <description>Saves the email</description>
+        <externalId>false</externalId>
+        <label>email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>events_info_type__c</fullName>
+        <description>Capture an event</description>
+        <externalId>false</externalId>
+        <label>Events</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Calidad</fullName>
+                    <default>false</default>
+                    <label>Calidad</label>
+                </value>
+                <value>
+                    <fullName>Coyuntura</fullName>
+                    <default>false</default>
+                    <label>Coyuntura</label>
+                </value>
+                <value>
+                    <fullName>Desayunos</fullName>
+                    <default>false</default>
+                    <label>Desayunos</label>
+                </value>
+                <value>
+                    <fullName>EEFF</fullName>
+                    <default>false</default>
+                    <label>EEFF</label>
+                </value>
+                <value>
+                    <fullName>Emailing</fullName>
+                    <default>false</default>
+                    <label>Emailing</label>
+                </value>
+                <value>
+                    <fullName>Noche arte</fullName>
+                    <default>false</default>
+                    <label>Noche arte</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>phone_1__c</fullName>
+        <description>Saves phone number 1</description>
+        <externalId>false</externalId>
+        <label>phone 1</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>phone_1_area_code__c</fullName>
+        <description>Saves the area code from phone number 1</description>
+        <externalId>false</externalId>
+        <label>phone area code</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>41</fullName>
+                    <default>false</default>
+                    <label>Amazonas - 41</label>
+                </value>
+                <value>
+                    <fullName>43</fullName>
+                    <default>false</default>
+                    <label>Ancash - 43</label>
+                </value>
+                <value>
+                    <fullName>83</fullName>
+                    <default>false</default>
+                    <label>Apurimac - 83</label>
+                </value>
+                <value>
+                    <fullName>54</fullName>
+                    <default>false</default>
+                    <label>Arequipa - 54</label>
+                </value>
+                <value>
+                    <fullName>66</fullName>
+                    <default>false</default>
+                    <label>Ayacucho - 66</label>
+                </value>
+                <value>
+                    <fullName>76</fullName>
+                    <default>false</default>
+                    <label>Cajamarca - 76</label>
+                </value>
+                <value>
+                    <fullName>84</fullName>
+                    <default>false</default>
+                    <label>Cusco - 84</label>
+                </value>
+                <value>
+                    <fullName>67</fullName>
+                    <default>false</default>
+                    <label>Huancavelica - 67</label>
+                </value>
+                <value>
+                    <fullName>62</fullName>
+                    <default>false</default>
+                    <label>Huanuco - 62</label>
+                </value>
+                <value>
+                    <fullName>56</fullName>
+                    <default>false</default>
+                    <label>Ica - 56</label>
+                </value>
+                <value>
+                    <fullName>64</fullName>
+                    <default>false</default>
+                    <label>Junin - 64</label>
+                </value>
+                <value>
+                    <fullName>44</fullName>
+                    <default>false</default>
+                    <label>La Libertad - 44</label>
+                </value>
+                <value>
+                    <fullName>74</fullName>
+                    <default>false</default>
+                    <label>Lambayeque - 74</label>
+                </value>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Lima y Callo - 01</label>
+                </value>
+                <value>
+                    <fullName>65</fullName>
+                    <default>false</default>
+                    <label>Loreto - 65</label>
+                </value>
+                <value>
+                    <fullName>82</fullName>
+                    <default>false</default>
+                    <label>Madre de Dios - 82</label>
+                </value>
+                <value>
+                    <fullName>53</fullName>
+                    <default>false</default>
+                    <label>Moquegua - 53</label>
+                </value>
+                <value>
+                    <fullName>63</fullName>
+                    <default>false</default>
+                    <label>Pasco - 63</label>
+                </value>
+                <value>
+                    <fullName>73</fullName>
+                    <default>false</default>
+                    <label>Piura - 73</label>
+                </value>
+                <value>
+                    <fullName>51</fullName>
+                    <default>false</default>
+                    <label>Puno - 51</label>
+                </value>
+                <value>
+                    <fullName>42</fullName>
+                    <default>false</default>
+                    <label>San Martin - 42</label>
+                </value>
+                <value>
+                    <fullName>52</fullName>
+                    <default>false</default>
+                    <label>Tacna - 52</label>
+                </value>
+                <value>
+                    <fullName>72</fullName>
+                    <default>false</default>
+                    <label>Tumbes - 72</label>
+                </value>
+                <value>
+                    <fullName>61</fullName>
+                    <default>false</default>
+                    <label>Ucayali - 61</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>phone_2__c</fullName>
+        <description>saves phone number 2</description>
+        <externalId>false</externalId>
+        <label>phone_2</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>phone_2_area_code__c</fullName>
+        <description>saves phone area code number 2</description>
+        <externalId>false</externalId>
+        <label>phone 2 area code</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>41</fullName>
+                    <default>false</default>
+                    <label>Amazonas - 41</label>
+                </value>
+                <value>
+                    <fullName>43</fullName>
+                    <default>false</default>
+                    <label>Ancash - 43</label>
+                </value>
+                <value>
+                    <fullName>83</fullName>
+                    <default>false</default>
+                    <label>Apurimac - 83</label>
+                </value>
+                <value>
+                    <fullName>54</fullName>
+                    <default>false</default>
+                    <label>Arequipa - 54</label>
+                </value>
+                <value>
+                    <fullName>66</fullName>
+                    <default>false</default>
+                    <label>Ayacucho - 66</label>
+                </value>
+                <value>
+                    <fullName>76</fullName>
+                    <default>false</default>
+                    <label>Cajamarca - 76</label>
+                </value>
+                <value>
+                    <fullName>84</fullName>
+                    <default>false</default>
+                    <label>Cusco - 84</label>
+                </value>
+                <value>
+                    <fullName>67</fullName>
+                    <default>false</default>
+                    <label>Huancavelica - 67</label>
+                </value>
+                <value>
+                    <fullName>62</fullName>
+                    <default>false</default>
+                    <label>Huanuco - 62</label>
+                </value>
+                <value>
+                    <fullName>56</fullName>
+                    <default>false</default>
+                    <label>Ica - 56</label>
+                </value>
+                <value>
+                    <fullName>64</fullName>
+                    <default>false</default>
+                    <label>Junin - 64</label>
+                </value>
+                <value>
+                    <fullName>44</fullName>
+                    <default>false</default>
+                    <label>La Libertad - 44</label>
+                </value>
+                <value>
+                    <fullName>74</fullName>
+                    <default>false</default>
+                    <label>Lambayeque - 74</label>
+                </value>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Lima y Callo - 01</label>
+                </value>
+                <value>
+                    <fullName>65</fullName>
+                    <default>false</default>
+                    <label>Loreto - 65</label>
+                </value>
+                <value>
+                    <fullName>82</fullName>
+                    <default>false</default>
+                    <label>Madre de Dios - 82</label>
+                </value>
+                <value>
+                    <fullName>53</fullName>
+                    <default>false</default>
+                    <label>Moquegua - 53</label>
+                </value>
+                <value>
+                    <fullName>63</fullName>
+                    <default>false</default>
+                    <label>Pasco - 63</label>
+                </value>
+                <value>
+                    <fullName>73</fullName>
+                    <default>false</default>
+                    <label>Piura - 73</label>
+                </value>
+                <value>
+                    <fullName>51</fullName>
+                    <default>false</default>
+                    <label>Puno - 51</label>
+                </value>
+                <value>
+                    <fullName>42</fullName>
+                    <default>false</default>
+                    <label>San Martin - 42</label>
+                </value>
+                <value>
+                    <fullName>52</fullName>
+                    <default>false</default>
+                    <label>Tacna - 52</label>
+                </value>
+                <value>
+                    <fullName>72</fullName>
+                    <default>false</default>
+                    <label>Tumbes - 72</label>
+                </value>
+                <value>
+                    <fullName>61</fullName>
+                    <default>false</default>
+                    <label>Ucayali - 61</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <validationRules>
+        <fullName>ACR_ValidationRule_Position</fullName>
+        <active>true</active>
+        <description>Validation to specify a value in other position field, when Others is selected in Position picklist.</description>
+        <errorConditionFormula>AND(ISPICKVAL(prof_position_type__c, &quot;OTROS&quot;), ISBLANK(other_prof_prosition_type__c))</errorConditionFormula>
+        <errorDisplayField>other_prof_prosition_type__c</errorDisplayField>
+        <errorMessage>Please, specify the other position information.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Mobile</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(MobilePhone__c)), OR(LEN(MobilePhone__c) &lt;&gt; 9, NOT(ISNUMBER(MobilePhone__c))))</errorConditionFormula>
+        <errorDisplayField>MobilePhone__c</errorDisplayField>
+        <errorMessage>Please, check that the Mobile phone contains 9 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Phone1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(phone_1_area_code__c, &quot;01&quot;)), NOT(ISPICKVAL(phone_1_area_code__c, &quot;&quot;)), NOT(ISBLANK(phone_1__c)), OR(LEN(phone_1__c) &lt;&gt; 6, NOT(ISNUMBER(phone_1__c))))</errorConditionFormula>
+        <errorDisplayField>phone_1__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 1 contains 6 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Phone1_Lima</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(phone_1_area_code__c, &quot;01&quot;),NOT(ISBLANK(phone_1__c)) , OR(LEN(phone_1__c) &lt;&gt; 7, NOT(ISNUMBER(phone_1__c))))</errorConditionFormula>
+        <errorDisplayField>phone_1__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 1 contains 7 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Phone2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISPICKVAL(phone_2_area_code__c, &quot;01&quot;)), NOT(ISPICKVAL(phone_2_area_code__c, &quot;&quot;)), NOT(ISBLANK(phone_2__c)), OR(LEN(phone_2__c) &lt;&gt; 6, NOT(ISNUMBER(phone_2__c))))</errorConditionFormula>
+        <errorDisplayField>phone_2__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 2 contains 6 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Phone2_Lima</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(phone_2_area_code__c, &quot;01&quot;),NOT(ISBLANK(phone_2__c)) , OR(LEN(phone_2__c) &lt;&gt; 7, NOT(ISNUMBER(phone_2__c))))</errorConditionFormula>
+        <errorDisplayField>phone_2__c</errorDisplayField>
+        <errorMessage>Please, check that the Phone 2 contains 7 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Position</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(prof_position_type__c, &quot;OTROS&quot;), ISBLANK(other_prof_prosition_type__c))</errorConditionFormula>
+        <errorDisplayField>other_prof_prosition_type__c</errorDisplayField>
+        <errorMessage>Please, specify the Other position information.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Req_AC1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(phone_1__c)), ISBLANK(TEXT(phone_1_area_code__c)))</errorConditionFormula>
+        <errorDisplayField>phone_1_area_code__c</errorDisplayField>
+        <errorMessage>Please, select the Phone 1 area code.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Req_AC2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(phone_2__c)), ISBLANK(TEXT(phone_2_area_code__c)))</errorConditionFormula>
+        <errorDisplayField>phone_2_area_code__c</errorDisplayField>
+        <errorMessage>Please, select the Phone 2 area code.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Req_Phone1</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(TEXT(phone_1_area_code__c))), ISBLANK(phone_1__c))</errorConditionFormula>
+        <errorDisplayField>phone_1__c</errorDisplayField>
+        <errorMessage>Please, full the Phone 1 field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Validation_Rule_Req_Phone2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(TEXT(phone_2_area_code__c))), ISBLANK(phone_2__c))</errorConditionFormula>
+        <errorDisplayField>phone_2__c</errorDisplayField>
+        <errorMessage>Please, full the Phone 2 field.</errorMessage>
+    </validationRules>
+</CustomObject>
