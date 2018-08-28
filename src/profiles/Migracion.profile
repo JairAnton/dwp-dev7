@@ -4168,10 +4168,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>CreateReportFolders</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>CreateReportInLightning</name>
     </userPermissions>
     <userPermissions>
