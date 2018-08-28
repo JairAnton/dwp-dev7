@@ -4380,10 +4380,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>ManageDashbdsInPubFolders</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>ManageDataCategories</name>
     </userPermissions>
     <userPermissions>
