@@ -692,10 +692,10 @@
         <members>*</members>
         <name>Role</name>
     </types>
-    <types>
+    <!--types>
         <members>Opportunity</members>
         <name>SharingRules</name>
-    </types>
+    </types-->
     <types>
         <members>CaseStatus</members>
         <members>CaseType</members>

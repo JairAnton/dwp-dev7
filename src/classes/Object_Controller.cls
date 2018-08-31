@@ -92,13 +92,13 @@ public with sharing class Object_Controller {
                                      FROM Account_BBVA_Information__c WHERE  type__c =: Tip AND 
                                      product_group_classification_id__c != '' AND product_desc__c != '' 
                                      AND account_id__c =: Idopp AND is_last_date__c = true AND
-                                     product_group_classification_id__c=:tipex AND 
-                                     year_month_day_date__c = LAST_MONTH Group By product_group_classification_id__c limit 1];
+                                     product_group_classification_id__c=:tipex 
+                                    Group By product_group_classification_id__c limit 1];
             List<Account_Banking_System_Debt__c> banking = new List<Account_Banking_System_Debt__c>();
             banking= [select id, debt_quote_amount__c from Account_Banking_System_Debt__c 
                       where  product_group_classification_id__c!='' and 
                       entity_name__c LIKE '%BBVA%' AND product_desc__c='' AND is_last_date__c = true AND
-                      entity_name__c != '' and year_month_day_date__c = LAST_MONTH and 
+                      entity_name__c != '' and 
                       account_id__c=: Idopp and product_group_classification_id__c=:tipex limit 1];
             for (AggregateResult ar :scop){
                 ret.add(String.valueOf(ar.get('average_balance_amount__c')));

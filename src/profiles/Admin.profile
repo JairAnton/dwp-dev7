@@ -4315,10 +4315,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>CanUseNewDashboardBuilder</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>CanVerifyComment</name>
     </userPermissions>
     <userPermissions>
@@ -4375,19 +4371,7 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>CreateDashboardFolders</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>CreatePackaging</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateReportFolders</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>CreateReportInLightning</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -4455,14 +4439,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditMyDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditMyReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>EditOppLineItemUnitPrice</name>
     </userPermissions>
     <userPermissions>
@@ -4500,10 +4476,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EnableNotifications</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ExportReport</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -4615,19 +4587,11 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageDashbdsInPubFolders</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageDataCategories</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageDataIntegrations</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageDynamicDashboards</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -4695,10 +4659,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageReportsInPubFolders</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageRoles</name>
     </userPermissions>
     <userPermissions>
@@ -4755,10 +4715,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>NewReportBuilder</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>OutboundMigrationToolsUser</name>
     </userPermissions>
     <userPermissions>
@@ -4795,15 +4751,7 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>RunReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ScheduleJob</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ScheduleReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -4896,18 +4844,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewHelpLink</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewMyTeamsDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewPublicDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewPublicReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
