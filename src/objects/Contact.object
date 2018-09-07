@@ -379,6 +379,7 @@
     </fields>
     <fields>
         <fullName>phone_1__c</fullName>
+        <encrypted>true</encrypted>
         <externalId>false</externalId>
         <label>Phone 1</label>
         <required>false</required>
@@ -521,6 +522,7 @@
     </fields>
     <fields>
         <fullName>phone_2__c</fullName>
+        <encrypted>true</encrypted>
         <externalId>false</externalId>
         <label>Phone 2</label>
         <required>false</required>
@@ -826,6 +828,30 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <encrypted>true</encrypted>
+        <isCaseSensitiveDeterministicEncryptionEnabled>true</isCaseSensitiveDeterministicEncryptionEnabled>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>HomePhone</fullName>
+        <encrypted>true</encrypted>
+        <isCaseSensitiveDeterministicEncryptionEnabled>true</isCaseSensitiveDeterministicEncryptionEnabled>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <encrypted>true</encrypted>
+        <isCaseSensitiveDeterministicEncryptionEnabled>true</isCaseSensitiveDeterministicEncryptionEnabled>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <encrypted>true</encrypted>
+        <isCaseSensitiveDeterministicEncryptionEnabled>true</isCaseSensitiveDeterministicEncryptionEnabled>
+        <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <listViews>
         <fullName>AllContacts</fullName>
