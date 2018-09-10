@@ -314,7 +314,18 @@ public without sharing class Product_cls {
     */
     @AuraEnabled public static List<WRP_Table> getAccountBBVAInformation (String AccountId)
     {
-        list<AggregateResult> listInfoBBVA = [select account_id__r.Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' AND year_month_day_date__c = LAST_MONTH group by account_id__r.Name,product_group_classification_id__c, type__c];        
+        String PrtId=[Select ParentId from Account where Id=:AccountId limit 1].ParentId;
+        list<AggregateResult> listInfoBBVA = [select account_id__r.Id Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:PrtId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' group by account_id__r.id,product_group_classification_id__c, type__c];        
+        set<id> Ids= new set<id>();
+        for(AggregateResult item : listInfoBBVA)
+        {
+            Ids.add((id)item.get('Name'));
+            System.debug(item.get('Name'));
+        }
+
+        list<Account> listAccNames= [select id,Name from Account where id in : Ids];
+        string NameById='';
+
         map<String, WRP_Table> mapResult = new map<String, WRP_Table>();
         integer i=0;
         Double dd;
@@ -333,7 +344,18 @@ public without sharing class Product_cls {
                                 else if((String)ar2.get('product_group_classification_id__c')==label.LblResources && (String)ar2.get('type__c')=='02')
                                     r=(Double)ar2.get('exp2');
                 }                             
-            if((string)ar.get('Name')!=aux){ mapResult.put(String.valueOf(i), new WRP_Table((string)ar.get('Name'),(Double)ar.get('exp1'),dd,di,r)); aux=(string)ar.get('Name'); i++;}
+
+       
+            
+        
+            if((string)ar.get('Name')!=aux){ 
+                for(Account itemacc: listAccNames)
+                {
+                    if(ar.get('Name')==itemacc.id)            
+                        NameById=itemacc.Name;
+                }
+                mapResult.put(String.valueOf(i), new WRP_Table(NameById,(Double)ar.get('exp1'),dd,di,r)); aux=(string)ar.get('Name'); i++;
+            }
         }
         return mapResult.values();
     }
