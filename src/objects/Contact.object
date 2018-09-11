@@ -832,25 +832,21 @@
     <fields>
         <fullName>Email</fullName>
         <encrypted>true</encrypted>
-        <isCaseSensitiveDeterministicEncryptionEnabled>true</isCaseSensitiveDeterministicEncryptionEnabled>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>HomePhone</fullName>
         <encrypted>true</encrypted>
-        <isCaseSensitiveDeterministicEncryptionEnabled>true</isCaseSensitiveDeterministicEncryptionEnabled>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>MobilePhone</fullName>
         <encrypted>true</encrypted>
-        <isCaseSensitiveDeterministicEncryptionEnabled>true</isCaseSensitiveDeterministicEncryptionEnabled>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>Phone</fullName>
         <encrypted>true</encrypted>
-        <isCaseSensitiveDeterministicEncryptionEnabled>true</isCaseSensitiveDeterministicEncryptionEnabled>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <listViews>
