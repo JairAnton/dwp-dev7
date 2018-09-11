@@ -1372,6 +1372,30 @@
         <label>TEA sugerida (%)</label>
         <name>suggested_apr_per__c</name>
     </fields>
+	<fields>
+        <label>Disponibilidad cotización consultada?</label>
+        <name>price_quote_availability_check__c</name>
+    </fields>
+	<fields>
+        <label>Cotización disponible?</label>
+        <name>price_quote_available__c</name>
+    </fields>
+	<fields>
+        <label>Id cálculo tasas</label>
+        <name>price_rates_calculation_Id__c</name>
+    </fields>
+	<fields>
+        <label>Id modelo precios</label>
+        <name>pricing_model_id__c</name>
+    </fields>
+	<fields>
+        <label>Id operación cotiza</label>
+        <name>price_operation_id__c</name>
+    </fields>
+	<fields>
+        <label>Propietario cotización</label>
+        <name>price_quote_owner_id__c</name>
+    </fields>
     <validationRules>
         <errorMessage>Nº de contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>ContractNo_Validation</name>
