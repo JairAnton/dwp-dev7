@@ -138,23 +138,23 @@
         <name>Loss_Reason__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation>Cliente</translation>
+            <translation>Por razones del cliente</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation>Riesgo</translation>
+            <translation>Por condiciones de riesgo</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>03</masterLabel>
-            <translation>Precio</translation>
+            <translation>Por condiciones de precio</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>04</masterLabel>
-            <translation>Producto</translation>
+            <translation>Por condiciones de producto</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>05</masterLabel>
-            <translation>Otros</translation>
+            <translation>Otra</translation>
         </picklistValues>
     </fields>
     <fields>
