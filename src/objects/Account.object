@@ -153,6 +153,7 @@
     </fields>
     <fields>
         <fullName>Name</fullName>
+        <encrypted>true</encrypted>
         <trackFeedHistory>true</trackFeedHistory>
     </fields>
     <fields>
