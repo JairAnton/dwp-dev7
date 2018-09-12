@@ -16,7 +16,8 @@ public with sharing class Commitment_ctrl {
                                                                     commitment_expiry_days_number__c,
                                                                     commitment_stay_days_number__c,
                                                                     CurrencyIsoCode,
-                                                                    quote_type__c
+                                                                    quote_type__c,
+                                                                    commitment_id__c
                                                             FROM Commitment_Value__c
                                                             WHERE quote_type__c = :quoteType
                                                             ORDER BY commitment_product_name__c];
@@ -61,6 +62,7 @@ public with sharing class Commitment_ctrl {
         oppSolCommitment.opp_soln_comt_expiry_days_number__c = Double.valueOf(lstData[2]);
         oppSolCommitment.opp_solution_commitment_amount__c = Double.valueOf(lstData[3]);
         oppSolCommitment.opp_soln_comt_stay_days_number__c = Double.valueOf(lstData[4]);
+        oppSolCommitment.opp_solution_commitment_id__c = String.valueOf(lstData[5]);
         oppSolCommitment.opportunity_id__c = recordId;
         oppSolCommitment.opp_solution_id__c = oppLineItem;
         insert oppSolCommitment;
