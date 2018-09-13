@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>iaso__CryptoKey__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">T/lMwfNZJjDKGEGrRFsgwW8KrzeHLOxSCrOOVMm/6fk=</value>
     </values>
     <values>
         <field>iaso__Custom_Setting__c</field>
@@ -28,7 +28,7 @@
     </values>
     <values>
         <field>iaso__Password__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Px8sYQwalCEifGUuaj+Qzgllwbt6zrIN8X6T/tKCD60=</value>
     </values>
     <values>
         <field>iaso__Service_Parameters__c</field>
@@ -37,7 +37,7 @@
     </values>
     <values>
         <field>iaso__User__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">ZM13024</value>
     </values>
     <values>
         <field>iaso__isOrgCache__c</field>
