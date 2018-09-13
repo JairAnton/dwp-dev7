@@ -4,10 +4,9 @@ global with sharing class Integration_GrantingTickets_Peru implements iaso.GBL_I
         Datetime initTime = Datetime.now();
         Http http = new Http();
         HttpRequest validationRequest = new HttpRequest();
-        //validationRequest.setEndpoint('https://dwpTST.grupobbva.com.pe/QSRV_A02/TechArchitecture/grantingTicketsOauth/V01');
         validationRequest.setEndpoint(WebServiceUtils.getUrlFromCustomSettings(authenticationConfig.iaso__Custom_Setting__c));
         validationRequest.setMethod('POST');
-        validationRequest.setHeader('Authorization', 'Basic Wk0xMzAyNDoxNDcyNTg=');
+        validationRequest.setHeader('Authorization', getAuth(authenticationConfig));
         validationRequest.setHeader('Content-Type', 'application/x-www-form-urlencoded');
         //validationRequest.setHeader('Accept', 'application/json');
         String validationRequestBody = 'grant_type=client_credentials';
@@ -89,6 +88,17 @@ global with sharing class Integration_GrantingTickets_Peru implements iaso.GBL_I
             return true;
         }
         return false;
+    }
+
+    private static String getAuth(iaso__GBL_Authentication_Service__mdt authenticationConfig){
+        Blob cryptoKey = EncodingUtil.base64Decode(authenticationConfig.iaso__CryptoKey__c);
+        Blob encryptedPassword = EncodingUtil.base64Decode(authenticationConfig.iaso__Password__c);
+
+        Blob decryptedData = Crypto.decryptWithManagedIV('AES256', cryptoKey, encryptedPassword);
+
+        Blob headerValue = Blob.valueOf('ZM13024' + ':' + decryptedData.toString());
+        String authorizationHeader = 'Basic ' + EncodingUtil.base64Encode(headerValue);
+        return authorizationHeader;
     }
 
 }
