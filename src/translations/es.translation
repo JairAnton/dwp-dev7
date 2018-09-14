@@ -1088,6 +1088,26 @@
         <label>Delete</label>
         <name>Delete</name>
     </customLabels>
+    <customLabels>
+        <label>Cerrar</label>
+        <name>Close</name>
+    </customLabels>
+    <customLabels>
+        <label>Los servicios no están disponibles en estos momentos. Contacte con su administrador.</label>
+        <name>GenericError</name>
+    </customLabels>
+    <customLabels>
+        <label>MINIMUM_TEA</label>
+        <name>MinTEA</name>
+    </customLabels>
+    <customLabels>
+        <label>SUGGESTED_TEA</label>
+        <name>SuggTEA</name>
+    </customLabels>
+    <customLabels>
+        <label>COMMERCIAL_SPREAD</label>
+        <name>commSpread</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

@@ -2,14 +2,26 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:attribute name="recordOli" type="String" />
     <aura:attribute name="isLoad" type="Boolean" default="false" />
+    <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section"/>
     <aura:attribute name="title" type="String" default="{!$Label.c.lblQuote}" access="global" description="Specify the modal"/>
+    <aura:attribute name="teaquote" type="String" />
+    <aura:attribute name="isError" type="Boolean" default="false" />
+    <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to be displayed"/>
 
-    <div class="slds-modal__content slds-p-around_medium" >
-        <aura:if isTrue="{!v.isLoad}">
-            <c:FieldsForm_cmp aura:id="fieldsForm" valueDynamic="43,-" recordId="{!v.recordOli}" isInput="true" developerNameTable="Web_Simulation"/>
+    <aura:if isTrue="{!v.isLoad}">
+        <aura:if isTrue="{!v.isError}">
+            <c:ErrorMessageWS_cmp errorMessagesList="{!v.errorlst}"/>
+            <aura:set attribute="else">
+                <div class="slds-modal__content slds-p-around_medium" >
+                    <c:FieldsForm_cmp aura:id="fieldsForm" valueDynamic="{!v.teaquote}" recordId="{!v.recordOli}" isInput="true" developerNameTable="Web_Simulation"/>                
+                </div>
+                <footer class="slds-modal__footer slds-theme_default">
+                    <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Close}</lightning:button>
+                </footer>
+            </aura:set>
         </aura:if>
-    </div>
-    <footer class="slds-modal__footer slds-theme_default">
-        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
-    </footer>
+        <aura:set attribute="else">
+                <lightning:spinner variant="brand" class="slds-is-relative"/>
+        </aura:set>
+    </aura:if>
 </aura:component>
