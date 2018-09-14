@@ -24,7 +24,6 @@ public class PriceRate_helper {
         if(!lstOpp.isEmpty()){
             //Map with values
             Map<String,Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String>{'TERM_PERIOCITY','GUARANTEE_CLASSIFICATION', 'CONTRACT_MODALITY'}, lstOpp[0].OpportunityLineItems[0].pricing_model_id__c);
-            System.debug(mapWsVal);
             
             //map the input values with the input attributes of the webservice 
             RequestPriceRate_Wrapper requestWrapper = new RequestPriceRate_Wrapper(

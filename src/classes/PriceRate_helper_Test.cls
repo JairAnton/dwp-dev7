@@ -26,9 +26,7 @@ global class PriceRate_helper_Test {
         Test.startTest();
         
         System.HttpResponse priceResponse = pricehHelper.invoke();
-        System.debug('priceResponse '+priceResponse.getBody());
         PriceRate_helper.ResponseSimulateRate_Wrapper responseWrapper = pricehHelper.parse(priceResponse.getBody());
-        //System.assertEquals(5, ResponseSimulateRate_Wrapper.data.size());
         
         Test.stopTest();
     }
