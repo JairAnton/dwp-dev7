@@ -7,7 +7,11 @@
     <aura:attribute name="newJsonValue" type="String" access="global" default=""/>
     <aura:attribute name="editJsonValue" type="String" access="global" default=""/>
     <aura:attribute name="isLoad" type="Boolean" access="global" default="false"/>
+    <aura:attribute name="showBanner" type="Boolean" access="global" default="false"/>
     <aura:if isTrue="{!v.isLoad}">
+        <aura:if isTrue="{!v.showBanner}">
+            <c:Message_banner_cmp label="{!$Label.c.PriceQuotationAvailabilityErrorMessage}" />
+        </aura:if>
         <fprd:GBL_Opportunity_Products_cmp recordId="{!v.recordId}" 
                                            maxProductNumber="1" 
                                            editButton="{!v.editJsonValue}" 

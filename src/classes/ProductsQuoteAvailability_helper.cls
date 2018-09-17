@@ -24,6 +24,10 @@ public class ProductsQuoteAvailability_helper {
     public System.HttpResponse invoke(){
         return iaso.GBL_Integration_GenericService.invoke('ProductsQuoteAvailability',generateJSONRequest());//{'participantId':'P4355'}
     }
+
+    public static ResponseProductsQuoteAvailability_Wrapper parse(String json){
+		return (ResponseProductsQuoteAvailability_Wrapper) System.JSON.deserialize(json, ResponseProductsQuoteAvailability_Wrapper.class);
+	}
     
     
     //Wrapper class to map the input values with the input attributes of the webservice 
@@ -34,5 +38,23 @@ public class ProductsQuoteAvailability_helper {
             this.participantId = (participantId!=null?participantId:'');
         }
     }
+
+    //Wrapper class to map the json response
+    public class ResponseProductsQuoteAvailability_Wrapper{
+        public Response_data[] data;
+    }
+
+    public class Response_data {
+		public String id;
+		public String name;
+		public Response_productType productType;
+		public Response_pricing pricing;
+	}
+    public class Response_productType {
+		public String id;
+	}
+	public class Response_pricing {
+		public String id;
+	}
  
 }
