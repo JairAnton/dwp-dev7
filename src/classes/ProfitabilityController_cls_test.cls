@@ -19,7 +19,7 @@ public class ProfitabilityController_cls_test {
 
 
     public static testMethod void  testPositive(){
-       Id accid = [SELECT ID FROM Account WHERE  NAME = 'TestAcct' LIMIT 1].Id;
+       Id accid = [SELECT ID FROM Account LIMIT 1].Id;
         ProfitabilityController_cls  pc =  new ProfitabilityController_cls();
         ProfitabilityController_cls.AccountProfit(accid);
         
