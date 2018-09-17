@@ -1641,4 +1641,11 @@
         <shortDescription>commSpread</shortDescription>
         <value>COMMERCIAL_SPREAD</value>
     </labels>
+    <labels>
+        <fullName>PriceCreateQuotationRequestUnknowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Unknow Error</shortDescription>
+        <value>Quotation request has not been created due to an error. Please, contact your administration for further details.</value>
+    </labels>
 </CustomLabels>

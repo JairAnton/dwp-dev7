@@ -2235,6 +2235,15 @@
         <required>false</required>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>price_availability_check_error__c</fullName>
+        <externalId>false</externalId>
+        <label>Price availability error</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <validationRules>
         <fullName>ContractNo_Validation</fullName>
         <active>true</active>

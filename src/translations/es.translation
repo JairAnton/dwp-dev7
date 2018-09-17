@@ -1108,6 +1108,10 @@
         <label>COMMERCIAL_SPREAD</label>
         <name>commSpread</name>
     </customLabels>
+    <customLabels>
+        <label>No se ha podido crear la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceCreateQuotationRequestUnknowError</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
