@@ -352,6 +352,8 @@ public class Container_Product_Form_ctrl_Test {
         update acc;
         Opportunity opp = TestFactory.createOpportunity(acc.Id, UserInfo.getUserId());
         Product2 prod = TestFactory.createProduct();
+        prod.Type_of_quote__c = 'Web';
+        update prod;
         OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
         Test.startTest();
 
@@ -382,6 +384,8 @@ public class Container_Product_Form_ctrl_Test {
         update acc;
         Opportunity opp = TestFactory.createOpportunity(acc.Id, UserInfo.getUserId());
         Product2 prod = TestFactory.createProduct();
+        prod.Type_of_quote__c = 'Web';
+        update prod;
         OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
         Test.startTest();
 
@@ -412,6 +416,8 @@ public class Container_Product_Form_ctrl_Test {
         update acc;
         Opportunity opp = TestFactory.createOpportunity(acc.Id, UserInfo.getUserId());
         Product2 prod = TestFactory.createProduct();
+        prod.Type_of_quote__c = 'Web';
+        update prod;
         OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
         Test.startTest();
 
