@@ -937,6 +937,16 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>USER_EJECUTIVO__c</fullName>
+        <description>CAMPO PARA PODER LLAMAR A LAS LOGIN DE LOS EJECUTIVOS</description>
+        <externalId>false</externalId>
+        <formula>Account.Owner.Id  = $User.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>USER EJECUTIVO</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>PE_ImOwner__c</fullName>
         <description>check if the current user is the owner</description>
