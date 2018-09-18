@@ -4,5 +4,8 @@ trigger Visit_Management_Team_Trigger on dwp_kitv__Visit_Management_Team__c(befo
         if(trigger.isInsert) {
             handler.VisitManagementTeamBeforeInsert(trigger.new);
         }
+		if(trigger.isdelete){
+            Handlervisithelper.ComunMethod1(trigger.old);
+        }
     }
 }

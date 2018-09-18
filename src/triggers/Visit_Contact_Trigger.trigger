@@ -4,5 +4,8 @@ trigger Visit_Contact_Trigger on dwp_kitv__Visit_Contact__c(before insert, befor
         if(trigger.isInsert) {
             handler.visitContactBeforeInsert(trigger.new);
         }
+		if(trigger.isdelete){
+            Handlervisithelper.ComunMethod1(trigger.old);
+        }
     }
 }

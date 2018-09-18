@@ -33,6 +33,14 @@
     <gender>Feminine</gender>
     <nameFieldLabel>equipo BBVA</nameFieldLabel>
     <validationRules>
+        <errorMessage>Agregar un usuario</errorMessage>
+        <name>User_is_empty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>No se puede añadir datos a una una visita finalizada</errorMessage>
+        <name>Visit_is_Active</name>
+    </validationRules>
+    <validationRules>		 
         <errorMessage>No está permitido cambiar el usuario, Por favor, elimine el usuario de la visita</errorMessage>
         <name>dwp_kitv__Change_user</name>
     </validationRules>
