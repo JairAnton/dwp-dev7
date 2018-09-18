@@ -98,7 +98,7 @@ global with sharing class Container_Product_Form_ctrl implements dwp_dbpn.Dynami
             }
             
         }
-        mapReturn.put('showWarning', (lstOppLineItem[0].Product2.Type_of_quote__c == 'Web'?showWarning:false));
+        mapReturn.put('showWarning', (!lstOppLineItem.isEmpty() && lstOppLineItem[0].Product2.Type_of_quote__c == 'Web'?showWarning:false));
         return mapReturn;
     }
     
