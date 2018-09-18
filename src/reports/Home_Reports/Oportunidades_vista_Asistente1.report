@@ -83,7 +83,6 @@
     <reportType>OpportunityProduct</reportType>
     <scope>user</scope>
     <showDetails>false</showDetails>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

@@ -75,7 +75,6 @@
     <reportType>Hierarchy_report__c</reportType>
     <scope>team</scope>
     <showDetails>true</showDetails>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>Account$account_banking_syst_debt_sum_last_date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
