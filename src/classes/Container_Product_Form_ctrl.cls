@@ -32,51 +32,73 @@ global with sharing class Container_Product_Form_ctrl implements dwp_dbpn.Dynami
                                                 Product2.Type_of_quote__c, 
                                                 price_availability_check_error__c,
                                                 OpportunityId,
-                                                price_quote_available__c
+                                                price_quote_available__c,
+                                                Opportunity.Branch_id__r.branch_id__c
                                         FROM OpportunityLineItem
                                         WHERE OpportunityId = :recordId];
+        List<User> lstUser = [SELECT    Id,
+                                        Profile.Name,
+                                        (SELECT     Id, 
+                                                    branch_id__c
+                                        FROM Users_Branches__r)
+                                FROM User
+                                WHERE Id = :UserInfo.getUserId()];
+        
         Boolean showWarning = (!lstOppLineItem.isEmpty()?!lstOppLineItem[0].price_quote_available__c:false);
-        if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].price_quote_availability_check__c==false){
-            try{
-                ProductsQuoteAvailability_helper prodQuoteAva = new ProductsQuoteAvailability_helper(lstOppLineItem[0].OpportunityId);
-                System.HttpResponse responseProdQ = prodQuoteAva.invoke();
-                switch on responseProdQ.getStatusCode(){
-                    when 200{
-                        ProductsQuoteAvailability_helper.ResponseProductsQuoteAvailability_Wrapper responseWrapper = ProductsQuoteAvailability_helper.parse(responseProdQ.getBody());
-                        List<ProductsQuoteAvailability_helper.Response_data> lstResponseData = responseWrapper.data;
-                        Boolean flagLoop = true;
-                        String strPriceModel = '';
-                        for(Integer i=0; i<lstResponseData.size() && flagLoop; i++){
-                            if(lstResponseData[i].id=='11'){
-                                flagLoop = false;
-                                ProductsQuoteAvailability_helper.Response_pricing pricingModel = lstResponseData[i].pricing;
-                                strPriceModel = pricingModel.id;
-                            }
-                        }
-                        lstOppLineItem[0].price_quote_availability_check__c = true;
-                        lstOppLineItem[0].pricing_model_id__c = strPriceModel;
-                        lstOppLineItem[0].price_availability_check_error__c = '';
-                        showWarning=false;
-                    }
-                    when 500{
-                        WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(responseProdQ.getBody());
-                        lstOppLineItem[0].price_quote_availability_check__c = false;
-                        lstOppLineItem[0].price_availability_check_error__c = errorW.errormessage;
-                        showWarning=true;
-                    }
-                    when else{
-                        WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(responseProdQ.getBody());
-                        lstOppLineItem[0].price_quote_availability_check__c = true;
-                        lstOppLineItem[0].price_availability_check_error__c = errorW.errormessage;
-                        showWarning=true;
-                    }
+
+        if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].price_quote_availability_check__c==false && lstOppLineItem[0].Product2.Type_of_quote__c == 'Web' && (lstUser[0].Profile.Name == 'Ejecutivo' || lstUser[0].Profile.Name == 'System Administrator') ){
+            Boolean flagLoopUser = true;
+            //Boolean hasBranch = false;
+            Boolean hasBranch = (lstUser[0].Profile.Name == 'System Administrator');
+            for(Integer i = 0; i<lstUser[0].Users_Branches__r.size() && flagLoopUser; i++){
+                if(lstUser[0].Users_Branches__r[i].branch_id__c == lstOppLineItem[0].Opportunity.Branch_id__r.branch_id__c){
+                    flagLoopUser = false;
+                    hasBranch = true;
                 }
-                update lstOppLineItem;
-            }catch(Exception e){
-                System.debug(e);
             }
+            if(hasBranch){
+                try{
+                    ProductsQuoteAvailability_helper prodQuoteAva = new ProductsQuoteAvailability_helper(lstOppLineItem[0].OpportunityId);
+                    System.HttpResponse responseProdQ = prodQuoteAva.invoke();
+                    switch on responseProdQ.getStatusCode(){
+                        when 200{
+                            ProductsQuoteAvailability_helper.ResponseProductsQuoteAvailability_Wrapper responseWrapper = ProductsQuoteAvailability_helper.parse(responseProdQ.getBody());
+                            List<ProductsQuoteAvailability_helper.Response_data> lstResponseData = responseWrapper.data;
+                            Boolean flagLoop = true;
+                            String strPriceModel = '';
+                            for(Integer i=0; i<lstResponseData.size() && flagLoop; i++){
+                                if(lstResponseData[i].id=='11'){
+                                    flagLoop = false;
+                                    ProductsQuoteAvailability_helper.Response_pricing pricingModel = lstResponseData[i].pricing;
+                                    strPriceModel = pricingModel.id;
+                                }
+                            }
+                            lstOppLineItem[0].price_quote_availability_check__c = true;
+                            lstOppLineItem[0].pricing_model_id__c = strPriceModel;
+                            lstOppLineItem[0].price_availability_check_error__c = '';
+                            showWarning=false;
+                        }
+                        when 500{
+                            WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(responseProdQ.getBody());
+                            lstOppLineItem[0].price_quote_availability_check__c = false;
+                            lstOppLineItem[0].price_availability_check_error__c = errorW.errormessage;
+                            showWarning=true;
+                        }
+                        when else{
+                            WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(responseProdQ.getBody());
+                            lstOppLineItem[0].price_quote_availability_check__c = true;
+                            lstOppLineItem[0].price_availability_check_error__c = errorW.errormessage;
+                            showWarning=true;
+                        }
+                    }
+                    update lstOppLineItem;
+                }catch(Exception e){
+                    System.debug(e);
+                }
+            }
+            
         }
-        mapReturn.put('showWarning',showWarning);
+        mapReturn.put('showWarning', (lstOppLineItem[0].Product2.Type_of_quote__c == 'Web'?showWarning:false));
         return mapReturn;
     }
     
