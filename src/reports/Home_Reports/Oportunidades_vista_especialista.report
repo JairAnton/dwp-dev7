@@ -87,7 +87,6 @@
     <reportType>OpportunityProduct</reportType>
     <scope>user</scope>
     <showDetails>false</showDetails>
-    <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
