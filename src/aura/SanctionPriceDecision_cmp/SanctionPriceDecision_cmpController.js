@@ -14,7 +14,6 @@
 	doContinue : function(cmp, evt, helper){
 		
         var inputAtt = cmp.get('v.inputAttributes');
-        console.log(inputAtt.approvalMethod);
         switch(inputAtt.approvalMethod) {
 			case 'Web':
                 helper.doContinueWeb(cmp, evt, helper);

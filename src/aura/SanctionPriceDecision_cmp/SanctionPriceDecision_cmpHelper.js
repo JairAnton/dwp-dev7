@@ -167,7 +167,6 @@
     doContinueWeb : function(cmp, evt, helper){
         var storeHTML = document.getElementById('storeHTML');
         var inputObject = cmp.get('v.inputAttributes');
-        console.log(inputObject.auditRecordId);
         var action = cmp.get("c.saveAuditWeb");
         action.setParams({
             "auditRecordId" : inputObject.auditRecordId,

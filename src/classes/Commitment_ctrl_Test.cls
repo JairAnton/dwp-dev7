@@ -53,8 +53,8 @@ public class Commitment_ctrl_Test {
         
         setData();
 
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequestApproved/OK', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequestApproved/OK', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         
@@ -73,8 +73,8 @@ public class Commitment_ctrl_Test {
         
         setData();
         
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequest/KO_500', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequest/KO_500', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         
@@ -93,8 +93,8 @@ public class Commitment_ctrl_Test {
         
         setData();
         
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequest/KO_409', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequest/KO_409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         

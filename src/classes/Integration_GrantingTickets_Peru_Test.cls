@@ -2,7 +2,7 @@
 public class Integration_GrantingTickets_Peru_Test {
     @isTest
     public static void test_method_one(){
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Test.startTest();
 
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());

@@ -345,8 +345,8 @@ public class Container_Product_Form_ctrl_Test {
     @isTest
     public static void case7(){
 
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ok', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Account acc = TestFactory.createAccount();
         acc.main_code_id__c = '123567';
         update acc;
@@ -377,8 +377,8 @@ public class Container_Product_Form_ctrl_Test {
     @isTest
     public static void case8(){
 
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ko', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ko', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Account acc = TestFactory.createAccount();
         acc.main_code_id__c = '123567';
         update acc;
@@ -409,8 +409,8 @@ public class Container_Product_Form_ctrl_Test {
     @isTest
     public static void case9(){
 
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ko409', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ko409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Account acc = TestFactory.createAccount();
         acc.main_code_id__c = '123567';
         update acc;

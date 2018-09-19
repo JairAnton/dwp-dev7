@@ -12,7 +12,7 @@ public class WebServiceUtils_Test {
 
         String endPoint = WebServiceUtils.getUrlFromCustomSettings('customSettingEndpoint');
         System.assertEquals(endPoint,'');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'customSettingEndpoint', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'customSettingEndpoint', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         endPoint = WebServiceUtils.getUrlFromCustomSettings('customSettingEndpoint');
         System.assertEquals(endPoint,'https://validation/ok');
 

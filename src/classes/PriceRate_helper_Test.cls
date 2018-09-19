@@ -18,8 +18,8 @@ global class PriceRate_helper_Test {
     @isTest
     global static void test_method_one(){
         setData();
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'SimulateRate', iaso__Url__c = 'https://SimulateRate/ok', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'SimulateRate', iaso__Url__c = 'https://SimulateRate/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         PriceRate_helper pricehHelper = new PriceRate_helper(opptest.Id, true);

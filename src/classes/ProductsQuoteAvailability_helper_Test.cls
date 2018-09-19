@@ -2,8 +2,8 @@
 public class ProductsQuoteAvailability_helper_Test {
     @isTest
     public static void test_method_one(){
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ok', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Account acc = TestFactory.createAccount();
         acc.main_code_id__c = '123567';
         update acc;

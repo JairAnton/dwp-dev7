@@ -26,7 +26,6 @@ public class CreateQuotationRequest_helper {
     
     //method to convert the input data mapping to a JSON structure
     public String generateJSONRequest(){
-        System.debug(JSON.serialize(this.inputDataMapping));
         return JSON.serialize(this.inputDataMapping);
     }
     
