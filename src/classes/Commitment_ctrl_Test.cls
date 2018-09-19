@@ -62,7 +62,7 @@ public class Commitment_ctrl_Test {
 
         Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
         System.assertEquals('true', mapResultReturn.get('success'));
-        System.assertEquals(Label.PriceCreateQuotationRequestSentForApprovalMessage, mapResultReturn.get('quotationStatusMessage'));
+        System.assertEquals(Label.PriceCreateQuotationRequestApprovedMessage, mapResultReturn.get('quotationStatusMessage'));
 
         Test.stopTest();
                 

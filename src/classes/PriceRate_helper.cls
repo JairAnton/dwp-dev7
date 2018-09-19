@@ -5,6 +5,7 @@ public class PriceRate_helper {
     //method use to get input information
     public PriceRate_helper(String oppRecordId, Boolean isSimulate){
         this.isSimulate = isSimulate;
+        String branchcode = '';
         List<Opportunity> lstOpp = [SELECT 	Account.main_code_id__c, 
                                     Account.AccountNumber, 
                                     Branch_id__r.branch_id__c, 
@@ -24,8 +25,10 @@ public class PriceRate_helper {
         if(!lstOpp.isEmpty()){
             //Map with values
             Map<String,Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String>{'TERM_PERIOCITY','GUARANTEE_CLASSIFICATION', 'CONTRACT_MODALITY'}, lstOpp[0].OpportunityLineItems[0].pricing_model_id__c);
-            
-            //map the input values with the input attributes of the webservice 
+            //map the input values with the input attributes of the webservice
+            if(lstOpp[0].Branch_id__r.branch_id__c!=null){
+                branchcode =+ String.valueOf(lstOpp[0].Branch_id__r.branch_id__c).right(4);
+            }
             RequestPriceRate_Wrapper requestWrapper = new RequestPriceRate_Wrapper(
                 lstOpp[0].Account.main_code_id__c, 
                 lstOpp[0].Account.AccountNumber, 
@@ -33,7 +36,7 @@ public class PriceRate_helper {
                 (mapWsVal.get('TERM_PERIOCITY' + String.valueOf(lstOpp[0].OpportunityLineItems[0].gipr_Periodicidad__c)) != null ? mapWsVal.get('TERM_PERIOCITY' + String.valueOf(lstOpp[0].OpportunityLineItems[0].gipr_Periodicidad__c)).web_service_value__c : null),
                 String.valueOf(lstOpp[0].OpportunityLineItems[0].gipr_Plazo__c),
                 (mapWsVal.get('GUARANTEE_CLASSIFICATION' + String.valueOf(lstOpp[0].OpportunityLineItems[0].gipr_Tipo_Garantia__c))!=null? mapWsVal.get('GUARANTEE_CLASSIFICATION' + String.valueOf(lstOpp[0].OpportunityLineItems[0].gipr_Tipo_Garantia__c)).web_service_value__c : null), 
-                lstOpp[0].Branch_id__r.branch_id__c,
+                branchcode,
                 (mapWsVal.get('CONTRACT_MODALITY' + String.valueOf(lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c))!=null? mapWsVal.get('CONTRACT_MODALITY' + String.valueOf(lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c)).web_service_value__c : null), 
                 lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode,
                 String.valueOf(lstOpp[0].OpportunityLineItems[0].Product2.price_approval_web_service_id__c),
