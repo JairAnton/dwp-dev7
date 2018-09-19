@@ -72,7 +72,7 @@ public class Commitment_ctrl_Test {
             List<User> userToExecuteWith = [SELECT Id, user_id__c FROM User WHERE user_id__c = 'P012677'];
             
             if(!userToExecuteWith.isEmpty()){
-                System.runAs(userToExecuteWith[0]) {
+                //System.runAs(userToExecuteWith[0]) {
         			setData();
         
                     insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
@@ -87,7 +87,7 @@ public class Commitment_ctrl_Test {
                     System.assertEquals(Label.PriceCreateQuotationRequestSentForApprovalMessage, mapResultReturn.get('quotationStatusMessage'));
  
                     Test.stopTest();
-                }
+                //}
         	}
         }
     }
