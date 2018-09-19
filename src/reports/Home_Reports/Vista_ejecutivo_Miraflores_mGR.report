@@ -85,7 +85,7 @@
             <column>Account.branch_id__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>BE MIRAFLORES</value>
+            <value>Branch name</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
