@@ -1,3 +1,4 @@
 <aura:event type="COMPONENT">
     <aura:attribute name="typeMode" type="String"/>
+    <aura:attribute name="data" type="Object"/>
 </aura:event>

@@ -31,8 +31,36 @@
         $A.enqueueAction(action);
 	},
 	continue : function(cmp, evt, helper){
-		var compEvent = cmp.getEvent("commitmentsEvent");
-		compEvent.setParams({	"typeMode" : 'DOCONTINUE'});
-		compEvent.fire();
+    	cmp.set('v.isLoad',false);
+    	if(cmp.get('v.quoteMethod') === 'Web'){
+            var action = cmp.get("c.requestQuote");
+            action.setParams({
+                "recordId" : cmp.get('v.oppRecordId')
+            });
+            action.setCallback(this, function(response) {
+                var state = response.getState();
+                if (state === "SUCCESS") {
+                    var ret = response.getReturnValue();
+                    var compEvent = cmp.getEvent("commitmentsEvent");
+                    
+                    if (ret.success === 'true') {
+                        var otherData = {"quotationStatusMessage" : ret.quotationStatusMessage,
+                                         "auditId" : ret.auditId,
+                                         "quotationStatusIcon": ret.quotationStatusIcon};
+                        compEvent.setParams({"typeMode" : 'DOCONTINUE', "data" : otherData});  
+                    }
+                    else {
+                        var otherData = {"errorCode" : ret.errorMessage};
+                        compEvent.setParams({"typeMode" : 'DOERROR', "data" : otherData});
+                    }
+                    compEvent.fire();   
+                }
+            }); 
+            $A.enqueueAction(action);
+		} else{
+            var compEvent = cmp.getEvent("commitmentsEvent");
+            compEvent.setParams({"typeMode" : 'DOCONTINUE'});
+            compEvent.fire();
+        }
     }
 })

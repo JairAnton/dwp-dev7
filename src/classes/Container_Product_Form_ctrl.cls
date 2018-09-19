@@ -46,6 +46,8 @@ global with sharing class Container_Product_Form_ctrl implements dwp_dbpn.Dynami
         
         Boolean showWarning = (!lstOppLineItem.isEmpty()?!lstOppLineItem[0].price_quote_available__c:false);
 
+        
+
         if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].price_quote_availability_check__c==false && lstOppLineItem[0].Product2.Type_of_quote__c == 'Web' && (lstUser[0].Profile.Name == 'Ejecutivo' || lstUser[0].Profile.Name == 'System Administrator') ){
             Boolean flagLoopUser = true;
             //Boolean hasBranch = false;

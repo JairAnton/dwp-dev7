@@ -21,5 +21,7 @@ public class SanctionPriceDecision_ctrl_Test {
         System.assertEquals(true, (Boolean)mapReturnSave.get('isOk'));
         Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id,'09','04',true,'asd','nameAudit','comments',lstOLI[0].Id, new List<String>(), new List<Object>(),'01', '<div>Hola</div>');
         System.assertEquals(true, (Boolean)mapReturnSave2.get('isOk'));
+        List<dwp_cvad__Action_Audit__c> lstAudit = [SELECT Id FROM dwp_cvad__Action_Audit__c];
+        SanctionPriceDecision_ctrl.saveAuditWeb(lstAudit[0].Id, '<div>Hola</div>');
     }
 }

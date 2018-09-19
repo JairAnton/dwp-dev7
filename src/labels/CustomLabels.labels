@@ -1642,10 +1642,52 @@
         <value>COMMERCIAL_SPREAD</value>
     </labels>
     <labels>
+        <fullName>PriceCreateQuotationRequestApprovedMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Approved Message</shortDescription>
+        <value>Price quotation approved.</value>
+    </labels>
+    <labels>
+        <fullName>PriceCreateQuotationRequestDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Default Comment</shortDescription>
+        <value>Create quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceCreateQuotationRequestKnowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Know Error</shortDescription>
+        <value>Quotation request has not been created due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceCreateQuotationRequestSentForApprovalMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Sent For Approval Message</shortDescription>
+        <value>The price quotation has been sent for approval</value>
+    </labels>
+    <labels>
         <fullName>PriceCreateQuotationRequestUnknowError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Price Create Quotation Request Unknow Error</shortDescription>
         <value>Quotation request has not been created due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceQuotationAvailabilityErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceQuotationAvailabilityErrorMessage</shortDescription>
+        <value>Product&apos;s quotation not available for this client. Please, contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>WebPriceQuotationRequestStatus01</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Web Price Quotation Request Status 01</shortDescription>
+        <value>TARIFY</value>
     </labels>
 </CustomLabels>

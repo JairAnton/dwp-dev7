@@ -19,17 +19,18 @@
                     'dinamicInput':'-'
                 };
                 var generr = ret.genericError;
-                if(ret.approvalMethod == 'Tarifario' && ret.dynamicValue!=undefined){                    
+                cmp.set('v.hasHeader',true);
+                if(ret.approvalMethod == 'Tarifario' && ret.dynamicValue!=undefined){            
                     objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
                     cmp.set('v.hasHeader',true);
-                }else{
+                }else if (ret.approvalMethod == 'Web'){
                     if(generr != undefined){
                         cmp.set('v.isError', true);
                         cmp.set('v.errorlst',generr);
                         cmp.set('v.hasHeader',false);
                     }else{
                         cmp.set('v.hasHeader',true);
-                    	cmp.set('v.isError', false);
+                    	cmp.set('v.isError', false);                        
                         objectInput['dinamicInput'] = ret.sugtea + ',' + ret.minimtea + ','+ret.proposed+',' + ret.spread;
                     }                    
                 }

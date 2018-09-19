@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Web - View - Price Quote Date</label>
+    <label>Web - Proposal - Spread</label>
     <protected>false</protected>
     <values>
         <field>default_value__c</field>
@@ -8,11 +8,11 @@
     </values>
     <values>
         <field>field_api_name__c</field>
-        <value xsi:type="xsd:string">price_quote_date__c</value>
+        <value xsi:type="xsd:string">spread_per__c</value>
     </values>
     <values>
         <field>field_form__c</field>
-        <value xsi:type="xsd:string">Web_View</value>
+        <value xsi:type="xsd:string">Web_Proposal</value>
     </values>
     <values>
         <field>is_readonly__c</field>
@@ -24,6 +24,6 @@
     </values>
     <values>
         <field>order__c</field>
-        <value xsi:type="xsd:double">6.0</value>
+        <value xsi:type="xsd:double">4.0</value>
     </values>
 </CustomMetadata>

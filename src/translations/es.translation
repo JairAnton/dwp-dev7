@@ -1112,6 +1112,30 @@
         <label>No se ha podido crear la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
         <name>PriceCreateQuotationRequestUnknowError</name>
     </customLabels>
+    <customLabels>
+        <label>La cotización ha sido aprobada en delegación.</label>
+        <name>PriceCreateQuotationRequestApprovedMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de creación de cotización desde DWP</label>
+        <name>PriceCreateQuotationRequestDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido crear la cotización debido al siguiente error:</label>
+        <name>PriceCreateQuotationRequestKnowError</name>
+    </customLabels>
+    <customLabels>
+        <label>La cotización ha sido elevada para su evaluación.</label>
+        <name>PriceCreateQuotationRequestSentForApprovalMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>La cotización de este producto no esta disponible para este cliente. Por favor, contacte con su administrador.</label>
+        <name>PriceQuotationAvailabilityErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>TARIFY</label>
+        <name>WebPriceQuotationRequestStatus01</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

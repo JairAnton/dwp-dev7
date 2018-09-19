@@ -1,7 +1,8 @@
 ({
     closeMe : function(component, event) {
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
-        cancelEvent.fire();
+        $A.get('e.force:refreshView').fire();
+        cancelEvent.fire();        
     },
     getInfo : function(cmp, evt){
         var inputObject = cmp.get('v.inputAttributes');
@@ -29,7 +30,7 @@
                 }
             }
             cmp.set('v.recordOli',ret.oli);
-            cmp.set('v.isLoad',true);
+            cmp.set('v.isLoad',true);            
         });
         $A.enqueueAction(action);
     }

@@ -12,6 +12,15 @@
 		cmp.set('v.enableContinue',true);
 	},
 	doContinue : function(cmp, evt, helper){
-		helper.doContinue(cmp, evt, helper);
+		
+        var inputAtt = cmp.get('v.inputAttributes');
+        console.log(inputAtt.approvalMethod);
+        switch(inputAtt.approvalMethod) {
+			case 'Web':
+                helper.doContinueWeb(cmp, evt, helper);
+				break;
+			default:
+				helper.doContinue(cmp, evt, helper);
+		}
 	}
 })

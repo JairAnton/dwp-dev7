@@ -1,10 +1,11 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL" controller="SanctionPriceDecision_ctrl">
-	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:attribute name="modalSizeSLDS" type="String" default="slds-modal--large" access="global" description="Specify Lightning Design System themes to be added to the modal´s size style."/>
     <aura:attribute name="objSetup" type="Object" />
     <aura:attribute name="enableContinue" type="Boolean" default="false"/>
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
     <aura:attribute name="strComments" type="String" default=""/>
+    <aura:attribute name="closeButton" type="Boolean" default="false" access="global" description="Allow show close icon button"/>
     
     <div id="storeHTML" class="slds-hide">
         <h3 class="slds-section__title">{!$Label.c.Comments}</h3>
@@ -20,9 +21,9 @@
     </div>
     
     <div class="slds-modal__content slds-p-around_medium" >
-
+        
         <lightning:layout multipleRows="true">
-               
+            
             <lightning:layoutItem padding="around-small" size="8">
                 <lightning:tabset variant="scoped">
                     <lightning:tab label="{!$Label.c.Details}" >
@@ -70,6 +71,15 @@
                                 </div>
                             </aura:iteration>
                         </div>
+                        <aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
+                            <div class="slds-notify slds-notify_alert slds-theme_default" role="alert">
+                                <span class="slds-assistive-text">warning</span>
+                                <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Description of icon when needed">
+                                    <lightning:icon class="slds-m-left_x-small salem" iconName="{!v.inputAttributes.quotationStatusIcon}" size="x-small" />
+                                </span>
+                                <h2>{!v.inputAttributes.quotationStatusMessage}</h2>
+                            </div>
+                        </aura:if>
                     </lightning:layoutItem>
                 </lightning:layout>
             </lightning:layoutItem>           

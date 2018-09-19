@@ -79,4 +79,201 @@ public with sharing class Commitment_ctrl {
         mapReturn.put('isOK', true);
         return mapReturn; 
     }
+
+    @AuraEnabled
+    public static Map<String,Object> requestQuote(String recordId){
+        Map<String,Object> mapReturn = new Map<String,Object>();
+      
+		// Retrieve the opportunity product conditions, price calculation rates information and price quotation request information
+		List<OpportunityLineItem> oliList = [SELECT price_quote_id__c, price_quote_owner_id__c, price_quote_owner_id__r.user_id__c, proposed_apr_per__c, price_rates_calculation_Id__c, gipr_Garantia__c
+											FROM OpportunityLineItem WHERE OpportunityId = :recordId];
+											
+		if(!oliList.isEmpty()){
+			// Check if there is already a price quotation request for the oportunity
+			if(oliList[0].price_quote_id__c != '' && oliList[0].price_quote_id__c != null){
+				// Check if the context user is the same user that owns the price quotation request
+				if(oliList[0].price_quote_owner_id__r.user_id__c == UserInfo.getUserId()){
+					// Invoke web service to request quotation approval
+					mapReturn.put('success','false');
+                    mapReturn.put('errorMessage','Call to Cotiza Web in progress');
+				}
+				else{
+					// Invoke web service to recover quotation
+					
+					
+					// Invoke web service to request quotation approval
+					
+                    mapReturn.put('success','false');
+                    mapReturn.put('errorMessage','Call to Cotiza Web in progress');
+				}
+			}
+			else{
+				mapReturn = invokeCreateQuotationRequest(recordId);
+				// Invoke web service to create quotation
+			}
+		}
+		
+        return mapReturn; 
+    }
+    
+    // Method that invoke the ws to create a quotation and, if successful response, updates the opportunity and opportunity line item with the response
+    public static Map<String,Object> invokeCreateQuotationRequest(String recordId){
+	
+		Map<String,Object> mapReturn = new Map<String,Object>();
+		
+		// Invoke WS
+		try{
+			CreateQuotationRequest_helper createRequestHelper = new CreateQuotationRequest_helper(recordId);
+			HttpResponse createRequestResponse = createRequestHelper.invoke();
+			
+			//Check the ws response status
+			Integer wsResponseStatusCode = createRequestResponse.getStatusCode();
+			if(wsResponseStatusCode == 200){
+			
+				// Set the status to return
+				mapReturn.put('success','true');
+			
+				// Get the response body
+				CreateQuotationRequest_helper.ResponseCreateQuotationRequest_Wrapper responseBody = CreateQuotationRequest_helper.parse(createRequestResponse.getBody());
+				
+				// Update the opportunity status
+				List<Opportunity> oppList = [SELECT StageName, opportunity_status_type__c, isProcess__c, AccountId FROM Opportunity WHERE Id =: recordId];
+				
+				if(!oppList.isEmpty()){
+                    
+                    String oppStatusLabel;
+                    String oppStatusIcon;
+                    
+					Opportunity oppToUpdate = oppList[0];
+					oppToUpdate.StageName = '04';
+					oppToUpdate.isProcess__c = true;
+					
+					// Retrieve the quotation status from the ws response
+					CreateQuotationRequest_helper.Response_Data data = responseBody.data;
+					List<CreateQuotationRequest_helper.Response_Quotations> quotationsList = data.quotations;
+					
+					if(!quotationsList.isEmpty()){
+					
+						CreateQuotationRequest_helper.Response_Status quotationStatus = quotationsList[0].status;
+						List<CreateQuotationRequest_helper.Response_BusinessAgents> quotationAgents = quotationsList[0].businessAgents;
+						
+						if(quotationStatus.id == Label.WebPriceQuotationRequestStatus01){
+							// Update status to Price approved
+							oppToUpdate.opportunity_status_type__c = '08';
+                            oppStatusLabel = Label.OppStatusLabel08;
+                            oppStatusIcon = Label.AuditStyleApproveTop;
+							mapReturn.put('quotationStatusMessage',Label.PriceCreateQuotationRequestApprovedMessage);
+                            mapReturn.put('quotationStatusIcon','utility:check');
+						}
+						else{
+							// Update status to Sent for price approval
+							oppToUpdate.opportunity_status_type__c = '09';
+                            oppStatusLabel = Label.OppStatusLabel09;
+                            oppStatusIcon = Label.AuditStyleElevate;
+							mapReturn.put('quotationStatusMessage',Label.PriceCreateQuotationRequestSentForApprovalMessage);
+                            mapReturn.put('quotationStatusIcon','utility:share');
+						}
+						
+						update oppToUpdate;
+						
+						// Save the quotation details on the opportunity product
+						List<OpportunityLineItem> oppProductList = [SELECT price_quote_id__c, price_operation_id__c, price_quote_status_id__c, price_quote_owner_id__c, price_quote_date__c FROM OpportunityLineItem WHERE OpportunityId = : recordId];
+
+						if(!oppProductList.isEmpty()){
+							
+							OpportunityLineItem oppProductToUpdate = oppProductList[0];
+							
+							oppProductToUpdate.price_quote_id__c = data.id;
+							oppProductToUpdate.price_operation_id__c = quotationsList[0].id;
+							oppProductToUpdate.price_quote_status_id__c = quotationStatus.id;
+                            oppProductToUpdate.price_quote_date__c = System.today();
+                            
+                            String caseOwner;
+							
+							// Check if the quotation owner exists as a user in DWP
+							if(!quotationAgents.isEmpty()){
+							
+								List<User> quotationUserList = [SELECT Id FROM User WHERE user_id__c =: quotationAgents[0].id];
+   
+								if(!quotationUserList.isEmpty()){
+									oppProductToUpdate.price_quote_owner_id__c = quotationUserList[0].id;
+                                    caseOwner =  quotationUserList[0].id;                                  
+								}
+                                else{
+                                    List<Group> queueGroup = [SELECT Id, 
+                                                                DeveloperName,
+                                                                Type 
+                                                                FROM Group 
+                                                                WHERE Type = 'Queue' 
+                                                                AND DeveloperName = 'Tier_1'];
+                                    
+                                    if(!queueGroup.isEmpty()){
+                                        caseOwner = queueGroup[0].id; 
+                                    }
+                                       
+                                }		
+							}
+							// Check if the status of quotation is REQUESTED to create a case assigned to the specific quotation owner
+                            if(quotationStatus.id == Label.WebPriceQuotationRequestStatus02){
+                                        
+								Case caseToInsert = new Case();
+                                caseToInsert.Status = '01';
+                                caseToInsert.Type = '01';
+                                caseToInsert.AccountId = oppToUpdate.AccountId;
+                                caseToInsert.opportunity_id__c = recordId;
+                                if(caseOwner != null && caseOwner != ''){
+                                	caseToInsert.OwnerId = caseOwner;
+                                }
+                                insert caseToInsert;
+      						}
+                            
+                            update oppProductToUpdate;
+                            
+							// Create audit record
+							dwp_cvad__Action_Audit__c auditToInsert = Action_Audit_Helper.getAudit(oppStatusLabel, 'Opportunity', recordId, System.now(), Label.AuditPriceApproval, UserInfo.getUserId(), oppStatusIcon, '', false);
+        
+                            insert auditToInsert;
+                            mapReturn.put('auditId',auditToInsert.Id);
+						}
+					}
+					
+				}
+				
+				
+			}
+			else if(wsResponseStatusCode == 409){
+				
+				// Set the status to return
+				mapReturn.put('success','false');
+			
+				// Get the ws error message
+				WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(createRequestResponse.getBody());
+				
+				// Set the error message
+				String errorMessage = Label.PriceCreateQuotationRequestKnowError + ' ' + errorDetails.errormessage;
+				mapReturn.put('errorMessage',errorMessage);
+			}
+			else{
+				// Set the status to return
+				mapReturn.put('success','false');
+				
+				// Set the error message
+				String errorMessage = Label.PriceCreateQuotationRequestUnknowError;
+				mapReturn.put('errorMessage',errorMessage);
+			}
+			
+			
+		}
+		catch(Exception e){
+            System.debug('EXCEPTION ERROR' + e.getMessage());
+			// Set the status to return
+			mapReturn.put('success','false');
+			
+			// Set the error message
+			String errorMessage = Label.PriceCreateQuotationRequestUnknowError;
+			mapReturn.put('errorMessage',errorMessage);
+		}
+		
+		return mapReturn;
+	}
 }

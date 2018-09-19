@@ -135,4 +135,35 @@ public with sharing class SanctionPrice_ctrl {
         mapReturn.put('sugtea',sugtea);
         mapReturn.put('spread',spread);
     }
+    
+    @AuraEnabled
+    public static Map<String,Object> getInfoWithoutDefaultValues(String recordId){
+        
+        List<Opportunity> lstOpp = [SELECT  Id,
+                                    AccountId,
+                                    Account.segment_desc__c,
+                                    (SELECT     Id, 
+                                     product_price_approval_method__c, 
+                                     product_price_approval_indicator__c
+                                     FROM OpportunityLineItems) 
+                                    FROM Opportunity 
+                                    WHERE Id = :recordId];
+        try{
+            //If opportunity has opportunityLineItems
+            if(lstOpp[0].OpportunityLineItems.size()>0){
+                mapReturn.put('IdOppLineItem',lstOpp[0].OpportunityLineItems[0].Id);
+                mapReturn.put('approvalMethod',lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c);
+                mapReturn.put('hasOLI',true);
+                mapReturn.put('priceIndicator',lstOpp[0].OpportunityLineItems[0].product_price_approval_indicator__c);
+                //If opportunity hasn't opportunityLineItems
+            }else{
+                mapReturn.put('hasOLI',false);
+            }     
+            
+        }catch(Exception e){
+            genericError = e.getMessage();
+        }
+        mapReturn.put('genericError',genericError);
+        return mapReturn; 
+    }
 }
