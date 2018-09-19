@@ -27,14 +27,6 @@
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
-	 <criteriaItems>
-            <column>Account.branch_id__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>BE MIRAFLORES</value>
-        </criteriaItems>
-        <language>en_US</language>
-    </filter>
     <columns>
         <field>OPPORTUNITY_NAME</field>
     </columns>
@@ -66,12 +58,6 @@
     <currency>PEN</currency>
     <filter>
         <criteriaItems>
-            <column>ROLLUP_DESCRIPTION</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>contains</operator>
-            <value>ASISTENTE,EJECUTIVO</value>
-        </criteriaItems>
-        <criteriaItems>
             <column>HASOPPLINEITEM</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
@@ -90,10 +76,16 @@
             <value>PC00030,PC00032</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Opportunity.USER_EJECUTIVO__c</column>
+            <column>ROLLUP_DESCRIPTION</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>ASISTENTE,EJECUTIVO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.branch_id__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>1</value>
+            <value>BE MIRAFLORES</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
@@ -125,6 +117,8 @@
     <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
