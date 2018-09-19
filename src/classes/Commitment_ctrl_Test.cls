@@ -49,7 +49,7 @@ public class Commitment_ctrl_Test {
     @isTest
     static void test_createQuoteRequest_Success(){
         
-        List<Profile> profileList = new List<Profile>([SELECT Id, Name FROM Profile where Name = 'System Administrator']);
+        List<Profile> profileList = new List<Profile>([SELECT Id, Name FROM Profile where Name = 'Migracion']);
         
         if(!profileList.isEmpty()){
             User quoteOwner = new User();
