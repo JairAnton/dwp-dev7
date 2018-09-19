@@ -50,46 +50,22 @@ public class Commitment_ctrl_Test {
     @isTest
     static void test_createQuoteRequest_Success(){
         
-        List<Profile> profileList = new List<Profile>([SELECT Id, Name FROM Profile where Name = 'Migracion']);
         
-        if(!profileList.isEmpty()){
-            User quoteOwner = new User();
-            Double random = Math.random();
-            quoteOwner.Username = 'analista1' +'u2@u.com.u'+random;
-            quoteOwner.LastName = 'analista1' +'uLast2';
-            quoteOwner.Email = 'analista1' +'u2@u.com';
-            quoteOwner.Alias= String.valueOf(random).substring(0, 3)+'uAas2';
-            quoteOwner.TimeZoneSidKey='America/Mexico_City';
-            quoteOwner.IsActive=true;
-            quoteOwner.LocaleSidKey='en_US';
-            quoteOwner.EmailEncodingKey='ISO-8859-1';
-            quoteOwner.ProfileId=  profileList[0].Id;
-            quoteOwner.LanguageLocaleKey='es';
-            quoteOwner.user_id__c = 'P012677';
-            
-            insert quoteOwner;
-            
-            List<User> userToExecuteWith = [SELECT Id, user_id__c FROM User WHERE user_id__c = 'P012677'];
-            
-            if(!userToExecuteWith.isEmpty()){
-                //System.runAs(userToExecuteWith[0]) {
-        			setData();
-        
-                    insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
-                    insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequestElevated/OK', iaso__Cache_Partition__c = 'ServicesPartition');
-                    Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
-                    iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-                    
-                    Test.startTest();
+        setData();
 
-                    Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-                    System.assertEquals('true', mapResultReturn.get('success'));
-                    System.assertEquals(Label.PriceCreateQuotationRequestSentForApprovalMessage, mapResultReturn.get('quotationStatusMessage'));
- 
-                    Test.stopTest();
-                //}
-        	}
-        }
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'ServicesPartition');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequestApproved/OK', iaso__Cache_Partition__c = 'ServicesPartition');
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Test.startTest();
+
+        Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
+        System.assertEquals('true', mapResultReturn.get('success'));
+        System.assertEquals(Label.PriceCreateQuotationRequestSentForApprovalMessage, mapResultReturn.get('quotationStatusMessage'));
+
+        Test.stopTest();
+                
     }
     
     @isTest

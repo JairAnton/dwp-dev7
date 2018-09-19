@@ -39,6 +39,12 @@ global class Integration_MockGenerator implements HttpCalloutMock{
                 res.setBody('{"data":{"id":"1468400","quotations":[{"businessAgents":[{"classification":{"involvements":[{"involvementType":{"description":"Usuario asignado a la cotización","id":"ASSIGNED"}}]},"firstName":"IRMA BEATRIZ","id":"P012677","lastName":"COLLANTES","secondLastName":"BOHORQUEZ","workTeam":{"id":"ANA_PRE_BEC","name":"Analista de Precios BEC"}}],"disbursement":{"status":{"description":"PENDIENTE","id":"PENDING"}},"id":"1464550","status":{"id":"REQUESTED","name":"SOLICITADA"},"version":"1"}],"status":{"id":"OPEN","name":"ABIERTO"}}}');
                 res.setStatusCode(200);
             }
+            when 'https://CreateRequestApproved/OK'{
+                System.assertEquals('https://CreateRequestApproved/OK', req.getEndpoint()); 
+                System.assertEquals('POST', req.getMethod());
+                res.setBody('{"data":{"id":"1471556","status":{"id":"OPEN","name":"ABIERTO"},"quotations":[{"status":{"id":"TARIFY","name":"TARIFARIO"},"id":"1468706","version":"1","businessAgents":[{"id":"P024971","firstName":"JUAN ESTUARDO","lastName":"CEDRON","secondLastName":"DELGADO","workTeam":{"id":"EJE_BEC","name":"Ejecutivo BEC"},"classification":{"involvements":[{"involvementType":{"id":"ASSIGNED","description":"Usuario asignado a la cotización"}}]}}],"disbursement":{"status":{"id":"PENDING","description":"PENDIENTE"}}}]}}');
+                res.setStatusCode(200);
+            }
             when 'https://CreateRequest/KO_500'{
                 System.assertEquals('https://CreateRequest/KO_500', req.getEndpoint()); 
                 System.assertEquals('POST', req.getMethod());
