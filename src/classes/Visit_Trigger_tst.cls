@@ -1,4 +1,3 @@
-
 /*
 @Author: Arsenio Perez Lopez
 @Proyect: BBVA PERU
@@ -11,6 +10,8 @@
 public class Visit_Trigger_tst{
     
     static user usuario;
+    static Account Accoun;
+    static Contact contact;
     static dwp_kitv__Visit__c visit;
     static dwp_kitv__Visit_Contact__c contactVisit;
     static dwp_kitv__Visit_Management_Team__c VisitMana;
@@ -21,7 +22,9 @@ public class Visit_Trigger_tst{
     static void setData() {
         usuario = TestFactory.createUser('Ejecutivo1', 'System Administrator');
         visit= TestFactory.createVisitKit();
-        contactVisit= TestFactory.VisitConta(visit.Id);
+        Accoun= TestFactory.createAccount();
+        contact = TestFactory.createContact(Accoun.Id);
+        contactVisit= TestFactory.VisitConta(visit.Id,contact.Id);
         VisitMana = TestFactory.CreateVisitManagement(visit.Id,usuario.Id);
     }
     /**

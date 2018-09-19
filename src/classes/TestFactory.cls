@@ -131,9 +131,9 @@ public class TestFactory {
     /**
     *Method Created: dwp_kitv__Visit_Contact__c
     **/
-    public static dwp_kitv__Visit_Contact__c VisitConta(Id visit)
+    public static dwp_kitv__Visit_Contact__c VisitConta(Id visit, Id contact)
     {
-        dwp_kitv__Visit_Contact__c visitConta = new dwp_kitv__Visit_Contact__c(dwp_kitv__visit_id__c=visit);
+        dwp_kitv__Visit_Contact__c visitConta = new dwp_kitv__Visit_Contact__c(dwp_kitv__visit_id__c=visit,dwp_kitv__contact_id__c=contact);
         insert visitConta;
         return visitConta;
     }
