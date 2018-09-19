@@ -58,12 +58,6 @@
     <currency>PEN</currency>
     <filter>
         <criteriaItems>
-            <column>ROLLUP_DESCRIPTION</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>contains</operator>
-            <value>ASISTENTE,EJECUTIVO</value>
-        </criteriaItems>
-        <criteriaItems>
             <column>HASOPPLINEITEM</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
@@ -82,10 +76,16 @@
             <value>PC00030,PC00032</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Opportunity.USER_EJECUTIVO__c</column>
+            <column>ROLLUP_DESCRIPTION</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>ASISTENTE,EJECUTIVO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.branch_id__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>1</value>
+            <value>Branch name</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
