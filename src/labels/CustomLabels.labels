@@ -1690,4 +1690,11 @@
         <shortDescription>Web Price Quotation Request Status 01</shortDescription>
         <value>TARIFY</value>
     </labels>
+	<labels>
+        <fullName>WebPriceQuotationRequestStatus02</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Web Price Quotation Request Status 02</shortDescription>
+        <value>REQUESTED</value>
+    </labels>
 </CustomLabels>

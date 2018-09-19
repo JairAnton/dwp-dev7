@@ -1136,6 +1136,10 @@
         <label>TARIFY</label>
         <name>WebPriceQuotationRequestStatus01</name>
     </customLabels>
+	<customLabels>
+        <label>REQUESTED</label>
+        <name>WebPriceQuotationRequestStatus02</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
