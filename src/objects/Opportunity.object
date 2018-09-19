@@ -1348,7 +1348,7 @@
         <fullName>Opportunity_Validation_02_OnlyCommercial</fullName>
         <active>true</active>
         <description>Validate the creation in this Stage only for a Commercial Profile</description>
-        <errorConditionFormula>(($Profile.Name!=&apos;Administrador del sistema&apos;&amp;&amp;$Profile.Name!=&apos;Migracion&apos;) &amp;&amp; IsNew())&amp;&amp; (!isPickVal(StageName,&apos;02&apos;) ||($Profile.Name!=&apos;Ejecutivo&apos;&amp;&amp;$Profile.Name!=&apos;Especialista&apos;))</errorConditionFormula>
+        <errorConditionFormula>(($Profile.Name!=&apos;Administrador del sistema&apos; &amp;&amp;$Profile.Name!=&apos;Migracion&apos;)&amp;&amp; IsNew())&amp;&amp; (!isPickVal(StageName,&apos;02&apos;) ||($Profile.Name!=&apos;Ejecutivo&apos;&amp;&amp;$Profile.Name!=&apos;Especialista&apos;))</errorConditionFormula>
         <errorDisplayField>StageName</errorDisplayField>
         <errorMessage>Only Commercial profile can create Opportunities for this stage</errorMessage>
     </validationRules>
