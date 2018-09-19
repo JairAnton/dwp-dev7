@@ -11,7 +11,8 @@ public class Commitment_ctrl_Test {
     static void setData() {
             
             acctest = TestFactory.createAccount();
-            opptest = TestFactory.createOpportunity(acctest.Id, UserInfo.getUserId());
+            opptest = new Opportunity(ownerId=UserInfo.getUserId(),Name='testopp', AccountId=acctest.Id,StageName='02',Amount=100 ,CloseDate=system.Date.today(),opportunity_status_type__c='02');
+    		insert opptest;
             prodtest = TestFactory.createProduct();
             olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
     }
