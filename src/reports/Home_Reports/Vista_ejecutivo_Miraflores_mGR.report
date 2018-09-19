@@ -27,6 +27,14 @@
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
+	 <criteriaItems>
+            <column>Account.branch_id__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>BE MIRAFLORES</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <columns>
         <field>OPPORTUNITY_NAME</field>
     </columns>
