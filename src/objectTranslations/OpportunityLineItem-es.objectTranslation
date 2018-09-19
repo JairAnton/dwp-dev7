@@ -1396,6 +1396,14 @@
         <label>Propietario cotización</label>
         <name>price_quote_owner_id__c</name>
     </fields>
+    <fields>
+        <label>Error disponibilidad cotización</label>
+        <name>price_availability_check_error__c</name>
+    </fields>
+    <fields>
+        <label>Estado cotización</label>
+        <name>price_quote_status_id__c</name>
+    </fields>
     <validationRules>
         <errorMessage>Nº de contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>ContractNo_Validation</name>
