@@ -67,7 +67,7 @@
         <field>STAGE_NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Oportunidad vista ASISTENTE  Miraflores</name>
+    <name>Oportunidad vista ASISTENTE</name>
     <params>
         <name>open</name>
         <value>all</value>
