@@ -67,7 +67,7 @@
         <field>Account.Opportunities$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>New Hierarchy report Report</name>
+    <name>Mis oportunidades del mes en curso2</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -75,6 +75,8 @@
     <reportType>Hierarchy_report__c</reportType>
     <scope>team</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>Account$account_banking_syst_debt_sum_last_date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
