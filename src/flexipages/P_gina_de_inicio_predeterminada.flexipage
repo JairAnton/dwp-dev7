@@ -21,8 +21,8 @@
             <visibilityRule>
                 <criteria>
                     <leftValue>{!$User.UserRole.Name}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>ASISTENTE BANCA EMPRESAS MIRAFLORES</rightValue>
+                    <operator>CONTAINS</operator>
+                    <rightValue>ASISTENTE</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -33,7 +33,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportName</name>
-                <value>Oportunidades_vista_especialista</value>
+                <value>Opportunities_current_month_7B7</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
@@ -42,9 +42,9 @@
             <componentName>flexipage:reportChart</componentName>
             <visibilityRule>
                 <criteria>
-                    <leftValue>{!$User.UserRole.Name}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>ESPEC PRECIOS RED</rightValue>
+                    <leftValue>{!$User.Profile.Name}</leftValue>
+                    <operator>CONTAINS</operator>
+                    <rightValue>ESPECIALISTA</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -63,8 +63,14 @@
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
             <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
                     <leftValue>{!$User.UserRole.Name}</leftValue>
+                    <operator>CONTAINS</operator>
+                    <rightValue>EJECUTIVO</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.Profile.Name}</leftValue>
                     <operator>CONTAINS</operator>
                     <rightValue>EJECUTIVO</rightValue>
                 </criteria>
@@ -85,7 +91,7 @@
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
             <visibilityRule>
-                <booleanFilter>1 AND 2</booleanFilter>
+                <booleanFilter>1 OR 2</booleanFilter>
                 <criteria>
                     <leftValue>{!$User.UserRole.Name}</leftValue>
                     <operator>CONTAINS</operator>
