@@ -10,17 +10,93 @@
                 <value>1440</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>label</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
                 <name>reportName</name>
-                <value>Opportunities_current_month_7B7</value>
+                <value>Oportunidades_vista_Asistente1</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
                 <value>true</value>
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$User.UserRole.Name}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>ASISTENTE BANCA EMPRESAS MIRAFLORES</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>cacheAge</name>
+                <value>1440</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportName</name>
+                <value>Oportunidades_vista_especialista</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showRefreshButton</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:reportChart</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$User.UserRole.Name}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>ESPEC PRECIOS RED</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>cacheAge</name>
+                <value>1440</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportName</name>
+                <value>Mis_oportunidades_del_mes_en_curso1</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showRefreshButton</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:reportChart</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$User.UserRole.Name}</leftValue>
+                    <operator>CONTAINS</operator>
+                    <rightValue>EJECUTIVO</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>cacheAge</name>
+                <value>1440</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportName</name>
+                <value>Mis_oportunidades_del_mes_en_curso2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showRefreshButton</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:reportChart</componentName>
+            <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
+                <criteria>
+                    <leftValue>{!$User.UserRole.Name}</leftValue>
+                    <operator>CONTAINS</operator>
+                    <rightValue>GERENTE</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.UserRole.Name}</leftValue>
+                    <operator>CONTAINS</operator>
+                    <rightValue>JEFE</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <mode>Replace</mode>
         <name>top</name>
