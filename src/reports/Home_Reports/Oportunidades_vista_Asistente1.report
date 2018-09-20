@@ -67,7 +67,7 @@
         <field>STAGE_NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Oportunidad vista ASISTENTE</name>
+    <name>Mis oportunidades del mes en curso</name>
     <params>
         <name>open</name>
         <value>all</value>

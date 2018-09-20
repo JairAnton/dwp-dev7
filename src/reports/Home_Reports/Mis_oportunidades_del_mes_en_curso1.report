@@ -8,11 +8,13 @@
             <axisBinding>y</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>VerticalColumn</chartType>
+        <chartType>VerticalColumnStacked</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>Account.Opportunities$opportunity_product_family__c</groupingColumn>
+        <groupingColumn>Account.Opportunities$StageName</groupingColumn>
+        <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
+        <secondaryGroupingColumn>Account.Opportunities$opportunity_product_family__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -25,19 +27,8 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>Account$Name</field>
-    </columns>
-    <columns>
-        <field>Account.Opportunities$Name</field>
-    </columns>
-    <columns>
-        <field>Account$Owner</field>
-    </columns>
-    <columns>
-        <field>Account.Opportunities$Owner</field>
-    </columns>
-    <columns>
-        <field>Account.Opportunities$Branch_id__c</field>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Account.Opportunities$Amount</field>
     </columns>
     <currency>PEN</currency>
     <filter>
@@ -61,20 +52,25 @@
         </criteriaItems>
         <language>en_US</language>
     </filter>
-    <format>Summary</format>
-    <groupingsDown>
+    <format>Matrix</format>
+    <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
         <field>Account.Opportunities$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Opportunities$StageName</field>
+        <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades del mes en curso1</name>
+    <name>Mis oportunidades del mes en curso</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
     <reportType>Hierarchy_report__c</reportType>
     <scope>ownaccountteam</scope>
-    <showDetails>true</showDetails>
+    <showDetails>false</showDetails>
     <timeFrameFilter>
         <dateColumn>Account$account_banking_syst_debt_sum_last_date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

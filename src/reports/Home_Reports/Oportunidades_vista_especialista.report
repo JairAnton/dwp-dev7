@@ -71,7 +71,7 @@
         <field>STAGE_NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Oportunidades vista especialista</name>
+    <name>Mis oportunidades del mes en curso</name>
     <params>
         <name>open</name>
         <value>all</value>
