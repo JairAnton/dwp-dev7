@@ -1767,4 +1767,18 @@
         <shortDescription>Price WS Label 10</shortDescription>
         <value>EXPECTED_LOSS</value>
     </labels>
+    <labels>
+        <fullName>PriceQuotationAvailabilityErrorMessageWrongUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceQuotationAvailabilityErrorMessageWrongUser</shortDescription>
+        <value>You cannot check if the product is available for quotation. Please request the Sales Rep that owns the client to check it.</value>
+    </labels>
+    <labels>
+        <fullName>PriceQuotationProductNotAvailableErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceQuotationProductNotAvailableErrorMessage</shortDescription>
+        <value>The quotation of this product is not available for the client.</value>
+    </labels>
 </CustomLabels>

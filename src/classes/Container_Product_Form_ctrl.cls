@@ -29,17 +29,19 @@ global with sharing class Container_Product_Form_ctrl implements dwp_dbpn.Dynami
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<OpportunityLineItem> lstOppLineItem = [SELECT   Id,
                                                 price_quote_availability_check__c,
-                                                Product2.Type_of_quote__c, 
+                                                Product2.Type_of_quote__c,
+                                                Product2.price_approval_web_service_id__c,
                                                 price_availability_check_error__c,
                                                 OpportunityId,
                                                 price_quote_available__c,
-                                                Opportunity.Branch_id__r.branch_id__c
+                                                pricing_model_id__c,
+                                                Opportunity.Branch_id__c
                                         FROM OpportunityLineItem
                                         WHERE OpportunityId = :recordId];
         List<User> lstUser = [SELECT    Id,
                                         Profile.Name,
                                         (SELECT     Id, 
-                                                    branch_id__c
+                                                    branch_name__c
                                         FROM Users_Branches__r)
                                 FROM User
                                 WHERE Id = :UserInfo.getUserId()];
@@ -47,19 +49,21 @@ global with sharing class Container_Product_Form_ctrl implements dwp_dbpn.Dynami
         Boolean showWarning = (!lstOppLineItem.isEmpty()?!lstOppLineItem[0].price_quote_available__c:false);
 
         
-
+        String strMessageError = (!lstOppLineItem.isEmpty()? lstOppLineItem[0].price_quote_availability_check__c ? (lstOppLineItem[0].pricing_model_id__c == null?Label.PriceQuotationProductNotAvailableErrorMessage:Label.PriceQuotationAvailabilityErrorMessage): Label.PriceQuotationAvailabilityErrorMessageWrongUser: '');
+        
         if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].price_quote_availability_check__c==false && lstOppLineItem[0].Product2.Type_of_quote__c == 'Web' && (lstUser[0].Profile.Name == 'Ejecutivo' || lstUser[0].Profile.Name == 'System Administrator') ){
             Boolean flagLoopUser = true;
             //Boolean hasBranch = false;
-            Boolean hasBranch = (lstUser[0].Profile.Name == 'System Administrator');
+            Boolean hasBranch = (lstUser[0].Profile.Name == 'System Administrator' ? true: false);
             for(Integer i = 0; i<lstUser[0].Users_Branches__r.size() && flagLoopUser; i++){
-                if(lstUser[0].Users_Branches__r[i].branch_id__c == lstOppLineItem[0].Opportunity.Branch_id__r.branch_id__c){
+                if(lstUser[0].Users_Branches__r[i].branch_name__c == lstOppLineItem[0].Opportunity.Branch_id__c){
                     flagLoopUser = false;
                     hasBranch = true;
                 }
             }
             if(hasBranch){
                 try{
+                    strMessageError = Label.PriceQuotationAvailabilityErrorMessage;
                     ProductsQuoteAvailability_helper prodQuoteAva = new ProductsQuoteAvailability_helper(lstOppLineItem[0].OpportunityId);
                     System.HttpResponse responseProdQ = prodQuoteAva.invoke();
                     switch on responseProdQ.getStatusCode(){
@@ -69,7 +73,7 @@ global with sharing class Container_Product_Form_ctrl implements dwp_dbpn.Dynami
                             Boolean flagLoop = true;
                             String strPriceModel = '';
                             for(Integer i=0; i<lstResponseData.size() && flagLoop; i++){
-                                if(lstResponseData[i].id=='11'){
+                                if(lstResponseData[i].id==lstOppLineItem[0].Product2.price_approval_web_service_id__c){
                                     flagLoop = false;
                                     ProductsQuoteAvailability_helper.Response_pricing pricingModel = lstResponseData[i].pricing;
                                     strPriceModel = pricingModel.id;
@@ -78,7 +82,8 @@ global with sharing class Container_Product_Form_ctrl implements dwp_dbpn.Dynami
                             lstOppLineItem[0].price_quote_availability_check__c = true;
                             lstOppLineItem[0].pricing_model_id__c = strPriceModel;
                             lstOppLineItem[0].price_availability_check_error__c = '';
-                            showWarning=false;
+                            showWarning=(strPriceModel==''?true:false);
+                            strMessageError=(strPriceModel==''?Label.PriceQuotationProductNotAvailableErrorMessage:strMessageError);
                         }
                         when 500{
                             WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(responseProdQ.getBody());
@@ -100,6 +105,7 @@ global with sharing class Container_Product_Form_ctrl implements dwp_dbpn.Dynami
             }
             
         }
+        mapReturn.put('errorMessage', strMessageError);
         mapReturn.put('showWarning', (!lstOppLineItem.isEmpty() && lstOppLineItem[0].Product2.Type_of_quote__c == 'Web'?showWarning:false));
         return mapReturn;
     }

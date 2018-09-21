@@ -111,10 +111,4 @@ public with sharing class SimulatePrice_ctrl {
         
         return mapReturn;
     }
-    // update OpportunityLineItem fields
-    public static void updateOLI(Double teasug, Double teaminim, Double spread, Double minimspread, Double addspread, String oppId){
-        
-        
-        
-    }
 }

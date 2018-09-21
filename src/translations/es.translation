@@ -1180,6 +1180,14 @@
         <label>EXPECTED_LOSS</label>
         <name>PriceWSLabel10</name>
     </customLabels>
+    <customLabels>
+        <label>No puede comprobar la disponiblidad de la cotización de este producto en el cliente. Por favor, solicite al ejecutivo propietario que acceda a la oportunidad para comprobarlo.</label>
+        <name>PriceQuotationAvailabilityErrorMessageWrongUser</name>
+    </customLabels>
+    <customLabels>
+        <label>El producto no es cotizable para el cliente.</label>
+        <name>PriceQuotationProductNotAvailableErrorMessage</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
