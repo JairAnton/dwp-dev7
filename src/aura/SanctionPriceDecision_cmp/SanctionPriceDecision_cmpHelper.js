@@ -7,7 +7,7 @@
     getInfo : function(component, event, helper){
         var inputObject = component.get('v.inputAttributes');
         if(inputObject.approvalMethod == 'Web'){
-            cmp.set('v.enableContinue',true);
+            component.set('v.enableContinue',true);
         }
         var action = component.get("c.getInfo");
         action.setParams({
