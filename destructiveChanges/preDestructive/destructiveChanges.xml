@@ -11,6 +11,10 @@
         <members>Guarantee_MasterRecord-1</members>
         <name>Flow</name>
     </types>
+	 <types>
+        <members>HOMEPAGE_ORIGEN</members>        
+        <name>FlexiPage</name>
+    </types>
 	<types>
 		<members>fprd__GBL_dependent_list.dependentNoDineraria</members>
         <members>fprd__GBL_dependent_list.dependentNoDineraria_PC00014</members>
