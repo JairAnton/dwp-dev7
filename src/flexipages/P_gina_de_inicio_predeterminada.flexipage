@@ -65,14 +65,14 @@
             <visibilityRule>
                 <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
-                    <leftValue>{!$User.UserRole.Name}</leftValue>
-                    <operator>CONTAINS</operator>
-                    <rightValue>EJECUTIVO</rightValue>
+                    <leftValue>{!$User.Profile.Name}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Ejecutivo</rightValue>
                 </criteria>
                 <criteria>
-                    <leftValue>{!$User.Profile.Name}</leftValue>
+                    <leftValue>{!$User.UserRole.Name}</leftValue>
                     <operator>CONTAINS</operator>
-                    <rightValue>EJECUTIVO</rightValue>
+                    <rightValue>EJEC</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
