@@ -1140,6 +1140,46 @@
         <label>REQUESTED</label>
         <name>WebPriceQuotationRequestStatus02</name>
     </customLabels>
+    <customLabels>
+		<label>MINIMUM_SPREAD</label>
+		<name>PriceWSLabel01</name>
+    </customLabels>
+    <customLabels>
+		<label>ADDITIONAL_SPREAD</label>
+        <name>PriceWSLabel02</name>
+    </customLabels>
+    <customLabels>
+		<label>CAPITAL</label>
+        <name>PriceWSLabel03</name>
+    </customLabels>
+    <customLabels>
+        <label>ADDITIONAL_CAPITAL</label>
+        <name>PriceWSLabel04</name>
+    </customLabels>
+    <customLabels>
+        <label>REGULATORY_CAPITAL</label>
+        <name>PriceWSLabel05</name>
+    </customLabels>
+    <customLabels>
+        <label>FUNDING_COST_ADJUSTED</label>
+        <name>PriceWSLabel06</name>
+    </customLabels>
+    <customLabels>
+        <label>FINANCING_COST_STOCKHOLDER</label>
+        <name>PriceWSLabel07</name>
+    </customLabels>
+    <customLabels>
+        <label>EFFICIENCY_COST</label>
+        <name>PriceWSLabel08</name>
+    </customLabels>
+    <customLabels>
+        <label>FUNDING_COST</label>
+        <name>PriceWSLabel09</name>
+    </customLabels>
+    <customLabels>
+        <label>EXPECTED_LOSS</label>
+        <name>PriceWSLabel10</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

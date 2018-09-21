@@ -128,11 +128,6 @@ public class PriceRate_helper {
         public String value;
     }
     
-    public class Response_Detail_Z {
-        public Double amount;
-        public String currency_type;
-    }
-    
     public class Response_Participant {
         public Response_IdentityDocuments[] identityDocuments;
         public Response_BusinessAgent bank;
@@ -153,6 +148,7 @@ public class PriceRate_helper {
     public class Response_LiquidityIndicators {
         public String id;
         public Response_Detail detail;
+        
     }
     
     public class Response_Summary {
@@ -177,5 +173,7 @@ public class PriceRate_helper {
     }
     public class Response_Detail {
         public Double percentage;
+        public Double amount;
+        public String currency_type;
     }
 }

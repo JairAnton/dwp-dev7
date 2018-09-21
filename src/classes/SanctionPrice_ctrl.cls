@@ -12,8 +12,19 @@ public with sharing class SanctionPrice_ctrl {
     static Double minimtea;
     static Double sugtea;
     static Double spread;
+    static Double minimspread;
+    static Double addspread;
+    static Double expected;
+    static Double fundingcost;
+    static Double efficiency;
+    static Double financystock;
+    static Double fundingadj;
+    static Double regulatory;
+    static Double addcapital;
+    static Double capitalamount;
     static String genericError;
     static String calculationid;
+    static String currencyid;
     @AuraEnabled
     public static Map<String,Object> getInfo(String recordId){
         
@@ -28,6 +39,11 @@ public with sharing class SanctionPrice_ctrl {
                                      spread_per__c,
                                      price_rates_calculation_Id__c,
                                      proposed_apr_per__c,
+                                     additional_capital_per__c,additional_apread_per__c,
+                                     capital_amount__c,capital_currency_id__c, efficiency_cost__c,
+                                     expected_loss_per__c, financing_cost_stockholder_per__c, 
+                                     funding_cost_per__c, funding_cost_adjusted_per__c,
+                                     minimum_spread_per__c, regulatory_capital_per__c,
                                      Product2Id 
                                      FROM OpportunityLineItems) 
                                     FROM Opportunity 
@@ -61,7 +77,7 @@ public with sharing class SanctionPrice_ctrl {
                 }else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web'){
                     SanctionPrice_ctrl.invokeWS(recordId);
                     if(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c!=null){
-                    mapReturn.put('proposed',lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c);
+                        mapReturn.put('proposed',lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c);
                     }else{
                         mapReturn.put('proposed','');
                     }
@@ -78,16 +94,6 @@ public with sharing class SanctionPrice_ctrl {
         }
         mapReturn.put('genericError',genericError);
         return mapReturn; 
-    }
-    // update OpportunityLineItem fields
-    public static void updateOLI(Double teasug, Double teaminim, Double spread, String calculation, String oppId){
-        OpportunityLineItem oli =[Select Id, Name, minimun_apr_per__c, suggested_apr_per__c, spread_per__c, price_rates_calculation_Id__c
-                                  from OpportunityLineItem where OpportunityId = : oppId];
-        oli.minimun_apr_per__c = teaminim;
-        oli.suggested_apr_per__c = teasug;
-        oli.spread_per__c = spread;
-        oli.price_rates_calculation_Id__c = calculation;
-        update oli;
     }
     public static void invokeWS (String recordId){
         //helper to call the service
@@ -119,10 +125,56 @@ public with sharing class SanctionPrice_ctrl {
                 for(Integer x =0; x<lstspread.size(); x++){
                     if (lstspread[x].id == Label.commSpread){
                         spread = lstspread[x].detail.percentage*100;
+                    } else if (lstspread[x].id == Label.PriceWSLabel02){
+                        addspread = lstspread[x].detail.percentage*100;
+                    } else if (lstspread[x].id == Label.PriceWSLabel01){
+                        minimspread = lstspread[x].detail.percentage*100;
                     }
                 }
             }
-            SanctionPrice_ctrl.updateOLI(sugtea, minimtea, spread, calculationid, recordId);
+            if(jbody.data != null && jbody.data.summary != null && jbody.data.summary[0].fees != null){
+                List<PriceRate_helper.Response_Fees> lstfees = jbody.data.summary[0].fees;
+                for(Integer x =0; x<lstfees.size(); x++){
+                    if (lstfees[x].feeType.Id == Label.PriceWSLabel10){
+                        expected = lstfees[x].detail.percentage*100;                                
+                    } else if (lstfees[x].feeType.Id == Label.PriceWSLabel09){
+                        fundingcost = lstfees[x].detail.percentage*100;
+                    } else if (lstfees[x].feeType.Id == Label.PriceWSLabel08){
+                        efficiency = lstfees[x].detail.percentage*100;
+                    } else if (lstfees[x].feeType.Id == Label.PriceWSLabel07){
+                        financystock = lstfees[x].detail.percentage*100;
+                    } else if (lstfees[x].feeType.Id == Label.PriceWSLabel06){
+                        fundingadj = lstfees[x].detail.percentage*100;
+                    } else if (lstfees[x].feeType.Id == Label.PriceWSLabel05){
+                        regulatory = lstfees[x].detail.percentage*100;
+                    } else if (lstfees[x].feeType.Id == Label.PriceWSLabel04){
+                        addcapital = lstfees[x].detail.percentage*100;
+                    } else if (lstfees[x].feeType.Id == Label.PriceWSLabel03){
+                        capitalamount = lstfees[x].detail.amount;
+                        currencyid = lstfees[x].detail.currency_type;
+                    }
+                }                        
+            }
+            List<OpportunityLineItem> oli =[Select Id, Name, price_rates_calculation_Id__c, minimun_apr_per__c, suggested_apr_per__c, spread_per__c,
+                                            additional_capital_per__c,additional_apread_per__c,capital_amount__c,capital_currency_id__c, efficiency_cost__c,
+                                            expected_loss_per__c, financing_cost_stockholder_per__c, funding_cost_per__c, funding_cost_adjusted_per__c,
+                                            minimum_spread_per__c, regulatory_capital_per__c from OpportunityLineItem where OpportunityId = : recordId];
+            oli[0].minimun_apr_per__c = minimtea;
+            oli[0].suggested_apr_per__c = sugtea;
+            oli[0].spread_per__c = spread;
+            oli[0].additional_apread_per__c = addspread;
+            oli[0].minimum_spread_per__c = minimspread;
+            oli[0].expected_loss_per__c = expected;
+            oli[0].funding_cost_per__c = fundingcost;
+            oli[0].efficiency_cost__c = efficiency;
+            oli[0].financing_cost_stockholder_per__c = financystock;
+            oli[0].funding_cost_adjusted_per__c = fundingadj;
+            oli[0].regulatory_capital_per__c = regulatory;
+            oli[0].additional_capital_per__c = addcapital;
+            oli[0].capital_amount__c = capitalamount;
+            oli[0].capital_currency_id__c = currencyid;
+            oli[0].price_rates_calculation_Id__c = calculationid;
+            update oli;
             //get error message with code 409
         } else if (invoke.getStatusCode() == 409){
             WebServiceUtils.ResponseErrorMessage_Wrapper jerror = WebServiceUtils.parse(invoke.getBody());

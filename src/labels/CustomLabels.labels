@@ -1697,4 +1697,74 @@
         <shortDescription>Web Price Quotation Request Status 02</shortDescription>
         <value>REQUESTED</value>
     </labels>
+    <labels>
+        <fullName>PriceWSLabel01</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Label 01</shortDescription>
+        <value>MINIMUM_SPREAD</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel02</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 02</shortDescription>
+        <value>ADDITIONAL_SPREAD</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel03</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 03</shortDescription>
+        <value>CAPITAL</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel04</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 04</shortDescription>
+        <value>ADDITIONAL_CAPITAL</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel05</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 05</shortDescription>
+        <value>REGULATORY_CAPITAL</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel06</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 06</shortDescription>
+        <value>FUNDING_COST_ADJUSTED</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel07</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 07</shortDescription>
+        <value>FINANCING_COST_STOCKHOLDER</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel08</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 08</shortDescription>
+        <value>EFFICIENCY_COST</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel09</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 09</shortDescription>
+        <value>FUNDING_COST</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 10</shortDescription>
+        <value>EXPECTED_LOSS</value>
+    </labels>
 </CustomLabels>
