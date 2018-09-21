@@ -193,6 +193,7 @@ public class Container_Product_Form_ctrl_Test {
             expected.put('key3', true);
             Map<String,Object> mapCW = new Map<String,Object>();
             mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
             expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
@@ -223,6 +224,7 @@ public class Container_Product_Form_ctrl_Test {
             expected.put('key3', true);
             Map<String,Object> mapCW = new Map<String,Object>();
             mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
             expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
@@ -252,6 +254,7 @@ public class Container_Product_Form_ctrl_Test {
             expected.put('key3', false);
             Map<String,Object> mapCW = new Map<String,Object>();
             mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
             expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
@@ -281,6 +284,7 @@ public class Container_Product_Form_ctrl_Test {
             expected.put('key3', false);
             Map<String,Object> mapCW = new Map<String,Object>();
             mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
             expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
@@ -309,6 +313,7 @@ public class Container_Product_Form_ctrl_Test {
             expected.put('key3', false);
             Map<String,Object> mapCW = new Map<String,Object>();
             mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
             expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
@@ -337,6 +342,7 @@ public class Container_Product_Form_ctrl_Test {
             expected.put('key3', false);
             Map<String,Object> mapCW = new Map<String,Object>();
             mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
             expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
@@ -366,7 +372,8 @@ public class Container_Product_Form_ctrl_Test {
         expected.put('key2', true);
         expected.put('key3', true);
         Map<String,Object> mapCW = new Map<String,Object>(); 
-        mapCW.put('showWarning',false);
+        mapCW.put('showWarning',true);
+        mapCW.put('errorMessage',Label.PriceQuotationProductNotAvailableErrorMessage);
         expected.put('dataCW',mapCW);
         System.assertEquals(expected, actual);
 
@@ -399,6 +406,7 @@ public class Container_Product_Form_ctrl_Test {
         expected.put('key3', true);
         Map<String,Object> mapCW = new Map<String,Object>(); 
         mapCW.put('showWarning',true);
+        mapCW.put('errorMessage',Label.PriceQuotationAvailabilityErrorMessage);
         expected.put('dataCW',mapCW);
         System.assertEquals(expected, actual);
 
@@ -431,6 +439,7 @@ public class Container_Product_Form_ctrl_Test {
         expected.put('key3', true);
         Map<String,Object> mapCW = new Map<String,Object>(); 
         mapCW.put('showWarning',true);
+        mapCW.put('errorMessage',Label.PriceQuotationAvailabilityErrorMessage);
         expected.put('dataCW',mapCW);
         System.assertEquals(expected, actual);
 
