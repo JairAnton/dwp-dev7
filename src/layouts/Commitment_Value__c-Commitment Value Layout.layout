@@ -22,6 +22,10 @@
                 <behavior>Edit</behavior>
                 <field>commitment_id__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>pricing_model_id__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

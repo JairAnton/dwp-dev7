@@ -186,11 +186,15 @@ public class Container_Product_Form_ctrl_Test {
         insert opp;
         
         System.runAs(testUser1){
-            Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-            Map<String,Boolean> expected = new Map<String,Boolean>();
+            Map<String,Object> actual = Container_Product_Form_ctrl.getActions(opp.Id);
+            Map<String,Object> expected = new Map<String,Object>();
             expected.put('key', true);
             expected.put('key2', true);
             expected.put('key3', true);
+            Map<String,Object> mapCW = new Map<String,Object>();
+            mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
+            expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
              
@@ -213,11 +217,15 @@ public class Container_Product_Form_ctrl_Test {
         insert opp;
         
         System.runAs(testUser2){
-            Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-            Map<String,Boolean> expected = new Map<String,Boolean>();
+            Map<String,Object> actual = Container_Product_Form_ctrl.getActions(opp.Id);
+            Map<String,Object> expected = new Map<String,Object>();
             expected.put('key', true);
             expected.put('key2', true);
             expected.put('key3', true);
+            Map<String,Object> mapCW = new Map<String,Object>();
+            mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
+            expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
     }
@@ -239,11 +247,15 @@ public class Container_Product_Form_ctrl_Test {
         insert opp;
         
         System.runAs(testUser1){
-            Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-            Map<String,Boolean> expected = new Map<String,Boolean>();
+            Map<String,Object> actual = Container_Product_Form_ctrl.getActions(opp.Id);
+            Map<String,Object> expected = new Map<String,Object>();
             expected.put('key', true);
             expected.put('key2', false);
             expected.put('key3', false);
+            Map<String,Object> mapCW = new Map<String,Object>();
+            mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
+            expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
     }
@@ -265,11 +277,15 @@ public class Container_Product_Form_ctrl_Test {
         insert opp;
         
         System.runAs(testUser2){
-            Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-            Map<String,Boolean> expected = new Map<String,Boolean>();
+            Map<String,Object> actual = Container_Product_Form_ctrl.getActions(opp.Id);
+            Map<String,Object> expected = new Map<String,Object>();
             expected.put('key', true);
             expected.put('key2', false);
             expected.put('key3', false);
+            Map<String,Object> mapCW = new Map<String,Object>();
+            mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
+            expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
     }
@@ -290,11 +306,15 @@ public class Container_Product_Form_ctrl_Test {
         insert opp;
         
         System.runAs(testUser1){
-            Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-            Map<String,Boolean> expected = new Map<String,Boolean>();
+            Map<String,Object> actual = Container_Product_Form_ctrl.getActions(opp.Id);
+            Map<String,Object> expected = new Map<String,Object>();
             expected.put('key', true);
             expected.put('key2', false);
             expected.put('key3', false);
+            Map<String,Object> mapCW = new Map<String,Object>();
+            mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
+            expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
     }
@@ -315,12 +335,115 @@ public class Container_Product_Form_ctrl_Test {
         insert opp;
         
         System.runAs(testUser1){
-            Map<String,Boolean> actual = Container_Product_Form_ctrl.getActions(opp.Id);
-            Map<String,Boolean> expected = new Map<String,Boolean>();
+            Map<String,Object> actual = Container_Product_Form_ctrl.getActions(opp.Id);
+            Map<String,Object> expected = new Map<String,Object>();
             expected.put('key', true);
             expected.put('key2', false);
             expected.put('key3', false);
+            Map<String,Object> mapCW = new Map<String,Object>();
+            mapCW.put('showWarning',false);
+            mapCW.put('errorMessage','');
+            expected.put('dataCW',mapCW);
             System.assertEquals(expected, actual);
         }
+    }
+
+    @isTest
+    public static void case7(){
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        Account acc = TestFactory.createAccount();
+        acc.main_code_id__c = '123567';
+        update acc;
+        Opportunity opp = TestFactory.createOpportunity(acc.Id, UserInfo.getUserId());
+        Product2 prod = TestFactory.createProduct();
+        prod.Type_of_quote__c = 'Web';
+        update prod;
+        OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
+        Test.startTest();
+
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Map<String,Object> actual = Container_Product_Form_ctrl.getActions(opp.Id);
+        Map<String,Object> expected = new Map<String,Object>();
+        expected.put('key', true);
+        expected.put('key2', true);
+        expected.put('key3', true);
+        Map<String,Object> mapCW = new Map<String,Object>(); 
+        mapCW.put('showWarning',true);
+        mapCW.put('errorMessage',Label.PriceQuotationProductNotAvailableErrorMessage);
+        expected.put('dataCW',mapCW);
+        System.assertEquals(expected, actual);
+
+        Test.stopTest();
+
+    }
+
+    @isTest
+    public static void case8(){
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ko', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        Account acc = TestFactory.createAccount();
+        acc.main_code_id__c = '123567';
+        update acc;
+        Opportunity opp = TestFactory.createOpportunity(acc.Id, UserInfo.getUserId());
+        Product2 prod = TestFactory.createProduct();
+        prod.Type_of_quote__c = 'Web';
+        update prod;
+        OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
+        Test.startTest();
+
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Map<String,Object> actual = Container_Product_Form_ctrl.getActions(opp.Id);
+        Map<String,Object> expected = new Map<String,Object>();
+        expected.put('key', true);
+        expected.put('key2', true);
+        expected.put('key3', true);
+        Map<String,Object> mapCW = new Map<String,Object>(); 
+        mapCW.put('showWarning',true);
+        mapCW.put('errorMessage',Label.PriceQuotationAvailabilityErrorMessage);
+        expected.put('dataCW',mapCW);
+        System.assertEquals(expected, actual);
+
+        Test.stopTest();
+
+    }
+
+    @isTest
+    public static void case9(){
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ProductsQuoteAvailability', iaso__Url__c = 'https://ProductsQuote/ko409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        Account acc = TestFactory.createAccount();
+        acc.main_code_id__c = '123567';
+        update acc;
+        Opportunity opp = TestFactory.createOpportunity(acc.Id, UserInfo.getUserId());
+        Product2 prod = TestFactory.createProduct();
+        prod.Type_of_quote__c = 'Web';
+        update prod;
+        OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
+        Test.startTest();
+
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Map<String,Object> actual = Container_Product_Form_ctrl.getActions(opp.Id);
+        Map<String,Object> expected = new Map<String,Object>();
+        expected.put('key', true);
+        expected.put('key2', true);
+        expected.put('key3', true);
+        Map<String,Object> mapCW = new Map<String,Object>(); 
+        mapCW.put('showWarning',true);
+        mapCW.put('errorMessage',Label.PriceQuotationAvailabilityErrorMessage);
+        expected.put('dataCW',mapCW);
+        System.assertEquals(expected, actual);
+
+        Test.stopTest();
+
     }
 }

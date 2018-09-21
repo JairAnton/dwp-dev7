@@ -1606,4 +1606,179 @@
         <shortDescription>AccessLevelRead</shortDescription>
         <value>Read</value>
     </labels>
+    <labels>
+        <fullName>Close</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>GenericError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GenericError</shortDescription>
+        <value>The services are not available at this time. Contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>MinTEA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MinTEA</shortDescription>
+        <value>MINIMUM_TEA</value>
+    </labels>
+    <labels>
+        <fullName>SuggTEA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SuggTEA</shortDescription>
+        <value>SUGGESTED_TEA</value>
+    </labels>
+    <labels>
+        <fullName>commSpread</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>commSpread</shortDescription>
+        <value>COMMERCIAL_SPREAD</value>
+    </labels>
+    <labels>
+        <fullName>PriceCreateQuotationRequestApprovedMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Approved Message</shortDescription>
+        <value>Price quotation approved.</value>
+    </labels>
+    <labels>
+        <fullName>PriceCreateQuotationRequestDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Default Comment</shortDescription>
+        <value>Create quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceCreateQuotationRequestKnowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Know Error</shortDescription>
+        <value>Quotation request has not been created due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceCreateQuotationRequestSentForApprovalMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Sent For Approval Message</shortDescription>
+        <value>The price quotation has been sent for approval</value>
+    </labels>
+    <labels>
+        <fullName>PriceCreateQuotationRequestUnknowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Create Quotation Request Unknow Error</shortDescription>
+        <value>Quotation request has not been created due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceQuotationAvailabilityErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceQuotationAvailabilityErrorMessage</shortDescription>
+        <value>Product&apos;s quotation not available for this client. Please, contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>WebPriceQuotationRequestStatus01</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Web Price Quotation Request Status 01</shortDescription>
+        <value>TARIFY</value>
+    </labels>
+	<labels>
+        <fullName>WebPriceQuotationRequestStatus02</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Web Price Quotation Request Status 02</shortDescription>
+        <value>REQUESTED</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel01</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Label 01</shortDescription>
+        <value>MINIMUM_SPREAD</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel02</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 02</shortDescription>
+        <value>ADDITIONAL_SPREAD</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel03</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 03</shortDescription>
+        <value>CAPITAL</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel04</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 04</shortDescription>
+        <value>ADDITIONAL_CAPITAL</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel05</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 05</shortDescription>
+        <value>REGULATORY_CAPITAL</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel06</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 06</shortDescription>
+        <value>FUNDING_COST_ADJUSTED</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel07</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 07</shortDescription>
+        <value>FINANCING_COST_STOCKHOLDER</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel08</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 08</shortDescription>
+        <value>EFFICIENCY_COST</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel09</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 09</shortDescription>
+        <value>FUNDING_COST</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 10</shortDescription>
+        <value>EXPECTED_LOSS</value>
+    </labels>
+    <labels>
+        <fullName>PriceQuotationAvailabilityErrorMessageWrongUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceQuotationAvailabilityErrorMessageWrongUser</shortDescription>
+        <value>You cannot check if the product is available for quotation. Please request the Sales Rep that owns the client to check it.</value>
+    </labels>
+    <labels>
+        <fullName>PriceQuotationProductNotAvailableErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceQuotationProductNotAvailableErrorMessage</shortDescription>
+        <value>The quotation of this product is not available for the client.</value>
+    </labels>
 </CustomLabels>

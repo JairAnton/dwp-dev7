@@ -140,12 +140,24 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>pricing_model_id__c</fullName>
+        <externalId>false</externalId>
+        <label>Pricing model</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <gender>Feminine</gender>
     <label>Commitment Value</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>quote_type__c</columns>
+        <columns>pricing_model_id__c</columns>
+        <columns>commitment_id__c</columns>
         <columns>commitment_product_name__c</columns>
         <columns>CURRENCY_ISO_CODE</columns>
         <columns>commitment_expiry_days_number__c</columns>

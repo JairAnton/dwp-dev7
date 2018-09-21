@@ -7,6 +7,7 @@
     <aura:attribute name="isLoad" type="Boolean" default="false"/>
     <aura:attribute name="hasRecord" type="Boolean" default="false"/>
     <aura:attribute name="readOnly" type="Boolean" default="false"/>
+    <aura:attribute name="quoteMethod" type="String" default=""/>
 
 	<div class="{!v.readOnly?'':'slds-modal__content slds-p-around_medium'}" >
         <aura:if isTrue="{!v.isLoad}">
@@ -36,6 +37,11 @@
             <aura:if isTrue="{!!v.readOnly}">
                 <lightning:button class="slds-m-top_small" variant="brand" label="{!$Label.c.AddCommitment}" onclick="{!c.doNew}" />
             </aura:if>
+            <aura:set attribute="else">
+                <div style="height: 5em" class="slds-p-top_medium">
+                    <lightning:spinner variant="brand" class="slds-is-relative slds-align--absolute-center"/>
+                </div>
+            </aura:set>
         </aura:if>
     </div>
     <aura:if isTrue="{!!v.readOnly}">

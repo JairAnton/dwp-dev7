@@ -1088,6 +1088,106 @@
         <label>Delete</label>
         <name>Delete</name>
     </customLabels>
+    <customLabels>
+        <label>Cerrar</label>
+        <name>Close</name>
+    </customLabels>
+    <customLabels>
+        <label>Los servicios no están disponibles en estos momentos. Contacte con su administrador.</label>
+        <name>GenericError</name>
+    </customLabels>
+    <customLabels>
+        <label>MINIMUM_TEA</label>
+        <name>MinTEA</name>
+    </customLabels>
+    <customLabels>
+        <label>SUGGESTED_TEA</label>
+        <name>SuggTEA</name>
+    </customLabels>
+    <customLabels>
+        <label>COMMERCIAL_SPREAD</label>
+        <name>commSpread</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido crear la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceCreateQuotationRequestUnknowError</name>
+    </customLabels>
+    <customLabels>
+        <label>La cotización ha sido aprobada en delegación.</label>
+        <name>PriceCreateQuotationRequestApprovedMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de creación de cotización desde DWP</label>
+        <name>PriceCreateQuotationRequestDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido crear la cotización debido al siguiente error:</label>
+        <name>PriceCreateQuotationRequestKnowError</name>
+    </customLabels>
+    <customLabels>
+        <label>La cotización ha sido elevada para su evaluación.</label>
+        <name>PriceCreateQuotationRequestSentForApprovalMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>La cotización de este producto no esta disponible para este cliente. Por favor, contacte con su administrador.</label>
+        <name>PriceQuotationAvailabilityErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>TARIFY</label>
+        <name>WebPriceQuotationRequestStatus01</name>
+    </customLabels>
+	<customLabels>
+        <label>REQUESTED</label>
+        <name>WebPriceQuotationRequestStatus02</name>
+    </customLabels>
+    <customLabels>
+		<label>MINIMUM_SPREAD</label>
+		<name>PriceWSLabel01</name>
+    </customLabels>
+    <customLabels>
+		<label>ADDITIONAL_SPREAD</label>
+        <name>PriceWSLabel02</name>
+    </customLabels>
+    <customLabels>
+		<label>CAPITAL</label>
+        <name>PriceWSLabel03</name>
+    </customLabels>
+    <customLabels>
+        <label>ADDITIONAL_CAPITAL</label>
+        <name>PriceWSLabel04</name>
+    </customLabels>
+    <customLabels>
+        <label>REGULATORY_CAPITAL</label>
+        <name>PriceWSLabel05</name>
+    </customLabels>
+    <customLabels>
+        <label>FUNDING_COST_ADJUSTED</label>
+        <name>PriceWSLabel06</name>
+    </customLabels>
+    <customLabels>
+        <label>FINANCING_COST_STOCKHOLDER</label>
+        <name>PriceWSLabel07</name>
+    </customLabels>
+    <customLabels>
+        <label>EFFICIENCY_COST</label>
+        <name>PriceWSLabel08</name>
+    </customLabels>
+    <customLabels>
+        <label>FUNDING_COST</label>
+        <name>PriceWSLabel09</name>
+    </customLabels>
+    <customLabels>
+        <label>EXPECTED_LOSS</label>
+        <name>PriceWSLabel10</name>
+    </customLabels>
+    <customLabels>
+        <label>No puede comprobar la disponiblidad de la cotización de este producto en el cliente. Por favor, solicite al ejecutivo propietario que acceda a la oportunidad para comprobarlo.</label>
+        <name>PriceQuotationAvailabilityErrorMessageWrongUser</name>
+    </customLabels>
+    <customLabels>
+        <label>El producto no es cotizable para el cliente.</label>
+        <name>PriceQuotationProductNotAvailableErrorMessage</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

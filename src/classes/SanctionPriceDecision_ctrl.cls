@@ -193,4 +193,16 @@ public with sharing class SanctionPriceDecision_ctrl {
         
         return mapReturn;
     }
+    
+    @AuraEnabled
+    public static Map<String,Object> saveAuditWeb(String auditRecordId,  String storeHtml){
+        Map<String,Object> mapReturn = new Map<String,Object>();
+        
+        List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
+        lstDetails.add(Action_Audit_Helper.getAuditDetail(auditRecordId, storeHtml, 1, '', 'Embedded'));
+        insert lstDetails;
+        
+        mapReturn.put('isOk', true);
+        return mapReturn;
+    }
 }

@@ -1,0 +1,30 @@
+<aura:component access="global" implements="dwp_dbpn:DynamicFlowWizardStep_itf">
+    <aura:handler name="change" value="{!v.hide}" action="{!c.cancel}"/>
+    <aura:attribute name="hide" type="boolean" default="false" access="global" description="Allow hide modal"/>
+    <aura:attribute name="title" type="String" default="{!$Label.dwp_dbpn.DynamicFlowWizardError_ModalHeader}" access="global" description="Allow set a title"/>
+    <aura:attribute name="closeButton" type="Boolean" default="true" access="global" description="Allow show close icon button"/>
+    <aura:attribute name="hasHeader" type="Boolean" default="true" access="global" description="Allow show header section"/>
+    <aura:attribute name="modalTheme" type="String" default="slds-theme_alert-texture slds-theme_warning" access="global" description="Specify modal theme"/>
+    <aura:attribute name="customColorHeader" type="String" default="none" access="global" description="Specify a custom color header"/>
+    <aura:attribute name="modalSizeSLDS" type="String" default="" access="global" description="Specify Lightning Design System themes to be added to the modal´s size style."/>
+    <aura:attribute name="modalWidthCustom" type="String" default="37rem" access="global" description="Specify a custom width."/>
+    <aura:attribute name="errorMessagesList" type="String[]" default="" description="List of error messages to be displayed"/>
+    <aura:registerEvent name="dynamicFlowWizardCancel" type="dwp_dbpn:DynamicFlowWizardCancel_evt"/>
+    
+    <header aura:id="modalTemplateHeader" class="{! 'slds-modal__header ' + v.modalTheme}" style="{! 'background-color: ' + v.customColorHeader + ' ;'}">
+        <aura:if isTrue="{!v.closeButton}">
+            <lightning:buttonIcon class="slds-modal__close" iconName="utility:close" variant="bare-inverse" size="large" onclick="{!c.doCancelErrorModal}" alternativeText="close" />
+        </aura:if>
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!v.title}</h2>
+    </header>
+    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <ul class="slds-list_dotted">
+            <aura:iteration items="{!v.errorMessagesList}" var="errorMessageItem">
+                <li><p>{!errorMessageItem}</p></li>
+            </aura:iteration>
+        </ul>
+    </div>
+    <footer class="slds-modal__footer">
+        <lightning:button variant="neutral" label="{!$Label.dwp_dbpn.DynamicFlowWizardError_CloseButtonLabel}" onclick="{!c.doCancelErrorModal}"/>
+    </footer>   
+</aura:component>

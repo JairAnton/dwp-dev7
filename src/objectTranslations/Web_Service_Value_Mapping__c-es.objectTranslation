@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Web Service Value Mapping</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Web Service Values Mapping</value>
+    </caseValues>
+    <fields>
+        <label>Valor visible DWP</label>
+        <name>label__c</name>
+    </fields>
+    <fields>
+        <label>Id modelo precios</label>
+        <name>pricing_model_id__c</name>
+    </fields>
+    <fields>
+        <label>Valor DWP</label>
+        <name>value__c</name>
+    </fields>
+    <fields>
+        <label>Id tipo de parametría</label>
+        <name>web_service_parameter_id__c</name>
+    </fields>
+    <fields>
+        <label>Valor parametría servicio</label>
+        <name>web_service_value__c</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

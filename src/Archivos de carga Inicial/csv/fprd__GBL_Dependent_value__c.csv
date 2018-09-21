@@ -15,3 +15,5 @@
 "Ca_Garantia_PC00029","Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03","Dineraria","DE_CGA_PC0029_01"
 "Ca_Garantia_PC00029","Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17","No dineraria","DE_CGA_PC0029_02"
 "Garantia_PC00014","Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17","No dineraria","DE_GA_PC0014_02"
+"Garantia_PC00001_2","Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17","No dineraria","DE_GA_PC0001_01_2"
+"Garantia_PC00001_2","Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03","Dineraria","DE_GA_PC0001_02_2"

@@ -1,6 +1,6 @@
 ({
     getInfo : function(cmp, evt, helper){
-        var action = cmp.get("c.getInfo");
+        var action = cmp.get("c.getInfoWithoutDefaultValues");
         action.setParams({
             "recordId" : cmp.get('v.recordId')
         });

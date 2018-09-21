@@ -2,16 +2,22 @@
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
     <aura:attribute name="step" type="String" default="1" />
     <aura:attribute name="modalWidthCustom" type="String" default="60rem" access="global" description="Specify a custom width."/>
+    <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to display" />
+    <aura:attribute name="hasHeader" type="Boolean" default="true" description="Allow show header section" />
     <aura:handler name="commitmentsEvent" event="c:Commitments_evt" action="{!c.doTypeMode}"/>
 
     <aura:if isTrue="{!v.step == '1'}">
-        <c:CommitmentsTable_cmp oppRecordId="{!v.inputAttributes.recordId}" />
+        <c:CommitmentsTable_cmp oppRecordId="{!v.inputAttributes.recordId}" quoteMethod="{!v.inputAttributes.approvalMethod}"/>
         <aura:set attribute="else">
              <aura:if isTrue="{!v.step == '2'}">
                 <c:newCommitment_cmp oppLineItem="{!v.inputAttributes.opportunityLineItem}" approvalMethod="{!v.inputAttributes.approvalMethod}" oppRecordId="{!v.inputAttributes.recordId}"/>
+            	<aura:set attribute="else">
+                    <aura:if isTrue="{!v.step == '3'}">
+                        <c:ErrorMessageWS_cmp errorMessagesList="{!v.errorlst}" />
+                    </aura:if>
+                </aura:set>
             </aura:if>
         </aura:set>
     </aura:if>
-    
     
 </aura:component>

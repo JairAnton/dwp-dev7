@@ -9,23 +9,23 @@
         <value>Commitment Values</value>
     </caseValues>
     <fields>
-        <label><!-- Expiry days --></label>
+        <label>Validez (días)</label>
         <name>commitment_expiry_days_number__c</name>
     </fields>
     <fields>
-        <label><!-- Commitment Id --></label>
+        <label>Id compromiso</label>
         <name>commitment_id__c</name>
     </fields>
     <fields>
-        <label><!-- Product --></label>
+        <label>Nombre de producto</label>
         <name>commitment_product_name__c</name>
     </fields>
     <fields>
-        <label><!-- Stay days --></label>
+        <label>Permanencia (días)</label>
         <name>commitment_stay_days_number__c</name>
     </fields>
     <fields>
-        <label><!-- Quote type --></label>
+        <label>Tipo de cotización</label>
         <name>quote_type__c</name>
         <picklistValues>
             <masterLabel>COTIZA Beta</masterLabel>
@@ -45,8 +45,12 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Web product code --></label>
+        <label>Código de producto WS</label>
         <name>web_product_code__c</name>
+    </fields>
+	<fields>
+        <label>Id modelo precios</label>
+        <name>pricing_model_id__c</name>
     </fields>
     <gender>Feminine</gender>
 </CustomObjectTranslation>

@@ -255,3 +255,15 @@ Actions:
 -Reevaluar
 -Desestimar
 -Sancionar Precio","OPP_RULE_07"
+"PEN","Conditions:
+-Acciones Comerciales, Pendiente de Iniciar, En Gestión
+-Ejecutivo
+-Producto con:SR = false,SP = true,Metodo SP = Web, Producto cotizable
+Actions:
+-Desestimar","OPP_RULE_03_PRE"
+"PEN","Conditions:
+-Acciones Comerciales, Pendiente de Iniciar, En Gestión
+-Ejecutivo
+-Producto con:SR = true,SP = true,Metodo SP = Web, Producto Cotizable
+Actions:
+-Desestimar","OPP_RULE_02_PRE"
