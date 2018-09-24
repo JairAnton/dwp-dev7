@@ -54,15 +54,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Is_in_the_team__c</fullName>
-        <externalId>false</externalId>
-        <formula>$User.Id = dwp_kitv__user_id__r.Id</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Is in the team</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>dwp_kitv__contact_email_desc__c</fullName>
         <deprecated>false</deprecated>
         <description>User email</description>
@@ -115,6 +106,15 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>on_a_team__c</fullName>
+        <externalId>false</externalId>
+        <formula>$User.Id = dwp_kitv__user_id__r.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>on a team</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>user_prof_position_type__c</fullName>
