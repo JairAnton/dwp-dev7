@@ -47,6 +47,7 @@
     <description>Object to relate users with visits</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -170,4 +171,5 @@
         <errorDisplayField>dwp_kitv__user_id__c</errorDisplayField>
         <errorMessage>You cannot insert the Owner of the visit.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>
