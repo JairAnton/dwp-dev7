@@ -41,7 +41,7 @@
         <field>dwp_kitv__Visit__c.dwp_kitv__visit_status_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>My_Team_Visits</name>
+    <name>Visitas de equipo</name>
     <params>
         <name>co</name>
         <value>1</value>
