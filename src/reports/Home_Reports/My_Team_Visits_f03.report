@@ -35,15 +35,6 @@
         <field>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</field>
     </columns>
     <currency>PEN</currency>
-    <filter>
-        <criteriaItems>
-            <column>dwp_kitv__Visit_Management_Team__c.on_a_team__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
-        <language>en_US</language>
-    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
