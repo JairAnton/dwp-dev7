@@ -40,7 +40,7 @@
 ,"Importe_PC00005","true","1","false","false","Importe",,,,"false","UnitPrice","1.0","0161720","false",,"Información general del producto","1.0","currency",,,,,
 "false","Mejorado_PC00005","false",,"false","false","Mejorado",,,,"false","PE_List_Mejorado__c","2.0","0161720","false",,"Información general del producto","1.0","checkbox",,,,,
 "02","Destino_PC00005","false",,"false","false","Destino","Campañas,Capital de trabajo,Pago proveedores,Prórroga,Subrrogación","01,02,05,06,07",,"false","gipr_Destino__c","5.0","0161720","false",,"Información general del producto","1.0","LIST",,,,,
-"01","gipr_Opcioncompra_PC00024","false",,"false","false","Opción de compra (%)",,,,"false","gipr_Opcioncompra__c","8.0","0159601","false",,"Información general del producto","1.0","number",,,,"gipr_Opcioncompra_Tipo_PC00024","(%)"
+"01","gipr_Opcioncompra_PC00024","false",,"false","false","Opción de compra (%)",,,0,"false","gipr_Opcioncompra__c","8.0","0159601","false",,"Información general del producto","1.0","number",,,,"gipr_Opcioncompra_Tipo_PC00024","(%)"
 ,"Cuenta_vinculada_PC00024","false",,"false","false","Cuenta vinculada",,,,"false","cpliq_Cuenta_vinculada__c","1.0","0159601","false",,"Criterios de pago y liquidación","2.0","text",,,,,
 ,"Amortizacion_PC00024","false",,"false","false","Amortización","Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"false","cpliq_Amortizacion__c","7.0","0159601","false",,"Criterios de pago y liquidación","2.0","LIST",,,,"Tipo_amortizacion_PC00024","En cuotas"
 ,"Fecha_Vencimiento_PC00024","false",,"false","false","Fecha de vencimiento",,,,"false","cpliq_Fecha_Vencimiento__c","5.0","0159601","false",,"Criterios de pago y liquidación","2.0","date",,,,"Tipo_amortizacion_PC00024","Al vencimiento"
