@@ -168,4 +168,4 @@
 ,"Importe_PC00001_2","true","1","false","false","Importe",,,,"false","UnitPrice","1.0","0160010","false",,"Información general del producto","1.0","currency",,,,,
 "false","Mejorado_PC00001_2","false",,"false","false","Mejorado",,,,"false","PE_List_Mejorado__c","3.0","0160010","false",,"Información general del producto","1.0","checkbox",,,,,
 "01","gipr_Opcioncompra_Monto_PC00024","false",,"false","false","Opción de compra (monto)",,,"0.0","false","gipr_Buy_Option_amt__c","9.0","0159601","false",,"Información general del producto","1.0","number",,,,"gipr_Opcioncompra_Tipo_PC00024","Monto"
-"01","gipr_Opcioncompra_Tipo_PC00024","false",,"false","false","Tipo Opcion de compra:","(%),Monto","01,02",,"false","gipr_Buy_Type_Option__c","7.0","0159601","false",,"Información general del producto","1.0","LIST",,,,,
+"01","gipr_Opcioncompra_Tipo_PC00024","false",,"false","false","Tipo opción de compra:","(%),Monto","01,02",,"false","gipr_Buy_Type_Option__c","7.0","0159601","false",,"Información general del producto","1.0","LIST",,,,,
