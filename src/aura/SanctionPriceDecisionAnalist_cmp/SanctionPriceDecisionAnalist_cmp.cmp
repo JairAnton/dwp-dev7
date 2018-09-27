@@ -7,85 +7,93 @@
     <aura:attribute name="strComments" type="String" default=""/>
     <aura:attribute name="objectInput" type="Object" />
     <aura:attribute name="isLoad" type="Boolean" default="false"/>
+    <aura:attribute name="isOk" type="Boolean" default="true"/>
+    <aura:attribute name="hasHeader" type="Boolean" default="true" access="global" description="Allow show header section"/>
+    <aura:attribute name="lstError" type="String[]" />    
     
-    <div class="slds-modal__content slds-p-around_medium" >
-        <aura:if isTrue="{!v.isLoad}">
-            <div id="storeHTML" class="slds-hide">
-                <h3 class="slds-section__title">{!$Label.c.Comments}</h3>
-                <div class="slds-form-element__control">
-                    <span class="slds-form-element__static">
-                        {!v.strComments}
-                    </span>
+    <aura:if isTrue="{!v.isOk}">
+        <div class="slds-modal__content slds-p-around_medium" >
+            <aura:if isTrue="{!v.isLoad}">
+                <div id="storeHTML" class="slds-hide">
+                    <h3 class="slds-section__title">{!$Label.c.Comments}</h3>
+                    <div class="slds-form-element__control">
+                        <span class="slds-form-element__static">
+                            {!v.strComments}
+                        </span>
+                    </div>
+                    <h3 class="slds-section__title">{!$Label.c.Price}</h3>
+                    <c:FieldsForm_cmp aura:id="fieldsFormInput" isHTML="true" recordId="{!v.objectInput.IdOppLineItem}" isInput="false" valueDynamic="{!v.inputAttributes.dynamicValuesInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
                 </div>
-                <h3 class="slds-section__title">{!$Label.c.Price}</h3>
-                <c:FieldsForm_cmp aura:id="fieldsFormInput" isHTML="true" recordId="{!v.objectInput.IdOppLineItem}" isInput="false" valueDynamic="{!v.inputAttributes.dynamicValuesInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
-            </div>
-            <lightning:layout multipleRows="true">
-                
-                <lightning:layoutItem padding="around-small" size="8">
-                    <lightning:tabset variant="scoped">
-                        <lightning:tab label="{!$Label.c.Details}" >
-                            <c:FieldsForm_cmp aura:id="fieldsFormInput" recordId="{!v.objectInput.IdOppLineItem}" isInput="false" valueDynamic="{!v.inputAttributes.dynamicValuesInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
-                            <div class="slds-m-bottom_medium">
-                                <c:PriceSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.PriceProposalSectionTitle}" recordId="{!v.objectInput.IdOppLineItem}" objectInput="{!v.objectInput}" typeView="_Proposal" hasDivider="false" />
-                            </div>
-                            <div class="slds-m-bottom_medium">
-                                <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.CommitmentProposalSectionTitle}" recordId="{!v.inputAttributes.recordId}" />
-                            </div>
-                        </lightning:tab>
-                        <lightning:tab label="{!$Label.c.Comments}">
-                            <lightning:textarea label="{!$Label.c.Comments}" value="{!v.strComments}" />
-                        </lightning:tab>
-                    </lightning:tabset>
-                </lightning:layoutItem>
-                <lightning:layoutItem padding="around-small" size="4">  
-                    <lightning:layout multipleRows="true">
-                        <lightning:layoutItem size="12">
-                            <lightning:tile label="" class="slds-border_top slds-border_right slds-border_bottom slds-border_left slds-theme_shade slds-p-around_small">
-                                <h3 class="slds-text-heading_small slds-truncate">{!$Label.c.Product}</h3>
-                                <dl class="slds-dl_horizontal">
-                                    <dt>
-                                        <p>{!v.objSetup.nameProd}</p>
-                                    </dt>
-                                </dl>
-                            </lightning:tile>
-                        </lightning:layoutItem>            
-                        <aura:iteration items="{!v.objSetup.lstTile}" var="tile" indexVar='x'>
-                            <lightning:layoutItem size="6">
+                <lightning:layout multipleRows="true">
+                    
+                    <lightning:layoutItem padding="around-small" size="8">
+                        <lightning:tabset variant="scoped">
+                            <lightning:tab label="{!$Label.c.Details}" >
+                                <c:FieldsForm_cmp aura:id="fieldsFormInput" recordId="{!v.objectInput.IdOppLineItem}" isInput="false" valueDynamic="{!v.inputAttributes.dynamicValuesInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
+                                <div class="slds-m-bottom_medium">
+                                    <c:PriceSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.PriceProposalSectionTitle}" recordId="{!v.objectInput.IdOppLineItem}" objectInput="{!v.objectInput}" typeView="_Proposal" hasDivider="false" />
+                                </div>
+                                <div class="slds-m-bottom_medium">
+                                    <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.CommitmentProposalSectionTitle}" recordId="{!v.inputAttributes.recordId}" />
+                                </div>
+                            </lightning:tab>
+                            <lightning:tab label="{!$Label.c.Comments}">
+                                <lightning:textarea label="{!$Label.c.Comments}" value="{!v.strComments}" />
+                            </lightning:tab>
+                        </lightning:tabset>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">  
+                        <lightning:layout multipleRows="true">
+                            <lightning:layoutItem size="12">
                                 <lightning:tile label="" class="slds-border_top slds-border_right slds-border_bottom slds-border_left slds-theme_shade slds-p-around_small">
-                                    <h3 class="slds-text-heading_small slds-truncate">{!tile.label}</h3>
+                                    <h3 class="slds-text-heading_small slds-truncate">{!$Label.c.Product}</h3>
                                     <dl class="slds-dl_horizontal">
-                                        <dt class="">
-                                            <p>{!tile.value}</p>
+                                        <dt>
+                                            <p>{!v.objSetup.nameProd}</p>
                                         </dt>
                                     </dl>
                                 </lightning:tile>
+                            </lightning:layoutItem>            
+                            <aura:iteration items="{!v.objSetup.lstTile}" var="tile" indexVar='x'>
+                                <lightning:layoutItem size="6">
+                                    <lightning:tile label="" class="slds-border_top slds-border_right slds-border_bottom slds-border_left slds-theme_shade slds-p-around_small">
+                                        <h3 class="slds-text-heading_small slds-truncate">{!tile.label}</h3>
+                                        <dl class="slds-dl_horizontal">
+                                            <dt class="">
+                                                <p>{!tile.value}</p>
+                                            </dt>
+                                        </dl>
+                                    </lightning:tile>
+                                </lightning:layoutItem>
+                            </aura:iteration>
+                            <lightning:layoutItem size="12" class="slds-m-top_medium">
+                                <div class="actionChoice count4 slds-grid slds-grid_align-center">
+                                    <aura:iteration items="{!v.objSetup.getInfoButtons.lstButtons}" var="item" indexVar='x'>
+                                        <div>
+                                            <input onchange="{!c.classChange}" type="radio" name="actionChoice" id="{!item.id}"></input>
+                                            <label class="{!item.style}" for="{!item.id}"><lightning:icon iconName="{!item.icon}" size="small"/>{!item.label}</label>
+                                        </div>
+                                    </aura:iteration>
+                                </div>
                             </lightning:layoutItem>
-                        </aura:iteration>
-                        <lightning:layoutItem size="12" class="slds-m-top_medium">
-                            <div class="actionChoice count4 slds-grid slds-grid_align-center">
-                                <aura:iteration items="{!v.objSetup.getInfoButtons.lstButtons}" var="item" indexVar='x'>
-                                    <div>
-                                        <input onchange="{!c.classChange}" type="radio" name="actionChoice" id="{!item.id}"></input>
-                                        <label class="{!item.style}" for="{!item.id}"><lightning:icon iconName="{!item.icon}" size="small"/>{!item.label}</label>
-                                    </div>
-                                </aura:iteration>
-                            </div>
-                        </lightning:layoutItem>
-                    </lightning:layout>
-                </lightning:layoutItem>           
-            </lightning:layout>
-        </aura:if>
-        
-    </div>
-    <footer class="slds-modal__footer slds-theme_default">
-        <aura:if isTrue="{!v.enableContinue}">
-            <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
-            <aura:set attribute="else">
-                <c:ButtonWithoutDoubleClick_cmp disabled="true" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
-            </aura:set>
-        </aura:if>
-        
-        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
-    </footer>
+                        </lightning:layout>
+                    </lightning:layoutItem>           
+                </lightning:layout>
+            </aura:if>
+            
+        </div>
+        <footer class="slds-modal__footer slds-theme_default">
+            <aura:if isTrue="{!v.enableContinue}">
+                <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                <aura:set attribute="else">
+                    <c:ButtonWithoutDoubleClick_cmp disabled="true" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                </aura:set>
+            </aura:if>
+            
+            <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+        </footer>
+        <aura:set attribute="else">
+            <c:ErrorMessageWS_cmp errorMessagesList="{!v.lstError}"/>
+        </aura:set>
+    </aura:if>
 </aura:component>

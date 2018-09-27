@@ -4,22 +4,31 @@
     <aura:attribute name="Risk" type="Boolean"  access="global"/>
     <aura:attribute name="Price" type="Boolean" access="global"/>
     <aura:attribute name="RiskVal" type="Boolean"  access="global"/>
-    <aura:attribute name="PriceVal" type="Boolean" access="global"/>    
-    <div class="slds-modal__content slds-p-around_medium slds-theme_shade" >  
-        <br/>
-        <div class="slds-align_absolute-center">     
-            <aura:if isTrue="{!v.Risk}">
-                {!$Label.c.msgApproveRisk}      
-                <aura:set attribute="else">     
-                    <aura:if isTrue="{!v.Price}">
-                        {!$Label.c.msgApprovePrice}                        
-                    </aura:if>
-                </aura:set>
-            </aura:if>
+    <aura:attribute name="PriceVal" type="Boolean" access="global"/> 
+    <aura:attribute name="isOk" type="Boolean" default="true"/>
+    <aura:attribute name="hasHeader" type="Boolean" default="true" access="global" description="Allow show header section"/>
+    <aura:attribute name="lstError" type="String[]" />    
+    
+    <aura:if isTrue="{!v.isOk}">   
+        <div class="slds-modal__content slds-p-around_medium slds-theme_shade" >  
+            <br/>
+            <div class="slds-align_absolute-center">     
+                <aura:if isTrue="{!v.Risk}">
+                    {!$Label.c.msgApproveRisk}      
+                    <aura:set attribute="else">     
+                        <aura:if isTrue="{!v.Price}">
+                            {!$Label.c.msgApprovePrice}                        
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+            </div>
         </div>
-    </div>
-    <footer class="slds-modal__footer slds-theme_default">
-        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doApproval}" label="{!$Label.c.Ok}"/>
-        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
-    </footer>      
+        <footer class="slds-modal__footer slds-theme_default">
+            <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doApproval}" label="{!$Label.c.Ok}"/>
+            <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+        </footer>
+        <aura:set attribute="else">
+            <c:ErrorMessageWS_cmp errorMessagesList="{!v.lstError}"/>
+        </aura:set>
+    </aura:if>     
 </aura:component>

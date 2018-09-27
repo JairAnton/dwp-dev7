@@ -29,21 +29,32 @@
     },
     continue : function(cmp, evt, helper){
 		var fieldsForm = cmp.find('fieldsFormInput');
-		var inputs = fieldsForm.find('input');
+        var inputs = fieldsForm.find('input');
 		var isOk = true;
 		var lstApiField = [];
 		var lstvalueField = [];
-        
-        for(var i in inputs){
-            if(inputs[i].find('inputField') != undefined){
-				lstApiField.push(inputs[i].get('v.fieldObject').ApiName);
-				lstvalueField.push(inputs[i].get('v.fieldObject').value);
-                inputs[i].find('inputField').reportValidity();
-                if(!inputs[i].find('inputField').checkValidity()){
+        if(inputs.length != undefined){
+            for(var i in inputs){
+                if(inputs[i].find('inputField') != undefined){
+                    lstApiField.push(inputs[i].get('v.fieldObject').ApiName);
+                    lstvalueField.push(inputs[i].get('v.fieldObject').value);
+                    inputs[i].find('inputField').reportValidity();
+                    if(!inputs[i].find('inputField').checkValidity()){
+                        isOk = false;
+                    }
+                }
+            }
+        }else{
+            if(inputs.find('inputField') != undefined){
+                lstApiField.push(inputs.get('v.fieldObject').ApiName);
+                lstvalueField.push(inputs.get('v.fieldObject').value);
+                inputs.find('inputField').reportValidity();
+                if(!inputs.find('inputField').checkValidity()){
                     isOk = false;
                 }
             }
-		}
+        }
+        
         var inputObject=cmp.get('v.inputAttributes');
         inputObject['dynamicValuesInput'] = lstvalueField.join(',');
         inputObject['lstApiField'] = lstApiField;

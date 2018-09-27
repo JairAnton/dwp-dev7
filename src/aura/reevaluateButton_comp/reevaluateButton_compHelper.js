@@ -45,18 +45,30 @@
         action.setParams({Idopp : inputObject.recordId });
         action.setCallback(this, function(response) {
             var state = response.getState();
+            var ret = response.getReturnValue();
+            var msg = ret.msg;
+            var genericError = ret.genericError;
             if (state === "SUCCESS") {
-                if (response.getReturnValue()=="Risk"){ 
+                if(genericError != undefined){
+                    component.set('v.isError', true);
+                    component.set('v.errorlst',genericError);
+                    component.set('v.hasHeader',false);
+                }else if (msg == "Risk"){ 
                     component.set('v.Risk', true);
-                }
-                if (response.getReturnValue()=="Price"){ 
+                    component.set('v.hasHeader',true);
+                    component.set('v.isError', false);
+                }else if (msg == "Price"){ 
                     component.set('v.Price', true);
-                }
-                if (response.getReturnValue()=="Both"){    
+                    component.set('v.hasHeader',true);
+                    component.set('v.isError', false);
+                }else if (msg == "Both"){    
                     component.set('v.Price', true);
-                    component.set('v.Risk', true);   
+                    component.set('v.Risk', true);
+                    component.set('v.hasHeader',true);
+                    component.set('v.isError', false);
                 }
             }
+            component.set('v.isLoad',true);
         });
         $A.enqueueAction(action);                   
         

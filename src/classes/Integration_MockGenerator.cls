@@ -81,6 +81,36 @@ global class Integration_MockGenerator implements HttpCalloutMock{
                 res.setBody('{"data":{"calculationType":{"id":"UNIQUE"},"model":{"id":"2"},"businessAgent":{},"participant":{"identityDocuments":[{"documentType":{}}],"bank":{},"segment":{"subSegment":{"partitions":[]}},"delinquency":{"behaviorDebts":{"tacticalVariable":[]}},"strategicRelationships":[],"riskLevel":[]},"product":{"requestedAmount":{},"term":{},"guarantee":{}},"summary":[{"calculationId":"173380","financialIndicators":[{"id":"CLUSTER","value":"E1014"},{"id":"COLLECTIVE_FLAG","value":"false"},{"id":"TACTICAL_FACTOR","value":"1"}],"interestRates":{"effectiveRates":[{"id":"ADJUSTED_MODEL_TEA","percentage":0.00020},{"id":"MINIMUM_TEA","percentage":0.154},{"id":"SUGGESTED_TEA","percentage":0.165}]},"fees":[{"feeType":{"id":"EXPECTED_LOSS"},"detail":{"percentage":0.063162}},{"feeType":{"id":"FUNDING_COST"},"detail":{"percentage":0.0353}},{"feeType":{"id":"EFFICIENCY_COST"},"detail":{"percentage":0.0074}},{"feeType":{"id":"FINANCING_COST_STOCKHOLDER"},"detail":{"percentage":0.0147}},{"feeType":{"id":"FUNDING_COST_ADJUSTED"},"detail":{"percentage":0.0309}},{"feeType":{"id":"REGULATORY_CAPITAL"},"detail":{"percentage":0.1}},{"feeType":{"id":"ADDITIONAL_CAPITAL"},"detail":{"percentage":0.025}},{"feeType":{"id":"CAPITAL"},"detail":{"amount":2931.88,"currency":"PEN"}}],"liquidityIndicators":[{"id":"ADDITIONAL_SPREAD","detail":{"percentage":0.005}},{"id":"MINIMUM_SPREAD","detail":{"percentage":0.005}},{"id":"COMMERCIAL_SPREAD","detail":{"percentage":0.04}}]}]}}');
                 res.setStatusCode(200);
             }
+            when 'https://ModifyQuotationRequestRecover/OK/111/quotations/222'{
+                System.assertEquals('https://ModifyQuotationRequestRecover/OK/111/quotations/222', req.getEndpoint()); 
+                System.assertEquals('POST', req.getMethod());
+                res.setBody('{"data": {"status": {"id": "RECOVERED","name": "RECUPERADA"},"id": "1469800","version": "1","businessAgents": [{"id": "P012170","firstName": "CECILIA","lastName": "AGUIRRE","secondLastName": "GONZALES","workTeam": {"id": "EJE_BEC","name": "Ejecutivo BEC"},"classification": {"involvements": [{"involvementType": {"id": "ASSIGNED","description": "Usuario asignado a la cotización"}}]}}],"disbursement": {"status": {"id": "PENDING","description": "PENDIENTE"}}}}');
+                res.setStatusCode(200);
+            }
+            when 'https://ModifyQuotationRequestRejection/OK/1475650/quotations/1469800'{
+                System.assertEquals('https://ModifyQuotationRequestRejection/OK/1475650/quotations/1469800', req.getEndpoint()); 
+                System.assertEquals('POST', req.getMethod());
+                res.setBody('{"data": {"status": {"id": "REGISTER_LOST","name": "PERDIDA"},"id": "1469800","version": "1","businessAgents": [{"id": "P012170","firstName": "CECILIA","lastName": "AGUIRRE","secondLastName": "GONZALES","workTeam": {"id": "EJE_BEC","name": "Ejecutivo BEC"},"classification": {"involvements": [{"involvementType": {"id": "ASSIGNED","description": "Usuario asignado a la cotización"}}]}}],"disbursement": {"status": {"id": "PENDING","description": "PENDIENTE"}}}}');
+                res.setStatusCode(200);
+            }
+            when 'https://ModifyQuotationRequestDisburse/OK/1475650/quotations/1469800'{
+                System.assertEquals('https://ModifyQuotationRequestDisburse/OK/1475650/quotations/1469800', req.getEndpoint()); 
+                System.assertEquals('POST', req.getMethod());
+                res.setBody('{"data": {"status": {"id": "APPROVED","name": "APROBADO"},"id": "1469800","version": "1","businessAgents": [{"id": "P012170","firstName": "CECILIA","lastName": "AGUIRRE","secondLastName": "GONZALES","workTeam": {"id": "EJE_BEC","name": "Ejecutivo BEC"},"classification": {"involvements": [{"involvementType": {"id": "ASSIGNED","description": "Usuario asignado a la cotización"}}]}}],"disbursement": {"status": {"id": "DISBURSED","description": "DESEMBOLSADO"}}}}');
+                res.setStatusCode(200);
+            }
+            when 'https://ModifyQuotationRequestDisburse/KO_409/1475650/quotations/1469800'{
+                System.assertEquals('https://ModifyQuotationRequestDisburse/KO_409/1475650/quotations/1469800', req.getEndpoint()); 
+                System.assertEquals('POST', req.getMethod());
+                res.setBody('{"version":1,"severity":"FATAL","http-status":409,"error-code":"functionalError","error-message":"null","consumer-request-id":"cb034d49-fe9f-4ad4-bb05-ef0ae7cbc505","system-error-code":"functionalError","system-error-description":"Default functional error."}');
+                res.setStatusCode(409);
+            }
+            when 'https://ModifyQuotationRequestDisburse/KO_500/1475650/quotations/1469800'{
+                System.assertEquals('https://ModifyQuotationRequestDisburse/KO_500/1475650/quotations/1469800', req.getEndpoint()); 
+                System.assertEquals('POST', req.getMethod());
+                res.setBody('{"version":1,"severity":"FATAL","http-status":500,"error-code":"errorRestConnector","error-message":"There is an error interacting with RestConnector: Connect to 118.180.35.119:8280 [/118.180.35.119] failed: Conexión rehusada.","consumer-request-id":"10d26ad6-9a90-45ac-a6dd-7e54e317bd3a","system-error-code":"errorRestConnector","system-error-description":"There is an error interacting with RestConnector: Connect to 118.180.35.119:8280 [/118.180.35.119] failed: Conexión rehusada.","system-error-cause":"Connect to 118.180.35.119:8280 [/118.180.35.119] failed: Conexión rehusada"}');
+                res.setStatusCode(500);
+            }
             when else {
                 //nothing
             }

@@ -85,26 +85,27 @@ public with sharing class Commitment_ctrl {
         Map<String,Object> mapReturn = new Map<String,Object>();
       
 		// Retrieve the opportunity product conditions, price calculation rates information and price quotation request information
-		List<OpportunityLineItem> oliList = [SELECT price_quote_id__c, price_quote_owner_id__c, price_quote_owner_id__r.user_id__c, proposed_apr_per__c, price_rates_calculation_Id__c, gipr_Garantia__c
+		List<OpportunityLineItem> oliList = [SELECT price_quote_id__c, price_quote_owner_id__c, proposed_apr_per__c, price_rates_calculation_Id__c, gipr_Garantia__c
 											FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 											
 		if(!oliList.isEmpty()){
 			// Check if there is already a price quotation request for the oportunity
 			if(oliList[0].price_quote_id__c != '' && oliList[0].price_quote_id__c != null){
 				// Check if the context user is the same user that owns the price quotation request
-				if(oliList[0].price_quote_owner_id__r.user_id__c == UserInfo.getUserId()){
+				if(oliList[0].price_quote_owner_id__c == UserInfo.getUserId()){
 					// Invoke web service to request quotation approval
 					mapReturn.put('success','false');
                     mapReturn.put('errorMessage','Call to Cotiza Web in progress');
 				}
 				else{
 					// Invoke web service to recover quotation
-					
+					mapReturn = invokeRecoverQuotation(recordId);
 					
 					// Invoke web service to request quotation approval
-					
-                    mapReturn.put('success','false');
-                    mapReturn.put('errorMessage','Call to Cotiza Web in progress');
+                    if(mapReturn.get('success') == 'true'){
+                        mapReturn.put('success','false');
+                        mapReturn.put('errorMessage','Call to Cotiza Web in progress');
+                    }
 				}
 			}
 			else{
@@ -271,6 +272,87 @@ public with sharing class Commitment_ctrl {
 			
 			// Set the error message
 			String errorMessage = Label.PriceCreateQuotationRequestUnknowError;
+			mapReturn.put('errorMessage',errorMessage);
+		}
+		
+		return mapReturn;
+	}
+    
+    // Method that invoke the ws to recover a quotationupdates the opportunity and opportunity line item with the response
+    public static Map<String,Object> invokeRecoverQuotation(String recordId){
+	
+		Map<String,Object> mapReturn = new Map<String,Object>();
+		
+		// Invoke WS
+		try{
+			ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'RECOVER', null,'');
+			HttpResponse mqResponse = mqHelper.invoke();
+			
+			//Check the ws response status
+			Integer wsResponseStatusCode = mqResponse.getStatusCode();
+			
+			if(wsResponseStatusCode == 200){
+			
+				// Set the status to return
+				mapReturn.put('success','true');
+			
+				List<OpportunityLineItem> oppProductsList = [SELECT Id, price_quote_status_id__c, price_quote_owner_id__c 
+															FROM OpportunityLineItem WHERE OpportunityId = :recordId];
+						
+                if(!oppProductsList.isEmpty()){
+                    
+                    // Get the response body
+					ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
+				
+					// Update the quoation status and owner
+					ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
+					ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
+								
+					oppProductsList[0].price_quote_status_id__c = mqStatus.id;
+								
+					List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
+								
+					if(!mqBusinessAgentsList.isEmpty()){
+						List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
+						if(!userList.isEmpty()){
+							oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
+						}
+					}
+					else{
+						oppProductsList[0].price_quote_owner_id__c = null;
+					}
+				}
+			}
+			else if(wsResponseStatusCode == 409){
+				
+				// Set the status to return
+				mapReturn.put('success','false');
+			
+				// Get the ws error message
+				WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody());
+				
+				// Set the error message
+				String errorMessage = Label.PriceRecoverRequestKnownError + ' ' + errorDetails.errormessage;
+				mapReturn.put('errorMessage',errorMessage);
+			}
+			else{
+				// Set the status to return
+				mapReturn.put('success','false');
+				
+				// Set the error message
+				String errorMessage = Label.PriceRecoverRequestUnknownError;
+				mapReturn.put('errorMessage',errorMessage);
+			}
+			
+			
+		}
+		catch(Exception e){
+            System.debug('EXCEPTION ERROR' + e.getMessage());
+			// Set the status to return
+			mapReturn.put('success','false');
+			
+			// Set the error message
+			String errorMessage = Label.PriceRecoverRequestUnknownError;
 			mapReturn.put('errorMessage',errorMessage);
 		}
 		

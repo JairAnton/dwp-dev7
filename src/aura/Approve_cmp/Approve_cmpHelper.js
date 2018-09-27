@@ -45,7 +45,7 @@
         
     }
     ,
-    price : function(component,event){
+    price : function(component,event, helper){
         
         var inputObject = component.get('v.inputAttributes');
         var action = component.get("c.approvePrice");
@@ -54,12 +54,18 @@
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-                if(response.getReturnValue() != 'Updated'){
-                    this.toastEvent('Error!', response.getReturnValue(), 'error');
-                }else{
+                var ret = response.getReturnValue();
+                if(ret.isOk){
                     this.toastEvent('Success!', msgapprov, 'success');
+                    $A.get('e.force:refreshView').fire();
+                    helper.closeMe(component, event, helper);
+                }else{
+                    var lstError = [];
+                    lstError.push(ret.errorMessage);
+                    component.set('v.isOk',false);
+                    component.set('v.hasHeader',false);
+                    component.set('v.lstError',lstError);
                 }
-                $A.get('e.force:refreshView').fire();        
             }
         });
         
@@ -76,6 +82,9 @@
             type: type
         });
         toastEvent.fire();
+    },
+    closeMe : function(component, event) {
+        var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
+    	cancelEvent.fire();
     }
-    
 })
