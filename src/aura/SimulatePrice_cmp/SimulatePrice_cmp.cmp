@@ -6,6 +6,7 @@
     <aura:attribute name="title" type="String" default="{!$Label.c.lblQuote}" access="global" description="Specify the modal"/>
     <aura:attribute name="teaquote" type="String" />
     <aura:attribute name="isError" type="Boolean" default="false" />
+    <aura:attribute name="closeButton" type="Boolean" default="false" access="global" description="Allow show close icon button"/>
     <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to be displayed"/>
 
     <aura:if isTrue="{!v.isLoad}">

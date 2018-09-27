@@ -1256,6 +1256,14 @@
         <label>Petición de devolución de cotización desde DWP</label>
         <name>PriceReturnQuotationDefaultComment</name>
     </customLabels>
+    <customLabels>
+        <label>No se ha podido enviar a aprobar la cotización debido al siguiente error:</label>
+        <name>PriceRequestQuotationApprovalKnownError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido enviar a aprobar la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceRequestQuotationApprovalUnknownError</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

@@ -1900,4 +1900,18 @@
         <shortDescription>Price Return Quotation Default Comment</shortDescription>
         <value>Return quotation request from DWP</value>
     </labels>
+    <labels>
+        <fullName>PriceRequestQuotationApprovalKnownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Request Quotation Approval Known Error</shortDescription>
+        <value>Quotation request has not been sent for approval due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceRequestQuotationApprovalUnknownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Request Quotation Approval Unknown Error</shortDescription>
+        <value>Quotation request has not been sent for approval due to an error. Please, contact your administration for further details.</value>
+    </labels>
 </CustomLabels>
