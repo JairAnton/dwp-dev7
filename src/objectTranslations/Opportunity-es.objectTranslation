@@ -497,6 +497,10 @@
         </sections>
     </layouts>
     <validationRules>
+        <errorMessage>El cliente es requerido</errorMessage>
+        <name>Account_Required_Validation</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>El importe debe ser mayor a 0.</errorMessage>
         <name>Amount_Negative_Value</name>
     </validationRules>
