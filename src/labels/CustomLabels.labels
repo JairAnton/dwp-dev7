@@ -1781,4 +1781,123 @@
         <shortDescription>PriceQuotationProductNotAvailableErrorMessage</shortDescription>
         <value>The quotation of this product is not available for the client.</value>
     </labels>
+    <labels>
+        <fullName>DecisionPriceActionError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DecisionPriceActionError</shortDescription>
+        <value>The action over the quotation could not be performed due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceApproveDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Approve Default Comment</shortDescription>
+        <value>Approve quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceApproveErrorKnow</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceApproveErrorKnow</shortDescription>
+        <value>The quotation has not been approved due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceApproveErrorNotKnow</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceApproveErrorNotKnow</shortDescription>
+        <value>The quotation has not been approved due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceDisburseQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Disburse Quotation Default Comment</shortDescription>
+        <value>Disburse quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceDisburseQuotationKnowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Disburse Quotation Know Error</shortDescription>
+        <value>Quotation has not been disbursed due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceDisburseQuotationUnknowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Disburse Quotation Unknown Error</shortDescription>
+        <value>Quotation has not been disbursed due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceGenerateQuotationSheetDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Generate Quotation Sheet Default Comment</shortDescription>
+        <value>Generate quotation sheet request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceGenericError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceGenericError</shortDescription>
+        <value>The action over the quotation could not be performed due to an error. Please, contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>PriceRaiseQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Raise Quotation Default Comment</shortDescription>
+        <value>Raise quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceReassignQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Reassign Quotation Default Comment</shortDescription>
+        <value>Reassign quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceRecoverQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Recover Quotation Default Comment</shortDescription>
+        <value>Recover quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceRecoverRequestKnownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Recover Request Known Error</shortDescription>
+        <value>Quotation has not been recovered due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceRecoverRequestUnknownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Recover Request Unknown Error</shortDescription>
+        <value>The quotation has not been recovered due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceRegisterQuotationLossDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Register Quotation Loss Default Comment</shortDescription>
+        <value>Register quotation loss from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceRequestApprovalQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Request Approval Quotation Default Comment</shortDescription>
+        <value>Request approval quotation from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceReturnQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Return Quotation Default Comment</shortDescription>
+        <value>Return quotation request from DWP</value>
+    </labels>
 </CustomLabels>
