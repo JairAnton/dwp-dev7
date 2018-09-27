@@ -32,8 +32,9 @@ public class SanctionPriceDecision_ctrl_Test {
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
         Test.startTest();
-
-        Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id,'09','04',true,'asd','nameAudit','comments',lstOLI[0].Id, new List<String>(), new List<Object>(),'01', '<div>Hola</div>','Web','APPROVE');
+		List<Object> lstData = new List<Object>();
+        lstData.add(23);
+        Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id,'09','04',true,'asd','nameAudit','comments',lstOLI[0].Id, new List<String>(), lstData,'01', '<div>Hola</div>','Web','APPROVE');
         System.assertEquals(true, (Boolean)mapReturnSave3.get('isOk'));
 
         Test.stopTest();
