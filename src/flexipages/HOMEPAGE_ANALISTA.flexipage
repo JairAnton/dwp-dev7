@@ -18,14 +18,6 @@
         <componentInstances>
             <componentName>runtime_sales_activities:todayTaskContainer</componentName>
         </componentInstances>
-		<componentInstanceProperties>
-            <name>reportName</name>
-            <value>Mis_visitas_del_mes_en_curso_myL</value>
-        </componentInstanceProperties>
-		<componentInstanceProperties>
-            <name>reportName</name>
-            <value>Mis_visitas_como_equipo_adU</value>
-        </componentInstanceProperties>
         <name>bottomRight</name>
         <type>Region</type>
     </flexiPageRegions>
