@@ -47,19 +47,9 @@
             <sortOrder>2</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>SendEmail</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>3</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Account.New_Contact_Economic_Group</actionName>
             <actionType>QuickAction</actionType>
-            <sortOrder>4</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Account.dwp_kitv__Plan_Visit</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>5</sortOrder>
+            <sortOrder>3</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
@@ -89,9 +79,6 @@
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>FeedItem.ContentNote</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
-            <quickActionName>Account.dwp_kitv__Plan_Visit</quickActionName>
         </quickActionListItems>
     </quickActionList>
     <relatedContent>
