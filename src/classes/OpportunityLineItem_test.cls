@@ -9,12 +9,15 @@
 public class OpportunityLineItem_test {
     
     @testSetup static void BeforeInsertSetup(){
-        
+        Account acc= new Account();
+        acc.Name='MyAccount';
+        insert acc;
         Opportunity opp = new Opportunity(
             Name = 'XXX Test',
             CloseDate = Date.today().addDays(1),
             StageName = 'Prospecting',
-            Amount = 111111
+            Amount = 111111,
+            AccountId=acc.id
         );
         insert opp;
         
