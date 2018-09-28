@@ -42,7 +42,7 @@ public class approveButtonClass {
             opp.opportunity_status_type__c	='11';
             Boolean isOk = true;
             if(opp.OpportunityLineItems[0].product2.Type_of_quote__c == 'Web' && opp.OpportunityLineItems[0].price_quote_status_id__c == 'MODIFIED'){
-                ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(Id,'GENERATE_QUOTATION_SHEET',null,'');
+                ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(Id,'GENERATE_QUOTATION_SHEET',null,'',null);
                 try{
                     System.HttpResponse invokeModify = modifyHelper.invoke();
                     switch on invokeModify.getStatusCode(){

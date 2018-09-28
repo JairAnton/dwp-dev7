@@ -83,7 +83,7 @@ public with sharing class Commitment_ctrl {
     @AuraEnabled
     public static Map<String,Object> requestQuote(String recordId){
         Map<String,Object> mapReturn = new Map<String,Object>();
-      
+		mapReturn.put('nextCallout',false);
 		// Retrieve the opportunity product conditions, price calculation rates information and price quotation request information
 		List<OpportunityLineItem> oliList = [SELECT price_quote_id__c, price_quote_owner_id__c, proposed_apr_per__c, price_rates_calculation_Id__c, gipr_Garantia__c
 											FROM OpportunityLineItem WHERE OpportunityId = :recordId];
@@ -100,14 +100,9 @@ public with sharing class Commitment_ctrl {
 				else{
                     
                     System.debug('RECOVER 1');
-					// Invoke web service to recover quotation
-					mapReturn = invokeRecoverQuotation(recordId);
-					
-                    System.debug('REQUEST APPROVAL 1');
-					// Invoke web service to request quotation approval
-                    if(mapReturn.get('success') == 'true'){
-                        mapReturn = invokeRequestQuotationApproval(recordId);
-                    }
+					// Invoke web service to recover quotation 
+					mapReturn = invokeRecoverQuotation(recordId); 
+					mapReturn.put('nextCallout',true);
 				}
 			}
 			else{
@@ -293,7 +288,7 @@ public with sharing class Commitment_ctrl {
 		
 		// Invoke WS
 		try{
-			ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'RECOVER', null,'');
+			ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'RECOVER', null, '', null);
 			HttpResponse mqResponse = mqHelper.invoke();
 			
 			//Check the ws response status
@@ -376,7 +371,7 @@ public with sharing class Commitment_ctrl {
 		try{
 		
 			// Invoke WS
-			ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REQUEST_APPROVAL', null,'');
+			ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REQUEST_APPROVAL', null, '', null);
 			HttpResponse mqResponse = mqHelper.invoke();
 			
 			//Check the ws response status

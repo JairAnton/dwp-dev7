@@ -264,7 +264,7 @@ public without sharing class Product_cls {
 				if(oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null){
 					
                     // Call Web Service to register the quotation loss
-					ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'DISBURSE', null,contractNumber);
+					ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'DISBURSE', null, contractNumber, null);
 					HttpResponse mqResponse = mqHelper.invoke();
       
 					//Check the ws response status
@@ -389,7 +389,7 @@ public without sharing class Product_cls {
                     
                         System.debug('PRICE WS REJECT REASON' + mapWsVal.get('REJECTION_REASON' + String.valueOf(rejectReason)));
                         // Call Web Service to register the quotation loss
-                        ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null,'');
+                        ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, '', null);
                         HttpResponse mqResponse = mqHelper.invoke();
       
                         //Check the ws response status

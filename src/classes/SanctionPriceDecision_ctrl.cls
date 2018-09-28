@@ -107,7 +107,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         Id idAnalist = null;
         try{
             if(approvalMethod == 'Web'){
-                ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(recordId,wsPhase,Double.valueOf(lstValue[0]),'');
+                ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(recordId,wsPhase,Double.valueOf(lstValue[0]),'', null); 
                 try{
                     System.HttpResponse invokeModify = modifyHelper.invoke();
                     switch on invokeModify.getStatusCode(){

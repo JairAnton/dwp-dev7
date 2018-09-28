@@ -1,7 +1,7 @@
 public class ModifyQuotationRequest_helper {
     
     public ModifyQuotationRequest_Wrapper inputDataMapping;
-    public ModifyQuotationRequest_helper(String oppRecordId, String phaseId, Decimal proposed, String contractNumber){
+    public ModifyQuotationRequest_helper(String oppRecordId, String phaseId, Decimal proposed, String contractNumber, String userCode){
         List<OpportunityLineItem> lstOli = [SELECT 	Id, proposed_apr_per__c,price_quote_id__c,price_operation_id__c, price_rates_calculation_Id__c, Opportunity.Loss_Reason__c,
                                             Opportunity.rejection_winner_entity_name__c,Opportunity.frm_ContractNumber__c,PE_List_Product_mode__c
                                             FROM OpportunityLineItem WHERE OpportunityId = :oppRecordId];
@@ -34,6 +34,7 @@ public class ModifyQuotationRequest_helper {
             }
             this.inputDataMapping.quotationId = (lstOli[0].price_quote_id__c == null ? '' : lstOli[0].price_quote_id__c);
             this.inputDataMapping.operationId = (lstOli[0].price_operation_id__c == null ? '' : lstOli[0].price_operation_id__c);
+            this.inputDataMapping.userCode = (userCode == null || userCode == '' ? getContextUserCode() : userCode);
         }
     }
     
@@ -165,6 +166,7 @@ public class ModifyQuotationRequest_helper {
         public String jsonStructure;
         public String quotationId;
         public String operationId;
+        public String userCode;
     }
     public class Request_rate {
         public String id;	//price_rates_calculation_Id__c
@@ -237,6 +239,10 @@ public class ModifyQuotationRequest_helper {
 	}
 	public class Response_disbursement {
 		public Response_status status;
-	}	  
-    
+    }
+
+    private static String getContextUserCode(){
+        List<User> lstUser = [SELECT Id, user_id__c FROM User WHERE Id = :UserInfo.getUserId()];
+        return lstUser[0].user_id__c;
+    }
 }

@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>iaso__Headers_Class__c</field>
-        <value xsi:type="xsd:string">Header_helper</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>iaso__Http_Headers_LTA_TEMP__c</field>
@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>iaso__Http_Headers_LTA__c</field>
-        <value xsi:type="xsd:string">{&quot;Content-Type&quot;: &quot;application/json&quot;, &quot;back-clientdocument&quot;:&quot;&quot;,&quot;X-HTTP-Method-Override&quot;: &quot;PATCH&quot;}</value>
+        <value xsi:type="xsd:string">{&quot;Content-Type&quot;: &quot;application/json&quot;, &quot;back-clientdocument&quot;:&quot;#userCode#&quot;,&quot;X-HTTP-Method-Override&quot;: &quot;PATCH&quot;}</value>
     </values>
     <values>
         <field>iaso__Http_Method__c</field>

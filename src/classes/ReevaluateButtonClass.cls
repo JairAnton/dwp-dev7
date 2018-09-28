@@ -25,7 +25,7 @@ public class ReevaluateButtonClass {
                 //Call a RECOVER Service One product            
                 if (lstOLI[0].price_quote_id__c !='' && lstOLI[0].product_price_approval_method__c == 'Web' && (opp.opportunity_status_type__c == '11' || opp.opportunity_status_type__c == '13' || opp.opportunity_status_type__c == '10' || opp.opportunity_status_type__c == '08' || opp.opportunity_status_type__c == '20')){
                     //helper to call the service
-                    ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(opp.Id, 'RECOVER',lstOLI[0].proposed_apr_per__c,opp.frm_ContractNumber__c);
+                    ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(opp.Id, 'RECOVER',lstOLI[0].proposed_apr_per__c,opp.frm_ContractNumber__c, null); 
                     //invoke the service
                     System.HttpResponse invoke = modifyHelper.invoke();
                     //get json body
