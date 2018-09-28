@@ -36,11 +36,6 @@
  &quot;calculationType&quot;: {
    &quot;id&quot;: &quot;UNIQUE&quot;
  },
- &quot;bank&quot;:{
-	&quot;branch&quot;:{
-		 &quot;id&quot;: &quot;#branch#&quot;
-	}
- },
  &quot;participant&quot;: {
    &quot;id&quot;: &quot;#participantId#&quot;,
    &quot;identityDocuments&quot;: [

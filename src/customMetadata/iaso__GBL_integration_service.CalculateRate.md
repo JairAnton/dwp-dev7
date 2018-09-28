@@ -36,11 +36,6 @@
  &quot;calculationType&quot;: {
    &quot;id&quot;: &quot;UNIQUE&quot;
  },
- &quot;bank&quot;:{
-	&quot;branch&quot;:{
-		 &quot;id&quot;: &quot;#branch#&quot;
-	}
- },
  &quot;participant&quot;: {
    &quot;id&quot;: &quot;#participantId#&quot;,
    &quot;identityDocuments&quot;: [
@@ -82,7 +77,7 @@
     </values>
     <values>
         <field>iaso__Mock_LTA__c</field>
-        <value xsi:type="xsd:string">{}</value>
+        <value xsi:type="xsd:string">{&quot;data&quot;:{&quot;calculationType&quot;:{&quot;id&quot;:&quot;UNIQUE&quot;},&quot;model&quot;:{&quot;id&quot;:&quot;2&quot;},&quot;businessAgent&quot;:{},&quot;participant&quot;:{&quot;identityDocuments&quot;:[{&quot;documentType&quot;:{}}],&quot;bank&quot;:{},&quot;segment&quot;:{&quot;subSegment&quot;:{&quot;partitions&quot;:[]}},&quot;delinquency&quot;:{&quot;behaviorDebts&quot;:{&quot;tacticalVariable&quot;:[]}},&quot;strategicRelationships&quot;:[],&quot;riskLevel&quot;:[]},&quot;product&quot;:{&quot;requestedAmount&quot;:{},&quot;term&quot;:{},&quot;guarantee&quot;:{}},&quot;summary&quot;:[{&quot;calculationId&quot;:&quot;173380&quot;,&quot;financialIndicators&quot;:[{&quot;id&quot;:&quot;CLUSTER&quot;,&quot;value&quot;:&quot;E1014&quot;},{&quot;id&quot;:&quot;COLLECTIVE_FLAG&quot;,&quot;value&quot;:&quot;false&quot;},{&quot;id&quot;:&quot;TACTICAL_FACTOR&quot;,&quot;value&quot;:&quot;1&quot;}],&quot;interestRates&quot;:{&quot;effectiveRates&quot;:[{&quot;id&quot;:&quot;ADJUSTED_MODEL_TEA&quot;,&quot;percentage&quot;:0.00020},{&quot;id&quot;:&quot;MINIMUM_TEA&quot;,&quot;percentage&quot;:0.154},{&quot;id&quot;:&quot;SUGGESTED_TEA&quot;,&quot;percentage&quot;:0.165}]},&quot;fees&quot;:[{&quot;feeType&quot;:{&quot;id&quot;:&quot;EXPECTED_LOSS&quot;},&quot;detail&quot;:{&quot;percentage&quot;:0.063162}},{&quot;feeType&quot;:{&quot;id&quot;:&quot;FUNDING_COST&quot;},&quot;detail&quot;:{&quot;percentage&quot;:0.0353}},{&quot;feeType&quot;:{&quot;id&quot;:&quot;EFFICIENCY_COST&quot;},&quot;detail&quot;:{&quot;percentage&quot;:0.0074}},{&quot;feeType&quot;:{&quot;id&quot;:&quot;FINANCING_COST_STOCKHOLDER&quot;},&quot;detail&quot;:{&quot;percentage&quot;:0.0147}},{&quot;feeType&quot;:{&quot;id&quot;:&quot;FUNDING_COST_ADJUSTED&quot;},&quot;detail&quot;:{&quot;percentage&quot;:0.0309}},{&quot;feeType&quot;:{&quot;id&quot;:&quot;REGULATORY_CAPITAL&quot;},&quot;detail&quot;:{&quot;percentage&quot;:0.1}},{&quot;feeType&quot;:{&quot;id&quot;:&quot;ADDITIONAL_CAPITAL&quot;},&quot;detail&quot;:{&quot;percentage&quot;:0.025}},{&quot;feeType&quot;:{&quot;id&quot;:&quot;CAPITAL&quot;},&quot;detail&quot;:{&quot;amount&quot;:2931.88,&quot;currency&quot;:&quot;PEN&quot;}}],&quot;liquidityIndicators&quot;:[{&quot;id&quot;:&quot;ADDITIONAL_SPREAD&quot;,&quot;detail&quot;:{&quot;percentage&quot;:0.005}},{&quot;id&quot;:&quot;MINIMUM_SPREAD&quot;,&quot;detail&quot;:{&quot;percentage&quot;:0.005}},{&quot;id&quot;:&quot;COMMERCIAL_SPREAD&quot;,&quot;detail&quot;:{&quot;percentage&quot;:0.04}}]}]}}</value>
     </values>
     <values>
         <field>iaso__Querystring_Input_Template_LTA_TEMP__c</field>
