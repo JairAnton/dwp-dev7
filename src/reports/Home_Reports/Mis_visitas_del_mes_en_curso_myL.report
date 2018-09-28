@@ -14,7 +14,7 @@
         <groupingColumn>dwp_kitv__Visit__c.report_visit_status_type__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <showAxisLabels>true</showAxisLabels>
+        <showAxisLabels>false</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>true</showTotal>
         <showValues>false</showValues>
@@ -22,7 +22,7 @@
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
         <textSize>12</textSize>
-        <title>Número de visitas programadas en el mes</title>
+        <title>Numero de visitas programadas en el mes</title>
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
@@ -36,7 +36,7 @@
         <field>dwp_kitv__Visit__c.report_visit_status_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Visitas del mes en curso</name>
+    <name>Mis visitas del mes en curso</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -44,8 +44,8 @@
     <reportType>CustomEntity$dwp_kitv__Visit__c</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
-<!--     <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals> -->
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</dateColumn>
         <interval>INTERVAL_THISMONTH</interval>
