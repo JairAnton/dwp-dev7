@@ -32,6 +32,7 @@
                 $A.util.removeClass(lookUpicon, 'slds-show');
             }
         });
+        component.set('v.isLoad',true);
         $A.enqueueAction(action);
         
     },
@@ -79,18 +80,34 @@
             component.set('v.checkError',false);
             changeowner.setCallback(this, function(response){
                 var state = response.getState();
+                var ret = response.getReturnValue();
+                var genericError = ret.genericError;
+                var upd = ret.Updated;
+                console.log('upd',upd);
                 if (state === "SUCCESS") {
-                    if(response.getReturnValue()!="Updated"){
+                    component.set('v.isLoad',true);
+                    if(genericError != undefined){
+                        component.set('v.isError', true);
+                        component.set('v.errorlst',genericError);
+                        component.set('v.hasHeader',false);
+                    } else if (upd != "Updated"){
                         this.toastEvent('Error!', response.getReturnValue(), 'error');
-                    } else{
-                        this.toastEvent('Success!', msgreasign, 'success');                    
-                    }                
-                    $A.get('e.force:refreshView').fire();
+                        component.set('v.hasHeader',true);
+                        component.set('v.isError', false);
+                        $A.get('e.force:refreshView').fire();
+                    } else if (upd == "Updated"){
+                        this.toastEvent('Success!', msgreasign, 'success');
+                        component.set('v.hasHeader',true);
+                        component.set('v.isError', false);
+                        $A.get('e.force:refreshView').fire();
+                    }                    
+                    
                 }
                 
             });
             $A.enqueueAction(changeowner);
         }else{
+            component.set('v.isLoad',false);
             component.set('v.checkError',true);
             var disabledButton = $A.get("e.c:disabledButton_evt");     
             disabledButton.setParams({ 
