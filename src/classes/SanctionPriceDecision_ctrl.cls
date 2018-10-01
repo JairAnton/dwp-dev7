@@ -105,10 +105,10 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.isProcess__c = true;
         Boolean isOk = true;
         Id idAnalist = null;
-        try{
+        //try{
             if(approvalMethod == 'Web'){
                 ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(recordId,wsPhase,Double.valueOf(lstValue[0]),'', null); 
-                try{
+                //try{
                     System.HttpResponse invokeModify = modifyHelper.invoke();
                     switch on invokeModify.getStatusCode(){
                         when 200 {
@@ -146,12 +146,12 @@ public with sharing class SanctionPriceDecision_ctrl {
                             mapReturn.put('errorMessage',Label.PriceGenericError);
                         }
                     }
-                }catch(Exception e){
+                /*}catch(Exception e){
                     System.debug(e);
                     isOk = false;
                     mapReturn.put('isOk', false);
                     mapReturn.put('errorMessage',Label.PriceGenericError);
-                }
+                }*/
             }
             if(isOk){
                 update opp;
@@ -190,9 +190,9 @@ public with sharing class SanctionPriceDecision_ctrl {
 
                 mapReturn.put('isOk', (Boolean)mapReturnSaveOli.get('isOk'));
             }
-        }catch(Exception e){
+        /*}catch(Exception e){
             mapReturn.put('isOk', false);
-        }
+        }*/
         return mapReturn;
     }
 
