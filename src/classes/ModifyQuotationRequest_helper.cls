@@ -243,6 +243,6 @@ public class ModifyQuotationRequest_helper {
 
     private static String getContextUserCode(){
         List<User> lstUser = [SELECT Id, user_id__c FROM User WHERE Id = :UserInfo.getUserId()];
-        return lstUser[0].user_id__c;
+        return (lstUser[0].user_id__c == null || lstUser[0].user_id__c == '' ?'':lstUser[0].user_id__c);
     }
 }
