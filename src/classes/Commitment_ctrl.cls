@@ -94,12 +94,10 @@ public with sharing class Commitment_ctrl {
 				// Check if the context user is the same user that owns the price quotation request
 				if(oliList[0].price_quote_owner_id__c == UserInfo.getUserId()){
 					// Invoke web service to request quotation approval
-					System.debug('REQUEST APPROVAL 1');
 					mapReturn = invokeRequestQuotationApproval(recordId);
 				}
 				else{
                     
-                    System.debug('RECOVER 1');
 					// Invoke web service to recover quotation 
 					mapReturn = invokeRecoverQuotation(recordId); 
 					mapReturn.put('nextCallout',true);
@@ -269,7 +267,6 @@ public with sharing class Commitment_ctrl {
 			
 		}
 		catch(Exception e){
-            System.debug('EXCEPTION ERROR' + e.getMessage());
 			// Set the status to return
 			mapReturn.put('success','false');
 			
@@ -352,7 +349,6 @@ public with sharing class Commitment_ctrl {
 			
 		}
 		catch(Exception e){
-            System.debug('EXCEPTION ERROR' + e.getMessage());
 			// Set the status to return
 			mapReturn.put('success','false');
 			
@@ -506,7 +502,6 @@ public with sharing class Commitment_ctrl {
 	
 		}
 		catch(Exception e){
-            System.debug('EXCEPTION ERROR' + e.getMessage());
 			// Set the status to return
 			mapReturn.put('success','false');
 			

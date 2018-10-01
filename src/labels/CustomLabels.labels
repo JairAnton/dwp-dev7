@@ -1914,4 +1914,11 @@
         <shortDescription>Price Request Quotation Approval Unknown Error</shortDescription>
         <value>Quotation request has not been sent for approval due to an error. Please, contact your administration for further details.</value>
     </labels>
+    <labels>
+        <fullName>lblPDFProductCommercialLoanCP2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductCommercialLoanCP</shortDescription>
+        <value>PC00001_2</value>
+    </labels>
 </CustomLabels>

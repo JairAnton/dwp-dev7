@@ -83,7 +83,6 @@
                 var ret = response.getReturnValue();
                 var genericError = ret.genericError;
                 var upd = ret.Updated;
-                console.log('upd',upd);
                 if (state === "SUCCESS") {
                     component.set('v.isLoad',true);
                     if(genericError != undefined){

@@ -103,7 +103,6 @@ public  class ReevaluateButtonClassTest {
         Test.startTest();
         
         System.HttpResponse modifyResponse = modifyHelper.invoke();
-        System.debug('modifyResponse.getStatusCode()'+modifyResponse);
         ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseWrapper = ModifyQuotationRequest_helper.responseParse(modifyResponse.getBody());
         Map<String,Object> mapReturn = ReevaluateButtonClass.callService(opptest.Id);
         Test.stopTest();

@@ -81,7 +81,6 @@ public class approveButtonClass {
                         }
                     }
                 }catch(Exception e){
-                    System.debug(e);
                     isOk = false;
                     mapReturn.put('isOk', false);
                     mapReturn.put('errorMessage',Label.PriceApproveErrorNotKnow);

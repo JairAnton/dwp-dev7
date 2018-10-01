@@ -31,7 +31,6 @@
                         this.toastEvent('Error!', response.getReturnValue(), 'error');
                         $A.get('e.force:refreshView').fire();
                     } else if(ret.Updated =="Updated"){
-                        console.log('pasaa');
                         this.toastEvent('Success!', msgreeval, 'success');
                         $A.get('e.force:refreshView').fire();
                     }                    

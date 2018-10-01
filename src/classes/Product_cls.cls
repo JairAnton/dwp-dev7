@@ -372,22 +372,15 @@ public without sharing class Product_cls {
                                                         FROM OpportunityLineItem WHERE OpportunityId = :recordId];
             
             if(!oppProductsList.isEmpty()){
-                
-                System.debug('PRICE QUOTE ID' + oppProductsList[0].price_quote_id__c);
             
                 // Check if there is a quotation linked to the opportunity
                 if(oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null){
-                    
-                    System.debug('PRICE WITH QUOTE');
-                    
+
                     // Check if the reject reason can be mapped to the ws parameters
                     Map<String,Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String>{'REJECTION_REASON'}, '');
                     
-                    System.debug('PRICE LOSS REASON MAP' + mapWsVal);
-                    
                     if(mapWsVal.containsKey('REJECTION_REASON' + String.valueOf(rejectReason))){
-                    
-                        System.debug('PRICE WS REJECT REASON' + mapWsVal.get('REJECTION_REASON' + String.valueOf(rejectReason)));
+
                         // Call Web Service to register the quotation loss
                         ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, '', null);
                         HttpResponse mqResponse = mqHelper.invoke();

@@ -147,7 +147,6 @@ public with sharing class SanctionPriceDecision_ctrl {
                         }
                     }
                 }catch(Exception e){
-                    System.debug(e);
                     isOk = false;
                     mapReturn.put('isOk', false);
                     mapReturn.put('errorMessage',Label.PriceGenericError);
