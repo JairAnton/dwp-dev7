@@ -204,7 +204,7 @@ public with sharing class Commitment_ctrl {
 							// Check if the quotation owner exists as a user in DWP
 							if(!quotationAgents.isEmpty()){
 							
-								List<User> quotationUserList = [SELECT Id FROM User WHERE user_id__c =: quotationAgents[0].id];
+								List<User> quotationUserList = [SELECT Id FROM User WHERE user_id__c =: quotationAgents[0].id AND IsActive = true];
    
 								if(!quotationUserList.isEmpty()){
 									oppProductToUpdate.price_quote_owner_id__c = quotationUserList[0].id;
@@ -316,7 +316,7 @@ public with sharing class Commitment_ctrl {
 					List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
 								
 					if(!mqBusinessAgentsList.isEmpty()){
-						List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
+						List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
 						if(!userList.isEmpty()){
 							oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
 						}else{
@@ -448,7 +448,7 @@ public with sharing class Commitment_ctrl {
 						
 						// Check if the quotation owner exists as a user in DWP						
 						if(!mqBusinessAgentsList.isEmpty()){
-							List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
+							List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
 							if(!userList.isEmpty()){
 								oppProductToUpdate.price_quote_owner_id__c = userList[0].Id;
 								caseOwner =  userList[0].id; 
