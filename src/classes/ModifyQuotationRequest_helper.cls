@@ -40,6 +40,11 @@ public class ModifyQuotationRequest_helper {
     
      //method to convert the input data mapping to a JSON structure
     public String generateJSONRequest(){
+        this.inputDataMapping.phaseId = (this.inputDataMapping.phaseId == null? '': this.inputDataMapping.phaseId);
+        this.inputDataMapping.jsonStructure =(this.inputDataMapping.jsonStructure == null? '': this.inputDataMapping.jsonStructure);
+        this.inputDataMapping.quotationId =(this.inputDataMapping.quotationId == null? '': this.inputDataMapping.quotationId);
+        this.inputDataMapping.operationId =(this.inputDataMapping.operationId == null? '': this.inputDataMapping.operationId);
+        this.inputDataMapping.userCode =(this.inputDataMapping.userCode == null? '': this.inputDataMapping.userCode);
         return JSON.serialize(this.inputDataMapping);
     }
     
