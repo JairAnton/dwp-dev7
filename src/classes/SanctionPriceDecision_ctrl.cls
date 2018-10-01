@@ -123,7 +123,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                             List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
                             
                             if(!mqBusinessAgentsList.isEmpty()){
-                                List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
+                                List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
                                 if(!userList.isEmpty()){
                                     oliRecord.price_quote_owner_id__c = userList[0].Id;
                                     idAnalist = userList[0].Id;
