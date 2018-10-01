@@ -35,7 +35,7 @@ public class approveButtonClass {
          * */ 
         Map<String,Object> mapReturn = new Map<String,Object>();
         mapReturn.put('isOk', true);
-        //try{
+        try{
             List <dwp_cvad__Action_Audit__c> lstactionPrice = new List <dwp_cvad__Action_Audit__c>();
             opportunity opp  =[SELECT ID,opportunity_status_type__c,isProcess__c, (SELECT Id, product2.Type_of_quote__c, price_quote_status_id__c FROM OpportunityLineItems) FROM Opportunity WHERE ID =:Id];        
             opp.isProcess__c=true;
@@ -43,7 +43,7 @@ public class approveButtonClass {
             Boolean isOk = true;
             if(opp.OpportunityLineItems[0].product2.Type_of_quote__c == 'Web' && opp.OpportunityLineItems[0].price_quote_status_id__c == 'MODIFIED'){
                 ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(Id,'GENERATE_QUOTATION_SHEET',null,'',null);
-                //try{
+                try{
                     System.HttpResponse invokeModify = modifyHelper.invoke();
                     switch on invokeModify.getStatusCode(){
                         when 200 {
@@ -80,12 +80,12 @@ public class approveButtonClass {
                             mapReturn.put('errorMessage',Label.PriceApproveErrorNotKnow);
                         }
                     }
-                /*}catch(Exception e){
+                }catch(Exception e){
                     System.debug(e);
                     isOk = false;
                     mapReturn.put('isOk', false);
                     mapReturn.put('errorMessage',Label.PriceApproveErrorNotKnow);
-                }*/
+                }
             }
             if(isOk){
                 update opp;
@@ -94,11 +94,11 @@ public class approveButtonClass {
             }
             return mapReturn;
 
-        /*}catch(Exception e){
+        }catch(Exception e){
             mapReturn.put('isOk', false);
             mapReturn.put('errorMessage',e.getMessage());
             return mapReturn;
-        }*/
+        }
         
     }
     
@@ -108,7 +108,7 @@ public class approveButtonClass {
          *  @description Method to update the opportunity status to Risk approved and insert a Action Audit
          *  @return String
          * */
-        //try{            
+        try{            
             
             List <dwp_cvad__Action_Audit__c> lstactionRisk = new List <dwp_cvad__Action_Audit__c>();
             opportunity opp  =[SELECT ID,opportunity_status_type__c,isProcess__c FROM Opportunity WHERE ID =:Id];
@@ -120,9 +120,9 @@ public class approveButtonClass {
             
             return 'Updated';
             
-        /*}catch(Exception e){
+        }catch(Exception e){
             return e.getMessage();
-        }*/
+        }
     }
     
 }
