@@ -387,6 +387,7 @@ public without sharing class Product_cls {
         if(!oppProductList.isEmpty()){
             if(oppProductList[0].price_quote_id__c != null && oppProductList[0].price_quote_id__c != '' && oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product_price_approval_method__c == 'Web'){
                 mapReturn = Commitment_ctrl.invokeRecoverQuotation(recordId);
+                mapReturn.put('nextAction',true);
                 if((String) mapReturn.get('success') == 'false'){
                     mapReturn.put('nextAction',false);
                 }
