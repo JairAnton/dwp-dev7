@@ -48,6 +48,7 @@ static Account acctest;
         oli.price_quote_id__c = '111';
         oli.price_operation_id__c = '222';
         oli.price_quote_status_id__c = 'MODIFIED';
+        oli.price_quote_owner_id__c = UserInfo.getUserId();
         update oli;
 
         
@@ -65,6 +66,7 @@ static Account acctest;
         Test.stopTest();
  
     }
+    
     @isTest
     static void approveWeb409(){
         setData();
@@ -77,6 +79,7 @@ static Account acctest;
         oli.price_quote_id__c = '1475650';
         oli.price_operation_id__c = '1469800';
         oli.price_quote_status_id__c = 'MODIFIED';
+        oli.price_quote_owner_id__c = UserInfo.getUserId();
         update oli;
 
         
@@ -106,6 +109,7 @@ static Account acctest;
         oli.price_quote_id__c = '1475650';
         oli.price_operation_id__c = '1469800';
         oli.price_quote_status_id__c = 'MODIFIED';
+        oli.price_quote_owner_id__c = UserInfo.getUserId();
         update oli;
 
         

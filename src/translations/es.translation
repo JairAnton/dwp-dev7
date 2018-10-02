@@ -1264,6 +1264,14 @@
         <label>No se ha podido enviar a aprobar la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
         <name>PriceRequestQuotationApprovalUnknownError</name>
     </customLabels>
+    <customLabels>
+        <label>No se ha podido registrar la pérdida de la cotización debido al siguiente error:</label>
+        <name>PriceRegisterLossKnownError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido registrar la pérdida de la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceRegisterLossUnknownError</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

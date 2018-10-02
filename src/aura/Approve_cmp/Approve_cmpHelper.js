@@ -55,16 +55,41 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                if(ret.isOk){
-                    this.toastEvent('Success!', msgapprov, 'success');
-                    $A.get('e.force:refreshView').fire();
-                    helper.closeMe(component, event, helper);
+                if(ret.reply){
+                    var action2 = component.get("c.approvePrice");
+                    action2.setParams({Id : inputObject.recordId});
+                    action2.setCallback(this, function(response) {
+                        var state = response.getState();
+                        if (state === "SUCCESS") {
+                            var ret2 = response.get2urnValue();
+                            
+                            if(ret2.isOk){
+                                this.toastEvent('Success!', msgapprov, 'success');
+                                $A.get('e.force:refreshView').fire();
+                                helper.closeMe(component, event, helper);
+                            }else{
+                                var lstError = [];
+                                lstError.push(ret2.errorMessage);
+                                component.set('v.isOk',false);
+                                component.set('v.hasHeader',false);
+                                component.set('v.lstError',lstError);
+                            }
+                        }
+                    });
+                    
+                    $A.enqueueAction(action2);
                 }else{
-                    var lstError = [];
-                    lstError.push(ret.errorMessage);
-                    component.set('v.isOk',false);
-                    component.set('v.hasHeader',false);
-                    component.set('v.lstError',lstError);
+                    if(ret.isOk){
+                        this.toastEvent('Success!', msgapprov, 'success');
+                        $A.get('e.force:refreshView').fire();
+                        helper.closeMe(component, event, helper);
+                    }else{
+                        var lstError = [];
+                        lstError.push(ret.errorMessage);
+                        component.set('v.isOk',false);
+                        component.set('v.hasHeader',false);
+                        component.set('v.lstError',lstError);
+                    }
                 }
             }
         });

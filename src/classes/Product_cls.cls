@@ -328,99 +328,152 @@ public without sharing class Product_cls {
 	}
 
     /*Dismiss oportunity Method*/
-    @AuraEnabled public static String setRejectOpportunity(String OpportunityId,String RejectReason,String WinnerBank,String IsoCurrency,Decimal Amount,Decimal Rate,Integer Term,String Comments){
+    @AuraEnabled public static Map<String,Object> setRejectOpportunity(String OpportunityId,String RejectReason,String WinnerBank,String IsoCurrency,Decimal Amount,Decimal Rate,Integer Term,String Comments){
+       
+        Map<String,Object> resultMap = new Map<String,Object>();
+        
+        resultMap.put('success','true');
+
+        
         try
         {
-            List<Opportunity> itemOpp= [SELECT Id, StageName, opportunity_status_type__c, Loss_Reason__c, rejection_winner_entity_name__c,
+             List<Opportunity> itemOpp= [SELECT Id, StageName, opportunity_status_type__c, Loss_Reason__c, rejection_winner_entity_name__c,
                                         rejection_reason_id__c, rejection_amount__c, rejection_rate_per__c, rejection_period_num__c, rejection_coin__c
                                         FROM Opportunity WHERE Id=: OpportunityId];                              
 
             if(!itemOpp.isEmpty()){
                 
-                // Update opportunity with the input data
-                itemOpp[0].IsProcess__c=true;
-                itemOpp[0].StageName = '07';
-                itemOpp[0].opportunity_status_type__c = '22';
-                itemOpp[0].Loss_Reason__c = RejectReason;
-                itemOpp[0].rejection_winner_entity_name__c = WinnerBank;
-                itemOpp[0].rejection_reason_id__c = Comments;
-                itemOpp[0].rejection_amount__c = Amount;
-                itemOpp[0].rejection_rate_per__c = Rate;
-                if(Term!=null) itemOpp[0].rejection_period_num__c = Term;
-                itemOpp[0].rejection_coin__c = IsoCurrency;
-                update itemOpp[0];
+                resultMap = registerQuotationLoss(OpportunityId, RejectReason, WinnerBank);
                 
-                // If applies, register the quotation loss
-                registerQuotationLoss(OpportunityId, RejectReason);
-            }
-            
-              
-            return 'true';                             
+                if((String)resultMap.get('success') == 'true'){
+                    
+                    // Update opportunity with the input data
+                    itemOpp[0].IsProcess__c=true;
+                    itemOpp[0].StageName = '07';
+                    itemOpp[0].opportunity_status_type__c = '22';
+                    itemOpp[0].Loss_Reason__c = RejectReason;
+                    itemOpp[0].rejection_winner_entity_name__c = WinnerBank;
+                    itemOpp[0].rejection_reason_id__c = Comments;
+                    itemOpp[0].rejection_amount__c = Amount;
+                    itemOpp[0].rejection_rate_per__c = Rate;
+                    if(Term!=null) itemOpp[0].rejection_period_num__c = Term;
+                    itemOpp[0].rejection_coin__c = IsoCurrency;
+                    update itemOpp[0];
+                }     
+            }                          
     
-        }catch(Dmlexception exp) { return exp.getMessage();}
+        }catch(Dmlexception exp) { 
+            resultMap.put('success','false');
+            resultMap.put('errorMessage',exp.getMessage());
+        }
+        
+        return resultMap;
     }  
+    
+    // Method that invoke the ws to recover a quotationupdates the opportunity and opportunity line item with the response
+    @auraenabled
+    public static Map<String,Object> recoverQuotation(String recordId){
+        
+        Map<String,Object> mapReturn = new Map<String,Object>();
+        mapReturn.put('success','true');
+        
+        List<OpportunityLineItem> oppProductList = [SELECT price_quote_status_id__c,
+                                                        price_quote_owner_id__c,
+                                                    	product_price_approval_method__c,
+                                                        price_quote_id__c
+                                                    FROM OpportunityLineItem
+                                                    WHERE OpportunityId = :recordId];
+        mapReturn.put('nextAction',true);
+        if(!oppProductList.isEmpty()){
+            if(oppProductList[0].price_quote_id__c != null && oppProductList[0].price_quote_id__c != '' && oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product_price_approval_method__c == 'Web'){
+                mapReturn = Commitment_ctrl.invokeRecoverQuotation(recordId);
+                if((String) mapReturn.get('success') == 'false'){
+                    mapReturn.put('nextAction',false);
+                }
+            }
+        }
+            
+        return mapReturn;
+    }
     
     /********************************************************************************************
     Method to register the quotation loss via WS
     *********************************************************************************************/
-    @future(callout = true)
-    public static void registerQuotationLoss(String recordId, String rejectReason){
+    public static Map<String,Object> registerQuotationLoss(String recordId, String rejectReason, String winnerEntity){
+        
+        Map<String,Object> returnMap = new Map<String,Object>();
+        
+        returnMap.put('success','true');
+        
+        String rejectParams = rejectReason + ';' + winnerEntity;
         
         try{
         
-            List<OpportunityLineItem> oppProductsList = [SELECT Id, price_quote_id__c, price_quote_status_id__c, price_quote_owner_id__c
+            List<OpportunityLineItem> oppProductsList = [SELECT Id, price_quote_id__c, price_quote_status_id__c, price_quote_owner_id__c, product_price_approval_method__c
                                                         FROM OpportunityLineItem WHERE OpportunityId = :recordId];
             
             if(!oppProductsList.isEmpty()){
             
                 // Check if there is a quotation linked to the opportunity
-                if(oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null){
+                if(oppProductsList[0].product_price_approval_method__c == 'Web' && oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null){
 
-                    // Check if the reject reason can be mapped to the ws parameters
-                    Map<String,Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String>{'REJECTION_REASON'}, '');
-                    
-                    if(mapWsVal.containsKey('REJECTION_REASON' + String.valueOf(rejectReason))){
-
-                        // Call Web Service to register the quotation loss
-                        ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, '', null);
-                        HttpResponse mqResponse = mqHelper.invoke();
+                    // Call Web Service to register the quotation loss
+                    ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, rejectParams, null);
+                    HttpResponse mqResponse = mqHelper.invoke();
       
-                        //Check the ws response status
-                        Integer wsResponseStatusCode = mqResponse.getStatusCode();
+                    //Check the ws response status
+                    Integer wsResponseStatusCode = mqResponse.getStatusCode();
                         
-                        // Check if the response was successful
-                        if(wsResponseStatusCode == 200){
-                            
-                            // Get the response body
-                            ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
-                            
-                            // Update the quoation status and owner
-                            ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
-                            ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
-                            
-                            oppProductsList[0].price_quote_status_id__c = mqStatus.id;
-                            
-                            List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
-                            
-                            if(!mqBusinessAgentsList.isEmpty()){
-                                List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
-                                if(!userList.isEmpty()){
-                                    oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
-                                }
+                    // Check if the response was successful
+                    if(wsResponseStatusCode == 200){
+                        
+                        returnMap.put('success','true');
+                        
+                        // Get the response body
+                        ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
+                        
+                        // Update the quoation status and owner
+                        ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
+                        ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
+                        
+                        oppProductsList[0].price_quote_status_id__c = mqStatus.id;
+                        
+                        List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
+                        
+                        if(!mqBusinessAgentsList.isEmpty()){
+                            List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
+                            if(!userList.isEmpty()){
+                                oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
                             }
-                            else{
-                                oppProductsList[0].price_quote_owner_id__c = null;
-                            }
-                            
-                            update oppProductsList[0];
                         }
+                        else{
+                            oppProductsList[0].price_quote_owner_id__c = null;
+                        }
+                        
+                        update oppProductsList[0];
+                    }
+                    else if(wsResponseStatusCode == 409){
+                       returnMap.put('success','false');
+                       WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody()); 
+                       // Set the error message
+					   String errorMessage = Label.PriceRegisterLossKnownError + ' ' + errorDetails.errormessage;
+					   returnMap.put('errorMessage',errorMessage);
+                    }
+                    else{
+                       returnMap.put('success','false');
+                       String errorMessage = Label.PriceRegisterLossUnknownError;
+					   returnMap.put('errorMessage',errorMessage);
                     }
                 }
             }
         }
         catch(Exception e){
-            System.debug(e.getMessage());
+            returnMap.put('success','false');
+            String errorMessage = Label.PriceRegisterLossUnknownError;
+			returnMap.put('errorMessage',errorMessage);
         }
+        
+        return returnMap;
     }
     
     public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)

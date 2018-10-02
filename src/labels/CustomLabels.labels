@@ -1921,4 +1921,18 @@
         <shortDescription>lblPDFProductCommercialLoanCP</shortDescription>
         <value>PC00001_2</value>
     </labels>
+    <labels>
+        <fullName>PriceRegisterLossKnownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Register Loss Known Error</shortDescription>
+        <value>The quotation loss has not been registered due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceRegisterLossUnknownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Register Loss Unknown Error</shortDescription>
+        <value>The quotation loss has not been registered due to an error. Please, contact your administration for further details.</value>
+    </labels>
 </CustomLabels>

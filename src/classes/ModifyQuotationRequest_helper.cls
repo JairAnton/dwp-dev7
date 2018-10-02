@@ -1,7 +1,7 @@
 public class ModifyQuotationRequest_helper {
     
     public ModifyQuotationRequest_Wrapper inputDataMapping;
-    public ModifyQuotationRequest_helper(String oppRecordId, String phaseId, Decimal proposed, String contractNumber, String userCode){
+    public ModifyQuotationRequest_helper(String oppRecordId, String phaseId, Decimal proposed, String param01, String userCode){
         List<OpportunityLineItem> lstOli = [SELECT 	Id, proposed_apr_per__c,price_quote_id__c,price_operation_id__c, price_rates_calculation_Id__c, Opportunity.Loss_Reason__c,
                                             Opportunity.rejection_winner_entity_name__c,Opportunity.frm_ContractNumber__c,PE_List_Product_mode__c
                                             FROM OpportunityLineItem WHERE OpportunityId = :oppRecordId];
@@ -22,9 +22,9 @@ public class ModifyQuotationRequest_helper {
                 }when 'REQUEST_APPROVAL'{
                     this.inputDataMapping = generateJson03(lstOli, phaseId,'REQUESTED_TEA',Label.PriceRequestApprovalQuotationDefaultComment,proposed);
                 }when 'REGISTER_LOSS'{
-                    this.inputDataMapping = generateJson04(lstOli, phaseId,'TEA_BMK',Label.PriceRegisterQuotationLossDefaultComment,proposed);
+                    this.inputDataMapping = generateJson04(lstOli, phaseId,'TEA_BMK',Label.PriceRegisterQuotationLossDefaultComment,proposed, param01);
                 }when 'DISBURSE'{
-                    this.inputDataMapping = generateJson05(lstOli, phaseId,Label.PriceDisburseQuotationDefaultComment,contractNumber);
+                    this.inputDataMapping = generateJson05(lstOli, phaseId,Label.PriceDisburseQuotationDefaultComment,param01);
                 }when else{
                     this.inputDataMapping = new ModifyQuotationRequest_Wrapper();
                 }
@@ -109,17 +109,18 @@ public class ModifyQuotationRequest_helper {
         mwrap.jsonStructure = jsonSubstr;
         return mwrap;
     }
-    public static ModifyQuotationRequest_Wrapper generateJson04(List<OpportunityLineItem> lstOli, String phaseId, String rateId, String comment,Decimal proposed){
+    public static ModifyQuotationRequest_Wrapper generateJson04(List<OpportunityLineItem> lstOli, String phaseId, String rateId, String comment,Decimal proposed, String param01){
         ModifyQuotationRequest_Wrapper mwrap = new ModifyQuotationRequest_Wrapper();
         mwrap.phaseId = phaseId;
+        List<String> lstParams = param01.split(';');
         
         Map<String,Object> mapInterestRates = new Map<String,Object>();
         Map<String,Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String>{'REJECTION_REASON','REJECTION_WINNER_ENTITY'}, '');
         
         Request_causeLoss causeLoss = new Request_causeLoss();
-        causeLoss.id = (mapWsVal.get('REJECTION_REASON' + String.valueOf(lstOli[0].Opportunity.Loss_Reason__c)) != null ? Integer.valueOf(mapWsVal.get('REJECTION_REASON' + String.valueOf(lstOli[0].Opportunity.Loss_Reason__c)).web_service_value__c) : null);        
+        causeLoss.id = (mapWsVal.get('REJECTION_REASON' + String.valueOf(lstParams[0])) != null ? Integer.valueOf(mapWsVal.get('REJECTION_REASON' + String.valueOf(lstParams[0])).web_service_value__c) : null);        
         Request_chosenBank chosenBank = new Request_chosenBank();
-        chosenBank.Id = (mapWsVal.get('REJECTION_WINNER_ENTITY' + String.valueOf(lstOli[0].Opportunity.Loss_Reason__c)) != null ? Integer.valueOf(mapWsVal.get('REJECTION_WINNER_ENTITY' + String.valueOf(lstOli[0].Opportunity.Loss_Reason__c)).web_service_value__c) : null);
+        chosenBank.Id = (mapWsVal.get('REJECTION_WINNER_ENTITY' + String.valueOf(lstParams[1])) != null ? Integer.valueOf(mapWsVal.get('REJECTION_WINNER_ENTITY' + String.valueOf(lstParams[1])).web_service_value__c) : null);
         Request_effectiveRate effectiveRate = new Request_effectiveRate();
         effectiveRate.id = rateId;        
         effectiveRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c) : proposed);
@@ -127,8 +128,6 @@ public class ModifyQuotationRequest_helper {
         causeLoss.chosenBank = chosenBank;       
         
         mapInterestRates.put('causeLoss',causeLoss);
-        mapInterestRates.put('chosenBank',chosenBank);
-        mapInterestRates.put('effectiveRate',effectiveRate);
         mapInterestRates.put('comment',comment);
         
         String jsonSubstr = parse(mapInterestRates);
