@@ -42,3 +42,5 @@
 "PEN","Banco de Comercio","10","11","REJECTION_WINNER_ENTITY",""
 "PEN","MiBanco","11","11","REJECTION_WINNER_ENTITY",""
 "PEN","Banco Azteca","12","11","REJECTION_WINNER_ENTITY",""
+"PEN","Por condiciones de producto","04","3","REJECTION_REASON","
+"PEN","Otra","05","4","REJECTION_REASON","
