@@ -101,7 +101,7 @@
         <field>Opportunity$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades creadas Producto Resto</name>
+    <name>Mis oportunidades creadas Familia Resto</name>
     <params>
         <name>co</name>
         <value>1</value>
