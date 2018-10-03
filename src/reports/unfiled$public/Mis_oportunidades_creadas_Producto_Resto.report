@@ -67,7 +67,6 @@
     </columns>
     <currency>PEN</currency>
     <filter>
-        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
             <isUnlocked>true</isUnlocked>
