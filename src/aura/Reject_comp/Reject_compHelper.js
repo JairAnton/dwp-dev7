@@ -134,6 +134,7 @@
                                     component.set('v.isError', true);
                                     component.set('v.errorlst',ret.errorMessage);
                                     component.set('v.hasHeader',false);
+                                    component.set('v.isLoad',true);
                                 }
                             }
                             else if (state === "INCOMPLETE") {	        
@@ -151,10 +152,13 @@
                         component.set('v.isError', true);
                         component.set('v.errorlst',ret.errorMessage);
                         component.set('v.hasHeader',false);
+                        component.set('v.isLoad',true);
                     }
                 }
             });
             $A.enqueueAction(actionOne);
+            component.set('v.isLoad',false);
+            component.set('v.hasHeader',false);
         }
         else 
         {
