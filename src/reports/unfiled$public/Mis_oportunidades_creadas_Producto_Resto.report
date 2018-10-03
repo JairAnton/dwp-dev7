@@ -13,7 +13,7 @@
             <axisBinding>y2</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>VerticalColumnGroupedLine</chartType>
+        <chartType>VerticalColumnStackedLine</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
@@ -33,9 +33,6 @@
     </chart>
     <columns>
         <field>Opportunity$Owner</field>
-    </columns>
-    <columns>
-        <field>Opportunity.OpportunityTeamMembers$FirstName</field>
     </columns>
     <columns>
         <field>Opportunity$Account</field>
@@ -95,13 +92,13 @@
     </filter>
     <format>Summary</format>
     <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>Opportunity$opportunity_product_family__c</field>
+        <dateGranularity>Week</dateGranularity>
+        <field>Opportunity$Opp_Creation_Date__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
-        <dateGranularity>Week</dateGranularity>
-        <field>Opportunity$Opp_Creation_Date__c</field>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Mis oportunidades creadas Producto Resto</name>
@@ -110,11 +107,11 @@
         <value>1</value>
     </params>
     <reportType>Opportunity_team_tp__c</reportType>
-    <roleHierarchyFilter>SUB_GERENTE_PRECIOS_RED</roleHierarchyFilter>
+    <roleHierarchyFilter>GERENTE_REGIONAL_BE_1</roleHierarchyFilter>
     <scope>ownsalesteam</scope>
-   <showDetails>true</showDetails>
- <!--    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>-->
+    <showDetails>true</showDetails>
+    <!--<showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals>-->
     <timeFrameFilter>
         <dateColumn>Opportunity$CreatedDate</dateColumn>
         <interval>INTERVAL_LAST60</interval>
