@@ -61,7 +61,7 @@
                     action2.setCallback(this, function(response) {
                         var state = response.getState();
                         if (state === "SUCCESS") {
-                            var ret2 = response.get2urnValue();
+                            var ret2 = response.getReturnValue();
                             
                             if(ret2.isOk){
                                 this.toastEvent('Success!', msgapprov, 'success');

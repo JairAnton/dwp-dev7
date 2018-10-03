@@ -49,7 +49,7 @@ public class approveButtonClass {
                     mapReturn.put('isOk',((String) mapReturnRecover.get('success') == 'true') );
                 }else{
                     Boolean isOk = true;
-                    if(opp.OpportunityLineItems[0].price_quote_status_id__c == 'MODIFIED'){
+                    if(opp.OpportunityLineItems[0].price_quote_status_id__c == 'MODIFIED' || opp.OpportunityLineItems[0].price_quote_status_id__c == 'RECOVERED'){
                         ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(Id,'GENERATE_QUOTATION_SHEET',null,'',null);
                         try{
                             System.HttpResponse invokeModify = modifyHelper.invoke();
@@ -121,13 +121,15 @@ public class approveButtonClass {
         mapReturn.put('success','true');
         
         List<OpportunityLineItem> oppProductList = [SELECT price_quote_status_id__c,
-                                                        price_quote_owner_id__c
+                                                        price_quote_owner_id__c,
+                                                        product2.Type_of_quote__c
                                                     FROM OpportunityLineItem
                                                     WHERE OpportunityId = :recordId];
         mapReturn.put('nextAction',true);
         if(!oppProductList.isEmpty()){
             if(oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product2.Type_of_quote__c == 'Web' && oppProductList[0].price_quote_status_id__c == 'MODIFIED'){
                 mapReturn = Commitment_ctrl.invokeRecoverQuotation(recordId);
+                mapReturn.put('nextAction',true);
                 if((String) mapReturn.get('success') == 'false'){
                     mapReturn.put('nextAction',false);
                 }
