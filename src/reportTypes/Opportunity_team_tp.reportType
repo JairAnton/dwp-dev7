@@ -367,11 +367,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>accOwnerUserid__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>USER_EJECUTIVO__c</field>
             <table>Opportunity</table>
         </columns>

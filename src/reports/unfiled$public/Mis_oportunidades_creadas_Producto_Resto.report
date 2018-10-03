@@ -114,8 +114,8 @@
     <roleHierarchyFilter>SUB_GERENTE_PRECIOS_RED</roleHierarchyFilter>
     <scope>ownsalesteam</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
+    <<!--showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>-->
     <timeFrameFilter>
         <dateColumn>Opportunity$CreatedDate</dateColumn>
         <interval>INTERVAL_LAST60</interval>
