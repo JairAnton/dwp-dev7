@@ -7,9 +7,11 @@
         var updateRisk = component.get('v.RiskVal');
         var updatePrice = component.get('v.PriceVal'); 
         var inputObject = component.get('v.inputAttributes');
-        var msgreeval = $A.get("$Label.c.reevalSuccess");
+        var msgreeval = $A.get("$Label.c.reevalSuccess");        
         var save_action;
         var callService;
+        component.set('v.isLoad',false);
+        component.set('v.hasHeader',false);
         if(updateRisk){
             save_action = component.get("c.setToRisk");            
         }else if(updatePrice){  
@@ -20,13 +22,13 @@
             save_action.setCallback(this, function(response){
                 var state = response.getState();
                 var ret = response.getReturnValue();
-                var genericError = ret.genericError;
+                var genericError = ret.genericError;               
                 if (state === "SUCCESS") {
-                    component.set('v.isLoad',true);
                     if(genericError != undefined){
                         component.set('v.isError', true);
                         component.set('v.errorlst',genericError);
                         component.set('v.hasHeader',false);
+                		component.set('v.isLoad',true);
                     }else if(ret.Updated!="Updated"){
                         this.toastEvent('Error!', response.getReturnValue(), 'error');
                         $A.get('e.force:refreshView').fire();

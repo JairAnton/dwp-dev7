@@ -93,6 +93,8 @@
                 <c:ButtonWithoutDoubleClick_cmp disabled="true" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
             </aura:set>
         </aura:if>
-        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+        <aura:if isTrue="{!v.inputAttributes.approvalMethod != 'Web'}">
+            <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+        </aura:if>
     </footer>
 </aura:component>
