@@ -73,11 +73,15 @@ public class ReasignButtonClass {
                         }
                     }
                     
+                }else{
+                    cas.OwnerId = recorduser.Id;
+                    update cas;
+                    mapReturn.put('Updated','Updated');
                 }
             }
             
         }catch(Exception e){
-            genericError = e.getMessage(); 
+            genericError = e.getMessage();
         }
         mapReturn.put('genericError',genericError);
         return mapReturn;
