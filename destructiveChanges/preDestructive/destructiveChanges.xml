@@ -6,6 +6,11 @@
         <members>fprd__GBL_Intervener__c.Account__c</members>
 		<name>CustomField</name>
     </types>
+	<types>
+       <members>Home_Reports/Mis_visitas_como_equipo_adU</members>       
+       <members>Home_Reports/Visits_current_month</members>
+       <name>Report</name>
+   </types>	
     <types>
         <members>Participant_MasterRecord-1</members>
         <members>Guarantee_MasterRecord-1</members>

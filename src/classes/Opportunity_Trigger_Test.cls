@@ -376,10 +376,14 @@ private class Opportunity_Trigger_Test {
     }
     
     static void CreatOpp(User u){
+        Account acc= new Account();
+        acc.Name='MyAccount';
+        insert acc;
     	Opp = new Opportunity(
             Name='Test',
             CloseDate=system.today(),
-            Stagename='02'
+            Stagename='02',
+            AccountId=acc.id
        	);
         system.RunAs(u){
             insert Opp;

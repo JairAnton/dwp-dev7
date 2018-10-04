@@ -1345,6 +1345,13 @@
     </searchLayouts>
     <sharingModel>Read</sharingModel>
     <validationRules>
+        <fullName>Account_Required_Validation</fullName>
+        <active>true</active>
+        <description>Cannot be created Opportunity without an Account</description>
+        <errorConditionFormula>AccountId == null</errorConditionFormula>
+        <errorMessage>The account is required</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Opportunity_Validation_02_OnlyCommercial</fullName>
         <active>true</active>
         <description>Validate the creation in this Stage only for a Commercial Profile</description>

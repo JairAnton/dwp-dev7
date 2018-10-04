@@ -16,7 +16,10 @@ public class OpportunityProduct_Controller_tst {
     static void setupData(){ 
         //Create Accounts.
         test.startTest();
-        Opportunity Opp = new Opportunity(Name='testopp', StageName='01',Amount=100 ,CloseDate=system.Date.today(),opportunity_status_type__c='01');
+        Account acc= new Account();
+        acc.Name='MyAccount';
+        insert acc;
+        Opportunity Opp = new Opportunity(Name='testopp', StageName='01',Amount=100 ,CloseDate=system.Date.today(),opportunity_status_type__c='01',AccountId=acc.id);
         List<Account> lstAccounts = new List<Account>();
         List<task> lstTasks = new List<task>(); 
         for(Integer intI = 0; intI < 2; intI++) {
