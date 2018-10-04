@@ -63,6 +63,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
+	<description>Specialist and Asistant</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -107,7 +108,7 @@
         <value>1</value>
     </params>
     <reportType>Opportunity_team_tp__c</reportType>
-    <roleHierarchyFilter>GERENTE_REGIONAL_BE_1</roleHierarchyFilter>
+    <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
     <scope>ownsalesteam</scope>
     <showDetails>true</showDetails>
     <!--<showGrandTotal>false</showGrandTotal>
