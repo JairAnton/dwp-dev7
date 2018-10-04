@@ -128,11 +128,11 @@ public class approveButtonClass {
         mapReturn.put('nextAction',true);
         if(!oppProductList.isEmpty()){
             if(oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product2.Type_of_quote__c == 'Web' && oppProductList[0].price_quote_status_id__c == 'MODIFIED'){
-                //mapReturn = Commitment_ctrl.invokeRecoverQuotation(recordId);
+                mapReturn = Commitment_ctrl.invokeRecoverQuotation(recordId);
                 mapReturn.put('nextAction',true);
-                /*if((String) mapReturn.get('success') == 'false'){
+                if((String) mapReturn.get('success') == 'false'){
                     mapReturn.put('nextAction',false);
-                }*/
+                }
             }
         }
             
