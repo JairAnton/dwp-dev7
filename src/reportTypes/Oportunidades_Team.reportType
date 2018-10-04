@@ -730,11 +730,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suffix</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>SuOrgAdminExpirationDate</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>

@@ -420,11 +420,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suffix</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>CompanyName</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
