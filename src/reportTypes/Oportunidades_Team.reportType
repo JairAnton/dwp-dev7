@@ -625,6 +625,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>MiddleName</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>MobilePhone</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
