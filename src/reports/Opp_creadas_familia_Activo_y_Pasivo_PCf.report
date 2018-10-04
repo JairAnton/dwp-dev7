@@ -107,8 +107,6 @@
     <reportType>Oportunidades_Team__c</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>Opportunity$CreatedDate</dateColumn>
         <interval>INTERVAL_LAST60</interval>
