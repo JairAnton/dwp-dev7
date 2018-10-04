@@ -97,8 +97,8 @@
         </params>
         <reportType>OpportunityTeam</reportType>
         <scope>ownsalesteam</scope>
-        <showGrandTotal>true</showGrandTotal>
-        <showSubTotals>true</showSubTotals>
+ <!--       <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>-->
         <timeFrameFilter>
             <dateColumn>Opportunity.CreatedDate__c</dateColumn>
             <interval>INTERVAL_LAST60</interval>
