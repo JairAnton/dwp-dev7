@@ -65,8 +65,6 @@
         </params>
         <reportType>Hierarchy_report__c</reportType>
         <scope>accountteamteam</scope>
-        <showGrandTotal>true</showGrandTotal>
-        <showSubTotals>true</showSubTotals>
         <sortColumn>Account.Opportunities$Amount</sortColumn>
         <sortOrder>Asc</sortOrder>
         <timeFrameFilter>
@@ -101,8 +99,6 @@
         </params>
         <reportType>OpportunityTeam</reportType>
         <scope>salesteam</scope>
-        <showGrandTotal>true</showGrandTotal>
-        <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
             <dateColumn>CREATED_DATE</dateColumn>
             <interval>INTERVAL_LAST60</interval>
