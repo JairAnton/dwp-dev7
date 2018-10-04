@@ -4997,6 +4997,11 @@ Asistente BE</description>
         <field>OpportunityLineItem.regulatory_capital_per__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.on_a_team__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
