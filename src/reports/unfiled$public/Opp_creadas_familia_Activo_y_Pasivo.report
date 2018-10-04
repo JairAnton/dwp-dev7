@@ -7,7 +7,7 @@
         <chartSummaries>
             <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Opportunity$Amount.CONVERT</column>
+            <column>Opportunity$Amount</column>
         </chartSummaries>
         <chartSummaries>
             <axisBinding>y2</axisBinding>
@@ -35,7 +35,7 @@
         <field>Opportunity$Owner</field>
     </columns>
     <columns>
-        <field>Opportunity.OpportunityTeamMembers$Account</field>
+        <field>Opportunity$account_name__c</field>
     </columns>
     <columns>
         <field>Opportunity$Name</field>
@@ -48,7 +48,7 @@
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Opportunity$Amount.CONVERT</field>
+        <field>Opportunity$Amount</field>
     </columns>
     <columns>
         <field>Opportunity$StageName</field>
@@ -63,7 +63,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>GOF,Gerente regional y Banca empresa</description>
+    <description>Especialista</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -85,21 +85,19 @@
         </criteriaItems>
         <language>en_US</language>
     </filter>
-    <format>Matrix</format>
-    <groupingsAcross>
-        <dateGranularity>Day</dateGranularity>
-        <field>Opportunity$Amount</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsAcross>
+    <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Week</dateGranularity>
         <field>Opportunity$Opp_Creation_Date__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
+        <aggregateType>RowCount</aggregateType>
         <dateGranularity>Day</dateGranularity>
         <field>Opportunity$opportunity_product_family__c</field>
+        <sortByName>RowCount</sortByName>
         <sortOrder>Asc</sortOrder>
+        <sortType>Aggregate</sortType>
     </groupingsDown>
     <name>Opp creadas familia Activo y Pasivo</name>
     <params>
@@ -108,7 +106,7 @@
     </params>
     <reportType>Oportunidades_Team__c</reportType>
     <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
-    <scope>salesteamteam</scope>
+    <scope>user</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
         <dateColumn>Opportunity$CreatedDate</dateColumn>

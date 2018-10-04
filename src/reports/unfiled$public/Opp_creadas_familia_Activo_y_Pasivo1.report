@@ -5,21 +5,14 @@
         <backgroundColor2>#FFFFFF</backgroundColor2>
         <backgroundFadeDir>Diagonal</backgroundFadeDir>
         <chartSummaries>
-            <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Opportunity$Amount.CONVERT</column>
-        </chartSummaries>
-        <chartSummaries>
-            <axisBinding>y2</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>VerticalColumnStackedLine</chartType>
+        <chartType>VerticalColumn</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
-        <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Opportunity$opportunity_product_family__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -35,7 +28,7 @@
         <field>Opportunity$Owner</field>
     </columns>
     <columns>
-        <field>Opportunity.OpportunityTeamMembers$Account</field>
+        <field>Opportunity$account_name__c</field>
     </columns>
     <columns>
         <field>Opportunity$Name</field>
@@ -48,7 +41,7 @@
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Opportunity$Amount.CONVERT</field>
+        <field>Opportunity$Amount</field>
     </columns>
     <columns>
         <field>Opportunity$StageName</field>
@@ -85,12 +78,7 @@
         </criteriaItems>
         <language>en_US</language>
     </filter>
-    <format>Matrix</format>
-    <groupingsAcross>
-        <dateGranularity>Day</dateGranularity>
-        <field>Opportunity$Amount</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsAcross>
+    <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Week</dateGranularity>
         <field>Opportunity$Opp_Creation_Date__c</field>
