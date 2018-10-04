@@ -5,7 +5,7 @@
     },
     getInfo : function(cmp, evt, helper){
         var inputObject = cmp.get('v.inputAttributes');
-        var action = cmp.get("c.getInfo");
+        var action = cmp.get("c.getInfoAnalist");
         action.setParams({
             "recordId" : inputObject.recordId
         });

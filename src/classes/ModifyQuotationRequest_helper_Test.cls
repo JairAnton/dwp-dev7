@@ -30,7 +30,7 @@ global class ModifyQuotationRequest_helper_Test {
         ModifyQuotationRequest_helper modifyHelper3 = new ModifyQuotationRequest_helper(opptest.Id, 'RETURN',0.93,'',null);
         ModifyQuotationRequest_helper modifyHelper4 = new ModifyQuotationRequest_helper(opptest.Id, 'APPROVE',0.93,'',null);
         ModifyQuotationRequest_helper modifyHelper5 = new ModifyQuotationRequest_helper(opptest.Id, 'RAISE',0.93,'',null);
-        ModifyQuotationRequest_helper modifyHelper6 = new ModifyQuotationRequest_helper(opptest.Id, 'REASSIGN',0.93,'',null);
+        ModifyQuotationRequest_helper modifyHelper6 = new ModifyQuotationRequest_helper(opptest.Id, 'REASSIGN',0.93,'','2sdf34');
         ModifyQuotationRequest_helper modifyHelper7 = new ModifyQuotationRequest_helper(opptest.Id, 'REQUEST_APPROVAL',0.93,'',null);
         ModifyQuotationRequest_helper modifyHelper8 = new ModifyQuotationRequest_helper(opptest.Id, 'REGISTER_LOSS',0.93,'34;34',null);
         ModifyQuotationRequest_helper modifyHelper9 = new ModifyQuotationRequest_helper(opptest.Id, 'DISBURSE',0.93,'',null);

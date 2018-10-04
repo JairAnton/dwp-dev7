@@ -18,7 +18,7 @@ public class ModifyQuotationRequest_helper {
                 }when 'RAISE'{
                     this.inputDataMapping = generateJson01(lstOli, phaseId,'AGREED_TEA',Label.PriceRaiseQuotationDefaultComment,proposed);
                 }when 'REASSIGN'{
-                    this.inputDataMapping = generateJson02(phaseId);
+                    this.inputDataMapping = generateJson06(phaseId, userCode);
                 }when 'REQUEST_APPROVAL'{
                     this.inputDataMapping = generateJson03(lstOli, phaseId,'REQUESTED_TEA',Label.PriceRequestApprovalQuotationDefaultComment,proposed);
                 }when 'REGISTER_LOSS'{
@@ -34,7 +34,7 @@ public class ModifyQuotationRequest_helper {
             }
             this.inputDataMapping.quotationId = (lstOli[0].price_quote_id__c == null ? '' : lstOli[0].price_quote_id__c);
             this.inputDataMapping.operationId = (lstOli[0].price_operation_id__c == null ? '' : lstOli[0].price_operation_id__c);
-            this.inputDataMapping.userCode = (userCode == null || userCode == '' ? getContextUserCode() : userCode);
+            this.inputDataMapping.userCode = getContextUserCode();
         }
     }
     
@@ -158,6 +158,24 @@ public class ModifyQuotationRequest_helper {
         mwrap.jsonStructure = jsonSubstr;
         return mwrap;
     }
+    public static ModifyQuotationRequest_Wrapper generateJson06(String phaseId, String newUserCode){
+        ModifyQuotationRequest_Wrapper mwrap = new ModifyQuotationRequest_Wrapper();
+        mwrap.phaseId = phaseId;
+        String jsonSubstr = '';
+        if(newUserCode != null && newUserCode != ''){
+            Request_businessAgent_reasign businessAg = new Request_businessAgent_reasign();
+            businessAg.id = newUserCode;
+
+            Map<String,Object> mapBusinessAgents = new Map<String,Object>();
+            mapBusinessAgents.put('businessAgent',businessAg);
+
+            jsonSubstr = parse(mapBusinessAgents); 
+            jsonSubstr = jsonSubstr.removeEnd('}');
+            jsonSubstr = jsonSubstr.removeStart('{');
+        }
+        mwrap.jsonStructure = jsonSubstr;
+        return mwrap;
+    }
     public static String parse(Object obj_wrapper){
         String strJson = JSON.serialize(obj_wrapper);
         strJson = strJson.replace('"numberId":', '"number":');        
@@ -199,7 +217,10 @@ public class ModifyQuotationRequest_helper {
     public class Request_relatedContract {
         public String numberId;	//
     }
-    
+    public class Request_businessAgent_reasign {
+		public String id;	//P012170
+	}
+
     public static ResponseModifyQuotationRequest_Wrapper responseParse(String json){
         return (ResponseModifyQuotationRequest_Wrapper) System.JSON.deserialize(json, ResponseModifyQuotationRequest_Wrapper.class);
     }

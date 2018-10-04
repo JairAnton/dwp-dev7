@@ -16,7 +16,7 @@
     <!--declare events hendlers-->  
     <aura:handler name="selectUserEvent" event="c:selectUserEvent" action="{!c.handleComponentEvent}"/>  
     <aura:handler name="init" value="{!this}" action="{!c.doIni}"/>
-    
+    <aura:if isTrue="{!v.isLoad}">
         <aura:if isTrue="{!v.isError}">
             <c:ErrorMessageWS_cmp errorMessagesList="{!v.errorlst}"/>
             <aura:set attribute="else">
@@ -66,4 +66,8 @@
                 </footer>
             </aura:set>
         </aura:if>
+        <aura:set attribute="else">
+            <lightning:spinner variant="brand" class="slds-is-relative"/>
+        </aura:set>
+    </aura:if>
 </aura:component>

@@ -44,6 +44,8 @@
 				component.set('v.objectInput',objectInput);
             }
             component.set('v.isLoad',true);
+            component.set('v.hasHeader',true);
+            component.set('v.showSpinner',false);
         }); 
         $A.enqueueAction(action);
     },
@@ -178,6 +180,8 @@
         return returnObj[strType];
     },
     doContinue : function(cmp, evt, helper){
+        cmp.set('v.hasHeader',false);
+        cmp.set('v.showSpinner',true);
         var storeHTML = document.getElementById('storeHTML');
         var objSetup = cmp.get('v.objSetup');
         var inputObject = cmp.get('v.inputAttributes');
@@ -203,7 +207,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                console.log('ret: ', ret);
                 if(ret.isOk){
                     $A.get('e.force:refreshView').fire();
                     helper.closeMe(cmp, evt, helper);
@@ -213,6 +216,7 @@
                     cmp.set('v.isOk',false);
                     cmp.set('v.hasHeader',false);
                     cmp.set('v.lstError',lstError);
+                    cmp.set('v.showSpinner',false);
                 }
             }
         }); 

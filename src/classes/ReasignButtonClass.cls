@@ -28,7 +28,8 @@ public class ReasignButtonClass {
         String genericError;
         Opportunity opp;
         List <OpportunityLineItem> lstOLI;
-        Case cas = [Select Id, OwnerId, opportunity_id__c from Case where Id =: IdCase];        
+        Case cas = [Select Id, OwnerId, opportunity_id__c from Case where Id =: IdCase];
+        User usr = [Select Id, user_id__c from User where Id = :recorduser.id];
         if(cas.opportunity_id__c != null){
              opp = [Select Id,StageName, opportunity_status_type__c, frm_ContractNumber__c, OwnerId From Opportunity where Id =:cas.opportunity_id__c];
         }
@@ -41,7 +42,7 @@ public class ReasignButtonClass {
                 //Call a RECOVER Service One product            
                 if (lstOLI[0].price_quote_id__c !='' && lstOLI[0].product_price_approval_method__c == 'Web'){
                     //helper to call the service
-                    ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(opp.Id, 'REASSIGN',lstOLI[0].proposed_apr_per__c,opp.frm_ContractNumber__c, recorduser.Id); 
+                    ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(opp.Id, 'REASSIGN',lstOLI[0].proposed_apr_per__c,opp.frm_ContractNumber__c, usr.user_id__c); 
                     //invoke the service
                     System.HttpResponse invoke = modifyHelper.invoke();
                     //get json body
