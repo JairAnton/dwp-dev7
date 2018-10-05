@@ -617,6 +617,34 @@
         <apexClass>WebServiceUtils_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>ModifyQuotationRequest_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ModifyQuotationRequest_helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DisburseQuotation_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RegisterQuotationLoss_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>Product_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>ReevaluateButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>ReevaluateButtonClassTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Puede Tomar los siguientes cargos:
 Ejecutivos de servicios transaccionales (EST)
@@ -5030,6 +5058,10 @@ Ejecutivos de REDES</description>
     </tabVisibilities>
 	<tabVisibilities>
         <tab>Web_Service_Value_Mapping__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>iaso__GBL_Application_Log__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>

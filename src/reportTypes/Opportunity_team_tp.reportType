@@ -3,21 +3,16 @@
     <baseObject>Opportunity</baseObject>
     <category>opportunities</category>
     <deployed>true</deployed>
-    <description>Juntar dos reportes OPP TEAM y OPP</description>
+    <description>Opportunity &amp; Opportunity Team Report</description>
     <join>
         <outerJoin>true</outerJoin>
         <relationship>OpportunityTeamMembers</relationship>
     </join>
-    <label>Oportunidades Team</label>
+    <label>Opportunity_team_tp</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Customer_alert__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_name__c</field>
+            <field>Id</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -27,82 +22,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Amount</field>
+            <field>IsPrivate</field>
             <table>Opportunity</table>
         </columns>
         <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>renewal_contract_amount__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Branch_id__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Budget_Confirmed__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsClosed</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CloseDate__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CloseDate</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Field_Sup_Closing_Date__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Support_currency__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>contract_id__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Contract</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Opp_Creation_Date__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>renewal_contract_currency__c</field>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -112,7 +37,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Discovery_Completed__c</field>
+            <field>StageName</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>StageSortOrder</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Amount</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Probability</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -122,12 +62,52 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>TotalOpportunityQuantity</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CloseDate</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Type</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NextStep</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LeadSource</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IsClosed</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IsWon</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>ForecastCategoryName</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>frm_ContractNumber__c</field>
+            <field>CurrencyIsoCode</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Campaign</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -137,27 +117,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>renewal_import_curreny__c</field>
+            <field>Pricebook2</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>rejection_reason_id__c</field>
+            <field>Owner</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>isProcess__c</field>
+            <field>CreatedDate</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastActivityDate</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
+            <field>CreatedBy</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -167,12 +142,157 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastActivityDate</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>LastStageChangeDate</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LeadSource</field>
+            <field>PrimaryPartnerAccount</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SyncedQuote</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Contract</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Budget_Confirmed__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Discovery_Completed__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ROI_Analysis_Completed__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__TrackingNumber__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Loss_Reason__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Branch_id__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CloseDate__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Customer_alert__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Field_Sup_Closing_Date__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Opp_Creation_Date__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PE_ImOwner__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Risk_modality_type__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>StageName_Formula__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Support_currency__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>account_name__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>contract_id__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>frm_ContractNumber__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>isProcess__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>opportunity_expiry_date__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>opportunity_origin_name__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>opportunity_planning_date__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>opportunity_product__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>opportunity_product_family__c</field>
+            <table>Opportunity</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>opportunity_status_type__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -197,7 +317,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Loss_Reason__c</field>
+            <field>rejection_reason_id__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -207,82 +327,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>NextStep</field>
+            <field>renewal_contract_amount__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CurrencyIsoCode</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>Name</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Owner</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>PE_ImOwner__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>opportunity_planning_date__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Pricebook2</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Campaign</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>PrimaryPartnerAccount</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsPrivate</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Probability</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>opportunity_product__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>opportunity_product_family__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>TotalOpportunityQuantity</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>opportunity_expiry_date__c</field>
+            <field>renewal_contract_currency__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -292,12 +342,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Risk_modality_type__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ROI_Analysis_Completed__c</field>
+            <field>renewal_import_curreny__c</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -312,47 +357,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>opportunity_origin_name__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>StageName</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>StageName_Formula__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>StageSortOrder</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>opportunity_status_type__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>success_probability_desc__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SyncedQuote</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>dwp_kitv__TrackingNumber__c</field>
-            <table>Opportunity</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Type</field>
             <table>Opportunity</table>
         </columns>
         <columns>
@@ -365,87 +370,22 @@
             <field>USER_EJECUTIVO__c</field>
             <table>Opportunity</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsWon</field>
-            <table>Opportunity</table>
-        </columns>
-        <masterLabel>Opportunities</masterLabel>
+        <masterLabel>Oportunidades</masterLabel>
     </sections>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>AboutMe</field>
+            <field>Id</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account</field>
+            <field>TeamMemberRole</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>IsActive</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Address</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ReceivesAdminInfoEmails</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Alias</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ForecastEnabled</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ChatterAdoptionStage</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ChatterAdoptionStageModifiedDate</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DigestFrequency</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>City</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CompanyName</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Contact</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
+            <field>CurrencyIsoCode</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
@@ -455,17 +395,32 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DefaultCurrencyIsoCode</field>
+            <field>LastModifiedDate</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DefaultGroupNotificationFrequency</field>
+            <field>Username</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Department</field>
+            <field>FirstName</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastName</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CompanyName</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
@@ -475,12 +430,62 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Email</field>
+            <field>Department</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>EmailEncodingKey</field>
+            <field>Title</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Address</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Street</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>City</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>State</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PostalCode</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Latitude</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Longitude</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>GeocodeAccuracy</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Email</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
@@ -500,212 +505,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>EmployeeNumber</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>EndDay</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Extension</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Fax</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>FirstName</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>Name</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>GeocodeAccuracy</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>gcal__GBL_Google_Calendar_Last_Retr_Time__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>gcal__GBL_Google_Calendar_Session_Id__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>gcal__GBL_Google_Calendar_Last_Update__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsProfilePhotoActive</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ReceivesInfoEmails</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CurrencyIsoCode</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>UserSubtype</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsSystemControlled</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LanguageLocaleKey</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastLoginDate</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastName</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastPasswordChangeDate</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Latitude</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LocaleSidKey</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Longitude</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Manager</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>MobilePhone</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CommunityNickname</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>OfflineTrialExpirationDate</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>organizational_unit_name__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>organizational_unit_id__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Phone</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>portfolio_classification_id__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>prof_position_type__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>prof_position_id__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Profile</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>UserRole</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>OfflinePdaTrialExpirationDate</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>FederationIdentifier</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>StartDay</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>State</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>StayInTouchNote</field>
+            <field>StayInTouchSubject</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
@@ -715,12 +515,137 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>StayInTouchSubject</field>
+            <field>StayInTouchNote</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Street</field>
+            <field>Phone</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Fax</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MobilePhone</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Alias</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CommunityNickname</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IsActive</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IsSystemControlled</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TimeZoneSidKey</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>UserRole</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LocaleSidKey</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ReceivesInfoEmails</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ReceivesAdminInfoEmails</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>EmailEncodingKey</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DefaultCurrencyIsoCode</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Profile</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>UserType</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>UserSubtype</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>StartDay</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>EndDay</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LanguageLocaleKey</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>EmployeeNumber</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Manager</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastLoginDate</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastPasswordChangeDate</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
@@ -735,37 +660,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>TeamMemberRole</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>TimeZoneSidKey</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Title</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Unique_id__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>user_id__c</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Username</field>
-            <table>Opportunity.OpportunityTeamMembers</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>UserType</field>
+            <field>OfflineTrialExpirationDate</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
         <columns>
@@ -775,9 +670,119 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>PostalCode</field>
+            <field>OfflinePdaTrialExpirationDate</field>
             <table>Opportunity.OpportunityTeamMembers</table>
         </columns>
-        <masterLabel>Opportunity Team</masterLabel>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ForecastEnabled</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Contact</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Extension</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FederationIdentifier</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AboutMe</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DigestFrequency</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DefaultGroupNotificationFrequency</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ChatterAdoptionStage</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ChatterAdoptionStageModifiedDate</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IsProfilePhotoActive</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>gcal__GBL_Google_Calendar_Last_Retr_Time__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>gcal__GBL_Google_Calendar_Last_Update__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>gcal__GBL_Google_Calendar_Session_Id__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Unique_id__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>organizational_unit_id__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>organizational_unit_name__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>portfolio_classification_id__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>prof_position_id__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>prof_position_type__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>user_id__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>iaso__GBL_Codigo_usuario__c</field>
+            <table>Opportunity.OpportunityTeamMembers</table>
+        </columns>
+        <masterLabel>Equipo de oportunidades</masterLabel>
     </sections>
 </ReportType>

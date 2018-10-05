@@ -1188,6 +1188,90 @@
         <label>El producto no es cotizable para el cliente.</label>
         <name>PriceQuotationProductNotAvailableErrorMessage</name>
     </customLabels>
+    <customLabels>
+        <label>No se ha podido realizar la acción sobre la cotización debido al siguiente error:</label>
+        <name>DecisionPriceActionError</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de elevación de cotización desde DWP</label>
+        <name>PriceApproveDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido aprobar la cotización debido al siguiente error:</label>
+        <name>PriceApproveErrorKnow</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido crear la aprobación debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceApproveErrorNotKnow</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de desembolso desde DWP</label>
+        <name>PriceDisburseQuotationDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido desembolsar la cotización debido al siguiente error:</label>
+        <name>PriceDisburseQuotationKnowError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido desembolsar la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceDisburseQuotationUnknowError</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de generación de hoja de cotización desde DWP</label>
+        <name>PriceGenerateQuotationSheetDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido realizar la acción sobre la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceGenericError</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de elevación de cotización desde DWP</label>
+        <name>PriceRaiseQuotationDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de reasignación de cotización desde DWP</label>
+        <name>PriceReassignQuotationDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de recuperación de cotización desde DWP</label>
+        <name>PriceRecoverQuotationDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido recuperar la cotización debido al siguiente error:</label>
+        <name>PriceRecoverRequestKnownError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido recuperar la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceRecoverRequestUnknownError</name>
+    </customLabels>
+    <customLabels>
+        <label>Registro de pérdida de cotización desde DWP</label>
+        <name>PriceRegisterQuotationLossDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de evaluación de cotización desde DWP</label>
+        <name>PriceRequestApprovalQuotationDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>Petición de devolución de cotización desde DWP</label>
+        <name>PriceReturnQuotationDefaultComment</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido enviar a aprobar la cotización debido al siguiente error:</label>
+        <name>PriceRequestQuotationApprovalKnownError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido enviar a aprobar la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceRequestQuotationApprovalUnknownError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido registrar la pérdida de la cotización debido al siguiente error:</label>
+        <name>PriceRegisterLossKnownError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido registrar la pérdida de la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceRegisterLossUnknownError</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

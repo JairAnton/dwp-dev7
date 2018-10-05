@@ -19,6 +19,7 @@ public class SanctionPrice_ctrl_Test {
         update lstProd;
         List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
         Map<String,Object> mapReturnInfo = SanctionPrice_ctrl.getInfo(lstOpp[0].Id);
+        Map<String,Object> mapReturnInfo5 = SanctionPrice_ctrl.getInfoAnalist(lstOpp[0].Id);
         Map<String,Object> mapReturnInfo3 = SanctionPrice_ctrl.getInfoWithoutDefaultValues(lstOpp[0].Id);
 
         System.assertEquals(true, (Boolean)mapReturnInfo.get('hasOLI'));
@@ -26,6 +27,7 @@ public class SanctionPrice_ctrl_Test {
 
         delete  [SELECT Id FROM OpportunityLineItem];
         Map<String,Object> mapReturnInfo2 = SanctionPrice_ctrl.getInfo(lstOpp[0].Id);
+        Map<String,Object> mapReturnInfo6 = SanctionPrice_ctrl.getInfoAnalist(lstOpp[0].Id);
         Map<String,Object> mapReturnInfo4 = SanctionPrice_ctrl.getInfoWithoutDefaultValues(lstOpp[0].Id);
         System.assertEquals(false, (Boolean)mapReturnInfo2.get('hasOLI'));       
         
@@ -41,6 +43,7 @@ public class SanctionPrice_ctrl_Test {
         update lstProd;
         List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
         Map<String,Object> mapReturnInfo = SanctionPrice_ctrl.getInfo(lstOpp[0].Id);
+        Map<String,Object> mapReturnInfo1 = SanctionPrice_ctrl.getInfoAnalist(lstOpp[0].Id);
         
         insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         insert new iaso__GBL_Rest_Services_Url__c(Name = 'CalculateRate', iaso__Url__c = 'https://CalculateRate/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
@@ -52,6 +55,7 @@ public class SanctionPrice_ctrl_Test {
         System.HttpResponse priceResponse = pricehHelper.invoke();
         PriceRate_helper.ResponseSimulateRate_Wrapper responseWrapper = pricehHelper.parse(priceResponse.getBody());
         Map<String,Object> mapReturn = SanctionPrice_ctrl.getInfo(lstOpp[0].Id);
+        Map<String,Object> mapReturnInfo2 = SanctionPrice_ctrl.getInfoAnalist(lstOpp[0].Id);
         Test.stopTest();
     }
 }

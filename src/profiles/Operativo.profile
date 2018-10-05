@@ -127,11 +127,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Product_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Product_cls_test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ReevaluateButtonClass</apexClass>
@@ -739,6 +739,26 @@
     </classAccesses>
     <classAccesses>
         <apexClass>WebServiceUtils_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ModifyQuotationRequest_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ModifyQuotationRequest_helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DisburseQuotation_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RegisterQuotationLoss_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>ReevaluateButtonClassTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -5770,6 +5790,10 @@ Sub Gerentes de oficina</description>
     </tabVisibilities>
 	<tabVisibilities>
         <tab>Web_Service_Value_Mapping__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>iaso__GBL_Application_Log__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
