@@ -21,6 +21,11 @@
 						}else{
 							field['value']=ret.record[ret.setFields[i]];
 						}
+						field['htmlInput'] = field['value'];
+						if(!isNaN(field['value'])){
+							var formatNumber = parseFloat(field['value']);
+							field['htmlInput'] = formatNumber.toFixed(2);
+						}
 						field['readOnly']=ret.mapField[ret.setFields[i]].is_readonly__c;
 						field['isMandatory']=ret.mapField[ret.setFields[i]].is_required__c;
 						fieldObject.push(field);

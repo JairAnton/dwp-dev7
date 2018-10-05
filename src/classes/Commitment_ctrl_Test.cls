@@ -107,4 +107,221 @@ public class Commitment_ctrl_Test {
         Test.stopTest();
         
     }
+    @isTest
+    static void test_requetQuotationApproval_Success(){
+        
+        
+        setData();
+		
+		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c 
+														FROM OpportunityLineItem WHERE Id = :olitest.Id];
+		
+		if(!oppLineItemTestList.isEmpty()){
+			oppLineItemTestList[0].price_quote_id__c = '1475650';
+			oppLineItemTestList[0].price_operation_id__c = '1469800';
+			oppLineItemTestList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		}
+		
+		update oppLineItemTestList[0];
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/OK', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Test.startTest();
+
+        Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
+        System.assertEquals('true', mapResultReturn.get('success'));
+        System.assertEquals(Label.PriceCreateQuotationRequestSentForApprovalMessage, mapResultReturn.get('quotationStatusMessage'));
+
+        Test.stopTest();
+                
+    }
+    
+    @isTest
+    static void test_requetQuotationApproval_2_Success(){
+        
+        
+        setData();
+		
+		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c 
+														FROM OpportunityLineItem WHERE Id = :olitest.Id];
+		
+		if(!oppLineItemTestList.isEmpty()){
+			oppLineItemTestList[0].price_quote_id__c = '1475650';
+			oppLineItemTestList[0].price_operation_id__c = '1469800';
+			oppLineItemTestList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		}
+		
+		update oppLineItemTestList[0];
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/OK_2', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Test.startTest();
+
+        Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
+        System.assertEquals('true', mapResultReturn.get('success'));
+        System.assertEquals(Label.PriceCreateQuotationRequestApprovedMessage, mapResultReturn.get('quotationStatusMessage'));
+
+        Test.stopTest();
+                
+    }
+    
+    @isTest
+    static void test_requetQuotationApprovalDifferentUser_Success(){
+        
+        
+        setData();
+		
+		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c 
+														FROM OpportunityLineItem WHERE Id = :olitest.Id];
+		
+		if(!oppLineItemTestList.isEmpty()){
+			oppLineItemTestList[0].price_quote_id__c = '1475650';
+			oppLineItemTestList[0].price_operation_id__c = '1469800';
+		}
+		
+		update oppLineItemTestList[0];
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/OK', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+  
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Test.startTest();
+
+        Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
+        System.assertEquals('true', mapResultReturn.get('success')); 
+
+        Test.stopTest();
+                
+    }
+    
+    @isTest
+    static void test_requetQuotationApproval_Error_1(){
+        
+        
+        setData();
+		
+		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c 
+														FROM OpportunityLineItem WHERE Id = :olitest.Id];
+		
+		if(!oppLineItemTestList.isEmpty()){
+			oppLineItemTestList[0].price_quote_id__c = '1475650';
+			oppLineItemTestList[0].price_operation_id__c = '1469800';
+			oppLineItemTestList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		}
+		
+		update oppLineItemTestList[0];
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/KO_409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Test.startTest();
+
+        Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
+        System.assertEquals('false', mapResultReturn.get('success'));
+        System.assert(String.valueOf(mapResultReturn.get('errorMessage')).contains(Label.PriceRequestQuotationApprovalKnownError));
+        Test.stopTest();
+                
+    }
+	
+	@isTest
+    static void test_requetQuotationApproval_Error_2(){
+        
+        
+        setData();
+		
+		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c 
+														FROM OpportunityLineItem WHERE Id = :olitest.Id];
+		
+		if(!oppLineItemTestList.isEmpty()){
+			oppLineItemTestList[0].price_quote_id__c = '1475650';
+			oppLineItemTestList[0].price_operation_id__c = '1469800';
+			oppLineItemTestList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		}
+		
+		update oppLineItemTestList[0];
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/KO_500', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Test.startTest();
+
+        Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
+        System.assertEquals('false', mapResultReturn.get('success'));
+        System.assertEquals(Label.PriceRequestQuotationApprovalUnKnownError, mapResultReturn.get('errorMessage'));
+        Test.stopTest();
+                
+    }
+    
+    @isTest
+    static void test_requetQuotationApprovalDifferentUser_Error_1(){
+        
+        
+        setData();
+		
+		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c 
+														FROM OpportunityLineItem WHERE Id = :olitest.Id];
+		
+		if(!oppLineItemTestList.isEmpty()){
+			oppLineItemTestList[0].price_quote_id__c = '1475650';
+			oppLineItemTestList[0].price_operation_id__c = '1469800';
+		}
+		
+		update oppLineItemTestList[0];
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/KO_409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Test.startTest();
+
+        Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
+        System.assertEquals('false', mapResultReturn.get('success'));
+        System.assert(String.valueOf(mapResultReturn.get('errorMessage')).contains(Label.PriceRecoverRequestKnownError));
+        Test.stopTest();
+                
+    }
+    
+    @isTest
+    static void test_requetQuotationApprovalDifferentUser_Error_2(){
+        
+        
+        setData();
+		
+		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c 
+														FROM OpportunityLineItem WHERE Id = :olitest.Id];
+		
+		if(!oppLineItemTestList.isEmpty()){
+			oppLineItemTestList[0].price_quote_id__c = '1475650';
+			oppLineItemTestList[0].price_operation_id__c = '1469800';
+
+		}
+		
+		update oppLineItemTestList[0];
+
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/KO_500', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+        
+        Test.startTest();
+
+        Map<String,Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
+        System.assertEquals('false', mapResultReturn.get('success'));
+        System.assertEquals(Label.PriceRecoverRequestUnknownError, mapResultReturn.get('errorMessage'));
+        Test.stopTest();
+                
+    }
 }

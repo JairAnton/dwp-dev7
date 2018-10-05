@@ -95,6 +95,75 @@ public with sharing class SanctionPrice_ctrl {
         mapReturn.put('genericError',genericError);
         return mapReturn; 
     }
+    @AuraEnabled
+    public static Map<String,Object> getInfoAnalist(String recordId){
+        
+        List<Opportunity> lstOpp = [SELECT  Id,
+                                    AccountId,
+                                    Account.segment_desc__c,
+                                    (SELECT     Id, 
+                                     product_price_approval_method__c, 
+                                     product_price_approval_indicator__c,
+                                     minimun_apr_per__c, 
+                                     suggested_apr_per__c, 
+                                     spread_per__c,
+                                     price_rates_calculation_Id__c,
+                                     proposed_apr_per__c,
+                                     additional_capital_per__c,additional_apread_per__c,
+                                     capital_amount__c,capital_currency_id__c, efficiency_cost__c,
+                                     expected_loss_per__c, financing_cost_stockholder_per__c, 
+                                     funding_cost_per__c, funding_cost_adjusted_per__c,
+                                     minimum_spread_per__c, regulatory_capital_per__c,
+                                     Product2Id 
+                                     FROM OpportunityLineItems) 
+                                    FROM Opportunity 
+                                    WHERE Id = :recordId];
+        try{
+            //If opportunity has opportunityLineItems
+            if(lstOpp[0].OpportunityLineItems.size()>0){
+                mapReturn.put('IdOppLineItem',lstOpp[0].OpportunityLineItems[0].Id);
+                mapReturn.put('approvalMethod',lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c);
+                //If product_price_approval_method__c == Tarifario and has a OLI
+                if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario'){
+                    String strSegment = (lstOpp[0].Account.segment_desc__c == null?'':lstOpp[0].Account.segment_desc__c);
+                    List<Price_Fee__c> lstPriceFee = [SELECT    Id,
+                                                      validity_start_date__c,
+                                                      validity_end_date__c, 
+                                                      product_id__c,
+                                                      minimun_fee_per__c,
+                                                      account_segment_id__c,
+                                                      account_segment_desc__c,
+                                                      calc_account_segment_desc__c
+                                                      FROM Price_Fee__c 
+                                                      WHERE validity_start_date__c <= TODAY 
+                                                      AND validity_end_date__c >= TODAY 
+                                                      AND product_id__c = :lstOpp[0].OpportunityLineItems[0].Product2Id
+                                                      AND calc_account_segment_desc__c = :strSegment.toUpperCase()];
+                    //get minimun_fee_per__c
+                    if(!lstOpp.isEmpty() && !lstPriceFee.isEmpty()){
+                        mapReturn.put('dynamicValue',lstPriceFee[0].minimun_fee_per__c);
+                    }
+                    //If product_price_approval_method__c == Web and has a OLI    
+                }else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web'){
+                    if(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c!=null){
+                        mapReturn.put('proposed',lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c);
+                    }else{
+                        mapReturn.put('proposed','');
+                    }
+                }
+                mapReturn.put('hasOLI',true);
+                mapReturn.put('priceIndicator',lstOpp[0].OpportunityLineItems[0].product_price_approval_indicator__c);
+                //If opportunity hasn't opportunityLineItems
+            }else{
+                mapReturn.put('hasOLI',false);
+            }     
+            
+        }catch(Exception e){
+            genericError = e.getMessage();
+        }
+        mapReturn.put('genericError',genericError);
+        return mapReturn; 
+    }
     public static void invokeWS (String recordId){
         //helper to call the service
         PriceRate_helper prate = new PriceRate_helper(recordId, false);

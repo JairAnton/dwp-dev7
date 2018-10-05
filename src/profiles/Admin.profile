@@ -133,7 +133,7 @@
         <apexClass>PDFclassButton</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-     <classAccesses>
+    <classAccesses>
         <apexClass>ReevaluateButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -619,6 +619,30 @@
     </classAccesses>
     <classAccesses>
         <apexClass>WebServiceUtils_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ModifyQuotationRequest_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ModifyQuotationRequest_helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DisburseQuotation_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RegisterQuotationLoss_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>Product_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>ReevaluateButtonClassTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>

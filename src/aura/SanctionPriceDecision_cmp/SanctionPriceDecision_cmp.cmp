@@ -75,9 +75,9 @@
                             <div class="slds-notify slds-notify_alert slds-theme_default" role="alert">
                                 <span class="slds-assistive-text">warning</span>
                                 <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Description of icon when needed">
-                                    <lightning:icon class="slds-m-left_x-small salem" iconName="{!v.inputAttributes.quotationStatusIcon}" size="x-small" />
+                                    <lightning:icon class="slds-m-left_x-small" iconName="{!v.inputAttributes.quotationStatusIcon}" size="x-small" />
                                 </span>
-                                <h2>{!v.inputAttributes.quotationStatusMessage}</h2>
+                                <div class="slds-text-heading_medium">{!v.inputAttributes.quotationStatusMessage}</div>
                             </div>
                         </aura:if>
                     </lightning:layoutItem>
@@ -93,6 +93,8 @@
                 <c:ButtonWithoutDoubleClick_cmp disabled="true" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
             </aura:set>
         </aura:if>
-        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+        <aura:if isTrue="{!v.inputAttributes.approvalMethod != 'Web'}">
+            <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+        </aura:if>
     </footer>
 </aura:component>

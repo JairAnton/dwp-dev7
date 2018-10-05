@@ -27,9 +27,9 @@
 				cmp.set('v.isLoad',true);
 				cmp.set('v.hasRecord',(ret.lstCommitments.length==0?false:true));
             }
-        }); 
+        });
         $A.enqueueAction(action);
-	},
+	}, 
 	continue : function(cmp, evt, helper){
     	cmp.set('v.isLoad',false);
     	if(cmp.get('v.quoteMethod') === 'Web'){
@@ -37,17 +37,47 @@
             action.setParams({
                 "recordId" : cmp.get('v.oppRecordId')
             });
-            action.setCallback(this, function(response) {
+            action.setCallback(this, function(response) { 
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var ret = response.getReturnValue();
                     var compEvent = cmp.getEvent("commitmentsEvent");
                     
                     if (ret.success === 'true') {
-                        var otherData = {"quotationStatusMessage" : ret.quotationStatusMessage,
+                        
+                        if(ret.nextCallout != undefined && ret.nextCallout == true){
+                            var action2 = cmp.get("c.requestQuote");
+                            action2.setParams({
+                                "recordId" : cmp.get('v.oppRecordId')
+                            });
+                            action2.setCallback(this, function(response) {
+                                var state = response.getState();
+                                if (state === "SUCCESS") {
+                                    var ret = response.getReturnValue();
+                                    var compEvent = cmp.getEvent("commitmentsEvent");
+                                    
+                                    if (ret.success === 'true') {
+                                        var otherData = {"quotationStatusMessage" : ret.quotationStatusMessage,
+                                                        "auditId" : ret.auditId,
+                                                        "quotationStatusIcon": ret.quotationStatusIcon};
+                                        compEvent.setParams({"typeMode" : 'DOCONTINUE', "data" : otherData});  
+                                    }
+                                    else {
+                                        var otherData = {"errorCode" : ret.errorMessage};
+                                        compEvent.setParams({"typeMode" : 'DOERROR', "data" : otherData});
+                                    }
+                                    compEvent.fire();
+                                }
+                            }); 
+                            $A.enqueueAction(action2);
+                        }else{
+                            var otherData = {"quotationStatusMessage" : ret.quotationStatusMessage,
                                          "auditId" : ret.auditId,
                                          "quotationStatusIcon": ret.quotationStatusIcon};
-                        compEvent.setParams({"typeMode" : 'DOCONTINUE', "data" : otherData});  
+                            compEvent.setParams({"typeMode" : 'DOCONTINUE', "data" : otherData});  
+                        }
+
+                        
                     }
                     else {
                         var otherData = {"errorCode" : ret.errorMessage};

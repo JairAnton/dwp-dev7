@@ -23,7 +23,7 @@
                                            visibilityControlField="" 
                                            visibilityControlValues="" 
                                            comparatorColumns="" 
-                                           comparatorFields=""/>
+                                           comparatorFields=""/> 
     </aura:if>
 
 </aura:component>

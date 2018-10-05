@@ -7,7 +7,7 @@
             <span class="slds-form-element__label">{!v.fieldObject.label}</span>
             <div class="slds-form-element__control">
                 <span class="slds-form-element__static">
-                    {!v.fieldObject.value}
+                    {!v.fieldObject.htmlInput}
                 </span>
             </div>
         </div>

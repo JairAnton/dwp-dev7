@@ -7,29 +7,41 @@
         var updateRisk = component.get('v.RiskVal');
         var updatePrice = component.get('v.PriceVal'); 
         var inputObject = component.get('v.inputAttributes');
-        var msgreeval = $A.get("$Label.c.reevalSuccess");
-        var save_action;  
+        var msgreeval = $A.get("$Label.c.reevalSuccess");        
+        var save_action;
+        var callService;
+        component.set('v.isLoad',false);
+        component.set('v.hasHeader',false);
         if(updateRisk){
-            save_action = component.get("c.setToRisk");
+            save_action = component.get("c.setToRisk");            
         }else if(updatePrice){  
             save_action = component.get("c.setToPrice");
         }
         if(save_action!=undefined){
-            save_action.setParams({Idopp : inputObject.recordId });        
+            save_action.setParams({Idopp : inputObject.recordId});        
             save_action.setCallback(this, function(response){
                 var state = response.getState();
+                var ret = response.getReturnValue();
+                var genericError = ret.genericError;               
                 if (state === "SUCCESS") {
-                    if(response.getReturnValue()!="Updated"){
+                    if(genericError != undefined){
+                        component.set('v.isError', true);
+                        component.set('v.errorlst',genericError);
+                        component.set('v.hasHeader',false);
+                		component.set('v.isLoad',true);
+                    }else if(ret.Updated!="Updated"){
                         this.toastEvent('Error!', response.getReturnValue(), 'error');
-                    } else{
-                        this.toastEvent('Success!', msgreeval, 'success');                    
-                    } 
-                    $A.get('e.force:refreshView').fire();
+                        $A.get('e.force:refreshView').fire();
+                    } else if(ret.Updated =="Updated"){
+                        this.toastEvent('Success!', msgreeval, 'success');
+                        $A.get('e.force:refreshView').fire();
+                    }                    
                 }
             });
             
             $A.enqueueAction(save_action);
         }else{
+            component.set('v.isLoad',false);
             var disabledButton = $A.get("e.c:disabledButton_evt");            
             disabledButton.setParams({ 
 				"idOpp" : inputObject.recordId,
@@ -45,18 +57,30 @@
         action.setParams({Idopp : inputObject.recordId });
         action.setCallback(this, function(response) {
             var state = response.getState();
+            var ret = response.getReturnValue();
+            var msg = ret.msg;
+            var genericError = ret.genericError;
             if (state === "SUCCESS") {
-                if (response.getReturnValue()=="Risk"){ 
+                if(genericError != undefined){
+                    component.set('v.isError', true);
+                    component.set('v.errorlst',genericError);
+                    component.set('v.hasHeader',false);
+                }else if (msg == "Risk"){ 
                     component.set('v.Risk', true);
-                }
-                if (response.getReturnValue()=="Price"){ 
+                    component.set('v.hasHeader',true);
+                    component.set('v.isError', false);
+                }else if (msg == "Price"){ 
                     component.set('v.Price', true);
-                }
-                if (response.getReturnValue()=="Both"){    
+                    component.set('v.hasHeader',true);
+                    component.set('v.isError', false);
+                }else if (msg == "Both"){    
                     component.set('v.Price', true);
-                    component.set('v.Risk', true);   
+                    component.set('v.Risk', true);
+                    component.set('v.hasHeader',true);
+                    component.set('v.isError', false);
                 }
             }
+            component.set('v.isLoad',true);
         });
         $A.enqueueAction(action);                   
         
