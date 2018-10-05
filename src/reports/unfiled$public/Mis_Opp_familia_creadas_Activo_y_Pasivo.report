@@ -63,7 +63,7 @@
             <value>1</value>
         </params>
         <reportType>Hierarchy_report__c</reportType>
-        <scope>accountteamteam</scope
+        <scope>accountteamteam</scope>
         <timeFrameFilter>
             <dateColumn>Account.Opportunities$CreatedDate</dateColumn>
             <interval>INTERVAL_LAST60</interval>
