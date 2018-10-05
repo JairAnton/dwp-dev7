@@ -99,12 +99,13 @@
         <sortOrder>Asc</sortOrder>
         <sortType>Aggregate</sortType>
     </groupingsDown>
-    <name>Opp creadas familia Activo y Pasivo</name>
+    <name>Mis Opp creadas familia Activo y Pasivo</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
     <reportType>Oportunidades_Team__c</reportType>
+    <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
     <scope>ownsalesteam</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
