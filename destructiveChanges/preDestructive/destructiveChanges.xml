@@ -9,7 +9,11 @@
 	<types>
        <members>Home_Reports/Mis_visitas_como_equipo_adU</members>       
        <members>Home_Reports/Visits_current_month</members>
-       <name>Report</name>
+	   <members>Home_Reports/Opp_creadas_familia_Activo_y_Pasivo</members>
+	   <members>Home_Reports/Opp_creadas_familia_Activo_y_Pasivo_PCf</members>
+	   <members>Home_Reports/Opp_creadas_familia_Activo_y_Pasivo1</members>
+	   <members>Home_Reports/Opp_creadas_familia_Activo_y_Pasivo2</members>
+	    <name>Report</name>
    </types>	
     <types>
         <members>Participant_MasterRecord-1</members>

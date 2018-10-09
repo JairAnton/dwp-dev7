@@ -7,7 +7,7 @@
         <chartSummaries>
             <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Opportunity$Amount</column>
+            <column>Opportunity$Amount.CONVERT</column>
         </chartSummaries>
         <chartSummaries>
             <axisBinding>y2</axisBinding>
@@ -35,10 +35,10 @@
         <field>Opportunity$Owner</field>
     </columns>
     <columns>
-        <field>Opportunity$Name</field>
+        <field>Opportunity$account_name__c</field>
     </columns>
     <columns>
-        <field>Opportunity$account_name__c</field>
+        <field>Opportunity$Name</field>
     </columns>
     <columns>
         <field>Opportunity$opportunity_product__c</field>
@@ -48,7 +48,7 @@
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Opportunity$Amount</field>
+        <field>Opportunity$Amount.CONVERT</field>
     </columns>
     <columns>
         <field>Opportunity$StageName</field>
@@ -63,7 +63,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Asistente</description>
+    <description>Asistente y Especialista</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -99,13 +99,14 @@
         <sortOrder>Asc</sortOrder>
         <sortType>Aggregate</sortType>
     </groupingsDown>
-    <name>Opp creadas familia Activo y Pasivo</name>
+    <name>Mis Opp creadas familia Activo y Pasivo</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
     <reportType>Oportunidades_Team__c</reportType>
-    <scope>user</scope>
+    <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
+    <scope>ownsalesteam</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
         <dateColumn>Opportunity$CreatedDate</dateColumn>
