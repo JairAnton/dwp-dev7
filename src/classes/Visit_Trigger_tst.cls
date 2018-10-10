@@ -5,6 +5,7 @@
 @Version:1
 @Hysteresis of changes:
 - Creation of the class
+*Modificado por Eduardo Castillo Sunahata 02-10-2018
 */
 @isTest
 public class Visit_Trigger_tst{

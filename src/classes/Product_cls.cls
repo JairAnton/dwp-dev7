@@ -101,11 +101,7 @@ public without sharing class Product_cls {
             }
             else return false;
         }
-        catch(Dmlexception exp)
-        {
-            System.debug(exp.getMessage());
-            return false;
-        }
+        catch(Dmlexception exp) {return false;}
     }
     
     
