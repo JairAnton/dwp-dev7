@@ -26,12 +26,15 @@ public class Product_cls_test {
 	    u.Email='u2@u.com';
 	    u.Alias= 'uAlias2';
 	    u.CommunityNickname='2uComm';
-	    u.TimeZoneSidKey='America/Mexico_City';
-	    u.LocaleSidKey='en_US';
+	    //u.TimeZoneSidKey='America/Mexico_City';
+	    //u.LocaleSidKey='en_US';
+	    u.TimeZoneSidKey='America/Lima';
+	    u.LocaleSidKey='es_PE';
 	    u.EmailEncodingKey='ISO-8859-1';
 	    u.ProfileId=  perfilMapa.get('Ejecutivo').Id;
-	    u.LanguageLocaleKey='en_US';
-	    insert u;
+	    //u.LanguageLocaleKey='en_US';
+	    u.LanguageLocaleKey='es';
+	    //insert u;
         
         User u2 = new User();
 	    u2.Username='u22@u.com.u';
@@ -39,8 +42,10 @@ public class Product_cls_test {
 	    u2.Email='u22@u.com';
 	    u2.Alias= 'uAlias22';
 	    u2.CommunityNickname='22uComm';
-	    u2.TimeZoneSidKey='America/Mexico_City';
-	    u2.LocaleSidKey='en_US';
+	    //u2.TimeZoneSidKey='America/Mexico_City';
+	    //u2.LocaleSidKey='en_US';
+	    u2.TimeZoneSidKey='America/Lima';
+	    u2.LocaleSidKey='es_PE';
 	    u2.EmailEncodingKey='ISO-8859-1';
 	    u2.ProfileId=  perfilMapa.get('Operativo').Id;
 	    //u2.LanguageLocaleKey='en_US';
@@ -132,7 +137,8 @@ public class Product_cls_test {
         	testLOPP.Quantity=1;
         	testLOPP.gipr_Tipo_Garantia__c='03';
 			insert testLOPP;
-
+            //Crear Oportunidad con Producto - 1 Fin
+            
 			fprd__GBL_Guarantee__c testPG = new fprd__GBL_Guarantee__c();
             testPG.fprd__GBL_Opportunity_product__c=testOP.Id;        	
 			insert testPG;
@@ -287,7 +293,5 @@ public class Product_cls_test {
 		test.stopTest();
         }
 	}
-	
-	
 	
 }
