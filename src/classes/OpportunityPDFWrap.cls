@@ -91,13 +91,9 @@ public without sharing virtual class OpportunityPDFWrap {
 
 
             if(pc.FPRD__SECTION_NAME__C=='Información general del producto' && fieldVisibility.get(pc.Id)){
-                A.add(pc);
-            }
+                A.add(pc);}
             if(pc.FPRD__SECTION_NAME__C=='Criterios de pago y liquidación' && fieldVisibility.get(pc.Id)){
-                B.add(pc);
-            }
-
-
+                B.add(pc);}
         }
 
 

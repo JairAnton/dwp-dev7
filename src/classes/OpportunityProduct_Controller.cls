@@ -27,8 +27,7 @@ public without sharing class OpportunityProduct_Controller {
             if(SIOtmp != t.subject.substring(0,t.subject.indexOf('#'))){
                 SIOtmp =  t.subject.substring(0,t.subject.indexOf('#'));
                 t.Subject = SIOtmp;
-                for(task t2 :tasks2)
-                {
+                for(task t2 :tasks2){
                     system.debug(SIOtmp+' task2:'+t2.subject);
                     if(SIOtmp==t2.subject)
                         duplicate=true;

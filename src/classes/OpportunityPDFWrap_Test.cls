@@ -1,3 +1,4 @@
+//Modificado por Eduardo Castillo S. 2018/10/01
 @istest
 public class OpportunityPDFWrap_Test {
 
@@ -8,12 +9,17 @@ public class OpportunityPDFWrap_Test {
         TestFactory.createAccBankingSystClass(acc.id);
 
 		TestFactory.createContact(acc.id);
-        User user=TestFactory.createUser('TestAdmin','Migracion');
+        User user=TestFactory.createUser_1('TestAdmin','Migracion');
         TestFactory.createUserBranch(user.Id);
 
         Opportunity opp=TestFactory.createOpportunity(acc.Id,user.Id);
+        List<dwp_cvad__Action_Audit__c> action_audit_list = TestFactory.create_Action_Audit(opp.id);
+        for(dwp_cvad__Action_Audit__c item3 : action_audit_list){
+            TestFactory.create_Action_Audit_Detail(item3.Id);
+        }
+        TestFactory.create_guarantee(opp.id);
         Product2 prod=TestFactory.createProduct();
-        TestFactory.productConfiguration(Prod.ID);
+        TestFactory.productConfiguration_1(Prod.ID);
         TestFactory.createOLI(opp.id,prod.id);
         TestFactory.createParticipants(opp.id);
         TestFactory.createGuarantee(opp.id);
