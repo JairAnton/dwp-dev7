@@ -9,6 +9,9 @@
 *-------------------------------------------------------------------------------
 *------   ----------------   --------------------   ----------------------------
 *1.0       	19-03-2018        Isaías Velázquez                   Creation
+*
+*Modificado por Eduardo Castillo Sunahata 02-10-2018
+*
 **/
 @isTest
 public class GraphicsGenerator_cls_test {

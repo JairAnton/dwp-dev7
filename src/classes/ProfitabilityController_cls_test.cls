@@ -14,7 +14,7 @@ public class ProfitabilityController_cls_test {
         opptest = TestFactory.createOpportunity(acctest.Id,defaultUser.Id);
         prod = testFactory.createProduct();
         testFactory.createOLI(opptest.Id, prod.Id);
-        TestFactory.createAccountProfit(acctest2.Id);       
+        TestFactory.createAccountProfit_1(acctest2.Id);   
         } 
 
 
