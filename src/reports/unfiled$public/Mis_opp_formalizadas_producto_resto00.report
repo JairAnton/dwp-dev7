@@ -41,8 +41,8 @@
             <criteriaItems>
                 <column>Account.Opportunities$opportunity_product_family__c</column>
                 <isUnlocked>true</isUnlocked>
-                <operator>equals</operator>
-                <value>Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
+                <operator>contains</operator>
+                <value>Serv. Transaccionales,Programa financiero</value>
             </criteriaItems>
             <criteriaItems>
                 <column>Account.Opportunities$StageName</column>
@@ -54,7 +54,7 @@
                 <column>Account.Opportunities$Type</column>
                 <isUnlocked>true</isUnlocked>
                 <operator>equals</operator>
-                <value>01,02</value>
+                <value>01</value>
             </criteriaItems>
         </filter>
         <format>Summary</format>
@@ -99,6 +99,18 @@
                 <isUnlocked>true</isUnlocked>
                 <operator>equals</operator>
                 <value>06</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Opportunity.opportunity_product_family__c</column>
+                <isUnlocked>true</isUnlocked>
+                <operator>contains</operator>
+                <value>Serv. Transaccionales,Programa financiero</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>TYPE</column>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>01</value>
             </criteriaItems>
         </filter>
         <format>Summary</format>
@@ -154,19 +166,19 @@
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
-    <description>Ejecutivo,GOF,Gerente regional y Gerente de banca</description>
+    <description>EJECUTIVO,GOF, GERENTE REGIONAL, GERENTE BANCA</description>
     <format>MultiBlock</format>
     <groupingsDown>
         <dateGranularity>Week</dateGranularity>
         <field>Account.Opportunities$Opp_Creation_Date__c</field>
-        <sortOrder>Asc</sortOrder>
+        <sortOrder>Desc</sortOrder>
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>Account.Opportunities$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis Opp formalizadas Producto Act y Pas</name>
+    <name>Mis opp formalizadas producto resto</name>
     <params>
         <name>lsk</name>
         <value>1</value>
