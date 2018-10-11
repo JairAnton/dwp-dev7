@@ -3430,6 +3430,16 @@
         <field>Account_Profitability__c.is_type_3_last_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Information__c.product_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Information__c.product_group_classification_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Indicator__c.is_date_type_1_within_last_12_months__c</field>
