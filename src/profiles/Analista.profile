@@ -1616,6 +1616,16 @@ Analistas de riesgos</description>
         <field>Account_Profitability__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Information__c.product_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_BBVA_Information__c.product_group_classification_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Profitability__c.year_month_day_date__c</field>
