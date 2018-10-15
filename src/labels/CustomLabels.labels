@@ -1935,4 +1935,109 @@
         <shortDescription>Price Register Loss Unknown Error</shortDescription>
         <value>The quotation loss has not been registered due to an error. Please, contact your administration for further details.</value>
     </labels>
+    <labels>
+        <fullName>AuthorizedTea</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuthorizedTea</shortDescription>
+        <value>Authorized TEA (%)</value>
+    </labels>
+    <labels>
+        <fullName>CalculateProfitability</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CalculateProfitability</shortDescription>
+        <value>Calculate Profitability</value>
+    </labels>
+    <labels>
+        <fullName>PriceAnalyzeRateKnowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceAnalyzeRateKnowError</shortDescription>
+        <value>Rates have not been recalculated due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceAnalyzeRateUnknowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceAnalyzeRateUnknowError</shortDescription>
+        <value>Rates have not been recalculated due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceGetQuotationRequestKnownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Get Quotation Request Known Error</shortDescription>
+        <value>The quotation details have not been obtained due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceGetQuotationRequestUnknownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Get Quotation Request Unknown Error</shortDescription>
+        <value>The quotation details have not been obtained due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 11</shortDescription>
+        <value>MINIMUM_LIQUIDITY_MARGIN</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel12</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 12</shortDescription>
+        <value>COMMERCIAL_LIQUIDITY_MARGIN</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel13</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 13</shortDescription>
+        <value>ADDITIONAL_LIQUIDITY_MARGIN</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel14</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 14</shortDescription>
+        <value>STOCKHOLDER_FINANCING_COST</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel15</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 15</shortDescription>
+        <value>ADJUSTED_FUNDING_COST</value>
+    </labels>
+    <labels>
+        <fullName>lblAuth</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblAuth</shortDescription>
+        <value>AUTHORIZED</value>
+    </labels>
+    <labels>
+        <fullName>lblMini</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMinimum</shortDescription>
+        <value>MINIMUM</value>
+    </labels>
+    <labels>
+        <fullName>lblModel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblModel</shortDescription>
+        <value>MODEL</value>
+    </labels>
+    <labels>
+        <fullName>lblReq</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblReq</shortDescription>
+        <value>REQUESTED</value>
+    </labels>
 </CustomLabels>
