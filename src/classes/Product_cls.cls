@@ -101,7 +101,11 @@ public without sharing class Product_cls {
             }
             else return false;
         }
-        catch(Dmlexception exp) {return false;}
+        catch(Dmlexception exp)
+        {
+            System.debug(exp.getMessage());
+            return false;
+        }
     }
     
     
@@ -200,14 +204,18 @@ public without sharing class Product_cls {
         
         try
         {            
-            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId, (SELECT Id, product2.type_of_quote__c FROM OpportunityLineItems) FROM Opportunity WHERE Id=: OpportunityId];                              
             
             if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
             {                                         
                 if(Action=='btnApprove'){//08
                     itemOpp[0].StageName='06';
                     itemOpp[0].opportunity_status_type__c='23';
-                    returnMap = disburseQuotation(itemOpp[0].id, ContractNumber);
+                    if(itemOpp[0].OpportunityLineItems[0].product2.type_of_quote__c == 'Web'){
+                        returnMap = disburseQuotation(itemOpp[0].id, ContractNumber);
+                    }else{
+                        returnMap.put('success',true);
+                    }
                 }
                 else if(Action=='btnRaise'){//09
                     itemOpp[0].StageName='05';
@@ -231,12 +239,17 @@ public without sharing class Product_cls {
                     else if(Action=='btnRaise') new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
                     else if(Action=='btnBack')  new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
                     //END Traceability
-                }               
+                }
+                returnMap.put('showErrorMessage',true);            
+            }else{
+                returnMap.put('success',false); 
+                returnMap.put('showErrorMessage',false);
             }
             
         }catch(Dmlexception exp) { 
             returnMap.put('success',false);
             returnMap.put('errorMessage',exp.getMessage());
+            returnMap.put('showErrorMessage',true);
         }
         
         return returnMap;

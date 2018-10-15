@@ -22,6 +22,7 @@
         var OpportunityId = component.get("v.recordId");
         var body = component.get("v.comments");
         var fileName = component.get("v.FileName");
+        console.log('eeeeeeeeeee');
         if(!component.get("v.isFormalization"))
         {
 
@@ -86,13 +87,13 @@
                     var state = response.getState();
                     if (state === "SUCCESS") {
                     
-                        if(response.getReturnValue()=="true"){
+                        if(response.getReturnValue().success==true){
                             $A.get('e.force:refreshView').fire();
                             helper.navigateToRecord(component, event, helper);
                         }
                         else
                         {
-                            component.set("v.errMessage",response.getReturnValue());
+                            component.set("v.errMessage",response.getReturnValue().errorMessage);
                             helper.handleShowToast(component,event,helper);
                         }
 

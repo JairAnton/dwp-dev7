@@ -82,6 +82,7 @@
 	},
 	saveCommitment : function(cmp, evt, helper){
 		var objSetup = cmp.get('v.objSetup');
+		var approvalMethod = cmp.get('v.approvalMethod');
 		var isOk = true;
 		var fields = cmp.find('field');
 		var lstData = [];
@@ -94,6 +95,7 @@
 				lstData.push(fields[i].get('v.value'));
 			}
 			lstData.push(objSetup['valIdCommitment']);
+			lstData.push(approvalMethod);
 			var action = cmp.get("c.saveCommitment");
 			action.setParams({
 				"recordId" : cmp.get('v.oppRecordId'),
