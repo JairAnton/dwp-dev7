@@ -14,6 +14,7 @@ public class SanctionPriceAnalistWeb_ctrl {
                     GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(oppId); 
                     //invoke the service
                     System.HttpResponse invoke = getquoteHelper.invoke();
+                    System.debug('getquoteHelper'+getquoteHelper);
                     //get json body
                     GetQuotationRequest_helper.ResponseGetQuotationRequest_Wrapper jbody = GetQuotationRequest_helper.parse(invoke.getBody());
                     switch on invoke.getStatusCode(){                        
@@ -109,6 +110,7 @@ public class SanctionPriceAnalistWeb_ctrl {
             
         }catch(Exception e){
             errorMessage = Label.PriceGetQuotationRequestUnknownError;
+            System.debug('errorMessage'+e.getMessage());
         }
         mpReturn.put('errormessage',errorMessage);
         List<String> lstHeaders = new List<String>();
