@@ -1,0 +1,35 @@
+<aura:component controller="SanctionPriceAnalistWeb_ctrl" access="GLOBAL">
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="headers" type="List"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="checkError" type="Boolean" default="false"/>
+    <aura:attribute name="strErrorMessage" type="String"/>
+    <aura:attribute name="isLoad" type="Boolean" default="false"/>
+    <aura:attribute name="teainput" type="decimal"/>
+    <aura:attribute name="spreadinput" type="decimal"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="slds-m-bottom_medium">
+        <lightning:input type="number" name="inputtea" label="{!$Label.c.AuthorizedTea}" formatter="percent-fixed" step="0.01" value="{!v.teainput}"/>
+    </div>    
+    <aura:if isTrue="{!v.isLoad}">
+        <aura:if isTrue="{!v.checkError}">
+            <div class="slds-m-bottom_medium">
+                <c:Message_banner_cmp label="{!v.strErrorMessage}" />
+            </div>
+            <aura:set attribute="else">
+                <div class="slds-align_absolute-center slds-m-bottom_medium">
+                    <lightning:button label="{!$Label.c.CalculateProfitability}" onclick="{!c.calculateJS}"/>
+                </div>
+                <div class="slds-m-bottom_medium">
+                    <c:DataTable_cmp data="{!v.data}" headers="{!v.headers}"/>
+                </div>
+            </aura:set>
+        </aura:if>
+        <aura:set attribute="else">
+            <div class="slds-align_absolute-center slds-m-bottom_medium">
+                <lightning:spinner variant="brand" class="slds-is-relative slds-align--absolute-center"/>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

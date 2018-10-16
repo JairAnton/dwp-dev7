@@ -155,9 +155,16 @@ public class Commitment_ctrl_Test {
 		}
 		
 		update oppLineItemTestList[0];
-
+        Opportunity_Solution_Commitment__c osc = new Opportunity_Solution_Commitment__c(opp_solution_commitment_amount__c = 34,
+                                                                            opp_solution_commitment_id__c = '34',
+                                                                            opp_soln_comt_expiry_days_number__c = 23,
+                                                                            opp_solution_id__c = oppLineItemTestList[0].Id,
+                                                                            opportunity_id__c = opptest.Id,
+                                                                            CurrencyIsoCode = 'PEN');
+        insert osc;
         insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/OK_2', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationCommitment', iaso__Url__c = 'https://CreateQuotationCommitment/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         
