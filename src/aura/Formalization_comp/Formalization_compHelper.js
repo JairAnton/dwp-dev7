@@ -22,7 +22,6 @@
         var OpportunityId = component.get("v.recordId");
         var body = component.get("v.comments");
         var fileName = component.get("v.FileName");
-        console.log('eeeeeeeeeee');
         if(!component.get("v.isFormalization"))
         {
 

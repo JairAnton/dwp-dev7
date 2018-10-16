@@ -18,7 +18,6 @@
                     'approvalMethod':ret.approvalMethod,
                     'dinamicInput':'-'
                 };
-                console.log(ret.approvalMethod);
                 if(ret.approvalMethod == 'Tarifario'){                    
                     objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
                 } else if(ret.approvalMethod == 'Web'){

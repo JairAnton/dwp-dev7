@@ -40,8 +40,7 @@
                 });
                 action.setCallback(this, function(response) {
                     var state = response.getState();
-                    if (state === "SUCCESS") {
-                        console.log(response.getReturnValue());                    
+                    if (state === "SUCCESS") {            
                         if(response.getReturnValue().success == true){
                             $A.get('e.force:refreshView').fire();
                             helper.navigateToRecord(component, event, helper);

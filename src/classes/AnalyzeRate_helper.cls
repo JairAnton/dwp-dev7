@@ -78,9 +78,7 @@ public class AnalyzeRate_helper {
 
     public String generateJSONRequest(){
         String json = JSON.serialize(this.inputDataMapping);
-        System.debug(json);
         json = json.replace('currency_type', 'currency');
-        System.debug(json);
         return json;
     }
 
