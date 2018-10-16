@@ -20,10 +20,10 @@
                     cmp.set('v.isLoad',true);
                     cmp.set('v.headers',[
                         { label: '', fieldName: 'empty', type: 'text'},
-                        { label: ret.headers[0], fieldName: 'MIN', type: 'number',alignment: 'center', cellAttributes: { alignment: 'center' }},
-                        { label: ret.headers[1], fieldName: 'MODEL', type: 'number',alignment: 'center', cellAttributes: { alignment: 'center' }},
-                        { label: ret.headers[2], fieldName: 'REQU', type: 'number',alignment: 'center', cellAttributes: { alignment: 'center' }},
-                        { label: ret.headers[3], fieldName: 'AUTH', type: 'number',alignment: 'center', cellAttributes: { alignment: 'center' }}                    
+                        { label: ret.headers[0], fieldName: 'MIN', type: 'number', cellAttributes: { alignment: 'left' }},
+                        { label: ret.headers[1], fieldName: 'MODEL', type: 'number', cellAttributes: { alignment: 'left' }},
+                        { label: ret.headers[2], fieldName: 'REQU', type: 'number', cellAttributes: { alignment: 'left' }},
+                        { label: ret.headers[3], fieldName: 'AUTH', type: 'number', cellAttributes: { alignment: 'left' }}                    
                     ]);
                     var teaminim = ret.teaminim;
                     if(teaminim != undefined && teaminim != ''){
@@ -172,6 +172,7 @@
                 var body = ret.body;
                 var strjson = JSON.parse(body);
                 var state = ret.state;
+                var generr = ret.errormessage;
                 if(state = 200){
                     var datalst = cmp.get('v.data');
                     var spreadReq;
@@ -248,6 +249,7 @@
                     cmp.set('v.spreadinput',spreadReq);
                 }else{
                     cmp.set('v.checkError',true);
+                    cmp.set('v.strErrorMessage',generr);
                 }
             }
         });

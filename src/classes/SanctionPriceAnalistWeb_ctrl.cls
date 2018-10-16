@@ -140,6 +140,7 @@ public class SanctionPriceAnalistWeb_ctrl {
         }catch(Exception e){
             errorMessage = e.getMessage();
         }
+        mpReturn.put('errormessage',errorMessage);
         return mpReturn;
     }    
 }
