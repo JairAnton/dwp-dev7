@@ -138,11 +138,7 @@
             <axisBinding>y</axisBinding>
             <column>B1#Account.Opportunities$Amount.CONVERT</column>
         </chartSummaries>
-        <chartSummaries>
-            <axisBinding>y2</axisBinding>
-            <column>B1#RowCount</column>
-        </chartSummaries>
-        <chartType>VerticalColumnStackedLine</chartType>
+        <chartType>VerticalColumnStacked</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Account.Opportunities$Opp_Creation_Date__c</groupingColumn>
@@ -175,7 +171,7 @@
     <name>Mis oportunidades formalizadas Fam Resto</name>
     <params>
         <name>lsk</name>
-        <value>41</value>
+        <value>1</value>
     </params>
     <reportType>Hierarchy_report__c</reportType>
     <showDetails>true</showDetails>
