@@ -4,9 +4,10 @@ global with sharing class Integration_GrantingTickets_Peru implements iaso.GBL_I
         Datetime initTime = Datetime.now();
         Http http = new Http();
         HttpRequest validationRequest = new HttpRequest();
-        validationRequest.setEndpoint(WebServiceUtils.getUrlFromCustomSettings(authenticationConfig.iaso__Custom_Setting__c));
+        //validationRequest.setEndpoint(WebServiceUtils.getUrlFromCustomSettings(authenticationConfig.iaso__Custom_Setting__c));
+        validationRequest.setEndpoint('callout:Auth_Peru');
         validationRequest.setMethod('POST');
-        validationRequest.setHeader('Authorization', getAuth(authenticationConfig));
+        //validationRequest.setHeader(authenticationConfig.iaso__Header_Token__c, getAuth(authenticationConfig));
         validationRequest.setHeader('Content-Type', 'application/x-www-form-urlencoded');
         //validationRequest.setHeader('Accept', 'application/json');
         String validationRequestBody = 'grant_type=client_credentials';
@@ -19,14 +20,14 @@ global with sharing class Integration_GrantingTickets_Peru implements iaso.GBL_I
                          response.getStatusCode() + ' ' + response.getStatus());
         } else {
             String jsonResponse = response.getBody();
-            String tsec = response.getHeader(authenticationConfig.iaso__Header_Token__c);
+            String tsec = response.getHeader(authenticationConfig.iaso__Cache_Key__c);
             Map < String, Object > m = (Map < String, Object > ) JSON.deserializeUntyped(jsonResponse);
             Map < String, Object > user = (Map < String, Object > ) m.get('user');
             //Map<String, Object> person = (Map<String, Object>) user.get('person');
             //String clientId = (String) person.get('id');
             Map < String, String > credentials = new Map < String, String > ();
             // Add cache value to the partition
-            credentials.put('tsec', tsec);
+            credentials.put(authenticationConfig.iaso__Cache_Key__c, tsec);
             //credentials.put('clientId', clientId);
             Cache.Partition partition;
             if (!authenticationConfig.iaso__isOrgCache__c) {
@@ -63,10 +64,10 @@ global with sharing class Integration_GrantingTickets_Peru implements iaso.GBL_I
         // Retrieve cache value from the partition
         Map < String, String > credentials = (Map < String, String > ) partition.get(authenticationConfig.iaso__Cache_Key__c);
         // if credentials are not set in the cache, reset
-        if (credentials != null && credentials.get('tsec') != null) {
+        if (credentials != null && credentials.get(authenticationConfig.iaso__Cache_Key__c) != null) {
             //resetToken(authenticationConfig);
             //credentials = (Map <String, String>) sessionPart.get(authenticationConfig.Cache_Key__c);      
-            request.setHeader(authenticationConfig.iaso__Header_Token__c, credentials.get('tsec'));
+            request.setHeader(authenticationConfig.iaso__Header_Token__c, credentials.get(authenticationConfig.iaso__Cache_Key__c));
         }        
         return request;
     }
@@ -84,7 +85,7 @@ global with sharing class Integration_GrantingTickets_Peru implements iaso.GBL_I
         // Retrieve cache value from the partition
         Map < String, String > credentials = (Map < String, String > ) partition.get(authenticationConfig.iaso__Cache_Key__c);
         // if credentials are not set in the cache, reset
-        if (credentials != null && credentials.get('tsec') != null) {
+        if (credentials != null && credentials.get(authenticationConfig.iaso__Cache_Key__c) != null) {
             return true;
         }
         return false;
