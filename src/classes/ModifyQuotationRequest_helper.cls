@@ -62,7 +62,7 @@ public class ModifyQuotationRequest_helper {
         List<Request_effectiveRates> lstEffectiveRates = new List<Request_effectiveRates>();
         Request_effectiveRates effRate = new Request_effectiveRates();
         effRate.id = rateId;
-        effRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c) : proposed);
+        effRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c/100) : proposed/100);
         lstEffectiveRates.add(effRate);
         
         interestRates.effectiveRates = lstEffectiveRates;
@@ -91,7 +91,7 @@ public class ModifyQuotationRequest_helper {
         List<Request_effectiveRates> lstEffectiveRates = new List<Request_effectiveRates>();
         Request_effectiveRates effRate = new Request_effectiveRates();
         effRate.id = rateId;
-        effRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c) : proposed);
+        effRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c/100) : proposed/100);
         lstEffectiveRates.add(effRate);
         
         Request_rate rate = new Request_rate();
@@ -123,7 +123,7 @@ public class ModifyQuotationRequest_helper {
         chosenBank.Id = (mapWsVal.get('REJECTION_WINNER_ENTITY' + String.valueOf(lstParams[1])) != null ? Integer.valueOf(mapWsVal.get('REJECTION_WINNER_ENTITY' + String.valueOf(lstParams[1])).web_service_value__c) : null);
         Request_effectiveRate effectiveRate = new Request_effectiveRate();
         effectiveRate.id = rateId;        
-        effectiveRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c) : proposed);
+        effectiveRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c/100) : proposed/100);
         chosenBank.effectiveRate = effectiveRate;
         causeLoss.chosenBank = chosenBank;       
         
