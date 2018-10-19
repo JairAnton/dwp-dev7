@@ -211,18 +211,22 @@
                     }
                     if(adjTea != undefined && adjTea != ''){
                         var formatNumber = parseFloat(adjTea);
+						formatNumber = formatNumber*100;
                         adjTea = formatNumber.toFixed(2);                        
                     }
                     if(rarReq != undefined && rarReq != ''){
                         var formatNumber = parseFloat(rarReq);
+						formatNumber = formatNumber*100;
                         rarReq = formatNumber.toFixed(2);                        
                     }
                     if(baiReq != undefined && baiReq != ''){
                         var formatNumber = parseFloat(baiReq);
+						formatNumber = formatNumber*100;
                         baiReq = formatNumber.toFixed(2);                        
                     }
                     if(spreadReq != undefined && spreadReq != ''){
                         var formatNumber = parseFloat(spreadReq);
+						formatNumber = formatNumber*100;
                         spreadReq = formatNumber.toFixed(2);                        
                     }
                     

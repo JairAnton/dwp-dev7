@@ -123,7 +123,7 @@ public class SanctionPriceAnalistWeb_ctrl {
     @AuraEnabled
     public static Map<String,Object> calculate(String oppId, decimal tea){
         Map<String,Object> mpReturn = new Map<String,Object>();
-        String strTea = String.valueOf(tea);
+        String strTea = (tea == null ? '' : String.valueOf(tea/100));
         String errorMessage;
         List<OpportunityLineItem> lstOLI = new List<OpportunityLineItem>();
         try{
