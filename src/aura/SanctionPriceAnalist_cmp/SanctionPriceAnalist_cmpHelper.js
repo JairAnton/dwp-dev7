@@ -15,7 +15,7 @@
                 var ret = response.getReturnValue();
                 cmp.set('v.AccId',ret.AccId);
                 cmp.set('v.type_of_quote',ret.type_of_quote);
-                if(ret.type_of_quote=='COTIZA Beta')
+                if(ret.type_of_quote==='COTIZA Beta')
                 {
                   cmp.set('v.modalWidthCustom','37rem');
                 }
@@ -25,10 +25,8 @@
                     'approvalMethod':ret.approvalMethod,
                     'dinamicInput':'-'
                 };
-                if(ret.approvalMethod == 'Tarifario'){                    
+                if(ret.approvalMethod == 'Tarifario'){
                     objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
-                } else if(ret.approvalMethod == 'Web'){
-                    cmp.set('v.isnotWeb',false)
                 }
 				cmp.set('v.objectInput',objectInput);
                 cmp.set('v.isLoad',true);
@@ -37,71 +35,50 @@
         $A.enqueueAction(action);
     },
     continue : function(cmp, evt, helper){
-    	var isOk = true;
+		var fieldsForm = cmp.find('fieldsFormInput');
+        var inputs = fieldsForm.find('input');
+		var isOk = true;
 		var lstApiField = [];
 		var lstvalueField = [];
-        var inputObject=cmp.get('v.inputAttributes');
-    	var dynamicValuesInputJS;
-        var lstApiFieldJS;
-        var lstvalueFieldJS;
-    	if(cmp.get('v.isnotWeb') == false){
-            var analistWeb = cmp.find('analistWeb');		
-            var recordId = cmp.get('v.inputAttributes.recordId');
-            var inputtea = analistWeb.get('v.teainput');
-            var datalst = analistWeb.get('v.data');
-            var headerlst = analistWeb.get('v.headers');
-            var spreadinput = analistWeb.get('v.spreadinput');
-    		dynamicValuesInputJS = inputtea.toString();
-			lstApiFieldJS = ['spread_per__c','proposed_apr_per__c'];
-            lstvalueFieldJS = [spreadinput,inputtea];
-    		inputObject['datainput'] = datalst;
-    		inputObject['headerinput'] = headerlst;
-        }else{
- 			var fieldsForm = cmp.find('fieldsFormInput');
-            var inputs = fieldsForm.find('input');
-            if(inputs.length != undefined){
-                for(var i in inputs){
-                    if(inputs[i].find('inputField') != undefined){
-                        lstApiField.push(inputs[i].get('v.fieldObject').ApiName);
-                        lstvalueField.push(inputs[i].get('v.fieldObject').value);
-                        inputs[i].find('inputField').reportValidity();
-                        if(!inputs[i].find('inputField').checkValidity()){
-                            isOk = false;
-                        }
-                    }
-                }
-            }else{
-                if(inputs.find('inputField') != undefined){
-                    lstApiField.push(inputs.get('v.fieldObject').ApiName);
-                    lstvalueField.push(inputs.get('v.fieldObject').value);
-                    inputs.find('inputField').reportValidity();
-                    if(!inputs.find('inputField').checkValidity()){
+        if(inputs.length != undefined){
+            for(var i in inputs){
+                if(inputs[i].find('inputField') != undefined){
+                    lstApiField.push(inputs[i].get('v.fieldObject').ApiName);
+                    lstvalueField.push(inputs[i].get('v.fieldObject').value);
+                    inputs[i].find('inputField').reportValidity();
+                    if(!inputs[i].find('inputField').checkValidity()){
                         isOk = false;
                     }
                 }
             }
-			dynamicValuesInputJS = lstvalueField.join(',');
-			lstApiFieldJS = lstApiField;
-            lstvalueFieldJS = lstvalueField;
- 		}
+        }else{
+            if(inputs.find('inputField') != undefined){
+                lstApiField.push(inputs.get('v.fieldObject').ApiName);
+                lstvalueField.push(inputs.get('v.fieldObject').value);
+                inputs.find('inputField').reportValidity();
+                if(!inputs.find('inputField').checkValidity()){
+                    isOk = false;
+                }
+            }
+        }
         
-        inputObject['dynamicValuesInput'] = dynamicValuesInputJS;
-        inputObject['lstApiField'] = lstApiFieldJS;
-        inputObject['lstvalueField'] = lstvalueFieldJS;
-        inputObject['opportunityLineItem'] = cmp.get('v.objectInput').IdOppLineItem;
-        inputObject['approvalMethod'] = cmp.get('v.objectInput').approvalMethod;
-        if(isOk){
-            var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
+        var inputObject=cmp.get('v.inputAttributes');
+        inputObject['dynamicValuesInput'] = lstvalueField.join(',');
+        inputObject['lstApiField'] = lstApiField;
+        inputObject['lstvalueField'] = lstvalueField;
+		inputObject['opportunityLineItem'] = cmp.get('v.objectInput').IdOppLineItem;
+		inputObject['approvalMethod'] = cmp.get('v.objectInput').approvalMethod;
+		if(isOk){
+			var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
             compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:SanctionPriceDecisionAnalist_cmp'});
             compEvent.fire();
-        }else{
-            var disabledButton = $A.get("e.c:disabledButton_evt");            
+		}else{
+			var disabledButton = $A.get("e.c:disabledButton_evt");            
             disabledButton.setParams({ 
-                "idOpp" : inputObject.recordId,
-                "idButton" : 'idContinueSPA'
-            });
-            disabledButton.fire();
-        } 
-
-   }
+				"idOpp" : inputObject.recordId,
+				"idButton" : 'idContinueSPA'
+			 });
+			disabledButton.fire();
+		}
+    }
 })

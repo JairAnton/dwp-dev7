@@ -13,7 +13,7 @@
     <aura:attribute name="modalWidthCustom" type="String" access="global" description="Specify the modal" default="74rem" />
     <div class="slds-modal__content slds-p-around_medium" >
         <div class="slds-grid">
-            <div class="slds-col" style="width:37rem" >   
+            <div class="slds-col sizeSPRICE">   
                 <aura:if isTrue="{!v.isnotWeb}">        
                     <aura:if isTrue="{!v.isLoad}">
                         <aura:if isTrue="{!v.checkError}">
@@ -27,7 +27,7 @@
                         </div>
                     </aura:if>
                     <aura:set attribute="else">
-                        <c:SanctionPriceAnalistWeb_cmp aura:id="analistWeb" recordId="{!v.inputAttributes.recordId}"/>
+                        
                     </aura:set>
                 </aura:if>
                 <div class="slds-m-bottom_medium" >
@@ -36,14 +36,14 @@
             </div>
     
             <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
-                <div class="slds-col" style="width:37rem"  >
+                <div class="slds-col sizeSPRICE">
                     <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}" />      
                 </div>
             </aura:if>
             
         </div> 
     </div>
-    
+
     <footer class="slds-modal__footer slds-theme_default">
         <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPA"/>
         <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>

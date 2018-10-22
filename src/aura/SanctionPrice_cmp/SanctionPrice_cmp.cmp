@@ -13,7 +13,6 @@
     <aura:attribute name="isError" type="Boolean" default="false" />
     <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to be displayed"/>
     <aura:attribute name="modalWidthCustom" type="String"  access="global" description="Specify the modal" default="74rem" />
-    
     <aura:if isTrue="{!v.isLoad}">
         <aura:if isTrue="{!v.checkError}">
             <ui:message title="Error" severity="error" >
@@ -25,11 +24,11 @@
             <aura:set attribute="else">
                 <div class="slds-modal__content slds-p-around_medium" >
                     <div class="slds-grid">
-                      <div class="slds-col" style="width:37rem" >                       
+                      <div class="slds-col sizeSPRICE ">                       
                           <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
                       </div>
                       <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
-                          <div class="slds-col" style="width:37rem">
+                          <div class="slds-col sizeSPRICE">                            
                             <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
                           </div>
                        </aura:if>  

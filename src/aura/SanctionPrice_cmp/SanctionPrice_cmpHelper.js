@@ -15,7 +15,7 @@
                 var ret = response.getReturnValue();                
                 cmp.set('v.AccId',ret.AccId);
                 cmp.set('v.type_of_quote',ret.type_of_quote);
-                if(ret.type_of_quote=='COTIZA Beta')
+                if(ret.type_of_quote==='COTIZA Beta')
                 {
                   cmp.set('v.modalWidthCustom','37rem');
                 }

@@ -15,10 +15,6 @@
                       targetRecord="{!v.record}"
                       targetFields="{!v.OpptyRecord}"
                       mode="VIEW"/>
-
-
-     
-
 	    <lightning:tabset variant="scoped"   >
         <lightning:tab >
             <aura:set attribute="label">
@@ -28,12 +24,10 @@
            <br/>
        </div>
         </lightning:tab>
-        <lightning:tab  >
-       
+        <lightning:tab  >       
             <aura:set attribute="label">
                 Deuda SBS<br/>
             </aura:set> 
-
             <div>  <center>    <lightning:select aura:id="selFiltro" name="selFiltro" label=" "  onchange="{!c.filtroGrafica}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  >
                   <option value="Total">Total</option>
                   <option value="DIRECTA">Directa</option>
@@ -46,11 +40,9 @@
                   <option value="INDIRECTA">Indirecta</option>
                   <option value="AVALES Y FIANZAS">Fianzas</option>
                   <option value="CARTA. CREDITO">Carta crédito</option> 
-                  <option value="ACEPTACIONES BANCARIAS (OTROS)">Otros indirectas</option>                              
+                  <option value="ACEPTACIONES BANCARIAS (OTROS)">Otros indirectas</option>
     </lightning:select>
     <br/>
-
-   
       <aura:if isTrue="{!v.bGrafica}">
           <div style="width:90%">
           <c:GraphicsGenerator_comp NombreCanvas=" "
@@ -71,7 +63,7 @@
                                                       Object="Account_Banking_System_Debt__c"
                                                       RelatedField="account_id__c"
                                                       Header="debt_current_balance_amount__c"
-                                                      Format='CUR'
+                                                      Format="CUR"
                                                       FilterStatic="is_last_date__c = true AND product_group_classification_id__c != '' AND product_desc__c != '' AND entity_name__c != ''"
                                                       Order="product_group_classification_order__c ASC, product_desc_order__c ASC, entity_order__c ASC"
                                                       Group="product_group_classification_id__c,product_desc__c"
@@ -83,28 +75,21 @@
                                                       showTotal="true"
                                                       Symbol="true"
                                                       PositionCurrency="Left"/>
-                                           
-
-
       </aura:if>
       </center>
     </div>    
-
-
         </lightning:tab>
-        <lightning:tab  >
-          
+        <lightning:tab  >          
             <aura:set attribute="label">
                 Vinculación<br/>
             </aura:set> <ul class="slds-has-dividers_around-space" style="font-size:18px">
-        <li class="slds-item">
-            <lightning:tile label=" "  class="slds-tile_board">
-               <b style="font-size:19px"> Vinculación</b><br/>
-               <aura:unescapedHtml value="{!v.commercial_strategy}"/>           
-            </lightning:tile>
-        </li></ul>
+                    <li class="slds-item">
+                        <lightning:tile label=" "  class="slds-tile_board">
+                           <strong style="font-size:19px"> Vinculación</strong><br/>
+                           <aura:unescapedHtml value="{!v.commercial_strategy}"/>           
+                        </lightning:tile>
+                    </li></ul>
             <div >
-
            <c:AccountProductContainer_comp recordId="{!v.recordId}" sObjectName="Account"/>
        </div>
         </lightning:tab>
