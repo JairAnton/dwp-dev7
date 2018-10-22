@@ -28,7 +28,7 @@
             <aura:set attribute="label">
                 Deuda SBS<br/>
             </aura:set> 
-            <div>  <center>    <lightning:select aura:id="selFiltro" name="selFiltro" label=" "  onchange="{!c.filtroGrafica}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  >
+            <div class="ccenter">      <lightning:select aura:id="selFiltro" name="selFiltro" label=" "  onchange="{!c.filtroGrafica}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  >
                   <option value="Total">Total</option>
                   <option value="DIRECTA">Directa</option>
                   <option value="PRESTAMO">Prestamo</option>
@@ -44,7 +44,7 @@
     </lightning:select>
     <br/>
       <aura:if isTrue="{!v.bGrafica}">
-          <div style="width:90%">
+          <div class="ChartZoom">
           <c:GraphicsGenerator_comp NombreCanvas=" "
         posicionLeyenda="right" 
         NombreInforme="EVOLUCION_DEUDA_SBS"        
@@ -76,16 +76,16 @@
                                                       Symbol="true"
                                                       PositionCurrency="Left"/>
       </aura:if>
-      </center>
+     
     </div>    
         </lightning:tab>
         <lightning:tab  >          
             <aura:set attribute="label">
                 Vinculación<br/>
-            </aura:set> <ul class="slds-has-dividers_around-space" style="font-size:18px">
+            </aura:set> <ul class="slds-has-dividers_around-space font1" >
                     <li class="slds-item">
                         <lightning:tile label=" "  class="slds-tile_board">
-                           <strong style="font-size:19px"> Vinculación</strong><br/>
+                           <strong class="font2"> Vinculación</strong><br/>
                            <aura:unescapedHtml value="{!v.commercial_strategy}"/>           
                         </lightning:tile>
                     </li></ul>

@@ -60,8 +60,7 @@
                     isOk = false;
                 }
             }
-        }
-        
+        }        
         var inputObject=cmp.get('v.inputAttributes');
         inputObject['dynamicValuesInput'] = lstvalueField.join(',');
         inputObject['lstApiField'] = lstApiField;

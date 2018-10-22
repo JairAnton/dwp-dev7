@@ -24,7 +24,7 @@
             <aura:set attribute="else">
                 <div class="slds-modal__content slds-p-around_medium" >
                     <div class="slds-grid">
-                      <div class="slds-col sizeSPRICE ">                       
+                      <div class="slds-col sizeSPRICE">                       
                           <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
                       </div>
                       <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
