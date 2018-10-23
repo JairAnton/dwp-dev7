@@ -37,8 +37,8 @@
         $A.get('e.force:refreshView').fire();
     },    
     doInitRefreshView : function(component, event, helper) {
-        if(window.location.href.includes(component.get('v.recordId'))){
-            component.set('v.isLoad', false);
+        component.set('v.isLoad', false);
+		if(window.location.href.includes(component.get('v.recordId'))){
             component.set('v.isLoad', true);
             
         }

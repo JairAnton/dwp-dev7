@@ -24,5 +24,6 @@ public class DynamicRelateProfability_test {
     @isTest static void TestRecuperaServicio(){
         Account temp1 = [select id from account]; 
         DynamicRelateProfability_cls.RecuperaServicio(temp1.id);
+		system.assertNotEquals(lista, null);
     }
 }
