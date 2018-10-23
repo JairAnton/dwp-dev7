@@ -57,7 +57,6 @@
     <enableSharing>false</enableSharing>
     <enableStreamingApi>false</enableStreamingApi>
     <fields>
-    <fields>
         <fullName>Value_Unificade__c</fullName>
         <description>Campo Unificado</description>
         <externalId>false</externalId>
