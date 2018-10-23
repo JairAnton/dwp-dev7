@@ -37,6 +37,7 @@
 						for(var i in lstDynamic){
 							if(lstDynamic[i]!='-'){
 								fieldObject[i].value = lstDynamic[i];
+								fieldObject[i].htmlInput = lstDynamic[i];
 							}
 						}
 					}

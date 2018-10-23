@@ -32,7 +32,6 @@
 
             if((sanAction=='btnApprove' && ContractNumber.length>0 ) || (sanAction=='btnRaise') || (sanAction=='btnBack' && body.length>0))
             {
-           		console.log('ENTRANDO FORMALIZACION');
                 action.setParams({
                     "OpportunityId" : OpportunityId,
                     "Action" : sanAction,
@@ -41,12 +40,12 @@
                 });
                 action.setCallback(this, function(response) {
                     var state = response.getState();
-                    if (state === "SUCCESS") {                       
+                    if (state === "SUCCESS") {            
                         if(response.getReturnValue().success == true){
                             $A.get('e.force:refreshView').fire();
                             helper.navigateToRecord(component, event, helper);
                         }
-                        else{
+                        else if(response.getReturnValue().showErrorMessage){
                             component.set('v.errorlst',response.getReturnValue().errorMessage);
                             component.set('v.optionToDisplay','02');
                             component.set('v.hasHeader',false);

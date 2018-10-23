@@ -1,5 +1,5 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL" controller="SanctionPriceDecision_ctrl">
-	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:attribute name="modalSizeSLDS" type="String" default="slds-modal--large" access="global" description="Specify Lightning Design System themes to be added to the modal´s size style."/>
     <aura:attribute name="objSetup" type="Object" />
     <aura:attribute name="enableContinue" type="Boolean" default="false"/>
@@ -25,16 +25,27 @@
                         </div>
                         <h3 class="slds-section__title">{!$Label.c.Price}</h3>
                         <c:FieldsForm_cmp aura:id="fieldsFormInput" isHTML="true" recordId="{!v.objectInput.IdOppLineItem}" isInput="false" valueDynamic="{!v.inputAttributes.dynamicValuesInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
+                        <aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
+                            <div class="slds-m-top_medium">                                                                                    
+                                <c:DataTable_cmp data="{!v.inputAttributes.datainput}" headers="{!v.inputAttributes.headerinput}" isHtml="true"/>
+                            </div>
+                        </aura:if>
                     </div>
-                    <lightning:layout multipleRows="true">
-                        
+                    <lightning:layout multipleRows="true">                        
                         <lightning:layoutItem padding="around-small" size="8">
                             <lightning:tabset variant="scoped">
                                 <lightning:tab label="{!$Label.c.Details}" >
                                     <c:FieldsForm_cmp aura:id="fieldsFormInput" recordId="{!v.objectInput.IdOppLineItem}" isInput="false" valueDynamic="{!v.inputAttributes.dynamicValuesInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
-                                    <div class="slds-m-bottom_medium">
-                                        <c:PriceSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.PriceProposalSectionTitle}" recordId="{!v.objectInput.IdOppLineItem}" objectInput="{!v.objectInput}" typeView="_Proposal" hasDivider="false" />
-                                    </div>
+                                    <aura:if isTrue="{!v.inputAttributes.approvalMethod != 'Web'}">
+                                        <div class="slds-m-bottom_medium">
+                                            <c:PriceSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.PriceProposalSectionTitle}" recordId="{!v.objectInput.IdOppLineItem}" objectInput="{!v.objectInput}" typeView="_Proposal" hasDivider="false" />
+                                        </div>
+                                        <aura:set attribute="else">
+                                            <div class="slds-m-bottom_medium">                                                                                    
+                                                <c:DataTable_cmp data="{!v.inputAttributes.datainput}" headers="{!v.inputAttributes.headerinput}"/>
+                                            </div>
+                                        </aura:set>
+                                    </aura:if>
                                     <div class="slds-m-bottom_medium">
                                         <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.CommitmentProposalSectionTitle}" recordId="{!v.inputAttributes.recordId}" />
                                     </div>

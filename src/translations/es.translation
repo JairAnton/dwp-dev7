@@ -1272,6 +1272,66 @@
         <label>No se ha podido registrar la pérdida de la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
         <name>PriceRegisterLossUnknownError</name>
     </customLabels>
+    <customLabels>
+        <label>TEA Autorizada (%)</label>
+        <name>AuthorizedTea</name>
+    </customLabels>
+    <customLabels>
+        <label>Calcular Rentabilidad</label>
+        <name>CalculateProfitability</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido recalcular la rentabilidad debido al siguiente error:</label>
+        <name>PriceAnalyzeRateKnowError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se ha podido recalcular la rentabilidad debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceAnalyzeRateUnknowError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se han podido obtener los detalles la cotización debido al siguiente error:</label>
+        <name>PriceGetQuotationRequestKnownError</name>
+    </customLabels>
+    <customLabels>
+        <label>No se han podido recuperar los detalles de la cotización debido a un error. Por favor, contacte con su administrador para obtener más información.</label>
+        <name>PriceGetQuotationRequestUnknownError</name>
+    </customLabels>
+    <customLabels>
+        <label>MINIMUM_LIQUIDITY_MARGIN</label>
+        <name>PriceWSLabel11</name>
+    </customLabels>
+    <customLabels>
+        <label>COMMERCIAL_LIQUIDITY_MARGIN</label>
+        <name>PriceWSLabel12</name>
+    </customLabels>
+    <customLabels>
+        <label>ADDITIONAL_LIQUIDITY_MARGIN</label>
+        <name>PriceWSLabel13</name>
+    </customLabels>
+    <customLabels>
+        <label>STOCKHOLDER_FINANCING_COST</label>
+        <name>PriceWSLabel14</name>
+    </customLabels>
+    <customLabels>
+        <label>ADJUSTED_FUNDING_COST</label>
+        <name>PriceWSLabel15</name>
+    </customLabels>
+    <customLabels>
+        <label>AUTORIZADO</label>
+        <name>lblAuth</name>
+    </customLabels>
+    <customLabels>
+        <label>MÍNIMO</label>
+        <name>lblMini</name>
+    </customLabels>
+    <customLabels>
+        <label>MODELO</label>
+        <name>lblModel</name>
+    </customLabels>
+    <customLabels>
+        <label>SOLICITADO</label>
+        <name>lblReq</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

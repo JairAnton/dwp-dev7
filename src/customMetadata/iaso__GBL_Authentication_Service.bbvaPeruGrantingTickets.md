@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>iaso__Cache_Key__c</field>
-        <value xsi:type="xsd:string">credentials</value>
+        <value xsi:type="xsd:string">tsec</value>
     </values>
     <values>
         <field>iaso__Cache_Partition__c</field>

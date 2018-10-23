@@ -63,6 +63,7 @@ public with sharing class Commitment_ctrl {
         oppSolCommitment.opp_solution_commitment_amount__c = Double.valueOf(lstData[3]);
         oppSolCommitment.opp_soln_comt_stay_days_number__c = Double.valueOf(lstData[4]);
         oppSolCommitment.opp_solution_commitment_id__c = String.valueOf(lstData[5]);
+		oppSolCommitment.price_quotation_method__c = String.valueOf(lstData[6]);
         oppSolCommitment.opportunity_id__c = recordId;
         oppSolCommitment.opp_solution_id__c = oppLineItem;
         insert oppSolCommitment;
@@ -87,7 +88,6 @@ public with sharing class Commitment_ctrl {
 		// Retrieve the opportunity product conditions, price calculation rates information and price quotation request information
 		List<OpportunityLineItem> oliList = [SELECT price_quote_id__c, price_quote_owner_id__c, proposed_apr_per__c, price_rates_calculation_Id__c, gipr_Garantia__c
 											FROM OpportunityLineItem WHERE OpportunityId = :recordId];
-											
 		if(!oliList.isEmpty()){
 			// Check if there is already a price quotation request for the oportunity
 			if(oliList[0].price_quote_id__c != '' && oliList[0].price_quote_id__c != null){
@@ -95,9 +95,9 @@ public with sharing class Commitment_ctrl {
 				if(oliList[0].price_quote_owner_id__c == UserInfo.getUserId()){
 					// Invoke web service to request quotation approval
 					mapReturn = invokeRequestQuotationApproval(recordId);
+					createQuotationCommitments(recordId);
 				}
 				else{
-                    
 					// Invoke web service to recover quotation 
 					mapReturn = invokeRecoverQuotation(recordId); 
 					mapReturn.put('nextCallout',true);
@@ -106,11 +106,48 @@ public with sharing class Commitment_ctrl {
 			else{
                 // Invoke web service to create quotation
 				mapReturn = invokeCreateQuotationRequest(recordId);
+				createQuotationCommitments(recordId);
 			}
 		}
-		
         return mapReturn; 
     }
+
+    public static void createQuotationCommitments(String recordId){
+		List<Opportunity_Solution_Commitment__c> lstCommitments = [SELECT 	Id,
+																			opp_solution_id__c
+																	FROM Opportunity_Solution_Commitment__c
+																	WHERE opportunity_id__c = :recordId];
+		if(!lstCommitments.isEmpty()){
+			for(Opportunity_Solution_Commitment__c osc : lstCommitments){
+				requestQuotationCommitments(osc.Id, osc.opp_solution_id__c);
+			}
+		}
+
+	}
+
+	@future(callout=true)
+	public static void requestQuotationCommitments(String commitmentRecordId, String strOliId){
+		Opportunity_Solution_Commitment__c commitmentRecord = new Opportunity_Solution_Commitment__c();
+		List<OpportunityLineItem> lstOli = [SELECT 	Id,
+											price_quote_id__c		
+											FROM OpportunityLineItem 
+											WHERE Id = :strOliId];
+		commitmentRecord.Id = commitmentRecordId;
+		commitmentRecord.price_quotation_id__c = (! lstOli.isEmpty()? lstOli[0].price_quote_id__c : ''); 
+		try{
+			CreateQuotationCommitment_helper createQCom = new CreateQuotationCommitment_helper(commitmentRecord.Id);
+			HttpResponse createRequestResponse = createQCom.invoke();
+			if(createRequestResponse.getStatusCode() == 200){
+				commitmentRecord.added_to_price_quotation__c = true;
+			}else{
+				commitmentRecord.added_to_price_quotation__c = false;
+			}
+
+		}catch(Exception e){
+			commitmentRecord.added_to_price_quotation__c = false;
+		}
+		update commitmentRecord;
+	}
     
     // Method that invoke the ws to create a quotation and, if successful response, updates the opportunity and opportunity line item with the response
     public static Map<String,Object> invokeCreateQuotationRequest(String recordId){
