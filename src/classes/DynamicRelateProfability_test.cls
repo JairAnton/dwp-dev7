@@ -13,17 +13,16 @@
 public class DynamicRelateProfability_test {
     
     @testSetup static void loadData(){
-        TestFactory.createAccount();
-        Account clie = [select id from account]; 
+		TestFactory.createAccount();
+        final Account clie = [select id from account where name !='']; 
         TestFactory.createAccountProfit(clie.id);
-        Account_Profitability__c Proba = [select id from Account_Profitability__c];
+        final Account_Profitability__c proba = [select id from Account_Profitability__c];
         Proba.product_desc__c='producto1';
-        update Proba;
+        update proba;
     }
-
-    @isTest static void TestRecuperaServicio(){
-        Account temp1 = [select id from account]; 
-        List<String> lista = DynamicRelateProfability_cls.RecuperaServicio(temp1.id);
-		system.assertNotEquals(lista, null);
+    @isTest static void testRecuperaServicio(){
+        final Account temp1 = [select id from account where name !='']; 
+        final List<String> lista = DynamicRelateProfability_cls.RecuperaServicio(temp1.id);
+        system.assertNotEquals(lista, null);
     }
 }

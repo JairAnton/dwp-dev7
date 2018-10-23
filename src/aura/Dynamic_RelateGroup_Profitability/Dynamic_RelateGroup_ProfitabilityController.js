@@ -1,12 +1,12 @@
 ({
-	init : function(component, event, helper) {
-		component.set('v.showSpinner',false);
+    init : function(component, event, helper) {
+        component.set('v.showSpinner',false);
         helper.ConsultaProducto_helper(component, event);
         component.set('v.isLoad', false);
         component.set('v.ProductIS', 'true');
         component.set('v.coint1', 'PEN');    
         component.find("BtnTotal").set("v.variant", "brand");
-	},
+    },
     BtnChangTotal: function(component, event, helper){
         var Type='TOTAL';
         component.set('v.profiType', Type);
@@ -17,7 +17,7 @@
         
     },
     BtnChangPEN: function(component, event, helper){
-		var Type='MN';
+        var Type='MN';
         component.set('v.profiType', Type);
         helper.BtnNeutral(component, event, helper);
         component.find("BtnPEN").set("v.variant", "brand");
@@ -38,11 +38,8 @@
     },    
     doInitRefreshView : function(component, event, helper) {
         component.set('v.isLoad', false);
-		if(window.location.href.includes(component.get('v.recordId'))){
-            component.set('v.isLoad', true);
-            
+        if(window.location.href.includes(component.get('v.recordId'))){
+            component.set('v.isLoad', true); 
         }
     }
-    
-    
 })
