@@ -27,7 +27,7 @@
                         </div>
                     </aura:if>
                     <aura:set attribute="else">
-                        
+                <c:SanctionPriceAnalistWeb_cmp aura:id="analistWeb" recordId="{!v.inputAttributes.recordId}"/>
                     </aura:set>
                 </aura:if>
                 <div class="slds-m-bottom_medium" >
