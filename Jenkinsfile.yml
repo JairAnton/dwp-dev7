@@ -2,7 +2,13 @@
 domain: salesforce.app
 stages:
   staticAnalysis:
-    skip: true
+    skip: false
+    params:
+        skipEslint: true
+        skipLintSpaces: true
+        skipStyleLint: true
+        skipPmdApex: true
+        skipSonar: false
   unitTesting:
     skip: true
   deploy:

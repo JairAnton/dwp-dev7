@@ -94,6 +94,12 @@
                 <operator>equals</operator>
                 <value>0%,20%,40%,60%,80%,100%</value>
             </criteriaItems>
+            <criteriaItems>
+                <column>STAGE_NAME</column>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>06</value>
+            </criteriaItems>
         </filter>
         <format>Summary</format>
         <name>Opportunities with Opportunity T block 2</name>
@@ -125,11 +131,7 @@
             <axisBinding>y</axisBinding>
             <column>B1#Account.Opportunities$Amount.CONVERT</column>
         </chartSummaries>
-        <chartSummaries>
-            <axisBinding>y2</axisBinding>
-            <column>B0#RowCount</column>
-        </chartSummaries>
-        <chartType>VerticalColumnStackedLine</chartType>
+        <chartType>VerticalColumnStacked</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Account.Opportunities$Opp_Creation_Date__c</groupingColumn>

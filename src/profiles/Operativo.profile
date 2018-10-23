@@ -761,6 +761,38 @@
         <apexClass>ReevaluateButtonClassTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>AnalyzeRate_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AnalyzeRate_helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CreateQuotationCommitment_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CreateQuotationCommitment_helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GetQuotationRequest_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GetQuotationRequest_helper_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SanctionPriceAnalistWeb_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SanctionPriceAnalistWeb_ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
@@ -4922,6 +4954,21 @@ Sub Gerentes de oficina</description>
 	    <fieldPermissions>
         <editable>true</editable>
         <field>dwp_kitv__Visit_Management_Team__c.on_a_team__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity_Solution_Commitment__c.added_to_price_quotation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity_Solution_Commitment__c.price_quotation_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity_Solution_Commitment__c.price_quotation_method__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<layoutAssignments>
