@@ -5,11 +5,11 @@
         var action = component.get("c.RecuperaServicio");
         action.setParams({
             "IdAccount" : opp
-        });  
+        });
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-                var arr = response.getReturnValue() ;
+                var arr = response.getReturnValue();
                 arr.forEach(function(element) {
                     items.push({ value: element, label: element });
                 });

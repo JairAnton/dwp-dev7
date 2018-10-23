@@ -4,7 +4,7 @@
         helper.ConsultaProducto_helper(component, event);
         component.set('v.isLoad', false);
         component.set('v.ProductIS', 'true');
-        component.set('v.coint1', 'PEN');    
+        component.set('v.coint1', 'PEN');
         component.find("BtnTotal").set("v.variant", "brand");
     },
     BtnChangTotal: function(component, event, helper){
@@ -14,7 +14,6 @@
         component.find("BtnTotal").set("v.variant", "brand");
         component.set('v.coint1', 'PEN');
         $A.get('e.force:refreshView').fire();
-        
     },
     BtnChangPEN: function(component, event, helper){
         var Type='MN';
@@ -35,11 +34,11 @@
     chgProduct: function(component, event, helper){
         component.set("v.ProductIS", event.getParam("value"));
         $A.get('e.force:refreshView').fire();
-    },    
+    },
     doInitRefreshView : function(component, event, helper) {
         component.set('v.isLoad', false);
         if(window.location.href.includes(component.get('v.recordId'))){
-            component.set('v.isLoad', true); 
+            component.set('v.isLoad', true);
         }
     }
 })
