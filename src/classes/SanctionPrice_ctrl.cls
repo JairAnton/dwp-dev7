@@ -30,6 +30,7 @@ public with sharing class SanctionPrice_ctrl {
         
         List<Opportunity> lstOpp = [SELECT  Id,
                                     AccountId,
+                                    Account.commercial_strategy__c,
                                     Account.segment_desc__c,
                                     (SELECT     Id, 
                                      product_price_approval_method__c, 
@@ -44,7 +45,7 @@ public with sharing class SanctionPrice_ctrl {
                                      expected_loss_per__c, financing_cost_stockholder_per__c, 
                                      funding_cost_per__c, funding_cost_adjusted_per__c,
                                      minimum_spread_per__c, regulatory_capital_per__c,
-                                     Product2Id 
+                                     Product2Id,product2.Type_of_quote__c
                                      FROM OpportunityLineItems) 
                                     FROM Opportunity 
                                     WHERE Id = :recordId];
@@ -53,6 +54,9 @@ public with sharing class SanctionPrice_ctrl {
             if(lstOpp[0].OpportunityLineItems.size()>0){
                 mapReturn.put('IdOppLineItem',lstOpp[0].OpportunityLineItems[0].Id);
                 mapReturn.put('approvalMethod',lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c);
+                mapReturn.put('AccId',lstOpp[0].AccountId);
+                mapReturn.put('type_of_quote',lstOpp[0].OpportunityLineItems[0].product2.Type_of_quote__c);
+                mapReturn.put('commercial_strategy',lstOpp[0].Account.commercial_strategy__c);
                 //If product_price_approval_method__c == Tarifario and has a OLI
                 if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario'){
                     String strSegment = (lstOpp[0].Account.segment_desc__c == null?'':lstOpp[0].Account.segment_desc__c);
@@ -100,6 +104,7 @@ public with sharing class SanctionPrice_ctrl {
         
         List<Opportunity> lstOpp = [SELECT  Id,
                                     AccountId,
+                                    Account.commercial_strategy__c,
                                     Account.segment_desc__c,
                                     (SELECT     Id, 
                                      product_price_approval_method__c, 
@@ -114,7 +119,7 @@ public with sharing class SanctionPrice_ctrl {
                                      expected_loss_per__c, financing_cost_stockholder_per__c, 
                                      funding_cost_per__c, funding_cost_adjusted_per__c,
                                      minimum_spread_per__c, regulatory_capital_per__c,
-                                     Product2Id 
+                                     Product2Id,product2.Type_of_quote__c
                                      FROM OpportunityLineItems) 
                                     FROM Opportunity 
                                     WHERE Id = :recordId];
@@ -123,6 +128,9 @@ public with sharing class SanctionPrice_ctrl {
             if(lstOpp[0].OpportunityLineItems.size()>0){
                 mapReturn.put('IdOppLineItem',lstOpp[0].OpportunityLineItems[0].Id);
                 mapReturn.put('approvalMethod',lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c);
+                mapReturn.put('AccId',lstOpp[0].AccountId);
+                mapReturn.put('type_of_quote',lstOpp[0].OpportunityLineItems[0].product2.Type_of_quote__c);
+                mapReturn.put('commercial_strategy',lstOpp[0].Account.commercial_strategy__c);
                 //If product_price_approval_method__c == Tarifario and has a OLI
                 if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario'){
                     String strSegment = (lstOpp[0].Account.segment_desc__c == null?'':lstOpp[0].Account.segment_desc__c);
