@@ -82,12 +82,12 @@
   var ParametrosDinamicos=[];
   var InformeName = component.get("v.NombreInforme");
  
-  var scaleDes =  (InformeName=='VINCULACION')?{
+  var scaleDes =  (InformeName==='VINCULACION')?{
         beginAtZero:true,
         min: 0,
         max: 4,
         stepSize:1
-}:(InformeName=='EVOLUCION_DEUDA_SBS' || InformeName=='EVOLUCION_FACTURACION_TOTAL')?{
+}:(InformeName==='EVOLUCION_DEUDA_SBS' || InformeName==='EVOLUCION_FACTURACION_TOTAL')?{
         beginAtZero:true,
         callback: function(valueP) {
         return 'S/. '+valueP.toFixed(2).replace(/./g, function(c, i, a) {
@@ -115,12 +115,12 @@
   for(i=0; i < concepto.length; i++)
   {
     var colorBorder=bibliotecaColor[i];
-    if (colorBorder =='#ffffff')
+    if (colorBorder ==='#ffffff')
     colorBorder='#676767';
     
     graficas[i]={
-    type: (i==concepto.length-1 && InformeName=='EVOLUCION_FACTURACION_TOTAL')? 'bar' : 'line',
-    yAxisID: (InformeName!='EVOLUCION_FACTURACION_TOTAL')? 'left' : (i==concepto.length-1 && InformeName=='EVOLUCION_FACTURACION_TOTAL')?'left':'right',
+    type: (i==concepto.length-1 && InformeName==='EVOLUCION_FACTURACION_TOTAL')? 'bar' : 'line',
+    yAxisID: (InformeName!=='EVOLUCION_FACTURACION_TOTAL')? 'left' : (i==concepto.length-1 && InformeName==='EVOLUCION_FACTURACION_TOTAL')?'left':'right',
     label: concepto[i],
     data: ParametrosDinamicos[i],
     stacked: false,
@@ -146,10 +146,9 @@
                                      options: {
                                      elements: {
                                      line: {
-                                        tension: (InformeName=='EVOLUCION_FACTURACION_TOTAL')? 0 : 0.4 // disables curves in line graphics
+                                        tension: (InformeName==='EVOLUCION_FACTURACION_TOTAL')? 0 : 0.4 // disables curves in line graphics
                                       }
                                     },
-               
                                     legend: {
                                      display: true,
                                      position: posicion,
@@ -183,7 +182,7 @@
                                              },
                                              {
                                              id:'right',
-                                             display:  (InformeName=='EVOLUCION_FACTURACION_TOTAL')? true : false,
+                                             display:  (InformeName==='EVOLUCION_FACTURACION_TOTAL')? true : false,
                                              position: 'right',
                                              scaleLabel: {
                                              display: true,
@@ -200,13 +199,9 @@
                                              }
                                            }],
                                      xAxes: [{
-                                             
-                                             
                                              scaleLabel: {
-                                             
                                              labelString: 'Mes'
                                              }
-                                             
                                              }]
                                      }
                                      }
