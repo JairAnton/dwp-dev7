@@ -10,7 +10,7 @@
 *------   ----------------   --------------------   ----------------------------
 *1.0       	16-03-2018        Isaías Velázquez                   Creation
 **/
-public class GraphicsGenerator_cls {
+public with sharing class GraphicsGenerator_cls {
 	
     @AuraEnabled public Static List<String> getValores(String sConcepto, String sFiltro, String sFiltroRango,String sNombreReporte,String sId){    
     	
@@ -21,7 +21,7 @@ public class GraphicsGenerator_cls {
         Date fActual;
         
         Integer mes=0;
-        if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
+        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
             list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId];
             System.debug(lasDateD[0].get('dateP'));
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
@@ -29,7 +29,7 @@ public class GraphicsGenerator_cls {
                 fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-11);
                 fActual=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(1);
 
- 			if(sFiltro=='Total')
+ 			if('Total'.equals(sFiltro))
  			{ 				
  				registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c) 
 	                                                                FROM Account_Banking_System_Debt__c 
@@ -37,7 +37,7 @@ public class GraphicsGenerator_cls {
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)  
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
-        	else if(sFiltro=='Indirecta' || sFiltro=='Directa')
+        	else if('Indirecta'.equals(sFiltro) || 'Directa'.equals(sFiltro))
  			{
         		              registrosReporte = [SELECT max(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
@@ -45,7 +45,7 @@ public class GraphicsGenerator_cls {
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
- 			else if(sFiltro=='Otros indirectas')
+ 			else if('Otros indirectas'.equals(sFiltro))
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
@@ -53,7 +53,7 @@ public class GraphicsGenerator_cls {
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
- 			else if(sFiltro=='Otros directas')
+ 			else if('Otros directas'.equals(sFiltro))
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
@@ -94,7 +94,7 @@ public class GraphicsGenerator_cls {
 
 	            	if(tab.get('expr1')==agrupador.get(mes))
 	            	{
-	            		if(sNombreReporte.equals('EVOLUCION_DEUDA_SBS')) valores.add(String.valueOf(tab.get('expr2')));
+	            		if('EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)) valores.add(String.valueOf(tab.get('expr2')));
 	            		else valores.add(String.valueOf(tab.get('expr0')));	            		
 	            		mes++;
 	            	}
@@ -110,7 +110,7 @@ public class GraphicsGenerator_cls {
             }
         }
 
-        if(sNombreReporte.equals('VINCULACION') )
+        if('VINCULACION'.equals(sNombreReporte) )
         {
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') AND account_id__c=:sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
@@ -189,10 +189,8 @@ public class GraphicsGenerator_cls {
                 if(String.isEmpty(String.valueOf(tab.year_month_day_date__c))) valores.add('0');
                 else
                 {
-                       
                        if(mes<agrupador.size())
                        {
-                          
                             if(tab.year_month_day_date__c.month()!=agrupador.get(mes)){
                                 for(Integer i=mes; i<agrupador.size()-1;i++){
                                     if(tab.year_month_day_date__c.month()==agrupador.get(mes))i =agrupador.size();
@@ -208,7 +206,6 @@ public class GraphicsGenerator_cls {
                                 valores.add(String.valueOf(tab.Value_Unificade__c));
                                 mes++;
                             }
-                          
                         }
                     }
                 }
@@ -225,7 +222,7 @@ public class GraphicsGenerator_cls {
 
     @AuraEnabled public Static List<String> getAgrupadores( String sNombreReporte, String sId){
         List<String> agrupadores= new List<String>();         
-        if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
+        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
@@ -237,7 +234,6 @@ public class GraphicsGenerator_cls {
             	}
             }
         }
-
         if('VINCULACION'.equals(sNombreReporte)){
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C WHERE indicator_name__c IN ('Estrella','Transaccional','Potencial','Básico') AND account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
@@ -249,9 +245,7 @@ public class GraphicsGenerator_cls {
         		agrupadores.add(sMes[fInicial.addMonths(i).month()-1] +' '+fInicial.addMonths(i).year());	
             	}
         	}
-            
         }
-
         if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte)){
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Profitability__c WHERE profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','')  AND account_id__c =: sId and  is_date_type_1_within_last_6_months__c = true];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
@@ -309,7 +303,7 @@ public class GraphicsGenerator_cls {
         List<String> val1 = new List<String>(); 
 
         
-        if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
+        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
    			agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,'');
             conjunto.add(concepto);
@@ -320,7 +314,7 @@ public class GraphicsGenerator_cls {
            		conjunto.add(new List<String>(getValores(concepto.get(i),sFiltro,sFiltroRango,sNombreReporte,sId)));
             }
         }
-        if(sNombreReporte.equals('VINCULACION'))
+        if('VINCULACION'.equals(sNombreReporte))
         {
         	agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,'');
@@ -332,7 +326,7 @@ public class GraphicsGenerator_cls {
             }	
         }
 
-        if(sNombreReporte.equals('EVOLUCION_FACTURACION_TOTAL'))
+        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte))
         {
             agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,sFiltroRango);
@@ -340,7 +334,6 @@ public class GraphicsGenerator_cls {
             conjunto.add(agrupador);            
             for(Integer i=0; i< concepto.size(); i++)
             {            
-
                 conjunto.add(new List<String>(getValores(concepto.get(i),sFiltro,sFiltroRango,sNombreReporte,sId)));
             }   
         }
