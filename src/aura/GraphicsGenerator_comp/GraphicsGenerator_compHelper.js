@@ -87,13 +87,14 @@
         min: 0,
         max: 4,
         stepSize:1
-}:(InformeName=='EVOLUCION_DEUDA_SBS')?{
+}:(InformeName=='EVOLUCION_DEUDA_SBS' || InformeName=='EVOLUCION_FACTURACION_TOTAL')?{
         beginAtZero:true,
- callback: function(valueP) {
- return 'S/. '+valueP.toFixed(2).replace(/./g, function(c, i, a) {
+        callback: function(valueP) {
+        return 'S/. '+valueP.toFixed(2).replace(/./g, function(c, i, a) {
                                          return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
                                          });
  }
+
 
 }:{
         beginAtZero:true,
@@ -113,18 +114,21 @@
  
   for(i=0; i < concepto.length; i++)
   {
-  var colorBorder=bibliotecaColor[i];
-  if (colorBorder =='#ffffff')
-  colorBorder='#676767';
- 
-  graficas[i]={
-  label: concepto[i],
-  data: ParametrosDinamicos[i],
-  backgroundColor: bibliotecaColor[i],
-  borderColor: colorBorder,
-  borderWidth: 2,
-  fill: bfill
-  };
+    var colorBorder=bibliotecaColor[i];
+    if (colorBorder =='#ffffff')
+    colorBorder='#676767';
+    
+    graficas[i]={
+    type: (i==concepto.length-1 && InformeName=='EVOLUCION_FACTURACION_TOTAL')? 'bar' : 'line',
+    yAxisID: (InformeName!='EVOLUCION_FACTURACION_TOTAL')? 'left' : (i==concepto.length-1 && InformeName=='EVOLUCION_FACTURACION_TOTAL')?'left':'right',
+    label: concepto[i],
+    data: ParametrosDinamicos[i],
+    stacked: false,
+    backgroundColor: bibliotecaColor[i],
+    borderColor: colorBorder,
+    borderWidth: 2,
+    fill: bfill
+    };
   }
  
   var i=0;
@@ -137,12 +141,16 @@
   //Draw Graphic
   data;
   window.myDoughnutChart = new Chart(evolucion, {
-                                     type: parametros,
-                                     data: data,
-                                     
+                                     type: 'bar',//parametros,
+                                     data: data,                                     
                                      options: {
-                                     
-                                     legend: {
+                                     elements: {
+                                     line: {
+                                        tension: (InformeName=='EVOLUCION_FACTURACION_TOTAL')? 0 : 0.4 // disables curves in line graphics
+                                      }
+                                    },
+               
+                                    legend: {
                                      display: true,
                                      position: posicion,
                                      fullWidth:true,
@@ -151,8 +159,7 @@
                                      fontColor: '#032363'
                                      },
                                      },
-                                     responsive: true,
-                                     
+                                     responsive: true,                                     
                                      tooltips: {
                                      mode: 'index',
                                      intersect: false,
@@ -163,7 +170,9 @@
                                      },
                                      scales: {
                                      yAxes: [{
+                                             id:'left',
                                              display: true,
+                                             position: 'left',
                                              scaleLabel: {
                                              display: true,
                                              labelString: 'Valor'
@@ -171,7 +180,25 @@
                                              ,
                                              ticks:scaleDes
                                              
-                                             }],
+                                             },
+                                             {
+                                             id:'right',
+                                             display:  (InformeName=='EVOLUCION_FACTURACION_TOTAL')? true : false,
+                                             position: 'right',
+                                             scaleLabel: {
+                                             display: true,
+                                             labelString: 'Valor'
+                                             }
+                                             ,
+                                             ticks: {
+                                               beginAtZero:true,
+                                                min: 0,
+                                                stepSize:1,
+                                                callback: function(value) {
+                                                return value + "%"
+                                                }
+                                             }
+                                           }],
                                      xAxes: [{
                                              
                                              

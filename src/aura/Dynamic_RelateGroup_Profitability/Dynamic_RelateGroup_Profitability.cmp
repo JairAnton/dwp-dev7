@@ -11,6 +11,7 @@
     <aura:attribute name="profiType4" type="String" default=""/> 
     <aura:attribute name="isLoad" type="Boolean" access="global" default="false"/>
     <aura:attribute name="sizeColSpanMatrix" type="String"/>
+    <aura:attribute name="bGrafica" type="Boolean" default="false" />
     <aura:if isTrue="{!v.showSpinner}">
         <lightning:spinner />
     </aura:if>
@@ -63,6 +64,19 @@
             </aura:if>
             <br></br>
             <div>
+        <aura:if isTrue="{!v.bGrafica}">
+   
+        <c:GraphicsGenerator_comp NombreCanvas="Evolución Facturación Total"
+        posicionLeyenda="right" 
+        NombreInforme="EVOLUCION_FACTURACION_TOTAL"        
+        TipoGrafica="line"
+        Id="{!v.recordId}"
+        Colores="#004481,#f7893b,#da3851,#48ae64,#bdbdbd"
+        Filtro="{!v.ProductIS}"
+        FiltroRango="{!v.profiType}"
+        />
+      
+      </aura:if>
             </div>
         </div>
     </div>

@@ -2,9 +2,9 @@
 	ConsultaProducto_helper : function(component, event) {
         var items = [];
 		var opp = component.get("v.recordId");
-        var action = component.get("c.RecuperaServicio");
+        var action = component.get("c.recuperaServicio");
         action.setParams({
-            "IdAccount" : opp
+            "idAccount" : opp
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
