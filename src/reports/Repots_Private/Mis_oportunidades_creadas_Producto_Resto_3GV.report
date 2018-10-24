@@ -129,8 +129,6 @@
     <reportType>OpportunityTeam</reportType>
     <scope>ownsalesteam</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
         <interval>INTERVAL_LASTTHISMONTH</interval>

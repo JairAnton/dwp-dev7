@@ -79,8 +79,6 @@
         </params>
         <reportType>Hierarchy_report__c</reportType>
         <scope>team</scope>
-        <showGrandTotal>true</showGrandTotal>
-        <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
             <dateColumn>Account.Opportunities$Opp_Creation_Date__c</dateColumn>
             <interval>INTERVAL_LAST60</interval>

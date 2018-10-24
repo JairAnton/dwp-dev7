@@ -114,8 +114,6 @@
     <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
     <scope>ownsalesteam</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>Opportunity$Opp_Creation_Date__c</dateColumn>
         <interval>INTERVAL_LAST60</interval>

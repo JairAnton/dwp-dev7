@@ -64,8 +64,6 @@
         </params>
         <reportType>Hierarchy_report__c</reportType>
         <scope>accountteamteam</scope>
-        <showGrandTotal>true</showGrandTotal>
-        <showSubTotals>true</showSubTotals>
         <sortColumn>Account.Opportunities$Amount</sortColumn>
         <sortOrder>Asc</sortOrder>
         <timeFrameFilter>
