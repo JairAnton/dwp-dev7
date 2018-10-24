@@ -278,7 +278,7 @@ public class GraphicsGenerator_cls {
 			concepto.add('OTROS');
         }        
 
-        if('VINCULACION'.equals(sNombreReporte){
+        if('VINCULACION'.equals(sNombreReporte)){
             concepto.add('Estrella');
             concepto.add('Transaccional');
             concepto.add('Potencial');
