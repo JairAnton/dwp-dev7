@@ -163,7 +163,7 @@ public class GraphicsGenerator_cls {
             }
         }
 
-        if(sNombreReporte.equals('EVOLUCION_FACTURACION_TOTAL') )
+        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte))
         {
             list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Profitability__c WHERE profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN') and account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true ];
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
@@ -238,7 +238,7 @@ public class GraphicsGenerator_cls {
             }
         }
 
-        if(sNombreReporte.equals('VINCULACION')){
+        if('VINCULACION'.equals(sNombreReporte)){
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C WHERE indicator_name__c IN ('Estrella','Transaccional','Potencial','Básico') AND account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
@@ -252,7 +252,7 @@ public class GraphicsGenerator_cls {
             
         }
 
-        if(sNombreReporte.equals('EVOLUCION_FACTURACION_TOTAL')){
+        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte)){
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Profitability__c WHERE profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','')  AND account_id__c =: sId and  is_date_type_1_within_last_6_months__c = true];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
@@ -270,7 +270,7 @@ public class GraphicsGenerator_cls {
 
      @AuraEnabled public Static List<String> getConceptos(String sNombreReporte,String sFiltroRango){
         List<String> concepto = new List<String>(); 
-        if(sNombreReporte.equals('EVOLUCION_CUOTA_SBS') || sNombreReporte.equals('EVOLUCION_DEUDA_SBS')){
+        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
             concepto.add('BBVA');
 			concepto.add('BCP');
 			concepto.add('SCOTIA');
@@ -278,14 +278,14 @@ public class GraphicsGenerator_cls {
 			concepto.add('OTROS');
         }        
 
-        if(sNombreReporte.equals('VINCULACION')){
+        if('VINCULACION'.equals(sNombreReporte){
             concepto.add('Estrella');
             concepto.add('Transaccional');
             concepto.add('Potencial');
             concepto.add('Básico'); 	
         }      
 
-        if(sNombreReporte.equals('EVOLUCION_FACTURACION_TOTAL')){
+        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte)){
            
             concepto.add('Spread');
             concepto.add('Tasa');
@@ -295,11 +295,8 @@ public class GraphicsGenerator_cls {
             else if(sFiltroRango=='ME')
                     concepto.add('ME');
             else
-                    concepto.add('TOTAL');                    
-           
-            
-        }      
-       
+                    concepto.add('TOTAL');
+        }
         return concepto;
     }
 

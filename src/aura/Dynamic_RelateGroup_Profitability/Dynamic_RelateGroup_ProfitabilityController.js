@@ -15,7 +15,6 @@
         component.find("BtnTotal").set("v.variant", "brand");
         component.set('v.coint1', 'PEN');
         $A.get('e.force:refreshView').fire();
-        component.set("v.bGrafica",false);
         component.set("v.bGrafica",true);
     },
     BtnChangPEN: function(component, event, helper){
@@ -25,7 +24,6 @@
         component.find("BtnPEN").set("v.variant", "brand");
         component.set('v.coint1', 'PEN');
         $A.get('e.force:refreshView').fire();
-        component.set("v.bGrafica",false);
         component.set("v.bGrafica",true);
     },
     BtnChangUSD: function(component, event, helper){
@@ -35,19 +33,18 @@
         component.find("BtnUSD").set("v.variant", "brand");
         component.set('v.coint1', 'USD');
         $A.get('e.force:refreshView').fire();
-        component.set("v.bGrafica",false);
         component.set("v.bGrafica",true);
     },
     chgProduct: function(component, event, helper){
         component.set("v.ProductIS", event.getParam("value"));
         $A.get('e.force:refreshView').fire();
-        component.set("v.bGrafica",false);
         component.set("v.bGrafica",true);
     },
     doInitRefreshView : function(component, event, helper) {
         component.set('v.isLoad', false);
         if(window.location.href.includes(component.get('v.recordId'))){
             component.set('v.isLoad', true);
+            component.set("v.bGrafica",true);
         }
     }
 })
