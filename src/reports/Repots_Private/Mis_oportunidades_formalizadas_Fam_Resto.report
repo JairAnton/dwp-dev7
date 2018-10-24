@@ -75,7 +75,13 @@
             <column>Opportunity$Type</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>01,02</value>
+            <value>01</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$opportunity_status_type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>23</value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -87,15 +93,9 @@
             <column>Opportunity$StageName</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>01,Qualification,02,03,Negotiation,04,05</value>
+            <value>06</value>
         </criteriaItems>
-        <criteriaItems>
-            <column>Opportunity$HasOpportunityLineItem</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
-        <language>en_US</language>
+        <language>es</language>
     </filter>
     <format>Summary</format>
     <groupingsDown>
@@ -108,7 +108,7 @@
         <field>Opportunity$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Oportunidades vigentes Familia A y P</name>
+    <name>Mis oportunidades formalizadas Fam Resto</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -117,6 +117,8 @@
     <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
     <scope>ownsalesteam</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>Opportunity$CreatedDate</dateColumn>
         <interval>INTERVAL_LAST60</interval>

@@ -6,10 +6,13 @@
             <joinTable>Account</joinTable>
         </blockInfo>
         <columns>
+            <field>Account$Name</field>
+        </columns>
+        <columns>
             <field>Account.Opportunities$Owner</field>
         </columns>
         <columns>
-            <field>Account$Name</field>
+            <field>Account.Opportunities$Account</field>
         </columns>
         <columns>
             <field>Account.Opportunities$Name</field>
@@ -18,11 +21,11 @@
             <field>Account.Opportunities$opportunity_product__c</field>
         </columns>
         <columns>
-            <field>Account.Opportunities$CurrencyIsoCode</field>
+            <field>Account.Opportunities$Support_currency__c</field>
         </columns>
         <columns>
             <aggregateTypes>Sum</aggregateTypes>
-            <field>Account.Opportunities$Amount</field>
+            <field>Account.Opportunities$Amount.CONVERT</field>
         </columns>
         <columns>
             <field>Account.Opportunities$StageName</field>
@@ -36,39 +39,32 @@
         <columns>
             <field>Account.Opportunities$success_probability_desc__c</field>
         </columns>
-        <currency>PEN</currency>
         <filter>
             <criteriaItems>
                 <column>Account.Opportunities$opportunity_product_family__c</column>
                 <isUnlocked>true</isUnlocked>
-                <operator>equals</operator>
-                <value>Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
+                <operator>notEqual</operator>
+                <value>,Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
             </criteriaItems>
             <criteriaItems>
-                <column>Account.Opportunities$StageName</column>
+                <column>Account.Opportunities$HasOpportunityLineItem</column>
                 <isUnlocked>true</isUnlocked>
                 <operator>equals</operator>
-                <value>01,Qualification,02,03,Negotiation,04,05,06,07</value>
-            </criteriaItems>
-            <criteriaItems>
-                <column>Account.Opportunities$Type</column>
-                <isUnlocked>true</isUnlocked>
-                <operator>equals</operator>
-                <value>01,02</value>
+                <value>1</value>
             </criteriaItems>
         </filter>
         <format>Summary</format>
-        <name>Hierarchy report block 1</name>
+        <name>Hierarchy report bloque 1</name>
         <params>
             <name>co</name>
             <value>1</value>
         </params>
         <reportType>Hierarchy_report__c</reportType>
-        <scope>accountteamteam</scope>
-        <sortColumn>Account.Opportunities$Amount</sortColumn>
-        <sortOrder>Asc</sortOrder>
+        <scope>team</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
-            <dateColumn>Account.Opportunities$CreatedDate</dateColumn>
+            <dateColumn>Account.Opportunities$Opp_Creation_Date__c</dateColumn>
             <interval>INTERVAL_LAST60</interval>
         </timeFrameFilter>
     </block>
@@ -86,9 +82,8 @@
         <columns>
             <field>MEMBER_ROLE</field>
         </columns>
-        <currency>PEN</currency>
         <format>Summary</format>
-        <name>Opportunities with Opportunity T block 2</name>
+        <name>Oportunidades con equipos de ge bloque 2</name>
         <params>
             <name>include</name>
             <value>open</value>
@@ -98,9 +93,11 @@
             <value>1</value>
         </params>
         <reportType>OpportunityTeam</reportType>
-        <scope>salesteam</scope>
+        <scope>ownsalesteam</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
-            <dateColumn>CREATED_DATE</dateColumn>
+            <dateColumn>Opportunity.CreatedDate__c</dateColumn>
             <interval>INTERVAL_LAST60</interval>
         </timeFrameFilter>
     </block>
@@ -115,7 +112,7 @@
         <chartSummaries>
             <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>B1#Account.Opportunities$Amount</column>
+            <column>B1#Account.Opportunities$Amount.CONVERT</column>
         </chartSummaries>
         <chartType>VerticalColumnStacked</chartType>
         <enableHoverLabels>false</enableHoverLabels>
@@ -132,11 +129,9 @@
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
         <textSize>12</textSize>
-        <title>Opp creadas familia Activo y Pasivo</title>
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
-    <description>Ejecutivo,GOF,Gerente regional,Gerente Banca</description>
     <format>MultiBlock</format>
     <groupingsDown>
         <dateGranularity>Week</dateGranularity>
@@ -148,7 +143,7 @@
         <field>Account.Opportunities$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis Opp creadas Activo y Pasivo</name>
+    <name>Mis oportunidades creadas Familia RJerq</name>
     <params>
         <name>lsk</name>
         <value>1</value>
