@@ -111,8 +111,6 @@
         </params>
         <reportType>OpportunityTeam</reportType>
         <scope>salesteam</scope>
-        <showGrandTotal>true</showGrandTotal>
-        <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
             <dateColumn>Opportunity.Opp_Creation_Date__c</dateColumn>
             <interval>INTERVAL_LAST60</interval>
