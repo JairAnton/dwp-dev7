@@ -63,7 +63,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-	<description>Specialist and Asistant</description>
+    <description>Specialist and Asistant</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -111,8 +111,6 @@
     <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
     <scope>ownsalesteam</scope>
     <showDetails>true</showDetails>
-    <!--<showGrandTotal>false</showGrandTotal>
-    <showSubTotals>false</showSubTotals>-->
     <timeFrameFilter>
         <dateColumn>Opportunity$CreatedDate</dateColumn>
         <interval>INTERVAL_LAST60</interval>

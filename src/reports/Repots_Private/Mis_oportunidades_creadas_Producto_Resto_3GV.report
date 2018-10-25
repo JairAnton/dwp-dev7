@@ -90,7 +90,7 @@
             <column>STAGE_NAME</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>,01,02,03,04,05,06,07</value>
+            <value>,01,Qualification,02,03,Negotiation,04,05,06,07</value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity.success_probability_desc__c</column>
@@ -129,8 +129,6 @@
     <reportType>OpportunityTeam</reportType>
     <scope>ownsalesteam</scope>
     <showDetails>true</showDetails>
-<!--    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>-->
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
         <interval>INTERVAL_LASTTHISMONTH</interval>

@@ -39,7 +39,6 @@
         <columns>
             <field>Account.Opportunities$success_probability_desc__c</field>
         </columns>
-        <currency>PEN</currency>
         <filter>
             <criteriaItems>
                 <column>Account.Opportunities$opportunity_product_family__c</column>
@@ -93,7 +92,6 @@
         <columns>
             <field>MEMBER_ROLE</field>
         </columns>
-        <currency>PEN</currency>
         <filter>
             <criteriaItems>
                 <column>STAGE_NAME</column>
