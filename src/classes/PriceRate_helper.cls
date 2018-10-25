@@ -40,7 +40,7 @@ public class PriceRate_helper {
                 (mapWsVal.get('CONTRACT_MODALITY' + String.valueOf(lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c))!=null? mapWsVal.get('CONTRACT_MODALITY' + String.valueOf(lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c)).web_service_value__c : null), 
                 lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode,
                 String.valueOf(lstOpp[0].OpportunityLineItems[0].Product2.price_approval_web_service_id__c),
-                String.valueOf(lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c));
+                (lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c==null?'':String.valueOf((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c) / 100) ) );
             this.inputDataMapping = requestWrapper;
         }
     }
