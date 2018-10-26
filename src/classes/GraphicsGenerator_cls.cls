@@ -23,7 +23,6 @@ public with sharing class GraphicsGenerator_cls {
         Integer mes=0;
         if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
             list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId];
-            System.debug(lasDateD[0].get('dateP'));
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
                 fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-11);
@@ -135,7 +134,6 @@ public with sharing class GraphicsGenerator_cls {
     	            {
                        if(mes<agrupador.size())
                        {
-                            System.debug('MES::'+mes);
                             if(tab.year_month_day_date__c.month()!=agrupador.get(mes)){
                                 for(Integer i=mes; i<agrupador.size()-1;i++){
                                     if(tab.year_month_day_date__c.month()==agrupador.get(mes))i =agrupador.size();
@@ -165,19 +163,36 @@ public with sharing class GraphicsGenerator_cls {
 
         if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte))
         {
-            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Profitability__c WHERE profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN') and account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true ];
+            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Profitability__c WHERE profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN','TOTAL CLIENTE','TOTAL DI','TOTAL SPREAD','TOTAL TASA') and account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true ];
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
                 fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-5);
                 fActual=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(1);
-
+                if(sFiltro=='CLIENTE'){
+                    switch on sConcepto {
+                        when 'Spread' {       
+                            sConcepto='TOTAL SPREAD';
+                        }  
+                        when 'Tasa' {      
+                            sConcepto='TOTAL TASA';
+                        }
+                        when 'DI' {       
+                            sConcepto='TOTAL DI';
+                        }
+                        when 'TOTAL'{
+                            sConcepto='TOTAL CLIENTE';
+                        }
+                    }
+                }
                 List<Account_Profitability__c> auxTab  = [SELECT Value_Unificade__c, profitability_subcategory_type__c,year_month_day_date__c,CurrencyIsoCode
                                                                             FROM Account_Profitability__c 
                                                                             where account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true 
                                                                             and product_desc__c!='' and profitability_subcategory_type__c=:sConcepto
                                                                             and product_desc__c=: sFiltro
-                                                                            and CurrencyIsoCode=: sFiltroRango=='MN' || sFiltroRango=='TOTAL' ? 'PEN' : 'USD'
-                                                                            and profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN') and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) order by year_month_day_date__c];
+                                                                            and CurrencyIsoCode=: sFiltroRango=='MN'||sFiltroRango=='TOTAL CLIENTE' || sFiltroRango=='TOTAL' ? 'PEN' : 'USD'
+                                                                            and profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN','TOTAL CLIENTE','TOTAL DI','TOTAL SPREAD','TOTAL TASA') 
+                                                          					and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) 
+                                                          					order by year_month_day_date__c];
                 
                 List<Integer> agrupador = new List<Integer>();                                                                            
                 for(Integer i=0;i<6 ;i++)
@@ -294,15 +309,15 @@ public with sharing class GraphicsGenerator_cls {
         return concepto;
     }
 
-    @AuraEnabled public Static List<List<String>> getGeneraJSONReporte(String sNombreReporte,String sFiltro,String sFiltroRango,String sId){
-        
+    @AuraEnabled public Static List<List<String>> getGeneraJSONReporte(String sNombreReporte,
+                                                                       String sFiltro,
+                                                                       String sFiltroRango,
+                                                                       String sId){
         List<List<String>> conjunto = new List<List<String>>();
         List<String> agrupador = new List<String>(); 
         List<String> indicadores = new List<String>(); 
         List<String> concepto = new List<String>(); 
-        List<String> val1 = new List<String>(); 
-
-        
+        List<String> val1 = new List<String>();         
         if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
    			agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,'');
@@ -310,7 +325,6 @@ public with sharing class GraphicsGenerator_cls {
 			conjunto.add(agrupador);        	
             for(Integer i=0; i< concepto.size(); i++)
             {            
-
            		conjunto.add(new List<String>(getValores(concepto.get(i),sFiltro,sFiltroRango,sNombreReporte,sId)));
             }
         }
