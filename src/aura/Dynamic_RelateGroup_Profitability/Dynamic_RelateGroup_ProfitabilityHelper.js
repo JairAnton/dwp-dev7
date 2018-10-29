@@ -8,7 +8,7 @@
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
-            if (state === "SUCCESS") {
+            if (state === "SUCCESS") { 
                 var arr = response.getReturnValue();
                 items.push({ value: '--NINGUNA--', label: '--NINGUNA--' });
                 arr.forEach(function(element) {
@@ -45,5 +45,29 @@
         component.set('v.profiType1', Types[0]);
         component.set('v.profiType2', Types[1]);
         component.set('v.profiType3', Types[2]);
+    },
+    doInitRefreshView : function(component, event, helper) {
+		component.set('v.isLoad', true);
+		component.set("v.bGrafica",true);
+    },
+    ConsultaDate_helper : function(component, event,helper){
+        var items = [];
+        var opp = component.get("v.recordId");
+        var action = component.get("c.recuperaDate");
+        action.setParams({
+            "idAccount" : opp
+        });
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                var arr = response.getReturnValue();
+                arr.forEach(function(element) {
+                    items.push({ value: element, label: element });
+                });
+            }
+            component.set("v.fInicial", items[0].value);
+			component.set("v.fFInal", items[1].value);
+        });
+        $A.enqueueAction(action);
     }
 })
