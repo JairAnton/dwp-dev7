@@ -68,6 +68,12 @@
             <operator>equals</operator>
             <value>1</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>Account_BBVA_Information__c.Team_Gestor__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
         <language>es</language>
     </filter>
     <format>Summary</format>
@@ -82,7 +88,7 @@
         <value>1</value>
     </params>
     <reportType>AccountCustomEntity$Account_BBVA_Information__c</reportType>
-    <scope>user</scope>
+    <scope>organization</scope>
     <showDetails>true</showDetails>
 <!--     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals> -->
