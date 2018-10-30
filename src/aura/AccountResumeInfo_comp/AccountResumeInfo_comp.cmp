@@ -20,7 +20,8 @@
             <aura:set attribute="label">
             Rent. Cliente
             </aura:set>            
-            <div width="37rem">
+            <div width="43rem">
+				<c:Dynamic_RelateGroup_Profitability recordId="{!v.recordId}"/>
            <br/>
        </div>
         </lightning:tab>

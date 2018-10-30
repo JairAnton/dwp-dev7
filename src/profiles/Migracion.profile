@@ -1807,6 +1807,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account_Profitability__c.product_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Profitability__c.product_group_classification_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account_Rating__c.qualitative_rating_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
