@@ -57,6 +57,15 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Team_Gestor__c</fullName>
+        <description>Gestor</description>
+        <externalId>false</externalId>
+        <formula>IF(user_id__c== $User.Id ,true,false )</formula>
+        <label>Team Gestor</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>account_id__c</fullName>
         <externalId>false</externalId>
         <label>Account</label>
@@ -195,6 +204,19 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>user_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Determina el gestor Principal o Secundario del saldo</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Ingrese el Gestor del saldo</inlineHelpText>
+        <label>Gestor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Informaci_n_BBVA</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>year_month_day_date__c</fullName>
