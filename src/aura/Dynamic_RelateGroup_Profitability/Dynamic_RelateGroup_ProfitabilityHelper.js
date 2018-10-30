@@ -65,8 +65,8 @@
                     items.push({ value: element, label: element });
                 });
             }
-            component.set("v.fInicial", items[0].value);
-			component.set("v.fFInal", items[1].value);
+            component.set("v.fInicial", items[0]);
+			component.set("v.fFInal", items[1]);
         });
         $A.enqueueAction(action);
     }
