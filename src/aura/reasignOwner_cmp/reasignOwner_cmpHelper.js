@@ -77,8 +77,9 @@
         changeowner.setParams({
             'IdCase': inputObject.recordId,
             'recorduser': recorduser
-        });        
-        if(recorduser!=undefined){            
+        });   
+        if(recorduser!=undefined && recorduser != null){            
+            
             component.set('v.checkError',false);
             changeowner.setCallback(this, function(response){
                 var state = response.getState();
@@ -106,7 +107,7 @@
             });
             $A.enqueueAction(changeowner);
         }else{
-            component.set('v.isLoad',false);
+            component.set('v.isLoad',true);
             component.set('v.checkError',true);
             var disabledButton = $A.get("e.c:disabledButton_evt");     
             disabledButton.setParams({ 
