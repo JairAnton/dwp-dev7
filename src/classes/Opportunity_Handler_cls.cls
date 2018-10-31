@@ -27,13 +27,14 @@ public without sharing class Opportunity_Handler_cls extends TriggerHandler {
         new Opportunity_Trigger_cls().AsignAfterUpdate(Opps_New, Opps_OldMap);
         OpportunityChatterNotifications.notificationMethods(Opps_New, Opps_NewMap, Opps_OldMap);
     }
+    @TestVisible
+    protected override void afterInsert(){
+        new Opportunity_Trigger_cls().AsignAfterInsert(Opps_New);
+    }
     
     /*
     @TestVisible
-    protected override void beforeDelete(){}
-    
-    @TestVisible
-    protected override void afterInsert(){}
+    protected override void beforeDelete(){}    
     
     @TestVisible
     protected override void afterUpdate(){}

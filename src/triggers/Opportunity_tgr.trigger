@@ -5,6 +5,6 @@
  * 
  * V0- Creacion 
 */
-trigger Opportunity_tgr on Opportunity (before insert, before update, after update) {
+trigger Opportunity_tgr on Opportunity (before insert, before update, after update, after insert) {
 	new Opportunity_Handler_cls().run();
 }
