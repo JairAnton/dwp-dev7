@@ -31,9 +31,9 @@
             <div class="slds-col slds-size_1-of-3 slds-grid_align-center">
                 <lightning:buttonGroup> 
                     &nbsp;
-                    <lightning:button aura:id="BtnTotal" variant="Neutral" label="Total" title="Total" onclick="{! c.BtnChangTotal}"/>
-                    <lightning:button aura:id="BtnPEN" variant="Neutral" label="PEN" title="PEN" onclick="{!c.BtnChangPEN}"/>
-                    <lightning:button aura:id="BtnUSD" variant="Neutral" label="USD" title="USD" onclick="{!c.BtnChangUSD}"/>
+                    <lightning:button aura:id="BtnTotal" disabled="false" variant="Neutral" label="Total" title="Total" onclick="{! c.BtnChangTotal}"/>
+                    <lightning:button aura:id="BtnPEN" disabled="false" variant="Neutral" label="PEN" title="PEN" onclick="{!c.BtnChangPEN}"/>
+                    <lightning:button aura:id="BtnUSD" disabled="false" variant="Neutral" label="USD" title="USD" onclick="{!c.BtnChangUSD}"/>
                 </lightning:buttonGroup>
             </div>
         </div>

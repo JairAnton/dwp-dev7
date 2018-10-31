@@ -40,7 +40,11 @@
             Types= ['TOTAL DI','TOTAL SPREAD','TOTAL TASA'];
             component.set('v.profiType', 'TOTAL CLIENTE');
         }else{
-            Types= ['DI','Spread','Tasa']; 
+            var tProduc = component.get('v.profiType');
+            if(tProduc==='TOTAL')
+                Types= ['','','']; 
+            else
+                Types= ['DI','Spread','Tasa']; 
         }
         component.set('v.profiType1', Types[0]);
         component.set('v.profiType2', Types[1]);
