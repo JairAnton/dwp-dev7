@@ -1284,6 +1284,11 @@ Analistas de riesgos</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.profitability_subcategory_form__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account_Profitability__c.product_desc__c</field>
         <readable>true</readable>

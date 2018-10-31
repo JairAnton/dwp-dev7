@@ -2088,6 +2088,11 @@
         <field>Account_Product__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.profitability_subcategory_form__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Profitability__c.currenct_mon_amount__c</field>

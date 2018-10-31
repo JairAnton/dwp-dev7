@@ -1298,6 +1298,11 @@ Ejecutivos de REDES</description>
         <field>Account_BBVA_Classification__c.year_month_day_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.profitability_subcategory_form__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Profitability__c.product_desc__c</field>
