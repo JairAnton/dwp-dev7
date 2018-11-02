@@ -10,7 +10,8 @@
     <aura:attribute name="isOk" type="Boolean" default="true"/>
     <aura:attribute name="showSpinner" type="Boolean" default="true"/>
     <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section"/>
-    <aura:attribute name="lstError" type="String[]" />    
+    <aura:attribute name="lstError" type="String[]" />
+    <aura:attribute name="lstHeadersHtml" type="List" />   
     
     <aura:if isTrue="{! !v.showSpinner}">
         <aura:if isTrue="{!v.isOk}">
@@ -27,7 +28,7 @@
                         <c:FieldsForm_cmp aura:id="fieldsFormInput" isHTML="true" recordId="{!v.objectInput.IdOppLineItem}" isInput="false" valueDynamic="{!v.inputAttributes.dynamicValuesInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
                         <aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
                             <div class="slds-m-top_medium">                                                                                    
-                                <c:DataTable_cmp data="{!v.inputAttributes.datainput}" headers="{!v.inputAttributes.headerinput}" isHtml="true"/>
+                                <c:DataTable_cmp data="{!v.inputAttributes.datainput}" headers="{!v.lstHeadersHtml}" isHtml="true"/>
                             </div>
                         </aura:if>
                     </div>

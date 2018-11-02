@@ -22,7 +22,7 @@ public class SanctionPriceAnalistWeb_ctrl {
                                 List<GetQuotationRequest_helper.Response_EffectiveRates> lsteffec = jbody.data.quotations[0].interestRates.effectiveRates;
                                 for(Integer x =0; x<lsteffec.size(); x++){
                                     switch on lsteffec[x].id{
-                                        when'TEA_OF_MODEL'{
+                                        when 'MINIMUM_TEA'{
                                             mpReturn.put('teamodel',(lsteffec[x].percentage)*100);
                                         } 
                                         when 'TEA_OF_AUTONOMY'{                                    
@@ -93,6 +93,10 @@ public class SanctionPriceAnalistWeb_ctrl {
                                         }
                                     }
                                 }
+                            }
+                            if(mpReturn.containsKey('DI')){
+                                lstOLI[0].funding_cost_adjusted_per__c = (Decimal) mpReturn.get('DI'); 
+                                update lstOLI;
                             }
                             
                         }when 409{
