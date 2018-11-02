@@ -13,7 +13,7 @@
     onfocus : function(component,event,helper){
         helper.doResetError(component);
         $A.util.addClass(component.find("mySpinner"), "slds-show");
-        var forOpen = (component.find("searchRes").length == undefined?component.find("searchRes"):component.find("searchRes")[0]);
+        var forOpen = (component.find("searchRes").length === undefined?component.find("searchRes"):component.find("searchRes")[0]);
         $A.util.addClass(forOpen, 'slds-is-open');
         $A.util.removeClass(forOpen, 'slds-is-close');
         // Get Default 5 Records order by createdDate DESC  
@@ -59,19 +59,19 @@
         var selectedUserGetFromEvent = event.getParam("recordByEvent");
         component.set("v.selectedRecord" , selectedUserGetFromEvent); 
         
-        var forclose = (component.find("lookup-pill").length == undefined ? component.find("lookup-pill") : component.find("lookup-pill")[0]);
+        var forclose = (component.find("lookup-pill").length === undefined ? component.find("lookup-pill") : component.find("lookup-pill")[0]);
         $A.util.addClass(forclose, 'slds-show');
         $A.util.removeClass(forclose, 'slds-hide');
         
-        var forclose = (component.find("searchRes").length == undefined ? component.find("searchRes") : component.find("searchRes")[0]);
+        var forclose = (component.find("searchRes").length === undefined ? component.find("searchRes") : component.find("searchRes")[0]);
         $A.util.addClass(forclose, 'slds-is-close');
         $A.util.removeClass(forclose, 'slds-is-open');
         
-        var lookUpTarget = (component.find("lookupField").length == undefined ? component.find("lookupField") : component.find("lookupField")[0]);
+        var lookUpTarget = (component.find("lookupField").length === undefined ? component.find("lookupField") : component.find("lookupField")[0]);
         $A.util.addClass(lookUpTarget, 'slds-hide');
         $A.util.removeClass(lookUpTarget, 'slds-show');
         
-        var lookUpicon = (component.find("lookupIcon").length == undefined ? component.find("lookupIcon") : component.find("lookupIcon")[0]);
+        var lookUpicon = (component.find("lookupIcon").length === undefined ? component.find("lookupIcon") : component.find("lookupIcon")[0]);
         $A.util.addClass(lookUpicon, 'slds-hide');
         $A.util.removeClass(lookUpicon, 'slds-show');        
     },
