@@ -156,5 +156,9 @@
         component.set("v.SearchKeyWord",null);
         component.set("v.listOfSearchRecords", null );
         component.set("v.selectedRecord", null );   
+    },
+    doResetError :function(component){
+        component.set('v.checkError',false);        
+        component.set('v.isError',false);
     }
 })

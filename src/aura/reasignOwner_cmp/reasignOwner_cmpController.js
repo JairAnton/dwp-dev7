@@ -3,18 +3,15 @@
         helper.closeMe(component, event, helper);
     },
     doReasign : function(component, event, helper) {
-        component.set('v.checkError',false);        
-        component.set('v.isError',false);
+        helper.doResetError(component);
         helper.reasign(component, event, helper);
     },    
     doIni : function(component, event, helper) {
-        component.set('v.checkError',false);        
-        component.set('v.isError',false);
+        helper.doResetError(component);
         helper.ini(component, event, helper);
     },
     onfocus : function(component,event,helper){
-        component.set('v.checkError',false);        
-        component.set('v.isError',false);
+        helper.doResetError(component);
         $A.util.addClass(component.find("mySpinner"), "slds-show");
         var forOpen = (component.find("searchRes").length == undefined?component.find("searchRes"):component.find("searchRes")[0]);
         $A.util.addClass(forOpen, 'slds-is-open');
@@ -30,8 +27,7 @@
         $A.util.removeClass(forclose, 'slds-is-open');
     },
     keyPressController : function(component, event, helper) {
-        component.set('v.checkError',false);        
-        component.set('v.isError',false);
+        helper.doResetError(component);
         // get the search Input keyword   
         var getInputkeyWord = component.get("v.SearchKeyWord");
         // check if getInputKeyWord size id more then 0 then open the lookup result List and 
@@ -58,8 +54,7 @@
     
     // This function call when the end User Select any record from the result list.   
     handleComponentEvent : function(component, event, helper) {
-        component.set('v.isError',false);
-        component.set('v.checkError',false); 
+        helper.doResetError(component);
         // get the selected User record from the COMPONETN event 	 
         var selectedUserGetFromEvent = event.getParam("recordByEvent");
         component.set("v.selectedRecord" , selectedUserGetFromEvent); 
