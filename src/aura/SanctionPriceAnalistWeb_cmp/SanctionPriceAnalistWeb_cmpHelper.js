@@ -224,15 +224,12 @@
                     for(var i in datalst){
                         switch (datalst[i].id){
                             case 'SPREAD':
-                                datalst[i].REQU = '';
                                 datalst[i].AUTH = spreadReq;
                                 break;
                             case 'BAI':
-                                datalst[i].REQU = '';
                                 datalst[i].AUTH = baiReq;
                                 break;
                             case 'RAR':
-                                datalst[i].REQU = '';
                                 datalst[i].AUTH = rarReq;
                                 break;
                             case 'TEA':

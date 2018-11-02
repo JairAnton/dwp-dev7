@@ -43,6 +43,7 @@
                 };
 				component.set('v.objectInput',objectInput);
             }
+            helper.removeColumns(component, event, helper);
             component.set('v.isLoad',true);
             component.set('v.hasHeader',true);
             component.set('v.showSpinner',false);
@@ -222,5 +223,10 @@
         }); 
         $A.enqueueAction(action);
 
+    },
+    removeColumns : function(cmp, evt, helper){
+        var headers = cmp.get('v.inputAttributes').headerinput.slice();
+        headers.splice(1,2);
+        cmp.set('v.lstHeadersHtml', headers);
     }
 })
