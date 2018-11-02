@@ -3,7 +3,7 @@ public class AnalyzeRate_helper {
 
     public AnalyzeRate_helper(String recordId, String strRequestedTea){
         List<String> lstFeesLabels_str = new List<String>{Label.PriceWSLabel10,Label.PriceWSLabel14,Label.PriceWSLabel15,Label.PriceWSLabel08,Label.PriceWSLabel05,Label.PriceWSLabel04};
-        List<String> lstFeesLabels_str_ApiName = new List<String>{'expected_loss_per__c','financing_cost_stockholder_per__c','funding_cost_per__c','efficiency_cost__c','regulatory_capital_per__c','additional_capital_per__c'};
+        List<String> lstFeesLabels_str_ApiName = new List<String>{'expected_loss_per__c','financing_cost_stockholder_per__c','funding_cost_adjusted_per__c','efficiency_cost__c','regulatory_capital_per__c','additional_capital_per__c'};
         
         List<String> lstFeesLabels_cur = new List<String>{Label.PriceWSLabel03};
         List<String> lstFeesLabels_cur_ApiName = new List<String>{'capital_amount__c,capital_currency_id__c'};
