@@ -50,8 +50,8 @@
     <reportType>Oportunidades_Team__c</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
+    <!-- <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals> -->
     <timeFrameFilter>
         <dateColumn>Opportunity$CloseDate__c</dateColumn>
         <interval>INTERVAL_CURRENT</interval>

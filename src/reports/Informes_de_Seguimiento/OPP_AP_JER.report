@@ -77,8 +77,8 @@
     <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
+<!--     <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals> -->
     <timeFrameFilter>
         <dateColumn>Opportunity$CloseDate__c</dateColumn>
         <interval>INTERVAL_CURRENT</interval>
