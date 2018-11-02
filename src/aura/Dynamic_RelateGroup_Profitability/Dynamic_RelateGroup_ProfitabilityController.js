@@ -1,50 +1,44 @@
 ({
     init : function(component, event, helper) {
-        component.set('v.showSpinner',false);
+        helper.ConsultaDate_helper(component, event,helper);
         helper.ConsultaProducto_helper(component, event);
-        component.set('v.isLoad', false);
-        component.set('v.ProductIS', 'true');
-        component.set('v.coint1', 'PEN');
+        component.set("v.showSpinner",false);
         component.find("BtnTotal").set("v.variant", "brand");
-        component.set("v.bGrafica",true);
+		component.find("BtnPEN").set("v.disabled", "true");
+		component.find("BtnUSD").set("v.disabled", "true");
+        helper.doInitRefreshView(component, event, helper);
     },
     BtnChangTotal: function(component, event, helper){
-        var Type='TOTAL';
-        component.set('v.profiType', Type);
-        helper.BtnNeutral(component, event, helper);
-        component.find("BtnTotal").set("v.variant", "brand");
-        component.set('v.coint1', 'PEN');
-        $A.get('e.force:refreshView').fire();
-        component.set("v.bGrafica",true);
+        helper.BtnNeutral(component, event, helper,'TOTAL','BtnTotal','PEN');
+        component.set('v.isLoad', false);
+        component.set("v.bGrafica",false);
+        helper.doInitRefreshView(component, event, helper);
     },
     BtnChangPEN: function(component, event, helper){
-        var Type='MN';
-        component.set('v.profiType', Type);
-        helper.BtnNeutral(component, event, helper);
-        component.find("BtnPEN").set("v.variant", "brand");
-        component.set('v.coint1', 'PEN');
-        $A.get('e.force:refreshView').fire();
-        component.set("v.bGrafica",true);
+        helper.BtnNeutral(component, event, helper,'MN','BtnPEN','PEN');
+        component.set('v.isLoad', false);
+        component.set("v.bGrafica",false);
+        helper.doInitRefreshView(component, event, helper);
     },
     BtnChangUSD: function(component, event, helper){
-        var Type='ME';
-        component.set('v.profiType', Type);
-        helper.BtnNeutral(component, event, helper);
-        component.find("BtnUSD").set("v.variant", "brand");
-        component.set('v.coint1', 'USD');
-        $A.get('e.force:refreshView').fire();
-        component.set("v.bGrafica",true);
+        helper.BtnNeutral(component, event, helper,'ME','BtnUSD','USD');
+        component.set('v.isLoad', false);
+        component.set("v.bGrafica",false);
+        helper.doInitRefreshView(component, event, helper);
     },
     chgProduct: function(component, event, helper){
         component.set("v.ProductIS", event.getParam("value"));
-        $A.get('e.force:refreshView').fire();
-        component.set("v.bGrafica",true);
-    },
-    doInitRefreshView : function(component, event, helper) {
-        component.set('v.isLoad', false);
-        if(window.location.href.includes(component.get('v.recordId'))){
-            component.set('v.isLoad', true);
-            component.set("v.bGrafica",true);
+            helper.toTalClient(component, event, helper);
+        if(event.getParam("value")!=='CLIENTE'){
+        	helper.BtnNeutral(component, event, helper,'TOTAL','BtnTotal','PEN');
+            component.find("BtnPEN").set("v.disabled", "false");
+            component.find("BtnUSD").set("v.disabled", "false");
+        }else{
+            component.find("BtnPEN").set("v.disabled", "true");
+            component.find("BtnUSD").set("v.disabled", "true");
         }
-    }
+        component.set('v.isLoad', false);
+        component.set("v.bGrafica",false);
+        helper.doInitRefreshView(component, event, helper);
+    }    
 })

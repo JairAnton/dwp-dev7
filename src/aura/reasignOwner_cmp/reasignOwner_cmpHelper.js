@@ -3,13 +3,15 @@
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
         cancelEvent.fire();
     },
-    ini : function(component,event) {
+    ini : function(component,event) {        
+        component.set('v.checkError',false);        
+        component.set('v.isError', false);
         var action = component.get("c.start");
         var inputObject = component.get('v.inputAttributes');
         action.setParams({
             'recordId' : inputObject.recordId
         })
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response){            
             var storeResponse = response.getReturnValue();
             var selectedUserGetFromEvent = event.getParam("recordByEvent");
             component.set("v.selectedRecord" , storeResponse);
@@ -36,11 +38,13 @@
         $A.enqueueAction(action);
         
     },
-    searchHelper : function(component,event,getInputkeyWord) {
-        // call the apex class method 
+    searchHelper : function(component,event,getInputkeyWord) {     
+        component.set('v.isError', false);
+        // call the apex class method
         var action = component.get("c.fetchUser");
         var lstSearchRec = component.get("c.fetchUser");
         var inputObject = component.get('v.inputAttributes');
+        var forOpen = component.find("searchRes");
         // set param to method  
         action.setParams({
             'searchKeyWord': getInputkeyWord,
@@ -50,7 +54,7 @@
         action.setCallback(this, function(response) {
             $A.util.removeClass(component.find("mySpinner"), "slds-show");
             var state = response.getState();
-            if (state === "SUCCESS") {
+            if (state === "SUCCESS") { 
                 var storeResponse = response.getReturnValue();
                 // if storeResponse size is equal 0 ,display No Result Found... message on screen.
                 if (storeResponse.length == 0) {
@@ -67,7 +71,7 @@
         $A.enqueueAction(action);
         
     },
-    reasign : function(component, event, getInputkeyWord) { 
+    reasign : function(component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
         var recorduser = component.get("v.selectedRecord");
         var changeowner = component.get('c.reasignown');
@@ -77,8 +81,9 @@
         changeowner.setParams({
             'IdCase': inputObject.recordId,
             'recorduser': recorduser
-        });        
-        if(recorduser!=undefined){            
+        });
+        if(recorduser!=undefined && recorduser != null){
+            
             component.set('v.checkError',false);
             changeowner.setCallback(this, function(response){
                 var state = response.getState();
@@ -106,14 +111,22 @@
             });
             $A.enqueueAction(changeowner);
         }else{
-            component.set('v.isLoad',false);
-            component.set('v.checkError',true);
+            component.set('v.isLoad',true);
+            component.set('v.checkError',true);           
+            component.set('v.hasHeader',true);
             var disabledButton = $A.get("e.c:disabledButton_evt");     
             disabledButton.setParams({ 
                 "idOpp" : inputObject.recordId,
                 "idButton" : 'idReasignOk',
             });
             disabledButton.fire();
+            var forOpen = component.find("searchRes");
+            $A.util.addClass(forOpen, 'slds-is-open');
+            $A.util.removeClass(forOpen, 'slds-is-close');
+            
+            component.set('v.isError',false);
+            helper.doClear(component, event);
+            
         }
     },    
     toastEvent : function(title, message, type) {
@@ -124,5 +137,28 @@
             type: type
         });
         toastEvent.fire();
+    },
+    doClear: function(component, event){
+        
+        var pillTarget = ( component.find("lookup-pill").length== undefined?component.find("lookup-pill") : component.find("lookup-pill")[0]);
+        var lookUpTarget = ( component.find("lookupField").length== undefined? component.find("lookupField"): component.find("lookupField")[0]);
+        var lookUpicon = ( component.find("lookupIcon").length == undefined? component.find("lookupIcon"): component.find("lookupIcon")[0]);
+        
+        $A.util.addClass(pillTarget, 'slds-hide');
+        $A.util.removeClass(pillTarget, 'slds-show');
+        
+        $A.util.addClass(lookUpTarget, 'slds-show');
+        $A.util.removeClass(lookUpTarget, 'slds-hide');
+        
+        $A.util.addClass(lookUpicon, 'slds-show');
+        $A.util.removeClass(lookUpicon, 'slds-hide');
+        
+        component.set("v.SearchKeyWord",null);
+        component.set("v.listOfSearchRecords", null );
+        component.set("v.selectedRecord", null );   
+    },
+    doResetError :function(component){
+        component.set('v.checkError',false);        
+        component.set('v.isError',false);
     }
 })

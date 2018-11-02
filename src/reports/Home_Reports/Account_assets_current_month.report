@@ -55,7 +55,7 @@
     </columns>
     <currency>PEN</currency>
     <filter>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
         <criteriaItems>
             <column>Account_BBVA_Information__c.type__c</column>
             <isUnlocked>true</isUnlocked>
@@ -74,6 +74,12 @@
             <operator>equals</operator>
             <value>1</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>Account_BBVA_Information__c.Team_Gestor__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
         <language>es</language>
     </filter>
     <format>Summary</format>
@@ -82,13 +88,18 @@
         <field>BucketField_44566374</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account_BBVA_Information__c.user_id__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>Mi saldo en activos del mes en curso</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
     <reportType>AccountCustomEntity$Account_BBVA_Information__c</reportType>
-    <scope>user</scope>
+    <scope>organization</scope>
     <showDetails>true</showDetails>
 <!--     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals> -->

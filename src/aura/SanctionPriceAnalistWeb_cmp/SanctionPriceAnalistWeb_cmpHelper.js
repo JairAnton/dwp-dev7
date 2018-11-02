@@ -200,18 +200,9 @@
                             }
                         }
                     }
-                    if(strjson.data != null && strjson.data.interestRates != null && 
-                       strjson.data.interestRates.effectiveRates != null){                        
-                        var effective = strjson.data.interestRates.effectiveRates;
-                        for(var z in effective){
-                            if(effective[z].id == 'ADJUSTED_TEA'){
-                                adjTea = (effective[y].percentage);
-                            }
-                        }
-                    }
+                    adjTea = cmp.get('v.teainput');
                     if(adjTea != undefined && adjTea != ''){
                         var formatNumber = parseFloat(adjTea);
-						formatNumber = formatNumber*100;
                         adjTea = formatNumber.toFixed(2);                        
                     }
                     if(rarReq != undefined && rarReq != ''){
@@ -233,15 +224,12 @@
                     for(var i in datalst){
                         switch (datalst[i].id){
                             case 'SPREAD':
-                                datalst[i].REQU = '';
                                 datalst[i].AUTH = spreadReq;
                                 break;
                             case 'BAI':
-                                datalst[i].REQU = '';
                                 datalst[i].AUTH = baiReq;
                                 break;
                             case 'RAR':
-                                datalst[i].REQU = '';
                                 datalst[i].AUTH = rarReq;
                                 break;
                             case 'TEA':

@@ -197,7 +197,7 @@ public class GetQuotationRequest_helper {
 		public String currency_code;
 	}
 	public class Response_Guarantee {
-		public Integer coverage;
+		public Decimal coverage;
 		public Response_Classification classification;
 	}
 	public class Response_ContractingModality {
