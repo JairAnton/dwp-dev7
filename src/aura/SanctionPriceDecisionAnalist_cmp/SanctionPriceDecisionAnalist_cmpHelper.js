@@ -43,7 +43,7 @@
                 };
 				component.set('v.objectInput',objectInput);
             }
-            if(inputObject.approvalMethod == 'Web'){
+            if(inputObject.approvalMethod === 'Web'){
                 helper.removeColumns(component, event, helper);
              }
             component.set('v.isLoad',true);
