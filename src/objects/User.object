@@ -71,6 +71,16 @@
         <trackFeedHistory>true</trackFeedHistory>
         <type>Hierarchy</type>
     </fields>
+    <fields>
+        <fullName>Manager_frm__c</fullName>
+        <description>Manager</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(  ManagerId , Manager.LastName +&apos;,&apos;+ Manager.FirstName +&apos; &apos;+ Manager.MiddleName   )</formula>
+        <label>Manager</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>	
 	<fields>
         <fullName>Unique_id__c</fullName>
         <caseSensitive>false</caseSensitive>

@@ -3887,6 +3887,11 @@ Sub Gerentes de oficina</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>User.Manager_frm__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
         <editable>true</editable>
         <field>User.gcal__GBL_Google_Calendar_Last_Retr_Time__c</field>
         <readable>true</readable>
