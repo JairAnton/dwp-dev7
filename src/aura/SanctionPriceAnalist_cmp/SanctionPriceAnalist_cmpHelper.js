@@ -25,7 +25,7 @@
                     'approvalMethod':ret.approvalMethod,
                     'dinamicInput':'-'
                 };
-                if(ret.approvalMethod == 'Tarifario'){
+                if(ret.approvalMethod == 'Tarifario' && ret.dynamicValue!=undefined){
                     objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
                 } else if(ret.approvalMethod == 'Web'){
                     cmp.set('v.isnotWeb',false)
