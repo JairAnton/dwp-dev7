@@ -18,7 +18,11 @@
                 <behavior>Edit</behavior>
                 <field>organizational_unit_id__c</field>
             </layoutItems>
-        </layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Manager_frm__c</field>
+            </layoutItems>
+       </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
