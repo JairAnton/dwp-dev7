@@ -745,6 +745,11 @@
         <field>Opportunity.Opp_Creation_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.Manager_frm__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
 	<fieldPermissions>
         <editable>true</editable>
         <field>User.organizational_unit_id__c</field>

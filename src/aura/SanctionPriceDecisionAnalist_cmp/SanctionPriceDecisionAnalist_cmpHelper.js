@@ -43,7 +43,9 @@
                 };
 				component.set('v.objectInput',objectInput);
             }
-            helper.removeColumns(component, event, helper);
+            if(inputObject.approvalMethod === 'Web'){
+                helper.removeColumns(component, event, helper);
+             }
             component.set('v.isLoad',true);
             component.set('v.hasHeader',true);
             component.set('v.showSpinner',false);

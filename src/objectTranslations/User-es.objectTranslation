@@ -21,6 +21,10 @@
         <name>prof_position_type__c</name>
     </fields>
     <fields>
+        <label>Superior Directo</label>
+        <name>Manager_frm__c</name>
+    </fields>	
+    <fields>
         <label>Registro</label>
         <name>user_id__c</name>
     </fields>
