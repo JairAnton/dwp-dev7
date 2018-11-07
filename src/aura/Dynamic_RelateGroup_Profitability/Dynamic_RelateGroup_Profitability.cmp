@@ -32,8 +32,8 @@
                 <lightning:buttonGroup> 
                     &nbsp;
                     <lightning:button aura:id="BtnTotal" disabled="false" variant="Neutral" label="Total" title="Total" onclick="{! c.BtnChangTotal}"/>
-                    <lightning:button aura:id="BtnPEN" disabled="false" variant="Neutral" label="PEN" title="PEN" onclick="{!c.BtnChangPEN}"/>
-                    <lightning:button aura:id="BtnUSD" disabled="false" variant="Neutral" label="USD" title="USD" onclick="{!c.BtnChangUSD}"/>
+                    <lightning:button aura:id="BtnPEN" disabled="false" variant="Neutral" label="MN" title="MN" onclick="{!c.BtnChangPEN}"/>
+                    <lightning:button aura:id="BtnUSD" disabled="false" variant="Neutral" label="ME" title="ME" onclick="{!c.BtnChangUSD}"/>
                 </lightning:buttonGroup>
             </div>
         </div>

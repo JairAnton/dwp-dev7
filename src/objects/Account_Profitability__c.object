@@ -146,7 +146,7 @@
     <fields>
         <fullName>profitability_category_type_order__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE(UPPER( profitability_category_type__c ),&apos;ALTAS&apos;,1,&apos;SPREAD&apos;,2,&apos;TASA&apos;,3,&apos;DI&apos;,4,&apos;MARGEN FINANCIERO&apos;,5,&apos;COMISIONES&apos;,6,&apos;MARGEN ORDINARIO&apos;,7,&apos;ROF&apos;,8,0)</formula>
+        <formula>CASE(UPPER( profitability_category_type__c ),&apos;ALTAS&apos;,1,&apos;SPREAD&apos;,3,&apos;TASA&apos;,2,&apos;DI&apos;,4,&apos;MARGEN FINANCIERO&apos;,5,&apos;COMISIONES&apos;,6,&apos;MARGEN ORDINARIO&apos;,7,&apos;ROF&apos;,8,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Category order</label>
         <precision>18</precision>
@@ -172,7 +172,7 @@
 
 
 IF( profitability_subcategory_type__c ==&apos;MN&apos;,&apos;Facturación  S/&apos;,
-IF( profitability_subcategory_type__c ==&apos;ME&apos;,&apos;Facturación $&apos;,
+IF( profitability_subcategory_type__c ==&apos;ME&apos;,&apos;Facturación  S/&apos;,
 IF( profitability_subcategory_type__c ==&apos;Spread&apos;,&apos;Spread %&apos;,
 IF( profitability_subcategory_type__c ==&apos;Tasa&apos;,&apos;Tasa %&apos;, 
 IF( profitability_subcategory_type__c ==&apos;DI&apos;,&apos;DI %&apos;,
@@ -200,7 +200,7 @@ IF( profitability_subcategory_type__c ==&apos;TOTAL Tasa&apos;,&apos;Tasa %&apos
     <fields>
         <fullName>profitability_subcategory_type_order__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE(UPPER( profitability_subcategory_type__c ),&apos;ALTAS MN&apos;,1,&apos;ALTAS ME&apos;,2,&apos;SPREAD&apos;,3,&apos;TASA&apos;,4,&apos;DI&apos;,5,&apos;MF ACTIVOS&apos;,6,&apos;MF PASIVOS&apos;,7,&apos;MF OTROS&apos;,8,0)</formula>
+        <formula>CASE(UPPER( profitability_subcategory_type__c ),&apos;ALTAS MN&apos;,1,&apos;ALTAS ME&apos;,2,&apos;SPREAD&apos;,4,&apos;TASA&apos;,3,&apos;DI&apos;,5,&apos;MF ACTIVOS&apos;,6,&apos;MF PASIVOS&apos;,7,&apos;MF OTROS&apos;,8,&apos;TOTAL SPREAD&apos;,10,&apos;TOTAL TASA&apos;,9,&apos;TOTAL DI&apos;,11,&apos;TOTAL&apos;,profitability_category_type_order__c ,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Subcategory order</label>
         <precision>18</precision>

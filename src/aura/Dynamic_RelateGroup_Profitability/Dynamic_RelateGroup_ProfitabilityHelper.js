@@ -31,6 +31,7 @@
             component.find(btn).set("v.variant", "brand");
             component.set('v.coint1', coin);
             component.set('v.profiType', Type);
+            helper.toTalClient(component, event, helper);
         }
     },
     toTalClient: function(component, event, helper){
