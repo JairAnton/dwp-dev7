@@ -44,8 +44,6 @@
     <reportType>CustomEntity$dwp_kitv__Visit__c</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
-<!--     <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals> -->
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</dateColumn>
         <interval>INTERVAL_THISMONTH</interval>

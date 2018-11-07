@@ -19,6 +19,12 @@
 			case 'DOCONTINUE':
 				helper.continue(cmp, evt, helper);
 				break;
+            case 'DOERROR':
+                cmp.set('v.step','3');
+                var errorMessage = evt.getParam("data").errorCode;
+				cmp.set('v.errorlst',errorMessage);
+                cmp.set('v.hasHeader',false);
+				break;
 			default:
 				
 		}

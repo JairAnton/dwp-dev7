@@ -2183,6 +2183,177 @@
         <scale>2</scale>
         <type>Percent</type>
     </fields>
+	<fields>
+        <fullName>price_quote_availability_check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is price quote available checked?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>price_quote_available__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND( price_quote_availability_check__c ,NOT(ISBLANK( pricing_model_id__c )))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is price quote available?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>price_rates_calculation_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Price rates calculation Id</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pricing_model_id__c</fullName>
+        <externalId>false</externalId>
+        <label>Pricing model</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>price_operation_id__c</fullName>
+        <externalId>false</externalId>
+        <label>Price operation Id</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>price_quote_owner_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Price quote owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>price_availability_check_error__c</fullName>
+        <externalId>false</externalId>
+        <label>Price availability error</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>price_quote_status_id__c</fullName>
+        <externalId>false</externalId>
+        <label>Price quote status</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>additional_apread_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>additional_capital_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional capital (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>capital_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Capital amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>capital_currency_id__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Capital currency</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>efficiency_cost__c</fullName>
+        <externalId>false</externalId>
+        <label>Efficiency cost (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>expected_loss_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected loss (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>financing_cost_stockholder_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Financing cost stockholder (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>funding_cost_adjusted_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Funding cost adjusted (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>funding_cost_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Funding cost (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>minimum_spread_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Minimum spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>regulatory_capital_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Regulatory capital (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
     <validationRules>
         <fullName>ContractNo_Validation</fullName>
         <active>true</active>

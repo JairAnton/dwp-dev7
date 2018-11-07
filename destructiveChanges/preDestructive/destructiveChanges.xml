@@ -6,10 +6,58 @@
         <members>fprd__GBL_Intervener__c.Account__c</members>
 		<name>CustomField</name>
     </types>
+	<types>
+		<members>unfiled$public/Mis_Oportunidades_vigentes_Familia_AyP</members>
+        <members>unfiled$public/Mis_Opp_creadas_Activo_y_Pasivo_rXk</members>
+        <members>unfiled$public/Mis_Opp_familia_creadas_Activo_y_Pasivo</members>
+        <members>unfiled$public/Mis_Opp_formalizadas_Producto_Act_y_Pas</members>
+        <members>unfiled$public/Mis_Opp_formalizadas_Producto_Act_y_Pas_2v7</members>
+        <members>unfiled$public/Mis_opor_form_ActPas_1_2fD</members>
+        <members>unfiled$public/Mis_opor_form_ActPas_tAq</members>
+        <members>unfiled$public/Mis_oportunidades_creadas_Familia_RJerq</members>
+        <members>unfiled$public/Mis_oportunidades_creadas_Producto_Resto</members>
+        <members>unfiled$public/Mis_oportunidades_creadas_Producto_Resto_3GV</members>
+        <members>unfiled$public/Mis_oportunidades_creadas_producto_RJerq1</members>
+        <members>unfiled$public/Mis_oportunidades_formalizadas_Fam_Resto</members>
+        <members>unfiled$public/Mis_oportunidades_formalizadas_Fam_Resto1</members>
+        <members>unfiled$public/Mis_opp_formalizadas_producto_resto0</members>
+        <members>unfiled$public/Mis_opp_formalizadas_producto_resto00</members>
+        <members>unfiled$public/Oportunidades_vigentes_Familia_AyP_RJerq</members>
+        <members>unfiled$public/Opp_creadas_familia_Activo_y_Pasivo_PCf</members>
+        <members>unfiled$public/Mis_Oportunidades_vigentes_Familia_AyP</members>
+        <members>Repots_Private/Mis_Opp_creadas_Activo_y_Pasivo_rXk</members>
+        <members>Repots_Private/Mis_Opp_familia_creadas_Activo_y_Pasivo</members>
+        <members>Repots_Private/Mis_Opp_formalizadas_Producto_Act_y_Pas</members>
+        <members>Repots_Private/Mis_Opp_formalizadas_Producto_Act_y_Pas_2v7</members>
+        <members>Repots_Private/Mis_opor_form_ActPas_1_2fD</members>
+        <members>Repots_Private/Mis_opor_form_ActPas_tAq</members>
+        <members>Repots_Private/Mis_oportunidades_creadas_Familia_RJerq</members>
+        <members>Repots_Private/Mis_oportunidades_creadas_Producto_Resto</members>
+        <members>Repots_Private/Mis_oportunidades_creadas_Producto_Resto_3GV</members>
+        <members>Repots_Private/Mis_oportunidades_creadas_producto_RJerq1</members>
+        <members>Repots_Private/Mis_oportunidades_formalizadas_Fam_Resto</members>
+        <members>Repots_Private/Mis_oportunidades_formalizadas_Fam_Resto1</members>
+        <members>Repots_Private/Mis_opp_formalizadas_producto_resto0</members>
+        <members>Repots_Private/Mis_opp_formalizadas_producto_resto00</members>
+        <members>Repots_Private/Oportunidades_vigentes_Familia_AyP_RJerq</members>
+        <members>Repots_Private/Opp_creadas_familia_Activo_y_Pasivo_PCf</members>
+        <members>Home_Reports/Mis_oportunidades_creadas_Producto_Resto.report</members>
+		<members>Home_Reports/Mis_visitas_como_equipo_adU</members>       
+		<members>Home_Reports/Visits_current_month</members>
+		<members>Home_Reports/Opp_creadas_familia_Activo_y_Pasivo</members>
+		<members>Home_Reports/Opp_creadas_familia_Activo_y_Pasivo_PCf</members>
+		<members>Home_Reports/Opp_creadas_familia_Activo_y_Pasivo1</members>
+		<members>Home_Reports/Opp_creadas_familia_Activo_y_Pasivo2</members>
+	    <name>Report</name>
+   </types>	
     <types>
         <members>Participant_MasterRecord-1</members>
         <members>Guarantee_MasterRecord-1</members>
         <name>Flow</name>
+    </types>
+	 <types>
+        <members>HOMEPAGE_ORIGEN</members>        
+        <name>FlexiPage</name>
     </types>
 	<types>
 		<members>fprd__GBL_dependent_list.dependentNoDineraria</members>

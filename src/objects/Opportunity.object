@@ -937,6 +937,16 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>USER_EJECUTIVO__c</fullName>
+        <description>CAMPO PARA PODER LLAMAR A LAS LOGIN DE LOS EJECUTIVOS</description>
+        <externalId>false</externalId>
+        <formula>Account.Owner.Id  = $User.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>USER EJECUTIVO</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>PE_ImOwner__c</fullName>
         <description>check if the current user is the owner</description>
@@ -1335,10 +1345,17 @@
     </searchLayouts>
     <sharingModel>Read</sharingModel>
     <validationRules>
+        <fullName>Account_Required_Validation</fullName>
+        <active>true</active>
+        <description>Cannot be created Opportunity without an Account</description>
+        <errorConditionFormula>AccountId == null</errorConditionFormula>
+        <errorMessage>The account is required</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Opportunity_Validation_02_OnlyCommercial</fullName>
         <active>true</active>
         <description>Validate the creation in this Stage only for a Commercial Profile</description>
-        <errorConditionFormula>(($Profile.Name!=&apos;Administrador del sistema&apos;&amp;&amp;$Profile.Name!=&apos;Migracion&apos;) &amp;&amp; IsNew())&amp;&amp; (!isPickVal(StageName,&apos;02&apos;) ||($Profile.Name!=&apos;Ejecutivo&apos;&amp;&amp;$Profile.Name!=&apos;Especialista&apos;))</errorConditionFormula>
+        <errorConditionFormula>(($Profile.Name!=&apos;Administrador del sistema&apos; &amp;&amp;$Profile.Name!=&apos;Migracion&apos;)&amp;&amp; IsNew())&amp;&amp; (!isPickVal(StageName,&apos;02&apos;) ||($Profile.Name!=&apos;Ejecutivo&apos;&amp;&amp;$Profile.Name!=&apos;Especialista&apos;))</errorConditionFormula>
         <errorDisplayField>StageName</errorDisplayField>
         <errorMessage>Only Commercial profile can create Opportunities for this stage</errorMessage>
     </validationRules>

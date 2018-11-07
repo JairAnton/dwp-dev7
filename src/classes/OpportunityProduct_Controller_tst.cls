@@ -8,6 +8,8 @@
 * Julio Medellin               7/05/2018          Original version.<p />
 *
 * @author Julio Medellin
+* 
+* Modificado por Eduardo Castillo S. 1/11/2018
 */
 @istest
 public class OpportunityProduct_Controller_tst {      
@@ -16,7 +18,14 @@ public class OpportunityProduct_Controller_tst {
     static void setupData(){ 
         //Create Accounts.
         test.startTest();
-        Opportunity Opp = new Opportunity(Name='testopp', StageName='01',Amount=100 ,CloseDate=system.Date.today(),opportunity_status_type__c='01');
+        
+        //ECS Create Modality_mode__c
+        create_modality_mode();
+        
+        Account acc= new Account();
+        acc.Name='MyAccount';
+        insert acc;
+        Opportunity Opp = new Opportunity(Name='testopp', StageName='01',Amount=100 ,CloseDate=system.Date.today(),opportunity_status_type__c='01',AccountId=acc.id);
         List<Account> lstAccounts = new List<Account>();
         List<task> lstTasks = new List<task>(); 
         for(Integer intI = 0; intI < 2; intI++) {
@@ -46,10 +55,24 @@ public class OpportunityProduct_Controller_tst {
         task t = [SELECT Id FROM TASK LIMIT 1];
         opportunity  opp = [SELECT ID FROM Opportunity LIMIT 1];
         OpportunityProduct_Controller OPC = new OpportunityProduct_Controller();
-        OpportunityProduct_Controller.getTasks(opp.Id);
+        //OpportunityProduct_Controller.getTasks(opp.Id); 
+        OpportunityProduct_Controller.getTasks('SIO1234567');
         OpportunityProduct_Controller.getOppLI(opp.id);
         OpportunityProduct_Controller.saveSIO(opp.Id,t.Id);
         OpportunityProduct_Controller.sendApproval(opp.Id);
+        opp.Risk_modality_type__c='';
+        update opp;
         OpportunityProduct_Controller.requestModality(opp.Id);
+    }
+    
+    
+    //Eduardo Castillo S. - Método creado para la clase OpporunityProduct_Controller
+    public static void create_modality_mode(){
+        Modality_Mode__c obj = new Modality_Mode__c();
+        obj.Product_Name__c = '01';
+        obj.Modalidad_producto__c = 'Modalidad_producto__c prueba';
+        obj.Modality_Select__c='Modality_Select__c prueba';
+        obj.Name='Name prueba';
+        insert obj;
     }
 }

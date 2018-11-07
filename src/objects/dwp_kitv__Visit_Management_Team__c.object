@@ -47,9 +47,10 @@
     <description>Object to relate users with visits</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -108,6 +109,15 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>on_a_team__c</fullName>
+        <externalId>false</externalId>
+        <formula>$User.Id = dwp_kitv__user_id__r.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>on a team</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>user_prof_position_type__c</fullName>
         <externalId>false</externalId>
         <formula>dwp_kitv__user_id__r.prof_position_type__c</formula>
@@ -133,6 +143,20 @@
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>User_is_empty</fullName>
+        <active>true</active>
+        <errorConditionFormula>if(ISNEW() ,IF( ISBLANK(  dwp_kitv__user_id__c ) ,true,false),false)</errorConditionFormula>
+        <errorDisplayField>dwp_kitv__user_id__c</errorDisplayField>
+        <errorMessage>The User is empty</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Visit_is_Active</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(ISPICKVAL(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c, &apos;05&apos;) , true, false)</errorConditionFormula>
+        <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+        <errorMessage>Not is possible create the Visit Management Team, the visit is in status ended</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>dwp_kitv__Change_user</fullName>
         <active>true</active>
         <description>You cannot change the user.</description>
@@ -147,4 +171,5 @@
         <errorDisplayField>dwp_kitv__user_id__c</errorDisplayField>
         <errorMessage>You cannot insert the Owner of the visit.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

@@ -34,3 +34,4 @@
 "PEN","OPP_PRODUCT_SR_TRUE","product_risk_approval_indicator__c","Checkbox","true","","OpportunityLineItems","ID_EQUAL"
 "PEN","OPP_STATUS_REEVALUATION_PRICE_RISK","opportunity_status_type__c","Picklist","24,12","","Opportunity","ID_IN"
 "PEN","USER_PROFILE_EXECUTIVE_SPECIALIST","Profile.Name","Text","Ejecutivo,Especialista,System Administrator,Administrador del sistema","","User","ID_IN"
+"PEN","OPP_PRODUCT_QUOTE_NOT_AVAILABLE","price_quote_available__c","Checkbox","false","","OpportunityLineItems","ID_EQUAL"

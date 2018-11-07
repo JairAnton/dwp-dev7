@@ -565,6 +565,7 @@
         <members>dwp_kitv__Visit_Management_Team__c-Visit Management Team Layout Peru</members>
         <members>dwp_kitv__Visit_Topic__c-Visit Topic Layout Peru</members>
         <members>dwp_kitv__Visit__c-Visit Layout Account Peru</members>
+        <members>Task-Task Layout</members>
         <name>Layout</name>
     </types>
     <types>

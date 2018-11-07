@@ -37,6 +37,14 @@
     <gender>Feminine</gender>
     <nameFieldLabel>Contactos de la visita</nameFieldLabel>
     <validationRules>
+        <errorMessage>Agregar un contacto</errorMessage>
+        <name>Valid_visit_null</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>No se puede añadir datos a una una visita finalizada</errorMessage>
+        <name>Visit_is_Active</name>
+    </validationRules>
+    <validationRules>			 
         <errorMessage>No está permitido cambiar de contacto. Por favor, elimine el contacto de la visita</errorMessage>
         <name>dwp_kitv__Change_contact</name>
     </validationRules>

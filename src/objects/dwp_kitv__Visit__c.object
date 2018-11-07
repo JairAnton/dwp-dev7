@@ -148,6 +148,28 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>account_name__c</fullName>
+        <externalId>false</externalId>
+        <formula>dwp_kitv__account_id__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>account_parent__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(dwp_kitv__account_id__r.RecordType.DeveloperName==&apos;Group&apos;,CASESAFEID(dwp_kitv__account_id__c),CASESAFEID(dwp_kitv__account_id__r.ParentId))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Parent</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>dwp_kitv__account_id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
@@ -280,7 +302,7 @@
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(dwp_kitv__visit_status_type__c,&quot;03&quot;),(IMAGE(&quot;/servlet/servlet.FileDownload?file=0157E000000Nx3O&quot;,&quot;Remember to click on &apos;Update visit&apos; to synchronize the calendar of the selected contacts.&quot;)),&quot;&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>Remember to click on &apos;Update visit&apos; to synchronize the calendar of the selected contacts.</inlineHelpText>
+        <inlineHelpText>Recuerde pulsar en &quot;Actualizar visita&quot; para sincronizar el calendario del contacto seleccionado</inlineHelpText>
         <label>Notify meeting changed</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -332,7 +354,7 @@
         <deprecated>false</deprecated>
         <description>Number of BBVA contacts in this visit</description>
         <externalId>false</externalId>
-        <inlineHelpText>Number of BBVA contacts in this visit</inlineHelpText>
+        <inlineHelpText>Número de contactos BBVA de la visita</inlineHelpText>
         <label>Contacts number</label>
         <summaryForeignKey>dwp_kitv__Visit_Contact__c.dwp_kitv__visit_id__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
@@ -343,6 +365,7 @@
         <fullName>dwp_kitv__visit_desc__c</fullName>
         <deprecated>false</deprecated>
         <description>Visit Description</description>
+        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Description</label>
         <length>32768</length>
@@ -355,7 +378,7 @@
         <deprecated>false</deprecated>
         <description>Time in minutes it takes to make the visit. The first hour will be intervals about 15 minutes, then 30 minutes intervals.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Select a duration (minutes).</inlineHelpText>
+        <inlineHelpText>Seleccione la duración en minutos</inlineHelpText>
         <label>Duration</label>
         <required>true</required>
         <trackTrending>false</trackTrending>
@@ -432,6 +455,7 @@
         <fullName>dwp_kitv__visit_location_desc__c</fullName>
         <deprecated>false</deprecated>
         <description>Field to determinate the place where the visit will be realized.</description>
+        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Location</label>
         <length>255</length>
@@ -474,6 +498,7 @@
         <fullName>dwp_kitv__visit_start_date__c</fullName>
         <deprecated>false</deprecated>
         <description>Field to set the start date time of the visit.</description>
+        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Start Date</label>
         <required>true</required>
@@ -537,7 +562,7 @@
         <deprecated>false</deprecated>
         <description>Number of topics in this visit</description>
         <externalId>false</externalId>
-        <inlineHelpText>Number of topics in this visit</inlineHelpText>
+        <inlineHelpText>Número de temas en la visita</inlineHelpText>
         <label>Topics number</label>
         <summaryForeignKey>dwp_kitv__Visit_Topic__c.dwp_kitv__visit_id__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
@@ -549,23 +574,12 @@
         <deprecated>false</deprecated>
         <description>Number of BBVA users in this visit</description>
         <externalId>false</externalId>
-        <inlineHelpText>Number of BBVA users in this visit</inlineHelpText>
+        <inlineHelpText>Número de usuarios BBVA en la visita</inlineHelpText>
         <label>Users number</label>
         <summaryForeignKey>dwp_kitv__Visit_Management_Team__c.dwp_kitv__visit_id__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>account_name__c</fullName>
-        <externalId>false</externalId>
-        <formula>dwp_kitv__account_id__r.Name</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Account Name</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>report_visit_status_type__c</fullName>
@@ -588,17 +602,6 @@
         <unique>false</unique>
     </fields>    
     <fields>
-        <fullName>account_parent__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(dwp_kitv__account_id__r.RecordType.DeveloperName==&apos;Group&apos;,CASESAFEID(dwp_kitv__account_id__c),CASESAFEID(dwp_kitv__account_id__r.ParentId))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Account Parent</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>start_date_calculated__c</fullName>
         <externalId>false</externalId>
         <formula>dwp_kitv__visit_start_date__c</formula>
@@ -610,6 +613,7 @@
     </fields>
     <label>Visit</label>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Visit Name</label>
         <type>Text</type>
     </nameField>
@@ -903,10 +907,9 @@ $Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c = false,$Setup.
     <validationRules>
         <fullName>visit_change</fullName>
         <active>true</active>
-        <description></description>
-     <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE( dwp_kitv__visit_status_type__c),"05"),
+        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE( dwp_kitv__visit_status_type__c),&quot;05&quot;),
             $Profile.Name !=  $Label.profAdministrator,
-            $Profile.Name != "Migracion",
+            $Profile.Name != &quot;Migracion&quot;,
             OR(
             ISCHANGED(dwp_kitv__visit_desc__c),
             ISCHANGED(dwp_kitv__visit_start_date__c),
@@ -917,4 +920,5 @@ $Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c = false,$Setup.
             ISCHANGED(dwp_kitv__visit_location_desc__c)))</errorConditionFormula>
         <errorMessage>You can edit this visit if is finalized</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

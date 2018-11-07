@@ -2,7 +2,13 @@
 domain: salesforce.app
 stages:
   staticAnalysis:
-    skip: true
+    skip: false
+    params:
+        skipEslint: true
+        skipLintSpaces: true
+        skipStyleLint: true
+        skipPmdApex: true
+        skipSonar: false
   unitTesting:
     skip: true
   deploy:
@@ -34,6 +40,15 @@ branches:
                     mdapiConfig:
                         credentialId: SFDC_UAT
                         testLevel: RunLocalTests
+
+    preprod:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_PREPROD
+                        testLevel: RunLocalTests
+
     master:
         stages:
             publish:

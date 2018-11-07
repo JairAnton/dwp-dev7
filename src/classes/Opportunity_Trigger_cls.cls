@@ -79,8 +79,6 @@ public without sharing class Opportunity_Trigger_cls {
         }
         
     }
-    
-    /**/
     private void Valida(list<Opportunity>Opps_New, Map<id,Opportunity>Opps_OldMap){
         set<Id> IdOwners = new set<ID>();
         for(Opportunity oppnew: Opps_New)
@@ -113,6 +111,29 @@ public without sharing class Opportunity_Trigger_cls {
                    }
                }
         }
+    }
+    public void AsignAfterInsert(List <Opportunity> Opps_New){
+        Map<Id,Id> owneropp = new Map<Id,Id>();        
+        List<OpportunityTeamMember> oppTeam = new List<OpportunityTeamMember>();
+        List <Opportunity> lstOpp = [Select Id, OwnerId, Account.OwnerId from Opportunity where Id =:Opps_New];
+        for(Opportunity opp:lstOpp){
+            if(opp.Account.OwnerId != null && opp.OwnerId != opp.Account.OwnerId){
+                owneropp.put(opp.Id,opp.Account.OwnerId);
+            }
+        }
+        
+        if(!owneropp.isEmpty()){
+            for(String oppId : owneropp.keySet()){                
+                oppTeam.add(new OpportunityTeamMember(                
+                    UserId = owneropp.get(oppId),
+                    TeamMemberRole = '02',
+                    OpportunityAccessLevel = 'Edit',
+                    OpportunityId = oppId
+                ));                
+            }
+            insert oppTeam;            
+        }
+        
     }
     
 

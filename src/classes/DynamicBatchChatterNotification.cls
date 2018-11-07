@@ -9,7 +9,9 @@
 public class DynamicBatchChatterNotification {
     public static void getDynamicBatchChatterNotification(List<String> recordId, String sObjectName, String messageId){
         List <DynamicNotificationInformation.NotificationInformation_wrapper> lstmwrap = DynamicNotificationInformation.getDynamicNotificationInformation(recordId, sObjectName, messageId);
-        Database.executeBatch(new NotificationBatch(lstmwrap), 50);
+        
+        if(!lstmwrap.isEmpty()){
+            Database.executeBatch(new NotificationBatch(lstmwrap), 50);
+        } 
     }
-
 }

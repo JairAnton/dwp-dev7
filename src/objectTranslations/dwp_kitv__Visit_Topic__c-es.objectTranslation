@@ -41,6 +41,10 @@
     <gender>Feminine</gender>
     <nameFieldLabel>tema a tratar</nameFieldLabel>
     <validationRules>
+        <errorMessage>No se puede añadir datos a una una visita finalizada</errorMessage>
+        <name>Visit_is_Active</name>
+    </validationRules>
+    <validationRules>		 
         <errorMessage>No está permitido agregar un tema a tratar vacio</errorMessage>
         <name>dwp_kitv__empty_topic</name>
     </validationRules>

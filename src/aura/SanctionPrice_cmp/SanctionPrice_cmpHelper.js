@@ -13,13 +13,33 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
+                cmp.set('v.AccId',ret.AccId);
+                cmp.set('v.type_of_quote',ret.type_of_quote);
+                if(ret.type_of_quote==='COTIZA Beta')
+                {
+                  cmp.set('v.modalWidthCustom','37rem');
+                }
+                cmp.set('v.commercial_strategy',ret.commercial_strategy);
                 var objectInput = {
                     'IdOppLineItem':ret.IdOppLineItem,
                     'approvalMethod':ret.approvalMethod,
                     'dinamicInput':'-'
                 };
-                if(ret.approvalMethod == 'Tarifario' && ret.dynamicValue!=undefined){
+                var generr = ret.genericError;
+                cmp.set('v.hasHeader',true);
+                if(ret.approvalMethod == 'Tarifario' && ret.dynamicValue!=undefined){            
                     objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
+                    cmp.set('v.hasHeader',true);
+                }else if (ret.approvalMethod == 'Web'){
+                    if(generr != undefined){
+                        cmp.set('v.isError', true);
+                        cmp.set('v.errorlst',generr);
+                        cmp.set('v.hasHeader',false);
+                    }else{
+                        cmp.set('v.hasHeader',true);
+                    	cmp.set('v.isError', false);                        
+                        objectInput['dinamicInput'] = ret.sugtea + ',' + ret.minimtea + ','+ret.proposed+',' + ret.spread;
+                    }                    
                 }
                 cmp.set('v.objectInput',objectInput);
                 cmp.set('v.isLoad',true);

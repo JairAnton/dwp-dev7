@@ -1,10 +1,14 @@
 ({
 	closeMe : function(component, event) {
+        $A.get('e.force:refreshView').fire();
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
     	cancelEvent.fire();
     },
     getInfo : function(component, event, helper){
         var inputObject = component.get('v.inputAttributes');
+        if(inputObject.approvalMethod == 'Web'){
+            component.set('v.enableContinue',true);
+        }
         var action = component.get("c.getInfo");
         action.setParams({
             "recordIdOppLineItem" : inputObject.opportunityLineItem
@@ -154,6 +158,25 @@
                 var ret = response.getReturnValue();
                 if(ret.isOk){
                     $A.get('e.force:refreshView').fire();
+                    helper.closeMe(cmp, evt, helper);
+                }
+            }
+        }); 
+        $A.enqueueAction(action);
+    },
+    doContinueWeb : function(cmp, evt, helper){
+        var storeHTML = document.getElementById('storeHTML');
+        var inputObject = cmp.get('v.inputAttributes');
+        var action = cmp.get("c.saveAuditWeb");
+        action.setParams({
+            "auditRecordId" : inputObject.auditRecordId,
+            "storeHtml" : storeHTML.innerHTML
+        });
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                var ret = response.getReturnValue();
+                if(ret.isOk){
                     helper.closeMe(cmp, evt, helper);
                 }
             }

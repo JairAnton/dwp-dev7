@@ -95,7 +95,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     }
 
     @AuraEnabled
-    public static Map<String,Object> saveDecisionAnalist(String recordId, String status_opp, String stageName, Boolean elevateCase, String styleAudit, String nameAudit, String strComments, String recordOli, List<String> lstApiField, List<Object> lstValue, String statusCase, String storeHtml){
+    public static Map<String,Object> saveDecisionAnalist(String recordId, String status_opp, String stageName, Boolean elevateCase, String styleAudit, String nameAudit, String strComments, String recordOli, List<String> lstApiField, List<Object> lstValue, String statusCase, String storeHtml, String approvalMethod, String wsPhase){
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
         Opportunity opp = new Opportunity();
@@ -103,40 +103,92 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.StageName = stageName;
         opp.opportunity_status_type__c = status_opp;
         opp.isProcess__c = true;
+        Boolean isOk = true;
+        Id idAnalist = null;
         try{
-            update opp;
-            lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
-            lstAudit[0].dwp_cvad__audit_audit_comments__c = strComments;
-            insert lstAudit;
+            if(approvalMethod == 'Web'){
+                ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(recordId,wsPhase, (lstValue[1] == null? null : Double.valueOf(lstValue[1])) ,'', null);
+                try{
+                    System.HttpResponse invokeModify = modifyHelper.invoke();
+                    switch on invokeModify.getStatusCode(){
+                        when 200 {
+                            ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(invokeModify.getBody());
+                            ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
+                            ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
+                            
+                            OpportunityLineItem oliRecord = new OpportunityLineItem();
+                            oliRecord.Id = recordOli;
+                            oliRecord.price_quote_status_id__c = mqStatus.id;
+                            
+                            List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
+                            
+                            if(!mqBusinessAgentsList.isEmpty()){
+                                List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
+                                if(!userList.isEmpty()){
+                                    oliRecord.price_quote_owner_id__c = userList[0].Id;
+                                    idAnalist = userList[0].Id;
+                                }else{
+                                    oliRecord.price_quote_owner_id__c = null;
+                                }
+                            }
+                            update oliRecord;
 
-            List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
-            lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, storeHtml, 1, '', 'Embedded'));
-            insert lstDetails;
-
-            List<Case> lstCases = [SELECT   Id, 
-                                        opportunity_id__c, 
-                                        IsClosed,
-                                        OwnerId,
-                                        Status,
-                                        bypass__c
-                                FROM Case 
-                                WHERE opportunity_id__c = :recordId 
-                                AND IsClosed = false];
-            lstCases[0].Status = statusCase;
-            lstCases[0].bypass__c = true;
-            if(elevateCase){
-                List<Group> queueGroup = [SELECT    Id, 
-                                                    DeveloperName,
-                                                    Type  
-                                                FROM Group 
-                                                WHERE Type = 'Queue' 
-                                                AND DeveloperName = 'Tier_2'];
-                lstCases[0].OwnerId = queueGroup[0].Id;
+                        }
+                        when 409{
+                            WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(invokeModify.getBody());
+                            isOk = false;
+                            mapReturn.put('isOk', false);
+                            mapReturn.put('errorMessage',Label.DecisionPriceActionError + ' ' + errorW.errormessage);
+                        }
+                        when else{
+                            isOk = false;
+                            mapReturn.put('isOk', false);
+                            mapReturn.put('errorMessage',Label.PriceGenericError);
+                        }
+                    }
+                }catch(Exception e){
+                    isOk = false;
+                    mapReturn.put('isOk', false);
+                    mapReturn.put('errorMessage',Label.PriceGenericError);
+                }
             }
-            update lstCases;
-            Map<String,Object> mapReturnSaveOli = FieldForm_ctrl.doSave(recordOli,'OpportunityLineItem', lstApiField, lstValue);
+            if(isOk){
+                update opp;
+                lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
+                lstAudit[0].dwp_cvad__audit_audit_comments__c = strComments;
+                insert lstAudit;
 
-            mapReturn.put('isOk', (Boolean)mapReturnSaveOli.get('isOk'));
+                List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
+                lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, storeHtml, 1, '', 'Embedded'));
+                insert lstDetails;
+
+                List<Case> lstCases = [SELECT   Id, 
+                                            opportunity_id__c, 
+                                            IsClosed,
+                                            OwnerId,
+                                            Status,
+                                            bypass__c
+                                    FROM Case 
+                                    WHERE opportunity_id__c = :recordId 
+                                    AND IsClosed = false];
+                lstCases[0].Status = statusCase;
+                lstCases[0].bypass__c = true;
+                if(elevateCase && idAnalist==null){
+                    List<Group> queueGroup = [SELECT    Id, 
+                                                        DeveloperName,
+                                                        Type  
+                                                    FROM Group 
+                                                    WHERE Type = 'Queue' 
+                                                    AND DeveloperName = 'Tier_2'];
+                    lstCases[0].OwnerId = queueGroup[0].Id;
+                }else if(elevateCase && idAnalist!=null){
+                    lstCases[0].OwnerId = idAnalist;
+                }
+                update lstCases;
+                Map<String,Object> mapReturnSaveOli = FieldForm_ctrl.doSave(recordOli,'OpportunityLineItem', lstApiField, lstValue);
+
+                mapReturn.put('isOk', (Boolean)mapReturnSaveOli.get('isOk'));
+            }
         }catch(Exception e){
             mapReturn.put('isOk', false);
         }
@@ -191,6 +243,18 @@ public with sharing class SanctionPriceDecision_ctrl {
                                 AND Status = '01'];
         mapReturn.put('caseOpen', !lstCases.isEmpty());
         
+        return mapReturn;
+    }
+    
+    @AuraEnabled
+    public static Map<String,Object> saveAuditWeb(String auditRecordId,  String storeHtml){
+        Map<String,Object> mapReturn = new Map<String,Object>();
+        
+        List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
+        lstDetails.add(Action_Audit_Helper.getAuditDetail(auditRecordId, storeHtml, 1, '', 'Embedded'));
+        insert lstDetails;
+        
+        mapReturn.put('isOk', true);
         return mapReturn;
     }
 }

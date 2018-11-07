@@ -1,0 +1,100 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="Product_cls" access="GLOBAL">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="bGrafica" type="Boolean" default="false" />
+    <aura:attribute name="sFiltro" type="String" default="Total" />  
+    <aura:attribute name="record" type="Object" description="The record object to be displayed"/>
+    <aura:attribute name="OpptyRecord" type="Object" description="A simplified view record object to be displayed"/>
+    <aura:attribute name="commercial_strategy" type="String"/>
+    <aura:attribute name="recordError" type="String" description="An error message bound to force:recordData"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="rows" type="List" />
+    <force:recordData aura:id="record"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.OpptyRecord}"
+                      mode="VIEW"/>
+    <lightning:tabset variant="scoped"   >
+        <lightning:tab >
+            <aura:set attribute="label">
+                Rent. Cliente
+            </aura:set>            
+            <div width="43rem">
+                <c:Dynamic_RelateGroup_Profitability recordId="{!v.recordId}"/>
+                <br/>
+            </div>
+        </lightning:tab>
+        <lightning:tab >       
+            <aura:set attribute="label">
+                Deuda SBS<br/>
+            </aura:set> 
+            <div width="43rem">
+                <div class="ccenter">      <lightning:select aura:id="selFiltro" name="selFiltro" label=" "  onchange="{!c.filtroGrafica}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  >
+                    <option value="Total">Total</option>
+                    <option value="DIRECTA">Directa</option>
+                    <option value="PRESTAMO">Prestamo</option>
+                    <option value="COMEX">Comex</option>
+                    <option value="LEASING">Leasing</option>
+                    <option value="DESCUENTO DE LETRAS">Descuento de Letras</option>
+                    <option value="FACTORING">Factoring</option>
+                    <option value="OTROS">Otros directas</option>
+                    <option value="INDIRECTA">Indirecta</option>
+                    <option value="AVALES Y FIANZAS">Fianzas</option>
+                    <option value="CARTA. CREDITO">Carta crédito</option> 
+                    <option value="ACEPTACIONES BANCARIAS (OTROS)">Otros indirectas</option>
+                    </lightning:select>
+                    <br/>
+                    <aura:if isTrue="{!v.bGrafica}">
+                        <div class="ChartZoom">
+                            <c:GraphicsGenerator_comp NombreCanvas=" "
+                                                      posicionLeyenda="right" 
+                                                      NombreInforme="EVOLUCION_DEUDA_SBS"        
+                                                      TipoGrafica="line"
+                                                      Id="{!v.recordId}"
+                                                      Colores="#004481,#f7893b,#da3851,#48ae64,#bdbdbd"
+                                                      Filtro="{!v.sFiltro}"
+                                                      />
+                        </div>
+                        <dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+                                                               sObjectName="Account_Banking_System_Debt__c"
+                                                               Type="Matrix"
+                                                               customLabelAPInameError="AccountNoData"
+                                                               showTitle="false"
+                                                               reportTitleAPI="AccountAccountingType1"
+                                                               Object="Account_Banking_System_Debt__c"
+                                                               RelatedField="account_id__c"
+                                                               Header="debt_current_balance_amount__c"
+                                                               Format="CUR"
+                                                               FilterStatic="is_last_date__c = true AND product_group_classification_id__c != '' AND product_desc__c != '' AND entity_name__c != ''"
+                                                               Order="product_group_classification_order__c ASC, product_desc_order__c ASC, entity_order__c ASC"
+                                                               Group="product_group_classification_id__c,product_desc__c"
+                                                               HeaderGroup="entity_name__c"
+                                                               hidenSubHeadMatrix="true"
+                                                               Collapsed="true"
+                                                               CollapsedDefault="true"
+                                                               Summarize="SUM"
+                                                               showTotal="true"
+                                                               Symbol="true"
+                                                               PositionCurrency="Left"/>
+                    </aura:if>
+                    
+                </div>  
+            </div>
+        </lightning:tab>
+        <lightning:tab >          
+            <aura:set attribute="label">
+                Vinculación<br/>
+            </aura:set> <ul class="slds-has-dividers_around-space font1" >
+            <li class="slds-item">
+                <lightning:tile label=" "  class="slds-tile_board">
+                    <strong class="font2"> Vinculación</strong><br/>
+                    <aura:unescapedHtml value="{!v.commercial_strategy}"/>           
+                </lightning:tile>
+            </li></ul>
+            <div >
+                <c:AccountProductContainer_comp recordId="{!v.recordId}" sObjectName="Account"/>
+            </div>
+        </lightning:tab>
+    </lightning:tabset> 
+</aura:component>

@@ -1,24 +1,47 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" controller="SanctionPrice_ctrl" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
-	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler name="saveFieldsForm" event="c:FieldsForm_Save_evt" action="{!c.saveResponse}"/>
     <aura:attribute name="objectInput" type="Object" />
     <aura:attribute name="isLoad" type="Boolean" default="false"/>
     <aura:attribute name="checkError" type="Boolean" default="false"/>
     <aura:attribute name="errorMessage" type="String" default=""/>
+    <aura:attribute name="AccId" type="String"/>
+    <aura:attribute name="commercial_strategy" type="String"/>
+    <aura:attribute name="type_of_quote" type="String"/>
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
-
-    <div class="slds-modal__content slds-p-around_medium" >
-        <aura:if isTrue="{!v.isLoad}">
-            <aura:if isTrue="{!v.checkError}">
-                <ui:message title="Error" severity="error" >
-                    {!v.errorMessage}
-                </ui:message>
-            </aura:if>    
-            <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
+    <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section"/>    
+    <aura:attribute name="isError" type="Boolean" default="false" />
+    <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to be displayed"/>
+    <aura:attribute name="modalWidthCustom" type="String"  access="global" description="Specify the modal" default="74rem" />
+    <aura:if isTrue="{!v.isLoad}">
+        <aura:if isTrue="{!v.checkError}">
+            <ui:message title="Error" severity="error" >
+                {!v.errorMessage}
+            </ui:message>
         </aura:if>
-    </div>
-    <footer class="slds-modal__footer slds-theme_default">
-        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
-        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
-    </footer>
+        <aura:if isTrue="{!v.isError}">
+            <c:ErrorMessageWS_cmp errorMessagesList="{!v.errorlst}"/>
+            <aura:set attribute="else">
+                <div class="slds-modal__content slds-p-around_medium" >
+                    <div class="slds-grid">
+                      <div class="slds-col sizeSPRICE">                       
+                          <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
+                      </div>
+                      <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
+                          <div class="slds-col sizeSPRICE">                            
+                            <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
+                          </div>
+                       </aura:if>  
+                    </div>
+                </div>              
+                <footer class="slds-modal__footer slds-theme_default">
+                    <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                    <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+                </footer>
+            </aura:set>
+        </aura:if>
+        <aura:set attribute="else">
+            <lightning:spinner variant="brand" class="slds-is-relative"/>
+        </aura:set>
+    </aura:if>    
 </aura:component>

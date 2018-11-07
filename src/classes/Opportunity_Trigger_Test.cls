@@ -376,10 +376,14 @@ private class Opportunity_Trigger_Test {
     }
     
     static void CreatOpp(User u){
+        Account acc= new Account();
+        acc.Name='MyAccount';
+        insert acc;
     	Opp = new Opportunity(
             Name='Test',
             CloseDate=system.today(),
-            Stagename='02'
+            Stagename='02',
+            AccountId=acc.id
        	);
         system.RunAs(u){
             insert Opp;
@@ -401,4 +405,78 @@ private class Opportunity_Trigger_Test {
         insert u;
         return u;
     }
+    @isTest
+    public static void createOppsDifferentOwnerFromClientOwner(){
+	
+        // Get profile information
+        List<Profile> testProfileList = [SELECT Id FROM Profile WHERE Name = 'Ejecutivo'];
+        
+		// Create users
+		List<User> testUsersList = new List<User>();
+		User testUser1 = new User();
+        testUser1.Username = 'testUser1@test.com.demo';
+        testUser1.LastName = 'testUser1';
+        testUser1.Email= 'testUser1@test.com.demo';
+        testUser1.Alias= 'testU1';
+        testUser1.CommunityNickname = 'testU1';
+        testUser1.TimeZoneSidKey='America/Mexico_City';
+        testUser1.LanguageLocaleKey = 'es';
+        testUser1.LocaleSidKey='en_US';
+        testUser1.EmailEncodingKey='ISO-8859-1';
+        testUser1.ProfileId =  testProfileList.get(0).Id;
+		testUsersList.add(testUser1);
+        
+		User testUser2 = new User();
+        testUser2.Username = 'testUser2@test.com.demo';
+        testUser2.LastName = 'testUser2';
+        testUser2.Email= 'testUser2@test.com.demo';
+        testUser2.Alias= 'testU2';
+        testUser2.CommunityNickname = 'testU2';
+        testUser2.TimeZoneSidKey='America/Mexico_City';
+        testUser2.LanguageLocaleKey = 'es';
+        testUser2.LocaleSidKey='en_US';
+        testUser2.EmailEncodingKey='ISO-8859-1';
+        testUser2.ProfileId =  testProfileList.get(0).Id;
+		testUsersList.add(testUser2);
+        
+		insert testUsersList;
+		
+		// Create account assigned to one of the users
+		Account testAccount = new Account(Name = 'TEST ACCOUNT', OwnerId = testUsersList.get(0).Id);
+		insert testAccount;
+		
+		// Create opportunities assigned to the other users
+		List<Opportunity> testOppsList = new List<Opportunity>();
+		for(Integer i = 0; i < 202 ; i++){
+			Opportunity testOpp = new Opportunity( OwnerId = testUsersList.get(1).Id, Name='TEST OPP - '+i, AccountId = testAccount.Id , StageName='02', Amount = 10000 , CloseDate = System.Date.today());
+			testOppsList.add(testOpp);
+		}
+		insert testOppsList;
+        
+		// Check that the account user owner is in the opp team
+		Set<Id> insertedOppIdsSet = new Set<Id>();
+		for(Opportunity insertedOpp :testOppsList){
+			insertedOppIdsSet.add(insertedOpp.Id);
+		}
+		
+		List<OpportunityTeamMember> oppTeamMembersList = [SELECT Id, OpportunityId, UserId FROM OpportunityTeamMember WHERE OpportunityId =: insertedOppIdsSet AND UserId =: testUsersList.get(0).Id];
+		    
+		Map<Id,List<OpportunityTeamMember>> oppTeamByOppMap = new Map<Id,List<OpportunityTeamMember>>();
+		
+		for(OpportunityTeamMember oppTeamMember : oppTeamMembersList){
+			if(oppTeamByOppMap.containsKey(oppTeamMember.OpportunityId)){
+				oppTeamByOppMap.get(oppTeamMember.OpportunityId).add(oppTeamMember);
+			}
+			else{
+				List<OpportunityTeamMember> newOppTeamList = new List<OpportunityTeamMember>();
+				newOppTeamList.add(oppTeamMember);
+				oppTeamByOppMap.put(oppTeamMember.OpportunityId,newOppTeamList);
+			}
+		}
+		
+		for(Opportunity insertedOpp :testOppsList){
+			System.assert(oppTeamByOppMap.containsKey(insertedOpp.Id));
+			System.assertEquals(1,oppTeamByOppMap.get(insertedOpp.Id).size());
+		}
+	}
 }

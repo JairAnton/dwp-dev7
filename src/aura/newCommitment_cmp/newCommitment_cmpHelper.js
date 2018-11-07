@@ -17,7 +17,8 @@
 								'mapPosPicklistProd':{},
 								'mapPosPicklist2':[{}],
 								'mapPoslstValExp':[{}],
-								'schemaSetup': ret.schemaSetup
+								'schemaSetup': ret.schemaSetup,
+								'lstValIdCommitment': []
 							};
 				var posPick = 0;
 				var posPick2 = 0;
@@ -33,6 +34,7 @@
 						}
 						objSetup['mapPosPicklistProd'][lstCommitments[i].commitment_product_name__c] = posPick;
 						objSetup['valPicklistProd'].push(lstCommitments[i].commitment_product_name__c);
+						objSetup['lstValIdCommitment'].push(lstCommitments[i].commitment_id__c);
 						objSetup['lstPick2'][posPick] = [lstCommitments[i].CurrencyIsoCode];
 						objSetup['lstValExp'][posPick] = [lstCommitments[i].commitment_expiry_days_number__c];
 						
@@ -56,6 +58,7 @@
 				objSetup['valExpvalue']='';
 				objSetup['valImport']='';
 				objSetup['valPer']='';
+				objSetup['valIdCommitment']='';
 				cmp.set('v.objSetup', objSetup);
             }
         }); 
@@ -67,6 +70,7 @@
 		objSetup['lstVal2value']='-';
 		objSetup['valExpvalue']='';
 		objSetup['lstVal2'] = (objSetup.lstPick2[objSetup.mapPosPicklistProd[objSetup.lstVal1value]]==undefined?[]:objSetup.lstPick2[objSetup.mapPosPicklistProd[objSetup.lstVal1value]]);
+		objSetup['valIdCommitment'] = objSetup['lstValIdCommitment'][objSetup.mapPosPicklistProd[objSetup.lstVal1value]]==undefined?'':objSetup['lstValIdCommitment'][objSetup.mapPosPicklistProd[objSetup.lstVal1value]];
 		cmp.set('v.objSetup', objSetup);
 	},
 	changeDivisa : function(cmp, evt, helper) {
@@ -77,6 +81,8 @@
 		cmp.set('v.objSetup', objSetup);
 	},
 	saveCommitment : function(cmp, evt, helper){
+		var objSetup = cmp.get('v.objSetup');
+		var approvalMethod = cmp.get('v.approvalMethod');
 		var isOk = true;
 		var fields = cmp.find('field');
 		var lstData = [];
@@ -88,7 +94,8 @@
             for(var i in fields){
 				lstData.push(fields[i].get('v.value'));
 			}
-	
+			lstData.push(objSetup['valIdCommitment']);
+			lstData.push(approvalMethod);
 			var action = cmp.get("c.saveCommitment");
 			action.setParams({
 				"recordId" : cmp.get('v.oppRecordId'),

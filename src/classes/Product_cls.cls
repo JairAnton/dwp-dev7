@@ -6,62 +6,62 @@
 --------------------------------------------------------------------------*/
 
 public without sharing class Product_cls {
-	/*Description
-	Comments to describe the functionality of this method
-	*/
-	@AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
-		List<OpportunityLineItem> row= [SELECT  cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c, restructuring_fee_per__c  FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
-		if(!row.isEmpty())
-			return row;
-		else
-			return null;
-	}
-	/*Description
-	Comments to describe the functionality of this method
-	*/
-	@AuraEnabled public static Boolean verifyIfHasQuoted(String IdOpportunity){
-		List<OpportunityLineItem> rowOpp=getIdProductByOpportunity(IdOpportunity);
-		if(!rowOpp.isEmpty())
-		{
-			if(rowOpp[0].price_quote_date__c!=null && String.valueOf(rowOpp[0].price_quote_date__c)!='') return true; else return false;
-		}else return false;
-	}
-	/*Description
-	Comments to describe the functionality of this method
-	*/
-	@AuraEnabled public static List<fprd__GBL_guarantee__c> getGuaranteeDataByProduct(String IdOpportunity,String IdProduct){	
-		List<fprd__GBL_guarantee__c> objData= [SELECT Id,guarantee_type__c,toLabel(guarantee_desc__c), toLabel(guarantee_modality_type__c), toLabel(guarantee_status_type__c),guarantee_term_number__c, toLabel(guarantee_periodicity_type__c),guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by isMaster__c desc];
-		return objData;
-	}
-	/*Description
-	Comments to describe the functionality of this method
-	*/
-	@AuraEnabled public static List<fprd__GBL_Guarantee__c> getGuaranteeDataByProductValues(String PGuaranteeId){	
+    /*Description
+    Comments to describe the functionality of this method
+    */
+    @AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
+        List<OpportunityLineItem> row= [SELECT  cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c, restructuring_fee_per__c  FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
+        if(!row.isEmpty())
+            return row;
+        else
+            return null;
+    }
+    /*Description
+    Comments to describe the functionality of this method
+    */
+    @AuraEnabled public static Boolean verifyIfHasQuoted(String IdOpportunity){
+        List<OpportunityLineItem> rowOpp=getIdProductByOpportunity(IdOpportunity);
+        if(!rowOpp.isEmpty())
+        {
+            if(rowOpp[0].price_quote_date__c!=null && String.valueOf(rowOpp[0].price_quote_date__c)!='') return true; else return false;
+        }else return false;
+    }
+    /*Description
+    Comments to describe the functionality of this method
+    */
+    @AuraEnabled public static List<fprd__GBL_guarantee__c> getGuaranteeDataByProduct(String IdOpportunity,String IdProduct){   
+        List<fprd__GBL_guarantee__c> objData= [SELECT Id,guarantee_type__c,toLabel(guarantee_desc__c), toLabel(guarantee_modality_type__c), toLabel(guarantee_status_type__c),guarantee_term_number__c, toLabel(guarantee_periodicity_type__c),guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by isMaster__c desc];
+        return objData;
+    }
+    /*Description
+    Comments to describe the functionality of this method
+    */
+    @AuraEnabled public static List<fprd__GBL_Guarantee__c> getGuaranteeDataByProductValues(String PGuaranteeId){   
 
-		List<fprd__GBL_guarantee__c> objData= [SELECT Id,guarantee_type__c,guarantee_desc__c, guarantee_modality_type__c, guarantee_status_type__c,guarantee_term_number__c, guarantee_periodicity_type__c,guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where Id=: PGuaranteeId];
-		return objData;
-	}
-	/*Description
-	Comments to describe the functionality of this method
-	*/
-	@AuraEnabled public static List<fprd__GBL_Intervener__c> getParticipantDataByProduct(String IdOpportunity,String IdProduct){	
-		List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,toLabel(fiscal_identifier_type__c), toLabel(guarantor_marital_status_type__c), toLabel(participant_type__c),taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by main_intervener__c desc];
-		return objData;
-	}
-	/*Description
-	Comments to describe the functionality of this method
-	*/
-	@AuraEnabled public static List<fprd__GBL_Intervener__c> getParticipantDataByProductValues(String PParticipantId){	
-		List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId];
-		return objData;
-	}
+        List<fprd__GBL_guarantee__c> objData= [SELECT Id,guarantee_type__c,guarantee_desc__c, guarantee_modality_type__c, guarantee_status_type__c,guarantee_term_number__c, guarantee_periodicity_type__c,guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where Id=: PGuaranteeId];
+        return objData;
+    }
+    /*Description
+    Comments to describe the functionality of this method
+    */
+    @AuraEnabled public static List<fprd__GBL_Intervener__c> getParticipantDataByProduct(String IdOpportunity,String IdProduct){    
+        List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,toLabel(fiscal_identifier_type__c), toLabel(guarantor_marital_status_type__c), toLabel(participant_type__c),taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by main_intervener__c desc];
+        return objData;
+    }
+    /*Description
+    Comments to describe the functionality of this method
+    */
+    @AuraEnabled public static List<fprd__GBL_Intervener__c> getParticipantDataByProductValues(String PParticipantId){  
+        List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId];
+        return objData;
+    }
 
-	@AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){	
-		List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
-		return objData;
-	}
+    @AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){    
+        List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
+        return objData;
+    }
 
-	@AuraEnabled public static String getOportunidadSytem(String Filtro) {       
+    @AuraEnabled public static String getOportunidadSytem(String Filtro) {       
         return Object_Controller.getOportunidadSytem(Filtro);       
     }
     
@@ -84,7 +84,7 @@ public without sharing class Product_cls {
             if(!isAuth.isEmpty())
             {
                 fprd__GBL_Guarantee__c row;
-                if(PGuaranteeId!=null)		
+                if(PGuaranteeId!=null)      
                     row = [SELECT Id,guarantee_type__c,guarantee_desc__c, guarantee_modality_type__c, guarantee_status_type__c,guarantee_term_number__c, guarantee_periodicity_type__c,guarantee_id__c,guaranteed_amount__c FROM fprd__GBL_guarantee__c Where Id=: PGuaranteeId];
                 else row = new fprd__GBL_guarantee__c();
                 row.fprd__GBL_Opportunity_product__c=IdOpportunity;
@@ -96,7 +96,7 @@ public without sharing class Product_cls {
                 if(Status!=null) row.guarantee_status_type__c=Status;
                 row.guarantee_periodicity_type__c=Periodicity;
                 row.guarantee_term_number__c=Term;
-                if(PGuaranteeId!=null) update row; else insert row;	
+                if(PGuaranteeId!=null) update row; else insert row; 
                 return true;
             }
             else return false;
@@ -114,7 +114,7 @@ public without sharing class Product_cls {
         if(!isAuth.isEmpty())
         {
             fprd__GBL_Intervener__c row;
-            if(PParticipantId!=null)		
+            if(PParticipantId!=null)        
                 row = [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c FROM fprd__GBL_Intervener__c Where Id=:PParticipantId ];
             else row = new fprd__GBL_Intervener__c();
 
@@ -122,9 +122,9 @@ public without sharing class Product_cls {
             row.Name=Name;
             row.fiscal_identifier_type__c=DOI;
             row.taxpayer_id__c=N_DOI;
-            row.participant_type__c=Participation;		
-            row.guarantor_marital_status_type__c=Marital_Status;		
-            if(PParticipantId!=null) update row; else insert row;	
+            row.participant_type__c=Participation;      
+            row.guarantor_marital_status_type__c=Marital_Status;        
+            if(PParticipantId!=null) update row; else insert row;   
             return true;
         }
         else return false;
@@ -149,8 +149,8 @@ public without sharing class Product_cls {
                 update itemOpp[0];
                 //BEGIN Traceability - 2018-06-11
                 //Isaías Vellázquez Cortés
-                if(sanAction=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Comments,''),'Opportunity',itemOpp[0].Id,'approve','TRSP00001',UserInfo.getUserId(),'embedded',1,true);			    
-                else if(sanAction=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Comments,''),'Opportunity',itemOpp[0].Id,'elevate','TRSP00001',UserInfo.getUserId(),'embedded',1,true);		   	
+                if(sanAction=='btnApprove') new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Comments,''),'Opportunity',itemOpp[0].Id,'approve','TRSP00001',UserInfo.getUserId(),'embedded',1,true);              
+                else if(sanAction=='btnRaise')  new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Comments,''),'Opportunity',itemOpp[0].Id,'elevate','TRSP00001',UserInfo.getUserId(),'embedded',1,true);          
                 //END Traceability
                 return 'true';
             }else{return 'Error';}
@@ -198,71 +198,293 @@ public without sharing class Product_cls {
         }
     }
     
-    @AuraEnabled public static String setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber){
+    @AuraEnabled public static Map<String,Object> setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber){
+        
+        Map<String,Object> returnMap = new Map<String,Object>();
+        
         try
         {            
-            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
-             
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId, (SELECT Id, product2.type_of_quote__c FROM OpportunityLineItems) FROM Opportunity WHERE Id=: OpportunityId];                              
+            
             if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
-            {                
-                                                  
-                        if(Action=='btnApprove'){//08
-                            itemOpp[0].StageName='06';
-                            itemOpp[0].opportunity_status_type__c='23';
-                        }
-                        else if(Action=='btnRaise'){//09
-                            itemOpp[0].StageName='05';
-                            itemOpp[0].opportunity_status_type__c='21';
-                            
-                        }
-                        else if(Action=='btnBack'){//09
-                            itemOpp[0].StageName='05';
-                            itemOpp[0].opportunity_status_type__c='20';
-                        }
-                        itemOpp[0].IsProcess__c=true;
-                        update itemOpp[0];
-                        itemOpp[0].frm_ContractNumber__c=ContractNumber;
-                        update itemOpp[0];
-                        itemOpp[0].IsProcess__c=false;
-                        update itemOpp[0]; 
-
-                        //BEGIN Traceability - 2018-06-11
-                        //Isaías Vellázquez Cortés				
-                        if(Action=='btnApprove')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Número de contrato:</b> '+ContractNumber +'<br/>'+'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
-                        else if(Action=='btnRaise')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
-                        else if(Action=='btnBack')	new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
-                        //END Traceability
-                return 'true';                
-
+            {                                         
+                if(Action=='btnApprove'){//08
+                    itemOpp[0].StageName='06';
+                    itemOpp[0].opportunity_status_type__c='23';
+                    if(itemOpp[0].OpportunityLineItems[0].product2.type_of_quote__c == 'Web'){
+                        returnMap = disburseQuotation(itemOpp[0].id, ContractNumber);
+                    }else{
+                        returnMap.put('success',true);
+                    }
+                }
+                else if(Action=='btnRaise'){//09
+                    itemOpp[0].StageName='05';
+                    itemOpp[0].opportunity_status_type__c='21';
+                    returnMap.put('success',true);
+                }
+                else if(Action=='btnBack'){//09
+                    itemOpp[0].StageName='05';
+                    itemOpp[0].opportunity_status_type__c='20';
+                    returnMap.put('success',true);
+                }
+                itemOpp[0].IsProcess__c = true;
+                itemOpp[0].frm_ContractNumber__c = ContractNumber;
+                
+                if((Boolean)returnMap.get('success')){
+                    update itemOpp[0];
+                    
+                    //BEGIN Traceability - 2018-06-11
+                    //Isaías Vellázquez Cortés              
+                    if(Action=='btnApprove')    new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Número de contrato:</b> '+ContractNumber +'<br/>'+'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                    else if(Action=='btnRaise') new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                    else if(Action=='btnBack')  new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                    //END Traceability
+                }
+                returnMap.put('showErrorMessage',true);            
+            }else{
+                returnMap.put('success',false); 
+                returnMap.put('showErrorMessage',false);
             }
-            else return label.lblUserNotAuth;
-        }catch(Dmlexception exp) { return exp.getMessage();}
+            
+        }catch(Dmlexception exp) { 
+            returnMap.put('success',false);
+            returnMap.put('errorMessage',exp.getMessage());
+            returnMap.put('showErrorMessage',true);
+        }
+        
+        return returnMap;
     }
+    
+    /********************************************************************************************
+	Method to request the quotation disbursement via WS
+	*********************************************************************************************/
+	public static Map<String,Object> disburseQuotation(String recordId, String contractNumber){
+		
+		Map<String,Object> resultMap = new Map<String,Object>();
+		
+		try{
+
+			List<OpportunityLineItem> oppProductsList = [SELECT Id, price_quote_id__c, price_quote_status_id__c, price_quote_owner_id__c
+														FROM OpportunityLineItem WHERE OpportunityId = :recordId];
+			
+			if(!oppProductsList.isEmpty()){
+			
+				// Check if there is a quotation linked to the opportunity
+				if(oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null){
+					
+                    // Call Web Service to register the quotation loss
+					ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'DISBURSE', null, contractNumber, null);
+					HttpResponse mqResponse = mqHelper.invoke();
+      
+					//Check the ws response status
+					Integer wsResponseStatusCode = mqResponse.getStatusCode();
+						
+					// Check if the response was successful
+					if(wsResponseStatusCode == 200){
+		
+						// Get the response body
+						ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
+							
+						// Update the quoation status and owner
+						ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
+						ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
+							
+						oppProductsList[0].price_quote_status_id__c = mqStatus.id;
+							
+						List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
+							
+						if(!mqBusinessAgentsList.isEmpty()){
+							List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
+							if(!userList.isEmpty()){
+								oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
+							}
+						}
+                        else{
+                            oppProductsList[0].price_quote_owner_id__c = null;
+                        }
+							
+						update oppProductsList[0];
+						
+						resultMap.put('success',true);
+					}
+					else if(wsResponseStatusCode == 409){
+                        
+						resultMap.put('success',false);
+						WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody());
+				
+						// Set the error message
+						String errorMessage = Label.PriceDisburseQuotationKnowError + ' ' + errorDetails.errormessage;
+						resultMap.put('errorMessage',errorMessage);
+					}
+					else{
+						resultMap.put('success',false);
+						String errorMessage = Label.PriceDisburseQuotationUnknowError;
+						resultMap.put('errorMessage',errorMessage);
+					}
+				}
+				else{
+					resultMap.put('success',true);
+				}
+			}
+		}
+		catch(Exception e){
+			resultMap.put('success',false);
+			String errorMessage = Label.PriceDisburseQuotationUnknowError;
+			resultMap.put('errorMessage',errorMessage);
+		}
+		
+		return resultMap;
+	}
 
     /*Dismiss oportunity Method*/
-    @AuraEnabled public static String setRejectOpportunity(String OpportunityId,String RejectReason,String WinnerBank,String IsoCurrency,Decimal Amount,Decimal Rate,Integer Term,String Comments){
+    @AuraEnabled public static Map<String,Object> setRejectOpportunity(String OpportunityId,String RejectReason,String WinnerBank,String IsoCurrency,Decimal Amount,Decimal Rate,Integer Term,String Comments){
+       
+        Map<String,Object> resultMap = new Map<String,Object>();
+        
+        resultMap.put('success','true');
+
+        
         try
         {
-            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];                              
+             List<Opportunity> itemOpp= [SELECT Id, StageName, opportunity_status_type__c, Loss_Reason__c, rejection_winner_entity_name__c,
+                                        rejection_reason_id__c, rejection_amount__c, rejection_rate_per__c, rejection_period_num__c, rejection_coin__c
+                                        FROM Opportunity WHERE Id=: OpportunityId];                              
 
-            itemOpp[0].IsProcess__c=true;
-            update itemOpp[0]; 
-            itemOpp[0].StageName='07';
-            itemOpp[0].opportunity_status_type__c='22';
-            itemOpp[0].Loss_Reason__c=RejectReason;
-            itemOpp[0].rejection_winner_entity_name__c=WinnerBank;
-            itemOpp[0].rejection_reason_id__c=Comments;
-            itemOpp[0].rejection_amount__c=Amount;
-            itemOpp[0].rejection_rate_per__c=Rate;
-            if(Term!=null) itemOpp[0].rejection_period_num__c=Term;
-            itemOpp[0].rejection_coin__c= IsoCurrency;
-            update itemOpp[0];      
-            itemOpp[0].IsProcess__c=false;
-            update itemOpp[0];                 
-            return 'true';                             
+            if(!itemOpp.isEmpty()){
+                
+                resultMap = registerQuotationLoss(OpportunityId, RejectReason, WinnerBank);
+                
+                if((String)resultMap.get('success') == 'true'){
+                    
+                    // Update opportunity with the input data
+                    itemOpp[0].IsProcess__c=true;
+                    itemOpp[0].StageName = '07';
+                    itemOpp[0].opportunity_status_type__c = '22';
+                    itemOpp[0].Loss_Reason__c = RejectReason;
+                    itemOpp[0].rejection_winner_entity_name__c = WinnerBank;
+                    itemOpp[0].rejection_reason_id__c = Comments;
+                    itemOpp[0].rejection_amount__c = Amount;
+                    itemOpp[0].rejection_rate_per__c = Rate;
+                    if(Term!=null) itemOpp[0].rejection_period_num__c = Term;
+                    itemOpp[0].rejection_coin__c = IsoCurrency;
+                    update itemOpp[0];
+                }     
+            }                          
     
-        }catch(Dmlexception exp) { return exp.getMessage();}
-    }    
+        }catch(Dmlexception exp) { 
+            resultMap.put('success','false');
+            resultMap.put('errorMessage',exp.getMessage());
+        }
+        
+        return resultMap;
+    }  
+    
+    // Method that invoke the ws to recover a quotationupdates the opportunity and opportunity line item with the response
+    @auraenabled
+    public static Map<String,Object> recoverQuotation(String recordId){
+        
+        Map<String,Object> mapReturn = new Map<String,Object>();
+        mapReturn.put('success','true');
+        
+        List<OpportunityLineItem> oppProductList = [SELECT price_quote_status_id__c,
+                                                        price_quote_owner_id__c,
+                                                    	product_price_approval_method__c,
+                                                        price_quote_id__c
+                                                    FROM OpportunityLineItem
+                                                    WHERE OpportunityId = :recordId];
+        mapReturn.put('nextAction',true);
+        if(!oppProductList.isEmpty()){
+            if(oppProductList[0].price_quote_id__c != null && oppProductList[0].price_quote_id__c != '' && oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product_price_approval_method__c == 'Web'){
+                mapReturn = Commitment_ctrl.invokeRecoverQuotation(recordId);
+                mapReturn.put('nextAction',true);
+                if((String) mapReturn.get('success') == 'false'){
+                    mapReturn.put('nextAction',false);
+                }
+            }
+        }
+            
+        return mapReturn;
+    }
+    
+    /********************************************************************************************
+    Method to register the quotation loss via WS
+    *********************************************************************************************/
+    public static Map<String,Object> registerQuotationLoss(String recordId, String rejectReason, String winnerEntity){
+        
+        Map<String,Object> returnMap = new Map<String,Object>();
+        
+        returnMap.put('success','true');
+        
+        String rejectParams = rejectReason + ';' + winnerEntity;
+        
+        try{
+        
+            List<OpportunityLineItem> oppProductsList = [SELECT Id, price_quote_id__c, price_quote_status_id__c, price_quote_owner_id__c, product_price_approval_method__c
+                                                        FROM OpportunityLineItem WHERE OpportunityId = :recordId];
+            
+            if(!oppProductsList.isEmpty()){
+            
+                // Check if there is a quotation linked to the opportunity
+                if(oppProductsList[0].product_price_approval_method__c == 'Web' && oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null){
+
+                    // Call Web Service to register the quotation loss
+                    ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, rejectParams, null);
+                    HttpResponse mqResponse = mqHelper.invoke();
+      
+                    //Check the ws response status
+                    Integer wsResponseStatusCode = mqResponse.getStatusCode();
+                        
+                    // Check if the response was successful
+                    if(wsResponseStatusCode == 200){
+                        
+                        returnMap.put('success','true');
+                        
+                        // Get the response body
+                        ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
+                        
+                        // Update the quoation status and owner
+                        ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
+                        ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
+                        
+                        oppProductsList[0].price_quote_status_id__c = mqStatus.id;
+                        
+                        List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
+                        
+                        if(!mqBusinessAgentsList.isEmpty()){
+                            List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
+                            if(!userList.isEmpty()){
+                                oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
+                            }
+                        }
+                        else{
+                            oppProductsList[0].price_quote_owner_id__c = null;
+                        }
+                        
+                        update oppProductsList[0];
+                    }
+                    else if(wsResponseStatusCode == 409){
+                       returnMap.put('success','false');
+                       WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody()); 
+                       // Set the error message
+					   String errorMessage = Label.PriceRegisterLossKnownError + ' ' + errorDetails.errormessage;
+					   returnMap.put('errorMessage',errorMessage);
+                    }
+                    else{
+                       returnMap.put('success','false');
+                       String errorMessage = Label.PriceRegisterLossUnknownError;
+					   returnMap.put('errorMessage',errorMessage);
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            returnMap.put('success','false');
+            String errorMessage = Label.PriceRegisterLossUnknownError;
+			returnMap.put('errorMessage',errorMessage);
+        }
+        
+        return returnMap;
+    }
     
     public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)
     {
@@ -289,7 +511,7 @@ public without sharing class Product_cls {
             HTMLComments =HTMLComments+'<b>Comentarios:</b> ' +Body;
         }
         else
-        {			
+        {           
             HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
                 '<b>Importe:</b> '+ String.valueOf(itemOppProduct[0].Opportunity.Amount) +'<br/>' +
                 '<b>Comentarios:</b> ' +Body+ '<br/><br/>'+
