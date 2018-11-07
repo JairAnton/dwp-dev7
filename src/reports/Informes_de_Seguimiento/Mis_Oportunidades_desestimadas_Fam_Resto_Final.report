@@ -35,9 +35,6 @@
         <field>Opportunity$Owner</field>
     </columns>
     <columns>
-        <field>Opportunity.OpportunityTeamMembers$Id</field>
-    </columns>
-    <columns>
         <field>Opportunity$Account</field>
     </columns>
     <columns>
@@ -79,12 +76,6 @@
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>01,02</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Opportunity$opportunity_product_family__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>notEqual</operator>
-            <value></value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity$HasOpportunityLineItem</column>

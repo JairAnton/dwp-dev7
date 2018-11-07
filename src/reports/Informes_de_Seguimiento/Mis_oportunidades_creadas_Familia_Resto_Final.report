@@ -35,9 +35,6 @@
         <field>Opportunity$Owner</field>
     </columns>
     <columns>
-        <field>Opportunity.OpportunityTeamMembers$Id</field>
-    </columns>
-    <columns>
         <field>Opportunity$Account</field>
     </columns>
     <columns>
