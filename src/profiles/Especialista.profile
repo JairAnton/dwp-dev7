@@ -684,6 +684,16 @@ Ejecutivos de unidad de financiación estructurada (UFE)
 Ejecutivos de COMEX
 Ejecutivos de REDES</description>
 	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_BBVA_Information__c.Oficer_Manager__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Profitability__c.Origin_currenIsoCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Field_Sup_Closing_Date__c</field>
         <readable>true</readable>

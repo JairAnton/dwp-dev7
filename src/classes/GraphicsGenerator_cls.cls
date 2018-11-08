@@ -166,9 +166,9 @@ public with sharing class GraphicsGenerator_cls {
             list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Profitability__c WHERE profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN','TOTAL CLIENTE','TOTAL DI','TOTAL SPREAD','TOTAL TASA') and account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true ];
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
-                List<String> proCategory=  new List<String>{'Spread', 'DI','Altas','Tasa'};
                 fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-5);
                 fActual=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(1);
+                List<String> proCategory=  new List<String>{'Spread', 'DI','Altas','Tasa'};
                 if(sFiltro=='CLIENTE'){
                     switch on sConcepto {
                         when 'Spread' {       
@@ -186,7 +186,6 @@ public with sharing class GraphicsGenerator_cls {
                     }
                 }else{
                     proCategory.clear();
-                    system.debug(sFiltroRango);
                     if(sFiltroRango=='TOTAL'){
                         switch on sConcepto {
                         when 'Spread' {       
@@ -203,20 +202,19 @@ public with sharing class GraphicsGenerator_cls {
                         }
                         when 'TOTAL'{
                             proCategory.add('Altas');
-                            sConcepto='TOTAL';
                         }
                     }
                     }else{
                         proCategory= new List<String>{'Spread', 'DI','Altas','Tasa'};
                     }
                 }
-                system.debug('proCategory: '+proCategory);
-                List<Account_Profitability__c> auxTab  = [SELECT Value_Unificade__c, profitability_subcategory_type__c,year_month_day_date__c,CurrencyIsoCode
+
+                List<Account_Profitability__c> auxTab  = [SELECT Value_Unificade__c, profitability_subcategory_type__c,year_month_day_date__c,Origin_currenIsoCode__c
                                                                             FROM Account_Profitability__c 
                                                                             where account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true 
                                                                             and product_desc__c!='' and profitability_subcategory_type__c=:sConcepto
                                                                             and product_desc__c=: sFiltro
-                                                                            and CurrencyIsoCode=: sFiltroRango=='MN'||sFiltroRango=='TOTAL CLIENTE' || sFiltroRango=='TOTAL' ? 'PEN' : 'USD'
+                                                                            and Origin_currenIsoCode__c=: sFiltroRango=='MN'||sFiltroRango=='TOTAL CLIENTE' || sFiltroRango=='TOTAL' ? 'PEN' : 'USD'
                                                                             and profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN','TOTAL CLIENTE','TOTAL DI','TOTAL SPREAD','TOTAL TASA') 
                                                           					and profitability_category_type__c IN: proCategory
                                                           					and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) 
