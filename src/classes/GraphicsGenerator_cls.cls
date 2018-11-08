@@ -22,7 +22,7 @@ public with sharing class GraphicsGenerator_cls {
         
         Integer mes=0;
         if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
-            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId];
+            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId and  is_last_date__c = true];
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
                 fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-11);
@@ -32,7 +32,7 @@ public with sharing class GraphicsGenerator_cls {
  			{ 				
  				registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c) 
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and   (year_month_day_date__c > :fInicial and year_month_day_date__c<=:fActual) and product_group_classification_id__c='Total' and product_desc__c=''
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and   (year_month_day_date__c > :fInicial and year_month_day_date__c<=:fActual) and product_group_classification_id__c='Total' and product_desc__c='' and is_last_date__c = true
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)  
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
@@ -40,7 +40,7 @@ public with sharing class GraphicsGenerator_cls {
  			{
         		              registrosReporte = [SELECT max(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c =''
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c ='' and is_last_date__c = true
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
@@ -48,7 +48,7 @@ public with sharing class GraphicsGenerator_cls {
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='ACEPTACIONES BANCARIAS (OTROS)'
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='ACEPTACIONES BANCARIAS (OTROS)' and is_last_date__c = true
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
@@ -56,8 +56,8 @@ public with sharing class GraphicsGenerator_cls {
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Directa' and product_desc__c='OTROS'
-	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Directa' and product_desc__c='OTROS'  and is_last_date__c = true
+	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) 
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
  			
@@ -66,7 +66,7 @@ public with sharing class GraphicsGenerator_cls {
 
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_desc__c=:sFiltro
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_desc__c=:sFiltro  and is_last_date__c = true
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
