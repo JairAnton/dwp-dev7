@@ -119,7 +119,7 @@
     colorBorder='#676767';
     
     graficas[i]={
-    type: (i==concepto.length-1 && (InformeName=='EVOLUCION_FACTURACION_TOTAL'))|| InformeName=='VINCULACION'? 'bar' : 'line',
+    type: (i==concepto.length-1 && (InformeName==='EVOLUCION_FACTURACION_TOTAL'))|| InformeName==='VINCULACION'? 'bar' : 'line',
     yAxisID: (InformeName!=='EVOLUCION_FACTURACION_TOTAL')? 'left' : (i==concepto.length-1 && InformeName=='EVOLUCION_FACTURACION_TOTAL')?'left':'right',
     label: concepto[i],
     data: ParametrosDinamicos[i],
