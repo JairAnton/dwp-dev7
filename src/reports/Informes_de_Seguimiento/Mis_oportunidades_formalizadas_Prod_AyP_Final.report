@@ -13,7 +13,7 @@
             <axisBinding>y2</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>VerticalColumnGroupedLine</chartType>
+        <chartType>VerticalColumnStackedLine</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
@@ -33,9 +33,6 @@
     </chart>
     <columns>
         <field>Opportunity$Owner</field>
-    </columns>
-    <columns>
-        <field>Opportunity.OpportunityTeamMembers$Id</field>
     </columns>
     <columns>
         <field>Opportunity$Account</field>
@@ -69,19 +66,13 @@
             <column>Opportunity$opportunity_product_family__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>contains</operator>
-            <value>,Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
+            <value>Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity$Type</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>01,02</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Opportunity$opportunity_product_family__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>notEqual</operator>
-            <value></value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity$HasOpportunityLineItem</column>

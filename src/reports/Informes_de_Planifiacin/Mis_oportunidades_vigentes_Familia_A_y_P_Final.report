@@ -19,7 +19,7 @@
         <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Opportunity$opportunity_product__c</secondaryGroupingColumn>
+        <secondaryGroupingColumn>Opportunity$opportunity_product_family__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -32,9 +32,6 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>Opportunity$opportunity_product_family__c</field>
-    </columns>
-    <columns>
         <field>Opportunity$Owner</field>
     </columns>
     <columns>
@@ -42,6 +39,9 @@
     </columns>
     <columns>
         <field>Opportunity$Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity$opportunity_product__c</field>
     </columns>
     <columns>
         <field>Opportunity$CurrencyIsoCode</field>
@@ -63,25 +63,19 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informe: Mis oportunidades desestimadas Productos Activo y Pasivo</description>
+    <description>Informes: Mis Oportunidades creadas Familia Activo y Pasivo</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>contains</operator>
-            <value>,Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
+            <value>Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity$Type</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>01,02</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Opportunity$opportunity_product_family__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>notEqual</operator>
-            <value></value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity$HasOpportunityLineItem</column>
@@ -93,7 +87,7 @@
             <column>Opportunity$StageName</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>07</value>
+            <value>01,Qualification,02,03,Negotiation,04,05</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
@@ -105,10 +99,10 @@
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Opportunity$opportunity_product__c</field>
+        <field>Opportunity$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades desestimadas Prod AyP</name>
+    <name>Mis oportunidades vigentes Familia A y P</name>
     <params>
         <name>co</name>
         <value>1</value>

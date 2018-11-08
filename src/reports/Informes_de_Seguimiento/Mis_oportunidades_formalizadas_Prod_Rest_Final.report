@@ -13,7 +13,7 @@
             <axisBinding>y2</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>VerticalColumnGroupedLine</chartType>
+        <chartType>VerticalColumnStackedLine</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
@@ -33,9 +33,6 @@
     </chart>
     <columns>
         <field>Opportunity$Owner</field>
-    </columns>
-    <columns>
-        <field>Opportunity.OpportunityTeamMembers$Id</field>
     </columns>
     <columns>
         <field>Opportunity$Account</field>
