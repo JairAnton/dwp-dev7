@@ -49,7 +49,7 @@
                                                        RelatedField="account_id__c"
                                                        Header="Value_Unificade__c"
                                                        FilterStatic="{!'is_date_type_1_within_last_6_months__c = true and product_desc__c!=\'\' and 
-                                                                     product_desc__c=\''+v.ProductIS+'\' and CurrencyIsoCode=\''+v.coint1+'\' and 
+                                                                     product_desc__c=\''+v.ProductIS+'\' and Origin_currenIsoCode__c=\''+v.coint1+'\' and 
                                                                      profitability_subcategory_type__c IN (\''+v.profiType+'\',\''+v.profiType1+'\',\''+v.profiType2+'\',\''+v.profiType3+'\',\''+v.profiType4+'\')'}"
                                                        Order="profitability_subcategory_type_order__c ASC, year_month_day_date__c ASC" 
                                                        Group="profitability_subcategory_form__c"

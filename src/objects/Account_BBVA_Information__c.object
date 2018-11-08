@@ -56,6 +56,16 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+	<fields>
+        <fullName>Oficer_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISNULL(user_id__c),&apos;OTRA&apos;, IF( ISBLANK(user_id__r.organizational_unit_name__c),&apos;OTRA&apos;,user_id__r.organizational_unit_name__c))</formula>
+        <label>Oficina Gestor</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Team_Gestor__c</fullName>
         <description>Gestor</description>
