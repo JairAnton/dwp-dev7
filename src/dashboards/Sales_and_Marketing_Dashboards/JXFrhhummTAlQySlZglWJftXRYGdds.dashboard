@@ -87,7 +87,7 @@
     </dashboardGridLayout>
     <dashboardType>SpecifiedUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <runningUser>julio.medellin.oliva.contractor@bbva.com</runningUser>
+    <runningUser></runningUser>
     <textColor>#000000</textColor>
     <title>Panel Mis Visitas</title>
     <titleColor>#000000</titleColor>
