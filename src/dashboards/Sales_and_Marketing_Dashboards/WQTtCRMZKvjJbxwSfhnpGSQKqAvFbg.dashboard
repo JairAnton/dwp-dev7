@@ -323,7 +323,6 @@
     </dashboardGridLayout>
     <dashboardType>SpecifiedUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <runningUser></runningUser>
     <textColor>#000000</textColor>
     <title>Panel Mis Operaciones finalizadas</title>
     <titleColor>#000000</titleColor>
