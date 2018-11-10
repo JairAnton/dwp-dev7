@@ -82,7 +82,6 @@
     <reportType>Cliente_Equipo_BBVA__c</reportType>
     <scope>ownaccountteam</scope>
     <showDetails>true</showDetails>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>Account$bureau_date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
