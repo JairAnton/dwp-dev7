@@ -16,7 +16,7 @@
                 <componentType>FlexTable</componentType>
                 <flexComponentProperties>
                     <flexTableColumn>
-                        <reportColumn>dwp_kitv__Visit__c.dwp_kitv__account_id__c</reportColumn>
+                        <reportColumn>CUST_NAME</reportColumn>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
