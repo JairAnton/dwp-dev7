@@ -88,8 +88,6 @@
     <reportType>Cliente_Equipo_BBVA__c</reportType>
     <scope>team</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c$start_date_calculated__c</dateColumn>
         <interval>INTERVAL_CURRENT</interval>

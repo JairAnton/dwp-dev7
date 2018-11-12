@@ -47,7 +47,7 @@
                     <hideChatterPhotos>true</hideChatterPhotos>
                 </flexComponentProperties>
                 <header>Mis visitas gestionadas</header>
-                <report>DashboardReportsAdoption/VISITS_MANAGED</report>
+                <report>DashboardReportsAdoption/VISITS_MANAGED2</report>
             </dashboardComponent>
             <rowIndex>0</rowIndex>
             <rowSpan>4</rowSpan>
