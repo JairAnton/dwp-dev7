@@ -1,0 +1,7 @@
+.THIS {
+}
+.THIS div.contdivProds{
+   width: 100%;
+   margin-bottom: -15px;
+   background-color:"{!bacColor}";
+}

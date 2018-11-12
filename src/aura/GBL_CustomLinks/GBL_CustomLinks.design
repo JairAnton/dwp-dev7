@@ -1,0 +1,11 @@
+<design:component>
+        <design:attribute name="title" label="Card Title" />
+        <design:attribute name="description" label="Card description" />
+        <design:attribute name="url" label="Site URL" />
+        <design:attribute name="icon" label="Card Icon" />
+        <design:attribute name="iconVariant" label="Card Icon color" />
+        <design:attribute name="className" label="Name of the Class for the main Div" />
+    	<design:attribute name="bacColor" label="Color of background 1" default="#00000"/>
+        <design:attribute name="bacColor2" label="Color of background 2" default="#00000"/>
+        <design:attribute name="cColor" label="Name of the Class for the main Div" default="#fffff"/>
+</design:component>
