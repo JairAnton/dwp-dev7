@@ -47,7 +47,7 @@
                     <hideChatterPhotos>true</hideChatterPhotos>
                 </flexComponentProperties>
                 <header>Mis visitas gestionadas</header>
-                <report>DashboardReportsAdoption/VISITS_MANAGED1</report>
+                <report>DashboardReportsAdoption/VISITS_MANAGED</report>
             </dashboardComponent>
             <rowIndex>0</rowIndex>
             <rowSpan>4</rowSpan>
@@ -61,7 +61,7 @@
                 <chartSummary>
                     <aggregate>Sum</aggregate>
                     <axisBinding>y</axisBinding>
-                    <column>Account.dwp_kitv__Visits__r$dwp_kitv__visit_users_number__c</column>
+                    <column>dwp_kitv__Visit__c$dwp_kitv__visit_users_number__c</column>
                 </chartSummary>
                 <componentType>BarGrouped</componentType>
                 <displayUnits>Auto</displayUnits>
@@ -69,11 +69,11 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <groupingColumn>Account.dwp_kitv__Visits__r$dwp_kitv__visit_start_date__c</groupingColumn>
-                <groupingColumn>Account.dwp_kitv__Visits__r$dwp_kitv__visit_status_type__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_status_type__c</groupingColumn>
                 <header>Mis visitas planificadas</header>
                 <legendPosition>Right</legendPosition>
-                <report>Home_Reports/VISITS_PLANED</report>
+                <report>Home_Reports/VISITS_PLANED1</report>
                 <showPercentage>false</showPercentage>
                 <showValues>true</showValues>
                 <sortBy>RowValueDescending</sortBy>
@@ -85,7 +85,7 @@
         <numberOfColumns>9</numberOfColumns>
         <rowHeight>80</rowHeight>
     </dashboardGridLayout>
-    <dashboardType>SpecifiedUser</dashboardType>
+    <dashboardType>LoggedInUser</dashboardType>
     <isGridLayout>true</isGridLayout>
     <textColor>#000000</textColor>
     <title>Panel Mis Visitas</title>

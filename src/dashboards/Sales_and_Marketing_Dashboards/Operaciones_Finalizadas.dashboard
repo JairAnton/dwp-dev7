@@ -63,36 +63,6 @@
         </dashboardGridComponents>
         <dashboardGridComponents>
             <colSpan>3</colSpan>
-            <columnIndex>6</columnIndex>
-            <dashboardComponent>
-                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
-                <chartAxisRange>Auto</chartAxisRange>
-                <chartSummary>
-                    <aggregate>Sum</aggregate>
-                    <axisBinding>y</axisBinding>
-                    <column>Opportunity$Amount.CONVERT</column>
-                </chartSummary>
-                <componentType>BarGrouped</componentType>
-                <displayUnits>Auto</displayUnits>
-                <drillEnabled>false</drillEnabled>
-                <drillToDetailEnabled>false</drillToDetailEnabled>
-                <enableHover>false</enableHover>
-                <expandOthers>false</expandOthers>
-                <groupingColumn>Opportunity$CreatedDate__c</groupingColumn>
-                <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis oportunidades vigentes Etapas AP</header>
-                <legendPosition>Right</legendPosition>
-                <report>Home_Reports/OPP_VEAP</report>
-                <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
-                <sortBy>RowValueDescending</sortBy>
-                <useReportChart>false</useReportChart>
-            </dashboardComponent>
-            <rowIndex>0</rowIndex>
-            <rowSpan>4</rowSpan>
-        </dashboardGridComponents>
-        <dashboardGridComponents>
-            <colSpan>3</colSpan>
             <columnIndex>0</columnIndex>
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
@@ -153,112 +123,7 @@
         </dashboardGridComponents>
         <dashboardGridComponents>
             <colSpan>3</colSpan>
-            <columnIndex>6</columnIndex>
-            <dashboardComponent>
-                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
-                <chartAxisRange>Auto</chartAxisRange>
-                <chartSummary>
-                    <aggregate>Sum</aggregate>
-                    <axisBinding>y</axisBinding>
-                    <column>Opportunity$Amount.CONVERT</column>
-                </chartSummary>
-                <componentType>BarGrouped</componentType>
-                <displayUnits>Auto</displayUnits>
-                <drillEnabled>false</drillEnabled>
-                <drillToDetailEnabled>false</drillToDetailEnabled>
-                <enableHover>false</enableHover>
-                <expandOthers>false</expandOthers>
-                <groupingColumn>Opportunity$CreatedDate__c</groupingColumn>
-                <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis oportunidades vigentes Etapas AP</header>
-                <legendPosition>Right</legendPosition>
-                <report>Home_Reports/OPP_VEAP</report>
-                <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
-                <sortBy>RowValueDescending</sortBy>
-                <useReportChart>false</useReportChart>
-            </dashboardComponent>
-            <rowIndex>4</rowIndex>
-            <rowSpan>4</rowSpan>
-        </dashboardGridComponents>
-        <dashboardGridComponents>
-            <colSpan>3</colSpan>
             <columnIndex>0</columnIndex>
-            <dashboardComponent>
-                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
-                <chartAxisRange>Auto</chartAxisRange>
-                <chartSummary>
-                    <aggregate>Sum</aggregate>
-                    <axisBinding>y</axisBinding>
-                    <column>Opportunity$Amount.CONVERT</column>
-                </chartSummary>
-                <componentType>BarGrouped</componentType>
-                <displayUnits>Auto</displayUnits>
-                <drillEnabled>false</drillEnabled>
-                <drillToDetailEnabled>false</drillToDetailEnabled>
-                <enableHover>false</enableHover>
-                <expandOthers>false</expandOthers>
-                <groupingColumn>Opportunity$CreatedDate__c</groupingColumn>
-                <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis Oportunidades vigentes Familia AP</header>
-                <legendPosition>Right</legendPosition>
-                <report>Home_Reports/OPP_VAP_JER</report>
-                <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
-                <sortBy>RowValueDescending</sortBy>
-                <useReportChart>false</useReportChart>
-            </dashboardComponent>
-            <rowIndex>8</rowIndex>
-            <rowSpan>4</rowSpan>
-        </dashboardGridComponents>
-        <dashboardGridComponents>
-            <colSpan>3</colSpan>
-            <columnIndex>3</columnIndex>
-            <dashboardComponent>
-                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
-                <chartAxisRange>Auto</chartAxisRange>
-                <chartSummary>
-                    <aggregate>Sum</aggregate>
-                    <axisBinding>y</axisBinding>
-                    <column>Opportunity$Amount.CONVERT</column>
-                </chartSummary>
-                <componentType>BarGrouped</componentType>
-                <displayUnits>Auto</displayUnits>
-                <drillEnabled>false</drillEnabled>
-                <drillToDetailEnabled>false</drillToDetailEnabled>
-                <enableHover>false</enableHover>
-                <expandOthers>false</expandOthers>
-                <groupingColumn>Opportunity$CreatedDate__c</groupingColumn>
-                <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis Oportunidades vigentes Productos AP</header>
-                <legendPosition>Right</legendPosition>
-                <report>Home_Reports/OPP_VPAP_JER</report>
-                <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
-                <sortBy>RowValueDescending</sortBy>
-                <useReportChart>false</useReportChart>
-            </dashboardComponent>
-            <rowIndex>8</rowIndex>
-            <rowSpan>4</rowSpan>
-        </dashboardGridComponents>
-        <dashboardGridComponents>
-            <colSpan>3</colSpan>
-            <columnIndex>0</columnIndex>
-            <dashboardComponent>
-                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
-                <componentType>Metric</componentType>
-                <indicatorHighColor>#00716B</indicatorHighColor>
-                <indicatorLowColor>#C23934</indicatorLowColor>
-                <indicatorMiddleColor>#E2CE7D</indicatorMiddleColor>
-                <report>Home_Reports/OPP_VFR_JER</report>
-                <showRange>false</showRange>
-            </dashboardComponent>
-            <rowIndex>12</rowIndex>
-            <rowSpan>4</rowSpan>
-        </dashboardGridComponents>
-        <dashboardGridComponents>
-            <colSpan>3</colSpan>
-            <columnIndex>3</columnIndex>
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
@@ -275,13 +140,74 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis Oportunidades vigentes Productos AyP</header>
+                <header>Mis oportunidades formalizadas Fam Resto</header>
                 <legendPosition>Right</legendPosition>
-                <report>Account_Reports/Mis_Oportunidades_vigentes_Productos_AyP</report>
+                <report>unfiled$public/Mis_oportunidades_formalizadas_Fam_Resto</report>
                 <showPercentage>false</showPercentage>
                 <showValues>true</showValues>
                 <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>8</rowIndex>
+            <rowSpan>4</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>3</colSpan>
+            <columnIndex>3</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <componentType>Bar</componentType>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <header>Mis Opp formalizadas Producto Act y Pas</header>
+                <report>unfiled$public/Mis_Opp_formalizadas_Producto_Act_y_Pas</report>
+                <showPercentage>false</showPercentage>
+                <showPicturesOnCharts>false</showPicturesOnCharts>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <useReportChart>true</useReportChart>
+            </dashboardComponent>
+            <rowIndex>8</rowIndex>
+            <rowSpan>4</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>3</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <componentType>Bar</componentType>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <header>Mis oportunidades formalizadas Fam Resto</header>
+                <report>unfiled$public/Mis_oportunidades_formalizadas_Fam_Resto1</report>
+                <showPercentage>false</showPercentage>
+                <showPicturesOnCharts>false</showPicturesOnCharts>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <useReportChart>true</useReportChart>
+            </dashboardComponent>
+            <rowIndex>12</rowIndex>
+            <rowSpan>4</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>3</colSpan>
+            <columnIndex>3</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <componentType>Metric</componentType>
+                <indicatorHighColor>#00716B</indicatorHighColor>
+                <indicatorLowColor>#C23934</indicatorLowColor>
+                <indicatorMiddleColor>#E2CE7D</indicatorMiddleColor>
+                <report>unfiled$public/Mis_opp_formalizadas_producto_resto0</report>
+                <showRange>false</showRange>
             </dashboardComponent>
             <rowIndex>12</rowIndex>
             <rowSpan>4</rowSpan>
@@ -291,41 +217,27 @@
             <columnIndex>0</columnIndex>
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
-                <componentType>FlexTable</componentType>
-                <flexComponentProperties>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.CreatedDate__c</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.opportunity_product_family__c</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.Owner.Name</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.account_name__c</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.Name</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableSortInfo>
-                        <sortColumn>Opportunity.CreatedDate__c</sortColumn>
-                        <sortOrder>1</sortOrder>
-                    </flexTableSortInfo>
-                    <hideChatterPhotos>true</hideChatterPhotos>
-                </flexComponentProperties>
-                <header>Mis oportunidades creadas Producto Resto</header>
-                <report>Home_Reports/OPP_PR_JER</report>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity$Amount.CONVERT</column>
+                </chartSummary>
+                <componentType>BarGrouped</componentType>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
+                <header>Mis Oportunidades desestimadas Prod AyP</header>
+                <legendPosition>Right</legendPosition>
+                <report>Account_Reports/Mis_Oportunidades_desestimadas_Prod_AyP</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowValueDescending</sortBy>
+                <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>16</rowIndex>
             <rowSpan>4</rowSpan>
@@ -334,42 +246,21 @@
             <colSpan>3</colSpan>
             <columnIndex>3</columnIndex>
             <dashboardComponent>
-                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
-                <componentType>FlexTable</componentType>
-                <flexComponentProperties>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.CreatedDate__c</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.opportunity_product_family__c</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.Owner.Name</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.account_name__c</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.Name</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableSortInfo>
-                        <sortColumn>Opportunity.CreatedDate__c</sortColumn>
-                        <sortOrder>1</sortOrder>
-                    </flexTableSortInfo>
-                    <hideChatterPhotos>true</hideChatterPhotos>
-                </flexComponentProperties>
-                <header>Mis oportunidades creadas Producto Resto</header>
-                <report>Home_Reports/OPP_PR_JER</report>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <componentType>Bar</componentType>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <header>Mis Oportunidades desestimadas Prod AyPJ</header>
+                <report>Account_Reports/Mis_Oportunidades_desestimadas_Prod_AyPJ1</report>
+                <showPercentage>false</showPercentage>
+                <showPicturesOnCharts>false</showPicturesOnCharts>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <useReportChart>true</useReportChart>
             </dashboardComponent>
             <rowIndex>16</rowIndex>
             <rowSpan>4</rowSpan>
@@ -383,7 +274,7 @@
                 <chartSummary>
                     <aggregate>Sum</aggregate>
                     <axisBinding>y</axisBinding>
-                    <column>AMOUNT.CONVERT</column>
+                    <column>Opportunity$Amount.CONVERT</column>
                 </chartSummary>
                 <componentType>BarGrouped</componentType>
                 <displayUnits>Auto</displayUnits>
@@ -391,11 +282,11 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <groupingColumn>CREATED_DATE</groupingColumn>
-                <groupingColumn>Opportunity.opportunity_product_family__c</groupingColumn>
-                <header>Mis oportunidades creadas Producto Resto</header>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
+                <header>Mis Oportunidades desestimadas Prod AyP</header>
                 <legendPosition>Right</legendPosition>
-                <report>unfiled$public/Mis_oportunidades_creadas_Producto_Resto_3GV</report>
+                <report>Account_Reports/Mis_Oportunidades_desestimadas_Prod_AyP</report>
                 <showPercentage>false</showPercentage>
                 <showValues>true</showValues>
                 <sortBy>RowValueDescending</sortBy>
@@ -408,42 +299,21 @@
             <colSpan>3</colSpan>
             <columnIndex>3</columnIndex>
             <dashboardComponent>
-                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
-                <componentType>FlexTable</componentType>
-                <flexComponentProperties>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.CreatedDate__c</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.opportunity_product_family__c</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.Owner.Name</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.account_name__c</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableColumn>
-                        <reportColumn>Opportunity.Name</reportColumn>
-                        <showTotal>false</showTotal>
-                        <type>detail</type>
-                    </flexTableColumn>
-                    <flexTableSortInfo>
-                        <sortColumn>Opportunity.CreatedDate__c</sortColumn>
-                        <sortOrder>1</sortOrder>
-                    </flexTableSortInfo>
-                    <hideChatterPhotos>true</hideChatterPhotos>
-                </flexComponentProperties>
-                <header>Mis oportunidades creadas Producto Resto</header>
-                <report>Home_Reports/OPP_PR_JER</report>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <componentType>Bar</componentType>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <header>Mis Oportunidades desestimadas Prod AyPJ</header>
+                <report>Account_Reports/Mis_Oportunidades_desestimadas_Prod_AyPJ1</report>
+                <showPercentage>false</showPercentage>
+                <showPicturesOnCharts>false</showPicturesOnCharts>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <useReportChart>true</useReportChart>
             </dashboardComponent>
             <rowIndex>20</rowIndex>
             <rowSpan>4</rowSpan>
@@ -451,10 +321,10 @@
         <numberOfColumns>9</numberOfColumns>
         <rowHeight>80</rowHeight>
     </dashboardGridLayout>
-    <dashboardType>SpecifiedUser</dashboardType>
+    <dashboardType>LoggedInUser</dashboardType>
     <isGridLayout>true</isGridLayout>
     <textColor>#000000</textColor>
-    <title>Panel Mis Operaciones vigentes</title>
+    <title>Panel Mis Operaciones finalizadas</title>
     <titleColor>#000000</titleColor>
     <titleSize>12</titleSize>
 </Dashboard>

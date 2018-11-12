@@ -7,15 +7,15 @@
         <chartSummaries>
             <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Account.dwp_kitv__Visits__r$dwp_kitv__visit_users_number__c</column>
+            <column>dwp_kitv__Visit__c$dwp_kitv__visit_users_number__c</column>
         </chartSummaries>
         <chartType>VerticalColumnGrouped</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>Account.dwp_kitv__Visits__r$dwp_kitv__visit_start_date__c</groupingColumn>
+        <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_status_type__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Account.dwp_kitv__Visits__r$dwp_kitv__visit_status_type__c</secondaryGroupingColumn>
+        <secondaryGroupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -29,49 +29,55 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>Account$Name</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.Branch_name_path_desc__c</field>
     </columns>
     <columns>
-        <field>Account$Branch_name_path_desc__c</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.branch_name__c</field>
     </columns>
     <columns>
-        <field>Account$branch_name__c</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.Owner_calculated__c</field>
     </columns>
     <columns>
-        <field>Account$Owner_calculated__c</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.main_code_id__c</field>
     </columns>
     <columns>
-        <field>Account$main_code_id__c</field>
-    </columns>
-    <columns>
-        <field>Account.dwp_kitv__Visits__r$Name</field>
+        <field>dwp_kitv__Visit__c$Name</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Account.dwp_kitv__Visits__r$dwp_kitv__visit_users_number__c</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__visit_users_number__c</field>
     </columns>
     <columns>
-        <field>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r$Name</field>
+        <field>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$Name</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c$dwp_kitv__visit_summary_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>VM</description>
+    <description>Visitas Gestgionadas</description>
     <filter>
         <criteriaItems>
-            <column>Account.dwp_kitv__Visits__r$dwp_kitv__visit_start_date__c</column>
+            <column>dwp_kitv__Visit__c$dwp_kitv__visit_status_type__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>NEXT_N_DAYS:60</value>
+            <value>,01,02,03,04,05</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>LAST_N_DAYS:60</value>
         </criteriaItems>
         <language>es</language>
     </filter>
     <format>Summary</format>
     <groupingsDown>
-        <field>Account.dwp_kitv__Visits__r$dwp_kitv__visit_start_date__c</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.dwp_kitv__Visits__r$dwp_kitv__visit_status_type__c</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__visit_status_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Mis visitas gestionadas</name>
@@ -80,10 +86,12 @@
         <value>1</value>
     </params>
     <reportType>Cliente_Equipo_BBVA__c</reportType>
-    <scope>ownaccountteam</scope>
+    <scope>team</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
-        <dateColumn>Account$bureau_date__c</dateColumn>
-        <interval>INTERVAL_CUSTOM</interval>
+        <dateColumn>dwp_kitv__Visit__c$start_date_calculated__c</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
     </timeFrameFilter>
 </Report>

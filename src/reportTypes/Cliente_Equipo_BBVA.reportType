@@ -1,932 +1,928 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <baseObject>Account</baseObject>
+    <baseObject>dwp_kitv__Visit__c</baseObject>
     <category>accounts</category>
     <deployed>true</deployed>
-    <description>Busca las visitas Con Tipo de usuario</description>
+    <description>Visitas Equipo BBVA</description>
     <join>
-        <join>
-            <outerJoin>true</outerJoin>
-            <relationship>dwp_kitv__Visit_Management_Teams__r</relationship>
-        </join>
         <outerJoin>true</outerJoin>
-        <relationship>dwp_kitv__Visits__r</relationship>
+        <relationship>dwp_kitv__Visit_Management_Teams__r</relationship>
     </join>
     <label>Cliente-Equipo-BBVA</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>alert__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>alert_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>customer_relationship_year__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>company_seniority_year__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>branch_level2_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>regional_area_name__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>branch_level3_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BillingGeocodeAccuracy</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>bureau_classification_type__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>bureau_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ShippingStreet</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BillingStreet</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>direct_debt_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>indirect_debt_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>managed_resources_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>curr_company_turnover_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>working_capital_number__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>cash_flow_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>business_cycle_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ShippingCity</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BillingCity</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>bbva_classification_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>bbva_classification_type__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>comercial_strategy_classification_name__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>banking_system_classification_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>banking_system_classification_type__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Jigsaw</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>main_code_id__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Sic</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>entity_id__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Branch_code__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>country_id__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ShippingPostalCode</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BillingPostalCode</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>crossborder_type__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Parent</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Description</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SicDesc</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>debt_EBITDA_per__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>structural_debt_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>financial_debt_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>dfb_sales_per__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>collection_days_number__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>stock_days_number__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>payment_days_number__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ShippingAddress</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BillingAddress</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CurrencyIsoCode</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>EBITDA_per__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>EBITDA_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>email__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>NumberOfEmployees</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>empty_value__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ShippingState</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BillingState</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>risk_strategy_class_name__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>risk_strategy_code__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>risk_strategy_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Fax</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>customer_relationship_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>company_seniority_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Owner_calculated__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ownership_grade_per__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>business_group_id__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>unique_id__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>net_income_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AnnualRevenue</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ShippingLatitude</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BillingLatitude</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>acid_liquidity_number__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ShippingLongitude</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BillingLongitude</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>financial_margin_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>margin_ordinary_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>fee_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>fund_operational_needs_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>net_cash_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>Name</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AccountNumber</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>branch_name__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>branch_id__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>business_area_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AccountSource</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ShippingCountry</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BillingCountry</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>payback_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>financial_program_expiry_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Ownership</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Owner</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Branch_name_path_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>branch_level4_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ROA_per__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ROE_per__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Industry</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>economic_activity_sector__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>segment_desc__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>segment_id__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ShippingGeocodeAccuracy</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>TickerSymbol</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Site</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Website</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>economic_activity_subsector__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Phone</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>other_phone_number__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Type</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>RecordType</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastActivityDate</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_indicator_type_1_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_bank_classification_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_banking_syst_classif_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_banking_system_debt_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_indicator_type_2_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_profitability_type_1_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_bbva_information_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_payroll_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_profitability_type_3_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_banking_syst_debt_sum_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_comm_strategy_results_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>account_profitability_type_2_last_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Rating</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>sales_var_per__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>sales_and_sale_cost_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>commercial_strategy__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>commercial_strategy_code__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>commercial_strategy_class_name__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>commercial_strategy_date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>bank_turnover_volume_amount__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>watchlist_calif_id__c</field>
-            <table>Account</table>
-        </columns>
-        <masterLabel>Cuentas</masterLabel>
-    </sections>
-    <sections>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__invitee_changed_type__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_channel__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>account_name__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c</field>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_desc__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_location_desc__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CurrencyIsoCode</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_duration_number__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_status_type__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>report_visit_status_type__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__event_changed_bool__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>start_date_calculated__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_end_date__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_start_date__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>account_parent__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__lead_id__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Name</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__notify_meeting_changed__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Notify_meeting_changed_peru__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_contact_persons_number__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__number_of_event_relations__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_topics_number__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_users_number__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Owner</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_summary_desc__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__meeting_changed_type__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__account_type__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>RecordType</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__visit_purpose_type__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__dwp_kitv_TravelTime__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastActivityDate</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__most_recent_visits__c</field>
-            <table>Account.dwp_kitv__Visits__r</table>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.alert__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.alert_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.customer_relationship_year__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.company_seniority_year__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.branch_level2_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.regional_area_name__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.branch_level3_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.BillingGeocodeAccuracy</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.bureau_classification_type__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.bureau_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ShippingStreet</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.BillingStreet</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.direct_debt_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.indirect_debt_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.managed_resources_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.curr_company_turnover_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.working_capital_number__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.cash_flow_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.business_cycle_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ShippingCity</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.BillingCity</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.bbva_classification_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.bbva_classification_type__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.comercial_strategy_classification_name__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.banking_system_classification_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.banking_system_classification_type__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Jigsaw</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.main_code_id__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Sic</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.entity_id__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Branch_code__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.country_id__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ShippingPostalCode</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.BillingPostalCode</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.CreatedBy</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.crossborder_type__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Parent</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Description</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.SicDesc</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.debt_EBITDA_per__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.structural_debt_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.financial_debt_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.dfb_sales_per__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.collection_days_number__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.stock_days_number__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.payment_days_number__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ShippingAddress</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.BillingAddress</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.CurrencyIsoCode</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.EBITDA_per__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.EBITDA_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.email__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.NumberOfEmployees</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.empty_value__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ShippingState</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.BillingState</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.risk_strategy_class_name__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.risk_strategy_code__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.risk_strategy_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Fax</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.customer_relationship_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.company_seniority_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.CreatedDate</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.LastModifiedDate</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Owner_calculated__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ownership_grade_per__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.business_group_id__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Id</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.unique_id__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.net_income_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.AnnualRevenue</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ShippingLatitude</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.BillingLatitude</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.acid_liquidity_number__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ShippingLongitude</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.BillingLongitude</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.financial_margin_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.margin_ordinary_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.fee_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.fund_operational_needs_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.net_cash_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Name</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.AccountNumber</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.branch_name__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.branch_id__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.business_area_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.AccountSource</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ShippingCountry</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.BillingCountry</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.payback_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.financial_program_expiry_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Ownership</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Owner</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Branch_name_path_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.branch_level4_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ROA_per__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ROE_per__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Industry</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.economic_activity_sector__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.segment_desc__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.segment_id__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.ShippingGeocodeAccuracy</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.TickerSymbol</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Site</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Website</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.economic_activity_subsector__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Phone</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.other_phone_number__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Type</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.RecordType</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.LastActivityDate</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_indicator_type_1_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_bank_classification_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_banking_syst_classif_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_banking_system_debt_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_indicator_type_2_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_profitability_type_1_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_bbva_information_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_payroll_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_profitability_type_3_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_banking_syst_debt_sum_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_comm_strategy_results_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.account_profitability_type_2_last_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.LastModifiedBy</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.Rating</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.sales_var_per__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.sales_and_sale_cost_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.commercial_strategy__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.commercial_strategy_code__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.commercial_strategy_class_name__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.commercial_strategy_date__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.bank_turnover_volume_amount__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__account_id__c.watchlist_calif_id__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
+        <masterLabel>Visitas</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>user_prof_position_type__c</field>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__contact_phone_desc__c</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>user_prof_position_type__c</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>dwp_kitv__contact_email_desc__c</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CurrencyIsoCode</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>dwp_kitv__visit_id__c</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
+            <field>CurrencyIsoCode</field>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
         </columns>
         <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>dwp_kitv__user_id__c</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>on_a_team__c</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
+            <checkedByDefault>true</checkedByDefault>
             <field>Name</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
-            <table>Account.dwp_kitv__Visits__r.dwp_kitv__Visit_Management_Teams__r</table>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
         </columns>
-        <masterLabel>Visitas</masterLabel>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>on_a_team__c</field>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>dwp_kitv__user_id__c</field>
+            <table>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r</table>
+        </columns>
+        <masterLabel>Equipo BBVA</masterLabel>
     </sections>
 </ReportType>
