@@ -4242,6 +4242,10 @@
         <recordType>dwp_kitv__Visit__c.dwp_kitv__LeadVisit</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Sites</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
 	<tabVisibilities>
 		<tab>standard-File</tab>
 		<visibility>Hidden</visibility>
