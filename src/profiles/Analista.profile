@@ -5326,6 +5326,10 @@ Analistas de riesgos</description>
         <visible>false</visible>
     </recordTypeVisibilities>
 	<tabVisibilities>
+        <tab>Sites</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
 		<tab>standard-File</tab>
 		<visibility>Hidden</visibility>
 	</tabVisibilities>
