@@ -21,7 +21,7 @@
         helper.doInitRefreshView(component, event, helper);
     },
     BtnChangUSD: function(component, event, helper){
-        helper.BtnNeutral(component, event, helper,'ME','BtnUSD','USD');
+        helper.BtnNeutral(component, event, helper,'ME','BtnUSD','OTRO');
         component.set('v.isLoad', false);
         component.set("v.bGrafica",false);
         helper.doInitRefreshView(component, event, helper);
