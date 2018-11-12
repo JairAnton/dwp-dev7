@@ -194,7 +194,7 @@
 
 
 IF( profitability_subcategory_type__c ==&apos;MN&apos;,&apos;Facturación  S/&apos;,
-IF( profitability_subcategory_type__c ==&apos;ME&apos;,&apos;Facturación  $&apos;,
+IF( profitability_subcategory_type__c ==&apos;ME&apos;,&apos;Facturación  S/&apos;,
 IF( profitability_subcategory_type__c ==&apos;Spread&apos;,&apos;Spread %&apos;,
 IF( profitability_subcategory_type__c ==&apos;Tasa&apos;,&apos;Tasa %&apos;, 
 IF( profitability_subcategory_type__c ==&apos;DI&apos;,&apos;DI %&apos;,
