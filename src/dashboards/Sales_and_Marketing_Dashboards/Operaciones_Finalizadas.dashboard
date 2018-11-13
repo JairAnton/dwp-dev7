@@ -12,21 +12,32 @@
             <colSpan>3</colSpan>
             <columnIndex>0</columnIndex>
             <dashboardComponent>
-                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
-                <componentType>Bar</componentType>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity$Amount.CONVERT</column>
+                </chartSummary>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <header>Mis Opp creadas familia  Activo y Pasivo</header>
-                <report>unfiled$public/Mis_Opp_familia_creadas_Activo_y_Pasivo</report>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
+                <header>Mis oportunidades creadas Familia A y P</header>
+                <legendPosition>Right</legendPosition>
+                <report>Informes_de_Seguimiento/Mis_Oportunidades_creadas_Familia_A_y_P_Final</report>
                 <showPercentage>false</showPercentage>
-                <showPicturesOnCharts>false</showPicturesOnCharts>
                 <showValues>false</showValues>
-                <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>true</useReportChart>
+                <sortBy>RowValueDescending</sortBy>
+                <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>0</rowIndex>
             <rowSpan>4</rowSpan>
@@ -42,19 +53,23 @@
                     <axisBinding>y</axisBinding>
                     <column>Opportunity$Amount.CONVERT</column>
                 </chartSummary>
-                <componentType>BarGrouped</componentType>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <groupingColumn>Opportunity$CreatedDate__c</groupingColumn>
-                <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis Oportunidades creadas Productos AP</header>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
+                <header>Mis oportunidades creadas Producto A y P</header>
                 <legendPosition>Right</legendPosition>
-                <report>Home_Reports/OPP_AP</report>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_creadas_A_y_P_Final</report>
                 <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
+                <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
@@ -72,7 +87,11 @@
                     <axisBinding>y</axisBinding>
                     <column>Opportunity$Amount.CONVERT</column>
                 </chartSummary>
-                <componentType>BarGrouped</componentType>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
@@ -82,9 +101,9 @@
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
                 <header>Mis oportunidades creadas Familia Resto</header>
                 <legendPosition>Right</legendPosition>
-                <report>unfiled$public/Mis_oportunidades_creadas_Producto_Resto</report>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_creadas_Familia_Resto_Final</report>
                 <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
+                <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
@@ -100,21 +119,25 @@
                 <chartSummary>
                     <aggregate>Sum</aggregate>
                     <axisBinding>y</axisBinding>
-                    <column>AMOUNT.CONVERT</column>
+                    <column>Opportunity$Amount.CONVERT</column>
                 </chartSummary>
-                <componentType>BarGrouped</componentType>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <groupingColumn>CREATED_DATE</groupingColumn>
-                <groupingColumn>Opportunity.opportunity_product_family__c</groupingColumn>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
                 <header>Mis oportunidades creadas Producto Resto</header>
                 <legendPosition>Right</legendPosition>
-                <report>unfiled$public/Mis_oportunidades_creadas_Producto_Resto_3GV</report>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_creadas_Producto_Resto_Final</report>
                 <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
+                <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
@@ -132,7 +155,11 @@
                     <axisBinding>y</axisBinding>
                     <column>Opportunity$Amount.CONVERT</column>
                 </chartSummary>
-                <componentType>BarGrouped</componentType>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
@@ -140,11 +167,11 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis oportunidades formalizadas Fam Resto</header>
+                <header>Mis oportunidades formalizadas Fam A y P</header>
                 <legendPosition>Right</legendPosition>
-                <report>unfiled$public/Mis_oportunidades_formalizadas_Fam_Resto</report>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_formalizadas_Fam_A_y_P_Final</report>
                 <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
+                <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
@@ -155,21 +182,32 @@
             <colSpan>3</colSpan>
             <columnIndex>3</columnIndex>
             <dashboardComponent>
-                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
-                <componentType>Bar</componentType>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity$Amount.CONVERT</column>
+                </chartSummary>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <header>Mis Opp formalizadas Producto Act y Pas</header>
-                <report>unfiled$public/Mis_Opp_formalizadas_Producto_Act_y_Pas</report>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
+                <header>Mis oportunidades formalizadas Prod AyP</header>
+                <legendPosition>Right</legendPosition>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_formalizadas_Prod_AyP_Final</report>
                 <showPercentage>false</showPercentage>
-                <showPicturesOnCharts>false</showPicturesOnCharts>
                 <showValues>false</showValues>
-                <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>true</useReportChart>
+                <sortBy>RowValueDescending</sortBy>
+                <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>8</rowIndex>
             <rowSpan>4</rowSpan>
@@ -178,21 +216,32 @@
             <colSpan>3</colSpan>
             <columnIndex>0</columnIndex>
             <dashboardComponent>
-                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
-                <componentType>Bar</componentType>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity$Amount.CONVERT</column>
+                </chartSummary>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
                 <header>Mis oportunidades formalizadas Fam Resto</header>
-                <report>unfiled$public/Mis_oportunidades_formalizadas_Fam_Resto1</report>
+                <legendPosition>Right</legendPosition>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_formalizadas_Fam_Resto_Final</report>
                 <showPercentage>false</showPercentage>
-                <showPicturesOnCharts>false</showPicturesOnCharts>
                 <showValues>false</showValues>
-                <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>true</useReportChart>
+                <sortBy>RowValueDescending</sortBy>
+                <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>12</rowIndex>
             <rowSpan>4</rowSpan>
@@ -201,13 +250,32 @@
             <colSpan>3</colSpan>
             <columnIndex>3</columnIndex>
             <dashboardComponent>
-                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
-                <componentType>Metric</componentType>
-                <indicatorHighColor>#00716B</indicatorHighColor>
-                <indicatorLowColor>#C23934</indicatorLowColor>
-                <indicatorMiddleColor>#E2CE7D</indicatorMiddleColor>
-                <report>unfiled$public/Mis_opp_formalizadas_producto_resto0</report>
-                <showRange>false</showRange>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity$Amount.CONVERT</column>
+                </chartSummary>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
+                <header>Mis oportunidades formalizadas Prod Rest</header>
+                <legendPosition>Right</legendPosition>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_formalizadas_Prod_Rest_Final</report>
+                <showPercentage>false</showPercentage>
+                <showValues>false</showValues>
+                <sortBy>RowValueDescending</sortBy>
+                <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>12</rowIndex>
             <rowSpan>4</rowSpan>
@@ -223,7 +291,11 @@
                     <axisBinding>y</axisBinding>
                     <column>Opportunity$Amount.CONVERT</column>
                 </chartSummary>
-                <componentType>BarGrouped</componentType>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
@@ -231,11 +303,11 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis Oportunidades desestimadas Prod AyP</header>
+                <header>Mis oportunidades desestimadas Fam A y P</header>
                 <legendPosition>Right</legendPosition>
-                <report>Account_Reports/Mis_Oportunidades_desestimadas_Prod_AyP</report>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_desestimadas_Fam_A_y_P_Final</report>
                 <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
+                <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
@@ -246,21 +318,32 @@
             <colSpan>3</colSpan>
             <columnIndex>3</columnIndex>
             <dashboardComponent>
-                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
-                <componentType>Bar</componentType>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity$Amount.CONVERT</column>
+                </chartSummary>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <header>Mis Oportunidades desestimadas Prod AyPJ</header>
-                <report>Account_Reports/Mis_Oportunidades_desestimadas_Prod_AyPJ1</report>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
+                <header>Mis oportunidades desestimadas Prod AyP</header>
+                <legendPosition>Right</legendPosition>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_desestimadas_Prod_AyP_Final</report>
                 <showPercentage>false</showPercentage>
-                <showPicturesOnCharts>false</showPicturesOnCharts>
                 <showValues>false</showValues>
-                <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>true</useReportChart>
+                <sortBy>RowValueDescending</sortBy>
+                <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>16</rowIndex>
             <rowSpan>4</rowSpan>
@@ -276,7 +359,11 @@
                     <axisBinding>y</axisBinding>
                     <column>Opportunity$Amount.CONVERT</column>
                 </chartSummary>
-                <componentType>BarGrouped</componentType>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
@@ -284,11 +371,11 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis Oportunidades desestimadas Prod AyP</header>
+                <header>Mis Oportunidades desestimadas Fam Resto</header>
                 <legendPosition>Right</legendPosition>
-                <report>Account_Reports/Mis_Oportunidades_desestimadas_Prod_AyP</report>
+                <report>Informes_de_Seguimiento/Mis_Oportunidades_desestimadas_Fam_Resto_Final</report>
                 <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
+                <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
@@ -299,21 +386,32 @@
             <colSpan>3</colSpan>
             <columnIndex>3</columnIndex>
             <dashboardComponent>
-                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
-                <componentType>Bar</componentType>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity$Amount.CONVERT</column>
+                </chartSummary>
+                <chartSummary>
+                    <axisBinding>y2</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnLineStacked</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <header>Mis Oportunidades desestimadas Prod AyPJ</header>
-                <report>Account_Reports/Mis_Oportunidades_desestimadas_Prod_AyPJ1</report>
+                <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
+                <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
+                <header>Mis oportunidades desestimadas Prod Rest</header>
+                <legendPosition>Right</legendPosition>
+                <report>Informes_de_Seguimiento/Mis_oportunidades_desestimadas_Prod_Rest_Final</report>
                 <showPercentage>false</showPercentage>
-                <showPicturesOnCharts>false</showPicturesOnCharts>
                 <showValues>false</showValues>
-                <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>true</useReportChart>
+                <sortBy>RowValueDescending</sortBy>
+                <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>20</rowIndex>
             <rowSpan>4</rowSpan>
@@ -323,6 +421,7 @@
     </dashboardGridLayout>
     <dashboardType>LoggedInUser</dashboardType>
     <isGridLayout>true</isGridLayout>
+    <runningUser>isaias.velazquez.cortes.contractor@bbva.com</runningUser>
     <textColor>#000000</textColor>
     <title>Panel Mis Operaciones finalizadas</title>
     <titleColor>#000000</titleColor>
