@@ -41,7 +41,7 @@
             <colSpan>4</colSpan>
             <columnIndex>4</columnIndex>
             <dashboardComponent>
-                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
                 <chartSummary>
                     <aggregate>Sum</aggregate>
