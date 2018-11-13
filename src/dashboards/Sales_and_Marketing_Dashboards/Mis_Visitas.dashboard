@@ -9,7 +9,7 @@
     <dashboardColorPalette>unity</dashboardColorPalette>
     <dashboardGridLayout>
         <dashboardGridComponents>
-            <colSpan>3</colSpan>
+            <colSpan>4</colSpan>
             <columnIndex>0</columnIndex>
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
@@ -19,28 +19,28 @@
                     <axisBinding>y</axisBinding>
                     <column>dwp_kitv__Visit__c$dwp_kitv__visit_users_number__c</column>
                 </chartSummary>
-                <componentType>BarGrouped</componentType>
+                <componentType>ColumnGrouped</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_status_type__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <header>Mis visitas gestionadas</header>
                 <legendPosition>Right</legendPosition>
-                <report>Home_Reports/VISITS_MANAGED2</report>
+                <report>Informes_de_Seguimiento/VISITS_MANAGED2</report>
                 <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
+                <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>0</rowIndex>
-            <rowSpan>4</rowSpan>
+            <rowSpan>5</rowSpan>
         </dashboardGridComponents>
         <dashboardGridComponents>
-            <colSpan>3</colSpan>
-            <columnIndex>3</columnIndex>
+            <colSpan>4</colSpan>
+            <columnIndex>4</columnIndex>
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
@@ -49,7 +49,7 @@
                     <axisBinding>y</axisBinding>
                     <column>dwp_kitv__Visit__c$dwp_kitv__visit_users_number__c</column>
                 </chartSummary>
-                <componentType>BarGrouped</componentType>
+                <componentType>ColumnGrouped</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
@@ -59,20 +59,21 @@
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_status_type__c</groupingColumn>
                 <header>Mis visitas planificadas</header>
                 <legendPosition>Right</legendPosition>
-                <report>Home_Reports/VISITS_PLANED1</report>
+                <report>Informes_de_Planifiacin/VISITS_PLANED1</report>
                 <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
+                <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>0</rowIndex>
-            <rowSpan>4</rowSpan>
+            <rowSpan>5</rowSpan>
         </dashboardGridComponents>
         <numberOfColumns>9</numberOfColumns>
         <rowHeight>80</rowHeight>
     </dashboardGridLayout>
     <dashboardType>LoggedInUser</dashboardType>
     <isGridLayout>true</isGridLayout>
+    <runningUser>isaias.velazquez.cortes.contractor@bbva.com</runningUser>
     <textColor>#000000</textColor>
     <title>Panel Mis Visitas</title>
     <titleColor>#000000</titleColor>

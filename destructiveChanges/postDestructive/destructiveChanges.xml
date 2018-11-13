@@ -10,7 +10,17 @@
         <members>Product_Gurantee__c-es</members>
         <members>Product_Participants__c-es</members>
 		<name>CustomObjectTranslation</name>
-    </types>
+    </types>        
+    <types>
+		<members>Informes_de_Seguimiento/OPP_AP</members>       
+		<members>Informes_de_Seguimiento/OPP_AP_JER</members>
+		<members>Informes_de_Seguimiento/OPP_PR_JER</members>
+		<members>Informes_de_Planifiacin/OPP_VAP_JER</members>
+		<members>Informes_de_Planifiacin/OPP_VFR_JER</members>
+		<members>Informes_de_Planifiacin/OPP_VPAP_JER</members>
+        <members>Informes_de_Planifiacin/OPP_VPR_JER</members>
+	    <name>Report</name>
+   </types>	
     <types>
         <members>classMasterGuarantee_cls</members>
         <members>classMasterParticipant</members>
