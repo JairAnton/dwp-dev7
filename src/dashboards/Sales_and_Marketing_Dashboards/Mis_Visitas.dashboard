@@ -11,7 +11,8 @@
         <dashboardGridComponents>
             <colSpan>4</colSpan>
             <columnIndex>0</columnIndex>
-            <dashboardComponent>                
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
                 <chartSummary>
                     <aggregate>Sum</aggregate>
@@ -39,7 +40,8 @@
         <dashboardGridComponents>
             <colSpan>4</colSpan>
             <columnIndex>4</columnIndex>
-            <dashboardComponent>         
+            <dashboardComponent>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
                 <chartSummary>
                     <aggregate>Sum</aggregate>
