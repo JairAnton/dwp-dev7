@@ -420,10 +420,9 @@
         <rowHeight>80</rowHeight>
     </dashboardGridLayout>
     <dashboardType>LoggedInUser</dashboardType>
-    <isGridLayout>true</isGridLayout>
-    <runningUser>isaias.velazquez.cortes.contractor@bbva.com</runningUser>
+    <isGridLayout>true</isGridLayout>    
     <textColor>#000000</textColor>
-    <title>Panel Mis Operaciones finalizadas</title>
+    <title>Panel Mis Oportunidades finalizadas</title>
     <titleColor>#000000</titleColor>
     <titleSize>12</titleSize>
 </Dashboard>
