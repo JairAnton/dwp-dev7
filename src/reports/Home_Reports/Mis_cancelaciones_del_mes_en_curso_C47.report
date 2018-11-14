@@ -34,12 +34,12 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.branch_id__c</field>
+        <field>Account_Renewals__c.product_subcategory_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account_Renewals__c.product_subcategory_type__c</field>
+        <field>Account.branch_id__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Mis cancelaciones del mes en curso</name>

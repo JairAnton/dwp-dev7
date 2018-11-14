@@ -62,12 +62,12 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.branch_id__c</field>
+        <field>Account_BBVA_Information__c.product_desc__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account_BBVA_Information__c.product_desc__c</field>
+        <field>Account.branch_id__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Saldo en pasivos</name>
