@@ -213,7 +213,7 @@ public with sharing class GraphicsGenerator_cls {
                                                                             where account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true 
                                                                             and product_desc__c!='' and profitability_subcategory_type__c=:sConcepto
                                                                             and product_desc__c=: sFiltro
-                                                                            and Origin_currenIsoCode__c=: sFiltroRango=='MN'||sFiltroRango=='TOTAL CLIENTE' || sFiltroRango=='TOTAL' ? 'PEN' : 'USD'
+                                                                            and origin_currenIso_Name__c=: sFiltroRango=='MN'||sFiltroRango=='TOTAL CLIENTE' || sFiltroRango=='TOTAL' ? 'PEN' : 'OTRO'
                                                                             and profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN','TOTAL CLIENTE','TOTAL DI','TOTAL SPREAD','TOTAL TASA') 
                                                           					and profitability_category_type__c IN: proCategory
                                                           					and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) 

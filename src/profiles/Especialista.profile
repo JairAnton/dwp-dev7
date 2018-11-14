@@ -693,6 +693,11 @@ Ejecutivos de REDES</description>
         <field>Account_Profitability__c.Origin_currenIsoCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.origin_currenIso_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
 	<fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Field_Sup_Closing_Date__c</field>
@@ -5014,6 +5019,10 @@ Ejecutivos de REDES</description>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__LeadVisit</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<tabVisibilities>
+        <tab>Sites</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
 	<tabVisibilities>
 		<tab>standard-File</tab>
 		<visibility>Hidden</visibility>

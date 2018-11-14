@@ -19,7 +19,7 @@
         <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Opportunity$opportunity_product_family__c</secondaryGroupingColumn>
+        <secondaryGroupingColumn>Opportunity$opportunity_product__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -41,9 +41,6 @@
         <field>Opportunity$Name</field>
     </columns>
     <columns>
-        <field>Opportunity$opportunity_product__c</field>
-    </columns>
-    <columns>
         <field>Opportunity$CurrencyIsoCode</field>
     </columns>
     <columns>
@@ -63,25 +60,19 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informe: Mis Oportunidades formalizadas Familia Resto</description>
+    <description>Informes: Mis oportunidades no cerradas Producto Resto</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
             <isUnlocked>true</isUnlocked>
-            <operator>notContain</operator>
-            <value>,Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
+            <operator>contains</operator>
+            <value>Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity$Type</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>01,02</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Opportunity$opportunity_product_family__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>notEqual</operator>
-            <value></value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity$HasOpportunityLineItem</column>
@@ -93,7 +84,13 @@
             <column>Opportunity$StageName</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>06</value>
+            <value>01,Qualification,02,03,Negotiation,04,05</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$CloseDate</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>LAST_N_DAYS:60</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
@@ -105,10 +102,10 @@
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Opportunity$opportunity_product_family__c</field>
+        <field>Opportunity$opportunity_product__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades formalizadas Fam Resto</name>
+    <name>Mis oportunidades no cerradas Prod A y P</name>
     <params>
         <name>co</name>
         <value>1</value>

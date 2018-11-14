@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">	        
+    <types>	
+		<members>Account_Profitability__c.Origin_currenIsoCode__c</members>
+		<members>Account_Profitability__c.origin_currenIso_Name__c</members>
+		<members>Account_BBVA_Information__c.Oficer_Manager__c</members>
+		<name>CustomField</name>
+    </types>
+	<types>	
+		<members>site</members>
+		<name>CustomObject</name>
+    </types>		
+	<version>42.0</version>
+</Package>

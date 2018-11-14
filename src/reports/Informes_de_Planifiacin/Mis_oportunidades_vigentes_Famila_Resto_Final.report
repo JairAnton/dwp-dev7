@@ -68,8 +68,8 @@
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
             <isUnlocked>true</isUnlocked>
-            <operator>contains</operator>
-            <value>Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
+            <operator>notContain</operator>
+            <value>,Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
         </criteriaItems>
         <criteriaItems>
             <column>Opportunity$Type</column>

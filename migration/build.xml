@@ -190,6 +190,18 @@
 			purgeOnDelete="false"
 			deployRoot="../destructiveChanges/postDestructive"/>
     </target> 
+    <target name="ROLLBACK">
+        <sf:deploy
+			username="${sf.username}"
+			password="${sf.password}"
+			serverurl="${sf.serverurl}"
+			maxPoll="1000"
+			checkOnly="false"
+			pollWaitMillis="10000"
+			ignoreWarnings= "true"
+			purgeOnDelete="false"
+			deployRoot="../destructiveChanges/rollback"/>
+    </target> 	
 	
 
 </project>

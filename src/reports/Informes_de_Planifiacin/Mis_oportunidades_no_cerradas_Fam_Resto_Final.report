@@ -63,7 +63,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informe: Mis Oportunidades formalizadas Familia Resto</description>
+    <description>Informes: Mis oportunidades no cerradas Familia Resto</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -78,12 +78,6 @@
             <value>01,02</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Opportunity$opportunity_product_family__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>notEqual</operator>
-            <value></value>
-        </criteriaItems>
-        <criteriaItems>
             <column>Opportunity$HasOpportunityLineItem</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
@@ -93,9 +87,15 @@
             <column>Opportunity$StageName</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>06</value>
+            <value>01,Qualification,02,03,Negotiation,04,05</value>
         </criteriaItems>
-        <language>en_US</language>
+        <criteriaItems>
+            <column>Opportunity$CloseDate</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>LAST_N_DAYS:60</value>
+        </criteriaItems>
+        <language>es</language>
     </filter>
     <format>Summary</format>
     <groupingsDown>
@@ -108,7 +108,7 @@
         <field>Opportunity$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades formalizadas Fam Resto</name>
+    <name>Mis oportunidades no cerradas Fam Resto</name>
     <params>
         <name>co</name>
         <value>1</value>
