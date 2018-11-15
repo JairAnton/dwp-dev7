@@ -22,7 +22,7 @@ public with sharing class GraphicsGenerator_cls {
         
         Integer mes=0;
         if(sNombreReporte=='EVOLUCION_CUOTA_SBS' || sNombreReporte=='EVOLUCION_DEUDA_SBS'){
-            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId];
+            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId ];
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
                 fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-11);
@@ -40,7 +40,7 @@ public with sharing class GraphicsGenerator_cls {
  			{
         		              registrosReporte = [SELECT max(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c ='' 
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c =''
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
@@ -48,7 +48,7 @@ public with sharing class GraphicsGenerator_cls {
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='ACEPTACIONES BANCARIAS (OTROS)'
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='ACEPTACIONES BANCARIAS (OTROS)' 
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
@@ -56,7 +56,7 @@ public with sharing class GraphicsGenerator_cls {
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Directa' and product_desc__c='OTROS' 
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Directa' and product_desc__c='OTROS'  
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) 
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}     
@@ -65,7 +65,7 @@ public with sharing class GraphicsGenerator_cls {
 
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_desc__c=:sFiltro 
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_desc__c=:sFiltro  
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
@@ -213,7 +213,7 @@ public with sharing class GraphicsGenerator_cls {
                                                                             where account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true 
                                                                             and product_desc__c!='' and profitability_subcategory_type__c=:sConcepto
                                                                             and product_desc__c=: sFiltro
-                                                                            and Origin_currenIsoCode__c=: sFiltroRango=='MN'||sFiltroRango=='TOTAL CLIENTE' || sFiltroRango=='TOTAL' ? 'PEN' : 'USD'
+                                                                            and origin_currenIso_Name__c=: sFiltroRango=='MN'||sFiltroRango=='TOTAL CLIENTE' || sFiltroRango=='TOTAL' ? 'PEN' : 'OTRO'
                                                                             and profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN','TOTAL CLIENTE','TOTAL DI','TOTAL SPREAD','TOTAL TASA') 
                                                           					and profitability_category_type__c IN: proCategory
                                                           					and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) 
