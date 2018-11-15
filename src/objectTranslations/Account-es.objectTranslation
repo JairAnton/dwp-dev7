@@ -497,12 +497,24 @@
         <name>phone_account</name>
     </fields>
     <fields>
+        <label>Código oficina principal</label>
+        <name>Branch_code__c</name>
+    </fields>
+    <fields>
+        <label>Regional</label>
+        <name>Branch_name_path_desc__c</name>
+    </fields>
+    <fields>
         <label>EBITDA S/</label>
         <name>EBITDA_amount__c</name>
     </fields>
     <fields>
         <label>EBITDA %</label>
         <name>EBITDA_per__c</name>
+    </fields>
+    <fields>
+        <label>Gestor principal</label>
+        <name>Owner_calculated__c</name>
     </fields>
     <fields>
         <label>ROA</label>
@@ -513,285 +525,12 @@
         <name>ROE_per__c</name>
     </fields>
     <fields>
-        <label>Liquidez ácida</label>
-        <name>acid_liquidity_number__c</name>
+        <label>Última fecha clasificación BBVA</label>
+        <name>account_bank_classification_last_date__c</name>
     </fields>
     <fields>
-        <label>Alerta</label>
-        <name>alert__c</name>
-    </fields>
-    <fields>
-        <label>Alerta indicador</label>
-        <name>alert_desc__c</name>
-    </fields>
-    <fields>
-        <label>Vol. negocio</label>
-        <name>bank_turnover_volume_amount__c</name>
-    </fields>
-    <fields>
-        <label>Clasificación SBS</label>
-        <name>banking_system_classification_desc__c</name>
-    </fields>
-    <fields>
-        <label>Clasificación SBS código</label>
-        <name>banking_system_classification_type__c</name>
-    </fields>
-    <fields>
-        <label>Clasificación BBVA</label>
-        <name>bbva_classification_desc__c</name>
-    </fields>
-    <fields>
-        <label>Clasificación BBVA código</label>
-        <name>bbva_classification_type__c</name>
-    </fields>
-    <fields>
-        <label>Oficina principal</label>
-        <name>branch_id__c</name>
-        <relationshipLabel><!-- Accounts --></relationshipLabel>
-    </fields>
-    <fields>
-        <label>Buró</label>
-        <name>bureau_classification_type__c</name>
-    </fields>
-    <fields>
-        <label>Buró fecha</label>
-        <name>bureau_date__c</name>
-    </fields>
-    <fields>
-        <label>Ciclo de negocio</label>
-        <name>business_cycle_amount__c</name>
-    </fields>
-    <fields>
-        <label>Cash flow</label>
-        <name>cash_flow_amount__c</name>
-    </fields>
-    <fields>
-        <label>Días de cobro</label>
-        <name>collection_days_number__c</name>
-    </fields>
-    <fields>
-        <label>Vinculación</label>
-        <name>commercial_strategy__c</name>
-    </fields>
-    <fields>
-        <label>Vinculación código</label>
-        <name>commercial_strategy_code__c</name>
-    </fields>
-    <fields>
-        <label>Vinculación fecha</label>
-        <name>commercial_strategy_date__c</name>
-    </fields>
-    <fields>
-        <label>Vinculación descripción</label>
-        <name>commercial_strategy_class_name__c</name>
-    </fields>
-    <fields>
-        <label>Fecha antigüedad empresa</label>
-        <name>company_seniority_date__c</name>
-    </fields>
-    <fields>
-        <label>Antigüedad empresa</label>
-        <name>company_seniority_year__c</name>
-    </fields>
-    <fields>
-        <label>Código país</label>
-        <name>country_id__c</name>
-    </fields>
-    <fields>
-        <label>Crossborder</label>
-        <name>crossborder_type__c</name>
-    </fields>
-    <fields>
-        <label>Fecha antigüedad cliente</label>
-        <name>customer_relationship_date__c</name>
-    </fields>
-    <fields>
-        <label>Antigüedad cliente</label>
-        <name>customer_relationship_year__c</name>
-    </fields>
-    <fields>
-        <label>Deuda / EBITDA</label>
-        <name>debt_EBITDA_per__c</name>
-    </fields>
-    <fields>
-        <label>DFB / Ventas</label>
-        <name>dfb_sales_per__c</name>
-    </fields>
-    <fields>
-        <label>Sector</label>
-        <name>economic_activity_sector__c</name>
-    </fields>
-    <fields>
-        <label>Sub sector</label>
-        <name>economic_activity_subsector__c</name>
-    </fields>
-    <fields>
-        <label>Email</label>
-        <name>email__c</name>
-    </fields>
-    <fields>
-        <label>Código entidad</label>
-        <name>entity_id__c</name>
-    </fields>
-    <fields>
-        <label>Deuda financiera</label>
-        <name>financial_debt_amount__c</name>
-    </fields>
-    <fields>
-        <label>PF vcto.</label>
-        <name>financial_program_expiry_date__c</name>
-    </fields>
-    <fields>
-        <label>Necesidades operativas de fondo</label>
-        <name>fund_operational_needs_amount__c</name>
-    </fields>
-    <fields>
-        <label>Código central</label>
-        <name>main_code_id__c</name>
-    </fields>
-    <fields>
-        <label>Margen ord.</label>
-        <name>margin_ordinary_amount__c</name>
-    </fields>
-    <fields>
-        <label>Net cash</label>
-        <name>net_cash_desc__c</name>
-    </fields>
-    <fields>
-        <label>Teléfono 2</label>
-        <name>other_phone_number__c</name>
-    </fields>
-    <fields>
-        <label>Grado de propiedad</label>
-        <name>ownership_grade_per__c</name>
-    </fields>
-    <fields>
-        <label>Payback</label>
-        <name>payback_amount__c</name>
-    </fields>
-    <fields>
-        <label>Días de pago</label>
-        <name>payment_days_number__c</name>
-    </fields>
-    <fields>
-        <label>Estrategia código</label>
-        <name>risk_strategy_code__c</name>
-    </fields>
-    <fields>
-        <label>Estrategia fecha</label>
-        <name>risk_strategy_date__c</name>
-    </fields>
-    <fields>
-        <label>Estrategia</label>
-        <name>risk_strategy_class_name__c</name>
-    </fields>
-    <fields>
-        <label>Var ventas</label>
-        <name>sales_var_per__c</name>
-    </fields>
-    <fields>
-        <label>Segmento</label>
-        <name>segment_desc__c</name>
-    </fields>
-    <fields>
-        <label>Segmento código</label>
-        <name>segment_id__c</name>
-    </fields>
-    <fields>
-        <label>Días de existencias</label>
-        <name>stock_days_number__c</name>
-    </fields>
-    <fields>
-        <label>Deuda estructural</label>
-        <name>structural_debt_amount__c</name>
-    </fields>
-    <fields>
-        <label>Identificador único</label>
-        <name>unique_id__c</name>
-    </fields>
-    <fields>
-        <label>Watchlist</label>
-        <name>watchlist_calif_id__c</name>
-    </fields>
-    <fields>
-        <label>Capital de trabajo</label>
-        <name>working_capital_number__c</name>
-    </fields>
-	<fields>
-        <label>Gestor principal</label>
-        <name>Owner_calculated__c</name>
-    </fields>
-    <fields>
-        <label>Código oficina principal</label>
-        <name>Branch_code__c</name>
-    </fields>
-    <fields>
-        <label>Área</label>
-        <name>branch_level2_desc__c</name>
-    </fields>
-    <fields>
-        <label>Banca</label>
-        <name>branch_level3_desc__c</name>
-    </fields>
-    <fields>
-        <label>Regional</label>
-        <name>branch_level4_desc__c</name>
-    </fields>
-    <fields>
-        <label>Regional</label>
-    <name>Branch_name_path_desc__c</name>
-    </fields>
-    <fields>
-        <label>Oficina</label>
-    <name>branch_name__c</name>
-    </fields>
-    <fields>
-        <label>Oficinas</label>
-    <name>business_area_desc__c</name>
-    </fields>
-    <fields>
-        <label>Grupo</label>
-    <name>business_group_id__c</name>
-    </fields>
-    <fields>
-        <label>Clasificacion de estrategias comercial</label>
-    <name>comercial_strategy_classification_name__c</name>
-    </fields>
-    <fields>
-        <label>Cantidad de retorno</label>
-    <name>curr_company_turnover_amount__c</name>
-    </fields>
-    <fields>
-        <label>Cantidad de debito</label>
-    <name>direct_debt_amount__c</name>
-    </fields>
-    <fields>
-        <label>Multa</label>
-    <name>fee_amount__c</name>
-    </fields>
-    <fields>
-        <label>Margen financiero</label>
-    <name>financial_margin_amount__c</name>
-    </fields>
-    <fields>
-        <label>Cantidad de deuda inderecta</label>
-    <name>indirect_debt_amount__c</name>
-    </fields>
-    <fields>
-        <label>Cantidad de recursos</label>
-    <name>managed_resources_amount__c</name>
-    </fields>
-    <fields>
-        <label>Ingresos .net</label>
-    <name>net_income_amount__c</name>
-    </fields>
-    <fields>
-        <label>Area regional</label>
-    <name>regional_area_name__c</name>
-    </fields>
-    <fields>
-        <label>Ventas y costo de ventas</label>
-    <name>sales_and_sale_cost_amount__c</name>
+        <label>Última fecha clasificación SBS</label>
+        <name>account_banking_syst_classif_last_date__c</name>
     </fields>
     <fields>
         <label>Última fecha resumen deuda SBS</label>
@@ -834,12 +573,277 @@
         <name>account_profitability_type_3_last_date__c</name>
     </fields>
     <fields>
-        <label>Última fecha clasificación BBVA</label>
-        <name>account_bank_classification_last_date__c</name>
+        <label>Liquidez ácida</label>
+        <name>acid_liquidity_number__c</name>
     </fields>
     <fields>
-        <label>Última fecha clasificación SBS</label>
-        <name>account_banking_syst_classif_last_date__c</name>
+        <label>Alerta</label>
+        <name>alert__c</name>
+    </fields>
+    <fields>
+        <label>Alerta indicador</label>
+        <name>alert_desc__c</name>
+    </fields>
+    <fields>
+        <label>Vol. negocio</label>
+        <name>bank_turnover_volume_amount__c</name>
+    </fields>
+    <fields>
+        <label>Clasificación SBS</label>
+        <name>banking_system_classification_desc__c</name>
+    </fields>
+    <fields>
+        <label>Clasificación SBS código</label>
+        <name>banking_system_classification_type__c</name>
+    </fields>
+    <fields>
+        <label>Clasificación BBVA</label>
+        <name>bbva_classification_desc__c</name>
+    </fields>
+    <fields>
+        <label>Clasificación BBVA código</label>
+        <name>bbva_classification_type__c</name>
+    </fields>
+    <fields>
+        <label>Oficina principal</label>
+        <name>branch_id__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Área</label>
+        <name>branch_level2_desc__c</name>
+    </fields>
+    <fields>
+        <label>Banca</label>
+        <name>branch_level3_desc__c</name>
+    </fields>
+    <fields>
+        <label>Regional</label>
+        <name>branch_level4_desc__c</name>
+    </fields>
+    <fields>
+        <label>Oficina</label>
+        <name>branch_name__c</name>
+    </fields>
+    <fields>
+        <label>Buró</label>
+        <name>bureau_classification_type__c</name>
+    </fields>
+    <fields>
+        <label>Buró fecha</label>
+        <name>bureau_date__c</name>
+    </fields>
+    <fields>
+        <label>Oficinas</label>
+        <name>business_area_desc__c</name>
+    </fields>
+    <fields>
+        <label>Ciclo de negocio</label>
+        <name>business_cycle_amount__c</name>
+    </fields>
+    <fields>
+        <label>Grupo</label>
+        <name>business_group_id__c</name>
+    </fields>
+    <fields>
+        <label>Cash flow</label>
+        <name>cash_flow_amount__c</name>
+    </fields>
+    <fields>
+        <label>Días de cobro</label>
+        <name>collection_days_number__c</name>
+    </fields>
+    <fields>
+        <label>Clasificacion de estrategias comercial</label>
+        <name>comercial_strategy_classification_name__c</name>
+    </fields>
+    <fields>
+        <label>Vinculación</label>
+        <name>commercial_strategy__c</name>
+    </fields>
+    <fields>
+        <label>Vinculación descripción</label>
+        <name>commercial_strategy_class_name__c</name>
+    </fields>
+    <fields>
+        <label>Vinculación código</label>
+        <name>commercial_strategy_code__c</name>
+    </fields>
+    <fields>
+        <label>Vinculación fecha</label>
+        <name>commercial_strategy_date__c</name>
+    </fields>
+    <fields>
+        <label>Fecha antigüedad empresa</label>
+        <name>company_seniority_date__c</name>
+    </fields>
+    <fields>
+        <label>Antigüedad empresa</label>
+        <name>company_seniority_year__c</name>
+    </fields>
+    <fields>
+        <label>Código país</label>
+        <name>country_id__c</name>
+    </fields>
+    <fields>
+        <label>Crossborder</label>
+        <name>crossborder_type__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de retorno</label>
+        <name>curr_company_turnover_amount__c</name>
+    </fields>
+    <fields>
+        <label>Fecha antigüedad cliente</label>
+        <name>customer_relationship_date__c</name>
+    </fields>
+    <fields>
+        <label>Antigüedad cliente</label>
+        <name>customer_relationship_year__c</name>
+    </fields>
+    <fields>
+        <label>Deuda / EBITDA</label>
+        <name>debt_EBITDA_per__c</name>
+    </fields>
+    <fields>
+        <label>DFB / Ventas</label>
+        <name>dfb_sales_per__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de debito</label>
+        <name>direct_debt_amount__c</name>
+    </fields>
+    <fields>
+        <label>Sector</label>
+        <name>economic_activity_sector__c</name>
+    </fields>
+    <fields>
+        <label>Sub sector</label>
+        <name>economic_activity_subsector__c</name>
+    </fields>
+    <fields>
+        <label>Email</label>
+        <name>email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Empty value --></label>
+        <name>empty_value__c</name>
+    </fields>
+    <fields>
+        <label>Código entidad</label>
+        <name>entity_id__c</name>
+    </fields>
+    <fields>
+        <label>Multa</label>
+        <name>fee_amount__c</name>
+    </fields>
+    <fields>
+        <label>Deuda financiera</label>
+        <name>financial_debt_amount__c</name>
+    </fields>
+    <fields>
+        <label>Margen financiero</label>
+        <name>financial_margin_amount__c</name>
+    </fields>
+    <fields>
+        <label>PF vcto.</label>
+        <name>financial_program_expiry_date__c</name>
+    </fields>
+    <fields>
+        <label>Necesidades operativas de fondo</label>
+        <name>fund_operational_needs_amount__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de deuda inderecta</label>
+        <name>indirect_debt_amount__c</name>
+    </fields>
+    <fields>
+        <label>Código central</label>
+        <name>main_code_id__c</name>
+    </fields>
+    <fields>
+        <label>Cantidad de recursos</label>
+        <name>managed_resources_amount__c</name>
+    </fields>
+    <fields>
+        <label>Margen ord.</label>
+        <name>margin_ordinary_amount__c</name>
+    </fields>
+    <fields>
+        <label>Net cash</label>
+        <name>net_cash_desc__c</name>
+    </fields>
+    <fields>
+        <label>Ingresos .net</label>
+        <name>net_income_amount__c</name>
+    </fields>
+    <fields>
+        <label>Teléfono 2</label>
+        <name>other_phone_number__c</name>
+    </fields>
+    <fields>
+        <label>Grado de propiedad</label>
+        <name>ownership_grade_per__c</name>
+    </fields>
+    <fields>
+        <label>Payback</label>
+        <name>payback_amount__c</name>
+    </fields>
+    <fields>
+        <label>Días de pago</label>
+        <name>payment_days_number__c</name>
+    </fields>
+    <fields>
+        <label>Area regional</label>
+        <name>regional_area_name__c</name>
+    </fields>
+    <fields>
+        <label>Estrategia</label>
+        <name>risk_strategy_class_name__c</name>
+    </fields>
+    <fields>
+        <label>Estrategia código</label>
+        <name>risk_strategy_code__c</name>
+    </fields>
+    <fields>
+        <label>Estrategia fecha</label>
+        <name>risk_strategy_date__c</name>
+    </fields>
+    <fields>
+        <label>Ventas y costo de ventas</label>
+        <name>sales_and_sale_cost_amount__c</name>
+    </fields>
+    <fields>
+        <label>Var ventas</label>
+        <name>sales_var_per__c</name>
+    </fields>
+    <fields>
+        <label>Segmento</label>
+        <name>segment_desc__c</name>
+    </fields>
+    <fields>
+        <label>Segmento código</label>
+        <name>segment_id__c</name>
+    </fields>
+    <fields>
+        <label>Días de existencias</label>
+        <name>stock_days_number__c</name>
+    </fields>
+    <fields>
+        <label>Deuda estructural</label>
+        <name>structural_debt_amount__c</name>
+    </fields>
+    <fields>
+        <label>Identificador único</label>
+        <name>unique_id__c</name>
+    </fields>
+    <fields>
+        <label>Watchlist</label>
+        <name>watchlist_calif_id__c</name>
+    </fields>
+    <fields>
+        <label>Capital de trabajo</label>
+        <name>working_capital_number__c</name>
     </fields>
     <gender>Masculine</gender>
     <layouts>
@@ -856,7 +860,37 @@
             <section>Company Information</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>Enlaces Personalizados</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Datos riesgo</label>
+            <section>Risk Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account_Page_Layout_Account_Analist</layout>
+        <sections>
+            <label>Datos empresa</label>
+            <section>Company Information</section>
+        </sections>
+        <sections>
+            <label>Enlaces Personalizados</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Datos riesgo</label>
+            <section>Risk Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account_Page_Layout_Account_Operative</layout>
+        <sections>
+            <label>Datos empresa</label>
+            <section>Company Information</section>
+        </sections>
+        <sections>
+            <label>Enlaces Personalizados</label>
             <section>Custom Links</section>
         </sections>
         <sections>
@@ -867,14 +901,57 @@
     <layouts>
         <layout>Account_Page_Layout_Economic_Group</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>Enlaces Personalizados</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
+            <label>Detalles</label>
             <section>Fields</section>
         </sections>
-    </layouts>   
+    </layouts>
+    <layouts>
+        <layout>Account_Page_Layout_Economic_Group_Analist</layout>
+        <sections>
+            <label>Enlaces Personalizados</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Detalles</label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account_Page_Layout_Economic_Group_Operative</layout>
+        <sections>
+            <label>Enlaces Personalizados</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Detalles</label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Child Account --></label>
+        <name>Child_Account</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Contact --></label>
+        <name>New_Contact</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Contact --></label>
+        <name>New_Contact_Economic_Group</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Opportunity --></label>
+        <name>New_Opportununity_type</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Account customer type --></description>
+        <label><!-- Customer --></label>
+        <name>Customer</name>
+    </recordTypes>
     <recordTypes>
         <label>Cliente</label>
         <name>Record_Type_Client</name>
@@ -894,5 +971,9 @@
     <webLinks>
         <label><!-- GoogleSearch --></label>
         <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Billing --></label>
+        <name>dwp_kitv__Billing</name>
     </webLinks>
 </CustomObjectTranslation>

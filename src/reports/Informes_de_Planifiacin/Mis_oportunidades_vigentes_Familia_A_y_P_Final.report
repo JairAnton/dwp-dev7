@@ -9,10 +9,14 @@
             <axisBinding>y</axisBinding>
             <column>Opportunity$Amount.CONVERT</column>
         </chartSummaries>
-        <chartType>VerticalColumnGrouped</chartType>
+        <chartSummaries>
+            <axisBinding>y2</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>VerticalColumnStackedLine</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>Opportunity$CreatedDate__c</groupingColumn>
+        <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <secondaryGroupingColumn>Opportunity$opportunity_product_family__c</secondaryGroupingColumn>
@@ -24,7 +28,6 @@
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
         <textSize>12</textSize>
-        <title>Oportunidades vigentes Productos Act-Pas</title>
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
@@ -32,13 +35,16 @@
         <field>Opportunity$Owner</field>
     </columns>
     <columns>
-        <field>Opportunity$account_name__c</field>
+        <field>Opportunity$Account</field>
     </columns>
     <columns>
         <field>Opportunity$Name</field>
     </columns>
     <columns>
         <field>Opportunity$opportunity_product__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$CurrencyIsoCode</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
@@ -51,15 +57,44 @@
         <field>Opportunity$opportunity_status_type__c</field>
     </columns>
     <columns>
-        <field>Opportunity$CloseDate</field>
+        <field>Opportunity$Field_Sup_Closing_Date__c</field>
     </columns>
     <columns>
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
+    <description>Informes: Mis Oportunidades creadas Familia Activo y Pasivo</description>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity$opportunity_product_family__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Financiamiento a corto plazo,Financiamiento a largo plazo,Riesgo de firma,Recursos</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$Type</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>01,02</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$HasOpportunityLineItem</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$StageName</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>01,Qualification,02,03,Negotiation,04,05</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
-        <field>Opportunity$CreatedDate__c</field>
+        <dateGranularity>Week</dateGranularity>
+        <field>Opportunity$Opp_Creation_Date__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
@@ -67,18 +102,17 @@
         <field>Opportunity$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis Oportunidades vigentes Productos AP</name>
+    <name>Mis oportunidades vigentes Familia A y P</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>Oportunidades_Team__c</reportType>
-    <scope>user</scope>
+    <reportType>Opportunity_team_tp__c</reportType>
+    <roleHierarchyFilter>SUB_GERENTE_PROGRAM_MANAGEMENT</roleHierarchyFilter>
+    <scope>salesteamteam</scope>
     <showDetails>true</showDetails>
-    <!-- <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals> -->
     <timeFrameFilter>
-        <dateColumn>Opportunity$CloseDate__c</dateColumn>
-        <interval>INTERVAL_CURRENT</interval>
+        <dateColumn>Opportunity$CreatedDate</dateColumn>
+        <interval>INTERVAL_LAST60</interval>
     </timeFrameFilter>
 </Report>

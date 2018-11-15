@@ -32,8 +32,8 @@
                 <lightning:buttonGroup> 
                     &nbsp;
                     <lightning:button aura:id="BtnTotal" disabled="false" variant="Neutral" label="Total" title="Total" onclick="{! c.BtnChangTotal}"/>
-                    <lightning:button aura:id="BtnPEN" disabled="false" variant="Neutral" label="PEN" title="PEN" onclick="{!c.BtnChangPEN}"/>
-                    <lightning:button aura:id="BtnUSD" disabled="false" variant="Neutral" label="USD" title="USD" onclick="{!c.BtnChangUSD}"/>
+                    <lightning:button aura:id="BtnPEN" disabled="false" variant="Neutral" label="MN" title="MN" onclick="{!c.BtnChangPEN}"/>
+                    <lightning:button aura:id="BtnUSD" disabled="false" variant="Neutral" label="ME" title="ME" onclick="{!c.BtnChangUSD}"/>
                 </lightning:buttonGroup>
             </div>
         </div>
@@ -49,7 +49,7 @@
                                                        RelatedField="account_id__c"
                                                        Header="Value_Unificade__c"
                                                        FilterStatic="{!'is_date_type_1_within_last_6_months__c = true and product_desc__c!=\'\' and 
-                                                                     product_desc__c=\''+v.ProductIS+'\' and CurrencyIsoCode=\''+v.coint1+'\' and 
+                                                                     product_desc__c=\''+v.ProductIS+'\' and origin_currenIso_Name__c=\''+v.coint1+'\' and 
                                                                      profitability_subcategory_type__c IN (\''+v.profiType+'\',\''+v.profiType1+'\',\''+v.profiType2+'\',\''+v.profiType3+'\',\''+v.profiType4+'\')'}"
                                                        Order="profitability_subcategory_type_order__c ASC, year_month_day_date__c ASC" 
                                                        Group="profitability_subcategory_form__c"

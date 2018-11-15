@@ -12,7 +12,7 @@
         <chartType>Donut</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>false</expandOthers>
-        <groupingColumn>Account.branch_id__c</groupingColumn>
+        <groupingColumn>Account_BBVA_Information__c.product_desc__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>false</showAxisLabels>
@@ -62,12 +62,12 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.branch_id__c</field>
+        <field>Account_BBVA_Information__c.product_desc__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account_BBVA_Information__c.product_desc__c</field>
+        <field>Account.branch_id__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Saldo en pasivos</name>
@@ -78,8 +78,6 @@
     <reportType>AccountCustomEntity$Account_BBVA_Information__c</reportType>
     <scope>team</scope>
     <showDetails>true</showDetails>
-    <!-- <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals> -->
     <timeFrameFilter>
         <dateColumn>LAST_UPDATE</dateColumn>
         <interval>INTERVAL_THISMONTH</interval>

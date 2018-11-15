@@ -21,52 +21,51 @@ public with sharing class GraphicsGenerator_cls {
         Date fActual;
         
         Integer mes=0;
-        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
-            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId];
+        if(sNombreReporte=='EVOLUCION_CUOTA_SBS' || sNombreReporte=='EVOLUCION_DEUDA_SBS'){
+            list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId and  is_last_date__c = true];
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
                 fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-11);
                 fActual=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(1);
 
- 			if('Total'.equals(sFiltro))
+ 			if(sFiltro =='Total')
  			{ 				
  				registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c) 
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and   (year_month_day_date__c > :fInicial and year_month_day_date__c<=:fActual) and product_group_classification_id__c='Total' and product_desc__c=''
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and   (year_month_day_date__c > :fInicial and year_month_day_date__c<=:fActual) and product_group_classification_id__c='Total' and product_desc__c='' and is_last_date__c = true
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)  
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
-        	else if('Indirecta'.equals(sFiltro) || 'Directa'.equals(sFiltro))
+        	else if(sFiltro=='Indirecta' || sFiltro=='Directa')
  			{
         		              registrosReporte = [SELECT max(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c =''
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c=:sFiltro AND  product_desc__c ='' and is_last_date__c = true
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
- 			else if('Otros indirectas'.equals(sFiltro))
+ 			else if(sFiltro=='Otros indirectas')
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='ACEPTACIONES BANCARIAS (OTROS)'
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Indirecta' and product_desc__c='ACEPTACIONES BANCARIAS (OTROS)' and is_last_date__c = true
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
  			}
- 			else if('Otros directas'.equals(sFiltro))
+ 			else if(sFiltro=='Otros directas')
  			{
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Directa' and product_desc__c='OTROS'
-	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_group_classification_id__c='Directa' and product_desc__c='OTROS'  and is_last_date__c = true
+	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) 
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
- 			}
- 			
+ 			}     
  			else
         	{
 
         		registrosReporte = [SELECT sum(debt_quote_amount__c),calendar_month(year_month_day_date__c),entity_name__c,sum(debt_current_balance_amount__c)
 	                                                                FROM Account_Banking_System_Debt__c 
-    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_desc__c=:sFiltro
+    	                                                                where account_id__c=:sId and entity_name__c =:sConcepto and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) and product_desc__c=:sFiltro  and is_last_date__c = true
 	                                                                group by entity_name__c, calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c)
 	                                                                order by calendar_year(year_month_day_date__c), calendar_month(year_month_day_date__c) ];
         	}
@@ -93,7 +92,7 @@ public with sharing class GraphicsGenerator_cls {
 
 	            	if(tab.get('expr1')==agrupador.get(mes))
 	            	{
-	            		if('EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)) valores.add(String.valueOf(tab.get('expr2')));
+	            		if(sNombreReporte=='EVOLUCION_DEUDA_SBS') valores.add(String.valueOf(tab.get('expr2')));
 	            		else valores.add(String.valueOf(tab.get('expr0')));	            		
 	            		mes++;
 	            	}
@@ -109,7 +108,7 @@ public with sharing class GraphicsGenerator_cls {
             }
         }
 
-        if('VINCULACION'.equals(sNombreReporte) )
+        if(sNombreReporte=='VINCULACION' )
         {
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') AND account_id__c=:sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
@@ -161,14 +160,14 @@ public with sharing class GraphicsGenerator_cls {
             }
         }
 
-        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte))
+        if(sNombreReporte=='EVOLUCION_FACTURACION_TOTAL')
         {
             list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Profitability__c WHERE profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN','TOTAL CLIENTE','TOTAL DI','TOTAL SPREAD','TOTAL TASA') and account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true ];
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
-                List<String> proCategory=  new List<String>{'Spread', 'DI','Altas','Tasa'};
                 fInicial=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(-5);
                 fActual=((Date)lasDateD[0].get('dateP')).toStartofMonth().addMonths(1);
+                List<String> proCategory=  new List<String>{'Spread', 'DI','Altas','Tasa'};
                 if(sFiltro=='CLIENTE'){
                     switch on sConcepto {
                         when 'Spread' {       
@@ -186,7 +185,6 @@ public with sharing class GraphicsGenerator_cls {
                     }
                 }else{
                     proCategory.clear();
-                    system.debug(sFiltroRango);
                     if(sFiltroRango=='TOTAL'){
                         switch on sConcepto {
                         when 'Spread' {       
@@ -203,20 +201,19 @@ public with sharing class GraphicsGenerator_cls {
                         }
                         when 'TOTAL'{
                             proCategory.add('Altas');
-                            sConcepto='TOTAL';
                         }
                     }
                     }else{
                         proCategory= new List<String>{'Spread', 'DI','Altas','Tasa'};
                     }
                 }
-                system.debug('proCategory: '+proCategory);
-                List<Account_Profitability__c> auxTab  = [SELECT Value_Unificade__c, profitability_subcategory_type__c,year_month_day_date__c,CurrencyIsoCode
+
+                List<Account_Profitability__c> auxTab  = [SELECT Value_Unificade__c, profitability_subcategory_type__c,year_month_day_date__c,Origin_currenIsoCode__c
                                                                             FROM Account_Profitability__c 
                                                                             where account_id__c=:sId and  is_date_type_1_within_last_6_months__c = true 
                                                                             and product_desc__c!='' and profitability_subcategory_type__c=:sConcepto
                                                                             and product_desc__c=: sFiltro
-                                                                            and CurrencyIsoCode=: sFiltroRango=='MN'||sFiltroRango=='TOTAL CLIENTE' || sFiltroRango=='TOTAL' ? 'PEN' : 'USD'
+                                                                            and origin_currenIso_Name__c=: sFiltroRango=='MN'||sFiltroRango=='TOTAL CLIENTE' || sFiltroRango=='TOTAL' ? 'PEN' : 'OTRO'
                                                                             and profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','ME','MN','TOTAL CLIENTE','TOTAL DI','TOTAL SPREAD','TOTAL TASA') 
                                                           					and profitability_category_type__c IN: proCategory
                                                           					and (year_month_day_date__c > :fInicial and year_month_day_date__c<:fActual) 
@@ -265,7 +262,7 @@ public with sharing class GraphicsGenerator_cls {
 
     @AuraEnabled public Static List<String> getAgrupadores( String sNombreReporte, String sId){
         List<String> agrupadores= new List<String>();         
-        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
+        if(sNombreReporte=='EVOLUCION_CUOTA_SBS' || sNombreReporte=='EVOLUCION_DEUDA_SBS'){
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
@@ -277,7 +274,7 @@ public with sharing class GraphicsGenerator_cls {
             	}
             }
         }
-        if('VINCULACION'.equals(sNombreReporte)){
+        if(sNombreReporte=='VINCULACION'){
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C WHERE indicator_name__c IN ('Estrella','Transaccional','Potencial','Básico') AND account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
@@ -289,7 +286,7 @@ public with sharing class GraphicsGenerator_cls {
             	}
         	}
         }
-        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte)){
+        if(sNombreReporte=='EVOLUCION_FACTURACION_TOTAL'){
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Profitability__c WHERE profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','')  AND account_id__c =: sId and  is_date_type_1_within_last_6_months__c = true];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
@@ -307,7 +304,7 @@ public with sharing class GraphicsGenerator_cls {
 
      @AuraEnabled public Static List<String> getConceptos(String sNombreReporte,String sFiltroRango){
         List<String> concepto = new List<String>(); 
-        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
+        if(sNombreReporte=='EVOLUCION_CUOTA_SBS' || sNombreReporte=='EVOLUCION_DEUDA_SBS'){
             concepto.add('BBVA');
 			concepto.add('BCP');
 			concepto.add('SCOTIA');
@@ -315,14 +312,14 @@ public with sharing class GraphicsGenerator_cls {
 			concepto.add('OTROS');
         }        
 
-        if('VINCULACION'.equals(sNombreReporte)){
+        if(sNombreReporte=='VINCULACION'){
             concepto.add('Estrella');
             concepto.add('Transaccional');
             concepto.add('Potencial');
             concepto.add('Básico'); 	
         }      
 
-        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte)){
+        if(sNombreReporte=='EVOLUCION_FACTURACION_TOTAL'){
            
             concepto.add('Spread');
             concepto.add('Tasa');
@@ -346,7 +343,7 @@ public with sharing class GraphicsGenerator_cls {
         List<String> indicadores = new List<String>(); 
         List<String> concepto = new List<String>(); 
         List<String> val1 = new List<String>();         
-        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){
+        if(sNombreReporte=='EVOLUCION_CUOTA_SBS'|| sNombreReporte=='EVOLUCION_DEUDA_SBS'){
    			agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,'');
             conjunto.add(concepto);
@@ -356,7 +353,7 @@ public with sharing class GraphicsGenerator_cls {
            		conjunto.add(new List<String>(getValores(concepto.get(i),sFiltro,sFiltroRango,sNombreReporte,sId)));
             }
         }
-        if('VINCULACION'.equals(sNombreReporte))
+        if(sNombreReporte=='VINCULACION')
         {
         	agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,'');
@@ -368,7 +365,7 @@ public with sharing class GraphicsGenerator_cls {
             }	
         }
 
-        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte))
+        if(sNombreReporte=='EVOLUCION_FACTURACION_TOTAL')
         {
             agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,sFiltroRango);

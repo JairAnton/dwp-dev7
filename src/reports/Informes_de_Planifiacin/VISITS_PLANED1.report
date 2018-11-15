@@ -5,17 +5,16 @@
         <backgroundColor2>#FFFFFF</backgroundColor2>
         <backgroundFadeDir>Diagonal</backgroundFadeDir>
         <chartSummaries>
-            <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Opportunity$Amount.CONVERT</column>
+            <column>RowCount</column>
         </chartSummaries>
-        <chartType>VerticalColumnGrouped</chartType>
+        <chartType>VerticalColumnStacked</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>Opportunity$CreatedDate__c</groupingColumn>
+        <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Opportunity$opportunity_product_family__c</secondaryGroupingColumn>
+        <secondaryGroupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -24,61 +23,55 @@
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
         <textSize>12</textSize>
-        <title>Oportunidades creadas Productos Act-Pas</title>
+        <title>Mis visitas Planificadas</title>
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>Opportunity$Owner</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.Branch_name_path_desc__c</field>
     </columns>
     <columns>
-        <field>Opportunity$account_name__c</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.branch_name__c</field>
     </columns>
     <columns>
-        <field>Opportunity$Name</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.Owner_calculated__c</field>
     </columns>
     <columns>
-        <field>Opportunity$opportunity_product__c</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.main_code_id__c</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c$Name</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Opportunity$Amount.CONVERT</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__visit_users_number__c</field>
     </columns>
     <columns>
-        <field>Opportunity$StageName</field>
-    </columns>
-    <columns>
-        <field>Opportunity$opportunity_status_type__c</field>
-    </columns>
-    <columns>
-        <field>Opportunity$CloseDate</field>
-    </columns>
-    <columns>
-        <field>Opportunity$success_probability_desc__c</field>
+        <field>dwp_kitv__Visit__c$dwp_kitv__visit_summary_desc__c</field>
     </columns>
     <currency>PEN</currency>
+    <description>Visitas planificadas</description>
     <format>Summary</format>
     <groupingsDown>
-        <field>Opportunity$CreatedDate__c</field>
+        <dateGranularity>Week</dateGranularity>
+        <field>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Opportunity$opportunity_product_family__c</field>
+        <field>dwp_kitv__Visit__c$report_visit_status_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis Oportunidades creadas Productos AP</name>
+    <name>Mis visitas planificadas</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>Oportunidades_Team__c</reportType>
-    <scope>user</scope>
+    <reportType>Cliente_Equipo_BBVA__c</reportType>
+    <scope>team</scope>
     <showDetails>true</showDetails>
-    <!-- <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals> -->
     <timeFrameFilter>
-        <dateColumn>Opportunity$CloseDate__c</dateColumn>
-        <interval>INTERVAL_CURRENT</interval>
+        <dateColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</dateColumn>
+        <interval>INTERVAL_NEXT60</interval>
     </timeFrameFilter>
 </Report>
