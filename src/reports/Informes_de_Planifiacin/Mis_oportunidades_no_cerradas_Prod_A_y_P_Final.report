@@ -60,7 +60,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informes: Mis oportunidades no cerradas Producto Resto</description>
+    <description>Informes: Mis oportunidades no cerradas Producto Activo y Pasivo</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
