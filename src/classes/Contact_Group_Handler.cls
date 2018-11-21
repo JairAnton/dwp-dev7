@@ -11,10 +11,10 @@ public without sharing class Contact_Group_Handler {
             if(c.CurrencyIsoCode==Null || test.isRunningTest()){    
                 c.CurrencyIsoCode = 'PEN';
             }
-            c.FirstName=c.FirstName.toUpperCase();
-            c.LastName=c.LastName.toUpperCase();
-            c.MiddleName=c.MiddleName.toUpperCase();
-            c.Suffix =c.Suffix.toUpperCase();
+            c.FirstName=c.FirstName.toUpperCase(UserInfo.getLocale());
+            c.LastName=c.LastName.toUpperCase(UserInfo.getLocale());
+            c.MiddleName=c.MiddleName.toUpperCase(UserInfo.getLocale());
+            c.Suffix =c.Suffix.toUpperCase(UserInfo.getLocale());
             
         }
     }
