@@ -63,7 +63,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informe: Mis oportunidades desestimadas Familia Resto</description>
+    <description>Informe: Mis oportunidades desestimadas Otros Productos</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -102,7 +102,7 @@
         <field>Opportunity$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis Oportunidades desestimadas Fam Resto</name>
+    <name>Mis Oportunidades desestimadas Otros Prd</name>
     <params>
         <name>co</name>
         <value>1</value>

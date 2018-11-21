@@ -60,7 +60,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informe: Mis oportunidades formalizadas Producto Resto</description>
+    <description>Informe: Mis oportunidades formalizadas Otros Producto</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -105,7 +105,7 @@
         <field>Opportunity$opportunity_product__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades formalizadas Prod Rest</name>
+    <name>Mis oportunidades formalizadas Otros Prd</name>
     <params>
         <name>co</name>
         <value>1</value>
