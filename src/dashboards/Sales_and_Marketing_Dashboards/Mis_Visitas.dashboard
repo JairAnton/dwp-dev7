@@ -9,7 +9,7 @@
     <dashboardColorPalette>water</dashboardColorPalette>
     <dashboardGridLayout>
         <dashboardGridComponents>
-            <colSpan>4</colSpan>
+            <colSpan>5</colSpan>
             <columnIndex>0</columnIndex>
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
@@ -39,7 +39,7 @@
         </dashboardGridComponents>
         <dashboardGridComponents>
             <colSpan>4</colSpan>
-            <columnIndex>4</columnIndex>
+            <columnIndex>5</columnIndex>
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartAxisRange>Auto</chartAxisRange>
