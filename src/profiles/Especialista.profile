@@ -4313,7 +4313,7 @@ Ejecutivos de REDES</description>
         <field>OpportunityLineItem.regulatory_capital_per__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>dwp_kitv__Visit_Management_Team__c.on_a_team__c</field>
         <readable>true</readable>
@@ -4333,6 +4333,46 @@ Ejecutivos de REDES</description>
         <field>Opportunity_Solution_Commitment__c.price_quotation_method__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Branch__c.User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.branch_category_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.branch_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.branch_level4__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.primary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.user_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User_Branch__c.user_prof_position_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
