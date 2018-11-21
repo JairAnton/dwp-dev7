@@ -23,7 +23,6 @@
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
         <textSize>12</textSize>
-        <title>Mis visitas gestionadas</title>
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
