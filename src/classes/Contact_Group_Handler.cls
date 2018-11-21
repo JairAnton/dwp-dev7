@@ -10,7 +10,12 @@ public without sharing class Contact_Group_Handler {
         for(Contact c : Contacts){    
             if(c.CurrencyIsoCode==Null || test.isRunningTest()){    
                 c.CurrencyIsoCode = 'PEN';
-            }  
+            }
+            c.FirstName=c.FirstName.toUpperCase();
+            c.LastName=c.LastName.toUpperCase();
+            c.MiddleName=c.MiddleName.toUpperCase();
+            c.Suffix =c.Suffix.toUpperCase();
+            
         }
     }
     
