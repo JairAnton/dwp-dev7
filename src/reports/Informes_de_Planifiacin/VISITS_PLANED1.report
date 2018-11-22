@@ -50,6 +50,15 @@
     </columns>
     <currency>PEN</currency>
     <description>Visitas planificadas</description>
+    <filter>
+        <criteriaItems>
+            <column>dwp_kitv__Visit__c$report_visit_status_type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>No realizada</value>
+        </criteriaItems>
+        <language>es</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Week</dateGranularity>
