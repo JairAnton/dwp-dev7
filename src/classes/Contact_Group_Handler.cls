@@ -11,15 +11,19 @@ public without sharing class Contact_Group_Handler {
             if(c.CurrencyIsoCode==Null || test.isRunningTest()){    
                 c.CurrencyIsoCode = 'PEN';
             }
-            String leng = UserInfo.getLocale();
-            if(!String.isEmpty(c.FirstName))
+           	final String leng = UserInfo.getLocale();
+            if(!String.isEmpty(c.FirstName)){
             	c.FirstName=c.FirstName.toUpperCase(leng);
-            if(!String.isEmpty(c.LastName))
+            }
+            if(!String.isEmpty(c.LastName)){
             	c.LastName=c.LastName.toUpperCase(leng);
-            if(!String.isEmpty(c.MiddleName))
+            }
+            if(!String.isEmpty(c.MiddleName)){
             	c.MiddleName=c.MiddleName.toUpperCase(leng);
-            if(!String.isEmpty(c.Suffix))
+            }
+            if(!String.isEmpty(c.Suffix)){
             	c.Suffix =c.Suffix.toUpperCase(leng);
+            }
             
         }
     }
