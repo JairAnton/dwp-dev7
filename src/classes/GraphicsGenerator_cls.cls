@@ -15,7 +15,7 @@ public with sharing class GraphicsGenerator_cls {
     @AuraEnabled public Static List<String> getValores(String sConcepto, String sFiltro, String sFiltroRango,String sNombreReporte,String sId){    
     	
         List<String> valores = new List<String>();
-        List<String> agrupadores = new List<String>();        
+        //List<String> agrupadores = new List<String>();  //Yuliño: correcion      
         List<AggregateResult> registrosReporte = new List<AggregateResult>();
         Date fInicial;
         Date fActual;
@@ -340,9 +340,9 @@ public with sharing class GraphicsGenerator_cls {
                                                                        String sId){
         List<List<String>> conjunto = new List<List<String>>();
         List<String> agrupador = new List<String>(); 
-        List<String> indicadores = new List<String>(); 
+        //List<String> indicadores = new List<String>(); //Yuliño: correcion
         List<String> concepto = new List<String>(); 
-        List<String> val1 = new List<String>();         
+        //List<String> val1 = new List<String>();    //Yuliño: correcion     
         if(sNombreReporte=='EVOLUCION_CUOTA_SBS'|| sNombreReporte=='EVOLUCION_DEUDA_SBS'){
    			agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,'');
@@ -378,5 +378,8 @@ public with sharing class GraphicsGenerator_cls {
         }
         return conjunto;
 
+    }
+
+    private GraphicsGenerator_cls(){        //Yuliño: correcion
     }
 }
