@@ -229,7 +229,7 @@
                     <apex:outputPanel rendered="{!Garantia.guarantee_status_type__c=='02'}">
                         <apex:outputText value="{0, number,0}">
                             <apex:param value="{!Garantia.guarantee_term_number__c}"/>
-                        </apex:outputText>&nbsp;<apex:outputField value="{!Garantia.guarantee_periodicity_type__c}"/>
+                        </apex:outputText>&nbsp;<apex:outputField value="{!Garantia.guarantee_periodicity_type__c}"></apex:outputField>
                     </apex:outputPanel>
                 </td>
                 <td>
