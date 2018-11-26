@@ -58,7 +58,7 @@ global without sharing class PDFclassButton  implements dwp_dbpn.DynamicFlowVali
              }
     }
 
-    private ReasignButtonClass(){ //Yuliño: correcion
+    private PDFclassButton(){ //Yuliño: correcion
     }
 
 }

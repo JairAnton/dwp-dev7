@@ -20,7 +20,7 @@ public class ProfitabilityController_cls {
         List<String> args = new String[]{'0','number','###,###,##0.00'};
             for(AggregateResult r :total.values()){
                 list<string> a = new list<string>();
-                //list<string> b = new list<string>();//Yuliño: correcion
+                list<string> b = new list<string>();//Yuliño: correcion
                 nc=0;
                 nm=0;
                 tt =0;
