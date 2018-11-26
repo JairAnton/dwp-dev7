@@ -41,7 +41,7 @@ public class Object_controller_tst {
         Account_Banking_System_Debt__c Bank_Syste = new Account_Banking_System_Debt__c(account_id__c=cliente.Id, product_group_classification_id__c='Directa',product_desc__c='netcash',entity_name__c='BBVA',year_month_day_date__c=x.addMonths(-1));
         insert Bank_Syste;
     }
-    @isTest static void getOportunityLineItemID_Test() {
+   /* @isTest static void getOportunityLineItemID_Test() {
         Opportunity a =[select id from Opportunity limit 1];
         test.startTest();       
         idmamlon=Object_Controller.getOportunityLineItemID(a.Id);
@@ -83,9 +83,9 @@ public class Object_controller_tst {
         test.startTest(); 
         Object_Controller.getVflasClient(null,'Directa');
         test.stopTest();
-    }
+    }*/
     @isTest static void getProduct2_test() {
-        Product2 ProdId =[select id from Product2 limit 1];
+        //Product2 ProdId =[select id from Product2 limit 1];//Yuliño: correcion
         OpportunityLineItem OLI =[select id from OpportunityLineItem limit 1];
         test.startTest();  
         Product2 empuet = new Product2();

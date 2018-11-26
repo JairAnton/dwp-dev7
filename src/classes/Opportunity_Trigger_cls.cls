@@ -11,7 +11,7 @@ public without sharing class Opportunity_Trigger_cls {
 	*
 	*/
     public void AsignBeforeInsert(list<Opportunity>Opps_New, Map<id,Opportunity>Opps_NewMap){
-        date CDate;
+        //date CDate;//Yuliño: correcion
         date PDate;
         for(Opportunity opp:Opps_New){
             if(opp.Type=='01'){	
