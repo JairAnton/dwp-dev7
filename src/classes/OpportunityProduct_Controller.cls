@@ -14,8 +14,8 @@ public without sharing class OpportunityProduct_Controller {
     
     @AuraEnabled
     public static list<Task> getTasks(String val){
-        if(val==null)val='';
-        string Search ='%'+val+'%';
+        //if(val==null)val=''; //Yulino 28/11/2018 : Se comento la linea 122
+        string Search = '%'+ val == null ? '' :val  +'%'; // '%'+val+'%'; //Yulino 28/11/2018 : Se optimizó con ternario
         list<Task>  tasks = new list<task>();
         list<Task>  tasks2 = new list<task>();
         tasks = [SELECT Id,Status,Subject,CreatedDate FROM Task WHERE Status =: System.Label.taskFilter AND Subject  LIKE : Search ORDER BY Subject,CreatedDate DESC  LIMIT 10 ];
@@ -120,5 +120,8 @@ public without sharing class OpportunityProduct_Controller {
             }
         }
         return val;
+    }
+
+    private OpportunityProduct_Controller(){ //Yulino 28/11/2018 : Se creo el contructor
     }
 }

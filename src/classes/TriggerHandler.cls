@@ -39,7 +39,7 @@ public virtual class TriggerHandler {
     addToLoopCount();
 
     // dispatch to the correct handler method
-    if(this.context == TriggerContext.BEFORE_INSERT) {
+    /*if(this.context == TriggerContext.BEFORE_INSERT) {
       this.beforeInsert();
     } else if(this.context == TriggerContext.BEFORE_UPDATE) {
       this.beforeUpdate();
@@ -53,7 +53,7 @@ public virtual class TriggerHandler {
       this.afterDelete();
     } else if(this.context == TriggerContext.AFTER_UNDELETE) {
       this.afterUndelete();
-    }
+    }*/ //yulino 27/11/2018 : comentado todo el bloque
 
   }
 
@@ -167,7 +167,7 @@ public virtual class TriggerHandler {
    ***************************************/
 
   // context-specific methods for override
-  @TestVisible
+  /*@TestVisible
   protected virtual void beforeInsert(){}
   @TestVisible
   protected virtual void beforeUpdate(){}
@@ -180,7 +180,7 @@ public virtual class TriggerHandler {
   @TestVisible
   protected virtual void afterDelete(){}
   @TestVisible
-  protected virtual void afterUndelete(){}
+  protected virtual void afterUndelete(){}*/ //yulino 27/11/2018 : comentado
 
   /***************************************
    * inner classes
@@ -208,11 +208,11 @@ public virtual class TriggerHandler {
     }
 
     public Boolean exceeded() {
-      if(this.max < 0) return false;
+     /* if(this.max < 0) return false;
       if(this.count > this.max) {
         return true;
-      }
-      return false;
+      }*/ //yulino 27/11/2018 : comentado
+      return (this.max < 0) ? false : ((this.count > this.max) ? true : false);//yulino antes false ahora ternario
     }
 
     public Integer getMax() {
