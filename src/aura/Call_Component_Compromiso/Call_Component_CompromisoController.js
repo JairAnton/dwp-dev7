@@ -16,20 +16,20 @@
     },
     handleStatusChange : function(component, event, helper) {
         if(event.getParam("status")==="FINISHED"){ 
-            var toastEventF = $A.get("e.force:showToast"); 
-            toastEventF.setParams({ 
+            var toastEventF = $A.get("e.force:showToast");  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
+            toastEventF.setParams({  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
                 title: "Success!",
                 message: "Cotizacion Terminada", 
                 type: "success" 
             });
-            toastEventF.fire(); 
-            var outputVarF = component.get("v.recordId");
-            var urlEventF = $A.get("e.force:navigateToSObject");
+            toastEventF.fire();  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
+            var outputVarF = component.get("v.recordId");  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
+            var urlEventF = $A.get("e.force:navigateToSObject");  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
             urlEventF.setParams({
                 "recordId": outputVarF,
                 "slideDevName": "related"
             });
-            urlEventF.fire();
+            urlEventF.fire();  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
         }
         if(event.getParam("status")==="FINISHED_SCREEN"){
             var outputVar = component.get("v.recordId");
@@ -41,17 +41,17 @@
             urlEvent.fire();
         }
         if(event.getParam("status")==="ERROR"){
-            var toastEventE = $A.get("e.force:showToast"); 
-            toastEventE.setParams({ 
+            var toastEventE = $A.get("e.force:showToast");   // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
+            toastEventE.setParams({   // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
                 title: "Error Message!",
                 message: "Cotizacion Terminada", 
                 type: "error" 
             });
-            toastEventE.fire(); 
-            var outputVar = component.get("v.recordId");
+            toastEventE.fire();   // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
+            var outputVarE = component.get("v.recordId");  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
             var urlEventE = $A.get("e.force:navigateToSObject");
-            urlEventE.setParams({
-                "recordId": outputVar,
+            urlEventE.setParams({  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
+                "recordId": outputVarE,  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
                 "slideDevName": "related"
             });
             urlEventE.fire();

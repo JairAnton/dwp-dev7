@@ -595,6 +595,6 @@ public without sharing class Product_cls {
         }
     }
 
-    private Product_cls(){//Yulino 28/11/2018 : Se agregó el constructor privado
+    public Product_cls(){//Yulino 28/11/2018 : Se agregó el constructor privado
     }
 }

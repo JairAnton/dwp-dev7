@@ -10,7 +10,7 @@ global class statusAssistantButtons implements dwp_dbpn.DynamicButtonsStatusInte
         return buttonsStatusSet;
     }
 	
-    private statusAssistantButtons(){//Yulino 27/11/2018 : se agregó el contructor
+    public statusAssistantButtons(){//Yulino 27/11/2018 : se agregó el contructor
     }
 
 }

@@ -23,7 +23,7 @@ public class CompromiseProducts_helper {
 
     //Wrapper class to map the input values with the input attributes of the webservice 
     public class RequestCompromiseProducts_Wrapper{
-        public String productModel;
+        public String productModel { get; set; } //Yulino 29/11/2018 : se agregó el get y set
         
         public RequestCompromiseProducts_Wrapper(String productModel){
             this.productModel = (productModel!=null?productModel:'');
@@ -32,30 +32,30 @@ public class CompromiseProducts_helper {
 
     //Wrapper class to the response 
     public class ResponseCompromiseProducts_Wrapper{
-        public Response_data[] data;
+        public Response_data[] data { get; set; } //Yulino 29/11/2018 : se agregó el get y set
     }
 
     public class Response_data{
-        public String id;
-		public String name;
-		public Response_committableData[] committableData;
+        public String id { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+		public String name { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+		public Response_committableData[] committableData{ get; set; } //Yulino 29/11/2018 : se agregó el get y set
     }
 
     public class Response_committableData{
-        public String unitType;
-		public String description;
-		public Integer validityDays;
-		public String currency_type;
-		public Response_discounts[] discounts;
+        public String unitType { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+		public String description { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+		public Integer validityDays { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+		public String currency_type { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+		public Response_discounts[] discounts { get; set; } //Yulino 29/11/2018 : se agregó el get y set
     }
     
     public class Response_discounts {
-		public Response_item item;
-		public Integer percentage;
+		public Response_item item { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+		public Integer percentage { get; set; } //Yulino 29/11/2018 : se agregó el get y set
 	}
 
 	public class Response_item {
-		public String id;
+		public String id { get; set; } //Yulino 29/11/2018 : se agregó el get y set
 	}
 
 }

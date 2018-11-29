@@ -88,19 +88,19 @@ public class AnalyzeRate_helper {
     }
 
     public class RequestAnalyzeRate_Wrapper{
-        public String lstFees;
-        public String strRequestedTea;
-        public String lstLiquitidyIndicators;
-        public String productId;
-        public String strAmount;
-        public String currencyIsoCode;
+        public String lstFees { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+        public String strRequestedTea { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+        public String lstLiquitidyIndicators { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+        public String productId { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+        public String strAmount { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+        public String currencyIsoCode { get; set; } //Yulino 29/11/2018 : se agregó el get y set
     }
     public class Request_fees_str {
-		public Request_detail_str detail;
-		public Request_feeType feeType;
+		public Request_detail_str detail { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+		public Request_feeType feeType { get; set; } //Yulino 29/11/2018 : se agregó el get y set
 	}
     public class Request_detail_str {
-		public String percentage;
+		public String percentage { get; set; } //Yulino 29/11/2018 : se agregó el get y set
 	}
     public class Request_feeType {
 		public String id;

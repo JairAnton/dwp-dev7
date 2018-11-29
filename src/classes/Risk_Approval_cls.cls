@@ -128,6 +128,6 @@ public without sharing class Risk_Approval_cls {
         }
     }
     
-    private Risk_Approval_cls(){//Yulino 27-11-2018: agregado el constructor 
+    public Risk_Approval_cls(){//Yulino 27-11-2018: agregado el constructor 
     }
 }

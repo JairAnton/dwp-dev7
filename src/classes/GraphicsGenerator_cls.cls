@@ -380,7 +380,7 @@ public with sharing class GraphicsGenerator_cls {
 
     }
     
-    private GraphicsGenerator_cls(){
+    public GraphicsGenerator_cls(){
         
     }
 }
