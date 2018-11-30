@@ -1,4 +1,4 @@
-public class CreateQuotationRequest_helper {
+public without sharing class CreateQuotationRequest_helper {
 
     public CreateQuotationRequest_Wrapper inputDataMapping;
     
@@ -33,13 +33,13 @@ public class CreateQuotationRequest_helper {
     public System.HttpResponse invoke(){
         return iaso.GBL_Integration_GenericService.invoke('CreateQuotationRequest',generateJSONRequest());
     }
-    
+    // Yulino 30/11/2018 : SE AGREGÓ EL GET Y SET EN TODAS LA CLASES 
     // Wrapper class to map the input values with the input attributes of the webservice 
     public class CreateQuotationRequest_Wrapper{
-    	public String calculationRatesId;
-        public String proposedAPRpercent;
-        public String requestComment;
-        public String guaranteeType;
+    	public String calculationRatesId {get; set;}  
+        public String proposedAPRpercent {get; set;}  
+        public String requestComment {get; set;}  
+        public String guaranteeType {get; set;}  
         
         public CreateQuotationRequest_Wrapper(String calculationRatesId, String proposedAPR, String requestComment, String guaranteeType){
             this.calculationRatesId = (calculationRatesId!=null?calculationRatesId:'');
@@ -51,52 +51,52 @@ public class CreateQuotationRequest_helper {
     
     //Wrapper classes for the web service response
     public class ResponseCreateQuotationRequest_Wrapper {
-		public Response_Data data;
+		public Response_Data data {get; set;}  
     }
 
 	public class Response_Status {
-		public String id;
-		public String name;
+		public String id {get; set;}  
+		public String name {get; set;}  
 	}
 
 	public class Response_InvolvementType {
-		public String id;
-		public String description;
+		public String id {get; set;}  
+		public String description {get; set;}  
 	}
 
 	public class Response_Involvements {
-		public Response_InvolvementType involvementType;
+		public Response_InvolvementType involvementType {get; set;}  
 	}
 
 	public class Response_Quotations {
-		public Response_Status status;
-		public String id;
-		public String version;
-		public List<Response_BusinessAgents> businessAgents;
-		public Response_Disbursement disbursement;
+		public Response_Status status {get; set;}  
+		public String id {get; set;}  
+		public String version {get; set;}  
+		public List<Response_BusinessAgents> businessAgents {get; set;}  
+		public Response_Disbursement disbursement {get; set;}  
 	}
 
 	public class Response_Classification {
-		public List<Response_Involvements> involvements;
+		public List<Response_Involvements> involvements{get; set;}  
 	}
 
 	public class Response_Data {
-		public String id;
-		public Response_Status status;
-		public List<Response_Quotations> quotations;
+		public String id {get; set;}  
+		public Response_Status status {get; set;}  
+		public List<Response_Quotations> quotations {get; set;}  
 	}
 
 	public class Response_BusinessAgents {
-		public String id;
-		public String firstName;
-		public String lastName;
-		public String secondLastName;
-		public Response_Status workTeam;
-		public Response_Classification classification;
+		public String id  {get; set;}
+		public String firstName  {get; set;}
+		public String lastName  {get; set;}
+		public String secondLastName  {get; set;}
+		public Response_Status workTeam  {get; set;}
+		public Response_Classification classification  {get; set;}
 	}
 
 	public class Response_Disbursement {
-		public Response_InvolvementType status;
+		public Response_InvolvementType status  {get; set;}
 	}
 
 	public static ResponseCreateQuotationRequest_Wrapper parse(String json) {
