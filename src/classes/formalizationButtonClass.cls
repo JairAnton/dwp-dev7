@@ -1,4 +1,4 @@
-Global class formalizationButtonClass implements dwp_dbpn.DynamicFlowValidationInterface {
+Global without sharing class formalizationButtonClass implements dwp_dbpn.DynamicFlowValidationInterface {
 
     global static List<String> getErrorMessagesList(String recordId, String source, String validationClass)
     {

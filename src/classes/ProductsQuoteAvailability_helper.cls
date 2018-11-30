@@ -1,4 +1,4 @@
-public class ProductsQuoteAvailability_helper {
+public without sharing class ProductsQuoteAvailability_helper {
     
     public ProductsQuoteAvailability_Wrapper inputDataMapping;
     

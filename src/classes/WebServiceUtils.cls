@@ -1,4 +1,4 @@
-public class WebServiceUtils {
+public without sharing class WebServiceUtils {
     
     //Return a map with the key is webServiceVal.field_api_name__c + webServiceVal.value__c
     public static Map<String,Web_Service_Value_Mapping__c> getWebServiceValuesMapping(List<String> webServiceIdentifier, String webServicePricing){

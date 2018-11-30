@@ -1,4 +1,4 @@
-public class PriceRate_helper {
+public without sharing class PriceRate_helper {
     
     public RequestPriceRate_Wrapper inputDataMapping;
     public Boolean isSimulate;
