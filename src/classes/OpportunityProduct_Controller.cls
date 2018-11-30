@@ -122,6 +122,6 @@ public without sharing class OpportunityProduct_Controller {
         return val;
     }
 
-    public OpportunityProduct_Controller(){ //Yulino 28/11/2018 : Se creo el contructor
-    }
+    //public OpportunityProduct_Controller(){ //Yulino 28/11/2018 : Se creo el contructor
+    //}
 }
