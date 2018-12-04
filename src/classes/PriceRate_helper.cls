@@ -92,88 +92,88 @@ public without sharing class PriceRate_helper {
     }
     //Wrapper class to the response
     public class ResponseSimulateRate_Wrapper{
-        public Response_data data;
+        public Response_data data { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     
     public class Response_data{
-        public Response_CalculationType calculationType;
-        public Response_CalculationType model;
-        public Response_BusinessAgent businessAgent;
-        public Response_Participant participant;
-        public Response_Product product;
-        public Response_Summary[] summary;
+        public Response_CalculationType calculationType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_CalculationType model { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_BusinessAgent businessAgent { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_Participant participant { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_Product product { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_Summary[] summary { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     public class Response_BusinessAgent {
     }
     public class Response_Product {
-        public Response_BusinessAgent requestedAmount;
-        public Response_BusinessAgent term;
-        public Response_BusinessAgent guarantee;
+        public Response_BusinessAgent requestedAmount { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_BusinessAgent term { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_BusinessAgent guarantee { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     public class Response_Fees {
-        public Response_CalculationType feeType;
-        public Response_Detail detail;
+        public Response_CalculationType feeType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_Detail detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     
     public class Response_Segment {
-        public Response_SubSegment subSegment;
+        public Response_SubSegment subSegment { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     
     public class Response_IdentityDocuments {
-        public Response_BusinessAgent documentType;
+        public Response_BusinessAgent documentType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     
     public class Response_FinancialIndicators {
-        public String id;
-        public String value;
+        public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String value { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     
     public class Response_Participant {
-        public Response_IdentityDocuments[] identityDocuments;
-        public Response_BusinessAgent bank;
-        public Response_Segment segment;
-        public Response_Delinquency delinquency;
-        public Response_BusinessAgent[] strategicRelationships;
-        public Response_BusinessAgent[] riskLevel;
+        public Response_IdentityDocuments[] identityDocuments { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_BusinessAgent bank { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_Segment segment { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_Delinquency delinquency { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_BusinessAgent[] strategicRelationships { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_BusinessAgent[] riskLevel { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     
     public class Response_CalculationType {
-        public String id;
+        public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     
     public class Response_SubSegment {
-        public Response_BusinessAgent[] partitions;
+        public Response_BusinessAgent[] partitions { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     
     public class Response_LiquidityIndicators {
-        public String id;
-        public Response_Detail detail;
+        public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_Detail detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
         
     }
     
     public class Response_Summary {
-        public String calculationId;
-        public Response_FinancialIndicators[] financialIndicators;
-        public Response_InterestRates interestRates;
-        public Response_Fees[] fees;
-        public Response_LiquidityIndicators[] liquidityIndicators;
+        public String calculationId { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_FinancialIndicators[] financialIndicators { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_InterestRates interestRates { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_Fees[] fees { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_LiquidityIndicators[] liquidityIndicators { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     public class Response_InterestRates {
-        public Response_EffectiveRates[] effectiveRates;
+        public Response_EffectiveRates[] effectiveRates { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     public class Response_EffectiveRates {
-        public String id;
-        public Double percentage;
+        public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Double percentage { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     public class Response_Delinquency {
-        public Response_BehaviorDebts behaviorDebts;
+        public Response_BehaviorDebts behaviorDebts { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     public class Response_BehaviorDebts {
-        public Response_BusinessAgent[] tacticalVariable;
+        public Response_BusinessAgent[] tacticalVariable { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
     public class Response_Detail {
-        public Double percentage;
-        public Double amount;
-        public String currency_type;
+        public Double percentage { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Double amount { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String currency_type { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     }
 }
