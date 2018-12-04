@@ -1,6 +1,6 @@
 public without sharing class ProductsQuoteAvailability_helper {
     
-    public ProductsQuoteAvailability_Wrapper inputDataMapping;
+    public ProductsQuoteAvailability_Wrapper inputDataMapping {get; set;} //Yulino 04/12/2018 : Se agrego {get; set;}
     
     //method use to get input information
     public ProductsQuoteAvailability_helper(String oppRecordId){
@@ -32,7 +32,7 @@ public without sharing class ProductsQuoteAvailability_helper {
     
     //Wrapper class to map the input values with the input attributes of the webservice 
     public class ProductsQuoteAvailability_Wrapper{
-        public String participantId;
+        public String participantId {get; set;}
         
         public ProductsQuoteAvailability_Wrapper(String participantId){
             this.participantId = (participantId!=null?participantId:'');
@@ -41,20 +41,20 @@ public without sharing class ProductsQuoteAvailability_helper {
 
     //Wrapper class to map the json response
     public class ResponseProductsQuoteAvailability_Wrapper{
-        public Response_data[] data;
+        public Response_data[] data {get; set;}
     }
 
     public class Response_data {
-		public String id;
-		public String name;
-		public Response_productType productType;
-		public Response_pricing pricing;
+		public String id {get; set;}
+		public String name {get; set;}
+		public Response_productType productType {get; set;}
+		public Response_pricing pricing {get; set;}
 	}
     public class Response_productType {
-		public String id;
+		public String id {get; set;}
 	}
 	public class Response_pricing {
-		public String id;
+		public String id {get; set;}
 	}
  
 }

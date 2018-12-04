@@ -38,13 +38,13 @@ public without sharing class WebServiceUtils {
     }
     
     public class ResponseErrorMessage_Wrapper{
-        public Integer version;
-        public String severity;
-        public Integer status;
-        public String errorcode;
-        public String errormessage;
-        public String consumerrequestid;
-        public String systemerrorcode;
-        public String systemerrordescription;
+        public Integer version {get; set;} //Yulino 04/12/2018 : Se agrego {get; set;}
+        public String severity {get; set;}
+        public Integer status {get; set;}
+        public String errorcode {get; set;}
+        public String errormessage {get; set;}
+        public String consumerrequestid {get; set;}
+        public String systemerrorcode {get; set;}
+        public String systemerrordescription {get; set;}
     }
 }
