@@ -1,5 +1,5 @@
 public without sharing class CreateQuotationCommitment_helper {
-    public CreateQuotationCommitment_Wrapper inputDataMapping;
+    public CreateQuotationCommitment_Wrapper inputDataMapping{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 
     public CreateQuotationCommitment_helper(String commitmentId){
         List<Opportunity_Solution_Commitment__c> lstCommitments = [SELECT   Id,

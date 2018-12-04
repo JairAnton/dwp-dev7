@@ -1,6 +1,6 @@
 public class CompromiseProducts_helper {
 
-    public RequestCompromiseProducts_Wrapper inputDataMapping;
+    public RequestCompromiseProducts_Wrapper inputDataMapping{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 
     public CompromiseProducts_helper(String productModel){
         this.inputDataMapping = new RequestCompromiseProducts_Wrapper(productModel);

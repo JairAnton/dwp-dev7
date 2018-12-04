@@ -1,7 +1,7 @@
 public without sharing class PriceRate_helper {
     
-    public RequestPriceRate_Wrapper inputDataMapping;
-    public Boolean isSimulate;
+    public RequestPriceRate_Wrapper inputDataMapping{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    public Boolean isSimulate{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     //method use to get input information
     public PriceRate_helper(String oppRecordId, Boolean isSimulate){
         this.isSimulate = isSimulate;
@@ -58,17 +58,17 @@ public without sharing class PriceRate_helper {
     
     //Wrapper class to map the input values with the input attributes of the webservice 
     public class RequestPriceRate_Wrapper{
-        public String participantId;
-        public String participantDocumentNumber;
-        public String amount;
-        public String termId;
-        public String termNumber;
-        public String guaranteeId;
-        public String branch;
-        public String contractingModality;
-        public String currencyCode;
-        public String productId;
-        public String guaranteeCoverage;
+        public String participantId{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String participantDocumentNumber{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String amount{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String termId{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String termNumber{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String guaranteeId{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String branch{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String contractingModality{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String currencyCode{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String productId{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String guaranteeCoverage{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
         
         public RequestPriceRate_Wrapper(String participantId, String participantDocumentNumber, String amount, String termId, String termNumber, String guaranteeId, String branch, String contractingModality, String currencyCode, String productId, String guaranteeCoverage){
             

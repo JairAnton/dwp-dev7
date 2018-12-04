@@ -1,6 +1,6 @@
 public without sharing class CreateQuotationRequest_helper {
 
-    public CreateQuotationRequest_Wrapper inputDataMapping;
+    public CreateQuotationRequest_Wrapper inputDataMapping{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     
     //Method use to get input information
     public CreateQuotationRequest_helper(String oppRecordId){
