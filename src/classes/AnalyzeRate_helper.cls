@@ -1,5 +1,5 @@
-public class AnalyzeRate_helper {
-    public RequestAnalyzeRate_Wrapper inputDataMapping;
+public without sharing class AnalyzeRate_helper {
+    public RequestAnalyzeRate_Wrapper inputDataMapping { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 
     public AnalyzeRate_helper(String recordId, String strRequestedTea){
         List<String> lstFeesLabels_str = new List<String>{Label.PriceWSLabel10,Label.PriceWSLabel14,Label.PriceWSLabel15,Label.PriceWSLabel08,Label.PriceWSLabel05,Label.PriceWSLabel04};
@@ -11,10 +11,10 @@ public class AnalyzeRate_helper {
         List<String> lstLiquitidyIndicators_str = new List<String>{Label.PriceWSLabel13, Label.PriceWSLabel11, Label.PriceWSLabel12};
         List<String> lstLiquitidyIndicators_ApiName = new List<String>{'additional_apread_per__c','minimum_spread_per__c','spread_per__c'};
         
-        List<OpportunityLineItem> oliInfo = Database.query('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' + String.join(lstFeesLabels_str_ApiName, ',') + 
+        List<OpportunityLineItem> oliInfo = Database.query(String.escapeSingleQuotes('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' + String.join(lstFeesLabels_str_ApiName, ',') + 
                                                                 ', ' + String.join(lstFeesLabels_cur_ApiName, ',') + 
                                                                 ', ' + String.join(lstLiquitidyIndicators_ApiName, ',') + 
-                                                            ' FROM OpportunityLineItem WHERE OpportunityId = \''+String.escapeSingleQuotes(recordId)+'\''); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes
+                                                            ' FROM OpportunityLineItem WHERE OpportunityId = \''+recordId+'\''); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes
         if(!oliInfo.isEmpty()){
             List<Object> lstFeeds = new List<Object>();
             Integer pos = 0;
@@ -118,6 +118,6 @@ public class AnalyzeRate_helper {
 		public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
     public class Request_detail_num {
-		public Double percentage; //Ernesto 04/12/2018 : se agregó el get y set
+		public Double percentage { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 }
