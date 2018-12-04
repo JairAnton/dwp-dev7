@@ -12,9 +12,9 @@ public class AnalyzeRate_helper {
         List<String> lstLiquitidyIndicators_ApiName = new List<String>{'additional_apread_per__c','minimum_spread_per__c','spread_per__c'};
         
         List<OpportunityLineItem> oliInfo = Database.query('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' + String.join(lstFeesLabels_str_ApiName, ',') + 
-                                                                ', ' + String.join(lstFeesLabels_cur_ApiName, ',') +
-                                                                ', ' + String.join(lstLiquitidyIndicators_ApiName, ',') +
-                                                            ' FROM OpportunityLineItem WHERE OpportunityId = \''+recordId+'\'');
+                                                                ', ' + String.join(String.escapeSingleQuotes(lstFeesLabels_cur_ApiName), ',') + //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes
+                                                                ', ' + String.join(String.escapeSingleQuotes(lstLiquitidyIndicators_ApiName), ',') + //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes
+                                                            ' FROM OpportunityLineItem WHERE OpportunityId = \''+String.escapeSingleQuotes(recordId)+'\''); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes
         if(!oliInfo.isEmpty()){
             List<Object> lstFeeds = new List<Object>();
             Integer pos = 0;
@@ -103,21 +103,21 @@ public class AnalyzeRate_helper {
 		public String percentage { get; set; } //Yulino 29/11/2018 : se agregó el get y set
 	}
     public class Request_feeType {
-		public String id;
+		public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
     public class Request_fees_cur {
-		public Request_detail_cur detail;
-		public Request_feeType feeType;
+		public Request_detail_cur detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		public Request_feeType feeType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
     public class Request_detail_cur {
-		public Double amount;
-        public String currency_type;
+		public Double amount { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public String currency_type { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
     class Request_liquidityIndicators {
-		public Request_detail_num detail;
-		public String id;
+		public Request_detail_num detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
     public class Request_detail_num {
-		public Double percentage;
+		public Double percentage; //Ernesto 04/12/2018 : se agregó el get y set
 	}
 }
