@@ -11,7 +11,7 @@ public class unlinkButtonClass_Test {
         opptest = TestFactory.createOpportunity(acctest.Id, defaultUser.Id);
         
     }
-    @isTest
+    
     static void unlink(){
         setData();
         

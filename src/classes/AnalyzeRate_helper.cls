@@ -14,7 +14,7 @@ public without sharing class AnalyzeRate_helper {
         List<OpportunityLineItem> oliInfo = Database.query(String.escapeSingleQuotes('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' + String.join(lstFeesLabels_str_ApiName, ',') + 
                                                                 ', ' + String.join(lstFeesLabels_cur_ApiName, ',') + 
                                                                 ', ' + String.join(lstLiquitidyIndicators_ApiName, ',') + 
-                                                            ' FROM OpportunityLineItem WHERE OpportunityId = \''+recordId+'\''); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes
+                                                            ' FROM OpportunityLineItem WHERE OpportunityId = \''+recordId+'\'')); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes
         if(!oliInfo.isEmpty()){
             List<Object> lstFeeds = new List<Object>();
             Integer pos = 0;
