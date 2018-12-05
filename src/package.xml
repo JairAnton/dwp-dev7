@@ -758,7 +758,7 @@
         <members>Home Page Operativo</members>
         <name>HomePageLayout</name>
     </types>
-	<types>
+    <types>
         <members>*</members>
         <name>ListView</name>
     </types>
