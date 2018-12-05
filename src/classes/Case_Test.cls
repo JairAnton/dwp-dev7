@@ -1,13 +1,13 @@
-@isTest(SeeAllData=true)
+@isTest
 public class Case_Test {
     static User usertest;
-    @isTest
+    @testSetup //Yulino 05/12/2018 : se cambio a testSetup
     static void setData(){     
         usertest = TestFactory.createUser('caseTest', Label.profAdministrator);
     }
     @isTest
     static void AfterInsertUpdate(){
-        setData();
+        //setData(); //Yulino 05/12/2018 : se cambio a testSetup
         Test.startTest();
         Case casetest = new Case();
         casetest.Status = 'New';
