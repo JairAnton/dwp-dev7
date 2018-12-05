@@ -146,7 +146,7 @@
                                      options: {
                                      elements: {
                                      line: {
-                                        tension: (InformeName==='EVOLUCION_FACTURACION_TOTAL')? 0 : 0.4 // disables curves in line graphics
+                                        tension: 0.4 //(InformeName==='EVOLUCION_FACTURACION_TOTAL')? 0 : 0.4  disables curves in line graphics
                                       }
                                     },
                                     legend: {
