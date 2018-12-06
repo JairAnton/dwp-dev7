@@ -212,7 +212,6 @@
                             event.getSource().set("v.disabled", false);  
                             var errors = response.getError();
                             if (errors) {
-                                /*
                                 if (errors[0] && errors[0].message) 
                                 {	                                
                                     component.set("v.errMessage","Error:"+errors[0].message );
@@ -220,9 +219,7 @@
                                 else
                                 {
                                     component.set("v.errMessage","Error:"+errors[0].message );
-                                }*/  //Yulino 05/12/2018 : se comento porque en el if y else hacian la misma operacion
-                                component.set("v.errMessage","Error:"+errors[0].message );   
-                               
+                                }
                             } else {                    
                                 component.set("v.errMessage","Unknown error");
                             }	                        
