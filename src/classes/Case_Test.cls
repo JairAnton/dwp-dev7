@@ -7,6 +7,7 @@ public class Case_Test {
     }
     @isTest
     static void AfterInsertUpdate(){
+       usertest = [select ID from User where id!=null limit 1];
         //setData(); //Yulino 07/12/2018 : se cambio a testSetup
         Test.startTest();
         Case casetest = new Case();
