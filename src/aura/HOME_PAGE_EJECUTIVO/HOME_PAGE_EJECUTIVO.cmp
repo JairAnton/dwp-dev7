@@ -17,13 +17,13 @@
         <lightning:layout>
             <div class="hl1">
             <lightning:layoutItem 
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.uleft}
             </lightning:layoutItem>
             </div>  
               <div class="hl2">
             <lightning:layoutItem 
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.uright}
             </lightning:layoutItem>
             </div>     
@@ -31,19 +31,19 @@
         <lightning:layout>
             <div class="l1" >
             <lightning:layoutItem
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.left1}
             </lightning:layoutItem>
             </div>   
             <div class="l2" >
             <lightning:layoutItem
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.main1}
             </lightning:layoutItem>
             </div>
              <div class="l3" >
             <lightning:layoutItem 
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.right1}
             </lightning:layoutItem>
             </div>    
@@ -52,19 +52,19 @@
         <lightning:layout>
             <div class="l1">
             <lightning:layoutItem
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.left2}
             </lightning:layoutItem>
             </div>   
             <div class="l2" >
             <lightning:layoutItem
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.main2}
             </lightning:layoutItem>
             </div>
              <div class="l3" >
             <lightning:layoutItem 
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.right2}
             </lightning:layoutItem>
             </div>    
@@ -73,19 +73,19 @@
         <lightning:layout>
             <div class="l1" >
             <lightning:layoutItem
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.left3}
             </lightning:layoutItem>
             </div>   
             <div class="l2" >
             <lightning:layoutItem
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.main3}
             </lightning:layoutItem>
             </div>
             <div class="l3" >
             <lightning:layoutItem 
-                                  class="slds-m-left_Large">
+                                  class="slds-m-left_small slds-m-top_small">
                 {!v.right3}
             </lightning:layoutItem>
             </div>    
