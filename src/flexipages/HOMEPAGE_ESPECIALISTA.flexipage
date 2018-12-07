@@ -67,6 +67,10 @@
                 <value>[&quot;Opportunity&quot;]</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>label</name>
+                <value>Ultimas oportunidades vistas</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>maxRecords</name>
                 <value>2</value>
             </componentInstanceProperties>
