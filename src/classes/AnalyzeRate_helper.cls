@@ -14,7 +14,7 @@ public without sharing class AnalyzeRate_helper {
                                                                 ', ' + String.join(lstFeesLabels_cur_ApiName, ',') + 
                                                                 ', ' + String.join(lstLiquitidyIndicators_ApiName, ',') + 
                                                             ' FROM OpportunityLineItem WHERE OpportunityId = \''+recordId+'\'';
-        List<OpportunityLineItem> oliInfo = Database.query(String.escapeSingleQuotes(querytemp)); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes                                                           
+        List<OpportunityLineItem> oliInfo = Database.query(querytemp); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes                                                           
         if(!oliInfo.isEmpty()){
             List<Object> lstFeeds = new List<Object>();
             Integer pos = 0;
