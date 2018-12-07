@@ -1,34 +1,94 @@
 <aura:component implements="lightning:HomeTemplate" description="Main column and right sidebar. On a phone, the regions are of equal width">
     <aura:attribute name="uleft" type="Aura.Component[]" />
     <aura:attribute name="uright" type="Aura.Component[]" />
-    <aura:attribute name="left" type="Aura.Component[]" />
-    <aura:attribute name="right" type="Aura.Component[]" />
-    <aura:attribute name="main" type="Aura.Component[]" />
+    <aura:attribute name="left1" type="Aura.Component[]" />
+    <aura:attribute name="right1" type="Aura.Component[]" />
+    <aura:attribute name="main1" type="Aura.Component[]" /> 
+    <aura:attribute name="left2" type="Aura.Component[]" />
+    <aura:attribute name="right2" type="Aura.Component[]" />
+    <aura:attribute name="main2" type="Aura.Component[]" /> 
+    <aura:attribute name="left3" type="Aura.Component[]" />
+    <aura:attribute name="right3" type="Aura.Component[]" />
+    <aura:attribute name="main3" type="Aura.Component[]" /> 
+      <aura:attribute name="left" type="Aura.Component[]" />
+     <aura:attribute name="right" type="Aura.Component[]" />
+     <aura:attribute name="main" type="Aura.Component[]" />
     <div>
         <lightning:layout>
-            <lightning:layoutItem size="{! $Browser.isDesktop ? '5' : '4' }"
-                                  class="slds-m-left_large">
+            <div style="height:25%; width:33%;">
+            <lightning:layoutItem 
+                                  class="slds-m-left_Large">
                 {!v.uleft}
             </lightning:layoutItem>
-            <lightning:layoutItem  size="{! $Browser.isDesktop ? '10' : '6' }"
-                                  class="slds-m-left_large">
+            </div>  
+              <div style="height:25%;width:67%;">
+            <lightning:layoutItem 
+                                  class="slds-m-left_Large">
                 {!v.uright}
             </lightning:layoutItem>
+            </div>     
         </lightning:layout>
-        <div/>
         <lightning:layout>
-            <lightning:layoutItem size="{! $Browser.isDesktop ? '5' : '4' }"
-                                  class="slds-m-left_large">
-                {!v.left}
+            <div style="height:25%;width:33%">
+            <lightning:layoutItem
+                                  class="slds-m-left_Large">
+                {!v.left1}
             </lightning:layoutItem>
-            <lightning:layoutItem size="{! $Browser.isDesktop ? '5' : '4' }"
-                                  class="slds-m-left_large">
-                {!v.main}
+            </div>   
+            <div style="height:25%;width:33%">
+            <lightning:layoutItem
+                                  class="slds-m-left_Large">
+                {!v.main1}
             </lightning:layoutItem>
-            <lightning:layoutItem size="{! $Browser.isDesktop ? '5' : '4' }"
-                                  class="slds-m-left_large">
-                {!v.right}
+            </div>
+             <div style="height:25%;width:34%">
+            <lightning:layoutItem 
+                                  class="slds-m-left_Large">
+                {!v.right1}
             </lightning:layoutItem>
+            </div>    
         </lightning:layout>
-    </div>
+        <p/>
+        <lightning:layout>
+            <div style="height:25%;width:33%">
+            <lightning:layoutItem
+                                  class="slds-m-left_Large">
+                {!v.left2}
+            </lightning:layoutItem>
+            </div>   
+            <div style="height:25%;width:33%">
+            <lightning:layoutItem
+                                  class="slds-m-left_Large">
+                {!v.main2}
+            </lightning:layoutItem>
+            </div>
+             <div style="height:25%;width:34%">
+            <lightning:layoutItem 
+                                  class="slds-m-left_Large">
+                {!v.right2}
+            </lightning:layoutItem>
+            </div>    
+        </lightning:layout>
+        <p/>
+        <lightning:layout>
+            <div style="height:25%;width:33%">
+            <lightning:layoutItem
+                                  class="slds-m-left_Large">
+                {!v.left3}
+            </lightning:layoutItem>
+            </div>   
+            <div style="height:25%;width:33%">
+            <lightning:layoutItem
+                                  class="slds-m-left_Large">
+                {!v.main3}
+            </lightning:layoutItem>
+            </div>
+             <div style="height:25%;width:34%">
+            <lightning:layoutItem 
+                                  class="slds-m-left_Large">
+                {!v.right3}
+            </lightning:layoutItem>
+            </div>    
+        </lightning:layout>
+    </div>    
 </aura:component>
