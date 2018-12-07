@@ -20,10 +20,6 @@ public without sharing class AnalyzeRate_helper {
                                                             ' FROM OpportunityLineItem WHERE OpportunityId = ';
                                                             List<OpportunityLineItem> oliInfo = Database.query(queryCampos+querytemp4);
         
-        [SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, expected_loss_per__c,financing_cost_stockholder_per__c,funding_cost_adjusted_per__c,efficiency_cost__c,regulatory_capital_per__c,additional_capital_per__c'+
-                                                                ',capital_amount__c,capital_currency_id__c' + 
-                                                                ',additional_apread_per__c,minimum_spread_per__c,spread_per__c ' + 
-                                                            ' FROM OpportunityLineItem WHERE OpportunityId = ]
         
         /*List<OpportunityLineItem> oliInfo = Database.query('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' +String.join(lstFeesLabels_str_ApiName, ',') + 
                                                                 ', ' + System.escapeSingleQuotes(String.join(lstFeesLabels_cur_ApiName, ',')) + 
