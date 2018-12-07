@@ -178,7 +178,7 @@ public without sharing class GetQuotationRequest_helper {
 		public Response_FinancialIndicators[] financialIndicators {get; set;}
 	}
 	public class Response_InterestRates {
-		public Response_EffectiveRates[] effectiveRates;
+		public Response_EffectiveRates[] effectiveRates{get; set;}  //Ernesto 07/12/2018 : se agregó el get y set
 	}
 	public class Response_EffectiveRates {
 		public String id {get; set;}
