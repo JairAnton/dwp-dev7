@@ -15,13 +15,13 @@
      <aura:attribute name="main" type="Aura.Component[]" />
     <div>
         <lightning:layout>
-            <div style="height:25%; width:33%;">
+            <div class="hl1">
             <lightning:layoutItem 
                                   class="slds-m-left_Large">
                 {!v.uleft}
             </lightning:layoutItem>
             </div>  
-              <div style="height:25%;width:67%;">
+              <div class="hl2">
             <lightning:layoutItem 
                                   class="slds-m-left_Large">
                 {!v.uright}
@@ -29,19 +29,19 @@
             </div>     
         </lightning:layout>
         <lightning:layout>
-            <div style="height:25%;width:33%">
+            <div class="l1" >
             <lightning:layoutItem
                                   class="slds-m-left_Large">
                 {!v.left1}
             </lightning:layoutItem>
             </div>   
-            <div style="height:25%;width:33%">
+            <div class="l2" >
             <lightning:layoutItem
                                   class="slds-m-left_Large">
                 {!v.main1}
             </lightning:layoutItem>
             </div>
-             <div style="height:25%;width:34%">
+             <div class="l3" >
             <lightning:layoutItem 
                                   class="slds-m-left_Large">
                 {!v.right1}
@@ -50,19 +50,19 @@
         </lightning:layout>
         <p/>
         <lightning:layout>
-            <div style="height:25%;width:33%">
+            <div class="l1">
             <lightning:layoutItem
                                   class="slds-m-left_Large">
                 {!v.left2}
             </lightning:layoutItem>
             </div>   
-            <div style="height:25%;width:33%">
+            <div class="l2" >
             <lightning:layoutItem
                                   class="slds-m-left_Large">
                 {!v.main2}
             </lightning:layoutItem>
             </div>
-             <div style="height:25%;width:34%">
+             <div class="l3" >
             <lightning:layoutItem 
                                   class="slds-m-left_Large">
                 {!v.right2}
@@ -71,19 +71,19 @@
         </lightning:layout>
         <p/>
         <lightning:layout>
-            <div style="height:25%;width:33%">
+            <div class="l1" >
             <lightning:layoutItem
                                   class="slds-m-left_Large">
                 {!v.left3}
             </lightning:layoutItem>
             </div>   
-            <div style="height:25%;width:33%">
+            <div class="l2" >
             <lightning:layoutItem
                                   class="slds-m-left_Large">
                 {!v.main3}
             </lightning:layoutItem>
             </div>
-             <div style="height:25%;width:34%">
+            <div class="l3" >
             <lightning:layoutItem 
                                   class="slds-m-left_Large">
                 {!v.right3}
