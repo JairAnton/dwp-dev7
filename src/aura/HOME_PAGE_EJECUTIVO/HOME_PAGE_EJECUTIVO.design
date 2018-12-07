@@ -2,12 +2,12 @@
     <flexipage:template  >
         <!-- The default width for the "left" region is "MEDIUM". In tablets,
         the width is "SMALL" -->
-        <flexipage:region name="uleft" defaultWidth="SMALL"/>
-         <flexipage:region name="uright" defaultWidth="MEDIUM"/>
-            <flexipage:region name="left" defaultWidth="MEDIUM">
-            <flexipage:formfactor type="MEDIUM" width="SMALL" />
-            </flexipage:region>
-            <flexipage:region name="right" defaultWidth="SMALL" />
-           <flexipage:region name="main" defaultWidth="SMALL" />
+        <flexipage:region name="uleft" defaultWidth="LARGE" />
+         <flexipage:region name="uright" defaultWidth="LARGE">
+          <flexipage:formfactor type="LARGE" width="LARGE" />
+        </flexipage:region>
+         <flexipage:region name="left" defaultWidth="LARGE"/>
+         <flexipage:region name="right" defaultWidth="LARGE" />
+         <flexipage:region name="main" defaultWidth="LARGE" />
        </flexipage:template>
 </design:component>
