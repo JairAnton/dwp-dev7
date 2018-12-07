@@ -13,11 +13,11 @@ public without sharing class AnalyzeRate_helper {
         final String querytemp=String.join(lstFeesLabels_cur_ApiName, ',') ;
         final String querytemp2=String.join(lstLiquitidyIndicators_ApiName, ',') ;
         final String querytemp3=String.join(lstFeesLabels_str_ApiName, ',') ;
-        
-        List<OpportunityLineItem> oliInfo = Database.query(System.escapeSingleQuotes('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' +querytemp3 + 
+        final String querytemp4 = '\''+System.escapeSingleQuotes(recordId)+'\'';
+        List<OpportunityLineItem> oliInfo = Database.query('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' +querytemp3 + 
                                                                 ', ' +querytemp + 
                                                                 ', ' + querytemp2 + 
-                                                            ' FROM OpportunityLineItem WHERE OpportunityId = \''+recordId+'\'')); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes                                                           
+                                                            ' FROM OpportunityLineItem WHERE OpportunityId = ' + querytemp4 ); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes                                                           
         if(!oliInfo.isEmpty()){
             List<Object> lstFeeds = new List<Object>();
             Integer pos = 0;
