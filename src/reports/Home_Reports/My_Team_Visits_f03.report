@@ -5,14 +5,13 @@
         <backgroundColor2>#FFFFFF</backgroundColor2>
         <backgroundFadeDir>Diagonal</backgroundFadeDir>
         <chartSummaries>
-            <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>Account_Renewals__c.cancellation_mtd_amount__c</column>
+            <column>RowCount</column>
         </chartSummaries>
         <chartType>Donut</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>false</expandOthers>
-        <groupingColumn>Account_Renewals__c.product_subcategory_type__c</groupingColumn>
+        <groupingColumn>dwp_kitv__Visit__c.dwp_kitv__visit_status_type__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>false</showAxisLabels>
@@ -27,29 +26,31 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Account_Renewals__c.cancellation_mtd_amount__c</field>
+        <field>CUST_NAME</field>
     </columns>
     <columns>
-        <field>ACCOUNT.NAME</field>
+        <field>CUST_CREATED_NAME</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</field>
     </columns>
     <currency>PEN</currency>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account_Renewals__c.product_subcategory_type__c</field>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_status_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis cancelaciones del mes en curso</name>
+    <name>Visitas de equipo</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>AccountCustomEntity$Account_Renewals__c</reportType>
-    <scope>user</scope>
+    <reportType>CustomEntityCustomEntity$dwp_kitv__Visit__c$dwp_kitv__Visit_Management_Team__c</reportType>
+    <scope>organization</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
-        <dateColumn>LAST_UPDATE</dateColumn>
+        <dateColumn>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</dateColumn>
         <interval>INTERVAL_THISMONTH</interval>
     </timeFrameFilter>
 </Report>
