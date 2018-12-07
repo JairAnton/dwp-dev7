@@ -178,7 +178,7 @@ public without sharing class GetQuotationRequest_helper {
 		public Response_FinancialIndicators[] financialIndicators {get; set;}
 	}
 	public class Response_InterestRates {
-		public Response_EffectiveRates[] effectiveRates{ get; set; } //Yulino 29/11/2018 : se agregó el get y set
+		public Response_EffectiveRates[] effectiveRates;
 	}
 	public class Response_EffectiveRates {
 		public String id {get; set;}
@@ -262,7 +262,7 @@ public without sharing class GetQuotationRequest_helper {
 		public String value {get; set;}
 	}
 	public static ResponseGetQuotationRequest_Wrapper parse(String json){
-        json = json.replace('"currency":','"currency_code":');
-		return (ResponseGetQuotationRequest_Wrapper) System.JSON.deserialize(json, ResponseGetQuotationRequest_Wrapper.class);
+        final String v_json = json.replace('"currency":','"currency_code":'); //Yulino 06/12/2018 : Se agrego la variable local
+		return (ResponseGetQuotationRequest_Wrapper) System.JSON.deserialize(v_json, ResponseGetQuotationRequest_Wrapper.class); //Yulino 06/12/2018 : Se modificó de json a v_json
 	}
 }

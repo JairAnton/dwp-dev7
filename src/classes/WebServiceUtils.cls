@@ -32,9 +32,9 @@ public without sharing class WebServiceUtils {
             return '';
         }
 	}
-    public static ResponseErrorMessage_Wrapper parse(String json){
-        json = json.replace('"http-status":', '"status":').replace('"error-code":', '"errorcode":').replace('"error-message":', '"errormessage":').replace('"consumer-request-id":', '"consumerrequestid":').replace('"system-error-code":', '"systemerrorcode":').replace('"system-error-description":', '"systemerrordescription":');        
-        return (ResponseErrorMessage_Wrapper) System.JSON.deserialize(json, ResponseErrorMessage_Wrapper.class);
+    public static ResponseErrorMessage_Wrapper parse(String json){ //Yulino 06/12/2018 : Se agrego la variable local y se modifico en la sig. linea
+        final String v_json = json.replace('"http-status":', '"status":').replace('"error-code":', '"errorcode":').replace('"error-message":', '"errormessage":').replace('"consumer-request-id":', '"consumerrequestid":').replace('"system-error-code":', '"systemerrorcode":').replace('"system-error-description":', '"systemerrordescription":');        
+        return (ResponseErrorMessage_Wrapper) System.JSON.deserialize(v_json, ResponseErrorMessage_Wrapper.class);
     }
     
     public class ResponseErrorMessage_Wrapper{

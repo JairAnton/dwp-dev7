@@ -1,6 +1,6 @@
 public class CompromiseProducts_helper {
 
-    public RequestCompromiseProducts_Wrapper inputDataMapping{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    public RequestCompromiseProducts_Wrapper inputDataMapping;
 
     public CompromiseProducts_helper(String productModel){
         this.inputDataMapping = new RequestCompromiseProducts_Wrapper(productModel);
@@ -17,8 +17,8 @@ public class CompromiseProducts_helper {
     }
 
     public ResponseCompromiseProducts_Wrapper parse(String json){
-        json = json.replace('"currency":', '"currency_type":');
-        return (ResponseCompromiseProducts_Wrapper) System.JSON.deserialize(json, ResponseCompromiseProducts_Wrapper.class);
+        final String v_json = json.replace('"currency":', '"currency_type":');//Yulino 06/12/2018 : Se agrego la variable
+        return (ResponseCompromiseProducts_Wrapper) System.JSON.deserialize(v_json, ResponseCompromiseProducts_Wrapper.class);
 	}
 
     //Wrapper class to map the input values with the input attributes of the webservice 
