@@ -48,6 +48,9 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Account_BBVA_Information__c.current_balance_var_month_amount__c</field>
     </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
     <currency>PEN</currency>
     <filter>
         <criteriaItems>
