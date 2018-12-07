@@ -10,13 +10,13 @@ public without sharing class AnalyzeRate_helper {
 
         List<String> lstLiquitidyIndicators_str = new List<String>{Label.PriceWSLabel13, Label.PriceWSLabel11, Label.PriceWSLabel12};
         List<String> lstLiquitidyIndicators_ApiName = new List<String>{'additional_apread_per__c','minimum_spread_per__c','spread_per__c'};
-        final String querytemp=String.join(lstFeesLabels_cur_ApiName, ',') ;
-        final String querytemp2=String.join(lstLiquitidyIndicators_ApiName, ',') ;
-        final String querytemp3=String.join(lstFeesLabels_str_ApiName, ',') ;
+        //final String querytemp=String.join(lstFeesLabels_cur_ApiName, ',') ;
+       // final String querytemp2=String.join(lstLiquitidyIndicators_ApiName, ',') ;
+       // final String querytemp3=String.join(lstFeesLabels_str_ApiName, ',') ;
         final String querytemp4 = '\''+System.escapeSingleQuotes(recordId)+'\'';
-        List<OpportunityLineItem> oliInfo = Database.query('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' +querytemp3 + 
-                                                                ', ' +querytemp + 
-                                                                ', ' + querytemp2 + 
+        List<OpportunityLineItem> oliInfo = Database.query('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' +String.join(lstFeesLabels_str_ApiName, ',') + 
+                                                                ', ' + System.escapeSingleQuotes(String.join(lstFeesLabels_cur_ApiName, ',')) + 
+                                                                ', ' + String.join(lstLiquitidyIndicators_ApiName, ',') + 
                                                             ' FROM OpportunityLineItem WHERE OpportunityId = ' + querytemp4 ); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes                                                           
         if(!oliInfo.isEmpty()){
             List<Object> lstFeeds = new List<Object>();
