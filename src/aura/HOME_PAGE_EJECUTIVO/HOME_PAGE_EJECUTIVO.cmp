@@ -4,32 +4,31 @@
     <aura:attribute name="left" type="Aura.Component[]" />
     <aura:attribute name="right" type="Aura.Component[]" />
     <aura:attribute name="main" type="Aura.Component[]" />
-   
     <div>
         <lightning:layout>
-            <lightning:layoutItem 
-                                  class="slds-m-left_small">
-                {!v.uright}
-            </lightning:layoutItem>
-            <lightning:layoutItem size="{! $Browser.isDesktop ? '5' : '6' }"
-                                  class="slds-m-left_small">
+            <lightning:layoutItem size="{! $Browser.isDesktop ? '5' : '4' }"
+                                  class="slds-m-left_large">
                 {!v.uleft}
             </lightning:layoutItem>
+            <lightning:layoutItem  size="{! $Browser.isDesktop ? '10' : '6' }"
+                                  class="slds-m-left_large">
+                {!v.uright}
+            </lightning:layoutItem>
         </lightning:layout>
+        <div/>
         <lightning:layout>
-            <lightning:layoutItem 
-                                  class="slds-m-left_small">
+            <lightning:layoutItem size="{! $Browser.isDesktop ? '5' : '4' }"
+                                  class="slds-m-left_large">
                 {!v.left}
             </lightning:layoutItem>
-            <lightning:layoutItem 
-                                  class="slds-m-left_small">
+            <lightning:layoutItem size="{! $Browser.isDesktop ? '5' : '4' }"
+                                  class="slds-m-left_large">
                 {!v.main}
             </lightning:layoutItem>
-            <lightning:layoutItem 
-                                  class="slds-m-left_small">
+            <lightning:layoutItem size="{! $Browser.isDesktop ? '5' : '4' }"
+                                  class="slds-m-left_large">
                 {!v.right}
             </lightning:layoutItem>
         </lightning:layout>
     </div>
-    
 </aura:component>

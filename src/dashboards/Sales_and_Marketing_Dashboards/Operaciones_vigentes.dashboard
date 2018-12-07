@@ -503,8 +503,7 @@
     </dashboardGridLayout>
     <dashboardType>LoggedInUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <runningUser>isaias.velazquez.cortes.contractor@bbva.com</runningUser>
-    <textColor>#000000</textColor>
+     <textColor>#000000</textColor>
     <title>Mis Oportunidades vigentes</title>
     <titleColor>#000000</titleColor>
     <titleSize>12</titleSize>
