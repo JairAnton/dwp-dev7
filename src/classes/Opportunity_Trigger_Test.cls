@@ -432,7 +432,7 @@ private class Opportunity_Trigger_Test {
         test.stopTest();
         //sonar 
         Integer result = 1 + 2;
-        System.assertEquals(3, result);
+        System.assertEquals(3, result); 
     }
     
     static void CreatOpp(User u){
