@@ -117,8 +117,8 @@ public class Email_SIO_Test {
         
         Test.stopTest();
 
-        //sonar 
-        Integer result = 1 + 2;
-        System.assertEquals(3, result);
+        //Julio 2018/12/10: sonar se agrego las dos lineas siguientes
+        Integer result = 1 + 2; //Julio 2018/12/10: se agrego una condicion para el assert
+        System.assertEquals(3, result); //Julio 2018/12/10:  se agrego una condicion para el assert
     }
 }
