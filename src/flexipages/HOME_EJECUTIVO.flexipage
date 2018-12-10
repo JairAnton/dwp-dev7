@@ -7,8 +7,12 @@
                 <value>1440</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>label</name>
+                <value>Mis variaciones</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>reportName</name>
-                <value>Opportunity_variations_by_product_family</value>
+                <value>Mis_variaciones_Hierarchy_NRE</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
@@ -27,7 +31,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportName</name>
-                <value>Oportunidades_vista_especialista</value>
+                <value>Mis_oportunidades_del_mes_en_curso1</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
@@ -64,8 +68,12 @@
                 <value>1440</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>label</name>
+                <value>Mi saldo en pasivos del mes en curso</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>reportName</name>
-                <value>Opportunity_balance_liabilities_current_month</value>
+                <value>Saldo_en_pasivos_XVE</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
@@ -83,8 +91,12 @@
                 <value>1440</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>label</name>
+                <value>Mi saldo en activos del mes en curso</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>reportName</name>
-                <value>Account_assets_current_month</value>
+                <value>Saldo_en_activos_lOy</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
