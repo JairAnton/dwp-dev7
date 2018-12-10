@@ -30,6 +30,9 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Account.Opportunities$Amount</field>
     </columns>
+    <columns>
+        <field>Account.Opportunities$Name</field>
+    </columns>
     <currency>PEN</currency>
     <filter>
         <criteriaItems>
