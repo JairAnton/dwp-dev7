@@ -108,7 +108,7 @@ public without sharing class Contact_Group_Handler {
                     c.Description =mapCuentaContacto.get(c.AccountId).Description__c;
                 }
             }
-            catch(NullPointerException e){
+            catch(Exception e){
                 system.debug('Exception :' + e);
             }  
         }             
