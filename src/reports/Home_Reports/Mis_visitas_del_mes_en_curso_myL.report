@@ -29,6 +29,12 @@
     <columns>
         <field>CUST_NAME</field>
     </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c.account_name__c</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</field>
+    </columns>
     <currency>PEN</currency>
     <format>Summary</format>
     <groupingsDown>
