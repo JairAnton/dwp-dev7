@@ -192,7 +192,8 @@
                             component.set("v.PGuarantee", null);
                             component.set("v.PGuaranteeId", null);
                             component.set('v.isActive', false);
-                            component.set('v.isActive', true);
+                            //component.set('v.isActive', true);
+                            showRefreshModal(component,event);
                             component.set('v.title', 'Añadir garantía');
                             
                             //component.set('PGuaranteeId',null);
@@ -233,6 +234,9 @@
             
             
         
+    },
+    showRefreshModal : function(component,event){
+        component.set('v.isActive', true);
     }
     
 })

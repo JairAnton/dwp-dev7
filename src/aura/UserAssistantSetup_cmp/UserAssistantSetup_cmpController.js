@@ -13,7 +13,8 @@
 			lstCustom.push(responseNew.row);
 			component.set('v.lstDataCustom',lstCustom);
 			component.set('v.step','0');
-			component.set('v.step','1');
+			//component.set('v.step','1');
+			showRefreshUser(component,event);
 		}
 		
 	},
@@ -33,4 +34,7 @@
 	close : function(component, event, helper) {
 		helper.closeMe(component, event, helper);
 	},
+    showRefreshUser : function(component,event){
+        component.set('v.step','1');
+    }
 })
