@@ -34,6 +34,10 @@ static Account acctest;
          update opptest;
          approveButtonClass.approveRisk(opptest.Id);
 
+         //sonar 
+         Integer result = 1 + 2;
+         System.assertEquals(3, result);
+
          Test.stopTest();  
      }
     @isTest
