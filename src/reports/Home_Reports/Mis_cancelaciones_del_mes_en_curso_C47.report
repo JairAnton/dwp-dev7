@@ -30,6 +30,9 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Account_Renewals__c.cancellation_mtd_amount__c</field>
     </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
     <currency>PEN</currency>
     <format>Summary</format>
     <groupingsDown>

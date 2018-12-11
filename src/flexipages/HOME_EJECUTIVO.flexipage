@@ -50,7 +50,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportName</name>
-                <value>Account_renewals_current_month</value>
+                <value>Mis_cancelaciones_del_mes_en_curso_C47</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showRefreshButton</name>
