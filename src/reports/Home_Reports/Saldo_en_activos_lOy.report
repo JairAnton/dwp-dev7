@@ -47,14 +47,11 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>ACCOUNT.NAME</field>
+        <field>Account.branch_id__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>Account_BBVA_Information__c.average_balance_amount__c</field>
-    </columns>
-    <columns>
-        <field>Account.branch_id__c</field>
     </columns>
     <currency>PEN</currency>
     <filter>
@@ -83,6 +80,11 @@
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>BucketField_44566374</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Saldo en activos</name>

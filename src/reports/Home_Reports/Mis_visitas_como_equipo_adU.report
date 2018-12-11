@@ -50,6 +50,11 @@
         <field>dwp_kitv__Visit__c.report_visit_status_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>dwp_kitv__Visit__c.account_name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>Mis visitas como equipo</name>
     <params>
         <name>co</name>

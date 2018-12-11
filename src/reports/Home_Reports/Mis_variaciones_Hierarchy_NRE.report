@@ -81,6 +81,11 @@
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
         <field>Account.branch_id__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
