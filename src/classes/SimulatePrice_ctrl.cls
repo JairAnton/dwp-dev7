@@ -55,6 +55,7 @@ public with sharing class SimulatePrice_ctrl {
                     }
                     if(jbody.data != null && jbody.data.summary != null && jbody.data.summary[0].fees != null){
                         List<PriceRate_helper.Response_Fees> lstfees = jbody.data.summary[0].fees;
+                        system.debug('lstfees'+lstfees);
                         for(Integer x =0; x<lstfees.size(); x++){
                             if (lstfees[x].feeType.Id == Label.PriceWSLabel10){
                                 expected = lstfees[x].detail.percentage*100;                                

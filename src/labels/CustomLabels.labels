@@ -781,6 +781,14 @@
         <value>Embedded</value>
     </labels>
     <labels>
+        <fullName>Error_TEA_no_calculada</fullName>
+        <categories>Error</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Error TEA no calculada</shortDescription>
+        <value>Para continuar, calcula la rentabilidad de la TEA Autorizada.</value>
+    </labels>	
+    <labels>
         <fullName>Ok</fullName>
         <language>en_US</language>
         <protected>false</protected>
