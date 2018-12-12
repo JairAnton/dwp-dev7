@@ -100,8 +100,24 @@
                         var formatNumber = parseFloat(rarapp);
                         rarapp = formatNumber.toFixed(2);                        
                     }
-                    
-                    
+                    var raPE = ret.PE;
+                    if(raPE != undefined && raPE != ''){
+                        var formatNumber = parseFloat(raPE);
+                        raPE = formatNumber.toFixed(2);                        
+                    }
+                    var raCE = ret.CE;
+                    if(raCE != undefined && raCE != ''){
+                        var formatNumber = parseFloat(raCE);
+                        raCE = formatNumber.toFixed(2);                        
+                    }
+                    var raCR = ret.CR;
+                    if(raCR != undefined && raCR != ''){
+                        var formatNumber = parseFloat(raCR);
+                        raCR = formatNumber.toFixed(2);                        
+                    }
+                    cmp.set('v.StringPE',raPE);
+                    cmp.set('v.StringCE',raCE);
+                    cmp.set('v.StringCR',raCR);
                     cmp.set('v.data',[
                         {                    
                             id: 'TEA',

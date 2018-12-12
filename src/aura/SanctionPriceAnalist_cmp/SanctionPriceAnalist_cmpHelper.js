@@ -36,7 +36,7 @@
         }); 
         $A.enqueueAction(action);
     },
-    continue : function(cmp, evt, helper){
+    continue : function(cmp, evt,helper){
     	var isOk = true;
 		var lstApiField = [];
 		var lstvalueField = [];
@@ -103,5 +103,34 @@
             disabledButton.fire();
         } 
 
-   }
+   },
+       valide: function(cmp, evt,helper){
+           if(cmp.get('v.isnotWeb') == false){
+               var analistWeb = cmp.find('analistWeb');
+               var inputtea = analistWeb.get('v.teainput');
+               var datalst = analistWeb.get('v.data');
+               var TeaAUT =parseInt(datalst[0].AUTH);
+               var inputObject=cmp.get('v.inputAttributes');
+               if(cmp.get('v.isnotWeb') == false && TeaAUT==inputtea){
+                   helper.continue(cmp, evt, helper); }
+               else{
+                   var disabledButton = $A.get("e.c:disabledButton_evt");            
+                   disabledButton.setParams({ 
+                       "idOpp" : inputObject.recordId,
+                       "idButton" : 'idContinueSPA'
+                   });
+                   disabledButton.fire();
+                   var toastEvent = $A.get("e.force:showToast");
+                   toastEvent.setParams({
+                       title: "Error!",
+                       message: $A.get('$Label.c.Error_TEA_no_calculada'),
+                       type: "error"
+                   });
+                   toastEvent.fire();
+               }
+           }
+           else{
+               helper.continue(cmp, evt, helper); 
+           }
+       }
 })

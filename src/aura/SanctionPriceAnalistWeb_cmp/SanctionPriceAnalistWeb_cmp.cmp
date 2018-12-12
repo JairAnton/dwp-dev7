@@ -1,4 +1,4 @@
-<aura:component controller="SanctionPriceAnalistWeb_ctrl" access="GLOBAL">
+<aura:component controller="SanctionPriceAnalistWeb_ctrl" access="GLOBAL" extensible="true">
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="headers" type="List"/>
     <aura:attribute name="recordId" type="String"/>
@@ -7,10 +7,14 @@
     <aura:attribute name="isLoad" type="Boolean" default="false"/>
     <aura:attribute name="teainput" type="decimal"/>
     <aura:attribute name="spreadinput" type="decimal"/>
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
+    <aura:attribute name="StringPE" type="String" default='0'/>
+    <aura:attribute name="StringCE" type="String" default='0'/>
+    <aura:attribute name="StringCR" type="String" default='0'/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <div class="slds-m-bottom_medium">
-        <lightning:input type="number" name="inputtea" label="{!$Label.c.AuthorizedTea}" formatter="percent-fixed" step="0.01" value="{!v.teainput}"/>
+        <lightning:input aura:id="TEAtemporal_V1" type="number" name="inputtea" label="{!$Label.c.AuthorizedTea}" formatter="percent-fixed" step="0.01" value="{!v.teainput}"/>
     </div>    
     <aura:if isTrue="{!v.isLoad}">
         <aura:if isTrue="{!v.checkError}">
@@ -19,10 +23,23 @@
             </div>
             <aura:set attribute="else">
                 <div class="slds-align_absolute-center slds-m-bottom_medium">
-                    <lightning:button label="{!$Label.c.CalculateProfitability}" onclick="{!c.calculateJS}"/>
+                    <lightning:button aura:id='BtnCalculaProfitability' label="{!$Label.c.CalculateProfitability}" onclick="{!c.calculateJS}"/>
                 </div>
                 <div class="slds-m-bottom_medium">
                     <c:DataTable_cmp data="{!v.data}" headers="{!v.headers}"/>
+                </div>
+                <div class="slds-m-bottom_medium">
+                    <lightning:layout>
+                        <lightning:layoutItem padding="around-small">
+                            <lightning:input disabled="true" name="output_CR" label="CR %" value="{! v.StringCR }" placeholder="CR" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem padding="around-small">
+                            <lightning:input disabled="true" name="output_PE" label="PE %" value="{! v.StringPE }" placeholder="PE" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem padding="around-small">
+                            <div class="custom-box"><lightning:input disabled="true" name="output_CE" label="CE %" value="{! v.StringCE }" placeholder="CE" /></div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
                 </div>
             </aura:set>
         </aura:if>

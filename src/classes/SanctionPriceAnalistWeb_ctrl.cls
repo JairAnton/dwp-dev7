@@ -34,7 +34,6 @@ public class SanctionPriceAnalistWeb_ctrl {
                                         when 'APPROVED_TEA'{
                                             mpReturn.put('teaapp',(lsteffec[x].percentage)*100);
                                         }
-                                        
                                     }
                                     
                                 }
@@ -45,6 +44,15 @@ public class SanctionPriceAnalistWeb_ctrl {
                                     switch on lstfees[x].feeType.id{
                                         when 'FUNDING_COST_ADJUSTED'{
                                             mpReturn.put('DI',(lstfees[x].detail.percentage)*100);
+                                        }
+										when 'EXPECTED_LOSS'{
+                                            mpReturn.put('PE',(lstfees[x].detail.percentage)*100);
+                                        }
+										when 'EFFICIENCY_COST'{
+                                            mpReturn.put('CE',(lstfees[x].detail.percentage)*100);
+                                        }
+										when 'REGULATORY_CAPITAL'{
+                                            mpReturn.put('CR',(lstfees[x].detail.percentage)*100);
                                         }
                                     }
                                 }
