@@ -91,7 +91,11 @@
     <customLabels>
         <label>Cliente</label>
         <name>AccountName</name>
-    </customLabels>    
+    </customLabels>  
+    <customLabels>
+        <label>Para continuar, calcula la rentabilidad de la TEA Autorizada.</label>
+        <name>Error_TEA_no_calculada</name>
+    </customLabels>	
     <customLabels>
         <label>Información no disponible</label>
         <name>AccountNoData</name>
