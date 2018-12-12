@@ -5,16 +5,21 @@
         <backgroundColor2>#FFFFFF</backgroundColor2>
         <backgroundFadeDir>Diagonal</backgroundFadeDir>
         <chartSummaries>
+            <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
+            <column>Account.Opportunities$Amount</column>
+        </chartSummaries>
+        <chartSummaries>
+            <axisBinding>y2</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>VerticalColumnStacked</chartType>
+        <chartType>VerticalColumnStackedLine</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Account.Opportunities$StageName</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Account.Opportunities$opportunity_product_family__c</secondaryGroupingColumn>
+        <secondaryGroupingColumn>Account.Opportunities$Name</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -30,17 +35,8 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Account.Opportunities$Amount</field>
     </columns>
-    <columns>
-        <field>Account.Opportunities$Name</field>
-    </columns>
     <currency>PEN</currency>
     <filter>
-        <criteriaItems>
-            <column>Account.Opportunities$HasOpportunityLineItem</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
         <criteriaItems>
             <column>Account.Opportunities$opportunity_product_family__c</column>
             <isUnlocked>true</isUnlocked>
@@ -52,6 +48,12 @@
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value>Net cash,Pago de haberes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Opportunities$HasOpportunityLineItem</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
@@ -66,7 +68,12 @@
         <field>Account.Opportunities$StageName</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades del mes en curso</name>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Opportunities$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Mis oportunidades del mes en curso x</name>
     <params>
         <name>co</name>
         <value>1</value>
