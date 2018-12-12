@@ -5,9 +5,8 @@
         <backgroundColor2>#FFFFFF</backgroundColor2>
         <backgroundFadeDir>Diagonal</backgroundFadeDir>
         <chartSummaries>
-            <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>AMOUNT.CONVERT</column>
+            <column>RowCount</column>
         </chartSummaries>
         <chartType>VerticalColumnStacked</chartType>
         <enableHoverLabels>false</enableHoverLabels>
@@ -34,9 +33,6 @@
     <columns>
         <field>ROLLUP_DESCRIPTION</field>
     </columns>
-    <columns>
-        <field>OPPORTUNITY_NAME</field>
-    </columns>
     <currency>PEN</currency>
     <filter>
         <criteriaItems>
@@ -46,16 +42,16 @@
             <value>None,Programa financiero,Serv. Transaccionales</value>
         </criteriaItems>
         <criteriaItems>
-            <column>HASOPPLINEITEM</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
-        <criteriaItems>
             <column>PRODUCT_CUSTOMER_ID</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value>PC00030,PC00032</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>HASOPPLINEITEM</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
         </criteriaItems>
         <language>es</language>
     </filter>
@@ -70,7 +66,12 @@
         <field>STAGE_NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades del mes en curso</name>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>OPPORTUNITY_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Mis oportunidades del mes en curso z</name>
     <params>
         <name>open</name>
         <value>all</value>

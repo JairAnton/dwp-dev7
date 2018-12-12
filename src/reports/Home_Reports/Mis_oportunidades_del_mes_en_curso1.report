@@ -5,10 +5,15 @@
         <backgroundColor2>#FFFFFF</backgroundColor2>
         <backgroundFadeDir>Diagonal</backgroundFadeDir>
         <chartSummaries>
+            <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
+            <column>Account.Opportunities$Amount</column>
+        </chartSummaries>
+        <chartSummaries>
+            <axisBinding>y2</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>VerticalColumnStacked</chartType>
+        <chartType>VerticalColumnStackedLine</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>Account.Opportunities$StageName</groupingColumn>
@@ -30,17 +35,8 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Account.Opportunities$Amount</field>
     </columns>
-    <columns>
-        <field>Account.Opportunities$Name</field>
-    </columns>
     <currency>PEN</currency>
     <filter>
-        <criteriaItems>
-            <column>Account.Opportunities$HasOpportunityLineItem</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
         <criteriaItems>
             <column>Account.Opportunities$opportunity_product_family__c</column>
             <isUnlocked>true</isUnlocked>
@@ -53,6 +49,12 @@
             <operator>notEqual</operator>
             <value>Net cash,Pago de haberes</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>Account.Opportunities$HasOpportunityLineItem</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Matrix</format>
@@ -64,6 +66,11 @@
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>Account.Opportunities$StageName</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Opportunities$Name</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Mis oportunidades del mes en curso</name>
