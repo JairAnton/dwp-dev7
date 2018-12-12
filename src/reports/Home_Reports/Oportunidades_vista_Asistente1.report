@@ -71,7 +71,7 @@
         <field>OPPORTUNITY_NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades del mes en curso z</name>
+    <name>Mis oportunidades del mes en curso</name>
     <params>
         <name>open</name>
         <value>all</value>

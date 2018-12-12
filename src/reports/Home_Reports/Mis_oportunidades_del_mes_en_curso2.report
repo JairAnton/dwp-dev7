@@ -19,7 +19,7 @@
         <groupingColumn>Account.Opportunities$StageName</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Account.Opportunities$Name</secondaryGroupingColumn>
+        <secondaryGroupingColumn>Account.Opportunities$opportunity_product_family__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -73,7 +73,7 @@
         <field>Account.Opportunities$Name</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades del mes en curso x</name>
+    <name>Mis oportunidades del mes en curso</name>
     <params>
         <name>co</name>
         <value>1</value>
