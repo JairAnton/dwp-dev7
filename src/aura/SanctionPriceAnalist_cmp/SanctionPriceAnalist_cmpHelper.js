@@ -45,7 +45,7 @@
         var lstApiFieldJS;
         var lstvalueFieldJS;
     	if(cmp.get('v.isnotWeb') == false){
-            var analistWeb = cmp.find('analistWeb');		
+            var analistWeb = cmp.find('analistWeb');
             var recordId = cmp.get('v.inputAttributes.recordId');
             var inputtea = analistWeb.get('v.teainput');
             var datalst = analistWeb.get('v.data');
@@ -95,7 +95,7 @@
             compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:SanctionPriceDecisionAnalist_cmp'});
             compEvent.fire();
         }else{
-            var disabledButton = $A.get("e.c:disabledButton_evt");            
+            var disabledButton = $A.get("e.c:disabledButton_evt");
             disabledButton.setParams({ 
                 "idOpp" : inputObject.recordId,
                 "idButton" : 'idContinueSPA'
@@ -105,17 +105,17 @@
 
    },
        valide: function(cmp, evt,helper){
-           if(cmp.get('v.isnotWeb') == false){
+           if(cmp.get('v.isnotWeb') === false){
                var analistWeb = cmp.find('analistWeb');
-               var inputtea = analistWeb.get('v.teainput');
+               var inputtea = parseInt(analistWeb.get('v.teainput'));
                var datalst = analistWeb.get('v.data');
                var TeaAUT =parseInt(datalst[0].AUTH);
                var inputObject=cmp.get('v.inputAttributes');
-               if(cmp.get('v.isnotWeb') == false && TeaAUT==inputtea){
+               if(cmp.get('v.isnotWeb') === false && TeaAUT===inputtea){
                    helper.continue(cmp, evt, helper); }
                else{
-                   var disabledButton = $A.get("e.c:disabledButton_evt");            
-                   disabledButton.setParams({ 
+                   var disabledButton = $A.get("e.c:disabledButton_evt");
+                   disabledButton.setParams({
                        "idOpp" : inputObject.recordId,
                        "idButton" : 'idContinueSPA'
                    });
@@ -130,7 +130,7 @@
                }
            }
            else{
-               helper.continue(cmp, evt, helper); 
+               helper.continue(cmp, evt, helper);
            }
        }
 })
