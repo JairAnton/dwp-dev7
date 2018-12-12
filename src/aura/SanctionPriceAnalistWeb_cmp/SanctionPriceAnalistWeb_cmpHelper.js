@@ -5,14 +5,12 @@
         action.setParams({
             'oppId' : recordId
         });
-        
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 var generr = ret.errormessage;
-                
-                if(generr != undefined){
+                if(generr !== undefined){
                     cmp.set('v.strErrorMessage',generr);
                     cmp.set('v.isLoad',true);
                     cmp.set('v.checkError',true);                    
@@ -25,94 +23,95 @@
                         { label: ret.headers[2], fieldName: 'REQU', type: 'number', cellAttributes: { alignment: 'left' }},
                         { label: ret.headers[3], fieldName: 'AUTH', type: 'number', cellAttributes: { alignment: 'left' }}                    
                     ]);
+                    var formatNumber;
                     var teaminim = ret.teaminim;
-                    if(teaminim != undefined && teaminim != ''){
-                        var formatNumber = parseFloat(teaminim);
+                    if(teaminim !== undefined && teaminim !== ''&& teaminim !== null){
+                         formatNumber = parseFloat(teaminim);
                         teaminim = formatNumber.toFixed(2);                        
                     }
                     var teamodel = ret.teamodel;
-                    if(teamodel != undefined && teamodel != ''){
-                        var formatNumber = parseFloat(teamodel);
+                    if(teamodel !== undefined && teamodel !== ''&& teamodel !== null){
+                         formatNumber = parseFloat(teamodel);
                         teamodel = formatNumber.toFixed(2);                        
                     }
                     var teareq = ret.teareq;
-                    if(teareq != undefined && teareq != ''){
-                        var formatNumber = parseFloat(teareq);
+                    if(teareq !== undefined && teareq !== ''&& teareq !== null){
+                         formatNumber = parseFloat(teareq);
                         teareq = formatNumber.toFixed(2);                        
                     }
                     var teaapp = ret.teaapp;
-                    if(teaapp != undefined && teaapp != ''){
-                        var formatNumber = parseFloat(teaapp);
+                    if(teaapp !== undefined && teaapp !== ''&& teaapp !== null){
+                         formatNumber = parseFloat(teaapp);
                         teaapp = formatNumber.toFixed(2);                        
                     }
                     var DI = ret.DI;
-                    if(DI != undefined && DI != ''){
-                        var formatNumber = parseFloat(DI);
+                    if(DI !== undefined && DI !== ''&& DI !== null){
+                         formatNumber = parseFloat(DI);
                         DI = formatNumber.toFixed(2);                        
                     }
                     var spreadmodel = ret.spreadmodel;
-                    if(spreadmodel != undefined && spreadmodel != ''){
-                        var formatNumber = parseFloat(spreadmodel);
+                    if(spreadmodel !== undefined && spreadmodel !== '' && spreadmodel !== null){
+                         formatNumber = parseFloat(spreadmodel);
                         spreadmodel = formatNumber.toFixed(2);                        
                     }
                     var spreadreq = ret.spreadreq;
-                    if(spreadreq != undefined && spreadreq != ''){
-                        var formatNumber = parseFloat(spreadreq);
+                    if(spreadreq !== undefined && spreadreq !== '' && spreadreq !== null){
+                         formatNumber = parseFloat(spreadreq);
                         spreadreq = formatNumber.toFixed(2);                        
                     }
                     var spreadapp = ret.spreadapp;
-                    if(spreadapp != undefined && spreadapp != ''){
-                        var formatNumber = parseFloat(spreadapp);
+                    if(spreadapp !== undefined && spreadapp !== '' && spreadapp !== null){
+                         formatNumber = parseFloat(spreadapp);
                         spreadapp = formatNumber.toFixed(2);                        
                     }
                     var baiminim = ret.baiminim;
-                    if(baiminim != undefined && baiminim != ''){
-                        var formatNumber = parseFloat(baiminim);
+                    if(baiminim !== undefined && baiminim !== '' && baiminim !== null){
+                         formatNumber = parseFloat(baiminim);
                         baiminim = formatNumber.toFixed(2);                        
                     }
                     var baimodel = ret.baimodel;
-                    if(baimodel != undefined && baimodel != ''){
-                        var formatNumber = parseFloat(baimodel);
+                    if(baimodel !== undefined && baimodel !== '' && baimodel !== null){
+                         formatNumber = parseFloat(baimodel);
                         baimodel = formatNumber.toFixed(2);                        
                     }
                     var baireq = ret.baireq;
-                    if(baireq != undefined && baireq != ''){
-                        var formatNumber = parseFloat(baireq);
+                    if(baireq !== undefined && baireq !== '' && baireq !== null){
+                         formatNumber = parseFloat(baireq);
                         baireq = formatNumber.toFixed(2);                        
                     }
                     var baiapp = ret.baiapp;
-                    if(baiapp != undefined && baiapp != ''){
-                        var formatNumber = parseFloat(baiapp);
+                    if(baiapp !== undefined && baiapp !== '' && baiapp !== null){
+                         formatNumber = parseFloat(baiapp);
                         baiapp = formatNumber.toFixed(2);                        
                     }
                     var rarmodel = ret.rarmodel;
-                    if(rarmodel != undefined && rarmodel != ''){
-                        var formatNumber = parseFloat(rarmodel);
+                    if(rarmodel !== undefined && rarmodel !== '' && rarmodel !== null){
+                         formatNumber = parseFloat(rarmodel);
                         rarmodel = formatNumber.toFixed(2);                        
                     }
                     var rarreq = ret.rarreq;
-                    if(rarreq != undefined && rarreq != ''){
-                        var formatNumber = parseFloat(rarreq);
+                    if(rarreq !== undefined && rarreq !== '' && rarreq !== null){
+                         formatNumber = parseFloat(rarreq);
                         rarreq = formatNumber.toFixed(2);                        
                     }
                     var rarapp = ret.rarapp;
-                    if(rarapp != undefined && rarapp != ''){
-                        var formatNumber = parseFloat(rarapp);
+                    if(rarapp !== undefined && rarapp !== '' && rarapp !== null){
+                         formatNumber = parseFloat(rarapp);
                         rarapp = formatNumber.toFixed(2);                        
                     }
                     var raPE = ret.PE;
-                    if(raPE != undefined && raPE != ''){
-                        var formatNumber = parseFloat(raPE);
+                    if(raPE !== undefined && raPE !== '' && raPE !== null){
+                         formatNumber = parseFloat(raPE);
                         raPE = formatNumber.toFixed(2);                        
                     }
                     var raCE = ret.CE;
-                    if(raCE != undefined && raCE != ''){
-                        var formatNumber = parseFloat(raCE);
+                    if(raCE !== undefined && raCE !== '' && raCE !== null){
+                         formatNumber = parseFloat(raCE);
                         raCE = formatNumber.toFixed(2);                        
                     }
                     var raCR = ret.CR;
-                    if(raCR != undefined && raCR != ''){
-                        var formatNumber = parseFloat(raCR);
+                    if(raCR !== undefined && raCR !== '' && raCR !== null){
+                         formatNumber = parseFloat(raCR);
                         raCR = formatNumber.toFixed(2);                        
                     }
                     cmp.set('v.StringPE',raPE);
@@ -159,17 +158,13 @@
                             REQU: rarreq,
                             AUTH: rarapp
                         }
-                        
                     ]);                    
                 }
                 cmp.set('v.teainput',ret.proposed);
                 cmp.set('v.spreadinput',spreadreq);
-                
             }
-            
         });
         $A.enqueueAction(action);
-        
     },
     calculatebutton : function(cmp, helper, event){
         cmp.set('v.isLoad',false);
@@ -201,11 +196,9 @@
                             if(liquidity[x].id == 'LIQUIDITY_MARGIN_BASED_ON_REQUESTED_TEA'){
                                 spreadReq = (liquidity[x].detail.percentage);
                             }
-                            
                             if(liquidity[x].id == 'BENEFIT_BEFORE_TAX'){
                                 baiReq = (liquidity[x].detail.percentage); 
                             }                                                                     
-                            
                         }
                     }
                     if(strjson.data != null && strjson.data.financialIndicators != null){                        
@@ -217,26 +210,26 @@
                         }
                     }
                     adjTea = cmp.get('v.teainput');
-                    if(adjTea != undefined && adjTea != ''){
-                        var formatNumber = parseFloat(adjTea);
+                    var formatNumber ;
+                    if(adjTea !== undefined && adjTea !== '' && adjTea !== null){
+                        formatNumber = parseFloat(adjTea);
                         adjTea = formatNumber.toFixed(2);                        
                     }
-                    if(rarReq != undefined && rarReq != ''){
-                        var formatNumber = parseFloat(rarReq);
+                    if(rarReq !== undefined && rarReq !== '' && rarReq !== null){
+                        formatNumber = parseFloat(rarReq);
 						formatNumber = formatNumber*100;
                         rarReq = formatNumber.toFixed(2);                        
                     }
-                    if(baiReq != undefined && baiReq != ''){
-                        var formatNumber = parseFloat(baiReq);
+                    if(baiReq !== undefined && baiReq !== '' && baiReq !== null){
+                        formatNumber = parseFloat(baiReq);
 						formatNumber = formatNumber*100;
                         baiReq = formatNumber.toFixed(2);                        
                     }
-                    if(spreadReq != undefined && spreadReq != ''){
-                        var formatNumber = parseFloat(spreadReq);
+                    if(spreadReq !== undefined && spreadReq !== '' && spreadReq !== null){
+                        formatNumber = parseFloat(spreadReq);
 						formatNumber = formatNumber*100;
                         spreadReq = formatNumber.toFixed(2);                        
                     }
-                    
                     for(var i in datalst){
                         switch (datalst[i].id){
                             case 'SPREAD':
