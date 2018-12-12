@@ -19,7 +19,7 @@
         <groupingColumn>Account.Opportunities$StageName</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>Account.Opportunities$opportunity_product_family__c</secondaryGroupingColumn>
+        <secondaryGroupingColumn>Account.Opportunities$Name</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
