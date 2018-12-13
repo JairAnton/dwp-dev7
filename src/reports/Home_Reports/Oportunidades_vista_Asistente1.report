@@ -14,7 +14,7 @@
         <groupingColumn>STAGE_NAME</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>OPPORTUNITY_NAME</secondaryGroupingColumn>
+        <secondaryGroupingColumn>FAMILY</secondaryGroupingColumn>
         <showAxisLabels>false</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
