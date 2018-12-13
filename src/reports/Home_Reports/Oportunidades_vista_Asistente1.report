@@ -9,7 +9,11 @@
             <axisBinding>y</axisBinding>
             <column>AMOUNT.CONVERT</column>
         </chartSummaries>
-        <chartType>VerticalColumnGrouped</chartType>
+        <chartSummaries>
+            <axisBinding>y2</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>VerticalColumnGroupedLine</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>STAGE_NAME</groupingColumn>
