@@ -13,6 +13,11 @@
         <apexClass>OpportunityLineItem_test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <classAccesses>
         <apexClass>PE_OpportunityLITTriggerHandler</apexClass>
         <enabled>true</enabled>
