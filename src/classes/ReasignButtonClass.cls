@@ -1,4 +1,4 @@
-public class ReasignButtonClass {
+public without sharing class ReasignButtonClass {//yulino 11/12/2018 : Se agregó without sharing y contructor al final de la clase
     @AuraEnabled
     public static User start( Id recordId) {
         User lstUser = new User();
@@ -85,5 +85,8 @@ public class ReasignButtonClass {
         }
         mapReturn.put('genericError',genericError);
         return mapReturn;
-    }    
+    } 
+
+    private ReasignButtonClass(){
+    }   
 }

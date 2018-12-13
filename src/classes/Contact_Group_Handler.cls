@@ -90,7 +90,7 @@ public without sharing class Contact_Group_Handler {
                                           WHERE ContactID in :cid]){
             mapCuentaContacto.put(acr.AccountId, acr);   
         }
-        list<Id>ContactsIds = new list<Id>();
+        //list<Id>ContactsIds = new list<Id>(); //Yulino 11/12/2018 : Se comento esta linea
         for(Contact c : Contacts){
             try{
                 if(c.AccountId != mapOld.get(c.Id).AccountId){
@@ -126,5 +126,8 @@ public without sharing class Contact_Group_Handler {
                 WHERE ContactId IN: ContactsIDs AND IsDirect = true];
                 AccountContactParentAssociation.ucontact=false;
                 AccountContactParentAssociation.setValuesRelation(accs);       
+    }
+
+    private Contact_Group_Handler(){
     }      
 }

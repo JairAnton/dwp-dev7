@@ -48,13 +48,13 @@ public class OpportunityProduct_Controller_tst {
                                                            TotalPrice=9,
                                                            PricebookEntryId=pe.Id,
                                                            Product2Id =p.id); 
-        insert oli;
+        insert OLI;
         test.stopTest(); 
     }
     static testMethod  void positiveTest(){
         task t = [SELECT Id FROM TASK LIMIT 1];
         opportunity  opp = [SELECT ID FROM Opportunity LIMIT 1];
-        OpportunityProduct_Controller OPC = new OpportunityProduct_Controller();
+        //OpportunityProduct_Controller OPC = new OpportunityProduct_Controller(); //Yulino 11/12/2018 : Se comentó
         //OpportunityProduct_Controller.getTasks(opp.Id); 
         OpportunityProduct_Controller.getTasks('SIO1234567');
         OpportunityProduct_Controller.getOppLI(opp.id);
@@ -62,11 +62,11 @@ public class OpportunityProduct_Controller_tst {
         OpportunityProduct_Controller.sendApproval(opp.Id);
         opp.Risk_modality_type__c='';
         update opp;
-        OpportunityProduct_Controller.requestModality(opp.Id);
+        String valor = OpportunityProduct_Controller.requestModality(opp.Id); // Yulino 11/12/2018 :Se aregó una variable para utilizar en el asset
+        system.assertNotEquals('', valor ); // 11/12/2018 : Agregando el Assert
     }
     
-    
-    //Eduardo Castillo S. - M�todo creado para la clase OpporunityProduct_Controller
+    //Eduardo Castillo S. - M�todo creado para la clase OpporunityProduct_Controller
     public static void create_modality_mode(){
         Modality_Mode__c obj = new Modality_Mode__c();
         obj.Product_Name__c = '01';

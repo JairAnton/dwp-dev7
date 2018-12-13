@@ -1,6 +1,6 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName">
 	<lightning:layout multipleRows="true">
-        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='6' size='6'>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize="6" size="6">
 			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Matrix"
@@ -21,7 +21,7 @@
                                                       Summarize="SUM"
                                                       Symbol="true"/>
         </lightning:layoutItem>
-        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='6' size='6'>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize="6" size="6">
 			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Matrix"
@@ -42,7 +42,7 @@
                                                       Summarize="SUM"
                                                       Symbol="true"/>
         </lightning:layoutItem>
-        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='6' size='6'>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize="6" size="6">
 			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Matrix"
@@ -62,7 +62,7 @@
                                                       Summarize="SUM"
                                                       Symbol="true"/>
         </lightning:layoutItem>
-        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize='6' size='6'>
+        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize="6" size="6">
 			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Matrix"

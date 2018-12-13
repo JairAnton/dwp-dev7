@@ -173,7 +173,7 @@
                 var strjson = JSON.parse(body);
                 var state = ret.state;
                 var generr = ret.errormessage;
-                if(state = 200){
+                if(state == 200){ // Yulino 13/12/2018 : Se agreg =
                     var datalst = cmp.get('v.data');
                     var spreadReq;
                     var baiReq;

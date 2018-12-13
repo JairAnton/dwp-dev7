@@ -1,5 +1,5 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName">
-    <div class='slds-box c-container' style="background-color: white;">
+    <div class="slds-box c-container" style="background-color: white;">
         
         <lightning:layout multipleRows="true">
             <lightning:layoutItem flexibility="auto" padding="around-small">

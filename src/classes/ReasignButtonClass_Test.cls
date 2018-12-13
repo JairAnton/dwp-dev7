@@ -10,6 +10,7 @@ public class ReasignButtonClass_Test {
         Opportunity opp = TestFactory.createOpportunity(acc.Id, UserInfo.getUserId());
         Product2 prod = TestFactory.createProduct();
         OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
+        System.assertNotEquals(null, oli);// yulino 12/12/2018 :Se agrego Assets
     }
     @isTest
     static void testreasign(){

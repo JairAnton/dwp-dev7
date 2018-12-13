@@ -35,4 +35,7 @@ public class MX_PickListValues_cls {
             this.Label = toLabel;
         }
     }
+    //Yulino 11/12/2018 : Se agrego el contructor
+    private MX_PickListValues_cls(){  
+    }
 }

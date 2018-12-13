@@ -14,14 +14,11 @@ public with sharing class Object_Controller {
 **/
     /**
 *Method of get contacts register.
-*
+*   Yulino 11/12/2018 : Se modificó getOportunityLineItemID, getOportunityModality y getOportunidadSytem a RETURN en una sola linea, asimismo el contructor al final de la clase
 **/
     @AuraEnabled
     public static Id getOportunityLineItemID(String Filtro) {
-        ID OpLiItem =
-            [SELECT Id FROM OpportunityLineItem
-             where OpportunityId =:Filtro][0].Id;
-        return OpLiItem;
+        return [SELECT Id FROM OpportunityLineItem where OpportunityId =:Filtro][0].Id;
     }
     /**
 *Method of get contacts register.
@@ -29,9 +26,7 @@ public with sharing class Object_Controller {
 **/
     @AuraEnabled
     public static String getOportunityModality(String Filtro) {
-        String Modality = [SELECT Risk_modality_type__c FROM Opportunity
-                           WHERE Id =:Filtro LIMIT 1].Risk_modality_type__c;
-        return Modality;
+        return [SELECT Risk_modality_type__c FROM Opportunity WHERE Id =:Filtro LIMIT 1].Risk_modality_type__c;
     }
     /**
 *Method of get contacts register.
@@ -39,11 +34,8 @@ public with sharing class Object_Controller {
 **/
     @AuraEnabled
     public static String getOportunidadSytem(String Filtro) {
-        String OpLiItem =
-            [SELECT Id, Product2.Type_of_quote__c  FROM OpportunityLineItem
-             where OpportunityId =:Filtro][0].Product2.Type_of_quote__c;
-        return OpLiItem;
-        
+    
+        return [SELECT Id, Product2.Type_of_quote__c  FROM OpportunityLineItem  where OpportunityId =:Filtro][0].Product2.Type_of_quote__c;
     }
     /**
 *Method of get contacts register.
@@ -52,12 +44,12 @@ public with sharing class Object_Controller {
     @AuraEnabled
     public static void  setSanction(String Idopp){
         Opportunity op  = new Opportunity();
-        Map<string,string> MapStatus = getMapOppStatus();
+        //Map<string,string> MapStatus = getMapOppStatus(); // Yulino 11/12/2018 : Se comentó
         Task t = [SELECT Id,Subject,Status FROM Task WHERE whatId = : idopp ORDER BY CreatedDate DESC];
         op = [SELECT StageName,Risk_modality_type__c,opportunity_status_type__c FROM Opportunity WHERE ID =:Idopp];
         op.opportunity_status_type__c='10';
         String[] valStatus = t.Subject.split('##');
-        String filter = '%'+valStatus[0]+'%';
+        //String filter = '%'+valStatus[0]+'%'; // Yulino 11/12/2018 : Se comentó
         Integer totalTrace;
         update op;
         AggregateResult[] countTrace  = [SELECT Count(Id) total FROM dwp_cvad__Action_Audit__c];
@@ -126,4 +118,6 @@ public with sharing class Object_Controller {
         return prodreturn;
     }
     
+    private Object_Controller(){   
+    }
 }
