@@ -5,10 +5,11 @@
         <backgroundColor2>#FFFFFF</backgroundColor2>
         <backgroundFadeDir>Diagonal</backgroundFadeDir>
         <chartSummaries>
+            <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>RowCount</column>
+            <column>AMOUNT.CONVERT</column>
         </chartSummaries>
-        <chartType>VerticalColumnStacked</chartType>
+        <chartType>VerticalColumnGrouped</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>STAGE_NAME</groupingColumn>
@@ -55,15 +56,15 @@
         </criteriaItems>
         <language>es</language>
     </filter>
-    <format>Matrix</format>
-    <groupingsAcross>
-        <dateGranularity>Day</dateGranularity>
-        <field>FAMILY</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsAcross>
+    <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>STAGE_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FAMILY</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
