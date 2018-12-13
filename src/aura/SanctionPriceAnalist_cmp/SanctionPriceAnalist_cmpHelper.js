@@ -107,9 +107,9 @@
        valide: function(cmp, evt,helper){
            if(cmp.get('v.isnotWeb') === false){
                var analistWeb = cmp.find('analistWeb');
-               var inputtea = parseInt(analistWeb.get('v.teainput'));
+               var inputtea = parseFloat(analistWeb.get('v.teainput'));
                var datalst = analistWeb.get('v.data');
-               var TeaAUT =parseInt(datalst[0].AUTH);
+               var TeaAUT =parseFloat(datalst[0].AUTH);
                var inputObject=cmp.get('v.inputAttributes');
                if(cmp.get('v.isnotWeb') === false && TeaAUT===inputtea){
                    helper.continue(cmp, evt, helper); }
