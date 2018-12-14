@@ -49,6 +49,14 @@ branches:
                         credentialId: SFDC_PREPROD
                         testLevel: RunLocalTests
 
+    hotfix:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_BUGFIX
+                        testLevel: RunLocalTests
+
     master:
         stages:
             publish:
