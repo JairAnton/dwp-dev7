@@ -611,6 +611,46 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+    <fields>
+        <fullName>Hora_Check_In__c</fullName>
+        <description>Hora Check In</description>
+        <externalId>false</externalId>
+        <label>Hora Check In</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>Hora_Check_Out__c</fullName>
+        <description>Hora Check Out</description>
+        <externalId>false</externalId>
+        <label>Hora Check Out</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>Ubicaci_n_Check_In__c</fullName>
+        <description>Ubicación de check in</description>
+        <displayLocationInDecimal>false</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Ubicación Check In</label>
+        <required>false</required>
+        <scale>4</scale>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>Ubicaci_n_Check_Out__c</fullName>
+        <description>Ubicacíon Check Out</description>
+        <displayLocationInDecimal>false</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Ubicación Check Out</label>
+        <required>false</required>
+        <scale>4</scale>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>
     <label>Visit</label>
     <nameField>
         <encrypted>false</encrypted>
