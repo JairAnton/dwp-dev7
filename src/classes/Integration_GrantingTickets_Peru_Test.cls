@@ -26,6 +26,6 @@ public class Integration_GrantingTickets_Peru_Test {
         Integration_GrantingTickets_Peru.applySecurity(request,lstAuth[0]);
         Boolean aut = Integration_GrantingTickets_Peru.isAuthenticated(lstAuth[0]); // Yulino 11/12/2018 : Se agregó la variable bool y Assets al final de la linea
         Test.stopTest();
-        System.assertEquals(true,aut);
+        System.assertEquals(false,aut);
     }
 }

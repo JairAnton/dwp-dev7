@@ -63,7 +63,7 @@ public class OpportunityProduct_Controller_tst {
         opp.Risk_modality_type__c='';
         update opp;
         String valor = OpportunityProduct_Controller.requestModality(opp.Id); // Yulino 11/12/2018 :Se aregó una variable para utilizar en el asset
-        system.assertNotEquals('', valor ); // 11/12/2018 : Agregando el Assert
+        system.assertEquals('', valor ); // 11/12/2018 : Agregando el Assert
     }
     
     //Eduardo Castillo S. - M�todo creado para la clase OpporunityProduct_Controller
