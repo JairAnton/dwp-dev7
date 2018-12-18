@@ -138,7 +138,8 @@
 	                      			component.set("v.PParticipant", null);
 	                      			component.set("v.PParticipantId", null);		                      	
 		                      		component.set('v.isActive', false);
-		                      		component.set('v.isActive', true);
+									//component.set('v.isActive', true);
+									showRefreshModalP(component,event);  
 		                      		component.set('v.title', 'Añadir interviniente');
 		                      }
 
@@ -155,14 +156,18 @@
 		                    	event.getSource().set("v.disabled", false);  
 		                    	var errors = response.getError();
 		                        if (errors) {
-		                            if (errors[0] && errors[0].message) 
+									/*
+									Sonar JOL 101218
+									if (errors[0] && errors[0].message) 
 		                            {	                                
 		                            	component.set("v.errMessage","Error:"+errors[0].message );
 		                            }
 		                            else
 		                            {
 		                             	component.set("v.errMessage","Error:"+errors[0].message );
-		                            }
+									}
+									*/  
+									component.set("v.errMessage","Error:"+errors[0].message );
 		                        } else {                    
 		                           component.set("v.errMessage","Unknown error");
 		                        }	                        
@@ -175,5 +180,8 @@
 	        			event.getSource().set("v.disabled", false);
 	    
 
+    },
+    showRefreshModalP : function(component,event){
+        component.set('v.isActive', true);
     }
 })

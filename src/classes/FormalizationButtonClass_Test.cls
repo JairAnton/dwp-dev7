@@ -16,6 +16,7 @@ public class FormalizationButtonClass_Test {
         System.runAs(defaultUser) {
             String oppId = opptest.Id;            
             formalizationButtonClass.updateOpp(oppId);
+            System.assertNotEquals('', oppId); 
         }
         Test.stopTest();
     }
@@ -24,7 +25,8 @@ public class FormalizationButtonClass_Test {
         setData();
         Test.startTest();
         System.runAs(defaultUser) {
-            formalizationButtonClass.getErrorMessagesList('recordTest', 'sourceTest', 'validationClassTest');        
+           List<String> lstErrorMessage = formalizationButtonClass.getErrorMessagesList('recordTest', 'sourceTest', 'validationClassTest');
+            System.assertEquals(0, lstErrorMessage.size()); //Yulino 12/12/2018 : Se agrego Assets linea 19 y 29,se declaro variable lstErrorMessage lin. 28 (para el assets)     
         }
         Test.stopTest();
     }

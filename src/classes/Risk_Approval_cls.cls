@@ -6,7 +6,7 @@ public without sharing class Risk_Approval_cls {
         List<AggregateResult> audits = new List<AggregateResult>();
         try{
             //Logic to search audits records from opportunity's account and if it has been set the search text
-            if(searchText != '' && searchText != null) {
+            if(searchText != null && searchText != '') { //yulino - Se modificó el orden de las condiciones
                 String text = '%' + searchText + '%';
                 audits = [Select action_opp_sio_code__c From dwp_cvad__Action_Audit__c
                           Where dwp_cvad__action_audit_record_id__c = :opp.AccountId and dwp_cvad__action_audit_object_api_name__c = :Label.ApiNameAccount
@@ -26,7 +26,7 @@ public without sharing class Risk_Approval_cls {
         } catch(Exception e) {
             System.debug('Error!: ' + e.getMessage() + e.getLineNumber());
         }
-        return null;
+        return audits; //Yulino 27/11/2018 : se modificó de null a audits
     }
     
     @AuraEnabled
@@ -126,5 +126,8 @@ public without sharing class Risk_Approval_cls {
         catch(Exception e) {
             return e.getMessage();
         }
+    }
+    
+    public Risk_Approval_cls(){//Yulino 27-11-2018: agregado el constructor 
     }
 }

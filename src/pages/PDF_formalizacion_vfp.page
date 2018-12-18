@@ -2,11 +2,11 @@
     <apex:stylesheet value="{!$Resource.stylePDF}"/>
     <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100"/>
     <div class="title">
-        <b>&nbsp;PDF Formalización {!Opportunity.Name}</b>
+        <strong>&nbsp;PDF Formalización {!Opportunity.Name}</strong>
     </div>
     <br/>
     <div class="subtitle">
-        <b>&nbsp;Datos cliente</b>
+        <strong>&nbsp;Datos cliente</strong>
     </div>
     <br/>
     <table>
@@ -29,7 +29,7 @@
     </table>
     <br/>
     <div class="subtitle">
-        <b>&nbsp;Datos riesgo</b>
+        <strong>&nbsp;Datos riesgo</strong>
     </div>
     <br/>
     <table>
@@ -50,7 +50,7 @@
         </tr>
         <tr>
             <td>Buró:&nbsp;<apex:outputText value="{0, number,0}">
-                <apex:param value="{!Client.bureau_classification_type__c}"/>
+                <apex:param value="{!Client.bureau_classification_type__c}"></apex:param>
                 </apex:outputText></td>
             <td>Rating: {!Rating.rating_scale_type__c} </td>
         </tr>
@@ -58,7 +58,7 @@
     <apex:outputPanel rendered="{!product.risk_sanction__c}">
         <br/>
         <div class="subtitle">
-            <b>&nbsp;Sanción riesgo</b>
+            <strong>&nbsp;Sanción riesgo</strong>
         </div>
         <br/>
         <table>
@@ -67,7 +67,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td>Condicionantes: {!numGnF}</td><!-- This is a guarantee no formalizated -->
+                <td>Condicionantes: {!numGnF}</td>
                 <td>Fecha autorización: {!FechaAut}</td>
             </tr>
             <apex:outputPanel rendered="{!Opportunity.Risk_modality_type__c == '02'}">
@@ -85,7 +85,7 @@
     </apex:outputPanel>
     <apex:outputPanel rendered="{!product.price_penalty__c}">
         <div class="subtitle">
-            <b>&nbsp;Sanción precio</b>
+            <strong>&nbsp;Sanción precio</strong>
         </div>
         <br/>
         <table>
@@ -123,7 +123,7 @@
                     <apex:outputfield value="{!Oli.gipr_Periodicidad__c}"/></td>
                 <td>Tipo garantía:&nbsp; <apex:outputfield value="{!Oli.gipr_Tipo_Garantia__c}"/></td>
             </tr>
-            <apex:outputPanel  rendered="{!Product.ProductCode == $Label.lblPDFProductExportComex || Product.ProductCode == $Label.lblPDFProductImportComex}">
+            <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductExportComex || Product.ProductCode == $Label.lblPDFProductImportComex}">
                 <tr>
                     <td>Medio de pago:&nbsp;<apex:outputfield value="{!OLI.gipr_Payment_Method__c}"/></td>
                     <td>Bolsa comex:&nbsp;<apex:outputfield value="{!OLI.gipr_Comex_Bag__c}"/></td>
@@ -144,7 +144,7 @@
     <apex:outputPanel id="DatosOportunidad"  layout="block">
         <br/>
         <div class="subtitle">
-            <b>&nbsp;Datos de oportunidad</b>
+            <strong>&nbsp;Datos de oportunidad</strong>
         </div>
         <br/>
         <table>
@@ -158,7 +158,7 @@
     <apex:outputPanel id="pagoliquidación"  layout="block">
         <br/>
         <div class="subtitle">
-            <b>&nbsp;Información general del producto</b>
+            <strong>&nbsp;Información general del producto</strong>
         </div>
         <br/>
         <table>
@@ -183,7 +183,7 @@
     <apex:outputPanel id="InfoGral"  layout="block">
         <br/>
         <div class="subtitle">
-            <b>&nbsp;Criterios de pago y liquidacíon</b>
+            <strong>&nbsp;Criterios de pago y liquidacíon</strong>
         </div>
         <br/>
         <table>
@@ -228,14 +228,14 @@
                 <td class="cd">
                     <apex:outputPanel rendered="{!Garantia.guarantee_status_type__c=='02'}">
                         <apex:outputText value="{0, number,0}">
-                            <apex:param value="{!Garantia.guarantee_term_number__c}"/>
-                        </apex:outputText>&nbsp;<apex:outputField value="{!Garantia.guarantee_periodicity_type__c}"/>
+                            <apex:param value="{!Garantia.guarantee_term_number__c}"></apex:param>
+                        </apex:outputText>&nbsp;<apex:outputField value="{!Garantia.guarantee_periodicity_type__c}"></apex:outputField>
                     </apex:outputPanel>
                 </td>
                 <td>
                     <apex:outputPanel rendered="{!Garantia.guarantee_status_type__c=='01'}">
                         <apex:outputText value="{0, number,0}">
-                            <apex:param value="{!Garantia.guarantee_id__c}"/>
+                            <apex:param value="{!Garantia.guarantee_id__c}"></apex:param>
                         </apex:outputText>
                     </apex:outputPanel>
                 </td>

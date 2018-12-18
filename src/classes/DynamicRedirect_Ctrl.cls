@@ -10,4 +10,6 @@ public with sharing class DynamicRedirect_Ctrl {
         return JSON.serialize(jsonMap);
     }
     
+	private DynamicRedirect_Ctrl(){
+    }
 }

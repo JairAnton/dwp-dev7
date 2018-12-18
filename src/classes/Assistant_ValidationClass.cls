@@ -1,9 +1,9 @@
-global class Assistant_ValidationClass implements dwp_dbpn.DynamicFlowValidationInterface {    
+global without sharing class Assistant_ValidationClass implements dwp_dbpn.DynamicFlowValidationInterface {    
     global static List<String> getErrorMessagesList(String recordId, String source, String validationClass){
         list<String> lstErrorMessage = new List<String>();
         List<Profile> lstProfile = [SELECT Id, Name FROM Profile WHERE Id = :UserInfo.getProfileId()];
-        if(lstProfile[0].Name == 'Ejecutivo'){
-            if(recordId!=UserInfo.getUserId()){
+        if(lstProfile[0].Name == 'Ejecutivo' && recordId!=UserInfo.getUserId()){
+            //if(recordId!=UserInfo.getUserId()){
                 List<PermissionSetAssignment> lstPermissionSet = [SELECT    Id, 
                                                                             PermissionSet.Name,
                                                                             AssigneeId
@@ -12,8 +12,11 @@ global class Assistant_ValidationClass implements dwp_dbpn.DynamicFlowValidation
                                                                 AND AssigneeId = :UserInfo.getUserId()];
                 
                 if(lstPermissionSet.isEmpty())lstErrorMessage.add(Label.AssistantValidationError); 
-            }
+           // }
         }
         return lstErrorMessage;
+    }
+    
+    private Assistant_ValidationClass(){
     }
 }

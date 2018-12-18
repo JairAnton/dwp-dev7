@@ -120,9 +120,9 @@ public with sharing class AssistantSection_ctrl {
 
     public class DataTable_wrapper{
         
-        public String userId;
-        public String userName;
-        public String recordId;
+        private String userId { get; set; }//Yulino 29/11/2018 : Se agregó el get y set
+        private String userName { get; set; }//Yulino 29/11/2018 : Se agregó el get y set
+        private String recordId { get; set; }//Yulino 29/11/2018 : Se agregó el get y set
         
         public DataTable_wrapper (String userId, String userName, String recordId){
             this.userId = '/' + userId;
@@ -131,4 +131,8 @@ public with sharing class AssistantSection_ctrl {
         }
         
     }
+    
+    public AssistantSection_ctrl(){ //Yulino 29/11/2018 : Se agregó el constructor
+    }
+    
 }

@@ -1,5 +1,5 @@
 @isTest(SeeAllData=true)
-public class NotificationBatch_Test {
+public class NotificationBatch_Test { //Yulino 12/12/2018 : Se agrego Assets (linea 15)
     static Account acctest;
     static Opportunity opptest;
     static User usertest;
@@ -12,6 +12,7 @@ public class NotificationBatch_Test {
         update acctest;
         opptest = TestFactory.createOpportunity(acctest.Id,usertest.Id);
         casetest = TestFactory.createCase(usertest.Id);
+        System.assertNotEquals(usertest.Id, null); 
     }
     @isTest
     static void  notifBatch(){

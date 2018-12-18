@@ -59,8 +59,8 @@ public without sharing virtual class OpportunityPDFWrap {
             }
         }
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
-        SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =\''+Opp.Id+'\'';
-        OLI2 = Database.query(SOQLQuery);
+        SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =\''+ Opp.Id +'\'';
+        OLI2 = Database.query( String.escapeSingleQuotes( SOQLQuery) ); //Yulino 04/12/2018 : se agrego String.escapeSingleQuotes()
         boolean found;
         List<String> ConditionValue;
         for(fprd__GBL_Product_Configuration__c pc : PrdConfg){
@@ -104,14 +104,14 @@ public without sharing virtual class OpportunityPDFWrap {
             oficina= new Branch__c();
             Rating = new Account_Rating__c();
             list<dwp_cvad__Action_Audit_Detail__c> DetalleComentario = new list<dwp_cvad__Action_Audit_Detail__c>();
-            Opp = database.query(getQuery('Opportunity')+' WHERE id =\''+Oppid+'\' LIMIT 1');
-            OLI = database.query(getQuery('OpportunityLineItem')+' WHERE  OpportunityID =\''+Opp.id +'\' ORDER BY CreatedDate DESC LIMIT 1');
-            Audit = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' ORDER BY CreatedDate DESC');
+            Opp = database.query(String.escapeSingleQuotes( getQuery('Opportunity')+' WHERE id =\''+ Oppid +'\' LIMIT 1'));
+            OLI = database.query(String.escapeSingleQuotes( getQuery('OpportunityLineItem')+' WHERE  OpportunityID =\''+ Opp.id +'\' ORDER BY CreatedDate DESC LIMIT 1'));
+            Audit = database.query(String.escapeSingleQuotes( getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+ opp.id +'\' ORDER BY CreatedDate DESC'));
             if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}
             FauthPrecio = String.valueOf(OLI.price_quote_date__c);
-            Comen = database.query(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+opp.id+'\' AND dwp_cvad__action_audit_name__c IN (\'Precio autorizado bajo delegación oficina\',\'Autorizado por precios\')  ORDER BY CreatedDate DESC');
+            Comen = database.query(String.escapeSingleQuotes( getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C = \''+ opp.id +'\' AND dwp_cvad__action_audit_name__c IN (\'Precio autorizado bajo delegación oficina\',\'Autorizado por precios\')  ORDER BY CreatedDate DESC'));
             if(Comen.size()>0){
-                DetalleComentario =database.query(getQuery('dwp_cvad__Action_Audit_Detail__c')+' WHERE dwp_cvad__action_audit_id__c = \''+Comen[0].Id+'\'');
+                DetalleComentario =database.query(String.escapeSingleQuotes( getQuery('dwp_cvad__Action_Audit_Detail__c')+' WHERE dwp_cvad__action_audit_id__c = \''+ Comen[0].Id +'\''));
                 if(DetalleComentario.size()>0){
                     Comentarios = DetalleComentario[0].dwp_cvad__action_audit_detail_content__c;
                     Comentarios = Comentarios.substringAfterLast('>Comentarios</h3>');
@@ -120,26 +120,26 @@ public without sharing virtual class OpportunityPDFWrap {
                 }
             }
 
-            Product = database.query(getQuery('Product2')+' WHERE  Id =\''+OLI.Product2Id +'\' LIMIT 1');
-            ProductConfiguration = database.query(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.ProductCode =\''+Product.ProductCode+'\' AND FPRD__SECTION_NAME__C IN ('+label.PDFSectionPayment+') ORDER BY FPRD__SECTION_NAME__C,FPRD__ORDER__C');
+            Product = database.query(String.escapeSingleQuotes( getQuery('Product2')+' WHERE  Id =\''+ OLI.Product2Id +'\' LIMIT 1'));
+            ProductConfiguration = database.query(String.escapeSingleQuotes( getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.ProductCode =\''+ Product.ProductCode +'\' AND FPRD__SECTION_NAME__C IN ('+ label.PDFSectionPayment +') ORDER BY FPRD__SECTION_NAME__C,FPRD__ORDER__C'));
             filterVisibility(ProductConfiguration);
-            Client =database.query(getQuery('Account')+' WHERE  Id =\''+opp.Accountid +'\' LIMIT 1');
-            usuarioOficina = database.query(getQuery('User_Branch__c')+' WHERE  User__c =\''+opp.ownerId +'\' LIMIT 1');
-            if(usuarioOficina.size()>0){oficina =  database.query(getQuery('Branch__c')+' WHERE  id =\''+usuarioOficina[0].branch_name__c +'\' LIMIT 1');}
+            Client =database.query(String.escapeSingleQuotes( getQuery('Account')+' WHERE  Id =\''+ opp.Accountid +'\' LIMIT 1'));
+            usuarioOficina = database.query(String.escapeSingleQuotes( getQuery('User_Branch__c')+' WHERE  User__c =\''+ opp.ownerId +'\' LIMIT 1'));
+            if(usuarioOficina.size()>0){oficina =  database.query(String.escapeSingleQuotes( getQuery('Branch__c')+' WHERE  id =\''+ usuarioOficina[0].branch_name__c +'\' LIMIT 1'));}
             //Fix When Account Rating is not present
-            if(!database.query(getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+Client.Id+'\' ORDER BY createdDate LIMIT 1').isEmpty())    
-                Rating=database.query(getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+Client.Id+'\' ORDER BY createdDate LIMIT 1');
+            if(!database.query( String.escapeSingleQuotes( getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+ Client.Id +'\' ORDER BY createdDate LIMIT 1')).isEmpty())    
+                Rating=database.query(String.escapeSingleQuotes( getQuery('Account_Rating__c')+' WHERE  account_id__c =\''+ Client.Id +'\' ORDER BY createdDate LIMIT 1'));
 
-            Intervenientes = database.query(getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+Opp.Id+'\'');
+            Intervenientes = database.query(String.escapeSingleQuotes( getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+ Opp.Id +'\''));
 
             //Fix When Guarantee Rating is not present
-            if(!database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+Opp.Id+'\'').isEmpty())
-                Garantias = database.query(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+Opp.Id+'\'');
+            if(!database.query(String.escapeSingleQuotes( getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+ Opp.Id +'\'')).isEmpty())
+                Garantias = database.query(String.escapeSingleQuotes( getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =\''+ Opp.Id +'\''));
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Opportunity_Solution_Commitment__c  WHERE Opportunity_Id__c =:Opp.id];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
             totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE fprd__GBL_Opportunity_product__c=:Opp.Id AND guarantee_status_type__c='02'];
             numGnF=Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
-            title = 'PDF Formalización '+Opportunity.Name;
+            title = 'PDF Formalización '+Opportunity.Name; 
         }catch(System.Exception e){
             system.debug('Exception : '+e.getMessage());
         }

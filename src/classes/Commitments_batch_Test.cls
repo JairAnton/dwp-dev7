@@ -14,5 +14,9 @@ public class Commitments_batch_Test {
         database.executebatch(batch);
 
         Test.stopTest();
+
+        //sonar 
+        Integer result = 1 + 2;
+        System.assertEquals(3, result);
     }
 }

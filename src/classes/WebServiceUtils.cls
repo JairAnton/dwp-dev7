@@ -1,4 +1,4 @@
-public class WebServiceUtils {
+public without sharing class WebServiceUtils {
     
     //Return a map with the key is webServiceVal.field_api_name__c + webServiceVal.value__c
     public static Map<String,Web_Service_Value_Mapping__c> getWebServiceValuesMapping(List<String> webServiceIdentifier, String webServicePricing){
@@ -32,19 +32,19 @@ public class WebServiceUtils {
             return '';
         }
 	}
-    public static ResponseErrorMessage_Wrapper parse(String json){
-        json = json.replace('"http-status":', '"status":').replace('"error-code":', '"errorcode":').replace('"error-message":', '"errormessage":').replace('"consumer-request-id":', '"consumerrequestid":').replace('"system-error-code":', '"systemerrorcode":').replace('"system-error-description":', '"systemerrordescription":');        
-        return (ResponseErrorMessage_Wrapper) System.JSON.deserialize(json, ResponseErrorMessage_Wrapper.class);
+    public static ResponseErrorMessage_Wrapper parse(String json){ //Yulino 06/12/2018 : Se agrego la variable local y se modifico en la sig. linea
+        final String v_json = json.replace('"http-status":', '"status":').replace('"error-code":', '"errorcode":').replace('"error-message":', '"errormessage":').replace('"consumer-request-id":', '"consumerrequestid":').replace('"system-error-code":', '"systemerrorcode":').replace('"system-error-description":', '"systemerrordescription":');        
+        return (ResponseErrorMessage_Wrapper) System.JSON.deserialize(v_json, ResponseErrorMessage_Wrapper.class);
     }
     
     public class ResponseErrorMessage_Wrapper{
-        public Integer version;
-        public String severity;
-        public Integer status;
-        public String errorcode;
-        public String errormessage;
-        public String consumerrequestid;
-        public String systemerrorcode;
-        public String systemerrordescription;
+        public Integer version {get; set;} //Yulino 04/12/2018 : Se agrego {get; set;}
+        public String severity {get; set;}
+        public Integer status {get; set;}
+        public String errorcode {get; set;}
+        public String errormessage {get; set;}
+        public String consumerrequestid {get; set;}
+        public String systemerrorcode {get; set;}
+        public String systemerrordescription {get; set;}
     }
 }

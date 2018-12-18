@@ -72,7 +72,7 @@ public with sharing class SanctionPrice_ctrl {
                                                       WHERE validity_start_date__c <= TODAY 
                                                       AND validity_end_date__c >= TODAY 
                                                       AND product_id__c = :lstOpp[0].OpportunityLineItems[0].Product2Id
-                                                      AND calc_account_segment_desc__c = :strSegment.toUpperCase()];
+                                                      AND calc_account_segment_desc__c = :strSegment.toUpperCase(UserInfo.getLocale())];//Yuliño 11/12/2018 : Agregando el lenguaje local
                     //get minimun_fee_per__c
                     if(!lstOpp.isEmpty() && !lstPriceFee.isEmpty()){
                         mapReturn.put('dynamicValue',lstPriceFee[0].minimun_fee_per__c);
@@ -146,7 +146,7 @@ public with sharing class SanctionPrice_ctrl {
                                                       WHERE validity_start_date__c <= TODAY 
                                                       AND validity_end_date__c >= TODAY 
                                                       AND product_id__c = :lstOpp[0].OpportunityLineItems[0].Product2Id
-                                                      AND calc_account_segment_desc__c = :strSegment.toUpperCase()];
+                                                      AND calc_account_segment_desc__c = :strSegment.toUpperCase(UserInfo.getLocale())]; //Yulino 11/12/2018 : Agregando el lenguaje local
                     //get minimun_fee_per__c
                     if(!lstOpp.isEmpty() && !lstPriceFee.isEmpty()){
                         mapReturn.put('dynamicValue',lstPriceFee[0].minimun_fee_per__c);

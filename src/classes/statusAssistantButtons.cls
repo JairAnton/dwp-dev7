@@ -1,4 +1,4 @@
-global class statusAssistantButtons implements dwp_dbpn.DynamicButtonsStatusInterface {
+global without sharing class statusAssistantButtons implements dwp_dbpn.DynamicButtonsStatusInterface {//yulino 27/11/2018 : se quitó global
 
     Global static Set<String> getDynamicButtonStatus(String recordId, String sObjectName)
     {
@@ -9,6 +9,8 @@ global class statusAssistantButtons implements dwp_dbpn.DynamicButtonsStatusInte
         }
         return buttonsStatusSet;
     }
-
+	
+    private statusAssistantButtons(){//Yulino 27/11/2018 : se agregó el contructor
+    }
 
 }
