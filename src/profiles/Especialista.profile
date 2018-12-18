@@ -4372,7 +4372,27 @@ Ejecutivos de REDES</description>
         <editable>false</editable>
         <field>User_Branch__c.user_prof_position_type__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.Hora_Check_In__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.Hora_Check_Out__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.Ubicaci_n_Check_In__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.Ubicaci_n_Check_Out__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 	
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
