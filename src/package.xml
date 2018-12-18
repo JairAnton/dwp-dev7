@@ -9,7 +9,7 @@
         <members>Operativo</members>
         <name>Profile</name>
     </types>
-    <types>
+    <types> 
         <members>Hangout</members>
         <members>Agree</members>
         <members>Cancel</members>
