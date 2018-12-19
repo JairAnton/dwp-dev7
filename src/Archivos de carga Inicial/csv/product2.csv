@@ -14,8 +14,8 @@
 "PFL","PC00040","Producto code 40","true","Programa financiero","PEN",,"PC00040","false","false","true","false",
 "PFF","PC00041","Producto code 41","true","Programa financiero","PEN",,"PC00041","false","false","true","false",
 "PFA","PC00042","Producto code 42","true","Programa financiero","PEN",,"PC00042","false","false","true","false",
-"Prestamo comercial Prueba","PC00001_2","Producto code 1","true","Financiamiento a corto plazo","PEN","Web","0160010","true","true","true","true","11"
-"Prestamo Comercial","PC00009_2","Producto code 9","true","Financiamiento a largo plazo","PEN","COTIZA Beta","PC00009","true","true","true","true",
-"Leasing","PC00010_2","Producto code 10","true","Financiamiento a largo plazo","PEN","COTIZA Beta","0159601","true","true","true","true",
-"Carta fianza tecnica","PC00011_2","Producto code 11","true","Riesgo de firma","PEN","COTIZA Beta","0292235","true","true","true","true",
-"Carta fianza economica","PC00012_2","Producto code 12","true","Riesgo de firma","PEN","COTIZA Beta","0292230","true","true","true","true",
+"Prestamo comercial Prueba","PC00001","Producto code 1","true","Financiamiento a corto plazo","PEN","Web","0160010","true","true","true","true","11"
+"Prestamo Comercial","PC00009","Producto code 9","true","Financiamiento a largo plazo","PEN","COTIZA Beta","PC00009","true","true","true","true",
+"Leasing","PC00010","Producto code 10","true","Financiamiento a largo plazo","PEN","COTIZA Beta","0159601","true","true","true","true",
+"Carta fianza tecnica","PC00011","Producto code 11","true","Riesgo de firma","PEN","COTIZA Beta","0292235","true","true","true","true",
+"Carta fianza economica","PC00012","Producto code 12","true","Riesgo de firma","PEN","COTIZA Beta","0292230","true","true","true","true",
