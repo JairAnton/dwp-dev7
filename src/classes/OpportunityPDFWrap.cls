@@ -117,14 +117,14 @@ public without sharing virtual class OpportunityPDFWrap {
             ProductConfiguration = database.query(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.ProductCode =:ProductTemp AND FPRD__SECTION_NAME__C IN ('+ label.PDFSectionPayment +') ORDER BY FPRD__SECTION_NAME__C,FPRD__ORDER__C');
             filterVisibility(ProductConfiguration);
             final String ClieAcountID=String.escapeSingleQuotes( opp.Accountid);
-            Client =database.query( getQuery('Account')+' WHERE  Id =:ClieAcountID LIMIT 1');
+            Client =database.query( String.escapeSingleQuotes(getQuery('Account')+' WHERE  Id =:ClieAcountID LIMIT 1'));
             final String Cliente=Client.Id;
             final String ClienteOwner=String.escapeSingleQuotes( opp.ownerId);
-            usuarioOficina = database.query(getQuery('User_Branch__c')+' WHERE  User__c =:ClienteOwner LIMIT 1');
+            usuarioOficina = database.query(String.escapeSingleQuotes(getQuery('User_Branch__c')+' WHERE  User__c =:ClienteOwner LIMIT 1'));
             final String IdBRanch= String.escapeSingleQuotes(usuarioOficina[0].branch_name__c);
-            if(usuarioOficina.size()>0){oficina =  database.query( getQuery('Branch__c')+' WHERE  id =:IdBRanch LIMIT 1');}
+            if(usuarioOficina.size()>0){oficina =  database.query(String.escapeSingleQuotes( getQuery('Branch__c')+' WHERE  id =:IdBRanch LIMIT 1'));}
             //Fix When Account Rating is not present
-            if(!database.query( getQuery('Account_Rating__c')+' WHERE  account_id__c =:Cliente ORDER BY createdDate LIMIT 1').isEmpty())    
+            if(!database.query( String.escapeSingleQuotes(getQuery('Account_Rating__c')+' WHERE  account_id__c =:Cliente ORDER BY createdDate LIMIT 1')).isEmpty())    
                 Rating=database.query( getQuery('Account_Rating__c')+' WHERE  account_id__c :Cliente ORDER BY createdDate LIMIT 1');
             Intervenientes = database.query( getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo') ;
             //Fix When Guarantee Rating is not present
