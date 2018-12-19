@@ -58,18 +58,12 @@
         type: 'bar',
         yAxisID: 'SBS',
         data:  component.get("v.Nor"),
-        backgroundColor: ['#004481',
-                          '#004481',
-                          '#004481',
-                          '#004481',
-                          '#004481',
-                          '#004481',
-                          '#004481',
-                          '#004481',
-                          '#004481',
-                          '#004481',
-                          '#004481',
-                          '#004481'
+        backgroundColor: ['#004481','#004481',
+                          '#004481','#004481',
+                          '#004481','#004481',
+                          '#004481','#004481',
+                          '#004481','#004481',
+                          '#004481','#004481'
                              ],
         borderDash: [5, 5],
         label:'Nor (5)',
@@ -86,13 +80,9 @@
                           '#01A1DF',
                           '#01A1DF',
                           '#01A1DF',
-                          '#01A1DF',
-                          '#01A1DF',
-                          '#01A1DF',
-                          '#01A1DF',
-                          '#01A1DF',
-                          '#01A1DF'
-                             ],
+                          '#01A1DF','#01A1DF',
+                          '#01A1DF','#01A1DF',
+                          '#01A1DF','#01A1DF'],
         label:'CPP (4)',
         fill: true,
         stack:'stack 0',
@@ -100,18 +90,12 @@
         },{
         type: 'bar',
         data:   component.get("v.Def")  ,
-        backgroundColor: ['#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9',
-                          '#75DFD9'],
+        backgroundColor: ['#75DFD9','#75DFD9',
+                          '#75DFD9','#75DFD9',
+                          '#75DFD9','#75DFD9',
+                          '#75DFD9','#75DFD9',
+                          '#75DFD9','#75DFD9',
+                          '#75DFD9','#75DFD9'],
         borderDash: [5, 5],
         label:'Def (3)',
         fill: true,
@@ -121,18 +105,12 @@
        {
         type: 'bar',
         data: component.get("v.Dud"),
-        backgroundColor: ['#06A69E',
-                          '#06A69E',
-                          '#06A69E',
-                          '#06A69E',
-                          '#06A69E',
-                          '#06A69E',
-                          '#06A69E',
-                          '#06A69E',
-                          '#06A69E',
-                          '#06A69E',
-                          '#06A69E',
-                          '#06A69E'],
+        backgroundColor: ['#06A69E','#06A69E',
+                          '#06A69E','#06A69E',
+                          '#06A69E','#06A69E',
+                          '#06A69E','#06A69E',
+                          '#06A69E','#06A69E',
+                          '#06A69E','#06A69E'],
         borderDash: [5, 5],
         label:'Dud (2)',
         fill: true,
@@ -142,18 +120,9 @@
         {
         type: 'bar',
         data: component.get("v.Per"),
-        backgroundColor: ['#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E',
-                          '#E2CE7E'],
+        backgroundColor: ['#E2CE7E','#E2CE7E','#E2CE7E','#E2CE7E',
+                          '#E2CE7E','#E2CE7E','#E2CE7E','#E2CE7E',
+                          '#E2CE7E','#E2CE7E','#E2CE7E','#E2CE7E'],
         borderDash: [5, 5],
         label:'Per (1)',
         fill: true,
@@ -171,7 +140,6 @@
                         tension: 0 // disables curves in line graphics
                        }
                  },
-               
          scales: {
             yAxes: [{
                 id:'SBS',
@@ -212,8 +180,7 @@
              }
     }
     });
-}                 
-}
+}}
         });
          $A.enqueueAction(action);
          lista = component.get("v.mesesLista");  // 2018/11/30 -  CORRECCION DEUDA TECNICA: La variable no es utilizada en esta funcion
