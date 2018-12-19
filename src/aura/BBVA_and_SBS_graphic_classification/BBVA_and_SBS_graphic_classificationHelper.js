@@ -70,7 +70,7 @@
         fill: false,
         borderColor: '#072146',
         pointRadius: 0,
-        //fill: false,  // 2018/11/30 -  CORRECCION DEUDA TECNICA: Se establecio el valor a la variable en 2 ocasiones. (linea 70)
+        fill: false,  // 2018/11/30 -  CORRECCION DEUDA TECNICA: Se establecio el valor a la variable en 2 ocasiones. (linea 70)
         borderWidth: 2,
         },
         {
@@ -187,7 +187,7 @@
      }
        
      var ctx = document.getElementById("DWPChart").getContext('2d');
-     /*var myChart = new Chart(ctx, { // 2018/11/30 -  CORRECCION DEUDA TECNICA: La variable no es utilizada en esta funcion
+     var myChart = new Chart(ctx, { // 2018/11/30 -  CORRECCION DEUDA TECNICA: La variable no es utilizada en esta funcion
          type:'bar',
          data: barChartData,
          options: {
@@ -240,7 +240,7 @@
                    ,
              
     }
-});*/
+});
                  
                       
                       
@@ -249,7 +249,7 @@
                 }
         });
          $A.enqueueAction(action);
-        // lista = component.get("v.mesesLista");  // 2018/11/30 -  CORRECCION DEUDA TECNICA: La variable no es utilizada en esta funcion
+         lista = component.get("v.mesesLista");  // 2018/11/30 -  CORRECCION DEUDA TECNICA: La variable no es utilizada en esta funcion
  
  
  

@@ -1,5 +1,5 @@
 ({
-    ejecutarTopic: function(message){
+    ejecutarTopic: function(cmp, evt, helper, message){
         
         var lstStrApiName = cmp.get('v.relatedApiName').split(',');//MM_GBL_Cliente__c
                             
@@ -45,7 +45,7 @@
                     for(var i = 0; i<lstTopics.length; i++){
                         var strTopic = '/topic/'+lstTopics[i].toString();
                         objToMap[strTopic] = i;
-                        $.cometd.subscribe(strTopic.toString(), ejecutarTopic(message)); // 2018/11/27 - 16:33 CORRECCION DEUDA TECNICA Ernesto
+                        $.cometd.subscribe(strTopic.toString(), ejecutarTopic(cmp, evt, helper, message)); // 2018/11/27 - 16:33 CORRECCION DEUDA TECNICA Ernesto
                     }
                     cmp.set('v.objMap',objToMap);
                     
