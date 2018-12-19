@@ -107,7 +107,7 @@
             type: type
         });
         toastEvent.fire();
-    },
+    }
     /*closeMe : function(component, event) { //Ernesto 07/12/2018 : se comento el metodo porque ya existe (duplicado)
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
     	cancelEvent.fire();

@@ -9,16 +9,13 @@
         save_action.setCallback(this, function(response) {
          var state = response.getReturnValue();
        if (state === "SUCCESS") {       
-       //var urlEvent = $A.get("e.force:navigateToURL");//Ernesto: correcion
+        $A.get("e.force:navigateToURL");//Ernesto: correcion
            window.open('/apex/PDF_formalizacion_vfp?Id='+inputObject.recordId);
             component.destroy();
          }else{
                 alert(state);
            }
-        
         });
         $A.enqueueAction(save_action);
- 
- 
     }
 })
