@@ -20,8 +20,8 @@
                             var objPos = cmp.get('v.objMap');
                             var pos = objPos[message.channel];
                             var strApiNameCompare = lstStrApiName[pos];
-                            if ( (jsonResponse.userId ===  message.data.sobject.CreatedById || 
-                                  jsonResponse.userId ===  message.data.sobject.OwnerId) && 
+                            if ( (jsonResponse.userId ===  message.data.sobject.CreatedById ||
+                                  jsonResponse.userId ===  message.data.sobject.OwnerId) &&
                                   cmp.get('v.recordId') === message.data.sobject[strApiNameCompare] ){
                                 var navEvt = $A.get("e.force:navigateToSObject");
                                 navEvt.setParams({
