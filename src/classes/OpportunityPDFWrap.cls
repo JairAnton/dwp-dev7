@@ -126,17 +126,19 @@ public without sharing virtual class OpportunityPDFWrap {
             final String ClienteOwner=opp.ownerId;
             usuarioOficina = database.query(String.escapeSingleQuotes(getQuery('User_Branch__c')+' WHERE  User__c =:ClienteOwner LIMIT 1'));
             final String IdBRanch= usuarioOficina[0].branch_name__c;
-            if(usuarioOficina.size()>0){oficina =  database.query(String.escapeSingleQuotes( getQuery('Branch__c')+' WHERE  id =:IdBRanch LIMIT 1'));}
+            if(usuarioOficina.size()>0){
+                oficina =  database.query(String.escapeSingleQuotes( getQuery('Branch__c')+' WHERE  id =:IdBRanch LIMIT 1'));
+                }
             //Fix When Account Rating is not present
-            if(!database.query( String.escapeSingleQuotes(getQuery('Account_Rating__c')+' WHERE  account_id__c =:Cliente ORDER BY createdDate LIMIT 1')).isEmpty())    
-                Rating=database.query( String.escapeSingleQuotes(getQuery('Account_Rating__c')+' WHERE  account_id__c :Cliente ORDER BY createdDate LIMIT 1'));
+            if(!database.query( String.escapeSingleQuotes(getQuery('Account_Rating__c')+' WHERE  account_id__c =:Cliente ORDER BY createdDate LIMIT 1')).isEmpty()){    
+                Rating=database.query( String.escapeSingleQuotes(getQuery('Account_Rating__c')+' WHERE  account_id__c :Cliente ORDER BY createdDate LIMIT 1'));}
             Intervenientes = database.query( String.escapeSingleQuotes(getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo')) ;
             //Fix When Guarantee Rating is not present
-            if(!database.query( String.escapeSingleQuotes(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo')).isEmpty())
-                Garantias = database.query( String.escapeSingleQuotes(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo'));
+            if(!database.query( String.escapeSingleQuotes(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo')).isEmpty()){
+                Garantias = database.query( String.escapeSingleQuotes(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo'));}
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Opportunity_Solution_Commitment__c  WHERE Opportunity_Id__c =:Opp.id];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
-            system.debug(IdBRanch+''+Litemp+''+Litemp2+''+Litemp3+''+idTempo+''+Olitemp+''+ProductTemp+''+ClieAcountID+''+Cliente+''+ClienteOwner);
+            system.debug(Opps+''+IdBRanch+''+Litemp+''+Litemp2+''+Litemp3+''+idTempo+''+Olitemp+''+ProductTemp+''+ClieAcountID+''+Cliente+''+ClienteOwner+''+idComent);
             totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE fprd__GBL_Opportunity_product__c=:Opp.Id AND guarantee_status_type__c='02'];
             numGnF=Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
             title = 'PDF Formalización '+Opportunity.Name; 
