@@ -102,7 +102,7 @@ public without sharing virtual class OpportunityPDFWrap {
             if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}
             FauthPrecio = String.valueOf(OLI.price_quote_date__c);
             final List<String> Litemp2= new list<String>{'Precio autorizado bajo delegación oficina','Autorizado por precios'};
-            Comen = database.query( getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo AND dwp_cvad__action_audit_name__c IN:Litemp2  ORDER BY CreatedDate DESC');
+            Comen = database.query( String.escapeSingleQuotes(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo AND dwp_cvad__action_audit_name__c IN:Litemp2  ORDER BY CreatedDate DESC'));
             if(Comen.size()>0){
                 final String idComent =Comen[0].Id;
                 DetalleComentario =database.query( String.escapeSingleQuotes(getQuery('dwp_cvad__Action_Audit_Detail__c')+' WHERE dwp_cvad__action_audit_id__c =:idComent '));
