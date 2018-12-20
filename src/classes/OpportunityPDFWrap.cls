@@ -103,6 +103,7 @@ public without sharing virtual class OpportunityPDFWrap {
             FauthPrecio = String.valueOf(OLI.price_quote_date__c);
             final List<String> Litemp2= new list<String>{'Precio autorizado bajo delegación oficina','Autorizado por precios'};
             Comen = database.query( String.escapeSingleQuotes(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo AND dwp_cvad__action_audit_name__c IN:Litemp2  ORDER BY CreatedDate DESC'));
+            system.debug(Litemp2);
             if(Comen.size()>0){
                 final String idComent =Comen[0].Id;
                 DetalleComentario =database.query( String.escapeSingleQuotes(getQuery('dwp_cvad__Action_Audit_Detail__c')+' WHERE dwp_cvad__action_audit_id__c =:idComent '));
