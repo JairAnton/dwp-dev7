@@ -57,6 +57,7 @@ public without sharing virtual class OpportunityPDFWrap {
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
         final String Opps= Opp.Id;
         SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =:Opps';
+        system.debug(Opps);
         OLI2 = Database.query(String.escapeSingleQuotes(SOQLQuery)); //Yulino 04/12/2018 : se agrego String.escapeSingleQuotes()
         boolean found;
         List<String> ConditionValue;
@@ -112,6 +113,7 @@ public without sharing virtual class OpportunityPDFWrap {
                     Comentarios = Comentarios.substringBefore('</span>');
                     Comentarios = Comentarios.stripHtmlTags();
                 }
+                system.debug(idComent);
             }
             final string Olitemp=OLI.Product2Id;
             Product = database.query( String.escapeSingleQuotes(getQuery('Product2')+' WHERE  Id =:Olitemp LIMIT 1'));
@@ -138,7 +140,7 @@ public without sharing virtual class OpportunityPDFWrap {
                 Garantias = database.query( String.escapeSingleQuotes(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo'));}
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Opportunity_Solution_Commitment__c  WHERE Opportunity_Id__c =:Opp.id];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
-            system.debug(Opps+''+IdBRanch+''+Litemp+''+Litemp2+''+Litemp3+''+idTempo+''+Olitemp+''+ProductTemp+''+ClieAcountID+''+Cliente+''+ClienteOwner+''+idComent);
+            system.debug(IdBRanch+''+Litemp+''+Litemp2+''+Litemp3+''+idTempo+''+Olitemp+''+ProductTemp+''+ClieAcountID+''+Cliente+''+ClienteOwner);
             totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE fprd__GBL_Opportunity_product__c=:Opp.Id AND guarantee_status_type__c='02'];
             numGnF=Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
             title = 'PDF Formalización '+Opportunity.Name; 
