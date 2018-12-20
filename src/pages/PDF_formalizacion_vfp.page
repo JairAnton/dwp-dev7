@@ -2,11 +2,11 @@
     <apex:stylesheet value="{!$Resource.stylePDF}"/>
     <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100"/>
     <div class="title">
-        <strong>&nbsp;PDF Formalización {!Opportunity.Name}</strong>
+        <b>&nbsp;PDF Formalización {!Opportunity.Name}</b>
     </div>
     <br/>
     <div class="subtitle">
-        <strong>&nbsp;Datos cliente</strong>
+        <b>&nbsp;Datos cliente</b>
     </div>
     <br/>
     <table>
@@ -29,7 +29,7 @@
     </table>
     <br/>
     <div class="subtitle">
-        <strong>&nbsp;Datos riesgo</strong>
+        <b>&nbsp;Datos riesgo</b>
     </div>
     <br/>
     <table>
@@ -58,7 +58,7 @@
     <apex:outputPanel rendered="{!product.risk_sanction__c}">
         <br/>
         <div class="subtitle">
-            <strong>&nbsp;Sanción riesgo</strong>
+            <b>&nbsp;Sanción riesgo</b>
         </div>
         <br/>
         <table>
@@ -85,7 +85,7 @@
     </apex:outputPanel>
     <apex:outputPanel rendered="{!product.price_penalty__c}">
         <div class="subtitle">
-            <strong>&nbsp;Sanción precio</strong>
+            <b>&nbsp;Sanción precio</b>
         </div>
         <br/>
         <table>
@@ -144,7 +144,7 @@
     <apex:outputPanel id="DatosOportunidad"  layout="block">
         <br/>
         <div class="subtitle">
-            <strong>&nbsp;Datos de oportunidad</strong>
+            <b>&nbsp;Datos de oportunidad</b>
         </div>
         <br/>
         <table>
@@ -158,7 +158,7 @@
     <apex:outputPanel id="pagoliquidación"  layout="block">
         <br/>
         <div class="subtitle">
-            <strong>&nbsp;Información general del producto</strong>
+            <b>&nbsp;Información general del producto</b>
         </div>
         <br/>
         <table>
@@ -183,7 +183,7 @@
     <apex:outputPanel id="InfoGral"  layout="block">
         <br/>
         <div class="subtitle">
-            <strong>&nbsp;Criterios de pago y liquidacíon</strong>
+            <b>&nbsp;Criterios de pago y liquidacíon</b>
         </div>
         <br/>
         <table>

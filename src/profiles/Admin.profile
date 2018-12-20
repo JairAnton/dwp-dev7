@@ -747,6 +747,11 @@
         <editable>true</editable>
         <field>Product2.pdf__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Unique_id__c</field>
+        <readable>true</readable>
     </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>

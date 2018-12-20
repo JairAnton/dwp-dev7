@@ -821,6 +821,11 @@ Sub Gerentes de oficina</description>
         <field>Opportunity.Support_currency__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_List_Mejorado__c</field>
