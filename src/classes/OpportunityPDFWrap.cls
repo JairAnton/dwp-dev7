@@ -55,8 +55,9 @@ public without sharing virtual class OpportunityPDFWrap {
             }
         }
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
-        SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =\''+ Opp.Id +'\'';
-        OLI2 = Database.query(SOQLQuery); //Yulino 04/12/2018 : se agrego String.escapeSingleQuotes()
+        final String Opps= Opp.Id;
+        SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =:Opps';
+        OLI2 = Database.query(String.escapeSingleQuotes(SOQLQuery)); //Yulino 04/12/2018 : se agrego String.escapeSingleQuotes()
         boolean found;
         List<String> ConditionValue;
         for(fprd__GBL_Product_Configuration__c pc : PrdConfg){
@@ -93,17 +94,18 @@ public without sharing virtual class OpportunityPDFWrap {
             oficina= new Branch__c();
             Rating = new Account_Rating__c();
             list<dwp_cvad__Action_Audit_Detail__c> DetalleComentario = new list<dwp_cvad__Action_Audit_Detail__c>();
-            Opp = database.query( getQuery('Opportunity')+' WHERE id =\''+ String.escapeSingleQuotes(Oppid) +'\' LIMIT 1');
+            Opp = database.query( String.escapeSingleQuotes(getQuery('Opportunity')+' WHERE id =:Oppid LIMIT 1'));
             final String idTempo=Opp.Id;
-            OLI = database.query( getQuery('OpportunityLineItem')+' WHERE  OpportunityID =:idTempo ORDER BY CreatedDate DESC LIMIT 1');
-            Audit = database.query( getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN (\'Autorizado por riesgos \',\'Riesgo aprobado dentro de línea\') AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo  ORDER BY CreatedDate DESC');
+            OLI = database.query( String.escapeSingleQuotes(getQuery('OpportunityLineItem')+' WHERE  OpportunityID =:idTempo ORDER BY CreatedDate DESC LIMIT 1'));
+            final List<String> Litemp= new list<String>{'Autorizado por riesgos','Riesgo aprobado dentro de línea'};
+            Audit = database.query( String.escapeSingleQuotes(getQuery('dwp_cvad__Action_Audit__c')+' WHERE  dwp_cvad__action_audit_name__c IN:Litemp  AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo  ORDER BY CreatedDate DESC'));
             if(Audit.size()>0){FechaAut = String.valueOf(Date.valueOf(Audit[0].dwp_cvad__action_audit_date__c));}else{FechaAut=Label.lblNoAuthDate;}
             FauthPrecio = String.valueOf(OLI.price_quote_date__c);
-            Comen = database.query( getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo AND dwp_cvad__action_audit_name__c IN (\'Precio autorizado bajo delegación oficina\',\'Autorizado por precios\')  ORDER BY CreatedDate DESC');
-            
+            final List<String> Litemp2= new list<String>{'Precio autorizado bajo delegación oficina','Autorizado por precios'};
+            Comen = database.query( getQuery('dwp_cvad__Action_Audit__c')+' WHERE  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo AND dwp_cvad__action_audit_name__c IN:Litemp2  ORDER BY CreatedDate DESC');
             if(Comen.size()>0){
                 final String idComent =Comen[0].Id;
-                DetalleComentario =database.query( getQuery('dwp_cvad__Action_Audit_Detail__c')+' WHERE dwp_cvad__action_audit_id__c =:idComent ');
+                DetalleComentario =database.query( String.escapeSingleQuotes(getQuery('dwp_cvad__Action_Audit_Detail__c')+' WHERE dwp_cvad__action_audit_id__c =:idComent '));
                 if(DetalleComentario.size()>0){
                     Comentarios = DetalleComentario[0].dwp_cvad__action_audit_detail_content__c;
                     Comentarios = Comentarios.substringAfterLast('>Comentarios</h3>');
@@ -111,25 +113,27 @@ public without sharing virtual class OpportunityPDFWrap {
                     Comentarios = Comentarios.stripHtmlTags();
                 }
             }
-            final string Olitemp=String.escapeSingleQuotes(OLI.Product2Id);
-            Product = database.query( getQuery('Product2')+' WHERE  Id =:Olitemp LIMIT 1');
-            final String ProductTemp = String.escapeSingleQuotes( Product.ProductCode);
-            ProductConfiguration = database.query(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.ProductCode =:ProductTemp AND FPRD__SECTION_NAME__C IN ('+ label.PDFSectionPayment +') ORDER BY FPRD__SECTION_NAME__C,FPRD__ORDER__C');
+            final string Olitemp=OLI.Product2Id;
+            Product = database.query( String.escapeSingleQuotes(getQuery('Product2')+' WHERE  Id =:Olitemp LIMIT 1'));
+            final String ProductTemp = Product.ProductCode;
+            final List<String> Litemp3= new List<String>{'Criterios de pago y liquidación', 'Información general del producto'};
+            ProductConfiguration = database.query(String.escapeSingleQuotes(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.ProductCode =:ProductTemp AND FPRD__SECTION_NAME__C IN:Litemp3  ORDER BY FPRD__SECTION_NAME__C,FPRD__ORDER__C'));
+            system.debug('ProductConfiguration'+ProductConfiguration);
             filterVisibility(ProductConfiguration);
-            final String ClieAcountID=String.escapeSingleQuotes( opp.Accountid);
+            final String ClieAcountID= opp.Accountid;
             Client =database.query( String.escapeSingleQuotes(getQuery('Account')+' WHERE  Id =:ClieAcountID LIMIT 1'));
             final String Cliente=Client.Id;
-            final String ClienteOwner=String.escapeSingleQuotes( opp.ownerId);
+            final String ClienteOwner=opp.ownerId;
             usuarioOficina = database.query(String.escapeSingleQuotes(getQuery('User_Branch__c')+' WHERE  User__c =:ClienteOwner LIMIT 1'));
-            final String IdBRanch= String.escapeSingleQuotes(usuarioOficina[0].branch_name__c);
+            final String IdBRanch= usuarioOficina[0].branch_name__c;
             if(usuarioOficina.size()>0){oficina =  database.query(String.escapeSingleQuotes( getQuery('Branch__c')+' WHERE  id =:IdBRanch LIMIT 1'));}
             //Fix When Account Rating is not present
             if(!database.query( String.escapeSingleQuotes(getQuery('Account_Rating__c')+' WHERE  account_id__c =:Cliente ORDER BY createdDate LIMIT 1')).isEmpty())    
-                Rating=database.query( getQuery('Account_Rating__c')+' WHERE  account_id__c :Cliente ORDER BY createdDate LIMIT 1');
-            Intervenientes = database.query( getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo') ;
+                Rating=database.query( String.escapeSingleQuotes(getQuery('Account_Rating__c')+' WHERE  account_id__c :Cliente ORDER BY createdDate LIMIT 1'));
+            Intervenientes = database.query( String.escapeSingleQuotes(getQuery('fprd__GBL_Intervener__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo')) ;
             //Fix When Guarantee Rating is not present
-            if(!database.query( getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo').isEmpty())
-                Garantias = database.query( getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo');
+            if(!database.query( String.escapeSingleQuotes(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo')).isEmpty())
+                Garantias = database.query( String.escapeSingleQuotes(getQuery('fprd__GBL_Guarantee__c')+' WHERE  fprd__GBL_Opportunity_product__c =:idTempo'));
             totalComprimisos = [SELECT COUNT_DISTINCT(Id) total FROM Opportunity_Solution_Commitment__c  WHERE Opportunity_Id__c =:Opp.id];
             totalC=Integer.valueOf(totalComprimisos[0].get('total'));
             totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c   WHERE fprd__GBL_Opportunity_product__c=:Opp.Id AND guarantee_status_type__c='02'];
