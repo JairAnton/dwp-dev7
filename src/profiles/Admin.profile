@@ -750,6 +750,11 @@
     </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
+        <field>OpportunityLineItem.Unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.gipr_Periodicidad__c</field>
         <readable>true</readable>
     </fieldPermissions>	

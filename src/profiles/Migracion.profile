@@ -680,6 +680,11 @@
         <field>fprd__GBL_Dependent_value__c.Unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
 	<fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.PE_List_Mejorado__c</field>
