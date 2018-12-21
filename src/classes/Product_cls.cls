@@ -10,11 +10,8 @@ public without sharing class Product_cls {
     Comments to describe the functionality of this method
     */
     @AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity){
-        /*List<OpportunityLineItem> row= [SELECT  cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c, restructuring_fee_per__c  FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
-        if(!row.isEmpty())
-            return row;
-        else*/
-            return [SELECT  cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c, restructuring_fee_per__c  FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1]; //new List<OpportunityLineItem>(); //Yulino 27/11/2018 : de null a new List<OpportunityLineItem>()
+        List<OpportunityLineItem> row= [SELECT  cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c, restructuring_fee_per__c  FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
+            return !row.isEmpty()? row: null;
     }
     /*Description
     Comments to describe the functionality of this method
@@ -55,28 +52,23 @@ public without sharing class Product_cls {
         //List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId];
         return [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId]; //yulino 28/11/2018 : Comentado, se optimizó en el return
     }
-
     @AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct){    
         //List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
         return [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct]; //yulino 28/11/2018 : Comentado, se optimizó en el return
     }
-
     @AuraEnabled public static String getOportunidadSytem(String Filtro) {       
         return Object_Controller.getOportunidadSytem(Filtro);       
     }
-    
     @AuraEnabled public static Boolean deleteGuaranteeDataByProduct(String IdProductGuarantee){
         fprd__GBL_Guarantee__c objData= [SELECT Id FROM fprd__GBL_Guarantee__c Where Id=: IdProductGuarantee];
         delete objDAta;
         return true;
     }
-    
     @AuraEnabled public static Boolean deleteParticipantDataByProduct(String IdProductParticipant){
         fprd__GBL_Intervener__c objData= [SELECT Id FROM fprd__GBL_Intervener__c Where Id=: IdProductParticipant];
         delete objDAta;
         return true;
     }
-    
     @AuraEnabled public static Boolean saveGuaranteeDataByProduct(String PGuaranteeId,String IdOpportunity,String IdProuduct,String GuaranteeType,String Guarantee,String Modality,Decimal Amount,String Status,Integer Term,String Periodicity,Integer nGuarantee){
         try
         {     
@@ -107,8 +99,6 @@ public without sharing class Product_cls {
             return false;
         }
     }
-    
-    
     @AuraEnabled public static Boolean saveParticipantDataByProduct(String PParticipantId,String IdOpportunity,String IdProuduct,String Name,String DOI,String N_DOI,String Participation,String Marital_Status){
         List<Opportunity> isAuth = [select id from Opportunity  where OwnerId=:UserInfo.getUserId() and Id=:IdOpportunity Limit 1];
         if(!isAuth.isEmpty())
@@ -117,7 +107,6 @@ public without sharing class Product_cls {
             if(PParticipantId!=null)        
                 row = [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c FROM fprd__GBL_Intervener__c Where Id=:PParticipantId ];
             else row = new fprd__GBL_Intervener__c();
-
             row.fprd__GBL_Opportunity_product__c=IdOpportunity;
             row.Name=Name;
             row.fiscal_identifier_type__c=DOI;
@@ -129,7 +118,6 @@ public without sharing class Product_cls {
         }
         else return false;
     }
-    
     @AuraEnabled public static String setSanctionPrice(String OpportunityId,String sanAction,String Comments){
         try
         {
@@ -157,7 +145,6 @@ public without sharing class Product_cls {
         }
         catch(Dmlexception exp) { return exp.getMessage();}
     }
-    
     @AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body,String AttachedFiles){
         try
         {   
@@ -197,17 +184,13 @@ public without sharing class Product_cls {
             return exp.getMessage();
         }
     }
-    
-    @AuraEnabled public static Map<String,Object> setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber){
-        
+    @AuraEnabled public static Map<String,Object> setLastFormalization(String OpportunityId,String Action,String Body,String ContractNumber){   
         Map<String,Object> returnMap = new Map<String,Object>();
-        
         try
         {            
-            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId, (SELECT Id, product2.type_of_quote__c FROM OpportunityLineItems) FROM Opportunity WHERE Id=: OpportunityId];                              
-            
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId, (SELECT Id, product2.type_of_quote__c FROM OpportunityLineItems) FROM Opportunity WHERE Id=: OpportunityId];
             if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber) )
-            {                                         
+            {
                 if(Action=='btnApprove'){//08
                     itemOpp[0].StageName='06';
                     itemOpp[0].opportunity_status_type__c='23';
@@ -229,10 +212,8 @@ public without sharing class Product_cls {
                 }
                 itemOpp[0].IsProcess__c = true;
                 itemOpp[0].frm_ContractNumber__c = ContractNumber;
-                
                 if((Boolean)returnMap.get('success')){
                     update itemOpp[0];
-                    
                     //BEGIN Traceability - 2018-06-11
                     //Isaías Vellázquez Cortés              
                     if(Action=='btnApprove')    new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Número de contrato:</b> '+ContractNumber +'<br/>'+'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
@@ -240,59 +221,43 @@ public without sharing class Product_cls {
                     else if(Action=='btnBack')  new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',itemOpp[0].Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
                     //END Traceability
                 }
-                returnMap.put('showErrorMessage',true);            
+                returnMap.put('showErrorMessage',true);
             }else{
-                returnMap.put('success',false); 
+                returnMap.put('success',false);
                 returnMap.put('showErrorMessage',false);
             }
-            
-        }catch(Dmlexception exp) { 
+        }catch(Dmlexception exp) {
             returnMap.put('success',false);
             returnMap.put('errorMessage',exp.getMessage());
             returnMap.put('showErrorMessage',true);
         }
-        
         return returnMap;
     }
-    
     /********************************************************************************************
 	Method to request the quotation disbursement via WS
 	*********************************************************************************************/
 	public static Map<String,Object> disburseQuotation(String recordId, String contractNumber){
-		
 		Map<String,Object> resultMap = new Map<String,Object>();
-		
 		try{
-
 			List<OpportunityLineItem> oppProductsList = [SELECT Id, price_quote_id__c, price_quote_status_id__c, price_quote_owner_id__c
 														FROM OpportunityLineItem WHERE OpportunityId = :recordId];
-			
 			if(!oppProductsList.isEmpty()){
-			
 				// Check if there is a quotation linked to the opportunity
 				if(oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null){
-					
                     // Call Web Service to register the quotation loss
 					ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'DISBURSE', null, contractNumber, null);
 					HttpResponse mqResponse = mqHelper.invoke();
-      
 					//Check the ws response status
 					Integer wsResponseStatusCode = mqResponse.getStatusCode();
-						
 					// Check if the response was successful
 					if(wsResponseStatusCode == 200){
-		
 						// Get the response body
 						ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
-							
 						// Update the quoation status and owner
 						ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
 						ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
-							
 						oppProductsList[0].price_quote_status_id__c = mqStatus.id;
-							
 						List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
-							
 						if(!mqBusinessAgentsList.isEmpty()){
 							List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
 							if(!userList.isEmpty()){
@@ -302,16 +267,12 @@ public without sharing class Product_cls {
                         else{
                             oppProductsList[0].price_quote_owner_id__c = null;
                         }
-							
 						update oppProductsList[0];
-						
 						resultMap.put('success',true);
 					}
 					else if(wsResponseStatusCode == 409){
-                        
 						resultMap.put('success',false);
 						WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody());
-				
 						// Set the error message
 						String errorMessage = Label.PriceDisburseQuotationKnowError + ' ' + errorDetails.errormessage;
 						resultMap.put('errorMessage',errorMessage);
@@ -332,30 +293,20 @@ public without sharing class Product_cls {
 			String errorMessage = Label.PriceDisburseQuotationUnknowError;
 			resultMap.put('errorMessage',errorMessage);
 		}
-		
 		return resultMap;
 	}
-
     /*Dismiss oportunity Method*/
     @AuraEnabled public static Map<String,Object> setRejectOpportunity(String OpportunityId,String RejectReason,String WinnerBank,String IsoCurrency,Decimal Amount,Decimal Rate,Integer Term,String Comments){
-       
         Map<String,Object> resultMap = new Map<String,Object>();
-        
         resultMap.put('success','true');
-
-        
         try
         {
              List<Opportunity> itemOpp= [SELECT Id, StageName, opportunity_status_type__c, Loss_Reason__c, rejection_winner_entity_name__c,
                                         rejection_reason_id__c, rejection_amount__c, rejection_rate_per__c, rejection_period_num__c, rejection_coin__c
-                                        FROM Opportunity WHERE Id=: OpportunityId];                              
-
+                                        FROM Opportunity WHERE Id=: OpportunityId];
             if(!itemOpp.isEmpty()){
-                
                 resultMap = registerQuotationLoss(OpportunityId, RejectReason, WinnerBank);
-                
                 if((String)resultMap.get('success') == 'true'){
-                    
                     // Update opportunity with the input data
                     itemOpp[0].IsProcess__c=true;
                     itemOpp[0].StageName = '07';
@@ -368,24 +319,19 @@ public without sharing class Product_cls {
                     if(Term!=null) itemOpp[0].rejection_period_num__c = Term;
                     itemOpp[0].rejection_coin__c = IsoCurrency;
                     update itemOpp[0];
-                }     
-            }                          
-    
-        }catch(Dmlexception exp) { 
+                }
+            }
+        }catch(Dmlexception exp) {
             resultMap.put('success','false');
             resultMap.put('errorMessage',exp.getMessage());
         }
-        
         return resultMap;
-    }  
-    
+    }
     // Method that invoke the ws to recover a quotationupdates the opportunity and opportunity line item with the response
     @auraenabled
     public static Map<String,Object> recoverQuotation(String recordId){
-        
         Map<String,Object> mapReturn = new Map<String,Object>();
         mapReturn.put('success','true');
-        
         List<OpportunityLineItem> oppProductList = [SELECT price_quote_status_id__c,
                                                         price_quote_owner_id__c,
                                                     	product_price_approval_method__c,
@@ -402,54 +348,36 @@ public without sharing class Product_cls {
                 }
             }
         }
-            
         return mapReturn;
     }
-    
     /********************************************************************************************
     Method to register the quotation loss via WS
     *********************************************************************************************/
-    public static Map<String,Object> registerQuotationLoss(String recordId, String rejectReason, String winnerEntity){
-        
+    public static Map<String,Object> registerQuotationLoss(String recordId, String rejectReason, String winnerEntity){    
         Map<String,Object> returnMap = new Map<String,Object>();
-        
         returnMap.put('success','true');
-        
         String rejectParams = rejectReason + ';' + winnerEntity;
-        
         try{
-        
             List<OpportunityLineItem> oppProductsList = [SELECT Id, price_quote_id__c, price_quote_status_id__c, price_quote_owner_id__c, product_price_approval_method__c
                                                         FROM OpportunityLineItem WHERE OpportunityId = :recordId];
-            
             if(!oppProductsList.isEmpty()){
-            
                 // Check if there is a quotation linked to the opportunity
                 if(oppProductsList[0].product_price_approval_method__c == 'Web' && oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null){
-
                     // Call Web Service to register the quotation loss
                     ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, rejectParams, null);
                     HttpResponse mqResponse = mqHelper.invoke();
-      
                     //Check the ws response status
                     Integer wsResponseStatusCode = mqResponse.getStatusCode();
-                        
                     // Check if the response was successful
                     if(wsResponseStatusCode == 200){
-                        
                         returnMap.put('success','true');
-                        
                         // Get the response body
                         ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
-                        
                         // Update the quoation status and owner
                         ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
                         ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
-                        
                         oppProductsList[0].price_quote_status_id__c = mqStatus.id;
-                        
                         List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
-                        
                         if(!mqBusinessAgentsList.isEmpty()){
                             List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
                             if(!userList.isEmpty()){
@@ -459,12 +387,11 @@ public without sharing class Product_cls {
                         else{
                             oppProductsList[0].price_quote_owner_id__c = null;
                         }
-                        
                         update oppProductsList[0];
                     }
                     else if(wsResponseStatusCode == 409){
                        returnMap.put('success','false');
-                       WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody()); 
+                       WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody());
                        // Set the error message
 					   String errorMessage = Label.PriceRegisterLossKnownError + ' ' + errorDetails.errormessage;
 					   returnMap.put('errorMessage',errorMessage);
@@ -482,10 +409,8 @@ public without sharing class Product_cls {
             String errorMessage = Label.PriceRegisterLossUnknownError;
 			returnMap.put('errorMessage',errorMessage);
         }
-        
         return returnMap;
     }
-    
     public static string TraceabilityMessage (String OpportunityId,String OppStatus,String Body,String AttachedFiles)
     {
         List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c FROM Opportunity WHERE Id=: OpportunityId];
@@ -500,26 +425,25 @@ public without sharing class Product_cls {
             {
                 HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c+ '% <br/>' +
                     '<b>Comisión estructuración:</b> '+itemOppProduct[0].restructuring_fee_per__c +'% <br/>'+
-                    '<b>Comisión Liquidacion Anticipada(%):</b> '+itemOppProduct[0].cancellation_fee_per__c+'% <br/>';                                
+                    '<b>Comisión Liquidacion Anticipada(%):</b> '+itemOppProduct[0].cancellation_fee_per__c+'% <br/>';
             }else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web'){HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c + '% <br/>';  }
             else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario'){ HTMLComments=HTMLComments+'<b>Comisión Propuesta:</b> '+itemOppProduct[0].proposed_fee_per__c +'% <br/>';  }
             else if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZA Beta')
             {
                 HTMLComments=HTMLComments+'<b>TEA Propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c+'% <br/>'
-                    +'<b>ID COTIZA:</b> '+itemOppProduct[0].price_quote_id__c+' <br/>';                
+                    +'<b>ID COTIZA:</b> '+itemOppProduct[0].price_quote_id__c+' <br/>';
             }
             HTMLComments =HTMLComments+'<b>Comentarios:</b> ' +Body;
         }
         else
-        {           
+        {
             HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
                 '<b>Importe:</b> '+ itemOppProduct[0].Opportunity.Amount +'<br/>' +
                 '<b>Comentarios:</b> ' +Body+ '<br/><br/>'+
-                '<b>Archivos adjuntos:</b> <br/>' +AttachedFiles;            
+                '<b>Archivos adjuntos:</b> <br/>' +AttachedFiles;
         }
         return HTMLComments;
     }
-    
     public static string getStatusLabel (String OppStatus)
     {
         list<Schema.PicklistEntry> PicklistEntries = Opportunity.opportunity_status_type__c.getDescribe().getPicklistValues();
@@ -529,20 +453,17 @@ public without sharing class Product_cls {
         }
         return ApiToLabel.get(OppStatus);
     }
-    
     /**
         Get BBVA Information Grouped Table
         Object: Account_BBVA_Information__c
     */
     @AuraEnabled public static List<WRP_Table> getAccountBBVAInformation (String AccountId)
-    {        
-        list<AggregateResult> listInfoBBVA = [select account_id__r.Id Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' and is_last_date__c = true group by account_id__r.id,product_group_classification_id__c, type__c];        
+    {
+        list<AggregateResult> listInfoBBVA = [select account_id__r.Id Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' and is_last_date__c = true group by account_id__r.id,product_group_classification_id__c, type__c];
         set<id> Ids= new set<id>();
         for(AggregateResult item : listInfoBBVA){ Ids.add((id)item.get('Name'));}
-
         list<Account> listAccNames= [select id,Name from Account where id in : Ids];
         string NameById='';
-
         map<String, WRP_Table> mapResult = new map<String, WRP_Table>();
         integer i=0;
         Double dd;
@@ -552,7 +473,6 @@ public without sharing class Product_cls {
         for (AggregateResult ar : listInfoBBVA)  {
             dd=0;di=0;r=0;
                 for (AggregateResult ar2 : listInfoBBVA)  {
-                
                     if((String)ar2.get('Name')==(String)ar.get('Name'))
                         if((String)ar2.get('product_group_classification_id__c')==label.LblDirectDebt && (String)ar2.get('type__c')=='01')
                             dd=(Double)ar2.get('exp2');
@@ -560,15 +480,11 @@ public without sharing class Product_cls {
                                 di=(Double)ar2.get('exp2');
                                 else if((String)ar2.get('product_group_classification_id__c')==label.LblResources && (String)ar2.get('type__c')=='02')
                                     r=(Double)ar2.get('exp2');
-                }                             
-
-       
-            
-        
-            if((string)ar.get('Name')!=aux){ 
+                }
+            if((string)ar.get('Name')!=aux){
                 for(Account itemacc: listAccNames)
                 {
-                    if(ar.get('Name')==itemacc.id)            
+                    if(ar.get('Name')==itemacc.id)
                         NameById=itemacc.Name;
                 }
                 mapResult.put(String.valueOf(i), new WRP_Table(NameById,(Double)ar.get('exp1'),dd,di,r)); aux=(string)ar.get('Name'); i++;
@@ -594,7 +510,6 @@ public without sharing class Product_cls {
             this.Resources = toResources;
         }
     }
-
     public Product_cls(){//Yulino 28/11/2018 : Se agregó el constructor privado
     }
 }
