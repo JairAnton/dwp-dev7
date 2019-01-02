@@ -618,7 +618,7 @@
         <label>Hora Check In</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Time</type>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Hora_Check_Out__c</fullName>
@@ -627,7 +627,7 @@
         <label>Hora Check Out</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Time</type>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Ubicaci_n_Check_In__c</fullName>
