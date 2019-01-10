@@ -29,12 +29,12 @@ public without sharing class Opportunity_Trigger_cls {
                     {
                         opp.CurrencyIsoCode=opp.Support_currency__c=='01'?'PEN':'USD';
                     }
-                    if(opp.opportunity_planning_date__c !=null && opp.Field_Sup_Closing_Date__c==null)
-                        {opp.CloseDate=PDate.addDays(45);}
-                    else if(opp.opportunity_planning_date__c==null && opp.Field_Sup_Closing_Date__c==null)
-                        {opp.CloseDate=Date.today().addDays(60);}
-                    if(opp.Field_Sup_Closing_Date__c!=null)
-                        {opp.CloseDate=opp.Field_Sup_Closing_Date__c;}
+                    if(opp.opportunity_planning_date__c !=null && opp.Field_Sup_Closing_Date__c==null){
+                        opp.CloseDate=PDate.addDays(45);}
+                    else if(opp.opportunity_planning_date__c==null && opp.Field_Sup_Closing_Date__c==null){
+                        opp.CloseDate=Date.today().addDays(60);}
+                    if(opp.Field_Sup_Closing_Date__c!=null){
+                        opp.CloseDate=opp.Field_Sup_Closing_Date__c;}
                 }
             }
         }
@@ -71,13 +71,13 @@ public without sharing class Opportunity_Trigger_cls {
     }
     private void Valida(list<Opportunity>Opps_New, Map<id,Opportunity>Opps_OldMap){
         set<Id> IdOwners = new set<ID>();
-        for(Opportunity oppnew: Opps_New)
-            {IdOwners.add(oppnew.OwnerId);}
-        for(Opportunity oppnold: Opps_OldMap.values())
-            {IdOwners.add(oppnold.OwnerId);}
+        for(Opportunity oppnew: Opps_New){
+            IdOwners.add(oppnew.OwnerId);}
+        for(Opportunity oppnold: Opps_OldMap.values()){
+            IdOwners.add(oppnold.OwnerId);}
         Map<Id,User> MapUser = new Map <Id,User>();
-        for(User us:[Select Id, Name, Profile.Name, UserRole.Name from User where Id IN: IdOwners])
-        	{MapUser.put(us.Id,us);}
+        for(User us:[Select Id, Name, Profile.Name, UserRole.Name from User where Id IN: IdOwners]){
+        	MapUser.put(us.Id,us);}
         for(Opportunity opp:Opps_New){
             if(opp.OwnerId!=Opps_OldMap.get(opp.Id).OwnerId && opp.StageName =='01' || 
                opp.StageName =='02'&& opp.StageName =='03'){
