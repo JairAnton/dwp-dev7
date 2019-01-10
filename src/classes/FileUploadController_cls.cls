@@ -18,7 +18,7 @@ public with sharing class FileUploadController_cls {
         //  which is save the check data and return the attachemnt Id after insert, 
         //  next time (in else) we are call the appentTOFile() method
         //   for update the attachment with reamins chunks   
-        final String v_fileId = fileId; //Yulino 06/12/2018 : Se agregó esta variable
+        String v_fileId = fileId; //Yulino 06/12/2018 : Se agregó esta variable
         if (fileId == '') {
             v_fileId = saveTheFile(parentId, fileName, base64Data, contentType);//Yulino 06/12/2018 : Se modifico de fileId a v_fileId
         } else {

@@ -19,10 +19,9 @@
 					}
 				}
 				cmp.set('v.lstDataDelete',lstIds);
-				cmp.set('v.lstDataCustom', lstDataCustomDelete);
 				cmp.set('v.step','0');
-				//cmp.set('v.step','1');
-				showRefreshUserH(cmp,event);
+				cmp.set('v.lstDataCustom', lstDataCustomDelete);
+				cmp.set('v.step','1');
 			}
 		}
 	},
@@ -78,8 +77,5 @@
 	closeMe : function(component, event) {
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
     	cancelEvent.fire();
-    },
-    showRefreshUserH : function(cmp,event){
-        cmp.set('v.step','1');
     }
 })
