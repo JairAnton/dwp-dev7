@@ -12,7 +12,7 @@ public without sharing class Opportunity_Trigger_cls {
     public void AsignBeforeInsert(list<Opportunity>Opps_New, Map<id,Opportunity>Opps_NewMap){
         //date CDate;//Yuliño: correcion
         date PDate;
-        if('Migracion'.equals([select Name from profile where Id=:Userinfo.getProfileId() limit 1].Name)){
+        if(!'Migracion'.equals([select Name from profile where Id=:Userinfo.getProfileId() limit 1].Name)){
             for(Opportunity opp:Opps_New){
                 if(opp.Type=='01'){
                     if(opp.opportunity_planning_date__c !=null)
