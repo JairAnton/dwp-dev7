@@ -6,18 +6,19 @@
  * V0-Creacion
 */
 public without sharing class Opportunity_Trigger_cls {
-	private static final String Migracion{ get{ return 'Migracion';}set;}
+	private static final String MIGRACION {get {return 'Migracion';}set;}
     /*
 	*
 	*/
     public void AsignBeforeInsert(list<Opportunity>Opps_New, Map<id,Opportunity>Opps_NewMap){
         //date CDate;//Yuliño: correcion
         date PDate;
-        if(!migracion.equals([select Name from profile where Id=:Userinfo.getProfileId() limit 1].Name)){
+        if(!MIGRACION.equals([select Name from profile where Id=:Userinfo.getProfileId() limit 1].Name)) {
             for(Opportunity opp:Opps_New){
                 if(opp.Type=='01'){
-                    if(opp.opportunity_planning_date__c !=null)
-                        {PDate = Date.valueOf(opp.opportunity_planning_date__c);}
+                    if(opp.opportunity_planning_date__c !=null) {
+                        PDate = Date.valueOf(opp.opportunity_planning_date__c);
+                        }
                     if(opp.opportunity_planning_date__c !=null)
                     {
                         opp.opportunity_planning_date__c=PDate;
