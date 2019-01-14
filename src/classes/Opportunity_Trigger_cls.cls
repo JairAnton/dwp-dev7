@@ -16,9 +16,8 @@ public without sharing class Opportunity_Trigger_cls {
         if(!MIGRACION.equals([select Name from profile where Id=:Userinfo.getProfileId() limit 1].Name)) {
             for(Opportunity opp:Opps_New){
                 if(opp.Type=='01'){
-                    if(opp.opportunity_planning_date__c !=null) {
-                        PDate = Date.valueOf(opp.opportunity_planning_date__c);
-                        }
+                    if(opp.opportunity_planning_date__c !=null)
+                        {PDate = Date.valueOf(opp.opportunity_planning_date__c);}
                     if(opp.opportunity_planning_date__c !=null)
                     {
                         opp.opportunity_planning_date__c=PDate;
