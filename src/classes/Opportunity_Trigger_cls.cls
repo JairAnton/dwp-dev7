@@ -6,7 +6,7 @@
  * V0-Creacion
 */
 public without sharing class Opportunity_Trigger_cls {
-	private static final String migracion{get{return 'Migracion';}set;}
+	private static final String Migracion{ get{ return 'Migracion';}set;}
     /*
 	*
 	*/
