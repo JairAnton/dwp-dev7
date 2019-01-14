@@ -6,7 +6,10 @@
  * V0-Creacion
 */
 public without sharing class Opportunity_Trigger_cls {
-	private static final String MIGRACION {get {return 'Migracion';}set;}
+	/*
+	*   @Variable: temporal
+	*/
+    private static final String MIGRACION {get {return 'Migracion';}set;}
     /*
 	*
 	*/
