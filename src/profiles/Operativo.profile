@@ -810,6 +810,21 @@ Sub Gerentes de oficina</description>
         <editable>false</editable>
         <field>Account_Profitability__c.origin_currenIso_Name__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.priority_opp_of_campaign_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Prioridad_de_la_campa_frm__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.priority_opp_of_campaign_type__c</field>
+        <readable>true</readable>
     </fieldPermissions>	
 	<fieldPermissions>
         <editable>true</editable>
