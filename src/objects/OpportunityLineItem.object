@@ -1773,6 +1773,21 @@
                     <default>false</default>
                     <label>03</label>
                 </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+                <value>
+                    <fullName>05</fullName>
+                    <default>false</default>
+                    <label>05</label>
+                </value>
+                <value>
+                    <fullName>06</fullName>
+                    <default>false</default>
+                    <label>06</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>

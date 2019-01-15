@@ -522,6 +522,20 @@
         <value>Re-evaluate</value>
     </labels>
     <labels>
+        <fullName>Prioridad_de_la_campa</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Prioridad de la campaña</shortDescription>
+        <value>Prioridad de la campaña</value>
+    </labels>	
+    <labels>
+        <fullName>Lista_campa_a</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Lista campaña</shortDescription>
+        <value>Lista Campañas</value>
+    </labels>	
+    <labels>
         <fullName>lblReject</fullName>
         <language>es</language>
         <protected>false</protected>

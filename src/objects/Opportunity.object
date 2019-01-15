@@ -134,6 +134,65 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+    <fields>
+        <fullName>Opportunity_of_campaign_type__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is bell</description>
+        <externalId>false</externalId>
+        <label>Oportunidad de Tipo de Campaña</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Prioridad_de_la_campa_frm__c</fullName>
+        <description>Helper OpportunityType</description>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL(priority_opp_of_campaign_type__c , &apos;01&apos;), &apos;Alta&apos;,  
+ IF( ISPICKVAL(priority_opp_of_campaign_type__c , &apos;02&apos;), &apos;Media&apos;,  
+ IF( ISPICKVAL(priority_opp_of_campaign_type__c , &apos;03&apos;), &apos;Baja&apos;, &apos;Ninguna&apos;) ) )</formula>
+        <label>Prioridad de la campaña</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>priority_opp_of_campaign_type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Alta, Media, Baja</inlineHelpText>
+        <label>Prioridad de la campaña</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>true</default>
+                    <label>-Ninguna</label>
+                </value>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Alta</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>Media</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>Baja</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>	
 	<fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1192,6 +1251,24 @@
         <label>Ganadas</label>
         <language>es</language>
     </listViews>
+    <listViews>
+        <fullName>Mis_Campa_as_altas</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_product__c</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>opportunity_status_type__c</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Opportunity_of_campaign_type__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Mis Campañas:</label>
+    </listViews>	
 	<listViews>
         <fullName>Mis_cancelaciones_del_mes</fullName>
         <columns>OPPORTUNITY.NAME</columns>
