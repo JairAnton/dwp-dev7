@@ -117,8 +117,8 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     public void updateDateLine(List<OpportunityLineItem> listRow){
         
         for(OpportunityLineItem OLI: listRow){
-            String OliCode =OLI.ProductCode;
-            if(!OliCode.isBlank(OliCode) && OliCode.contains('_Depre'))
+            String OliCode =OLI.ProductCode==null?'':OLI.ProductCode;
+            if(OliCode.contains('_Depre'))
                 OliCode= OliCode.removeEnd('_Depre');
             if(!String.isEmpty(String.valueOf(OLI.gipr_Plazo__c))&&
                (Label.lblPDFProductImport.equals(OliCode)||
