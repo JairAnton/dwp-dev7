@@ -126,8 +126,5 @@ public without sharing class Contact_Group_Handler {
                 WHERE ContactId IN: ContactsIDs AND IsDirect = true];
                 AccountContactParentAssociation.ucontact=false;
                 AccountContactParentAssociation.setValuesRelation(accs);       
-    }
-
-    public Contact_Group_Handler(){
-    }      
+    }    
 }

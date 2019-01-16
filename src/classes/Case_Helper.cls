@@ -48,7 +48,4 @@ public with sharing class Case_Helper {
             }
         }
     }*/
-    
-    public Case_Helper(){
-    }
 }
