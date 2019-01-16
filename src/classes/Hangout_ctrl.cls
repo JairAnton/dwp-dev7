@@ -14,7 +14,4 @@ public with sharing class Hangout_ctrl {
         //Finally, return the map to the Aura Component
         return mapHangoutId;
     }
-    // Yulino 11/12/2018 : Se agrego el contructor
-    public Hangout_ctrl(){
-    }
 }

@@ -150,7 +150,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                     }
             else
                 if((!String.isEmpty(String.valueOf(OLI.gipr_Plazo__c)))&&
-                   (!Label.lblPDFProductImport.equals(oliCode)&&
+                   !Label.lblPDFProductImport.equals(oliCode)&&
                     !Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)&&
                     !Label.lblPDFProductCartaTecnicaImport.equals(oliCode)&&
                     !Label.lblPDFProductForfaitingImport.equals(oliCode)&&
@@ -159,7 +159,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                     !Label.lblPDFProductCommercialLoanCP.equals(oliCode)&&
                     !Label.lblPDFProductCommercialLoanCP2.equals(oliCode)&&
                     !Label.lblPDFProductLeasing.equals(oliCode)&&
-                    !Label.lblPDFProductPrestamoLP.equals(oliCode))) {
+                    !Label.lblPDFProductPrestamoLP.equals(oliCode)) {
                         system.debug('isPlazoNotEmpty');
                         //isPlazoNotEmpty
                         OLI.cpliq_Periodicidad__c=OLI.cpliq_Periodicidad__c==null?'01':OLI.cpliq_Periodicidad__c;
@@ -169,12 +169,12 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                     }
             else
                 if((String.isEmpty(String.valueOf(OLI.cpliq_n__c)) && !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c )))&&
-                   (!Label.lblPDFProductImport.equals(oliCode)&&
+                   !Label.lblPDFProductImport.equals(oliCode)&&
                     !Label.lblPDFProductCartaTecnicaImport.equals(oliCode)&&
                     !Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)&&
                     !Label.lblPDFProductForfaitingImport.equals(oliCode)&&
                     !Label.lblPDFProductPrestamoLP.equals(oliCode)&&
-                    !Label.lblPDFProductLeasing.equals(oliCode))) {
+                    !Label.lblPDFProductLeasing.equals(oliCode)) {
                         //isDateDueNotEmpty 
                         system.debug('isDateDueNotEmpty');
                         OLI.cpliq_Periodicidad__c='01';
