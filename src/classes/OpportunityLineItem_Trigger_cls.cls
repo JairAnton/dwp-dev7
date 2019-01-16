@@ -118,7 +118,8 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         
         for(OpportunityLineItem OLI: listRow){
             String OliCode =OLI.ProductCode;
-            OliCode= OliCode.removeEnd('_Depre');
+            if(OliCode.contains('_Depre'))
+                OliCode= OliCode.removeEnd('_Depre');
             if(!String.isEmpty(String.valueOf(OLI.gipr_Plazo__c))&&
                (Label.lblPDFProductImport.equals(OliCode)||
                 Label.lblPDFProductCartaTecnicaEconomica.equals(OliCode)||
