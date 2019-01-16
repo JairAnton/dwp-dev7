@@ -117,7 +117,4 @@ public with sharing class Object_Controller {
         }    
         return prodreturn;
     }
-    
-    public Object_Controller(){   
-    }
 }
