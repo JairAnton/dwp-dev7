@@ -15,6 +15,6 @@ public with sharing class Hangout_ctrl {
         return mapHangoutId;
     }
     // Yulino 11/12/2018 : Se agrego el contructor
-    private Hangout_ctrl(){
+    public Hangout_ctrl(){
     }
 }

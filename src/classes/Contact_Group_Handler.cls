@@ -128,6 +128,6 @@ public without sharing class Contact_Group_Handler {
                 AccountContactParentAssociation.setValuesRelation(accs);       
     }
 
-    private Contact_Group_Handler(){
+    public Contact_Group_Handler(){
     }      
 }
