@@ -667,7 +667,12 @@ Analistas de riesgos</description>
         <editable>false</editable>
         <field>Account_Profitability__c.origin_currenIso_Name__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Opportunity_of_campaign_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    	
 	<fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Field_Sup_Closing_Date__c</field>

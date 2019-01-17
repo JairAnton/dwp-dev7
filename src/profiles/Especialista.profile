@@ -2745,6 +2745,11 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.Opportunity_of_campaign_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>

@@ -938,6 +938,11 @@ Asistente BE</description>
         <field>OpportunityLineItem.gipr_Opcioncompra__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Opportunity_of_campaign_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
 	<fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Field_Sup_Closing_Date__c</field>

@@ -759,6 +759,11 @@
         <readable>true</readable>
     </fieldPermissions>	
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Opportunity_of_campaign_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
+    <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>
         <readable>true</readable>
