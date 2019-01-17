@@ -1,0 +1,237 @@
+<apex:page showHeader="false" id="minutaVisualforce" language="es_PE" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false"   docType="html-5.0" standardController="dwp_kitv__Visit__c" extensions="Minuta_ctrl" action="{!sendMail}" >
+    <head>
+		<title>BBVA Continetal</title>
+        
+ 		<style>
+            .box {  float: left;   height: auto;  width: 49%;}
+            .rectangle { text-align:center;	height: 90px;	background-color: #043263; vertical-align: middle}
+            .subRectangle { text-align:center;	height: 30px;	background-color: #043263; vertical-align: middle}
+            .subRectangleMedia { text-align:center;	height: 90px;	background-color: #1464A5; vertical-align: middle}
+            .subRectangleMediaText { text-align:center;font-size: 10px;font-family: Arial; color: #FFFFFF; vertical-align: middle	}
+            .rectangle2 {	height: 206px;	 	background-color: #F7F7F7; text-align:center;  vertical-align: middle;}
+            .rectangleFoother {	height: 120px;	font-family: Arial; 	background-color: #FFFFFF; text-align:center;  vertical-align: middle;}
+            .rectangle2TextBody { text-align:center;font-size: 10px;	font-family: Arial; color: #9B9B9B; vertical-align: middle; text-align:center;	}
+            .rectangleFootherText { text-align:center; font-size: 10px;	font-family: Arial; color: #4A4A4A; vertical-align: middle	}
+             p {display: block;margin-block-start: 0em;margin-block-end: 0em;margin-inline-start: 0px;margin-inline-end: 0px;font-family: Arial;}
+            .textBody { font-size: 12px;font-family: Arial; }
+            .textBodyBold { font-size: 12px;font-family: Arial; font-weight: bold;}
+            .azul{color: #1464A5;font-family: Arial;	font-size: 17px; }
+            .azulBold {color: #1464A5;	font-family: Arial;	font-size: 19px; font-weight: bold;}
+            .grisBold {color: #BCB4B2;	font-family: Arial;	font-size: 19px; font-weight: bold;}
+            .subtitle {padding-left: 5px;height: 30px;	background-color: #043263; width: auto;	color: #FFFFFF;	font-family: Arial;	font-size: 16px;	font-weight: bold;	line-height: 18px; text-align:left}   
+            .azulUser{color: #1464A5;font-family: Arial;	font-size: 12px; }
+            .azulBoldUser {color: #1464A5;	font-family: Arial;	font-size: 14px; font-weight: bold;}
+		</style>
+    </head>
+    <script type="text/javascript">
+  		if({!redireccion}){
+			if( (typeof sforce != 'undefined') && sforce && (!!sforce.one) ) {
+			    // Pass the id of the visit in the idVisit field
+			    sforce.one.navigateToSObject('{!IdVisitaActual}');
+			} else {
+			    // Pass the id of the visit in the idVisit field
+			    location.href = '/' + '{!IdVisitaActual}';
+			}
+  		}
+    
+	</script>
+  	<body>
+        
+		<div class="rectangle">
+  			<table style="width:100%;height:100%;">
+                        <tr style="background-color: #043263">
+                            <td class="rectangle2TextBody">
+                                 <p> <apex:image url="{!URLLogoWhite}"  height="25px"/></p>
+                            </td>
+                        </tr>          
+              </table> 
+        </div>
+        <br/>
+        <br/>
+  		<table>
+            <tr>
+            	<td style="text-align:center;">
+                    <h1 style="color:red"><apex:outputText value="{!infoStatusVisit}"/> </h1>
+                       
+                </td>
+            </tr>
+            <tr>
+            	<td>
+                    <apex:outputText styleClass="textBody"  value="{!currentDate}"/>
+                       
+                </td>
+            </tr>
+             <tr>
+                 <td> <br/>
+                 </td>
+            </tr>
+            <tr>
+            	<td>
+                  <span class="azul">
+                      Estimados(s)
+                    </span> 
+                </td>
+            </tr>
+            <apex:repeat value="{!visitContacsAux}" var="contac" id="contac">
+            <tr>
+                <td><apex:outputText styleClass="azulBold" value="{!contac.dwp_kitv__contact_id__r.name}"/></td>
+            </tr>
+        	</apex:repeat>
+            <tr>
+            	<td><span class="grisBold">Cliente: {!dwp_kitv__Visit__c.account_name__c}</span>
+                </td>
+             </tr>           
+		</table>
+        <br/>
+       
+        <span styleClass="textBody">
+             A continuación presentamos el acta con los detalles, resumen y acuerdos de la reunión celebrada.
+        </span>
+        <br/>
+       
+       	<table style="width:100%">
+      		<tr  style="background-color: #043263">
+          		<th colspan="2" class="subtitle"> Detalles
+                </th>
+                <br/>
+            </tr>
+            <tr>
+                <td ><span class="textBodyBold">Fecha/hora:&nbsp;   </span>
+
+                   
+                      <span class="textBody"><apex:outputText value="{0,date,dd/MM/yyyy hh:mm a}">
+                            <apex:param value="{!dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c}"/>
+                      </apex:outputText></span>
+                </td>
+                <td ><span class="textBodyBold">Dirección:&nbsp;   </span> 
+                    <span class="textBody">{!dwp_kitv__Visit__c.dwp_kitv__visit_location_desc__c}</span>
+                </td>
+            </tr>
+            <tr>
+            	<td colspan="2"><span class="textBodyBold">Asunto:&nbsp;   </span> 
+                 					<span class="textBody">{!dwp_kitv__Visit__c.dwp_kitv__visit_desc__c}</span>
+                </td>
+        	</tr>
+    	</table>
+     
+   <br/>
+        <table style="width:100%">
+      		<tr style="background-color: #043263">
+          	
+                <th colspan="2" class="subtitle"> Resumen y acuerdos</th>
+                <br/>
+            </tr>
+            <tr>
+                <td>  <apex:outputText escape="false"  styleClass="textBody" value="{!dwp_kitv__Visit__c.dwp_kitv__visit_summary_desc__c}" />
+                </td>
+            </tr>
+            <apex:repeat value="{!visitAgreements}" var="agreement" id="agreement">
+            <tr>
+                <td><apex:outputText styleClass="textBody" value="{!agreement.Description}"/></td>
+            </tr>
+        	</apex:repeat>
+    	</table>
+          <br/>
+        <p class="textBody">
+             Saludos,
+        </p>
+          
+        <p class="textBody">
+             Equipo BBVA
+        </p>
+        
+        <br/>
+       
+         <div >
+      		  <apex:repeat value="{!visitManagementTeam}" var="managementTeam" id="managementTeam">
+            <div class="box">
+                <table>
+                    <tr>
+                    	<td> <apex:outputText styleClass="azulBoldUser" value="{!managementTeam.dwp_kitv__user_id__r.name}"/></td>
+                    </tr>
+                    <tr>
+                    	<td>  <apex:outputText styleClass="azulUser" value="{!managementTeam.user_prof_position_type__c}"/></td>
+                    </tr>
+                    <tr>
+                    	<td> 	<apex:outputText styleClass="azulUser" value="{!managementTeam.dwp_kitv__contact_email_desc__c}"/></td>
+                    </tr>
+                </table>
+                <br/>
+                <br/>
+                <br/>
+			</div>
+            </apex:repeat>
+        </div>
+         <br/>
+        
+        <table style="width:100%">
+            <tr >
+            <td>
+                  <div class="subRectangle">
+                 
+        </div>
+         <div  class="subRectangleMedia" >
+           <table style="width:100%;height:100%">
+                                <tr>
+                                    <td class="subRectangleMediaText">
+                                         
+                                        <p >
+                                         Sigamos conectados
+                                        </p>
+                                        <p> <a href="https://www.facebook.com/BBVAContinental/"><apex:image url="{!URLLogoFacebook}"  width="15px"  height="15px"/></a> &nbsp;&nbsp;
+                                            <a href="https://twitter.com/bbvacontinental"> <apex:image url="{!URLLogoTwiter}"  height="15px"  width="15px" /></a>
+                					</p>
+                                    </td>
+                                </tr>
+                                
+                             </table> 
+        </div>
+        <div class="rectangle2">
+                    <table style="width:100%;height:100%">
+                        <tr>
+                            <td class="rectangle2TextBody">
+                                 <p> <apex:image url="{!URLLogo}"  height="30px"/>
+                					</p>
+                                <p>
+                                ©2017 BBVA Continental. Derechos Reservados.
+                                </p><p>
+                                Av. República de Panamá 3055 - San Isidro, Lima - Perú
+                                </p> </td>
+                        </tr>
+                        
+                     </table> 
+         
+        </div>
+                
+        <div class="rectangleFoother">
+                             
+               <table style="width:100%;height:100%">
+                        <tr>
+                            <td class="rectangleFootherText"> 
+                                <p>
+                                 Por tu Seguridad, BBVA Continental te informa que: 
+                                </p>
+                              <br/>
+                                <p>
+                                Nunca solicitaremos tus datos confidenciales por correo, tales como clave SMS, clave de cajero, DNI 
+                                </p> 
+                                  <p>
+                                o número de celular.
+                                </p> 
+                                  <p>
+                                Si tienes alguna duda acerca de la autenticidad de este correo envíalo a la dirección
+                                </p> 
+                                  <p>
+                                      <a class="rectangleFootherText"  href="mailto:bbvaseguridadl.pe@bbva.com">bbvaseguridadl.pe@bbva.com</a> y te responderemos. 
+                                </p> 
+                            </td>
+                        </tr>
+              </table>
+			</div>
+                </td>
+            </tr>
+        </table>
+  
+    </body>
+   
+</apex:page>
