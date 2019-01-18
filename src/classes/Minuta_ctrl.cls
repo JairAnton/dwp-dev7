@@ -13,6 +13,7 @@ public virtual class Minuta_ctrl extends MinutaWrap{
     public String visitDate {get; set;}
     public String infoStatusVisit {get; set;}
     public boolean correoEnviado {get; set;}
+	public string sMyCS  {get; set;}
 
     Public String formatCurrentDate(Date dateToConvert){
        
@@ -74,11 +75,13 @@ public virtual class Minuta_ctrl extends MinutaWrap{
         correoEnviado=false;
        setValues(controller.getId());
 	   visitDate=getTimeZoneValue(visit.dwp_kitv__visit_start_date__c);
+	   System.debug('--sMyCS-->'+ApexPages.currentPage().getParameters().get('myCS'));
+       sMyCS = ApexPages.currentPage().getParameters().get('myCS');
     }
     
     
     public void sendMail() {
-        string sMyCS = ApexPages.currentPage().getParameters().get('myCS');
+        System.debug('--sMyCS-->'+sMyCS);
         if(sMyCS != null && sMyCS != ''){
             dwp_kitv__Template_for_type_of_visit_cs__c myCS =(dwp_kitv__Template_for_type_of_visit_cs__c)System.JSON.deserialize(sMyCS, dwp_kitv__Template_for_type_of_visit_cs__c.class);
             String sDocumentos = ApexPages.currentPage().getParameters().get('documents');
