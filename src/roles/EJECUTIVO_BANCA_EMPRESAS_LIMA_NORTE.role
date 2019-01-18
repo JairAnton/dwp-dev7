@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS LIMA NORTE</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_LIMA_NORTE</parentRole>
+    <parentRole>GERENTE_BANCA_EMPRESAS_LIMA_NORTE</parentRole>
 </Role>

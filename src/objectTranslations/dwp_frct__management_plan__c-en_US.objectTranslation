@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Management Plan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Management Plans</value>
+    </caseValues>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>dwp_frct__management_plan_end_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>dwp_frct__management_plan_stage_type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Pending start</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Planning</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Review</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>In progress</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Finalized</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>dwp_frct__management_plan_start_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Achievement --></label>
+        <name>dwp_frct__mngmt_plan_achievement_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Commitment --></label>
+        <name>dwp_frct__mngmt_plan_tot_commitment_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Closed --></label>
+        <name>dwp_frct__mngmt_plan_total_regisn_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>dwp_frct__other_information_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Responsible --></label>
+        <name>dwp_frct__user_id__c</name>
+        <relationshipLabel><!-- Management Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Comments2 --></label>
+        <name>other_information_b_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments3 --></label>
+        <name>other_information_c_desc__c</name>
+    </fields>
+    <nameFieldLabel><!-- Management Plan Name --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Impossible to go back on sales path. --></errorMessage>
+        <name>dwp_frct__Do_not_back_in_sales_path</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can not access to &apos;In progress&apos; stage. --></errorMessage>
+        <name>dwp_frct__Owner_can_not_access_in_progress_stage</name>
+    </validationRules>
+</CustomObjectTranslation>

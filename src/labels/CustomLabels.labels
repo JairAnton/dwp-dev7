@@ -992,6 +992,20 @@
         <value>No actions available</value>
     </labels>
     <labels>
+        <fullName>No_hay_informacion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No hay informacion</shortDescription>
+        <value>Information not found</value>
+    </labels>
+    <labels>
+        <fullName>Titulo_auditoria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Titulo auditoria</shortDescription>
+        <value>Changes histories</value>
+    </labels>
+    <labels>
         <fullName>lblComplete</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1186,6 +1200,13 @@
         <protected>false</protected>
         <shortDescription>lblApprove</shortDescription>
         <value>Approve Sanction</value>
+    </labels>
+	<labels>
+        <fullName>NewmanagementPlan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewmanagementPlan</shortDescription>
+        <value>You can not create a plan from this buttom.</value>
     </labels>
     <labels>
         <fullName>NoAuditDetail</fullName>
