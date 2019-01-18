@@ -44,6 +44,10 @@
         <label>Nueva oportunidad</label>
         <name>New_Opportunity</name>
     </customLabels>
+	<customLabels>
+        <label>Los planes de gestión se crean a través de trabajos programados.</label>
+        <name>NewmanagementPlan</name>
+    </customLabels>
     <customLabels>
         <label><!-- OppId --></label>
         <name>OppId</name>

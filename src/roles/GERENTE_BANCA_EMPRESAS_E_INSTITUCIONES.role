@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>GERENTE BANCA EMPRESAS E INSTITUCIONES</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_DISTRIBUCION_RED</parentRole>
+    <parentRole>SUB_GERENTE_PROGRAM_MANAGEMENT</parentRole>
 </Role>

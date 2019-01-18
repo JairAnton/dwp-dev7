@@ -5,5 +5,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>GERENTE BANCA EMPRESAS CHICLAYO</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>EJECUTIVO_REGIONAL_BE_1</parentRole>
+    <parentRole>GERENTE_REGIONAL_BE_1</parentRole>
 </Role>

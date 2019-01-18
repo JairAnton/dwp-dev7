@@ -98,5 +98,9 @@
         <members>quoteClassButtonTest</members>
         <name>ApexClass</name>
     </types>    
+    <types>
+        <members>GERENTE_DISTRIBUCION_RED</members>
+        <name>Role</name>
+    </types>
 	<version>42.0</version>
 </Package>
