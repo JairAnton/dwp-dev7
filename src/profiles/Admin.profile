@@ -695,7 +695,7 @@
     </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.priority_opp_of_campaign_type__c</field>
+        <field>Opportunity.Opportunity_of_campaign_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -772,7 +772,7 @@
         <editable>true</editable>
         <field>OpportunityLineItem.gipr_Periodicidad__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>	   
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>

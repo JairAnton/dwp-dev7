@@ -700,7 +700,7 @@ Ejecutivos de REDES</description>
     </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.priority_opp_of_campaign_type__c</field>
+        <field>Opportunity.Opportunity_of_campaign_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2757,7 +2757,7 @@ Ejecutivos de REDES</description>
         <editable>true</editable>
         <field>Lead.Website</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>   
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.AccountId</field>
