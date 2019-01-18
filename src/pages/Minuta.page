@@ -99,9 +99,8 @@
                 <td ><span class="textBodyBold">Fecha/hora:&nbsp;   </span>
 
                    
-                      <span class="textBody"><apex:outputText value="{0,date,dd/MM/yyyy hh:mm a}">
-                            <apex:param value="{!dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c}"/>
-                      </apex:outputText></span>
+                      <span class="textBody"><apex:outputText value="{!visitDate}"/>
+               </span>
                 </td>
                 <td ><span class="textBodyBold">Dirección:&nbsp;   </span> 
                     <span class="textBody">{!dwp_kitv__Visit__c.dwp_kitv__visit_location_desc__c}</span>
