@@ -538,8 +538,13 @@
                     <default>false</default>
                     <label>Visit Completed - Pending Feedback</label>
                 </value>
-                <value>
+				<value>
                     <fullName>05</fullName>
+                    <default>false</default>
+                    <label>Visit Completed - Minute Sent</label>
+                </value>
+                <value>
+                    <fullName>06</fullName>
                     <default>false</default>
                     <label>Finalized</label>
                 </value>
@@ -588,7 +593,7 @@
         <formula>IF(dwp_kitv__visit_start_date__c  &gt;  Now()   ,
         &apos;No realizada&apos;
         ,
-        IF(ISPICKVAL(dwp_kitv__visit_status_type__c, &quot;05&quot;),
+        IF(ISPICKVAL(dwp_kitv__visit_status_type__c, &quot;06&quot;),
         &apos;Finalizada&apos;
         ,
         &apos;Pendiente de feedback&apos;
@@ -896,6 +901,10 @@
             </values>
             <values>
                 <fullName>05</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>06</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
