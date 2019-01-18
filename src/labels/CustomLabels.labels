@@ -522,6 +522,20 @@
         <value>Re-evaluate</value>
     </labels>
     <labels>
+        <fullName>Prioridad_de_la_campa</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Prioridad de la campaña</shortDescription>
+        <value>Prioridad de la campaña</value>
+    </labels>	
+    <labels>
+        <fullName>Lista_campa_a</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Lista campaña</shortDescription>
+        <value>Lista Campañas</value>
+    </labels>	
+    <labels>
         <fullName>lblReject</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -1614,6 +1628,14 @@
         <shortDescription>AccessLevelRead</shortDescription>
         <value>Read</value>
     </labels>
+    <labels>
+        <fullName>ExceptionListCamp</fullName>
+        <categories>Opportunity</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Lista_campa_a</shortDescription>
+        <value>Este cliente no cuenta con campañas disponibles en este trimestre. Vuelve a revisar el próximo.</value>
+    </labels>    
     <labels>
         <fullName>Close</fullName>
         <language>en_US</language>

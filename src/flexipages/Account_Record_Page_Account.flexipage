@@ -294,6 +294,10 @@
                 <name>accordionSections</name>
                 <value>facet-fe929f34-30b4-4d46-bab2-49e33b1fe2c2</value>
             </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>defaultSectionName</name>
+                <value>accordionSection2</value>
+            </componentInstanceProperties>
             <componentName>flexipage:accordion</componentName>
         </componentInstances>
         <name>facet-8805f70d-ad82-4cbd-b21a-0310a2af00d3</name>
@@ -1910,20 +1914,128 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>runtime_sales_activities:activityPanel</componentName>
+            <componentInstanceProperties>
+                <name>Collapsed</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CollapsedDefault</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CurrencyDimension</name>
+                <value>Thousand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamicField</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterStatic</name>
+                <value>Opportunity_of_campaign_type__c=true and priority_opp_of_campaign_type__c !=&apos;&apos;</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Format</name>
+                <value>-,CUR,-</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FormatDivisa</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Group</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Header</name>
+                <value>Name,Amount,opportunity_product__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>HeaderGroup</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>LocaleCur</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Object</name>
+                <value>Opportunity</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Order</name>
+                <value>CloseDate__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>PositionCurrency</name>
+                <value>Left</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>RelatedField</name>
+                <value>AccountId</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Summarize</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Symbol</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Type</name>
+                <value>Summary</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>allFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>customLabelAPInameError</name>
+                <value>ExceptionListCamp</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>headerApiName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hidenSubHeadMatrix</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelFilterApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelTotalApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportTitleAPI</name>
+                <value>Lista_campa_a</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLink</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotal</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
         </componentInstances>
-        <name>Facet-07g4zs4o30ct</name>
+        <name>Facet-5088493e-8df5-4b15-ba3f-d8433d08ed49</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentInstanceProperties>
-                <name>context</name>
-                <value>RECORD</value>
-            </componentInstanceProperties>
-            <componentName>forceChatter:publisher</componentName>
+            <componentName>runtime_sales_activities:activityPanel</componentName>
         </componentInstances>
-        <name>facet-c8b9c3b1-991c-408a-990d-103c2f74e0be</name>
+        <name>Facet-07g4zs4o30ct</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -1945,22 +2057,22 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>Facet-07g4zs4o30ct</value>
+                <value>Facet-5088493e-8df5-4b15-ba3f-d8433d08ed49</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Standard.Tab.activity</value>
+                <value>Campañas</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>facet-c8b9c3b1-991c-408a-990d-103c2f74e0be</value>
+                <value>Facet-07g4zs4o30ct</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Standard.Tab.collaborate</value>
+                <value>Standard.Tab.activity</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>

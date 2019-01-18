@@ -18,7 +18,4 @@ global without sharing class Sanction_Price_Analist_ValidationClass implements d
         
         return lstError;
     }
-    
-    private Sanction_Price_Analist_ValidationClass(){ //Yulino 27/11/2018 : SSe agregó el constructor
-    }
 }
