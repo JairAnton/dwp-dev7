@@ -197,6 +197,10 @@
             <masterLabel>Planning</masterLabel>
             <translation>Pendiente a iniciar</translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>Visit Completed - Minute Sent</masterLabel>
+            <translation>Visita completada - Minuta enviada</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Visit Completed - Pending Feedback</masterLabel>
             <translation>Visita completada - Pendiente de feedback</translation>
