@@ -889,6 +889,18 @@
         <apexClass>SanctionPriceAnalistWeb_ctrl_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>MinutaWrap</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Minuta_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Minuta_ctrl_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Los cargos pueden ser:
 Gerente de Banca de Empresas
@@ -939,11 +951,6 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.priority_opp_of_campaign_type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Prioridad_de_la_campa_frm__c</field>
         <readable>true</readable>
@@ -953,6 +960,11 @@ Asistente BE</description>
         <field>Opportunity.priority_opp_of_campaign_type__c</field>
         <readable>true</readable>
     </fieldPermissions>		
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Opportunity_of_campaign_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
 	<fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Field_Sup_Closing_Date__c</field>
@@ -5750,6 +5762,14 @@ Asistente BE</description>
     <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>Minuta</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	 <pageAccesses>
+        <apexPage>cico__GBL_GoogleMap_pag</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
         <default>true</default>

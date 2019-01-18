@@ -677,6 +677,18 @@
         <apexClass>SanctionPriceAnalistWeb_ctrl_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>MinutaWrap</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Minuta_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Minuta_ctrl_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Puede Tomar los siguientes cargos:
 Ejecutivos de servicios transaccionales (EST)
@@ -700,7 +712,7 @@ Ejecutivos de REDES</description>
     </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.priority_opp_of_campaign_type__c</field>
+        <field>Opportunity.Opportunity_of_campaign_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2757,7 +2769,7 @@ Ejecutivos de REDES</description>
         <editable>true</editable>
         <field>Lead.Website</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>   
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.AccountId</field>
@@ -5079,6 +5091,14 @@ Ejecutivos de REDES</description>
         <object>Web_Service_Value_Mapping__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+	<pageAccesses>
+        <apexPage>Minuta</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	 <pageAccesses>
+        <apexPage>cico__GBL_GoogleMap_pag</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Record_Type_Client</recordType>

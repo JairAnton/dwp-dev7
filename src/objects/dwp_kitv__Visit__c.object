@@ -538,8 +538,13 @@
                     <default>false</default>
                     <label>Visit Completed - Pending Feedback</label>
                 </value>
-                <value>
+				<value>
                     <fullName>05</fullName>
+                    <default>false</default>
+                    <label>Visit Completed - Minute Sent</label>
+                </value>
+                <value>
+                    <fullName>06</fullName>
                     <default>false</default>
                     <label>Finalized</label>
                 </value>
@@ -588,7 +593,7 @@
         <formula>IF(dwp_kitv__visit_start_date__c  &gt;  Now()   ,
         &apos;No realizada&apos;
         ,
-        IF(ISPICKVAL(dwp_kitv__visit_status_type__c, &quot;05&quot;),
+        IF(ISPICKVAL(dwp_kitv__visit_status_type__c, &quot;06&quot;),
         &apos;Finalizada&apos;
         ,
         &apos;Pendiente de feedback&apos;
@@ -898,6 +903,10 @@
                 <fullName>05</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>06</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
     </recordTypes>
     <searchLayouts/>
@@ -947,7 +956,7 @@ $Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c = false,$Setup.
     <validationRules>
         <fullName>visit_change</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE( dwp_kitv__visit_status_type__c),&quot;05&quot;),
+        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE( dwp_kitv__visit_status_type__c),&quot;06&quot;),
             $Profile.Name !=  $Label.profAdministrator,
             $Profile.Name != &quot;Migracion&quot;,
             OR(

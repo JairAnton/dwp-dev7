@@ -682,6 +682,18 @@
         <apexClass>SanctionPriceAnalistWeb_ctrl_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>MinutaWrap</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Minuta_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Minuta_ctrl_TEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>false</editable>
@@ -700,7 +712,7 @@
     </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.priority_opp_of_campaign_type__c</field>
+        <field>Opportunity.Opportunity_of_campaign_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -777,7 +789,7 @@
         <editable>true</editable>
         <field>OpportunityLineItem.gipr_Periodicidad__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>	   
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opp_Creation_Date__c</field>
@@ -4482,6 +4494,14 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>Minuta</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	 <pageAccesses>
+        <apexPage>cico__GBL_GoogleMap_pag</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>

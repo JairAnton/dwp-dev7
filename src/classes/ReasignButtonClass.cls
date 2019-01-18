@@ -87,6 +87,6 @@ public without sharing class ReasignButtonClass {//yulino 11/12/2018 : Se agreg√
         return mapReturn;
     } 
 
-    private ReasignButtonClass(){
+    public ReasignButtonClass(){
     }   
 }

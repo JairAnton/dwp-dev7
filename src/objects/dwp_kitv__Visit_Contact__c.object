@@ -154,7 +154,7 @@
         <fullName>Visit_is_Active</fullName>
         <active>true</active>
         <description>validate if visit is active</description>
-        <errorConditionFormula>IF(ISPICKVAL(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c, &apos;05&apos;) , true, false)</errorConditionFormula>
+        <errorConditionFormula>IF(ISPICKVAL(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c, &apos;06&apos;) , true, false)</errorConditionFormula>
         <errorMessage>Not is possible create the visit, the visit is in status ended</errorMessage>
     </validationRules>
     <validationRules>		 
