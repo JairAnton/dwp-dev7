@@ -617,7 +617,7 @@
         <name>dwp_kitv__Visit_status_arranged</name>
     </customLabels>
     <customLabels>
-        <label>05</label>
+        <label>06</label>
         <name>dwp_kitv__Visit_status_finalized</name>
     </customLabels>
     <customLabels>
@@ -1336,7 +1336,107 @@
         <label>SOLICITADO</label>
         <name>lblReq</name>
     </customLabels>
-    <quickActions>
+	<customLabels>
+        <label><!-- GBL_CheckInDisabled --></label>
+        <name>cico__GBL_CheckInDisabled</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- GBL_CheckInDone --></label>
+        <name>cico__GBL_CheckInDone</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- GBL_CheckOutDisabled --></label>
+        <name>cico__GBL_CheckOutDisabled</name>
+    </customLabels>
+	    <customLabels>
+        <label><!-- GBL_CheckOutDone --></label>
+        <name>cico__GBL_CheckOutDone</name>
+    </customLabels>
+	 <customLabels>
+        <label><!-- GBL_CheckOutWithoutCheckIn --></label>
+        <name>cico__GBL_CheckOutWithoutCheckIn</name>
+    </customLabels>
+	   <customLabels>
+        <label><!-- GBL_InvalidCheckType --></label>
+        <name>cico__GBL_InvalidCheckType</name>
+    </customLabels>
+	<customLabels>
+        <label>Equipo BBVA</label>
+        <name>dwp_kitv__Minute_content_01</name>
+    </customLabels>
+    <customLabels>
+        <label>Contacto</label>
+        <name>dwp_kitv__Minute_content_02</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Vista previa no disponible, pero esta lista para enviar!</label>
+        <name>dwp_kitv__Minute_content_03</name>
+    </customLabels>
+    <customLabels>
+        <label>For this type of template you can not preview but this list is sent,for more information about this, consult your system administrator...</label>
+        <name>dwp_kitv__Minute_content_04</name>
+    </customLabels>
+    <customLabels>
+        <label>Formato de email</label>
+        <name>dwp_kitv__Minute_content_05</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre</label>
+        <name>dwp_kitv__Minute_content_06</name>
+    </customLabels>
+    <customLabels>
+        <label>Email</label>
+        <name>dwp_kitv__Minute_content_07</name>
+    </customLabels>
+    <customLabels>
+        <label>Documentos</label>
+        <name>dwp_kitv__Minute_content_09</name>
+    </customLabels>
+    <customLabels>
+        <label>A adjuntar</label>
+        <name>dwp_kitv__Minute_content_10</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre del documento</label>
+        <name>dwp_kitv__Minute_content_11</name>
+    </customLabels>
+	<customLabels>
+        <label>La visita fue completada</label>
+        <name>dwp_kitv__Minute_message_01</name>
+    </customLabels>
+    <customLabels>
+        <label>No tienes ninguna configuración personalizada para este tipo de visita</label>
+        <name>dwp_kitv__Minute_message_02</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe colocar un contacto principal</label>
+        <name>dwp_kitv__Minute_message_03</name>
+    </customLabels>
+    <customLabels>
+        <label>La información fue enviada correctamente</label>
+        <name>dwp_kitv__Minute_message_04</name>
+    </customLabels>
+    <customLabels>
+        <label>Mínimo número de acuerdos</label>
+        <name>dwp_kitv__Minute_message_05</name>
+    </customLabels>
+    <customLabels>
+        <label>Mínimo número de integrantes del equipo BBVA.</label>
+        <name>dwp_kitv__Minute_message_06</name>
+    </customLabels>
+    <customLabels>
+        <label>No tiene asignado ningún tipo de template</label>
+        <name>dwp_kitv__Minute_message_07</name>
+    </customLabels>
+	  <customLabels>
+        <label>Lista de personas a las que puedes enviar el documento</label>
+        <name>dwp_kitv__Minute_Heading_01</name>
+    </customLabels>
+    <customLabels>
+        <label>Vista previa del la Minuta</label>
+        <name>dwp_kitv__Minute_Heading_Title</name>
+    </customLabels>
+	<quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
     </quickActions>

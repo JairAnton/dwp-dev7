@@ -956,7 +956,7 @@ $Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c = false,$Setup.
     <validationRules>
         <fullName>visit_change</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE( dwp_kitv__visit_status_type__c),&quot;05&quot;),
+        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE( dwp_kitv__visit_status_type__c),&quot;06&quot;),
             $Profile.Name !=  $Label.profAdministrator,
             $Profile.Name != &quot;Migracion&quot;,
             OR(

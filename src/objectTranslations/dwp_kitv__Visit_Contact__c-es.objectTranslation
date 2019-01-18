@@ -34,6 +34,11 @@
         <name>dwp_kitv__visit_id__c</name>
         <relationshipLabel>Contactos de la visita</relationshipLabel>
     </fields>
+	 <fields>
+        <help><!-- Main contact that will have the visit --></help>
+        <label>Contacto principal</label>
+        <name>dwp_kitv__Main_contact__c</name>
+    </fields>
     <gender>Feminine</gender>
     <nameFieldLabel>Contactos de la visita</nameFieldLabel>
     <validationRules>
