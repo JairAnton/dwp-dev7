@@ -44,10 +44,8 @@ public without sharing virtual class MinutaWrap {
             List<Document> lstMembreteWhite = [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white'];
             List<Document> lstLogoFace = [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo'];
             List<Document> lstLogoTwiter = [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo'];
-       		List<Document> lstStyle = [SELECT Id FROM Document WHERE DeveloperName = 'Style_Minute']; 
             String sfdcBaseURL = URL.getSalesforceBaseUrl().toExternalForm();
-            URLLogo = sfdcBaseURL+'/servlet/servlet.ImageServer?id='+lstMembrete[0].Id+'&oid='+UserInfo.getOrganizationId();
-            URLStyle = sfdcBaseURL+'/servlet/servlet.ImageServer?id='+lstStyle[0].Id+'&oid='+UserInfo.getOrganizationId();    
+            URLLogo = sfdcBaseURL+'/servlet/servlet.ImageServer?id='+lstMembrete[0].Id+'&oid='+UserInfo.getOrganizationId();   
             URLLogoWhite = sfdcBaseURL+'/servlet/servlet.ImageServer?id='+lstMembreteWhite[0].Id+'&oid='+UserInfo.getOrganizationId();  
             URLLogoFacebook = sfdcBaseURL+'/servlet/servlet.ImageServer?id='+lstLogoFace[0].Id+'&oid='+UserInfo.getOrganizationId();  
             URLLogoTwiter = sfdcBaseURL+'/servlet/servlet.ImageServer?id='+lstLogoTwiter[0].Id+'&oid='+UserInfo.getOrganizationId(); 
