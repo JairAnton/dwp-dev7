@@ -44,7 +44,7 @@
             <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
             <visibilityRule>
                 <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
+                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>CBD</rightValue>
                 </criteria>
