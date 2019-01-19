@@ -141,7 +141,7 @@
             <visibilityRule>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
-                    <operator>NOT EQUAL</operator>
+                    <operator>NE</operator>
                     <rightValue>CBD</rightValue>
                 </criteria>
             </visibilityRule>
@@ -159,7 +159,7 @@
             <visibilityRule>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
-                    <operator>NOT EQUAL</operator>
+                    <operator>NE</operator>
                     <rightValue>CBD</rightValue>
                 </criteria>
             </visibilityRule>
@@ -177,7 +177,7 @@
             <visibilityRule>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
-                    <operator>NOT EQUAL</operator>
+                    <operator>NE</operator>
                     <rightValue>CBD</rightValue>
                 </criteria>
             </visibilityRule>
@@ -195,7 +195,7 @@
             <visibilityRule>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
-                    <operator>NOT EQUAL</operator>
+                    <operator>NE</operator>
                     <rightValue>CBD</rightValue>
                 </criteria>
             </visibilityRule>
