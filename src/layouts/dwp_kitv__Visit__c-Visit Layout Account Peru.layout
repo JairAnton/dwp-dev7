@@ -29,11 +29,11 @@
                 <field>dwp_kitv__account_id__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Hora_Check_In__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Ubicaci_n_Check_In__c</field>
             </layoutItems>
             <layoutItems>
@@ -54,11 +54,11 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Hora_Check_Out__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Ubicaci_n_Check_Out__c</field>
             </layoutItems>
             <layoutItems>
