@@ -210,6 +210,21 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>id_unique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Internal code</description>
+        <encrypted>false</encrypted>
+        <externalId>true</externalId>
+        <label>Unique identifier plan</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>other_information_b_desc__c</fullName>
         <encrypted>false</encrypted>
         <externalId>false</externalId>
