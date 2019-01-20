@@ -3148,6 +3148,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>dwp_frct__management_plan__c.other_information_b_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_frct__management_plan__c.other_information_c_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>dwp_kitv__Visit_Contact__c.dwp_kitv__contact_called_type__c</field>
         <readable>true</readable>
     </fieldPermissions>

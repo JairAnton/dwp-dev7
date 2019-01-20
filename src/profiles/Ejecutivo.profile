@@ -4330,6 +4330,16 @@ Asistente BE</description>
         <field>dwp_frct__management_plan__c.other_information_c_desc__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_frct__management_plan__c.other_information_b_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_frct__management_plan__c.other_information_c_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>dwp_kitv__Visit_Contact__c.contact_prof_position_type__c</field>
