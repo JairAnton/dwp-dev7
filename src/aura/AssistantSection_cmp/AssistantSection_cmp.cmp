@@ -6,9 +6,7 @@
     <aura:attribute name="showSection" type="Boolean" default="false" />
     <aura:attribute name="selectedRows" type="List" access="PRIVATE"/>
     <aura:attribute name="isLoad" type="Boolean" default="true" />
-
     <aura:handler event="force:refreshView" action="{!c.doInitRefreshView}" />
-    
         <aura:if isTrue="{!v.isLoad}">
             <br/>
             <c:AssistantTable_cmp recordId="{!v.recordId}" />
@@ -22,5 +20,4 @@
                         refreshOnRefreshView="true"
                         sObjectName="User" />
         </aura:if>
-   
 </aura:component>

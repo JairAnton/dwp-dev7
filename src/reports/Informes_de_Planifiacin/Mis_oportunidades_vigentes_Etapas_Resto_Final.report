@@ -57,7 +57,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informes: Mis oportunidades vigentes Etapas Resto</description>
+    <description>Informes: Mis oportunidades vigentes Etapas Otras Familias</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -96,7 +96,7 @@
         <field>Opportunity$StageName</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades vigentes Etapas Resto</name>
+    <name>Mis oportunidades vigentes Etapas Otras</name>
     <params>
         <name>co</name>
         <value>1</value>

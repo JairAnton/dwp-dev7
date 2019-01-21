@@ -72,7 +72,7 @@
                                               NombreInforme="EVOLUCION_FACTURACION_TOTAL"        
                                               TipoGrafica="line"
                                               Id="{!v.recordId}"
-                                              Colores="#004481,#f7893b,#da3851,#48ae64,#bdbdbd"
+                                              Colores="#004481,#75DFD9,#E2CE7E,#49A5E6,#bdbdbd"
                                               Filtro="{!v.ProductIS}"
                                               FiltroRango="{!v.profiType}"
                                               />

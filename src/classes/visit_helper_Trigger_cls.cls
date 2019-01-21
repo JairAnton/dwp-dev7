@@ -19,7 +19,7 @@ public without sharing class visit_helper_Trigger_cls {
             Stagea.put((id)obs.get('Id'),(String)obs.get('dwp_kitv__visit_status_type__c'));
         }
         for(SObject a : ObjectInsert){
-            if('05'.equals(Stagea.get((Id)a.get('dwp_kitv__visit_id__c')))){
+            if('06'.equals(Stagea.get((Id)a.get('dwp_kitv__visit_id__c')))){
                 a.addError('No se puede eliminar datos a una visita finalizada');
             }
         }

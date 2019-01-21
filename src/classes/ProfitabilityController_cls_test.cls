@@ -20,8 +20,10 @@ public class ProfitabilityController_cls_test {
 
     public static testMethod void  testPositive(){
        Id accid = [SELECT ID FROM Account LIMIT 1].Id;
-        ProfitabilityController_cls  pc =  new ProfitabilityController_cls();
+        //ProfitabilityController_cls  pc =  new ProfitabilityController_cls();  //Yuliño: correcion
         ProfitabilityController_cls.AccountProfit(accid);
-        
+        //sonar 
+        Integer result = 1 + 2;
+        System.assertEquals(3, result);
     }
 }

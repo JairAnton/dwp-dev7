@@ -15,7 +15,7 @@
     bringData : function(cmp, evt, helper) {
 	   	var inputObject = cmp.get('v.inputAttributes');
 	   	cmp.set('v.recordId',inputObject.recordId);
-        var OpportunityId = cmp.get("v.recordId");
+        //var OpportunityId = cmp.get("v.recordId"); // 2018/11/30 -  CORRECCION DEUDA TECNICA (variable no se usa)
 	},
 	Actions : function(component, event, helper) {
         component.find("btnContinue").set("v.disabled", true);
@@ -50,17 +50,17 @@
                     }
 
                 }
-                else if (state === "INCOMPLETE") {
+                else if (state === "INCOMPLETE" || state === "ERROR") {
                     component.find("btnContinue").set("v.disabled", false);
                     component.set("v.errMessage",response.getReturnValue());
                     helper.handleShowToast(component,event,helper);
                                
-                }
+                }/* // 2018/11/30 -  CORRECCION DEUDA TECNICA: cuando state es INCOMPLETE o ERROR hacen la misma funcionalidad            
                 else if (state === "ERROR") {
                     component.find("btnContinue").set("v.disabled", false);
                     component.set("v.errMessage",response.getReturnValue());
                     helper.handleShowToast(component,event,helper);
-                }
+                }*/
                 else if (state === "NoComments") {
                     var toastEvent = $A.get("e.force:showToast");
                 toastEvent.setParams({
@@ -75,14 +75,14 @@
         }
         else
         {
-            var action = component.get("c.setLastFormalization");           
-                action.setParams({
+            var actionNoFormalization = component.get("c.setLastFormalization");   // 2018/11/30 -  CORRECCION DEUDA TECNICA: Se cambio de nombre a la variable Action para el flujo else
+            actionNoFormalization.setParams({ // 2018/11/30 -  CORRECCION DEUDA TECNICA: Se cambio de nombre a la variable Action para el flujo else
                     "OpportunityId" : OpportunityId,
                     "Action" : 'btnApprove',
                     "Body"  :  body,
                     "ContractNumber" : ''
                 });
-                action.setCallback(this, function(response) {
+                actionNoFormalization.setCallback(this, function(response) {// 2018/11/30 -  CORRECCION DEUDA TECNICA: Se cambio de nombre a la variable Action para el flujo else
                     var state = response.getState();
                     if (state === "SUCCESS") {
                     
@@ -98,18 +98,18 @@
 
 
                     }
-                    else if (state === "INCOMPLETE") {
+                    else if (state === "INCOMPLETE" || state === "ERROR") {
                         component.set("v.errMessage",response.getReturnValue());
                         helper.handleShowToast(component,event,helper);
                                    
-                    }
+                    }/* // 2018/11/30 -  CORRECCION DEUDA TECNICA: cuando state es INCOMPLETE o ERROR hacen la misma funcionalidad            
                     else if (state === "ERROR") {
                         component.set("v.errMessage",response.getReturnValue());
                         helper.handleShowToast(component,event,helper);
-                    }
+                    }*/
                     
                 });
-                $A.enqueueAction(action);   
+                $A.enqueueAction(actionNoFormalization);   // 2018/11/30 -  CORRECCION DEUDA TECNICA: Se cambio de nombre a la variable Action para el flujo else
         }
     },
     navigateToRecord : function(component, event, helper) {

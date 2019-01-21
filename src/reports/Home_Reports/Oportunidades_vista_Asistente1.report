@@ -9,7 +9,11 @@
             <axisBinding>y</axisBinding>
             <column>AMOUNT.CONVERT</column>
         </chartSummaries>
-        <chartType>VerticalColumnStacked</chartType>
+        <chartSummaries>
+            <axisBinding>y2</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>VerticalColumnGroupedLine</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
         <groupingColumn>STAGE_NAME</groupingColumn>
@@ -43,28 +47,33 @@
             <value>None,Programa financiero,Serv. Transaccionales</value>
         </criteriaItems>
         <criteriaItems>
-            <column>HASOPPLINEITEM</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
-        <criteriaItems>
             <column>PRODUCT_CUSTOMER_ID</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value>PC00030,PC00032</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>HASOPPLINEITEM</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
         <language>es</language>
     </filter>
-    <format>Matrix</format>
-    <groupingsAcross>
-        <dateGranularity>Day</dateGranularity>
-        <field>FAMILY</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsAcross>
+    <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>STAGE_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FAMILY</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>OPPORTUNITY_NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Mis oportunidades del mes en curso</name>

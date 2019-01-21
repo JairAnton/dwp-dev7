@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS CUSCO</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_CUSCO</parentRole>
+    <parentRole>GERENTE_BANCA_EMPRESAS_CUSCO</parentRole>
 </Role>

@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>ASISTENTE BANCA EMPRESAS CHINCHA</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_CHINCHA</parentRole>
+    <parentRole>GERENTE_BANCA_EMPRESAS_CHINCHA</parentRole>
 </Role>

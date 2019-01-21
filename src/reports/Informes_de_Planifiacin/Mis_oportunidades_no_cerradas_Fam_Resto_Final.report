@@ -63,7 +63,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informes: Mis oportunidades no cerradas Familia Resto</description>
+    <description>Informes: Mis oportunidades no cerradas Otras Familias</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -108,7 +108,7 @@
         <field>Opportunity$opportunity_product_family__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades no cerradas Fam Resto</name>
+    <name>Mis oportunidades no cerradas Otras Fam</name>
     <params>
         <name>co</name>
         <value>1</value>

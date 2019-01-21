@@ -405,6 +405,10 @@
         <name>lblCREATE_CASE</name>
     </customLabels>
     <customLabels>
+        <label>To continue, calculate the profitability of the Authorized TEA.</label>
+        <name>Error_TEA_no_calculada</name>
+    </customLabels>	
+    <customLabels>
         <label><!-- Error_validation_01 --></label>
         <name>Error_validation_01</name>
     </customLabels>

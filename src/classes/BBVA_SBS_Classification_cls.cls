@@ -30,7 +30,7 @@ public with sharing class BBVA_SBS_Classification_cls {
 
     @AuraEnabled
     public static list<list<String>> getJSON(Id recordId){
-         List<List<String>> MonthSBS = new List<List<String>>();
+         //List<List<String>> MonthSBS = new List<List<String>>();//Yuliño: correcion
          fillArray(BBVA,'0');
          fillArray(Nor,'0');
          fillArray(CPP,'0');
@@ -44,7 +44,7 @@ public with sharing class BBVA_SBS_Classification_cls {
          date myDate = system.Date.today();
          integer index = myDate.month();
          integer index2 =0 ;
-         Integer currentMonth = myDate.month();
+         //Integer currentMonth = myDate.month();//Yuliño: correcion
          Map<Integer,Integer> MonthsMap= new Map<Integer,Integer>();
          Map<Integer,Integer> YearsMap= new Map<Integer,Integer>();
          ABBVAC = [SELECT bbva_classification_type__c,year_month_day_date__c

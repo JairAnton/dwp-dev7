@@ -152,7 +152,7 @@
     <validationRules>
         <fullName>Visit_is_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>IF(ISPICKVAL(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c, &apos;05&apos;) , true, false)</errorConditionFormula>
+        <errorConditionFormula>IF(ISPICKVAL(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c, &apos;06&apos;) , true, false)</errorConditionFormula>
         <errorDisplayField>CurrencyIsoCode</errorDisplayField>
         <errorMessage>Not is possible create the Visit Management Team, the visit is in status ended</errorMessage>
     </validationRules>

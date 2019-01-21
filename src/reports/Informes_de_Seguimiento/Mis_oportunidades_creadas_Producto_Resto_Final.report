@@ -60,7 +60,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informe: Mis Oportunidades creadas Productos Activo y Pasivo</description>
+    <description>Informe: Mis oportunidades creadas Otros Productos</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>
@@ -99,7 +99,7 @@
         <field>Opportunity$opportunity_product__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis oportunidades creadas Producto Resto</name>
+    <name>Mis oportunidades creadas Otros Prod</name>
     <params>
         <name>co</name>
         <value>1</value>

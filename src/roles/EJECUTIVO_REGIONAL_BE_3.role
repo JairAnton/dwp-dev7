@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO REGIONAL BE 3</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>JEFE_PROMOCION_DE_NEGOCIO_BE_3</parentRole>
+    <parentRole>GERENTE_REGIONAL_BE_3</parentRole>
 </Role>

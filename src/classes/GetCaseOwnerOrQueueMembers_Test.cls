@@ -1,4 +1,4 @@
-@isTest(SeeAllData=true)
+@isTest  (SeeAllData=true)
 public class GetCaseOwnerOrQueueMembers_Test {
 	
     @isTest
@@ -31,6 +31,7 @@ public class GetCaseOwnerOrQueueMembers_Test {
             GroupMember gm6 = new GroupMember(GroupId = g2.Id, UserOrGroupId = g4.Id);
             gmList.add(gm6);
             insert gmList;
+            System.assertEquals(6, gmList.size());//Yulino 12/12/2018 : Se agregó el Assets
         }
     }
 

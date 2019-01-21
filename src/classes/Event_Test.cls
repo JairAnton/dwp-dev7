@@ -32,7 +32,7 @@ public class Event_Test {
         
     }    
 
-      @isTest static void afterInsertTest(){
+      @isTest static void afterInsertTest(){ // Yulino 12/12/2018 : Se agrego los Assets en adelante total (3)
         Test.setMock(HttpCalloutMock.class, new gcal.GBL_Google_Calendar_Mock_Generator());
           Test.startTest();
         Event evt = new Event();
@@ -43,12 +43,12 @@ public class Event_Test {
         evt.EndDatetime = Datetime.now();
         insert evt;
         
-
         List <Event> lstEvt = [SELECT Id,gcal__GBL_Google_Event_Id__c FROM Event WHERE Subject = 'syncJobTest'];
           Test.stopTest();
+        System.assertEquals(1, lstEvt.size());
     }
     @isTest 
-    static void afterUpdateTest() {
+    static void afterUpdateTest() { 
         Test.startTest();
         Event evt = [SELECT Id, Subject, Description, Location, StartDatetime, EndDatetime, IsChild, OwnerId, gcal__GBL_Google_Event_Id__c from Event where Subject = 'PRUEBA'];
         
@@ -64,6 +64,7 @@ public class Event_Test {
         );
         update evt;
         Test.stopTest();
+        System.assertEquals('test1', evt.gcal__GBL_Google_Event_Id__c);
     }
     
     @isTest 
@@ -77,6 +78,7 @@ public class Event_Test {
         
         delete evt;
         Test.stopTest();
+        System.assertEquals('test1', evt.gcal__GBL_Google_Event_Id__c);
     }
 
 }

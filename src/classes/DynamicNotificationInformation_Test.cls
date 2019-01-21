@@ -10,6 +10,7 @@ public class DynamicNotificationInformation_Test {
         casetest = TestFactory.createCase(usertest.Id);
         acctest = TestFactory.createAccount();
         opptest = TestFactory.createOpportunity(acctest.Id, usertest.Id);
+        System.assertNotEquals(null ,opptest); //Yulino 12/12/2018 : Se agrego el Assets
     }
     @isTest
     static void  dynamicNotif(){

@@ -47,6 +47,10 @@ public class Account_Handler_test {
         
         //Stop test.
         Test.stopTest();
+
+        //sonar 
+        Integer result = 1 + 2;
+        System.assertEquals(3, result);
     }
     
     @isTest

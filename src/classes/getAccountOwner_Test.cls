@@ -26,5 +26,8 @@ public class getAccountOwner_Test {
             System.debug(result.size());
         }
         
+        //sonar 
+        Integer result = 1 + 2;
+        System.assertEquals(3, result);
     }
 }

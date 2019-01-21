@@ -11,8 +11,8 @@
 				var ordenField = ['opp_solution_comt_product_name__c','CurrencyIsoCode','opp_solution_commitment_amount__c','opp_soln_comt_expiry_days_number__c','opp_soln_comt_stay_days_number__c'];
 				var objSetup = {'lstHead':[],
 								'lstData':[]};
-				for(var i in ordenField){
-					objSetup['lstHead'].push(ret.schemaSetup.mapLabel[ordenField[i]]);
+				for(var h in ordenField){
+					objSetup['lstHead'].push(ret.schemaSetup.mapLabel[ordenField[h]]); // 2018/11/27 - 16:56 CORRECCION DEUDA TECNICA Ernesto
 				}
 				for(var i in ret.lstCommitments){
 					var row = {'id':ret.lstCommitments[i]['Id'],

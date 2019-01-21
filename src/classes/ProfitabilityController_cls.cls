@@ -1,4 +1,4 @@
-public class ProfitabilityController_cls {
+public without sharing class ProfitabilityController_cls {
 
     @auraenabled
     public  static list<list<String>>  AccountProfit(string recordId){
@@ -20,7 +20,7 @@ public class ProfitabilityController_cls {
         List<String> args = new String[]{'0','number','###,###,##0.00'};
             for(AggregateResult r :total.values()){
                 list<string> a = new list<string>();
-                list<string> b = new list<string>();
+                //list<string> b = new list<string>();
                 nc=0;
                 nm=0;
                 tt =0;
@@ -50,5 +50,6 @@ public class ProfitabilityController_cls {
         return cuenta;
     }
 
-
+    public ProfitabilityController_cls(){
+    }
 }

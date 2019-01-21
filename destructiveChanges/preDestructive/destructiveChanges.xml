@@ -56,6 +56,13 @@
         <members>Informes_de_Planifiacin/OPP_VPAP_JER</members>
         <members>Informes_de_Planifiacin/OPP_VPR</members>
         <members>Informes_de_Planifiacin/OPP_VPR_JER</members>
+        <members>Home_Reports/OPP_AP</members>
+        <members>Home_Reports/OPP_AP_JER</members>
+        <members>Home_Reports/OPP_VAP_JER</members>
+        <members>Home_Reports/OPP_VEAP</members>
+        <members>Home_Reports/OPP_VER</members>
+        <members>Home_Reports/OPP_VFR_JER</members>
+        <members>Home_Reports/OPP_VPAP_JER</members>
 	    <name>Report</name>
    </types>	
     <types>
@@ -91,5 +98,9 @@
         <members>quoteClassButtonTest</members>
         <name>ApexClass</name>
     </types>    
+    <types>
+        <members>GERENTE_DISTRIBUCION_RED</members>
+        <name>Role</name>
+    </types>
 	<version>42.0</version>
 </Package>

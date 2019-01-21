@@ -522,6 +522,20 @@
         <value>Re-evaluate</value>
     </labels>
     <labels>
+        <fullName>Prioridad_de_la_campa</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Prioridad de la campaña</shortDescription>
+        <value>Prioridad de la campaña</value>
+    </labels>	
+    <labels>
+        <fullName>Lista_campa_a</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Lista campaña</shortDescription>
+        <value>Lista Campañas</value>
+    </labels>	
+    <labels>
         <fullName>lblReject</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -781,6 +795,14 @@
         <value>Embedded</value>
     </labels>
     <labels>
+        <fullName>Error_TEA_no_calculada</fullName>
+        <categories>Error</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Error TEA no calculada</shortDescription>
+        <value>Para continuar, calcula la rentabilidad de la TEA Autorizada.</value>
+    </labels>	
+    <labels>
         <fullName>Ok</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -968,6 +990,20 @@
         <protected>false</protected>
         <shortDescription>No_Buttons_Message</shortDescription>
         <value>No actions available</value>
+    </labels>
+    <labels>
+        <fullName>No_hay_informacion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No hay informacion</shortDescription>
+        <value>Information not found</value>
+    </labels>
+    <labels>
+        <fullName>Titulo_auditoria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Titulo auditoria</shortDescription>
+        <value>Changes histories</value>
     </labels>
     <labels>
         <fullName>lblComplete</fullName>
@@ -1164,6 +1200,13 @@
         <protected>false</protected>
         <shortDescription>lblApprove</shortDescription>
         <value>Approve Sanction</value>
+    </labels>
+	<labels>
+        <fullName>NewmanagementPlan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewmanagementPlan</shortDescription>
+        <value>You can not create a plan from this buttom.</value>
     </labels>
     <labels>
         <fullName>NoAuditDetail</fullName>
@@ -1606,6 +1649,14 @@
         <shortDescription>AccessLevelRead</shortDescription>
         <value>Read</value>
     </labels>
+    <labels>
+        <fullName>ExceptionListCamp</fullName>
+        <categories>Opportunity</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Lista_campa_a</shortDescription>
+        <value>Este cliente no cuenta con campañas disponibles en este trimestre. Vuelve a revisar el próximo.</value>
+    </labels>    
     <labels>
         <fullName>Close</fullName>
         <language>en_US</language>

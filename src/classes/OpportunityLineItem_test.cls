@@ -74,14 +74,15 @@ public class OpportunityLineItem_test {
         System.assertNotEquals(null, oli2.Id);
         Test.stopTest();
     }
-    @isTest static void BeforeUpdate_V2(){
+    @isTest static void BeforeUpdate_V2(){ // Yulino 12/12/2018 : Se agregó system.assertEquals() en adelante de este hito
         Product2 prd = [select id from Product2 limit 1];
         	prd.ProductCode='PC00002';
         update prd;
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.gipr_Plazo__c=4;
         	OLI.gipr_Periodicidad__c='01';
-        update OLI;	
+        update OLI;
+        system.assertEquals(OLI.gipr_Plazo__c, 4);
     }
         @isTest static void BeforeUpdate_V2_1(){
         Product2 prd = [select id from Product2 limit 1];
@@ -90,7 +91,8 @@ public class OpportunityLineItem_test {
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.gipr_Plazo__c=4;
         	OLI.gipr_Periodicidad__c='02';
-        update OLI;	
+        update OLI;
+        system.assertEquals(OLI.gipr_Plazo__c, 4);
     }
     @isTest static void BeforeUpdate_V3(){
         Product2 prd = [select id from Product2 limit 1];
@@ -98,7 +100,8 @@ public class OpportunityLineItem_test {
         update prd;
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.cpliq_Fecha_Vencimiento__c=System.today().addDays(12);
-        update OLI;	
+        update OLI;
+        system.assertEquals(prd.ProductCode , 'PC00011');
     }
 	@isTest static void BeforeUpdate_V4(){
         Product2 prd = [select id from Product2 limit 1];
@@ -106,7 +109,8 @@ public class OpportunityLineItem_test {
         update prd;
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.gipr_Plazo__c=3;
-        update OLI;	
+        update OLI;
+        system.assertEquals(OLI.gipr_Plazo__c, 3);
     }
     @isTest static void BeforeUpdate_V4_1(){
         Product2 prd = [select id from Product2 limit 1];
@@ -115,7 +119,8 @@ public class OpportunityLineItem_test {
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.gipr_Plazo__c=3;
         	OLI.cpliq_Periodicidad__c='02';
-        update OLI;	
+        update OLI;
+        system.assertEquals(OLI.gipr_Plazo__c, 3);
     }
     @isTest static void BeforeUpdate_V4_2(){
         Product2 prd = [select id from Product2 limit 1];
@@ -124,7 +129,8 @@ public class OpportunityLineItem_test {
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.gipr_Plazo__c=3;
         	OLI.cpliq_Periodicidad__c='03';
-        update OLI;	
+        update OLI;
+        system.assertEquals(OLI.gipr_Plazo__c, 3);
     }    
 	@isTest static void BeforeUpdate_V5(){
         Product2 prd = [select id from Product2 limit 1];
@@ -133,7 +139,8 @@ public class OpportunityLineItem_test {
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	
         	OLI.cpliq_Fecha_Vencimiento__c=system.today().addDays(12);
-        update OLI;	
+        update OLI;
+        system.assertEquals(prd.ProductCode, 'PC00041');	
     }
     @isTest static void BeforeUpdate_V6(){
         Product2 prd = [select id from Product2 limit 1];
@@ -141,7 +148,8 @@ public class OpportunityLineItem_test {
         update prd;
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.cpliq_Fecha_Vencimiento__c=system.today().addDays(442);
-        update OLI;	
+        update OLI;
+        system.assertEquals(prd.ProductCode, 'PC00002');
     }
     @isTest static void BeforeUpdate_V7(){
         Product2 prd = [select id from Product2 limit 1];
@@ -150,7 +158,8 @@ public class OpportunityLineItem_test {
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.cpliq_n__c=13;
         	OLI.cpliq_Periodicidad__c='01';
-        update OLI;	
+        update OLI;
+        system.assertEquals(OLI.cpliq_n__c, 13);	
     }   
     @isTest static void BeforeUpdate_V7_1(){
         Product2 prd = [select id from Product2 limit 1];
@@ -159,7 +168,8 @@ public class OpportunityLineItem_test {
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.cpliq_n__c=13;
         	OLI.cpliq_Periodicidad__c='02';
-        update OLI;	
+        update OLI;
+        system.assertEquals(OLI.cpliq_n__c, 13);
     }   
 	@isTest static void BeforeUpdate_V8(){
         Product2 prd = [select id from Product2 limit 1];
@@ -168,9 +178,11 @@ public class OpportunityLineItem_test {
         OpportunityLineItem OLI = [Select id, OpportunityId,Product2Id from OpportunityLineItem limit 1];
         	OLI.cpliq_n__c=13;
         	OLI.cpliq_Periodicidad__c='01';
-        update OLI;	
+        update OLI;
+        system.assertEquals(OLI.cpliq_n__c, 13);	
     }  
-	@isTest static void BeforeUpdate_V8_1(){
+	@isTest static void BeforeUpdate_V8_1(){ // Yulino 12/12/2018 : Se agregó Test.startTest() y system.assertNotEquals()
+        Test.startTest();
         Product2 prd = [select id from Product2 limit 1];
         prd.ProductCode='PC00010';
         update prd;
@@ -182,5 +194,7 @@ public class OpportunityLineItem_test {
         opsolcom.opp_solution_id__c = OLI.Id;
         insert opsolcom;
         delete OLI;
+        system.assertNotEquals(opsolcom.Id, null);
+        test.stopTest();
     }
 }
