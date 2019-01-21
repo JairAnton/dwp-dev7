@@ -29,6 +29,10 @@
         <name>AccountBBVAResourcesTotalLabel</name>
     </customLabels>
     <customLabels>
+        <label>This client does not have available campaigns in this quarter. Check back next one</label>
+        <name>ExceptionListCamp</name>
+    </customLabels>	
+    <customLabels>
         <label><!-- Account_Name --></label>
         <name>AccountName</name>
     </customLabels>
