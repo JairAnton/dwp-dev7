@@ -1,15 +1,15 @@
 #Mapping values
-#Thu Jul 19 11:37:45 COT 2018
+#Mon Jan 21 18:10:54 COT 2019
 ISACTIVE=IsActive
 PRODUCTCODE=ProductCode
+PDF__C=pdf__c
 FAMILY=Family
-risk_sanction__c=risk_sanction__c
-formalization__c=formalization__c
-Unique_id__c\ =Unique_id__c
+TYPE_OF_QUOTE__C=Type_of_quote__c
 CURRENCYISOCODE=CurrencyIsoCode
-Type_of_quote__c=Type_of_quote__c
 DESCRIPTION=Description
-pdf__c\ =pdf__c
-ID=Id
-price_penalty__c=price_penalty__c
+FORMALIZATION__C=formalization__c
+PRICE_PENALTY__C=price_penalty__c
+UNIQUE_ID__C=Unique_id__c
+PRICE_APPROVAL_WEB_SERVICE_ID__C=price_approval_web_service_id__c
+RISK_SANCTION__C=risk_sanction__c
 NAME=Name
