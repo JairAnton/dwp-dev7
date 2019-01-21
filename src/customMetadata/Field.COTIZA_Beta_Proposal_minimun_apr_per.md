@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>is_required__c</field>
-        <value xsi:type="xsd:boolean">true</value>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>order__c</field>
