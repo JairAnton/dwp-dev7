@@ -22,7 +22,7 @@
     </fieldUpdates>
     <rules>
         <fullName>Overdue End Date Management</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>When overdue end date, stage change to finalized.</description>
         <formula>ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;04&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -42,7 +42,7 @@
             <name>Notification_management_plan_review</name>
             <type>Alert</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <description>Send notification to the manager when plan pamagement stage is &quot;Review&quot;</description>
         <formula>ISPICKVAL( dwp_frct__management_plan_stage_type__c ,&apos;03&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>

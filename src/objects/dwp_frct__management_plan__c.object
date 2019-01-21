@@ -274,7 +274,7 @@
         <customTabListAdditionalFields>dwp_frct__management_plan_stage_type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>OWNER.ALIAS</customTabListAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>dwp_frct__Do_not_back_in_sales_path</fullName>
         <active>true</active>
