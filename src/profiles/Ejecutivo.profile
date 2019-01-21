@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
+        <application>DWP_Reunion_individual</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>DWP_Sales</application>
         <default>true</default>
         <visible>true</visible>
@@ -4313,6 +4318,26 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.dwp_kitv__visit_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_frct__management_plan__c.other_information_b_desc__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_frct__management_plan__c.other_information_c_desc__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_frct__management_plan__c.other_information_b_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_frct__management_plan__c.other_information_c_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
