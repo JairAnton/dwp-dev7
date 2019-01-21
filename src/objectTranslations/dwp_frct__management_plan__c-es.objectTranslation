@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Plan de Gestión</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Plan de Gestión</value>
+    </caseValues>
     <fields>
         <label>Fecha de Fin</label>
         <name>dwp_frct__management_plan_end_date__c</name>
@@ -51,7 +59,11 @@
     <fields>
         <label>Responsable</label>
         <name>dwp_frct__user_id__c</name>
-        <relationshipLabel><!-- Management Plans --></relationshipLabel>
+        <relationshipLabel>Plane de Gestión</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Unique identifier plan --></label>
+        <name>id_unique__c</name>
     </fields>
     <fields>
         <label>Proyección cualitativa</label>
@@ -61,12 +73,14 @@
         <label>Feedback</label>
         <name>other_information_c_desc__c</name>
     </fields>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Plan de Gestión</nameFieldLabel>
     <validationRules>
-        <errorMessage><!-- Impossible to go back on sales path. --></errorMessage>
+        <errorMessage>Inmposible retroceder la etapa del plan de gestión.</errorMessage>
         <name>dwp_frct__Do_not_back_in_sales_path</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You can not access to &apos;In progress&apos; stage. --></errorMessage>
+        <errorMessage>No puedes acceder en etapa En progreso.</errorMessage>
         <name>dwp_frct__Owner_can_not_access_in_progress_stage</name>
     </validationRules>
 </CustomObjectTranslation>
