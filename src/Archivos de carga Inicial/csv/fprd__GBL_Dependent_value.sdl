@@ -1,8 +1,8 @@
 #Mapping values
-#Thu Jul 19 08:23:10 COT 2018
-ID=Id
-FPRD__VALUES_CONTROL_VALUE__C=fprd__Values_control_value__c
-FPRD__LOV_LABELS__C=fprd__LoV_labels__c
-CURRENCYISOCODE=CurrencyIsoCode
-FPRD__PRODUCT_CONFIGURATION__R.FPRD__DEVELOPERNAME__C=fprd__Product_configuration__r\:fprd__DeveloperName__c
-FPRD__LOV_VALUES__C=fprd__LoV_values__c
+#Mon Jan 21 16:10:42 COT 2019
+Unique_id__c=Unique_id__c
+fprd__LoV_values__c=fprd__LoV_values__c
+fprd__Values_control_value__c=fprd__Values_control_value__c
+fprd__Product_configuration__r.fprd__DeveloperName__c=fprd__Product_configuration__r\:fprd__DeveloperName__c
+fprd__Opportunity__c=fprd__Opportunity__c
+fprd__LoV_labels__c=fprd__LoV_labels__c
