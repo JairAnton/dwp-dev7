@@ -1438,7 +1438,7 @@
     </customLabels>
 	<customLabels>
         <label>Invitar</label>
-        <name>invite</name>
+        <name>dwp_kitv__invite</name>
     </customLabels>
 	<quickActions>
         <label>Llamada</label>
