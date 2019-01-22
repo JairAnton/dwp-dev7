@@ -76,11 +76,15 @@
     <gender>Masculine</gender>
     <nameFieldLabel>Plan de Gestión</nameFieldLabel>
     <validationRules>
-        <errorMessage>Inmposible retroceder la etapa del plan de gestión.</errorMessage>
+        <errorMessage>No puedes cambiar a la etapa seleccionada.</errorMessage>
+        <name>Owner_stage_rule</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Imposible retroceder las etapas.</errorMessage>
         <name>dwp_frct__Do_not_back_in_sales_path</name>
     </validationRules>
     <validationRules>
-        <errorMessage>No puedes acceder en etapa En progreso.</errorMessage>
+        <errorMessage>No puede cambiar a la etapa en progreso.</errorMessage>
         <name>dwp_frct__Owner_can_not_access_in_progress_stage</name>
     </validationRules>
 </CustomObjectTranslation>

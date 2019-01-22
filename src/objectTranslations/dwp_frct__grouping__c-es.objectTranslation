@@ -57,10 +57,6 @@
         <label>Familia</label>
         <name>dwp_frct__solution_category_type__c</name>
     </fields>
-    <fields>
-        <label><!-- Unique identifier gruoping --></label>
-        <name>id_unique_grouping__c</name>
-    </fields>
     <validationRules>
         <errorMessage><!-- Please, enter a positive anticipated maturities amount --></errorMessage>
         <name>dwp_frct__Avoid_negative_values_antcp_maturities</name>
