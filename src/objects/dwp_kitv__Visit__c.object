@@ -782,6 +782,10 @@
                 <fullName>05</fullName>
                 <default>false</default>
             </values>
+			  <values>
+                <fullName>06</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
     </recordTypes>
     <recordTypes>
