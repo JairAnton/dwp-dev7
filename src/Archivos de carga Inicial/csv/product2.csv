@@ -1,21 +1,21 @@
-"NAME","PRODUCTCODE","DESCRIPTION","ISACTIVE","FAMILY","CURRENCYISOCODE","TYPE_OF_QUOTE__C","UNIQUE_ID__C","FORMALIZATION__C","PRICE_PENALTY__C","RISK_SANCTION__C","PDF__C","PRICE_APPROVAL_WEB_SERVICE_ID__C"
-"Prestamo comercial Cotiza","PC00001","Producto code 1","false","Financiamiento a corto plazo","PEN","COTIZA Beta","0160010_NEW","true","true","true","true",
-"Comex Importacion","PC00002","Producto code 2","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0161720","true","true","true","true",
-"Comex Exportacion","PC00003","Producto code 3","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0161710","true","true","true","true",
-"Letras","PC00005","Producto code 5","true","Financiamiento a corto plazo","PEN","COTIZA Beta","0159501","true","true","true","true",
-"Prestamo Comercial","PC00009","Producto code 9","true","Financiamiento a largo plazo","PEN","COTIZADOR","PC00009_V1_DEPRECATED","false","true","true","true",
-"Leasing","PC00010","Producto code 10","true","Financiamiento a largo plazo","PEN","COTIZADOR","0159601_V1_DEPRECATED","false","true","true","true",
-"Carta fianza tecnica","PC00011","Producto code 11","true","Riesgo de firma","PEN","Tarifario","0292235_V1_DEPRECATED","false","true","true","true",
-"Carta fianza economica","PC00012","Producto code 12","true","Riesgo de firma","PEN","Tarifario","0292230_V1_DEPRECATED","false","true","true","true",
-"Vista PJ","PC00016","Producto code 16","true","Recursos","PEN",,"0240011","false","false","false","false",
-"Pago a proveedores","PC00029","Producto code 29","true","Serv. Transaccionales","PEN",,"08","false","false","false","false",
-"Pago de haberes","PC00030","Producto code 30","true","Serv. Transaccionales","PEN",,"09","false","false","false","false",
-"Net Cash","PC00032","Producto code 32","true","Serv. Transaccionales","PEN",,"21","false","false","false","false",
-"PFL","PC00040","Producto code 40","true","Programa financiero","PEN",,"PC00040","false","false","true","false",
-"PFF","PC00041","Producto code 41","true","Programa financiero","PEN",,"PC00041","false","false","true","false",
-"PFA","PC00042","Producto code 42","true","Programa financiero","PEN",,"PC00042","false","false","true","false",
-"Prestamo comercial Prueba","PC00001","Producto code 1","true","Financiamiento a corto plazo","PEN","Web","0160010","true","true","true","true","11"
-"Prestamo Comercial","PC00009","Producto code 9","true","Financiamiento a largo plazo","PEN","COTIZA Beta","PC00009","true","true","true","true",
-"Leasing","PC00010","Producto code 10","true","Financiamiento a largo plazo","PEN","COTIZA Beta","0159601","true","true","true","true",
-"Carta fianza tecnica","PC00011","Producto code 11","true","Riesgo de firma","PEN","COTIZA Beta","0292235","true","true","true","true",
-"Carta fianza economica","PC00012","Producto code 12","true","Riesgo de firma","PEN","COTIZA Beta","0292230","true","true","true","true",
+"ID","NAME","PRODUCTCODE","DESCRIPTION","ISACTIVE","FAMILY","CURRENCYISOCODE","EXTERNALDATASOURCEID","EXTERNALID","DISPLAYURL","QUANTITYUNITOFMEASURE","ISARCHIVED","STOCKKEEPINGUNIT","TYPE_OF_QUOTE__C","UNIQUE_ID__C","FORMALIZATION__C","PDF__C","PRICE_PENALTY__C","RISK_SANCTION__C","PRICE_APPROVAL_WEB_SERVICE_ID__C"
+"01t1I000002RUQxQAO","Prestamo comercial","PC00001_Depre","Producto code 1","true","Financiamiento a corto plazo","PEN","","","","","false","","COTIZA Beta","0160010_NEW","true","true","true","true",""
+"01t1I000002RUQyQAO","Comex Importacion","PC00002","Producto code 2","true","Financiamiento a corto plazo","PEN","","","","","false","","COTIZA Beta","0161720","true","true","true","true",""
+"01t1I000002RUQzQAO","Comex Exportacion","PC00003","Producto code 3","true","Financiamiento a corto plazo","PEN","","","","","false","","COTIZA Beta","0161710","true","true","true","true",""
+"01t1I000002RUR0QAO","Letras","PC00005","Producto code 5","true","Financiamiento a corto plazo","PEN","","","","","false","","COTIZA Beta","0159501","true","true","true","true",""
+"01t1I000002RUR1QAO","Prestamo Comercial","PC00009_Depre","Producto code 9","true","Financiamiento a largo plazo","PEN","","","","","false","","COTIZADOR","PC00009_V1_DEPRECATED","true","true","true","true",""
+"01t1I000002RUR2QAO","Leasing","PC00010_Depre","Producto code 10","true","Financiamiento a largo plazo","PEN","","","","","false","","COTIZADOR","0159601_V1_DEPRECATED","true","true","true","true",""
+"01t1I000002RUR3QAO","Carta fianza tecnica","PC00011_Depre","Producto code 11","true","Riesgo de firma","PEN","","","","","false","","Tarifario","0292235_V1_DEPRECATED","true","true","true","true",""
+"01t1I000002RUR4QAO","Carta fianza economica","PC00012_Depre","Producto code 12","true","Riesgo de firma","PEN","","","","","false","","Tarifario","0292230_V1_DEPRECATED","true","true","true","true",""
+"01t1I000002RUR5QAO","Vista PJ","PC00016","Producto code 16","true","Recursos","PEN","","","","","false","","","0240011","false","false","false","false",""
+"01t1I000002RUR6QAO","Pago a proveedores","PC00029","Producto code 29","true","Serv. Transaccionales","PEN","","","","","false","","","08","false","false","false","false",""
+"01t1I000002RUR7QAO","Pago de haberes","PC00030","Producto code 30","true","Serv. Transaccionales","PEN","","","","","false","","","09","false","false","false","false",""
+"01t1I000002RUR8QAO","Net Cash","PC00032","Producto code 32","true","Serv. Transaccionales","PEN","","","","","false","","","21","false","false","false","false",""
+"01t1I000002RUR9QAO","PFL","PC00040","Producto code 40","true","Programa financiero","PEN","","","","","false","","","PC00040","false","false","false","true",""
+"01t1I000002RURAQA4","PFF","PC00041","Producto code 41","true","Programa financiero","PEN","","","","","false","","","PC00041","false","false","false","true",""
+"01t1I000002RURBQA4","PFA","PC00042","Producto code 42","true","Programa financiero","PEN","","","","","false","","","PC00042","false","false","false","true",""
+"01t4C000001psZPQAY","Prestamo comercial Prueba","PC00001","Producto code 1","true","Financiamiento a corto plazo","PEN","","","","","false","","Web","0160010","true","true","true","true","11"
+"01t4C000002H73TQAS","Prestamo Comercial Prueba","PC00009","Producto code 9","true","Financiamiento a largo plazo","PEN","","","","","false","","COTIZA Beta","PC00009","true","true","true","true",""
+"01t4C000002H73UQAS","Leasing Prueba","PC00010","Producto code 10","true","Financiamiento a largo plazo","PEN","","","","","false","","COTIZA Beta","0159601","true","true","true","true",""
+"01t4C000002H73VQAS","Carta fianza tecnica Prueba","PC00011","Producto code 11","true","Riesgo de firma","PEN","","","","","false","","COTIZA Beta","0292235","true","true","true","true",""
+"01t4C000002H73WQAS","Carta fianza economica Prueba","PC00012","Producto code 12","true","Riesgo de firma","PEN","","","","","false","","COTIZA Beta","0292230","true","true","true","true",""
