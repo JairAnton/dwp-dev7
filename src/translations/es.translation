@@ -1436,7 +1436,7 @@
         <label>Vista previa del la Minuta</label>
         <name>dwp_kitv__Minute_Heading_Title</name>
     </customLabels>
-	    <customLabels>
+	<customLabels>
         <label>Aceptar</label>
         <name>dwp_frct__Accept</name>
     </customLabels>
@@ -1599,6 +1599,7 @@
     <customLabels>
         <label>Se ha creado un nuevo plan de gestión.</label>
         <name>dwp_frct__feedItem_message</name>
+	</customLabels>
 	<customLabels>
         <label>Invitar</label>
         <name>dwp_kitv__invite</name>
