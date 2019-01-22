@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label>Balane Inicial</label>
+        <name>dwp_frct__initial_amount__c</name>
+    </fields>
+    <fields>
+        <label>Caida esperada Pan de Gestión</label>
+        <name>dwp_frct__management_expected_drop_amount__c</name>
+    </fields>
+    <fields>
+        <label>Importe Plan de Gestión</label>
+        <name>dwp_frct__management_plan_amount__c</name>
+    </fields>
+    <fields>
+        <label>Plan de Gestión</label>
+        <name>dwp_frct__management_plan_id__c</name>
+        <relationshipLabel><!-- Groupings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Compromiso Neto</label>
+        <name>dwp_frct__net_commitment_amount__c</name>
+    </fields>
+    <fields>
+        <label>Compromiso Neto Plan de Gestión</label>
+        <name>dwp_frct__net_commitment_management_plan__c</name>
+    </fields>
+    <fields>
+        <label>Amortizaciones</label>
+        <name>dwp_frct__opportunity_amortization_amount__c</name>
+    </fields>
+    <fields>
+        <label>Vencimientos anticipados</label>
+        <name>dwp_frct__opportunity_antcp_expiry_amount__c</name>
+    </fields>
+    <fields>
+        <label>Cancelaciones</label>
+        <name>dwp_frct__opportunity_cancellation_amount__c</name>
+    </fields>
+    <fields>
+        <label>Importe de cierre</label>
+        <name>dwp_frct__opportunity_closed_amount__c</name>
+    </fields>
+    <fields>
+        <label>Caida esperada</label>
+        <name>dwp_frct__opportunity_expected_drop_amount__c</name>
+    </fields>
+    <fields>
+        <label>Importe de Oportunidades Seleccionadas</label>
+        <name>dwp_frct__opportunity_selected_tot_amount__c</name>
+    </fields>
+    <fields>
+        <label>Compromiso</label>
+        <name>dwp_frct__original_commitment_amount__c</name>
+    </fields>
+    <fields>
+        <label>Familia</label>
+        <name>dwp_frct__solution_category_type__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- Please, enter a positive anticipated maturities amount --></errorMessage>
+        <name>dwp_frct__Avoid_negative_values_antcp_maturities</name>
+    </validationRules>
+</CustomObjectTranslation>

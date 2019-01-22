@@ -4321,16 +4321,6 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>dwp_frct__management_plan__c.other_information_b_desc__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>dwp_frct__management_plan__c.other_information_c_desc__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>dwp_frct__management_plan__c.other_information_b_desc__c</field>
         <readable>true</readable>
