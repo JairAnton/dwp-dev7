@@ -136,6 +136,19 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+	<fields>
+        <fullName>Unique_id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Unique Id</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique Id</inlineHelpText>
+        <label>Unique_id</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
     <fields>
         <fullName>cpliq_Periodicidad_gracia__c</fullName>
         <externalId>false</externalId>

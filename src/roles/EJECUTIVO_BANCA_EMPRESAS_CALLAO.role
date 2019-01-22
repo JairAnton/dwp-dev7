@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS CALLAO</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>SUB_GERENTE</parentRole>
+    <parentRole>GERENTE_BANCA_EMPRESAS_CALLAO</parentRole>
 </Role>

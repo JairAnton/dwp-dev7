@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA EMPRESAS CHACARILLA</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>SUB_GERENTE_BANCA_EMPRESAS_CHACARILLA</parentRole>
+    <parentRole>GERENTE_BANCA_EMPRESAS_CHACARILLA</parentRole>
 </Role>

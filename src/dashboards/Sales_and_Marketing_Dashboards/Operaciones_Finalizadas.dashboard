@@ -433,7 +433,6 @@
     </dashboardGridLayout>
     <dashboardType>LoggedInUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <runningUser>isaias.velazquez.cortes.contractor@bbva.com</runningUser>
     <textColor>#000000</textColor>
     <title>Mis Oportunidades finalizadas</title>
     <titleColor>#000000</titleColor>
