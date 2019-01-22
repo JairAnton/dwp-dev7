@@ -38,6 +38,7 @@
         </quickActionLayoutColumns>
     </quickActionLayout>
     <standardLabel>New</standardLabel>
+	<targetRecordType>Task.dwp_kitv__visit_agreement</targetRecordType>
     <targetObject>Task</targetObject>
     <type>Create</type>
 </QuickAction>
