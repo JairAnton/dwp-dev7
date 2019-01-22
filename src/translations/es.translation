@@ -1436,6 +1436,10 @@
         <label>Vista previa del la Minuta</label>
         <name>dwp_kitv__Minute_Heading_Title</name>
     </customLabels>
+	<customLabels>
+        <label>Invitar</label>
+        <name>invite</name>
+    </customLabels>
 	<quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
