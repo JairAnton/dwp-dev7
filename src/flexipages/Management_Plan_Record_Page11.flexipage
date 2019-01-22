@@ -27,7 +27,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>blockingStage</name>
-                <value>-</value>
+                <value>05</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>oppType</name>
@@ -46,14 +46,14 @@
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
                     <operator>EQUAL</operator>
-                    <rightValue>CBD</rightValue>
+                    <rightValue>E01</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>blockingStage</name>
-                <value>-</value>
+                <value>05</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>oppType</name>
@@ -72,14 +72,14 @@
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
                     <operator>EQUAL</operator>
-                    <rightValue>CBD</rightValue>
+                    <rightValue>E01</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>blockingStage</name>
-                <value>-</value>
+                <value>05</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>oppType</name>
@@ -98,14 +98,14 @@
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
                     <operator>EQUAL</operator>
-                    <rightValue>CBD</rightValue>
+                    <rightValue>E01</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>blockingStage</name>
-                <value>-</value>
+                <value>05</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>oppType</name>
@@ -124,14 +124,14 @@
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
                     <operator>EQUAL</operator>
-                    <rightValue>CBD</rightValue>
+                    <rightValue>E01</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>blockingStage</name>
-                <value>-</value>
+                <value>05</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
@@ -142,7 +142,7 @@
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
                     <operator>NE</operator>
-                    <rightValue>CBD</rightValue>
+                    <rightValue>E01</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -160,14 +160,14 @@
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
                     <operator>NE</operator>
-                    <rightValue>CBD</rightValue>
+                    <rightValue>E01</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>blockingStage</name>
-                <value>-</value>
+                <value>05</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
@@ -178,14 +178,14 @@
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
                     <operator>NE</operator>
-                    <rightValue>CBD</rightValue>
+                    <rightValue>E01</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>blockingStage</name>
-                <value>-</value>
+                <value>05</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
@@ -196,7 +196,7 @@
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_type__c}</leftValue>
                     <operator>NE</operator>
-                    <rightValue>CBD</rightValue>
+                    <rightValue>E01</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
