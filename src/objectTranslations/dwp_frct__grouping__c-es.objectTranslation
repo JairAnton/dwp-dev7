@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
-        <label>Balane Inicial</label>
+        <label>Balance Inicial</label>
         <name>dwp_frct__initial_amount__c</name>
     </fields>
     <fields>
-        <label>Caida esperada Pan de Gestión</label>
+        <label>Caida esperada Plan de Gestión</label>
         <name>dwp_frct__management_expected_drop_amount__c</name>
     </fields>
     <fields>

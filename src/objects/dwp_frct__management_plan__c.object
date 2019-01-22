@@ -279,14 +279,21 @@
         <fullName>Owner_stage_rule</fullName>
         <active>true</active>
         <errorConditionFormula>IF(
-	AND(
-	OR(
-	ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;04&apos;),ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;05&apos;))
-	,
-	(OwnerId = $User.Id),
-	($Profile.Name &lt;&gt; &apos;System Administrator&apos;),
-	(dwp_frct__user_id__r.prof_position_type__c &lt;&gt;&apos;CA1&apos;)
-	)
+OR(
+	AND
+	(
+	  
+		OR(
+		ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;04&apos;),ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;05&apos;)
+		)
+		,
+		(OwnerId = $User.Id),
+		($Profile.Name &lt;&gt; &apos;System Administrator&apos;),
+		(dwp_frct__user_id__r.prof_position_type__c &lt;&gt;&apos;CA1&apos;)
+	  
+	),
+	ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;05&apos;)
+)
 ,true,false)</errorConditionFormula>
         <errorMessage>You can not change to the selected stage.</errorMessage>
     </validationRules>
