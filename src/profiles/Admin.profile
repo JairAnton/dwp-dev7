@@ -3991,6 +3991,16 @@
         <field>dwp_kitv__Visit__c.Ubicaci_n_Check_Out__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_frct__grouping__c.id_unique__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_frct__management_plan__c.id_unique__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>

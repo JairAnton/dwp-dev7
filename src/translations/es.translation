@@ -1440,6 +1440,174 @@
         <label>Vista previa del la Minuta</label>
         <name>dwp_kitv__Minute_Heading_Title</name>
     </customLabels>
+	<customLabels>
+        <label>Aceptar</label>
+        <name>dwp_frct__Accept</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre Cliente</label>
+        <name>dwp_frct__Account_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Importe</label>
+        <name>dwp_frct__Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Abril</label>
+        <name>dwp_frct__April</name>
+    </customLabels>
+    <customLabels>
+        <label>Agosto</label>
+        <name>dwp_frct__August</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>dwp_frct__Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cerrar</label>
+        <name>dwp_frct__Close</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha de Cierre</label>
+        <name>dwp_frct__Close_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromiso</label>
+        <name>dwp_frct__Commitment_field</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create_management_plan_batch_01 --></label>
+        <name>dwp_frct__Create_management_plan_batch_01</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create_management_plan_batch_02 --></label>
+        <name>dwp_frct__Create_management_plan_batch_02</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create_management_plan_batch_03 --></label>
+        <name>dwp_frct__Create_management_plan_batch_03</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create_management_plan_batch_04 --></label>
+        <name>dwp_frct__Create_management_plan_batch_04</name>
+    </customLabels>
+    <customLabels>
+        <label>Diciembre</label>
+        <name>dwp_frct__December</name>
+    </customLabels>
+    <customLabels>
+        <label>Editar Importe</label>
+        <name>dwp_frct__Edit_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Existen compromisos vacios.</label>
+        <name>dwp_frct__Error_Empty_Commitment_Field</name>
+    </customLabels>
+    <customLabels>
+        <label>Ingrese un valor positivo para el importe de vencimientos anticipados.</label>
+        <name>dwp_frct__Error_Negative_Anticipated_Maturities_Field</name>
+    </customLabels>
+    <customLabels>
+        <label>Ingrese un importe positivo para el compromiso.</label>
+        <name>dwp_frct__Error_Negative_Commitment_Field</name>
+    </customLabels>
+    <customLabels>
+        <label>El número ingresado es muy largo.</label>
+        <name>dwp_frct__Error_long_commitment</name>
+    </customLabels>
+    <customLabels>
+        <label>Para pasar de etapa, los planes deben estar en progreso.</label>
+        <name>dwp_frct__Error_plan_in_progress</name>
+    </customLabels>
+    <customLabels>
+        <label>Caída esperada</label>
+        <name>dwp_frct__Expected_drop</name>
+    </customLabels>
+    <customLabels>
+        <label>Caída esperada por</label>
+        <name>dwp_frct__Expected_drop_for</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- February --></label>
+        <name>dwp_frct__February</name>
+    </customLabels>
+    <customLabels>
+        <label>Caída esperada = Cancelaciones + Amortizaciones + vencimientos anticipados</label>
+        <name>dwp_frct__Formula</name>
+    </customLabels>
+    <customLabels>
+        <label>Importe inicial</label>
+        <name>dwp_frct__Initial_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Enero</label>
+        <name>dwp_frct__January</name>
+    </customLabels>
+    <customLabels>
+        <label>Julio</label>
+        <name>dwp_frct__July</name>
+    </customLabels>
+    <customLabels>
+        <label>Junio</label>
+        <name>dwp_frct__June</name>
+    </customLabels>
+    <customLabels>
+        <label>Marzo</label>
+        <name>dwp_frct__March</name>
+    </customLabels>
+    <customLabels>
+        <label>Mayo</label>
+        <name>dwp_frct__May</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromiso neto</label>
+        <name>dwp_frct__Net_Commitment_field</name>
+    </customLabels>
+    <customLabels>
+        <label>Noviembre</label>
+        <name>dwp_frct__November</name>
+    </customLabels>
+    <customLabels>
+        <label>Octubre</label>
+        <name>dwp_frct__October</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre de la oportunidad</label>
+        <name>dwp_frct__Opportunity_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre del plan</label>
+        <name>dwp_frct__Plan_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre del producto</label>
+        <name>dwp_frct__Product_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Importe de oportunidades seleccionadas</label>
+        <name>dwp_frct__Selected_Opportunities_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Septiembre</label>
+        <name>dwp_frct__September</name>
+    </customLabels>
+    <customLabels>
+        <label>Saldo inicial</label>
+        <name>dwp_frct__Start_Balance</name>
+    </customLabels>
+    <customLabels>
+        <label>Tipo</label>
+        <name>dwp_frct__Type</name>
+    </customLabels>
+    <customLabels>
+        <label>Se ha creado un nuevo plan de gestión.</label>
+        <name>dwp_frct__feedItem_message</name>
+	</customLabels>
+	<customLabels>
+        <label>Invitar</label>
+        <name>dwp_kitv__invite</name>
+    </customLabels>
 	<quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

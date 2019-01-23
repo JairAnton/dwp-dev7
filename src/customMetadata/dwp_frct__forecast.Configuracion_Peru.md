@@ -28,7 +28,7 @@
     </values>
     <values>
         <field>dwp_frct__position_field__c</field>
-        <value xsi:type="xsd:string">prof_position_type__c</value>
+        <value xsi:type="xsd:string">prof_position_id__c</value>
     </values>
     <values>
         <field>dwp_frct__profile_name__c</field>
