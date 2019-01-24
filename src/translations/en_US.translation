@@ -29,6 +29,10 @@
         <name>AccountBBVAResourcesTotalLabel</name>
     </customLabels>
     <customLabels>
+        <label>This client does not have available campaigns in this quarter. Check back next one</label>
+        <name>ExceptionListCamp</name>
+    </customLabels>	
+    <customLabels>
         <label><!-- Account_Name --></label>
         <name>AccountName</name>
     </customLabels>
@@ -404,6 +408,10 @@
         <label><!-- lblCREATE_CASE --></label>
         <name>lblCREATE_CASE</name>
     </customLabels>
+    <customLabels>
+        <label>To continue, calculate the profitability of the Authorized TEA.</label>
+        <name>Error_TEA_no_calculada</name>
+    </customLabels>	
     <customLabels>
         <label><!-- Error_validation_01 --></label>
         <name>Error_validation_01</name>

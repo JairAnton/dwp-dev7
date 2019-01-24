@@ -9,7 +9,7 @@
         <members>Operativo</members>
         <name>Profile</name>
     </types>
-    <types>
+    <types> 
         <members>Hangout</members>
         <members>Agree</members>
         <members>Cancel</members>
@@ -758,7 +758,7 @@
         <members>Home Page Operativo</members>
         <name>HomePageLayout</name>
     </types>
-	<types>
+    <types>
         <members>*</members>
         <name>ListView</name>
     </types>

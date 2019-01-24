@@ -38,5 +38,6 @@
     </quickActionLayout>
     <standardLabel>LogACall</standardLabel>
     <targetObject>Task</targetObject>
+	<targetRecordType>Task.dwp_kitv__visit_agreement</targetRecordType>
     <type>LogACall</type>
 </QuickAction>

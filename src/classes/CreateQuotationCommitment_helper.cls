@@ -1,5 +1,5 @@
-public class CreateQuotationCommitment_helper {
-    public CreateQuotationCommitment_Wrapper inputDataMapping;
+public without sharing class CreateQuotationCommitment_helper {
+    public CreateQuotationCommitment_Wrapper inputDataMapping{ get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 
     public CreateQuotationCommitment_helper(String commitmentId){
         List<Opportunity_Solution_Commitment__c> lstCommitments = [SELECT   Id,
@@ -31,12 +31,12 @@ public class CreateQuotationCommitment_helper {
     }
 
     public class CreateQuotationCommitment_Wrapper { 
-        public String commitmentProductId;
-        public String validityDays;
-        public String ammount;
-        public String strCurrency;
-        public String quotationId;
-        public String operationId;
+        public String commitmentProductId {get; set;} //Yulino 30/11/2018 : se agregó el get y set
+        public String validityDays {get; set;} //Yulino 30/11/2018 : se agregó el get y set
+        public String ammount {get; set;} //Yulino 30/11/2018 : se agregó el get y set
+        public String strCurrency {get; set;} //Yulino 30/11/2018 : se agregó el get y set
+        public String quotationId {get; set;} //Yulino 30/11/2018 : se agregó el get y set
+        public String operationId {get; set;} //Yulino 30/11/2018 : se agregó el get y set
     }
 
     public String generateJSONRequest(){

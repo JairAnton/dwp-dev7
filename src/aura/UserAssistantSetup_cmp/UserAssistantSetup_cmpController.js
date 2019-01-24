@@ -11,8 +11,8 @@
 		if(responseNew.isOk){
 			var lstCustom = component.get('v.lstDataCustom');
 			lstCustom.push(responseNew.row);
-			component.set('v.lstDataCustom',lstCustom);
 			component.set('v.step','0');
+			component.set('v.lstDataCustom',lstCustom);
 			component.set('v.step','1');
 		}
 		
@@ -32,5 +32,5 @@
 	   },
 	close : function(component, event, helper) {
 		helper.closeMe(component, event, helper);
-	},
+	}
 })

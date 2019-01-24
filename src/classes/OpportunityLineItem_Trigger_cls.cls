@@ -117,16 +117,20 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     public void updateDateLine(List<OpportunityLineItem> listRow){
         
         for(OpportunityLineItem OLI: listRow){
+            String oliCode =OLI.ProductCode==null?'':OLI.ProductCode;
+            if(oliCode.contains('_Depre')) {
+                oliCode= oliCode.removeEnd('_Depre');
+            }
             if(!String.isEmpty(String.valueOf(OLI.gipr_Plazo__c))&&
-               (Label.lblPDFProductImport.equals(OLI.ProductCode)||
-                Label.lblPDFProductCartaTecnicaEconomica.equals(OLI.ProductCode)||
-                Label.lblPDFProductCartaTecnicaImport.equals(OLI.ProductCode)||
-                Label.lblPDFProductForfaitingImport.equals(OLI.ProductCode))&&
-               !Label.lblPDFProductCommercialLoanCP.equals(OLI.ProductCode)&&
-               !Label.lblPDFProductCommercialLoanCP2.equals(OLI.ProductCode)&&
-               !Label.lblPDFProductImportComex.equals(OLI.ProductCode)&&
-               !Label.lblPDFProductExportComex.equals(OLI.ProductCode)&&
-               !Label.lblPDFProductLeasing.equals(OLI.ProductCode)){
+               (Label.lblPDFProductImport.equals(oliCode)||
+                Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)||
+                Label.lblPDFProductCartaTecnicaImport.equals(oliCode)||
+                Label.lblPDFProductForfaitingImport.equals(oliCode))&&
+               !Label.lblPDFProductCommercialLoanCP.equals(oliCode)&&
+               !Label.lblPDFProductCommercialLoanCP2.equals(oliCode)&&
+               !Label.lblPDFProductImportComex.equals(oliCode)&&
+               !Label.lblPDFProductExportComex.equals(oliCode)&&
+               !Label.lblPDFProductLeasing.equals(oliCode)) {
                    system.debug('isPlazoNotEmpty2');
                    //isPlazoNotEmpty2
                    OLI.cpliq_Fecha_Vencimiento__c =OLI.gipr_Periodicidad__c=='01'?
@@ -136,10 +140,10 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             else
                 if(String.isEmpty(String.valueOf(OLI.gipr_Plazo__c)) && 
                    !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c ))&&
-                   (Label.lblPDFProductImport.equals(OLI.ProductCode)||
-                    Label.lblPDFProductCartaTecnicaImport.equals(OLI.ProductCode)||
-                    Label.lblPDFProductCartaTecnicaEconomica.equals(OLI.ProductCode)||
-                    Label.lblPDFProductForfaitingImport.equals(OLI.ProductCode))){
+                   (Label.lblPDFProductImport.equals(oliCode)||
+                    Label.lblPDFProductCartaTecnicaImport.equals(oliCode)||
+                    Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)||
+                    Label.lblPDFProductForfaitingImport.equals(oliCode))) {
                         //isDateDueNotEmpty2 
                         system.debug('isDateDueNotEmpty2'); 
                         OLI.gipr_Periodicidad__c='01';
@@ -147,16 +151,16 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                     }
             else
                 if((!String.isEmpty(String.valueOf(OLI.gipr_Plazo__c)))&&
-                   (!Label.lblPDFProductImport.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductCartaTecnicaEconomica.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductCartaTecnicaImport.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductForfaitingImport.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductImportComex.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductExportComex.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductCommercialLoanCP.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductCommercialLoanCP2.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductLeasing.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductPrestamoLP.equals(OLI.ProductCode))){
+                   !Label.lblPDFProductImport.equals(oliCode)&&
+                    !Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)&&
+                    !Label.lblPDFProductCartaTecnicaImport.equals(oliCode)&&
+                    !Label.lblPDFProductForfaitingImport.equals(oliCode)&&
+                    !Label.lblPDFProductImportComex.equals(oliCode)&&
+                    !Label.lblPDFProductExportComex.equals(oliCode)&&
+                    !Label.lblPDFProductCommercialLoanCP.equals(oliCode)&&
+                    !Label.lblPDFProductCommercialLoanCP2.equals(oliCode)&&
+                    !Label.lblPDFProductLeasing.equals(oliCode)&&
+                    !Label.lblPDFProductPrestamoLP.equals(oliCode)) {
                         system.debug('isPlazoNotEmpty');
                         //isPlazoNotEmpty
                         OLI.cpliq_Periodicidad__c=OLI.cpliq_Periodicidad__c==null?'01':OLI.cpliq_Periodicidad__c;
@@ -166,12 +170,12 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                     }
             else
                 if((String.isEmpty(String.valueOf(OLI.cpliq_n__c)) && !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c )))&&
-                   (!Label.lblPDFProductImport.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductCartaTecnicaImport.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductCartaTecnicaEconomica.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductForfaitingImport.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductPrestamoLP.equals(OLI.ProductCode)&&
-                    !Label.lblPDFProductLeasing.equals(OLI.ProductCode))){
+                   !Label.lblPDFProductImport.equals(oliCode)&&
+                    !Label.lblPDFProductCartaTecnicaImport.equals(oliCode)&&
+                    !Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)&&
+                    !Label.lblPDFProductForfaitingImport.equals(oliCode)&&
+                    !Label.lblPDFProductPrestamoLP.equals(oliCode)&&
+                    !Label.lblPDFProductLeasing.equals(oliCode)) {
                         //isDateDueNotEmpty 
                         system.debug('isDateDueNotEmpty');
                         OLI.cpliq_Periodicidad__c='01';
@@ -181,7 +185,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             else
                 if((String.isEmpty(String.valueOf(OLI.cpliq_n__c))&&
                     !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c )))&&
-                   (Label.lblPDFProductPrestamoLP.equals(OLI.ProductCode)||Label.lblPDFProductLeasing.equals(OLI.ProductCode)) ){
+                   (Label.lblPDFProductPrestamoLP.equals(oliCode)||Label.lblPDFProductLeasing.equals(oliCode))) {
                        system.debug('isDateDueNotEmpty3');
                        //isDateDueNotEmpty3
                        OLI.cpliq_Periodicidad__c='02';
@@ -190,10 +194,10 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                    } 
             else
                 if(!String.isEmpty(String.valueOf(OLI.cpliq_n__c))&&
-                   (Label.lblPDFProductImportComex.equals(OLI.ProductCode)||
-                    Label.lblPDFProductExportComex.equals(OLI.ProductCode)||
-                    Label.lblPDFProductCommercialLoanCP.equals(OLI.ProductCode)||
-                    Label.lblPDFProductCommercialLoanCP2.equals(OLI.ProductCode))){
+                   (Label.lblPDFProductImportComex.equals(oliCode)||
+                    Label.lblPDFProductExportComex.equals(oliCode)||
+                    Label.lblPDFProductCommercialLoanCP.equals(oliCode)||
+                    Label.lblPDFProductCommercialLoanCP2.equals(oliCode))) {
                         system.debug('isDateDueNotEmpty41');
                         //isDateDueNotEmpty3
                         OLI.cpliq_Periodicidad__c=OLI.cpliq_Periodicidad__c==null?'01':OLI.cpliq_Periodicidad__c;
@@ -204,7 +208,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             else
                 if( !String.isEmpty(String.valueOf(OLI.cpliq_n__c))&&
                    !String.isEmpty(String.valueOf(OLI.cpliq_Periodicidad__c))&&
-                   (Label.lblPDFProductPrestamoLP.equals(OLI.ProductCode)||Label.lblPDFProductLeasing.equals(OLI.ProductCode))){
+                   (Label.lblPDFProductPrestamoLP.equals(oliCode)||Label.lblPDFProductLeasing.equals(oliCode))) {
                        system.debug('isDateDueNotEmpty4');
                        //isDateDueNotEmpty3
                        OLI.cpliq_Fecha_Vencimiento__c =OLI.cpliq_Periodicidad__c=='02'?

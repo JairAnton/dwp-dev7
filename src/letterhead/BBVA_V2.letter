@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#043263</backgroundColor>
+    <bodyColor>#F7F7F7</bodyColor>
+    <bottomLine>
+        <color>#AAAAFF</color>
+        <height>5</height>
+    </bottomLine>
+    <description>Using BBVA develop</description>
+    <footer>
+        <backgroundColor>#F7F7F7</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Center</horizontalAlignment>
+        <logo>dwp_kitv__Public_Images/Logo_footer.png</logo>
+        <verticalAlignment>Middle</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#F7F7F7</backgroundColor>
+        <height>200</height>
+        <horizontalAlignment>Center</horizontalAlignment>
+        <logo>dwp_kitv__Public_Images/Logo_header1.jpg</logo>
+        <verticalAlignment>Bottom</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#043263</color>
+        <height>0</height>
+    </middleLine>
+    <name>BBVA_V2</name>
+    <topLine>
+        <color>#043263</color>
+        <height>0</height>
+    </topLine>
+</Letterhead>

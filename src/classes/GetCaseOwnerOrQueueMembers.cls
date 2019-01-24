@@ -1,4 +1,4 @@
-public class GetCaseOwnerOrQueueMembers implements DynamicNotificationMessageRecipent{
+public without sharing class GetCaseOwnerOrQueueMembers implements DynamicNotificationMessageRecipent{
     public static Map<Id,List<Id>> getRecipients(List<Id> lstrecord, String sObjectName) {
         Map<Id,List<Id>> returnValues = new Map<Id,List<Id>>();
         //Retrieve context User info

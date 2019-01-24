@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>SUB-GERENTE SEGMENTO EMP E INSTITUCIONES</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>GERENTE_SEGMENTO_PERSONAS_JURIDICAS</parentRole>
+    <parentRole>GERENTE_BANCA_EMPRESAS_E_INSTITUCIONES</parentRole>
 </Role>

@@ -31,12 +31,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis oportunidades creadas Familia A y P</header>
+                <header>Mis oportunidades creadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_Oportunidades_creadas_Familia_A_y_P_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Familia Activo y Pasivo</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>0</rowIndex>
@@ -65,12 +66,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
-                <header>Mis oportunidades creadas Producto A y P</header>
+                <header>Mis oportunidades creadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_creadas_A_y_P_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Productos Activo y Pasivo</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>0</rowIndex>
@@ -99,12 +101,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis oportunidades creadas Familia Resto</header>
+                <header>Mis oportunidades creadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_creadas_Familia_Resto_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Otras Familias</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>4</rowIndex>
@@ -133,12 +136,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
-                <header>Mis oportunidades creadas Producto Resto</header>
+                <header>Mis oportunidades creadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_creadas_Producto_Resto_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Otros Productos</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>4</rowIndex>
@@ -167,12 +171,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis oportunidades formalizadas Fam A y P</header>
+                <header>Mis oportunidades formalizadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_formalizadas_Fam_A_y_P_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Familia Activo y Pasivo</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>8</rowIndex>
@@ -201,12 +206,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
-                <header>Mis oportunidades formalizadas Prod AyP</header>
+                <header>Mis oportunidades formalizadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_formalizadas_Prod_AyP_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Productos Activo y Pasivo</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>8</rowIndex>
@@ -235,12 +241,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis oportunidades formalizadas Fam Resto</header>
+                <header>Mis oportunidades formalizadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_formalizadas_Fam_Resto_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Otras Familias</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>12</rowIndex>
@@ -269,12 +276,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
-                <header>Mis oportunidades formalizadas Prod Rest</header>
+                <header>Mis oportunidades formalizadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_formalizadas_Prod_Rest_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Otros Productos</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>12</rowIndex>
@@ -303,12 +311,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis oportunidades desestimadas Fam A y P</header>
+                <header>Mis oportunidades desestimadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_desestimadas_Fam_A_y_P_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Familia Activo y Pasivo</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>16</rowIndex>
@@ -337,12 +346,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
-                <header>Mis oportunidades desestimadas Prod AyP</header>
+                <header>Mis oportunidades desestimadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_desestimadas_Prod_AyP_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Productos Activo y Pasivo</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>16</rowIndex>
@@ -371,12 +381,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product_family__c</groupingColumn>
-                <header>Mis Oportunidades desestimadas Fam Resto</header>
+                <header>Mis oportunidades desestimadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_Oportunidades_desestimadas_Fam_Resto_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Familia Activo y Pasivo</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>20</rowIndex>
@@ -405,12 +416,13 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>Opportunity$Opp_Creation_Date__c</groupingColumn>
                 <groupingColumn>Opportunity$opportunity_product__c</groupingColumn>
-                <header>Mis oportunidades desestimadas Prod Rest</header>
+                <header>Mis oportunidades desestimadas</header>
                 <legendPosition>Right</legendPosition>
                 <report>Informes_de_Seguimiento/Mis_oportunidades_desestimadas_Prod_Rest_Final</report>
                 <showPercentage>false</showPercentage>
                 <showValues>false</showValues>
                 <sortBy>RowValueDescending</sortBy>
+                <title>Otros Productos</title>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>20</rowIndex>
@@ -420,9 +432,9 @@
         <rowHeight>80</rowHeight>
     </dashboardGridLayout>
     <dashboardType>LoggedInUser</dashboardType>
-    <isGridLayout>true</isGridLayout>    
+    <isGridLayout>true</isGridLayout>
     <textColor>#000000</textColor>
-    <title>Panel Mis Oportunidades finalizadas</title>
+    <title>Mis Oportunidades finalizadas</title>
     <titleColor>#000000</titleColor>
     <titleSize>12</titleSize>
 </Dashboard>

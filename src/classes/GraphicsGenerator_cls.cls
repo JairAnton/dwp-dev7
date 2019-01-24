@@ -15,13 +15,13 @@ public with sharing class GraphicsGenerator_cls {
     @AuraEnabled public Static List<String> getValores(String sConcepto, String sFiltro, String sFiltroRango,String sNombreReporte,String sId){    
     	
         List<String> valores = new List<String>();
-        List<String> agrupadores = new List<String>();        
+        //List<String> agrupadores = new List<String>();        
         List<AggregateResult> registrosReporte = new List<AggregateResult>();
         Date fInicial;
         Date fActual;
         
         Integer mes=0;
-        if(sNombreReporte=='EVOLUCION_CUOTA_SBS' || sNombreReporte=='EVOLUCION_DEUDA_SBS'){
+        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){ //Yulino 28/11/2018 : Se modificó de = a equals
             list<AggregateResult> lasDateD = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c=:sId ];
             if(!lasDateD.isEmpty() && lasDateD[0].get('dateP')!=null)
             {
@@ -91,8 +91,8 @@ public with sharing class GraphicsGenerator_cls {
 	            	}
 
 	            	if(tab.get('expr1')==agrupador.get(mes))
-	            	{
-	            		if(sNombreReporte=='EVOLUCION_DEUDA_SBS') valores.add(String.valueOf(tab.get('expr2')));
+	            	{//Yulino 28/11/2018 : Se cambió de = a equals
+	            		if('EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)) valores.add(String.valueOf(tab.get('expr2')));
 	            		else valores.add(String.valueOf(tab.get('expr0')));	            		
 	            		mes++;
 	            	}
@@ -108,7 +108,7 @@ public with sharing class GraphicsGenerator_cls {
             }
         }
 
-        if(sNombreReporte=='VINCULACION' )
+        if('VINCULACION'.equals(sNombreReporte) ) //yulino 28/11/2018 : Se modificó de = a aquals
         {
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C where indicator_name__c in ('Estrella','Transaccional','Potencial','Básico') AND account_id__c=:sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
@@ -262,7 +262,7 @@ public with sharing class GraphicsGenerator_cls {
 
     @AuraEnabled public Static List<String> getAgrupadores( String sNombreReporte, String sId){
         List<String> agrupadores= new List<String>();         
-        if(sNombreReporte=='EVOLUCION_CUOTA_SBS' || sNombreReporte=='EVOLUCION_DEUDA_SBS'){
+        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){//yulino 28/11/2018 : Se modificó de = a aqueals 
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Banking_System_Debt__c WHERE account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
@@ -274,7 +274,7 @@ public with sharing class GraphicsGenerator_cls {
             	}
             }
         }
-        if(sNombreReporte=='VINCULACION'){
+        if('VINCULACION'.equals(sNombreReporte)){ //yulino 28/11/2018 : Se modificó de = a aquals
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Indicator__C WHERE indicator_name__c IN ('Estrella','Transaccional','Potencial','Básico') AND account_id__c =: sId];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
@@ -286,7 +286,7 @@ public with sharing class GraphicsGenerator_cls {
             	}
         	}
         }
-        if(sNombreReporte=='EVOLUCION_FACTURACION_TOTAL'){
+        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte)){ //yulino 28/11/2018 : Se modificó de = a aquals
             list<AggregateResult>  lasDateData = [SELECT MAX(year_month_day_date__c)dateP FROM Account_Profitability__c WHERE profitability_subcategory_type__c IN ('TOTAL','DI','Spread','Tasa','')  AND account_id__c =: sId and  is_date_type_1_within_last_6_months__c = true];
             if(!lasDateData.isEmpty() && lasDateData[0].get('dateP')!=null)
             {
@@ -304,7 +304,7 @@ public with sharing class GraphicsGenerator_cls {
 
      @AuraEnabled public Static List<String> getConceptos(String sNombreReporte,String sFiltroRango){
         List<String> concepto = new List<String>(); 
-        if(sNombreReporte=='EVOLUCION_CUOTA_SBS' || sNombreReporte=='EVOLUCION_DEUDA_SBS'){
+        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte)){ //yulino 28/11/2018 : Se modificó de = a aquals
             concepto.add('BBVA');
 			concepto.add('BCP');
 			concepto.add('SCOTIA');
@@ -312,14 +312,14 @@ public with sharing class GraphicsGenerator_cls {
 			concepto.add('OTROS');
         }        
 
-        if(sNombreReporte=='VINCULACION'){
+        if('VINCULACION'.equals(sNombreReporte)){ //yulino 28/11/2018 : Se modificó de = a aquals
             concepto.add('Estrella');
             concepto.add('Transaccional');
             concepto.add('Potencial');
             concepto.add('Básico'); 	
         }      
 
-        if(sNombreReporte=='EVOLUCION_FACTURACION_TOTAL'){
+        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte)){ //yulino 28/11/2018 : Se modificó de = a aquals
            
             concepto.add('Spread');
             concepto.add('Tasa');
@@ -340,10 +340,10 @@ public with sharing class GraphicsGenerator_cls {
                                                                        String sId){
         List<List<String>> conjunto = new List<List<String>>();
         List<String> agrupador = new List<String>(); 
-        List<String> indicadores = new List<String>(); 
+        //List<String> indicadores = new List<String>(); 
         List<String> concepto = new List<String>(); 
-        List<String> val1 = new List<String>();         
-        if(sNombreReporte=='EVOLUCION_CUOTA_SBS'|| sNombreReporte=='EVOLUCION_DEUDA_SBS'){
+        //List<String> val1 = new List<String>();         
+        if('EVOLUCION_CUOTA_SBS'.equals(sNombreReporte) || 'EVOLUCION_DEUDA_SBS'.equals(sNombreReporte) ){ //yulino 28/11/2018 : Se modificó de = a aquals
    			agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,'');
             conjunto.add(concepto);
@@ -353,7 +353,7 @@ public with sharing class GraphicsGenerator_cls {
            		conjunto.add(new List<String>(getValores(concepto.get(i),sFiltro,sFiltroRango,sNombreReporte,sId)));
             }
         }
-        if(sNombreReporte=='VINCULACION')
+        if('VINCULACION'.equals(sNombreReporte)) //yulino 28/11/2018 : Se modificó de = a aquals
         {
         	agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,'');
@@ -365,7 +365,7 @@ public with sharing class GraphicsGenerator_cls {
             }	
         }
 
-        if(sNombreReporte=='EVOLUCION_FACTURACION_TOTAL')
+        if('EVOLUCION_FACTURACION_TOTAL'.equals(sNombreReporte)) //yulino 28/11/2018 : Se modificó de = a aquals
         {
             agrupador = getAgrupadores(sNombreReporte,sId);
             concepto = getConceptos(sNombreReporte,sFiltroRango);
@@ -378,5 +378,9 @@ public with sharing class GraphicsGenerator_cls {
         }
         return conjunto;
 
+    }
+    
+    public GraphicsGenerator_cls(){
+        
     }
 }

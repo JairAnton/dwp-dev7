@@ -23,7 +23,6 @@
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
         <textSize>12</textSize>
-        <title>Mis visitas gestionadas</title>
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
@@ -51,6 +50,15 @@
     </columns>
     <currency>PEN</currency>
     <description>Visitas Gestgionadas</description>
+    <filter>
+        <criteriaItems>
+            <column>dwp_kitv__Visit__c$report_visit_status_type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>No realizada</value>
+        </criteriaItems>
+        <language>es</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Week</dateGranularity>

@@ -3,7 +3,7 @@
         // call the apex class method 
         var action = component.get("c.fetchUser");
         var lstSearchRec = component.get("c.fetchUser");
-        var inputObject = component.get('v.inputAttributes');
+        //var inputObject = component.get('v.inputAttributes');
 		// set param to method 
         action.setParams({
             'searchKeyWord': getInputkeyWord,
@@ -23,12 +23,10 @@
                 }
                 // set searchResult list with return value from server.
                 component.set("v.listOfSearchRecords", storeResponse);
-            }
-            
+            } 
         });
         // enqueue the Action  
         $A.enqueueAction(action);
-        
     },  
     toastEvent : function(title, message, type) {
         var toastEvent = $A.get("e.force:showToast");
@@ -51,7 +49,6 @@
                                 'userName' : cmp.get('v.selectedRecord').Name
                                 };
             objReturn['isOk'] = true;
-            
         }else{
             cmp.set('v.checkError',true);
             var disabledButton = $A.get("e.c:disabledButton_evt");     

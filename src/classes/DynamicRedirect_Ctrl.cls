@@ -9,5 +9,4 @@ public with sharing class DynamicRedirect_Ctrl {
     	jsonMap.put('sessionId',sessionId);
         return JSON.serialize(jsonMap);
     }
-    
 }

@@ -239,6 +239,19 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Unique_id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Unique Id</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique Id</inlineHelpText>
+        <label>Unique_id</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
     <fields>
         <fullName>da_Amount__c</fullName>
         <externalId>false</externalId>
@@ -1772,6 +1785,21 @@
                     <fullName>03</fullName>
                     <default>false</default>
                     <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+                <value>
+                    <fullName>05</fullName>
+                    <default>false</default>
+                    <label>05</label>
+                </value>
+                <value>
+                    <fullName>06</fullName>
+                    <default>false</default>
+                    <label>06</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

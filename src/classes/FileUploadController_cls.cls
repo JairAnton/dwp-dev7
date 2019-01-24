@@ -18,22 +18,22 @@ public with sharing class FileUploadController_cls {
         //  which is save the check data and return the attachemnt Id after insert, 
         //  next time (in else) we are call the appentTOFile() method
         //   for update the attachment with reamins chunks   
+        String v_fileId = fileId; //Yulino 06/12/2018 : Se agregó esta variable
         if (fileId == '') {
-            fileId = saveTheFile(parentId, fileName, base64Data, contentType);
+            v_fileId = saveTheFile(parentId, fileName, base64Data, contentType);//Yulino 06/12/2018 : Se modifico de fileId a v_fileId
         } else {
-            appendToFile(fileId, base64Data);
+            appendToFile(v_fileId, base64Data);//Yulino 06/12/2018 : Se modifico de fileId a v_fileId
         }
- 
-        return Id.valueOf(fileId);
+        return Id.valueOf(v_fileId);//Yulino 06/12/2018 : Se modifico de fileId a v_fileId
     }
  
     public static Id saveTheFile(Id parentId, String fileName, String base64Data, String contentType) {
-        base64Data = EncodingUtil.urlDecode(base64Data, 'UTF-8');
+        final String v_base64Data = EncodingUtil.urlDecode(base64Data, 'UTF-8'); //Yulino 06/12/2018 : Se agrego la variable local
  
         Attachment oAttachment = new Attachment();
         oAttachment.parentId = parentId;
  
-        oAttachment.Body = EncodingUtil.base64Decode(base64Data);
+        oAttachment.Body = EncodingUtil.base64Decode(v_base64Data); //Yulino 06/12/2018 : se modificó de base64Data a v_base64Data
         oAttachment.Name = fileName;
         oAttachment.ContentType = contentType;
  
@@ -43,7 +43,7 @@ public with sharing class FileUploadController_cls {
     }
  
     private static void appendToFile(Id fileId, String base64Data) {
-        base64Data = EncodingUtil.urlDecode(base64Data, 'UTF-8');
+        final String v_base64Data = EncodingUtil.urlDecode(base64Data, 'UTF-8'); //Yulino 06/12/2018 : Se agrego la variable local
  
         Attachment a = [
             SELECT Id, Body
@@ -53,7 +53,7 @@ public with sharing class FileUploadController_cls {
  
         String existingBody = EncodingUtil.base64Encode(a.Body);
  
-        a.Body = EncodingUtil.base64Decode(existingBody + base64Data);
+        a.Body = EncodingUtil.base64Decode(existingBody + v_base64Data); //Yulino 06/12/2018 : se modificó de base64Data a v_base64Data
  
         update a;
     }

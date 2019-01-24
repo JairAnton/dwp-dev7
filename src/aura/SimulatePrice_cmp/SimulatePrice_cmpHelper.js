@@ -12,13 +12,16 @@
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
+            var ret;
+            var oli='';
             if (state === "SUCCESS") {
-                var ret = response.getReturnValue();
+                ret = response.getReturnValue();
                 var teamin = ret.minimtea;
                 var teasug = ret.sugtea;
                 var spr = ret.spread;
                 var generr = ret.genericError;
                 var concattea = teasug + ','+ teamin + ','+spr;
+                oli = ret.oli;
                 if(generr != undefined){
                     cmp.set('v.isError', true);
                     cmp.set('v.errorlst',generr);
@@ -29,7 +32,7 @@
                     cmp.set('v.teaquote',concattea);
                 }
             }
-            cmp.set('v.recordOli',ret.oli);
+            cmp.set('v.recordOli',oli);
             cmp.set('v.isLoad',true);            
         });
         $A.enqueueAction(action);

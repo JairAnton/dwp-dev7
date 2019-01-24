@@ -63,7 +63,7 @@
         <field>Opportunity$success_probability_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Informe: Mis Oportunidades desestimadas Familia Activo y Pasivo</description>
+    <description>Informe: Mis oportunidades desestimadas Productos Activo y Pasivo</description>
     <filter>
         <criteriaItems>
             <column>Opportunity$opportunity_product_family__c</column>

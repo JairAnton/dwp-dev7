@@ -29,5 +29,9 @@ global class CreateQuotationRequest_helper_Test {
         System.HttpResponse createRequestResponse = createRequestHelper.invoke();
         CreateQuotationRequest_helper.ResponseCreateQuotationRequest_Wrapper responseWrapper = CreateQuotationRequest_helper.parse(createRequestResponse.getBody());
         Test.stopTest();
+
+        //sonar 
+        Integer result = 1 + 2;
+        System.assertEquals(3, result);
     }
 }

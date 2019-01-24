@@ -8,7 +8,7 @@
 		action.setCallback(this, function(response) {
 			var state = response.getState();
 			if (state === "SUCCESS") {
-				var ret = response.getReturnValue();
+				//var ret = response.getReturnValue(); // 2018/11/27 - 16:56 CORRECCION DEUDA TECNICA Ernesto
 				var compEvent = cmp.getEvent("CommitmentsDelete");
 				compEvent.fire();
 			}

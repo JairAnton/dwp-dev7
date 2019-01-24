@@ -10,6 +10,7 @@ public class DynamicBatchChatterNotification_Test {
         acctest.OwnerId = usertest.Id;
         update acctest;
         opptest = TestFactory.createOpportunity(acctest.Id,usertest.Id);
+        System.assertNotEquals(null, opptest); // Yulino 13/12/2018 : Se agrego el Assets
     }
     @isTest
     static void  dynamicBatch(){

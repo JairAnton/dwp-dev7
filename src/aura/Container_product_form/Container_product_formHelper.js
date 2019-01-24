@@ -14,11 +14,12 @@
                 editJsonValue["active"] = result.key;
                 newJsonValue["active"] = result.key2;
                 deleteJsonValue["active"] = result.key3;
+                component.set('v.isLoad', false);
                 component.set('v.editJsonValue', JSON.stringify(editJsonValue));
                 component.set('v.newJsonValue', JSON.stringify(newJsonValue));
                 component.set('v.deleteJsonValue', JSON.stringify(deleteJsonValue));
-                component.set('v.isLoad', false);
                 component.set('v.isLoad', true);
+                //showComponentView(component);
                 component.set('v.strErrorMessage',result.dataCW.errorMessage); 
                 component.set('v.showBanner',result.dataCW.showWarning);
             }
@@ -39,5 +40,8 @@
             }
         });
         $A.enqueueAction(action);
-	}
+    },
+    showComponentView : function(component){
+        component.set('v.isLoad', true);
+    }
 })

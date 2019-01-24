@@ -32,6 +32,7 @@ public class GetAccountOwnerAndOppTeam_Test {
             Map<Id,List<Id>> result = GetAccountOwnerAndOppTeam.getRecipients(oppIdList, 'Opportunity');
             System.debug('user1: '+user1.Id+' ,user2: '+user2.Id+' ,user3: '+user3.Id);
             System.debug(result.size());
+            System.assert( result.size()> 0); //Yulino 13/12/2018 : Se agrego el Assert
         }
         
     }

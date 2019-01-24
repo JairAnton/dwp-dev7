@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>EJECUTIVO BANCA INSTITUCIONAL</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>EJECUTIVO_TRANSACCIONAL_BANCA_INSTITUCIONAL</parentRole>
+    <parentRole>GERENTE_BANCA_INSTITUCIONAL</parentRole>
 </Role>

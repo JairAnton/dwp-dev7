@@ -44,6 +44,10 @@
         <label>Nueva oportunidad</label>
         <name>New_Opportunity</name>
     </customLabels>
+	<customLabels>
+        <label>Los planes de gestión se crean a través de trabajos programados.</label>
+        <name>NewmanagementPlan</name>
+    </customLabels>
     <customLabels>
         <label><!-- OppId --></label>
         <name>OppId</name>
@@ -91,7 +95,11 @@
     <customLabels>
         <label>Cliente</label>
         <name>AccountName</name>
-    </customLabels>    
+    </customLabels>  
+    <customLabels>
+        <label>Para continuar, calcula la rentabilidad de la TEA Autorizada.</label>
+        <name>Error_TEA_no_calculada</name>
+    </customLabels>	
     <customLabels>
         <label>Información no disponible</label>
         <name>AccountNoData</name>
@@ -613,7 +621,7 @@
         <name>dwp_kitv__Visit_status_arranged</name>
     </customLabels>
     <customLabels>
-        <label>05</label>
+        <label>06</label>
         <name>dwp_kitv__Visit_status_finalized</name>
     </customLabels>
     <customLabels>
@@ -1332,7 +1340,275 @@
         <label>SOLICITADO</label>
         <name>lblReq</name>
     </customLabels>
-    <quickActions>
+	<customLabels>
+        <label><!-- GBL_CheckInDisabled --></label>
+        <name>cico__GBL_CheckInDisabled</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- GBL_CheckInDone --></label>
+        <name>cico__GBL_CheckInDone</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- GBL_CheckOutDisabled --></label>
+        <name>cico__GBL_CheckOutDisabled</name>
+    </customLabels>
+	    <customLabels>
+        <label><!-- GBL_CheckOutDone --></label>
+        <name>cico__GBL_CheckOutDone</name>
+    </customLabels>
+	 <customLabels>
+        <label><!-- GBL_CheckOutWithoutCheckIn --></label>
+        <name>cico__GBL_CheckOutWithoutCheckIn</name>
+    </customLabels>
+	   <customLabels>
+        <label><!-- GBL_InvalidCheckType --></label>
+        <name>cico__GBL_InvalidCheckType</name>
+    </customLabels>
+	<customLabels>
+        <label>Equipo BBVA</label>
+        <name>dwp_kitv__Minute_content_01</name>
+    </customLabels>
+    <customLabels>
+        <label>Contacto</label>
+        <name>dwp_kitv__Minute_content_02</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Vista previa no disponible, pero esta lista para enviar!</label>
+        <name>dwp_kitv__Minute_content_03</name>
+    </customLabels>
+    <customLabels>
+        <label>For this type of template you can not preview but this list is sent,for more information about this, consult your system administrator...</label>
+        <name>dwp_kitv__Minute_content_04</name>
+    </customLabels>
+    <customLabels>
+        <label>Formato de email</label>
+        <name>dwp_kitv__Minute_content_05</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre</label>
+        <name>dwp_kitv__Minute_content_06</name>
+    </customLabels>
+    <customLabels>
+        <label>Email</label>
+        <name>dwp_kitv__Minute_content_07</name>
+    </customLabels>
+    <customLabels>
+        <label>Documentos</label>
+        <name>dwp_kitv__Minute_content_09</name>
+    </customLabels>
+    <customLabels>
+        <label>A adjuntar</label>
+        <name>dwp_kitv__Minute_content_10</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre del documento</label>
+        <name>dwp_kitv__Minute_content_11</name>
+    </customLabels>
+	<customLabels>
+        <label>La visita fue completada</label>
+        <name>dwp_kitv__Minute_message_01</name>
+    </customLabels>
+    <customLabels>
+        <label>No tienes ninguna configuración personalizada para este tipo de visita</label>
+        <name>dwp_kitv__Minute_message_02</name>
+    </customLabels>
+    <customLabels>
+        <label>Debe colocar un contacto principal</label>
+        <name>dwp_kitv__Minute_message_03</name>
+    </customLabels>
+    <customLabels>
+        <label>La información fue enviada correctamente</label>
+        <name>dwp_kitv__Minute_message_04</name>
+    </customLabels>
+    <customLabels>
+        <label>Mínimo número de acuerdos</label>
+        <name>dwp_kitv__Minute_message_05</name>
+    </customLabels>
+    <customLabels>
+        <label>Mínimo número de integrantes del equipo BBVA.</label>
+        <name>dwp_kitv__Minute_message_06</name>
+    </customLabels>
+    <customLabels>
+        <label>No tiene asignado ningún tipo de template</label>
+        <name>dwp_kitv__Minute_message_07</name>
+    </customLabels>
+	  <customLabels>
+        <label>Lista de personas a las que puedes enviar el documento</label>
+        <name>dwp_kitv__Minute_Heading_01</name>
+    </customLabels>
+    <customLabels>
+        <label>Vista previa del la Minuta</label>
+        <name>dwp_kitv__Minute_Heading_Title</name>
+    </customLabels>
+	<customLabels>
+        <label>Aceptar</label>
+        <name>dwp_frct__Accept</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre Cliente</label>
+        <name>dwp_frct__Account_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Importe</label>
+        <name>dwp_frct__Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Abril</label>
+        <name>dwp_frct__April</name>
+    </customLabels>
+    <customLabels>
+        <label>Agosto</label>
+        <name>dwp_frct__August</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>dwp_frct__Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cerrar</label>
+        <name>dwp_frct__Close</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha de Cierre</label>
+        <name>dwp_frct__Close_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromiso</label>
+        <name>dwp_frct__Commitment_field</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create_management_plan_batch_01 --></label>
+        <name>dwp_frct__Create_management_plan_batch_01</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create_management_plan_batch_02 --></label>
+        <name>dwp_frct__Create_management_plan_batch_02</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create_management_plan_batch_03 --></label>
+        <name>dwp_frct__Create_management_plan_batch_03</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create_management_plan_batch_04 --></label>
+        <name>dwp_frct__Create_management_plan_batch_04</name>
+    </customLabels>
+    <customLabels>
+        <label>Diciembre</label>
+        <name>dwp_frct__December</name>
+    </customLabels>
+    <customLabels>
+        <label>Editar Importe</label>
+        <name>dwp_frct__Edit_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Existen compromisos vacios.</label>
+        <name>dwp_frct__Error_Empty_Commitment_Field</name>
+    </customLabels>
+    <customLabels>
+        <label>Ingrese un valor positivo para el importe de vencimientos anticipados.</label>
+        <name>dwp_frct__Error_Negative_Anticipated_Maturities_Field</name>
+    </customLabels>
+    <customLabels>
+        <label>Ingrese un importe positivo para el compromiso.</label>
+        <name>dwp_frct__Error_Negative_Commitment_Field</name>
+    </customLabels>
+    <customLabels>
+        <label>El número ingresado es muy largo.</label>
+        <name>dwp_frct__Error_long_commitment</name>
+    </customLabels>
+    <customLabels>
+        <label>Para pasar de etapa, los planes deben estar en progreso.</label>
+        <name>dwp_frct__Error_plan_in_progress</name>
+    </customLabels>
+    <customLabels>
+        <label>Caída esperada</label>
+        <name>dwp_frct__Expected_drop</name>
+    </customLabels>
+    <customLabels>
+        <label>Caída esperada por</label>
+        <name>dwp_frct__Expected_drop_for</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- February --></label>
+        <name>dwp_frct__February</name>
+    </customLabels>
+    <customLabels>
+        <label>Caída esperada = Cancelaciones + Amortizaciones + vencimientos anticipados</label>
+        <name>dwp_frct__Formula</name>
+    </customLabels>
+    <customLabels>
+        <label>Importe inicial</label>
+        <name>dwp_frct__Initial_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Enero</label>
+        <name>dwp_frct__January</name>
+    </customLabels>
+    <customLabels>
+        <label>Julio</label>
+        <name>dwp_frct__July</name>
+    </customLabels>
+    <customLabels>
+        <label>Junio</label>
+        <name>dwp_frct__June</name>
+    </customLabels>
+    <customLabels>
+        <label>Marzo</label>
+        <name>dwp_frct__March</name>
+    </customLabels>
+    <customLabels>
+        <label>Mayo</label>
+        <name>dwp_frct__May</name>
+    </customLabels>
+    <customLabels>
+        <label>Compromiso neto</label>
+        <name>dwp_frct__Net_Commitment_field</name>
+    </customLabels>
+    <customLabels>
+        <label>Noviembre</label>
+        <name>dwp_frct__November</name>
+    </customLabels>
+    <customLabels>
+        <label>Octubre</label>
+        <name>dwp_frct__October</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre de la oportunidad</label>
+        <name>dwp_frct__Opportunity_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre del plan</label>
+        <name>dwp_frct__Plan_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre del producto</label>
+        <name>dwp_frct__Product_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>Importe de oportunidades seleccionadas</label>
+        <name>dwp_frct__Selected_Opportunities_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label>Septiembre</label>
+        <name>dwp_frct__September</name>
+    </customLabels>
+    <customLabels>
+        <label>Saldo inicial</label>
+        <name>dwp_frct__Start_Balance</name>
+    </customLabels>
+    <customLabels>
+        <label>Tipo</label>
+        <name>dwp_frct__Type</name>
+    </customLabels>
+    <customLabels>
+        <label>Se ha creado un nuevo plan de gestión.</label>
+        <name>dwp_frct__feedItem_message</name>
+	</customLabels>
+	<customLabels>
+        <label>Invitar</label>
+        <name>dwp_kitv__invite</name>
+    </customLabels>
+	<quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
     </quickActions>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Management_Plan_Record_Page1_1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>dwp_frct__Compact_Layout_Plan_Management</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>dwp_frct__Compact_Layout_Plan_Management</fullName>
+        <fields>Name</fields>
+        <fields>OwnerId</fields>
+        <fields>dwp_frct__user_id__c</fields>
+        <fields>dwp_frct__mngmt_plan_tot_commitment_amount__c</fields>
+        <fields>dwp_frct__mngmt_plan_total_regisn_amount__c</fields>
+        <fields>dwp_frct__mngmt_plan_achievement_per__c</fields>
+        <label>Compact Layout Plan Management</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Object to manage plans</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>dwp_frct__management_plan_end_date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>End Date plan</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>dwp_frct__management_plan_stage_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Stages of the plan.</description>
+        <externalId>false</externalId>
+        <label>Stage</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+                <value>
+                    <fullName>05</fullName>
+                    <default>false</default>
+                    <label>05</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_frct__management_plan_start_date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Start Date plan</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>dwp_frct__mngmt_plan_achievement_per__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Calculate in percentage of total closed divided by total commitment.</description>
+        <externalId>false</externalId>
+        <formula>dwp_frct__mngmt_plan_total_regisn_amount__c / dwp_frct__mngmt_plan_tot_commitment_amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Achievement</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>dwp_frct__mngmt_plan_tot_commitment_amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Rollup summary</description>
+        <externalId>false</externalId>
+        <label>Total Commitment</label>
+        <summarizedField>dwp_frct__grouping__c.dwp_frct__original_commitment_amount__c</summarizedField>
+        <summaryForeignKey>dwp_frct__grouping__c.dwp_frct__management_plan_id__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>dwp_frct__mngmt_plan_total_regisn_amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sum of oppportunities amount formalized within the period of each family</description>
+        <externalId>false</externalId>
+        <label>Total Closed</label>
+        <summarizedField>dwp_frct__grouping__c.dwp_frct__opportunity_closed_amount__c</summarizedField>
+        <summaryForeignKey>dwp_frct__grouping__c.dwp_frct__management_plan_id__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>dwp_frct__other_information_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Comments of the plan</description>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>dwp_frct__user_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The responsible person for the manager.</description>
+        <externalId>false</externalId>
+        <label>Responsible</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Management_Plans</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>id_unique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Internal code</description>
+        <encrypted>false</encrypted>
+        <externalId>true</externalId>
+        <label>Unique identifier plan</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>other_information_b_desc__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Comments2</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>other_information_c_desc__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Comments3</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <label>Management Plan</label>
+    <listViews>
+        <fullName>dwp_frct__All</fullName>
+        <columns>NAME</columns>
+        <columns>dwp_frct__mngmt_plan_tot_commitment_amount__c</columns>
+        <columns>dwp_frct__mngmt_plan_total_regisn_amount__c</columns>
+        <columns>dwp_frct__mngmt_plan_achievement_per__c</columns>
+        <columns>dwp_frct__management_plan_stage_type__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <encrypted>false</encrypted>
+        <label>Management Plan Name</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Management Plans</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>dwp_frct__mngmt_plan_tot_commitment_amount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>dwp_frct__mngmt_plan_achievement_per__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>dwp_frct__management_plan_stage_type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.ALIAS</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Owner_stage_rule</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(
+OR(
+	AND
+	(
+	  
+		OR(
+		ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;04&apos;),ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;05&apos;)
+		)
+		,
+		(OwnerId = $User.Id),
+		($Profile.Name &lt;&gt; &apos;System Administrator&apos;),
+		(dwp_frct__user_id__r.prof_position_type__c &lt;&gt;&apos;CA1&apos;)
+	  
+	),
+	ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;05&apos;)
+)
+,true,false)</errorConditionFormula>
+        <errorMessage>You can not change to the selected stage.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_frct__Do_not_back_in_sales_path</fullName>
+        <active>true</active>
+        <description>Validation rule to avoid previous states in sales path stage.</description>
+        <errorConditionFormula>CASE(dwp_frct__management_plan_stage_type__c,
+&quot;01&quot;,1,
+&quot;02&quot;,2,
+&quot;03&quot;,3,
+&quot;04&quot;,4,
+&quot;05&quot;,5,
+0)
+-
+CASE(PRIORVALUE(dwp_frct__management_plan_stage_type__c),
+&quot;01&quot;,1,
+&quot;02&quot;,2,
+&quot;03&quot;,3,
+&quot;04&quot;,4,
+&quot;05&quot;,5,
+0) &lt; 0</errorConditionFormula>
+        <errorMessage>Impossible to go back on sales path.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_frct__Owner_can_not_access_in_progress_stage</fullName>
+        <active>true</active>
+        <description>You can not access to &apos;In progress&apos; stage.</description>
+        <errorConditionFormula>IF(AND((ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;04&apos;)),(OwnerId  =  $User.Id),($Profile.Name &lt;&gt; &apos;System Administrator&apos;)),true,false)</errorConditionFormula>
+        <errorDisplayField>dwp_frct__other_information_desc__c</errorDisplayField>
+        <errorMessage>You can not access to &apos;In progress&apos; stage.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -31,7 +31,7 @@ global without sharing class PDFclassButton  implements dwp_dbpn.DynamicFlowVali
     public static string  PDF_formalization(String recordId){
      {
       string msg;
-        list<opportunityLineItem> OLI = new list<opportunityLineItem>();
+        //list<opportunityLineItem> OLI = new list<opportunityLineItem>(); //Yuliño: correcion
         Map<ID, Opportunity> m = new Map<ID, Opportunity>([SELECT Id, Name FROM Opportunity WHERE ID = :recordId  LIMIT 1]);
         String NamePDF = 'Oportunidad formalizada '+m.get(recordId).Name+'.pdf';
         list<Attachment> deleteAttach =[SELECT ID from Attachment WHERE Name =:NamePDF AND ParentId =:recordId];
@@ -57,5 +57,4 @@ global without sharing class PDFclassButton  implements dwp_dbpn.DynamicFlowVali
 
              }
     }
-
 }
