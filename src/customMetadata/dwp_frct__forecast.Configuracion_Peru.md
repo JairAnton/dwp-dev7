@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>dwp_frct__position_code__c</field>
-        <value xsi:type="xsd:string">AIB,AIY,ALD,ALE,AL1,APH,API,ARJ,AW4,AX9,AYA,AYL,B21,B23,B25,B32,B41,B61,CA1,CBD,CZ1,CZ2,DF5,EA7,E0B,E01,E03,E04,E06,FSB,HE4,I21,I32,I43,I49,LB8,OI7,OPC,OS8,OS9,RPI</value>
+        <value xsi:type="xsd:string">CA1,OS8,E01,E03,I21,I32</value>
     </values>
     <values>
         <field>dwp_frct__position_field__c</field>

@@ -7,7 +7,7 @@
         <description>Qualification</description>
         <label>01</label>
         <closed>false</closed>
-        <forecastCategory>Omitted</forecastCategory>
+        <forecastCategory>Pipeline</forecastCategory>
         <probability>0</probability>
         <won>false</won>
     </standardValue>
@@ -34,7 +34,7 @@
         <default>false</default>
         <label>04</label>
         <closed>false</closed>
-        <forecastCategory>Pipeline</forecastCategory>
+        <forecastCategory>BestCase</forecastCategory>
         <probability>60</probability>
         <won>false</won>
     </standardValue>
@@ -43,7 +43,7 @@
         <default>false</default>
         <label>05</label>
         <closed>false</closed>
-        <forecastCategory>BestCase</forecastCategory>
+        <forecastCategory>Forecast</forecastCategory>
         <probability>80</probability>
         <won>false</won>
     </standardValue>

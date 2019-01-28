@@ -250,6 +250,12 @@
     </fields>
     <label>Management Plan</label>
     <listViews>
+        <fullName>My_plans</fullName>
+        <columns>NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>Mis planes</label>
+    </listViews>
+    <listViews>
         <fullName>dwp_frct__All</fullName>
         <columns>NAME</columns>
         <columns>dwp_frct__mngmt_plan_tot_commitment_amount__c</columns>
