@@ -260,36 +260,6 @@
             </componentInstanceProperties>
             <componentName>force:relatedListContainer</componentName>
         </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>auditDetailsLabel</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>auditDisplayId</name>
-                <value>audit</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>dateType</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>refreshOnRefreshView</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>strLabelNoData</name>
-                <value>No_hay_informacion</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>strLabelSection</name>
-                <value>Titulo_auditoria</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>strTypes</name>
-                <value>amount</value>
-            </componentInstanceProperties>
-            <componentName>dwp_cvad:DynamicAuditDisplay_comp</componentName>
-        </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>
         <type>Region</type>
