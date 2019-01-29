@@ -3768,7 +3768,12 @@
         <editable>true</editable>
         <field>dwp_frct__management_plan__c.id_unique__c</field>
         <readable>true</readable>
-    </fieldPermissions>        
+    </fieldPermissions>      
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_frct__grouping__c.id_unique__c</field>
+        <readable>true</readable>
+    </fieldPermissions>         
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
