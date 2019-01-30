@@ -252,6 +252,11 @@
     <listViews>
         <fullName>My_plans</fullName>
         <columns>NAME</columns>
+        <columns>dwp_frct__mngmt_plan_tot_commitment_amount__c</columns>
+        <columns>dwp_frct__mngmt_plan_total_regisn_amount__c</columns>
+        <columns>dwp_frct__mngmt_plan_achievement_per__c</columns>
+        <columns>dwp_frct__management_plan_stage_type__c</columns>
+        <columns>OWNER.ALIAS</columns>
         <filterScope>Mine</filterScope>
         <label>Mis planes</label>
     </listViews>
