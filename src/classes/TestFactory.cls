@@ -186,7 +186,8 @@ public class TestFactory {
         profitability_type__c ='03',
         profitability_category_type__c = 'Comisiones',
        	year_month_day_date__c = date.newInstance(2018, 09, 06),
-        currenct_mon_amount__c=15498.0
+        currenct_mon_amount__c=15498.0,
+        current_ydt_amount__c=15498.0
         );
         insert accp;
         Datetime yesterday = Datetime.now().addDays(-1);

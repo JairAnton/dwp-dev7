@@ -26,7 +26,7 @@
                 <aura:iteration items="{!v.rows}" var="row" indexVar="rowIndex">
                         <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">                          
                             <th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
-                                <div class="slds-truncate" title="{!row.Acc}">{!row.Acc}</div>
+                                <div class="slds-truncate" title="{!row.Acc}"><a href="{!'/'+row.IdAcc}">{!row.Acc}</a></div>
                             </th>
                             <th><div class="slds-truncate" title="{!row.BusinessVolume}"><ui:outputNumber value="{!row.BusinessVolume}" format="###,###,##0.00"/>
 </div></th>

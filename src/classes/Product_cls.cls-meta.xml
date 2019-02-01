@@ -3,7 +3,7 @@
     <apiVersion>42.0</apiVersion>
     <packageVersions>
         <majorNumber>1</majorNumber>
-        <minorNumber>5</minorNumber>
+        <minorNumber>9</minorNumber>
         <namespace>fprd</namespace>
     </packageVersions>
     <status>Active</status>
