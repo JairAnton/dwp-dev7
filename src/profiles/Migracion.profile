@@ -3768,7 +3768,12 @@
         <editable>true</editable>
         <field>dwp_frct__management_plan__c.id_unique__c</field>
         <readable>true</readable>
-    </fieldPermissions>        
+    </fieldPermissions>      
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_frct__grouping__c.id_unique__c</field>
+        <readable>true</readable>
+    </fieldPermissions>         
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
@@ -4114,6 +4119,24 @@
         <object>dwp_dace__Rules_Set__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>   
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_frct__grouping__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>dwp_frct__management_plan__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>        
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

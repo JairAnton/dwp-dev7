@@ -5259,6 +5259,9 @@ Asistente BE</description>
     <layoutAssignments>
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>dwp_frct__management_plan__c-Management Plan Layout</layout>
+    </layoutAssignments>
 	<layoutAssignments>
         <layout>dwp_kitv__Visit_Contact__c-Visit Contact Layout Peru</layout>
     </layoutAssignments>
@@ -5901,6 +5904,10 @@ Asistente BE</description>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-Forecasting3</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Idea</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
@@ -6062,7 +6069,7 @@ Asistente BE</description>
         <name>ViewSetup</name>
     </userPermissions>
 	<userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
     </userPermissions>
     <userPermissions>
