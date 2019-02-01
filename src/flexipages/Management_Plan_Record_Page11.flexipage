@@ -110,7 +110,7 @@
                 <booleanFilter>1 OR 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUALS</operator>
+                    <operator>EQUAL</operator>
                     <rightValue>E01</rightValue>
                 </criteria>
                 <criteria>
@@ -142,7 +142,7 @@
                 <booleanFilter>1 OR 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUALS</operator>
+                    <operator>EQUAL</operator>
                     <rightValue>E01</rightValue>
                 </criteria>
                 <criteria>
