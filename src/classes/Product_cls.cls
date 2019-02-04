@@ -497,7 +497,7 @@ public without sharing class Product_cls {
     /**
      * Creation of a new Case status
      * 
-     */
+     *
     Public static void setnewCase(Opportunity opp){
         Case caseTemp = new Case();
             caseTemp.Subject='Formalización';//Asunto
@@ -511,7 +511,7 @@ public without sharing class Product_cls {
             caseTemp.OwnerId=UserInfo.getUserId();//Propietario
             caseTemp.Type='01';//Tipo
 	    insert caseTemp;
-    }
+    }*/
     /**
         Creation of WRAPER Classs to the Position Grouped Table 
         Object: Account_BBVA_Information__c
