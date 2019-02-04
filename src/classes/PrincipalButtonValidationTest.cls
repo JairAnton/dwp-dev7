@@ -431,7 +431,7 @@ private class PrincipalButtonValidationTest {
         update oli1;
         System.runAs(userExecutiveOwner){
             List <String> response = Risk_Approval_ValidationClass.getErrorMessagesList(opp1.Id, 'Opportunity', 'validationClass');
-            System.assertEquals(1, response.size());
+            System.assertEquals(0, response.size());
         }
     }
     @isTest static void reevaluate(){
