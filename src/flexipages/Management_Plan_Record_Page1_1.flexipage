@@ -43,10 +43,16 @@
             </componentInstanceProperties>
             <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 OR 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>E01</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I21</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -69,10 +75,16 @@
             </componentInstanceProperties>
             <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 OR 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>E01</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I21</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -95,10 +107,16 @@
             </componentInstanceProperties>
             <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 OR 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>E01</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I21</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -121,10 +139,16 @@
             </componentInstanceProperties>
             <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 OR 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>E01</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I21</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -139,10 +163,16 @@
             </componentInstanceProperties>
             <componentName>dwp_frct:PlansByFamilyForecast_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
                     <operator>NE</operator>
                     <rightValue>E01</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>I21</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -157,10 +187,16 @@
             </componentInstanceProperties>
             <componentName>dwp_frct:PlansByFamilyForecast_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
                     <operator>NE</operator>
                     <rightValue>E01</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>I21</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -175,10 +211,16 @@
             </componentInstanceProperties>
             <componentName>dwp_frct:PlansByFamilyForecast_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
                     <operator>NE</operator>
                     <rightValue>E01</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>I21</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -193,10 +235,16 @@
             </componentInstanceProperties>
             <componentName>dwp_frct:PlansByFamilyForecast_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
                     <operator>NE</operator>
                     <rightValue>E01</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>I21</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
