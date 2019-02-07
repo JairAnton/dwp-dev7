@@ -4,10 +4,10 @@
 * Created date : Jan-Feb 2019
 * Developer name: Isaías Velázquez Cortés Indra(México)
 --------------------------------------------------------------------------*/
-public class ManagementPlanAfterUpdate_handler {
+public with sharing class ManagementPlanAfterUpdate_handler {
 	public static boolean isExecuting = false;
  
-	public static void updateValues(List<dwp_frct__management_plan__c> tggn,Map<id,dwp_frct__management_plan__c> tggOld){
+	public static	 void updateValues(List<dwp_frct__management_plan__c> tggn,Map<id,dwp_frct__management_plan__c> tggOld){
  
 		if( ManagementPlanAfterUpdate_handler.isExecuting ){return;}
  
