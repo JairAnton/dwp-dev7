@@ -12,7 +12,7 @@ global class Risk_Approval_ValidationClass implements dwp_dbpn.DynamicFlowValida
         if(PrincipalValidationHub.Condition2(recordId)){
             lstErrorMessage.add(Label.Error_validation_02);
         }
-        List<String> errors = PrincipalValidationHub.Condition3(recordId);
+        List<String> errors = PrincipalValidationHub.Condition4(recordId);
         for(String error : errors){
             lstErrorMessage.add(error);
         }

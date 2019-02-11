@@ -495,11 +495,22 @@ public without sharing class Product_cls {
     }
     /**
      * Creation of a new Case status
-     * */
-    Public static void setnewCase(){
-        
-    }
-    
+     * 
+     *
+    Public static void setnewCase(Opportunity opp){
+        Case caseTemp = new Case();
+            caseTemp.Subject='Formalización';//Asunto
+            caseTemp.AccountId=Opp.AccountId;//Cliente
+            caseTemp.Comments='Este es un comenatario';//Comentarios internos
+            caseTemp.Description='Cuerpo del caso';//Descripción
+            caseTemp.Status='01';//Estado
+            caseTemp.opportunity_id__c=;//Oportunidad
+            caseTemp.Origin='Web';//Origen del caso
+            caseTemp.Priority='Medium';//Prioridad
+            caseTemp.OwnerId=UserInfo.getUserId();//Propietario
+            caseTemp.Type='01';//Tipo
+	    insert caseTemp;
+    }*/
     /**
         Creation of WRAPER Classs to the Position Grouped Table 
         Object: Account_BBVA_Information__c
