@@ -84,7 +84,7 @@ public virtual class Minuta_ctrl extends MinutaWrap{
         System.debug('--sMyCS-->'+sMyCS);
         if(sMyCS != null && sMyCS != ''){
             dwp_kitv__Template_for_type_of_visit_cs__c myCS =(dwp_kitv__Template_for_type_of_visit_cs__c)System.JSON.deserialize(sMyCS, dwp_kitv__Template_for_type_of_visit_cs__c.class);
-            String sDocumentos = ApexPages.currentPage().getParameters().get('documents');
+            String sDocumentos = String.valueOf(ApexPages.currentPage().getParameters().get('documents'));
             System.debug('--sDocumentos-->'+sDocumentos);
             List<ContentVersion> lstDocument = (List<ContentVersion>)System.JSON.deserialize(sDocumentos, List<ContentVersion>.class);
             System.debug('--lstDocument-->'+lstDocument);
