@@ -8,7 +8,7 @@ stages:
         skipLintSpaces: true
         skipStyleLint: true
         skipPmdApex: true
-        skipSonar: false
+        skipSonar: false 
   unitTesting:
     skip: true
   deploy:
