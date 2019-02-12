@@ -23,7 +23,7 @@
 		</style>
     </head>
     <script type="text/javascript">
-  		if({!redireccion}){
+  		if({!redireccion}){//NOSONAR
 			if( (typeof sforce != 'undefined') && sforce && (!!sforce.one) ) {
 			    // Pass the id of the visit in the idVisit field
 			    sforce.one.navigateToSObject('{!IdVisitaActual}');//NOSONAR
