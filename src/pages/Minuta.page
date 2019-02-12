@@ -26,10 +26,10 @@
   		if({!redireccion}){
 			if( (typeof sforce != 'undefined') && sforce && (!!sforce.one) ) {
 			    // Pass the id of the visit in the idVisit field
-			    sforce.one.navigateToSObject('{!IdVisitaActual}');
+			    sforce.one.navigateToSObject('{!IdVisitaActual}');//NOSONAR
 			} else {
 			    // Pass the id of the visit in the idVisit field
-			    location.href = '/' + '{!IdVisitaActual}';
+			    location.href = '/' + '{!IdVisitaActual}';//NOSONAR
 			}
   		}
     
