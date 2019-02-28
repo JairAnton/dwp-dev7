@@ -170,13 +170,11 @@ public without sharing class Product_cls {
                 update itemOpp[0];
                 itemOpp[0].IsProcess__c=false;
                 update itemOpp[0]; 
-                update itemOpp[0];
+                //update itemOpp[0];
                 //BEGIN Traceability - 2018-06-11
                 //Isaías Vellázquez Cortés
                 new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,AttachedFiles),'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
                 //END Traceability
-                //Add new Case
-                // setnewCase(itemOpp[0]);
                 return 'true';
             }
             else return 'Error';
@@ -472,6 +470,7 @@ public without sharing class Product_cls {
         Double di;
         Double r;
         String aux='';
+        String Id_us='';
         for (AggregateResult ar : listInfoBBVA)  {
             dd=0;di=0;r=0;
                 for (AggregateResult ar2 : listInfoBBVA)  {
@@ -489,7 +488,7 @@ public without sharing class Product_cls {
                     if(ar.get('Name')==itemacc.id)
                         NameById=itemacc.Name;
                 }
-                mapResult.put(String.valueOf(i), new WRP_Table(NameById,(Double)ar.get('exp1'),dd,di,r)); aux=(string)ar.get('Name'); i++;
+                mapResult.put(String.valueOf(i), new WRP_Table(NameById,(Double)ar.get('exp1'),dd,di,r,(string)ar.get('Name'))); aux=(string)ar.get('Name'); i++;
             }
         }
         return mapResult.values();
@@ -497,9 +496,20 @@ public without sharing class Product_cls {
     /**
      * Creation of a new Case status
      * 
+     *
     Public static void setnewCase(Opportunity opp){
         Case caseTemp = new Case();
-        insert caseTemp;
+            caseTemp.Subject='Formalización';//Asunto
+            caseTemp.AccountId=Opp.AccountId;//Cliente
+            caseTemp.Comments='Este es un comenatario';//Comentarios internos
+            caseTemp.Description='Cuerpo del caso';//Descripción
+            caseTemp.Status='01';//Estado
+            caseTemp.opportunity_id__c=;//Oportunidad
+            caseTemp.Origin='Web';//Origen del caso
+            caseTemp.Priority='Medium';//Prioridad
+            caseTemp.OwnerId=UserInfo.getUserId();//Propietario
+            caseTemp.Type='01';//Tipo
+	    insert caseTemp;
     }*/
     /**
         Creation of WRAPER Classs to the Position Grouped Table 
@@ -511,12 +521,14 @@ public without sharing class Product_cls {
         @AuraEnabled public Double DirectDebt  {get; set;}
         @AuraEnabled public Double IndirectDebt  {get; set;}
         @AuraEnabled public Double Resources   {get; set;}
-        public WRP_Table(String toAcc, Double toBusinessVolume,Double toDirectDebt,Double toIndirectDebt,Double toResources){
+        @AuraEnabled public String IdAcc   {get; set;}
+        public WRP_Table(String toAcc, Double toBusinessVolume,Double toDirectDebt,Double toIndirectDebt,Double toResources,String toIdAcc){
             this.Acc = toAcc;
             this.BusinessVolume = toBusinessVolume;
             this.DirectDebt = toDirectDebt;
             this.IndirectDebt = toIndirectDebt;
             this.Resources = toResources;
+            this.IdAcc = ToIdAcc;
         }
     }
     public Product_cls(){//Yulino 28/11/2018 : Se agregó el constructor privado

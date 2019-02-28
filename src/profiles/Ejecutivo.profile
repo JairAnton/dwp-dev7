@@ -5262,6 +5262,9 @@ Asistente BE</description>
     <layoutAssignments>
         <layout>dwp_frct__management_plan__c-Management Plan Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>dwp_frct__grouping__c-Grouping Layout Ejecutivo</layout>
+    </layoutAssignments>
 	<layoutAssignments>
         <layout>dwp_kitv__Visit_Contact__c-Visit Contact Layout Peru</layout>
     </layoutAssignments>
@@ -6140,6 +6143,10 @@ Asistente BE</description>
         <enabled>true</enabled>
         <name>RunReports</name>
     </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunFlow</name>
+    </userPermissions>       
     <userPermissions>
         <enabled>true</enabled>
         <name>SelectFilesFromSalesforce</name>

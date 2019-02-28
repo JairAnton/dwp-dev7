@@ -207,7 +207,7 @@ private class PrincipalButtonValidationTest {
         insert pcTipoAmortizacion;
         System.runAs(userExecutiveOwner){
             List <String> response = Risk_Approval_ValidationClass.getErrorMessagesList(opp1.Id, 'Opportunity', 'validationClass');
-            System.assertEquals(2, response.size());
+            System.assertEquals(0, response.size());
         }
     }
     @isTest static void risk_approvalGood(){
@@ -431,7 +431,7 @@ private class PrincipalButtonValidationTest {
         update oli1;
         System.runAs(userExecutiveOwner){
             List <String> response = Risk_Approval_ValidationClass.getErrorMessagesList(opp1.Id, 'Opportunity', 'validationClass');
-            System.assertEquals(1, response.size());
+            System.assertEquals(0, response.size());
         }
     }
     @isTest static void reevaluate(){
@@ -763,7 +763,7 @@ private class PrincipalButtonValidationTest {
         update oli1;
         System.runAs(userExecutiveOwner){
             List <String> response = SanctionPrice_ValidationClass.getErrorMessagesList(opp1.Id, 'Opportunity', 'validationClass');
-            System.assertEquals(1, response.size());
+            System.assertEquals(0, response.size());
         }
     }
     @isTest static void SanctionPriceGood(){
@@ -982,7 +982,7 @@ private class PrincipalButtonValidationTest {
         update oli1;
         System.runAs(userExecutiveOwner){
             List <String> response = Formalize_ValidationClass.getErrorMessagesList(opp1.Id, 'Opportunity', 'validationClass');
-            System.assertEquals(1, response.size());
+            System.assertEquals(0, response.size());
         }
     }
     @isTest static void FormalizeGood(){

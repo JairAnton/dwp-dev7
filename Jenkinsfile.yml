@@ -8,7 +8,9 @@ stages:
         skipLintSpaces: true
         skipStyleLint: true
         skipPmdApex: true
-        skipSonar: true
+        skipSonar: false 
+        sonar:
+            exclusions: src/pages/Minuta.page
   unitTesting:
     skip: true
   deploy:
