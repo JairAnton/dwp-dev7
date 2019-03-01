@@ -16,7 +16,7 @@ public with sharing class ManagementPlanAfterUpdate_handler {
 	    dwp_frct__management_plan__c[] mpList = new dwp_frct__management_plan__c[]{};
 		List<User> usrList = [SELECT user_id__c FROM USER WHERE IsActive=true];
 		String ucode;
-		DateTime d = Date.Today() ;
+		DateTime d = Datetime.now();
         String dateStr =  d.format('MMyyyy') ;
 	  	
 	    for (dwp_frct__management_plan__c a: tggn) {  
