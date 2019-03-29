@@ -2633,4 +2633,32 @@ REGEX(TEXT(cpliq_n_gracia__c), &quot;[0-9][0-9]{0,2}&quot;)
 ),False)</errorConditionFormula>
         <errorMessage>Invalid Term value, the value ca not have decimals and need to be less than 1000</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Cuenta_Abono_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( 
+OR( 
+ISBLANK( cpliq_Cuenta_Abono__c),
+REGEX( cpliq_Cuenta_Abono__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
+) 
+)</errorConditionFormula>
+        <errorMessage>El formato de la cuenta de abono no es correcta, correcto: 0000-0000-000000000</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cuenta_Cargo_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( 
+OR( 
+ISBLANK( cpliq_Cuenta_Cargo__c),
+REGEX( cpliq_Cuenta_Cargo__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
+) 
+)</errorConditionFormula>
+        <errorMessage>El formato de cuenta cargo no es correcta, correcto: 0000-0000-000000000</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Plazo_validation_lengh</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( gipr_Plazo__c &gt;999,true,false)</errorConditionFormula>
+        <errorMessage>El plazo debe tener un numero no mayor a 3 cifras.</errorMessage>
+    </validationRules>
 </CustomObject>
