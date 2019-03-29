@@ -4001,6 +4001,36 @@
         <field>dwp_frct__management_plan__c.id_unique__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Operativa__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Currency_Destiny__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Currency_Origin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Cuenta_Abono__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Cuenta_Cargo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Rof__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
