@@ -74,7 +74,6 @@ public without sharing virtual class OpportunityPDFWrap {
                 for(fprd__GBL_Product_Configuration__c prc : PrdConfg){
                     If(fieldName ==  prc.fprd__DeveloperName__c){
                         fieldName =  prc.fprd__Map_field__c;
-                         system.debug('campo control visivilidad ' + fieldName);
                         break;
                     }
                 }
