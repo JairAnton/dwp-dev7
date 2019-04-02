@@ -38,6 +38,9 @@
     <columns>
         <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.main_code_id__c</field>
     </columns>
+	 <columns>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c</field>
+    </columns>
     <columns>
         <field>dwp_kitv__Visit__c$Name</field>
     </columns>
