@@ -1155,9 +1155,8 @@ private class PrincipalButtonValidationTest {
         pcGarantia.fprd__Product__c = product.id;
         pcGarantia.fprd__Section_name__c = 'Información general del producto';
         pcGarantia.fprd__Type__c = 'LIST';
+		pcGarantia.fprd__Section_order__c = 1;
         pcGarantia.fprd__Values_control_field__c = 'gipr_Tipo_garantia_PC00005';
-        pcGarantia.fprd__Visibility_control_field__c = 'gipr_Tipo_garantia_PC00005';
-        pcGarantia.fprd__Visibility_control_value__c = 'No dineraria,Dineraria';
         pcGarantia.fprd__LoV_labels__c = 'Cuenta en garantía,Depósito cuenta a plazo,Super depósitos,Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants';
         pcGarantia.fprd__LoV_values__c = '01,02,03,04,05,06,07,09,10,11,12,13,14,15,16,17';
         insert pcGarantia;
@@ -1195,7 +1194,6 @@ private class PrincipalButtonValidationTest {
         pcTipoAmortizacion.fprd__LoV_labels__c = 'Al vencimiento,En cuotas,Manual';
         pcTipoAmortizacion.fprd__LoV_values__c = '01,02,04'; 
         insert pcTipoAmortizacion;
-        oli1.gipr_Tipo_Garantia__c='01';//dineraria
         oli1.cpliq_Tipo_amortizacion__c = '02';//En cuotas
         oli1.cpliq_Amortizacion__c = '01';//Mensual
         update oli1;
