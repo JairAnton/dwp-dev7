@@ -1195,7 +1195,6 @@ private class PrincipalButtonValidationTest {
         pcTipoAmortizacion.fprd__LoV_labels__c = 'Al vencimiento,En cuotas,Manual';
         pcTipoAmortizacion.fprd__LoV_values__c = '01,02,04'; 
         insert pcTipoAmortizacion;
-        oli1.gipr_Tipo_Garantia__c='01';//dineraria
         oli1.cpliq_Tipo_amortizacion__c = '02';//En cuotas
         oli1.cpliq_Amortizacion__c = '01';//Mensual
         update oli1;
