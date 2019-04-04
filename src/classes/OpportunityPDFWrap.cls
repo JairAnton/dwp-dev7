@@ -1,6 +1,7 @@
 public without sharing virtual class OpportunityPDFWrap {
     public static OpportunityLineItem OLI {get;set;}
     public static OpportunityLineItem OLI2 {get;set;}
+    public static OpportunityLineItem OLI3 {get;set;}
     Public Static Account_BBVA_Classification__c ABBVAC {get;set;}
     Public static Product2 Product {get;set;}
     Public static Account Client {get;set;}
@@ -43,9 +44,11 @@ public without sharing virtual class OpportunityPDFWrap {
         fieldVisibility = new map<id,boolean>();
         String fieldName;
         String SOQLQuery;
+        String SOQLQueryDepend;
         SObjectType objType = Schema.getGlobalDescribe().get('OpportunityLineItem');
         Map<String,Schema.SObjectField> Mfields = objType.getDescribe().fields.getMap();
         SOQLQuery = 'SELECT ';
+        SOQLQueryDepend = 'SELECT ';
         for(Schema.SObjectField mf : Mfields.values()){
             schema.describefieldresult dfield = mf.getDescribe();
             if(String.valueOf(dfield.getType())=='PICKLIST'){
@@ -53,12 +56,15 @@ public without sharing virtual class OpportunityPDFWrap {
             } else{
                 SOQLQuery += dfield.getname() +', ';
             }
+            SOQLQueryDepend += dfield.getname() +', ';
         }
         SOQLQuery =SOQLQuery.substring(0, SOQLQuery.length() - 2);
+        SOQLQueryDepend =SOQLQueryDepend.substring(0, SOQLQueryDepend.length() - 2);
         final String Opps= Opp.Id;
         SOQLQuery+=' FROM OpportunityLineItem WHERE OpportunityId =:Opps';
-        system.debug(Opps);
+        SOQLQueryDepend+=' FROM OpportunityLineItem WHERE OpportunityId =:Opps';
         OLI2 = Database.query(String.escapeSingleQuotes(SOQLQuery)); //Yulino 04/12/2018 : se agrego String.escapeSingleQuotes()
+        OLI3 = Database.query(String.escapeSingleQuotes(SOQLQueryDepend)); 
         boolean found;
         List<String> ConditionValue;
         for(fprd__GBL_Product_Configuration__c pc : PrdConfg){
@@ -74,7 +80,7 @@ public without sharing virtual class OpportunityPDFWrap {
                 if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C))
                     conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
                 for(String val :conditionValue){
-                    if(val==OLI2.get(fieldName)){
+                    if(val==OLI3.get(fieldName)){
                         found=true;
                     }
                 }
