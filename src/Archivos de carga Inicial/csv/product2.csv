@@ -21,3 +21,5 @@
 "Carta fianza economica Prueba","PC00012","Producto code 12","true","Riesgo de firma","PEN","","","","","false","","COTIZA Beta","0292230","true","true","true","true",""
 "Factoring","PC00006","Producto code 6","true","Financiamiento a corto plazo","PEN","","","","","false","","COTIZA Beta","0159502","true","true","true","true",""
 "Forward","PC00036","Producto code 36","true","Tesorería","PEN","","","","","false","","","PC00036","false","false","false","false",""
+"FX","PC00035","Producto code 35","true","Tesorería","PEN","","","","","false","","","PC00035","true","true","false","false",""
+"Depósito a plazo","PC00018","Producto code 18","true","Recursos","PEN","","","","","false","","COTIZA Beta","241041","true","true","true","false",""
