@@ -14,6 +14,30 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 cmp.set('v.AccId',ret.AccId);
+                $A.createComponent(
+                    				"c:AccountResumeInfo_comp",
+                                    {
+                                        "aura:id": "AccResInf",
+                                        "recordId":ret.AccId, 
+                                        "commercial_strategy":ret.commercial_strategy                                        
+                                    },
+                                    function(cmpARI, status, errorMessage){
+                                        //Add the new button to the body array
+                                        if (status === "SUCCESS") {
+                                            var body = cmp.get("v.AccResInf");
+                                            body.push(cmpARI);
+                                            cmp.set("v.AccResInf", body);
+                                        }
+                                        else if (status === "INCOMPLETE") {
+                                            console.log("No response from server or client is offline.")
+                                            // Show offline error
+                                        }
+                                        else if (status === "ERROR") {
+                                            console.log("Error: " + errorMessage);
+                                            // Show error message
+                                        }
+                                    }
+                                );                
                 cmp.set('v.type_of_quote',ret.type_of_quote);
                 if(ret.type_of_quote==='COTIZA Beta')
                 {
