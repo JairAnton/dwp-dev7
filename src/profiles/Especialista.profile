@@ -4454,7 +4454,12 @@ Ejecutivos de REDES</description>
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_Rof__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_liquidacion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
