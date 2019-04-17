@@ -34,14 +34,22 @@ public class DynamicNotificationInformation{
                     method2 = (DynamicNotificationMessageRecipent)dynamicrecipentclass.newInstance();
                     mapRecipent = method2.getRecipients(lstValid, sObjectName);
                 }
+                List<String> lstrecordaux1 = new List<String>();
                 for(String record : lstValid){
                     
                     if(mapRecipent.containsKey(record)){
-                        Map<Id,String> mpMessage = DynamicNotificationMessageStructure.getMessageStructure(lstValid, sObjectName, enginemdt[0].message_structure__c);
-                        lstwraper.add(new DynamicNotificationInformation.NotificationInformation_wrapper (record, mapRecipent.get(record),mpMessage.get(record)));
+                        lstrecordaux1.add(record);
                         
                     }
                 }
+                if(!lstrecordaux1.isEmpty()){
+                    Map<Id,String> mpMessage = DynamicNotificationMessageStructure.getMessageStructure(lstrecordaux1, sObjectName, enginemdt[0].message_structure__c);
+                    for(String recordaux1 : lstrecordaux1){
+                        lstwraper.add(new DynamicNotificationInformation.NotificationInformation_wrapper (recordaux1, mapRecipent.get(recordaux1),mpMessage.get(recordaux1)));
+                    }
+                }
+                
+                        
             }else{
                 DynamicNotificationMessageRecipent method2;
                 Type dynamicrecipentclass = Type.forName(enginemdt[0].recipient_class_desc__c);
@@ -49,13 +57,20 @@ public class DynamicNotificationInformation{
                     method2 = (DynamicNotificationMessageRecipent)dynamicrecipentclass.newInstance();
                     mapRecipent = method2.getRecipients(recordId, sObjectName);
                 }
-                
+                List<String> lstrecordaux2 = new List<String>();
                 for(String record : recordId){
                     if(mapRecipent.containsKey(record)){
-                        Map<Id,String> mpMessage = DynamicNotificationMessageStructure.getMessageStructure(recordId, sObjectName, enginemdt[0].message_structure__c);
-                        lstwraper.add(new DynamicNotificationInformation.NotificationInformation_wrapper (record, mapRecipent.get(record),mpMessage.get(record)));
+                        lstrecordaux2.add(record);
                     }
                 }
+                if(!lstrecordaux2.isEmpty()){
+                    Map<Id,String> mpMessage = DynamicNotificationMessageStructure.getMessageStructure(lstrecordaux2, sObjectName, enginemdt[0].message_structure__c);
+                    for(String recordaux2 : lstrecordaux2){
+                        lstwraper.add(new DynamicNotificationInformation.NotificationInformation_wrapper (recordaux2, mapRecipent.get(recordaux2),mpMessage.get(recordaux2)));
+                        
+                    }
+                }
+                
             }
         }
         
