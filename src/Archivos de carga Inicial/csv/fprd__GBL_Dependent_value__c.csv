@@ -140,5 +140,6 @@
 "Días,Meses,Años","01,02,03","","Periodicidad_ig_PC00036","","LV_PE_PC00036_1"
 "USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07","","Moneda_Origen_PC00035","","LV_PE_MO00035_1"
 "USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07","","Moneda_Destino_PC00035","","LV_PE_MD00035_1"
+"Banco compra,Banco vende","01,02","","Operativa_PC00035","","LV_PE_OP00035_1"
 "Abono en cuenta,Capitalización","01,02","","Liquidacion_cpliq_0241041","","LV_PE_LQ00018_1"
 "Días,Meses","01,02","","Periodicidad_ig_0241041","","LV_PE_PE0018_1"

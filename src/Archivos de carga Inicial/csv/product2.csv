@@ -21,5 +21,5 @@
 "PFL","PC00040","Producto code 40","true","Programa financiero","PEN","","","","","false","","","PC00040","false","false","false","true",""
 "PFF","PC00041","Producto code 41","true","Programa financiero","PEN","","","","","false","","","PC00041","false","false","false","true",""
 "PFA","PC00042","Producto code 42","true","Programa financiero","PEN","","","","","false","","","PC00042","false","false","false","true",""
-"FX","PC00035","Producto code 35","true","Tesorería","PEN","","","","","false","","","PC00035","true","true","false","false",""
-"Depósito a plazo","PC00018","Producto code 18","true","Recursos","PEN","","","","","false","","COTIZA Beta","241041","true","true","true","false",""
+"FX","PC00035","Producto code 35","true","Tesorería","PEN","","","","","false","","","PC00035","false","false","false","false",""
+"Depósito a plazo","PC00018","Producto code 18","true","Recursos","PEN","","","","","false","","COTIZA Beta","0241041","true","true","true","false",""
