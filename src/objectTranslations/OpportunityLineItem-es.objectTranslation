@@ -1404,6 +1404,18 @@
         <label>Estado cotización</label>
         <name>price_quote_status_id__c</name>
     </fields>
+	<fields>
+        <label><!-- cpliq_liquidacion --></label>
+        <name>cpliq_liquidacion__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Abono en cuenta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Capitalización</translation>
+        </picklistValues>
+    </fields>
     <validationRules>
         <errorMessage>Nº de contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>ContractNo_Validation</name>
