@@ -11,6 +11,7 @@
     <aura:attribute name="type_of_quote" type="String"/>
     <aura:attribute name="widthcot" type="String"/>
     <aura:attribute name="modalWidthCustom" type="String" access="global" description="Specify the modal" default="74rem" />
+    <aura:attribute type="Aura.Component[]" name="AccResInf" />
     <div class="slds-modal__content slds-p-around_medium" >
         <div class="slds-grid">
             <div class="slds-col sizeSPRICE">   
@@ -36,7 +37,7 @@
             </div>
             <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
                 <div class="slds-col sizeSPRICE">
-                    <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}" />      
+                     {! v.AccResInf }
                 </div>
             </aura:if>
         </div> 

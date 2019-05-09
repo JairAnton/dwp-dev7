@@ -5108,6 +5108,11 @@ Sub Gerentes de oficina</description>
         <field>OpportunityLineItem.cpliq_Rof__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_liquidacion__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
