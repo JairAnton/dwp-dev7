@@ -176,4 +176,5 @@ global class PrincipalValidationHub {
        ]
         return true;
     }
+	}
 }
