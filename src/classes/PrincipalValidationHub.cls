@@ -170,18 +170,7 @@ global class PrincipalValidationHub {
     
     // User with administrator profile or with operational profile in the same office as the office of the opportunity. 
     global static Boolean Condition5(String recordId){
-        List<Opportunity> opps = [Select Id,OwnerId,Owner.Name,Branch_id__c from Opportunity where Id=:recordId];
        	List<User> users = [select Id, prof_position_id__c, prof_position_type__c, Profile.Name, (Select branch_name__c  from Users_Branches__r ) from user where Id=:UserInfo.getUserId()];
-        List<User_Position_Mapping__mdt> codigos = [select prof_position_id__c, dwp_role__c, profile__c from User_Position_Mapping__mdt where prof_position_id__c=:users[0].prof_position_id__c];
-        if((users[0].profile.Name == admin )||(users[0].profile.Name == sysAdmin)){
-            return false;
-        }else if(users[0].profile.Name == operative){
-            for(User_Branch__c ub : users[0].Users_Branches__r){
-                if(ub.branch_name__c == opps[0].Branch_id__c){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
+		return !(users[0].profile.Name == admin || users[0].profile.Name == sysAdmin || users[0].profile.Name == operative);
+	}
 }

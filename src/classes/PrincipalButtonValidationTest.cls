@@ -1530,7 +1530,7 @@ private class PrincipalButtonValidationTest {
         oli2.cpliq_Tipo_amortizacion__c = '02';//En cuotas
         oli2.cpliq_Amortizacion__c = '01';//Mensual
         update oli2;
-        System.runAs(userOperativeBranch){
+        System.runAs(userExecutiveBranch){
             List <String> response = Formalization_ValidationClass.getErrorMessagesList(opp2.Id, 'Opportunity', 'validationClass');
             System.assertEquals(1, response.size());
         }
@@ -1640,7 +1640,7 @@ private class PrincipalButtonValidationTest {
         oli2.cpliq_Tipo_amortizacion__c = '02';//En cuotas
         oli2.cpliq_Amortizacion__c = '01';//Mensual
         update oli2;
-        System.runAs(userOperativeBranch){
+        System.runAs(userExecutiveBranch){
             List <String> response = PDF_ValidationClass.getErrorMessagesList(opp2.Id, 'Opportunity', 'validationClass');
             System.assertEquals(1, response.size());
         }
