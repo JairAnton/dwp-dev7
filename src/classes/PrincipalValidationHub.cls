@@ -173,7 +173,7 @@ global class PrincipalValidationHub {
        	List<User> users = [select Id, prof_position_id__c, prof_position_type__c, Profile.Name, (Select branch_name__c  from Users_Branches__r ) from user where Id=:UserInfo.getUserId()];
 		if((users[0].profile.Name == admin )||(users[0].profile.Name == sysAdmin )||(users[0].profile.Name == operative)){
             return false;
-       ]
+       }
         return true;
     }
 	}
