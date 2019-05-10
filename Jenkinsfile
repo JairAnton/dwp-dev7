@@ -1,7 +1,7 @@
 @Library("workflowlibs") _
 
 pipeline {
-  agent any
+  agent { label env.sf_node }
   stages {
     stage('Checkout Global Library') {
       steps {
