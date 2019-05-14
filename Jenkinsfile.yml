@@ -70,3 +70,13 @@ branches:
                     mdapiConfig:
                         credentialId: SFDC_PROD
                         testLevel: RunLocalTests
+pullRequests:
+   master:
+       stages:
+           publish:
+               params:
+                   mdapiConfig:
+                       credentialId: SFDC_PROD
+                       command: testDeploy
+                       testLevel: RunLocalTests
+                       serverUrl: login.salesforce.com
