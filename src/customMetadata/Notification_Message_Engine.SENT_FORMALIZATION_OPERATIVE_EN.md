@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>is_active__c</field>
-        <value xsi:type="xsd:boolean">true</value>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>language_code_id__c</field>
