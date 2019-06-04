@@ -157,9 +157,10 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <displayFormat>T-{0000000000}</displayFormat>
         <label>Account variation information Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Account variation information</pluralLabel>
     <searchLayouts/>

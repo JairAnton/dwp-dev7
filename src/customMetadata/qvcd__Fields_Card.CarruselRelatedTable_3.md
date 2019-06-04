@@ -28,8 +28,7 @@
     </values>
     <values>
         <field>qvcd__GBL_NameOfIcons__c</field>
-        <value xsi:type="xsd:string">https://dwpperu--dwpdev032--c.cs79.visual.force.com/resource/1556643363000/warning_Red?,https://dwpperu--dwpdev032--c.cs79.visual.force.com/resource/1556226143000/circle_Blue?,
-https://dwpperu--dwpdev032--c.cs79.visual.force.com/resource/1556648246000/warning_Green?</value>
+        <value xsi:type="xsd:string">/resource/warning_Red?,/resource/circle_Blue?,/resource/warning_Green?</value>
     </values>
     <values>
         <field>qvcd__GBL_Name_API_field__c</field>
