@@ -91,7 +91,6 @@
     </fields>
     <fields>
         <fullName>indicator_name__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>indicator_name</label>
         <length>50</length>
@@ -103,7 +102,6 @@
     </fields>
     <fields>
         <fullName>indicator_update_date__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>indicator_update_date</label>
         <required>false</required>
@@ -126,7 +124,6 @@
     <fields>
         <fullName>unique_id__c</fullName>
         <caseSensitive>false</caseSensitive>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>unique_id</label>
         <length>50</length>
@@ -138,7 +135,6 @@
     </fields>
     <fields>
         <fullName>validation_color_type__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>validation_color_type</label>
         <length>20</length>
@@ -161,7 +157,6 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <encryptionScheme>None</encryptionScheme>
         <label>Account variation information Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
