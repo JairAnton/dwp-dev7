@@ -52,9 +52,9 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Orden__c</fullName>
+        <fullName>Order__c</fullName>
         <externalId>false</externalId>
-        <label>Orden</label>
+        <label>Order</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
