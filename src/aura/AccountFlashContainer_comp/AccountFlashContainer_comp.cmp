@@ -14,10 +14,8 @@
                                               classSize="7 Column Span"
                                               currencyDimension="None"/>
             </lightning:layoutItem>
-			<lightning:layoutItem flexibility="auto" padding="around-small">
-				<qvcd:GBL_Carousel_CMP hasRecordId="{!v.recordId}" nameCards="CarruselRelatedTable" infinite="true" slidesToShow="4" relationMode="true" readAllRecords="true"/>
-			</lightning:layoutItem>
         </lightning:layout>
+		<qvcd:GBL_Carousel_CMP hasRecordId="{!v.recordId}" nameCards="CarruselRelatedTable" infinite="true" slidesToShow="4" relationMode="true" readAllRecords="true" />
 		<lightning:layout multipleRows="true">
             <lightning:layoutItem flexibility="auto" padding="around-small">
                 <c:Flash_client_secondBlock recordId="{!v.recordId}" />
