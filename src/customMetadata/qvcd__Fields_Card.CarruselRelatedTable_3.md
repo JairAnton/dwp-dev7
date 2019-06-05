@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>qvcd__GBL_Label__c</field>
-        <value xsi:type="xsd:string">Variación Anual</value>
+        <value xsi:type="xsd:string">Variación anual</value>
     </values>
     <values>
         <field>qvcd__GBL_NameCustomSetting__c</field>
