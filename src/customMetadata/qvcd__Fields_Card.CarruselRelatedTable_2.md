@@ -28,7 +28,7 @@
     </values>
     <values>
         <field>qvcd__GBL_NameOfIcons__c</field>
-        <value xsi:type="xsd:string">/resource/circle_Green?,/resource/circle_Red?,/resource/circle_Yellow?,/resource/circle_Red?,/resource/circle_Green?</value>
+        <value xsi:type="xsd:string">/resource/GreenPositive_icon,/resource/RedNegative_icon,/resource/YellowNeutral_icon,/resource/RedNegative_icon,/resource/GreenPositive_icon</value>
     </values>
     <values>
         <field>qvcd__GBL_Name_API_field__c</field>

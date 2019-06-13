@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>qvcd__GBL_Field_format__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">0.00</value>
     </values>
     <values>
         <field>qvcd__GBL_FiltersFunction__c</field>
@@ -28,7 +28,7 @@
     </values>
     <values>
         <field>qvcd__GBL_NameOfIcons__c</field>
-        <value xsi:type="xsd:string">/resource/warning_Red?,/resource/circle_Blue?, /resource/warning_Green?</value>
+        <value xsi:type="xsd:string">/resource/WarningRed_icon_15x15,/resource/Green_Flag_Icon_15x15,/resource/Green_Flag_Icon_15x15</value>
     </values>
     <values>
         <field>qvcd__GBL_Name_API_field__c</field>
@@ -44,7 +44,7 @@
     </values>
     <values>
         <field>qvcd__GBL_Stage__c</field>
-        <value xsi:type="xsd:string">0.001,0</value>
+        <value xsi:type="xsd:string">-0.00001,0</value>
     </values>
     <values>
         <field>qvcd__GBL_Stage_icon__c</field>
