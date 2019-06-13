@@ -4780,6 +4780,10 @@
         <tab>Web_Service_Value_Mapping__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
+	<tabVisibilities>
+        <tab>Account_variation_information__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>false</enabled>
