@@ -3844,6 +3844,66 @@
         <field>Account_variation_information__c.validation_color_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.Organizational_unit_code_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Organizational_unit_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.User_position_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.Organizational_unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.Organizational_unit_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.User_position__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.User_position_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.User_position_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Organizational_Unit_Equivalence__c.Organizational_unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Organizational_Unit_Equivalence__c.Organizational_unit_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Organizational_Unit_Equivalence__c.Organizational_unit_code_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Organizational_Unit_Equivalence__c.Organizational_unit_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
@@ -3963,6 +4023,12 @@
     </layoutAssignments>
 	<layoutAssignments>
         <layout>Web_Service_Value_Mapping__c-Web Service Value Mapping Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Organizational_Unit_Equivalence__c-Organizational Unit Equivalence Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>User_Position_equivalence__c-User Position Equivalence Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -4387,6 +4453,24 @@
         <object>Account_variation_information__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Organizational_Unit_Equivalence__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>User_Position_equivalence__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
         <enabled>true</enabled>
@@ -4570,6 +4654,14 @@
     <tabVisibilities>
         <tab>iaso__GBL_Application_Log__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>User_Position_equivalence__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Organizational_Unit_Equivalence__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
