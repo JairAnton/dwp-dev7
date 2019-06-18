@@ -2,14 +2,13 @@
  * @Name: User_Trigger_cls
  * @Description: Calss User Trigger de Ejecucion
  * @Create by: Jose Erasmo Rodriguez Paredes
- * 
 */
 public without sharing class  User_Trigger_cls {
     
     final Map<String,Organizational_Unit_Equivalence__c> orgEquivalentMap = new Map<String,Organizational_Unit_Equivalence__c>();
     final Map<String,User_Position_equivalence__c> positionEquivMap = new Map<String,User_Position_equivalence__c>();
     
-    /**
+    /*
     * @Name: AsignBeforeInsert
     * @Description: Invoca al metodo setEquivalentValues.
     * @author Jose Rodriguez
@@ -17,7 +16,7 @@ public without sharing class  User_Trigger_cls {
     public void AsignBeforeInsert(List<User> userNew, Map<id,User>userNewMap) {
      setEquivalentValues(userNew);             
     }
-    /**
+    /*
     * @Name: AsignBeforeUpdate
     * @Description: Invoca al metodo setEquivalentValues.
     * @author Jose Rodriguez
@@ -25,7 +24,7 @@ public without sharing class  User_Trigger_cls {
     public void AsignBeforeUpdate(List<User> userNew, Map<id,User>userNewMap, list<User>userOld, Map<id,User>userOldMap) {
      setEquivalentValues(userNew);                    
     } 
-    /**
+    /*
     * @Name: setEquivalentValues
     * @Description: Ejecuta la logica para la asignacion de unidad organizativa y cargo equivalente de un usuario.
     * @author Jose Rodriguez

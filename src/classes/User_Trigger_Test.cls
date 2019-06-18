@@ -8,13 +8,13 @@
 @isTest(seeAllData=false)
 private class User_Trigger_Test {
     static List<User> users;
-    /**
-    * @Name: static
+    /*
+    * @Name: static var
     * @Description: obtiene lista de usuarios para test.
     * @author Jose Rodriguez
     */
     static { users = new List<User> ([SELECT Id, Name , unique_id__c, organizational_unit_id__c, organizational_unit_name__c, prof_position_type__c, isactive FROM User where isactive = true and profile.name in ('Ejecutivo','Especialista','Operativo','Analista') limit 50]); } 
-    /**
+    /*
     * @Name: AsignBeforeInsert
     * @Description: Ejecuta el trigger de usuarios al insertar.
     * @author Jose Rodriguez
@@ -46,7 +46,7 @@ private class User_Trigger_Test {
          System.assert(exito,'exito');
         Test.stopTest(); 
     }
-    /**
+    /*
     * @Name: AsignBeforeUpdate
     * @Description: Ejecuta el trigger de usuarios al hacer update.
     * @author Jose Rodriguez
