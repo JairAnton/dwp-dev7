@@ -180,7 +180,6 @@
     </fields>
 	<fields>
         <fullName>User_position_equivalence__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>User position equivalence</label>
         <length>200</length>
