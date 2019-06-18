@@ -14,7 +14,7 @@ public without sharing class  User_Trigger_cls {
     * @Description: Invoca al metodo setEquivalentValues.
     * @author Jose Rodriguez
     */
-    public void AsignBeforeInsert(List<User> userNew, Map<id,User>userNewMap){
+    public void AsignBeforeInsert(List<User> userNew, Map<id,User>userNewMap) {
      setEquivalentValues(userNew);             
     }
     /**
@@ -22,7 +22,7 @@ public without sharing class  User_Trigger_cls {
     * @Description: Invoca al metodo setEquivalentValues.
     * @author Jose Rodriguez
     */
-    public void AsignBeforeUpdate(List<User> userNew, Map<id,User>userNewMap, list<User>UserOld, Map<id,User>UserOldMap){
+    public void AsignBeforeUpdate(List<User> userNew, Map<id,User>userNewMap, list<User>userOld, Map<id,User>userOldMap) {
      setEquivalentValues(userNew);                    
     } 
     /**
@@ -30,13 +30,13 @@ public without sharing class  User_Trigger_cls {
     * @Description: Ejecuta la logica para la asignacion de unidad organizativa y cargo equivalente de un usuario.
     * @author Jose Rodriguez
     */
-    public void setEquivalentValues(List<User>userNew){
+    public void setEquivalentValues(List<User>userNew) {
      List<Organizational_Unit_Equivalence__c>  orgEquivalent =  new List<Organizational_Unit_Equivalence__c>();
      List<User_Position_equivalence__c>  userPosEquiv =  new List<User_Position_equivalence__c>();
      orgEquivalent = [select Organizational_unit__c,Organizational_unit_code__c,Organizational_unit_code_equivalence__c, Organizational_unit_equivalence__c from Organizational_Unit_Equivalence__c limit 200];
      userPosEquiv = [select Organizational_unit__c,Organizational_unit_code__c,User_position__c,User_position_code__c,User_position_equivalence__c from User_Position_equivalence__c limit 200];
 
-     for(Organizational_Unit_Equivalence__c o:orgEquivalent){
+     for(Organizational_Unit_Equivalence__c o:orgEquivalent) {
       orgEquivalentMap.put(o.Organizational_unit__c+o.Organizational_unit_code__c,o);
      }
      System.debug('orgEquivalentMap:  ' +orgEquivalentMap);
@@ -44,17 +44,17 @@ public without sharing class  User_Trigger_cls {
       positionEquivMap.put(p.Organizational_unit__c+p.Organizational_unit_code__c+p.User_position__c,p);
      }
      System.debug('positionEquivMap: ' +positionEquivMap);
-     for(User u : userNew){
-      if(orgEquivalentMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c)==null){
+     for(User u : userNew) {
+      if(orgEquivalentMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c)==null) {
        u.Organizational_unit_code_equivalence__c = u.organizational_unit_id__c;
        u.Organizational_unit_equivalence__c = u.organizational_unit_name__c; 
-      }else{
+      }else {
        u.Organizational_unit_code_equivalence__c = orgEquivalentMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c).Organizational_unit_code_equivalence__c;
        u.Organizational_unit_equivalence__c = orgEquivalentMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c).Organizational_unit_equivalence__c;   
       }
-      if(positionEquivMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c+u.prof_position_type__c)==null){
+      if(positionEquivMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c+u.prof_position_type__c)==null) {
        u.User_position_equivalence__c = u.prof_position_type__c;     
-      }else{
+      }else {
        u.User_position_equivalence__c = positionEquivMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c+u.prof_position_type__c).User_position_equivalence__c;
       }
       System.debug('Cambios aplicados: unidad: ' +u.Organizational_unit_equivalence__c + ' posicion ' + u.User_position_equivalence__c);
