@@ -9,7 +9,7 @@
 private class User_Trigger_Test {
     static List<User> users;
     static{
-        users = new List<User> ([SELECT Id, Name , unique_id__c, organizational_unit_id__c,
+        users = new List<User> ([SELECT Id, organizational_unit_id__c,
                                  organizational_unit_name__c, prof_position_type__c, isactive FROM User where isactive = true limit 50]);
     } 
 
