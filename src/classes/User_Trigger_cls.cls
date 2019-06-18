@@ -40,7 +40,7 @@ public without sharing class  User_Trigger_cls {
       orgEquivalentMap.put(o.Organizational_unit__c+o.Organizational_unit_code__c,o);
      }
      System.debug('orgEquivalentMap:  ' +orgEquivalentMap);
-     for(User_Position_equivalence__c p:userPosEquiv){
+     for(User_Position_equivalence__c p:userPosEquiv) {
       positionEquivMap.put(p.Organizational_unit__c+p.Organizational_unit_code__c+p.User_position__c,p);
      }
      System.debug('positionEquivMap: ' +positionEquivMap);
@@ -48,13 +48,13 @@ public without sharing class  User_Trigger_cls {
       if(orgEquivalentMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c)==null) {
        u.Organizational_unit_code_equivalence__c = u.organizational_unit_id__c;
        u.Organizational_unit_equivalence__c = u.organizational_unit_name__c; 
-      }else {
+      } else {
        u.Organizational_unit_code_equivalence__c = orgEquivalentMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c).Organizational_unit_code_equivalence__c;
        u.Organizational_unit_equivalence__c = orgEquivalentMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c).Organizational_unit_equivalence__c;   
       }
       if(positionEquivMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c+u.prof_position_type__c)==null) {
        u.User_position_equivalence__c = u.prof_position_type__c;     
-      }else {
+      } else {
        u.User_position_equivalence__c = positionEquivMap.get(u.organizational_unit_name__c+u.organizational_unit_id__c+u.prof_position_type__c).User_position_equivalence__c;
       }
       System.debug('Cambios aplicados: unidad: ' +u.Organizational_unit_equivalence__c + ' posicion ' + u.User_position_equivalence__c);
