@@ -184,8 +184,8 @@
                                         <p >
                                          Sigamos conectados
                                         </p>
-                                        <p> <a href="https://www.facebook.com/BBVAContinental/"><apex:image url="{!URLLogoFacebook}"  width="15px"  height="15px"/></a> &nbsp;&nbsp;
-                                            <a href="https://twitter.com/bbvacontinental"> <apex:image url="{!URLLogoTwiter}"  height="15px"  width="15px" /></a>
+                                        <p> <a href="https://www.facebook.com/bbvaenperu/"><apex:image url="{!URLLogoFacebook}"  width="15px"  height="15px"/></a> &nbsp;&nbsp;
+                                            <a href="https://www.twitter.com/bbva_peru"> <apex:image url="{!URLLogoTwiter}"  height="15px"  width="15px" /></a>
                 					</p>
                                     </td>
                                 </tr>
