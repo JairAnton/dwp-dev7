@@ -13,7 +13,7 @@ private class User_Trigger_Test {
     * @Description: obtiene lista de usuarios para test.
     * @author Jose Rodriguez
     */
-    static{users = new List<User> ([SELECT Id, Name , unique_id__c, organizational_unit_id__c, organizational_unit_name__c, prof_position_type__c, isactive FROM User where isactive = true limit 50]);} 
+    static{users = new List<User> ([SELECT Id, Name , unique_id__c, organizational_unit_id__c, organizational_unit_name__c, prof_position_type__c, isactive FROM User where isactive = true and profile.name in ('Ejecutivo','Especialista','Operativo','Analista') limit 50]);} 
     /**
     * @Name: AsignBeforeInsert
     * @Description: Ejecuta el trigger de usuarios al insertar.
