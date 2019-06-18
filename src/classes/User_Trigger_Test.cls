@@ -26,7 +26,7 @@ private class User_Trigger_Test {
 		userToInsert.IsActive=true;
         userToInsert.LocaleSidKey='en_US';
         userToInsert.EmailEncodingKey='ISO-8859-1';
-        List<Profile> prof=new List<Profile>([SELECT Id, Name FROM Profile where Name='Ejecutivo']);
+        List<Profile> prof=new List<Profile>([SELECT Id, Name FROM Profile where Name='Migracion']);
         userToInsert.ProfileId=  prof[0].Id;
         userToInsert.LanguageLocaleKey='es';
         userToInsert.Unique_id__c = 'p088888';
