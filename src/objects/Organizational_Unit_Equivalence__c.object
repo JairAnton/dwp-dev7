@@ -55,14 +55,12 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Organizational_unit__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Organizational unit</label>
         <length>200</length>
@@ -73,7 +71,6 @@
     </fields>
     <fields>
         <fullName>Organizational_unit_code__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Organizational unit code</label>
         <length>20</length>
@@ -84,7 +81,6 @@
     </fields>
     <fields>
         <fullName>Organizational_unit_code_equivalence__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Organizational unit code equivalence</label>
         <length>20</length>
@@ -95,7 +91,6 @@
     </fields>
     <fields>
         <fullName>Organizational_unit_equivalence__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Organizational unit equivalence</label>
         <length>200</length>
