@@ -1,0 +1,4 @@
+({
+    closeMe : function(component, event) {
+    },
+})

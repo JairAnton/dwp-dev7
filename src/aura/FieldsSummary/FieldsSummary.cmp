@@ -1,0 +1,148 @@
+<aura:component implements="force:hasRecordId" controller="FieldSummary_ctrl">
+    <aura:attribute name="record" type="Object" description="The record object to be displayed"/>
+    <aura:attribute name="oliRecord" type="Object" description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String" description="An error message bound to force:recordData"/>
+    <aura:attribute name="OpportunityId" type="String" default=""/>
+    <aura:method name="validateSave" action="{!c.doContinue}"/>
+    
+    <force:recordData aura:id="record"
+                      recordId="{!v.recordId}"
+                      fields="Id,Name,UnitPrice,cpliq_Commission__c,cpliq_Fecha_Vencimiento__c,cpliq_Emission__c,cpliq_Negotiation__c,cpliq_Payment_Dif__c,cpliq_Extension__c,cpliq_Increase__c,cpliq_BBVA__c,cpliq_Bco_Correspondent__c,cpliq_Total__c"
+                      targetFields="{!v.oliRecord}"
+                      targetError="{!v.recordError}"/>
+    
+    <div class="Record Details">
+        <lightning:card iconName="standard:opportunity" title="{!v.oliRecord.Name}" >
+            <br/>
+        	<aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='01'}">
+                <div class="slds-p-horizontal--small">
+                    <p class="slds-text-body_regular">
+                        Tipo de Comisión: <b><lightning:formattedText title="Tipo de Comisión" value="Usual" /></b>
+                    </p>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='02'}">
+                <div class="slds-p-horizontal--small">
+                    <p class="slds-text-body_regular">
+                        Tipo de Comisión: <b><lightning:formattedText class="slds-form-element__control" title="Tipo de Comisión" value="Ingresada" /></b>
+                    </p>
+                    <br/>
+                    <div style="margin-left: 50px;">
+                        <p class="slds-text-body_regular">
+                    	    Fecha de Vencimiento: <b><lightning:formattedDateTime title="Vcto" value="{!v.oliRecord.cpliq_Fecha_Vencimiento__c}" /></b>
+                        </p>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                <div class="slds-p-horizontal--small">
+                    <p class="slds-text-body_regular">
+                        Tipo de Comisión: <b><lightning:formattedText title="Tipo de Comisión" value="Puntual" /></b>
+                    </p>
+                    <br/>
+                    <div style="margin-left: 50px;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        Emisión (%): <b><lightning:formattedNumber title="Emisión (%)" value="{!v.oliRecord.cpliq_Emission__c}" /></b>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        Negociación (%): <b><lightning:formattedNumber title="Negociación (%)" value="{!v.oliRecord.cpliq_Negotiation__c}" /></b>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        Pago Diff (%): <b><lightning:formattedNumber title="Pago Diff (%)" value="{!v.oliRecord.cpliq_Payment_Dif__c}" /></b>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        Prórroga (%): <b><lightning:formattedNumber title="Prórroga (%)" value="{!v.oliRecord.cpliq_Extension__c}" /></b>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        Incremento (%): <b><lightning:formattedNumber title="Incremento (%)" value="{!v.oliRecord.cpliq_Increase__c}" /></b>
+                                    </p>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='04'}">
+                <div class="slds-p-horizontal--small">
+                    <p class="slds-text-body_regular">
+                        Tipo de Comisión: <b><lightning:formattedText title="Tipo de Comisión" value="Flat" /></b>
+                    </p>
+                    <br/>
+                    <div style="margin-left: 50px;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        BBVA (%): <b><lightning:formattedNumber title="BBVA (%)" value="{!v.oliRecord.cpliq_BBVA__c }" /></b>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        Bco. Correponsal (%): <b><lightning:formattedNumber title="Bco. Correponsal (%)" value="{!v.oliRecord.cpliq_Bco_Correspondent__c}" /></b>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='05'}">
+                <div class="slds-p-horizontal--small">
+                    <p class="slds-text-body_regular">
+                        Tipo de Comisión: <b><lightning:formattedText title="Tipo de Comisión" value="All in" /></b>
+                    </p>
+                    <br/>
+                    <div style="margin-left: 50px;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        BBVA (%): <b><lightning:formattedNumber title="BBVA (%)" value="{!v.oliRecord.cpliq_BBVA__c }" /></b>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        Total (%): <b><lightning:formattedNumber title="Total (%)" value="{!v.oliRecord.cpliq_Total__c}" /></b>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="sdls-text-body_regular">
+                                        Bco. Correponsal (%): <b><lightning:formattedNumber title="Bco. Correponsal (%)" value="{!v.oliRecord.cpliq_Bco_Correspondent__c}" /></b>
+                                    </p>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </aura:if>
+        </lightning:card>
+    </div>
+        
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="recordError">
+            {!v.recordError}
+        </div>
+    </aura:if>
+    
+</aura:component>

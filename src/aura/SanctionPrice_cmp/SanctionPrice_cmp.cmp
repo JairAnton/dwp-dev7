@@ -13,6 +13,7 @@
     <aura:attribute name="isError" type="Boolean" default="false" />
     <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to be displayed"/>
     <aura:attribute name="modalWidthCustom" type="String"  access="global" description="Specify the modal" default="74rem" />
+    <aura:attribute name="OppId" type="String"/>
     <aura:if isTrue="{!v.isLoad}">
         <aura:if isTrue="{!v.checkError}">
             <ui:message title="Error" severity="error" >
@@ -23,6 +24,12 @@
             <c:ErrorMessageWS_cmp errorMessagesList="{!v.errorlst}"/>
             <aura:set attribute="else">
                 <div class="slds-modal__content slds-p-around_medium" >
+                    <aura:if isTrue="{!v.type_of_quote=='Carta de credito'}">
+                        <div class="slds-col sizeSPRICE">                       
+                            <c:FieldsSummary aura:id="fieldsSummary" recordId="{!v.objectInput.IdOppLineItem}" OpportunityId="{!v.OppId}"/>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.type_of_quote!='Carta de credito'}">
                     <div class="slds-grid">
                       <div class="slds-col sizeSPRICE">                       
                           <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
@@ -33,6 +40,7 @@
                           </div>
                        </aura:if>  
                     </div>
+                    </aura:if>
                 </div>              
                 <footer class="slds-modal__footer slds-theme_default">
                     <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>

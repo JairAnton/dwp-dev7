@@ -9,14 +9,18 @@
         action.setParams({
             "recordId" : inputObject.recordId
         });
+        cmp.set('v.OppId',inputObject.recordId);
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 cmp.set('v.AccId',ret.AccId);
                 cmp.set('v.type_of_quote',ret.type_of_quote);
-                if(ret.type_of_quote==='COTIZA Beta')
+                if(ret.type_of_quote==='COTIZA Beta' || ret.type_of_quote==='Carta de credito')
                 {
+                    if(ret.type_of_quote==='Carta de credito'){
+                        cmp.set('v.title','Sanción de Precio');
+                    }
                   cmp.set('v.modalWidthCustom','37rem');
                 }
                 cmp.set('v.commercial_strategy',ret.commercial_strategy);
@@ -48,7 +52,13 @@
         $A.enqueueAction(action);
     },
     continue : function(cmp, evt, helper){
-        var fieldsForm = cmp.find('fieldsForm');
+        //var fieldsForm = cmp.find('fieldsForm');
+        var fieldsForm;
+        if(cmp.get('v.type_of_quote')=='Carta de credito'){
+            fieldsForm = cmp.find('fieldsSummary')
+        }else{
+            fieldsForm = cmp.find('fieldsForm')
+        }
         var valField = fieldsForm.validateSave();
         if(!valField){
             var inputObject=cmp.get('v.inputAttributes'); 
