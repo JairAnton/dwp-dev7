@@ -32,7 +32,7 @@ public with sharing class FieldSummary_ctrl {
         } catch(Exception e) {
             mapReturn.put('isOk',false);
             mapReturn.put('errorMessage',e.getMessage());
-            throw e;
+            throw new AuraHandledException('Error: ' + e.getMessage());
         }
         return mapReturn;
     }
