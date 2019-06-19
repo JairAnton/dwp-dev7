@@ -7,18 +7,32 @@
 * @description Controller class from FieldSummary_ctrl
 **/
 public with sharing class FieldSummary_ctrl {
+    
+    /**
+     * This is the method constructor of the class
+     */
+    private FieldSummary_ctrl(){
+        
+    }
+    
+    /**
+     * This method is used to change status type to 11 in opportunity
+     * @param recordId This is Opportunity Id that will update
+     * @return Map<String,Object> This returns map with result of operation.
+     */
     @AuraEnabled
-    public static Map<String,Object> doSave(String recordId){
-        Map<String,Object> mapReturn = new Map<String,Object>();
-        Opportunity opp = new Opportunity();
+    public static Map<String,Object> doSave(String recordId) {
+        Final Map<String,Object> mapReturn = new Map<String,Object>();
+        Final Opportunity opp = new Opportunity();
         opp.Id = recordId;
         opp.opportunity_status_type__c = '11';
-        try{
+        try {
             update opp;
             mapReturn.put('isOk',true);
-        }catch(Exception e){
+        } catch(Exception e) {
             mapReturn.put('isOk',false);
             mapReturn.put('errorMessage',e.getMessage());
+            throw new AuraHandledException(e.getMessage());
         }
         return mapReturn;
     }
