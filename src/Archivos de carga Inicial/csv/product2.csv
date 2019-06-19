@@ -1,4 +1,4 @@
-﻿"NAME","PRODUCTCODE","DESCRIPTION","ISACTIVE","FAMILY","CURRENCYISOCODE","EXTERNALDATASOURCEID","EXTERNALID","DISPLAYURL","QUANTITYUNITOFMEASURE","ISARCHIVED","STOCKKEEPINGUNIT","TYPE_OF_QUOTE__C","UNIQUE_ID__C","FORMALIZATION__C","PDF__C","PRICE_PENALTY__C","RISK_SANCTION__C","PRICE_APPROVAL_WEB_SERVICE_ID__C"
+"NAME","PRODUCTCODE","DESCRIPTION","ISACTIVE","FAMILY","CURRENCYISOCODE","EXTERNALDATASOURCEID","EXTERNALID","DISPLAYURL","QUANTITYUNITOFMEASURE","ISARCHIVED","STOCKKEEPINGUNIT","TYPE_OF_QUOTE__C","UNIQUE_ID__C","FORMALIZATION__C","PDF__C","PRICE_PENALTY__C","RISK_SANCTION__C","PRICE_APPROVAL_WEB_SERVICE_ID__C"
 "Prestamo comercial Cotiza","PC00001","Producto code 1","true","Financiamiento a corto plazo","PEN","","","","","false","","COTIZA Beta","0160010","true","true","true","true","11"
 "Prestamo comercial Prueba (No usar)","PC00001_Depre","Producto code 1","true","Financiamiento a corto plazo","PEN","","","","","false","","Web","0160010_NEW","true","true","true","true","11"
 "Comex Importacion","PC00002","Producto code 2","true","Financiamiento a corto plazo","PEN","","","","","false","","COTIZA Beta","0161720","true","true","true","true",""

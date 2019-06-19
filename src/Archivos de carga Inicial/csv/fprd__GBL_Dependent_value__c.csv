@@ -1,4 +1,4 @@
-﻿"fprd__LoV_labels__c","fprd__LoV_values__c","fprd__Opportunity__c","fprd__Product_configuration__r.fprd__DeveloperName__c","fprd__Values_control_value__c","Unique_id__c"
+"fprd__LoV_labels__c","fprd__LoV_values__c","fprd__Opportunity__c","fprd__Product_configuration__r.fprd__DeveloperName__c","fprd__Values_control_value__c","Unique_id__c"
 "Acciones y bono,Cartas de crédito,Certificados bancarios,Fianza bancaria,Fondos mutuos,Hipoteca,Leasing,Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","04,05,06,07,09,10,11,12,13,14,15,16,17",,"gipr_Garantia_PC00005","No dineraria","DE_GA_PC0005_01"
 "Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00005","Dineraria","DE_GA_PC0005_02"
 "Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00018","Dineraria","DE_GA_PC0018_01"

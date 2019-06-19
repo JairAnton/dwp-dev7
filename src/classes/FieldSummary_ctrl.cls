@@ -11,7 +11,7 @@ public with sharing class FieldSummary_ctrl {
     /**
      * This is the method constructor of the class
      */
-    private FieldSummary_ctrl(){
+    private FieldSummary_ctrl() {
         
     }
     
@@ -32,7 +32,7 @@ public with sharing class FieldSummary_ctrl {
         } catch(Exception e) {
             mapReturn.put('isOk',false);
             mapReturn.put('errorMessage',e.getMessage());
-            throw new AuraHandledException(e.getMessage());
+            throw e;
         }
         return mapReturn;
     }

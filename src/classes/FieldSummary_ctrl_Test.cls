@@ -27,10 +27,10 @@ public class FieldSummary_ctrl_Test {
         update lstOpp;
         
         Test.startTest();
-        Final Map<String,Object> mapSave = FieldSummary_ctrl.doSave(lstOpp[0].Id);
+        FieldSummary_ctrl.doSave(lstOpp[0].Id);
         lstOpp = [SELECT Id, opportunity_status_type__c FROM Opportunity LIMIT 1];
-        Final String x = lstOpp[0].opportunity_status_type__c;
-        System.assertEquals('11', x, 'x debe ser igual a 11');
+        Final String statusType = lstOpp[0].opportunity_status_type__c;
+        System.assertEquals('11', statusType, 'the status type must be equal to 11');
         test.stopTest();
     }
     
@@ -39,12 +39,12 @@ public class FieldSummary_ctrl_Test {
         Final List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2 LIMIT 1];
         lstProd[0].Type_of_quote__c = 'Carta de credito';
         update lstProd;
-		List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
+		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
         
         Test.startTest();
         Final Map<String,Object> mapSave = FieldSummary_ctrl.doSave(lstOpp[0].Id);
-        Final Boolean x = (Boolean)mapSave.get('isOk');
-        System.assertEquals(false, x, 'x debe ser igual a falso');
+        Final Boolean result = !(Boolean)mapSave.get('isOk');
+        System.assert(result, 'the result must be equal to true');
         Test.stopTest();
     }
 }
