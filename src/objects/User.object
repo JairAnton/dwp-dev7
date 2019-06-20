@@ -158,6 +158,36 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Organizational_unit_code_equivalence__c</fullName>
+        <externalId>false</externalId>
+        <label>Organizational unit code equivalence</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organizational_unit_equivalence__c</fullName>
+        <externalId>false</externalId>
+        <label>Organizational unit equivalence</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>User_position_equivalence__c</fullName>
+        <externalId>false</externalId>
+        <label>User position equivalence</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>ActiveUsers</fullName>
         <columns>FULL_NAME</columns>
