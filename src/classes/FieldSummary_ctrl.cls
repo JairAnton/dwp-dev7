@@ -30,8 +30,6 @@ public with sharing class FieldSummary_ctrl {
             update opp;
             mapReturn.put('isOk',true);
         } catch(AuraHandledException e) {
-            mapReturn.put('isOk',false);
-            mapReturn.put('errorMessage',e.getMessage());
             throw e;
         } catch(Exception e) {
             mapReturn.put('isOk',false);
