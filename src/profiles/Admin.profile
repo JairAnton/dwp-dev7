@@ -702,6 +702,18 @@
         <apexClass>FieldSummary_ctrl_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>User_Handler_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	  <classAccesses>
+        <apexClass>User_Trigger_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	  <classAccesses>
+        <apexClass>User_Trigger_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>false</editable>
