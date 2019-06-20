@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
         <application>DWP_Reunion_individual</application>
@@ -906,7 +906,7 @@
         <apexClass>Minuta_ctrl_TEST</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
+	<classAccesses>
         <apexClass>FieldSummary_ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -5263,7 +5263,7 @@ Asistente BE</description>
         <field>Account_variation_information__c.validation_color_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.gipr_Class__c</field>
         <readable>true</readable>
@@ -5298,7 +5298,7 @@ Asistente BE</description>
         <field>OpportunityLineItem.cpliq_Increase__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions> 
+    <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_Extension__c</field>
         <readable>true</readable>
