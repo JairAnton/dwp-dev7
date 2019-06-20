@@ -29,9 +29,10 @@ public with sharing class FieldSummary_ctrl {
         try {
             update opp;
             mapReturn.put('isOk',true);
-        } catch(Exception e) {
+        } catch(AuraHandledException e) {
             mapReturn.put('isOk',false);
             mapReturn.put('errorMessage',e.getMessage());
+            throw e;
         }
         return mapReturn;
     }
