@@ -28,8 +28,8 @@ public class FieldSummary_ctrl_Test {
         
         Test.startTest();
         FieldSummary_ctrl.doSave(lstOpp[0].Id);
-        lstOpp = [SELECT Id, opportunity_status_type__c FROM Opportunity LIMIT 1];
-        Final String statusType = lstOpp[0].opportunity_status_type__c;
+        Final List<Opportunity> lstOppResult = [SELECT Id, opportunity_status_type__c FROM Opportunity LIMIT 1];
+        Final String statusType = lstOppResult[0].opportunity_status_type__c;
         System.assertEquals('11', statusType, 'the status type must be equal to 11');
         test.stopTest();
     }
