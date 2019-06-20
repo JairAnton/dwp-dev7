@@ -662,6 +662,18 @@
         <apexClass>Minuta_ctrl_TEST</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>User_Handler_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	  <classAccesses>
+        <apexClass>User_Trigger_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	  <classAccesses>
+        <apexClass>User_Trigger_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Account_BBVA_Information__c.Oficer_Manager__c</field>
