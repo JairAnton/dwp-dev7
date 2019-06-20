@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Organizational Unit Equivalence</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Equivalences Organizational Units</value>
+    </caseValues>
+    <fields>
+        <label><!-- Organizational unit --></label>
+        <name>Organizational_unit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organizational unit code --></label>
+        <name>Organizational_unit_code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organizational unit code equivalence --></label>
+        <name>Organizational_unit_code_equivalence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organizational unit equivalence --></label>
+        <name>Organizational_unit_equivalence__c</name>
+    </fields>
+    <layouts>
+        <layout>Organizational Unit Equivalence Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Organizational Unit Equivalence Name --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
