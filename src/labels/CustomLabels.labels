@@ -2091,4 +2091,11 @@
         <shortDescription>lblReq</shortDescription>
         <value>REQUESTED</value>
     </labels>
+	<labels>
+        <fullName>Error_letter_of_credit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error letter of credit</shortDescription>
+        <value>The status of the opportunity could not be updated to the &quot;Approved Price&quot; status.</value>
+    </labels>
 </CustomLabels>
