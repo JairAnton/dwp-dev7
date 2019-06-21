@@ -50,7 +50,7 @@ public class FieldSummary_ctrl_Test {
             error = true;
             System.debug(e);
         }
-        System.assert(error);
+        System.assert(error, 'ERROR');
         Test.stopTest();
     }
 }
