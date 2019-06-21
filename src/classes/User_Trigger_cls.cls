@@ -40,7 +40,7 @@ public without sharing class  User_Trigger_cls {
     * @author Jose Rodriguez.
     */
     public void setEquivalentValues(List<User>userNew) {
-     if(!PERFIL_MIGRACION.equals([select Name from profile where Id=:Userinfo.getProfileId() limit 1].Name)) {
+     if(PERFIL_MIGRACION.equals([select Name from profile where Id=:Userinfo.getProfileId() limit 1].Name)) {
       List<Organizational_Unit_Equivalence__c>  orgEquivalent =  new List<Organizational_Unit_Equivalence__c>();
       List<User_Position_equivalence__c>  userPosEquiv =  new List<User_Position_equivalence__c>();
       orgEquivalent = [select Organizational_unit__c,Organizational_unit_code__c,Organizational_unit_code_equivalence__c, Organizational_unit_equivalence__c from Organizational_Unit_Equivalence__c limit 200];
