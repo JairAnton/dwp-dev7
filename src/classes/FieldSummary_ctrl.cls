@@ -29,7 +29,7 @@ public with sharing class FieldSummary_ctrl {
         try {
             update opp;
             mapReturn.put('isOk',true);
-        } catch(AuraHandledException e) {
+        } catch(Exception e) {
             throw e;
         }
         return mapReturn;
