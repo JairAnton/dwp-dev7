@@ -43,8 +43,8 @@ public class FieldSummary_ctrl_Test {
         
         Test.startTest();
         try {
-            Final Map<String,Object> mapSave = FieldSummary_ctrl.doSave(lstOpp[0].Id);
-        } catch (Exception e) {
+            FieldSummary_ctrl.doSave(lstOpp[0].Id);
+        } catch(Exception e) {
             System.debug(e);
         }
         Test.stopTest();
