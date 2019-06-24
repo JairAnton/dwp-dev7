@@ -30,7 +30,7 @@ public with sharing class FieldSummary_ctrl {
             update opp;
             mapReturn.put('isOk',true);
         } catch (Exception e) {
-            throw new AuraHandledException(Label.Error_letter_of_credit);
+            mapReturn.put('isOk',false);
         }
         return mapReturn;
     }
