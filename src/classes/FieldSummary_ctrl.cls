@@ -30,7 +30,8 @@ public with sharing class FieldSummary_ctrl {
             update opp;
             mapReturn.put('isOk',true);
         } catch (Exception e) {
-            throw e;
+            mapReturn.put('isOk',false);
+            mapReturn.put('errorMessage',e.getMessage());
         }
         return mapReturn;
     }
