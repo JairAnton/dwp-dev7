@@ -43,7 +43,7 @@ public class FieldSummary_ctrl_Test {
         
         Test.startTest();
         Final Map<String,Object> mapReturn = FieldSummary_ctrl.doSave(lstOpp[0].Id);
-        Boolean returnValue = !(Boolean)mapReturn.get('isOk');
+        Final Boolean returnValue = !(Boolean)mapReturn.get('isOk');
         System.assert(returnValue, 'ERROR');
         Test.stopTest();
     }
