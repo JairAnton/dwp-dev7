@@ -4204,6 +4204,11 @@
        <field>OpportunityLineItem.cpliq_Total__c</field>
        <readable>true</readable>
    </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_n__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>

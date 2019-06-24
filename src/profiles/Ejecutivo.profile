@@ -3259,9 +3259,9 @@ Asistente BE</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>OpportunityLineItem.cpliq_Periodicidad__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5322,6 +5322,16 @@ Asistente BE</description>
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</field>
         <readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Plazo__c</field>
+        <readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	    <editable>true</editable>
+	    <field>OpportunityLineItem.cpliq_n__c</field>
+	    <readable>true</readable>
 	</fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>

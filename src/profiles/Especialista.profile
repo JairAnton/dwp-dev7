@@ -4563,6 +4563,26 @@ Ejecutivos de REDES</description>
         <field>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</field>
         <readable>true</readable>
 	</fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Plazo__c</field>
+        <readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	    <editable>true</editable>
+	    <field>OpportunityLineItem.cpliq_n__c</field>
+	    <readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Periodicidad__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Periodicidad__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
