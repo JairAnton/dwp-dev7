@@ -42,9 +42,15 @@ public class FieldSummary_ctrl_Test {
 		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
         
         Test.startTest();
-        Final Map<String,Object> mapReturn = FieldSummary_ctrl.doSave(lstOpp[0].Id);
-        Final Boolean returnValue = !(Boolean)mapReturn.get('isOk');
-        System.assert(returnValue, 'ERROR');
+        Boolean error = false;
+        try {
+            FieldSummary_ctrl.doSave(lstOpp[0].Id);
+            error = false;
+        } catch(Exception e) {
+            error = true;
+            System.debug(e);
+        }
+        System.assert(error, 'ERROR');
         Test.stopTest();
     }
 }
