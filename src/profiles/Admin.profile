@@ -2703,17 +2703,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Periodicidad__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>OpportunityLineItem.gipr_Physical_token__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Plazo__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2846,19 +2836,9 @@
         <field>OpportunityLineItem.cpliq_n_gracia__c</field>
         <readable>true</readable>
     </fieldPermissions>
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Periodicidad__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_Codigo_Simulacion__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</field>
         <readable>true</readable>
     </fieldPermissions>
    <fieldPermissions>
@@ -4214,6 +4194,11 @@
    <fieldPermissions>
        <editable>false</editable>
        <field>OpportunityLineItem.cpliq_Total__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_n__c</field>
        <readable>true</readable>
    </fieldPermissions>
 	<layoutAssignments>
