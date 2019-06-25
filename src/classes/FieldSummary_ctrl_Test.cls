@@ -27,7 +27,7 @@ public class FieldSummary_ctrl_Test {
         update lstOpp;
         
         Test.startTest();
-        FieldSummary_ctrl.doSave(lstOpp[0].Id);
+        FieldSummary_ctrl.doSave(lstOpp[0].Id, '<div>Hola</div>');
         Final List<Opportunity> lstOppResult = [SELECT Id, opportunity_status_type__c FROM Opportunity LIMIT 1];
         Final String statusType = lstOppResult[0].opportunity_status_type__c;
         System.assertEquals('11', statusType, 'the status type must be equal to 11');
@@ -42,7 +42,7 @@ public class FieldSummary_ctrl_Test {
 		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
         
         Test.startTest();
-        Final Map<String,Object> mapReturn = FieldSummary_ctrl.doSave(lstOpp[0].Id);
+        Final Map<String,Object> mapReturn = FieldSummary_ctrl.doSave(lstOpp[0].Id, '<div>Hola</div>');
         Final Boolean returnValue = !(Boolean)mapReturn.get('isOk');
         System.assert(returnValue, 'ERROR');
         Test.stopTest();
