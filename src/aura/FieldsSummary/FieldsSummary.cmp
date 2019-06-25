@@ -7,9 +7,165 @@
     
     <force:recordData aura:id="record"
                       recordId="{!v.recordId}"
-                      fields="Id,Name,UnitPrice,cpliq_Commission__c,cpliq_Fecha_Vencimiento__c,cpliq_Emission__c,cpliq_Negotiation__c,cpliq_Payment_Dif__c,cpliq_Extension__c,cpliq_Increase__c,cpliq_BBVA__c,cpliq_Bco_Correspondent__c,cpliq_Total__c"
+                      fields="Id,Name,Product2.Name,CurrencyIsoCode,UnitPrice,cpliq_Commission__c,cpliq_Fecha_Vencimiento__c,cpliq_Emission__c,cpliq_Negotiation__c,cpliq_Payment_Dif__c,cpliq_Extension__c,cpliq_Increase__c,cpliq_BBVA__c,cpliq_Bco_Correspondent__c,cpliq_Total__c"
                       targetFields="{!v.oliRecord}"
                       targetError="{!v.recordError}"/>
+    
+    <div id="storeHTML" class="slds-hide">
+        <div class="slds-form-element__control">
+            <table width="100%">
+                <tr>
+                    <td width="50%">
+                        <p class="slds-form-element__label">
+                            Producto
+                        </p>
+                        <p class="slds-form-element__static">
+                            {!v.oliRecord.Product2.Name}
+                        </p>
+                        <br/>
+                        <br/>
+                    </td>
+                    <td width="50%">
+                        <p class="slds-form-element__label">
+                            Importe
+                        </p>
+                        <p class="slds-form-element__static">
+                            {!v.oliRecord.UnitPrice}&nbsp;{!v.oliRecord.CurrencyIsoCode }
+                        </p>
+                        <br/>
+                        <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="slds-form-element__label">
+                            Tipo de Comisión
+                        </p>
+                        <p class="slds-form-element__static">
+                            <img src="/resource/Green_Flag_Icon" alt=" " style="height:18px; width:18px;" border="0" data-aura-rendered-by="5073:0"/>
+                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='01'}">
+                                Usual
+                            </aura:if>
+                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='02'}">
+                                Ingresada
+                            </aura:if>
+                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                                Puntual
+                            </aura:if>
+                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='04'}">
+                                Flat
+                            </aura:if>
+                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='05'}">
+                                All in
+                            </aura:if>
+                        </p>
+                        <br/>
+                        <br/>
+                    </td>
+                    <td>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='02'}">
+                            <p class="slds-form-element__label">
+                                Fecha de Vencimiento
+                            </p>
+                            <p class="slds-form-element__static">
+                                {!v.oliRecord.cpliq_Fecha_Vencimiento__c}
+                            </p>
+                        </aura:if>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                            <p class="slds-form-element__label">
+                                Emisión (%)
+                            </p>
+                            <p class="slds-form-element__static">
+                                {!v.oliRecord.cpliq_Emission__c}
+                            </p>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.oliRecord.cpliq_Commission__c=='04') || (v.oliRecord.cpliq_Commission__c=='05')}">
+                            <p class="slds-form-element__label">
+                                BBVA (%)
+                            </p>
+                            <p class="slds-form-element__static">
+                                {!v.oliRecord.cpliq_BBVA__c}
+                            </p>
+                        </aura:if>
+                        <br/>
+                        <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                            <p class="slds-form-element__label">
+                                Negociación (%)
+                            </p>
+                            <p class="slds-form-element__static">
+                                {!v.oliRecord.cpliq_Negotiation__c}
+                            </p>
+                            <br/>
+                            <br/>
+                        </aura:if>
+                        <aura:if isTrue="{!(v.oliRecord.cpliq_Commission__c=='04') || (v.oliRecord.cpliq_Commission__c=='05')}">
+                            <p class="slds-form-element__label">
+                                Bco. Corresponsal (%)
+                            </p>
+                            <p class="slds-form-element__static">
+                                {!v.oliRecord.cpliq_Bco_Correspondent__c}
+                            </p>
+                            <br/>
+                            <br/>
+                        </aura:if>
+                    </td>
+                    <td>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                            <p class="slds-form-element__label">
+                                Pago Dif (%)
+                            </p>
+                            <p class="slds-form-element__static">
+                                {!v.oliRecord.cpliq_Payment_Dif__c}
+                            </p>
+                            <br/>
+                            <br/>
+                        </aura:if>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='05'}">
+                            <p class="slds-form-element__label">
+                                Total (%)
+                            </p>
+                            <p class="slds-form-element__static">
+                                {!v.oliRecord.cpliq_Total__c}
+                            </p>
+                            <br/>
+                            <br/>
+                        </aura:if>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                            <p class="slds-form-element__label">
+                                Prórroga (%)
+                            </p>
+                            <p class="slds-form-element__static">
+                                {!v.oliRecord.cpliq_Extension__c}
+                            </p>
+                            <br/>
+                            <br/>
+                        </aura:if>
+                    </td>
+                    <td>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                            <p class="slds-form-element__label">
+                                Incremento (%)
+                            </p>
+                            <p class="slds-form-element__static">
+                                {!v.oliRecord.cpliq_Increase__c}
+                            </p>
+                            <br/>
+                            <br/>
+                        </aura:if>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
     
     <div class="Record Details">
         <lightning:card iconName="standard:opportunity" title="{!v.oliRecord.Name}" >

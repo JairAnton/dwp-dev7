@@ -1,8 +1,10 @@
 ({
 	doContinue : function(cmp, evt, helper) {
+        var storeHTML = document.getElementById('storeHTML');
         var action = cmp.get("c.doSave");
         action.setParams({
-            "recordId" : cmp.get('v.OpportunityId')
+            "recordId" : cmp.get('v.OpportunityId'),
+            "storeHtml" : storeHTML.innerHTML
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
