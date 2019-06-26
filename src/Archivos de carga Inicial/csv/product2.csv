@@ -23,4 +23,4 @@
 "PFA","PC00042","Producto code 42","true","Programa financiero","PEN","","","","","false","","","PC00042","false","false","false","true",""
 "FX","PC00035","Producto code 35","true","Tesorería","PEN","","","","","false","","","PC00035","false","false","false","false",""
 "Depósito a plazo","PC00018","Producto code 18","true","Recursos","PEN","","","","","false","","COTIZA Beta","0241041","true","true","true","false",""
-"Carta de crédito de importación","PC00014","Producto code 14","true","Riesgo de firma","PEN","","","","","false","","Carta de credito","0292410","false","false","true","true",""
+"Carta de crédito de importación","PC00014","Producto code 14","true","Riesgo de firma","PEN","","","","","false","","Carta de credito","0292410","true","true","true","true",""
