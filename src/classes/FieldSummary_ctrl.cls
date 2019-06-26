@@ -33,7 +33,7 @@ public with sharing class FieldSummary_ctrl {
             update opp;
             
             Final List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
-            lstAudit.add(Action_Audit_Helper.getAudit('Price approved', 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), 'approveTop', null, false));
+            lstAudit.add(Action_Audit_Helper.getAudit(Label.AuditPriceApproval, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), 'approveTop', null, false));
             insert lstAudit;
             
             Final List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();

@@ -789,7 +789,7 @@
         <name>RiskSendToApproval</name>
     </customLabels>
     <customLabels>
-        <label>Price Approval</label>
+        <label>Precio Aprobado</label>
         <name>AuditPriceApproval</name>
     </customLabels>
     <customLabels>
