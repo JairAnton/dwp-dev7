@@ -1416,6 +1416,58 @@
             <translation>Capitalización</translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label><!-- Clase --></label>
+        <name>gipr_Class__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Standard</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Leasing</translation>
+        </picklistValues>
+    </fields>
+	<fields>
+        <label><!-- Forma de Pago --></label>
+        <name>cpliq_Way_to_Pay__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Vista</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Plazo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Mixta</translation>
+        </picklistValues>
+    </fields>
+	<fields>
+        <label><!-- Comisión --></label>
+        <name>cpliq_Commission__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Usual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Ingresada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Puntual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Flat</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>All in</translation>
+        </picklistValues>
+    </fields>
     <validationRules>
         <errorMessage>Nº de contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>ContractNo_Validation</name>
