@@ -788,8 +788,8 @@
         <label>Enviada a autorización de riesgos</label>
         <name>RiskSendToApproval</name>
     </customLabels>
-    <customLabels>
-        <label>Precio Aprobado</label>
+	<customLabels>
+        <label>Price Approval</label>
         <name>AuditPriceApproval</name>
     </customLabels>
     <customLabels>

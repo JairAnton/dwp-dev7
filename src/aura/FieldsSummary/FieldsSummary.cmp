@@ -1,4 +1,8 @@
 <aura:component implements="force:hasRecordId" controller="FieldSummary_ctrl">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="values" type="String[]" default="" />
+    <aura:attribute name="isOk" type="Boolean" default="false"/>
+    <aura:attribute name="isOkLabel" type="String" default=""/>
     <aura:attribute name="record" type="Object" description="The record object to be displayed"/>
     <aura:attribute name="oliRecord" type="Object" description="A simplified view record object to be displayed"/>
     <aura:attribute name="recordError" type="String" description="An error message bound to force:recordData"/>
@@ -11,163 +15,7 @@
                       targetFields="{!v.oliRecord}"
                       targetError="{!v.recordError}"/>
     
-    <div id="storeHTML" class="slds-hide">
-        <div class="slds-form-element__control">
-            <table width="100%">
-                <tr>
-                    <td width="50%">
-                        <p class="slds-form-element__label">
-                            Producto
-                        </p>
-                        <p class="slds-form-element__static">
-                            {!v.oliRecord.Product2.Name}
-                        </p>
-                        <br/>
-                        <br/>
-                    </td>
-                    <td width="50%">
-                        <p class="slds-form-element__label">
-                            Importe
-                        </p>
-                        <p class="slds-form-element__static">
-                            {!v.oliRecord.UnitPrice}&nbsp;{!v.oliRecord.CurrencyIsoCode }
-                        </p>
-                        <br/>
-                        <br/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="slds-form-element__label">
-                            Comisión
-                        </p>
-                        <p class="slds-form-element__static">
-                            <img src="/resource/Green_Flag_Icon" alt=" " style="height:18px; width:18px;" border="0" data-aura-rendered-by="5073:0"/>
-                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='01'}">
-                                Usual
-                            </aura:if>
-                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='02'}">
-                                Ingresada
-                            </aura:if>
-                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
-                                Puntual
-                            </aura:if>
-                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='04'}">
-                                Flat
-                            </aura:if>
-                            <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='05'}">
-                                All in
-                            </aura:if>
-                        </p>
-                        <br/>
-                        <br/>
-                    </td>
-                    <td>
-                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='02'}">
-                            <p class="slds-form-element__label">
-                                Fecha de vencimiento
-                            </p>
-                            <p class="slds-form-element__static">
-                                {!v.oliRecord.cpliq_Fecha_Vencimiento__c}
-                            </p>
-                        </aura:if>
-                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
-                            <p class="slds-form-element__label">
-                                Emisión (%)
-                            </p>
-                            <p class="slds-form-element__static">
-                                {!v.oliRecord.cpliq_Emission__c}
-                            </p>
-                        </aura:if>
-                        <aura:if isTrue="{!(v.oliRecord.cpliq_Commission__c=='04') || (v.oliRecord.cpliq_Commission__c=='05')}">
-                            <p class="slds-form-element__label">
-                                BBVA (%)
-                            </p>
-                            <p class="slds-form-element__static">
-                                {!v.oliRecord.cpliq_BBVA__c}
-                            </p>
-                        </aura:if>
-                        <br/>
-                        <br/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
-                            <p class="slds-form-element__label">
-                                Negociación (%)
-                            </p>
-                            <p class="slds-form-element__static">
-                                {!v.oliRecord.cpliq_Negotiation__c}
-                            </p>
-                            <br/>
-                            <br/>
-                        </aura:if>
-                        <aura:if isTrue="{!(v.oliRecord.cpliq_Commission__c=='04') || (v.oliRecord.cpliq_Commission__c=='05')}">
-                            <p class="slds-form-element__label">
-                                Bco. corresponsal (%)
-                            </p>
-                            <p class="slds-form-element__static">
-                                {!v.oliRecord.cpliq_Bco_Correspondent__c}
-                            </p>
-                            <br/>
-                            <br/>
-                        </aura:if>
-                    </td>
-                    <td>
-                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
-                            <p class="slds-form-element__label">
-                                Pago dif (%)
-                            </p>
-                            <p class="slds-form-element__static">
-                                {!v.oliRecord.cpliq_Payment_Dif__c}
-                            </p>
-                            <br/>
-                            <br/>
-                        </aura:if>
-                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='05'}">
-                            <p class="slds-form-element__label">
-                                Total (%)
-                            </p>
-                            <p class="slds-form-element__static">
-                                {!v.oliRecord.cpliq_Total__c}
-                            </p>
-                            <br/>
-                            <br/>
-                        </aura:if>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
-                            <p class="slds-form-element__label">
-                                Prórroga (%)
-                            </p>
-                            <p class="slds-form-element__static">
-                                {!v.oliRecord.cpliq_Extension__c}
-                            </p>
-                            <br/>
-                            <br/>
-                        </aura:if>
-                    </td>
-                    <td>
-                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
-                            <p class="slds-form-element__label">
-                                Incremento (%)
-                            </p>
-                            <p class="slds-form-element__static">
-                                {!v.oliRecord.cpliq_Increase__c}
-                            </p>
-                            <br/>
-                            <br/>
-                        </aura:if>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    
-    <div style="width: 88%">
+    <div id="storeHTML" class="slds-hide" style="width: 88%">
         <table>
             <tr>
                 <td width="50%" class="headerLeft">
@@ -175,7 +23,7 @@
                         Importe
                     </p>
                     <p class="slds-form-element__static">
-                        <lightning:formattedNumber value="{!v.oliRecord.UnitPrice}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>&nbsp;{!v.oliRecord.CurrencyIsoCode }
+                        {!v.values[0]}&nbsp;{!v.oliRecord.CurrencyIsoCode }
                     </p>
                     <br/>
                 </td>
@@ -184,7 +32,7 @@
                         Producto
                     </p>
                     <p class="slds-form-element__static">
-                        {!v.oliRecord.Product2.Name}
+                        {!v.values[1]}
                     </p>
                     <br/>
                 </td>
@@ -223,28 +71,22 @@
                             <td>
                                 <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='02'}">
                                     <p class="slds-form-element__label">
-                                        Fecha de vencimiento
-                                    </p>
-                                    <p class="slds-form-element__static">
-                                        {!v.oliRecord.cpliq_Fecha_Vencimiento__c}
+                                        Vcto. tarifa
                                     </p>
                                 </aura:if>
                                 <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
                                     <p class="slds-form-element__label">
                                         Emisión (%)
                                     </p>
-                                    <p class="slds-form-element__static">
-                                        <lightning:formattedNumber style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.oliRecord.cpliq_Emission__c}"/>
-                                    </p>
                                 </aura:if>
                                 <aura:if isTrue="{!(v.oliRecord.cpliq_Commission__c=='04') || (v.oliRecord.cpliq_Commission__c=='05')}">
                                     <p class="slds-form-element__label">
                                         BBVA (%)
                                     </p>
-                                    <p class="slds-form-element__static">
-                                        <lightning:formattedNumber style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.oliRecord.cpliq_BBVA__c}" />
-                                    </p>
                                 </aura:if>
+                                <p class="slds-form-element__static">
+                                        {!v.values[2]}
+                                    </p>
                                 <br/>
                                 <br/>
                             </td>
@@ -253,22 +95,17 @@
                                     <p class="slds-form-element__label">
                                         Negociación (%)
                                     </p>
-                                    <p class="slds-form-element__static">
-                                        <lightning:formattedNumber style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.oliRecord.cpliq_Negotiation__c}" />
-                                    </p>
-                                    <br/>
-                                    <br/>
                                 </aura:if>
                                 <aura:if isTrue="{!(v.oliRecord.cpliq_Commission__c=='04') || (v.oliRecord.cpliq_Commission__c=='05')}">
                                     <p class="slds-form-element__label">
                                         Bco. corresponsal (%)
                                     </p>
-                                    <p class="slds-form-element__static">
-                                        <lightning:formattedNumber style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.oliRecord.cpliq_Bco_Correspondent__c}" />
-                                    </p>
-                                    <br/>
-                                    <br/>
                                 </aura:if>
+                                <p class="slds-form-element__static">
+                                        {!v.values[3]}
+                                    </p>
+                                <br/>
+                                <br/>
                             </td>
                         </tr>
                         <tr>
@@ -277,22 +114,17 @@
                                     <p class="slds-form-element__label">
                                         Pago dif (%)
                                     </p>
-                                    <p class="slds-form-element__static">
-                                        <lightning:formattedNumber style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.oliRecord.cpliq_Payment_Dif__c}" />
-                                    </p>
-                                    <br/>
-                                    <br/>
                                 </aura:if>
                                 <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='05'}">
                                     <p class="slds-form-element__label">
                                         Total (%)
                                     </p>
-                                    <p class="slds-form-element__static">
-                                        <lightning:formattedNumber style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.oliRecord.cpliq_Total__c}" />
-                                    </p>
-                                    <br/>
-                                    <br/>
                                 </aura:if>
+                                <p class="slds-form-element__static">
+                                        {!v.values[4]}
+                                    </p>
+                                <br/>
+                                <br/>
                             </td>
                             <td>
                                 <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
@@ -300,7 +132,7 @@
                                         Prórroga (%)
                                     </p>
                                     <p class="slds-form-element__static">
-                                        <lightning:formattedNumber style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.oliRecord.cpliq_Extension__c}" />
+                                        {!v.values[5]}
                                     </p>
                                     <br/>
                                     <br/>
@@ -314,7 +146,7 @@
                                         Incremento (%)
                                     </p>
                                     <p class="slds-form-element__static">
-                                        <lightning:formattedNumber style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.oliRecord.cpliq_Increase__c}" />
+                                        {!v.values[6]}
                                     </p>
                                     <br/>
                                     <br/>
@@ -326,7 +158,152 @@
             </tr>
         </table>
     </div>
-        
+    
+    <div style="width: 88%">
+        <table>
+            <tr>
+                <td width="50%" class="headerLeft">
+                    <p class="slds-form-element__label">
+                        Importe
+                    </p>
+                    <p class="slds-form-element__static">
+                        {!v.values[0]}&nbsp;{!v.oliRecord.CurrencyIsoCode }
+                    </p>
+                    <br/>
+                </td>
+                <td width="50%" class="headerRight">
+                    <p class="slds-form-element__label">
+                        Producto
+                    </p>
+                    <p class="slds-form-element__static">
+                        {!v.values[1]}
+                    </p>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top;">
+                    <br/>
+                    <p class="slds-form-element__label">
+                        Comisión
+                    </p>
+                    <p class="slds-form-element__static">
+                        <img src="/resource/Green_Flag_Icon" alt=" " style="height:18px; width:18px;" border="0" data-aura-rendered-by="5073:0"/>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='01'}">
+                            Usual
+                        </aura:if>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='02'}">
+                            Ingresada
+                        </aura:if>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                            Puntual
+                        </aura:if>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='04'}">
+                            Flat
+                        </aura:if>
+                        <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='05'}">
+                            All in
+                        </aura:if>
+                    </p>
+                    <br/>
+                    <br/>
+                </td>
+                <td>
+                    <br/>
+                    <table style="margin-left: -10px;">
+                        <tr>
+                            <td>
+                                <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='02'}">
+                                    <p class="slds-form-element__label">
+                                        Vcto. tarifa
+                                    </p>
+                                </aura:if>
+                                <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                                    <p class="slds-form-element__label">
+                                        Emisión (%)
+                                    </p>
+                                </aura:if>
+                                <aura:if isTrue="{!(v.oliRecord.cpliq_Commission__c=='04') || (v.oliRecord.cpliq_Commission__c=='05')}">
+                                    <p class="slds-form-element__label">
+                                        BBVA (%)
+                                    </p>
+                                </aura:if>
+                                <p class="slds-form-element__static">
+                                        {!v.values[2]}
+                                    </p>
+                                <br/>
+                                <br/>
+                            </td>
+                            <td>
+                                <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                                    <p class="slds-form-element__label">
+                                        Negociación (%)
+                                    </p>
+                                </aura:if>
+                                <aura:if isTrue="{!(v.oliRecord.cpliq_Commission__c=='04') || (v.oliRecord.cpliq_Commission__c=='05')}">
+                                    <p class="slds-form-element__label">
+                                        Bco. corresponsal (%)
+                                    </p>
+                                </aura:if>
+                                <p class="slds-form-element__static">
+                                        {!v.values[3]}
+                                    </p>
+                                <br/>
+                                <br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                                    <p class="slds-form-element__label">
+                                        Pago dif (%)
+                                    </p>
+                                </aura:if>
+                                <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='05'}">
+                                    <p class="slds-form-element__label">
+                                        Total (%)
+                                    </p>
+                                </aura:if>
+                                <p class="slds-form-element__static">
+                                        {!v.values[4]}
+                                    </p>
+                                <br/>
+                                <br/>
+                            </td>
+                            <td>
+                                <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                                    <p class="slds-form-element__label">
+                                        Prórroga (%)
+                                    </p>
+                                    <p class="slds-form-element__static">
+                                        {!v.values[5]}
+                                    </p>
+                                    <br/>
+                                    <br/>
+                                </aura:if>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <aura:if isTrue="{!v.oliRecord.cpliq_Commission__c=='03'}">
+                                    <p class="slds-form-element__label">
+                                        Incremento (%)
+                                    </p>
+                                    <p class="slds-form-element__static">
+                                        {!v.values[6]}
+                                    </p>
+                                    <br/>
+                                    <br/>
+                                </aura:if>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    
     <aura:if isTrue="{!not(empty(v.recordError))}">
         <div class="recordError">
             {!v.recordError}
