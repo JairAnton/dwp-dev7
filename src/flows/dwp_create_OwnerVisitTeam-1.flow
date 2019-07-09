@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision</name>
+        <label>myDecision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>Sin criterios</label>
+        </rules>
+    </decisions>
+    <description>Proceso que crea el registro del propietario en el objeto &quot;Visit Management Team&quot; cuando se crea un registro en el objeto &quot;Visit&quot;</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>CASE([dwp_kitv__Visit__c].CreatedBy.User_position_equivalence__c, 
+&quot;GRTE ADJTO BCA EMPRESA Y CORP&quot;, [dwp_kitv__Visit__c].CreatedBy.Id , 
+&quot;GERENTE REGIONAL BEC&quot;,  [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;JEFE PROMOCION DE NEGOCIO&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;GERENTE BEC&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;EJECUTIVO BEC&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;ASSOCIATE&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;GTE LEASING &amp; COMEX&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;EJECUTIVO COMEX&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;EJECUTIVO LEASING&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;GTE REDES&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;EJECUTIVO REDES&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+&quot;EJECUTIVO DT&quot;, [dwp_kitv__Visit__c].CreatedBy.Id, 
+[dwp_kitv__Visit__c].dwp_kitv__account_id__c.Owner.Id ) </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A1_6963960159</name>
+        <dataType>String</dataType>
+        <expression>CASE({!myVariable_current.CreatedBy.User_position_equivalence__c}, 
+&quot;GRTE ADJTO BCA EMPRESA Y CORP&quot;, {!myVariable_current.CreatedBy.Id} , 
+&quot;GERENTE REGIONAL BEC&quot;,  {!myVariable_current.CreatedBy.Id}, 
+&quot;JEFE PROMOCION DE NEGOCIO&quot;, {!myVariable_current.CreatedBy.Id}, 
+&quot;GERENTE BEC&quot;, {!myVariable_current.CreatedBy.Id}, 
+&quot;EJECUTIVO BEC&quot;, {!myVariable_current.CreatedBy.Id}, 
+&quot;ASSOCIATE&quot;, {!myVariable_current.CreatedBy.Id}, 
+&quot;GTE LEASING &amp; COMEX&quot;, {!myVariable_current.CreatedBy.Id}, 
+&quot;EJECUTIVO COMEX&quot;, {!myVariable_current.CreatedBy.Id}, 
+&quot;EJECUTIVO LEASING&quot;, {!myVariable_current.CreatedBy.Id}, 
+&quot;GTE REDES&quot;, {!myVariable_current.CreatedBy.Id}, 
+&quot;EJECUTIVO REDES&quot;, {!myVariable_current.CreatedBy.Id}, 
+&quot;EJECUTIVO DT&quot;, {!myVariable_current.CreatedBy.Id}, 
+{!myVariable_current.dwp_kitv__account_id__r.Owner.Id} )</expression>
+    </formulas>
+    <formulas>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>true</expression>
+    </formulas>
+    <interviewLabel>dwp_create_OwnerVisitTeam-1_InterviewLabel</interviewLabel>
+    <label>Process to create Owner Visit Team</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>dwp_kitv__Visit__c</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onCreateOnly</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <recordCreates>
+        <name>myRule_1_A1</name>
+        <label>Crear Propietario</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Send minutes</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>dwp_kitv__Send_minutes__c</field>
+            <value>
+                <stringValue>Do not send</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>ID</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Usuario</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue>User</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>dwp_kitv__user_id__c</field>
+            <value>
+                <elementReference>formula_2_myRule_1_A1_6963960159</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>ID</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Visita</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Reference</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>dwp_kitv__visit_id__c</field>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Propietario de la visita</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>dwp_owner_visit__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>dwp_kitv__Visit_Management_Team__c</object>
+    </recordCreates>
+    <startElementReference>myDecision</startElementReference>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>dwp_kitv__Visit__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>dwp_kitv__Visit__c</objectType>
+    </variables>
+</Flow>

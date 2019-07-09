@@ -3195,7 +3195,12 @@
         <editable>true</editable>
         <field>dwp_kitv__Visit_Management_Team__c.dwp_kitv__user_id__c</field>
         <readable>true</readable>
-    </fieldPermissions>    
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.dwp_owner_visit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>dwp_kitv__Visit_Topic__c.dwp_kitv__More_Recent_Visits__c</field>
