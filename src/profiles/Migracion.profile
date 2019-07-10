@@ -3790,7 +3790,12 @@
         <editable>true</editable>
         <field>dwp_frct__management_plan__c.id_unique__c</field>
         <readable>true</readable>
-    </fieldPermissions>      
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_branch_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>dwp_frct__grouping__c.id_unique__c</field>
@@ -3873,6 +3878,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_kitv__region_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>User.Organizational_unit_equivalence__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3929,6 +3939,16 @@
 	<fieldPermissions>
         <editable>true</editable>
         <field>User.isactive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_office_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_region_name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>

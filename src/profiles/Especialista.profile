@@ -4450,6 +4450,11 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_branch_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.gipr_Currency_Origin__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4573,6 +4578,16 @@ Ejecutivos de REDES</description>
         <field>OpportunityLineItem.gipr_Plazo__c</field>
         <readable>true</readable>
 	</fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_office_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_region_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
 	    <editable>true</editable>
 	    <field>OpportunityLineItem.cpliq_n__c</field>

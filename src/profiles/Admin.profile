@@ -3228,6 +3228,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_branch_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>dwp_kitv__Visit_Topic__c.dwp_kitv__visit_done_type__c</field>
         <readable>true</readable>
     </fieldPermissions>    
@@ -3329,6 +3334,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>dwp_kitv__Visit__c.dwp_kitv__visit_users_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_office_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_region_name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
