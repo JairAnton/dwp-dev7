@@ -22,9 +22,16 @@ public class Visit_Trigger_tst{
     **/  
     @testSetup 
     static void setData() {
+        //Create custom settings
+        Final dwp_kitv__Visit_validations_acc_cs__c[] lstCsValidation=new dwp_kitv__Visit_validations_acc_cs__c[]{};
+        Final dwp_kitv__Visit_validations_acc_cs__c csValidation=new dwp_kitv__Visit_validations_acc_cs__c(SetupOwnerId=UserInfo.getOrganizationId(), dwp_kitv__User_Team_Member__c=true);
+        lstCsValidation.add(csValidation);
+        insert lstCsValidation;
         usuario = TestFactory.createUser('Ejecutivo1', 'System Administrator');
-        visit= TestFactory.createVisitKit();
         Accoun= TestFactory.createAccount();
+        visit = new dwp_kitv__Visit__c(dwp_kitv__account_id__c=Accoun.Id, dwp_kitv__visit_duration_number__c='15', 
+                                                          dwp_kitv__visit_start_date__c=System.now());
+        insert visit;
         contact = TestFactory.createContact(Accoun.Id);
         contactVisit= TestFactory.VisitConta(visit.Id,contact.Id);
         VisitMana = TestFactory.CreateVisitManagement(visit.Id,usuario.Id);
