@@ -8,10 +8,12 @@ public without sharing class Account_Trigger_Visit_cls {
 
     //Map of Records to update
     private static Map<Id, dwp_kitv__Visit__c> visitUpdMap = new Map<Id, dwp_kitv__Visit__c>();
-    //Reutilizable
+    /***Reutilizable***/
     private static Set<Id> idsAccounts;
     
-    /*Method Constructor*/
+    /**
+	*Method Constructor**
+	*/
     private Account_Trigger_Visit_cls() {
         
     }

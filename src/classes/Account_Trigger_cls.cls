@@ -6,6 +6,7 @@
 */
 public without sharing class Account_Trigger_cls {
 
+    /*Method Master for trigger*/
     public void AsignAfterUpdate(list<Account>oppsNew, Map<id,Account>oppsNewMap,
                                   list<Account>oppsOld, Map<id,Account>oppsOldMap) {
 
@@ -110,7 +111,7 @@ public without sharing class Account_Trigger_cls {
     }
     
     /*Method to update Owners in VMT with Active Visit*/
-    public void updateTeamVisit(Map<id,Account> accsNewMap, Map<id,Account> accsOldMap) {
+    public static void updateTeamVisit(Map<id,Account> accsNewMap, Map<id,Account> accsOldMap) {
         Final Set<Id> idsOldOwners = new Set<Id>();
         Final Set<Id> idsAccounts = new Set<Id>();
         List<dwp_kitv__Visit_Management_Team__c> lstOldTeam = new List<dwp_kitv__Visit_Management_Team__c>();

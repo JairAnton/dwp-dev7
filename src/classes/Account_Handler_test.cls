@@ -21,13 +21,13 @@ public class Account_Handler_test {
         mapFields.put(User.LastName, 'OwnerVisit');
         mapFields.put(User.ProfileId, perfil);
         mapFields.put(User.prof_position_type__c, 'EJECUTIVO BEC');
-        User userOwner=getUser(true, mapFields);
+        Final User userOwner=getUser(true, mapFields);
         //Create new User
         mapFields=new Map<Schema.SObjectField, Object>();
         mapFields.put(User.LastName, 'SecondOwner');
         mapFields.put(User.ProfileId, perfil);
         mapFields.put(User.prof_position_type__c, 'EJECUTIVO BEC');
-        User secondOwner=getUser(true, mapFields);
+        Final User secondOwner=getUser(true, mapFields);
         //Create Branches.
         List<Branch__c> lstBranches = new List<Branch__c>();
         for(Integer intI = 0; intI < 5; intI++) {
@@ -55,12 +55,13 @@ public class Account_Handler_test {
         //Start test.
         Test.startTest();
         List<Account> lstAccounts = [SELECT Id, Name FROM Account];
-        Final List<Branch__c> lstBranches = [SELECT Id, Name FROM Branch__c];
+        Final List<Branch__c> lstBranches = [SELECT Id, Name FROM Branch__c limit 5];
         Integer i = 0;
+        Final Integer cont=lstBranches.size() - 1;
         for(Account objAccount : lstAccounts) {
            objAccount.branch_id__c=lstBranches[i].Id;
            i++;
-            if(i>=4){
+            if(i>=cont) {
                 i=0;
             }
         }
@@ -78,15 +79,15 @@ public class Account_Handler_test {
     @isTest
     static void afterInsertTest() {
         Final String ejecutivo = 'Ejecutivo';
-        Final User UserOwnerTest01 = TestFactory.createUser('UserOwnerTest01', ejecutivo);
-        Final User UserOwnerTest02 = TestFactory.createUser('UserOwnerTest02', ejecutivo);
-        Final User UserAssitantTest011 = TestFactory.createUser('UserAssitantTest011', ejecutivo);
-        Final User UserAssitantTest012 = TestFactory.createUser('UserAssitantTest012', ejecutivo);
+        Final User UOwTest01 = TestFactory.createUser('UserOwnerTest01', ejecutivo);
+        Final User UOTest02 = TestFactory.createUser('UserOwnerTest02', ejecutivo);
+        Final User UATest011 = TestFactory.createUser('UserAssitantTest011', ejecutivo);
+        Final User UATest012 = TestFactory.createUser('UserAssitantTest012', ejecutivo);
         Final List<User_Assistant_Team__c> uat_insert = new List<User_Assistant_Team__c>();
-        uat_insert.add(new User_Assistant_Team__c(user_id__c = UserOwnerTest01.Id, assistant_id__c = UserAssitantTest011.Id));
-        uat_insert.add(new User_Assistant_Team__c(user_id__c = UserOwnerTest01.Id, assistant_id__c = UserAssitantTest012.Id));
+        uat_insert.add(new User_Assistant_Team__c(user_id__c = UOwTest01.Id, assistant_id__c = UATest011.Id));
+        uat_insert.add(new User_Assistant_Team__c(user_id__c = UOwTest01.Id, assistant_id__c = UATest012.Id));
         insert uat_insert;
-        System.runAs(UserOwnerTest01) {
+        System.runAs(UOwTest01) {
             Test.startTest();
 				Final Account acc = new Account(Name = 'AccountTest');
             	insert acc;
@@ -98,23 +99,23 @@ public class Account_Handler_test {
     /*Test afterUpdate*/
     @isTest
     static void afterUpdateTest() {
-        Final User UserOwnerTest01 = TestFactory.createUser('UserOwnerTest01', 'Ejecutivo');
-        Final User UserOwnerTest02 = TestFactory.createUser('UserOwnerTest02', 'Ejecutivo');
-        Final User UserAssitantTest011 = TestFactory.createUser('UserAssitantTest011', 'Ejecutivo');
-        Final User UserAssitantTest012 = TestFactory.createUser('UserAssitantTest012', 'Ejecutivo');
-        Final User UserAssitantTest013 = TestFactory.createUser('UserAssitantTest013', 'Ejecutivo');
-        Final User UserAssitantTest021 = TestFactory.createUser('UserAssitantTest021', 'Ejecutivo');
+        Final User UOTest01 = TestFactory.createUser('UserOwnerTest01', 'Ejecutivo');
+        Final User UOTest02 = TestFactory.createUser('UserOwnerTest02', 'Ejecutivo');
+        Final User UATest011 = TestFactory.createUser('UserAssitantTest011', 'Ejecutivo');
+        Final User UATest012 = TestFactory.createUser('UserAssitantTest012', 'Ejecutivo');
+        Final User UATest013 = TestFactory.createUser('UserAssitantTest013', 'Ejecutivo');
+        Final User UATest021 = TestFactory.createUser('UserAssitantTest021', 'Ejecutivo');
         Final List<User_Assistant_Team__c> uat_insert = new List<User_Assistant_Team__c>();
-        uat_insert.add(new User_Assistant_Team__c(user_id__c = UserOwnerTest01.Id, assistant_id__c = UserAssitantTest011.Id));
-        uat_insert.add(new User_Assistant_Team__c(user_id__c = UserOwnerTest01.Id, assistant_id__c = UserAssitantTest012.Id));
-        uat_insert.add(new User_Assistant_Team__c(user_id__c = UserOwnerTest02.Id, assistant_id__c = UserAssitantTest013.Id));
+        uat_insert.add(new User_Assistant_Team__c(user_id__c = UOTest01.Id, assistant_id__c = UATest011.Id));
+        uat_insert.add(new User_Assistant_Team__c(user_id__c = UOTest01.Id, assistant_id__c = UATest012.Id));
+        uat_insert.add(new User_Assistant_Team__c(user_id__c = UOTest02.Id, assistant_id__c = UATest013.Id));
         insert uat_insert;
         
-        System.runAs(UserOwnerTest01) {
+        System.runAs(UOTest01) {
             Test.startTest();
             	Account acc = new Account(Name = 'AccountTest');
             	insert acc;
-            	acc.OwnerId = UserOwnerTest02.Id;
+            	acc.OwnerId = UOTest02.Id;
             	update acc;
             Test.stopTest();
         }
@@ -164,12 +165,10 @@ public class Account_Handler_test {
         update lstNewOwnsAcc;
         Test.stopTest();
         
-        Final dwp_kitv__Visit__c[] visitasAct=[SELECT id, Name FROM dwp_kitv__Visit__c WHERE OwnerId=:newOwner.Id ];
 		Final dwp_kitv__Visit_Management_Team__c[] visitTeam=[SELECT Id, Name, dwp_owner_visit__c,dwp_kitv__user_id__c, dwp_kitv__visit_id__c FROM dwp_kitv__Visit_Management_Team__c 
                                                         WHERE dwp_kitv__user_id__c =:newOwner.Id AND dwp_owner_visit__c=true];
         system.debug('visitTeam ' +visitTeam);
         System.assertEquals(150, visitTeam.size(), 'Compared VMT new owner size');
-        System.assertEquals(150, visitasAct.size(), 'Compared VMT Active Size');
     }
     
     /*Test Update Branch in Visit Object*/
