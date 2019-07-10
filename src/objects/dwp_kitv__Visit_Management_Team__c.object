@@ -109,6 +109,14 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>dwp_owner_visit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Propietario de la visita</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>on_a_team__c</fullName>
         <externalId>false</externalId>
         <formula>$User.Id = dwp_kitv__user_id__r.Id</formula>
@@ -152,7 +160,9 @@
     <validationRules>
         <fullName>Visit_is_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>IF(ISPICKVAL(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c, &apos;06&apos;) , true, false)</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c, &apos;06&apos;),
+$Profile.Name != $Label.profAdministrator,
+$Profile.Name != &quot;Migracion&quot;)</errorConditionFormula>
         <errorDisplayField>CurrencyIsoCode</errorDisplayField>
         <errorMessage>Not is possible create the Visit Management Team, the visit is in status ended</errorMessage>
     </validationRules>
@@ -167,7 +177,8 @@
         <fullName>dwp_kitv__User_owner</fullName>
         <active>true</active>
         <description>The user cannot be the same that visit owner.</description>
-        <errorConditionFormula>dwp_kitv__user_id__c  =  dwp_kitv__visit_id__r.OwnerId</errorConditionFormula>
+        <errorConditionFormula>AND(
+$Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__User_Team_Member__c == false, dwp_kitv__user_id__c  =  dwp_kitv__visit_id__r.OwnerId)</errorConditionFormula>
         <errorDisplayField>dwp_kitv__user_id__c</errorDisplayField>
         <errorMessage>You cannot insert the Owner of the visit.</errorMessage>
     </validationRules>

@@ -4380,6 +4380,11 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.dwp_owner_visit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>dwp_kitv__Visit_Management_Team__c.user_prof_position_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
