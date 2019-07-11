@@ -2105,4 +2105,11 @@
         <shortDescription>PriceApprovalLetterCredit</shortDescription>
         <value>Sanción de precio aprobada.</value>
     </labels>
+	<labels>
+        <fullName>Msg_DeleteOwner_VMT</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje de Eliminación de Owner en VMT</shortDescription>
+        <value>No puede eliminar al propietario de la visita en el Equipo BBVA.</value>
+    </labels>
 </CustomLabels>

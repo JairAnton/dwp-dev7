@@ -171,9 +171,11 @@
     <relatedLists>
         <fields>dwp_kitv__user_id__c</fields>
         <fields>user_prof_position_type__c</fields>
-        <fields>dwp_kitv__contact_phone_desc__c</fields>
+        <fields>dwp_owner_visit__c</fields>
         <fields>dwp_kitv__contact_email_desc__c</fields>
         <relatedList>dwp_kitv__Visit_Management_Team__c.dwp_kitv__visit_id__c</relatedList>
+        <sortField>dwp_owner_visit__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedFileList</relatedList>

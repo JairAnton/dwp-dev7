@@ -17,8 +17,8 @@ public without sharing virtual class MinutaWrap {
     public static String URLLogoTwiter {get; set;}
     public static String URLStyle {get; set;}
    
-    
-    public static string setValues(String visitId){
+    /*Method to set values*/
+    public static string setValues(String visitId) {
         try{
              visitTopic = new list<dwp_kitv__Visit_Topic__c>();
             visitTopic = [Select dwp_kitv__opportunity_id__c,dwp_kitv__opportunity_id__r.name, dwp_kitv__topic_desc__c, 
@@ -27,8 +27,8 @@ public without sharing virtual class MinutaWrap {
             visitContacs = new list<dwp_kitv__Visit_Contact__c>();
 			visitContacsAux = [Select dwp_kitv__contact_id__c, dwp_kitv__contact_id__r.name, dwp_kitv__contact_email_desc__c, contact_prof_position_type__c, 
                             dwp_kitv__contact_called_type__c from dwp_kitv__Visit_Contact__c where dwp_kitv__visit_id__c =:visitId ];
-            for(dwp_kitv__Visit_Contact__c c:visitContacsAux){
-                if(c.dwp_kitv__contact_email_desc__c!=''){
+            for(dwp_kitv__Visit_Contact__c c:visitContacsAux) {
+                if(c.dwp_kitv__contact_email_desc__c!='') {
                     visitContacs.add(c);
                 }
             }
@@ -36,15 +36,15 @@ public without sharing virtual class MinutaWrap {
             visitManagementTeam = new list<dwp_kitv__Visit_Management_Team__c>();
         	visitManagementTeam = [Select dwp_kitv__user_id__c, dwp_kitv__user_id__r.name, 
                                    dwp_kitv__contact_email_desc__c, user_prof_position_type__c from dwp_kitv__Visit_Management_Team__c 
-                                   where dwp_kitv__visit_id__c =:visitId and dwp_kitv__contact_email_desc__c !='' ];
-            dwp_kitv__Visit__c v = [select id,OwnerId
-                      from dwp_kitv__Visit__c where Id =:visitId limit 1];
+                                   where dwp_kitv__visit_id__c =:visitId and dwp_kitv__contact_email_desc__c !='' and  dwp_owner_visit__c=false];
+            Final dwp_kitv__Visit_Management_Team__c owner = [SELECT id, dwp_kitv__user_id__c FROM dwp_kitv__Visit_Management_Team__c WHERE dwp_kitv__visit_id__c=:visitId AND 
+                                                       dwp_owner_visit__c=true limit 1];
             usuarios =  new list<User>();
-            User ownerUser = [select id, name, email, prof_position_type__c 
-                              from User where id =:v.OwnerId  limit 1];
+            Final User ownerUser = [select id, name, email, prof_position_type__c 
+                              from User where id =:owner.dwp_kitv__user_id__c  limit 1];
             usuarios.add(ownerUser);
-            for(dwp_kitv__Visit_Management_Team__c vm: visitManagementTeam){
-                User secundaryOwner = [select id, name, email, prof_position_type__c from User where id =:vm.dwp_kitv__user_id__c  limit 1];
+            for(dwp_kitv__Visit_Management_Team__c vm: visitManagementTeam) {
+                User secundaryOwner = [select id, name, email, prof_position_type__c from User where id =:vm.dwp_kitv__user_id__c limit 1];
             	usuarios.add(secundaryOwner);
             }
             System.debug('--usuarios-->'+ usuarios);
@@ -59,7 +59,7 @@ public without sharing virtual class MinutaWrap {
             URLLogoWhite = sfdcBaseURL+'/servlet/servlet.ImageServer?id='+lstMembreteWhite[0].Id+'&oid='+UserInfo.getOrganizationId();  
             URLLogoFacebook = sfdcBaseURL+'/servlet/servlet.ImageServer?id='+lstLogoFace[0].Id+'&oid='+UserInfo.getOrganizationId();  
             URLLogoTwiter = sfdcBaseURL+'/servlet/servlet.ImageServer?id='+lstLogoTwiter[0].Id+'&oid='+UserInfo.getOrganizationId(); 
-        }catch(System.Exception e){
+        } catch(System.Exception e) {
             system.debug('Exception : '+e.getMessage());
         }
         return 'SUCCESS';

@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <backgroundEndColor>#FFFFFF</backgroundEndColor>
+    <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
+    <backgroundStartColor>#FFFFFF</backgroundStartColor>
+    <chartTheme>light</chartTheme>
+    <colorPalette>justice</colorPalette>
+    <dashboardChartTheme>light</dashboardChartTheme>
+    <dashboardColorPalette>justice</dashboardColorPalette>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>T.BE REG.1</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>T.BE REG.2</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>T.BE REG.3</values>
+        </dashboardFilterOptions>
+        <name>Regional</name>
+    </dashboardFilters>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BCL</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BANCA INSTITUCIONAL</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE CENTRAL</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE PIURA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE CHICLAYO</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE TRUJILLO</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE LIMA NORTE</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE MIRAFLORES</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE REPUBLICA DE PANAMA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE CUSCO</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE AREQUIPA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE CHINCHA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE LA MOLINA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE SANTA CRUZ</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE CHACARILLA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE SAN ISIDRO</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE IQUITOS</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE LIMA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BEC CALLAO</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE COLONIAL 1</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE DOS DE MAYO</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>BE HUANCAYO</values>
+        </dashboardFilterOptions>
+        <name>Oficina</name>
+    </dashboardFilters>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>GRTE ADJTO BCA EMPRESA Y CORP</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>GERENTE REGIONAL BEC</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>JEFE PROMOCION DE NEGOCIO</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>GERENTE BEC</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>EJECUTIVO BEC</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Associate</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>GTE LEASING &amp; COMEX</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>EJECUTIVO COMEX</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>EJECUTIVO LEASING</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>GTE REDES</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>EJECUTIVO REDES</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>EJECUTIVO DT</values>
+        </dashboardFilterOptions>
+        <name>Cargo</name>
+    </dashboardFilters>
+    <dashboardGridLayout>
+        <dashboardGridComponents>
+            <colSpan>6</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnStacked</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Realizadas (Finalizadas y Pendiente de feedback)</footer>
+                <groupingColumn>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
+                <header>Visitas realizadas en el mes</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_done_in_moth1</report>
+                <showPercentage>false</showPercentage>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por usuario</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>0</rowIndex>
+            <rowSpan>11</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>6</colSpan>
+            <columnIndex>6</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnStacked</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Agendadas (pendiente de iniciar y agendadas)</footer>
+                <groupingColumn>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
+                <header>Visitas del mes en curso</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_pending_in_month</report>
+                <showPercentage>false</showPercentage>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por usuario</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>0</rowIndex>
+            <rowSpan>11</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>12</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <componentType>Bar</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
+                <header>Visitas por semana</header>
+                <report>Home_Reports/dwp_visit_done_by_week_in_month</report>
+                <showPercentage>false</showPercentage>
+                <showPicturesOnCharts>false</showPicturesOnCharts>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por usuario</title>
+                <useReportChart>true</useReportChart>
+            </dashboardComponent>
+            <rowIndex>11</rowIndex>
+            <rowSpan>13</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>12</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <componentType>Bar</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>(Finalizadas y pendiente de feedback)</footer>
+                <header>Visita por meses</header>
+                <report>Home_Reports/dwp_visit_done_last_6_months</report>
+                <showPercentage>false</showPercentage>
+                <showPicturesOnCharts>false</showPicturesOnCharts>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por usuario</title>
+                <useReportChart>true</useReportChart>
+            </dashboardComponent>
+            <rowIndex>24</rowIndex>
+            <rowSpan>13</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>6</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnStacked</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Realizadas (Finalizadas y Pendiente de feedback))</footer>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
+                <header>Visitas del mes en curso</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_done_in_moth1</report>
+                <showPercentage>false</showPercentage>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por oficina</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>37</rowIndex>
+            <rowSpan>11</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>6</colSpan>
+            <columnIndex>6</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnStacked</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Agendadas (pendiente de iniciar y agendadas)</footer>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
+                <header>Visitas del mes en curso</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_pending_in_month</report>
+                <showPercentage>false</showPercentage>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por oficina</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>37</rowIndex>
+            <rowSpan>11</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>12</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnGrouped</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
+                <header>Visitas por semana</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_done_by_week_in_month</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por oficina</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>48</rowIndex>
+            <rowSpan>12</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>12</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnGrouped</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
+                <header>Visita por meses</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_done_last_6_months</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por oficina</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>60</rowIndex>
+            <rowSpan>13</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>6</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnStacked</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Realizadas (Finalizadas y Pendiente de feedback)</footer>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
+                <header>Visitas del mes en curso</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_done_in_moth1</report>
+                <showPercentage>false</showPercentage>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por regional</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>73</rowIndex>
+            <rowSpan>11</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>6</colSpan>
+            <columnIndex>6</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnStacked</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Agendadas (pendiente de iniciar y agendadas)</footer>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
+                <header>Visitas del mes en curso</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_pending_in_month</report>
+                <showPercentage>false</showPercentage>
+                <showValues>false</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por regional</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>73</rowIndex>
+            <rowSpan>11</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>12</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnGrouped</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
+                <header>Visitas por semana</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_done_by_week_in_month</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por regional</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>84</rowIndex>
+            <rowSpan>13</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>12</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>ColumnGrouped</componentType>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_region_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c$dwp_office_name__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c.User_position_equivalence__c</column>
+                </dashboardFilterColumns>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
+                <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
+                <header>Visita por meses</header>
+                <legendPosition>Right</legendPosition>
+                <report>Home_Reports/dwp_visit_done_last_6_months</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <title>por regional</title>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>97</rowIndex>
+            <rowSpan>13</rowSpan>
+        </dashboardGridComponents>
+        <numberOfColumns>12</numberOfColumns>
+        <rowHeight>36</rowHeight>
+    </dashboardGridLayout>
+    <dashboardType>SpecifiedUser</dashboardType>
+    <isGridLayout>true</isGridLayout>
+    <textColor>#000000</textColor>
+    <title>Panel de Visitas</title>
+    <titleColor>#000000</titleColor>
+    <titleSize>12</titleSize>
+</Dashboard>
