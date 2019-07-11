@@ -9,7 +9,7 @@
  * @author Diego Carbajal
  */
 @isTest
-public class visit_helper_Trigger_tst {
+public class Visit_helper_Trigger_tst {
 
     /*Setup Data*/
     @TestSetup
@@ -51,6 +51,6 @@ public class visit_helper_Trigger_tst {
             }
         }
         Test.stopTest();
-        System.assertEquals(false, pass, 'Compared Equals Values');
+        System.assert(!pass, '!pass is false');
     }
 }

@@ -27,7 +27,7 @@ public class Account_Handler_test {
         mapFields.put(User.LastName, 'SecondOwner');
         mapFields.put(User.ProfileId, perfil);
         mapFields.put(User.prof_position_type__c, 'EJECUTIVO BEC');
-        Final User secondOwner=getUser(true, mapFields);
+        getUser(true, mapFields);
         //Create Branches.
         List<Branch__c> lstBranches = new List<Branch__c>();
         for(Integer intI = 0; intI < 5; intI++) {
@@ -80,7 +80,7 @@ public class Account_Handler_test {
     static void afterInsertTest() {
         Final String ejecutivo = 'Ejecutivo';
         Final User UOwTest01 = TestFactory.createUser('UserOwnerTest01', ejecutivo);
-        Final User UOTest02 = TestFactory.createUser('UserOwnerTest02', ejecutivo);
+        TestFactory.createUser('UserOwnerTest02', ejecutivo);
         Final User UATest011 = TestFactory.createUser('UserAssitantTest011', ejecutivo);
         Final User UATest012 = TestFactory.createUser('UserAssitantTest012', ejecutivo);
         Final List<User_Assistant_Team__c> uat_insert = new List<User_Assistant_Team__c>();
@@ -104,7 +104,7 @@ public class Account_Handler_test {
         Final User UATest011 = TestFactory.createUser('UserAssitantTest011', 'Ejecutivo');
         Final User UATest012 = TestFactory.createUser('UserAssitantTest012', 'Ejecutivo');
         Final User UATest013 = TestFactory.createUser('UserAssitantTest013', 'Ejecutivo');
-        Final User UATest021 = TestFactory.createUser('UserAssitantTest021', 'Ejecutivo');
+        TestFactory.createUser('UserAssitantTest021', 'Ejecutivo');
         Final List<User_Assistant_Team__c> uat_insert = new List<User_Assistant_Team__c>();
         uat_insert.add(new User_Assistant_Team__c(user_id__c = UOTest01.Id, assistant_id__c = UATest011.Id));
         uat_insert.add(new User_Assistant_Team__c(user_id__c = UOTest01.Id, assistant_id__c = UATest012.Id));

@@ -23,7 +23,7 @@ public class NavigateFromEventToVisit_cmp_ctrl_Test {
         
         Final Account acc = TestFactory.createAccount();
         Final User user = TestFactory.createUser('testuser1', 'ejecutivo');
-        Final User owner = TestFactory.createUser('owner', 'ejecutivo');
+        TestFactory.createUser('owner', 'ejecutivo');
         Final Contact cont = TestFactory.createContact(acc.Id);
         Final gcal__GBL_Google_Calendar_Sync_Environment__c gcs = new gcal__GBL_Google_Calendar_Sync_Environment__c(Name='DEV');
         insert gcs;

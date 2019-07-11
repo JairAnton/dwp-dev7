@@ -10,14 +10,14 @@ public without sharing class Account_Trigger_cls {
     public void AsignAfterUpdate(list<Account>oppsNew, Map<id,Account>oppsNewMap,
                                   list<Account>oppsOld, Map<id,Account>oppsOldMap) {
 
-            onChangeBranch(oppsNew,oppsOldMap);
+            onChangeBranch(oppsNew);
             /**Actualizar Primero Objeto Relacionado, despues objeto hijo del relacionado**/
             Account_Trigger_Visit_cls.updateVisit(oppsNew, oppsNewMap, oppsOld, oppsOldMap);
             updateTeamVisit(oppsNewMap, oppsOldMap);
     }
     
     //Method onChangeBranch
-    private void onChangeBranch(list<Account>oppsNew, Map<id,Account>oppsOldMap) {
+    private void onChangeBranch(list<Account>oppsNew) {
 
         List<Opportunity> listOpp = [select Id,Branch_id__c from Opportunity where AccountId=: oppsNew[0].Id and StageName not in ('06','07')];
 
@@ -27,6 +27,7 @@ public without sharing class Account_Trigger_cls {
         update listOpp;
 
     }
+    
     //Insert new AccountTeamMember records depend on a new Account record and User Assistant Team records with the Account Owner like user_id__c
     public void AfterInsert(List<Account> accsNew) {
         List<User_Assistant_Team__c> lstUsers =  new List<User_Assistant_Team__c>();
