@@ -24,3 +24,5 @@
 "FX","PC00035","Producto code 35","true","Tesorería","PEN","","","","","false","","","PC00035","false","false","false","false",""
 "Depósito a plazo","PC00018","Producto code 18","true","Recursos","PEN","","","","","false","","COTIZA Beta","0241041","true","true","true","false",""
 "Carta de crédito de importación","PC00014","Producto code 14","true","Riesgo de firma","PEN","","","","","false","","Carta de credito","0292410","true","true","true","true",""
+"Carta de crédito de exportación","PC00015","Producto code 15","true","Riesgo de firma","PEN","","","","","false","","Carta de credito","0292430","true","true","true","true",""
+"Stand by","PC00013","Producto code 13","true","Riesgo de firma","PEN","","","","","false","","Carta de credito","0292420","true","true","true","true",""
