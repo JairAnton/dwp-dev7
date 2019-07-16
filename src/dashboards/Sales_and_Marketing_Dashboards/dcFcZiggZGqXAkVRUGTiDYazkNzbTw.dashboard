@@ -193,7 +193,7 @@
                 <footer>Realizadas (Finalizadas y Pendiente de feedback)</footer>
                 <groupingColumn>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
-                <header>Visitas realizadas en el mes</header>
+                <header>Visitas realizadas en el mes en curso</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_done_in_moth1</report>
                 <showPercentage>false</showPercentage>
@@ -230,10 +230,10 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>Agendadas (pendiente de iniciar y agendadas)</footer>
+                <footer>No realizada (pendiente de iniciar y agendadas)</footer>
                 <groupingColumn>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
-                <header>Visitas del mes en curso</header>
+                <header>Visitas por realizar en el mes en curso</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_pending_in_month</report>
                 <showPercentage>false</showPercentage>
@@ -266,8 +266,8 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
-                <header>Visitas por semana</header>
+                <footer>SÃ³lo finalizadas</footer>
+                <header>Visitas finalizadas por semana</header>
                 <report>Home_Reports/dwp_visit_done_by_week_in_month</report>
                 <showPercentage>false</showPercentage>
                 <showPicturesOnCharts>false</showPicturesOnCharts>
@@ -300,8 +300,8 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>(Finalizadas y pendiente de feedback)</footer>
-                <header>Visita por meses</header>
+                <footer>SÃ³lo finalizadas</footer>
+                <header>Visita finalizadas por mes</header>
                 <report>Home_Reports/dwp_visit_done_last_6_months</report>
                 <showPercentage>false</showPercentage>
                 <showPicturesOnCharts>false</showPicturesOnCharts>
@@ -338,10 +338,10 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>Realizadas (Finalizadas y Pendiente de feedback))</footer>
+                <footer>Realizadas (Finalizadas y Pendiente de feedback)</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
-                <header>Visitas del mes en curso</header>
+                <header>Visitas realizadas en el mes en curso</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_done_in_moth1</report>
                 <showPercentage>false</showPercentage>
@@ -378,10 +378,10 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>Agendadas (pendiente de iniciar y agendadas)</footer>
+                <footer>No realizada (pendiente de iniciar y agendadas)</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
-                <header>Visitas del mes en curso</header>
+                <header>Visitas por realizar en el mes en curso</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_pending_in_month</report>
                 <showPercentage>false</showPercentage>
@@ -418,10 +418,10 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
+                <footer>SÃ³lo finalizadas</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
-                <header>Visitas por semana</header>
+                <header>Visitas finalizadas por semana</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_done_by_week_in_month</report>
                 <showPercentage>false</showPercentage>
@@ -458,10 +458,10 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
+                <footer>SÃ³lo finalizadas</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
-                <header>Visita por meses</header>
+                <header>Visita finalizadas por mes</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_done_last_6_months</report>
                 <showPercentage>false</showPercentage>
@@ -501,7 +501,7 @@
                 <footer>Realizadas (Finalizadas y Pendiente de feedback)</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
-                <header>Visitas del mes en curso</header>
+                <header>Visitas realizadas en el mes en curso</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_done_in_moth1</report>
                 <showPercentage>false</showPercentage>
@@ -538,10 +538,10 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>Agendadas (pendiente de iniciar y agendadas)</footer>
+                <footer>No realizada (pendiente de iniciar y agendadas)</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$report_visit_status_type__c</groupingColumn>
-                <header>Visitas del mes en curso</header>
+                <header>Visitas por realizar en el mes en curso</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_pending_in_month</report>
                 <showPercentage>false</showPercentage>
@@ -578,10 +578,10 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
+                <footer>SÃ³lo finalizadas</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
-                <header>Visitas por semana</header>
+                <header>Visitas finalizadas por semana</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_done_by_week_in_month</report>
                 <showPercentage>false</showPercentage>
@@ -618,10 +618,10 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>Realizadas (Finalizadas y pendiente de feedback)</footer>
+                <footer>SÃ³lo finalizadas</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
-                <header>Visita por meses</header>
+                <header>Visitas finalizadas por mes</header>
                 <legendPosition>Right</legendPosition>
                 <report>Home_Reports/dwp_visit_done_last_6_months</report>
                 <showPercentage>false</showPercentage>
