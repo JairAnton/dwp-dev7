@@ -266,7 +266,7 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>SÃ³lo finalizadas</footer>
+                <footer>Sólo finalizadas</footer>
                 <header>Visitas finalizadas por semana</header>
                 <report>Home_Reports/dwp_visit_done_by_week_in_month</report>
                 <showPercentage>false</showPercentage>
@@ -300,7 +300,7 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>SÃ³lo finalizadas</footer>
+                <footer>Sólo finalizadas</footer>
                 <header>Visita finalizadas por mes</header>
                 <report>Home_Reports/dwp_visit_done_last_6_months</report>
                 <showPercentage>false</showPercentage>
@@ -418,7 +418,7 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>SÃ³lo finalizadas</footer>
+                <footer>Sólo finalizadas</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
                 <header>Visitas finalizadas por semana</header>
@@ -458,7 +458,7 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>SÃ³lo finalizadas</footer>
+                <footer>Sólo finalizadas</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_office_name__c</groupingColumn>
                 <header>Visita finalizadas por mes</header>
@@ -578,7 +578,7 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>SÃ³lo finalizadas</footer>
+                <footer>Sólo finalizadas</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
                 <header>Visitas finalizadas por semana</header>
@@ -618,7 +618,7 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <footer>SÃ³lo finalizadas</footer>
+                <footer>Sólo finalizadas</footer>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
                 <groupingColumn>dwp_kitv__Visit__c$dwp_region_name__c</groupingColumn>
                 <header>Visitas finalizadas por mes</header>
