@@ -3872,7 +3872,22 @@ Ejecutivos de REDES</description>
         <editable>false</editable>
         <field>User.Manager_frm__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Organizational_unit_code_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Organizational_unit_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.User_position_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>User.gcal__GBL_Google_Calendar_Last_Retr_Time__c</field>
