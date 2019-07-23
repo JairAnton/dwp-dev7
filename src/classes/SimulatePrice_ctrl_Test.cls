@@ -15,7 +15,7 @@ public class SimulatePrice_ctrl_Test {
     }
     
     @isTest
-    static void test_method_one(){
+    static void test_method_one() {
         setData();
         insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         insert new iaso__GBL_Rest_Services_Url__c(Name = 'SimulateRate', iaso__Url__c = 'https://SimulateRate/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
@@ -31,7 +31,7 @@ public class SimulatePrice_ctrl_Test {
         Test.stopTest();
     }
     @isTest
-    static void test_method_two(){
+    static void test_method_two() {
         setData();
         insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
         insert new iaso__GBL_Rest_Services_Url__c(Name = 'SimulateRate', iaso__Url__c = 'https://SimulateRate/ko', iaso__Cache_Partition__c = 'local.CredentialsPeru');
