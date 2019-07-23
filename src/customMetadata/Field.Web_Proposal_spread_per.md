@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>field_api_name__c</field>
-        <value xsi:type="xsd:string">spread_per__c</value>
+        <value xsi:type="xsd:string">Spread__c</value>
     </values>
     <values>
         <field>field_form__c</field>
