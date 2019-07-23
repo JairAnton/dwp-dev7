@@ -11,6 +11,19 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Spread__c</fullName>
+        <description>Spread resultante de restar la TEA mínima menos el DI de la curva de finanzas</description>
+        <externalId>false</externalId>
+        <label>Spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Subtotal</fullName>
+    </fields>
+    <fields>
         <fullName>Tipo_amortizacion__c</fullName>
         <externalId>false</externalId>
         <label>Tipo amortización</label>
