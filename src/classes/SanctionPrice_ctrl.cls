@@ -25,6 +25,7 @@ public with sharing class SanctionPrice_ctrl {
     static String genericError;
     static String calculationid;
     static String currencyid;
+    static Double calculateSpread;
     @AuraEnabled
     public static Map<String,Object> getInfo(String recordId){
         
@@ -232,7 +233,7 @@ public with sharing class SanctionPrice_ctrl {
                     }
                 }                        
             }
-            List<OpportunityLineItem> oli =[Select Id, Name, price_rates_calculation_Id__c, minimun_apr_per__c, suggested_apr_per__c, spread_per__c, spread__c, 
+            List<OpportunityLineItem> oli =[Select Id, Name, price_rates_calculation_Id__c, minimun_apr_per__c, suggested_apr_per__c, spread_per__c, calculated_spread__c, 
                                             additional_capital_per__c,additional_apread_per__c,capital_amount__c,capital_currency_id__c, efficiency_cost__c,
                                             expected_loss_per__c, financing_cost_stockholder_per__c, funding_cost_per__c, funding_cost_adjusted_per__c,
                                             minimum_spread_per__c, regulatory_capital_per__c from OpportunityLineItem where OpportunityId = : recordId];
@@ -252,8 +253,10 @@ public with sharing class SanctionPrice_ctrl {
             oli[0].capital_currency_id__c = currencyid;
             oli[0].price_rates_calculation_Id__c = calculationid;
             //Spread = Min TEA - DI
-            oli[0].spread__c = minimtea - fundingcost;
+            //oli[0].calculated_spread__c = minimtea - fundingcost;
             update oli;
+            //Recalculate Spread
+            calculateSpread = [Select calculated_spread__c FROM OpportunityLineItem WHERE Id =: oli[0].Id].calculated_spread__c;
             //get error message with code 409
         } else if (invoke.getStatusCode() == 409){
             WebServiceUtils.ResponseErrorMessage_Wrapper jerror = WebServiceUtils.parse(invoke.getBody());
@@ -264,7 +267,7 @@ public with sharing class SanctionPrice_ctrl {
         }
         mapReturn.put('minimtea', minimtea);
         mapReturn.put('sugtea',sugtea);
-        mapReturn.put('spread',(minimtea - fundingcost));
+        mapReturn.put('spread',calculateSpread);
     }
     
     @AuraEnabled
@@ -297,4 +300,5 @@ public with sharing class SanctionPrice_ctrl {
         mapReturn.put('genericError',genericError);
         return mapReturn; 
     }
+    
 }

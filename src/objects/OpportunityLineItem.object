@@ -55,6 +55,17 @@
         <fullName>UnitPrice</fullName>
     </fields>
     <fields>
+        <fullName>calculated_spread__c</fullName>
+        <description>Calcula el spread de acuerdo a TEA propuesta o TEA mínima menos el funding_cost</description>
+        <externalId>false</externalId>
+        <formula>(BLANKVALUE(proposed_apr_per__c, minimun_apr_per__c) - funding_cost_per__c)</formula>
+        <label>Spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
         <fullName>cpliq_Amortizacion__c</fullName>
         <externalId>false</externalId>
         <label>cpliq_Amortizacion</label>

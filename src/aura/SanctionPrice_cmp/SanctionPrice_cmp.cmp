@@ -12,8 +12,11 @@
     <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section"/>    
     <aura:attribute name="isError" type="Boolean" default="false" />
     <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to be displayed"/>
-    <aura:attribute name="modalWidthCustom" type="String" access="global" description="Specify the modal" default="74rem" />
+    <aura:attribute name="modalWidthCustom" type="String"  access="global" description="Specify the modal" default="74rem" />
     <aura:attribute name="OppId" type="String"/>
+    <aura:attribute name="btnCalculate" type="Boolean" default="false"/>
+    <aura:attribute name="showWebForm" type="Boolean" default="false"/>
+    <aura:attribute name="proposedEmpty" type="Boolean" default="false"/>
     <aura:if isTrue="{!v.isLoad}">
         <aura:if isTrue="{!v.checkError}">
             <ui:message title="Error" severity="error" >
@@ -30,17 +33,33 @@
                         </div>
                     </aura:if>
                     <aura:if isTrue="{!v.type_of_quote!='Carta de credito'}">
-                        <div class="slds-grid">
-                            <div class="slds-col sizeSPRICE">                       
-                                <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
-                            </div>
-                            <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
-                                <div class="slds-col sizeSPRICE">                            
-                                    <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
-                                </div>
-                            </aura:if>  
-                        </div>
-                    </aura:if>
+                    <div class="slds-grid">
+                      <div class="slds-col sizeSPRICE">
+                      	  <p style="padding-left:10px; font-size:12pt; font-family:'Salesforce Sans';">Proponer Precio</p>
+                      	  <aura:if isTrue="{!v.showWebForm}">
+                              <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
+                              <div class="slds-align_absolute-center">
+                                  <lightning:button variant="brand" onclick="{!c.updateSpread}">Actualizar</lightning:button>
+                              </div>
+                              <br/>
+                              <div id="idAlert" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+                                  <span class="slds-assistive-text">warning</span>
+                                  <h2><b>Actualizar el spread antes de continuar</b></h2>
+                                  <div class="slds-notify__close">
+                                      <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" onclick="{!c.closeAlert}" title="close" alternativeText="Close window"/>
+                                  </div>
+                              </div>
+                              <aura:set attribute="else">
+                              	<c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
+                              </aura:set>
+                          </aura:if>
+                      </div>
+                      <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
+                          <div class="slds-col sizeSPRICE">                            
+                            <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
+                          </div>
+                       </aura:if>  
+                    </div>
                 </div>              
                 <footer class="slds-modal__footer slds-theme_default">
                     <table width="100%">

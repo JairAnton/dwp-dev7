@@ -13,7 +13,7 @@ public with sharing class SimulatePrice_ctrl {
     public static Map<String,Object> getInfo(String recordId) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         Double sugtea, spread, minimspread, addspread, expected, efficiency, financystock, fundingadj, regulatory, addcapital, capitalamount;
-        Double minimtea=0, fundingcost=0;
+        Double minimtea=0, fundingcost=0, calculateSpread=0;
         String genericError, currencyid;
         try{
             
@@ -26,7 +26,7 @@ public with sharing class SimulatePrice_ctrl {
             //get values if statuscode=200
             if(invoke.getStatusCode() == 200) {
                 
-                List<OpportunityLineItem> oli =[Select Id, Name, minimun_apr_per__c, suggested_apr_per__c, spread_per__c, spread__c,
+                List<OpportunityLineItem> oli =[Select Id, Name, minimun_apr_per__c, suggested_apr_per__c, spread_per__c, 
                                                 additional_capital_per__c,additional_apread_per__c,capital_amount__c,capital_currency_id__c, efficiency_cost__c,
                                                 expected_loss_per__c, financing_cost_stockholder_per__c, funding_cost_per__c, funding_cost_adjusted_per__c,
                                                 minimum_spread_per__c, regulatory_capital_per__c from OpportunityLineItem where OpportunityId = : recordId];
@@ -83,7 +83,7 @@ public with sharing class SimulatePrice_ctrl {
                     oli[0].suggested_apr_per__c = sugtea;
                     oli[0].spread_per__c = spread;
                     //Spread = Min TEA - DI
-                    oli[0].spread__c = minimtea - fundingcost;
+                    //oli[0].spread__c = minimtea - fundingcost;
                     oli[0].additional_apread_per__c = addspread;
                     oli[0].minimum_spread_per__c = minimspread;
                     oli[0].expected_loss_per__c = expected;
@@ -97,6 +97,8 @@ public with sharing class SimulatePrice_ctrl {
                     oli[0].capital_currency_id__c = currencyid;
                     idOli = oli[0].Id;
                     update oli;
+                    //Recalculate Spread
+                    calculateSpread = [Select calculated_spread__c FROM OpportunityLineItem WHERE Id =: oli[0].Id].calculated_spread__c;
                     //get errors
                 }
             } else if (invoke.getStatusCode() == 409) {
@@ -111,7 +113,8 @@ public with sharing class SimulatePrice_ctrl {
         mapReturn.put('oli',idOli);
         mapReturn.put('minimtea', minimtea);
         mapReturn.put('sugtea',sugtea);
-        mapReturn.put('spread', (minimtea - fundingcost));
+        mapReturn.put('spread', calculateSpread);
+        System.debug('spread '+calculateSpread);
         mapReturn.put('genericError',genericError);
         
         return mapReturn;
