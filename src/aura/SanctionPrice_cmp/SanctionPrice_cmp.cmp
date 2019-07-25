@@ -60,6 +60,7 @@
                           </div>
                        </aura:if>  
                     </div>
+                    </aura:if>
                 </div>              
                 <footer class="slds-modal__footer slds-theme_default">
                     <table width="100%">
