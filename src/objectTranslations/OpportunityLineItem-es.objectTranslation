@@ -1497,7 +1497,7 @@
         <name>Validation_Email</name>
     </validationRules>
     <validationRules>
-        <errorMessage>Plazo Invalido, el valor no debe contener decimales y debe ser menor a 999</errorMessage>
+        <errorMessage>Plazo Inválido, el valor no debe contener decimales y debe ser menor a 1000.</errorMessage>
         <name>Validation_Term_Integer</name>
     </validationRules>
 </CustomObjectTranslation>

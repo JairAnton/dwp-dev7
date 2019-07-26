@@ -2869,6 +2869,6 @@ REGEX( cpliq_Cuenta_Cargo__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
         <fullName>Plazo_validation_lengh</fullName>
         <active>true</active>
         <errorConditionFormula>IF( gipr_Plazo__c &gt;999,true,false)</errorConditionFormula>
-        <errorMessage>El plazo debe tener un numero no mayor a 3 cifras.</errorMessage>
+        <errorMessage>El plazo debe tener un número no mayor a 3 cifras.</errorMessage>
     </validationRules>
 </CustomObject>

@@ -6,13 +6,30 @@
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
     <aura:attribute name="strComments" type="String" default=""/>
     <aura:attribute name="closeButton" type="Boolean" default="false" access="global" description="Allow show close icon button"/>
+    <aura:attribute name="positionSanctionPrice" type="List"/>
     
-    <div id="storeHTML" class="slds-hide">
+   	<div id="storeHTML" class="slds-hide">
         <h3 class="slds-section__title">{!$Label.c.Comments}</h3>
         <div class="slds-form-element__control">
             <span class="slds-form-element__static">
                 {!v.strComments}
             </span>
+        </div>
+        <!--New Section-->
+        <h3 class="slds-section__title">Producto: {!v.objSetup.nameProd}</h3>
+        <div class="slds-grid slds-wrap">
+            <aura:iteration items="{!v.positionSanctionPrice}" var="positionSP">
+                <div class="slds-size_1-of-2">
+                    <div class="slds-form-element">
+                        <span class="slds-form-element__label">{! positionSP.label}</span> 
+                        <div class="slds-form-element__control">
+                            <span class="slds-form-element__static">
+                                {!positionSP.value}
+                            </span>
+                        </div>
+                	</div>
+                </div>
+            </aura:iteration>
         </div>
         <h3 class="slds-section__title">{!$Label.c.Price}</h3>
         <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false" isHTML="true"/>
@@ -23,7 +40,6 @@
     <div class="slds-modal__content slds-p-around_medium" >
         
         <lightning:layout multipleRows="true">
-            
             <lightning:layoutItem padding="around-small" size="8">
                 <lightning:tabset variant="scoped">
                     <lightning:tab label="{!$Label.c.Details}" >
