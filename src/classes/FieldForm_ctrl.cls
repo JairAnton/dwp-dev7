@@ -26,19 +26,20 @@ public with sharing class FieldForm_ctrl {
                                                         FROM Field_form__mdt WHERE unique_id__c = :uniqueNameTable];
             Set<String> setFields = new Set<String>();
             Map<String,Object> mapField = new Map<String,Object>();
-            for(Field__mdt field : lstFieldForm[0].Fields__r){
+            for(Field__mdt field : lstFieldForm[0].Fields__r) {
                 mapField.put(field.field_api_name__c,field);
                 setFields.add(field.field_api_name__c);
             }
             List<String> lstField = new List<String>(setFields);
             List<Object> lstRecord = Database.query('SELECT ' + String.join(lstField,',') + ' FROM ' + lstFieldForm[0].object_api_name__c + ' WHERE Id = \'' + recordId + '\'');
             Map<String,Map<String,String>> mapSchemaInfo = getInfoSchema(setFields,lstFieldForm[0].object_api_name__c);
-            Map<String,String> mapFormula = mapSchemaInfo.get('mapFormula');
+            Final Map<String,String> mapFormula = mapSchemaInfo.get('mapFormula');
             Map<String,String> mapType = mapSchemaInfo.get('mapType');
             for(String apiName:mapFormula.keySet()){
                 mapType.put(apiName, mapFormula.get(apiName));
             }
             mapReturn.put('mapLabel',mapSchemaInfo.get('mapLabel'));
+            //mapReturn.put('mapType',mapSchemaInfo.get('mapType'));
             mapReturn.put('mapType',mapType);
             mapReturn.put('isOk',true);
             mapReturn.put('record',lstRecord[0]);
@@ -60,7 +61,7 @@ public with sharing class FieldForm_ctrl {
         Map<String,Map<String,String>> mapSchemaInfo = getInfoSchema(setApiFields,objectApiName);
         Map<String,String> mapType = mapSchemaInfo.get('mapType');
         Integer pos = 0;
-        for(String strApiName : setApiFields){
+        for(String strApiName : setApiFields) {
             
             switch on mapType.get(strApiName) {
                 when 'PERCENT' {
@@ -91,7 +92,7 @@ public with sharing class FieldForm_ctrl {
                 when 'STRING' {
                     lstRecord[0].put(strApiName,String.valueOf(lstValue[pos])); 
                 }
-                when else {
+                when else{
                     System.debug('lstValue['+pos+'] => '+String.valueOf(lstValue[pos]));
                     System.debug('mapType.get(strApiName) => '+mapType.get(strApiName));
                 }
