@@ -82,7 +82,6 @@
             cmp.set('v.errorMessage',message);
         }
     },
-        
     activeButton : function(cmp, evt, helper){
         var inputObject=cmp.get('v.inputAttributes'); 
         var disabledButton = $A.get("e.c:disabledButton_evt");            

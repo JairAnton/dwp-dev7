@@ -41,7 +41,6 @@
         cmp.set("v.btnCalculate",true);
         helper.continue(cmp, evt, helper);
     },
-    
     closeAlert : function(cmp, evt, helper){
         var alerta = document.getElementById("idAlert");
         alerta.classList.add("slds-hide");

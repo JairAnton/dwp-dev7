@@ -25,7 +25,9 @@ public with sharing class SanctionPrice_ctrl {
     static String genericError;
     static String calculationid;
     static String currencyid;
+    /*Spread calculado desde campo formula*/
     static Double calculateSpread;
+    
     @AuraEnabled
     public static Map<String,Object> getInfo(String recordId){
         
