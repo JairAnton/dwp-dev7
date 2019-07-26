@@ -33,8 +33,13 @@ public with sharing class FieldForm_ctrl {
             List<String> lstField = new List<String>(setFields);
             List<Object> lstRecord = Database.query('SELECT ' + String.join(lstField,',') + ' FROM ' + lstFieldForm[0].object_api_name__c + ' WHERE Id = \'' + recordId + '\'');
             Map<String,Map<String,String>> mapSchemaInfo = getInfoSchema(setFields,lstFieldForm[0].object_api_name__c);
+            Map<String,String> mapFormula = mapSchemaInfo.get('mapFormula');
+            Map<String,String> mapType = mapSchemaInfo.get('mapType');
+            for(String apiName:mapFormula.keySet()){
+                mapType.put(apiName, mapFormula.get(apiName));
+            }
             mapReturn.put('mapLabel',mapSchemaInfo.get('mapLabel'));
-            mapReturn.put('mapType',mapSchemaInfo.get('mapType'));
+            mapReturn.put('mapType',mapType);
             mapReturn.put('isOk',true);
             mapReturn.put('record',lstRecord[0]);
             mapReturn.put('setFields',setFields);
@@ -86,7 +91,9 @@ public with sharing class FieldForm_ctrl {
                 when 'STRING' {
                     lstRecord[0].put(strApiName,String.valueOf(lstValue[pos])); 
                 }
-                when else{
+                when else {
+                    System.debug('lstValue['+pos+'] => '+String.valueOf(lstValue[pos]));
+                    System.debug('mapType.get(strApiName) => '+mapType.get(strApiName));
                 }
             }
             pos++;
@@ -105,16 +112,22 @@ public with sharing class FieldForm_ctrl {
         Map<String,Map<String,String>> mapReturn = new Map<String,Map<String,String>>();
         Map<String,String> mapLabelSchema = new Map<String,String>();
         Map<String,String> mapTypeSchema = new Map<String,String>();
+        Map<String,String> mapFormulaSchema = new Map<String,String>();
         String strType=strApiName;
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
         Schema.SObjectType leadSchema = schemaMap.get(strType);
         Map<String, Schema.SObjectField> fieldMap = leadSchema.getDescribe().fields.getMap();
         for (String fieldName: setApiName) {
             mapLabelSchema.put(fieldName,fieldMap.get(fieldName).getDescribe().getLabel()); 
-            mapTypeSchema.put(fieldName,String.valueOf(fieldMap.get(fieldName).getDescribe().getType())); 
+            mapTypeSchema.put(fieldName,String.valueOf(fieldMap.get(fieldName).getDescribe().getType()));
+            if(fieldMap.get(fieldName).getDescribe().isCalculated()) {
+                mapTypeSchema.put(fieldName,'FORMULA');
+                mapFormulaSchema.put(fieldName,String.valueOf(fieldMap.get(fieldName).getDescribe().getType()));
+            }
         }
         mapReturn.put('mapLabel',mapLabelSchema);
         mapReturn.put('mapType',mapTypeSchema);
+        mapReturn.put('mapFormula',mapFormulaSchema);
         return mapReturn;
     }
 }
