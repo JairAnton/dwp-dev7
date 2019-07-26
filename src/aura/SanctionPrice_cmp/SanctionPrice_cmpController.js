@@ -35,7 +35,6 @@
             }
             cmp.set("v.btnCalculate",false);
         }
-        
     },
     updateSpread : function(cmp, evt, helper){
         cmp.set("v.btnCalculate",true);

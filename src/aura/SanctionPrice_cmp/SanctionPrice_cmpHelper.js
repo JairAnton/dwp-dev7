@@ -83,7 +83,7 @@
         }
     },
     activeButton : function(cmp, evt, helper){
-        var inputObject=cmp.get('v.inputAttributes'); 
+        var inputObject=cmp.get('v.inputAttributes');
         var disabledButton = $A.get("e.c:disabledButton_evt");            
         disabledButton.setParams({
             "idOpp" : inputObject.recordId,
