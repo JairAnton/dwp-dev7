@@ -16,21 +16,23 @@
             </span>
         </div>
         <!--New Section-->
-        <h3 class="slds-section__title">Producto: {!v.objSetup.nameProd}</h3>
-        <div class="slds-grid slds-wrap">
-            <aura:iteration items="{!v.positionSanctionPrice}" var="positionSP">
-                <div class="slds-size_1-of-2">
-                    <div class="slds-form-element">
-                        <span class="slds-form-element__label">{! positionSP.label}</span> 
-                        <div class="slds-form-element__control">
-                            <span class="slds-form-element__static">
-                                {!positionSP.value}
-                            </span>
-                        </div>
-                	</div>
-                </div>
-            </aura:iteration>
-        </div>
+        <aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
+	        <h3 class="slds-section__title">Producto: {!v.objSetup.nameProd}</h3>
+	        <div class="slds-grid slds-wrap">
+	            <aura:iteration items="{!v.positionSanctionPrice}" var="positionSP">
+	                <div class="slds-size_1-of-2">
+	                    <div class="slds-form-element">
+	                        <span class="slds-form-element__label">{! positionSP.label}</span> 
+	                        <div class="slds-form-element__control">
+	                            <span class="slds-form-element__static">
+	                                {!positionSP.value}
+	                            </span>
+	                        </div>
+	                	</div>
+	                </div>
+	            </aura:iteration>
+	        </div>
+	    </aura:if>
         <h3 class="slds-section__title">{!$Label.c.Price}</h3>
         <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false" isHTML="true"/>
         <h3 class="slds-section__title">{!$Label.c.Commitments}</h3>
