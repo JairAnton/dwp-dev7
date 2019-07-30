@@ -111,9 +111,9 @@ public class SanctionPriceAnalistWeb_ctrl {
                             }
                             /***/
                             if(mpReturn.containsKey('DI_FC')) {
-                                Decimal fundingCost = (Decimal) mpReturn.get('DI_FC');
+                                Final Decimal fundingCost = (Decimal) mpReturn.get('DI_FC');
                                 lstOLI[0].funding_cost_per__c = fundingCost;
-                                Decimal proposed = (Decimal) mpReturn.get('proposed');
+                                Final Decimal proposed = (Decimal) mpReturn.get('proposed');
                                 mpReturn.put('SPREAD',(proposed - fundingCost));
                             }
                             

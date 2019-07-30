@@ -8,9 +8,9 @@ public class SanctionPriceDecision_ctrl_Test {
         OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
         oli.PE_List_Product_mode__c='01';
         update oli;
-        fprd__GBL_Product_Configuration__c pd = new fprd__GBL_Product_Configuration__c(fprd__LoV_labels__c = 'Valor Label 1', fprd__LoV_values__c = '01', 
+        Final fprd__GBL_Product_Configuration__c newPd = new fprd__GBL_Product_Configuration__c(fprd__LoV_labels__c = 'Valor Label 1', fprd__LoV_values__c = '01', 
                                                                                        fprd__Map_field__c='PE_List_Product_mode__c', fprd__Product__c=prod.Id);
-        insert pd;
+        insert newPd;
     }
 
     @isTest
@@ -55,6 +55,6 @@ public class SanctionPriceDecision_ctrl_Test {
         Test.startTest();
         mapRes = SanctionPriceDecision_ctrl.redirect();
         Test.stopTest();
-        System.assertEquals(false, mapRes.get('isError'));
+        System.assertEquals(false, mapRes.get('isError'), 'Error en resultado esperado.');
     }
 }
