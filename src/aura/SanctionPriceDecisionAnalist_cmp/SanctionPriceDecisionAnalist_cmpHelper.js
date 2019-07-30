@@ -211,8 +211,6 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 if(ret.isOk){
-                    //$A.get('e.force:refreshView').fire();
-                    //helper.closeMe(cmp, evt, helper);
                     helper.gotoListView(cmp, evt, helper);
                 }else{
                     var lstError = [];

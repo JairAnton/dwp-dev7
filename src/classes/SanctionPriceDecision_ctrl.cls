@@ -264,10 +264,10 @@ public with sharing class SanctionPriceDecision_ctrl {
     /**Method to redirect to Case List View **/
     @AuraEnabled
     public static Map<String, Object> redirect() {
-        Map<String, Object> mapRes=new Map<String, Object>();
+        Final Map<String, Object> mapRes=new Map<String, Object>();
         mapRes.put('isError', true);
-        List<ListView> listViews = [SELECT Id, Name FROM ListView WHERE SobjectType = 'Case' AND DeveloperName = 'MyPendingRequest'];
-        Integer listViewsSize= listViews.size();
+        Final List<ListView> listViews = [SELECT Id, Name FROM ListView WHERE SobjectType = 'Case' AND DeveloperName = 'MyPendingRequest'];
+        Final Integer listViewsSize= listViews.size();
         if(listViewsSize > 0) {
             mapRes.put('isError', false);
             mapRes.put('listView', listViews[0]);
@@ -277,13 +277,13 @@ public with sharing class SanctionPriceDecision_ctrl {
     
     /**Method to getSanctionPriceInfo for History **/
     private static List<Map<String, Object>> getSanctionPriceInfo(Id oliId) {
-        List<Map<String, Object>> lstMapRes = new List<Map<String, Object>>();
-        OpportunityLineItem[] oli = [SELECT Product2Id, Product2.Name, UnitPrice, toLabel(PE_List_Product_mode__c), gipr_Plazo__c, gipr_Periodicidad__c, toLabel(gipr_Tipo_Garantia__c), 
+        Final List<Map<String, Object>> lstMapRes = new List<Map<String, Object>>();
+        Final OpportunityLineItem[] oli = [SELECT Product2Id, Product2.Name, UnitPrice, toLabel(PE_List_Product_mode__c), gipr_Plazo__c, gipr_Periodicidad__c, toLabel(gipr_Tipo_Garantia__c), 
                                      toLabel(gipr_Garantia__c), gipr_Cobertura__c FROM OpportunityLineItem WHERE Id=: oliId];
-        Integer oliSize = oli.size();
+        Final Integer oliSize = oli.size();
         if(oliSize > 0) {
-            Set<String> lstPicklist = new Set<String>{'PE_List_Product_mode__c', 'gipr_Tipo_Garantia__c', 'gipr_Garantia__c', 'gipr_Periodicidad__c'};
-            Map<String, Object> mapPC = new Map<String, Object>();
+            Final Set<String> lstPicklist = new Set<String>{'PE_List_Product_mode__c', 'gipr_Tipo_Garantia__c', 'gipr_Garantia__c', 'gipr_Periodicidad__c'};
+            Final Map<String, Object> mapPC = new Map<String, Object>();
             fprd__GBL_Product_Configuration__c[] lstProductConf = [SELECT id, fprd__DeveloperName__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Product__r.Name, 
                                                                    fprd__Map_field__c FROM fprd__GBL_Product_Configuration__c WHERE fprd__Product__c =: oli[0].Product2Id 
                                                                   AND fprd__Map_field__c IN: lstPicklist];
