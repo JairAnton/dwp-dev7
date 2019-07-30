@@ -8,7 +8,7 @@
 **/
 public with sharing class SanctionPriceDecision_ctrl {
     @AuraEnabled
-    public static Map<String,Object> getInfo(String recordIdOppLineItem){
+    public static Map<String,Object> getInfo(String recordIdOppLineItem) {
         Map<String,Object> mapReturn = new Map<String,Object>();
 
         List<OpportunityLineItem> lstOppLineItem = [SELECT  Id, 
@@ -31,7 +31,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                                 ORDER BY fprd__Header_order__c];
         Set<String> setFields = new Set<String>();
         Map<String,Object> mapMapfieldConfig = new Map<String,Object>();
-        for(fprd__GBL_Product_Configuration__c prodConfig : lstConfig){
+        for(fprd__GBL_Product_Configuration__c prodConfig : lstConfig) {
             setFields.add(prodConfig.fprd__Map_field__c);
             mapMapfieldConfig.put(prodConfig.fprd__Map_field__c,prodConfig);
         }
@@ -40,16 +40,19 @@ public with sharing class SanctionPriceDecision_ctrl {
         mapReturn.put('lstField', lstStringField);
         mapReturn.put('lstOppLineItem', lstOppLineItem);
         mapReturn.put('mapMapfieldConfig',mapMapfieldConfig);
-        if(!lstStringField.isEmpty()){ 
+        if(!lstStringField.isEmpty()) { 
             List<SObject> lstRow = Database.query('SELECT ' + String.join(lstStringField, ',') + ' FROM OpportunityLineItem WHERE Id = \'' + recordIdOppLineItem + '\'');
             mapReturn.put('lstInfo', lstRow);
         }
+        
+        /**getSanctionPriceInfo*/
+        mapReturn.put('sanctionPriceInfo', getSanctionPriceInfo(recordIdOppLineItem));
         
         return mapReturn;
     }
 
     @AuraEnabled
-    public static Map<String,Object> saveDecision(String recordId, String status_opp, String stageName, Boolean createCase, String styleAudit, String nameAudit, String strComments, String storeHtml){
+    public static Map<String,Object> saveDecision(String recordId, String status_opp, String stageName, Boolean createCase, String styleAudit, String nameAudit, String strComments, String storeHtml) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
         Opportunity opp = new Opportunity();
@@ -57,7 +60,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.StageName = stageName;
         opp.opportunity_status_type__c = status_opp;
         opp.isProcess__c = true;
-        try{
+        try {
             update opp;
             lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
             lstAudit[0].dwp_cvad__audit_audit_comments__c = strComments;
@@ -68,7 +71,7 @@ public with sharing class SanctionPriceDecision_ctrl {
             lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, storeHtml, 1, '', 'Embedded'));
             insert lstDetails;
            
-            if(createCase){
+            if(createCase) {
                 List<Group> queueGroup = [SELECT    Id, 
                                                     DeveloperName,
                                                     Type  
@@ -88,14 +91,14 @@ public with sharing class SanctionPriceDecision_ctrl {
                 insert caseInsert;
             }
             mapReturn.put('isOk', true);
-        }catch(Exception e){
+        } catch(Exception e) {
             mapReturn.put('isOk', false);
         }
         return mapReturn;
     }
 
     @AuraEnabled
-    public static Map<String,Object> saveDecisionAnalist(String recordId, String status_opp, String stageName, Boolean elevateCase, String styleAudit, String nameAudit, String strComments, String recordOli, List<String> lstApiField, List<Object> lstValue, String statusCase, String storeHtml, String approvalMethod, String wsPhase){
+    public static Map<String,Object> saveDecisionAnalist(String recordId, String status_opp, String stageName, Boolean elevateCase, String styleAudit, String nameAudit, String strComments, String recordOli, List<String> lstApiField, List<Object> lstValue, String statusCase, String storeHtml, String approvalMethod, String wsPhase) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
         Opportunity opp = new Opportunity();
@@ -105,10 +108,10 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.isProcess__c = true;
         Boolean isOk = true;
         Id idAnalist = null;
-        try{
-            if(approvalMethod == 'Web'){
+        try {
+            if(approvalMethod == 'Web') {
                 ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(recordId,wsPhase, (lstValue[1] == null? null : Double.valueOf(lstValue[1])) ,'', null);
-                try{
+                try {
                     System.HttpResponse invokeModify = modifyHelper.invoke();
                     switch on invokeModify.getStatusCode(){
                         when 200 {
@@ -122,37 +125,37 @@ public with sharing class SanctionPriceDecision_ctrl {
                             
                             List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
                             
-                            if(!mqBusinessAgentsList.isEmpty()){
+                            if(!mqBusinessAgentsList.isEmpty()) {
                                 List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
-                                if(!userList.isEmpty()){
+                                if(!userList.isEmpty()) {
                                     oliRecord.price_quote_owner_id__c = userList[0].Id;
                                     idAnalist = userList[0].Id;
-                                }else{
+                                } else {
                                     oliRecord.price_quote_owner_id__c = null;
                                 }
                             }
                             update oliRecord;
 
                         }
-                        when 409{
+                        when 409 {
                             WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(invokeModify.getBody());
                             isOk = false;
                             mapReturn.put('isOk', false);
                             mapReturn.put('errorMessage',Label.DecisionPriceActionError + ' ' + errorW.errormessage);
                         }
-                        when else{
+                        when else {
                             isOk = false;
                             mapReturn.put('isOk', false);
                             mapReturn.put('errorMessage',Label.PriceGenericError);
                         }
                     }
-                }catch(Exception e){
+                } catch(Exception e) {
                     isOk = false;
                     mapReturn.put('isOk', false);
                     mapReturn.put('errorMessage',Label.PriceGenericError);
                 }
             }
-            if(isOk){
+            if(isOk) {
                 update opp;
                 lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
                 lstAudit[0].dwp_cvad__audit_audit_comments__c = strComments;
@@ -173,7 +176,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                     AND IsClosed = false];
                 lstCases[0].Status = statusCase;
                 lstCases[0].bypass__c = true;
-                if(elevateCase && idAnalist==null){
+                if(elevateCase && idAnalist==null) {
                     List<Group> queueGroup = [SELECT    Id, 
                                                         DeveloperName,
                                                         Type  
@@ -181,7 +184,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                     WHERE Type = 'Queue' 
                                                     AND DeveloperName = 'Tier_2'];
                     lstCases[0].OwnerId = queueGroup[0].Id;
-                }else if(elevateCase && idAnalist!=null){
+                } else if(elevateCase && idAnalist!=null) {
                     lstCases[0].OwnerId = idAnalist;
                 }
                 update lstCases;
@@ -189,14 +192,14 @@ public with sharing class SanctionPriceDecision_ctrl {
 
                 mapReturn.put('isOk', (Boolean)mapReturnSaveOli.get('isOk'));
             }
-        }catch(Exception e){
+        } catch(Exception e) {
             mapReturn.put('isOk', false);
         }
         return mapReturn;
     }
 
     @AuraEnabled
-    public static Map<String,Object> getInfoAnalist(String recordIdOppLineItem){
+    public static Map<String,Object> getInfoAnalist(String recordIdOppLineItem) {
         Map<String,Object> mapReturn = new Map<String,Object>();
 
         List<OpportunityLineItem> lstOppLineItem = [SELECT  Id, 
@@ -220,7 +223,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                                 ORDER BY fprd__Header_order__c];
         Set<String> setFields = new Set<String>();
         Map<String,Object> mapMapfieldConfig = new Map<String,Object>();
-        for(fprd__GBL_Product_Configuration__c prodConfig : lstConfig){
+        for(fprd__GBL_Product_Configuration__c prodConfig : lstConfig) {
             setFields.add(prodConfig.fprd__Map_field__c);
             mapMapfieldConfig.put(prodConfig.fprd__Map_field__c,prodConfig);
         }
@@ -229,7 +232,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         mapReturn.put('lstField', lstStringField);
         mapReturn.put('lstOppLineItem', lstOppLineItem);
         mapReturn.put('mapMapfieldConfig',mapMapfieldConfig);
-        if(!lstStringField.isEmpty()){ 
+        if(!lstStringField.isEmpty()) { 
             List<SObject> lstRow = Database.query('SELECT ' + String.join(lstStringField, ',') + ' FROM OpportunityLineItem WHERE Id = \'' + recordIdOppLineItem + '\'');
             mapReturn.put('lstInfo', lstRow);
         }
@@ -247,7 +250,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     }
     
     @AuraEnabled
-    public static Map<String,Object> saveAuditWeb(String auditRecordId,  String storeHtml){
+    public static Map<String,Object> saveAuditWeb(String auditRecordId,  String storeHtml) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         
         List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
@@ -256,5 +259,56 @@ public with sharing class SanctionPriceDecision_ctrl {
         
         mapReturn.put('isOk', true);
         return mapReturn;
+    }
+    
+    /**Method to redirect to Case List View **/
+    @AuraEnabled
+    public static Map<String, Object> redirect() {
+        Final Map<String, Object> mapRes=new Map<String, Object>();
+        mapRes.put('isError', true);
+        Final List<ListView> listViews = [SELECT Id, Name FROM ListView WHERE SobjectType = 'Case' AND DeveloperName = 'MyPendingRequest'];
+        Final Integer listViewsSize= listViews.size();
+        if(listViewsSize > 0) {
+            mapRes.put('isError', false);
+            mapRes.put('listView', listViews[0]);
+        }
+        return mapRes;
+    }
+    
+    /**Method to getSanctionPriceInfo for History **/
+    private static List<Map<String, Object>> getSanctionPriceInfo(Id oliId) {
+        Final List<Map<String, Object>> lstMapRes = new List<Map<String, Object>>();
+        Final OpportunityLineItem[] oli = [SELECT Product2Id, Product2.Name, UnitPrice, toLabel(PE_List_Product_mode__c), gipr_Plazo__c, gipr_Periodicidad__c, toLabel(gipr_Tipo_Garantia__c), 
+                                     toLabel(gipr_Garantia__c), gipr_Cobertura__c FROM OpportunityLineItem WHERE Id=: oliId];
+        Final Integer oliSize = oli.size();
+        if(oliSize > 0) {
+            Final Set<String> lstPicklist = new Set<String>{'PE_List_Product_mode__c', 'gipr_Tipo_Garantia__c', 'gipr_Garantia__c', 'gipr_Periodicidad__c'};
+            Final Map<String, Object> mapPC = new Map<String, Object>();
+            fprd__GBL_Product_Configuration__c[] lstProductConf = [SELECT id, fprd__DeveloperName__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Product__r.Name, 
+                                                                   fprd__Map_field__c FROM fprd__GBL_Product_Configuration__c WHERE fprd__Product__c =: oli[0].Product2Id 
+                                                                  AND fprd__Map_field__c IN: lstPicklist];
+            for(fprd__GBL_Product_Configuration__c pc:lstProductConf) {
+                if(!String.isEmpty(pc.fprd__LoV_values__c)) {
+                    String[] strLabelTmp = pc.fprd__LoV_labels__c.split(',');
+                    String[] strValueTmp = pc.fprd__LoV_values__c.split(',');
+                    Integer position = strValueTmp.indexOf(''+oli[0].get(pc.fprd__Map_field__c));
+                    if(position >= 0) {
+                     	mapPC.put(pc.fprd__Map_field__c, strLabelTmp[position]);   
+                    }
+                }
+            }
+            
+            lstMapRes.add(new Map<String, Object>{ 'label' => 'Importe', 'value' => (oli[0].UnitPrice != null?oli[0].UnitPrice.setScale(2):null), 'type' => 'DOUBLE', 'position' => 1});
+            lstMapRes.add(new Map<String, Object>{ 'label' => 'Modalidad', 'value' => mapPC.get('PE_List_Product_mode__c'), 'type' => 'STRING', 'position' => 2});
+            lstMapRes.add(new Map<String, Object>{ 'label' => 'Plazo', 'value' => oli[0].gipr_Plazo__c, 'type' => 'INTEGER', 'position' => 3});
+            lstMapRes.add(new Map<String, Object>{ 'label' => 'Periodicidad', 'value' => mapPC.get('gipr_Periodicidad__c'), 'type' => 'STRING' , 'position' => 4});
+            lstMapRes.add(new Map<String, Object>{ 'label' => 'Tipo de garantía', 'value' => mapPC.get('gipr_Tipo_Garantia__c'), 'type' => 'STRING', 'position' => 5});
+            if(oli[0].gipr_Tipo_Garantia__c != '03') {
+                lstMapRes.add(new Map<String, Object>{ 'label' => 'Garantía', 'value' => mapPC.get('gipr_Garantia__c'), 'type' => 'STRING', 'position' => 6});
+            	lstMapRes.add(new Map<String, Object>{ 'label' => 'Cobertura (%)', 'value' => (oli[0].gipr_Cobertura__c !=null?oli[0].gipr_Cobertura__c.setScale(2):null), 'type' => 'PERCENT', 'position' => 7});
+            }
+            
+        }
+        return lstMapRes;
     }
 }

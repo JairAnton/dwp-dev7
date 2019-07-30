@@ -4,9 +4,9 @@
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
     	cancelEvent.fire();
     },
-    getInfo : function(component, event, helper){
+    getInfo : function(component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
-        if(inputObject.approvalMethod == 'Web'){
+        if(inputObject.approvalMethod == 'Web') {
             component.set('v.enableContinue',true);
         }
         var action = component.get("c.getInfo");
@@ -18,12 +18,12 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name};
-                if(!ret.lstInfoIsEmpty){
+                if(!ret.lstInfoIsEmpty) {
                     var lstTile = [];
                     
-                    for(var i in ret.lstField){
+                    for(var i in ret.lstField) {
                         var strValue = ret.lstInfo[0][ret.lstField[i]];
-                        if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c != undefined && ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c!=''){
+                        if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c != undefined && ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c!='') {
                             var lovValues = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c.split(',');
                             var lovLabels = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_labels__c.split(',');
                             var posVal = lovValues.indexOf(strValue);
@@ -37,14 +37,22 @@
                     }
                     objSetup['lstTile']=lstTile;
                 }
-                
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.lstOppLineItem[0]); 
                 component.set('v.objSetup',objSetup);
+                
+                /**getSanctionPriceInfo**/
+                if(ret.sanctionPriceInfo != null) {
+                    ret.sanctionPriceInfo[0].value = ret.sanctionPriceInfo[0].value.toFixed(2);
+                    if(ret.sanctionPriceInfo.length > 5) {
+                           ret.sanctionPriceInfo[6].value = ret.sanctionPriceInfo[6].value.toFixed(2);
+                    }
+                    component.set("v.positionSanctionPrice", ret.sanctionPriceInfo);
+                }
             }
         }); 
         $A.enqueueAction(action);
     },
-    getInfoButtons : function(strType, objOli){
+    getInfoButtons : function(strType, objOli) {
         var returnObj = {
             'COTIZA Beta':{
                 'lstButtons':[
@@ -100,8 +108,8 @@
             }
         };
 
-        if(strType=='Tarifario'){
-            if(objOli.minimun_fee_per__c <= objOli.proposed_fee_per__c){
+        if(strType=='Tarifario') {
+            if(objOli.minimun_fee_per__c <= objOli.proposed_fee_per__c) {
                 returnObj['Tarifario'] = {
                     'lstButtons':[
                         {
@@ -137,7 +145,7 @@
         }
         return returnObj[strType];
     },
-    doContinue : function(cmp, evt, helper){
+    doContinue : function(cmp, evt, helper) {
         var storeHTML = document.getElementById('storeHTML');
         var objSetup = cmp.get('v.objSetup');
         var inputObject = cmp.get('v.inputAttributes');
@@ -164,7 +172,7 @@
         }); 
         $A.enqueueAction(action);
     },
-    doContinueWeb : function(cmp, evt, helper){
+    doContinueWeb : function(cmp, evt, helper) {
         var storeHTML = document.getElementById('storeHTML');
         var inputObject = cmp.get('v.inputAttributes');
         var action = cmp.get("c.saveAuditWeb");

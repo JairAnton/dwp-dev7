@@ -11,7 +11,7 @@
     <aura:attribute name="showSpinner" type="Boolean" default="true"/>
     <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section"/>
     <aura:attribute name="lstError" type="String[]" />
-    <aura:attribute name="lstHeadersHtml" type="List" />   
+    <aura:attribute name="lstHeadersHtml" type="List" />
     
     <aura:if isTrue="{! !v.showSpinner}">
         <aura:if isTrue="{!v.isOk}">

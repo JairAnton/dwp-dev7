@@ -6,10 +6,15 @@ public class SanctionPriceDecision_ctrl_Test {
         Opportunity opp = TestFactory.createOpportunity(acc.Id, UserInfo.getUserId());
         Product2 prod = TestFactory.createProduct();
         OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
+        oli.PE_List_Product_mode__c='01';
+        update oli;
+        Final fprd__GBL_Product_Configuration__c newPd = new fprd__GBL_Product_Configuration__c(fprd__LoV_labels__c = 'Valor Label 1', fprd__LoV_values__c = '01', 
+                                                                                       fprd__Map_field__c='PE_List_Product_mode__c', fprd__Product__c=prod.Id);
+        insert newPd;
     }
 
     @isTest
-    static void test_method_one(){
+    static void test_method_one() {
         List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem];
         Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
         System.assert(mapReturn.containsKey('lstOppLineItem')); 
@@ -42,5 +47,14 @@ public class SanctionPriceDecision_ctrl_Test {
 
         List<dwp_cvad__Action_Audit__c> lstAudit = [SELECT Id FROM dwp_cvad__Action_Audit__c];
         SanctionPriceDecision_ctrl.saveAuditWeb(lstAudit[0].Id, '<div>Hola</div>');
+    }
+    
+    @isTest
+    static void testRedirect() {
+        Map<String, Object> mapRes = new Map<String, Object>();
+        Test.startTest();
+        mapRes = SanctionPriceDecision_ctrl.redirect();
+        Test.stopTest();
+        System.assertEquals(false, mapRes.get('isError'), 'Error en resultado esperado.');
     }
 }
