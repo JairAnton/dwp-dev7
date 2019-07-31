@@ -2342,6 +2342,17 @@ Analistas de riesgos</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.dwp_centralcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.dwp_officeName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.opportunity_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
