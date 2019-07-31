@@ -3249,6 +3249,11 @@ Asistente BE</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityLineItem.calculated_spread__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</field>
         <readable>true</readable>

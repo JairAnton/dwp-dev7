@@ -1305,7 +1305,17 @@
         <field>Contact.Phone</field>
         <readable>true</readable>
     </fieldPermissions>
-       <fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.dwp_centralcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.dwp_officeName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Birthdate</field>
         <readable>true</readable>

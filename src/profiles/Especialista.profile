@@ -3015,6 +3015,11 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>OpportunityLineItem.calculated_spread__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>OpportunityLineItem.fprd__GBL_Sample_Checkbox__c</field>
         <readable>false</readable>
     </fieldPermissions>
