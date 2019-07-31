@@ -158,7 +158,7 @@ public class SanctionPriceAnalistWeb_ctrl {
                 //get json body
                 mpReturn.put('body',invoke.getBody());
                 mpReturn.put('state',invoke.getStatusCode());
-                mpReturn.put('SPREAD',(tea - lstOLI[0].funding_cost_per__c ));
+                mpReturn.put('SPREAD',(tea - lstOLI[0].funding_cost_per__c ).setScale(2));
             }
         } catch(Exception e) {
             errorMessage = e.getMessage();
