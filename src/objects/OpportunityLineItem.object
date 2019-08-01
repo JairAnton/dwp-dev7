@@ -2754,6 +2754,13 @@
         <scale>2</scale>
         <type>Percent</type>
     </fields>
+    <fields>
+        <fullName>cpliq_Vcto_tarifa__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq_Vcto_tarifa</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
     <validationRules>
         <fullName>ContractNo_Validation</fullName>
         <active>true</active>

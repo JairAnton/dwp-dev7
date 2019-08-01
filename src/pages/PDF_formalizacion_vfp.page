@@ -45,8 +45,8 @@
             </td>
         </tr>
         <tr>
-            <td>Clasificación SBS: {!Client.banking_system_classification_desc__c }</td>
-            <td>Estrategia: {!Client.risk_strategy_class_name__c}</td>
+            <td>Clasificación SBS: {!Client.banking_system_classification_desc__c } </td>
+            <td>Estrategia: {!Client.risk_strategy_class_name__c} </td>
         </tr>
         <tr>
             <td>Buró:&nbsp;<apex:outputText value="{0, number,0}">
@@ -107,7 +107,7 @@
                                                 pc.fprd__Map_field__c=='cpliq_BBVA__c', 
                                                 pc.fprd__Map_field__c=='cpliq_Bco_Correspondent__c', 
                                                 pc.fprd__Map_field__c=='cpliq_Total__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Fecha_Vencimiento__c'), true, false)}">
+                                                pc.fprd__Map_field__c=='cpliq_Vcto_tarifa__c'), true, false)}">
                     <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
                         <tr>
                             <td>
@@ -259,7 +259,7 @@
                                                 pc.fprd__Map_field__c=='cpliq_BBVA__c', 
                                                 pc.fprd__Map_field__c=='cpliq_Bco_Correspondent__c', 
                                                 pc.fprd__Map_field__c=='cpliq_Total__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Fecha_Vencimiento__c')), false, true)}">
+                                                pc.fprd__Map_field__c=='cpliq_Vcto_tarifa__c')), false, true)}">
                 <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
                     <tr>
                         <td>

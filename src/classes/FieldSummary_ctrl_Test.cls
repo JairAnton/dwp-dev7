@@ -43,7 +43,7 @@ public class FieldSummary_ctrl_Test {
         update lstOpp;
 		Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
         lstOLI[0].cpliq_Commission__c='02';
-        lstOLI[0].cpliq_Fecha_Vencimiento__c=System.today().addDays(4);
+        lstOLI[0].cpliq_Vcto_tarifa__c=System.today().addDays(4);
         update lstOLI;
         FieldSummary_ctrl.getInfo(lstOLI[0].Id, ISOKLABEL);
         Final List<Opportunity> lstOppResult = [SELECT Id, opportunity_status_type__c FROM Opportunity LIMIT 1];
