@@ -5343,7 +5343,12 @@ Asistente BE</description>
         <field>OpportunityLineItem.cpliq_Total__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<layoutAssignments>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Vcto_tarifa__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
