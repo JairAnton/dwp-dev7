@@ -18,7 +18,7 @@
         var OpportunityId = cmp.get("v.recordId");
 	},
 	Actions : function(component, event, helper) {
-        
+        component.find("btnContinue").set("v.disabled", true);
 
       
        
@@ -52,15 +52,11 @@
                         }
 
                     }
-                    else if (state === "INCOMPLETE") {
-                        component.set("v.errMessage",response.getReturnValue());
-                        helper.handleShowToast(component,event,helper);
-                                   
-                    }
-                    else if (state === "ERROR") {
-                        component.set("v.errMessage",response.getReturnValue());
-                        helper.handleShowToast(component,event,helper);
-                    }
+                    else if (state === "INCOMPLETE" || state === "ERROR") {
+						component.find("btnContinue").set("v.disabled", false);
+						component.set("v.errMessage",response.getReturnValue());
+						helper.handleShowToast(component,event,helper);
+					}
                     
                 });
                 $A.enqueueAction(action);
