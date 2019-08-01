@@ -61,7 +61,7 @@
             fieldsForm = cmp.find('fieldsForm')
         }
         var valField = fieldsForm.validateSave();
-        if(!valField && cmp.get('v.type_of_quote')!='Carta de credito'){
+        if(!valField && cmp.get('v.type_of_quote')!=='Carta de credito'){
     		helper.activeButton(cmp, evt, helper);
     		cmp.set("v.btnCalculate",false);
         }
