@@ -27,10 +27,26 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.branch_level4_desc__c</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.branch_name__c</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.Owner_calculated__c</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c</field>
+    </columns>
+    <columns>
         <field>dwp_kitv__Visit__c$Name</field>
     </columns>
     <columns>
-        <field>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$Name</field>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>dwp_kitv__Visit__c$dwp_kitv__visit_users_number__c</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c$dwp_kitv__visit_summary_desc__c</field>
     </columns>
     <currency>PEN</currency>
     <filter>
