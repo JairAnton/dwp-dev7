@@ -35,6 +35,7 @@
                     objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
                     cmp.set('v.hasHeader',true);
                 }else if (ret.approvalMethod == 'Web'){
+                    cmp.set("v.showWebForm",true);
                     if(generr != undefined){
                         cmp.set('v.isError', true);
                         cmp.set('v.errorlst',generr);
@@ -43,6 +44,7 @@
                         cmp.set('v.hasHeader',true);
                     	cmp.set('v.isError', false);
                         objectInput['dinamicInput'] = ret.sugtea + ',' + ret.minimtea + ','+ret.proposed+',' + ret.spread;
+                        cmp.set("v.proposedEmpty",(ret.proposed)?false:true);
                     }
                 }
                 cmp.set('v.objectInput',objectInput);
@@ -59,14 +61,9 @@
             fieldsForm = cmp.find('fieldsForm')
         }
         var valField = fieldsForm.validateSave();
-        if(!valField){
-            var inputObject=cmp.get('v.inputAttributes');
-            var disabledButton = $A.get("e.c:disabledButton_evt");
-            disabledButton.setParams({
-                "idOpp" : inputObject.recordId,
-                "idButton" : 'idContinueSPE',
-            });
-            disabledButton.fire();
+        if(!valField && cmp.get('v.type_of_quote')!=='Carta de credito'){
+    		helper.activeButton(cmp, evt, helper);
+    		cmp.set("v.btnCalculate",false);
         }
     },
     doNextComponent : function(cmp, evt, helper){
@@ -80,14 +77,18 @@
             compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:SanctionPriceCommitments_cmp'});
             compEvent.fire();
         }else{
-            var disabledButton = $A.get("e.c:disabledButton_evt");
-            disabledButton.setParams({
-				"idOpp" : inputObject.recordId,
-				"idButton" : 'idContinueSPE',
-		 	});
-			disabledButton.fire();
+            helper.activeButton(cmp, evt, helper);
             cmp.set('v.checkError',true);
             cmp.set('v.errorMessage',message);
         }
+    },
+    activeButton : function(cmp, evt, helper){
+        var inputObject=cmp.get('v.inputAttributes');
+        var disabledButton = $A.get("e.c:disabledButton_evt");            
+        disabledButton.setParams({
+            "idOpp" : inputObject.recordId,
+            "idButton" : 'idContinueSPE',
+        });
+        disabledButton.fire();
     }
 })

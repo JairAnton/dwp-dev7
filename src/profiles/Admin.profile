@@ -1305,7 +1305,17 @@
         <field>Contact.Phone</field>
         <readable>true</readable>
     </fieldPermissions>
-       <fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.dwp_centralcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.dwp_officeName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Birthdate</field>
         <readable>true</readable>
@@ -3228,6 +3238,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_branch_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>dwp_kitv__Visit_Topic__c.dwp_kitv__visit_done_type__c</field>
         <readable>true</readable>
     </fieldPermissions>    
@@ -3329,6 +3344,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>dwp_kitv__Visit__c.dwp_kitv__visit_users_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_office_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_region_name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4206,6 +4231,11 @@
        <field>OpportunityLineItem.cpliq_n__c</field>
        <readable>true</readable>
    </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>OpportunityLineItem.cpliq_Vcto_tarifa__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>

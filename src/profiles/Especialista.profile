@@ -3015,6 +3015,11 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>OpportunityLineItem.calculated_spread__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>OpportunityLineItem.fprd__GBL_Sample_Checkbox__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3872,7 +3877,22 @@ Ejecutivos de REDES</description>
         <editable>false</editable>
         <field>User.Manager_frm__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Organizational_unit_code_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Organizational_unit_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.User_position_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>User.gcal__GBL_Google_Calendar_Last_Retr_Time__c</field>
@@ -3886,6 +3906,31 @@ Ejecutivos de REDES</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>User.gcal__GBL_Google_Calendar_Session_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.organizational_unit_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.organizational_unit_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.portfolio_classification_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.prof_position_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.prof_position_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
@@ -4450,6 +4495,11 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>dwp_kitv__Visit__c.dwp_branch_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.gipr_Currency_Origin__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4574,6 +4624,16 @@ Ejecutivos de REDES</description>
         <readable>true</readable>
 	</fieldPermissions>
 	<fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_office_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.dwp_region_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
 	    <editable>true</editable>
 	    <field>OpportunityLineItem.cpliq_n__c</field>
 	    <readable>true</readable>
@@ -4588,7 +4648,12 @@ Ejecutivos de REDES</description>
         <field>OpportunityLineItem.cpliq_Periodicidad__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <layoutAssignments>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.cpliq_Vcto_tarifa__c</field>
+        <readable>true</readable>
+	</fieldPermissions>
+	<layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

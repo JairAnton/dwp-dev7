@@ -3,7 +3,7 @@
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
     	cancelEvent.fire();
     },
-    getInfo : function(component, event, helper){
+    getInfo : function(component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
         var action = component.get("c.getInfoAnalist");
         action.setParams({
@@ -52,7 +52,7 @@
         }); 
         $A.enqueueAction(action);
     },
-    getInfoButtons : function(strType, hasCaseOpen){
+    getInfoButtons : function(strType, hasCaseOpen) {
         var returnObj = {
             'COTIZADOR':{
                 'lstButtons':[
@@ -182,7 +182,7 @@
         }
         return returnObj[strType];
     },
-    doContinue : function(cmp, evt, helper){
+    doContinue : function(cmp, evt, helper) {
         cmp.set('v.hasHeader',false);
         cmp.set('v.showSpinner',true);
         var storeHTML = document.getElementById('storeHTML');
@@ -211,8 +211,7 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 if(ret.isOk){
-                    $A.get('e.force:refreshView').fire();
-                    helper.closeMe(cmp, evt, helper);
+                    helper.gotoListView(cmp, evt, helper);
                 }else{
                     var lstError = [];
                     lstError.push(ret.errorMessage);
@@ -226,9 +225,33 @@
         $A.enqueueAction(action);
 
     },
-    removeColumns : function(cmp, evt, helper){
+    removeColumns : function(cmp, evt, helper) {
         var headers = cmp.get('v.inputAttributes').headerinput.slice();
         headers.splice(1,2);
         cmp.set('v.lstHeadersHtml', headers);
+    },
+    gotoListView : function(component, evt, helper) {
+        var action = component.get("c.redirect");
+        action.setParams({});
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                var res = response.getReturnValue();
+                if(!res.isError){
+                    var nav = $A.get("e.force:navigateToList");
+                    nav.setParams({
+                        "listViewId" : res.listView.Id,
+                        "listViewName" : null,
+                        "scope" : "Case"
+                    });
+                    nav.fire();
+                } else {
+                    helper.closeMe(cmp, evt, helper);
+                }
+            } else {
+                helper.closeMe(cmp, evt, helper);
+            }
+        });
+        $A.enqueueAction(action);
     }
 })

@@ -11,7 +11,7 @@
     
     <force:recordData aura:id="record"
                       recordId="{!v.recordId}"
-                      fields="Id,Name,Product2.Name,CurrencyIsoCode,UnitPrice,cpliq_Commission__c,cpliq_Fecha_Vencimiento__c,cpliq_Emission__c,cpliq_Negotiation__c,cpliq_Payment_Dif__c,cpliq_Extension__c,cpliq_Increase__c,cpliq_BBVA__c,cpliq_Bco_Correspondent__c,cpliq_Total__c"
+                      fields="Id,Name,Product2.Name,CurrencyIsoCode,UnitPrice,cpliq_Commission__c,cpliq_Vcto_tarifa__c,cpliq_Emission__c,cpliq_Negotiation__c,cpliq_Payment_Dif__c,cpliq_Extension__c,cpliq_Increase__c,cpliq_BBVA__c,cpliq_Bco_Correspondent__c,cpliq_Total__c"
                       targetFields="{!v.oliRecord}"
                       targetError="{!v.recordError}"/>
     

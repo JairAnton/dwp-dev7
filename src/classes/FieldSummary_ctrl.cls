@@ -28,13 +28,13 @@ public with sharing class FieldSummary_ctrl {
         Final List<String> values = new List<String>();
         OpportunityLineItem oli = new OpportunityLineItem();
         try {
-        	oli = [SELECT Id,Name,Product2.Name,CurrencyIsoCode,UnitPrice,cpliq_Commission__c,cpliq_Fecha_Vencimiento__c,cpliq_Emission__c,cpliq_Negotiation__c,cpliq_Payment_Dif__c,cpliq_Extension__c,cpliq_Increase__c,cpliq_BBVA__c,cpliq_Bco_Correspondent__c,cpliq_Total__c FROM OpportunityLineItem WHERE Id = :recordId][0];
+        	oli = [SELECT Id,Name,Product2.Name,CurrencyIsoCode,UnitPrice,cpliq_Commission__c,cpliq_Vcto_tarifa__c,cpliq_Emission__c,cpliq_Negotiation__c,cpliq_Payment_Dif__c,cpliq_Extension__c,cpliq_Increase__c,cpliq_BBVA__c,cpliq_Bco_Correspondent__c,cpliq_Total__c FROM OpportunityLineItem WHERE Id = :recordId][0];
             values.add(String.valueOf(oli.UnitPrice.setScale(2)));
             values.add(oli.Product2.Name);
             switch on oli.cpliq_Commission__c {
                 when '02' {
-                    if(oli.cpliq_Fecha_Vencimiento__c!=null) {
-                        Final DateTime dateExpired = DateTime.newInstance(oli.cpliq_Fecha_Vencimiento__c.year(), oli.cpliq_Fecha_Vencimiento__c.month(), oli.cpliq_Fecha_Vencimiento__c.day());
+                    if(oli.cpliq_Vcto_tarifa__c!=null) {
+                        Final DateTime dateExpired = DateTime.newInstance(oli.cpliq_Vcto_tarifa__c.year(), oli.cpliq_Vcto_tarifa__c.month(), oli.cpliq_Vcto_tarifa__c.day());
                         values.add(dateExpired.format('dd/MM/yyyy'));
                     }
                 }

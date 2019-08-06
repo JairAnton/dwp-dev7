@@ -170,6 +170,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>dwp_branch_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Oficina Principal</label>
+        <referenceTo>Branch__c</referenceTo>
+        <relationshipLabel>Visitas</relationshipLabel>
+        <relationshipName>Visitas</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>dwp_kitv__account_id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
@@ -585,6 +597,28 @@
         <summaryOperation>count</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>dwp_office_name__c</fullName>
+        <externalId>false</externalId>
+        <formula>dwp_branch_id__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Oficina</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_region_name__c</fullName>
+        <externalId>false</externalId>
+        <formula>dwp_branch_id__r.branch_level4_desc__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Region</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>report_visit_status_type__c</fullName>

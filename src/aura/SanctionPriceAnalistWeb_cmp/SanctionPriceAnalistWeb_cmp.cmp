@@ -11,6 +11,8 @@
     <aura:attribute name="StringPE" type="String" default="0"/>
     <aura:attribute name="StringCE" type="String" default="0"/>
     <aura:attribute name="StringCR" type="String" default="0"/>
+    <aura:attribute name="StringDI_FC" type="String" default="0"/>
+    <aura:attribute name="StringSPREAD" type="String" default="0"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <div class="slds-m-bottom_medium">
@@ -29,15 +31,21 @@
                     <c:DataTable_cmp data="{!v.data}" headers="{!v.headers}"/>
                 </div>
                 <div class="slds-m-bottom_medium">
-                    <lightning:layout>
-                        <lightning:layoutItem padding="around-small">
+                    <lightning:layout multipleRows="true">
+                        <lightning:layoutItem padding="around-small" size="4">
                             <lightning:input disabled="true" name="output_CR" label="CR %" value="{! v.StringCR }" placeholder="CR" />
                         </lightning:layoutItem>
-                        <lightning:layoutItem padding="around-small">
+                        <lightning:layoutItem padding="around-small" size="4">
                             <lightning:input disabled="true" name="output_PE" label="PE %" value="{! v.StringPE }" placeholder="PE" />
                         </lightning:layoutItem>
-                        <lightning:layoutItem padding="around-small">
+                        <lightning:layoutItem padding="around-small" size="4">
                             <div class="custom-box"><lightning:input disabled="true" name="output_CE" label="CE %" value="{! v.StringCE }" placeholder="CE" /></div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem padding="around-small" size="4">
+                            <lightning:input disabled="true" name="output_DI_FC" label="DI % finanzas" value="{! v.StringDI_FC }" placeholder="DI" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem padding="around-small" size="4">
+                            <lightning:input disabled="true" name="output_SPREAD" label="Spread % finanzas" value="{! v.StringSPREAD }" placeholder="Spread" />
                         </lightning:layoutItem>
                     </lightning:layout>
                 </div>

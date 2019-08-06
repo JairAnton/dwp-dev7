@@ -236,6 +236,28 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>dwp_centralcode__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account.main_code_id__c</formula>
+        <label>Código central del cliente</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_officeName__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account.branch_id__r.Name</formula>
+        <label>Oficina propietario del cliente</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>opportunity_id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup to Opportunity</description>
@@ -349,6 +371,8 @@
         <columns>opportunity_amount__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CLOSED_DATE</columns>
+        <columns>dwp_centralcode__c</columns>
+        <columns>dwp_officeName__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CASES.CLOSED</field>
@@ -373,6 +397,8 @@
         <columns>opportunity_amount__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CREATED_DATE</columns>
+        <columns>dwp_centralcode__c</columns>
+        <columns>dwp_officeName__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CASES.CLOSED</field>
@@ -446,6 +472,8 @@
         <columns>opportunity_amount__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CLOSED_DATE</columns>
+        <columns>dwp_centralcode__c</columns>
+        <columns>dwp_officeName__c</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>CASES.CLOSED</field>
@@ -470,6 +498,8 @@
         <columns>opportunity_amount__c</columns>
         <columns>Owner_Account__c</columns>
         <columns>CASES.CREATED_DATE</columns>
+        <columns>dwp_centralcode__c</columns>
+        <columns>dwp_officeName__c</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>CASES.CLOSED</field>

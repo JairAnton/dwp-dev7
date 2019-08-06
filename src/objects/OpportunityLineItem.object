@@ -11,6 +11,19 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Spread__c</fullName>
+        <description>Spread resultante de restar la TEA mínima menos el DI de la curva de finanzas</description>
+        <externalId>false</externalId>
+        <label>Spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Subtotal</fullName>
+    </fields>
+    <fields>
         <fullName>Tipo_amortizacion__c</fullName>
         <externalId>false</externalId>
         <label>Tipo amortización</label>
@@ -40,6 +53,17 @@
     </fields>
     <fields>
         <fullName>UnitPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>calculated_spread__c</fullName>
+        <description>Calcula el spread de acuerdo a TEA propuesta o TEA mínima menos el funding_cost</description>
+        <externalId>false</externalId>
+        <formula>(BLANKVALUE(proposed_apr_per__c, minimun_apr_per__c) - funding_cost_per__c)</formula>
+        <label>Spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>cpliq_Amortizacion__c</fullName>
@@ -2730,6 +2754,13 @@
         <scale>2</scale>
         <type>Percent</type>
     </fields>
+    <fields>
+        <fullName>cpliq_Vcto_tarifa__c</fullName>
+        <externalId>false</externalId>
+        <label>cpliq_Vcto_tarifa</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
     <validationRules>
         <fullName>ContractNo_Validation</fullName>
         <active>true</active>
@@ -2845,6 +2876,6 @@ REGEX( cpliq_Cuenta_Cargo__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
         <fullName>Plazo_validation_lengh</fullName>
         <active>true</active>
         <errorConditionFormula>IF( gipr_Plazo__c &gt;999,true,false)</errorConditionFormula>
-        <errorMessage>El plazo debe tener un numero no mayor a 3 cifras.</errorMessage>
+        <errorMessage>El plazo debe tener un número no mayor a 3 cifras.</errorMessage>
     </validationRules>
 </CustomObject>
