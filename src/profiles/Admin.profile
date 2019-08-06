@@ -694,6 +694,26 @@
         <apexClass>Minuta_ctrl_TEST</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>FieldSummary_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FieldSummary_ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>User_Handler_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	  <classAccesses>
+        <apexClass>User_Trigger_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	  <classAccesses>
+        <apexClass>User_Trigger_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>false</editable>
@@ -2683,17 +2703,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Periodicidad__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>OpportunityLineItem.gipr_Physical_token__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.gipr_Plazo__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2826,19 +2836,9 @@
         <field>OpportunityLineItem.cpliq_n_gracia__c</field>
         <readable>true</readable>
     </fieldPermissions>
-   <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Periodicidad__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_Codigo_Simulacion__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.cpliq_Fecha_Vencimiento__c</field>
         <readable>true</readable>
     </fieldPermissions>
    <fieldPermissions>
@@ -3195,7 +3195,12 @@
         <editable>true</editable>
         <field>dwp_kitv__Visit_Management_Team__c.dwp_kitv__user_id__c</field>
         <readable>true</readable>
-    </fieldPermissions>    
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.dwp_owner_visit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>dwp_kitv__Visit_Topic__c.dwp_kitv__More_Recent_Visits__c</field>
@@ -4071,6 +4076,136 @@
         <field>Account_variation_information__c.validation_color_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.Organizational_unit_code_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Organizational_unit_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.User_position_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.Organizational_unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.Organizational_unit_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.User_position__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.User_position_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User_Position_equivalence__c.User_position_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Organizational_Unit_Equivalence__c.Organizational_unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Organizational_Unit_Equivalence__c.Organizational_unit_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Organizational_Unit_Equivalence__c.Organizational_unit_code_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Organizational_Unit_Equivalence__c.Organizational_unit_equivalence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.Unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.isactive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.gipr_Class__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_Way_to_Pay__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_Commission__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_Emission__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_Negotiation__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_Payment_Dif__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_Increase__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions> 
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_Extension__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_BBVA__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_Bco_Correspondent__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>false</editable>
+       <field>OpportunityLineItem.cpliq_Total__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
+   <fieldPermissions>
+       <editable>true</editable>
+       <field>OpportunityLineItem.cpliq_n__c</field>
+       <readable>true</readable>
+   </fieldPermissions>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
@@ -4190,6 +4325,12 @@
     </layoutAssignments>
 	<layoutAssignments>
         <layout>Web_Service_Value_Mapping__c-Web Service Value Mapping Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Organizational_Unit_Equivalence__c-Organizational Unit Equivalence Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>User_Position_equivalence__c-User Position Equivalence Layout</layout>
     </layoutAssignments>
 	<objectPermissions>
         <allowCreate>true</allowCreate>
@@ -4596,6 +4737,24 @@
         <object>Account_variation_information__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Organizational_Unit_Equivalence__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>User_Position_equivalence__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
         <enabled>true</enabled>
@@ -4782,6 +4941,14 @@
     </tabVisibilities>
 	<tabVisibilities>
         <tab>Account_variation_information__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>User_Position_equivalence__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Organizational_Unit_Equivalence__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>

@@ -788,7 +788,7 @@
         <label>Enviada a autorización de riesgos</label>
         <name>RiskSendToApproval</name>
     </customLabels>
-    <customLabels>
+	<customLabels>
         <label>Price Approval</label>
         <name>AuditPriceApproval</name>
     </customLabels>
@@ -1607,6 +1607,10 @@
 	<customLabels>
         <label>Invitar</label>
         <name>dwp_kitv__invite</name>
+    </customLabels>
+	<customLabels>
+        <label>No se pudo actualizar el estado de la oportunidad al estado &quot;Precio Aprobado&quot;.</label>
+        <name>Error_letter_of_credit</name>
     </customLabels>
 	<quickActions>
         <label>Llamada</label>

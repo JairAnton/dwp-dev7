@@ -15,10 +15,15 @@
         <default>false</default>
         <label>Web</label>
     </customValue>
-	<customValue>
+    <customValue>
         <fullName>COTIZA Beta</fullName>
         <default>false</default>
         <label>COTIZA Beta</label>
+    </customValue>
+    <customValue>
+        <fullName>Carta de credito</fullName>
+        <default>false</default>
+        <label>Carta de credito</label>
     </customValue>
     <description>Valores del tipo de cotizacion</description>
     <masterLabel>Type of quote</masterLabel>

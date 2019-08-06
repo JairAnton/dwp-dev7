@@ -1,0 +1,15 @@
+.THIS .headerLeft {
+	border: 1px solid #DDDBDA;
+	border-radius: 4px 0 0 4px;
+	background-color: #F3F2F2;
+}
+
+.THIS .headerRight {
+	border: 1px solid #DDDBDA;
+	border-radius: 0 4px 4px 0;
+	background-color: #F3F2F2;
+}
+
+.THIS td {
+	padding-left: 10px;
+}
