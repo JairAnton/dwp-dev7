@@ -1092,7 +1092,7 @@
 	<fields>
         <fullName>Estado_PE25__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( CONTAINS( UPPER(gf_customer_excluded_ind_type__c) , &apos;INELEGIBLE&apos; ), IMAGE(&apos;/resource/Red_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; INELEGIBLE&apos;, IMAGE(&apos;/resource/Green_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; ELEGIBLE&apos;)</formula>
+        <formula>IF( CONTAINS( UPPER(gf_customer_excluded_ind_type__c) , &apos;INELEGIBLE&apos; ), IMAGE(&apos;/resource/Red_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; INELEGIBLE&apos;, IF( CONTAINS( UPPER(gf_customer_excluded_ind_type__c) , &apos;ELEGIBLE&apos; ), IMAGE(&apos;/resource/Green_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; ELEGIBLE&apos;, &apos;&apos;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Estado PE25</label>
         <required>false</required>
