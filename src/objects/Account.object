@@ -1069,6 +1069,38 @@
         <summaryOperation>max</summaryOperation>
         <type>Summary</type>
     </fields>
+	<fields>
+        <fullName>gf_customer_excluded_ind_type__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>gf_customer_excluded_ind_type</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>company_economic_activity_id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>company_economic_activity_id</label>
+        <length>6</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Estado_PE25__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( CONTAINS( UPPER(gf_customer_excluded_ind_type__c) , &apos;INELEGIBLE&apos; ), IMAGE(&apos;/resource/Red_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; INELEGIBLE&apos;, IMAGE(&apos;/resource/Green_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; ELEGIBLE&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Estado PE25</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
