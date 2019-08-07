@@ -1071,7 +1071,6 @@
     </fields>
 	<fields>
         <fullName>gf_customer_excluded_ind_type__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>gf_customer_excluded_ind_type</label>
         <length>80</length>
@@ -1082,7 +1081,6 @@
     </fields>
 	<fields>
         <fullName>company_economic_activity_id__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>company_economic_activity_id</label>
         <length>6</length>
