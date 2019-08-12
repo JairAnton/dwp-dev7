@@ -5349,7 +5349,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.gf_customer_excluded_ind_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5359,7 +5359,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.company_economic_activity_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
