@@ -100,7 +100,6 @@
     <reportType>dwp_Visit_with_Team__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
