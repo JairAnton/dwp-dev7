@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>CarruselRelatedTable_4</label>
+    <label>CarruselRelatedTable_5</label>
     <protected>false</protected>
     <values>
         <field>qvcd__GBL_API_name_object__c</field>
@@ -8,11 +8,11 @@
     </values>
     <values>
         <field>qvcd__GBL_Field_format__c</field>
-        <value xsi:type="xsd:string">0.00</value>
+        <value xsi:type="xsd:string">MM-yyyy</value>
     </values>
     <values>
         <field>qvcd__GBL_FiltersFunction__c</field>
-        <value xsi:type="xsd:string">account_id__c=.Id ORDER BY orden__c ASC</value>
+        <value xsi:type="xsd:string">account_id__c=.Id ORDER BY order__c ASC</value>
     </values>
     <values>
         <field>qvcd__GBL_Function__c</field>
@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>qvcd__GBL_Label__c</field>
-        <value xsi:type="xsd:string">Variación Interanual</value>
+        <value xsi:type="xsd:string">Periodo</value>
     </values>
     <values>
         <field>qvcd__GBL_NameCustomSetting__c</field>
@@ -28,15 +28,15 @@
     </values>
     <values>
         <field>qvcd__GBL_NameOfIcons__c</field>
-        <value xsi:type="xsd:string">/resource/WarningRed_icon_15x15,/resource/Green_Flag_Icon_15x15,/resource/Green_Flag_Icon_15x15</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>qvcd__GBL_Name_API_field__c</field>
-        <value xsi:type="xsd:string">indicator_vary_yoy_amount__c</value>
+        <value xsi:type="xsd:string">indicator_update_date__c</value>
     </values>
     <values>
         <field>qvcd__GBL_Order__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">5.0</value>
     </values>
     <values>
         <field>qvcd__GBL_Relation__c</field>
@@ -44,7 +44,7 @@
     </values>
     <values>
         <field>qvcd__GBL_Stage__c</field>
-        <value xsi:type="xsd:string">-0.00001,0</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>qvcd__GBL_Stage_icon__c</field>
@@ -56,11 +56,11 @@
     </values>
     <values>
         <field>qvcd__GBL_Type_Icon__c</field>
-        <value xsi:type="xsd:string">02</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>qvcd__GBL_Type_field__c</field>
-        <value xsi:type="xsd:string">06</value>
+        <value xsi:type="xsd:string">03</value>
     </values>
     <values>
         <field>qvcd__GBL_Type_relation__c</field>

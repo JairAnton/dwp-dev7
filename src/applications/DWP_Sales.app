@@ -20,7 +20,7 @@
     </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
-        <logo>LOGO_BBVA</logo>
+        <logo>apps_logo</logo>
         <logoVersion>1</logoVersion>
     </brand>
     <formFactors>Large</formFactors>

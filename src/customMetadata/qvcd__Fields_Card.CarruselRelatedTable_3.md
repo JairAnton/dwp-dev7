@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>qvcd__GBL_FiltersFunction__c</field>
-        <value xsi:type="xsd:string">account_id__c=.Id ORDER BY order__c ASC</value>
+        <value xsi:type="xsd:string">account_id__c=.Id ORDER BY orden__c ASC</value>
     </values>
     <values>
         <field>qvcd__GBL_Function__c</field>
@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>qvcd__GBL_Label__c</field>
-        <value xsi:type="xsd:string">Variación anual</value>
+        <value xsi:type="xsd:string">Variación Anual</value>
     </values>
     <values>
         <field>qvcd__GBL_NameCustomSetting__c</field>
