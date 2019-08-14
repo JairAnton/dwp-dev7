@@ -8,11 +8,9 @@
         }
         if(component.get('v.Price')){
            helper.price(component, event, helper);  
-        }
-          
+        }      
     },
     doIni: function(component, event, helper) {
 		helper.ini(component, event,helper);
     }
- 
 })
