@@ -23,13 +23,20 @@
         <field>dwp_kitv__Visit__c$dwp_kitv__visit_summary_desc__c</field>
     </columns>
     <currency>PEN</currency>
-    <description>Reporte de las visitas filtradas por fecha de inicio por realizar en el presente mes.</description>
+    <description>Reporte de las visitas filtradas por fecha de inicio realizadas en el presente mes.</description>
     <filter>
+        <booleanFilter>1 OR 2</booleanFilter>
         <criteriaItems>
             <column>dwp_kitv__Visit__c$report_visit_status_type__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>No realizada</value>
+            <value>Finalizada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>dwp_kitv__Visit__c$report_visit_status_type__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Pendiente de feedback</value>
         </criteriaItems>
         <language>es</language>
     </filter>
@@ -54,7 +61,7 @@
         <field>dwp_kitv__Visit__c$dwp_region_name__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Visitas pendientes en el mes</name>
+    <name>Visitas realizadas en el mes</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -62,6 +69,8 @@
     <reportType>dwp_Visit_with_Team__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</dateColumn>
         <interval>INTERVAL_THISMONTH</interval>

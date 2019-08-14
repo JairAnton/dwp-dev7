@@ -1,31 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
-    <chart>
-        <backgroundColor1>#FFFFFF</backgroundColor1>
-        <backgroundColor2>#FFFFFF</backgroundColor2>
-        <backgroundFadeDir>Diagonal</backgroundFadeDir>
-        <chartSummaries>
-            <axisBinding>y</axisBinding>
-            <column>RowCount</column>
-        </chartSummaries>
-        <chartType>VerticalColumnGrouped</chartType>
-        <enableHoverLabels>false</enableHoverLabels>
-        <expandOthers>true</expandOthers>
-        <groupingColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</groupingColumn>
-        <legendPosition>Right</legendPosition>
-        <location>CHART_BOTTOM</location>
-        <secondaryGroupingColumn>dwp_kitv__Visit__c.dwp_kitv__Visit_Management_Teams__r$dwp_kitv__user_id__c</secondaryGroupingColumn>
-        <showAxisLabels>true</showAxisLabels>
-        <showPercentage>false</showPercentage>
-        <showTotal>false</showTotal>
-        <showValues>false</showValues>
-        <size>Medium</size>
-        <summaryAxisRange>Auto</summaryAxisRange>
-        <textColor>#000000</textColor>
-        <textSize>12</textSize>
-        <titleColor>#000000</titleColor>
-        <titleSize>18</titleSize>
-    </chart>
     <columns>
         <field>dwp_kitv__Visit__c$dwp_kitv__account_id__c.branch_level4_desc__c</field>
     </columns>
@@ -49,25 +23,13 @@
         <field>dwp_kitv__Visit__c$dwp_kitv__visit_summary_desc__c</field>
     </columns>
     <currency>PEN</currency>
+    <description>Reporte de las visitas filtradas por fecha de inicio por realizar en el presente mes.</description>
     <filter>
-        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
-        <criteriaItems>
-            <column>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</column>
-            <isUnlocked>false</isUnlocked>
-            <operator>equals</operator>
-            <value>LAST_N_MONTHS:5</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</column>
-            <isUnlocked>false</isUnlocked>
-            <operator>equals</operator>
-            <value>THIS_MONTH</value>
-        </criteriaItems>
         <criteriaItems>
             <column>dwp_kitv__Visit__c$report_visit_status_type__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Finalizada</value>
+            <value>No realizada</value>
         </criteriaItems>
         <language>es</language>
     </filter>
@@ -79,7 +41,7 @@
     </groupingsAcross>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
-        <field>dwp_kitv__Visit__c$dwp_region_name__c</field>
+        <field>dwp_kitv__Visit__c$report_visit_status_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsAcross>
     <groupingsDown>
@@ -88,11 +50,11 @@
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
-        <dateGranularity>Month</dateGranularity>
-        <field>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</field>
+        <dateGranularity>Day</dateGranularity>
+        <field>dwp_kitv__Visit__c$dwp_region_name__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Visitas realizadas los 6 últimos meses</name>
+    <name>Visitas pendientes en el mes</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -100,8 +62,10 @@
     <reportType>dwp_Visit_with_Team__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c$dwp_kitv__visit_start_date__c</dateColumn>
-        <interval>INTERVAL_CUSTOM</interval>
+        <interval>INTERVAL_THISMONTH</interval>
     </timeFrameFilter>
 </Report>

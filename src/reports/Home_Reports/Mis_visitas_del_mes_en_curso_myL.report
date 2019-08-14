@@ -44,7 +44,7 @@
         <field>dwp_kitv__Visit__c.account_name__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Mis visitas del mes en curso</name>
+    <name>Mis visitas del mes en curso - Deprecate</name>
     <params>
         <name>co</name>
         <value>1</value>
