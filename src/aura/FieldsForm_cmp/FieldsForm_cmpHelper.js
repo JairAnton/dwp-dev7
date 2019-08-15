@@ -16,7 +16,7 @@
 						field['ApiName']=ret.setFields[i];
 						field['label']=ret.mapLabel[ret.setFields[i]];
 						field['type']=ret.mapType[ret.setFields[i]];
-						if(ret.mapField[ret.setFields[i]].default_value__c != undefined && ret.record[ret.setFields[i]] == undefined){
+						if(ret.mapField[ret.setFields[i]].default_value__c !== undefined && ret.record[ret.setFields[i]] === undefined){
 							field['value']=ret.mapField[ret.setFields[i]].default_value__c;
 						}else{
 							field['value']=ret.record[ret.setFields[i]];
@@ -29,19 +29,17 @@
 						field['readOnly']=ret.mapField[ret.setFields[i]].is_readonly__c;
 						field['isMandatory']=ret.mapField[ret.setFields[i]].is_required__c;
 						fieldObject.push(field);
-						
 					}
 					var valueDynamic = cmp.get('v.valueDynamic');
-					if(valueDynamic!=undefined && valueDynamic != null){
+					if(valueDynamic!==undefined && valueDynamic !== null){
 						var lstDynamic = valueDynamic.split(',');
-						for(var i in lstDynamic){
-							if(lstDynamic[i]!='-'){
-								fieldObject[i].value = lstDynamic[i];
-								fieldObject[i].htmlInput = lstDynamic[i];
+						for(var j in lstDynamic){
+							if(lstDynamic[j]!=='-'){
+								fieldObject[j].value = lstDynamic[j];
+								fieldObject[j].htmlInput = lstDynamic[j];
 							}
 						}
 					}
-					
 					cmp.set('v.lstFields',fieldObject);
 					cmp.set('v.objectApiName',ret.fieldForm.object_api_name__c);
 					cmp.set('v.isOk',true);

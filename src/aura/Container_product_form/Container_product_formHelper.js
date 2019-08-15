@@ -19,8 +19,7 @@
                 component.set('v.newJsonValue', JSON.stringify(newJsonValue));
                 component.set('v.deleteJsonValue', JSON.stringify(deleteJsonValue));
                 component.set('v.isLoad', true);
-                //showComponentView(component);
-                component.set('v.strErrorMessage',result.dataCW.errorMessage); 
+                component.set('v.strErrorMessage',result.dataCW.errorMessage);
                 component.set('v.showBanner',result.dataCW.showWarning);
             }
         });
@@ -35,7 +34,7 @@
             var state = response.getState();
             if(state === 'SUCCESS') {
                 var result = response.getReturnValue();
-                component.set('v.strErrorMessage',result.dataCW.errorMessage); 
+                component.set('v.strErrorMessage',result.dataCW.errorMessage);
                 component.set('v.showBanner',result.dataCW.showWarning);
             }
         });

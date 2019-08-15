@@ -8,7 +8,7 @@
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
-            if (state === "SUCCESS") { 
+            if (state === "SUCCESS") {
                 var arr = response.getReturnValue();
                 items.push({ value: '--NINGUNA--', label: '--NINGUNA--' });
                 arr.forEach(function(element) {
@@ -35,17 +35,16 @@
         }
     },
     toTalClient: function(component, event, helper){
-        var Types= [''];
-        var producto = component.get('v.ProductIS');        
+        var Types= null;
         if(component.get("v.ProductIS")==='CLIENTE'){
             Types= ['TOTAL DI','TOTAL SPREAD','TOTAL TASA'];
             component.set('v.profiType', 'TOTAL CLIENTE');
         }else{
             var tProduc = component.get('v.profiType');
             if(tProduc==='TOTAL')
-                Types= ['','','']; 
+                Types= ['','',''];
             else
-                Types= ['DI','Spread','Tasa']; 
+                Types= ['DI','Spread','Tasa'];
         }
         component.set('v.profiType1', Types[0]);
         component.set('v.profiType2', Types[1]);
