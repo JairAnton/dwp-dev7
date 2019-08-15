@@ -67,7 +67,6 @@
         fill: false,
         borderColor: '#072146',
         pointRadius: 0,
-        //fill: false,  // 2018/11/30 -  CORRECCION DEUDA TECNICA: Se establecio el valor a la variable en 2 ocasiones. (linea 70)
         borderWidth: 2,
         },
         {
@@ -79,8 +78,7 @@
                           '#004481','#004481',
                           '#004481','#004481',
                           '#004481','#004481',
-                          '#004481','#004481'
-                             ],
+                          '#004481','#004481'],
         borderDash: [5, 5],
         label:'Nor (5)',
         fill: true,
@@ -121,12 +119,9 @@
        {
         type: 'bar',
         data: component.get("v.Dud"),
-        backgroundColor: ['#06A69E','#06A69E',
-                          '#06A69E','#06A69E',
-                          '#06A69E','#06A69E',
-                          '#06A69E','#06A69E',
-                          '#06A69E','#06A69E',
-                          '#06A69E','#06A69E'],
+        backgroundColor: ['#06A69E','#06A69E', '#06A69E','#06A69E',
+                          '#06A69E','#06A69E', '#06A69E','#06A69E',
+                          '#06A69E','#06A69E', '#06A69E','#06A69E'],
         borderDash: [5, 5],
         label:'Dud (2)',
         fill: true,
@@ -189,8 +184,7 @@
         },
        legend: {
             display: true,
-            labels: {
-                },
+            labels: {},
             position:'bottom',
            stacked:true
              }

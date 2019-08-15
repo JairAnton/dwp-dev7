@@ -66,7 +66,7 @@
                                 component.set('v.lstError',lstError);
                             }
                         }
-                    }); 
+                    });
                     $A.enqueueAction(action2);
                 }else{
                     if(ret.isOk){
@@ -84,7 +84,7 @@
             }
         });
         $A.enqueueAction(action);
-    },    
+    },
     toastEvent : function(title, message, type) {
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
