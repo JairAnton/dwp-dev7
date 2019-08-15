@@ -8,7 +8,8 @@
             var state = response.getState();
             if (state === "SUCCESS") {
 				var ret = response.getReturnValue();
-				var ordenField = ['opp_solution_comt_product_name__c','CurrencyIsoCode','opp_solution_commitment_amount__c','opp_soln_comt_expiry_days_number__c','opp_soln_comt_stay_days_number__c'];
+				var ordenField = ['opp_solution_comt_product_name__c','CurrencyIsoCode','opp_solution_commitment_amount__c',
+                                  'opp_soln_comt_expiry_days_number__c','opp_soln_comt_stay_days_number__c'];
 				var objSetup = {'lstHead':[],
 								'lstData':[]};
 				for(var h in ordenField){
@@ -29,7 +30,7 @@
             }
         });
         $A.enqueueAction(action);
-	}, 
+	},
 	continue : function(cmp, evt, helper){
     	cmp.set('v.isLoad',false);
     	if(cmp.get('v.quoteMethod') === 'Web'){
@@ -42,10 +43,8 @@
                 if (state === "SUCCESS") {
                     var ret = response.getReturnValue();
                     var compEvent = cmp.getEvent("commitmentsEvent");
-                    
-                    if (ret.success === 'true') {
-                        
-                        if(ret.nextCallout != undefined && ret.nextCallout == true){
+                    if (ret.success === 'true') { 
+                        if(ret.nextCallout !== undefined && ret.nextCallout === true){
                             var action2 = cmp.get("c.requestQuote");
                             action2.setParams({
                                 "recordId" : cmp.get('v.oppRecordId')
@@ -55,37 +54,35 @@
                                 if (state === "SUCCESS") {
                                     var ret = response.getReturnValue();
                                     var compEvent = cmp.getEvent("commitmentsEvent");
-                                    
+                                    var otherData = null;
                                     if (ret.success === 'true') {
-                                        var otherData = {"quotationStatusMessage" : ret.quotationStatusMessage,
+                                        otherData = {"quotationStatusMessage" : ret.quotationStatusMessage,
                                                         "auditId" : ret.auditId,
                                                         "quotationStatusIcon": ret.quotationStatusIcon};
-                                        compEvent.setParams({"typeMode" : 'DOCONTINUE', "data" : otherData});  
+                                        compEvent.setParams({"typeMode" : 'DOCONTINUE', "data" : otherData});
                                     }
                                     else {
-                                        var otherData = {"errorCode" : ret.errorMessage};
+                                        otherData = {"errorCode" : ret.errorMessage};
                                         compEvent.setParams({"typeMode" : 'DOERROR', "data" : otherData});
                                     }
                                     compEvent.fire();
                                 }
-                            }); 
+                            });
                             $A.enqueueAction(action2);
                         }else{
                             var otherData = {"quotationStatusMessage" : ret.quotationStatusMessage,
                                          "auditId" : ret.auditId,
                                          "quotationStatusIcon": ret.quotationStatusIcon};
-                            compEvent.setParams({"typeMode" : 'DOCONTINUE', "data" : otherData});  
+                            compEvent.setParams({"typeMode" : 'DOCONTINUE', "data" : otherData});
                         }
-
-                        
                     }
                     else {
                         var otherData = {"errorCode" : ret.errorMessage};
                         compEvent.setParams({"typeMode" : 'DOERROR', "data" : otherData});
                     }
-                    compEvent.fire();   
+                    compEvent.fire();
                 }
-            }); 
+            });
             $A.enqueueAction(action);
 		} else{
             var compEvent = cmp.getEvent("commitmentsEvent");

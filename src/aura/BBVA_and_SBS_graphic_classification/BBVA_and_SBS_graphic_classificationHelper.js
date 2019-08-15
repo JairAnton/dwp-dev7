@@ -3,7 +3,15 @@
       var action = component.get("c.getJSON");
       action.setParams({ recordId : component.get("v.recordId") });
       console.log(action+' : '+component.get("v.recordId"));
-      var lista =[];var Nor =[];var CPP =[];var Def =[];var Dud =[];var Per =[];var meses =[];var bbva = [];var SBS =[];
+      	var lista=[];
+	  	var Nor=[];
+        var CPP=[];
+        var Def=[];
+        var Dud=[];
+        var Per=[];
+        var meses=[];
+        var bbva=[];
+        var SBS=[];
       action.setCallback(this, function(response) {
       var state = response.getState();
                 if (state === "SUCCESS") {
@@ -13,8 +21,30 @@
                         for(var i=0; i<Informe.length; i++ ){
                                 for(var j=0; j<Informe[i].length; j++){
                                     switch (i){
-                                     case 0: meses[j] = Informe[i][j]; break;case 1: Nor[j] = Informe[i][j]; break;case 2: CPP[j] = Informe[i][j]; break;case 3: Def[j] = Informe[i][j]; break;case 4: Dud[j] = Informe[i][j]; break;
-                                     case 5: Per[j] = Informe[i][j];break;case 6: bbva[j] = Informe[i][j]; break;case 7: SBS[j] = Informe[i][j]; break;
+                                     case 0:
+                                            meses[j] = Informe[i][j];
+                                            break;
+                                     case 1:
+                                            Nor[j] = Informe[i][j];
+                                            break;
+                                     case 2:
+                                            CPP[j] = Informe[i][j];
+                                            break;
+                                     case 3:
+                                            Def[j] = Informe[i][j];
+                                            break;
+                                     case 4:
+                                            Dud[j] = Informe[i][j];
+                                            break;
+                                     case 5:
+                                            Per[j] = Informe[i][j];
+                                            break;
+                                     case 6:
+                                            bbva[j] = Informe[i][j];
+                                            break;
+                                     case 7:
+                                            SBS[j] = Informe[i][j];
+                                            break;
                                     }
                                 }
                             }
