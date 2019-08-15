@@ -83,7 +83,7 @@
                 }
             }
         });
-        $A.enqueueAction(action); 
+        $A.enqueueAction(action);
     },    
     toastEvent : function(title, message, type) {
         var toastEvent = $A.get("e.force:showToast");

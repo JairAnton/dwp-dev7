@@ -15,7 +15,7 @@
         var inputs = cmp.find('input');
 		var isOk = true;
 		var lstApiField = [];
-		var lstvalueField = []; 
+		var lstvalueField = [];
         for(var i in inputs){
             if(inputs[i].find('inputField') !== undefined){
 				lstApiField.push(inputs[i].get('v.fieldObject').ApiName);
