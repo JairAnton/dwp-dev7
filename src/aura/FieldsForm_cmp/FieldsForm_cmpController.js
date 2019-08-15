@@ -12,14 +12,12 @@
 	changeValue : function(cmp, evt, helper){
 	},
 	doValidateSave : function(cmp, evt, helper){
-		//var fieldsForm = cmp.find('fieldsForm');
         var inputs = cmp.find('input');
 		var isOk = true;
 		var lstApiField = [];
-		var lstvalueField = [];
-        
+		var lstvalueField = []; 
         for(var i in inputs){
-            if(inputs[i].find('inputField') != undefined){
+            if(inputs[i].find('inputField') !== undefined){
 				lstApiField.push(inputs[i].get('v.fieldObject').ApiName);
 				lstvalueField.push(inputs[i].get('v.fieldObject').value);
                 inputs[i].find('inputField').reportValidity();

@@ -22,7 +22,6 @@
 						row['lstInfo'].push(ret.lstCommitments[i][ordenField[j]]);
 					}
 					objSetup['lstData'].push(row);
-					
 				}
 				cmp.set('v.objSetup',objSetup);
 				cmp.set('v.isLoad',true);
