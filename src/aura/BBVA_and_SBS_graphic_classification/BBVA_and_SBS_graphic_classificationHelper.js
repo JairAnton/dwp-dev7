@@ -2,18 +2,10 @@
 	startGraph : function(component) {
       var action = component.get("c.getJSON");
       action.setParams({ recordId : component.get("v.recordId") });
-        console.log(action+' : '+component.get("v.recordId"));
-      var lista =[];
-      var Nor =[];
-      var CPP =[];
-      var Def =[];
-      var Dud =[];
-      var Per =[];
-      var meses =[];
-      var bbva = [];
-      var SBS =[];
-        action.setCallback(this, function(response) {
-         var state = response.getState();
+      console.log(action+' : '+component.get("v.recordId"));
+      var lista =[];var Nor =[];var CPP =[];var Def =[];var Dud =[];var Per =[];var meses =[];var bbva = [];var SBS =[];
+      action.setCallback(this, function(response) {
+      var state = response.getState();
                 if (state === "SUCCESS") {
                 component.set("v.JsonReporte", response.getReturnValue());
                 var Informe = component.get("v.JsonReporte");
@@ -21,14 +13,8 @@
                         for(var i=0; i<Informe.length; i++ ){
                                 for(var j=0; j<Informe[i].length; j++){
                                     switch (i){
-                                     case 0: meses[j] = Informe[i][j]; break;
-                                     case 1: Nor[j] = Informe[i][j]; break;
-                                     case 2: CPP[j] = Informe[i][j]; break;
-                                     case 3: Def[j] = Informe[i][j]; break;
-                                     case 4: Dud[j] = Informe[i][j]; break;
-                                     case 5: Per[j] = Informe[i][j];break;
-                                     case 6: bbva[j] = Informe[i][j]; break;
-                                     case 7: SBS[j] = Informe[i][j]; break;
+                                     case 0: meses[j] = Informe[i][j]; break;case 1: Nor[j] = Informe[i][j]; break;case 2: CPP[j] = Informe[i][j]; break;case 3: Def[j] = Informe[i][j]; break;case 4: Dud[j] = Informe[i][j]; break;
+                                     case 5: Per[j] = Informe[i][j];break;case 6: bbva[j] = Informe[i][j]; break;case 7: SBS[j] = Informe[i][j]; break;
                                     }
                                 }
                             }
@@ -129,7 +115,7 @@
         stack:'stack 0',
         borderWidth: 0
         } ]
-     }       
+     }
      var ctx = document.getElementById("DWPChart").getContext('2d');
      var myChart = new Chart(ctx, { // 2018/11/30 -  CORRECCION DEUDA TECNICA: La variable no es utilizada en esta funcion
          type:'bar',
