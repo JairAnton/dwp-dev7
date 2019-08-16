@@ -15,7 +15,9 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                             Product2.Name,
                                                             Product2Id,
                                                             proposed_fee_per__c,
-                                                            minimun_fee_per__c
+                                                            minimun_fee_per__c,
+                                                    		OpportunityId,
+                                                    		Opportunity.opportunity_status_type__c								
                                                     FROM OpportunityLineItem
                                                     WHERE Id = :recordIdOppLineItem];
         List<fprd__GBL_Product_Configuration__c> lstConfig = [SELECT    Id,
@@ -29,6 +31,32 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                                 WHERE fprd__Product__c = :lstOppLineItem[0].Product2Id
                                                                 AND fprd__Header__c = true
                                                                 ORDER BY fprd__Header_order__c];
+            if(lstOppLineItem.size()>0){
+                if(lstOppLineItem[0].Opportunity.opportunity_status_type__c=='08'){
+                    //helper to call the service
+                    GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
+                    //invoke the service
+                    System.HttpResponse invoke = getquoteHelper.invoke();
+                    //get json body
+                    GetQuotationRequest_helper.ResponseGetQuotationRequest_Wrapper jbody = GetQuotationRequest_helper.parse(invoke.getBody());
+                    switch on invoke.getStatusCode() {                        
+                        when 200{
+                            if(jbody.data != null && jbody.data.quotations != null && jbody.data.quotations[0].validityDate != null && jbody.data.quotations[0].validityDate != '') {
+                                mapReturn.put('validityDate', Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10)));
+                                mapReturn.put('changeDate', false);
+                                if(lstOppLineItem[0].Opportunity.opportunity_status_type__c=='08') {
+                                    lstOppLineItem[0].validityDate__c = Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10));
+                                    update lstOppLineItem[0];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+		} catch(Exception e) {
+			System.debug('error: '+e);
+        }
+		
         Set<String> setFields = new Set<String>();
         Map<String,Object> mapMapfieldConfig = new Map<String,Object>();
         for(fprd__GBL_Product_Configuration__c prodConfig : lstConfig) {
@@ -98,7 +126,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     }
 
     @AuraEnabled
-    public static Map<String,Object> saveDecisionAnalist(String recordId, String status_opp, String stageName, Boolean elevateCase, String styleAudit, String nameAudit, String strComments, String recordOli, List<String> lstApiField, List<Object> lstValue, String statusCase, String storeHtml, String approvalMethod, String wsPhase) {
+    public static Map<String,Object> saveDecisionAnalist(String recordId, String status_opp, String stageName, Boolean elevateCase, String styleAudit, String nameAudit, String strComments, String recordOli, List<String> lstApiField, List<Object> lstValue, String statusCase, String storeHtml, String approvalMethod, String wsPhase, String validDate) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
         Opportunity opp = new Opportunity();
@@ -108,6 +136,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.isProcess__c = true;
         Boolean isOk = true;
         Id idAnalist = null;
+		String assignedAnalyst;
         try {
             if(approvalMethod == 'Web') {
                 ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(recordId,wsPhase, (lstValue[1] == null? null : Double.valueOf(lstValue[1])) ,'', null);
@@ -122,17 +151,36 @@ public with sharing class SanctionPriceDecision_ctrl {
                             OpportunityLineItem oliRecord = new OpportunityLineItem();
                             oliRecord.Id = recordOli;
                             oliRecord.price_quote_status_id__c = mqStatus.id;
+							if(opp.opportunity_status_type__c=='10'){
+                                oliRecord.price_quote_date__c = System.today();
+                                oliRecord.validityDate__c = Date.valueOf(validDate);
+                                oliRecord.Assigned_analyst__c = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
+                                mapReturn.put('getQuote', true);
+                            }
                             
                             List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
                             
                             if(!mqBusinessAgentsList.isEmpty()) {
-                                List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
+                                List<User> userList = [SELECT Id, FirstName, LastName FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
                                 if(!userList.isEmpty()) {
                                     oliRecord.price_quote_owner_id__c = userList[0].Id;
                                     idAnalist = userList[0].Id;
+									if(opp.opportunity_status_type__c=='09'){
+                                        oliRecord.Assigned_analyst__c = userList[0].FirstName + ' ' + userList[0].LastName;
+                                        assignedAnalyst = oliRecord.Assigned_analyst__c;
+                                    }
                                 } else {
                                     oliRecord.price_quote_owner_id__c = null;
+									if(opp.opportunity_status_type__c=='09'){
+                                        oliRecord.Assigned_analyst__c = mqBusinessAgentsList[0].firstName + ' ' + mqBusinessAgentsList[0].lastName + ' ' + mqBusinessAgentsList[0].secondLastName;
+                                        assignedAnalyst = oliRecord.Assigned_analyst__c;
+                                    }
                                 }
+                            }
+							if(opp.opportunity_status_type__c=='13'){
+                                oliRecord.price_quote_date__c = System.today();
+                                oliRecord.validityDate__c = null;
+                                oliRecord.Assigned_analyst__c = null;
                             }
                             update oliRecord;
 
@@ -161,9 +209,13 @@ public with sharing class SanctionPriceDecision_ctrl {
                 lstAudit[0].dwp_cvad__audit_audit_comments__c = strComments;
                 insert lstAudit;
 
+				if(assignedAnalyst != null && storeHtml.contains('#Assigned_analyst#')){
+                    storeHtml = storeHtml.replace('#Assigned_analyst#', assignedAnalyst);
+                }
                 List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
                 lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, storeHtml, 1, '', 'Embedded'));
                 insert lstDetails;
+				mapReturn.put('auditDetailId', lstDetails[0].Id);												 
 
                 List<Case> lstCases = [SELECT   Id, 
                                             opportunity_id__c, 
@@ -310,5 +362,58 @@ public with sharing class SanctionPriceDecision_ctrl {
             
         }
         return lstMapRes;
+    }
+	
+	@AuraEnabled
+    public static Map<String,Object> saveValidityDate(String recordIdOppLineItem, String auditDetailId, String validDate) {
+        Map<String,Object> mapReturn = new Map<String,Object>();
+        
+        List<OpportunityLineItem> lstOppLineItem = [SELECT  Id, 
+                                                            Product2.Name,
+                                                            Product2Id,
+                                                            proposed_fee_per__c,
+                                                            minimun_fee_per__c,
+                                                    		OpportunityId,
+															validityDate__c,
+                                                    		Opportunity.opportunity_status_type__c
+                                                    FROM OpportunityLineItem
+                                                    WHERE Id = :recordIdOppLineItem];
+        
+        try {
+            if(lstOppLineItem.size()>0){
+				//helper to call the service
+				GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
+				//invoke the service
+				System.HttpResponse invoke = getquoteHelper.invoke();
+				//get json body
+				GetQuotationRequest_helper.ResponseGetQuotationRequest_Wrapper jbody = GetQuotationRequest_helper.parse(invoke.getBody());
+				switch on invoke.getStatusCode() {                        
+					when 200{
+						if(jbody.data != null && jbody.data.quotations != null && jbody.data.quotations[0].validityDate != null && jbody.data.quotations[0].validityDate != '') {
+							lstOppLineItem[0].validityDate__c = Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10));
+						}
+						else{
+							lstOppLineItem[0].validityDate__c = Date.valueOf(validDate);
+						}
+						update lstOppLineItem[0];
+					}
+				}
+                List<dwp_cvad__Action_Audit_Detail__c> lts =[SELECT Id, dwp_cvad__action_audit_detail_display_title__c, dwp_cvad__action_audit_detail_content__c FROM dwp_cvad__Action_Audit_Detail__c WHERE ID=:auditDetailId];
+                if(lts.size()>0){
+                    if(lstOppLineItem[0].validityDate__c!=null){
+                        lts[0].dwp_cvad__action_audit_detail_content__c.replace('#validityDate#', ((DateTime)lstOppLineItem[0].validityDate__c).format('dd/MM/yyyy'));
+                    }
+                    else{
+                        lts[0].dwp_cvad__action_audit_detail_content__c.replace('#validityDate#', '');
+                    }
+                    lts[0].dwp_cvad__action_audit_detail_content__c.replace('#Assigned_analyst#', lstOppLineItem[0].Assigned_analyst__c);
+                    update lts[0];
+                }
+            }
+        } catch(Exception e) {
+            mapReturn.put('isOk', false);
+            mapReturn.put('errorMessage',e.getMessage());
+        }
+        return mapReturn;
     }
 }

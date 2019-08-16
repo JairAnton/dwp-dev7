@@ -17,7 +17,7 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name};
+                var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name, 'validityDate': ret.lstOppLineItem[0].validityDate__c, 'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c};
                 if(!ret.lstInfoIsEmpty) {
                     var lstTile = [];
                     
@@ -51,6 +51,7 @@
             }
         }); 
         $A.enqueueAction(action);
+		component.set("v.refreshComp", true);											 
     },
     getInfoButtons : function(strType, objOli) {
         var returnObj = {

@@ -175,6 +175,8 @@
                 }
                 cmp.set('v.teainput',ret.proposed);
                 cmp.set('v.spreadinput',spreadreq);
+				cmp.set('v.validityDate',ret.validityDate);
+                cmp.set('v.changeDate',false);
             }
         });
         $A.enqueueAction(action);

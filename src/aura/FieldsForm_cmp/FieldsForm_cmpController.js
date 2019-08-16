@@ -9,6 +9,9 @@
 	doInit : function(cmp, evt, helper){
 		helper.getInfo(cmp, evt, helper);
 	},
+	doRefresh : function(cmp, evt, helper){
+		helper.getInfo(cmp, evt, helper);
+	},
 	changeValue : function(cmp, evt, helper){
 	},
 	doValidateSave : function(cmp, evt, helper){

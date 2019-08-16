@@ -2761,6 +2761,22 @@
         <required>false</required>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>validityDate__c</fullName>
+        <externalId>false</externalId>
+        <label>validityDate</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Assigned_analyst__c</fullName>
+        <externalId>false</externalId>
+        <label>Assigned_analyst</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <validationRules>
         <fullName>ContractNo_Validation</fullName>
         <active>true</active>

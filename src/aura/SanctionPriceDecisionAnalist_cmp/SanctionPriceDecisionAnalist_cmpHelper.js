@@ -204,14 +204,27 @@
             "statusCase" : objSetup['btnSelectConfig'].statusCase,
             "storeHtml" : storeHTML.innerHTML,
             "approvalMethod" : inputObject.approvalMethod,
-            "wsPhase" : objSetup['btnSelectConfig'].wsPhase
+            "wsPhase" : objSetup['btnSelectConfig'].wsPhase,
+            "validDate" : inputObject.validityDate
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 if(ret.isOk){
-                    helper.gotoListView(cmp, evt, helper);
+					if(ret.getQuote){
+                        if(inputObject.changeDate){
+                            helper.gotoListView(cmp, evt, helper);
+                        }
+                        else{
+                            inputObject['auditDetailId'] = ret.auditDetailId;
+                            cmp.set('v.inputAttributes', inputObject);
+                            helper.getQuote(cmp, evt, helper);
+                        }
+                    }
+                    else{
+                        helper.gotoListView(cmp, evt, helper);
+                    }
                 }else{
                     var lstError = [];
                     lstError.push(ret.errorMessage);
@@ -253,5 +266,21 @@
             }
         });
         $A.enqueueAction(action);
-    }
+	},
+	getQuote : function(component, event, helper) {
+        var inputObject = component.get('v.inputAttributes');
+        var action = component.get("c.saveValidityDate");
+        action.setParams({
+            "recordIdOppLineItem" : inputObject.opportunityLineItem,
+            "auditDetailId" : inputObject.auditDetailId,
+            "validDate" : inputObject.validityDate
+        });
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                helper.gotoListView(component, event, helper);
+            }
+        }); 
+        $A.enqueueAction(action);
+    },
 })
