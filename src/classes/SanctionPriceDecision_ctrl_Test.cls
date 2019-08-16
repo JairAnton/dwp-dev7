@@ -30,11 +30,11 @@ public class SanctionPriceDecision_ctrl_Test {
     @isTest
     static void testMethodOne() {
         Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
-        Final Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
-        Final Map<String,Object> mapReturn2 = SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
+        SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
+        SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
         Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
-        Final Map<String,Object> mapReturnSave = SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9, etapa4, true, asd,nameAudit,comments,html);
-        Final Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), new List<Object>(), '01', html,'COTIZADOR', null, '');
+        SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9, etapa4, true, asd,nameAudit,comments,html);
+        SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), new List<Object>(), '01', html,'COTIZADOR', null, '');
         
         lstOLI[0].price_quote_id__c = quoteid;
         lstOLI[0].price_operation_id__c = operationid;
@@ -82,12 +82,11 @@ public class SanctionPriceDecision_ctrl_Test {
     @isTest
     static void testMethodThree() {
         Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
-        Final Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
-        Final Map<String,Object> mapReturn2 = SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
+        SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
+        SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
         Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
-        Final Map<String,Object> mapReturnSave = SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9,etapa4,true,asd,nameAudit,comments,html);
-        Final Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), new List<Object>(), '01', html,'COTIZADOR', null, '');
-        
+        SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9, etapa4, true, asd,nameAudit,comments,html);
+        SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), new List<Object>(), '01', html,'COTIZADOR', null, '');
         lstOLI[0].price_quote_id__c = quoteid;
         lstOLI[0].price_operation_id__c = operationid;
         update lstOLI[0];
@@ -109,11 +108,11 @@ public class SanctionPriceDecision_ctrl_Test {
     @isTest
     static void testMethodFour() {
         Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
-        Final Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
-        Final Map<String,Object> mapReturn2 = SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
+        SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
+        SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
         Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
-        Final Map<String,Object> mapReturnSave = SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id,status9,etapa4,true,asd,nameAudit,comments,html);
-        Final Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), new List<Object>(), '01', html,'COTIZADOR', null, '');
+        SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9, etapa4, true, asd,nameAudit,comments,html);
+        SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), new List<Object>(), '01', html,'COTIZADOR', null, '');
         
         lstOLI[0].price_quote_id__c = quoteid;
         lstOLI[0].price_operation_id__c = operationid;
@@ -129,6 +128,7 @@ public class SanctionPriceDecision_ctrl_Test {
         lstData.add(23);
         lstData.add(23);
         Final Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '10', etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), lstData, '01', html, 'Web', 'APPROVE', '');
+        SanctionPriceDecision_ctrl.saveValidityDate(lstOLI[0].Id, (String)mapReturnSave3.get('auditDetailId'), '2000-08-08');
         System.assertEquals(false, (Boolean)mapReturnSave3.get('isOk'), 'Error en resultado esperado.');
         Test.stopTest();
     }
