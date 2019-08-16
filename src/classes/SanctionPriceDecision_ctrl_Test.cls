@@ -4,6 +4,15 @@ public class SanctionPriceDecision_ctrl_Test {
     static String urlGrantTK = 'https://validation/ok';
     static String ModifQuote = 'ModifyQuotationRequest';
     static String urlModifQuote = 'https://ModifyQuotationRequestRecover/OK';
+    static String status9 = '09';
+    static String etapa4 = '04';
+    static String asd = 'asd';
+    static String nameAudit = 'nameAudit';
+    static String comments = 'comments';
+    static String html = '<div>Hola</div>';
+    static String credential = 'local.CredentialsPeru';
+    static String quoteid = '111';
+    static String operationid = '222';
     
     @testSetup
     static void setData() {
@@ -19,135 +28,134 @@ public class SanctionPriceDecision_ctrl_Test {
     }
 
     @isTest
-    static void test_method_one() {
-        List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem];
-        Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
-        System.assert(mapReturn.containsKey('lstOppLineItem')); 
-        Map<String,Object> mapReturn2 = SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
-        System.assert(mapReturn2.containsKey('lstOppLineItem')); 
+    static void testMethodOne() {
+        List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
+        Final Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
+        System.assertEquals(true, mapReturn.containsKey('lstOppLineItem'), 'resultado correcto'); 
+        Final Map<String,Object> mapReturn2 = SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
+        System.assertEquals(true, mapReturn2.containsKey('lstOppLineItem'), 'resultado correcto'); 
         
-        List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
-        Map<String,Object> mapReturnSave = SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id,'09','04',true,'asd','nameAudit','comments','<div>Hola</div>');
-        System.assert((Boolean)mapReturnSave.get('isOk'));
-        Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '09', '04', true, 'asd', 'nameAudit', 'comments', lstOLI[0].Id, new List<String>(), new List<Object>(), '01', '<div>Hola</div>','COTIZADOR', null, '');
-        System.assert((Boolean)mapReturnSave2.get('isOk'));
+        List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
+        Final Map<String,Object> mapReturnSave = SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9, etapa4, true, asd,nameAudit,comments,html);
+        System.assertEquals(true, (Boolean)mapReturnSave.get('isOk'), 'resultado correcto');
+        Final Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), new List<Object>(), '01', html,'COTIZADOR', null, '');
+        System.assertEquals(true, (Boolean)mapReturnSave2.get('isOk'), 'resultado correcto');
 
-        lstOLI[0].price_quote_id__c = '111';
-        lstOLI[0].price_operation_id__c = '222';
+        lstOLI[0].price_quote_id__c = quoteid;
+        lstOLI[0].price_operation_id__c = operationid;
         update lstOLI[0];
 
-        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = 'local.CredentialsPeru');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = urlModifQuote, iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
+        insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = urlModifQuote, iaso__Cache_Partition__c = credential);
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
         Test.startTest();
-		List<Object> lstData = new List<Object>();
+		Final List<Object> lstData = new List<Object>();
         lstData.add(23);
         lstData.add(23);
-        Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '09', '04', true, 'asd', 'nameAudit', 'comments', lstOLI[0].Id, new List<String>(), lstData, '01', '<div>Hola</div>', 'Web', 'APPROVE', '');
-        System.assert((Boolean)mapReturnSave3.get('isOk'));
+        Final Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), lstData, '01', html, 'Web', 'APPROVE', '');
+        System.assertEquals(true, (Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
 
         Test.stopTest();
 
-        List<dwp_cvad__Action_Audit__c> lstAudit = [SELECT Id FROM dwp_cvad__Action_Audit__c];
-        SanctionPriceDecision_ctrl.saveAuditWeb(lstAudit[0].Id, '<div>Hola</div>');
+        Final List<dwp_cvad__Action_Audit__c> lstAudit = [SELECT Id FROM dwp_cvad__Action_Audit__c LIMIT 1];
+        SanctionPriceDecision_ctrl.saveAuditWeb(lstAudit[0].Id, html);
         
     }
     
     @isTest
-    static void test_method_two() {
-        List<OpportunityLineItem> lstOLI = [SELECT Id, OpportunityId FROM OpportunityLineItem];
-        lstOLI[0].price_quote_id__c = '111';
-        lstOLI[0].price_operation_id__c = '222';
+    static void testMethodTwo() {
+        List<OpportunityLineItem> lstOLI = [SELECT Id, OpportunityId FROM OpportunityLineItem LIMIT 1];
+        lstOLI[0].price_quote_id__c = quoteid;
+        lstOLI[0].price_operation_id__c = operationid;
         update lstOLI[0];
         
-        Opportunity opp = new Opportunity(Id=lstOLI[0].OpportunityId, opportunity_status_type__c='08', StageName='04');
+        Opportunity opp = new Opportunity(Id=lstOLI[0].OpportunityId, opportunity_status_type__c='08', StageName=etapa4);
         update opp;
         
-        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = 'local.CredentialsPeru');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GetQuotationRequest', iaso__Url__c = 'https://GetQuotationRequest/OK/1111?expand=quotations', iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
+        insert new iaso__GBL_Rest_Services_Url__c(Name = 'GetQuotationRequest', iaso__Url__c = 'https://GetQuotationRequest/OK/1111?expand=quotations', iaso__Cache_Partition__c = credential);
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         
         GetQuotationRequest_helper getRequestHelper = new GetQuotationRequest_helper(opp.Id);
         
         Test.startTest();
-        Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
-        System.assert(mapReturn.containsKey('lstOppLineItem'));
+        Final Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
+        System.assertEquals(true, mapReturn.containsKey('lstOppLineItem'), 'resultado correcto');
         Test.stopTest();
     }
     
     @isTest
-    static void test_method_three() {
-        List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem];
-        Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
-        System.assert(mapReturn.containsKey('lstOppLineItem')); 
-        Map<String,Object> mapReturn2 = SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
-        System.assert(mapReturn2.containsKey('lstOppLineItem')); 
+    static void testMethodThree() {
+        List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
+        Final Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
+        System.assertEquals(true, mapReturn.containsKey('lstOppLineItem'), 'resultado correcto'); 
+        Final Map<String,Object> mapReturn2 = SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
+        System.assertEquals(true, mapReturn2.containsKey('lstOppLineItem'), 'resultado correcto'); 
         
-        List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
-        Map<String,Object> mapReturnSave = SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id,'09','04',true,'asd','nameAudit','comments','<div>Hola</div>');
-        System.assert((Boolean)mapReturnSave.get('isOk'));
-        Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '09', '04', true, 'asd', 'nameAudit', 'comments', lstOLI[0].Id, new List<String>(), new List<Object>(), '01', '<div>Hola</div>','COTIZADOR', null, '');
-        System.assert((Boolean)mapReturnSave2.get('isOk'));
+        List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
+        Final Map<String,Object> mapReturnSave = SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9,etapa4,true,asd,nameAudit,comments,html);
+        System.assertEquals(true, (Boolean)mapReturnSave.get('isOk'), 'resultado correcto');
+        Final Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), new List<Object>(), '01', html,'COTIZADOR', null, '');
+        System.assertEquals(true, (Boolean)mapReturnSave2.get('isOk'), 'resultado correcto');
 
-        lstOLI[0].price_quote_id__c = '111';
-        lstOLI[0].price_operation_id__c = '222';
+        lstOLI[0].price_quote_id__c = quoteid;
+        lstOLI[0].price_operation_id__c = operationid;
         update lstOLI[0];
 
-        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = 'local.CredentialsPeru');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = urlModifQuote, iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
+        insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = urlModifQuote, iaso__Cache_Partition__c = credential);
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
         Test.startTest();
-		List<Object> lstData = new List<Object>();
+		Final List<Object> lstData = new List<Object>();
         lstData.add(23);
         lstData.add(23);
-        Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '13', '04', true, 'asd', 'nameAudit', 'comments', lstOLI[0].Id, new List<String>(), lstData, '01', '<div>Hola</div>', 'Web', 'APPROVE', '');
-        System.assert((Boolean)mapReturnSave3.get('isOk'));
+        Final Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '13', etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), lstData, '01', html, 'Web', 'APPROVE', '');
+        System.assertEquals(true, (Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
 
         Test.stopTest();
     }
     
     @isTest
-    static void test_method_Four() {
-        List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem];
-        Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
-        System.assert(mapReturn.containsKey('lstOppLineItem')); 
-        Map<String,Object> mapReturn2 = SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
-        System.assert(mapReturn2.containsKey('lstOppLineItem')); 
+    static void testMethodFour() {
+        List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
+        Final Map<String,Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
+        System.assertEquals(true, mapReturn.containsKey('lstOppLineItem'), 'resultado correcto'); 
+        Final Map<String,Object> mapReturn2 = SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
+        System.assertEquals(true, mapReturn2.containsKey('lstOppLineItem'), 'resultado correcto'); 
         
-        List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
-        Map<String,Object> mapReturnSave = SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id,'09','04',true,'asd','nameAudit','comments','<div>Hola</div>');
-        System.assert((Boolean)mapReturnSave.get('isOk'));
-        Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '09', '04', true, 'asd', 'nameAudit', 'comments', lstOLI[0].Id, new List<String>(), new List<Object>(), '01', '<div>Hola</div>','COTIZADOR', null, '');
-        System.assert((Boolean)mapReturnSave2.get('isOk'));
+        List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
+        Final Map<String,Object> mapReturnSave = SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id,status9,etapa4,true,asd,nameAudit,comments,html);
+        System.assertEquals(true, (Boolean)mapReturnSave.get('isOk'), 'resultado correcto');
+        Final Map<String,Object> mapReturnSave2 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), new List<Object>(), '01', html,'COTIZADOR', null, '');
+        System.assertEquals(true, (Boolean)mapReturnSave2.get('isOk'), 'resultado correcto');
 
-        lstOLI[0].price_quote_id__c = '111';
-        lstOLI[0].price_operation_id__c = '222';
+        lstOLI[0].price_quote_id__c = quoteid;
+        lstOLI[0].price_operation_id__c = operationid;
         update lstOLI[0];
 
-        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = 'local.CredentialsPeru');
-        insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = urlModifQuote, iaso__Cache_Partition__c = 'local.CredentialsPeru');
+        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
+        insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = urlModifQuote, iaso__Cache_Partition__c = credential);
         Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
         Test.startTest();
-		List<Object> lstData = new List<Object>();
+		Final List<Object> lstData = new List<Object>();
         lstData.add(23);
         lstData.add(23);
-        Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '10', '04', true, 'asd', 'nameAudit', 'comments', lstOLI[0].Id, new List<String>(), lstData, '01', '<div>Hola</div>', 'Web', 'APPROVE', '');
-        System.assert(!(Boolean)mapReturnSave3.get('isOk'));
+        Final Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '10', etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), lstData, '01', html, 'Web', 'APPROVE', '');
+        System.assertEquals(false, (Boolean)mapReturnSave3.get('isOk'), 'Error en resultado esperado.');
         Test.stopTest();
     }
     
     @isTest
     static void testRedirect() {
-        Map<String, Object> mapRes = new Map<String, Object>();
         Test.startTest();
-        mapRes = SanctionPriceDecision_ctrl.redirect();
+        Final Map<String, Object> mapRes = SanctionPriceDecision_ctrl.redirect();
         Test.stopTest();
         System.assertEquals(false, mapRes.get('isError'), 'Error en resultado esperado.');
     }
