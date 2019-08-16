@@ -15,7 +15,7 @@
                 if (state === "SUCCESS") {
                     var ret = response.getReturnValue();
                     if(ret.isOk){
-                        fieldObject = matchFieldKey(ret);
+                        var fieldObject = matchFieldKey(ret);
                         var valueDynamic = cmp.get('v.valueDynamic');
                         if(valueDynamic !== undefined && valueDynamic !== null){
                             var lstDynamic = valueDynamic.split(',');
