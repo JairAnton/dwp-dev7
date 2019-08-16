@@ -4,7 +4,8 @@
 	},
     calculateJS : function(cmp,event, helper) {
         helper.calculatebutton(cmp,event, helper);
+    },
     dateChange : function(cmp, evt, helper) {
-        cmp.set('v.changeDate',true);									
-    }
+        cmp.set('v.changeDate',true);
+	}
 })

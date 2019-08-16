@@ -280,7 +280,7 @@
             if (state === "SUCCESS") {
                 helper.gotoListView(component, event, helper);
             }
-        }); 
+        });
         $A.enqueueAction(action);
     },
 })
