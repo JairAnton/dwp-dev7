@@ -1,17 +1,64 @@
+/**
+* @author Global_HUB developers
+* @date 12-06-2019
+*
+* @group Global_HUB 
+*
+* @description test class from SanctionPriceDecision_ctrl
+**/
 @istest
 public class SanctionPriceDecision_ctrl_Test {
+    /**
+     * Label of GrantingTickets
+     */
     static String grantTK = 'GrantingTickets';
+    /**
+     * Label of url GrantingTickets
+     */
     static String urlGrantTK = 'https://validation/ok';
+    /**
+     * Label of ModifyQuotationRequest
+     */
     static String ModifQuote = 'ModifyQuotationRequest';
+    /**
+     * Label of url ModifyQuotationRequest
+     */
     static String urlModifQuote = 'https://ModifyQuotationRequestRecover/OK';
+    /**
+     * Label of opportunity status
+     */
     static String status9 = '09';
+    /**
+     * Label of opportunity stage
+     */
     static String etapa4 = '04';
+    /**
+     * Label of asd string
+     */
     static String asd = 'asd';
+    /**
+     * Label of name audit
+     */
     static String nameAudit = 'nameAudit';
+    /**
+     * Label of comments
+     */
     static String comments = 'comments';
+    /**
+     * Label of store html
+     */
     static String html = '<div>Hola</div>';
+    /**
+     * Label of credential login
+     */
     static String credential = 'local.CredentialsPeru';
+    /**
+     * Label of quote id
+     */
     static String quoteid = '111';
+    /**
+     * Label of operation id
+     */
     static String operationid = '222';
     
     @testSetup
@@ -129,7 +176,7 @@ public class SanctionPriceDecision_ctrl_Test {
         lstData.add(23);
         Final Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '10', etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), lstData, '01', html, 'Web', 'APPROVE', '');
         SanctionPriceDecision_ctrl.saveValidityDate(lstOLI[0].Id, (String)mapReturnSave3.get('auditDetailId'), '2000-08-08');
-        System.assertEquals(false, (Boolean)mapReturnSave3.get('isOk'), 'Error en resultado esperado.');
+        System.assert((Boolean)mapReturnSave3.get('isError'), 'Error en resultado esperado.');
         Test.stopTest();
     }
     
@@ -138,6 +185,6 @@ public class SanctionPriceDecision_ctrl_Test {
         Test.startTest();
         Final Map<String, Object> mapRes = SanctionPriceDecision_ctrl.redirect();
         Test.stopTest();
-        System.assertEquals(false, mapRes.get('isError'), 'Error en resultado esperado.');
+        System.assert((Boolean)mapRes.get('isError'), 'Error en resultado esperado.');
     }
 }

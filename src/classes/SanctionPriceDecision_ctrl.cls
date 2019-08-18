@@ -32,8 +32,8 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                               AND fprd__Header__c = true
                                                               ORDER BY fprd__Header_order__c];
         try {
-            if(lstOppLineItem.size()>0){
-                if(lstOppLineItem[0].Opportunity.opportunity_status_type__c=='08'){
+            if(lstOppLineItem.size()>0) {
+                if(lstOppLineItem[0].Opportunity.opportunity_status_type__c=='08') {
                     //helper to call the service
                     GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
                     //invoke the service
@@ -41,7 +41,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                     //get json body
                     GetQuotationRequest_helper.ResponseGetQuotationRequest_Wrapper jbody = GetQuotationRequest_helper.parse(invoke.getBody());
                     switch on invoke.getStatusCode() {                        
-                        when 200{
+                        when 200 {
                             if(jbody.data != null && jbody.data.quotations != null && jbody.data.quotations[0].validityDate != null && jbody.data.quotations[0].validityDate != '') {
                                 mapReturn.put('validityDate', Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10)));
                                 mapReturn.put('changeDate', false);
@@ -152,12 +152,6 @@ public with sharing class SanctionPriceDecision_ctrl {
                             OpportunityLineItem oliRecord = new OpportunityLineItem();
                             oliRecord.Id = recordOli;
                             oliRecord.price_quote_status_id__c = mqStatus.id;
-                            if(opp.opportunity_status_type__c=='10'){
-                                oliRecord.price_quote_date__c = System.today();
-                                oliRecord.validityDate__c = Date.valueOf(validDate);
-                                oliRecord.Assigned_analyst__c = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
-                                mapReturn.put('getQuote', true);
-                            }
                             
                             List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
                             
@@ -172,21 +166,25 @@ public with sharing class SanctionPriceDecision_ctrl {
                                     }
                                 } else {
                                     oliRecord.price_quote_owner_id__c = null;
-                                    if(opp.opportunity_status_type__c=='09'){
+                                    if(opp.opportunity_status_type__c=='09') {
                                         oliRecord.Assigned_analyst__c = mqBusinessAgentsList[0].firstName + ' ' + mqBusinessAgentsList[0].lastName + ' ' + mqBusinessAgentsList[0].secondLastName;
                                         assignedAnalyst = oliRecord.Assigned_analyst__c;
                                     }
                                 }
                             }
                             
-                            if(opp.opportunity_status_type__c=='13'){
+                            if(opp.opportunity_status_type__c=='10') {
+                                oliRecord.price_quote_date__c = System.today();
+                                oliRecord.validityDate__c = Date.valueOf(validDate);
+                                oliRecord.Assigned_analyst__c = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
+                                mapReturn.put('getQuote', true);
+                            }
+                            else if(opp.opportunity_status_type__c=='13'){
                                 oliRecord.price_quote_date__c = System.today();
                                 oliRecord.validityDate__c = null;
                                 oliRecord.Assigned_analyst__c = null;
                             }
-                            
                             update oliRecord;
-                            
                         }
                         when 409 {
                             WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(invokeModify.getBody());
@@ -368,6 +366,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         return lstMapRes;
     }
     
+    /**Method for save validityDate of Quotation **/
     @AuraEnabled
     public static Map<String,Object> saveValidityDate(String recordIdOppLineItem, String auditDetailId, String validDate) {
         Map<String,Object> mapReturn = new Map<String,Object>();
@@ -384,7 +383,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                     WHERE Id = :recordIdOppLineItem];
         
         try {
-            if(lstOppLineItem.size()>0){
+            if(lstOppLineItem.size()>0) {
                 //helper to call the service
                 GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
                 //invoke the service
@@ -393,27 +392,26 @@ public with sharing class SanctionPriceDecision_ctrl {
                 GetQuotationRequest_helper.ResponseGetQuotationRequest_Wrapper jbody = GetQuotationRequest_helper.parse(invoke.getBody());
                 switch on invoke.getStatusCode() {                        
                     when 200{
-                        if(jbody.data != null && jbody.data.quotations != null && jbody.data.quotations[0].validityDate != null && jbody.data.quotations[0].validityDate != '') {
-                            lstOppLineItem[0].validityDate__c = Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10));
-                        }
-                        else{
+                        if(jbody.data.quotations[0].validityDate == '') {
                             lstOppLineItem[0].validityDate__c = Date.valueOf(validDate);
+                        } else {
+                            lstOppLineItem[0].validityDate__c = Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10));
                         }
                         update lstOppLineItem[0];
                     }
                 }
                 List<dwp_cvad__Action_Audit_Detail__c> lts =[SELECT Id, dwp_cvad__action_audit_detail_display_title__c, dwp_cvad__action_audit_detail_content__c FROM dwp_cvad__Action_Audit_Detail__c WHERE ID=:auditDetailId];
                 if(lts.size()>0){
-                    if(lstOppLineItem[0].validityDate__c!=null){
-                        lts[0].dwp_cvad__action_audit_detail_content__c.replace('#validityDate#', ((DateTime)lstOppLineItem[0].validityDate__c).format('dd/MM/yyyy'));
-                    }
-                    else{
+                    if(lstOppLineItem[0].validityDate__c==null){
                         lts[0].dwp_cvad__action_audit_detail_content__c.replace('#validityDate#', '');
+                    } else {
+                        lts[0].dwp_cvad__action_audit_detail_content__c.replace('#validityDate#', ((DateTime)lstOppLineItem[0].validityDate__c).format('dd/MM/yyyy'));
                     }
                     lts[0].dwp_cvad__action_audit_detail_content__c.replace('#Assigned_analyst#', lstOppLineItem[0].Assigned_analyst__c);
                     update lts[0];
                 }
             }
+            mapReturn.put('isOk', true);
         } catch(Exception e) {
             mapReturn.put('isOk', false);
             mapReturn.put('errorMessage',e.getMessage());
