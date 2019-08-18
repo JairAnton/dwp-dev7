@@ -6,8 +6,7 @@
 		helper.getInfo(component, event, helper);
 	},
 	classChange : function(cmp, evt, helper) {
-		var inputObj = cmp.get('v.inputAttributes');
-        var objSetup = cmp.get('v.objSetup');
+		var objSetup = cmp.get('v.objSetup');
 		objSetup['btnSelectConfig'] = objSetup['getInfoButtons'].lstButtons[parseInt(evt.target.id)];
 		cmp.set('v.objSetup',objSetup);
 		cmp.set('v.enableContinue',true);
@@ -27,18 +26,17 @@
 		helper.doContinue(cmp, evt, helper);
 	},
     htmlObject : function(inputObject, evt) {
+        var today = new Date();
         if(evt.target.id===0) {
             if(inputObject.label==='Last price quote date' || inputObject.label==='Fecha de sanción') {
-                var today = new Date();
                 inputObject.htmlInput = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
-            } else if(inputObject.label==='validityDate' || inputObject.label==='Validez TEA' || 
+            } else if(inputObject.label==='validityDate' || inputObject.label==='Validez TEA' ||
                     inputObject.label==='Assigned_analyst' || inputObject.label==='Analista asignado') {
                 inputObject.htmlInput = '';
             }
         }
         else if(evt.target.id===1) {
             if(inputObject.label==='Last price quote date' || inputObject.label==='Fecha de sanción') {
-                var today = new Date();
                 inputObject.htmlInput = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
             } else if(inputObject.label==='validityDate' || inputObject.label==='Validez TEA') {
                 if(!inputObj.changeDate) {
@@ -50,7 +48,7 @@
             }
         }
         else if(evt.target.id===2) {
-            if(inputObject.label==='Last price quote date' || inputObject.label==='Fecha de sanción' || 
+            if(inputObject.label==='Last price quote date' || inputObject.label==='Fecha de sanción' ||
                inputObject.label==='validityDate' || inputObject.label==='Validez TEA') {
                 inputObject.htmlInput = '';
             } else if(inputObject.label==='Assigned_analyst' || inputObject.label==='Analista asignado') {

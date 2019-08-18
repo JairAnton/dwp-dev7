@@ -19,7 +19,7 @@ public class SanctionPriceDecision_ctrl_Test {
     /**
      * Label of ModifyQuotationRequest
      */
-    static String ModifQuote = 'ModifyQuotationRequest';
+    static String modifQuote = 'ModifyQuotationRequest';
     /**
      * Label of url ModifyQuotationRequest
      */

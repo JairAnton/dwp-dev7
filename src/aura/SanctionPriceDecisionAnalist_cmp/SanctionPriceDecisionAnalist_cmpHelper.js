@@ -23,6 +23,9 @@
                             var lovValues = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c.split(',');
                             var lovLabels = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_labels__c.split(',');
                             var posVal = lovValues.indexOf(strValue);
+                            alert(lovValues);
+                            alert(lovLabels);
+                            
                             strValue = lovLabels[posVal];
                         }
                         var tile = {
@@ -192,7 +195,7 @@
         var action = cmp.get("c.saveDecisionAnalist");
         action.setParams({
             "recordId" : inputObject.recordId,
-            "status_opp" : objSetup['btnSelectConfig'].opportunity_status_type,
+            "statusOpp" : objSetup['btnSelectConfig'].opportunity_status_type,
             "stageName" : objSetup['btnSelectConfig'].StageName,
             "elevateCase" : objSetup['btnSelectConfig'].elevateCase,
             "styleAudit" : objSetup['btnSelectConfig'].styleAudit,
@@ -212,17 +215,23 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 if(ret.isOk){
-					if(ret.getQuote){
+                    alert(ret.getQuote);
+                    alert(inputObject.changeDate);
+                    //if(ret.getQuote && !inputObject.changeDate && inputObject.option==='1'){
+                    if(ret.getQuote){
                         if(inputObject.changeDate){
-                            helper.gotoListView(cmp, evt, helper);
+                            alert('no getquote1');
+                        	helper.gotoListView(cmp, evt, helper);
                         }
                         else{
+                            alert('getquote');
                             inputObject['auditDetailId'] = ret.auditDetailId;
                             cmp.set('v.inputAttributes', inputObject);
                             helper.getQuote(cmp, evt, helper);
                         }
                     }
                     else{
+                        alert('no getquote2');
                         helper.gotoListView(cmp, evt, helper);
                     }
                 }else{
@@ -266,12 +275,15 @@
             }
         });
         $A.enqueueAction(action);
-	},
-	getQuote : function(component, event, helper) {
+    },
+    getQuote : function(component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
         var action = component.get("c.saveValidityDate");
+        alert(inputObject.opportunityLineItem);
+        alert(inputObject.auditDetailId);
+        alert(inputObject.validityDate);
         action.setParams({
-            "recordIdOppLineItem" : inputObject.opportunityLineItem,
+            "idOLI" : inputObject.opportunityLineItem,
             "auditDetailId" : inputObject.auditDetailId,
             "validDate" : inputObject.validityDate
         });
@@ -280,7 +292,7 @@
             if (state === "SUCCESS") {
                 helper.gotoListView(component, event, helper);
             }
-        });
+        }); 
         $A.enqueueAction(action);
     },
 })

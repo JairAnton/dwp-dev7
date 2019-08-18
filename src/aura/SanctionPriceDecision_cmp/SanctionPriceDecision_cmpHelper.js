@@ -17,12 +17,11 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name, 
-								'validityDate': ret.lstOppLineItem[0].validityDate__c, 
-								'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c};
+                var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name,
+                                'validityDate': ret.lstOppLineItem[0].validityDate__c,
+                                'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c};
                 if(!ret.lstInfoIsEmpty) {
                     var lstTile = [];
-                    
                     for(var i in ret.lstField) {
                         var strValue = ret.lstInfo[0][ret.lstField[i]];
                         if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c != undefined && ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c!='') {
@@ -53,7 +52,7 @@
             }
         }); 
         $A.enqueueAction(action);
-		component.set("v.refreshComp", true);
+        component.set("v.refreshComp", true);
     },
     getInfoButtons : function(strType, objOli) {
         var returnObj = {

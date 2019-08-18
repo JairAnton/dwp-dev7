@@ -20,7 +20,7 @@
                         if(valueDynamic !== undefined && valueDynamic !== null){
                             var lstDynamic = valueDynamic.split(',');
                             for(var i in lstDynamic){
-                                if(lstDynamic[i]!='-'){
+                                if(lstDynamic[i]!=='-'){
                                     fieldObject[i].value = lstDynamic[i];
                                     fieldObject[i].htmlInput = lstDynamic[i];
                                 }
