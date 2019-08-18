@@ -175,8 +175,8 @@ public class SanctionPriceDecision_ctrl_Test {
         lstData.add(23);
         lstData.add(23);
         Final Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(lstOpp[0].Id, '10', etapa4, true, asd, nameAudit, comments, lstOLI[0].Id, new List<String>(), lstData, '01', html, 'Web', 'APPROVE', '');
-        SanctionPriceDecision_ctrl.saveValidityDate(lstOLI[0].Id, (String)mapReturnSave3.get('auditDetailId'), '2000-08-08');
-        System.assert((Boolean)mapReturnSave3.get('isError'), 'Error en resultado esperado.');
+        Final Map<String,Object> mapReturnSave4 = SanctionPriceDecision_ctrl.saveValidityDate(lstOLI[0].Id, (String)mapReturnSave3.get('auditDetailId'), '2000-08-08');
+        System.assert(!(Boolean)mapReturnSave4.get('isOk'), 'Error en resultado esperado.');
         Test.stopTest();
     }
     
@@ -185,6 +185,6 @@ public class SanctionPriceDecision_ctrl_Test {
         Test.startTest();
         Final Map<String, Object> mapRes = SanctionPriceDecision_ctrl.redirect();
         Test.stopTest();
-        System.assert((Boolean)mapRes.get('isError'), 'Error en resultado esperado.');
+        System.assert(!(Boolean)mapRes.get('isError'), 'Error en resultado esperado.');
     }
 }

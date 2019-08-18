@@ -14,18 +14,14 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name};
-                if(!ret.lstInfoIsEmpty){
+                if(!ret.lstInfoIsEmpty) {
                     var lstTile = [];
-                    
-                    for(var i in ret.lstField){
+                    for(var i in ret.lstField) {
                         var strValue = ret.lstInfo[0][ret.lstField[i]];
-                        if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c != undefined && ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c!=''){
+                        if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c !== undefined && ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c!=='') {
                             var lovValues = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c.split(',');
                             var lovLabels = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_labels__c.split(',');
                             var posVal = lovValues.indexOf(strValue);
-                            alert(lovValues);
-                            alert(lovLabels);
-                            
                             strValue = lovLabels[posVal];
                         }
                         var tile = {
@@ -38,21 +34,21 @@
                 }
                 
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.caseOpen); 
-				component.set('v.objSetup',objSetup);
+				component.set('v.objSetup', objSetup);
 				var objectInput = {
                     'IdOppLineItem':inputObject.opportunityLineItem,
 					'approvalMethod':inputObject.approvalMethod,
                     'dinamicInput':'-'
                 };
-				component.set('v.objectInput',objectInput);
+				component.set('v.objectInput', objectInput);
             }
-            if(inputObject.approvalMethod === 'Web'){
+            if(inputObject.approvalMethod === 'Web') {
                 helper.removeColumns(component, event, helper);
-             }
+            }
             component.set('v.isLoad',true);
             component.set('v.hasHeader',true);
             component.set('v.showSpinner',false);
-        }); 
+        });
         $A.enqueueAction(action);
     },
     getInfoButtons : function(strType, hasCaseOpen) {
@@ -215,26 +211,20 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 if(ret.isOk){
-                    alert(ret.getQuote);
-                    alert(inputObject.changeDate);
-                    //if(ret.getQuote && !inputObject.changeDate && inputObject.option==='1'){
                     if(ret.getQuote){
-                        if(inputObject.changeDate){
-                            alert('no getquote1');
-                        	helper.gotoListView(cmp, evt, helper);
+                        if(inputObject.changeDate) {
+                            helper.gotoListView(cmp, evt, helper);
                         }
-                        else{
-                            alert('getquote');
+                        else {
                             inputObject['auditDetailId'] = ret.auditDetailId;
                             cmp.set('v.inputAttributes', inputObject);
                             helper.getQuote(cmp, evt, helper);
                         }
                     }
-                    else{
-                        alert('no getquote2');
+                    else {
                         helper.gotoListView(cmp, evt, helper);
                     }
-                }else{
+                } else {
                     var lstError = [];
                     lstError.push(ret.errorMessage);
                     cmp.set('v.isOk',false);
@@ -249,13 +239,13 @@
     },
     removeColumns : function(cmp, evt, helper) {
         var headers = cmp.get('v.inputAttributes').headerinput.slice();
-        headers.splice(1,2);
+        headers.splice(1, 2);
         cmp.set('v.lstHeadersHtml', headers);
     },
     gotoListView : function(component, evt, helper) {
         var action = component.get("c.redirect");
         action.setParams({});
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
@@ -279,9 +269,6 @@
     getQuote : function(component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
         var action = component.get("c.saveValidityDate");
-        alert(inputObject.opportunityLineItem);
-        alert(inputObject.auditDetailId);
-        alert(inputObject.validityDate);
         action.setParams({
             "idOLI" : inputObject.opportunityLineItem,
             "auditDetailId" : inputObject.auditDetailId,
@@ -292,7 +279,7 @@
             if (state === "SUCCESS") {
                 helper.gotoListView(component, event, helper);
             }
-        }); 
+        });
         $A.enqueueAction(action);
     },
 })

@@ -7,6 +7,23 @@
 * @description Controller class from SanctionPriceDecision_ctrl
 **/
 public with sharing class SanctionPriceDecision_ctrl {
+    /**
+     * Label status Approved
+     */
+    Final Static String sApproved = '08';
+    /**
+     * Label status Sent
+     */
+    Final Static String sSent = '09';
+    /**
+     * Label status Authorized
+     */
+    Final Static String sAuthorized = '10';
+    /**
+     * Label status Denied
+     */
+    Final Static String sDenied = '13';
+    
     @AuraEnabled
     public static Map<String,Object> getInfo(String recordIdOppLineItem) {
         Map<String,Object> mapReturn = new Map<String,Object>();
@@ -33,12 +50,11 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                               ORDER BY fprd__Header_order__c];
         try {
             if(!lstOppLineItem.isEmpty()) {
-                Final String sApproved = '098';
                 if(lstOppLineItem[0].Opportunity.opportunity_status_type__c==sApproved) {
                     //helper to call the service
-                    GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
+                    Final GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
                     //invoke the service
-                    System.HttpResponse invoke = getquoteHelper.invoke();
+                    Final System.HttpResponse invoke = getquoteHelper.invoke();
                     switch on invoke.getStatusCode() {                        
                         when 200 {
                             //get json body
@@ -137,19 +153,18 @@ public with sharing class SanctionPriceDecision_ctrl {
         Boolean isOk = true;
         Id idAnalist = null;
         String assignedAnalyst = null;
-        String newStoreHtml = storeHtml;
         try {
             if(approvalMethod == 'Web') {
-                ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(recordId,wsPhase, (lstValue[1] == null? null : Double.valueOf(lstValue[1])) ,'', null);
+                Final ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(recordId,wsPhase, (lstValue[1] == null? null : Double.valueOf(lstValue[1])) ,'', null);
                 try {
-                    System.HttpResponse invokeModify = modifyHelper.invoke();
+                    Final System.HttpResponse invokeModify = modifyHelper.invoke();
                     switch on invokeModify.getStatusCode(){
                         when 200 {
-                            ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(invokeModify.getBody());
+                            Final ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(invokeModify.getBody());
                             ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
                             ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
                             
-                            OpportunityLineItem oliRecord = new OpportunityLineItem(Id=recordOli,
+                            Final OpportunityLineItem oliRecord = new OpportunityLineItem(Id=recordOli,
                                                                                     price_quote_status_id__c=mqStatus.id,
                                                                                     Assigned_analyst__c=null,
                                                                                     price_quote_date__c=null,
@@ -166,14 +181,10 @@ public with sharing class SanctionPriceDecision_ctrl {
                                 }
                             }
                             
-                            Final String sSent = '09';
-                            Final String sAuthorized = '10';
-                            Final String sDenied = '13';
                             if(opp.opportunity_status_type__c==sSent) {
                                 oliRecord.price_quote_owner_id__c = idAnalist;
                                 oliRecord.Assigned_analyst__c = assignedAnalyst;
-                            }
-                            else if(opp.opportunity_status_type__c==sAuthorized) {
+                            } else if(opp.opportunity_status_type__c==sAuthorized) {
                                 oliRecord.price_quote_date__c = System.today();
                                 oliRecord.validityDate__c = Date.valueOf(validDate);
                                 oliRecord.Assigned_analyst__c = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
@@ -200,13 +211,13 @@ public with sharing class SanctionPriceDecision_ctrl {
                     mapReturn.put('isOk', false);
                     mapReturn.put('errorMessage',Label.PriceGenericError);
                 }
-                
-                if(assignedAnalyst != null && storeHtml.contains('#Assigned_analyst#')) {
-                    newStoreHtml = storeHtml.replace('#Assigned_analyst#', assignedAnalyst);
-                }
             }
             if(isOk) {
                 update opp;
+                String newStoreHtml = storeHtml;
+                if(assignedAnalyst != null && storeHtml.contains('#Assigned_analyst#')) {
+                    newStoreHtml = storeHtml.replace('#Assigned_analyst#', assignedAnalyst);
+                }
                 lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
                 lstAudit[0].dwp_cvad__audit_audit_comments__c = strComments;
                 insert lstAudit;
@@ -368,7 +379,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     public static Map<String,Object> saveValidityDate(String idOLI, String auditDetailId, String validDate) {
         Final Map<String,Object> mapReturn = new Map<String,Object>();
         
-        List<OpportunityLineItem> lstOppLineItem = [SELECT  Id, 
+        Final List<OpportunityLineItem> lstOppLineItem = [SELECT  Id, 
                                                     Product2.Name,
                                                     Product2Id,
                                                     proposed_fee_per__c,
@@ -382,9 +393,9 @@ public with sharing class SanctionPriceDecision_ctrl {
         try {
             if(!lstOppLineItem.isEmpty()) {
                 //helper to call the service
-                GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
+                Final GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
                 //invoke the service
-                System.HttpResponse invoke = getquoteHelper.invoke();
+                Final System.HttpResponse invoke = getquoteHelper.invoke();
                 switch on invoke.getStatusCode() {                        
                     when 200{
                         //get json body
@@ -397,7 +408,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                         update lstOppLineItem[0];
                     }
                 }
-                List<dwp_cvad__Action_Audit_Detail__c> lts = [SELECT Id, dwp_cvad__action_audit_detail_display_title__c, dwp_cvad__action_audit_detail_content__c FROM dwp_cvad__Action_Audit_Detail__c WHERE ID=:auditDetailId];
+                Final List<dwp_cvad__Action_Audit_Detail__c> lts = [SELECT Id, dwp_cvad__action_audit_detail_display_title__c, dwp_cvad__action_audit_detail_content__c FROM dwp_cvad__Action_Audit_Detail__c WHERE ID=:auditDetailId];
                 if(!lts.isEmpty()) {
                     if(lstOppLineItem[0].validityDate__c==null) {
                         lts[0].dwp_cvad__action_audit_detail_content__c.replace('#validityDate#', '');
