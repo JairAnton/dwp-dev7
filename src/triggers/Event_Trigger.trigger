@@ -3,10 +3,8 @@ trigger Event_Trigger on Event (after insert, before update, after update, after
     gcal.GBL_EventHandler gcalHandler = new gcal.GBL_EventHandler();
     dwp_kitv.Event_Handler eventHandler = new dwp_kitv.Event_Handler();
     
-    if(trigger.isBefore) {
-        if(trigger.isUpdate) {
-          eventHandler.eventBeforeUpdate(trigger.new, Trigger.oldMap);
-        }
+    if(trigger.isBefore && trigger.isUpdate) {
+        eventHandler.eventBeforeUpdate(trigger.new, Trigger.oldMap);
     }
     if (trigger.isAfter) {
         if(trigger.isInsert) {
