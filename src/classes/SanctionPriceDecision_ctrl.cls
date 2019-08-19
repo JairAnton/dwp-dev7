@@ -92,7 +92,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         mapReturn.put('lstOppLineItem', lstOppLineItem);
         mapReturn.put('mapMapfieldConfig',mapMapfieldConfig);
         if(!lstStringField.isEmpty()) { 
-            List<SObject> lstRow = Database.query('SELECT ' + String.join(lstStringField, ',') + ' FROM OpportunityLineItem WHERE Id = \'' + recordIdOppLineItem + '\'');
+            List<SObject> lstRow = Database.query('SELECT ' + String.join(lstStringField, ',') + ' FROM OpportunityLineItem WHERE Id = :recordIdOppLineItem');
             mapReturn.put('lstInfo', lstRow);
         }
         
@@ -235,7 +235,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         mapReturn.put('lstOppLineItem', lstOppLineItem);
         mapReturn.put('mapMapfieldConfig',mapMapfieldConfig);
         if(!lstStringField.isEmpty()) { 
-            List<SObject> lstRow = Database.query('SELECT ' + String.join(lstStringField, ',') + ' FROM OpportunityLineItem WHERE Id = \'' + recordIdOppLineItem + '\'');
+            List<SObject> lstRow = Database.query('SELECT ' + String.join(lstStringField, ',') + ' FROM OpportunityLineItem WHERE Id = :recordIdOppLineItem');
             mapReturn.put('lstInfo', lstRow);
         }
         
