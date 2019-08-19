@@ -4260,7 +4260,7 @@
         <editable>true</editable>
         <field>OpportunityLineItem.Assigned_analyst__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
