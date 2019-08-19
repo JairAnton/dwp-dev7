@@ -27,6 +27,10 @@ public with sharing class SanctionPriceDecision_ctrl {
      * Label web method
      */
     Final Static String SWEB = 'web';
+    /**
+     * Map label id analist
+     */
+    Final Static String IDANALIST = 'idAnalist';
     
     /**Method for get information of price process **/
     @AuraEnabled
@@ -157,7 +161,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.isProcess__c = true;
         Boolean isOk = true;
         mapReturn.put('newStoreHtml', params.storeHtml);
-        mapReturn.put('idAnalist', null);
+        mapReturn.put(IDANALIST, null);
         try {
             if(params.approvalMethod == SWEB) {
                 Final ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(params.recordId, params.wsPhase, (lstValue[1] == null? null : Double.valueOf(lstValue[1])) ,'', null);
@@ -187,7 +191,7 @@ public with sharing class SanctionPriceDecision_ctrl {
             }
             if(isOk) {
                 update opp;
-                mapReturn = saveAuditCase(params, (String)mapReturn.get('newStoreHtml'), elevateCase, (String)mapReturn.get('idAnalist'), lstApiField, lstValue);
+                mapReturn = saveAuditCase(params, (String)mapReturn.get('newStoreHtml'), elevateCase, (String)mapReturn.get(IDANALIST), lstApiField, lstValue);
             }
         } catch(Exception e) {
             mapReturn.put('isOk', false);
@@ -406,9 +410,10 @@ public with sharing class SanctionPriceDecision_ctrl {
         return mapReturn;
     }
     
+    /**Method for save the opportunitylineitem **/
     @AuraEnabled
     public static Map<String,Object> updateOli(Parameters params, String body, Opportunity opp) {
-        Map<String,Object> mapReturn = new Map<String,Object>();
+        Final Map<String,Object> mapReturn = new Map<String,Object>();
         String assignedAnalyst = null;
         Final ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(body);
         ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
@@ -424,7 +429,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         if(!mqBusinessAgentsList.isEmpty()) {
             Final List<User> userList = [SELECT Id, FirstName, LastName FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
             if(!userList.isEmpty()) {
-                mapReturn.put('idAnalist', userList[0].Id);
+                mapReturn.put(IDANALIST, userList[0].Id);
                 assignedAnalyst = userList[0].FirstName + ' ' + userList[0].LastName;
             } else {
                 assignedAnalyst = mqBusinessAgentsList[0].firstName + ' ' + mqBusinessAgentsList[0].lastName + ' ' + mqBusinessAgentsList[0].secondLastName;
@@ -432,7 +437,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         }
         
         if(opp.opportunity_status_type__c==SSENT) {
-            oliRecord.price_quote_owner_id__c = (String)mapReturn.get('idAnalist');
+            oliRecord.price_quote_owner_id__c = (String)mapReturn.get(IDANALIST);
             oliRecord.Assigned_analyst__c = assignedAnalyst;
         } else if(opp.opportunity_status_type__c==SAUTHORIZED) {
             oliRecord.price_quote_date__c = System.today();

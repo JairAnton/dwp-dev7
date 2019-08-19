@@ -16,16 +16,6 @@
                     var ret = response.getReturnValue();
                     if(ret.isOk){
                         var fieldObject = helper.matchFieldKey(ret);
-                        var valueDynamic = cmp.get('v.valueDynamic');
-                        if(valueDynamic !== undefined && valueDynamic !== null){
-                            var lstDynamic = valueDynamic.split(',');
-                            for(var i in lstDynamic){
-                                if(lstDynamic[i]!=='-'){
-                                    fieldObject[i].value = lstDynamic[i];
-                                    fieldObject[i].htmlInput = lstDynamic[i];
-                                }
-                            }
-                        }
                         cmp.set('v.lstFields', fieldObject);
                         cmp.set('v.objectApiName', ret.fieldForm.object_api_name__c);
                         cmp.set('v.isOk', true);
