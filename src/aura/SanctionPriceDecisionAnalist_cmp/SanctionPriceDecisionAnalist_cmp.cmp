@@ -12,6 +12,11 @@
     <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section"/>
     <aura:attribute name="lstError" type="String[]" />
     <aura:attribute name="lstHeadersHtml" type="List" />
+	<aura:attribute name="auditDetailId" type="String"/>
+    <aura:attribute name="validityDate" type="Date"/>
+    <aura:attribute name="getQuote" type="Boolean" default="true"/>
+    <aura:attribute name="refreshComp" type="Boolean" default="false"/>
+    <aura:attribute name="changeDate" type="Boolean"/>												  
     
     <aura:if isTrue="{! !v.showSpinner}">
         <aura:if isTrue="{!v.isOk}">
@@ -31,6 +36,8 @@
                                 <c:DataTable_cmp data="{!v.inputAttributes.datainput}" headers="{!v.lstHeadersHtml}" isHtml="true"/>
                             </div>
                         </aura:if>
+						<br/>
+                        <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_AuditAnalist'}" hasDivider="false" isHTML="true" refreshComp="{!v.refreshComp}"/>
                     </div>
                     <lightning:layout multipleRows="true">                        
                         <lightning:layoutItem padding="around-small" size="8">
@@ -89,6 +96,9 @@
                                             </div>
                                         </aura:iteration>
                                     </div>
+                                </lightning:layoutItem>
+								<lightning:layoutItem size="12" class="slds-m-top_medium">
+                                    <p style="margin-left:20px;">Validez TEA: <ui:outputDate value="{!v.inputAttributes.validityDate}" format="dd/MM/YYYY"/></p>
                                 </lightning:layoutItem>
                             </lightning:layout>
                         </lightning:layoutItem>           

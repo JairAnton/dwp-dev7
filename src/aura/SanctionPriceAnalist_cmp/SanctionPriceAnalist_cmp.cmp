@@ -34,6 +34,11 @@
                 <div class="slds-m-bottom_medium" >
                     <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.CommitmentProposalSectionTitle}" recordId="{!v.inputAttributes.recordId}" /> 
                 </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </div>
             <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
                 <div class="slds-col sizeSPRICE">

@@ -1468,6 +1468,14 @@
             <translation>All in</translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>Analista asignado</label>
+        <name>Assigned_analyst__c</name>
+    </fields>
+    <fields>
+        <label>Validez TEA</label>
+        <name>validityDate__c</name>
+    </fields>
     <validationRules>
         <errorMessage>Nº de contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>ContractNo_Validation</name>

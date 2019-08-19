@@ -17,10 +17,11 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name};
+                var objSetup = {'nameProd': ret.lstOppLineItem[0].Product2.Name,
+                                'validityDate': ret.lstOppLineItem[0].validityDate__c,
+                                'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c};
                 if(!ret.lstInfoIsEmpty) {
                     var lstTile = [];
-                    
                     for(var i in ret.lstField) {
                         var strValue = ret.lstInfo[0][ret.lstField[i]];
                         if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c != undefined && ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c!='') {
@@ -28,6 +29,11 @@
                             var lovLabels = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_labels__c.split(',');
                             var posVal = lovValues.indexOf(strValue);
                             strValue = lovLabels[posVal];
+                        }
+                        if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__Type__c==='currency' && !isNaN(strValue)) {
+                            var val = Math.round(Number(strValue) * 100) / 100;
+                            var parts = val.toString().split(".");
+                            strValue = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : ".00");
                         }
                         var tile = {
                             'label': ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__Label__c,
@@ -51,6 +57,7 @@
             }
         }); 
         $A.enqueueAction(action);
+        component.set("v.refreshComp", true);
     },
     getInfoButtons : function(strType, objOli) {
         var returnObj = {

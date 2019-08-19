@@ -80,6 +80,8 @@
             lstvalueFieldJS = [spreadinput,inputtea];
     		inputObject['datainput'] = datalst;
     		inputObject['headerinput'] = headerlst;
+			inputObject['validityDate'] = analistWeb.get('v.validityDate');
+    		inputObject['changeDate'] = analistWeb.get('v.changeDate');
         }else{
  			var fieldsForm = cmp.find('fieldsFormInput');
             var inputs = fieldsForm.find('input');
