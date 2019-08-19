@@ -27,32 +27,21 @@
 	},
     htmlObject : function(inputObject, evt) {
         var today = new Date();
-        if(evt.target.id===0) {
-            if(inputObject.label==='Last price quote date' || inputObject.label==='Fecha de sanción') {
-                inputObject.htmlInput = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
-            } else if(inputObject.label==='validityDate' || inputObject.label==='Validez TEA' ||
-                    inputObject.label==='Assigned_analyst' || inputObject.label==='Analista asignado') {
-                inputObject.htmlInput = '';
+        var originalHtml = inputObject.htmlInput;
+        inputObject.htmlInput = '';
+        if((inputObject.label==='Last price quote date' || inputObject.label==='Fecha de sanción') && (evt.target.id!==2)) {
+            inputObject.htmlInput = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
+        } else if((inputObject.label==='validityDate' || inputObject.label==='Validez TEA') && (evt.target.id===1)) {
+            inputObject.htmlInput = '#validityDate#';
+            if(inputObj.changeDate) {
+                var dt = inputObj.validityDate;
+                inputObject.htmlInput = dt.substring(8, 10) + '/' + dt.substring(5, 7) + '/' + dt.substring(0, 4);
             }
-        }
-        else if(evt.target.id===1) {
-            if(inputObject.label==='Last price quote date' || inputObject.label==='Fecha de sanción') {
-                inputObject.htmlInput = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
-            } else if(inputObject.label==='validityDate' || inputObject.label==='Validez TEA') {
-                if(!inputObj.changeDate) {
-                    inputObject.htmlInput = '#validityDate#';
-                } else {
-                    var dt = inputObj.validityDate;
-                    inputObject.htmlInput = dt.substring(8, 10) + '/' + dt.substring(5, 7) + '/' + dt.substring(0, 4);
-                }
-            }
-        }
-        else if(evt.target.id===2) {
-            if(inputObject.label==='Last price quote date' || inputObject.label==='Fecha de sanción' ||
-               inputObject.label==='validityDate' || inputObject.label==='Validez TEA') {
-                inputObject.htmlInput = '';
-            } else if(inputObject.label==='Assigned_analyst' || inputObject.label==='Analista asignado') {
+        } else if((inputObject.label==='Assigned_analyst' || inputObject.label==='Analista asignado') && (evt.target.id!==0)) {
+            if(evt.target.id===1) {
                 inputObject.htmlInput = '#Assigned_analyst#';
+            } else{
+                inputObject.htmlInput = originalHtml;
             }
         }
         return inputObject;

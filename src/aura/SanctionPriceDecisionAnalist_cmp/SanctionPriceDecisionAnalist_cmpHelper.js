@@ -18,7 +18,8 @@
                     var lstTile = [];
                     for(var i in ret.lstField) {
                         var strValue = ret.lstInfo[0][ret.lstField[i]];
-                        if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c !== undefined && ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c!=='') {
+                        if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c !== undefined &&
+                           ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c!=='') {
                             var lovValues = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c.split(',');
                             var lovLabels = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_labels__c.split(',');
                             var posVal = lovValues.indexOf(strValue);
@@ -189,22 +190,23 @@
         var inputObject = cmp.get('v.inputAttributes');
         //$A.get('e.force:refreshView').fire();
         var action = cmp.get("c.saveDecisionAnalist");
-        action.setParams({
-            "recordId" : inputObject.recordId,
-            "statusOpp" : objSetup['btnSelectConfig'].opportunity_status_type,
-            "stageName" : objSetup['btnSelectConfig'].StageName,
+        action.setParams({"params": JSON.stringify({
+                "recordId" : inputObject.recordId,
+                "statusOpp" : objSetup['btnSelectConfig'].opportunity_status_type,
+                "stageName" : objSetup['btnSelectConfig'].StageName,
+                "styleAudit" : objSetup['btnSelectConfig'].styleAudit,
+                "nameAudit" : objSetup['btnSelectConfig'].nameAudit,
+                "strComments" : null,
+                "recordOli" : cmp.get('v.objectInput').IdOppLineItem,
+                "statusCase" : objSetup['btnSelectConfig'].statusCase,
+                "storeHtml" : storeHTML.innerHTML,
+                "approvalMethod" : inputObject.approvalMethod,
+                "wsPhase" : objSetup['btnSelectConfig'].wsPhase,
+                "validDate" : inputObject.validityDate
+            }),
             "elevateCase" : objSetup['btnSelectConfig'].elevateCase,
-            "styleAudit" : objSetup['btnSelectConfig'].styleAudit,
-            "nameAudit" : objSetup['btnSelectConfig'].nameAudit,
-            "strComments" : null,
-            "recordOli" : cmp.get('v.objectInput').IdOppLineItem,
             "lstApiField" : inputObject['lstApiField'],
-            "lstValue" : inputObject['lstvalueField'],
-            "statusCase" : objSetup['btnSelectConfig'].statusCase,
-            "storeHtml" : storeHTML.innerHTML,
-            "approvalMethod" : inputObject.approvalMethod,
-            "wsPhase" : objSetup['btnSelectConfig'].wsPhase,
-            "validDate" : inputObject.validityDate
+            "lstValue" : inputObject['lstvalueField']
         });
         action.setCallback(this, function(response) {
             var state = response.getState();

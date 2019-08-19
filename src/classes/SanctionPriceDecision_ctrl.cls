@@ -10,20 +10,21 @@ public with sharing class SanctionPriceDecision_ctrl {
     /**
      * Label status Approved
      */
-    Final Static String sApproved = '08';
+    Final Static String SAPPROVED = '08';
     /**
      * Label status Sent
      */
-    Final Static String sSent = '09';
+    Final Static String SSENT = '09';
     /**
      * Label status Authorized
      */
-    Final Static String sAuthorized = '10';
+    Final Static String SAUTHORIZED = '10';
     /**
      * Label status Denied
      */
-    Final Static String sDenied = '13';
+    Final Static String SDENIED = '13';
     
+    /**Method for get information of price process **/
     @AuraEnabled
     public static Map<String,Object> getInfo(String recordIdOppLineItem) {
         Map<String,Object> mapReturn = new Map<String,Object>();
@@ -49,22 +50,20 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                               AND fprd__Header__c = true
                                                               ORDER BY fprd__Header_order__c];
         try {
-            if(!lstOppLineItem.isEmpty()) {
-                if(lstOppLineItem[0].Opportunity.opportunity_status_type__c==sApproved) {
-                    //helper to call the service
-                    Final GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
-                    //invoke the service
-                    Final System.HttpResponse invoke = getquoteHelper.invoke();
-                    switch on invoke.getStatusCode() {                        
-                        when 200 {
-                            //get json body
-                            Final GetQuotationRequest_helper.ResponseGetQuotationRequest_Wrapper jbody = GetQuotationRequest_helper.parse(invoke.getBody());
-                            if(jbody.data.quotations[0].validityDate != null && jbody.data.quotations[0].validityDate != '') {
-                                mapReturn.put('validityDate', Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10)));
-                                mapReturn.put('changeDate', false);
-                                lstOppLineItem[0].validityDate__c = Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10));
-                                update lstOppLineItem[0];
-                            }
+            if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].Opportunity.opportunity_status_type__c==SAPPROVED) {
+                //helper to call the service
+                Final GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
+                //invoke the service
+                Final System.HttpResponse invoke = getquoteHelper.invoke();
+                switch on invoke.getStatusCode() {                        
+                    when 200 {
+                        //get json body
+                        Final GetQuotationRequest_helper.ResponseGetQuotationRequest_Wrapper jbody = GetQuotationRequest_helper.parse(invoke.getBody());
+                        if(jbody.data.quotations[0].validityDate != null && jbody.data.quotations[0].validityDate != '') {
+                            mapReturn.put('validityDate', Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10)));
+                            mapReturn.put('changeDate', false);
+                            lstOppLineItem[0].validityDate__c = Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10));
+                            update lstOppLineItem[0];
                         }
                     }
                 }
@@ -95,6 +94,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         return mapReturn;
     }
     
+    /**Method for save decision of ejecutive **/
     @AuraEnabled
     public static Map<String,Object> saveDecision(String recordId, String status_opp, String stageName, Boolean createCase, String styleAudit, String nameAudit, String strComments, String storeHtml) {
         Map<String,Object> mapReturn = new Map<String,Object>();
@@ -141,32 +141,34 @@ public with sharing class SanctionPriceDecision_ctrl {
         return mapReturn;
     }
     
+    /**Method for save decision of analist **/
     @AuraEnabled
-    public static Map<String,Object> saveDecisionAnalist(String recordId, String statusOpp, String stageName, Boolean elevateCase, String styleAudit, String nameAudit, String strComments, String recordOli, List<String> lstApiField, List<Object> lstValue, String statusCase, String storeHtml, String approvalMethod, String wsPhase, String validDate) {
+    public static Map<String,Object> saveDecisionAnalist(String jsonParams, Boolean elevateCase, List<String> lstApiField, List<Object> lstValue) {
+        Parameters params = (Parameters)JSON.deserialize(jsonParams, Parameters.class);
         Map<String,Object> mapReturn = new Map<String,Object>();
-        List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
         Opportunity opp = new Opportunity();
-        opp.Id = recordId;
-        opp.StageName = stageName;
-        opp.opportunity_status_type__c = statusOpp;
+        opp.Id = params.recordId;
+        opp.StageName = params.stageName;
+        opp.opportunity_status_type__c = params.statusOpp;
         opp.isProcess__c = true;
         Boolean isOk = true;
         Id idAnalist = null;
-        String assignedAnalyst = null;
+        String newStoreHtml = params.storeHtml;
         try {
-            if(approvalMethod == 'Web') {
-                Final ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(recordId,wsPhase, (lstValue[1] == null? null : Double.valueOf(lstValue[1])) ,'', null);
+            if(params.approvalMethod == 'Web') {
+                Final ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(params.recordId, params.wsPhase, (lstValue[1] == null? null : Double.valueOf(lstValue[1])) ,'', null);
                 try {
                     Final System.HttpResponse invokeModify = modifyHelper.invoke();
                     switch on invokeModify.getStatusCode(){
                         when 200 {
+                            String assignedAnalyst = null;
                             Final ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(invokeModify.getBody());
                             ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
                             ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
                             
-                            Final OpportunityLineItem oliRecord = new OpportunityLineItem(Id=recordOli,
+                            Final OpportunityLineItem oliRecord = new OpportunityLineItem(Id=params.recordOli,
                                                                                     price_quote_status_id__c=mqStatus.id,
-                                                                                    Assigned_analyst__c=null,
+                                                                                    Assigned_analyst__c=assignedAnalyst,
                                                                                     price_quote_date__c=null,
                                                                                     validityDate__c=null);
                             
@@ -181,18 +183,23 @@ public with sharing class SanctionPriceDecision_ctrl {
                                 }
                             }
                             
-                            if(opp.opportunity_status_type__c==sSent) {
+                            if(opp.opportunity_status_type__c==SSENT) {
                                 oliRecord.price_quote_owner_id__c = idAnalist;
                                 oliRecord.Assigned_analyst__c = assignedAnalyst;
-                            } else if(opp.opportunity_status_type__c==sAuthorized) {
+                            } else if(opp.opportunity_status_type__c==SAUTHORIZED) {
                                 oliRecord.price_quote_date__c = System.today();
-                                oliRecord.validityDate__c = Date.valueOf(validDate);
-                                oliRecord.Assigned_analyst__c = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
+                                oliRecord.validityDate__c = Date.valueOf(params.validDate);
+                                assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
+                                oliRecord.Assigned_analyst__c = assignedAnalyst;
                                 mapReturn.put('getQuote', true);
-                            } else if(opp.opportunity_status_type__c==sDenied) {
+                            } else if(opp.opportunity_status_type__c==SDENIED) {
                                 oliRecord.price_quote_date__c = System.today();
                             }
                             update oliRecord;
+                            
+                            if(assignedAnalyst != null && params.storeHtml.contains('#Assigned_analyst#')) {
+                                newStoreHtml = params.storeHtml.replace('#Assigned_analyst#', assignedAnalyst);
+                            }
                         }
                         when 409 {
                             WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(invokeModify.getBody());
@@ -214,45 +221,7 @@ public with sharing class SanctionPriceDecision_ctrl {
             }
             if(isOk) {
                 update opp;
-                String newStoreHtml = storeHtml;
-                if(assignedAnalyst != null && storeHtml.contains('#Assigned_analyst#')) {
-                    newStoreHtml = storeHtml.replace('#Assigned_analyst#', assignedAnalyst);
-                }
-                lstAudit.add(Action_Audit_Helper.getAudit(nameAudit, 'Opportunity', recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), styleAudit, null, false));
-                lstAudit[0].dwp_cvad__audit_audit_comments__c = strComments;
-                insert lstAudit;
-                
-                List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
-                lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, newStoreHtml, 1, '', 'Embedded'));
-                insert lstDetails;
-                mapReturn.put('auditDetailId', lstDetails[0].Id);
-                
-                List<Case> lstCases = [SELECT   Id, 
-                                       opportunity_id__c, 
-                                       IsClosed,
-                                       OwnerId,
-                                       Status,
-                                       bypass__c
-                                       FROM Case 
-                                       WHERE opportunity_id__c = :recordId 
-                                       AND IsClosed = false];
-                lstCases[0].Status = statusCase;
-                lstCases[0].bypass__c = true;
-                if(elevateCase && idAnalist==null) {
-                    List<Group> queueGroup = [SELECT    Id, 
-                                              DeveloperName,
-                                              Type  
-                                              FROM Group 
-                                              WHERE Type = 'Queue' 
-                                              AND DeveloperName = 'Tier_2'];
-                    lstCases[0].OwnerId = queueGroup[0].Id;
-                } else if(elevateCase && idAnalist!=null) {
-                    lstCases[0].OwnerId = idAnalist;
-                }
-                update lstCases;
-                Map<String,Object> mapReturnSaveOli = FieldForm_ctrl.doSave(recordOli,'OpportunityLineItem', lstApiField, lstValue);
-                
-                mapReturn.put('isOk', (Boolean)mapReturnSaveOli.get('isOk'));
+                mapReturn = saveAuditCase(params, newStoreHtml, elevateCase, idAnalist, lstApiField, lstValue);
             }
         } catch(Exception e) {
             mapReturn.put('isOk', false);
@@ -260,6 +229,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         return mapReturn;
     }
     
+    /**Method for get information used to analist **/
     @AuraEnabled
     public static Map<String,Object> getInfoAnalist(String recordIdOppLineItem) {
         Map<String,Object> mapReturn = new Map<String,Object>();
@@ -311,6 +281,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         return mapReturn;
     }
     
+    /**Method for save audit web **/
     @AuraEnabled
     public static Map<String,Object> saveAuditWeb(String auditRecordId,  String storeHtml) {
         Map<String,Object> mapReturn = new Map<String,Object>();
@@ -424,5 +395,76 @@ public with sharing class SanctionPriceDecision_ctrl {
             mapReturn.put('isOk', false);
         }
         return mapReturn;
+    }
+    
+    /**Method for save audit and case **/
+    @AuraEnabled
+    public static Map<String,Object> saveAuditCase(Parameters params, String newStoreHtml, Boolean elevateCase, Id idAnalist, List<String> lstApiField, List<Object> lstValue) {
+        Map<String,Object> mapReturn = new Map<String,Object>();
+        List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
+        lstAudit.add(Action_Audit_Helper.getAudit(params.nameAudit, 'Opportunity', params.recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), params.styleAudit, null, false));
+        lstAudit[0].dwp_cvad__audit_audit_comments__c = params.strComments;
+        insert lstAudit;
+        
+        List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
+        lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, newStoreHtml, 1, '', 'Embedded'));
+        insert lstDetails;
+        mapReturn.put('auditDetailId', lstDetails[0].Id);
+        
+        List<Case> lstCases = [SELECT   Id, 
+                               opportunity_id__c, 
+                               IsClosed,
+                               OwnerId,
+                               Status,
+                               bypass__c
+                               FROM Case 
+                               WHERE opportunity_id__c = :params.recordId 
+                               AND IsClosed = false];
+        lstCases[0].Status = params.statusCase;
+        lstCases[0].bypass__c = true;
+        if(elevateCase && idAnalist==null) {
+            List<Group> queueGroup = [SELECT    Id, 
+                                      DeveloperName,
+                                      Type  
+                                      FROM Group 
+                                      WHERE Type = 'Queue' 
+                                      AND DeveloperName = 'Tier_2'];
+            lstCases[0].OwnerId = queueGroup[0].Id;
+        } else if(elevateCase && idAnalist!=null) {
+            lstCases[0].OwnerId = idAnalist;
+        }
+        update lstCases;
+        Map<String,Object> mapReturnSaveOli = FieldForm_ctrl.doSave(params.recordOli,'OpportunityLineItem', lstApiField, lstValue);
+        
+        mapReturn.put('isOk', (Boolean)mapReturnSaveOli.get('isOk'));
+        return mapReturn;
+    }
+    
+    /**Method for map parameters **/
+    public class Parameters {
+        @AuraEnabled
+        public String recordId;
+        @AuraEnabled
+        public String statusOpp;
+        @AuraEnabled
+        public String stageName;
+        @AuraEnabled
+        public String styleAudit;
+        @AuraEnabled
+        public String nameAudit;
+        @AuraEnabled
+        public String strComments;
+        @AuraEnabled
+        public String recordOli;
+        @AuraEnabled
+        public String statusCase;
+        @AuraEnabled
+        public String storeHtml;
+        @AuraEnabled
+        public String approvalMethod;
+        @AuraEnabled
+        public String wsPhase;
+        @AuraEnabled
+        public String validDate;
     }
 }
