@@ -58,15 +58,7 @@
             } else {
                 field['value'] = ret.record[ret.setFields[i]];
             }
-            field['htmlInput'] = field['value'];
-            if(!isNaN(field['value']) && field['type'] !== 'STRING') {
-                var formatNumber = parseFloat(field['value']);
-                field['htmlInput'] = formatNumber.toFixed(2);
-            }
-            if(field['type'] === 'DATE' && field['value'] !== '' && field['value'] !== undefined) {
-                var dt = ''+field['value'];
-                field['htmlInput'] = dt.substring(8, 10) + '/' + dt.substring(5, 7) + '/' + dt.substring(0, 4);
-            }
+            field['htmlInput'] = helper.setHtmlValue(field);
             field['readOnly'] = ret.mapField[ret.setFields[i]].is_readonly__c;
             field['isMandatory'] = ret.mapField[ret.setFields[i]].is_required__c;
             fieldObject.push(field);
@@ -74,13 +66,25 @@
         var valueDynamic = cmp.get('v.valueDynamic');
         if(valueDynamic !== undefined && valueDynamic !== null){
             var lstDynamic = valueDynamic.split(',');
-            for(var i in lstDynamic){
-                if(lstDynamic[i]!=='-'){
-                    fieldObject[i].value = lstDynamic[i];
-                    fieldObject[i].htmlInput = lstDynamic[i];
+            for(var j in lstDynamic){
+                if(lstDynamic[j]!=='-'){
+                    fieldObject[j].value = lstDynamic[j];
+                    fieldObject[j].htmlInput = lstDynamic[j];
                 }
             }
         }
         return fieldObject;
+    },
+    setHtmlValue : function(field) {
+        field['htmlInput'] = field['value'];
+        if(!isNaN(field['value']) && field['type'] !== 'STRING') {
+            var formatNumber = parseFloat(field['value']);
+            field['htmlInput'] = formatNumber.toFixed(2);
+        }
+        if(field['type'] === 'DATE' && field['value'] !== '' && field['value'] !== undefined) {
+            var dt = ''+field['value'];
+            field['htmlInput'] = dt.substring(8, 10) + '/' + dt.substring(5, 7) + '/' + dt.substring(0, 4);
+        }
+        return field['htmlInput'];
     }
 })
