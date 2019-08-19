@@ -15,7 +15,7 @@
                 if (state === "SUCCESS") {
                     var ret = response.getReturnValue();
                     if(ret.isOk){
-                        var fieldObject = helper.matchFieldKey(ret);
+                        var fieldObject = helper.matchFieldKey(ret, cmp);
                         cmp.set('v.lstFields', fieldObject);
                         cmp.set('v.objectApiName', ret.fieldForm.object_api_name__c);
                         cmp.set('v.isOk', true);
@@ -46,7 +46,7 @@
         });
         $A.enqueueAction(action);
 	},
-    matchFieldKey : function(ret) {
+    matchFieldKey : function(ret, cmp) {
         var fieldObject = [];
         for(var i in ret.setFields) {
             var field = {};
@@ -70,6 +70,16 @@
             field['readOnly'] = ret.mapField[ret.setFields[i]].is_readonly__c;
             field['isMandatory'] = ret.mapField[ret.setFields[i]].is_required__c;
             fieldObject.push(field);
+        }
+        var valueDynamic = cmp.get('v.valueDynamic');
+        if(valueDynamic !== undefined && valueDynamic !== null){
+            var lstDynamic = valueDynamic.split(',');
+            for(var i in lstDynamic){
+                if(lstDynamic[i]!=='-'){
+                    fieldObject[i].value = lstDynamic[i];
+                    fieldObject[i].htmlInput = lstDynamic[i];
+                }
+            }
         }
         return fieldObject;
     }
