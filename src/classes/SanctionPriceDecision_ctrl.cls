@@ -52,7 +52,8 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                               fprd__Header_order__c,
                                                               fprd__LoV_values__c, 
                                                               fprd__LoV_labels__c, 
-                                                              fprd__Label__c 
+                                                              fprd__Label__c, 
+                                                              fprd__Type__c 
                                                               FROM fprd__GBL_Product_Configuration__c
                                                               WHERE fprd__Product__c = :lstOppLineItem[0].Product2Id
                                                               AND fprd__Header__c = true
@@ -169,7 +170,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                     Final System.HttpResponse invokeModify = modifyHelper.invoke();
                     switch on invokeModify.getStatusCode(){
                         when 200 {
-                            mapReturn = updateoli(params, invokeModify.getBody(), opp);
+                            mapReturn = updateOli(params, invokeModify.getBody(), opp, mapReturn);
                         }
                         when 409 {
                             WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(invokeModify.getBody());
@@ -191,7 +192,7 @@ public with sharing class SanctionPriceDecision_ctrl {
             }
             if(isOk) {
                 update opp;
-                mapReturn = saveAuditCase(params, (String)mapReturn.get('newStoreHtml'), elevateCase, (String)mapReturn.get(IDANALIST), lstApiField, lstValue);
+                mapReturn = saveAuditCase(params, mapReturn, elevateCase, (String)mapReturn.get(IDANALIST), lstApiField, lstValue);
             }
         } catch(Exception e) {
             mapReturn.put('isOk', false);
@@ -218,7 +219,8 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                               fprd__Header_order__c,
                                                               fprd__LoV_values__c, 
                                                               fprd__LoV_labels__c, 
-                                                              fprd__Label__c 
+                                                              fprd__Label__c, 
+                                                              fprd__Type__c 
                                                               FROM fprd__GBL_Product_Configuration__c
                                                               WHERE fprd__Product__c = :lstOppLineItem[0].Product2Id
                                                               AND fprd__Header__c = true
@@ -369,15 +371,14 @@ public with sharing class SanctionPriceDecision_ctrl {
     
     /**Method for save audit and case **/
     @AuraEnabled
-    public static Map<String,Object> saveAuditCase(Parameters params, String newStoreHtml, Boolean elevateCase, Id idAnalist, List<String> lstApiField, List<Object> lstValue) {
-        Map<String,Object> mapReturn = new Map<String,Object>();
+    public static Map<String,Object> saveAuditCase(Parameters params, Map<String,Object> mapReturn, Boolean elevateCase, Id idAnalist, List<String> lstApiField, List<Object> lstValue) {
         List<dwp_cvad__Action_Audit__c> lstAudit = new List<dwp_cvad__Action_Audit__c>();
         lstAudit.add(Action_Audit_Helper.getAudit(params.nameAudit, 'Opportunity', params.recordId, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), params.styleAudit, null, false));
         lstAudit[0].dwp_cvad__audit_audit_comments__c = params.strComments;
         insert lstAudit;
         
         List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
-        lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, newStoreHtml, 1, '', 'Embedded'));
+        lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, (String)mapReturn.get('newStoreHtml'), 1, '', 'Embedded'));
         insert lstDetails;
         mapReturn.put('auditDetailId', lstDetails[0].Id);
         
@@ -412,8 +413,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     
     /**Method for save the opportunitylineitem **/
     @AuraEnabled
-    public static Map<String,Object> updateOli(Parameters params, String body, Opportunity opp) {
-        Final Map<String,Object> mapReturn = new Map<String,Object>();
+    public static Map<String,Object> updateOli(Parameters params, String body, Opportunity opp, Map<String,Object> mapReturn) {
         String assignedAnalyst = null;
         Final ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(body);
         ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;

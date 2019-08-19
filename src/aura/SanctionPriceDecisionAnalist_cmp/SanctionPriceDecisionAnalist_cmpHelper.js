@@ -173,7 +173,7 @@
         var inputObject = cmp.get('v.inputAttributes');
         //$A.get('e.force:refreshView').fire();
         var action = cmp.get("c.saveDecisionAnalist");
-        action.setParams({"params": JSON.stringify({
+        action.setParams({"jsonParams": JSON.stringify({
                 "recordId" : inputObject.recordId,
                 "statusOpp" : objSetup['btnSelectConfig'].opportunity_status_type,
                 "stageName" : objSetup['btnSelectConfig'].StageName,

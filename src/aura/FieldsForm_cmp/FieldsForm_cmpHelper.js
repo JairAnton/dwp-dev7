@@ -78,8 +78,9 @@
     setHtmlValue : function(field) {
         field['htmlInput'] = field['value'];
         if(!isNaN(field['value']) && field['type'] !== 'STRING') {
-            var formatNumber = parseFloat(field['value']);
-            field['htmlInput'] = formatNumber.toFixed(2);
+            var val = Math.round(Number(field['value']) * 100) / 100;
+            var parts = val.toString().split(".");
+            field['htmlInput'] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : ".00");
         }
         if(field['type'] === 'DATE' && field['value'] !== '' && field['value'] !== undefined) {
             var dt = ''+field['value'];
