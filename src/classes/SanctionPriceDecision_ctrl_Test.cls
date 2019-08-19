@@ -73,6 +73,23 @@ public class SanctionPriceDecision_ctrl_Test {
                                                                                        fprd__Map_field__c='PE_List_Product_mode__c', fprd__Product__c=prod.Id);
         insert newPd;
     }
+    
+    static String createJson(Id oppId, Id oliId, String method, String phase, String status) {
+        return '{'+
+            '"recordId" : "'+oppId+'",'+
+            '"statusOpp" : "'+status+'",'+
+            '"stageName" : "'+etapa4+'",'+
+            '"styleAudit" : "'+asd+'",'+
+            '"nameAudit" : "'+nameAudit+'",'+
+            '"strComments" : "'+comments+'",'+
+            '"recordOli" : "'+oliId+'",'+
+            '"statusCase" : "'+'01'+'",'+
+            '"storeHtml" : "'+html+'",'+
+            '"approvalMethod" : "'+method+'",'+
+            '"wsPhase" : "'+phase+'",'+
+            '"validDate" : ""'+
+            '}';
+    }
 
     @isTest
     static void testMethodOne() {
@@ -81,20 +98,7 @@ public class SanctionPriceDecision_ctrl_Test {
         SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
         Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
         SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9, etapa4, true, asd,nameAudit,comments,html);
-        String json = '{'+
-            '"recordId" : "'+lstOpp[0].Id+'",'+
-            '"statusOpp" : "'+status9+'",'+
-            '"stageName" : "'+etapa4+'",'+
-            '"styleAudit" : "'+asd+'",'+
-            '"nameAudit" : "'+nameAudit+'",'+
-            '"strComments" : "'+comments+'",'+
-            '"recordOli" : "'+lstOLI[0].Id+'",'+
-            '"statusCase" : "'+'01'+'",'+
-            '"storeHtml" : "'+html+'",'+
-            '"approvalMethod" : "'+'COTIZADOR'+'",'+
-            '"wsPhase" : "'+null+'",'+
-            '"validDate" : ""'+
-            '}';
+        String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'COTIZADOR', null, status9);
         SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, new List<String>(), new List<Object>());
         
         lstOLI[0].price_quote_id__c = quoteid;
@@ -110,20 +114,7 @@ public class SanctionPriceDecision_ctrl_Test {
 		Final List<Object> lstData = new List<Object>();
         lstData.add(23);
         lstData.add(23);
-        json = '{'+
-            '"recordId" : "'+lstOpp[0].Id+'",'+
-            '"statusOpp" : "'+status9+'",'+
-            '"stageName" : "'+etapa4+'",'+
-            '"styleAudit" : "'+asd+'",'+
-            '"nameAudit" : "'+nameAudit+'",'+
-            '"strComments" : "'+comments+'",'+
-            '"recordOli" : "'+lstOLI[0].Id+'",'+
-            '"statusCase" : "'+'01'+'",'+
-            '"storeHtml" : "'+html+'",'+
-            '"approvalMethod" : "'+'web'+'",'+
-            '"wsPhase" : "'+'APPROVE'+'",'+
-            '"validDate" : ""'+
-            '}';
+        json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', status9);
         Final Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, new List<String>(), lstData);
         System.assert((Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
 
@@ -161,20 +152,7 @@ public class SanctionPriceDecision_ctrl_Test {
         SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
         Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
         SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9, etapa4, true, asd,nameAudit,comments,html);
-        String json = '{'+
-            '"recordId" : "'+lstOpp[0].Id+'",'+
-            '"statusOpp" : "'+status9+'",'+
-            '"stageName" : "'+etapa4+'",'+
-            '"styleAudit" : "'+asd+'",'+
-            '"nameAudit" : "'+nameAudit+'",'+
-            '"strComments" : "'+comments+'",'+
-            '"recordOli" : "'+lstOLI[0].Id+'",'+
-            '"statusCase" : "'+'01'+'",'+
-            '"storeHtml" : "'+html+'",'+
-            '"approvalMethod" : "'+'COTIZADOR'+'",'+
-            '"wsPhase" : "'+null+'",'+
-            '"validDate" : ""'+
-            '}';
+        String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'COTIZADOR', null, status9);
         SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, new List<String>(), new List<Object>());
         
         lstOLI[0].price_quote_id__c = quoteid;
@@ -190,20 +168,7 @@ public class SanctionPriceDecision_ctrl_Test {
 		Final List<Object> lstData = new List<Object>();
         lstData.add(23);
         lstData.add(23);
-        json = '{'+
-            '"recordId" : "'+lstOpp[0].Id+'",'+
-            '"statusOpp" : "'+'10'+'",'+
-            '"stageName" : "'+etapa4+'",'+
-            '"styleAudit" : "'+asd+'",'+
-            '"nameAudit" : "'+nameAudit+'",'+
-            '"strComments" : "'+comments+'",'+
-            '"recordOli" : "'+lstOLI[0].Id+'",'+
-            '"statusCase" : "'+'01'+'",'+
-            '"storeHtml" : "'+html+'",'+
-            '"approvalMethod" : "'+'web'+'",'+
-            '"wsPhase" : "'+'APPROVE'+'",'+
-            '"validDate" : ""'+
-            '}';
+        json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', '10');
         Final Map<String,Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, new List<String>(), lstData);
         Final Map<String,Object> mapReturnSave4 = SanctionPriceDecision_ctrl.saveValidityDate(lstOLI[0].Id, (String)mapReturnSave3.get('auditDetailId'), '2000-08-08');
         System.assert(!(Boolean)mapReturnSave4.get('isOk'), 'Error en resultado esperado.');

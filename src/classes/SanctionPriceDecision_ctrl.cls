@@ -442,29 +442,53 @@ public with sharing class SanctionPriceDecision_ctrl {
     
     /**Method for map parameters **/
     public class Parameters {
-        @AuraEnabled
-        public String recordId;
-        @AuraEnabled
-        public String statusOpp;
-        @AuraEnabled
-        public String stageName;
-        @AuraEnabled
-        public String styleAudit;
-        @AuraEnabled
-        public String nameAudit;
-        @AuraEnabled
-        public String strComments;
-        @AuraEnabled
-        public String recordOli;
-        @AuraEnabled
-        public String statusCase;
-        @AuraEnabled
-        public String storeHtml;
-        @AuraEnabled
-        public String approvalMethod;
-        @AuraEnabled
-        public String wsPhase;
-        @AuraEnabled
-        public String validDate;
+        /**
+        * record id param
+        */
+        private String recordId;
+        /**
+        * status of opportunity param
+        */
+        private String statusOpp;
+        /**
+        * stage opportunity param
+        */
+        private String stageName;
+        /**
+        * style audit param
+        */
+        private String styleAudit;
+        /**
+        * name audit param
+        */
+        private String nameAudit;
+        /**
+        * comments param
+        */
+        private String strComments;
+        /**
+        * OpportunityLineItem id param
+        */
+        private String recordOli;
+        /**
+        * status of case param
+        */
+        private String statusCase;
+        /**
+        * html audit param
+        */
+        private String storeHtml;
+        /**
+        * aprroval method param
+        */
+        private String approvalMethod;
+        /**
+        * phase param
+        */
+        private String wsPhase;
+        /**
+        * validity date of quotation param
+        */
+        private String validDate;
     }
 }
