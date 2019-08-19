@@ -58,7 +58,7 @@
             } else {
                 field['value'] = ret.record[ret.setFields[i]];
             }
-            field['htmlInput'] = helper.setHtmlValue(field);
+            field['htmlInput'] = this.setHtmlValue(field);
             field['readOnly'] = ret.mapField[ret.setFields[i]].is_readonly__c;
             field['isMandatory'] = ret.mapField[ret.setFields[i]].is_required__c;
             fieldObject.push(field);
