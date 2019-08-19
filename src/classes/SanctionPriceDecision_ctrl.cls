@@ -23,6 +23,10 @@ public with sharing class SanctionPriceDecision_ctrl {
      * Label status Denied
      */
     Final Static String SDENIED = '13';
+    /**
+     * Label web method
+     */
+    Final Static String SWEB = 'web';
     
     /**Method for get information of price process **/
     @AuraEnabled
@@ -144,7 +148,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     /**Method for save decision of analist **/
     @AuraEnabled
     public static Map<String,Object> saveDecisionAnalist(String jsonParams, Boolean elevateCase, List<String> lstApiField, List<Object> lstValue) {
-        Parameters params = (Parameters)JSON.deserialize(jsonParams, Parameters.class);
+        Final Parameters params = (Parameters)JSON.deserialize(jsonParams, Parameters.class);
         Map<String,Object> mapReturn = new Map<String,Object>();
         Opportunity opp = new Opportunity();
         opp.Id = params.recordId;
@@ -152,54 +156,16 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.opportunity_status_type__c = params.statusOpp;
         opp.isProcess__c = true;
         Boolean isOk = true;
-        Id idAnalist = null;
-        String newStoreHtml = params.storeHtml;
+        mapReturn.put('newStoreHtml', params.storeHtml);
+        mapReturn.put('idAnalist', null);
         try {
-            if(params.approvalMethod == 'Web') {
+            if(params.approvalMethod == SWEB) {
                 Final ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(params.recordId, params.wsPhase, (lstValue[1] == null? null : Double.valueOf(lstValue[1])) ,'', null);
                 try {
                     Final System.HttpResponse invokeModify = modifyHelper.invoke();
                     switch on invokeModify.getStatusCode(){
                         when 200 {
-                            String assignedAnalyst = null;
-                            Final ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(invokeModify.getBody());
-                            ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
-                            ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
-                            
-                            Final OpportunityLineItem oliRecord = new OpportunityLineItem(Id=params.recordOli,
-                                                                                    price_quote_status_id__c=mqStatus.id,
-                                                                                    Assigned_analyst__c=assignedAnalyst,
-                                                                                    price_quote_date__c=null,
-                                                                                    validityDate__c=null);
-                            
-                            List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
-                            if(!mqBusinessAgentsList.isEmpty()) {
-                                Final List<User> userList = [SELECT Id, FirstName, LastName FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
-                                if(!userList.isEmpty()) {
-                                    idAnalist = userList[0].Id;
-                                    assignedAnalyst = userList[0].FirstName + ' ' + userList[0].LastName;
-                                } else {
-                                    assignedAnalyst = mqBusinessAgentsList[0].firstName + ' ' + mqBusinessAgentsList[0].lastName + ' ' + mqBusinessAgentsList[0].secondLastName;
-                                }
-                            }
-                            
-                            if(opp.opportunity_status_type__c==SSENT) {
-                                oliRecord.price_quote_owner_id__c = idAnalist;
-                                oliRecord.Assigned_analyst__c = assignedAnalyst;
-                            } else if(opp.opportunity_status_type__c==SAUTHORIZED) {
-                                oliRecord.price_quote_date__c = System.today();
-                                oliRecord.validityDate__c = Date.valueOf(params.validDate);
-                                assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
-                                oliRecord.Assigned_analyst__c = assignedAnalyst;
-                                mapReturn.put('getQuote', true);
-                            } else if(opp.opportunity_status_type__c==SDENIED) {
-                                oliRecord.price_quote_date__c = System.today();
-                            }
-                            update oliRecord;
-                            
-                            if(assignedAnalyst != null && params.storeHtml.contains('#Assigned_analyst#')) {
-                                newStoreHtml = params.storeHtml.replace('#Assigned_analyst#', assignedAnalyst);
-                            }
+                            mapReturn = updateoli(params, invokeModify.getBody(), opp);
                         }
                         when 409 {
                             WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(invokeModify.getBody());
@@ -221,7 +187,7 @@ public with sharing class SanctionPriceDecision_ctrl {
             }
             if(isOk) {
                 update opp;
-                mapReturn = saveAuditCase(params, newStoreHtml, elevateCase, idAnalist, lstApiField, lstValue);
+                mapReturn = saveAuditCase(params, (String)mapReturn.get('newStoreHtml'), elevateCase, (String)mapReturn.get('idAnalist'), lstApiField, lstValue);
             }
         } catch(Exception e) {
             mapReturn.put('isOk', false);
@@ -434,9 +400,55 @@ public with sharing class SanctionPriceDecision_ctrl {
             lstCases[0].OwnerId = idAnalist;
         }
         update lstCases;
-        Map<String,Object> mapReturnSaveOli = FieldForm_ctrl.doSave(params.recordOli,'OpportunityLineItem', lstApiField, lstValue);
+        Final Map<String,Object> mapReturnSaveOli = FieldForm_ctrl.doSave(params.recordOli,'OpportunityLineItem', lstApiField, lstValue);
         
         mapReturn.put('isOk', (Boolean)mapReturnSaveOli.get('isOk'));
+        return mapReturn;
+    }
+    
+    @AuraEnabled
+    public static Map<String,Object> updateOli(Parameters params, String body, Opportunity opp) {
+        Map<String,Object> mapReturn = new Map<String,Object>();
+        String assignedAnalyst = null;
+        Final ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(body);
+        ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
+        ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
+        
+        Final OpportunityLineItem oliRecord = new OpportunityLineItem(Id=params.recordOli,
+                                                                      price_quote_status_id__c=mqStatus.id,
+                                                                      Assigned_analyst__c=assignedAnalyst,
+                                                                      price_quote_date__c=null,
+                                                                      validityDate__c=null);
+        
+        List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
+        if(!mqBusinessAgentsList.isEmpty()) {
+            Final List<User> userList = [SELECT Id, FirstName, LastName FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
+            if(!userList.isEmpty()) {
+                mapReturn.put('idAnalist', userList[0].Id);
+                assignedAnalyst = userList[0].FirstName + ' ' + userList[0].LastName;
+            } else {
+                assignedAnalyst = mqBusinessAgentsList[0].firstName + ' ' + mqBusinessAgentsList[0].lastName + ' ' + mqBusinessAgentsList[0].secondLastName;
+            }
+        }
+        
+        if(opp.opportunity_status_type__c==SSENT) {
+            oliRecord.price_quote_owner_id__c = (String)mapReturn.get('idAnalist');
+            oliRecord.Assigned_analyst__c = assignedAnalyst;
+        } else if(opp.opportunity_status_type__c==SAUTHORIZED) {
+            oliRecord.price_quote_date__c = System.today();
+            oliRecord.validityDate__c = Date.valueOf(params.validDate);
+            assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
+            oliRecord.Assigned_analyst__c = assignedAnalyst;
+            mapReturn.put('getQuote', true);
+        } else if(opp.opportunity_status_type__c==SDENIED) {
+            oliRecord.price_quote_date__c = System.today();
+        }
+        update oliRecord;
+        
+        if(assignedAnalyst != null && params.storeHtml.contains('#Assigned_analyst#')) {
+            mapReturn.put('newStoreHtml', params.storeHtml.replace('#Assigned_analyst#', assignedAnalyst));
+        }
+        
         return mapReturn;
     }
     
