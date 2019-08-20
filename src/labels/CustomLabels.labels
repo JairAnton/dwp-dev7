@@ -2112,4 +2112,11 @@
         <shortDescription>Mensaje de Eliminación de Owner en VMT</shortDescription>
         <value>No puede eliminar al propietario de la visita en el Equipo BBVA.</value>
     </labels>
+	<labels>
+        <fullName>ErrorVisitManagementTeam</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>ErrorVisitManagementTeam</shortDescription>
+        <value>No se puede eliminar datos a una visita finalizada</value>
+    </labels>
 </CustomLabels>
