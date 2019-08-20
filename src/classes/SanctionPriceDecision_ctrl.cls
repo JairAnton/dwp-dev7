@@ -262,6 +262,15 @@ public with sharing class SanctionPriceDecision_ctrl {
     public static Map<String,Object> saveAuditWeb(String auditRecordId,  String storeHtml) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         
+        Final List<dwp_cvad__Action_Audit__c> ltsAudit = [SELECT Id, dwp_cvad__action_audit_record_id__c FROM dwp_cvad__Action_Audit__c WHERE Id = :auditRecordId];
+        if(!ltsAudit.isEmpty()) {
+            Final List<Opportunity> ltsOpp = [SELECT Id, opportunity_status_type__c FROM Opportunity WHERE Id = :ltsAudit[0].dwp_cvad__action_audit_record_id__c];
+            if(!ltsOpp.isEmpty() && ltsOpp[0].opportunity_status_type__c==SSENT) {
+                Final String expression = '(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|2[0-9])[0-9]{2}?';
+                storeHtml = storeHtml.replaceAll(expression,'');
+            }
+        }
+        
         List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
         lstDetails.add(Action_Audit_Helper.getAuditDetail(auditRecordId, storeHtml, 1, '', 'Embedded'));
         insert lstDetails;
