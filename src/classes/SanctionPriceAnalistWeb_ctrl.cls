@@ -5,7 +5,7 @@ public class SanctionPriceAnalistWeb_ctrl {
         String errorMessage;
         List<OpportunityLineItem> lstOLI;
         try {
-            lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c,proposed_apr_per__c from OpportunityLineItem where OpportunityId =:oppId];            
+            lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c, proposed_apr_per__c, validityDate__c from OpportunityLineItem where OpportunityId =:oppId];            
             if(!lstOLI.isEmpty()) {                
                 mpReturn.put('proposed',lstOli[0].proposed_apr_per__c);
                 //Call a RECOVER Service One product            
@@ -19,6 +19,12 @@ public class SanctionPriceAnalistWeb_ctrl {
                     switch on invoke.getStatusCode() {                        
                         when 200{
                             if(jbody.data != null && jbody.data.quotations != null && jbody.data.quotations[0].interestRates != null && jbody.data.quotations[0].interestRates.effectiveRates != null) {
+                                if(jbody.data.quotations[0].validityDate==null) {
+                                    mpReturn.put('validityDate', lstOLI[0].validityDate__c);
+                                }
+                                else {
+                                    mpReturn.put('validityDate', Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10)));
+                                }
                                 List<GetQuotationRequest_helper.Response_EffectiveRates> lsteffec = jbody.data.quotations[0].interestRates.effectiveRates;
                                 for(Integer x =0; x<lsteffec.size(); x++) {
                                     switch on lsteffec[x].id {

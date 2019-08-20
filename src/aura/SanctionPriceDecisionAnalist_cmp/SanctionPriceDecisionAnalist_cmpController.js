@@ -9,7 +9,6 @@
 		var objSetup = cmp.get('v.objSetup');
 		objSetup['btnSelectConfig'] = objSetup['getInfoButtons'].lstButtons[parseInt(evt.target.id)];
 		cmp.set('v.objSetup',objSetup);
-		cmp.set('v.enableContinue',true);
 		var fieldsForm = cmp.find('table');
         var lstFields = [];
         var outputs = fieldsForm.find('outputHTML');
@@ -21,6 +20,7 @@
         }
         fieldsForm.set('v.fieldObject',lstFields);
         cmp.set('v.refreshComp',true);
+        cmp.set('v.enableContinue',true);
 	},
 	doContinue : function(cmp, evt, helper) {
 		helper.doContinue(cmp, evt, helper);

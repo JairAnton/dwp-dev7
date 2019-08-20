@@ -1345,7 +1345,7 @@
         <name>minimun_fee_per__c</name>
     </fields>
     <fields>
-        <label>Fecha última cotización</label>
+        <label>Fecha sanción</label>
         <name>price_quote_date__c</name>
     </fields>
     <fields>
