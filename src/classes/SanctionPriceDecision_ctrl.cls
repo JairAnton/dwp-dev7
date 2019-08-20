@@ -31,6 +31,10 @@ public with sharing class SanctionPriceDecision_ctrl {
      * Map label id analist
      */
     Final Static String IDANALIST = 'idAnalist';
+    /**
+     * Map label newStoreHtml
+     */
+    Final Static String NEWSTOREHTML = 'newStoreHtml';
     
     /**Method for get information of price process **/
     @AuraEnabled
@@ -59,7 +63,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                               AND fprd__Header__c = true
                                                               ORDER BY fprd__Header_order__c];
         try {
-            if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].Opportunity.opportunity_status_type__c==SAPPROVED) {
+            if(!lstOppLineItem.isEmpty() && (lstOppLineItem[0].Opportunity.opportunity_status_type__c==SAPPROVED || lstOppLineItem[0].Opportunity.opportunity_status_type__c==SSENT)) {
                 //helper to call the service
                 Final GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
                 //invoke the service
@@ -161,7 +165,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.opportunity_status_type__c = params.statusOpp;
         opp.isProcess__c = true;
         Boolean isOk = true;
-        mapReturn.put('newStoreHtml', params.storeHtml);
+        mapReturn.put(NEWSTOREHTML, params.storeHtml);
         mapReturn.put(IDANALIST, null);
         try {
             if(params.approvalMethod == SWEB) {
@@ -326,7 +330,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         insert lstAudit;
         
         List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
-        lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, (String)mapReturn.get('newStoreHtml'), 1, '', 'Embedded'));
+        lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, (String)mapReturn.get(NEWSTOREHTML), 1, '', 'Embedded'));
         insert lstDetails;
         mapReturn.put('auditDetailId', lstDetails[0].Id);
         
@@ -362,7 +366,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     /**Method for save the opportunitylineitem **/
     @AuraEnabled
     public static Map<String,Object> updateOli(Parameters params, String body, Opportunity opp, Map<String,Object> mapReturn) {
-        String assignedAnalyst = null;
+        String assignedAnalyst = '';
         Final ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(body);
         ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
         ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
@@ -387,19 +391,18 @@ public with sharing class SanctionPriceDecision_ctrl {
         if(opp.opportunity_status_type__c==SSENT) {
             oliRecord.price_quote_owner_id__c = (String)mapReturn.get(IDANALIST);
             oliRecord.Assigned_analyst__c = assignedAnalyst;
-            mapReturn.put('newStoreHtml', ((String)mapReturn.get('newStoreHtml')).replace('#Assigned_analyst#', assignedAnalyst));
             oliRecord.validityDate__c = Date.valueOf(params.validDate);
         } else if(opp.opportunity_status_type__c==SAUTHORIZED) {
             oliRecord.price_quote_date__c = System.today();
             oliRecord.validityDate__c = Date.valueOf(params.validDate);
             assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
             oliRecord.Assigned_analyst__c = assignedAnalyst;
-            mapReturn.put('newStoreHtml', ((String)mapReturn.get('newStoreHtml')).replace('#Assigned_analyst#', assignedAnalyst));
-            mapReturn.put('newStoreHtml', ((String)mapReturn.get('newStoreHtml')).replace('#validityDate#', params.validDate.substring(8, 10) + '/' + params.validDate.substring(5, 7) + '/' + params.validDate.substring(0, 4)));
+            mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#validityDate#', params.validDate.substring(8, 10) + '/' + params.validDate.substring(5, 7) + '/' + params.validDate.substring(0, 4)));
         } else if(opp.opportunity_status_type__c==SDENIED) {
             oliRecord.price_quote_date__c = System.today();
         }
         update oliRecord;
+        mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#Assigned_analyst#', assignedAnalyst));
         
         return mapReturn;
     }
