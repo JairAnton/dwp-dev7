@@ -21,8 +21,7 @@ public class SanctionPriceAnalistWeb_ctrl {
                             if(jbody.data != null && jbody.data.quotations != null && jbody.data.quotations[0].interestRates != null && jbody.data.quotations[0].interestRates.effectiveRates != null) {
                                 if(jbody.data.quotations[0].validityDate==null) {
                                     mpReturn.put('validityDate', lstOLI[0].validityDate__c);
-                                }
-                                else {
+                                } else {
                                     mpReturn.put('validityDate', Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10)));
                                 }
                                 List<GetQuotationRequest_helper.Response_EffectiveRates> lsteffec = jbody.data.quotations[0].interestRates.effectiveRates;

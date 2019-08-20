@@ -69,8 +69,8 @@ public class SanctionPriceDecision_ctrl_Test {
         OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
         oli.PE_List_Product_mode__c = '01';
         update oli;
-        Case c = new Case(opportunity_id__c=opp.Id, Status='01');
-        insert c;
+        Final Case newCase = new Case(opportunity_id__c=opp.Id, Status='01');
+        insert newCase;
         Final fprd__GBL_Product_Configuration__c newPd = new fprd__GBL_Product_Configuration__c(fprd__LoV_labels__c = 'Valor Label 1', fprd__LoV_values__c = '01', 
                                                                                        fprd__Map_field__c='PE_List_Product_mode__c', fprd__Product__c=prod.Id);
         insert newPd;
@@ -113,8 +113,8 @@ public class SanctionPriceDecision_ctrl_Test {
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
         Test.startTest();
-		List<String> lstFields = new List<String>();
-        List<Object> lstData = new List<Object>();
+		Final List<String> lstFields = new List<String>();
+        Final List<Object> lstData = new List<Object>();
         lstFields.add('price_quote_id__c');
         lstData.add('eeee');
         lstFields.add('minimun_fee_per__c');

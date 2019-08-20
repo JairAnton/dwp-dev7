@@ -387,23 +387,19 @@ public with sharing class SanctionPriceDecision_ctrl {
         if(opp.opportunity_status_type__c==SSENT) {
             oliRecord.price_quote_owner_id__c = (String)mapReturn.get(IDANALIST);
             oliRecord.Assigned_analyst__c = assignedAnalyst;
+            mapReturn.put('newStoreHtml', ((String)mapReturn.get('newStoreHtml')).replace('#Assigned_analyst#', assignedAnalyst));
             oliRecord.validityDate__c = Date.valueOf(params.validDate);
         } else if(opp.opportunity_status_type__c==SAUTHORIZED) {
             oliRecord.price_quote_date__c = System.today();
             oliRecord.validityDate__c = Date.valueOf(params.validDate);
             assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
             oliRecord.Assigned_analyst__c = assignedAnalyst;
+            mapReturn.put('newStoreHtml', ((String)mapReturn.get('newStoreHtml')).replace('#Assigned_analyst#', assignedAnalyst));
+            mapReturn.put('newStoreHtml', ((String)mapReturn.get('newStoreHtml')).replace('#validityDate#', params.validDate.substring(8, 10) + '/' + params.validDate.substring(5, 7) + '/' + params.validDate.substring(0, 4)));
         } else if(opp.opportunity_status_type__c==SDENIED) {
             oliRecord.price_quote_date__c = System.today();
         }
         update oliRecord;
-        
-        if(assignedAnalyst != null && params.storeHtml.contains('#Assigned_analyst#')) {
-            mapReturn.put('newStoreHtml', ((String)mapReturn.get('newStoreHtml')).replace('#Assigned_analyst#', assignedAnalyst));
-        }
-        if(params.validDate != null && params.storeHtml.contains('#validityDate#')) {
-            mapReturn.put('newStoreHtml', ((String)mapReturn.get('newStoreHtml')).replace('#validityDate#', params.validDate.substring(8, 10) + '/' + params.validDate.substring(5, 7) + '/' + params.validDate.substring(0, 4)));
-        }
         
         return mapReturn;
     }
