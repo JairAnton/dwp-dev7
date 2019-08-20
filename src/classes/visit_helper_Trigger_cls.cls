@@ -10,17 +10,17 @@ public without sharing class visit_helper_Trigger_cls {
 	*/
     public void comunMethod1(List<SObject> objectInsert) {
         Map<id,String> stagea = new Map<id,String>();
-        List<id> Opa= new List<id>();
-        List<SObject> Opa2= new List<SObject>();
+        List<id> opa= new List<id>();
+        List<SObject> opa2= new List<SObject>();
         Final String profileName = [SELECT id, Name FROM Profile WHERE Id=:UserInfo.getProfileId()].Name;
         Final List<String> lstProfilesName = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};
             for(SObject a : objectInsert) {
-                Opa.add((Id)a.get('dwp_kitv__visit_id__c'));
+                opa.add((Id)a.get('dwp_kitv__visit_id__c'));
             }
         Final Schema.SObjectType sobjectType = Opa[0].getSObjectType();
         Final String  sobjectName = String.escapeSingleQuotes(sobjectType.getDescribe().getName());
-        Opa2 = Database.query('Select Id, dwp_kitv__visit_status_type__c From ' + sobjectName + ' Where Id IN:Opa');
-        for(SObject obs : Opa2) {
+        opa2 = Database.query('Select Id, dwp_kitv__visit_status_type__c From ' + sobjectName + ' Where Id IN:Opa');
+        for(SObject obs : opa2) {
             stagea.put((id)obs.get('Id'),(String)obs.get('dwp_kitv__visit_status_type__c'));
         }
         for(SObject a : objectInsert) {
@@ -40,7 +40,7 @@ public without sharing class visit_helper_Trigger_cls {
             if(!lstProfilesName.contains(profileName)) {
                 for(dwp_kitv__Visit_Management_Team__c vmt : lstvmt) {
                     if(vmt.dwp_owner_visit__c) {
-                        vmt.addError(System.Label.ErrorDeleteVMTeam);
+                        vmt.addError(System.Label.Msg_DeleteOwner_VMT);
                     }
                 }
             }
