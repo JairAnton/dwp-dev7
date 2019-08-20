@@ -31,6 +31,14 @@ public with sharing class SanctionPriceDecision_ctrl {
      * Map label id analist
      */
     Final Static String IDANALIST = 'idAnalist';
+    /**
+     * Map label newStoreHtml
+     */
+    Final Static String NEWSTOREHTML = 'newStoreHtml';
+    /**
+     * Map label regular expresion
+     */
+    Final Static String REGEX = '(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|2[0-9])[0-9]{2}?';
     
     /**Method for get information of price process **/
     @AuraEnabled
@@ -59,7 +67,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                               AND fprd__Header__c = true
                                                               ORDER BY fprd__Header_order__c];
         try {
-            if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].Opportunity.opportunity_status_type__c==SAPPROVED) {
+            if(!lstOppLineItem.isEmpty() && (lstOppLineItem[0].Opportunity.opportunity_status_type__c==SAPPROVED || lstOppLineItem[0].Opportunity.opportunity_status_type__c==SSENT)) {
                 //helper to call the service
                 Final GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
                 //invoke the service
@@ -161,7 +169,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         opp.opportunity_status_type__c = params.statusOpp;
         opp.isProcess__c = true;
         Boolean isOk = true;
-        mapReturn.put('newStoreHtml', params.storeHtml);
+        mapReturn.put(NEWSTOREHTML, params.storeHtml);
         mapReturn.put(IDANALIST, null);
         try {
             if(params.approvalMethod == SWEB) {
@@ -257,9 +265,17 @@ public with sharing class SanctionPriceDecision_ctrl {
     @AuraEnabled
     public static Map<String,Object> saveAuditWeb(String auditRecordId,  String storeHtml) {
         Map<String,Object> mapReturn = new Map<String,Object>();
+        String html = storeHtml;
+        Final List<dwp_cvad__Action_Audit__c> ltsAudit = [SELECT Id, dwp_cvad__action_audit_record_id__c FROM dwp_cvad__Action_Audit__c WHERE Id = :auditRecordId];
+        if(!ltsAudit.isEmpty()) {
+            Final List<Opportunity> ltsOpp = [SELECT Id, opportunity_status_type__c FROM Opportunity WHERE Id = :ltsAudit[0].dwp_cvad__action_audit_record_id__c];
+            if(!ltsOpp.isEmpty() && ltsOpp[0].opportunity_status_type__c==SSENT) {
+                html = storeHtml.replaceAll(REGEX,'');
+            }
+        }
         
         List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
-        lstDetails.add(Action_Audit_Helper.getAuditDetail(auditRecordId, storeHtml, 1, '', 'Embedded'));
+        lstDetails.add(Action_Audit_Helper.getAuditDetail(auditRecordId, html, 1, '', 'Embedded'));
         insert lstDetails;
         
         mapReturn.put('isOk', true);
@@ -288,7 +304,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         Final Integer oliSize = oli.size();
         if(oliSize > 0) {
             Final Set<String> lstPicklist = new Set<String>{'PE_List_Product_mode__c', 'gipr_Tipo_Garantia__c', 'gipr_Garantia__c', 'gipr_Periodicidad__c'};
-                Final Map<String, Object> mapPC = new Map<String, Object>();
+            Final Map<String, Object> mapPC = new Map<String, Object>();
             fprd__GBL_Product_Configuration__c[] lstProductConf = [SELECT id, fprd__DeveloperName__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Product__r.Name, 
                                                                    fprd__Map_field__c FROM fprd__GBL_Product_Configuration__c WHERE fprd__Product__c =: oli[0].Product2Id 
                                                                    AND fprd__Map_field__c IN: lstPicklist];
@@ -317,58 +333,6 @@ public with sharing class SanctionPriceDecision_ctrl {
         return lstMapRes;
     }
     
-    /**Method for save validityDate of Quotation **/
-    @AuraEnabled
-    public static Map<String,Object> saveValidityDate(String idOLI, String auditDetailId, String validDate) {
-        Final Map<String,Object> mapReturn = new Map<String,Object>();
-        
-        Final List<OpportunityLineItem> lstOppLineItem = [SELECT  Id, 
-                                                    Product2.Name,
-                                                    Product2Id,
-                                                    proposed_fee_per__c,
-                                                    minimun_fee_per__c,
-                                                    OpportunityId,
-                                                    validityDate__c,
-                                                    Opportunity.opportunity_status_type__c
-                                                    FROM OpportunityLineItem
-                                                    WHERE Id = :idOLI];
-        
-        try {
-            if(!lstOppLineItem.isEmpty()) {
-                //helper to call the service
-                Final GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
-                //invoke the service
-                Final System.HttpResponse invoke = getquoteHelper.invoke();
-                switch on invoke.getStatusCode() {                        
-                    when 200{
-                        //get json body
-                		Final GetQuotationRequest_helper.ResponseGetQuotationRequest_Wrapper jbody = GetQuotationRequest_helper.parse(invoke.getBody());
-                        if(jbody.data.quotations[0].validityDate == '') {
-                            lstOppLineItem[0].validityDate__c = Date.valueOf(validDate);
-                        } else {
-                            lstOppLineItem[0].validityDate__c = Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10));
-                        }
-                        update lstOppLineItem[0];
-                    }
-                }
-                Final List<dwp_cvad__Action_Audit_Detail__c> lts = [SELECT Id, dwp_cvad__action_audit_detail_display_title__c, dwp_cvad__action_audit_detail_content__c FROM dwp_cvad__Action_Audit_Detail__c WHERE ID=:auditDetailId];
-                if(!lts.isEmpty()) {
-                    if(lstOppLineItem[0].validityDate__c==null) {
-                        lts[0].dwp_cvad__action_audit_detail_content__c.replace('#validityDate#', '');
-                    } else {
-                        lts[0].dwp_cvad__action_audit_detail_content__c.replace('#validityDate#', ((DateTime)lstOppLineItem[0].validityDate__c).format('dd/MM/yyyy'));
-                    }
-                    lts[0].dwp_cvad__action_audit_detail_content__c.replace('#Assigned_analyst#', lstOppLineItem[0].Assigned_analyst__c);
-                    update lts[0];
-                }
-            }
-            mapReturn.put('isOk', true);
-        } catch(Exception e) {
-            mapReturn.put('isOk', false);
-        }
-        return mapReturn;
-    }
-    
     /**Method for save audit and case **/
     @AuraEnabled
     public static Map<String,Object> saveAuditCase(Parameters params, Map<String,Object> mapReturn, Boolean elevateCase, Id idAnalist, List<String> lstApiField, List<Object> lstValue) {
@@ -378,7 +342,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         insert lstAudit;
         
         List<dwp_cvad__Action_Audit_Detail__c> lstDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
-        lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, (String)mapReturn.get('newStoreHtml'), 1, '', 'Embedded'));
+        lstDetails.add(Action_Audit_Helper.getAuditDetail(lstAudit[0].Id, (String)mapReturn.get(NEWSTOREHTML), 1, '', 'Embedded'));
         insert lstDetails;
         mapReturn.put('auditDetailId', lstDetails[0].Id);
         
@@ -414,7 +378,7 @@ public with sharing class SanctionPriceDecision_ctrl {
     /**Method for save the opportunitylineitem **/
     @AuraEnabled
     public static Map<String,Object> updateOli(Parameters params, String body, Opportunity opp, Map<String,Object> mapReturn) {
-        String assignedAnalyst = null;
+        String assignedAnalyst = '';
         Final ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(body);
         ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
         ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
@@ -439,20 +403,18 @@ public with sharing class SanctionPriceDecision_ctrl {
         if(opp.opportunity_status_type__c==SSENT) {
             oliRecord.price_quote_owner_id__c = (String)mapReturn.get(IDANALIST);
             oliRecord.Assigned_analyst__c = assignedAnalyst;
+            oliRecord.validityDate__c = Date.valueOf(params.validDate);
         } else if(opp.opportunity_status_type__c==SAUTHORIZED) {
             oliRecord.price_quote_date__c = System.today();
             oliRecord.validityDate__c = Date.valueOf(params.validDate);
             assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
             oliRecord.Assigned_analyst__c = assignedAnalyst;
-            mapReturn.put('getQuote', true);
+            mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#validityDate#', params.validDate.substring(8, 10) + '/' + params.validDate.substring(5, 7) + '/' + params.validDate.substring(0, 4)));
         } else if(opp.opportunity_status_type__c==SDENIED) {
             oliRecord.price_quote_date__c = System.today();
         }
         update oliRecord;
-        
-        if(assignedAnalyst != null && params.storeHtml.contains('#Assigned_analyst#')) {
-            mapReturn.put('newStoreHtml', params.storeHtml.replace('#Assigned_analyst#', assignedAnalyst));
-        }
+        mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#Assigned_analyst#', assignedAnalyst));
         
         return mapReturn;
     }
