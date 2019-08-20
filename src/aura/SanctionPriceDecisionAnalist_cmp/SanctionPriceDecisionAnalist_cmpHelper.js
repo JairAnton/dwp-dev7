@@ -273,7 +273,8 @@
             inputObject.htmlInput = '#validityDate#';
         } else if((inputObject.label==='Assigned_analyst' || inputObject.label==='Analista asignado') && (evt.target.id!=='0')) {
             inputObject.htmlInput = '#Assigned_analyst#';
-        } else {
+        } else if(inputObject.label!=='validityDate' && inputObject.label!=='Validez TEA' &&
+                 inputObject.label!=='Assigned_analyst' && inputObject.label!=='Analista asignado') {
             inputObject.htmlInput = originalHtml;
         }
         return inputObject;
