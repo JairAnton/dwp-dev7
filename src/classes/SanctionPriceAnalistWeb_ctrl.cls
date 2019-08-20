@@ -19,7 +19,7 @@ public class SanctionPriceAnalistWeb_ctrl {
                     switch on invoke.getStatusCode() {                        
                         when 200{
                             if(jbody.data != null && jbody.data.quotations != null && jbody.data.quotations[0].interestRates != null && jbody.data.quotations[0].interestRates.effectiveRates != null) {
-                                mpReturn.put('validityDate', (lstOli[0].price_quote_id__c == null ? lstOLI[0].validityDate__c : Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10)))); 
+                                mpReturn.put('validityDate', (jbody.data.quotations[0].validityDate == null ? lstOLI[0].validityDate__c : Date.valueOf(jbody.data.quotations[0].validityDate.substring(0,10)))); 
                                 List<GetQuotationRequest_helper.Response_EffectiveRates> lsteffec = jbody.data.quotations[0].interestRates.effectiveRates;
                                 for(Integer x =0; x<lsteffec.size(); x++) {
                                     switch on lsteffec[x].id {
