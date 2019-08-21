@@ -847,7 +847,7 @@
     </fields>
 	<fields>
         <label>Estado PE25</label>
-        <name>gf_customer_excluded_ind_type__c</name>
+        <name>customer_excluded_type__c</name>
     </fields>
     <fields>
         <label>CIUU</label>

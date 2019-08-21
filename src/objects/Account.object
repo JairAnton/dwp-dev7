@@ -1070,16 +1070,16 @@
         <type>Summary</type>
     </fields>
 	<fields>
-        <fullName>gf_customer_excluded_ind_type__c</fullName>
+        <fullName>customer_excluded_type__c</fullName>
         <externalId>false</externalId>
-        <label>gf_customer_excluded_ind_type</label>
+        <label>customer_excluded_type</label>
         <length>80</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>company_economic_activity_id__c</fullName>
         <externalId>false</externalId>
         <label>company_economic_activity_id</label>
@@ -1092,7 +1092,7 @@
 	<fields>
         <fullName>Estado_PE25__c</fullName>
         <externalId>false</externalId>
-		<formula>IF( UPPER( MID(gf_customer_excluded_ind_type__c, 0, 10) ) == &apos;INELEGIBLE&apos; , IMAGE(&apos;/resource/Red_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; INELEGIBLE&apos;, IF( UPPER( MID(gf_customer_excluded_ind_type__c, 0, 8) ) == &apos;ELEGIBLE&apos; , IMAGE(&apos;/resource/Green_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; ELEGIBLE&apos;, &apos;&apos;))</formula>
+        <formula>IF( UPPER( MID(customer_excluded_type__c, 0, 10) ) == &apos;INELEGIBLE&apos; , IMAGE(&apos;/resource/Red_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; INELEGIBLE&apos;, IF( UPPER( MID(customer_excluded_type__c, 0, 8) ) == &apos;ELEGIBLE&apos; , IMAGE(&apos;/resource/Green_Flag_Icon&apos;,&quot;&quot;,20,20) + &apos; ELEGIBLE&apos;, &apos;&apos;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Estado PE25</label>
         <required>false</required>

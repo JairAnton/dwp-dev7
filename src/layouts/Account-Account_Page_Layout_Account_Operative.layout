@@ -97,7 +97,7 @@
             </layoutItems>
 			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>gf_customer_excluded_ind_type__c</field>
+                <field>customer_excluded_type__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
