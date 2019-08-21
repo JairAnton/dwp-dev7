@@ -271,7 +271,7 @@
             inputObject.htmlInput = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
         } else if((inputObject.label==='validityDate' || inputObject.label==='Validez TEA') && (evt.target.id==='1')) {
             inputObject.htmlInput = '#validityDate#';
-        } else if((inputObject.label==='Assigned_analyst' || inputObject.label==='Analista asignado') && (evt.target.id!=='0')) {
+        } else if(inputObject.label==='Assigned_analyst' || inputObject.label==='Analista asignado') {
             inputObject.htmlInput = '#Assigned_analyst#';
         } else if(inputObject.label!=='validityDate' && inputObject.label!=='Validez TEA' &&
                  inputObject.label!=='Assigned_analyst' && inputObject.label!=='Analista asignado') {
