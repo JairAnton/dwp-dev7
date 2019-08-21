@@ -68,7 +68,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                               AND fprd__Header__c = true
                                                               ORDER BY fprd__Header_order__c];
         try {
-            if(!lstOppLineItem.isEmpty() && (lstOppLineItem[0].Opportunity.opportunity_status_type__c==SAPPROVED)) {
+            if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].Opportunity.opportunity_status_type__c==SAPPROVED) {
                 //helper to call the service
                 Final GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
                 //invoke the service
