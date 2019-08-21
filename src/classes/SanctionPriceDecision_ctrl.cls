@@ -415,6 +415,7 @@ public with sharing class SanctionPriceDecision_ctrl {
             oliRecord.price_quote_date__c = System.today();
             assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
             oliRecord.Assigned_analyst__c = assignedAnalyst;
+            mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#validityDate#', ''));
         }
         update oliRecord;
         mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#Assigned_analyst#', assignedAnalyst));
