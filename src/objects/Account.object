@@ -1071,7 +1071,6 @@
     </fields>
 	<fields>
         <fullName>customer_excluded_type__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>customer_excluded_type</label>
         <length>80</length>
