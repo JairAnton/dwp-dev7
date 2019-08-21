@@ -51,7 +51,8 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                     proposed_fee_per__c,
                                                     minimun_fee_per__c,
                                                     OpportunityId,
-                                                    Opportunity.opportunity_status_type__c
+                                                    Opportunity.opportunity_status_type__c,
+                                                    Opportunity.CurrencyIsoCode
                                                     FROM OpportunityLineItem
                                                     WHERE Id = :recordIdOppLineItem];
         List<fprd__GBL_Product_Configuration__c> lstConfig = [SELECT Id,
@@ -67,7 +68,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                               AND fprd__Header__c = true
                                                               ORDER BY fprd__Header_order__c];
         try {
-            if(!lstOppLineItem.isEmpty() && (lstOppLineItem[0].Opportunity.opportunity_status_type__c==SAPPROVED || lstOppLineItem[0].Opportunity.opportunity_status_type__c==SSENT)) {
+            if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].Opportunity.opportunity_status_type__c==SAPPROVED) {
                 //helper to call the service
                 Final GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(lstOppLineItem[0].OpportunityId); 
                 //invoke the service
@@ -412,6 +413,8 @@ public with sharing class SanctionPriceDecision_ctrl {
             mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#validityDate#', params.validDate.substring(8, 10) + '/' + params.validDate.substring(5, 7) + '/' + params.validDate.substring(0, 4)));
         } else if(opp.opportunity_status_type__c==SDENIED) {
             oliRecord.price_quote_date__c = System.today();
+            assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
+            oliRecord.Assigned_analyst__c = assignedAnalyst;
         }
         update oliRecord;
         mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#Assigned_analyst#', assignedAnalyst));
