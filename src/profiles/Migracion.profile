@@ -3963,7 +3963,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.gf_customer_excluded_ind_type__c</field>
+        <field>Account.customer_excluded_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
