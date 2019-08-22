@@ -153,7 +153,7 @@
             <table>
                 <tr>
                     <td>Nº cotización: {!Oli.price_quote_id__c} </td>
-                    <td>Fecha autorización:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!OLI.price_quote_date__c}" /> </apex:outputText> </td>
+                    <td>Fecha de sanción:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!OLI.price_quote_date__c}" /> </apex:outputText> </td>
                 </tr>
                 <tr>
                     <td>
@@ -168,7 +168,7 @@
                             </apex:outputText>
                         </apex:outputPanel>
                     </td>
-                    <td>Vigencia:   </td>
+                    <td>Vigencia:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!OLI.validityDate__c}" /></apex:outputText></td>
                 </tr>
                 <apex:outputPanel rendered="{!Product.Type_of_quote__c =='COTIZADOR'}">
                     <tr>

@@ -219,7 +219,8 @@ public with sharing class SanctionPriceDecision_ctrl {
                                                     Product2Id,
                                                     proposed_fee_per__c,
                                                     minimun_fee_per__c,
-                                                    OpportunityId
+                                                    OpportunityId,
+                                                    Opportunity.CurrencyIsoCode
                                                     FROM OpportunityLineItem
                                                     WHERE Id = :recordIdOppLineItem];
         List<fprd__GBL_Product_Configuration__c> lstConfig = [SELECT    Id,
@@ -319,8 +320,9 @@ public with sharing class SanctionPriceDecision_ctrl {
                     }
                 }
             }
-            
-            lstMapRes.add(new Map<String, Object>{ 'label' => 'Importe', 'value' => (oli[0].UnitPrice != null?oli[0].UnitPrice.setScale(2):null), 'type' => 'DOUBLE', 'position' => 1});
+            String stringAmount = ( Decimal.valueOf(String.valueOf(oli[0].UnitPrice) == null || String.valueOf(oli[0].UnitPrice).trim() == '' ? '0' : String.valueOf(oli[0].UnitPrice)).setScale(2) + 0.001 ).format();
+            stringAmount = stringAmount.substring(0, stringAmount.length()-1);
+            lstMapRes.add(new Map<String, Object>{ 'label' => 'Importe', 'value' => oli[0].Opportunity.CurrencyIsoCode + ' ' + stringAmount, 'type' => 'STRING', 'position' => 1});
             lstMapRes.add(new Map<String, Object>{ 'label' => 'Modalidad', 'value' => mapPC.get('PE_List_Product_mode__c'), 'type' => 'STRING', 'position' => 2});
             lstMapRes.add(new Map<String, Object>{ 'label' => 'Plazo', 'value' => oli[0].gipr_Plazo__c, 'type' => 'INTEGER', 'position' => 3});
             lstMapRes.add(new Map<String, Object>{ 'label' => 'Periodicidad', 'value' => mapPC.get('gipr_Periodicidad__c'), 'type' => 'STRING' , 'position' => 4});
