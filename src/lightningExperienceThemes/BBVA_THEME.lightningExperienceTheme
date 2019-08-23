@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningExperienceTheme xmlns="http://soap.sforce.com/2006/04/metadata">
-    <defaultBrandingSet>LEXTHEMINGBBVA_THEME</defaultBrandingSet>
+    <defaultBrandingSet>LEXTHEMINGBBVA_theme_1</defaultBrandingSet>
     <description>Theme basic</description>
-    <masterLabel>BBVA_THEME</masterLabel>
+    <masterLabel>BBVA_theme_1</masterLabel>
     <shouldOverrideLoadingImage>false</shouldOverrideLoadingImage>
 </LightningExperienceTheme>
