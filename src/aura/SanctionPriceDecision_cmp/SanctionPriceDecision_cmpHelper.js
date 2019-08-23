@@ -28,9 +28,8 @@
                 
                 /**getSanctionPriceInfo**/
                 if(ret.sanctionPriceInfo != null) {
-                    ret.sanctionPriceInfo[0].value = ret.sanctionPriceInfo[0].value.toFixed(2);
                     if(ret.sanctionPriceInfo.length > 5) {
-                           ret.sanctionPriceInfo[6].value = ret.sanctionPriceInfo[6].value.toFixed(2);
+                        ret.sanctionPriceInfo[6].value = ret.sanctionPriceInfo[6].value.toFixed(2);
                     }
                     component.set("v.positionSanctionPrice", ret.sanctionPriceInfo);
                 }
@@ -192,7 +191,7 @@
             if(ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__Type__c==='currency' && !isNaN(strValue)) {
                 var val = Math.round(Number(strValue) * 100) / 100;
                 var parts = val.toString().split(".");
-                strValue = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : ".00");
+                strValue = ret.lstOppLineItem[0].Opportunity.CurrencyIsoCode + ' ' + parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : ".00");
             }
             var tile = {
                 'label': ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__Label__c,
