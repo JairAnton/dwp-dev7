@@ -44,5 +44,5 @@
         <propertyName>OVERRIDE_LOADING_PAGE</propertyName>
         <propertyValue>false</propertyValue>
     </brandingSetProperty>
-    <masterLabel>BBVA_theme_1</masterLabel>
+    <masterLabel>BBVA_THEME</masterLabel>
 </BrandingSet>
