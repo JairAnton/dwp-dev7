@@ -1,0 +1,19 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp" access="global" extensible="true" controller="SgofFormalization_helper">
+    <aura:attribute name="hasHeader" type="Boolean" default="false"/>
+    <aura:attribute name="title" type="String" default="Definir estado de oportunidad" access="global" description="Specify the modal"/>
+    <aura:attribute name="lblContinue" type="String" />
+    <aura:attribute name="loadView" type="Boolean" default="false"/>
+   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="setContinueButton" event="c:FormalizationView_Evt" action="{!c.listenOption}"/>
+    
+    <div class="slds-modal__content style-general">
+        <c:FormalizationView_cmp aura:id="view"/>
+        <aura:If isTrue="{!v.loadView}">
+            <footer class="slds-modal__footer slds-theme_default">
+                <lightning:button variant="neutral" label="Cancelar" onclick="{!c.close}" class="slds-float_left"/>
+                <lightning:button aura:id="btnContinue" name="btnContinue" variant="brand" label="{!v.lblContinue}" onclick="{!c.continue}" disabled="true"/>
+            </footer>
+        </aura:If>
+    </div>
+</aura:component>

@@ -25,4 +25,46 @@
         <label>Closed rejected</label>
         <closed>true</closed>
     </standardValue>
+    <standardValue>
+        <fullName>05</fullName>
+        <default>false</default>
+        <label>Assigned ACC</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>06</fullName>
+        <default>false</default>
+        <label>Returned to the executive</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>07</fullName>
+        <default>false</default>
+        <label>Elevated</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>08</fullName>
+        <default>false</default>
+        <label>Assigned SGOF</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>09</fullName>
+        <default>false</default>
+        <label>Returned to the AAC</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>10</fullName>
+        <default>false</default>
+        <label>Formalized</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>11</fullName>
+        <default>false</default>
+        <label>Formalization dismissed</label>
+        <closed>true</closed>
+    </standardValue>
 </StandardValueSet>

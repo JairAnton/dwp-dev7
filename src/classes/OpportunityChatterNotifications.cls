@@ -76,11 +76,11 @@ public class OpportunityChatterNotifications {
                 DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status13, 'Opportunity', 'DENIED_PRICE');
             }
             if(!status19.isEmpty()){
-                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION_OPERATIVE');
-                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION');
+               /* DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION_OPERATIVE');
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION');*/
             }
             if(!status23.isEmpty()){
-                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status23, 'Opportunity', 'FORMALIZE');
+                //DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status23, 'Opportunity', 'FORMALIZE');
             }
             if(!status12.isEmpty()){
                 DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status12, 'Opportunity', 'SENT_PRICE_REEVALUATION');
@@ -107,10 +107,10 @@ public class OpportunityChatterNotifications {
                 DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status22, 'Opportunity', 'REJECT');
             }
             if(!status21.isEmpty()){
-                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status21, 'Opportunity', 'SENT_PRODUCT_UNIT');
+               // DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status21, 'Opportunity', 'SENT_PRODUCT_UNIT');
             }
             if(!status20.isEmpty()){
-                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status20, 'Opportunity', 'DENIED_FORMALIZATION');
+                //DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status20, 'Opportunity', 'DENIED_FORMALIZATION');
             }
         }
     }

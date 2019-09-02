@@ -146,19 +146,34 @@ public without sharing class Product_cls {
         catch(Dmlexception exp) { return exp.getMessage();}
     }
     @AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body,String AttachedFiles){
-        try
-        {   
-            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];
-            if(!itemOpp.isEmpty())
-            {
-                if(Action=='btnApprove'){
-                        itemOpp[0].IsProcess__c=true;
-                        update itemOpp[0];   
-                        itemOpp[0].StageName=label.lblFormalizarEtapa;
-                        itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;          
-                        FeedItem post = new FeedItem();
-                        post.ParentId = OpportunityId;
-                        post.Body = body;
+        //Productos que siguen el flujo de Formalización con el Asistente
+        Dwp_FormalizationProducts_AAC__c[] prdAssistFormalization = Dwp_FormalizationProducts_AAC__c.getAll().values();
+        Set<String> prdToFormalization = new Set<String>();
+        for(Dwp_FormalizationProducts_AAC__c prd:prdAssistFormalization){
+            prdToFormalization.add(prd.Product_Code__c);
+        }
+        //Set<String> prdToFormalization = new Set<String>{'PC00012', 'PC00011', 'PC00001_Depre', 'PC00005', 'PC00009', 'PC00001'};
+        try {   
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId, 
+                                        (SELECT Id, ProductCode FROM OpportunityLineItems WHERE ProductCode IN:prdToFormalization) FROM Opportunity WHERE Id=: OpportunityId];
+            if(!itemOpp.isEmpty()) {
+                //Si tiene un producto en prdToFormalization, pasará por el Asistente
+                Final Integer oliSize = itemOpp[0].OpportunityLineItems.size();
+                if(Action=='btnApprove') {
+                    itemOpp[0].IsProcess__c=true;
+                    update itemOpp[0];
+                    itemOpp[0].StageName=label.lblFormalizarEtapa;
+                    //Enviar al Asistente
+                    if(oliSize > 0){
+                        Formalization_helper.createOrUpdateCase(itemOpp[0], 'Tier_1_Formalization', '01');
+                        itemOpp[0].opportunity_status_type__c='25';
+                    }else{//Enviar al Subgerente
+                        Formalization_helper.createOrUpdateCase(itemOpp[0], 'Tier_2_Formalization', '07');
+                        itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;
+                    }      
+                    FeedItem post = new FeedItem();
+                    post.ParentId = OpportunityId;
+                    post.Body = body;
                         if(!string.isBlank(Body))
                             insert post;
                         else{
@@ -319,6 +334,12 @@ public without sharing class Product_cls {
                     if(Term!=null) itemOpp[0].rejection_period_num__c = Term;
                     itemOpp[0].rejection_coin__c = IsoCurrency;
                     update itemOpp[0];
+                    Case[] lstCase = [SELECT Id, status FROM Case WHERE Opportunity_id__c=:OpportunityId AND RecordType.Name = 'Formalization'];
+                    Final Integer lstCaseSize = lstCase.size();
+                    if(lstCaseSize > 0){
+                        Map<Schema.SObjectField, Object> mapCaseFields = new Map<Schema.SObjectField, Object>{Case.status => '11'};
+                    	Formalization_helper.dynamicUpdateCase(lstCase[0], mapCaseFields);
+                    }
                 }
             }
         }catch(Dmlexception exp) {
@@ -452,6 +473,11 @@ public without sharing class Product_cls {
             ApiToLabel.put(pe.getValue(),pe.getLabel());
         }
         return ApiToLabel.get(OppStatus);
+    }
+    
+    @AuraEnabled
+    public static String getOppContractNumber(Id oppId){
+		return [Select frm_ContractNumber__c FROM Opportunity WHERE Id=:oppId].frm_ContractNumber__c;
     }
     /**
         Get BBVA Information Grouped Table

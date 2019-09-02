@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <valueTranslation>
+        <masterLabel>Assigned ACC</masterLabel>
+        <translation>Asignado AAC</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Assigned SGOF</masterLabel>
+        <translation>Asignado SGOF</translation>
+    </valueTranslation>
+    <valueTranslation>
         <masterLabel>Closed authorized</masterLabel>
         <translation>Cerrado autorizado</translation>
     </valueTranslation>
@@ -9,11 +17,31 @@
         <translation>Cerrado rechazado</translation>
     </valueTranslation>
     <valueTranslation>
+        <masterLabel>Elevated</masterLabel>
+        <translation>Elevado</translation>
+    </valueTranslation>
+    <valueTranslation>
         <masterLabel>Escalated request</masterLabel>
         <translation>Escalado</translation>
     </valueTranslation>
     <valueTranslation>
+        <masterLabel>Formalization dismissed</masterLabel>
+        <translation>Formalización desestimada</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Formalized</masterLabel>
+        <translation>formalizado</translation>
+    </valueTranslation>
+    <valueTranslation>
         <masterLabel>New request</masterLabel>
         <translation>Nuevo</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Returned to the AAC</masterLabel>
+        <translation>Devuelto al AAC</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Returned to the executive</masterLabel>
+        <translation>Devuelto al ejecutivo</translation>
     </valueTranslation>
 </StandardValueSetTranslation>

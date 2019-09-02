@@ -26,6 +26,15 @@ public without sharing class  User_Trigger_cls {
     public void AsignBeforeInsert(List<User> userNew, Map<id,User>userNewMap) {
      setEquivalentValues(userNew);             
     }
+    
+    /*
+    * @Name: AsignAfterInsert
+    * @Description: Invoca al metodo newMembersFormalization.
+    * @author Diego Carbajal
+    */
+    public void AsignAfterInsert(List<User> userNew, Map<id,User>userNewMap, list<User>userOld, Map<id,User>userOldMap) {
+        User_Trigger_Case_cls.newMembersFormalization(userNew);
+    }
     /*
     * @Name: AsignBeforeUpdate
     * @Description: Invoca al metodo setEquivalentValues.
@@ -34,6 +43,20 @@ public without sharing class  User_Trigger_cls {
     public void AsignBeforeUpdate(List<User> userNew, Map<id,User>userNewMap, list<User>userOld, Map<id,User>userOldMap) {
      setEquivalentValues(userNew);                    
     } 
+    
+    /*
+    * @Name: AsignAfterUpdate
+    * @Description: Invoca a los metodos de la clase User_Trigger_Case_cls.
+    * updFormalizationDeactiveOwners
+    * changeRolAssis_Sgof
+    * addUserToFormalizationGroup
+    * @author Diego Carbajal
+    */
+    public void AsignAfterUpdate(List<User> userNew, Map<id,User>userNewMap, list<User>userOld, Map<id,User>userOldMap) {
+        User_Trigger_Case_cls.updFormalizationDeactiveOwners(userNewMap, userOldMap);
+        User_Trigger_Case_cls.changeRolAssis_Sgof(userNewMap, userOld);
+        User_Trigger_Case_cls.addUserToFormalizationGroup(userNewMap, userOld);
+    }
     /*
     * @Name: setEquivalentValues
     * @Description: Ejecuta la logica para la asignacion de unidad organizativa y cargo equivalente de un usuario.

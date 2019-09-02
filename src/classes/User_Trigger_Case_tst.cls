@@ -1,0 +1,151 @@
+/**
+* ------------------------------------------------------------------------------------------------
+* @Name User_Trigger_Case_tst
+* @Author Diego Carbajal diego.carbajal.contractor@bbva.com
+* @Date Created: 2019-09-02
+* @Group 
+* @Description Esta clase valida la funcionalidad de los metodos de la clase User_Trigger_Case_cls
+* 
+*/
+@isTest
+public class User_Trigger_Case_tst {
+
+    /**
+    * --------------------------------------------------------------------------------------
+    * @Description 
+    * Metodo que valida la funcionalidad de los metodos:
+    * newMembersFormalizatio
+    **/
+    @isTest
+    public static void newMembersFormalization_Test(){
+        List<User> newUsers = new List<User>();
+        String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
+        for(Integer i=0; i<250; i++){
+            newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
+                                 IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E06', ProfileId=profile));
+        }
+        for(Integer i=250; i<500; i++){
+            newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
+                                 IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E04', ProfileId=profile));
+        }
+        Test.startTest();
+        insert newUsers;
+        Test.stopTest();
+        Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
+        Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: grp');
+        System.assertEquals(500, newUsersInGroup, 'Error with assertion');
+    }
+    
+    /**
+    * --------------------------------------------------------------------------------------
+    * @Description 
+    * Metodo que valida la funcionalidad de los metodos:
+    * updFormalizationDeactiveOwners
+    * changeRolAssis_Sgof
+    **/
+    @isTest
+    public static void updFormalizationDeactiveOwners_Test(){
+        List<User> newUsers = new List<User>();
+        String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
+        for(Integer i=0; i<250; i++){
+            if(i < 125){
+                newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
+                                 IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E06', ProfileId=profile));
+            }else{
+                newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
+                                 IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E04', ProfileId=profile));
+            }
+        }
+        insert newUsers;
+        
+        Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{Account.Name => 'CLIENTE OPORTUNIDAD'};
+        Account acc = TestFactory.getAccount(true, mapFields);
+        List<Opportunity> opps = new List<Opportunity>();
+        List<Case> casos = new List<Case>();
+        for(Integer i=0; i<250; i++){
+            opps.add(new Opportunity(Name='TEST Formalization', stageName='02', AccountId=acc.Id, CloseDate=Date.today(), Amount = 10000, Dwp_DevolutionUser__c=newUsers[i].Id));
+            if(i < 123){
+             	newUsers[i].prof_position_id__c='';
+            }else{
+                newUsers[i].isActive=false;
+            }
+        }
+        newUsers[249].prof_position_id__c='';
+        insert opps;
+        
+        Product2 testPr = new Product2(Name='TestProd', type_of_quote__c='COTIZADOR', ProductCode='PC00012');
+        insert testPr;
+            
+        Pricebook2 testPB = new Pricebook2(CurrencyIsoCode='PEN', Name='MyPrice');
+        insert testPB;
+        Id pricebookId = Test.getStandardPricebookId();
+    
+        PricebookEntry testPE = new PricebookEntry(UnitPrice=120, CurrencyIsoCode='PEN', Pricebook2Id=pricebookId, Product2Id=testPr.Id, IsActive=true);
+        insert testPE;
+        
+        Set<Id> uIds = new Set<Id>();
+        List<OpportunityLineItem> lstOli = new List<OpportunityLineItem>();
+        for(Integer i=0; i<250; i++){
+            uIds.add(newUsers[i].Id);
+            lstOli.add(new OpportunityLineItem(TotalPrice=120, OpportunityId=opps[i].Id, PricebookEntryId=testPE.Id, Quantity=1, gipr_Tipo_Garantia__c='03', 
+                                                                  Product2Id=testPr.Id));
+            if(i < 125){
+             	casos.add(new Case(OwnerId=newUsers[i].Id, status='05', DWP_AssistantOwner__c=newUsers[i].Id, opportunity_id__c=opps[i].Id));
+            }else{
+                casos.add(new Case(OwnerId=newUsers[i].Id, status='07', DWP_SgofOwner__c=newUsers[i].Id, opportunity_id__c=opps[i].Id));
+            }
+        }
+        casos[249].status='08';
+        
+        insert lstOli;
+		insert casos;
+        User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId()];
+        Test.startTest();
+        System.runAs(admin){
+         	update newUsers;   
+        }
+        Test.stopTest();
+        User[] deactiveUsers = [SELECT Id FROM User WHERE Id IN: uIds AND isActive=false];
+        User[] changeRolUsers = [SELECT Id FROM User WHERE Id IN: uIds AND isActive=true];
+        System.assertEquals(127, deactiveUsers.size(), 'Error with assertion');
+        System.assertEquals(123, changeRolUsers.size(), 'Error with assertion');
+    }
+    
+    /**
+    * --------------------------------------------------------------------------------------
+    * @Description 
+    * Metodo que valida la funcionalidad de los metodos:
+    * addUserToFormalizationGroup
+    **/
+    @isTest
+    public static void addUserToFormalizationGroup_Test(){
+        List<User> newUsers = new List<User>();
+        String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
+        for(Integer i=0; i<250; i++){
+            if(i < 125){
+                newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
+                                      IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
+            }else{
+                newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
+                                 IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
+            }
+        }
+
+        insert newUsers;
+        
+        for(Integer i=0; i<250; i++){
+            if(i < 125){
+                newUsers[i].prof_position_id__c='E06';
+            }else{
+                newUsers[i].prof_position_id__c='E04';
+            }
+        }
+        Test.startTest();
+        update newUsers;
+        Test.stopTest();
+        
+        Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
+        Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: grp');
+        System.assertEquals(250,newUsersInGroup, 'Error with assertion');
+    }
+}

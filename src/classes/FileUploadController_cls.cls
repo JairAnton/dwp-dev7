@@ -11,7 +11,7 @@
 *1.0       	28-05-2018        Isaías Velázquez                   Creation
 **/
 
-public with sharing class FileUploadController_cls {
+public without sharing class FileUploadController_cls {
  	@AuraEnabled
     public static Id saveChunk(Id parentId, String fileName, String base64Data, String contentType, String fileId) {
         // check if fileId id ''(Always blank in first chunk), then call the saveTheFile method,

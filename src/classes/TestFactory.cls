@@ -300,5 +300,40 @@ public class TestFactory {
         obj.fprd__GBL_Opportunity_product__c = id;
         insert obj;
     }
+    
+    //Create User with Dynamic Fields
+    public static User getUser(Boolean doInsert, Map<Schema.SObjectField, Object> mapFields){
+        User obj=new User();
+        Double random = Math.random();
+        obj.LastName='User'+random;
+        obj.Username=obj.LastName+'@user.com.u';
+        obj.Email=obj.LastName+'user@u.com.u';
+        obj.Alias= String.valueOf(random).substring(0, 3)+'uAas2';
+        obj.TimeZoneSidKey='America/Mexico_City';
+		obj.IsActive=true;
+        obj.LocaleSidKey='en_US';
+        obj.EmailEncodingKey='ISO-8859-1';
+        obj.LanguageLocaleKey='es';
+        for( Schema.SObjectField sfield : mapFields.keySet() ){
+            obj.put(sfield, mapFields.get(sfield));
+        }
+        if( doInsert ){
+            insert obj;
+        }
+        return obj;
+    }
 
+    //Create dynamic Account
+    public static Account getAccount(Boolean doInsert, Map<Schema.SObjectField, Object> mapFields){
+        Account obj=new Account();
+        Decimal random = Math.random();
+        obj.name = 'Test Business Account' + Math.round(random);
+        for( Schema.SObjectField sfield : mapFields.keySet() ){
+            obj.put(sfield, mapFields.get(sfield));
+        }
+        if( doInsert ){
+            insert obj;
+        }
+        return obj;
+    }
 }

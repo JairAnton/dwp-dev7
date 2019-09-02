@@ -173,4 +173,40 @@ global class PrincipalValidationHub {
        	List<User> users = [select Id, prof_position_id__c, prof_position_type__c, Profile.Name, (Select branch_name__c  from Users_Branches__r ) from user where Id=:UserInfo.getUserId()];
 		return !(users[0].profile.Name == admin || users[0].profile.Name == sysAdmin || users[0].profile.Name == operative);
 	}
+    
+    global static Boolean Condition6(String recordId){
+        Set<String> rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
+        User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
+        List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName='Asistentes_Operativos'];
+        List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:grupo[0].Id AND UserOrGroupId=:UserInfo.getUserId()];
+        if(!((members.size() > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative) || 
+           (usuario.Profile.Name == admin || usuario.Profile.Name == sysAdmin ))){
+            return true;
+        }
+        return false;
+    }
+    
+    global static Boolean Condition7(String recordId){
+        Set<String> rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
+        Set<String> rolSubg = Formalization_helper.getRolTeam('Subgerentes_Operativos');
+        User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
+        Case caso = [SELECT Id, status, Dwp_assistantOwner__c, Dwp_SgofOwner__c FROM Case WHERE Id=:recordId];
+        List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName IN ('Asistentes_Operativos','Subgerentes_Operativos')];
+        Map<String, String> mapGroup = Formalization_helper.getGroup(grupo, 'Asistentes_Operativos');
+        Id idAsis = mapGroup.get('grp1');
+        Id idSub = mapGroup.get('grp2');
+        List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:mapGroup.values() AND UserOrGroupId=:UserInfo.getUserId()];
+        //Usuario asistente en el grupo "Asistentes_Operativos", con rol Asistente, con perfil Operativo, 
+        //con caso en estado "Nuevo", o caso en estado "Asignado AAC"/"Devuelto AAC" y sin asistente asignado.
+        //Usuario subgerente en el grupo "Subgerentes_Operativos", con rol subgerente, con perfil Operativo, 
+        //con caso en estado "Elevado", o caso en estado "Asignado Sgof" y sin subgerente asignado.
+        if(!((members.size() > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative && 
+            (caso.status == '01' || (caso.status == '05' || caso.status == '09' && String.isEmpty(caso.Dwp_assistantOwner__c)) )) ||
+           (members.size() > 0 && rolSubg.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative && 
+             (caso.status == '07' || (caso.status == '08' && String.isEmpty(caso.Dwp_SgofOwner__c)) )) || 
+            (usuario.Profile.Name == admin || usuario.Profile.Name == sysAdmin ) )){
+                 return true;
+             }
+        return false;
+    }
 }
