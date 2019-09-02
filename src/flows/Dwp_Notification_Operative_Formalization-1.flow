@@ -504,7 +504,6 @@ AND (ISPICKVAL(PRIORVALUE({!myVariable_current.Status} ) , &quot;05&quot;) , ISP
     </processMetadataValues>
     <processType>Workflow</processType>
     <startElementReference>myDecision</startElementReference>
-    <status>Active</status>
     <variables>
         <name>myCollection_myRule_1_A1recipientIds</name>
         <dataType>String</dataType>

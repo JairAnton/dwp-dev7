@@ -211,7 +211,6 @@
     </fields>
     <fields>
         <fullName>Dwp_ElevatedDate__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Fecha de elevación</label>
         <required>false</required>
@@ -358,7 +357,6 @@
     </fields>
     <fields>
         <fullName>dwp_returned_date__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Fecha de devolución</label>
         <required>false</required>

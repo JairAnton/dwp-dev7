@@ -6,7 +6,6 @@
     <fields>
         <fullName>Product_Code__c</fullName>
         <caseSensitive>true</caseSensitive>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Product Code</label>
         <length>255</length>
