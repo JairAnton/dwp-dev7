@@ -1345,7 +1345,7 @@
         <name>minimun_fee_per__c</name>
     </fields>
     <fields>
-        <label>Fecha última cotización</label>
+        <label>Fecha de sanción</label>
         <name>price_quote_date__c</name>
     </fields>
     <fields>
@@ -1467,6 +1467,14 @@
             <masterLabel>05</masterLabel>
             <translation>All in</translation>
         </picklistValues>
+    </fields>
+	<fields>
+        <label>Analista asignado</label>
+        <name>Assigned_analyst__c</name>
+    </fields>
+    <fields>
+        <label>Validez TEA</label>
+        <name>validityDate__c</name>
     </fields>
     <validationRules>
         <errorMessage>Nº de contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>

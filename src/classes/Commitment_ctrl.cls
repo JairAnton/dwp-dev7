@@ -239,14 +239,20 @@ public with sharing class Commitment_ctrl {
 							// Check if the quotation owner exists as a user in DWP
 							if(!quotationAgents.isEmpty()){
 							
-								List<User> quotationUserList = [SELECT Id FROM User WHERE user_id__c =: quotationAgents[0].id AND IsActive = true];
+								List<User> quotationUserList = [SELECT Id, FirstName, LastName FROM User WHERE user_id__c =: quotationAgents[0].id AND IsActive = true];
    
 								if(!quotationUserList.isEmpty()){
 									oppProductToUpdate.price_quote_owner_id__c = quotationUserList[0].id;
                                     caseOwner =  quotationUserList[0].id;                                  
+									if(quotationStatus.id != Label.WebPriceQuotationRequestStatus01) {
+                                        oppProductToUpdate.Assigned_analyst__c=quotationUserList[0].FirstName+' '+quotationUserList[0].LastName;
+                                    }
 								}
                                 else{
                                     oppProductToUpdate.price_quote_owner_id__c = null;  
+									if(quotationStatus.id != Label.WebPriceQuotationRequestStatus01) {
+                                        oppProductToUpdate.Assigned_analyst__c=quotationAgents[0].firstName+' '+quotationAgents[0].lastName+' '+quotationAgents[0].secondLastName;
+                                    }
                                 }		
 							}
                             else{

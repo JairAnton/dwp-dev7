@@ -1,52 +1,44 @@
 ({
-    
     closeMe : function(component, event) {
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
     	cancelEvent.fire();
     },
-    ini : function(component, event) { 
+    ini : function(component, event) {
         var inputObject = component.get('v.inputAttributes');
         var action = component.get("c.start");
         action.setParams({recordId : inputObject.recordId});
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-                if (response.getReturnValue()=="Risk"){ 
+                if (response.getReturnValue()==="Risk"){
                     component.set('v.Risk', true);
                 }
-                if (response.getReturnValue()=="Price"){ 
+                if (response.getReturnValue()==="Price"){
                     component.set('v.Price', true);
                 }
             }
         });
-        
-        $A.enqueueAction(action);                   
-        
+        $A.enqueueAction(action);
     },
     risk : function(component,event){
-        
         var inputObject = component.get('v.inputAttributes');
         var action = component.get("c.approveRisk");
         var msgapprov = $A.get("$Label.c.approveSucess");
         action.setParams({Id : inputObject.recordId});
         action.setCallback(this, function(response) {
-            var state = response.getState();       		
+            var state = response.getState();
             if (state === "SUCCESS") {
-                if(response.getReturnValue() != 'Updated'){
+                if(response.getReturnValue() !== 'Updated'){
                     this.toastEvent('Error!', response.getReturnValue(), 'error');
                 }else{
                     this.toastEvent('Success!', msgapprov, 'success');
                 }
-                $A.get('e.force:refreshView').fire();        
+                $A.get('e.force:refreshView').fire();
             }
         });
-        
         $A.enqueueAction(action);
-        
-    }
-    ,
+    },
     price : function(component,event, helper){
-        
         var inputObject = component.get('v.inputAttributes');
         var action = component.get("c.approvePrice");
         var msgapprov = $A.get("$Label.c.approveSucess");
@@ -62,7 +54,6 @@
                         var state = response.getState();
                         if (state === "SUCCESS") {
                             var ret2 = response.getReturnValue();
-                            
                             if(ret2.isOk){
                                 this.toastEvent('Success!', msgapprov, 'success');
                                 $A.get('e.force:refreshView').fire();
@@ -76,7 +67,6 @@
                             }
                         }
                     });
-                    
                     $A.enqueueAction(action2);
                 }else{
                     if(ret.isOk){
@@ -93,12 +83,8 @@
                 }
             }
         });
-        
         $A.enqueueAction(action);
-        
-        
-    }
-    ,    
+    },
     toastEvent : function(title, message, type) {
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
@@ -108,8 +94,4 @@
         });
         toastEvent.fire();
     }
-    /*closeMe : function(component, event) { //Ernesto 07/12/2018 : se comento el metodo porque ya existe (duplicado)
-        var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
-    	cancelEvent.fire();
-    }*/
 })

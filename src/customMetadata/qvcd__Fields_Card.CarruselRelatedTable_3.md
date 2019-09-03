@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>qvcd__GBL_Field_format__c</field>
-        <value xsi:type="xsd:string">0.00</value>
+        <value xsi:type="xsd:string">###,###,##0.00</value>
     </values>
     <values>
         <field>qvcd__GBL_FiltersFunction__c</field>

@@ -7,7 +7,8 @@
     <aura:attribute name="strComments" type="String" default=""/>
     <aura:attribute name="closeButton" type="Boolean" default="false" access="global" description="Allow show close icon button"/>
     <aura:attribute name="positionSanctionPrice" type="List"/>
-    
+    <aura:attribute name="refreshComp" type="Boolean" default="false"/>
+   	
    	<div id="storeHTML" class="slds-hide">
         <h3 class="slds-section__title">{!$Label.c.Comments}</h3>
         <div class="slds-form-element__control">
@@ -34,7 +35,12 @@
 	        </div>
 	    </aura:if>
         <h3 class="slds-section__title">{!$Label.c.Price}</h3>
-        <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false" isHTML="true"/>
+        <aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
+            <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Audit'}" hasDivider="false" isHTML="true" refreshComp="{!v.refreshComp}"/>
+        </aura:if>
+        <aura:if isTrue="{!v.inputAttributes.approvalMethod != 'Web'}">
+            <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false" isHTML="true"/>
+        </aura:if>
         <h3 class="slds-section__title">{!$Label.c.Commitments}</h3>
         <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" />               
     </div>
@@ -97,6 +103,11 @@
                                 </span>
                                 <div class="slds-text-heading_medium">{!v.inputAttributes.quotationStatusMessage}</div>
                             </div>
+							<div>
+                                <aura:if isTrue="{!v.objSetup.statusType=='08'}">
+                                    <p style="margin-left:20px;">Validez TEA: <ui:outputDate value="{!v.objSetup.validityDate}" format="dd/MM/YYYY"/></p>
+                                </aura:if>
+                            </div>	  
                         </aura:if>
                     </lightning:layoutItem>
                 </lightning:layout>

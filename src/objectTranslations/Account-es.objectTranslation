@@ -845,6 +845,14 @@
         <label>Capital de trabajo</label>
         <name>working_capital_number__c</name>
     </fields>
+	<fields>
+        <label>Estado PE25</label>
+        <name>customer_excluded_type__c</name>
+    </fields>
+    <fields>
+        <label>CIUU</label>
+        <name>company_economic_activity_id__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Layout</layout>

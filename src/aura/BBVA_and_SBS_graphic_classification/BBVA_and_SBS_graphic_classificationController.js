@@ -1,6 +1,6 @@
 ({
-    init : function(component, event, helper){
-    helper.startGraph(component);
+    init: function (component, event, helper) {
+        helper.startGraph(component);
     }
-      
+
 })

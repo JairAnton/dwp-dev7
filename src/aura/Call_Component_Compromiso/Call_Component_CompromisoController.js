@@ -1,14 +1,13 @@
 ({
     init: function(component){
         component.set("v.title" , "Compromiso");
-        //component.set("v.recordId" ,component.get("v.inputAttributes").recordId);
         var flow = component.find("flowData");        
-        var inputVariables = [{ 
-            name :"ID_Init", 
-            type :"SObject", 
-            value :component.get("v.recordId") 
+        var inputVariables = [{
+            name :"ID_Init",
+            type :"SObject",
+            value :component.get("v.recordId")
         }];
-        flow.startFlow("Compromisos",inputVariables); 
+        flow.startFlow("Compromisos",inputVariables);
     },
     destroyCmp: function (cmp, event, helper) {
         console.log("funciona");
@@ -16,13 +15,13 @@
     },
     handleStatusChange : function(component, event, helper) {
         if(event.getParam("status")==="FINISHED"){ 
-            var toastEventF = $A.get("e.force:showToast");  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
-            toastEventF.setParams({  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
+            var toastEventF = $A.get("e.force:showToast");
+            toastEventF.setParams({
                 title: "Success!",
-                message: "Cotizacion Terminada", 
-                type: "success" 
+                message: "Cotizacion Terminada",
+                type: "success"
             });
-            toastEventF.fire();  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
+            toastEventF.fire();
             var outputVarF = component.get("v.recordId");  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
             var urlEventF = $A.get("e.force:navigateToSObject");  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
             urlEventF.setParams({
@@ -44,8 +43,8 @@
             var toastEventE = $A.get("e.force:showToast");   // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
             toastEventE.setParams({   // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
                 title: "Error Message!",
-                message: "Cotizacion Terminada", 
-                type: "error" 
+                message: "Cotizacion Terminada",
+                type: "error"
             });
             toastEventE.fire();   // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
             var outputVarE = component.get("v.recordId");  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
@@ -56,6 +55,5 @@
             });
             urlEventE.fire();
         }
-        
     }
 })

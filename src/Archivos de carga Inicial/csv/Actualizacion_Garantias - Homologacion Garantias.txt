@@ -1,0 +1,18 @@
+List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
+for(OpportunityLineItem oli : [SELECT Id, gipr_Tipo_Garantia__c, gipr_Garantia__c FROM OpportunityLineItem WHERE gipr_Tipo_Garantia__c='02' AND gipr_Garantia__c IN ('04', '05', '06', '07', '08', '09', '10', '11') LIMIT 500]) {
+    if(oli.gipr_Garantia__c=='10') {
+        oli.gipr_Tipo_Garantia__c='04';
+    }
+    else {
+        oli.gipr_Tipo_Garantia__c='03';
+        oli.gipr_Garantia__c=null;
+    }
+    olis.add(oli);
+}
+if(olis.size()>0) {
+    update olis;
+    System.debug('######### actualizando garantias - total olis #########: '+olis.size());
+}
+else {
+    System.debug('######### no existen registros para actualizar #########');
+}
