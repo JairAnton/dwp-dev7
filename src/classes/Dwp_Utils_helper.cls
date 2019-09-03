@@ -1,12 +1,20 @@
+/**
+* ------------------------------------------------------------------------------------------------
+* @Name Dwp_Utils_helper
+* @Author Diego Carbajal diego.carbajal.contractor@bbva.com
+* @Date Created: 2019-08-28
+* @Group 
+* @Description Esta clase contiene metodos de ayuda reutilizables y genericos
+*/
 public class Dwp_Utils_helper {
 
     /*Method for validate Regex Format*/
-    public static Map<String, Object> validateFormatt(String regex, String input){
+    public static Map<String, Object> validateFormatt(String regex, String input) {
         Map<String, Object> mapRes = new Map<String, Object>{'isError' => true, 'validateError' => 'Empty'};
-        if(!String.isEmpty(input)){
-            if(Pattern.matches(regex, input)){
+        if(!String.isEmpty(input)) {
+            if(Pattern.matches(regex, input)) {
                 mapRes.put('isError', false);
-            }else{
+            }else {
                 mapRes.put('validateError', 'NoMatches');
             }
         }
@@ -14,7 +22,7 @@ public class Dwp_Utils_helper {
     }
     
     /*Method to get Picklist values from Picklist field*/
-    public static Map<String, String> getPicklistValues(String objectName, String field_apiname){
+    public static Map<String, String> getPicklistValues(String objectName, String field_apiname) {
         Map<String, String> mapValues = new Map<String, String>();
         Map<String,Schema.SObjectType> gd = Schema.getGlobalDescribe(); 
         Map<String, Schema.SObjectField> field_map = gd.get(objectName.toLowerCase()).getDescribe().fields.getMap(); 
@@ -36,4 +44,5 @@ public class Dwp_Utils_helper {
         }
         return mapRes;
     }
+    
 }

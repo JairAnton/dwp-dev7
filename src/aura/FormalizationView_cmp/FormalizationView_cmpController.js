@@ -1,5 +1,5 @@
 ({
-    selectedOption : function(component, event, helper){
+    selectedOption : function(component, event, helper) {
         //Buttons
         var btnSF = component.find("btnSF");
         var btnRE = component.find("btnRE");
@@ -10,7 +10,7 @@
         var pSF = component.find("pSF");
         var pRE = component.find("pRE");
         //Logic
-        if(event.getSource().get("v.name")==='btnSF'){
+        if(event.getSource().get("v.name")==='btnSF') {
 			$A.util.addClass(btnSF, 'clickedButtonGreen');
             $A.util.removeClass(btnRE, 'clickedButtonOrange');
             $A.util.addClass(pSF, 'tclickedButton');
@@ -18,7 +18,7 @@
             iconSF.set("v.variant","inverse");
             iconRE.set("v.variant","warning");
             component.set("v.optionSelected", 'sentToFormalize');
-        }else{
+        }else {
             $A.util.addClass(btnRE, 'clickedButtonOrange');
             $A.util.removeClass(btnSF, 'clickedButtonGreen');
             $A.util.addClass(pRE, 'tclickedButton');
@@ -32,13 +32,12 @@
         cmpEvt.fire();
     },
     
-    getFileName : function (cmp,event,helper){
+    getFileName : function (cmp,event,helper) {
         var param= event.getParam("FileName");
      	cmp.set("v.fileName",param);     
-        console.log('documento: '+param);
     },
 
-    closeAlert : function(cmp, evt, helper){
+    closeAlert : function(cmp, evt, helper) {
        	cmp.set("v.showAlert", false);
     }
 })

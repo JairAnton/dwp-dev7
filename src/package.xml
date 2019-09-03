@@ -512,6 +512,14 @@
         <name>FlowDefinition</name>
     </types>-->
 	<types>
+        <members>Dwp_Notification_Formalization_Request</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>Dwp_Notification_Operative_Formalization</members>
+        <name>Flow</name>
+    </types>
+	<types>
 		<members>dwp_create_OwnerVisitTeam-1</members>
 		<name>Flow</name>
 	</types>
@@ -766,5 +774,5 @@
         <members>*</members>
         <name>ListView</name>
     </types>
-    <version>42.0</version>
+    <version>46.0</version>
 </Package>

@@ -16,8 +16,8 @@ global class PrincipalValidationHub {
     
     // User with administrator profile or opportunity owner user
     global static Boolean Condition1(String recordId) {
- 		List<Opportunity> opps = [Select Id,OwnerId,Owner.Name,Branch_id__c from Opportunity where Id=:recordId];
-        List<Profile> profiles = [Select Id, Name from profile where Id=:UserInfo.getProfileId()];
+ 		Final List<Opportunity> opps = [Select Id,OwnerId,Owner.Name,Branch_id__c from Opportunity where Id=:recordId];
+        Final List<Profile> profiles = [Select Id, Name from profile where Id=:UserInfo.getProfileId()];
         if((profiles[0].Name == admin )||(profiles[0].Name == sysAdmin)||(opps[0].OwnerId == UserInfo.getUserId())) {        
             return false;
         }
@@ -27,9 +27,9 @@ global class PrincipalValidationHub {
     /* User with administrator or opportunity owner profile or user with Executive profile 
      * and assistant position who is in the same office as the opportunity office.*/
     global static Boolean Condition2(String recordId) {
-        List<Opportunity> opps = [Select Id,OwnerId,Owner.Name,Branch_id__c from Opportunity where Id=:recordId];
-       	List<User> users = [select Id, prof_position_id__c, prof_position_type__c, Profile.Name, (Select branch_name__c  from Users_Branches__r ) from user where Id=:UserInfo.getUserId()];
-        List<User_Position_Mapping__mdt> codigos = [select prof_position_id__c, dwp_role__c, profile__c from User_Position_Mapping__mdt where prof_position_id__c=:users[0].prof_position_id__c];
+        Final List<Opportunity> opps = [Select Id,OwnerId,Owner.Name,Branch_id__c from Opportunity where Id=:recordId];
+       	Final List<User> users = [select Id, prof_position_id__c, prof_position_type__c, Profile.Name, (Select branch_name__c  from Users_Branches__r ) from user where Id=:UserInfo.getUserId()];
+        Final List<User_Position_Mapping__mdt> codigos = [select prof_position_id__c, dwp_role__c, profile__c from User_Position_Mapping__mdt where prof_position_id__c=:users[0].prof_position_id__c];
         if((users[0].profile.Name == admin )||(users[0].profile.Name == sysAdmin)||(opps[0].OwnerId == UserInfo.getUserId())) {   
             return false;
         }else if(!codigos.isEmpty()) {
@@ -51,19 +51,10 @@ global class PrincipalValidationHub {
 		List<String> lstErrorMessage = new List<String>();
         Boolean error = false;
         String tempLabel = '';
-       	List<OpportunityLineItem> oli = [SELECT Id,ProductCode,product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
-        List<fprd__GBL_Product_Configuration__c> mdtList = [select Id,
-                                                       fprd__Values_control_field__c, 
-                                                       fprd__LoV_labels__c, 
-                                                       fprd__LoV_values__c, 
-                                                       fprd__Visibility_control_field__c, 
-                                                       fprd__map_field__c, 
-                                                       fprd__Visibility_control_value__c, 
-                                                       fprd__product__c, 
-                                                       fprd__DeveloperName__c,
-                                                       fprd__Label__c
-                                                       from fprd__GBL_Product_Configuration__c
-                                                       WHERE fprd__product__c = :oli[0].product2id];
+       	Final List<OpportunityLineItem> oli = [SELECT Id,ProductCode,product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
+        Final List<fprd__GBL_Product_Configuration__c> mdtList = [select Id, fprd__Values_control_field__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Visibility_control_field__c, 
+                                                       fprd__map_field__c, fprd__Visibility_control_value__c, fprd__product__c, fprd__DeveloperName__c, fprd__Label__c
+                                                       from fprd__GBL_Product_Configuration__c WHERE fprd__product__c = :oli[0].product2id];
         Map<String,fprd__GBL_Product_Configuration__c> mapProductConfig = new Map<String,fprd__GBL_Product_Configuration__c>();
         Set<String> setFields = new Set<String>();
         for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
@@ -75,7 +66,7 @@ global class PrincipalValidationHub {
         List<String> lstFields = new List<String>(setFields);      
         List<OpportunityLineItem> oliInfo = Database.query('Select Id, '+String.join(lstFields, ',')+' FROM OpportunityLineItem WHERE OpportunityId = \''+recordId+'\'');
         for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
-            if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null){
+            if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
                 if( mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null &&oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)!=null && 
                   oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)!='') {
                       List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
@@ -100,8 +91,8 @@ global class PrincipalValidationHub {
                 }               
             }
         }        
-		List<fprd__GBL_Guarantee__c> guaranteeList = [select id from fprd__GBL_Guarantee__c where fprd__GBL_Opportunity_product__c = :recordId];
-        List<fprd__GBL_Intervener__c> intervenerList = [select id, fprd__GBL_Opportunity_product__c from fprd__GBL_Intervener__c where fprd__GBL_Opportunity_product__c = :recordId];
+		Final List<fprd__GBL_Guarantee__c> guaranteeList = [select id from fprd__GBL_Guarantee__c where fprd__GBL_Opportunity_product__c = :recordId];
+        Final List<fprd__GBL_Intervener__c> intervenerList = [select id, fprd__GBL_Opportunity_product__c from fprd__GBL_Intervener__c where fprd__GBL_Opportunity_product__c = :recordId];
         if(intervenerList.size() == 0) lstErrorMessage.add(Label.Error_validation_032);
         // listOli[0].gipr_Tipo_Garantia__c = 03. 03 = Sin garantía
         if((oli[0].gipr_Tipo_Garantia__c == '01' || oli[0].gipr_Tipo_Garantia__c == '02') && (guaranteeList.size() == 0)) lstErrorMessage.add(Label.Error_validation_033);
@@ -114,20 +105,10 @@ global class PrincipalValidationHub {
         List<String> lstErrorMessage = new List<String>();
         Boolean error = false;
         String tempLabel = '';
-       	List<OpportunityLineItem> oli = [SELECT Id,ProductCode,product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
-        List<fprd__GBL_Product_Configuration__c> mdtList = [select Id,
-                                                       fprd__Values_control_field__c, 
-                                                       fprd__LoV_labels__c, 
-                                                       fprd__LoV_values__c, 
-                                                       fprd__Visibility_control_field__c, 
-                                                       fprd__map_field__c, 
-                                                       fprd__Visibility_control_value__c, 
-                                                       fprd__product__c, 
-                                                       fprd__DeveloperName__c,
-                                                       fprd__Label__c,
-                                                       fprd__Section_name__c,
-                                                            fprd__Section_order__c
-                                                       from fprd__GBL_Product_Configuration__c
+       	Final List<OpportunityLineItem> oli = [SELECT Id,ProductCode,product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
+        Final List<fprd__GBL_Product_Configuration__c> mdtList = [select Id, fprd__Values_control_field__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Visibility_control_field__c, 
+                                                       fprd__map_field__c, fprd__Visibility_control_value__c, fprd__product__c, fprd__DeveloperName__c,fprd__Label__c,
+                                                       fprd__Section_name__c, fprd__Section_order__c from fprd__GBL_Product_Configuration__c
                                                        WHERE fprd__product__c = :oli[0].product2id];
         Map<String,fprd__GBL_Product_Configuration__c> mapProductConfig = new Map<String,fprd__GBL_Product_Configuration__c>();
         Set<String> setFields = new Set<String>();
@@ -169,40 +150,42 @@ global class PrincipalValidationHub {
     }
     
     // User with administrator profile or with operational profile in the same office as the office of the opportunity. 
-    global static Boolean Condition5(String recordId){
-       	List<User> users = [select Id, prof_position_id__c, prof_position_type__c, Profile.Name, (Select branch_name__c  from Users_Branches__r ) from user where Id=:UserInfo.getUserId()];
+    global static Boolean Condition5(String recordId) {
+       	Final List<User> users = [select Id, prof_position_id__c, prof_position_type__c, Profile.Name, (Select branch_name__c  from Users_Branches__r ) from user where Id=:UserInfo.getUserId()];
 		return !(users[0].profile.Name == admin || users[0].profile.Name == sysAdmin || users[0].profile.Name == operative);
 	}
     
-    global static Boolean Condition6(String recordId){
-        Set<String> rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
-        User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
-        List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName='Asistentes_Operativos'];
-        List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:grupo[0].Id AND UserOrGroupId=:UserInfo.getUserId()];
-        if(!((members.size() > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative) || 
+    global static Boolean Condition6(String recordId) {
+        Final Set<String> rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
+        Final User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
+        Final List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName='Asistentes_Operativos'];
+        Final List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:grupo[0].Id AND UserOrGroupId=:UserInfo.getUserId()];
+        Final Integer memberSize = members.size();
+        if(!((memberSize > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative) || 
            (usuario.Profile.Name == admin || usuario.Profile.Name == sysAdmin ))) {
             return true;
         }
         return false;
     }
     
-    global static Boolean Condition7(String recordId){
-        Set<String> rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
-        Set<String> rolSubg = Formalization_helper.getRolTeam('Subgerentes_Operativos');
-        User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
-        Case caso = [SELECT Id, status, Dwp_assistantOwner__c, Dwp_SgofOwner__c FROM Case WHERE Id=:recordId];
-        List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName IN ('Asistentes_Operativos','Subgerentes_Operativos')];
-        Map<String, String> mapGroup = Formalization_helper.getGroup(grupo, 'Asistentes_Operativos');
-        Id idAsis = mapGroup.get('grp1');
-        Id idSub = mapGroup.get('grp2');
-        List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:mapGroup.values() AND UserOrGroupId=:UserInfo.getUserId()];
+    global static Boolean Condition7(String recordId) {
+        Final Set<String> rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
+        Final Set<String> rolSubg = Formalization_helper.getRolTeam('Subgerentes_Operativos');
+        Final User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
+        Final Case caso = [SELECT Id, status, Dwp_assistantOwner__c, Dwp_SgofOwner__c FROM Case WHERE Id=:recordId];
+        Final List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName IN ('Asistentes_Operativos','Subgerentes_Operativos')];
+        Final Map<String, String> mapGroup = Formalization_helper.getGroup(grupo, 'Asistentes_Operativos');
+        Final Id idAsis = mapGroup.get('grp1');
+        Final Id idSub = mapGroup.get('grp2');
+        Final List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:mapGroup.values() AND UserOrGroupId=:UserInfo.getUserId()];
+        Final Integer memberSize = members.size();
         //Usuario asistente en el grupo "Asistentes_Operativos", con rol Asistente, con perfil Operativo, 
         //con caso en estado "Nuevo", o caso en estado "Asignado AAC"/"Devuelto AAC" y sin asistente asignado.
         //Usuario subgerente en el grupo "Subgerentes_Operativos", con rol subgerente, con perfil Operativo, 
         //con caso en estado "Elevado", o caso en estado "Asignado Sgof" y sin subgerente asignado.
-        if(!((members.size() > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative && 
+        if(!((memberSize > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative && 
             (caso.status == '01' || (caso.status == '05' || caso.status == '09' && String.isEmpty(caso.Dwp_assistantOwner__c)) )) ||
-           (members.size() > 0 && rolSubg.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative && 
+           (memberSize > 0 && rolSubg.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative && 
              (caso.status == '07' || (caso.status == '08' && String.isEmpty(caso.Dwp_SgofOwner__c)) )) || 
             (usuario.Profile.Name == admin || usuario.Profile.Name == sysAdmin ) )) {
                  return true;

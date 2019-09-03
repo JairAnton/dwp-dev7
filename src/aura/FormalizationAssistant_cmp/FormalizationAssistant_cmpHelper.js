@@ -1,23 +1,23 @@
 ({
-    validateOwner : function(component, event, helper){
+    validateOwner : function(component, event, helper) {
         var action = component.get("c.validateAssistant");
         action.setParams({"oppId" : component.get("v.inputAttributes.recordId")});
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             var state = response.getState();
-            if(state === "SUCCESS"){
+            if(state === "SUCCESS") {
                 var res = response.getReturnValue();
-                if(!res.isError){
+                if(!res.isError) {
                     var cmpView = component.find("view");
                     cmpView.set("v.recordIdParent", component.get("v.inputAttributes.recordId"));
-                    if(res.property != 'Agree'){
-                        component.set("v.title", 'Reasignarse peticiÃ³n');
+                    if(res.property != 'Agree') {
+                        component.set("v.title", 'Reasignarse petición');
                         component.set("v.lblContinue", "Asignarmela");
                         cmpView.set("v.msgProperty", res.msg);
                         cmpView.set("v.dialog", res.dialog);
                         cmpView.set("v.showInterface", true);
                         component.set("v.loadView", true);
                         component.find("btnContinue").set("v.disabled", false);
-                    }else{
+                    }else {
                         helper.getInfo(component, event, helper);
                         component.set("v.lblContinue", "Continuar");
                         cmpView.set("v.showInterface", false);
@@ -25,58 +25,58 @@
                     cmpView.set("v.loadView", true);
                     component.set("v.loadView", true);
                     component.set("v.hasHeader", true);
-                }else{
+                }else {
                     helper.msgAndClose(component, event, helper, res.msgError, '', true);
                 }
-            }else{
+            }else {
                 helper.msgAndClose(component, event, helper, '', '', true);
             }
         });
         $A.enqueueAction(action);
     },
     
-    reasignOwner : function(component, event, helper){
+    reasignOwner : function(component, event, helper) {
     	var action = component.get("c.reasignCaseFromOpp");
         action.setParams({"oppId" :  component.get("v.inputAttributes.recordId")});
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             var state = response.getState();
-            if(state === 'SUCCESS'){
+            if(state === 'SUCCESS') {
                 var res = response.getReturnValue();
-                if(!res.isError){
+                if(!res.isError) {
                     helper.msgAndClose(component, event, helper, res.msgSuccess, 'success', true);
-                }else{
+                }else {
                     helper.msgAndClose(component, event, helper, res.msgError, '', true);
                 }
-            }else{
+            }else {
                 helper.msgAndClose(component, event, helper, '', '', true);
             }
         });
         $A.enqueueAction(action);
     },
     
-    getInfo : function(component, event, helper){
+    getInfo : function(component, event, helper) {
       	var action = component.get("c.getData");
         action.setParams({"oppId" : component.get("v.inputAttributes.recordId")});
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             var toastEvent = $A.get("e.force:showToast");
             var state = response.getState();
-            if(state === "SUCCESS"){
+            if(state === "SUCCESS") {
                 var res = response.getReturnValue();
                 var cmpView = component.find("view");
-                if(!res.isError){
+                if(!res.isError) {
                     cmpView.set("v.lblSend", res.lblSend);
                     cmpView.set("v.lblReturn", res.lblReturn);
                     cmpView.find("contractNumber").set("v.value", res.contractNumber);
                     cmpView.set("v.picklistValues", Object.values(res.picklistValues));
                     cmpView.set("v.mapPicklistValues", res.picklistValues);
-                }else{
+                }else {
                     toastEvent.setParams({
                         "message": "$Label.Dwp_msgGenericError",
                         "type": "error"
                     });
                     toastEvent.fire();
                 }
-            }else{
+            }else {
                 helper.msgAndClose(component, event, helper, '', '', true);
             }
         });
@@ -94,28 +94,28 @@
             "oppId" : component.get("v.inputAttributes.recordId"),
             "values" : JSON.stringify(values)
         });
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             var state = response.getState();
-            if(state === "SUCCESS"){
+            if(state === "SUCCESS") {
                 var res = response.getReturnValue();
-                if(!res.isError){
+                if(!res.isError) {
                     if(res.listView){
                         helper.redirect(component, event, helper, res.listView);
                     }
                     helper.msgAndClose(component, event, helper, res.msgSuccess, 'success', true);
-                }else{
+                }else {
                     component.find("btnContinue").set("v.disabled", false);
                     cmpView.set("v.msgCorrection", res.msgError)
                     cmpView.set("v.showAlert", true);
                 }
-            }else{
+            }else {
                 helper.msgAndClose(component, event, helper, '', '', true);
             }
         });
         $A.enqueueAction(action);
 	},
     
-    msgAndClose : function(component, event, helper, message, type, close){
+    msgAndClose : function(component, event, helper, message, type, close) {
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
             "message": (message ? message : "$Label.Dwp_msgGenericError"),
@@ -123,12 +123,12 @@
         });
         toastEvent.fire();
         $A.get('e.force:refreshView').fire();
-        if(close){
+        if(close) {
             this.destroyCmp(component, event, helper);   
         }
     },
     
-    redirect : function(component, event, helper, listViewId){
+    redirect : function(component, event, helper, listViewId) {
 		var nav = $A.get("e.force:navigateToList");
         nav.setParams({
             "listViewId" : listViewId,

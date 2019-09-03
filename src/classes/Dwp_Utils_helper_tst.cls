@@ -11,7 +11,7 @@
 public class Dwp_Utils_helper_tst {
     
 	@isTest
-    public static void validateFormatt_Success_Test(){
+    public static void validateFormatt_Success_Test() {
         Map<String, Object> mapRes = new Map<String, Object>();
         Test.startTest();
         mapRes = Dwp_Utils_helper.validateFormatt('[0-9]{4}-[0-9]{4}-[0-9]{10}', '1234-1234-1234567890');
@@ -20,7 +20,7 @@ public class Dwp_Utils_helper_tst {
     }
         
 	@isTest
-    public static void validateFormatt_Error_Test(){
+    public static void validateFormatt_Error_Test() {
         Map<String, Object> mapRes = new Map<String, Object>();
         Test.startTest();
         mapRes = Dwp_Utils_helper.validateFormatt('[0-9]{4}-[0-9]{4}-[0-9]{10}', '1234-34567890');
@@ -29,7 +29,7 @@ public class Dwp_Utils_helper_tst {
     }
     
     @isTest
-    public static void getPicklistValues_Test(){
+    public static void getPicklistValues_Test() {
         Map<String, Object> mapRes = new Map<String, Object>();
         Test.startTest();
         mapRes = Dwp_Utils_helper.getPicklistValues('Case', 'status');
@@ -39,7 +39,7 @@ public class Dwp_Utils_helper_tst {
     }
     
     @isTest
-    public static void getListView_Test(){
+    public static void getListView_Test() {
         Map<String, Object> mapRes = new Map<String, Object>();
         Test.startTest();
         mapRes = Dwp_Utils_helper.getListView('Case', 'MyCases');

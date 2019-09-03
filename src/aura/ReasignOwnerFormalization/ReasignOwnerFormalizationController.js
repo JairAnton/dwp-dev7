@@ -5,25 +5,25 @@
         action.setParams({
             "caseId" : inputAttributes.recordId
         });
-        action.setCallback(this, function(response){
+        action.setCallback(this, function(response) {
             var toastEvent = $A.get("e.force:showToast");
             var state = response.getState();
             var oppId;
-            if(state === 'SUCCESS'){
+            if(state === 'SUCCESS') {
                 var res = response.getReturnValue();
-                if(!res.isError){
+                if(!res.isError) {
                     oppId=res.oppId;
                     toastEvent.setParams({
                         "message": "¡Te autoasignaste esta petición exitosamente!",
                         "type": "success"
                 	});
-                }else{
+                }else {
                    toastEvent.setParams({
                         "message": res.msgError,
                         "type": "error"
                     });
                 }
-            }else{
+            }else {
                 toastEvent.setParams({
                     "message": "Ha ocurrido un problema. Por favor, intenta de nuevo.",
                     "type": "error"
@@ -31,7 +31,7 @@
             }
             component.set("v.showSpinner", false);
             toastEvent.fire();
-            if(oppId != null){
+            if(oppId != null) {
                 var navEvt = $A.get("e.force:navigateToSObject");
                 navEvt.setParams({
                   "recordId": oppId

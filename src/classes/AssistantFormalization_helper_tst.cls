@@ -45,20 +45,20 @@ public class AssistantFormalization_helper_tst {
             acc = TestFactory.getAccount(true, mapFields);
             
             //Crear Oportunidad con Producto - 1
-            Opportunity testOP= new Opportunity(Name='TEST Formalization', stageName='02', AccountId=acc.Id, CloseDate=Date.today(), Amount = 10000, OwnerId = userExecutive.Id);
+            Final Opportunity testOP= new Opportunity(Name='TEST Formalization', stageName='02', AccountId=acc.Id, CloseDate=Date.today(), Amount = 10000, OwnerId = userExecutive.Id);
             insert testOP;
             
-            Product2 testPr = new Product2(Name='TestProd', type_of_quote__c='COTIZADOR', ProductCode='PC00012');
+            Final Product2 testPr = new Product2(Name='TestProd', type_of_quote__c='COTIZADOR', ProductCode='PC00012');
             insert testPr;
             
-            Pricebook2 testPB = new Pricebook2(CurrencyIsoCode='PEN', Name='MyPrice');
+            Final Pricebook2 testPB = new Pricebook2(CurrencyIsoCode='PEN', Name='MyPrice');
             insert testPB;
-            Id pricebookId = Test.getStandardPricebookId();
+            Final Id pricebookId = Test.getStandardPricebookId();
     
-            PricebookEntry testPE = new PricebookEntry(UnitPrice=120, CurrencyIsoCode='PEN', Pricebook2Id=pricebookId, Product2Id=testPr.Id, IsActive=true);
+            Final PricebookEntry testPE = new PricebookEntry(UnitPrice=120, CurrencyIsoCode='PEN', Pricebook2Id=pricebookId, Product2Id=testPr.Id, IsActive=true);
             insert testPE;
             
-            OpportunityLineItem testLOPP = new OpportunityLineItem(TotalPrice=120, OpportunityId=testOP.Id, PricebookEntryId=testPE.Id, Quantity=1, gipr_Tipo_Garantia__c='03', 
+            Final OpportunityLineItem testLOPP = new OpportunityLineItem(TotalPrice=120, OpportunityId=testOP.Id, PricebookEntryId=testPE.Id, Quantity=1, gipr_Tipo_Garantia__c='03', 
                                                                   Product2Id=testPr.Id);
             insert testLOPP;
         }
@@ -69,7 +69,7 @@ public class AssistantFormalization_helper_tst {
         Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c='EJECUTIVO BEC' limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name = 'TEST Formalization' limit 1];
         Map<String, Object> mapRes;
-        System.runAs(ejecutivo){
+        System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,'btnApprove','Comentarios de envio a formalización','obs');
         }
         Test.startTest();
@@ -113,10 +113,9 @@ public class AssistantFormalization_helper_tst {
     public static void reasignCase_Assistant_Success_Test() {
         Final User us = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
         Map<String, Object> mapRes;
-        User[] usuarios;
         User ejecutivo, asistente;
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name = 'TEST Formalization' limit 1];
-        usuarios = [SELECT ID, prof_position_type__c FROM User WHERE prof_position_type__c IN ('ASISTENTE BEC', 'EJECUTIVO BEC') limit 2];
+        Final User[] usuarios = [SELECT ID, prof_position_type__c FROM User WHERE prof_position_type__c IN ('ASISTENTE BEC', 'EJECUTIVO BEC') limit 2];
         for(User u:usuarios) {
             if(u.prof_position_type__c == 'ASISTENTE BEC') {
                 asistente = u;
@@ -147,7 +146,7 @@ public class AssistantFormalization_helper_tst {
             Product_cls.setFormalization(opp.Id,'btnApprove','Comentarios de envio a formalización','obs');
 			Formalization_Helper_tst.setFormalizationGroupAssistant();
         }
-        User asistente = [SELECT ID FROM User WHERE prof_position_type__c='ASISTENTE BEC' limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c='ASISTENTE BEC' limit 1];
         Map<String, Object> mapRes;
         Test.startTest();
         System.runAs(asistente) {
