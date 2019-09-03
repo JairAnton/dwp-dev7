@@ -1,9 +1,17 @@
+/**
+* ------------------------------------------------------------------------------------------------
+* @Name ReOwnerFormalization_ValidationClass_tst
+* @Author Diego Carbajal diego.carbajal.contractor@bbva.com
+* @Date Created: 2019-09-02
+* @Group 
+* @Description Esta clase prueba los metodos de la clase ReOwnerFormalization_ValidationClass
+*/
 @isTest
 public class ReOwnerFormalization_ValidationClass_tst {
 
     @isTest
-    public static void getErrorMessagesList_Test(){
-        User asistente = TestFactory.createUser('userName', 'operativo');
+    public static void getErrorMessagesList_Test() {
+        Final User asistente = TestFactory.createUser('userName', 'operativo');
         Case caso = new Case();
         insert caso;
         list<String> lstErrorMessage = new List<String>();
