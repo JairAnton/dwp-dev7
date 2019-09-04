@@ -8,15 +8,23 @@
 */
 public without sharing class Formalization_helper {
     
+    /*Campo lstQueue utilizado en lso multiples metodos*/
     public static List<Group> lstQueue;
+    /*Campo asistGroup utilizado en lso multiples metodos*/
     public static String asistGroup;
+    /*Campo subgGroup utilizado en lso multiples metodos*/
     public static String subgGroup;
+    
     static {
         asistGroup = 'Asistentes_Operativos';
         subgGroup = 'Subgerentes_Operativos';
         lstQueue = [SELECT ID, developerName FROM Group WHERE developerName IN ('Tier_1_Formalization', 'Tier_2_Formalization') limit 2];
     }
     
+    /* Private Constructor Class Formalization_helper */
+    private Formalization_helper() {}
+    
+    /* Public Method Class createOrUpdateCase */
     public static void createOrUpdateCase(Opportunity opp, String cola, String status) {
         if(opp.opportunity_status_type__c == '20') {
             Formalization_helper.updateCase(opp.Id, 'Formalization');
@@ -25,6 +33,7 @@ public without sharing class Formalization_helper {
         }
     }
     
+    /* Private Method Class createCase */
     private static void createCase(Id oppId, String cola, String status, String rt) {
         try {
             Case caso = new Case();
@@ -43,6 +52,7 @@ public without sharing class Formalization_helper {
         }
     }
     
+    /* Private Method Class updateCase */
     private static void updateCase(Id oppId, String rt) {
         Case caso = [SELECT Id, OwnerId, status, DWP_AssistantOwner__c, DWP_SGofOwner__c FROM Case WHERE opportunity_id__c=:oppId AND recordType.Name=:rt AND 
                      status='06' limit 1];
@@ -52,6 +62,7 @@ public without sharing class Formalization_helper {
         dynamicUpdateCase(caso, mapFields);
     }
     
+    /* Public Method Class reasignCase */
     @AuraEnabled
     public static Map<String, Object> reasignCase(Id caseId) {
         Map<String, Object> mapRes = new Map<String, Object>();
@@ -83,6 +94,7 @@ public without sharing class Formalization_helper {
         return mapRes;
     }
     
+    /* Public Method Class reasignAssOrSG */
     public static Map<String, Object> reasignAssOrSG(Case caso, String equipo, Map<Schema.SObjectField, Object> mapFields) {
         Map<String, Object> mapRes = new Map<String, Object>();
         Final List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName=:equipo];
@@ -109,6 +121,7 @@ public without sharing class Formalization_helper {
         return MapRes;
     }
     
+    /* Public Method Class validateUser */
     public static Map<String, Object> validateUser(Map<String, String> owner, Boolean assistant) {
         Map<String, Object> mapRes = new Map<String, Object>();
         if(owner.get('id') == UserInfo.getUserId()) {
@@ -126,6 +139,7 @@ public without sharing class Formalization_helper {
         return mapRes;
     }
     
+    /* Public Method Class getInfo */
     public static Map<String, Object> getInfo(Id oppId) {
         Map<String, Object> mapRes = new Map<String, Object>();
         mapRes.put('isError', true);
@@ -144,6 +158,7 @@ public without sharing class Formalization_helper {
         return mapRes;
     }
     
+    /* Public Method Class sendProductUnit */
     @AuraEnabled
     public static Map<String, Object> sendProductUnit(Id oppId) {
         Map<String, Object> mapRes = new Map<String, Object>{'isError' => false};
@@ -162,6 +177,7 @@ public without sharing class Formalization_helper {
         return mapRes;
     }
     
+    /* Public Method Class validateDevolutionReason */
     public static Map<String, Object> validateDevolutionReason(String reason, String comments) {
         Map<String, Object> mapRes = new Map<String, Object>{'isError' => true, 'validateError' => 'Reason', 'msgError' => 'Elige un motivo por el cual estás devolviendo la petición.'};
         Final Map<String, String> mapValues = Dwp_Utils_helper.getPicklistValues('Opportunity', 'devolutionReason__c');
@@ -177,6 +193,7 @@ public without sharing class Formalization_helper {
         return mapRes;
     }
     
+    /* Public Method Class validateAssistant */
     public static void dynamicUpdateCase(Case caso, Map<Schema.SObjectField, Object> mapFields) {
         for(Schema.SObjectField sField:mapFields.keySet()) {
             caso.put(sField, mapFields.get(sField));
@@ -187,6 +204,7 @@ public without sharing class Formalization_helper {
         update caso;
     }
     
+    /* Public Method Class dynamicUpdateOpp */
     public static Opportunity dynamicUpdateOpp(Opportunity opp, Map<Schema.SObjectField, Object> mapFields) {
         for(Schema.SObjectField sField:mapFields.keySet()) {
             opp.put(sField, mapFields.get(sField));
@@ -198,6 +216,7 @@ public without sharing class Formalization_helper {
         return opp;
     }
     
+    /* Public Method Class getRolTeam */
     public static Set<String> getRolTeam(String team) {
         Final Dwp_FormalizationRoles__mdt[] lstRol = [SELECT MasterLabel, DeveloperName, Dwp_AssignedTeam__c FROM Dwp_FormalizationRoles__mdt WHERE Dwp_AssignedTeam__c =:team];
         Set<String> setRol=new Set<String>();
@@ -207,6 +226,7 @@ public without sharing class Formalization_helper {
         return setRol;
     }
     
+    /* Public Method Class getGroup */
     public static Map<String, String> getGroup(List<Group> lstGroup, String group1) {
         //Id de grupos
         Map<String, String> mapGrupos = new Map<String, String>();
@@ -219,4 +239,5 @@ public without sharing class Formalization_helper {
         }
         return mapGrupos;
     }
+    
 }

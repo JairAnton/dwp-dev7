@@ -8,15 +8,18 @@
 */
 public with sharing class Dwp_Utils_helper {
 
+    /*Campo IS_ERROR inicializado para soluciones del SonarQ*/
+    public static Final String IS_ERROR = 'isError';
+    
     /*Constructor Dwp_Utils_helper*/
-    public Dwp_Utils_helper() {}
+    private Dwp_Utils_helper() {}
     
     /*Method for validate Regex Format*/
     public static Map<String, Object> validateFormatt(String regex, String input) {
-        Map<String, Object> mapRes = new Map<String, Object>{'isError' => true, 'validateError' => 'Empty'};
+        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, 'validateError' => 'Empty'};
         if(!String.isEmpty(input)) {
             if(Pattern.matches(regex, input)) {
-                mapRes.put('isError', false);
+                mapRes.put(IS_ERROR, false);
             } else {
                 mapRes.put('validateError', 'NoMatches');
             }
@@ -25,11 +28,11 @@ public with sharing class Dwp_Utils_helper {
     }
     
     /*Method to get Picklist values from Picklist field*/
-    public static Map<String, String> getPicklistValues(String objectName, String field_apiname) {
+    public static Map<String, String> getPicklistValues(String objectName, String fieldApiname) {
         Final Map<String, String> mapValues = new Map<String, String>();
         Final Map<String,Schema.SObjectType> ggd = Schema.getGlobalDescribe(); 
         Final Map<String, Schema.SObjectField> fieldMap = ggd.get(objectName.toLowerCase()).getDescribe().fields.getMap(); 
-        Final List<Schema.PicklistEntry> picklistValues = fieldMap.get(field_apiname).getDescribe().getPickListValues();
+        Final List<Schema.PicklistEntry> picklistValues = fieldMap.get(fieldApiname).getDescribe().getPickListValues();
         for (Schema.PicklistEntry pv : picklistValues) {
             mapValues.put(pv.getValue(), pv.getLabel());
         }
@@ -38,11 +41,11 @@ public with sharing class Dwp_Utils_helper {
     
     /*Method to get List View Id*/
     public static Map<String, Object> getListView(String sobj, String devName) {
-        Final Map<String, Object> mapRes=new Map<String, Object>{'isError' => true};
+        Final Map<String, Object> mapRes=new Map<String, Object>{IS_ERROR => true};
         Final List<ListView> listViews = [SELECT Id, Name FROM ListView WHERE SobjectType =: sobj AND DeveloperName =: devName];
         Final Integer listViewsSize= listViews.size();
         if(listViewsSize > 0) {
-            mapRes.put('isError', false);
+            mapRes.put(IS_ERROR, false);
             mapRes.put('listView', listViews);
         }
         return mapRes;

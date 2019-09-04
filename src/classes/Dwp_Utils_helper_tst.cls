@@ -10,7 +10,9 @@
 @isTest
 public class Dwp_Utils_helper_tst {
     
+    /*Campo IS_ERROR inicializado para soluciones del SonarQ*/
     public static Final String IS_ERROR = 'isError';
+    /*Campo ERROR_ASSERT inicializado para soluciones del SonarQ*/
     public static Final String ERROR_ASSERT = 'Error Assertion';
     
     /* isTest - validateFormattSuccessTest */
@@ -40,7 +42,8 @@ public class Dwp_Utils_helper_tst {
         Test.startTest();
         mapRes = Dwp_Utils_helper.getPicklistValues('Case', 'status');
         Test.stopTest();
-        Boolean result = mapRes.size() > 0 ? true : false;
+        Final Integer mapSize = mapRes.size();
+        Final Boolean result = mapSize > 0 ? true : false;
         System.assertEquals(true, result, ERROR_ASSERT);
     }
     

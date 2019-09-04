@@ -1,4 +1,4 @@
-/**
+/*
 * ------------------------------------------------------------------------------------------------
 * @Name FormalizationAssit_ValidationClass_tst
 * @Author Diego Carbajal diego.carbajal.contractor@bbva.com
@@ -21,7 +21,7 @@ public class FormalizationAssit_ValidationClass_tst {
             lstErrorMessage = FormalizationAssistant_ValidationClass.getErrorMessagesList(caso.Id, '', '');
         }
         Test.stopTest();
-        Final Integer lstErrorMessageSize = lstErrorMessage.size();
-        System.assertEquals(1, lstErrorMessageSize, 'Assertion Error');
+        Final Integer lstErroSize = lstErrorMessage.size();
+        System.assertEquals(1, lstErroSize, 'Assertion Error');
     }
 }
