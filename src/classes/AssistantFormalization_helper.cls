@@ -48,7 +48,7 @@ public without sharing class AssistantFormalization_helper {
             mapRes = validateAssistant(oppId);
             Final Boolean errorAssist = (Boolean)mapRes.get(IS_ERROR) ? false : true;
             if(errorAssist) {
-                Case[] caso = [SELECT Id, opportunity_id__c FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('01','05') limit 1];
+                Final Case[] caso = [SELECT Id, opportunity_id__c FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('01','05') limit 1];
                 Final Map<Schema.SObjectField, Object> mapValues = new Map<Schema.SObjectField, Object>{Case.OwnerId => UserInfo.getUserId(), Case.bypass__c => true, 
                     Case.DWP_AssistantOwner__c => UserInfo.getUserId(), Case.status => '05'};
                 mapRes = Formalization_helper.reasignAssOrSG(caso[0], 'Asistentes_Operativos', mapValues);
@@ -111,9 +111,7 @@ public without sharing class AssistantFormalization_helper {
                         mapRes.put(IS_ERROR, false);
                         mapRes.put('msgSuccess', '¡Has enviado a formalizar la oportunidad exitosamente!');
                         mapRes.put('listView', ((Boolean)lstView.get(IS_ERROR) ? '' : view[0].Id));
-                    } else {
-                        mapRes.put(MSG_ERROR, 'Coloca un número de contrato para enviar a formalizar la oportunidad.');
-                    }
+                    } else mapRes.put(MSG_ERROR, 'Coloca un número de contrato para enviar a formalizar la oportunidad.');
                 }
                 when 'returnByDocumentation' {
                     Final Map<String, Object> mapReason = Formalization_helper.validateDevolutionReason(devolutionReason, comments);
@@ -129,9 +127,7 @@ public without sharing class AssistantFormalization_helper {
                         mapRes.put(IS_ERROR, false);
                         mapRes.put('msgSuccess', '¡Has devuelto exitosamente la petición N° '+ caso[0].CaseNumber + ' al ejecutivo!');
                         mapRes.put('listView', ((Boolean)lstView.get(IS_ERROR) ? '' : view[0].Id));
-                    } else {
-                        mapRes.put(MSG_ERROR,(String)mapReason.get(MSG_ERROR));
-                    }
+                    } else mapRes.put(MSG_ERROR,(String)mapReason.get(MSG_ERROR));
                 }
                 when else {
                     mapRes.put(MSG_ERROR, Label.Dwp_msgGenericError);
@@ -142,5 +138,5 @@ public without sharing class AssistantFormalization_helper {
         }
         return mapRes;
     }
-     
+
 }

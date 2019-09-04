@@ -9,17 +9,11 @@
 public without sharing class Formalization_helper {
     
     /*Campo lstQueue utilizado en lso multiples metodos*/
-    public static List<Group> lstQueue;
+    public static Final List<Group> lstQueue = [SELECT ID, developerName FROM Group WHERE developerName IN ('Tier_1_Formalization', 'Tier_2_Formalization') limit 2];
     /*Campo asistGroup utilizado en lso multiples metodos*/
-    public static String asistGroup;
+    public static Final String asistGroup = 'Asistentes_Operativos';
     /*Campo subgGroup utilizado en lso multiples metodos*/
-    public static String subgGroup;
-    
-    static {
-        asistGroup = 'Asistentes_Operativos';
-        subgGroup = 'Subgerentes_Operativos';
-        lstQueue = [SELECT ID, developerName FROM Group WHERE developerName IN ('Tier_1_Formalization', 'Tier_2_Formalization') limit 2];
-    }
+    public static Final String subgGroup = 'Subgerentes_Operativos';
     
     /* Private Constructor Class Formalization_helper */
     private Formalization_helper() {}
@@ -34,17 +28,12 @@ public without sharing class Formalization_helper {
     }
     
     /* Private Method Class createCase */
-    private static void createCase(Id oppId, String cola, String status, String rt) {
+    private static void createCase(Id oppId, String cola, String status, String rtName) {
         try {
-            Case caso = new Case();
-            Final List<RecordType> lstRT = [SELECT Id, Name FROM RecordType WHERE sObjectType='Case' AND DeveloperName=:rt];
+            Final List<RecordType> lstRT = [SELECT Id, Name FROM RecordType WHERE sObjectType='Case' AND DeveloperName=:rtName];
             Final List<Group> queue = [SELECT Id, DeveloperName FROM Group WHERE Type='Queue' AND DeveloperName=:cola];
             Final Opportunity opp = [SELECT Id, AccountId FROM Opportunity WHERE Id=:oppId];
-            caso.AccountId = opp.AccountId;
-            caso.OwnerId = queue[0].Id;
-            caso.Status = status;
-            caso.opportunity_id__c = oppId;
-            caso.recordTypeId=lstRT[0].Id;
+            Final Case caso = new Case(AccountId = opp.AccountId, OwnerId = queue[0].Id, Status = status, opportunity_id__c = oppId, recordTypeId = lstRT[0].Id);
             insert caso;
         } catch(Exception e) {
             System.debug('***No se pudo generar el caso***');
@@ -53,43 +42,43 @@ public without sharing class Formalization_helper {
     }
     
     /* Private Method Class updateCase */
-    private static void updateCase(Id oppId, String rt) {
-        Case caso = [SELECT Id, OwnerId, status, DWP_AssistantOwner__c, DWP_SGofOwner__c FROM Case WHERE opportunity_id__c=:oppId AND recordType.Name=:rt AND 
+    private static void updateCase(Id oppId, String rtName) {
+        Final Case caso = [SELECT Id, OwnerId, status, DWP_AssistantOwner__c, DWP_SGofOwner__c FROM Case WHERE opportunity_id__c=:oppId AND recordType.Name=:rtName AND 
                      status='06' limit 1];
         Final Map<String, String> mapGroups = getGroup(lstQueue, 'Tier_1_Formalization');
         Final String estado = (String.isEmpty(caso.DWP_AssistantOwner__c) && caso.OwnerId != mapGroups.get('grp1') ? '08' : '05');
-        Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object>{Case.status => estado};
-        dynamicUpdateCase(caso, mapFields);
+        dynamicUpdateCase(caso, new Map<Schema.SObjectField, Object>{Case.status => estado});
     }
     
     /* Public Method Class reasignCase */
     @AuraEnabled
     public static Map<String, Object> reasignCase(Id caseId) {
-        Map<String, Object> mapRes = new Map<String, Object>();
-        //Roles de Asistentes
-        Final Set<String> rolAsis = getRolTeam(asistGroup);
-        //Roles de Subgerentes
-        Final Set<String> rolSG = getRolTeam(subgGroup);
-        //Obtener Registro de Miembro en el equipo de formalización correcto
-        GroupMember[] lstMember = [SELECT Id, Group.DeveloperName FROM GroupMember WHERE Group.DeveloperName IN ('Asistentes_Operativos', 'Subgerentes_Operativos') AND 
-                                   UserOrGroupId=:UserInfo.getUserId() ];
-        Final Integer lstMemberSize = lstMember.size();
-        Final User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
-        Case[] caso = [SELECT Id, OwnerId, status, Opportunity_id__c, DWP_AssistantOwner__c, DWP_SGofOwner__c FROM Case WHERE Id=:caseId];
-        Map<Schema.SObjectField, Object> mapValues = new Map<Schema.SObjectField, Object>{Case.OwnerId => UserInfo.getUserId(), Case.bypass__c => true};
-        if(lstMemberSize > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
-           (caso[0].status=='01' || (caso[0].status=='05' || caso[0].status=='09' && String.isEmpty(caso[0].DWP_AssistantOwner__c)))) {
-            mapValues.put(Case.status, '05');
-            mapValues.put(Case.DWP_AssistantOwner__c, UserInfo.getUserId());
-            mapRes = reasignAssOrSG(caso[0], asistGroup, mapValues);
-        } else if(lstMemberSize > 0 && rolSG.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
-                 (caso[0].status=='07' || (caso[0].status=='08' && String.isEmpty(caso[0].DWP_SGofOwner__c)))) {
-            mapValues.put(Case.status, '08');
-            mapValues.put(Case.DWP_SGofOwner__c, UserInfo.getUserId());
-            mapRes = reasignAssOrSG(caso[0], subgGroup, mapValues);
-        } else {
-            mapRes.put('isError', true);
-            mapRes.put('msgError', Label.Dwp_msgGenericError);
+        Map<String, Object> mapRes = new Map<String, Object>{'isError' => true, 'msgError' => Label.Dwp_msgGenericError};
+        try {
+            //Roles de Asistentes
+            Final Set<String> rolAsis = getRolTeam(asistGroup);
+            //Roles de Subgerentes
+            Final Set<String> rolSG = getRolTeam(subgGroup);
+            //Obtener Registro de Miembro en el equipo de formalización correcto
+            Final GroupMember[] lstMember = [SELECT Id, Group.DeveloperName FROM GroupMember WHERE Group.DeveloperName IN ('Asistentes_Operativos', 'Subgerentes_Operativos') AND 
+                                       UserOrGroupId=:UserInfo.getUserId() ];
+            Final Integer lstMemberSize = lstMember.size();
+            Final User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
+            Final Case[] caso = [SELECT Id, OwnerId, status, Opportunity_id__c, DWP_AssistantOwner__c, DWP_SGofOwner__c FROM Case WHERE Id=:caseId];
+            Map<Schema.SObjectField, Object> mapValues = new Map<Schema.SObjectField, Object>{Case.OwnerId => UserInfo.getUserId(), Case.bypass__c => true};
+            if(lstMemberSize > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
+               (caso[0].status=='01' || (caso[0].status=='05' || caso[0].status=='09' && String.isEmpty(caso[0].DWP_AssistantOwner__c)))) {
+                mapValues.put(Case.status, '05');
+                mapValues.put(Case.DWP_AssistantOwner__c, UserInfo.getUserId());
+                mapRes = reasignAssOrSG(caso[0], asistGroup, mapValues);
+            } else if(lstMemberSize > 0 && rolSG.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
+                     (caso[0].status=='07' || (caso[0].status=='08' && String.isEmpty(caso[0].DWP_SGofOwner__c)))) {
+                mapValues.put(Case.status, '08');
+                mapValues.put(Case.DWP_SGofOwner__c, UserInfo.getUserId());
+                mapRes = reasignAssOrSG(caso[0], subgGroup, mapValues);
+            }
+        } catch(AuraHandledException e) {
+            throw e;
         }
         return mapRes;
     }
