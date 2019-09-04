@@ -147,22 +147,22 @@ public without sharing class Product_cls {
     }
     @AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body,String AttachedFiles) {
         //Productos que siguen el flujo de Formalización con el Asistente
-        Final Dwp_FormalizationProducts_AAC__c[] prdAssistFormalization = Dwp_FormalizationProducts_AAC__c.getAll().values();
-        Final Set<String> prdToFormalization = new Set<String>();
-        for(Dwp_FormalizationProducts_AAC__c prd:prdAssistFormalization) {
-            prdToFormalization.add(prd.Product_Code__c);
+        Final Dwp_FormalizationProducts_AAC__c[] prdAssistForm = Dwp_FormalizationProducts_AAC__c.getAll().values();
+        Final Set<String> prdToForm = new Set<String>();
+        for(Dwp_FormalizationProducts_AAC__c prd:prdAssistForm) {
+            prdToForm.add(prd.Product_Code__c);
         }
         try {   
             List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId, 
-                                        (SELECT Id, ProductCode FROM OpportunityLineItems WHERE ProductCode IN:prdToFormalization) FROM Opportunity WHERE Id=: OpportunityId];
-            if(!itemOpp.isEmpty()) {
-                //Si tiene un producto en prdToFormalization, pasará por el Asistente
-                Final Integer oliSize = itemOpp[0].OpportunityLineItems.size();
+                                        (SELECT Id, ProductCode FROM OpportunityLineItems WHERE ProductCode IN:prdToForm) FROM Opportunity WHERE Id=: OpportunityId];
+            Final Integer itemOppSize = itemOpp.size();
+            if(itemOppSize > 0) {
                 if(Action=='btnApprove') {
                     itemOpp[0].IsProcess__c=true;
                     update itemOpp[0];
                     itemOpp[0].StageName=label.lblFormalizarEtapa;
-                    //Enviar al Asistente
+                    //Si tiene un producto en prdToForm, pasará por el Asistente
+                	Final Integer oliSize = itemOpp[0].OpportunityLineItems.size();
                     if(oliSize > 0){
                         Formalization_helper.createOrUpdateCase(itemOpp[0], 'Tier_1_Formalization', '01');
                         itemOpp[0].opportunity_status_type__c='25';

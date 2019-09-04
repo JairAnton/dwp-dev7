@@ -102,7 +102,7 @@ public class Formalization_Helper_tst {
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
         Final Integer lstCaseSize = lstCases.size();
         Final Boolean assertion = lstCaseSize == 1 ? true : false;
-        System.assert(assertion);
+        System.assert(assertion, 'ASSERTION');
     }
     
     /* testSetup - createCaseAssistantSuccessTest */
@@ -118,7 +118,7 @@ public class Formalization_Helper_tst {
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
         Final Integer lstCaseSize = lstCases.size();
         Final Boolean assertion = lstCaseSize == 1 ? true : false;
-        System.assert(assertion);
+        System.assert(assertion, 'ASSERTION');
     }
     
     /* testSetup - sendProductUnitSuccessTest */
@@ -192,7 +192,7 @@ public class Formalization_Helper_tst {
         Boolean validate;
         Test.startTest();
         System.runAs(asistente) {
-            validate = PrincipalValidationHub.Condition6(caso.id);
+            validate = PrincipalValidationHub.condition6(caso.id);
         }
         Test.stopTest();
         System.assertEquals(true, validate, FAIL);
@@ -231,7 +231,7 @@ public class Formalization_Helper_tst {
         Boolean validate;
         Test.startTest();
         System.runAs(asistente) {
-            validate = PrincipalValidationHub.Condition7(caso.id);
+            validate = PrincipalValidationHub.condition7(caso.id);
         }
         Test.stopTest();
         System.assertEquals(true, validate, FAIL);
@@ -250,7 +250,7 @@ public class Formalization_Helper_tst {
         Boolean validate;
         Test.startTest();
         System.runAs(asistente) {
-            validate = PrincipalValidationHub.Condition7(caso.id);
+            validate = PrincipalValidationHub.condition7(caso.id);
         }
         Test.stopTest();
         System.assertEquals(false, validate, FAIL);

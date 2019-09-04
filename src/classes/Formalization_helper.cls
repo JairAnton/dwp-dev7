@@ -8,17 +8,17 @@
 */
 public without sharing class Formalization_helper {
     
-    /*Campo MSG_ERROR inicializado para soluciones del SonarQ*/
+    //Campo MSG_ERROR inicializado para soluciones del SonarQ
     public static Final String MSG_ERROR = 'msgError';
-    /*Campo IS_ERROR inicializado para soluciones del SonarQ*/
+    //Campo IS_ERROR inicializado para soluciones del SonarQ
     public static Final String IS_ERROR = 'isError';
-    /*Campo MSG inicializado para soluciones del SonarQ*/
+    //Campo MSG inicializado para soluciones del SonarQ
     public static Final String MSG = 'msg';
-    /*Campo LST_QUEUE utilizado en los multiples metodos*/
+    //Campo LST_QUEUE utilizado en los multiples metodos
     public static Final List<Group> LST_QUEUE = [SELECT ID, developerName FROM Group WHERE developerName IN ('Tier_1_Formalization', 'Tier_2_Formalization') limit 2];
-    /*Campo ASSIST_GROUP utilizado en los multiples metodos*/
+    //Campo ASSIST_GROUP utilizado en los multiples metodos
     public static Final String ASSIST_GROUP = 'Asistentes_Operativos';
-    /*Campo SUBG_GROUP utilizado en los multiples metodos*/
+    //Campo SUBG_GROUP utilizado en los multiples metodos
     public static Final String SUBG_GROUP = 'Subgerentes_Operativos';
     
     /* Private Constructor Class Formalization_helper */
@@ -72,7 +72,7 @@ public without sharing class Formalization_helper {
             Final Case[] caso = [SELECT Id, OwnerId, status, Opportunity_id__c, DWP_AssistantOwner__c, DWP_SGofOwner__c FROM Case WHERE Id=:caseId];
             Final Map<Schema.SObjectField, Object> mapValues = new Map<Schema.SObjectField, Object>{Case.OwnerId => UserInfo.getUserId(), Case.bypass__c => true};
             if(lstMemberSize > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
-               (caso[0].status=='01' || (caso[0].status=='05' || caso[0].status=='09' && String.isEmpty(caso[0].DWP_AssistantOwner__c))) ) {
+               (caso[0].status=='01' || (caso[0].status=='05' || caso[0].status=='09' && String.isEmpty(caso[0].DWP_AssistantOwner__c)) ) ) {
                 mapValues.put(Case.status, '05');
                 mapValues.put(Case.DWP_AssistantOwner__c, UserInfo.getUserId());
                 mapRes = reasignAssOrSG(caso[0], ASSIST_GROUP, mapValues);
@@ -174,7 +174,7 @@ public without sharing class Formalization_helper {
     
     /* Public Method Class validateDevolutionReason */
     public static Map<String, Object> validateDevolutionReason(String reason, String comments) {
-        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, 'validateError' => 'Reason', MSG_ERROR => 'Elige un motivo por el cual estás devolviendo la petición.'};
+        Final Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, 'validateError' => 'Reason', MSG_ERROR => 'Elige un motivo por el cual estás devolviendo la petición.'};
         Final Map<String, String> mapValues = Dwp_Utils_helper.getPicklistValues('Opportunity', 'devolutionReason__c');
         if(mapValues.containsKey(reason)) {
             mapRes.put(IS_ERROR, false);
@@ -224,7 +224,7 @@ public without sharing class Formalization_helper {
     /* Public Method Class getGroup */
     public static Map<String, String> getGroup(List<Group> lstGroup, String group1) {
         //Id de grupos
-        Map<String, String> mapGrupos = new Map<String, String>();
+        Final Map<String, String> mapGrupos = new Map<String, String>();
         if(lstGroup[0].DeveloperName == group1) {
             mapGrupos.put('grp1', lstGroup[0].Id);
             mapGrupos.put('grp2', lstGroup[1].Id);

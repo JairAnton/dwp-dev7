@@ -14,7 +14,7 @@ global class FormalizationAssistant_ValidationClass implements dwp_dbpn.DynamicF
     /* Method getErrorMessagesList*/
     global static List<String> getErrorMessagesList(String recordId, String source, String validationClass) {
             list<String> lstErrorMessage = new List<String>();
-            if(PrincipalValidationHub.Condition6(recordId)) {
+            if(PrincipalValidationHub.condition6(recordId)) {
                 lstErrorMessage.add(Label.Error_validation_06);
             }       
             return lstErrorMessage;

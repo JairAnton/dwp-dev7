@@ -18,10 +18,11 @@ global class PrincipalValidationHub {
     global static Boolean Condition1(String recordId) {
  		Final List<Opportunity> opps = [Select Id,OwnerId,Owner.Name,Branch_id__c from Opportunity where Id=:recordId];
         Final List<Profile> profiles = [Select Id, Name from profile where Id=:UserInfo.getProfileId()];
+        Boolean result = true;
         if((profiles[0].Name == admin )||(profiles[0].Name == sysAdmin)||(opps[0].OwnerId == UserInfo.getUserId())) {        
-            return false;
+            result = false;
         }
-        return true;
+        return result;
     }
     
     /* User with administrator or opportunity owner profile or user with Executive profile 
@@ -155,41 +156,43 @@ global class PrincipalValidationHub {
 		return !(users[0].profile.Name == admin || users[0].profile.Name == sysAdmin || users[0].profile.Name == operative);
 	}
     
-    global static Boolean Condition6(String recordId) {
+    /* Method to validate Formalization Process*/
+    global static Boolean condition6(String recordId) {
         Final Set<String> rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
         Final User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
         Final List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName='Asistentes_Operativos'];
         Final List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:grupo[0].Id AND UserOrGroupId=:UserInfo.getUserId()];
         Final Integer memberSize = members.size();
+        Boolean result = false;
         if(!((memberSize > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative) || 
-           (usuario.Profile.Name == admin || usuario.Profile.Name == sysAdmin ))) {
-            return true;
+           (usuario.Profile.Name == admin || usuario.Profile.Name == sysAdmin )) ) {
+            result = true;
         }
-        return false;
+        return result;
     }
     
-    global static Boolean Condition7(String recordId) {
+    /* Method to validate Formalization Process*/
+    global static Boolean condition7(String recordId) {
         Final Set<String> rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
         Final Set<String> rolSubg = Formalization_helper.getRolTeam('Subgerentes_Operativos');
         Final User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
         Final Case caso = [SELECT Id, status, Dwp_assistantOwner__c, Dwp_SgofOwner__c FROM Case WHERE Id=:recordId];
         Final List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName IN ('Asistentes_Operativos','Subgerentes_Operativos')];
         Final Map<String, String> mapGroup = Formalization_helper.getGroup(grupo, 'Asistentes_Operativos');
-        Final Id idAsis = mapGroup.get('grp1');
-        Final Id idSub = mapGroup.get('grp2');
         Final List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:mapGroup.values() AND UserOrGroupId=:UserInfo.getUserId()];
         Final Integer memberSize = members.size();
+        Boolean result = false;
         //Usuario asistente en el grupo "Asistentes_Operativos", con rol Asistente, con perfil Operativo, 
         //con caso en estado "Nuevo", o caso en estado "Asignado AAC"/"Devuelto AAC" y sin asistente asignado.
         //Usuario subgerente en el grupo "Subgerentes_Operativos", con rol subgerente, con perfil Operativo, 
         //con caso en estado "Elevado", o caso en estado "Asignado Sgof" y sin subgerente asignado.
         if(!((memberSize > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative && 
-            (caso.status == '01' || (caso.status == '05' || caso.status == '09' && String.isEmpty(caso.Dwp_assistantOwner__c)) )) ||
+            (caso.status == '01' || (caso.status == '05' || caso.status == '09' && String.isEmpty(caso.Dwp_assistantOwner__c)) ) ) ||
            (memberSize > 0 && rolSubg.contains(usuario.prof_position_id__c) && usuario.profile.Name==operative && 
              (caso.status == '07' || (caso.status == '08' && String.isEmpty(caso.Dwp_SgofOwner__c)) )) || 
-            (usuario.Profile.Name == admin || usuario.Profile.Name == sysAdmin ) )) {
-                 return true;
+            (usuario.Profile.Name == admin || usuario.Profile.Name == sysAdmin ) ) ) {
+                 result = true;
              }
-        return false;
+        return result;
     }
 }
