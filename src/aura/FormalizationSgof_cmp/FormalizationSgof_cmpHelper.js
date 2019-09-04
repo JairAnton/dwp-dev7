@@ -9,7 +9,7 @@
                 if(!res.isError) {
                     var cmpView = component.find("view");
                     cmpView.set("v.recordIdParent", component.get("v.inputAttributes.recordId"));
-                    if(res.property == 'Empty' || res.property == 'Assigned') {
+                    if(res.property === 'Empty' || res.property === 'Assigned') {
                         component.set("v.title", 'Reasignarse petición');
                         component.set("v.lblContinue", "Asignarmela");
                         cmpView.set("v.msgProperty", res.msg);
@@ -132,5 +132,5 @@
         });
         nav.fire();
     }
-    
+
 })

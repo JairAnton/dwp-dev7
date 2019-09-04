@@ -24,5 +24,5 @@
         });
         $A.enqueueAction(action);
 	}
-    
+
 })

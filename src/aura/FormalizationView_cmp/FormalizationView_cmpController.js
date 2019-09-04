@@ -33,10 +33,10 @@
     },
     getFileName : function (cmp,event,helper) {
         var param= event.getParam("FileName");
-     	cmp.set("v.fileName",param);     
+     	cmp.set("v.fileName",param);
     },
     closeAlert : function(cmp, evt, helper) {
        	cmp.set("v.showAlert", false);
     }
-    
+
 })
