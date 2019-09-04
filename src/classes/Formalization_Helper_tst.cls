@@ -35,7 +35,7 @@ public class Formalization_Helper_tst {
             prdAssistForm.add(new Dwp_FormalizationProducts_AAC__c(Name=prd, Product_Code__c=prd));
         }
         insert prdAssistForm;
-        Final User u = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
+        Final User admin = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
         /*Crea Asistente Operativo*/
         Final String perfil=[SELECT Id FROM Profile WHERE name='Operativo'].Id;
         Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC'/*, User.prof_position_id__c => 'E06'*/};
@@ -52,7 +52,7 @@ public class Formalization_Helper_tst {
         Final User userExecutive = TestFactory.getUser(true, mapFields);
         //Create Account's
         Account acc;
-        System.runAs(u) { 
+        System.runAs(admin) { 
             mapFields=new Map<Schema.SObjectField, Object>{Account.OwnerId => userExecutive.Id, Account.Name => 'CLIENTE OPORTUNIDAD'};
              acc = TestFactory.getAccount(true, mapFields);
             
@@ -94,10 +94,9 @@ public class Formalization_Helper_tst {
     public static void createCaseSgofSuccessTest() {
     	Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        String res;
         Test.startTest();
         System.runAs(ejecutivo) {
-            res = Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Test.stopTest();
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
@@ -110,10 +109,9 @@ public class Formalization_Helper_tst {
     public static void createCaseAssistantSuccessTest() {
     	Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        String res;
         Test.startTest();
         System.runAs(ejecutivo) {
-            res = Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Test.stopTest();
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
@@ -181,7 +179,6 @@ public class Formalization_Helper_tst {
     /* testSetup - condition6SuccessTest */
     @isTest
     public static void condition6SuccessTest() {
-        Map<String, Object> mapRes = new Map<String, Object>();
         Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
@@ -202,7 +199,6 @@ public class Formalization_Helper_tst {
     /* testSetup - condition6ErrorTest */
     @isTest
     public static void condition6ErrorTest() {
-        Map<String, Object> mapRes = new Map<String, Object>();
         Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name = 'TEST Formalization 2' limit 1];
         System.runAs(ejecutivo) {
@@ -222,7 +218,6 @@ public class Formalization_Helper_tst {
     /* testSetup - condition7SuccessTest */
     @isTest
     public static void condition7SuccessTest() {
-        Map<String, Object> mapRes = new Map<String, Object>();
         Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
@@ -243,7 +238,6 @@ public class Formalization_Helper_tst {
     /* testSetup - condition7ErrorTest */
     @isTest
     public static void condition7ErrorTest() {
-        Map<String, Object> mapRes = new Map<String, Object>();
         Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {

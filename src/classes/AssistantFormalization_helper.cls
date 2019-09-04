@@ -34,8 +34,8 @@ public without sharing class AssistantFormalization_helper {
                 mapRes.put(IS_ERROR, true);
                 mapRes.put(MSG_ERROR, Label.Dwp_msgGenericError);
             }   
-        } catch(Exception e) {
-            throw new AuraHandledException(e.getMessage());
+        } catch(AuraHandledException e) {
+            throw e;
         }
         return mapRes;
     }
@@ -57,8 +57,8 @@ public without sharing class AssistantFormalization_helper {
                     mapRes.put('msgSuccess', '¡Te asignaste la petición exitosamente! Ahora puedes enviar a formalizar esta oportunidad.');
                 }
             }
-        } catch(Exception e) {
-            throw new AuraHandledException(e.getMessage());
+        } catch(AuraHandledException e) {
+            throw e;
         }
         
         return mapRes;
@@ -69,8 +69,8 @@ public without sharing class AssistantFormalization_helper {
     public static Map<String, Object> getData(Id oppId) {
         try {
             return Formalization_helper.getInfo(oppId);
-        } catch(Exception e) {
-            throw new AuraHandledException(e.getMessage());
+        } catch(AuraHandledException e) {
+            throw e;
         }
     }
     
@@ -137,8 +137,8 @@ public without sharing class AssistantFormalization_helper {
                     mapRes.put(MSG_ERROR, Label.Dwp_msgGenericError);
                 }
             }
-        } catch(Exception e) {
-            throw new AuraHandledException(e.getMessage());
+        } catch(AuraHandledException e) {
+            throw e;
         }
         return mapRes;
     }
