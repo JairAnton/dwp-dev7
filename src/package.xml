@@ -513,14 +513,6 @@
     </types>-->
 	<types>
         <members>Dwp_Notification_Formalization_Request</members>
-        <name>FlowDefinition</name>
-    </types>
-    <types>
-        <members>Dwp_Notification_Operative_Formalization</members>
-        <name>FlowDefinition</name>
-    </types>
-	<types>
-        <members>Dwp_Notification_Formalization_Request</members>
         <name>Flow</name>
     </types>
     <types>
