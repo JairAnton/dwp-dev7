@@ -26,46 +26,46 @@ public class OpportunityChatterNotifications {
             for(Opportunity oppChanged : oppStatusChangedList) {
                 switch on oppChanged.opportunity_status_type__c {
                     when '10' {
-                        status10.add(oppChanged.ID);                 
+                        status10.add(oppChanged.ID);
                     }
                     when '13' {
-                        status13.add(oppChanged.ID);                 
+                        status13.add(oppChanged.ID);
                     }
                     when '19' {
-                        status19.add(oppChanged.ID);                      
+                        status19.add(oppChanged.ID);
                     }
                     when '23' {
-                        status23.add(oppChanged.ID);                  
+                        status23.add(oppChanged.ID);
                     }
                     when '12' {
-                        status12.add(oppChanged.ID);                   
+                        status12.add(oppChanged.ID);
                     }
                     when '24' {
-                        status24.add(oppChanged.ID);                   
+                        status24.add(oppChanged.ID);
                     }
                     when '18' {
                         status18.add(oppChanged.ID);
                     }
                     when '17' {
-                        status17.add(oppChanged.ID);                
+                        status17.add(oppChanged.ID);
                     }
                     when '08' {
-                        status08.add(oppChanged.ID);                 
+                        status08.add(oppChanged.ID);
                     }
                     when '11' {
-                        status11.add(oppChanged.ID);                 
+                        status11.add(oppChanged.ID);
                     }
                     when '09' {
-                        status09.add(oppChanged.ID);                      
+                        status09.add(oppChanged.ID);
                     }
                     when '22' {
-                        status22.add(oppChanged.ID);                  
+                        status22.add(oppChanged.ID);
                     }
                     when '21' {
-                        status21.add(oppChanged.ID);                  
+                        status21.add(oppChanged.ID);
                     }
                     when '20' {
-                        status20.add(oppChanged.ID);                  
+                        status20.add(oppChanged.ID);
                     }
                 }
             }
@@ -75,13 +75,13 @@ public class OpportunityChatterNotifications {
             if(!status13.isEmpty()) {
                 DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status13, 'Opportunity', 'DENIED_PRICE');
             }
-            if(!status19.isEmpty()) {
-               /* DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION_OPERATIVE');
-                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION');*/
+            /*if(!status19.isEmpty()) {
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION_OPERATIVE');
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status19, 'Opportunity', 'SENT_FORMALIZATION');
             }
             if(!status23.isEmpty()) {
-                //DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status23, 'Opportunity', 'FORMALIZE');
-            }
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status23, 'Opportunity', 'FORMALIZE');
+            }*/
             if(!status12.isEmpty()) {
                 DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status12, 'Opportunity', 'SENT_PRICE_REEVALUATION');
             }
@@ -106,12 +106,12 @@ public class OpportunityChatterNotifications {
             if(!status22.isEmpty()) {
                 DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status22, 'Opportunity', 'REJECT');
             }
-            if(!status21.isEmpty()) {
-               // DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status21, 'Opportunity', 'SENT_PRODUCT_UNIT');
+            /*if(!status21.isEmpty()) {
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status21, 'Opportunity', 'SENT_PRODUCT_UNIT');
             }
             if(!status20.isEmpty()) {
-                //DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status20, 'Opportunity', 'DENIED_FORMALIZATION');
-            }
+                DynamicBatchChatterNotification.getDynamicBatchChatterNotification(status20, 'Opportunity', 'DENIED_FORMALIZATION');
+            }*/
         }
     }
     

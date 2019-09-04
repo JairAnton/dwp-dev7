@@ -1,10 +1,10 @@
-/**
-* ------------------------------------------------------------------------------------------------
-* @Name Formalization_helper
-* @Author Diego Carbajal diego.carbajal.contractor@bbva.com
-* @Date Created: 2019-08-28
-* @Group 
-* @Description Esta clase general gestiona las multiples fases del proceso de formalización
+/*
+------------------------------------------------------------------------------------------------
+@Name Formalization_helper
+@Author Diego Carbajal diego.carbajal.contractor@bbva.com
+@Date Created: 2019-08-28
+@Group 
+@Description Esta clase general gestiona las multiples fases del proceso de formalización
 */
 public without sharing class Formalization_helper {
     
@@ -12,6 +12,8 @@ public without sharing class Formalization_helper {
     public static Final String MSG_ERROR = 'msgError';
     /*Campo IS_ERROR inicializado para soluciones del SonarQ*/
     public static Final String IS_ERROR = 'isError';
+    /*Campo MSG inicializado para soluciones del SonarQ*/
+    public static Final String MSG = 'msg';
     /*Campo LST_QUEUE utilizado en los multiples metodos*/
     public static Final List<Group> LST_QUEUE = [SELECT ID, developerName FROM Group WHERE developerName IN ('Tier_1_Formalization', 'Tier_2_Formalization') limit 2];
     /*Campo ASSIST_GROUP utilizado en los multiples metodos*/
@@ -59,29 +61,29 @@ public without sharing class Formalization_helper {
     public static Map<String, Object> reasignCase(Id caseId) {
         Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, MSG_ERROR => Label.Dwp_msgGenericError};
         try {
-            //Roles de Asistentes
+            //Roles de Asistentes y Subgerentes
             Final Set<String> rolAsis = getRolTeam(ASSIST_GROUP);
-            //Roles de Subgerentes
             Final Set<String> rolSG = getRolTeam(SUBG_GROUP);
             //Obtener Registro de Miembro en el equipo de formalización correcto
             Final GroupMember[] lstMember = [SELECT Id, Group.DeveloperName FROM GroupMember WHERE Group.DeveloperName IN ('Asistentes_Operativos', 'Subgerentes_Operativos') AND 
-                                       UserOrGroupId=:UserInfo.getUserId() ];
+                                       UserOrGroupId=:UserInfo.getUserId()];
             Final Integer lstMemberSize = lstMember.size();
             Final User usuario = [SELECT Id, Profile.Name, prof_position_id__c FROM User WHERE Id=:UserInfo.getUserId()];
             Final Case[] caso = [SELECT Id, OwnerId, status, Opportunity_id__c, DWP_AssistantOwner__c, DWP_SGofOwner__c FROM Case WHERE Id=:caseId];
-            Map<Schema.SObjectField, Object> mapValues = new Map<Schema.SObjectField, Object>{Case.OwnerId => UserInfo.getUserId(), Case.bypass__c => true};
+            Final Map<Schema.SObjectField, Object> mapValues = new Map<Schema.SObjectField, Object>{Case.OwnerId => UserInfo.getUserId(), Case.bypass__c => true};
             if(lstMemberSize > 0 && rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
-               (caso[0].status=='01' || (caso[0].status=='05' || caso[0].status=='09' && String.isEmpty(caso[0].DWP_AssistantOwner__c)))) {
+               (caso[0].status=='01' || (caso[0].status=='05' || caso[0].status=='09' && String.isEmpty(caso[0].DWP_AssistantOwner__c))) ) {
                 mapValues.put(Case.status, '05');
                 mapValues.put(Case.DWP_AssistantOwner__c, UserInfo.getUserId());
                 mapRes = reasignAssOrSG(caso[0], ASSIST_GROUP, mapValues);
             } else if(lstMemberSize > 0 && rolSG.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
-                     (caso[0].status=='07' || (caso[0].status=='08' && String.isEmpty(caso[0].DWP_SGofOwner__c)))) {
+                     (caso[0].status=='07' || (caso[0].status=='08' && String.isEmpty(caso[0].DWP_SGofOwner__c))) ) {
                 mapValues.put(Case.status, '08');
                 mapValues.put(Case.DWP_SGofOwner__c, UserInfo.getUserId());
                 mapRes = reasignAssOrSG(caso[0], SUBG_GROUP, mapValues);
             }
         } catch(AuraHandledException e) {
+            System.debug('e.getMessage() => '+e.getMessage());
             throw e;
         }
         return mapRes;
@@ -89,7 +91,7 @@ public without sharing class Formalization_helper {
     
     /* Public Method Class reasignAssOrSG */
     public static Map<String, Object> reasignAssOrSG(Case caso, String equipo, Map<Schema.SObjectField, Object> mapFields) {
-        Map<String, Object> mapRes = new Map<String, Object>();
+        Final Map<String, Object> mapRes = new Map<String, Object>();
         Final List<Group> grupo = [SELECT Id, DeveloperName FROM Group WHERE DeveloperName=:equipo];
         Final List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:grupo[0].Id AND UserOrGroupId=:UserInfo.getUserId()];
         Final Integer memberSize = members.size();
@@ -116,16 +118,16 @@ public without sharing class Formalization_helper {
     
     /* Public Method Class validateUser */
     public static Map<String, Object> validateUser(Map<String, String> owner, Boolean assistant) {
-        Map<String, Object> mapRes = new Map<String, Object>();
+        Final Map<String, Object> mapRes = new Map<String, Object>();
         if(owner.get('id') == UserInfo.getUserId()) {
             mapRes.put('property', 'Agree');
         } else if(String.isEmpty(owner.get('id'))) {
             mapRes.put('property', 'Empty');
-            mapRes.put('msg', assistant ? Label.lblEmptyAssistant_1 : Label.lblEmptySgof_1);
+            mapRes.put(MSG, assistant ? Label.lblEmptyAssistant_1 : Label.lblEmptySgof_1);
             mapRes.put('dialog', assistant ? Label.lblEmptyAssistant_2 : Label.lblEmptySgof_2);
         } else {
             mapRes.put('property', 'Assigned');
-            mapRes.put('msg', assistant ? String.format(Label.lblAssignedAssistant_1, new List<String>{owner.get('name').toUpperCase()}) 
+            mapRes.put(MSG, assistant ? String.format(Label.lblAssignedAssistant_1, new List<String>{owner.get('name').toUpperCase()}) 
                       					: String.format(Label.lblAssignedSgof_1, new List<String>{owner.get('name').toUpperCase()}) );
             mapRes.put('dialog', assistant ? Label.lblAssignedAssistant_2 : Label.lblAssignedSgof_2);
         }
@@ -134,8 +136,7 @@ public without sharing class Formalization_helper {
     
     /* Public Method Class getInfo */
     public static Map<String, Object> getInfo(Id oppId) {
-        Map<String, Object> mapRes = new Map<String, Object>();
-        mapRes.put(IS_ERROR, true);
+        Final Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true};
         Final Opportunity[] lstOpp = [SELECT Id, frm_ContractNumber__c FROM Opportunity WHERE Id=:oppId];
         Final Integer oppSize = lstOpp.size();
         if(oppSize > 0) {
@@ -154,18 +155,19 @@ public without sharing class Formalization_helper {
     /* Public Method Class sendProductUnit */
     @AuraEnabled
     public static Map<String, Object> sendProductUnit(Id oppId) {
-        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => false};
+        Final Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => false};
         try {
             Opportunity opp = [SELECT Id FROM Opportunity WHERE Id=:oppId];
-           	Map<Schema.SObjectField, Object> mapOppFields = new Map<Schema.SObjectField, Object>{Opportunity.stageName => '05' , Opportunity.opportunity_status_type__c => '21'}; 
+           	Final Map<Schema.SObjectField, Object> mapOppFields = new Map<Schema.SObjectField, Object>{Opportunity.stageName => '05' , Opportunity.opportunity_status_type__c => '21'}; 
            	opp = dynamicUpdateOpp(opp, mapOppFields);
             //Por requerimiento actual de negocio, no se genera historial de seguimiento
-            //new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(opp.opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',opp.Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
-            mapRes.put('msg', '¡Oportunidad enviada a la unidad de producto exitoso!');
+            //new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(opp.opportunity_status_type__c),'<b>Comentarios:</b> '+
+            //Body,'Opportunity',opp.Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+            mapRes.put(MSG, '¡Oportunidad enviada a la unidad de producto exitoso!');
         } catch(Exception e) {
             System.debug('e.getMessage() => '+ e.getMessage());
             mapRes.put(IS_ERROR, true); 
-            mapRes.put('msg', Label.Dwp_msgGenericError); 
+            mapRes.put(MSG, Label.Dwp_msgGenericError); 
         }
         return mapRes;
     }
@@ -212,7 +214,7 @@ public without sharing class Formalization_helper {
     /* Public Method Class getRolTeam */
     public static Set<String> getRolTeam(String team) {
         Final Dwp_FormalizationRoles__mdt[] lstRol = [SELECT MasterLabel, DeveloperName, Dwp_AssignedTeam__c FROM Dwp_FormalizationRoles__mdt WHERE Dwp_AssignedTeam__c =:team];
-        Set<String> setRol=new Set<String>();
+        Final Set<String> setRol=new Set<String>();
         for(Dwp_FormalizationRoles__mdt rol: lstRol) {
             setRol.add(rol.DeveloperName);
         }

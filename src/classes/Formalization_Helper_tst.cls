@@ -1,10 +1,10 @@
 /*
-* ------------------------------------------------------------------------------------------------
-* @Name Formalization_Helper_tst
-* @Author Diego Carbajal diego.carbajal.contractor@bbva.com
-* @Date Created: 2019-08-28
-* @Group 
-* @Description Esta clase prueba los metodos de la clase Formalization_helper
+------------------------------------------------------------------------------------------------
+@Name Formalization_Helper_tst
+@Author Diego Carbajal diego.carbajal.contractor@bbva.com
+@Date Created: 2019-08-28
+@Group 
+@Description Esta clase prueba los metodos de la clase Formalization_helper
 */
 @isTest
 public class Formalization_Helper_tst {
@@ -101,7 +101,8 @@ public class Formalization_Helper_tst {
         Test.stopTest();
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
         Final Integer lstCaseSize = lstCases.size();
-        System.assertEquals(1, lstCaseSize, FAIL);
+        Final Boolean assertion = lstCaseSize == 1 ? true : false;
+        System.assert(assertion);
     }
     
     /* testSetup - createCaseAssistantSuccessTest */
@@ -116,7 +117,8 @@ public class Formalization_Helper_tst {
         Test.stopTest();
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
         Final Integer lstCaseSize = lstCases.size();
-        System.assertEquals(1, lstCaseSize, FAIL);
+        Final Boolean assertion = lstCaseSize == 1 ? true : false;
+        System.assert(assertion);
     }
     
     /* testSetup - sendProductUnitSuccessTest */
@@ -133,7 +135,7 @@ public class Formalization_Helper_tst {
     /* testSetup - sendProductUnitErrorTest */
     @isTest
     public static void sendProductUnitErrorTest() {
-        Final Id nullId;
+        Id nullId;
         Map<String, Object> mapRes;
         Test.startTest();
         mapRes = Formalization_helper.sendProductUnit(nullId);

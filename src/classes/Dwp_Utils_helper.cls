@@ -16,7 +16,7 @@ public with sharing class Dwp_Utils_helper {
     
     /*Method for validate Regex Format*/
     public static Map<String, Object> validateFormatt(String regex, String input) {
-        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, 'validateError' => 'Empty'};
+        Final Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, 'validateError' => 'Empty'};
         if(!String.isEmpty(input)) {
             if(Pattern.matches(regex, input)) {
                 mapRes.put(IS_ERROR, false);

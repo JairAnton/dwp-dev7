@@ -35,6 +35,7 @@ public without sharing class AssistantFormalization_helper {
                 mapRes.put(MSG_ERROR, Label.Dwp_msgGenericError);
             }   
         } catch(AuraHandledException e) {
+            System.debug('e.getMessage() => '+e.getMessage());
             throw e;
         }
         return mapRes;
@@ -58,6 +59,7 @@ public without sharing class AssistantFormalization_helper {
                 }
             }
         } catch(AuraHandledException e) {
+            System.debug('e.getMessage() => '+e.getMessage());
             throw e;
         }
         
@@ -70,6 +72,7 @@ public without sharing class AssistantFormalization_helper {
         try {
             return Formalization_helper.getInfo(oppId);
         } catch(AuraHandledException e) {
+            System.debug('e.getMessage() => '+e.getMessage());
             throw e;
         }
     }
@@ -77,7 +80,7 @@ public without sharing class AssistantFormalization_helper {
     /* Public Method Class sentToFormalize */
     @AuraEnabled
     public static Map<String, Object> sentToFormalize(Id oppId, String values) {
-        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, MSG_ERROR => Label.Dwp_msgGenericError};
+        Final Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, MSG_ERROR => Label.Dwp_msgGenericError};
         try {
             Final Map<String, Object> mapInputs = (Map<String, Object>) JSON.deserializeUntyped(values);
             Map<Schema.SObjectField, Object> mapCaseFields;
@@ -87,12 +90,10 @@ public without sharing class AssistantFormalization_helper {
                            Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('05','09') limit 1];
             Final Map<String, Object> lstView = Dwp_Utils_helper.getListView('Case', 'Tier_1_Formalization_Case');
             Final List<ListView> view = ((Boolean)lstView.get(IS_ERROR) ? new List<ListView>() : (List<ListView>) lstView.get('listView'));
-            Final String contractNumber = (String)mapInputs.get('contractNumber');
-            Final String devolutionReason = (String)mapInputs.get('devolutionReason');
-            Final String comments = (String)mapInputs.get('comments');
             Final String option = (String)mapInputs.get('option');
             switch on option {
                 when 'sentToFormalize' {
+                    Final String contractNumber = (String)mapInputs.get('contractNumber');
                     Final Map<String, Object> mapFormatt = Dwp_Utils_helper.validateFormatt('[0-9]{4}-[0-9]{4}-[0-9]{10}', contractNumber);
                     Final Boolean errorMapFormatt = (Boolean)mapFormatt.get(IS_ERROR) ? false : true;
                     if(errorMapFormatt) {
@@ -114,6 +115,8 @@ public without sharing class AssistantFormalization_helper {
                     } else {mapRes.put(MSG_ERROR, 'Coloca un número de contrato para enviar a formalizar la oportunidad.');}
                 }
                 when 'returnByDocumentation' {
+                    Final String devolutionReason = (String)mapInputs.get('devolutionReason');
+            		Final String comments = (String)mapInputs.get('comments');
                     Final Map<String, Object> mapReason = Formalization_helper.validateDevolutionReason(devolutionReason, comments);
                     Final Boolean errorMapReason = (Boolean)mapReason.get(IS_ERROR) ? false : true;
                     if(errorMapReason) {
@@ -127,13 +130,14 @@ public without sharing class AssistantFormalization_helper {
                         mapRes.put(IS_ERROR, false);
                         mapRes.put('msgSuccess', '¡Has devuelto exitosamente la petición N° '+ caso[0].CaseNumber + ' al ejecutivo!');
                         mapRes.put('listView', ((Boolean)lstView.get(IS_ERROR) ? '' : view[0].Id));
-                    } else mapRes.put(MSG_ERROR,(String)mapReason.get(MSG_ERROR));
+                    } else {mapRes.put(MSG_ERROR,(String)mapReason.get(MSG_ERROR));}
                 }
                 when else {
                     mapRes.put(MSG_ERROR, Label.Dwp_msgGenericError);
                 }
             }
         } catch(AuraHandledException e) {
+            System.debug('e.getMessage() => '+e.getMessage());
             throw e;
         }
         return mapRes;
