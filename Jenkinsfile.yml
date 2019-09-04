@@ -39,6 +39,7 @@ branches:
                     mdapiConfig:
                         credentialId: SFDC_DEV
                         testLevel: RunLocalTests
+                        apiVersion: 46.0
     release:
         stages:
             publish:

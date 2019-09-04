@@ -1,11 +1,11 @@
 public with sharing class Case_Helper {
     
     public static void updateCaseNotification(List<Case> lstNew, Map<Id,Case> mapOld) {
-        Final String rt = [SELECT Id FROM RecordType WHERE DeveloperName = 'Formalization'].Id;
+        Final String rtId = [SELECT Id FROM RecordType WHERE DeveloperName = 'Formalization'].Id;
         List <Id> lstId = new List <Id>();
         for (Case casnew : lstNew) {
             Case oldRecord = mapOld.get(casnew.Id);
-            if(!casnew.IsClosed && casnew.OwnerId!=oldRecord.OwnerId && casnew.recordTypeId != rt) {
+            if(!casnew.IsClosed && casnew.OwnerId!=oldRecord.OwnerId && casnew.recordTypeId != rtId) {
                 lstId.add(casnew.Id);                
             }            
         }
@@ -15,10 +15,10 @@ public with sharing class Case_Helper {
     }
     
     public static void insertCaseNotification(List<Case> lstNew) {
-        Final String rt = [SELECT Id FROM RecordType WHERE DeveloperName = 'Formalization'].Id;
+        Final String rtId = [SELECT Id FROM RecordType WHERE DeveloperName = 'Formalization'].Id;
         List <Id> lstId = new List <Id>();
         for (Case cas : lstNew) {
-            if(!cas.IsClosed && cas.recordTypeId != rt) {
+            if(!cas.IsClosed && cas.recordTypeId != rtId) {
                 lstId.add(cas.Id);                
             }            
         }

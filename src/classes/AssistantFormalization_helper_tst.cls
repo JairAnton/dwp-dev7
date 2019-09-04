@@ -9,24 +9,27 @@
 @isTest
 public class AssistantFormalization_helper_tst {
     
-    public static Final String positionExecutive = 'EJECUTIVO BEC';
-    public static Final String positionAssist = 'ASISTENTE BEC';
-    public static Final String btnApprove = 'btnApprove';
-    public static Final String comments = 'Comentarios de envio a formalización';
-    public static Final String isError = 'isError';
-    public static Final String fail = 'Fail';
-    public static Final String oppName = 'TEST Formalization';
+    /*Campos inicializados para soluciones del SonarQ*/
+    public static Final String POSITION_EXECUTIVE = 'EJECUTIVO BEC';
+    public static Final String POSITION_ASSIST = 'ASISTENTE BEC';
+    public static Final String BTN_APPROVE = 'btnApprove';
+    public static Final String COMMENTS = 'comments';
+    public static Final String IS_ERROR = 'isError';
+    public static Final String FAIL = 'Fail';
+    public static Final String OPP_NAME = 'TEST Formalization';
+    public static Final String OPTION = 'option';
+    public static Final String DEVOLUTION_REASON = 'devolutionReason';
 
     /* testSetup - initData */
     @testSetup
     public static void initData() {
-        Final Dwp_FormalizationProducts_AAC__c[] prdAssistFormalization = new Dwp_FormalizationProducts_AAC__c[]{};
-        Final Set<String> prdToFormalization = new Set<String>{'PC00012', 'PC00011', 'PC00001_Depre', 'PC00005', 'PC00009', 'PC00001'};
-        for(String prd:prdToFormalization){
-            prdAssistFormalization.add(new Dwp_FormalizationProducts_AAC__c(Name=prd, Product_Code__c=prd));
+        Final Dwp_FormalizationProducts_AAC__c[] prdAssistForm = new Dwp_FormalizationProducts_AAC__c[]{};
+        Final Set<String> prdToForm = new Set<String>{'PC00012', 'PC00011', 'PC00001_Depre', 'PC00005', 'PC00009', 'PC00001'};
+        for(String prd:prdToForm) {
+            prdAssistForm.add(new Dwp_FormalizationProducts_AAC__c(Name=prd, Product_Code__c=prd));
         }
-        insert prdAssistFormalization;
-        Final User u = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
+        insert prdAssistForm;
+        Final User admin = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
         /*Crea Asistente Operativo*/
         Final String perfil=[SELECT Id FROM Profile WHERE name='Operativo'].Id;
         Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC'};
@@ -49,7 +52,7 @@ public class AssistantFormalization_helper_tst {
         Final User userExecutive = TestFactory.getUser(true, mapFields);
         //Create Account's
         Account acc;
-        System.runAs(u) { 
+        System.runAs(admin) { 
             mapFields=new Map<Schema.SObjectField, Object>{Account.OwnerId => userExecutive.Id, Account.Name => 'CLIENTE OPORTUNIDAD'};
             acc = TestFactory.getAccount(true, mapFields);
             
@@ -76,49 +79,49 @@ public class AssistantFormalization_helper_tst {
     /* isTest - validateAssistantErrorTest */
     @isTest
     public static void validateAssistantErrorTest() {
-        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:positionExecutive limit 1];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXECUTIVE limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Map<String, Object> mapRes;
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Test.startTest();
         mapRes = AssistantFormalization_helper.validateAssistant(opp.Id);  
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(isError), 'El resultado del metodo debería ser True');
+        System.assertEquals(true, mapRes.get(IS_ERROR), 'El resultado del metodo deber�a ser True');
     }
     
     /* isTest - validateAssistantSuccessTest */
     @isTest
     public static void validateAssistantSuccessTest() {
-        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:positionExecutive limit 1];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXECUTIVE limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
-        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         Map<String, Object> mapRes;
         System.runAs(asistente) {
          	mapRes = AssistantFormalization_helper.validateAssistant(opp.Id);   
         }
-        System.assertEquals(false, mapRes.get(isError), fail);
+        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - reasignCaseAssistantErrorTest */
     @isTest
     public static void reasignCaseAssistantErrorTest() {
-        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:positionExecutive limit 1];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXECUTIVE limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
-        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         delete [SELECT Id FROM GroupMember WHERE UserOrGroupId=:asistente.Id];
         Map<String, Object> mapRes;
         System.runAs(asistente) {
          	mapRes = AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
         }
-        System.assertEquals(true, mapRes.get(isError), fail);
+        System.assertEquals(true, mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - reasignCaseAssistantSuccessTest */
@@ -127,17 +130,17 @@ public class AssistantFormalization_helper_tst {
         Final User admin = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
         Map<String, Object> mapRes;
         User ejecutivo, asistente;
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Final User[] usuarios = [SELECT ID, prof_position_type__c FROM User WHERE prof_position_type__c IN ('ASISTENTE BEC', 'EJECUTIVO BEC') limit 2];
         for(User u:usuarios) {
-            if(u.prof_position_type__c == positionAssist) {
+            if(u.prof_position_type__c == POSITION_ASSIST) {
                 asistente = u;
-            } else if(u.prof_position_type__c == positionExecutive) {
+            } else if(u.prof_position_type__c == POSITION_EXECUTIVE) {
                 ejecutivo = u;
             }
         }
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');           
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');           
         }
         System.runAs(admin) {
             Formalization_Helper_tst.setFormalizationGroupAssistant();
@@ -148,19 +151,19 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
         }
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(isError), fail);
+        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - getDataAssistantSuccessTest */
     @isTest
     public static void getDataAssistantSuccessTest() {
         Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(admin) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
 			Formalization_Helper_tst.setFormalizationGroupAssistant();
         }
-        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         Map<String, Object> mapRes;
         Test.startTest();
         System.runAs(asistente) {
@@ -168,20 +171,20 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.getData(opp.Id);   
         }
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(isError), fail);
+        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - sentToFormalizeSTFTest */
     @isTest
     public static void sentToFormalizeSTFTest() {
-        Final Map<String, Object> data = new Map<String, Object>{'option' => 'sentToFormalize', 'contractNumber' => '0011-1234-1234567890', 'comments' => 'comentarios'};
+        Final Map<String, Object> data = new Map<String, Object>{OPTION => 'sentToFormalize', 'contractNumber' => '0011-1234-1234567890', COMMENTS => COMMENTS};
         Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(admin) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
 			Formalization_Helper_tst.setFormalizationGroupAssistant();
         }
-        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         Test.startTest();
         System.runAs(asistente) {
             AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
@@ -189,20 +192,20 @@ public class AssistantFormalization_helper_tst {
         }
         Test.stopTest();
         Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
-        System.assertEquals('07', caso.status, fail);
+        System.assertEquals('07', caso.status, FAIL);
     }
     
     /* isTest - sentToFormalizeSTFValidationErrorTest */
     @isTest
     public static void sentToFormalizeSTFValidationErrorTest() {
-        Final Map<String, Object> data = new Map<String, Object>{'option' => 'sentToFormalize', 'contractNumber' => '0011-1234-12567890', 'comments' => 'comentarios'};
+        Final Map<String, Object> data = new Map<String, Object>{OPTION => 'sentToFormalize', 'contractNumber' => '0011-1234-12567890'};
         Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(admin) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
 			Formalization_Helper_tst.setFormalizationGroupAssistant();
         }
-        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         Map<String, Object> mapRes;
         Test.startTest();
         System.runAs(asistente) {
@@ -210,20 +213,20 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.sentToFormalize(opp.Id, JSON.serialize(data));   
         }
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(isError), fail);
+        System.assertEquals(true, mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - sentToFormalizeRBDTest */
     @isTest
     public static void sentToFormalizeRBDTest() {
-        Final Map<String, Object> data = new Map<String, Object>{'option' => 'returnByDocumentation', 'devolutionReason' => '08', 'comments' => 'comentarios'};
+        Final Map<String, Object> data = new Map<String, Object>{OPTION => 'returnByDocumentation', DEVOLUTION_REASON => '08', COMMENTS => COMMENTS};
         Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(admin) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
 			Formalization_Helper_tst.setFormalizationGroupAssistant();
         }
-        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         Test.startTest();
         System.runAs(asistente) {
             AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
@@ -231,20 +234,20 @@ public class AssistantFormalization_helper_tst {
         }
         Test.stopTest();
         Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
-        System.assertEquals('06', caso.status, fail);
+        System.assertEquals('06', caso.status, FAIL);
     }
     
     /* isTest - sentToFormalizeRBDValidationERRORTest */
     @isTest
     public static void sentToFormalizeRBDValidationERRORTest() {
-        Final Map<String, Object> data = new Map<String, Object>{'option' => 'returnByDocumentation', 'devolutionReason' => '10', 'comments' => 'comentarios'};
+        Final Map<String, Object> data = new Map<String, Object>{OPTION => 'returnByDocumentation', DEVOLUTION_REASON => '10', COMMENTS => COMMENTS};
         Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(admin) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
 			Formalization_Helper_tst.setFormalizationGroupAssistant();
         }
-        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         Map<String, Object> mapRes;
         Test.startTest();
         System.runAs(asistente) {
@@ -252,20 +255,20 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.sentToFormalize(opp.Id, JSON.serialize(data));   
         }
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(isError), fail);
+        System.assertEquals(true, mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - sentToFormalizeERRORTest */
     @isTest
     public static void sentToFormalizeERRORTest() {
-        Final Map<String, Object> data = new Map<String, Object>{'option' => 'wrongValue', 'devolutionReason' => '08', 'comments' => 'comentarios'};
+        Final Map<String, Object> data = new Map<String, Object>{OPTION => 'wrongValue', DEVOLUTION_REASON => '08', COMMENTS => COMMENTS};
         Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(admin) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
 			Formalization_Helper_tst.setFormalizationGroupAssistant();
         }
-        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         Map<String, Object> mapRes;
         Test.startTest();
         System.runAs(asistente) {
@@ -273,19 +276,19 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.sentToFormalize(opp.Id, JSON.serialize(data));   
         }
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(isError), fail);
+        System.assertEquals(true, mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - validateAssistantSuccessTestAssigned */
     @isTest
     public static void validateAssistantSuccessTestAssigned() {
-        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:positionExecutive limit 1];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXECUTIVE limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Formalization_Helper_tst.setFormalizationGroupAssistant();
-        Final User asistente = [SELECT ID, Name FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID, Name FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         System.runAs(asistente) {
             AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
         }
@@ -296,19 +299,19 @@ public class AssistantFormalization_helper_tst {
             mapRes = AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
         }
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(isError), fail);
+        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - validateAssistantSuccessTestAgree */
     @isTest
     public static void validateAssistantSuccessTestAgree() {
-        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:positionExecutive limit 1];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final User ejecutivo = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_EXECUTIVE limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Formalization_Helper_tst.setFormalizationGroupAssistant();
-        Final User asistente = [SELECT ID, Name FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID, Name FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         Map<String, Object> mapRes;
         System.runAs(asistente) {
             AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
@@ -316,29 +319,29 @@ public class AssistantFormalization_helper_tst {
             mapRes = AssistantFormalization_helper.validateAssistant(opp.Id);  
             Test.stopTest();
         }
-        System.assertEquals(false, mapRes.get(isError), fail);
+        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - createOrUpdateCaseUpdateSuccessTest */
     @isTest
     public static void createOrUpdateCaseUpdateSuccessTest() {
-        Final Map<String, Object> data = new Map<String, Object>{'option' => 'returnByDocumentation', 'devolutionReason' => '08', 'comments' => 'comentarios'};
+        Final Map<String, Object> data = new Map<String, Object>{OPTION => 'returnByDocumentation', DEVOLUTION_REASON => '08', COMMENTS => COMMENTS};
 		Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:oppName limit 1];
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(admin) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
 			Formalization_Helper_tst.setFormalizationGroupAssistant();
         }
-        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:positionAssist limit 1];
+        Final User asistente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_ASSIST limit 1];
         System.runAs(asistente) {
             AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
             AssistantFormalization_helper.sentToFormalize(opp.Id, JSON.serialize(data));   
         }
         System.runAs(admin) {
-            Product_cls.setFormalization(opp.Id,btnApprove,comments,'');
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
-        System.assertEquals('05', caso.status, fail);
+        System.assertEquals('05', caso.status, FAIL);
     }
     
 }

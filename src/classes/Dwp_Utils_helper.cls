@@ -1,4 +1,4 @@
-/**
+/*
 * ------------------------------------------------------------------------------------------------
 * @Name Dwp_Utils_helper
 * @Author Diego Carbajal diego.carbajal.contractor@bbva.com
@@ -6,8 +6,11 @@
 * @Group 
 * @Description Esta clase contiene metodos de ayuda reutilizables y genericos
 */
-public class Dwp_Utils_helper {
+public with sharing class Dwp_Utils_helper {
 
+    /*Constructor Dwp_Utils_helper*/
+    public Dwp_Utils_helper() {}
+    
     /*Method for validate Regex Format*/
     public static Map<String, Object> validateFormatt(String regex, String input) {
         Map<String, Object> mapRes = new Map<String, Object>{'isError' => true, 'validateError' => 'Empty'};
@@ -23,10 +26,10 @@ public class Dwp_Utils_helper {
     
     /*Method to get Picklist values from Picklist field*/
     public static Map<String, String> getPicklistValues(String objectName, String field_apiname) {
-        Map<String, String> mapValues = new Map<String, String>();
-        Final Map<String,Schema.SObjectType> gd = Schema.getGlobalDescribe(); 
-        Final Map<String, Schema.SObjectField> field_map = gd.get(objectName.toLowerCase()).getDescribe().fields.getMap(); 
-        Final List<Schema.PicklistEntry> picklistValues = field_map.get(field_apiname).getDescribe().getPickListValues();
+        Final Map<String, String> mapValues = new Map<String, String>();
+        Final Map<String,Schema.SObjectType> ggd = Schema.getGlobalDescribe(); 
+        Final Map<String, Schema.SObjectField> fieldMap = ggd.get(objectName.toLowerCase()).getDescribe().fields.getMap(); 
+        Final List<Schema.PicklistEntry> picklistValues = fieldMap.get(field_apiname).getDescribe().getPickListValues();
         for (Schema.PicklistEntry pv : picklistValues) {
             mapValues.put(pv.getValue(), pv.getLabel());
         }

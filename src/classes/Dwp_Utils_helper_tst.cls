@@ -1,4 +1,4 @@
-/**
+/*
 * ------------------------------------------------------------------------------------------------
 * @Name User_Trigger_Case_tst
 * @Author Diego Carbajal diego.carbajal.contractor@bbva.com
@@ -10,8 +10,8 @@
 @isTest
 public class Dwp_Utils_helper_tst {
     
-    public static Final String isError = 'isError';
-    public static Final String errorAss = 'Error Assertion';
+    public static Final String IS_ERROR = 'isError';
+    public static Final String ERROR_ASSERT = 'Error Assertion';
     
     /* isTest - validateFormattSuccessTest */
 	@isTest
@@ -20,7 +20,7 @@ public class Dwp_Utils_helper_tst {
         Test.startTest();
         mapRes = Dwp_Utils_helper.validateFormatt('[0-9]{4}-[0-9]{4}-[0-9]{10}', '1234-1234-1234567890');
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(isError), errorAss);
+        System.assertEquals(false, mapRes.get(IS_ERROR), ERROR_ASSERT);
     }
         
     /* isTest - validateFormattErrorTest */
@@ -30,7 +30,7 @@ public class Dwp_Utils_helper_tst {
         Test.startTest();
         mapRes = Dwp_Utils_helper.validateFormatt('[0-9]{4}-[0-9]{4}-[0-9]{10}', '1234-34567890');
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(isError), errorAss);
+        System.assertEquals(true, mapRes.get(IS_ERROR), ERROR_ASSERT);
     }
     
     /* isTest - getPicklistValuesTest */
@@ -41,7 +41,7 @@ public class Dwp_Utils_helper_tst {
         mapRes = Dwp_Utils_helper.getPicklistValues('Case', 'status');
         Test.stopTest();
         Boolean result = mapRes.size() > 0 ? true : false;
-        System.assertEquals(true, result, errorAss);
+        System.assertEquals(true, result, ERROR_ASSERT);
     }
     
     /* isTest - getListViewTest */
@@ -51,6 +51,6 @@ public class Dwp_Utils_helper_tst {
         Test.startTest();
         mapRes = Dwp_Utils_helper.getListView('Case', 'MyCases');
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(isError), errorAss);
+        System.assertEquals(false, mapRes.get(IS_ERROR), ERROR_ASSERT);
     }
 }
