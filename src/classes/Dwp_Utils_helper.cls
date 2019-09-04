@@ -14,7 +14,7 @@ public class Dwp_Utils_helper {
         if(!String.isEmpty(input)) {
             if(Pattern.matches(regex, input)) {
                 mapRes.put('isError', false);
-            }else {
+            } else {
                 mapRes.put('validateError', 'NoMatches');
             }
         }
@@ -24,9 +24,9 @@ public class Dwp_Utils_helper {
     /*Method to get Picklist values from Picklist field*/
     public static Map<String, String> getPicklistValues(String objectName, String field_apiname) {
         Map<String, String> mapValues = new Map<String, String>();
-        Map<String,Schema.SObjectType> gd = Schema.getGlobalDescribe(); 
-        Map<String, Schema.SObjectField> field_map = gd.get(objectName.toLowerCase()).getDescribe().fields.getMap(); 
-        List<Schema.PicklistEntry> picklistValues = field_map.get(field_apiname).getDescribe().getPickListValues();
+        Final Map<String,Schema.SObjectType> gd = Schema.getGlobalDescribe(); 
+        Final Map<String, Schema.SObjectField> field_map = gd.get(objectName.toLowerCase()).getDescribe().fields.getMap(); 
+        Final List<Schema.PicklistEntry> picklistValues = field_map.get(field_apiname).getDescribe().getPickListValues();
         for (Schema.PicklistEntry pv : picklistValues) {
             mapValues.put(pv.getValue(), pv.getLabel());
         }

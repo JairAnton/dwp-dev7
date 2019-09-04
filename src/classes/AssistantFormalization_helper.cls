@@ -17,10 +17,10 @@ public without sharing class AssistantFormalization_helper {
         Case[] caso = [SELECT Id, DWP_AssistantOwner__c, DWP_AssistantOwner__r.Name FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' 
                        AND status IN ('01','05', '09') limit 1];
         Final Integer casoSize = caso.size();
-        if(rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && casoSize > 0){
+        if(rolAsis.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && casoSize > 0) {
             Final Map<String, String> owner = new Map<String, String>{'id' => caso[0].DWP_AssistantOwner__c, 'name' => caso[0].DWP_AssistantOwner__r.Name};
             mapRes.putAll(Formalization_helper.validateUser(owner, true));
-        }else{
+        } else{
             mapRes.put('isError', true);
             mapRes.put('msgError', Label.Dwp_msgGenericError);
         }
@@ -70,7 +70,7 @@ public without sharing class AssistantFormalization_helper {
                         Final List<Group> queue = [SELECT Id, DeveloperName FROM Group WHERE Type='Queue' AND DeveloperName='Tier_2_Formalization'];
                         mapCaseFields = new Map<Schema.SObjectField, Object>{Case.OwnerId => queue[0].Id, Case.status => '07', Case.Dwp_ElevatedDate__c => DateTime.now()};
                         Formalization_helper.dynamicUpdateCase(caso[0], mapCaseFields);
-                    }else {
+                    } else {
                         mapCaseFields = new Map<Schema.SObjectField, Object>{Case.OwnerId => caso[0].DWP_SGofOwner__c, Case.status => '08'};
                         Formalization_helper.dynamicUpdateCase(caso[0], mapCaseFields);
                     }
@@ -81,7 +81,7 @@ public without sharing class AssistantFormalization_helper {
                     mapRes.put('isError', false);
                     mapRes.put('msgSuccess', '¡Has enviado a formalizar la oportunidad exitosamente!');
                     mapRes.put('listView', ((Boolean)lstView.get('isError') ? '' : view[0].Id));
-                }else {
+                } else {
                     mapRes.put('msgError', 'Coloca un número de contrato para enviar a formalizar la oportunidad.');
                 }
             }
@@ -98,7 +98,7 @@ public without sharing class AssistantFormalization_helper {
                     mapRes.put('isError', false);
                     mapRes.put('msgSuccess', '¡Has devuelto exitosamente la petición N° '+ caso[0].CaseNumber + ' al ejecutivo!');
                     mapRes.put('listView', ((Boolean)lstView.get('isError') ? '' : view[0].Id));
-                }else {
+                } else {
                     mapRes.put('msgError',(String)mapReason.get('msgError'));
                 }
             }

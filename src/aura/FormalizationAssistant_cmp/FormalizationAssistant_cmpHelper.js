@@ -17,7 +17,7 @@
                         cmpView.set("v.showInterface", true);
                         component.set("v.loadView", true);
                         component.find("btnContinue").set("v.disabled", false);
-                    }else {
+                    } else {
                         helper.getInfo(component, event, helper);
                         component.set("v.lblContinue", "Continuar");
                         cmpView.set("v.showInterface", false);
@@ -25,16 +25,15 @@
                     cmpView.set("v.loadView", true);
                     component.set("v.loadView", true);
                     component.set("v.hasHeader", true);
-                }else {
+                } else {
                     helper.msgAndClose(component, event, helper, res.msgError, '', true);
                 }
-            }else {
+            } else {
                 helper.msgAndClose(component, event, helper, '', '', true);
             }
         });
         $A.enqueueAction(action);
     },
-    
     reasignOwner : function(component, event, helper) {
     	var action = component.get("c.reasignCaseFromOpp");
         action.setParams({"oppId" :  component.get("v.inputAttributes.recordId")});
@@ -44,16 +43,15 @@
                 var res = response.getReturnValue();
                 if(!res.isError) {
                     helper.msgAndClose(component, event, helper, res.msgSuccess, 'success', true);
-                }else {
+                } else {
                     helper.msgAndClose(component, event, helper, res.msgError, '', true);
                 }
-            }else {
+            } else {
                 helper.msgAndClose(component, event, helper, '', '', true);
             }
         });
         $A.enqueueAction(action);
     },
-    
     getInfo : function(component, event, helper) {
       	var action = component.get("c.getData");
         action.setParams({"oppId" : component.get("v.inputAttributes.recordId")});
@@ -69,20 +67,19 @@
                     cmpView.find("contractNumber").set("v.value", res.contractNumber);
                     cmpView.set("v.picklistValues", Object.values(res.picklistValues));
                     cmpView.set("v.mapPicklistValues", res.picklistValues);
-                }else {
+                } else {
                     toastEvent.setParams({
                         "message": "$Label.Dwp_msgGenericError",
                         "type": "error"
                     });
                     toastEvent.fire();
                 }
-            }else {
+            } else {
                 helper.msgAndClose(component, event, helper, '', '', true);
             }
         });
         $A.enqueueAction(action);
     },
-    
     sentFormalize : function(component, event, helper) {
         const getKey = (obj,val) => Object.keys(obj).find(key => obj[key] === val);
 		var action = component.get("c.sentToFormalize");
@@ -103,18 +100,17 @@
                         helper.redirect(component, event, helper, res.listView);
                     }
                     helper.msgAndClose(component, event, helper, res.msgSuccess, 'success', true);
-                }else {
+                } else {
                     component.find("btnContinue").set("v.disabled", false);
                     cmpView.set("v.msgCorrection", res.msgError)
                     cmpView.set("v.showAlert", true);
                 }
-            }else {
+            } else {
                 helper.msgAndClose(component, event, helper, '', '', true);
             }
         });
         $A.enqueueAction(action);
 	},
-    
     msgAndClose : function(component, event, helper, message, type, close) {
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
@@ -127,7 +123,6 @@
             this.destroyCmp(component, event, helper);   
         }
     },
-    
     redirect : function(component, event, helper, listViewId) {
 		var nav = $A.get("e.force:navigateToList");
         nav.setParams({

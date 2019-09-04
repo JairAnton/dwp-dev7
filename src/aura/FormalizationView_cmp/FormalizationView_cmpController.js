@@ -18,7 +18,7 @@
             iconSF.set("v.variant","inverse");
             iconRE.set("v.variant","warning");
             component.set("v.optionSelected", 'sentToFormalize');
-        }else {
+        } else {
             $A.util.addClass(btnRE, 'clickedButtonOrange');
             $A.util.removeClass(btnSF, 'clickedButtonGreen');
             $A.util.addClass(pRE, 'tclickedButton');
@@ -31,12 +31,10 @@
         cmpEvt.setParams({"activeContinue" : false});
         cmpEvt.fire();
     },
-    
     getFileName : function (cmp,event,helper) {
         var param= event.getParam("FileName");
      	cmp.set("v.fileName",param);     
     },
-
     closeAlert : function(cmp, evt, helper) {
        	cmp.set("v.showAlert", false);
     }

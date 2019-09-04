@@ -16,8 +16,10 @@ public class User_Trigger_Case_tst {
     * Metodo que valida la funcionalidad de los metodos:
     * newMembersFormalizatio
     **/
+    
+    /* isTest - newMembersFormalizationTest */
     @isTest
-    public static void newMembersFormalization_Test() {
+    public static void newMembersFormalizationTest() {
         Final List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
         for(Integer i=0; i<250; i++) {
@@ -44,14 +46,14 @@ public class User_Trigger_Case_tst {
     * changeRolAssis_Sgof
     **/
     @isTest
-    public static void updFormalizationDeactiveOwners_Test() {
+    public static void updFormalizationDeactiveOwnersTest() {
         Final List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
         for(Integer i=0; i<250; i++) {
             if(i < 125) {
                 newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E06', ProfileId=profile));
-            }else {
+            } else {
                 newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E04', ProfileId=profile));
             }
@@ -66,7 +68,7 @@ public class User_Trigger_Case_tst {
             opps.add(new Opportunity(Name='TEST Formalization', stageName='02', AccountId=acc.Id, CloseDate=Date.today(), Amount = 10000, Dwp_DevolutionUser__c=newUsers[i].Id));
             if(i < 123) {
              	newUsers[i].prof_position_id__c='';
-            }else {
+            } else {
                 newUsers[i].isActive=false;
             }
         }
@@ -91,7 +93,7 @@ public class User_Trigger_Case_tst {
                                                                   Product2Id=testPr.Id));
             if(i < 125) {
              	casos.add(new Case(OwnerId=newUsers[i].Id, status='05', DWP_AssistantOwner__c=newUsers[i].Id, opportunity_id__c=opps[i].Id));
-            }else {
+            } else {
                 casos.add(new Case(OwnerId=newUsers[i].Id, status='07', DWP_SgofOwner__c=newUsers[i].Id, opportunity_id__c=opps[i].Id));
             }
         }
@@ -120,14 +122,14 @@ public class User_Trigger_Case_tst {
     * addUserToFormalizationGroup
     **/
     @isTest
-    public static void addUserToFormalizationGroup_Test() {
+    public static void addUserToFormalizationGroupTest(){
         List<User> newUsers = new List<User>();
-        Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
-        for(Integer i=0; i<250; i++) {
-            if(i < 125) {
+        String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
+        for(Integer i=0; i<250; i++){
+            if(i < 125){
                 newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                       IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
-            }else {
+            } else{
                 newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
             }
@@ -135,10 +137,10 @@ public class User_Trigger_Case_tst {
 
         insert newUsers;
         
-        for(Integer i=0; i<250; i++) {
-            if(i < 125) {
+        for(Integer i=0; i<250; i++){
+            if(i < 125){
                 newUsers[i].prof_position_id__c='E06';
-            }else {
+            } else{
                 newUsers[i].prof_position_id__c='E04';
             }
         }
@@ -146,8 +148,8 @@ public class User_Trigger_Case_tst {
         update newUsers;
         Test.stopTest();
         
-        Final Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: grp');
+        Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
+        Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: grp');
         System.assertEquals(250,newUsersInGroup, 'Error with assertion');
     }
 }

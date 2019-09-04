@@ -9,10 +9,11 @@
 @isTest
 public class FormalizationAssit_ValidationClass_tst {
 
+    /* isTest - getErrorMessagesListTest */
     @isTest
-    public static void getErrorMessagesList_Test() {
+    public static void getErrorMessagesListTest() {
         Final User asistente = TestFactory.createUser('userName', 'operativo');
-        Case caso = new Case();
+        Final Case caso = new Case();
         insert caso;
         list<String> lstErrorMessage = new List<String>();
         Test.startTest();
@@ -20,6 +21,7 @@ public class FormalizationAssit_ValidationClass_tst {
             lstErrorMessage = FormalizationAssistant_ValidationClass.getErrorMessagesList(caso.Id, '', '');
         }
         Test.stopTest();
-        System.assertEquals(1, lstErrorMessage.size(), 'Assertion Error');
+        Final Integer lstErrorMessageSize = lstErrorMessage.size();
+        System.assertEquals(1, lstErrorMessageSize, 'Assertion Error');
     }
 }

@@ -324,7 +324,7 @@ public class TestFactory {
     //Create dynamic Account
     public static Account getAccount(Boolean doInsert, Map<Schema.SObjectField, Object> mapFields) {
         Account obj=new Account();
-        Decimal random = Math.random();
+        Final Decimal random = Math.random();
         obj.name = 'Test Business Account' + Math.round(random);
         for( Schema.SObjectField sfield : mapFields.keySet() ) {
             obj.put(sfield, mapFields.get(sfield));

@@ -12,7 +12,7 @@
                     "message": res.msg,
                     "type": error
         		});
-            }else {
+            } else {
                 toastEvent.setParams({
                     "message": "$Label.Dwp_msgGenericError",
                     "type": "error"

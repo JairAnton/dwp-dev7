@@ -17,15 +17,15 @@
                         "message": "¡Te autoasignaste esta petición exitosamente!",
                         "type": "success"
                 	});
-                }else {
+                } else {
                    toastEvent.setParams({
                         "message": res.msgError,
                         "type": "error"
                     });
                 }
-            }else {
+            } else {
                 toastEvent.setParams({
-                    "message": "Ha ocurrido un problema. Por favor, intenta de nuevo.",
+                    "message": "$Label.Dwp_msgGenericError",
                     "type": "error"
                 });
             }

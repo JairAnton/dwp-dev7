@@ -286,7 +286,7 @@ public class Product_cls_test {
 			Product_cls.saveParticipantDataByProduct(null,'a00127831831831',testPr.Id,'Name','01','01','01','01');//ECS
 			Product_cls.setFormalization(testOP.Id,'btnApprove','','obs');
             Product_cls.setFormalization('a00127831831831','btnApprove','id','obs');
-            System.runAs(u2){ 
+            System.runAs(u2) { 
                 Product_cls.setLastFormalization(testOP.Id,'btnApprove','obs','1234-1234-1234567890');
                 Product_cls.setLastFormalization(testOP.Id,'btnRaise','obs','1234-1234-1234567890');                
                 Product_cls.setLastFormalization(testOP.Id,'btnRaise','obs','abcd-abcd-qwertyuiop');

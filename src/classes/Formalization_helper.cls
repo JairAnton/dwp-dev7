@@ -20,7 +20,7 @@ public without sharing class Formalization_helper {
     public static void createOrUpdateCase(Opportunity opp, String cola, String status) {
         if(opp.opportunity_status_type__c == '20') {
             Formalization_helper.updateCase(opp.Id, 'Formalization');
-        }else {
+        } else {
             Formalization_helper.createCase(opp.Id, cola, status, 'Formalization');
         }
     }
@@ -37,7 +37,7 @@ public without sharing class Formalization_helper {
             caso.opportunity_id__c = oppId;
             caso.recordTypeId=lstRT[0].Id;
             insert caso;
-        }catch(Exception e) {
+        } catch(Exception e) {
             System.debug('***No se pudo generar el caso***');
             System.debug('e.getMessage() => '+e.getMessage());
         }
@@ -71,12 +71,12 @@ public without sharing class Formalization_helper {
             mapValues.put(Case.status, '05');
             mapValues.put(Case.DWP_AssistantOwner__c, UserInfo.getUserId());
             mapRes = reasignAssOrSG(caso[0], asistGroup, mapValues);
-        }else if(lstMemberSize > 0 && rolSG.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
+        } else if(lstMemberSize > 0 && rolSG.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
                  (caso[0].status=='07' || (caso[0].status=='08' && String.isEmpty(caso[0].DWP_SGofOwner__c)))) {
             mapValues.put(Case.status, '08');
             mapValues.put(Case.DWP_SGofOwner__c, UserInfo.getUserId());
             mapRes = reasignAssOrSG(caso[0], subgGroup, mapValues);
-        }else {
+        } else {
             mapRes.put('isError', true);
             mapRes.put('msgError', Label.Dwp_msgGenericError);
         }
@@ -102,7 +102,7 @@ public without sharing class Formalization_helper {
                 opp.opportunity_status_type__c='19';
                 update opp;
             }
-        }else {
+        } else {
             mapRes.put('isError', true);
         	mapRes.put('msgError', 'Su usuario no esta registrado en el Equipo de Formalización.');
         }
@@ -113,11 +113,11 @@ public without sharing class Formalization_helper {
         Map<String, Object> mapRes = new Map<String, Object>();
         if(owner.get('id') == UserInfo.getUserId()) {
             mapRes.put('property', 'Agree');
-        }else if(String.isEmpty(owner.get('id'))) {
+        } else if(String.isEmpty(owner.get('id'))) {
             mapRes.put('property', 'Empty');
             mapRes.put('msg', assistant ? Label.lblEmptyAssistant_1 : Label.lblEmptySgof_1);
             mapRes.put('dialog', assistant ? Label.lblEmptyAssistant_2 : Label.lblEmptySgof_2);
-        }else {
+        } else {
             mapRes.put('property', 'Assigned');
             mapRes.put('msg', assistant ? String.format(Label.lblAssignedAssistant_1, new List<String>{owner.get('name').toUpperCase()}) 
                       					: String.format(Label.lblAssignedSgof_1, new List<String>{owner.get('name').toUpperCase()}) );
@@ -154,7 +154,7 @@ public without sharing class Formalization_helper {
             //Por requerimiento actual de negocio, no se genera historial de seguimiento
             //new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(opp.opportunity_status_type__c),'<b>Comentarios:</b> '+Body,'Opportunity',opp.Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
             mapRes.put('msg', '¡Oportunidad enviada a la unidad de producto exitoso!');
-        }catch(Exception e) {
+        } catch(Exception e) {
             System.debug('e.getMessage() => '+ e.getMessage());
             mapRes.put('isError', true); 
             mapRes.put('msg', Label.Dwp_msgGenericError); 
@@ -213,7 +213,7 @@ public without sharing class Formalization_helper {
         if(lstGroup[0].DeveloperName == group1) {
             mapGrupos.put('grp1', lstGroup[0].Id);
             mapGrupos.put('grp2', lstGroup[1].Id);
-        }else {
+        } else {
             mapGrupos.put('grp1', lstGroup[1].Id);
             mapGrupos.put('grp2', lstGroup[0].Id);
         }

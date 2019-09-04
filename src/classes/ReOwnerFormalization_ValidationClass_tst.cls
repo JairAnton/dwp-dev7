@@ -20,6 +20,7 @@ public class ReOwnerFormalization_ValidationClass_tst {
             lstErrorMessage = ReOwnerFormalization_ValidationClass.getErrorMessagesList(caso.Id, '', '');
         }
         Test.stopTest();
-        System.assertEquals(1, lstErrorMessage.size(), 'Assertion Error');
+        Final Integer lstErrorMessageSize = lstErrorMessage.size();
+        System.assertEquals(1, lstErrorMessageSize, 'Assertion Error');
     }
 }

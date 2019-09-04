@@ -32,7 +32,7 @@ global class PrincipalValidationHub {
         Final List<User_Position_Mapping__mdt> codigos = [select prof_position_id__c, dwp_role__c, profile__c from User_Position_Mapping__mdt where prof_position_id__c=:users[0].prof_position_id__c];
         if((users[0].profile.Name == admin )||(users[0].profile.Name == sysAdmin)||(opps[0].OwnerId == UserInfo.getUserId())) {   
             return false;
-        }else if(!codigos.isEmpty()) {
+        } else if(!codigos.isEmpty()) {
             if((codigos[0].profile__c == executive)&&(codigos[0].dwp_role__c == assistant)) {
                 for(User_Branch__c ub : users[0].Users_Branches__r) {
                     if(ub.branch_name__c == opps[0].Branch_id__c) {
@@ -85,7 +85,7 @@ global class PrincipalValidationHub {
                           }
                       }
                 }
-            }else if(mdt.fprd__map_field__c!=null && mdt.fprd__map_field__c!='') {
+            } else if(mdt.fprd__map_field__c!=null && mdt.fprd__map_field__c!='') {
                 if(oliInfo[0].get(mdt.fprd__map_field__c)==null) {
                     lstErrorMessage.add(Label.Error_validation_031 +' '+ mdt.fprd__Label__c);
                 }               
@@ -140,7 +140,7 @@ global class PrincipalValidationHub {
                           }
                       }
                 }
-            }else if((mdt.fprd__map_field__c!=null && mdt.fprd__map_field__c!='')&&(mdt.fprd__Section_order__c== 1)) {
+            } else if((mdt.fprd__map_field__c!=null && mdt.fprd__map_field__c!='')&&(mdt.fprd__Section_order__c== 1)) {
                 if(oliInfo[0].get(mdt.fprd__map_field__c)==null) {
                     lstErrorMessage.add(Label.Error_validation_031 +' '+ mdt.fprd__Label__c);
                 }               

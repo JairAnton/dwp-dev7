@@ -24,13 +24,14 @@ public without sharing class User_Trigger_Case_cls {
     * si su rol se encuentra en los especificados para cada grupo
     **/
     public static void newMembersFormalization(List<User> userNew) {
-        Final Set<Id> idAsist_Sgof = new Set<Id>();
+        Final Set<Id> idAsistSgof = new Set<Id>();
         for(User u:userNew){//Usuarios nuevos con los roles Asistentes y Subgerentes
             if(rolAsis.contains(u.prof_position_id__c) || rolSG.contains(u.prof_position_id__c)) {
-                idAsist_Sgof.add(u.Id);
+                idAsistSgof.add(u.Id);
             }
         }
-        if(idAsist_Sgof.size() > 0) insertNewMembersFormalization(idAsist_Sgof);
+        Final Integer idAsistSgofSize = idAsistSgof.size();
+        if(idAsistSgofSize > 0) insertNewMembersFormalization(idAsistSgof);
     }
     
     /**
@@ -141,7 +142,7 @@ public without sharing class User_Trigger_Case_cls {
         for(User u:userOld) {//Usuario Asistente cambia de rol
             if(rolAsis.contains(u.prof_position_id__c) && !rolAsis.contains(userNewMap.get(u.Id).prof_position_id__c)) {
                 asistChange.add(u.Id);
-            }else if(rolSG.contains(u.prof_position_id__c) && !rolSG.contains(userNewMap.get(u.Id).prof_position_id__c)) {//Usuario Subgerente cambia de rol
+            } else if(rolSG.contains(u.prof_position_id__c) && !rolSG.contains(userNewMap.get(u.Id).prof_position_id__c)) {//Usuario Subgerente cambia de rol
                 sgofChange.add(u.Id);
             }
         }
@@ -167,7 +168,7 @@ public without sharing class User_Trigger_Case_cls {
         Final Set<Id> idAsist_Sgof = new Set<Id>();
         for(User u:userOld) {
             if((!rolAsis.contains(u.prof_position_id__c) && rolAsis.contains(userNewMap.get(u.Id).prof_position_id__c)) ||
-               (!rolSG.contains(u.prof_position_id__c) && rolSG.contains(userNewMap.get(u.Id).prof_position_id__c))){
+               (!rolSG.contains(u.prof_position_id__c) && rolSG.contains(userNewMap.get(u.Id).prof_position_id__c))) {
                 idAsist_Sgof.add(u.Id);
                }
         }

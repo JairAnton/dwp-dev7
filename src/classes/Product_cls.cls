@@ -21,7 +21,7 @@ public without sharing class Product_cls {
         if(!rowOpp.isEmpty() && rowOpp[0].price_quote_date__c!=null && String.valueOf(rowOpp[0].price_quote_date__c)!='')//Yulino 28/11/2018 : Optimizando el if anidado
         {
             return true;//if(rowOpp[0].price_quote_date__c!=null && String.valueOf(rowOpp[0].price_quote_date__c)!='') return true; else return false;
-        }else return false;
+        } else return false;
     }
     /*Description
     Comments to describe the functionality of this method
@@ -141,7 +141,7 @@ public without sharing class Product_cls {
                 else if(sanAction=='btnRaise')  new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Comments,''),'Opportunity',itemOpp[0].Id,'elevate','TRSP00001',UserInfo.getUserId(),'embedded',1,true);          
                 //END Traceability
                 return 'true';
-            }else{return 'Error';}
+            } else{return 'Error';}
         }
         catch(Dmlexception exp) { return exp.getMessage();}
     }
@@ -166,7 +166,7 @@ public without sharing class Product_cls {
                     if(oliSize > 0){
                         Formalization_helper.createOrUpdateCase(itemOpp[0], 'Tier_1_Formalization', '01');
                         itemOpp[0].opportunity_status_type__c='25';
-                    }else{//Enviar al Subgerente
+                    } else{//Enviar al Subgerente
                         Formalization_helper.createOrUpdateCase(itemOpp[0], 'Tier_2_Formalization', '07');
                         itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;
                     }      
@@ -210,7 +210,7 @@ public without sharing class Product_cls {
                     itemOpp[0].opportunity_status_type__c='23';
                     if(itemOpp[0].OpportunityLineItems[0].product2.type_of_quote__c == 'Web') {
                         returnMap = disburseQuotation(itemOpp[0].id, ContractNumber);
-                    }else {
+                    } else {
                         returnMap.put('success',true);
                     }
                 }
@@ -236,11 +236,11 @@ public without sharing class Product_cls {
                     //END Traceability
                 }
                 returnMap.put('showErrorMessage',true);
-            }else {
+            } else {
                 returnMap.put('success',false);
                 returnMap.put('showErrorMessage',false);
             }
-        }catch(Dmlexception exp) {
+        } catch(Dmlexception exp) {
             returnMap.put('success',false);
             returnMap.put('errorMessage',exp.getMessage());
             returnMap.put('showErrorMessage',true);
@@ -341,7 +341,7 @@ public without sharing class Product_cls {
                     }
                 }
             }
-        }catch(Dmlexception exp) {
+        } catch(Dmlexception exp) {
             resultMap.put('success','false');
             resultMap.put('errorMessage',exp.getMessage());
         }
@@ -442,7 +442,7 @@ public without sharing class Product_cls {
                 HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c+ '% <br/>' +
                     '<b>Comisión estructuración:</b> '+itemOppProduct[0].restructuring_fee_per__c +'% <br/>'+
                     '<b>Comisión Liquidacion Anticipada(%):</b> '+itemOppProduct[0].cancellation_fee_per__c+'% <br/>';
-            }else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web') {HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c + '% <br/>';  }
+            } else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web') {HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c + '% <br/>';  }
             else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario') { HTMLComments=HTMLComments+'<b>Comisión Propuesta:</b> '+itemOppProduct[0].proposed_fee_per__c +'% <br/>';  }
             else if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZA Beta')
             {
