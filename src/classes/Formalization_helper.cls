@@ -8,12 +8,16 @@
 */
 public without sharing class Formalization_helper {
     
-    /*Campo lstQueue utilizado en lso multiples metodos*/
-    public static Final List<Group> lstQueue = [SELECT ID, developerName FROM Group WHERE developerName IN ('Tier_1_Formalization', 'Tier_2_Formalization') limit 2];
-    /*Campo asistGroup utilizado en lso multiples metodos*/
-    public static Final String asistGroup = 'Asistentes_Operativos';
-    /*Campo subgGroup utilizado en lso multiples metodos*/
-    public static Final String subgGroup = 'Subgerentes_Operativos';
+    /*Campo MSG_ERROR inicializado para soluciones del SonarQ*/
+    public static Final String MSG_ERROR = 'msgError';
+    /*Campo IS_ERROR inicializado para soluciones del SonarQ*/
+    public static Final String IS_ERROR = 'isError';
+    /*Campo LST_QUEUE utilizado en los multiples metodos*/
+    public static Final List<Group> LST_QUEUE = [SELECT ID, developerName FROM Group WHERE developerName IN ('Tier_1_Formalization', 'Tier_2_Formalization') limit 2];
+    /*Campo ASSIST_GROUP utilizado en los multiples metodos*/
+    public static Final String ASSIST_GROUP = 'Asistentes_Operativos';
+    /*Campo SUBG_GROUP utilizado en los multiples metodos*/
+    public static Final String SUBG_GROUP = 'Subgerentes_Operativos';
     
     /* Private Constructor Class Formalization_helper */
     private Formalization_helper() {}
@@ -45,7 +49,7 @@ public without sharing class Formalization_helper {
     private static void updateCase(Id oppId, String rtName) {
         Final Case caso = [SELECT Id, OwnerId, status, DWP_AssistantOwner__c, DWP_SGofOwner__c FROM Case WHERE opportunity_id__c=:oppId AND recordType.Name=:rtName AND 
                      status='06' limit 1];
-        Final Map<String, String> mapGroups = getGroup(lstQueue, 'Tier_1_Formalization');
+        Final Map<String, String> mapGroups = getGroup(LST_QUEUE, 'Tier_1_Formalization');
         Final String estado = (String.isEmpty(caso.DWP_AssistantOwner__c) && caso.OwnerId != mapGroups.get('grp1') ? '08' : '05');
         dynamicUpdateCase(caso, new Map<Schema.SObjectField, Object>{Case.status => estado});
     }
@@ -53,12 +57,12 @@ public without sharing class Formalization_helper {
     /* Public Method Class reasignCase */
     @AuraEnabled
     public static Map<String, Object> reasignCase(Id caseId) {
-        Map<String, Object> mapRes = new Map<String, Object>{'isError' => true, 'msgError' => Label.Dwp_msgGenericError};
+        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, MSG_ERROR => Label.Dwp_msgGenericError};
         try {
             //Roles de Asistentes
-            Final Set<String> rolAsis = getRolTeam(asistGroup);
+            Final Set<String> rolAsis = getRolTeam(ASSIST_GROUP);
             //Roles de Subgerentes
-            Final Set<String> rolSG = getRolTeam(subgGroup);
+            Final Set<String> rolSG = getRolTeam(SUBG_GROUP);
             //Obtener Registro de Miembro en el equipo de formalización correcto
             Final GroupMember[] lstMember = [SELECT Id, Group.DeveloperName FROM GroupMember WHERE Group.DeveloperName IN ('Asistentes_Operativos', 'Subgerentes_Operativos') AND 
                                        UserOrGroupId=:UserInfo.getUserId() ];
@@ -70,12 +74,12 @@ public without sharing class Formalization_helper {
                (caso[0].status=='01' || (caso[0].status=='05' || caso[0].status=='09' && String.isEmpty(caso[0].DWP_AssistantOwner__c)))) {
                 mapValues.put(Case.status, '05');
                 mapValues.put(Case.DWP_AssistantOwner__c, UserInfo.getUserId());
-                mapRes = reasignAssOrSG(caso[0], asistGroup, mapValues);
+                mapRes = reasignAssOrSG(caso[0], ASSIST_GROUP, mapValues);
             } else if(lstMemberSize > 0 && rolSG.contains(usuario.prof_position_id__c) && usuario.profile.Name=='Operativo' && 
                      (caso[0].status=='07' || (caso[0].status=='08' && String.isEmpty(caso[0].DWP_SGofOwner__c)))) {
                 mapValues.put(Case.status, '08');
                 mapValues.put(Case.DWP_SGofOwner__c, UserInfo.getUserId());
-                mapRes = reasignAssOrSG(caso[0], subgGroup, mapValues);
+                mapRes = reasignAssOrSG(caso[0], SUBG_GROUP, mapValues);
             }
         } catch(AuraHandledException e) {
             throw e;
@@ -90,7 +94,7 @@ public without sharing class Formalization_helper {
         Final List<GroupMember> members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:grupo[0].Id AND UserOrGroupId=:UserInfo.getUserId()];
         Final Integer memberSize = members.size();
         if(memberSize > 0) {
-            mapRes.put('isError', false);
+            mapRes.put(IS_ERROR, false);
             mapRes.put('oppId',caso.opportunity_id__c);
             for(Schema.SObjectField sField:mapFields.keySet()) {
                 caso.put(sField, mapFields.get(sField));
@@ -104,8 +108,8 @@ public without sharing class Formalization_helper {
                 update opp;
             }
         } else {
-            mapRes.put('isError', true);
-        	mapRes.put('msgError', 'Su usuario no esta registrado en el Equipo de Formalización.');
+            mapRes.put(IS_ERROR, true);
+        	mapRes.put(MSG_ERROR, 'Su usuario no esta registrado en el Equipo de Formalización.');
         }
         return MapRes;
     }
@@ -131,13 +135,13 @@ public without sharing class Formalization_helper {
     /* Public Method Class getInfo */
     public static Map<String, Object> getInfo(Id oppId) {
         Map<String, Object> mapRes = new Map<String, Object>();
-        mapRes.put('isError', true);
+        mapRes.put(IS_ERROR, true);
         Final Opportunity[] lstOpp = [SELECT Id, frm_ContractNumber__c FROM Opportunity WHERE Id=:oppId];
         Final Integer oppSize = lstOpp.size();
         if(oppSize > 0) {
             mapRes.put('contractNumber', String.isEmpty(lstOpp[0].frm_ContractNumber__c) ? '0011-' : lstOpp[0].frm_ContractNumber__c);
             mapRes.put('picklistValues', Dwp_Utils_helper.getPicklistValues('Opportunity', 'devolutionReason__c'));
-            mapRes.put('isError', false);
+            mapRes.put(IS_ERROR, false);
             Final Case caso = [SELECT Id, status FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('05','08', '09') limit 1];
             //Si el caso esta en estado "Asignado AAC" o "Devuelta AAC" será TRUE
             Final Boolean lblButtons = caso.status == '05' || caso.status == '09' ? true : false;
@@ -150,7 +154,7 @@ public without sharing class Formalization_helper {
     /* Public Method Class sendProductUnit */
     @AuraEnabled
     public static Map<String, Object> sendProductUnit(Id oppId) {
-        Map<String, Object> mapRes = new Map<String, Object>{'isError' => false};
+        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => false};
         try {
             Opportunity opp = [SELECT Id FROM Opportunity WHERE Id=:oppId];
            	Map<Schema.SObjectField, Object> mapOppFields = new Map<Schema.SObjectField, Object>{Opportunity.stageName => '05' , Opportunity.opportunity_status_type__c => '21'}; 
@@ -160,7 +164,7 @@ public without sharing class Formalization_helper {
             mapRes.put('msg', '¡Oportunidad enviada a la unidad de producto exitoso!');
         } catch(Exception e) {
             System.debug('e.getMessage() => '+ e.getMessage());
-            mapRes.put('isError', true); 
+            mapRes.put(IS_ERROR, true); 
             mapRes.put('msg', Label.Dwp_msgGenericError); 
         }
         return mapRes;
@@ -168,15 +172,15 @@ public without sharing class Formalization_helper {
     
     /* Public Method Class validateDevolutionReason */
     public static Map<String, Object> validateDevolutionReason(String reason, String comments) {
-        Map<String, Object> mapRes = new Map<String, Object>{'isError' => true, 'validateError' => 'Reason', 'msgError' => 'Elige un motivo por el cual estás devolviendo la petición.'};
+        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, 'validateError' => 'Reason', MSG_ERROR => 'Elige un motivo por el cual estás devolviendo la petición.'};
         Final Map<String, String> mapValues = Dwp_Utils_helper.getPicklistValues('Opportunity', 'devolutionReason__c');
         if(mapValues.containsKey(reason)) {
-            mapRes.put('isError', false);
+            mapRes.put(IS_ERROR, false);
             mapRes.put('validateError', 'false');
             if(reason == '08') {
-                mapRes.put('isError', String.isEmpty(comments) ? true : false);
+                mapRes.put(IS_ERROR, String.isEmpty(comments) ? true : false);
                 mapRes.put('validateError', String.isEmpty(comments) ? 'Comments' : 'false');
-                mapRes.put('msgError', 'Detalla el motivo de devolución en los comentarios.');
+                mapRes.put(MSG_ERROR, 'Detalla el motivo de devolución en los comentarios.');
             }
         }
         return mapRes;

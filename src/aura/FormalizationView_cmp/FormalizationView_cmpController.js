@@ -38,4 +38,5 @@
     closeAlert : function(cmp, evt, helper) {
        	cmp.set("v.showAlert", false);
     }
+    
 })

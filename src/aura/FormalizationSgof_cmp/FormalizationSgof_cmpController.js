@@ -21,4 +21,5 @@
         var enable = event.getParam("activeContinue");
         component.find("btnContinue").set("v.disabled",enable);
     }
+
 })

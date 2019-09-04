@@ -111,7 +111,7 @@ public without sharing class AssistantFormalization_helper {
                         mapRes.put(IS_ERROR, false);
                         mapRes.put('msgSuccess', '¡Has enviado a formalizar la oportunidad exitosamente!');
                         mapRes.put('listView', ((Boolean)lstView.get(IS_ERROR) ? '' : view[0].Id));
-                    } else mapRes.put(MSG_ERROR, 'Coloca un número de contrato para enviar a formalizar la oportunidad.');
+                    } else {mapRes.put(MSG_ERROR, 'Coloca un número de contrato para enviar a formalizar la oportunidad.');}
                 }
                 when 'returnByDocumentation' {
                     Final Map<String, Object> mapReason = Formalization_helper.validateDevolutionReason(devolutionReason, comments);

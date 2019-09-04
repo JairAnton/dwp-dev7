@@ -9,7 +9,7 @@
                 if(!res.isError) {
                     var cmpView = component.find("view");
                     cmpView.set("v.recordIdParent", component.get("v.inputAttributes.recordId"));
-                    if(res.property != 'Agree') {
+                    if(res.property == 'Empty' || res.property == 'Assigned') {
                         component.set("v.title", 'Reasignarse petición');
                         component.set("v.lblContinue", "Asignarmela");
                         cmpView.set("v.msgProperty", res.msg);
@@ -84,8 +84,8 @@
         const getKey = (obj,val) => Object.keys(obj).find(key => obj[key] === val);
 		var action = component.get("c.sentToFormalize");
         var cmpView = component.find("view");
-        var values = {"option" : cmpView.get("v.optionSelected"), "contractNumber" : cmpView.find("contractNumber").get("v.value"), 
-                      "comments" : cmpView.find("comments").get("v.value"), "fileName" : cmpView.get("v.fileName"), 
+        var values = {"option" : cmpView.get("v.optionSelected"), "contractNumber" : cmpView.find("contractNumber").get("v.value"),
+                      "comments" : cmpView.find("comments").get("v.value"), "fileName" : cmpView.get("v.fileName"),
                       "devolutionReason" : getKey(cmpView.get("v.mapPicklistValues"), cmpView.find("picklistField").get("v.value"))};
         action.setParams({
             "oppId" : component.get("v.inputAttributes.recordId"),
@@ -120,7 +120,7 @@
         toastEvent.fire();
         $A.get('e.force:refreshView').fire();
         if(close) {
-            this.destroyCmp(component, event, helper);   
+            this.destroyCmp(component, event, helper);
         }
     },
     redirect : function(component, event, helper, listViewId) {
@@ -130,6 +130,7 @@
             "listViewName" : null,
             "scope" : "Case"
         });
-        nav.fire();        
+        nav.fire();
     }
+    
 })
