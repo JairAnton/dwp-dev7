@@ -40,7 +40,7 @@ public class AssistantFormalization_helper_tst {
         Final User admin = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
         /*Crea Asistente Operativo*/
         Final String perfil=[SELECT Id FROM Profile WHERE name='Operativo'].Id;
-        Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC'};
+        Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC', User.isActive => true};
         User userAsistant=TestFactory.getUser(true, mapFields);
         userAsistant.prof_position_id__c = 'E06';
         update userAsistant;
