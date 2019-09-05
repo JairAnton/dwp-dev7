@@ -240,7 +240,6 @@
         <fullName>dwp_frct__solution_category_type__c</fullName>
         <deprecated>false</deprecated>
         <description>Family category opportunity.</description>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Family</label>
         <length>255</length>
@@ -254,7 +253,6 @@
         <fullName>id_unique__c</fullName>
         <caseSensitive>false</caseSensitive>
         <description>Internal code</description>
-        <encrypted>false</encrypted>
         <externalId>true</externalId>
         <label>Unique identifier gruoping</label>
         <length>255</length>
@@ -266,7 +264,6 @@
     </fields>
     <label>Grouping</label>
     <nameField>
-        <encrypted>false</encrypted>
         <label>Grouping Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
