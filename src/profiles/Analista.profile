@@ -2821,6 +2821,11 @@ Analistas de riesgos</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Formalization_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.IsPrivate</field>
         <readable>false</readable>

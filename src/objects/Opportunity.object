@@ -291,6 +291,15 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Formalization_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Fecha de formalización</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>IqScore</fullName>
         <trackTrending>false</trackTrending>
     </fields>

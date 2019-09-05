@@ -2257,6 +2257,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.Formalization_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account_Profitability__c.currenct_mon_per__c</field>
         <readable>true</readable>
     </fieldPermissions>
