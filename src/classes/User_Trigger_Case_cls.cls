@@ -10,14 +10,10 @@
 public without sharing class User_Trigger_Case_cls {
 
     /*Roles de Asistentes*/
-    public static Set<String> ROL_ASIS;
+    public static Final Set<String> ROL_ASIS = Formalization_helper.getRolTeam('Asistentes_Operativos');
     /*Roles de Subgerentes*/
-    public static Set<String> ROL_SG;
-    static {
-        ROL_ASIS = Formalization_helper.getRolTeam('Asistentes_Operativos');
-        ROL_SG = Formalization_helper.getRolTeam('Subgerentes_Operativos');
-    }
-    
+    public static Final Set<String> ROL_SG = Formalization_helper.getRolTeam('Subgerentes_Operativos');
+
     /*Private Constructor Class*/
     private User_Trigger_Case_cls() {}
     /**
@@ -28,7 +24,7 @@ public without sharing class User_Trigger_Case_cls {
     **/
     public static void newMembersFormalization(List<User> userNew) {
         Final Set<Id> idAsistSgof = new Set<Id>();
-        for(User u:userNew){//Usuarios nuevos con los roles Asistentes y Subgerentes
+        for(User u:userNew) {//Usuarios nuevos con los roles Asistentes y Subgerentes
             if(ROL_ASIS.contains(u.prof_position_id__c) || ROL_SG.contains(u.prof_position_id__c)) {
                 idAsistSgof.add(u.Id);
             }
@@ -51,14 +47,14 @@ public without sharing class User_Trigger_Case_cls {
             if((ROL_ASIS.contains(u.prof_position_id__c) && (userOldMap.get(u.Id).isActive && !u.isActive)) || 
               (ROL_ASIS.contains(u.prof_position_id__c) && !ROL_ASIS.contains(userNewMap.get(u.Id).prof_position_id__c))) {
                 inactiveAsist.add(u.Id);
-            }else if((ROL_SG.contains(u.prof_position_id__c) && (userOldMap.get(u.Id).isActive && !u.isActive)) ||
+            } else if((ROL_SG.contains(u.prof_position_id__c) && (userOldMap.get(u.Id).isActive && !u.isActive)) ||
                     (ROL_SG.contains(u.prof_position_id__c) && ROL_SG.contains(userNewMap.get(u.Id).prof_position_id__c))) {
                 inactiveSgof.add(u.Id);
             }
         }
         Final Integer inactiveAsistSize = inactiveAsist.size();
         Final Integer inactiveSgofSize = inactiveSgof.size();
-        if(inactiveAsistSize > 0 || inactiveSgofSize > 0){
+        if(inactiveAsistSize > 0 || inactiveSgofSize > 0) {
             processDeactiveOwners(inactiveAsist, inactiveSgof);
         }
     }
@@ -199,7 +195,7 @@ public without sharing class User_Trigger_Case_cls {
                 //Nuevos Asistentes
                 if(ROL_ASIS.contains(u.prof_position_id__c)) {
                     member = new GroupMember(GroupId=idAssistantGroup, UserOrGroupId=u.Id);
-                }else {//Nuevos Subgerentes
+                } else {//Nuevos Subgerentes
                     member = new GroupMember(GroupId=idSgofGroup, UserOrGroupId=u.Id);
                 }
                 newMembers.add(member);
