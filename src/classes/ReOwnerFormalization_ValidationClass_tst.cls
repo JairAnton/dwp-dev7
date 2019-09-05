@@ -9,8 +9,9 @@
 @isTest
 public class ReOwnerFormalization_ValidationClass_tst {
 
+    /* Method to test funcionality*/
     @isTest
-    public static void getErrorMessagesList_Test() {
+    public static void getErrorMessagesListTest() {
         Final User asistente = TestFactory.createUser('userName', 'operativo');
         Final Case caso = new Case();
         insert caso;
@@ -21,7 +22,8 @@ public class ReOwnerFormalization_ValidationClass_tst {
             lstErrorMessage = ReOwnerFormalization_ValidationClass.getErrorMessagesList(caso.Id, '', '');
         }
         Test.stopTest();
-        Final Integer lstErrorMessageSize = lstErrorMessage.size();
-        System.assertEquals(1, lstErrorMessageSize, 'Assertion Error');
+        Final Integer lstErrorMsgSize = lstErrorMessage.size();
+        Final Boolean assertion = lstErrorMsgSize > 0 ? true : false;
+        System.assert(assertion, 'Assertion Error');
     }
 }

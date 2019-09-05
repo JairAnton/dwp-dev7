@@ -32,7 +32,6 @@ public without sharing class AssistantFormalization_helper {
                 mapRes.putAll(Formalization_helper.validateUser(owner, true));
             } else {
                 mapRes.put(IS_ERROR, true);
-                mapRes.put(MSG_ERROR, Label.Dwp_msgGenericError);
             }   
         } catch(AuraHandledException e) {
             System.debug('e.getMessage() => '+e.getMessage());

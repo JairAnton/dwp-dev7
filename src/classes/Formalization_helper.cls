@@ -8,17 +8,17 @@
 */
 public without sharing class Formalization_helper {
     
-    //Campo MSG_ERROR inicializado para soluciones del SonarQ
+    /*Campo MSG_ERROR inicializado para soluciones del SonarQ*/
     public static Final String MSG_ERROR = 'msgError';
-    //Campo IS_ERROR inicializado para soluciones del SonarQ
+    /*Campo IS_ERROR inicializado para soluciones del SonarQ*/
     public static Final String IS_ERROR = 'isError';
-    //Campo MSG inicializado para soluciones del SonarQ
+    /*Campo MSG inicializado para soluciones del SonarQ*/
     public static Final String MSG = 'msg';
-    //Campo LST_QUEUE utilizado en los multiples metodos
+    /*Campo LST_QUEUE utilizado en los multiples metodos*/
     public static Final List<Group> LST_QUEUE = [SELECT ID, developerName FROM Group WHERE developerName IN ('Tier_1_Formalization', 'Tier_2_Formalization') limit 2];
-    //Campo ASSIST_GROUP utilizado en los multiples metodos
+    /*Campo ASSIST_GROUP utilizado en los multiples metodos*/
     public static Final String ASSIST_GROUP = 'Asistentes_Operativos';
-    //Campo SUBG_GROUP utilizado en los multiples metodos
+    /*Campo SUBG_GROUP utilizado en los multiples metodos*/
     public static Final String SUBG_GROUP = 'Subgerentes_Operativos';
     
     /* Private Constructor Class Formalization_helper */
@@ -143,8 +143,8 @@ public without sharing class Formalization_helper {
             mapRes.put('contractNumber', String.isEmpty(lstOpp[0].frm_ContractNumber__c) ? '0011-' : lstOpp[0].frm_ContractNumber__c);
             mapRes.put('picklistValues', Dwp_Utils_helper.getPicklistValues('Opportunity', 'devolutionReason__c'));
             mapRes.put(IS_ERROR, false);
-            Final Case caso = [SELECT Id, status FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('05','08', '09') limit 1];
             //Si el caso esta en estado "Asignado AAC" o "Devuelta AAC" será TRUE
+            Final Case caso = [SELECT Id, status FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('05','08', '09') limit 1];
             Final Boolean lblButtons = caso.status == '05' || caso.status == '09' ? true : false;
             mapRes.put('lblSend', lblButtons ? 'Solicitar Formalización' : 'Formalizar');
             mapRes.put('lblReturn', lblButtons ? 'Devolver a ejecutivo' : 'Devolver a asistente');
