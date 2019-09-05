@@ -38,14 +38,16 @@ public class Formalization_Helper_tst {
         Final User admin = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
         /*Crea Asistente Operativo*/
         Final String perfil=[SELECT Id FROM Profile WHERE name='Operativo'].Id;
-        Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC'/*, User.prof_position_id__c => 'E06'*/};
+        Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC'};
         User userAsistant=TestFactory.getUser(true, mapFields);
         userAsistant.prof_position_id__c = 'E06';
+        userAsistant.isActive = true;
         update userAsistant;
 
         mapFields.put(User.prof_position_type__c, 'SUBGERENTE BEC');
         User userSgof=TestFactory.getUser(true, mapFields);
         userSgof.prof_position_id__c = 'E04';
+        userSgof.isActive = true;
         update userSgof;
         Final String perfilExecutive=[SELECT Id FROM Profile WHERE name='Ejecutivo'].Id;
         mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfilExecutive, User.prof_position_type__c => 'EJECUTIVO BEC', User.isActive => true};
