@@ -16,7 +16,7 @@ public class Formalization_Helper_tst {
     /*Campo BTN_APPROVE inicializado para soluciones del SonarQ*/
     public static Final String BTN_APPROVE = 'btnApprove';
     /*Campo COMMENTS inicializado para soluciones del SonarQ*/
-    public static Final String COMMENTS = 'Comentarios de envio a formalización';
+    public static Final String COMMENTS = 'Comentarios';
     /*Campo IS_ERROR inicializado para soluciones del SonarQ*/
     public static Final String IS_ERROR = 'isError';
     /*Campo FAIL inicializado para soluciones del SonarQ*/
@@ -102,7 +102,7 @@ public class Formalization_Helper_tst {
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
         Final Integer lstCaseSize = lstCases.size();
         Final Boolean assertion = lstCaseSize == 1 ? true : false;
-        System.assert(assertion, 'ASSERTION');
+        System.assert(assertion, FAIL);
     }
     
     /* testSetup - createCaseAssistantSuccessTest */
@@ -118,7 +118,7 @@ public class Formalization_Helper_tst {
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
         Final Integer lstCaseSize = lstCases.size();
         Final Boolean assertion = lstCaseSize == 1 ? true : false;
-        System.assert(assertion, 'ASSERTION');
+        System.assert(assertion, FAIL);
     }
     
     /* testSetup - sendProductUnitSuccessTest */
@@ -129,7 +129,8 @@ public class Formalization_Helper_tst {
         Test.startTest();
         mapRes = Formalization_helper.sendProductUnit(opp.Id);
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        System.assert(assertion, FAIL);
     }
     
     /* testSetup - sendProductUnitErrorTest */
@@ -140,7 +141,8 @@ public class Formalization_Helper_tst {
         Test.startTest();
         mapRes = Formalization_helper.sendProductUnit(nullId);
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(IS_ERROR), FAIL);
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? true : false;
+        System.assert(assertion, FAIL);
     }
     
     /* testSetup - reasignCaseAssistantTest */
@@ -157,7 +159,8 @@ public class Formalization_Helper_tst {
         System.runAs(asistente) {
             mapRes = Formalization_helper.reasignCase(caso.Id);
         }
-        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        System.assert(assertion, FAIL);
     }
     
     /* testSetup - reasignCaseSgofTest */
@@ -175,7 +178,8 @@ public class Formalization_Helper_tst {
         System.runAs(subgerente) {
             mapRes = Formalization_helper.reasignCase(caso.Id);
         }
-        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        System.assert(assertion, FAIL);
     }
     
     /* testSetup - condition6SuccessTest */
@@ -195,7 +199,7 @@ public class Formalization_Helper_tst {
             validate = PrincipalValidationHub.condition6(caso.id);
         }
         Test.stopTest();
-        System.assertEquals(true, validate, FAIL);
+        System.assert(validate, FAIL);
     }
     
     /* testSetup - condition6ErrorTest */
@@ -214,7 +218,8 @@ public class Formalization_Helper_tst {
             validate = PrincipalValidationHub.Condition6(caso.id);
         }
         Test.stopTest();
-        System.assertEquals(false, validate, FAIL);
+        validate = validate ? false : true;
+        System.assert(validate, FAIL);
     }
     
     /* testSetup - condition7SuccessTest */
@@ -234,7 +239,7 @@ public class Formalization_Helper_tst {
             validate = PrincipalValidationHub.condition7(caso.id);
         }
         Test.stopTest();
-        System.assertEquals(true, validate, FAIL);
+        System.assert(validate, FAIL);
     }
     
     /* testSetup - condition7ErrorTest */
@@ -253,7 +258,8 @@ public class Formalization_Helper_tst {
             validate = PrincipalValidationHub.condition7(caso.id);
         }
         Test.stopTest();
-        System.assertEquals(false, validate, FAIL);
+        validate = validate ? false : true;
+        System.assert(validate, FAIL);
     }
     
     /* setFormalizationGroupAssistant */
@@ -269,6 +275,5 @@ public class Formalization_Helper_tst {
         Final User subgerente = [SELECT ID FROM User WHERE prof_position_type__c='SUBGERENTE BEC' limit 1];
         insert new GroupMember(GroupId=grupo.Id, UserOrGroupId=subgerente.Id);
     }
-    
     
 }

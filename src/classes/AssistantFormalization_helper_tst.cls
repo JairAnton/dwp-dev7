@@ -96,7 +96,7 @@ public class AssistantFormalization_helper_tst {
         Test.startTest();
         mapRes = AssistantFormalization_helper.validateAssistant(opp.Id);  
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(IS_ERROR), 'El resultado del metodo debería ser True');
+        System.assert((Boolean)mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - validateAssistantSuccessTest */
@@ -112,7 +112,8 @@ public class AssistantFormalization_helper_tst {
         System.runAs(asistente) {
          	mapRes = AssistantFormalization_helper.validateAssistant(opp.Id);   
         }
-        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        System.assert(assertion, FAIL);
     }
     
     /* isTest - reasignCaseAssistantErrorTest */
@@ -129,7 +130,7 @@ public class AssistantFormalization_helper_tst {
         System.runAs(asistente) {
          	mapRes = AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
         }
-        System.assertEquals(true, mapRes.get(IS_ERROR), FAIL);
+        System.assert((Boolean)mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - reasignCaseAssistantSuccessTest */
@@ -159,7 +160,8 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
         }
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        System.assert(assertion, FAIL);
     }
     
     /* isTest - getDataAssistantSuccessTest */
@@ -179,7 +181,8 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.getData(opp.Id);   
         }
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        System.assert(assertion, FAIL);
     }
     
     /* isTest - sentToFormalizeSTFTest */
@@ -200,7 +203,8 @@ public class AssistantFormalization_helper_tst {
         }
         Test.stopTest();
         Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
-        System.assertEquals('07', caso.status, FAIL);
+        Final Boolean assertion = caso.status == '07' ? true : false;
+        System.assert(assertion, FAIL);
     }
     
     /* isTest - sentToFormalizeSTFValidationErrorTest */
@@ -221,7 +225,7 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.sentToFormalize(opp.Id, JSON.serialize(data));   
         }
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(IS_ERROR), FAIL);
+        System.assert((Boolean)mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - sentToFormalizeRBDTest */
@@ -242,7 +246,8 @@ public class AssistantFormalization_helper_tst {
         }
         Test.stopTest();
         Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
-        System.assertEquals('06', caso.status, FAIL);
+        Final Boolean assertion = caso.status == '06' ? true : false;
+        System.assert(assertion, FAIL);
     }
     
     /* isTest - sentToFormalizeRBDValidationERRORTest */
@@ -263,7 +268,7 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.sentToFormalize(opp.Id, JSON.serialize(data));   
         }
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(IS_ERROR), FAIL);
+        System.assert((Boolean)mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - sentToFormalizeERRORTest */
@@ -284,7 +289,7 @@ public class AssistantFormalization_helper_tst {
          	mapRes = AssistantFormalization_helper.sentToFormalize(opp.Id, JSON.serialize(data));   
         }
         Test.stopTest();
-        System.assertEquals(true, mapRes.get(IS_ERROR), FAIL);
+        System.assert((Boolean)mapRes.get(IS_ERROR), FAIL);
     }
     
     /* isTest - validateAssistantSuccessTestAssigned */
@@ -307,7 +312,8 @@ public class AssistantFormalization_helper_tst {
             mapRes = AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
         }
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        System.assert(assertion, FAIL);
     }
     
     /* isTest - validateAssistantSuccessTestAgree */
@@ -327,7 +333,8 @@ public class AssistantFormalization_helper_tst {
             mapRes = AssistantFormalization_helper.validateAssistant(opp.Id);  
             Test.stopTest();
         }
-        System.assertEquals(false, mapRes.get(IS_ERROR), FAIL);
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        System.assert(assertion, FAIL);
     }
     
     /* isTest - createOrUpdateCaseUpdateSuccessTest */
@@ -349,7 +356,8 @@ public class AssistantFormalization_helper_tst {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
-        System.assertEquals('05', caso.status, FAIL);
+        Final Boolean assertion = caso.status == '05' ? true : false;
+        System.assert(assertion, FAIL);
     }
     
 }

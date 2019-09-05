@@ -7,6 +7,11 @@
 * @Description Esta clase valida los filtros determinados
 */
 global class ReOwnerFormalization_ValidationClass implements dwp_dbpn.DynamicFlowValidationInterface {
+    
+    // Public Constructor Class
+    public ReOwnerFormalization_ValidationClass() {}
+    
+    // Global static method for validation
 	global static List<String> getErrorMessagesList(String recordId, String source, String validationClass) {
         list<String> lstErrorMessage = new List<String>();
         if(PrincipalValidationHub.condition7(recordId)) {

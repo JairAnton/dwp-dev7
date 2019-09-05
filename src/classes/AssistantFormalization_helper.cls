@@ -19,7 +19,7 @@ public without sharing class AssistantFormalization_helper {
     /* Public Method Class validateAssistant */
     @AuraEnabled
     public static Map<String, Object> validateAssistant(Id oppId) {
-        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => false, MSG_ERROR => Label.Dwp_msgGenericError};
+        Final Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => false, MSG_ERROR => Label.Dwp_msgGenericError};
         try {
              //Roles de Asistentes
             Final Set<String> rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
@@ -142,5 +142,5 @@ public without sharing class AssistantFormalization_helper {
         }
         return mapRes;
     }
-
+    
 }

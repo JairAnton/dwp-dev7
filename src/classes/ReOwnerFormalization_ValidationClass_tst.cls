@@ -16,6 +16,7 @@ public class ReOwnerFormalization_ValidationClass_tst {
         insert caso;
         list<String> lstErrorMessage = new List<String>();
         Test.startTest();
+        new ReOwnerFormalization_ValidationClass();
         System.runAs(asistente) {
             lstErrorMessage = ReOwnerFormalization_ValidationClass.getErrorMessagesList(caso.Id, '', '');
         }

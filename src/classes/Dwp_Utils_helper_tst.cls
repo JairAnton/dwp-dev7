@@ -23,7 +23,7 @@ public class Dwp_Utils_helper_tst {
         mapRes = Dwp_Utils_helper.validateFormatt('[0-9]{4}-[0-9]{4}-[0-9]{10}', '1234-1234-1234567890');
         Test.stopTest();
         Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
-        System.assert(assertion);
+        System.assert(assertion, ERROR_ASSERT);
     }
         
     /* isTest - validateFormattErrorTest */
@@ -33,7 +33,7 @@ public class Dwp_Utils_helper_tst {
         Test.startTest();
         mapRes = Dwp_Utils_helper.validateFormatt('[0-9]{4}-[0-9]{4}-[0-9]{10}', '1234-34567890');
         Test.stopTest();
-        System.assert((Boolean) mapRes.get(IS_ERROR));
+        System.assert((Boolean) mapRes.get(IS_ERROR), ERROR_ASSERT);
     }
     
     /* isTest - getPicklistValuesTest */
@@ -45,7 +45,7 @@ public class Dwp_Utils_helper_tst {
         Test.stopTest();
         Final Integer mapSize = mapRes.size();
         Final Boolean result = mapSize > 0 ? true : false;
-        System.assert(result);
+        System.assert(result, ERROR_ASSERT);
     }
     
     /* isTest - getListViewTest */
@@ -55,6 +55,7 @@ public class Dwp_Utils_helper_tst {
         Test.startTest();
         mapRes = Dwp_Utils_helper.getListView('Case', 'MyCases');
         Test.stopTest();
-        System.assertEquals(false, mapRes.get(IS_ERROR), ERROR_ASSERT);
+        Final Boolean result = (Boolean) mapRes.get(IS_ERROR) ? false : true;
+        System.assert(result, ERROR_ASSERT);
     }
 }

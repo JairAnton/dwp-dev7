@@ -182,14 +182,14 @@ public class Product_cls_test {
     
     @isTest 
 	static void Product_Gurantee_test_fails() {
-        Dwp_FormalizationProducts_AAC__c[] prdAssistFormalization = Dwp_FormalizationProducts_AAC__c.getAll().values();
-        Final Integer prdAssistFormalizationSize = prdAssistFormalization.size();
-        if(prdAssistFormalizationSize < 1) {
-            Final Set<String> prdToFormalization = new Set<String>{'PC00012', 'PC00011', 'PC00001_Depre', 'PC00005', 'PC00009', 'PC00001'};
-            for(String prd:prdToFormalization) {
-                prdAssistFormalization.add(new Dwp_FormalizationProducts_AAC__c(Name=prd, Product_Code__c=prd));
+        Dwp_FormalizationProducts_AAC__c[] prdAssistForm = Dwp_FormalizationProducts_AAC__c.getAll().values();
+        Final Integer prdAssiFormSize = prdAssistForm.size();
+        if(prdAssiFormSize == 0) {
+            Final Set<String> prdToForm = new Set<String>{'PC00012', 'PC00011', 'PC00001_Depre', 'PC00005', 'PC00009', 'PC00001'};
+            for(String prd:prdToForm) {
+                prdAssistForm.add(new Dwp_FormalizationProducts_AAC__c(Name=prd, Product_Code__c=prd));
             }
-            insert prdAssistFormalization;
+            insert prdAssistForm;
         }
 		User u = new User();
 	    u.Username='u2@u.com.u';

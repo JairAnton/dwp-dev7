@@ -163,10 +163,10 @@ public without sharing class Product_cls {
                     itemOpp[0].StageName=label.lblFormalizarEtapa;
                     //Si tiene un producto en prdToForm, pasará por el Asistente
                 	Final Integer oliSize = itemOpp[0].OpportunityLineItems.size();
-                    if(oliSize > 0){
+                    if(oliSize > 0) {
                         Formalization_helper.createOrUpdateCase(itemOpp[0], 'Tier_1_Formalization', '01');
                         itemOpp[0].opportunity_status_type__c='25';
-                    } else{//Enviar al Subgerente
+                    } else {//Enviar al Subgerente
                         Formalization_helper.createOrUpdateCase(itemOpp[0], 'Tier_2_Formalization', '07');
                         itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;
                     }      
@@ -333,10 +333,10 @@ public without sharing class Product_cls {
                     if(Term!=null) itemOpp[0].rejection_period_num__c = Term;
                     itemOpp[0].rejection_coin__c = IsoCurrency;
                     update itemOpp[0];
-                    Case[] lstCase = [SELECT Id, status FROM Case WHERE Opportunity_id__c=:OpportunityId AND RecordType.Name = 'Formalization'];
+                    Final Case[] lstCase = [SELECT Id, status FROM Case WHERE Opportunity_id__c=:OpportunityId AND RecordType.Name = 'Formalization'];
                     Final Integer lstCaseSize = lstCase.size();
                     if(lstCaseSize > 0) {
-                        Map<Schema.SObjectField, Object> mapCaseFields = new Map<Schema.SObjectField, Object>{Case.status => '11'};
+                        Final Map<Schema.SObjectField, Object> mapCaseFields = new Map<Schema.SObjectField, Object>{Case.status => '11'};
                     	Formalization_helper.dynamicUpdateCase(lstCase[0], mapCaseFields);
                     }
                 }
@@ -352,7 +352,7 @@ public without sharing class Product_cls {
     public static Map<String,Object> recoverQuotation(String recordId) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         mapReturn.put('success','true');
-        List<OpportunityLineItem> oppProductList = [SELECT price_quote_status_id__c, price_quote_owner_id__c, product_price_approval_method__c, price_quote_id__c
+        Final List<OpportunityLineItem> oppProductList = [SELECT price_quote_status_id__c, price_quote_owner_id__c, product_price_approval_method__c, price_quote_id__c
                                                     FROM OpportunityLineItem WHERE OpportunityId = :recordId];
         mapReturn.put('nextAction',true);
         if(!oppProductList.isEmpty()) {
@@ -470,9 +470,15 @@ public without sharing class Product_cls {
         return ApiToLabel.get(OppStatus);
     }
     
+    /* Method to obtain contract Number */
     @AuraEnabled
     public static String getOppContractNumber(Id oppId) {
-		return [Select frm_ContractNumber__c FROM Opportunity WHERE Id=:oppId].frm_ContractNumber__c;
+        try {
+            return [Select frm_ContractNumber__c FROM Opportunity WHERE Id=:oppId].frm_ContractNumber__c;
+        } catch(AuraHandledException e) {
+            System.debug('e.getMessage() => '+e.getMessage());
+            throw e;
+        }
     }
     /**
         Get BBVA Information Grouped Table
