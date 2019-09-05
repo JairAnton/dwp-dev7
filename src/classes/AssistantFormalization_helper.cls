@@ -36,7 +36,7 @@ public without sharing class AssistantFormalization_helper {
                 mapRes.put(IS_ERROR, true);
             }   
         } catch(AuraHandledException e) {
-            System.debug(GET_MESSAGE+e.getMessage());
+            System.debug(GET_MESSAGE +e.getMessage());
             throw e;
         }
         return mapRes;

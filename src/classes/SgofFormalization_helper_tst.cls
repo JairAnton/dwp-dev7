@@ -134,10 +134,10 @@ public class SgofFormalization_helper_tst {
         User ejecutivo, subgerente;
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Final User[] usuarios = [SELECT ID, prof_position_type__c FROM User WHERE prof_position_type__c IN ('SUBGERENTE BEC 2', 'EJECUTIVO BEC 2') limit 2];
-        for(User u:usuarios){
-            if(u.prof_position_type__c == POSITION_SGOF){
+        for(User u:usuarios) {
+            if(u.prof_position_type__c == POSITION_SGOF) {
                 subgerente = u;
-            }else if(u.prof_position_type__c == POSITION_EXE2){
+            } else if(u.prof_position_type__c == POSITION_EXE2) {
                 ejecutivo = u;
             }
         }

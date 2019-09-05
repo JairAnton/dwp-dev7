@@ -9,14 +9,17 @@
 */
 public without sharing class User_Trigger_Case_cls {
 
-    //Roles de Asistentes y Subgerentes
-    public static Set<String> rolAsis;
-    public static Set<String> rolSG;
+    /*Roles de Asistentes*/
+    public static Set<String> ROL_ASIS;
+    /*Roles de Subgerentes*/
+    public static Set<String> ROL_SG;
     static {
-        rolAsis = Formalization_helper.getRolTeam('Asistentes_Operativos');
-        rolSG = Formalization_helper.getRolTeam('Subgerentes_Operativos');
+        ROL_ASIS = Formalization_helper.getRolTeam('Asistentes_Operativos');
+        ROL_SG = Formalization_helper.getRolTeam('Subgerentes_Operativos');
     }
     
+    /*Private Constructor Class*/
+    private User_Trigger_Case_cls() {}
     /**
     * --------------------------------------------------------------------------------------
     * @Description 	AfterInsert
@@ -26,7 +29,7 @@ public without sharing class User_Trigger_Case_cls {
     public static void newMembersFormalization(List<User> userNew) {
         Final Set<Id> idAsistSgof = new Set<Id>();
         for(User u:userNew){//Usuarios nuevos con los roles Asistentes y Subgerentes
-            if(rolAsis.contains(u.prof_position_id__c) || rolSG.contains(u.prof_position_id__c)) {
+            if(ROL_ASIS.contains(u.prof_position_id__c) || ROL_SG.contains(u.prof_position_id__c)) {
                 idAsistSgof.add(u.Id);
             }
         }
@@ -45,11 +48,11 @@ public without sharing class User_Trigger_Case_cls {
         Final Set<Id> inactiveAsist = new Set<Id>();
         Final Set<Id> inactiveSgof = new Set<Id>();
         for(User u:userNewMap.values()) {//Id's usuarios existentes con los roles Asistentes y Subgerentes desactivados o cambiados de rol
-            if((rolAsis.contains(u.prof_position_id__c) && (userOldMap.get(u.Id).isActive && !u.isActive)) || 
-              (rolAsis.contains(u.prof_position_id__c) && !rolAsis.contains(userNewMap.get(u.Id).prof_position_id__c))) {
+            if((ROL_ASIS.contains(u.prof_position_id__c) && (userOldMap.get(u.Id).isActive && !u.isActive)) || 
+              (ROL_ASIS.contains(u.prof_position_id__c) && !ROL_ASIS.contains(userNewMap.get(u.Id).prof_position_id__c))) {
                 inactiveAsist.add(u.Id);
-            }else if((rolSG.contains(u.prof_position_id__c) && (userOldMap.get(u.Id).isActive && !u.isActive)) ||
-                    (rolSG.contains(u.prof_position_id__c) && rolSG.contains(userNewMap.get(u.Id).prof_position_id__c))) {
+            }else if((ROL_SG.contains(u.prof_position_id__c) && (userOldMap.get(u.Id).isActive && !u.isActive)) ||
+                    (ROL_SG.contains(u.prof_position_id__c) && ROL_SG.contains(userNewMap.get(u.Id).prof_position_id__c))) {
                 inactiveSgof.add(u.Id);
             }
         }
@@ -140,9 +143,9 @@ public without sharing class User_Trigger_Case_cls {
         Final Set<Id> asistChange = new Set<Id>();
         Final Set<Id> sgofChange = new Set<Id>();
         for(User u:userOld) {//Usuario Asistente cambia de rol
-            if(rolAsis.contains(u.prof_position_id__c) && !rolAsis.contains(userNewMap.get(u.Id).prof_position_id__c)) {
+            if(ROL_ASIS.contains(u.prof_position_id__c) && !ROL_ASIS.contains(userNewMap.get(u.Id).prof_position_id__c)) {
                 asistChange.add(u.Id);
-            } else if(rolSG.contains(u.prof_position_id__c) && !rolSG.contains(userNewMap.get(u.Id).prof_position_id__c)) {//Usuario Subgerente cambia de rol
+            } else if(ROL_SG.contains(u.prof_position_id__c) && !ROL_SG.contains(userNewMap.get(u.Id).prof_position_id__c)) {//Usuario Subgerente cambia de rol
                 sgofChange.add(u.Id);
             }
         }
@@ -167,8 +170,8 @@ public without sharing class User_Trigger_Case_cls {
     public static void addUserToFormalizationGroup(Map<id,User> userNewMap, List<User> userOld) {
         Final Set<Id> idAsist_Sgof = new Set<Id>();
         for(User u:userOld) {
-            if((!rolAsis.contains(u.prof_position_id__c) && rolAsis.contains(userNewMap.get(u.Id).prof_position_id__c)) ||
-               (!rolSG.contains(u.prof_position_id__c) && rolSG.contains(userNewMap.get(u.Id).prof_position_id__c))) {
+            if((!ROL_ASIS.contains(u.prof_position_id__c) && ROL_ASIS.contains(userNewMap.get(u.Id).prof_position_id__c)) ||
+               (!ROL_SG.contains(u.prof_position_id__c) && ROL_SG.contains(userNewMap.get(u.Id).prof_position_id__c))) {
                 idAsist_Sgof.add(u.Id);
                }
         }
@@ -194,7 +197,7 @@ public without sharing class User_Trigger_Case_cls {
             GroupMember member;
             for(User u:newAsist_Sgof) {
                 //Nuevos Asistentes
-                if(rolAsis.contains(u.prof_position_id__c)) {
+                if(ROL_ASIS.contains(u.prof_position_id__c)) {
                     member = new GroupMember(GroupId=idAssistantGroup, UserOrGroupId=u.Id);
                 }else {//Nuevos Subgerentes
                     member = new GroupMember(GroupId=idSgofGroup, UserOrGroupId=u.Id);
