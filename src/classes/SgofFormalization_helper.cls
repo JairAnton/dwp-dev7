@@ -92,7 +92,8 @@ public without sharing class SgofFormalization_helper {
         switch on option {
             when 'sentToFormalize' {
                 Final Map<String, Object> mapFormatt = Dwp_Utils_helper.validateFormatt('[0-9]{4}-[0-9]{4}-[0-9]{10}', contractNumber);
-                if(!(Boolean)mapFormatt.get(IS_ERROR)) {
+                Final Boolean vFormat = (Boolean)mapFormatt.get(IS_ERROR) ? false : true;
+                if(vFormat) {
                     mapOppFields = new Map<Schema.SObjectField, Object>{Opportunity.frm_ContractNumber__c => contractNumber , Opportunity.opportunity_status_type__c => '23', 
                         Opportunity.stageName => '06'};
                     mapCaseFields = new Map<Schema.SObjectField, Object>{Case.status => '10'};
@@ -102,7 +103,7 @@ public without sharing class SgofFormalization_helper {
                         mapRes.put(SUCCESS,true);
                     }
                     //mapRes.put('msgSuccess', '¡Has formalizado la oportunidad exitosamente!');
-                    mapRes.put('listView', ((Boolean)lstView.get('isError') ? '' : view[0].Id));
+                    mapRes.put('listView', ((Boolean)lstView.get(IS_ERROR) ? '' : view[0].Id));
                 } else {
                     mapRes.put(SUCCESS, false);
                     mapRes.put(MSG_ERROR, 'Coloca un número de contrato para enviar a formalizar la oportunidad.');
@@ -110,28 +111,28 @@ public without sharing class SgofFormalization_helper {
             }
             when 'returnByDocumentation' {
                 Final Map<String, Object> mapReason = Formalization_helper.validateDevolutionReason(devolutionReason, comments);
-                if(!(Boolean)mapReason.get(IS_ERROR)) {
+                Final Boolean vReason = (Boolean)mapReason.get(IS_ERROR) ? false : true;
+                if(vReason) {
                     //Si tiene Asistente y el producto forma parte del flujo del asistente, se devuelve al asistente o Tier 1, sino se devuelve al ejecutivo
-                    Final Dwp_FormalizationProducts_AAC__c[] prdAssistFormalization = Dwp_FormalizationProducts_AAC__c.getAll().values();
-                    Set<String> prdToFormalization = new Set<String>();
-                    for(Dwp_FormalizationProducts_AAC__c prd:prdAssistFormalization) {
-                        prdToFormalization.add(prd.Product_Code__c);
+                    Final Dwp_FormalizationProducts_AAC__c[] prdAssistForm = Dwp_FormalizationProducts_AAC__c.getAll().values();
+                    Final Set<String> prdToForm = new Set<String>();
+                    for(Dwp_FormalizationProducts_AAC__c prd:prdAssistForm) {
+                        prdToForm.add(prd.Product_Code__c);
                     }
-                    if(String.isEmpty(caso[0].DWP_AssistantOwner__c) && !prdToFormalization.contains(opp.OpportunityLineItems[0].ProductCode)) {
+                    if(String.isEmpty(caso[0].DWP_AssistantOwner__c) && !prdToForm.contains(opp.OpportunityLineItems[0].ProductCode)) {
                         mapCaseFields = new Map<Schema.SObjectField, Object>{Case.status => '06', Case.dwp_returned_date__c => DateTime.now()};
                         mapOppFields = new Map<Schema.SObjectField, Object>{Opportunity.devolutionReason__c => devolutionReason ,Opportunity.opportunity_status_type__c => '20',
                             Opportunity.Dwp_DevolutionUser__c => UserInfo.getUserId()};
                         mapRes.put('msgSuccess', '¡Has devuelto exitosamente la petición N° '+ caso[0].CaseNumber + ' al ejecutivo!');
                     } else {
                         Final String reasign = (String.isEmpty(caso[0].DWP_AssistantOwner__c) ? [SELECT ID FROM Group WHERE DeveloperName = 'Tier_1_Formalization'].Id : caso[0].DWP_AssistantOwner__c);
-                        //mapCaseFields = new Map<Schema.SObjectField, Object>{Case.status => '09', Case.OwnerId => caso[0].DWP_AssistantOwner__c, Case.dwp_returned_date__c => DateTime.now()};
                         mapCaseFields = new Map<Schema.SObjectField, Object>{Case.status => '09', Case.OwnerId => reasign, Case.dwp_returned_date__c => DateTime.now()};
                         mapOppFields = new Map<Schema.SObjectField, Object>{Opportunity.devolutionReason__c => devolutionReason ,Opportunity.opportunity_status_type__c => '25', 
                             Opportunity.Dwp_DevolutionUser__c => UserInfo.getUserId()};
                         mapRes.put('msgSuccess', '¡Has devuelto exitosamente la petición N° '+ caso[0].CaseNumber + ' al asistente!');
                     }
                     mapRes.put(SUCCESS, true);
-                    mapRes.put('listView', ((Boolean)lstView.get('isError') ? '' : view[0].Id));
+                    mapRes.put('listView', ((Boolean)lstView.get(IS_ERROR) ? '' : view[0].Id));
                 } else {
                     mapRes.put(SUCCESS, false);
                     mapRes.put(MSG_ERROR,(String)mapReason.get('msgError'));
@@ -150,7 +151,7 @@ public without sharing class SgofFormalization_helper {
                 new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel(opp.opportunity_status_type__c),'<b>Número de contrato:</b> '+contractNumber 
                                                                              +'<br/>'+'<b>Comentarios:</b> '+comments,'Opportunity',opp.Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
             } else if(option == 'returnByDocumentation') {
-                Map<String, String> devolution = Dwp_Utils_helper.getPicklistValues('Opportunity', 'devolutionReason__c');
+                Final Map<String, String> devolution = Dwp_Utils_helper.getPicklistValues('Opportunity', 'devolutionReason__c');
                 new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel(opp.opportunity_status_type__c),'<b>Razón de devolución: </b>' 
                                                                              +devolution.get(devolutionReason)+'<br/><b>Comentarios:</b> '+(comments == null ? '' : comments), 
                                                                              'Opportunity',opp.Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
