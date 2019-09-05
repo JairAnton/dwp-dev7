@@ -12,6 +12,8 @@ public without sharing class AssistantFormalization_helper {
     public static Final String MSG_ERROR = 'msgError';
     /*Campo IS_ERROR inicializado para soluciones del SonarQ*/
     public static Final String IS_ERROR = 'isError';
+    /*Campo GET_MESSAGE inicializado para soluciones del SonarQ*/
+    public static Final String GET_MESSAGE = 'e.getmessage() => ';
 
     /* Private Constructor Class AssistantFormalization_helper */
     private AssistantFormalization_helper() {}
@@ -34,7 +36,7 @@ public without sharing class AssistantFormalization_helper {
                 mapRes.put(IS_ERROR, true);
             }   
         } catch(AuraHandledException e) {
-            System.debug('e.getMessage() => '+e.getMessage());
+            System.debug(GET_MESSAGE+e.getMessage());
             throw e;
         }
         return mapRes;
@@ -58,7 +60,7 @@ public without sharing class AssistantFormalization_helper {
                 }
             }
         } catch(AuraHandledException e) {
-            System.debug('e.getMessage() => '+e.getMessage());
+            System.debug(GET_MESSAGE+e.getMessage());
             throw e;
         }
         
@@ -71,7 +73,7 @@ public without sharing class AssistantFormalization_helper {
         try {
             return Formalization_helper.getInfo(oppId);
         } catch(AuraHandledException e) {
-            System.debug('e.getMessage() => '+e.getMessage());
+            System.debug(GET_MESSAGE+e.getMessage());
             throw e;
         }
     }
@@ -136,7 +138,7 @@ public without sharing class AssistantFormalization_helper {
                 }
             }
         } catch(AuraHandledException e) {
-            System.debug('e.getMessage() => '+e.getMessage());
+            System.debug(GET_MESSAGE+e.getMessage());
             throw e;
         }
         return mapRes;

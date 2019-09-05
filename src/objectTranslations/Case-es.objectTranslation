@@ -9,6 +9,14 @@
         <value>Peticiones</value>
     </caseValues>
     <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Acceso a peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_access</name>
+    </fields>
+    <fields>
         <label>Propietario</label>
         <name>case_owner_calc__c</name>
     </fields>

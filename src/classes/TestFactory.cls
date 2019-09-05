@@ -299,7 +299,7 @@ public class TestFactory {
         insert obj;
     }
     
-    //Create User with Dynamic Fields
+    /* Create User with Dynamic Fields*/
     public static User getUser(Boolean doInsert, Map<Schema.SObjectField, Object> mapFields) {
         User obj=new User();
         Final Double random = Math.random();
@@ -321,7 +321,7 @@ public class TestFactory {
         return obj;
     }
 
-    //Create dynamic Account
+    /* Create dynamic Account */
     public static Account getAccount(Boolean doInsert, Map<Schema.SObjectField, Object> mapFields) {
         Account obj=new Account();
         Final Decimal random = Math.random();
