@@ -601,7 +601,7 @@
         <type>Picklist</type>
         <valueSet>
             <controllingField>StageName</controllingField>
-            <restricted>true</restricted>
+            <restricted>false</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
