@@ -84,4 +84,5 @@
         <errorMessage>No tiene permitido modificar este campo.</errorMessage>
         <name>Status_Case</name>
     </validationRules>
+    <gender>Feminine</gender>
 </CustomObjectTranslation>
