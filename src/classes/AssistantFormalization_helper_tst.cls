@@ -382,7 +382,7 @@ public class AssistantFormalization_helper_tst {
             mapRes = AssistantFormalization_helper.validateAssistant(opp.Id);  
             Test.stopTest();
         }
-        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        Final Boolean assertion = (Boolean) mapRes.get(IS_ERROR) ? false : true;
         System.assert(assertion, FAIL);
     }
     
