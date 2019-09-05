@@ -30,7 +30,7 @@ public without sharing class User_Trigger_Case_cls {
             }
         }
         Final Integer idAsistSgofSize = idAsistSgof.size();
-        if(idAsistSgofSize > 0) insertNewMembersFormalization(idAsistSgof);
+        if(idAsistSgofSize > 0) { insertNewMembersFormalization(idAsistSgof);}
     }
     
     /**
@@ -59,6 +59,7 @@ public without sharing class User_Trigger_Case_cls {
         }
     }
     
+    /* Process to Deactive Owner with future method*/
     @future 
     public static void processDeactiveOwners(Set<Id> inactiveAsist, Set<Id> inactiveSgof) {
         Map<Id,Case> mapCasos = new Map<Id, Case>([SELECT Id, status, DWP_AssistantOwner__c, bypass__c, OwnerId, opportunity_id__c, DWP_SGofOwner__c,
@@ -147,9 +148,10 @@ public without sharing class User_Trigger_Case_cls {
         }
         Final Integer asistChangeSize = asistChange.size();
         Final Integer sgofChangeSize = sgofChange.size();
-        if(asistChangeSize > 0 || sgofChangeSize > 0) processChangeRolAssis_Sgof(asistChange, sgofChange);
+        if(asistChangeSize > 0 || sgofChangeSize > 0) {processChangeRolAssis_Sgof(asistChange, sgofChange);}
     }
     
+    /* Process to Change Rols with future method*/
     @future
     public static void processChangeRolAssis_Sgof(Set<Id> asistChange, Set<Id> sgofChange) {
         //Eliminar usuarios de los grupos de Asistente y Subgerente
@@ -172,7 +174,7 @@ public without sharing class User_Trigger_Case_cls {
                }
         }
         Final Integer idAsist_SgofSize = idAsist_Sgof.size();
-        if(idAsist_SgofSize > 0) insertNewMembersFormalization(idAsist_Sgof);
+        if(idAsist_SgofSize > 0) {insertNewMembersFormalization(idAsist_Sgof);}
     }
     
     /**
