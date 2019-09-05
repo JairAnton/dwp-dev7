@@ -120,7 +120,7 @@
         <members>*</members>
         <name>ApexClass</name>
     </types>
-	    <types>
+	<types>
         <members>*</members>
         <name>CustomField</name>
     </types>
