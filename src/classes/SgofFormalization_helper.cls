@@ -14,6 +14,8 @@ public without sharing class SgofFormalization_helper {
     public static Final String IS_ERROR = 'isError';
     /*Campo SUCCESS inicializado para soluciones del SonarQ*/
     public static Final String SUCCESS = 'success';
+    /*Campo GET_MESSAGE inicializado para soluciones del SonarQ*/
+    public static Final String GET_MESSAGE = 'e.getmessage() => ';
     
     /* Private Constructor Class SgofFormalization_helper */
     private SgofFormalization_helper() {}
@@ -35,7 +37,7 @@ public without sharing class SgofFormalization_helper {
                 mapRes.put(IS_ERROR, true);
             }
         } catch(AuraHandledException e) {
-            System.debug('e.getMessage() => '+e.getMessage());
+            System.debug(GET_MESSAGE+e.getMessage());
             throw e;
         }
         return mapRes;
@@ -48,14 +50,14 @@ public without sharing class SgofFormalization_helper {
         try {
             Final Boolean isError = (Boolean)mapRes.get(IS_ERROR) ? false : true;
             if(isError) {
-                Case[] caso = [SELECT Id, opportunity_id__c FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('07','08') limit 1];
+                Final Case[] caso = [SELECT Id, opportunity_id__c FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('07','08') limit 1];
                 Final Map<Schema.SObjectField, Object> mapValues = new Map<Schema.SObjectField, Object>{Case.OwnerId => UserInfo.getUserId(), Case.bypass__c => true, 
                     Case.DWP_SGofOwner__c => UserInfo.getUserId(), Case.status => '08'};
                 mapRes = Formalization_helper.reasignAssOrSG(caso[0], 'Subgerentes_Operativos', mapValues);
                 mapRes.put('msgSuccess', '¡Te asignaste la petición exitosamente! Ahora puedes formalizar esta oportunidad.');
             }
         } catch(AuraHandledException e) {
-            System.debug('e.getMessage() => '+e.getMessage());
+            System.debug(GET_MESSAGE+e.getMessage());
             throw e;
         }
         
@@ -68,7 +70,7 @@ public without sharing class SgofFormalization_helper {
         try {
             return Formalization_helper.getInfo(oppId);
         } catch(AuraHandledException e) {
-            System.debug('e.getMessage() => '+e.getMessage());
+            System.debug(GET_MESSAGE+e.getMessage());
             throw e;
         }
     }
