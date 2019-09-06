@@ -122,25 +122,18 @@ public class User_Trigger_Case_tst {
     * addUserToFormalizationGroup
     **/
     @isTest
-    public static void addUserToFormalizationGroupTest(){
+    public static void addUserToFormalizationGroupTest() {
         List<User> newUsers = new List<User>();
         String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
         for(Integer i=0; i<250; i++){
-            if(i < 125){
-                newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
-                                      IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
-            } else{
-                newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
-                                 IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
-            }
+            newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
+                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
         }
-
         insert newUsers;
-        
-        for(Integer i=0; i<250; i++){
-            if(i < 125){
+        for(Integer i=0; i<250; i++) {
+            if(i < 125) {
                 newUsers[i].prof_position_id__c='E06';
-            } else{
+            } else {
                 newUsers[i].prof_position_id__c='E04';
             }
         }

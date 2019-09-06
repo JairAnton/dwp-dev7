@@ -46,24 +46,18 @@ public without sharing class AssistantFormalization_helper {
     @AuraEnabled
     public static Map<String, Object> reasignCaseFromOpp(Id oppId) {
         Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => false, MSG_ERROR => Label.Dwp_msgGenericError};
-        try {
-            mapRes = validateAssistant(oppId);
-            Final Boolean errorAssist = (Boolean)mapRes.get(IS_ERROR) ? false : true;
-            if(errorAssist) {
-                Final Case[] caso = [SELECT Id, opportunity_id__c FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('01','05') limit 1];
-                Final Map<Schema.SObjectField, Object> mapValues = new Map<Schema.SObjectField, Object>{Case.OwnerId => UserInfo.getUserId(), Case.bypass__c => true, 
-                    Case.DWP_AssistantOwner__c => UserInfo.getUserId(), Case.status => '05'};
-                mapRes = Formalization_helper.reasignAssOrSG(caso[0], 'Asistentes_Operativos', mapValues);
-                Final Boolean isError = (Boolean)mapRes.get(IS_ERROR) ? false : true;
-                if(isError) {
-                    mapRes.put('msgSuccess', '¡Te asignaste la petición exitosamente! Ahora puedes enviar a formalizar esta oportunidad.');
-                }
+        mapRes = validateAssistant(oppId);
+        Final Boolean errorAssist = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        if(errorAssist) {
+            Final Case[] caso = [SELECT Id, opportunity_id__c FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('01','05') limit 1];
+            Final Map<Schema.SObjectField, Object> mapValues = new Map<Schema.SObjectField, Object>{Case.OwnerId => UserInfo.getUserId(), Case.bypass__c => true, 
+                Case.DWP_AssistantOwner__c => UserInfo.getUserId(), Case.status => '05'};
+            mapRes = Formalization_helper.reasignAssOrSG(caso[0], 'Asistentes_Operativos', mapValues);
+            Final Boolean isError = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+            if(isError) {
+                mapRes.put('msgSuccess', '¡Te asignaste la petición exitosamente! Ahora puedes enviar a formalizar esta oportunidad.');
             }
-        } catch(AuraHandledException e) {
-            System.debug(GET_MESSAGE+e.getMessage());
-            throw e;
         }
-        
         return mapRes;
     }
     
