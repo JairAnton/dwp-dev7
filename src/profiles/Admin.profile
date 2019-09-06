@@ -67,6 +67,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AssistantFormalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AssistantFormalization_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Contact_Group_Handler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -88,6 +96,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Dwp_Utils_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FileUploadController_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -200,6 +212,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Action_Audit_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

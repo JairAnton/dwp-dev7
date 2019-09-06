@@ -31,11 +31,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AssistantFormalization_helper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AssistantFormalization_helper_tst</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Assistant_ValidationClass</apexClass>
@@ -67,19 +67,23 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Dwp_Utils_helper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Dwp_Utils_helper_tst</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>FileUploadController_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Formalization_helper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Formalization_Helper_tst</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GraphicsGenerator_cls</apexClass>
@@ -163,11 +167,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ReOwnerFormalization_ValidationClass</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ReOwnerFormalization_ValidationClass_tst</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ReevaluateButtonClass</apexClass>
@@ -175,11 +179,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SgofFormalization_helper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SgofFormalization_helper_tst</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SubmitToDiscart_ValidationClass</apexClass>
@@ -195,19 +199,27 @@
     </classAccesses>
     <classAccesses>
         <apexClass>User_Handler_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>User_Trigger_Case_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>User_Trigger_Case_tst</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>User_Trigger_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass_tst</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>dwp_cvad__DynamicAuditDisplay_Ctrl</apexClass>
