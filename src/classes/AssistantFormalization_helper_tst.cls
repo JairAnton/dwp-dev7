@@ -409,7 +409,7 @@ public class AssistantFormalization_helper_tst {
         System.runAs(admin) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
-        Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
+        Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id AND OwnerId=:asistente.Id limit 1];
         Final Boolean assertion = caso.status == '05' ? true : false;
         System.assert(assertion, FAIL);
     }

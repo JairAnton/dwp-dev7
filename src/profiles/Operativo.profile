@@ -39,11 +39,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Assistant_ValidationClass</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Assistant_ValidationClass_Test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BBVA_SBS_Classification_Test</apexClass>

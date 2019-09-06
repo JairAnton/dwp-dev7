@@ -6098,9 +6098,9 @@ Asistente BE</description>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Case.Formalization</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
         <default>true</default>
