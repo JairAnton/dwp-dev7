@@ -185,6 +185,7 @@
     <classAccesses>
         <apexClass>caseStatusButtonClass_tst</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>Action_Audit_Helper</apexClass>
         <enabled>true</enabled>
