@@ -190,7 +190,7 @@ public class SgofFormalization_helper_tst {
             subgerente.IsActive = true;
             update subgerente;
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
-			setFormalizationGroupAssistant();
+			setFormalizationGroupSubgerente();
         }
         Map<String, Object> mapRes;
         Test.startTest();
@@ -214,7 +214,7 @@ public class SgofFormalization_helper_tst {
             subgerente.IsActive = true;
             update subgerente;
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
-			setFormalizationGroupAssistant();
+			setFormalizationGroupSubgerente();
         }
         Test.startTest();
         System.runAs(subgerente) {
@@ -262,7 +262,7 @@ public class SgofFormalization_helper_tst {
             subgerente.IsActive = true;
             update subgerente;
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
-			setFormalizationGroupAssistant();
+			setFormalizationGroupSubgerente();
         }
         Test.startTest();
         System.runAs(subgerente) {
