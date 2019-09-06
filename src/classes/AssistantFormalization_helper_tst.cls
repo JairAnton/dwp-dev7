@@ -345,6 +345,8 @@ public class AssistantFormalization_helper_tst {
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
+        ejecutivo.IsActive = false;
+        update ejecutivo;
         Formalization_Helper_tst.setFormalizationGroupAssistant();
         System.runAs(asistente) {
             AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
