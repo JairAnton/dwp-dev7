@@ -345,8 +345,6 @@ public class AssistantFormalization_helper_tst {
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
-        ejecutivo.IsActive = false;
-        update ejecutivo;
         Formalization_Helper_tst.setFormalizationGroupAssistant();
         System.runAs(asistente) {
             AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
@@ -394,19 +392,24 @@ public class AssistantFormalization_helper_tst {
     public static void createOrUpdateCaseUpdateSuccessTest() {
         Final Map<String, Object> data = new Map<String, Object>{OPTION => 'returnByDocumentation', DEVOL_REASON => '08', COMMENTS => COMMENTS};
 		Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
+        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Final User asistente = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_ASSI limit 1];
         System.runAs(admin) {
+            ejecutivo.IsActive = true;
             asistente.IsActive = true;
+            update ejecutivo;
             update asistente;
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
 			Formalization_Helper_tst.setFormalizationGroupAssistant();
+        }
+        System.runAs(ejecutivo) {
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         System.runAs(asistente) {
             AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
             AssistantFormalization_helper.sentToFormalize(opp.Id, JSON.serialize(data));   
         }
-        System.runAs(admin) {
+        System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id AND OwnerId=:asistente.Id limit 1];
