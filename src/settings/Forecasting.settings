@@ -1765,6 +1765,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
             <field>ACCOUNT.NAME</field>
@@ -1847,6 +1851,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -2074,6 +2079,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -2255,6 +2264,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
