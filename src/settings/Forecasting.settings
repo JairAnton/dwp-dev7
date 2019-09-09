@@ -306,6 +306,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -378,6 +382,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -429,6 +437,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>ACCOUNT.NAME</field>
             <field>OPPORTUNITY.AMOUNT</field>
@@ -478,6 +490,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -496,6 +509,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -509,6 +523,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -732,6 +747,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -804,6 +823,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -855,6 +878,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
             <field>ACCOUNT.NAME</field>
@@ -904,6 +931,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -922,6 +950,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -935,6 +964,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -1162,6 +1192,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -1234,6 +1268,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -1285,6 +1323,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>ACCOUNT.NAME</field>
             <field>OPPORTUNITY.CLOSE_DATE</field>
@@ -1335,6 +1377,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -1353,6 +1396,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -1366,6 +1410,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -1589,6 +1634,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -1659,6 +1708,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -1761,6 +1814,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -1779,6 +1833,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -2091,6 +2146,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -2141,6 +2200,10 @@
         <opportunityListFieldsLabelMappings>
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -2210,6 +2273,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -2223,6 +2287,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -2446,6 +2511,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -2518,6 +2587,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -2569,6 +2642,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
             <field>ACCOUNT.NAME</field>
@@ -2618,6 +2695,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -2636,6 +2714,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -2649,6 +2728,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -2872,6 +2952,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -2944,6 +3028,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -2995,6 +3083,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
             <field>ACCOUNT.NAME</field>
@@ -3044,6 +3136,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -3062,6 +3155,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -3075,6 +3169,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -3298,6 +3393,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -3370,6 +3469,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -3421,6 +3524,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
             <field>ACCOUNT.NAME</field>
@@ -3470,6 +3577,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -3488,6 +3596,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -3501,6 +3610,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -3728,6 +3838,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -3800,6 +3914,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -3851,6 +3969,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
             <field>ACCOUNT.NAME</field>
@@ -3901,6 +4023,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -3919,6 +4042,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -3932,6 +4056,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -4155,6 +4280,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -4227,6 +4356,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -4278,6 +4411,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
             <field>ACCOUNT.NAME</field>
@@ -4327,6 +4464,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -4345,6 +4483,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -4358,6 +4497,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -4581,6 +4721,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -4653,6 +4797,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -4704,6 +4852,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
             <field>ACCOUNT.NAME</field>
@@ -4753,6 +4905,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -4771,6 +4924,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -4784,6 +4938,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -5007,6 +5162,10 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000005KZLP</field>
+            <label>Fecha de formalización</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -5079,6 +5238,10 @@
             <label>Product family</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
+            <field>00N17000004t61o</field>
+            <label>Razón de devolución</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
             <label>Renewal expiry date</label>
         </opportunityListFieldsLabelMappings>
@@ -5130,6 +5293,10 @@
             <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N1700000588NU</field>
+            <label>Usuario en devolución</label>
+        </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
             <field>ACCOUNT.NAME</field>
@@ -5179,6 +5346,7 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
+            <field>00N17000005KZLP</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
@@ -5197,6 +5365,7 @@
             <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
+            <field>00N17000004t61o</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -5210,6 +5379,7 @@
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
             <field>00NQ000000268JD</field>
+            <field>00N1700000588NU</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
