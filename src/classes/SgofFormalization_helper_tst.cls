@@ -45,7 +45,7 @@ public class SgofFormalization_helper_tst {
         userAsistant.prof_position_id__c = 'E06';
         update userAsistant;
         /*Crea Subgerente Operativo*/
-        mapFields.put(User.prof_position_type__c, 'SUBGERENTE BEC 2');
+        mapFields.put(User.prof_position_type__c, POSITION_SGOF);
         User userSgof=TestFactory.getUser(true, mapFields);
         userSgof.prof_position_id__c = 'E04';
         update userSgof;
@@ -163,12 +163,10 @@ public class SgofFormalization_helper_tst {
             subgerente.isActive = true;
             update ejecutivo;
             update subgerente;
+            setFormalizationGroupSubgerente();
         }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');           
-        }
-        System.runAs(admin) {
-            setFormalizationGroupAssistant();
         }
         Map<String, Object> mapRes;
         Test.startTest();

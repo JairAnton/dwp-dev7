@@ -345,7 +345,7 @@ public class AssistantFormalization_helper_tst {
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
-        Formalization_Helper_tst.setFormalizationGroupAssistant();
+        setFormalizationGroupAssistant();
         System.runAs(asistente) {
             AssistantFormalization_helper.reasignCaseFromOpp(opp.Id);
         }
@@ -400,7 +400,7 @@ public class AssistantFormalization_helper_tst {
             asistente.IsActive = true;
             update ejecutivo;
             update asistente;
-			Formalization_Helper_tst.setFormalizationGroupAssistant();
+			setFormalizationGroupAssistant();
         }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
@@ -415,6 +415,16 @@ public class AssistantFormalization_helper_tst {
         Final Case caso = [SELECT ID, status FROM Case WHERE opportunity_id__c=:opp.Id AND OwnerId=:asistente.Id limit 1];
         Final Boolean assertion = caso.status == '05' ? true : false;
         System.assert(assertion, FAIL);
+    }
+    
+    public static void setFormalizationGroupAssistant(){
+        Final Group grupo = [SELECT ID, developerName FROM Group WHERE DeveloperName IN ('Asistentes_Operativos') limit 1];
+        Final User[] asistentes = [SELECT ID, Name FROM User WHERE prof_position_type__c LIKE '%ASISTENTE%'];
+        Final GroupMember[] members = new GroupMember[]{};
+        for(User usuario:asistentes) {
+            members.add(new GroupMember(GroupId=grupo.Id, UserOrGroupId=usuario.Id));
+        }
+        insert members;
     }
     
 }

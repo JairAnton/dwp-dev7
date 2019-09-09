@@ -169,6 +169,7 @@ public class Formalization_Helper_tst {
             asistente.isActive = true;
             update ejecutivo;
             update asistente;
+            setFormalizationGroupAssistant();
         }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
@@ -247,11 +248,12 @@ public class Formalization_Helper_tst {
             asistente.isActive = true;
             update ejecutivo;
             update asistente;
+            setFormalizationGroupAssistant();
         }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
-        Final Case caso = [SELECT Id FROM Case WHERE RecordType.DeveloperName =:formalization];
+        Final Case caso = [SELECT Id FROM Case WHERE RecordType.DeveloperName =:FORMALIZATION];
         Boolean validate;
         Test.startTest();
         System.runAs(asistente) {
@@ -301,6 +303,7 @@ public class Formalization_Helper_tst {
             asistente.isActive = true;
             update ejecutivo;
             update asistente;
+            setFormalizationGroupAssistant();
         }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');

@@ -33,8 +33,12 @@ public class User_Trigger_Case_tst {
         Test.startTest();
         insert newUsers;
         Test.stopTest();
+        Final Set<Id> idsUsers = new Set<Id>();
+        for(User u:newUsers){
+            idsUsers.add(u.Id);
+        }
         Final Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: grp');
+        Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp');
         System.assertEquals(500, newUsersInGroup, 'Error with assertion');
     }
     
@@ -140,9 +144,12 @@ public class User_Trigger_Case_tst {
         Test.startTest();
         update newUsers;
         Test.stopTest();
-        
+        Final Set<Id> idsUsers = new Set<Id>();
+        for(User u:newUsers){
+            idsUsers.add(u.Id);
+        }
         Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: grp');
+        Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp');
         System.assertEquals(250,newUsersInGroup, 'Error with assertion');
     }
 }
