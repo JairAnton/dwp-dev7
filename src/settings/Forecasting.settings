@@ -318,7 +318,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -350,7 +350,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -362,11 +362,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00NQ00000026bFP</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFQ</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -426,7 +426,7 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
@@ -481,7 +481,7 @@
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -489,11 +489,11 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFP</field>
+            <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
             <field>00N1I00000Mp8eQ</field>
@@ -508,7 +508,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -744,7 +744,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -776,7 +776,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -788,11 +788,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00NQ00000026bFP</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFQ</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -852,7 +852,7 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
@@ -907,7 +907,7 @@
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -915,11 +915,11 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFP</field>
+            <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
             <field>00N1I00000Mp8eQ</field>
@@ -934,7 +934,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -1174,7 +1174,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1206,7 +1206,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1218,11 +1218,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00NQ00000026bFP</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFQ</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1282,7 +1282,7 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
@@ -1338,7 +1338,7 @@
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -1346,11 +1346,11 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFP</field>
+            <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
             <field>00N1I00000Mp8eQ</field>
@@ -1365,7 +1365,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -1601,7 +1601,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1633,7 +1633,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1645,11 +1645,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00NQ00000026bFP</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFQ</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1709,7 +1709,7 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
@@ -1764,7 +1764,7 @@
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -1772,11 +1772,11 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFP</field>
+            <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
             <field>00N1I00000Mp8eQ</field>
@@ -1791,7 +1791,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -2031,7 +2031,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2063,7 +2063,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2075,11 +2075,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00NQ00000026bFP</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFQ</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2139,7 +2139,7 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
@@ -2195,7 +2195,7 @@
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -2203,11 +2203,11 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFP</field>
+            <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
             <field>00N1I00000Mp8eQ</field>
@@ -2222,7 +2222,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -2458,7 +2458,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2490,7 +2490,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2502,11 +2502,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00NQ00000026bFP</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFQ</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2566,7 +2566,7 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
@@ -2621,7 +2621,7 @@
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -2629,11 +2629,11 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFP</field>
+            <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
             <field>00N1I00000Mp8eQ</field>
@@ -2648,7 +2648,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -2888,7 +2888,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2920,7 +2920,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2932,11 +2932,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00NQ00000026bFP</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFQ</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2996,7 +2996,7 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
@@ -3052,7 +3052,7 @@
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -3060,11 +3060,11 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFP</field>
+            <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
             <field>00N1I00000Mp8eQ</field>
@@ -3079,7 +3079,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
@@ -3315,7 +3315,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3347,7 +3347,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3359,11 +3359,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00NQ00000026bFP</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFQ</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3423,7 +3423,7 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
             <label>USER EJECUTIVO</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
@@ -3478,7 +3478,7 @@
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00NQ00000026bEE</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -3486,11 +3486,11 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00NQ00000026bFO</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00NQ00000026bFP</field>
+            <field>00NQ00000026bFQ</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
             <field>00N1I00000Mp8eQ</field>
@@ -3505,7 +3505,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
+            <field>00NQ000000268JD</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>bestcaseforecast</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>commitforecast</ownerAdjustableCategoryApiNames>
