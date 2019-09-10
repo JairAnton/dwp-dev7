@@ -20,6 +20,7 @@ public class User_Trigger_Case_tst {
     /* isTest - newMembersFormalizationTest */
     @isTest
     public static void newMembersFormalizationTest() {
+        User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId()];
         Final List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
         for(Integer i=0; i<250; i++) {
@@ -31,7 +32,9 @@ public class User_Trigger_Case_tst {
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E04', ProfileId=profile));
         }
         Test.startTest();
-        insert newUsers;
+        System.runAs(admin) {
+            insert newUsers;
+        }
         Test.stopTest();
         Final Set<Id> idsUsers = new Set<Id>();
         for(User u:newUsers){
@@ -40,7 +43,7 @@ public class User_Trigger_Case_tst {
         }
         update newUsers;
         Final Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp];
+        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE Group.DeveloperName IN: grp];
         Final Integer memberSize = members.size();
         System.assertEquals(500, memberSize, 'Error with assertion');
     }
@@ -130,6 +133,7 @@ public class User_Trigger_Case_tst {
     **/
     @isTest
     public static void addUserToFormalizationGroupTest() {
+        User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId()];
         List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
         for(Integer i=0; i<250; i++){
@@ -146,14 +150,16 @@ public class User_Trigger_Case_tst {
             newUsers[i].IsActive=true;
         }
         Test.startTest();
-        update newUsers;
+        System.runAs(admin) {
+            update newUsers;
+        }
         Test.stopTest();
         Final Set<Id> idsUsers = new Set<Id>();
         for(User u:newUsers){
             idsUsers.add(u.Id);
         }
         Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp];
+        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE Group.DeveloperName IN:grp AND UserOrGroupId IN:idsUsers];
         Final Integer memberSize = members.size();
         System.assertEquals(250,memberSize, 'Error with assertion');
     }
