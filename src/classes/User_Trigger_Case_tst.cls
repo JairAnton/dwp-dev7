@@ -23,11 +23,11 @@ public class User_Trigger_Case_tst {
         User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId()];
         Final List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
-        for(Integer i=0; i<250; i++) {
+        for(Integer i=0; i<50; i++) {
             newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E06', ProfileId=profile));
         }
-        for(Integer i=250; i<500; i++) {
+        for(Integer i=50; i<100; i++) {
             newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E04', ProfileId=profile));
         }
@@ -43,9 +43,9 @@ public class User_Trigger_Case_tst {
         }
         update newUsers;
         Final Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE Group.DeveloperName IN: grp];
+        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp];
         Final Integer memberSize = members.size();
-        System.assertEquals(500, memberSize, 'Error with assertion');
+        System.assertEquals(100, memberSize, 'Error with assertion');
     }
     
     /**
@@ -136,13 +136,13 @@ public class User_Trigger_Case_tst {
         User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId()];
         List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
-        for(Integer i=0; i<250; i++){
+        for(Integer i=0; i<100; i++){
             newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                   IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
         }
         insert newUsers;
-        for(Integer i=0; i<250; i++) {
-            if(i < 125) {
+        for(Integer i=0; i<100; i++) {
+            if(i < 50) {
                 newUsers[i].prof_position_id__c='E06';
             } else {
                 newUsers[i].prof_position_id__c='E04';
@@ -159,8 +159,8 @@ public class User_Trigger_Case_tst {
             idsUsers.add(u.Id);
         }
         Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE Group.DeveloperName IN:grp AND UserOrGroupId IN:idsUsers];
+        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp];
         Final Integer memberSize = members.size();
-        System.assertEquals(250,memberSize, 'Error with assertion');
+        System.assertEquals(100,memberSize, 'Error with assertion');
     }
 }
