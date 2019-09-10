@@ -143,18 +143,5 @@ public class FieldSummary_ctrl_Test {
         System.assertEquals('11', statusType, 'the status type must be equal to 11');
         test.stopTest();
     }
-    
-    @isTest
-    static void testMethodError() {
-        Final List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2 LIMIT 1];
-        lstProd[0].Type_of_quote__c = PRODUCTTYPE;
-        update lstProd;
-		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
-        
-        Test.startTest();
-        Final Map<String,Object> mapReturn = FieldSummary_ctrl.doSave(lstOpp[0].Id, '<div>Hola</div>', ISOKLABEL);
-        Final Boolean returnValue = !(Boolean)mapReturn.get(ISOKLABEL);
-        System.assert(returnValue, 'ERROR');
-        Test.stopTest();
-    }
+
 }
