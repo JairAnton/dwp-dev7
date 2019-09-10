@@ -37,7 +37,7 @@ public class User_Trigger_Case_tst {
         for(User u:newUsers){
             idsUsers.add(u.Id);
         }
-        User[] usuarios = [SELECT Id From User WHERE Id IN:newUsers AND IsActive=true];
+        User[] usuarios = [SELECT Id From User WHERE Id IN:idsUsers];
         System.assertEquals(500, usuarios.size(), 'Error with assertion');
     }
     
@@ -142,13 +142,13 @@ public class User_Trigger_Case_tst {
             newUsers[i].IsActive=true;
         }
         Test.startTest();
-        update newUsers;
+		update newUsers;
         Test.stopTest();
         Final Set<Id> idsUsers = new Set<Id>();
         for(User u:newUsers){
             idsUsers.add(u.Id);
         }
-        User[] usuarios = [SELECT Id From User WHERE Id IN:idsUsers AND IsActive=true];
+        User[] usuarios = [SELECT Id From User WHERE Id IN:idsUsers];
         System.assertEquals(250, usuarios.size(), 'Error with assertion');
     }
 }
