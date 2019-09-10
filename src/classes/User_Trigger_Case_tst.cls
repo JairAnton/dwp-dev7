@@ -36,10 +36,13 @@ public class User_Trigger_Case_tst {
         Final Set<Id> idsUsers = new Set<Id>();
         for(User u:newUsers){
             idsUsers.add(u.Id);
+            u.isActive = true;
         }
+        update newUsers;
         Final Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp');
-        System.assertEquals(500, newUsersInGroup, 'Error with assertion');
+        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp];
+        Final Integer memberSize = members.size();
+        System.assertEquals(500, memberSize, 'Error with assertion');
     }
     
     /**
@@ -128,7 +131,7 @@ public class User_Trigger_Case_tst {
     @isTest
     public static void addUserToFormalizationGroupTest() {
         List<User> newUsers = new List<User>();
-        String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
+        Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
         for(Integer i=0; i<250; i++){
             newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                   IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
@@ -140,6 +143,7 @@ public class User_Trigger_Case_tst {
             } else {
                 newUsers[i].prof_position_id__c='E04';
             }
+            newUsers[i].IsActive=true;
         }
         Test.startTest();
         update newUsers;
@@ -149,7 +153,8 @@ public class User_Trigger_Case_tst {
             idsUsers.add(u.Id);
         }
         Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp');
-        System.assertEquals(250,newUsersInGroup, 'Error with assertion');
+        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp];
+        Final Integer memberSize = members.size();
+        System.assertEquals(250,memberSize, 'Error with assertion');
     }
 }

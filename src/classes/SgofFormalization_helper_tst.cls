@@ -84,7 +84,7 @@ public class SgofFormalization_helper_tst {
         Final User admin = [SELECT ID FROM User WHERE id=:UserInfo.getUserId()];
         Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE2 limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        System.runAs(admin){
+        System.runAs(admin) {
             ejecutivo.isActive = true;
             update ejecutivo;
         }
@@ -104,7 +104,7 @@ public class SgofFormalization_helper_tst {
         Final User admin = [SELECT ID FROM User WHERE id=:UserInfo.getUserId()];
         Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE2 limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        System.runAs(admin){
+        System.runAs(admin) {
             ejecutivo.isActive = true;
             update ejecutivo;
         }
@@ -127,7 +127,7 @@ public class SgofFormalization_helper_tst {
         Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE2 limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Final User subgerente = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_SGOF limit 1];
-        System.runAs(admin){
+        System.runAs(admin) {
             ejecutivo.isActive = true;
             subgerente.isActive = true;
             update ejecutivo;
@@ -158,7 +158,7 @@ public class SgofFormalization_helper_tst {
                 ejecutivo = u;
             }
         }
-        System.runAs(admin){
+        System.runAs(admin) {
             ejecutivo.isActive = true;
             subgerente.isActive = true;
             update ejecutivo;
