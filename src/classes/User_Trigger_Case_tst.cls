@@ -23,29 +23,28 @@ public class User_Trigger_Case_tst {
         User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId()];
         Final List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
-        for(Integer i=0; i<50; i++) {
+        for(Integer i=0; i<250; i++) {
             newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E06', ProfileId=profile));
         }
-        for(Integer i=50; i<100; i++) {
+        for(Integer i=250; i<500; i++) {
             newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E04', ProfileId=profile));
         }
         Test.startTest();
-        System.runAs(admin) {
-            insert newUsers;
-        }
+        insert newUsers;
         Test.stopTest();
         Final Set<Id> idsUsers = new Set<Id>();
         for(User u:newUsers){
             idsUsers.add(u.Id);
-            u.isActive = true;
         }
-        update newUsers;
-        Final Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp];
+        Final Set<Id> idGroups = new Set<Id>();
+        for(Group gr:[SELECT ID, developerName FROM Group WHERE DeveloperName IN ('Asistentes_Operativos', 'Subgerentes_Operativos')]) {
+            idGroups.add(gr.Id);
+        }
+        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND GroupId IN:idGroups];
         Final Integer memberSize = members.size();
-        System.assertEquals(100, memberSize, 'Error with assertion');
+        System.assertEquals(500, memberSize, 'Error with assertion');
     }
     
     /**
@@ -136,13 +135,13 @@ public class User_Trigger_Case_tst {
         User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId()];
         List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
-        for(Integer i=0; i<100; i++){
+        for(Integer i=0; i<250; i++){
             newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                   IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
         }
         insert newUsers;
-        for(Integer i=0; i<100; i++) {
-            if(i < 50) {
+        for(Integer i=0; i<250; i++) {
+            if(i < 125) {
                 newUsers[i].prof_position_id__c='E06';
             } else {
                 newUsers[i].prof_position_id__c='E04';
@@ -158,9 +157,12 @@ public class User_Trigger_Case_tst {
         for(User u:newUsers){
             idsUsers.add(u.Id);
         }
-        Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND Group.DeveloperName IN: grp];
+        Final Set<Id> idGroups = new Set<Id>();
+        for(Group gr:[SELECT ID, developerName FROM Group WHERE DeveloperName IN ('Asistentes_Operativos', 'Subgerentes_Operativos')]) {
+            idGroups.add(gr.Id);
+        }
+        Final GroupMember[] members = [SELECT Id FROM GroupMember WHERE UserOrGroupId IN:idsUsers AND GroupId IN:idGroups];
         Final Integer memberSize = members.size();
-        System.assertEquals(100,memberSize, 'Error with assertion');
+        System.assertEquals(250,memberSize, 'Error with assertion');
     }
 }
