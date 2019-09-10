@@ -143,5 +143,4 @@ public class FieldSummary_ctrl_Test {
         System.assertEquals('11', statusType, 'the status type must be equal to 11');
         test.stopTest();
     }
-
 }
