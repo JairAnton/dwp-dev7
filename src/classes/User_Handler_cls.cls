@@ -17,6 +17,17 @@ public without sharing class User_Handler_cls extends TriggerHandler {
    protected override void beforeInsert() {
     new User_Trigger_cls().AsignBeforeInsert(userNew,userNewMap);
    }
+    
+    /*
+   * @Name: afterInsert
+   * @Description:invoca al trigger user.
+   * @author Diego Carbajal
+   */
+   @TestVisible
+   protected override void afterInsert() {
+    new User_Trigger_cls().AsignAfterInsert(userNew, userNewMap, userOld, userOldMap);
+   }
+    
    /*
    * @Name: beforeUpdate
    * @Description:invoca al trigguer user.
@@ -25,5 +36,15 @@ public without sharing class User_Handler_cls extends TriggerHandler {
    @TestVisible
    protected override void beforeUpdate() {
     new User_Trigger_cls().AsignBeforeUpdate(userNew, userNewMap, userOld, userOldMap);
+   }
+    
+    /*
+   * @Name: AfterUpdate
+   * @Description:invoca al trigger user.
+   * @author Diego Carbajal
+   */
+   @TestVisible
+   protected override void AfterUpdate() {
+    new User_Trigger_cls().AsignAfterUpdate(userNew, userNewMap, userOld, userOldMap);
    }
 }

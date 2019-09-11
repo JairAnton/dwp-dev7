@@ -47,6 +47,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AssistantFormalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AssistantFormalization_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BBVA_SBS_Classification_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -60,6 +68,18 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Contact_Handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Dwp_Utils_helper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Dwp_Utils_helper_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FileUploadController_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -107,11 +127,43 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ReOwnerFormalization_ValidationClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReOwnerFormalization_ValidationClass_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SgofFormalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SgofFormalization_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerHandler_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Handler_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_Case_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_Case_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
    <classAccesses>
@@ -125,6 +177,14 @@
     <classAccesses>
         <apexClass>approveButtonClass_Test</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass_tst</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Action_Audit_Helper</apexClass>
@@ -2818,6 +2878,11 @@ Analistas de riesgos</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.ExpectedRevenue</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Formalization_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

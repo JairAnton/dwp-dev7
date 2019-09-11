@@ -37,6 +37,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Formalization_Date</fullName>
+        <field>Formalization_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Actualizar Fecha de Formalización</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Set_isProcess_to_False</fullName>
         <field>isProcess__c</field>
         <literalValue>0</literalValue>
@@ -123,6 +132,25 @@
             <field>Opportunity.isProcess__c</field>
             <operation>equals</operation>
             <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Stage_Formalized%5F%5FStatus_Formalized</fullName>
+        <actions>
+            <name>Update_Formalization_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>06</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.opportunity_status_type__c</field>
+            <operation>equals</operation>
+            <value>23</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

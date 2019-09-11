@@ -164,7 +164,6 @@
         <fullName>Unique_id__c</fullName>
         <caseSensitive>false</caseSensitive>
         <description>Unique Id</description>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <inlineHelpText>Unique Id</inlineHelpText>
         <label>Unique_id</label>
@@ -267,7 +266,6 @@
         <fullName>Unique_id__c</fullName>
         <caseSensitive>false</caseSensitive>
         <description>Unique Id</description>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <inlineHelpText>Unique Id</inlineHelpText>
         <label>Unique_id</label>
@@ -2348,7 +2346,6 @@
     </fields>
     <fields>
         <fullName>capital_currency_id__c</fullName>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Capital currency</label>
         <length>10</length>
@@ -2540,7 +2537,6 @@
     </fields>
 	 <fields>
         <fullName>cpliq_Cuenta_Abono__c</fullName>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Cuenta Abono</label>
         <length>20</length>
@@ -2550,7 +2546,6 @@
     </fields>
     <fields>
         <fullName>cpliq_Cuenta_Cargo__c</fullName>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Cuenta cargo</label>
         <length>20</length>

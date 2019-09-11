@@ -64,7 +64,6 @@
     <description>Object to manage plans</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -75,7 +74,6 @@
         <fullName>dwp_frct__management_plan_end_date__c</fullName>
         <deprecated>false</deprecated>
         <description>End Date plan</description>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>End Date</label>
         <required>false</required>
@@ -131,7 +129,6 @@
         <fullName>dwp_frct__management_plan_start_date__c</fullName>
         <deprecated>false</deprecated>
         <description>Start Date plan</description>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Start Date</label>
         <required>false</required>
@@ -185,7 +182,6 @@
         <fullName>dwp_frct__other_information_desc__c</fullName>
         <deprecated>false</deprecated>
         <description>Comments of the plan</description>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Comments</label>
         <required>false</required>
@@ -213,7 +209,6 @@
         <fullName>id_unique__c</fullName>
         <caseSensitive>false</caseSensitive>
         <description>Internal code</description>
-        <encrypted>false</encrypted>
         <externalId>true</externalId>
         <label>Unique identifier plan</label>
         <length>255</length>
@@ -226,7 +221,6 @@
     </fields>
     <fields>
         <fullName>other_information_b_desc__c</fullName>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Comments2</label>
         <length>1000</length>
@@ -238,7 +232,6 @@
     </fields>
     <fields>
         <fullName>other_information_c_desc__c</fullName>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Comments3</label>
         <length>1000</length>
@@ -272,7 +265,6 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <encrypted>false</encrypted>
         <label>Management Plan Name</label>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>false</trackHistory>

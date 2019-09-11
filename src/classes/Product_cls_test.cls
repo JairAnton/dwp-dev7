@@ -12,10 +12,10 @@ public class Product_cls_test {
 	static List<Profile> p; 
     static List<UserRole> userRole;
     static Map<String, Profile> perfilMapa = new Map<String, Profile>();    
-	static{
+	static {
         p = new List<Profile>([SELECT Id, Name FROM Profile]);
         userRole = new List<UserRole>([SELECT Id, Name FROM UserRole]);
-        for(Profile perfil:p){ perfilMapa.put(perfil.Name, perfil); }
+        for(Profile perfil:p) { perfilMapa.put(perfil.Name, perfil); }
     }
     
 	@isTest 
@@ -58,7 +58,7 @@ public class Product_cls_test {
         insert newUsers;
 
 		test.startTest();
-        System.runAs(u){ 
+        System.runAs(u) { 
             Account MyAccParent = new Account();
             MyAccParent.Name='Mi cuenta padre';
             insert MyAccParent;
@@ -73,11 +73,11 @@ public class Product_cls_test {
             
             List<Account_BBVA_Information__c> listaABI = new  List<Account_BBVA_Information__c>();
             Account_BBVA_Information__c accbbvai= null;
-            for(integer i=0;i<3;i++){
+            for(integer i=0;i<3;i++) {
                 accbbvai= new Account_BBVA_Information__c();
                 accbbvai.year_month_day_date__c = date.newInstance(2018, 09, 06); 
                 accbbvai.average_balance_amount__c = 1560.0;	
-                if(i==0){
+                if(i==0) {
                 	accbbvai.type__c = '01';
                     accbbvai.product_group_classification_id__c = 'DIRECTA';	
                 	accbbvai.product_desc__c = 'RIESGO DIRECTO';
@@ -182,6 +182,15 @@ public class Product_cls_test {
     
     @isTest 
 	static void Product_Gurantee_test_fails() {
+        Dwp_FormalizationProducts_AAC__c[] prdAssistForm = Dwp_FormalizationProducts_AAC__c.getAll().values();
+        Final Integer prdAssiFormSize = prdAssistForm.size();
+        if(prdAssiFormSize == 0) {
+            Final Set<String> prdToForm = new Set<String>{'PC00012', 'PC00011', 'PC00001_Depre', 'PC00005', 'PC00009', 'PC00001'};
+            for(String prd:prdToForm) {
+                prdAssistForm.add(new Dwp_FormalizationProducts_AAC__c(Name=prd, Product_Code__c=prd));
+            }
+            insert prdAssistForm;
+        }
 		User u = new User();
 	    u.Username='u2@u.com.u';
 	    u.LastName='uLast2';
@@ -212,7 +221,7 @@ public class Product_cls_test {
         insert newUsers;
 
 		test.startTest();
-        System.runAs(u){ 
+        System.runAs(u) { 
             Account MyAccParent = new Account();
             MyAccParent.Name='Mi cuenta padre';
             insert MyAccParent;
@@ -277,7 +286,7 @@ public class Product_cls_test {
 			Product_cls.saveParticipantDataByProduct(null,'a00127831831831',testPr.Id,'Name','01','01','01','01');//ECS
 			Product_cls.setFormalization(testOP.Id,'btnApprove','','obs');
             Product_cls.setFormalization('a00127831831831','btnApprove','id','obs');
-            System.runAs(u2){ 
+            System.runAs(u2) { 
                 Product_cls.setLastFormalization(testOP.Id,'btnApprove','obs','1234-1234-1234567890');
                 Product_cls.setLastFormalization(testOP.Id,'btnRaise','obs','1234-1234-1234567890');                
                 Product_cls.setLastFormalization(testOP.Id,'btnRaise','obs','abcd-abcd-qwertyuiop');

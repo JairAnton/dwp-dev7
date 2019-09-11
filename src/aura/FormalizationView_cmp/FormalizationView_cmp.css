@@ -1,0 +1,31 @@
+.THIS .clickedButtonGreen{
+   background-color: #09864f;
+   /*width:150px;*/
+}
+.THIS .clickedButtonOrange{
+   background-color: rgb(230, 122, 8);
+}
+.THIS .tclickedButton {
+   color:white;   
+}
+.THIS .cButton {
+   color:gray;
+}
+.THIS .sizeIconButton{
+    width: 123px;
+    height: 73px;
+}
+.THIS .buttonOrange{
+    color: rgb(230, 122, 8);
+    border-color: rgb(230, 122, 8);
+}
+.THIS .buttonGreen{
+    color: #09864f;
+    border-color: #09864f;
+}
+.THIS .iconGreen{
+    fill: #09864f;
+}
+.THIS .iconOrange{
+    fill: rgb(230, 122, 8);
+}

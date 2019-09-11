@@ -60,7 +60,54 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
+    <businessProcesses>
+        <fullName>Formalization</fullName>
+        <description>Flujo de Formalización de Oportunidades</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Assigned ACC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assigned SGOF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elevated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formalization dismissed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formalized</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New request</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Returned to the AAC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Returned to the executive</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
     <compactLayoutAssignment>Price_Approval_Case_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Formalization_Compact_Layout</fullName>
+        <fields>CaseNumber</fields>
+        <fields>opportunity_id__c</fields>
+        <fields>AccountId</fields>
+        <fields>Status</fields>
+        <fields>dwp_officeName__c</fields>
+        <fields>case_owner_calc__c</fields>
+        <label>Formalization Compact Layout</label>
+    </compactLayouts>
     <compactLayouts>
         <fullName>Price_Approval_Case_Compact_Layout</fullName>
         <fields>CaseNumber</fields>
@@ -131,10 +178,46 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>DWP_AssistantOwner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asistente</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DWP_SGofOwner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Subgerente</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cases1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Dwp_ElevatedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Fecha de elevación</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>IsClosedOnCreate</fullName>
@@ -271,6 +354,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>dwp_returned_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Fecha de devolución</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>bypass__c</fullName>
@@ -413,7 +506,93 @@
             <group>System_Administrators</group>
         </sharedTo>
     </listViews>
-<listViews>
+    <listViews>
+        <fullName>Dwp_All_Request_Returned_to_AAC</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>dwp_officeName__c</columns>
+        <columns>case_owner_calc__c</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_id__c</columns>
+        <columns>Product_Name_Fr__c</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>dwp_returned_date__c</columns>
+        <columns>DWP_SGofOwner__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>09</value>
+        </filters>
+        <label>Todas las peticiones devueltas al AAC</label>
+        <sharedTo>
+            <group>Subgerentes_Operativos</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Dwp_My_Request_Returned_To_Executive</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>dwp_officeName__c</columns>
+        <columns>case_owner_calc__c</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_id__c</columns>
+        <columns>Product_Name_Fr__c</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>dwp_returned_date__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>06</value>
+        </filters>
+        <label>Mis peticiones devueltas al ejecutivo</label>
+        <sharedTo>
+            <group>Asistentes_Operativos</group>
+            <group>Subgerentes_Operativos</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Dwp_My_Request_to_Elevated</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>05,09</value>
+        </filters>
+        <label>Mis peticiones para alta</label>
+        <sharedTo>
+            <group>Asistentes_Operativos</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Dwp_My_Request_to_Formalize</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>08</value>
+        </filters>
+        <label>Mis peticiones para formalizar</label>
+        <sharedTo>
+            <group>Subgerentes_Operativos</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+	<listViews>
         <fullName>Level1PendingRequest</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>opportunity_id__c</columns>
@@ -549,11 +728,54 @@
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Peticiones_formalizadas</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>dwp_officeName__c</columns>
+        <columns>case_owner_calc__c</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_id__c</columns>
+        <columns>Product_Name_Fr__c</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>CASES.CLOSED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>10</value>
+        </filters>
+        <label>Peticiones formalizadas</label>
+        <sharedTo>
+            <group>Asistentes_Operativos</group>
+            <group>Subgerentes_Operativos</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Tier_1_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Tier 1</label>
         <queue>Tier_1</queue>
         <sharedTo>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Tier_1_Formalization_Case</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>dwp_officeName__c</columns>
+        <columns>case_owner_calc__c</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_id__c</columns>
+        <columns>Product_Name_Fr__c</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+        <filterScope>Queue</filterScope>
+        <label>Peticiones pendientes de alta</label>
+        <queue>Tier_1_Formalization</queue>
+        <sharedTo>
+            <group>Asistentes_Operativos</group>
+            <group>Subgerentes_Operativos</group>
             <group>System_Administrators</group>
         </sharedTo>
     </listViews>
@@ -566,6 +788,98 @@
             <group>System_Administrators</group>
         </sharedTo>
     </listViews>
+    <listViews>
+        <fullName>Tier_2_Formalization_Case</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>dwp_officeName__c</columns>
+        <columns>case_owner_calc__c</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_id__c</columns>
+        <columns>Product_Name_Fr__c</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>Dwp_ElevatedDate__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Peticiones pendiente de formalizar</label>
+        <queue>Tier_2_Formalization</queue>
+        <sharedTo>
+            <group>Subgerentes_Operativos</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Formalization</fullName>
+        <active>true</active>
+        <businessProcess>Formalization</businessProcess>
+        <compactLayoutAssignment>Formalization_Compact_Layout</compactLayoutAssignment>
+        <label>Formalization</label>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>opportunity_id__c</customTabListAdditionalFields>

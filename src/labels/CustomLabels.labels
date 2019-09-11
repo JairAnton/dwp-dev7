@@ -178,6 +178,13 @@
         <value>Total</value>
     </labels>
     <labels>
+        <fullName>Dwp_msgGenericError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje de error generico</shortDescription>
+        <value>Ha ocurrido un error en el sistema, por favor inténtalo otra vez.</value>
+    </labels>
+    <labels>
         <fullName>LblDirectDebt</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -1545,6 +1552,20 @@
         <value>Must have an operational profile and be in the same office as the opportunity</value>
     </labels>
     <labels>
+        <fullName>Error_validation_06</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_06</shortDescription>
+        <value>Debe tener el rol de asistente, perfil operativo y pertenecer al equipo de asistentes de formalización</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_07</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_07</shortDescription>
+        <value>Debe pertenecer al equipo de Formalización, perfil operativo y rol de Asistente o Subgerente.</value>
+    </labels>
+    <labels>
         <fullName>SIOstatus1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2064,11 +2085,81 @@
         <value>ADJUSTED_FUNDING_COST</value>
     </labels>
     <labels>
+        <fullName>lblAssignedAssistant_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje petición formalización con Asistente asignado</shortDescription>
+        <value>Esta oportunidad ya tiene una petición asignada al usuario {0}</value>
+    </labels>
+    <labels>
+        <fullName>lblAssignedAssistant_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje petición formalización con Asistente asignado 2</shortDescription>
+        <value>¿Deseas asignártela para poder enviar a formalización?</value>
+    </labels>
+    <labels>
+        <fullName>lblAssignedSgof_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje petición formalización con Subgerente asignado</shortDescription>
+        <value>Esta oportunidad ya tiene petición asignada al usuario {0}</value>
+    </labels>
+    <labels>
+        <fullName>lblAssignedSgof_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje petición formalización con Subgerente asignado 2</shortDescription>
+        <value>¿Deseas asignártela para poder completar la formalización?</value>
+    </labels>
+    <labels>
         <fullName>lblAuth</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>lblAuth</shortDescription>
         <value>AUTHORIZED</value>
+    </labels>
+    <labels>
+        <fullName>lblBtnProductUnit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblBtnProductUnit</shortDescription>
+        <value>Enviar a unidad de producto</value>
+    </labels>
+    <labels>
+        <fullName>lblEmptyAssistant_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje petición formalización sin Asistente</shortDescription>
+        <value>Estas intentando enviar a formalizar una oportunidad sin petición asignada.</value>
+    </labels>
+    <labels>
+        <fullName>lblEmptyAssistant_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje petición formalización sin Asistente 2</shortDescription>
+        <value>¿Deseas asignártela para poder completar la solicitud?</value>
+    </labels>
+    <labels>
+        <fullName>lblEmptySgof_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje petición formalización sin Subgerente asignado</shortDescription>
+        <value>Estás intentando formalizar una oportunidad sin petición asignada.</value>
+    </labels>
+    <labels>
+        <fullName>lblEmptySgof_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje petición formalización sin Subgerente asignado 2</shortDescription>
+        <value>¿Deseas asignártela para poder completar la formalización ?</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalizationAssistant</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalizationAssistant</shortDescription>
+        <value>Definir estado de oportunidad</value>
     </labels>
     <labels>
         <fullName>lblMini</fullName>

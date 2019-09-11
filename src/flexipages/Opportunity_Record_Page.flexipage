@@ -18,6 +18,45 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentInstanceProperties>
+                <name>hideUpdateButton</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>buttonHiddenIfNotAvailable</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>buttonsAlignment</name>
+                <value>left,left,left,right,right,right,right,right,right,right,right,right,right,right</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>buttonsCollectionUniqueIdentifier</name>
+                <value>OppDynamicButtonCollection</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>buttonsStyles</name>
+                <value>neutral,neutral,neutral,neutral,neutral,brand,brand,brand,brand,neutral,brand,brand,brand,brand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>buttonsUniqueIdentifiers</name>
+                <value>btnReject,btnReevaluate,btnUnlink,btnQuote,btnPDF,btnPenalizeRisk,btnSanctionPrice,btnSanctionPrice2,btnApprove,btnProductUnit,btnFormalization,btnFormalize,btnComplete,btnFormalizationAssistant</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>refreshOnRefreshView</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>dwp_dbpn:DynamicButtonCollection_comp</componentName>
+        </componentInstances>
+        <mode>Replace</mode>
+        <name>subheader</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
         <name>facet-e6c0f106-e80c-4130-8f0d-dbed3c3d9293</name>
@@ -184,53 +223,208 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentInstanceProperties>
-                <name>tabs</name>
-                <value>tabs</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:tabset</componentName>
+            <componentName>force:detailPanel</componentName>
         </componentInstances>
-        <mode>Replace</mode>
-        <name>main</name>
-        <type>Region</type>
+        <name>Facet-9937868d-f9ed-462d-abe8-0bfae23c7368</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentName>Container_product_form</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>ProductPriceViewer_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>Collapsible_Section_comp</componentName>
+        </componentInstances>
+        <name>Facet-854aaa98-7cac-448d-946e-bff643d44b95</name>
+        <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>hideUpdateButton</name>
-                <value>false</value>
+                <name>additionalInformation</name>
+                <value>action_opp_sio_code__c</value>
             </componentInstanceProperties>
-            <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
-        </componentInstances>
-        <componentInstances>
             <componentInstanceProperties>
-                <name>buttonHiddenIfNotAvailable</name>
+                <name>auditDetailsLabel</name>
+                <value>NoAuditDetail</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>auditDisplayId</name>
+                <value>RA</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>dateType</name>
                 <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>buttonsAlignment</name>
-                <value>left,left,left,right,right,right,right,right,right,right,right,right</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>buttonsCollectionUniqueIdentifier</name>
-                <value>OppDynamicButtonCollection</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>buttonsStyles</name>
-                <value>neutral,neutral,neutral,neutral,neutral,brand,brand,brand,brand,brand,brand,brand</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>buttonsUniqueIdentifiers</name>
-                <value>btnReject,btnReevaluate,btnUnlink,btnQuote,btnPDF,btnPenalizeRisk,btnSanctionPrice,btnSanctionPrice2,btnApprove,btnFormalization,btnFormalize,btnComplete</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dbpn:DynamicButtonCollection_comp</componentName>
+            <componentInstanceProperties>
+                <name>strLabelNoData</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelSection</name>
+                <value>lblTitleRiskSanction</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strTypes</name>
+                <value>Risk Approval</value>
+            </componentInstanceProperties>
+            <componentName>dwp_cvad:DynamicAuditDisplay_comp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>auditDetailsLabel</name>
+                <value>NoAuditDetail</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>auditDisplayId</name>
+                <value>PA</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>dateType</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>refreshOnRefreshView</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelNoData</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelSection</name>
+                <value>lblTitlePriceSanction</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strTypes</name>
+                <value>Price Approval</value>
+            </componentInstanceProperties>
+            <componentName>dwp_cvad:DynamicAuditDisplay_comp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>auditDetailsLabel</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>auditDisplayId</name>
+                <value>TRFO00001</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>dateType</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>refreshOnRefreshView</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelNoData</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strLabelSection</name>
+                <value>lbFormalization</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>strTypes</name>
+                <value>TRFO00001</value>
+            </componentInstanceProperties>
+            <componentName>dwp_cvad:DynamicAuditDisplay_comp</componentName>
+        </componentInstances>
+        <name>Facet-w20v18koqc</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-9937868d-f9ed-462d-abe8-0bfae23c7368</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Oportunidad</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-854aaa98-7cac-448d-946e-bff643d44b95</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Producto</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>active</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-w20v18koqc</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Seguimiento</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <name>Facet-b4cb954b-2df3-4a0e-8f44-48a1665b17f2</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>tabs</name>
+                <value>tabs</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tabset</componentName>
+            <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>E04</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>I43</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>tabs</name>
+                <value>Facet-b4cb954b-2df3-4a0e-8f44-48a1665b17f2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tabset</componentName>
+            <visibilityRule>
+                <booleanFilter>1 OR 2</booleanFilter>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>E04</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I43</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <mode>Replace</mode>
-        <name>subheader</name>
+        <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>

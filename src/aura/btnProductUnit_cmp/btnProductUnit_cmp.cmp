@@ -1,0 +1,4 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp" access="global" extensible="true" controller="Formalization_helper">
+	<aura:attribute name="hasHeader" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+</aura:component>

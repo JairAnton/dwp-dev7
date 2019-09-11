@@ -67,6 +67,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AssistantFormalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AssistantFormalization_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Contact_Group_Handler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -83,7 +91,27 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Dwp_Utils_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Dwp_Utils_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FileUploadController_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BBVA_SBS_Classification_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Formalization_Helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Formalization_helper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -139,6 +167,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ReOwnerFormalization_ValidationClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReOwnerFormalization_ValidationClass_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ReevaluateButtonClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -147,7 +183,23 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SgofFormalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SgofFormalization_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>statusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_Case_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_Case_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
      <classAccesses>
@@ -160,6 +212,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Action_Audit_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1306,6 +1366,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DWP_AssistantOwner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DWP_SGofOwner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Dwp_ElevatedDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Case.dwp_centralcode__c</field>
         <readable>true</readable>
@@ -1313,6 +1388,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.dwp_officeName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.dwp_returned_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2180,6 +2260,11 @@
         <field>Account_Product__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Dwp_DevolutionUser__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Account_Profitability__c.profitability_subcategory_form__c</field>
@@ -2188,6 +2273,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Profitability__c.currenct_mon_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Formalization_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2283,6 +2373,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Rating__c.qualitative_rating_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.devolutionReason__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4830,6 +4925,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Record_Type_Economic_Group</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Case.Formalization</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
