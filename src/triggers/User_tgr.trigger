@@ -4,6 +4,6 @@
  * @Create by: Jose Roderiguez Paredes
 
 */
-trigger User_tgr on User(before insert, before update) {
+trigger User_tgr on User(before insert, before update, after insert, after update) {
     new User_Handler_cls().run();
 }

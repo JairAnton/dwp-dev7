@@ -17,9 +17,6 @@ public without sharing class SgofFormalization_helper {
     /*Campo GET_MESSAGE inicializado para soluciones del SonarQ*/
     public static Final String GET_MESSAGE = 'e.getmessage() => ';
     
-    /* Private Constructor Class SgofFormalization_helper */
-    private SgofFormalization_helper() {}
-    
     /* Public Method Class validateAssistant */
     @AuraEnabled
     public static Map<String, Object> validateSGof(Id oppId) {

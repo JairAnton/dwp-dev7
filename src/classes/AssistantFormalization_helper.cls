@@ -14,9 +14,6 @@ public without sharing class AssistantFormalization_helper {
     public static Final String IS_ERROR = 'isError';
     /*Campo GET_MESSAGE inicializado para soluciones del SonarQ*/
     public static Final String GET_MESSAGE = 'e.getmessage() => ';
-
-    /* Private Constructor Class AssistantFormalization_helper */
-    private AssistantFormalization_helper() {}
     
     /* Public Method Class validateAssistant */
     @AuraEnabled

@@ -610,7 +610,7 @@
         <type>Picklist</type>
         <valueSet>
             <controllingField>StageName</controllingField>
-            <restricted>false</restricted>
+            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -826,6 +826,10 @@
             <valueSettings>
                 <controllingFieldValue>05</controllingFieldValue>
                 <valueName>20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <valueName>25</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>06</controllingFieldValue>

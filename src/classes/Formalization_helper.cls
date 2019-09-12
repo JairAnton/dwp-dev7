@@ -21,9 +21,6 @@ public without sharing class Formalization_helper {
     /*Campo SUBG_GROUP utilizado en los multiples metodos*/
     public static Final String SUBG_GROUP = 'Subgerentes_Operativos';
     
-    /* Private Constructor Class Formalization_helper */
-    private Formalization_helper() {}
-    
     /* Public Method Class createOrUpdateCase */
     public static void createOrUpdateCase(Opportunity opp, String cola, String status) {
         if(opp.opportunity_status_type__c == '20') {
