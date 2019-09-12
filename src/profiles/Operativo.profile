@@ -6297,6 +6297,10 @@ Sub Gerentes de oficina</description>
         <tab>iaso__GBL_Application_Log__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
+    <tabVisibilities>
+        <tab>WebPyme</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>

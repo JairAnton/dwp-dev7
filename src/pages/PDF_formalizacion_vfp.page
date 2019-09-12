@@ -52,7 +52,7 @@
             <td>Buró:&nbsp;<apex:outputText value="{0, number,0}">
                 <apex:param value="{!Client.bureau_classification_type__c}"></apex:param>
                 </apex:outputText></td>
-            <td>Rating: {!Rating.rating_scale_type__c} </td>
+            <td>Rating: </td>
         </tr>
     </table>
     <apex:outputPanel rendered="{!product.risk_sanction__c}">
