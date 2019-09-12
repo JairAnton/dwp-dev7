@@ -189,9 +189,10 @@
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Event</tabs>
     <tabs>standard-Task</tabs>
-    <tabs>Portal_BEC</tabs>
-    <tabs>standard-Feed</tabs>
+	<tabs>standard-Feed</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>standard-report</tabs>
+	<tabs>WebPyme</tabs>
+    <tabs>Sites</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>
