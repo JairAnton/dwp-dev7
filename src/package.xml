@@ -303,10 +303,6 @@
         <name>CustomMetadata</name>
     </types>
     <types>
-	    <members>DWP_CASE_NOTIFICATION</members>
-	    <name>CustomNotificationType</name>
-  	</types>
-    <types>
         <members>Account</members>
         <members>AccountContactRelation</members>
         <members>Account_Accounting__c</members>

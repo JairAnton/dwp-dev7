@@ -1,37 +1,47 @@
-"CURRENCYISOCODE","DWP_DACE__CONDITION_UNIQUE_ID__C","DWP_DACE__FIELD_API_NAME__C","DWP_DACE__FIELD_TYPE__C","DWP_DACE__FIELD_VALUE_1__C","DWP_DACE__GROUP_BEHAVIOUR_TYPE__C","DWP_DACE__OBJECT_API_NAME__C","DWP_DACE__OPERATOR_TYPE__C"
-"PEN","OPP_PRODUCT_SP_FALSE","product_price_approval_indicator__c","Checkbox","false","","OpportunityLineItems","ID_EQUAL"
-"PEN","OPP_STATUS_RETURN_BY_DOCUMENTATION","opportunity_status_type__c","Picklist","20","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_SENT_FOR_PRICE_APPROVAL","opportunity_status_type__c","Picklist","09","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_SENT_FOR_FORMALIZATION","opportunity_status_type__c","Picklist","19","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_PRICE_APPROVED_DELEGATION_APPROVED","opportunity_status_type__c","Picklist","08,11","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_SENT_PRODUCT_UNIT_FORMALIZATION","opportunity_status_type__c","Picklist","19,21","","Opportunity","ID_IN"
-"PEN","OPP_PRODUCT_SR_FALSE","product_risk_approval_indicator__c","Checkbox","false","","OpportunityLineItems","ID_EQUAL"
-"PEN","OPP_TYPE_RENEWAL","Type","Picklist","02","","Opportunity","ID_IN"
-"PEN","OPP_PRODUCT_GRUOP","","","","ID_ATLEASTONE","OpportunityLineItems",""
-"PEN","OPP_PRODUCT_QUOTE_TYPE_WEB","product_price_approval_method__c","Text","Web","","OpportunityLineItems","ID_IN"
-"PEN","OPP_PRODUCT_PDF","product_pdf_indicator__c","Checkbox","true","","OpportunityLineItems","ID_EQUAL"
-"PEN","OPP_RISK_MODALITY","Risk_modality_type__c","Picklist","02","","Opportunity","ID_IN"
-"PEN","USER_PROFILE_EXECUTIVE","Profile.Name","Text","Ejecutivo,Administrador del sistema,System Administrator","","User","ID_IN"
-"PEN","USER_PROFILE_SPECIALIST","Profile.Name","Text","Especialista,Administrador del sistema,System Administrator","","User","ID_IN"
-"PEN","USER_PROFILE_SPECIALIST_AND_EXECUTIVE","Profile.Name","Text","Especialista,Ejecutivo,Administrador del sistema,System Administrator","","User","ID_IN"
-"PEN","OPP_STAGE_FORMALIZATION","StageName","Picklist","05","","Opportunity","ID_IN"
-"PEN","USER_PROFILE_OPERATIVE","Profile.Name","Text","Operativo,Administrador del sistema,System Administrator","","User","ID_IN"
-"PEN","USER_PROFILE_ANALIST","Profile.Name","Text","Analista,Administrador del sistema,System Administrator","","User","ID_IN"
-"PEN","OPP_STAGE_PENDING_NEGOTIATION","StageName","Picklist","01,02,03","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_RISK_APPROVED_OR_APPROVED_DIRECTLY","opportunity_status_type__c","Picklist","17,18","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_PRICE_RISK_DENIED","opportunity_status_type__c","Picklist","13,16","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_RISK_DENIED","opportunity_status_type__c","Picklist","16","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_RISK_AND_PRICE_AUTHORIZED","opportunity_status_type__c","Picklist","10,15","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_REEVALUATION_AT_RISK","opportunity_status_type__c","Picklist","24","","Opportunity","ID_IN"
-"PEN","OPP_STAGE_APPROVAL","StageName","Picklist","04","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_SENT_FOR_RISK_APPROVAL","opportunity_status_type__c","Picklist","14","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_RISK_AUTHORIZED","opportunity_status_type__c","Picklist","15","","Opportunity","ID_IN"
-"PEN","OPP_STATUS_REEVALUATION_AT_PRICE","opportunity_status_type__c","Picklist","12","","Opportunity","ID_IN"
-"PEN","OPP_PRODUCT_FORMALIZATION_TRUE","product_formalization_indicator__c","Checkbox","true","","OpportunityLineItems","ID_EQUAL"
-"PEN","OPP_PRODUCT_FORMALIZATION_FALSE","product_formalization_indicator__c","Checkbox","false","","OpportunityLineItems","ID_EQUAL"
-"PEN","OPP_TYPE_NEW","Type","Picklist","01","","Opportunity","ID_IN"
-"PEN","OPP_PRODUCT_SP_TRUE","product_price_approval_indicator__c","Checkbox","true","","OpportunityLineItems","ID_EQUAL"
-"PEN","OPP_PRODUCT_SR_TRUE","product_risk_approval_indicator__c","Checkbox","true","","OpportunityLineItems","ID_EQUAL"
-"PEN","OPP_STATUS_REEVALUATION_PRICE_RISK","opportunity_status_type__c","Picklist","24,12","","Opportunity","ID_IN"
-"PEN","USER_PROFILE_EXECUTIVE_SPECIALIST","Profile.Name","Text","Ejecutivo,Especialista,System Administrator,Administrador del sistema","","User","ID_IN"
-"PEN","OPP_PRODUCT_QUOTE_NOT_AVAILABLE","price_quote_available__c","Checkbox","false","","OpportunityLineItems","ID_EQUAL"
+CURRENCYISOCODE,DWP_DACE__CONDITION_UNIQUE_ID__C,DWP_DACE__FIELD_API_NAME__C,DWP_DACE__FIELD_TYPE__C,DWP_DACE__FIELD_VALUE_1__C,DWP_DACE__GROUP_BEHAVIOUR_TYPE__C,DWP_DACE__OBJECT_API_NAME__C,DWP_DACE__OPERATOR_TYPE__C
+PEN,OPP_PRODUCT_SP_FALSE,product_price_approval_indicator__c,Checkbox,false,,OpportunityLineItems,ID_EQUAL
+PEN,OPP_STATUS_RETURN_BY_DOCUMENTATION,opportunity_status_type__c,Picklist,20,,Opportunity,ID_IN
+PEN,OPP_STATUS_SENT_FOR_PRICE_APPROVAL,opportunity_status_type__c,Picklist,9,,Opportunity,ID_IN
+PEN,OPP_STATUS_SENT_FOR_FORMALIZATION,opportunity_status_type__c,Picklist,19,,Opportunity,ID_IN
+PEN,OPP_STATUS_PRICE_APPROVED_DELEGATION_APPROVED,opportunity_status_type__c,Picklist,"08,11",,Opportunity,ID_IN
+PEN,OPP_STATUS_SENT_PRODUCT_UNIT_FORMALIZATION,opportunity_status_type__c,Picklist,"19,21",,Opportunity,ID_IN
+PEN,OPP_PRODUCT_SR_FALSE,product_risk_approval_indicator__c,Checkbox,false,,OpportunityLineItems,ID_EQUAL
+PEN,OPP_TYPE_RENEWAL,Type,Picklist,2,,Opportunity,ID_IN
+PEN,OPP_PRODUCT_GRUOP,,,,ID_ATLEASTONE,OpportunityLineItems,
+PEN,OPP_PRODUCT_QUOTE_TYPE_WEB,product_price_approval_method__c,Text,Web,,OpportunityLineItems,ID_IN
+PEN,OPP_PRODUCT_PDF,product_pdf_indicator__c,Checkbox,true,,OpportunityLineItems,ID_EQUAL
+PEN,OPP_RISK_MODALITY,Risk_modality_type__c,Picklist,2,,Opportunity,ID_IN
+PEN,USER_PROFILE_EXECUTIVE,Profile.Name,Text,"Ejecutivo,Administrador del sistema,System Administrator",,User,ID_IN
+PEN,USER_PROFILE_SPECIALIST,Profile.Name,Text,"Especialista,Administrador del sistema,System Administrator",,User,ID_IN
+PEN,USER_PROFILE_SPECIALIST_AND_EXECUTIVE,Profile.Name,Text,"Especialista,Ejecutivo,Administrador del sistema,System Administrator",,User,ID_IN
+PEN,OPP_STAGE_FORMALIZATION,StageName,Picklist,5,,Opportunity,ID_IN
+PEN,USER_PROFILE_OPERATIVE,Profile.Name,Text,"Operativo,Administrador del sistema,System Administrator",,User,ID_IN
+PEN,USER_PROFILE_ANALIST,Profile.Name,Text,"Analista,Administrador del sistema,System Administrator",,User,ID_IN
+PEN,OPP_STAGE_PENDING_NEGOTIATION,StageName,Picklist,"01,02,03",,Opportunity,ID_IN
+PEN,OPP_STATUS_RISK_APPROVED_OR_APPROVED_DIRECTLY,opportunity_status_type__c,Picklist,"17,18",,Opportunity,ID_IN
+PEN,OPP_STATUS_PRICE_RISK_DENIED,opportunity_status_type__c,Picklist,"13,16",,Opportunity,ID_IN
+PEN,OPP_STATUS_RISK_DENIED,opportunity_status_type__c,Picklist,16,,Opportunity,ID_IN
+PEN,OPP_STATUS_RISK_AND_PRICE_AUTHORIZED,opportunity_status_type__c,Picklist,"10,15",,Opportunity,ID_IN
+PEN,OPP_STATUS_REEVALUATION_AT_RISK,opportunity_status_type__c,Picklist,24,,Opportunity,ID_IN
+PEN,OPP_STAGE_APPROVAL,StageName,Picklist,4,,Opportunity,ID_IN
+PEN,OPP_STATUS_SENT_FOR_RISK_APPROVAL,opportunity_status_type__c,Picklist,14,,Opportunity,ID_IN
+PEN,OPP_STATUS_RISK_AUTHORIZED,opportunity_status_type__c,Picklist,15,,Opportunity,ID_IN
+PEN,OPP_STATUS_REEVALUATION_AT_PRICE,opportunity_status_type__c,Picklist,12,,Opportunity,ID_IN
+PEN,OPP_PRODUCT_FORMALIZATION_TRUE,product_formalization_indicator__c,Checkbox,true,,OpportunityLineItems,ID_EQUAL
+PEN,OPP_PRODUCT_FORMALIZATION_FALSE,product_formalization_indicator__c,Checkbox,false,,OpportunityLineItems,ID_EQUAL
+PEN,OPP_TYPE_NEW,Type,Picklist,1,,Opportunity,ID_IN
+PEN,OPP_PRODUCT_SP_TRUE,product_price_approval_indicator__c,Checkbox,true,,OpportunityLineItems,ID_EQUAL
+PEN,OPP_PRODUCT_SR_TRUE,product_risk_approval_indicator__c,Checkbox,true,,OpportunityLineItems,ID_EQUAL
+PEN,OPP_STATUS_REEVALUATION_PRICE_RISK,opportunity_status_type__c,Picklist,"24,12",,Opportunity,ID_IN
+PEN,USER_PROFILE_EXECUTIVE_SPECIALIST,Profile.Name,Text,"Ejecutivo,Especialista,System Administrator,Administrador del sistema",,User,ID_IN
+PEN,OPP_PRODUCT_QUOTE_NOT_AVAILABLE,price_quote_available__c,Checkbox,false,,OpportunityLineItems,ID_EQUAL
+PEN,CASE_RECORDTYPE_FORMALIZATION,RecordType.DeveloperName,Text,Formalization,,Case,ID_IN
+PEN,CASE_RECORDTYPE_NULL,RecordTypeId,Text,,,Case,ID_EMPTY
+PEN,CASE_STATUS_ASSIGNED_SGOF,status,Picklist,8,,Case,ID_IN
+PEN,CASE_SUBGERENTE_EMPTY,DWP_SGofOwner__c,Text,,,Case,ID_EMPTY
+PEN,CASE_ASSISTANT_OWNER_EMPTY,DWP_AssistantOwner__c,Text,,,Case,ID_EMPTY
+PEN,CASE_STATUS_ASIGNADO_AAC,status,Picklist,5,,Case,ID_IN
+PEN,USER_ROL_ASISTENTE,prof_position_id__c,Text,"E06,I26",,User,ID_IN
+PEN,CASE_STATUS_NEW_OR_ELEVADO,status,Picklist,"01,07",,Case,ID_IN
+PEN,USER_ROL_SGOF,prof_position_id__c,Text,"I43,E04",,User,ID_IN
+PEN,OPP_STATUS_ALTA,opportunity_status_type__c,Picklist,25,,Opportunity,ID_IN
