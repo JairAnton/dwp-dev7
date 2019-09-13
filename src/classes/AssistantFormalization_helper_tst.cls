@@ -133,8 +133,8 @@ public class AssistantFormalization_helper_tst {
     public static void reasignCaseAssistantSuccessTest() {
         Map<String, Object> mapRes;
         Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        User ejecutivo = [SELECT ID, prof_position_type__c, isActive FROM User WHERE prof_position_type__c IN ('EJECUTIVO BEC') AND isActive=true limit 1];
-        User asistente = [SELECT ID, prof_position_type__c, isActive FROM User WHERE prof_position_type__c IN ('ASISTENTE BEC') AND isActive=true limit 1];
+        Final User ejecutivo = [SELECT ID, prof_position_type__c, isActive FROM User WHERE prof_position_type__c IN ('EJECUTIVO BEC') AND isActive=true limit 1];
+        Final User asistente = [SELECT ID, prof_position_type__c, isActive FROM User WHERE prof_position_type__c IN ('ASISTENTE BEC') AND isActive=true limit 1];
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');           
         }

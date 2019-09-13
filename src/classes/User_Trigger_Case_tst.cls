@@ -10,6 +10,10 @@
 @isTest
 public class User_Trigger_Case_tst {
 
+    /*Campo ASSERT_ERROR inicializado para soluciones del SonarQ*/
+    public static Final String ASSERT_ERROR = 'Error with assertion';
+    /*Campo POSITION_EXE inicializado para soluciones del SonarQ*/
+    public static Final Set<String> GRP = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
     /**
     * --------------------------------------------------------------------------------------
     * @Description 
@@ -34,9 +38,8 @@ public class User_Trigger_Case_tst {
         Test.startTest();
         insert newUsers;
         Test.stopTest();
-        Final Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: grp');
-        System.assertEquals(250, newUsersInGroup, 'Error with assertion');
+        Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: GRP');
+        System.assertEquals(250, newUsersInGroup, ASSERT_ERROR);
     }
     
     /**
@@ -112,8 +115,8 @@ public class User_Trigger_Case_tst {
         Final Integer deactiveUsersSize = deactiveUsers.size();
         Final User[] changeRolUsers = [SELECT Id FROM User WHERE Id IN: uIds AND isActive=true];
         Final Integer changeRolUsersSize = changeRolUsers.size();
-        System.assertEquals(127, deactiveUsersSize, 'Error with assertion');
-        System.assertEquals(73, changeRolUsersSize, 'Error with assertion');
+        System.assertEquals(127, deactiveUsersSize, ASSERT_ERROR);
+        System.assertEquals(73, changeRolUsersSize, ASSERT_ERROR);
     }
     
     /**
@@ -141,8 +144,7 @@ public class User_Trigger_Case_tst {
         Test.startTest();
 		update newUsers;
         Test.stopTest();
-        Set<String> grp = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
-        Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: grp');
-        System.assertEquals(250, newUsersInGroup, 'Error with assertion');
+        Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: GRP');
+        System.assertEquals(250, newUsersInGroup, ASSERT_ERROR);
     }
 }
