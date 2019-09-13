@@ -454,7 +454,7 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
-    </fields>	
+    </fields>
 	<listViews>
         <fullName>AllClosedRequest</fullName>
         <columns>CASES.CASE_NUMBER</columns>

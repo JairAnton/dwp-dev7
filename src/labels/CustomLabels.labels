@@ -2176,6 +2176,13 @@
         <value>MODEL</value>
     </labels>
     <labels>
+        <fullName>lblReasignOwnerFormalization</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblReasignOwnerFormalization</shortDescription>
+        <value>Assignme case</value>
+    </labels>
+    <labels>
         <fullName>lblReq</fullName>
         <language>en_US</language>
         <protected>false</protected>
