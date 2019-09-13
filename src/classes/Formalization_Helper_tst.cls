@@ -38,19 +38,13 @@ public class Formalization_Helper_tst {
         Final User admin = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
         /*Crea Asistente Operativo*/
         Final String perfil=[SELECT Id FROM Profile WHERE name='Operativo'].Id;
-        Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC'};
+        Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC', User.prof_position_id__c => 'E06'};
         User userAsistant=TestFactory.getUser(true, mapFields);
-        userAsistant.prof_position_id__c = 'E06';
-        userAsistant.isActive = true;
-        update userAsistant;
-
         mapFields.put(User.prof_position_type__c, 'SUBGERENTE BEC');
+        mapFields.put(User.prof_position_id__c, 'E04');
         User userSgof=TestFactory.getUser(true, mapFields);
-        userSgof.prof_position_id__c = 'E04';
-        userSgof.isActive = true;
-        update userSgof;
         Final String perfilExecutive=[SELECT Id FROM Profile WHERE name='Ejecutivo'].Id;
-        mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfilExecutive, User.prof_position_type__c => 'EJECUTIVO BEC', User.isActive => true};
+        mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfilExecutive, User.prof_position_type__c => 'EJECUTIVO BEC'};
         Final User userExecutive = TestFactory.getUser(true, mapFields);
         //Create Account's
         Account acc;
@@ -94,14 +88,9 @@ public class Formalization_Helper_tst {
     /* testSetup - createCaseSgofSuccessTest */
     @isTest
     public static void createCaseSgofSuccessTest() {
-    	Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
+        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Test.startTest();
-        System.runAs(admin) {
-            ejecutivo.isActive = true;
-            update ejecutivo;
-        }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
@@ -115,13 +104,8 @@ public class Formalization_Helper_tst {
     /* testSetup - createCaseAssistantSuccessTest */
     @isTest
     public static void createCaseAssistantSuccessTest() {
-    	Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
+        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        System.runAs(admin) {
-            ejecutivo.isActive = true;
-            update ejecutivo;
-        }
         Test.startTest();
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
@@ -160,17 +144,9 @@ public class Formalization_Helper_tst {
     /* testSetup - reasignCaseAssistantTest */
     @isTest
     public static void reasignCaseAssistantTest() {
-        Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
-        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI limit 1];
+        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE AND isActive=True limit 1];
+        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        System.runAs(admin) {
-            ejecutivo.isActive = true;
-            asistente.isActive = true;
-            update ejecutivo;
-            update asistente;
-            setFormalizationGroupAssistant();
-        }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
@@ -186,20 +162,12 @@ public class Formalization_Helper_tst {
     /* testSetup - reasignCaseSgofTest */
     @isTest
     public static void reasignCaseSgofTest() {
-        Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
-        Final User subgerente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c='SUBGERENTE BEC' limit 1];
+        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE AND isActive=True limit 1];
+        Final User subgerente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c='SUBGERENTE BEC' AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name = 'TEST Formalization 2' limit 1];
-        System.runAs(admin) {
-            ejecutivo.isActive = true;
-            subgerente.isActive = true;
-            update ejecutivo;
-            update subgerente;
-        }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
-        setFormalizationGroupSubgerente();
         Final Case caso = [SELECT ID FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
         Map<String, Object> mapRes = new Map<String, Object>();
         System.runAs(subgerente) {
@@ -212,16 +180,9 @@ public class Formalization_Helper_tst {
     /* testSetup - condition6SuccessTest */
     @isTest
     public static void condition6SuccessTest() {
-        Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
-        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI limit 1];
+        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE AND isActive=True limit 1];
+        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        System.runAs(admin) {
-            ejecutivo.isActive = true;
-            asistente.isActive = true;
-            update ejecutivo;
-            update asistente;
-        }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
@@ -239,17 +200,9 @@ public class Formalization_Helper_tst {
     /* testSetup - condition6ErrorTest */
     @isTest
     public static void condition6ErrorTest() {
-        Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
-        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI limit 1];
+        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE AND isActive=True limit 1];
+        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name = 'TEST Formalization 2' limit 1];
-        System.runAs(admin) {
-            ejecutivo.isActive = true;
-            asistente.isActive = true;
-            update ejecutivo;
-            update asistente;
-            setFormalizationGroupAssistant();
-        }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
@@ -267,16 +220,9 @@ public class Formalization_Helper_tst {
     /* testSetup - condition7SuccessTest */
     @isTest
     public static void condition7SuccessTest() {
-        Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
-        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI limit 1];
+        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE AND isActive=True limit 1];
+        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        System.runAs(admin) {
-            ejecutivo.isActive = true;
-            asistente.isActive = true;
-            update ejecutivo;
-            update asistente;
-        }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
@@ -294,17 +240,9 @@ public class Formalization_Helper_tst {
     /* testSetup - condition7ErrorTest */
     @isTest
     public static void condition7ErrorTest() {
-        Final User admin = [SELECT ID FROM User WHERE Id=:UserInfo.getUserId()];
-        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE limit 1];
-        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI limit 1];
+        Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE AND isActive=True limit 1];
+        Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        System.runAs(admin) {
-            ejecutivo.isActive = true;
-            asistente.isActive = true;
-            update ejecutivo;
-            update asistente;
-            setFormalizationGroupAssistant();
-        }
         System.runAs(ejecutivo) {
             Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
@@ -317,20 +255,6 @@ public class Formalization_Helper_tst {
         Test.stopTest();
         validate = validate ? false : true;
         System.assert(validate, FAIL);
-    }
-    
-    /* setFormalizationGroupAssistant */
-    public static void setFormalizationGroupAssistant() {
-        Final Group grupo = [SELECT ID, developerName FROM Group WHERE DeveloperName IN ('Asistentes_Operativos') limit 1];
-        Final User asistente = [SELECT ID, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI limit 1];
-        insert new GroupMember(GroupId=grupo.Id, UserOrGroupId=asistente.Id);
-    }
-    
-    /* setFormalizationGroupSubgerente */
-    public static void setFormalizationGroupSubgerente() {
-        Final Group grupo = [SELECT ID, developerName FROM Group WHERE DeveloperName IN ('Subgerentes_Operativos') limit 1];
-        Final User subgerente = [SELECT ID FROM User WHERE prof_position_type__c='SUBGERENTE BEC' limit 1];
-        insert new GroupMember(GroupId=grupo.Id, UserOrGroupId=subgerente.Id);
     }
     
 }

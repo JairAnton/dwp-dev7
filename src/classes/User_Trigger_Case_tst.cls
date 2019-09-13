@@ -10,6 +10,10 @@
 @isTest
 public class User_Trigger_Case_tst {
 
+    /*Campo ASSERT_ERROR inicializado para soluciones del SonarQ*/
+    public static Final String ASSERT_ERROR = 'Error with assertion';
+    /*Campo POSITION_EXE inicializado para soluciones del SonarQ*/
+    public static Final Set<String> GRP = new Set<String>{'Asistentes_Operativos', 'Subgerentes_Operativos'};
     /**
     * --------------------------------------------------------------------------------------
     * @Description 
@@ -23,22 +27,19 @@ public class User_Trigger_Case_tst {
         Final List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
         for(Integer i=0; i<250; i++) {
-            newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
+            if(i < 125) {
+                newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E06', ProfileId=profile));
-        }
-        for(Integer i=250; i<500; i++) {
-            newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
+            } else {
+                newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E04', ProfileId=profile));
+            }
         }
         Test.startTest();
         insert newUsers;
         Test.stopTest();
-        Final Set<Id> idsUsers = new Set<Id>();
-        for(User u:newUsers){
-            idsUsers.add(u.Id);
-        }
-        User[] usuarios = [SELECT Id From User WHERE Id IN:idsUsers];
-        System.assertEquals(500, usuarios.size(), 'Error with assertion');
+        Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: GRP');
+        System.assertEquals(250, newUsersInGroup, ASSERT_ERROR);
     }
     
     /**
@@ -52,8 +53,8 @@ public class User_Trigger_Case_tst {
     public static void updFormalizationDeactiveOwnersTest() {
         Final List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
-        for(Integer i=0; i<250; i++) {
-            if(i < 125) {
+        for(Integer i=0; i<200; i++) {
+            if(i < 75) {
                 newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E06', ProfileId=profile));
             } else {
@@ -67,15 +68,15 @@ public class User_Trigger_Case_tst {
         Final Account acc = TestFactory.getAccount(true, mapFields);
         List<Opportunity> opps = new List<Opportunity>();
         List<Case> casos = new List<Case>();
-        for(Integer i=0; i<250; i++) {
+        for(Integer i=0; i<200; i++) {
             opps.add(new Opportunity(Name='TEST Formalization', stageName='02', AccountId=acc.Id, CloseDate=Date.today(), Amount = 10000, Dwp_DevolutionUser__c=newUsers[i].Id));
-            if(i < 123) {
+            if(i < 73) {
              	newUsers[i].prof_position_id__c='';
             } else {
                 newUsers[i].isActive=false;
             }
         }
-        newUsers[249].prof_position_id__c='';
+        newUsers[199].prof_position_id__c='';
         insert opps;
         
         Final Product2 testPr = new Product2(Name='TestProd', type_of_quote__c='COTIZADOR', ProductCode='PC00012');
@@ -90,17 +91,17 @@ public class User_Trigger_Case_tst {
         
         Final Set<Id> uIds = new Set<Id>();
         List<OpportunityLineItem> lstOli = new List<OpportunityLineItem>();
-        for(Integer i=0; i<250; i++) {
+        for(Integer i=0; i<200; i++) {
             uIds.add(newUsers[i].Id);
             lstOli.add(new OpportunityLineItem(TotalPrice=120, OpportunityId=opps[i].Id, PricebookEntryId=testPE.Id, Quantity=1, gipr_Tipo_Garantia__c='03', 
                                                                   Product2Id=testPr.Id));
-            if(i < 125) {
+            if(i < 80) {
              	casos.add(new Case(OwnerId=newUsers[i].Id, status='05', DWP_AssistantOwner__c=newUsers[i].Id, opportunity_id__c=opps[i].Id));
             } else {
                 casos.add(new Case(OwnerId=newUsers[i].Id, status='07', DWP_SgofOwner__c=newUsers[i].Id, opportunity_id__c=opps[i].Id));
             }
         }
-        casos[249].status='08';
+        casos[199].status='08';
         
         insert lstOli;
 		insert casos;
@@ -114,8 +115,8 @@ public class User_Trigger_Case_tst {
         Final Integer deactiveUsersSize = deactiveUsers.size();
         Final User[] changeRolUsers = [SELECT Id FROM User WHERE Id IN: uIds AND isActive=true];
         Final Integer changeRolUsersSize = changeRolUsers.size();
-        System.assertEquals(127, deactiveUsersSize, 'Error with assertion');
-        System.assertEquals(123, changeRolUsersSize, 'Error with assertion');
+        System.assertEquals(127, deactiveUsersSize, ASSERT_ERROR);
+        System.assertEquals(73, changeRolUsersSize, ASSERT_ERROR);
     }
     
     /**
@@ -139,16 +140,11 @@ public class User_Trigger_Case_tst {
             } else {
                 newUsers[i].prof_position_id__c='E04';
             }
-            newUsers[i].IsActive=true;
         }
         Test.startTest();
 		update newUsers;
         Test.stopTest();
-        Final Set<Id> idsUsers = new Set<Id>();
-        for(User u:newUsers){
-            idsUsers.add(u.Id);
-        }
-        User[] usuarios = [SELECT Id From User WHERE Id IN:idsUsers];
-        System.assertEquals(250, usuarios.size(), 'Error with assertion');
+        Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: GRP');
+        System.assertEquals(250, newUsersInGroup, ASSERT_ERROR);
     }
 }

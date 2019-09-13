@@ -1,16 +1,21 @@
-"CURRENCYISOCODE","DWP_DACE__ACTION_DESC__C","DWP_DACE__ACTION_UNIQUE_ID__C"
-"PEN","Price Approval","btnSanctionPrice2"
-"PEN","Price Approval","btnSanctionPrice"
-"PEN","Add Product","addProduct"
-"PEN","Complete","btnComplete"
-"PEN","Unlink","btnUnlink"
-"PEN","Aprove Formalization","btnFormalize"
-"PEN","Quote","btnQuote"
-"PEN","Edit Product","editProduct"
-"PEN","Formalization","btnFormalization"
-"PEN","Risk Approval","btnPenalizeRisk"
-"PEN","Generate PDF","btnPDF"
-"PEN","Review","btnReevaluate"
-"PEN","Reject","btnReject"
-"PEN","Delete Product","deleteProduct"
-"PEN","Approve","btnApprove"
+CURRENCYISOCODE,DWP_DACE__ACTION_DESC__C,DWP_DACE__ACTION_UNIQUE_ID__C
+PEN,Price Approval,btnSanctionPrice2
+PEN,Price Approval,btnSanctionPrice
+PEN,Add Product,addProduct
+PEN,Complete,btnComplete
+PEN,Unlink,btnUnlink
+PEN,Aprove Formalization,btnFormalize
+PEN,Quote,btnQuote
+PEN,Edit Product,editProduct
+PEN,Formalization,btnFormalization
+PEN,Risk Approval,btnPenalizeRisk
+PEN,Generate PDF,btnPDF
+PEN,Review,btnReevaluate
+PEN,Reject,btnReject
+PEN,Delete Product,deleteProduct
+PEN,Approve,btnApprove
+PEN,Reasignar Propietario para casos en formalización,btnReasignOwnerFormalization
+PEN,"Botón ""Definir estado de oportunidad"" para el asistente operativo",btnFormalizationAssistant
+PEN,Botón de enviar a la unidad de producto,btnProductUnit
+PEN,Botón para reasignar casos en sanción de precios,btnReasign
+,,
