@@ -311,9 +311,8 @@
         <language>en_US</language>
     </listViews>
     <nameField>
-        <displayFormat>AAC-{0000000000}</displayFormat>
         <label>Reference</label>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Estados Financieros</pluralLabel>
     <searchLayouts/>
