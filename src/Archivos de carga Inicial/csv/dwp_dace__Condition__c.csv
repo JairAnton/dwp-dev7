@@ -37,10 +37,10 @@ PEN,USER_PROFILE_EXECUTIVE_SPECIALIST,Profile.Name,Text,"Ejecutivo,Especialista,
 PEN,OPP_PRODUCT_QUOTE_NOT_AVAILABLE,price_quote_available__c,Checkbox,false,,OpportunityLineItems,ID_EQUAL
 PEN,CASE_RECORDTYPE_FORMALIZATION,RecordType.DeveloperName,Text,Formalization,,Case,ID_IN
 PEN,CASE_RECORDTYPE_NULL,RecordTypeId,Text,,,Case,ID_EMPTY
-PEN,CASE_STATUS_ASSIGNED_SGOF,status,Picklist,8,,Case,ID_IN
+PEN,CASE_STATUS_ASSIGNED_SGOF,status,Picklist,08,,Case,ID_IN
 PEN,CASE_SUBGERENTE_EMPTY,DWP_SGofOwner__c,Text,,,Case,ID_EMPTY
 PEN,CASE_ASSISTANT_OWNER_EMPTY,DWP_AssistantOwner__c,Text,,,Case,ID_EMPTY
-PEN,CASE_STATUS_ASIGNADO_AAC,status,Picklist,5,,Case,ID_IN
+PEN,CASE_STATUS_ASIGNADO_AAC,status,Picklist,05,,Case,ID_IN
 PEN,USER_ROL_ASISTENTE,prof_position_id__c,Text,"E06,I26",,User,ID_IN
 PEN,CASE_STATUS_NEW_OR_ELEVADO,status,Picklist,"01,07",,Case,ID_IN
 PEN,USER_ROL_SGOF,prof_position_id__c,Text,"I43,E04",,User,ID_IN
