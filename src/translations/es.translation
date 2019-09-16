@@ -1613,10 +1613,6 @@
         <name>Error_letter_of_credit</name>
     </customLabels>
     <customLabels>
-        <label>No se puede formalizar sin comentarios</label>
-        <name>lblNoCommentsFormalization</name>
-    </customLabels>
-    <customLabels>
         <label>Asignarme petición</label>
         <name>lblReasignOwnerFormalization</name>
     </customLabels>
