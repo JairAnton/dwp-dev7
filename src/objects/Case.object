@@ -575,11 +575,14 @@
     <listViews>
         <fullName>Dwp_My_Request_to_Formalize</fullName>
         <columns>CASES.CASE_NUMBER</columns>
-        <columns>NAME</columns>
-        <columns>CASES.SUBJECT</columns>
+        <columns>dwp_officeName__c</columns>
+        <columns>case_owner_calc__c</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>opportunity_id__c</columns>
+        <columns>Product_Name_Fr__c</columns>
         <columns>CASES.STATUS</columns>
-        <columns>CASES.PRIORITY</columns>
-        <columns>CORE.USERS.ALIAS</columns>
+        <columns>opportunity_amount__c</columns>
+        <columns>Dwp_ElevatedDate__c</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>CASES.STATUS</field>
