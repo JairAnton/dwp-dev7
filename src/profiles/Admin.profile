@@ -4483,6 +4483,10 @@
         <layout>Account_Renewals__c-Account Renewals Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Case-Formalization Case Layout</layout>
+        <recordType>Case.Formalization</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

@@ -1612,6 +1612,18 @@
         <label>No se pudo actualizar el estado de la oportunidad al estado &quot;Precio Aprobado&quot;.</label>
         <name>Error_letter_of_credit</name>
     </customLabels>
+    <customLabels>
+        <label>No se puede formalizar sin comentarios</label>
+        <name>lblNoCommentsFormalization</name>
+    </customLabels>
+    <customLabels>
+        <label>Asignarme petición</label>
+        <name>lblReasignOwnerFormalization</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lblbtnSanctionGOF_cfg --></label>
+        <name>lblbtnSanctionGOF_cfg</name>
+    </customLabels>
 	<quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

@@ -62,7 +62,7 @@
     </actionOverrides>
     <businessProcesses>
         <fullName>Formalization</fullName>
-        <description>Flujo de Formalización de Oportunidades</description>
+        <description>Flujo de FormalizaciÃ³n de Oportunidades</description>
         <isActive>true</isActive>
         <values>
             <fullName>Assigned ACC</fullName>
@@ -212,7 +212,7 @@
     <fields>
         <fullName>Dwp_ElevatedDate__c</fullName>
         <externalId>false</externalId>
-        <label>Fecha de elevación</label>
+        <label>Fecha de elevaciÃ³n</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -358,7 +358,7 @@
     <fields>
         <fullName>dwp_returned_date__c</fullName>
         <externalId>false</externalId>
-        <label>Fecha de devolución</label>
+        <label>Fecha de devoluciÃ³n</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -745,7 +745,6 @@
         </filters>
         <label>Peticiones formalizadas</label>
         <sharedTo>
-            <group>Asistentes_Operativos</group>
             <group>Subgerentes_Operativos</group>
             <group>System_Administrators</group>
         </sharedTo>
