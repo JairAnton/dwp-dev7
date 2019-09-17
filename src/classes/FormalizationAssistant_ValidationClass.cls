@@ -8,9 +8,6 @@
 */
 global class FormalizationAssistant_ValidationClass implements dwp_dbpn.DynamicFlowValidationInterface {
     
-    /* Constructor Class */
-    private FormalizationAssistant_ValidationClass() {}
-    
     /* Method getErrorMessagesList*/
     global static List<String> getErrorMessagesList(String recordId, String source, String validationClass) {
             list<String> lstErrorMessage = new List<String>();

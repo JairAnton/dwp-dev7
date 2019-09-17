@@ -37,6 +37,7 @@ public without sharing class Formalization_helper {
             Final List<Group> queue = [SELECT Id, DeveloperName FROM Group WHERE Type='Queue' AND DeveloperName=:cola];
             Final Opportunity opp = [SELECT Id, AccountId FROM Opportunity WHERE Id=:oppId];
             Final Case caso = new Case(AccountId = opp.AccountId, OwnerId = queue[0].Id, Status = status, opportunity_id__c = oppId, recordTypeId = lstRT[0].Id);
+            caso.Dwp_ElevatedDate__c = (status == '07' ? System.now() : null);
             insert caso;
         } catch(Exception e) {
             System.debug('***No se pudo generar el caso***');

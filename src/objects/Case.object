@@ -582,7 +582,6 @@
         <columns>ACCOUNT.NAME</columns>
         <columns>opportunity_id__c</columns>
         <columns>Product_Name_Fr__c</columns>
-        <columns>CASES.STATUS</columns>
         <columns>opportunity_amount__c</columns>
         <columns>Dwp_ElevatedDate__c</columns>
         <filterScope>Mine</filterScope>
