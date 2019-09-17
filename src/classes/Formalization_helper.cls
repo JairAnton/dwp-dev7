@@ -99,7 +99,7 @@ public without sharing class Formalization_helper {
             dynamicUpdateCase(caso, mapFields);
             if(mapFields.get(Case.status) == '08') {
                 Opportunity opp = [SELECT Id, opportunity_status_type__c FROM Opportunity WHERE Id=:caso.Opportunity_id__c];
-                Map<Schema.SObjectField, Object> mapOpp = new Map<Schema.SObjectField, Object>{Opportunity.opportunity_status_type__c => '19'};
+                Final Map<Schema.SObjectField, Object> mapOpp = new Map<Schema.SObjectField, Object>{Opportunity.opportunity_status_type__c => '19'};
                 dynamicUpdateOpp(opp, mapOpp);
             }
         } else {
