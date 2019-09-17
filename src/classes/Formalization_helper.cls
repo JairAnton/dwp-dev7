@@ -96,16 +96,11 @@ public without sharing class Formalization_helper {
         if(memberSize > 0) {
             mapRes.put(IS_ERROR, false);
             mapRes.put('oppId',caso.opportunity_id__c);
-            for(Schema.SObjectField sField:mapFields.keySet()) {
-                caso.put(sField, mapFields.get(sField));
-            }
-            update caso;
-            caso.bypass__c=false;
-            update caso;
+            dynamicUpdateCase(caso, mapFields);
             if(mapFields.get(Case.status) == '08') {
                 Opportunity opp = [SELECT Id, opportunity_status_type__c FROM Opportunity WHERE Id=:caso.Opportunity_id__c];
-                opp.opportunity_status_type__c='19';
-                update opp;
+                Map<Schema.SObjectField, Object> mapOpp = new Map<Schema.SObjectField, Object>{Opportunity.opportunity_status_type__c => '19'};
+                dynamicUpdateOpp(opp, mapOpp);
             }
         } else {
             mapRes.put(IS_ERROR, true);

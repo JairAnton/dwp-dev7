@@ -25,7 +25,7 @@
                 }
             } else {
                 toastEvent.setParams({
-                    "message": "$Label.Dwp_msgGenericError",
+                    "message": $A.get("$Label.Dwp_msgGenericError"),
                     "type": "error"
                 });
             }

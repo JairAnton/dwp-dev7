@@ -10,7 +10,7 @@
                     var cmpView = component.find("view");
                     cmpView.set("v.recordIdParent", component.get("v.inputAttributes.recordId"));
                     if(res.property === 'Empty' || res.property === 'Assigned') {
-                        component.set("v.title", 'Reasignarse petición');
+                        component.set("v.title", 'Reasignarse peticiÃ³n');
                         component.set("v.lblContinue", "Asignarmela");
                         cmpView.set("v.msgProperty", res.msg);
                         cmpView.set("v.dialog", res.dialog);
@@ -69,7 +69,7 @@
                     cmpView.set("v.mapPicklistValues", res.picklistValues);
                 } else {
                     toastEvent.setParams({
-                        "message": "$Label.Dwp_msgGenericError",
+                        "message": $A.get("$Label.Dwp_msgGenericError"),
                         "type": "error"
                     });
                     toastEvent.fire();
@@ -114,7 +114,7 @@
     msgAndClose : function(component, event, helper, message, type, close) {
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
-            "message": (message ? message : "$Label.Dwp_msgGenericError"),
+            "message": (message ? message : $A.get("$Label.Dwp_msgGenericError")),
             "type": (type ? type : "error")
         });
         toastEvent.fire();
