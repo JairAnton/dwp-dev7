@@ -83,17 +83,17 @@
                 <value>
                     <fullName>A</fullName>
                     <default>false</default>
-                    <label>A</label>
+                    <label>Auditado</label>
                 </value>
                 <value>
                     <fullName>F</fullName>
                     <default>false</default>
-                    <label>F</label>
+                    <label>Fiscal (SUNAT)</label>
                 </value>
                 <value>
                     <fullName>G</fullName>
                     <default>false</default>
-                    <label>G</label>
+                    <label>Situacional</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -123,17 +123,17 @@
                 <value>
                     <fullName>P</fullName>
                     <default>false</default>
-                    <label>P</label>
+                    <label>Pendiente</label>
                 </value>
                 <value>
                     <fullName>F</fullName>
                     <default>false</default>
-                    <label>F</label>
+                    <label>Finalizado</label>
                 </value>
                 <value>
                     <fullName>V</fullName>
                     <default>false</default>
-                    <label>V</label>
+                    <label>Validado</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
