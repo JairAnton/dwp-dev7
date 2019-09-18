@@ -831,7 +831,7 @@
     </fields>
     <fields>
         <fullName>Email</fullName>
-        <encrypted>true</encrypted>
+        <encryptionScheme>CaseSensitiveDeterministicEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -841,7 +841,7 @@
     </fields>
     <fields>
         <fullName>MobilePhone</fullName>
-        <encrypted>true</encrypted>
+        <encryptionScheme>CaseSensitiveDeterministicEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>

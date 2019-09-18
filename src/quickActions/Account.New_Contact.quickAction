@@ -13,7 +13,7 @@
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
                 <field>MobilePhone</field>
-                <uiBehavior>Edit</uiBehavior>
+                <uiBehavior>Required</uiBehavior>
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
@@ -28,7 +28,7 @@
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
                 <field>prof_position_type__c</field>
-                <uiBehavior>Edit</uiBehavior>
+                <uiBehavior>Required</uiBehavior>
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
@@ -65,7 +65,7 @@
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
                 <field>Email</field>
-                <uiBehavior>Edit</uiBehavior>
+                <uiBehavior>Required</uiBehavior>
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
