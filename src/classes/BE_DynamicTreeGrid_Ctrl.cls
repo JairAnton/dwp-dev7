@@ -11,6 +11,11 @@ Date        Author   Email                  Type
  */
 public with sharing class BE_DynamicTreeGrid_Ctrl {
     /**
+    @Description privet constructor.
+    */
+    private BE_DynamicTreeGrid_Ctrl() {
+    }
+    /**
     @Description make a Data like a innner Response Class.
     @recordId the recordId to be search or aplicate filter.
     @param sObjName the ApiName of sObject to be search.
@@ -29,14 +34,14 @@ public with sharing class BE_DynamicTreeGrid_Ctrl {
     */
     @AuraEnabled(cacheable=true)
     public static Response getDynamicResponse(String recordId, String sObjName, String sObjFields, String keyField, String keyParentField, String filterSQOL, String fieldLevel, Boolean isHeaderGroup,String keyGroup,String filterSQOLGroup,String formatDate,String fieldsHeaderGroup,Integer numGroupShow,String fieldOrder) {
-        Response response=new Response();
-        BE_TreeGrid_Utils.Params param=new BE_TreeGrid_Utils.Params(sObjName,sObjFields,keyField,keyParentField,filterSQOL,fieldLevel,isHeaderGroup,keyGroup, filterSQOLGroup, formatDate, fieldsHeaderGroup, numGroupShow, fieldOrder);
+        final Response response=new Response();
+        final BE_TreeGrid_Utils.Params param=new BE_TreeGrid_Utils.Params(sObjName,sObjFields,keyField,keyParentField,filterSQOL,fieldLevel,isHeaderGroup,keyGroup, filterSQOLGroup, formatDate, fieldsHeaderGroup, numGroupShow, fieldOrder);
         try {
             response.isSuccess=true;
             response.sObjFieldsMap=BE_TreeGrid_Utils.getSObjectFields(param.sObjName);
-            param.sObjFields=(String.isNotBlank(param.fieldOrder))?BE_TreeGrid_Utils.joinSobjString(param.sObjFields, param.fieldOrder):param.sObjFields;
+            param.sObjFields=String.isNotBlank(param.fieldOrder)?BE_TreeGrid_Utils.joinSobjString(param.sObjFields, param.fieldOrder):param.sObjFields;
              if (isHeaderGroup) {
-                final Boolean isNumGroupShow=(param.numGroupShow>0 && param.numGroupShow!=null)?true:false;
+                final Boolean isNumGroupShow=param.numGroupShow>0 && param.numGroupShow!=null?true:false;
                 response.periods=BE_TreeGrid_Utils.getGroupLabels(recordId, param.sObjName,param.keyGroup, param.filterSQOLGroup, param.numGroupShow);
                 response.treeGridDataGroup=BE_TreeDataGroup_Helper.getTreeRecordsGroup(recordId,param,isNumGroupShow,response.periods);
                 response.sizeData=response.TreeGridDataGroup.size();
@@ -48,8 +53,7 @@ public with sharing class BE_DynamicTreeGrid_Ctrl {
             response.sizeData=response.treeGridData.size();        
             }
             System.debug('response'+response);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             response.IsSuccess=false;
             System.debug('Error'+e.getMessage());
             response.Message='Error';
@@ -79,19 +83,26 @@ public with sharing class BE_DynamicTreeGrid_Ctrl {
     -------------------------------------------------------------------------------------------------
      */
     public with sharing class Response {
+        /**Indicate if the transaction is Success*/
         @AuraEnabled
         public Boolean isSuccess{set;get;}
+        /**Message to show in the front to final user*/
         @AuraEnabled
         public String message {set;get;}
+        /**List of group Labels*/
         @AuraEnabled
         public List<Object> periods {set;get;}
+        /**Size of the records*/
         @AuraEnabled
         public Integer sizeData {set;get;}
+        /**Tree Data Group*/
         @AuraEnabled
         public Map<Integer, Map<String,List<SObject>>> treeGridDataGroup {set;get;}
+        /**Tree Data without group*/
         @AuraEnabled
         public Map<Integer, Map<String,SObject>> treeGridData {set;get;}
         @AuraEnabled
+        /**Map of sObjFields type*/
         public Map<String,String> sObjFieldsMap {set;get;}
     }
 }

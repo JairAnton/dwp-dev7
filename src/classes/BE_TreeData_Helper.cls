@@ -30,8 +30,7 @@ public with sharing class BE_TreeData_Helper {
         System.debug('param'+param);
         final String targetSObjFields=assingSObjFields(param);
         final List<SObject> sObjectList=BE_TreeGrid_Utils.getSOQLData(recordId,param.sObjName,targetSObjFields,param.filterSQOL);
-        final Map<Integer, Map<String,SObject>> treeGridData=makeStructureData(sObjectList, param.keyField, param.fieldLevel,param.keyParentField);
-        return treeGridData;
+        return makeStructureData(sObjectList, param.keyField, param.fieldLevel,param.keyParentField);
     }
 
     /**
@@ -67,7 +66,7 @@ public with sharing class BE_TreeData_Helper {
     @param fieldLevel fieldApiName that contains the level of the data.
     @return a Map<Integer, Map<String,List<SObject>>> whith information about Data in cluster in levels.
     */
-    private static String assingSObjFields(BE_TreeGrid_Utils.Params param)  {
+    private static String assingSObjFields(BE_TreeGrid_Utils.Params param) {
         String targetSObjFields=param.sObjFields;
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyField);
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyParentField);

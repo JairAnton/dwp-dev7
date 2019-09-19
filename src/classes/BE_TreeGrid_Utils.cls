@@ -10,7 +10,10 @@ Date        Author   Email                  Type
 ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_TreeGrid_Utils {
-    final static String comma=',';
+    /**
+    @Description comma to join fields to SOQL
+    */
+    final static String COMMMA=',';
     /**
     @Description return a Map of String with type of all fields of sObject.
     */
@@ -37,7 +40,7 @@ public with sharing class BE_TreeGrid_Utils {
     @Description get information about dynamic sObject whith SOQL Dynamic.
     @recordId the recordId to be search or aplicate filter.
     @param sObjName the ApiName of sObject to be search.
-    @param sObjFields the ApiName of all fields to be search separate by comma.
+    @param sObjFields the ApiName of all fields to be search separate by COMMMA.
     @param filterSQOL filter of query.
     @return a List<sObject> whith information about dynamic sObject.
     */
@@ -51,21 +54,20 @@ public with sharing class BE_TreeGrid_Utils {
     @Description  get information about dynamic sObject whith SOQL Dynamic with Group and ROLLSUP.
     @recordId the recordId to be search or aplicate filter.
     @param sObjName the ApiName of sObject to be search.
-    @param sObjFields the ApiName of all fields to be search separate by comma.
+    @param sObjFields the ApiName of all fields to be search separate by COMMMA.
     @param filterSQOL filter of query
     @return a AggregateResult[] whith information about dynamic sObject.
     */
     public static AggregateResult[] getSOQLGroupData(String recordId,String sObjName, String sObjFields,String filterSQOL) {
         final String query ='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+filterSQOL;
-        final AggregateResult[] groupedResults=Database.query(query);
-        return groupedResults;
+        return Database.query(query);
     }
 
     /**
     @Description  get information about dynamic sObject whith SOQL Dynamic with function IN: .
     @recordId the recordId to be search or aplicate filter.
     @param sObjName the ApiName of sObject to be search.
-    @param sObjFields the ApiName of all fields to be search separate by comma.
+    @param sObjFields the ApiName of all fields to be search separate by COMMMA.
     @param filterSQOL filter of query.
     @param keyGroup   field to group.
     @param filterSQOLGroup  filter of group quey.
@@ -95,10 +97,9 @@ public with sharing class BE_TreeGrid_Utils {
                 }
             }
         }
-        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+keyGroup+' IN: setGroup'+' AND ' + filterSQOL;
+        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+String.escapeSingleQuotes(keyGroup)+' IN: setGroup'+' AND ' + filterSQOL;
         System.debug('query'+setGroup);
-        final List<SObject> SObjectList=Database.query(query);
-        System.debug('SObjectList'+SObjectList);
+        final List<SObject> sObjectList=Database.query(query);
         return SObjectList;
     }
     
@@ -106,7 +107,7 @@ public with sharing class BE_TreeGrid_Utils {
     @Description  get list of Labels with the keyGroup field.
     @recordId the recordId to be search or aplicate filter.
     @param sObjName the ApiName of sObject to be search.
-    @param sObjFields the ApiName of all fields to be search separate by comma.
+    @param sObjFields the ApiName of all fields to be search separate by COMMMA.
     @param keyGroup   field to group.
     @param filterSQOLGroup  filter of group quey.
     @param numGroupShow number of group to show.
@@ -116,10 +117,10 @@ public with sharing class BE_TreeGrid_Utils {
         final Boolean isNumGroupShow=numGroupShow>0 && numGroupShow!=null?true:false;
         List<Object> setGroup=new List<Object>();
         final AggregateResult[] groupedResults=getSOQLGroupData(recordId, sObjName, keyGroup, filterSQOLGroup);
-        if(isNumGroupShow)  {
-        final Integer targetNumGroupShow=numGroupShow>0 && numGroupShow!=null && numGroupShow<=groupedResults.size()?numGroupShow:groupedResults.size();
+        if(isNumGroupShow) {
+        final Integer numGShow=numGroupShow>0 && numGroupShow!=null && numGroupShow<=groupedResults.size()?numGroupShow:groupedResults.size();
         Integer count = 0;
-        while (count < targetNumGroupShow) {
+        while (count < numGShow) {
                 setGroup.add(groupedResults[count].get(keyGroup));
                 count++;
         }
@@ -137,7 +138,7 @@ public with sharing class BE_TreeGrid_Utils {
     @return a String with information sObjectField to be search in dynamic SOQL
      */
     public static String joinSobjString(String sObjFields,String sObjField) {
-        final String targetField=sObjFields.contains(sObjField)?sObjFields:sObjFields+comma+sObjField;
+        final String targetField=sObjFields.contains(sObjField)?sObjFields:sObjFields+COMMMA+sObjField;
         return targetField;
     }
 
@@ -165,7 +166,7 @@ public with sharing class BE_TreeGrid_Utils {
         /**
         @Description constructor for Params Class.
         @param sObjName the ApiName of sObject to be search.
-        @param sObjFields the ApiName of all fields to be search separate by comma.
+        @param sObjFields the ApiName of all fields to be search separate by COMMMA.
         @param keyField  the ApiName of the Identifier of the record.
         @param keyParentField the fieldApiName wich contains the code of the parent record.
         @param filterSQOL filter of query.
@@ -173,7 +174,7 @@ public with sharing class BE_TreeGrid_Utils {
         @param keyGroup   field to group.
         @param filterSQOLGroup  filter of group quey.
         @param formatDate the type of format of Date.
-        @param fieldsHeaderGroup the ApiName of all fields to be search separate by comma.
+        @param fieldsHeaderGroup the ApiName of all fields to be search separate by COMMMA.
         @param numGroupShow size of group labels to show.
         @param fieldOrder the ApiName of field to be order the record.
          */

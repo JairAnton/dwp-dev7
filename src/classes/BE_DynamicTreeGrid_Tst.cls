@@ -11,13 +11,14 @@
  */
 @IsTest
 public with sharing class BE_DynamicTreeGrid_Tst {
+    /** Unique code of AccAccounting*/
+    final static String UNIQUECODE='203658756EEFF'+String.valueOf(Date.today());
     /**
      @Description TestSetup for generated data to use in the test methods
      */
     @TestSetup
     static void makeData() {
-        final String uniqueCode='203658756EEFF'+String.valueOf(Date.today());
-        final Account acc=new Account(Name='FINANCIAL STATEMENT',unique_id__c=uniqueCode);
+        final Account acc=new Account(Name='FINANCIAL STATEMENT',unique_id__c=UNIQUECODE);
         insert acc;
         List<Account_Accounting__c> listAccAcc = new List<Account_Accounting__c>();
         for (Integer i = 0; i < 10; i++) {
@@ -52,9 +53,8 @@ public with sharing class BE_DynamicTreeGrid_Tst {
      */
     @IsTest
     static void dynamicResponseTest() {
-        final String uniqueCode='203658756EEFF'+String.valueOf(Date.today());
         Test.startTest();
-        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:uniqueCode LIMIT 1];
+        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
         final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,
         'Account_Accounting__c',
         'Name,gl_account_amount__c',
@@ -69,8 +69,7 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         '',
         null,
         'gl_account_path_position_id__c');
-        System.assertEquals(ObjResponse.SizeData, 2);
-        System.assertEquals(true,ObjResponse.IsSuccess,'Its match');
+        System.assertEquals(ObjResponse.SizeData, 2, 'The size of normal reponse match');
         Test.stopTest();  
     }
 
@@ -80,9 +79,8 @@ public with sharing class BE_DynamicTreeGrid_Tst {
      */
     @IsTest
     static void dynamicResponseGroupTest() {
-        final String uniqueCode='203658756EEFF'+String.valueOf(Date.today());
         Test.startTest();
-        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:uniqueCode LIMIT 1];
+        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
         final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,
         'Account_Accounting__c',
         'Name,gl_account_amount__c',
@@ -94,8 +92,7 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         'account_id__c=:recordId GROUP BY year_month_day_date__c',
         'MMMM YYYY',
         'gl_account_amount__c',1,'gl_account_path_position_id__c');
-        System.assertEquals(ObjResponse.SizeData, 2);
-        System.assertEquals(true,ObjResponse.IsSuccess,'Its match');
+        System.assertEquals(ObjResponse.SizeData, 2,'Size is equals');
         Test.stopTest();  
     }
     
@@ -105,9 +102,8 @@ public with sharing class BE_DynamicTreeGrid_Tst {
      */
     @IsTest
     static void dynamicResponsErrorTest() {
-        final String uniqueCode='203658756EEFF'+String.valueOf(Date.today());
         Test.startTest();
-        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:uniqueCode LIMIT 1];
+        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
         final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,
         'Account_Accounting__c',
         'Name',
@@ -122,7 +118,7 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         null,
         null,
         null);
-        System.assertEquals(false,ObjResponse.IsSuccess,'Its match');
+        System.assertEquals(false,ObjResponse.IsSuccess);
         Test.stopTest();  
     }
 

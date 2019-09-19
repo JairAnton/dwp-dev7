@@ -10,7 +10,7 @@
 ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_TreeDataGroup_Helper {
-    static List<SObject> sObjectList;
+    /**Varible to storage List<Sobject> */static List<SObject> sObjectList;
     /**
     @Description privet constructor.
     */
@@ -49,10 +49,10 @@ public with sharing class BE_TreeDataGroup_Helper {
     @param fieldLevel fieldApiName that contains the level of the data.
     @return a Map<Integer, Map<String,List<SObject>>> whith information about Data in cluster in levels.
     */
-    private static Map<Integer, Map<String,List<SObject>>> makeStructureDataGroup(List<SObject> SObjectList,Map<Integer, Map<String,List<SObject>>> sObjDataMap,String keyField,String fieldLevel,String keyParentField) {
+    private static Map<Integer, Map<String,List<SObject>>> makeStructureDataGroup(List<SObject> sObjectList,Map<Integer, Map<String,List<SObject>>> sObjDataMap,String keyField,String fieldLevel,String keyParentField) {
         Map<String,List<SObject>> sObjMap;
         List<SObject> sObjLst;
-        for(SObject item:SObjectList) {
+        for(SObject item:sObjectList) {
             final Integer level=String.isNotBlank(fieldLevel)?Integer.valueOf(item.get(fieldLevel)):(String.isNotBlank((String)item.get(keyParentField)))?1:0;
             final String code =(String)item.get(keyField);
             if(sObjDataMap.containsKey(level)) {

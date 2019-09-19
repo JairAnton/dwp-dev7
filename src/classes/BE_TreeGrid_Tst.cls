@@ -11,17 +11,23 @@
  */
 @IsTest
 public with sharing class BE_TreeGrid_Tst {
-    final static String sObjName='Account_Accounting__c';
-    final static String fieldCode='gl_account_id__c';
-    final static String dateField='year_month_day_date__c';
-    final static String uniqueCode='203658756Utils'+Date.today();
-    final static String sObjFieldsJoin='Name,Date';
-    final static String sObjFieldJoin='DateTime';
+    /**APINAME of the SObject*/ 
+    final static String SOBJNAME='Account_Accounting__c';
+    /**@general variable*/ 
+    final static String FIELDCODE='gl_account_id__c';
+    /**@general variable*/ 
+    final static String DATEFIELD='year_month_day_date__c';
+    /**@general variable*/ 
+    final static String UNIQUECODE='203658756Utils'+Date.today();
+    /**@general variable*/
+    final static String SOBJFIELDSJOIN='Name,Date';
+    /**@general variable*/ 
+    final static String SOBJFIELDJOIN='DateTime';
     /**
      @Description TestSetup for generated data to use in the test methods
      */
     @TestSetup
-    static void makeData()  {
+    static void makeData() {
         final Account acc=new Account(Name='TREE GRID UTILS TEST',unique_id__c=uniqueCode);
         insert acc;
         final Account_Accounting__c accAcc=new Account_Accounting__c(Name='Account',
@@ -45,7 +51,7 @@ public with sharing class BE_TreeGrid_Tst {
         Test.startTest();
         final Map<String,String> sObjectFieldsMap=BE_TreeGrid_Utils.getSObjectFields('Account_Accounting__c');
         final String typeName=sObjectFieldsMap.get('Name');
-        System.assertEquals(typeName, 'string','Its match');
+        System.assertEquals(typeName, 'string','Its match Name');
         Test.stopTest();
     }
 
@@ -56,9 +62,9 @@ public with sharing class BE_TreeGrid_Tst {
     @IsTest
     static void getSOQLDataTest() {
         Test.startTest();
-        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:uniqueCode LIMIT 1];
+        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
         final List<SObject> sObjLst=BE_TreeGrid_Utils.getSOQLData(acc.Id, 'Account', 'Name', 'Id=:recordId LIMIT 1');
-        System.assertEquals(sObjLst[0].get('Name'), 'TREE GRID UTILS TEST','Its match');
+        System.assertEquals(sObjLst[0].get('Name'), 'TREE GRID UTILS TEST','Its match Grid Name');
         Test.stopTest();
     }
     
@@ -69,10 +75,10 @@ public with sharing class BE_TreeGrid_Tst {
     @IsTest
     static void getSOQLGroupDataTest() {
         Test.startTest();
-        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:uniqueCode LIMIT 1];
+        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
         final Date dtExpected=Date.today();
-        final AggregateResult[] groupedResults=BE_TreeGrid_Utils.getSOQLGroupData(acc.Id, 'Account_Accounting__c', dateField, 'account_id__c=:recordId GROUP BY year_month_day_date__c');
-        System.assertEquals(dtExpected,groupedResults[0].get(dateField),'Its match');
+        final AggregateResult[] groupedResults=BE_TreeGrid_Utils.getSOQLGroupData(acc.Id, 'Account_Accounting__c', DATEFIELD, 'account_id__c=:recordId GROUP BY year_month_day_date__c');
+        System.assertEquals(dtExpected,groupedResults[0].get(DATEFIELD),'Its match DateField');
         Test.stopTest(); 
     }
     
@@ -83,12 +89,12 @@ public with sharing class BE_TreeGrid_Tst {
     @IsTest
     static void getSOQLDataWithINTest() {
         Test.startTest();
-        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:uniqueCode LIMIT 1];
-        final List<Object> groupLabels=BE_TreeGrid_Utils.getGroupLabels(acc.Id, sObjName,dateField, 'account_id__c=:recordId GROUP BY year_month_day_date__c', 1);
-        final List<SObject> sObjLst=BE_TreeGrid_Utils.getSOQLDataWithIN(acc.Id, sObjName, fieldCode, 'account_id__c=:recordId',dateField, groupLabels);
-        final List<Object> groupLabelsTwo=BE_TreeGrid_Utils.getGroupLabels(acc.Id, sObjName,fieldCode, 'account_id__c=:recordId GROUP BY gl_account_id__c', -1);
-        BE_TreeGrid_Utils.getSOQLDataWithIN(acc.Id, sObjName, fieldCode, 'account_id__c=:recordId',fieldCode, groupLabelsTwo);
-        System.assertEquals('PARENT_TEST',sObjLst[0].get(fieldCode),'Its match');  
+        final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
+        final List<Object> groupLabels=BE_TreeGrid_Utils.getGroupLabels(acc.Id, SOBJNAME,DATEFIELD, 'account_id__c=:recordId GROUP BY year_month_day_date__c', 1);
+        final List<SObject> sObjLst=BE_TreeGrid_Utils.getSOQLDataWithIN(acc.Id, SOBJNAME, FIELDCODE, 'account_id__c=:recordId',DATEFIELD, groupLabels);
+        final List<Object> groupLabelsTwo=BE_TreeGrid_Utils.getGroupLabels(acc.Id, SOBJNAME,FIELDCODE, 'account_id__c=:recordId GROUP BY gl_account_id__c', -1);
+        BE_TreeGrid_Utils.getSOQLDataWithIN(acc.Id, SOBJNAME, FIELDCODE, 'account_id__c=:recordId',FIELDCODE, groupLabelsTwo);
+        System.assertEquals('PARENT_TEST',sObjLst[0].get(FIELDCODE),'Its match Code');  
         Test.stopTest();
     }
     
@@ -99,7 +105,7 @@ public with sharing class BE_TreeGrid_Tst {
     @IsTest
     static void joinSobjStringTest() {
         Test.startTest();
-        final String fieldsJoin=BE_TreeGrid_Utils.joinSobjString(sObjFieldsJoin, sObjFieldJoin);
+        final String fieldsJoin=BE_TreeGrid_Utils.joinSobjString(SOBJFIELDSJOIN, SOBJFIELDJOIN);
         System.assertEquals('Name,Date,DateTime', fieldsJoin,'Correct Fields');
         Test.stopTest();
     }
