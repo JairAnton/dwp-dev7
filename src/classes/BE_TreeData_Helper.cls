@@ -11,6 +11,11 @@
  */
 public with sharing class BE_TreeData_Helper {
     /**
+    @Description privet constructor.
+    */
+    private BE_TreeData_Helper() {
+    }
+    /**
     @Description get information about dynamic sObject whith SOQL Dynamic.
     @recordId the recordId to be search or aplicate filter.
     @param sObjName the ApiName of sObject to be search.
@@ -62,7 +67,7 @@ public with sharing class BE_TreeData_Helper {
     @param fieldLevel fieldApiName that contains the level of the data.
     @return a Map<Integer, Map<String,List<SObject>>> whith information about Data in cluster in levels.
     */
-    private static String assingSObjFields(BE_TreeGrid_Utils.Params param){
+    private static String assingSObjFields(BE_TreeGrid_Utils.Params param)  {
         String targetSObjFields=param.sObjFields;
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyField);
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyParentField);

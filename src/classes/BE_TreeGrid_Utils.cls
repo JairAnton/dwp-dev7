@@ -10,7 +10,12 @@ Date        Author   Email                  Type
 ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_TreeGrid_Utils {
-    
+    final static String comma=',';
+    /**
+    @Description return a Map of String with type of all fields of sObject.
+    */
+    private BE_TreeGrid_Utils() {
+    }
     /**
     @Description return a Map of String with type of all fields of sObject.
     @param sObjName the ApiName of sObject to be search.
@@ -37,10 +42,9 @@ public with sharing class BE_TreeGrid_Utils {
     @return a List<sObject> whith information about dynamic sObject.
     */
     public static List<SObject> getSOQLData(String recordId,String sObjName, String sObjFields,String filterSQOL) {
-        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+sObjName+' WHERE '+filterSQOL;
+        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+filterSQOL;
         System.debug('query'+query);
-        final List<SObject> sObjList=Database.query(query);
-        return sObjList;
+        return Database.query(query);
     }
 
     /**
@@ -84,14 +88,14 @@ public with sharing class BE_TreeGrid_Utils {
                     setGroup.add(Datetime.valueOf(item));
                 }
             }
-            when 'string'{
+            when 'string' {
                 setGroup=new List<String>();
                 for (Object item : groupLabels) {
                     setGroup.add(String.valueOf(item));
                 }
             }
         }
-        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+sObjName+' WHERE '+keyGroup+' IN: setGroup'+' AND ' + filterSQOL;
+        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+keyGroup+' IN: setGroup'+' AND ' + filterSQOL;
         System.debug('query'+setGroup);
         final List<SObject> SObjectList=Database.query(query);
         System.debug('SObjectList'+SObjectList);
@@ -109,19 +113,17 @@ public with sharing class BE_TreeGrid_Utils {
     @return a List<sObject> whith information about  labels of keyGroup.
     */
     public static List<Object> getGroupLabels(String recordId,String sObjName,String keyGroup,String filterSQOLGroup,Integer numGroupShow) {
-        final Boolean isNumGroupShow=(numGroupShow>0 && numGroupShow!=null)?true:false;
-        final String typeField =String.valueOf(Schema.getGlobalDescribe().get(sObjName).getDescribe().fields.getMap().get(keyGroup).getDescribe().getType()).toLowerCase();
+        final Boolean isNumGroupShow=numGroupShow>0 && numGroupShow!=null?true:false;
         List<Object> setGroup=new List<Object>();
         final AggregateResult[] groupedResults=getSOQLGroupData(recordId, sObjName, keyGroup, filterSQOLGroup);
-        if(isNumGroupShow){
-        numGroupShow=(numGroupShow>0 && numGroupShow!=null && numGroupShow<=groupedResults.size())?numGroupShow:groupedResults.size();
-
+        if(isNumGroupShow)  {
+        final Integer targetNumGroupShow=numGroupShow>0 && numGroupShow!=null && numGroupShow<=groupedResults.size()?numGroupShow:groupedResults.size();
         Integer count = 0;
-        while (count < numGroupShow) {
+        while (count < targetNumGroupShow) {
                 setGroup.add(groupedResults[count].get(keyGroup));
                 count++;
         }
-        }else{
+        } else {
              for(AggregateResult  aggRes:groupedResults) {
                  setGroup.add(aggRes.get(keyGroup));
              }
@@ -134,20 +136,9 @@ public with sharing class BE_TreeGrid_Utils {
     @queryParam the param to aplicate the scope and single quotes
     @return a String with information sObjectField to be search in dynamic SOQL
      */
-    public static String joinSobjString(String sObjFields,String sObjField){
-        final String comma=',';
-        sObjFields=sObjFields.contains(sObjField)?sObjFields:sObjFields+comma+sObjField;
-        return sObjFields;
-    }
-    
-    /**
-    @Description return String whith information about string of dynamic query and prevent SOQL Inyection
-    @queryParam the param to aplicate the scope and single quotes
-    @return a String with information sObjectField to be search in dynamic SOQL
-     */
-    public static String validateBlankValue(String fieldParam, String defaultValue){
-        final String targetFieldValue= String.isNotBlank(fieldParam)?fieldParam:defaultValue;
-        return targetFieldValue;
+    public static String joinSobjString(String sObjFields,String sObjField) {
+        final String targetField=sObjFields.contains(sObjField)?sObjFields:sObjFields+comma+sObjField;
+        return targetField;
     }
 
     /**
@@ -157,40 +148,41 @@ public with sharing class BE_TreeGrid_Utils {
     -------------------------------------------------------------------------------------------------
      */
     public class Params {
-        @AuraEnabled 
-        public String sObjName {set;get;}
-        @AuraEnabled 
-        public String sObjFields {set;get;}
-        @AuraEnabled 
-        public String keyField {set;get;}
-        @AuraEnabled 
-        public String keyParentField {set;get;}
-        @AuraEnabled 
-        public String filterSQOL{set;get;}
-        @AuraEnabled 
-        public String fieldLevel {set;get;}
-        @AuraEnabled 
-        public Boolean isHeaderGroup {set;get;}
-        @AuraEnabled 
-        public String keyGroup {set;get;}
-        @AuraEnabled 
-        public String filterSQOLGroup {set;get;}
-        @AuraEnabled 
-        public String formatDate {set;get;}
-        @AuraEnabled 
-        public String fieldsHeaderGroup {set;get;}
-        @AuraEnabled 
-        public Integer numGroupShow {set;get;}
-        @AuraEnabled 
-        public String fieldOrder   {set;get;}
-        public Params(String sObjName, String sObjFields, String keyField, String keyParentField, String filterSQOL, String fieldLevel, Boolean isHeaderGroup,String keyGroup,String filterSQOLGroup,String formatDate,String fieldsHeaderGroup,Integer numGroupShow,String fieldOrder){
-            final String defaultApiName='Id';
-            final String emptyValue='';
+       /** @access:public  */   public String sObjName {set;get;}
+       /** @access:public  */   public String sObjFields {set;get;}
+       /** @access:public  */   public String keyField {set;get;}
+       /** @access:public  */   public String keyParentField {set;get;}
+       /** @access:public  */   public String filterSQOL{set;get;}
+       /** @access:public  */   public String fieldLevel {set;get;}
+       /** @access:public  */   public Boolean isHeaderGroup {set;get;}
+       /** @access:public  */   public String keyGroup {set;get;}
+       /** @access:public  */   public String filterSQOLGroup {set;get;}
+       /** @access:public  */   public String formatDate {set;get;}
+       /** @access:public  */   public String fieldsHeaderGroup {set;get;}
+       /** @access:public  */   public Integer numGroupShow {set;get;}
+       /** @access:public  */   public String fieldOrder   {set;get;}
+
+        /**
+        @Description constructor for Params Class.
+        @param sObjName the ApiName of sObject to be search.
+        @param sObjFields the ApiName of all fields to be search separate by comma.
+        @param keyField  the ApiName of the Identifier of the record.
+        @param keyParentField the fieldApiName wich contains the code of the parent record.
+        @param filterSQOL filter of query.
+        @param fieldLevel fieldApiName that contains the level of the data.
+        @param keyGroup   field to group.
+        @param filterSQOLGroup  filter of group quey.
+        @param formatDate the type of format of Date.
+        @param fieldsHeaderGroup the ApiName of all fields to be search separate by comma.
+        @param numGroupShow size of group labels to show.
+        @param fieldOrder the ApiName of field to be order the record.
+         */
+        public Params(String sObjName, String sObjFields, String keyField, String keyParentField, String filterSQOL, String fieldLevel, Boolean isHeaderGroup,String keyGroup,String filterSQOLGroup,String formatDate,String fieldsHeaderGroup,Integer numGroupShow,String fieldOrder) {
             this.sObjName=sObjName;
             this.sObjFields=sObjFields;
-            this.keyField=String.isNotBlank(keyField)?keyField:defaultApiName;
-            this.keyParentField=String.isNotBlank(keyParentField)?keyParentField:emptyValue;
-            this.filterSQOL=String.isNotBlank(filterSQOL)?filterSQOL:emptyValue;
+            this.keyField=String.isNotBlank(keyField)?keyField:'Id';
+            this.keyParentField=String.isNotBlank(keyParentField)?keyParentField:'';
+            this.filterSQOL=String.isNotBlank(filterSQOL)?filterSQOL:'';
             this.fieldLevel=fieldLevel;
             this.isHeaderGroup=isHeaderGroup;
             this.keyGroup=keyGroup;

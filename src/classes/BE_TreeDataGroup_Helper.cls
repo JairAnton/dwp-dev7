@@ -10,7 +10,12 @@
 ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_TreeDataGroup_Helper {
-    
+    static List<SObject> sObjectList;
+    /**
+    @Description privet constructor.
+    */
+    private BE_TreeDataGroup_Helper() {
+    }
     /**
     @Description make a Data in Map according the level.
     @param SObjectList the list of sObject to be structure.
@@ -21,15 +26,14 @@ public with sharing class BE_TreeDataGroup_Helper {
     @return a Map<Integer, Map<String,List<SObject>>> whith information about Data in cluster in levels.
     */
     public static Map<Integer, Map<String,List<SObject>>> getTreeRecordsGroup(String recordId,BE_TreeGrid_Utils.Params param,Boolean isNumGroupShow, List<Object> groupLabels) {
-        final List<SObject> SObjectList;
         Map<Integer, Map<String,List<SObject>>> treeGridData=new Map<Integer, Map<String,List<SObject>>>();
         final String targetSObjFields=assingSObjFields(param);
         if(isNumGroupShow) {
-            SObjectList=BE_TreeGrid_Utils.getSOQLDataWithIN(recordId, param.sObjName,targetSObjFields, param.filterSQOL, param.keyGroup,groupLabels);
+            sObjectList=BE_TreeGrid_Utils.getSOQLDataWithIN(recordId, param.sObjName,targetSObjFields, param.filterSQOL, param.keyGroup,groupLabels);
         } else {
-            SObjectList=BE_TreeGrid_Utils.getSOQLData(recordId, param.sObjName, targetSObjFields, param.filterSQOL);
+            sObjectList=BE_TreeGrid_Utils.getSOQLData(recordId, param.sObjName, targetSObjFields, param.filterSQOL);
         }
-        final Map<String, List<SObject>> dataMap=getMapRecords(SObjectList,param.keyGroup);
+        final Map<String, List<SObject>> dataMap=getMapRecords(sObjectList,param.keyGroup);
         for (String codeKey : dataMap.keySet()) {
                treeGridData=makeStructureDataGroup(dataMap.get(codeKey),treeGridData,param.keyField,param.fieldLevel,param.keyParentField);
         }
@@ -76,10 +80,10 @@ public with sharing class BE_TreeDataGroup_Helper {
     @param keyGroup fieldApiName wich data was group.
     @return a Map<String, List<SObject>> whith information about List of record group according the code.
     */
-    private static   Map<String, List<SObject>> getMapRecords(List<SObject> SObjectList,String keyGroup) {
+    private static   Map<String, List<SObject>> getMapRecords(List<SObject> sObjectList,String keyGroup) {
         Map<String, List<SObject>> dataMap=new  Map<String, List<SObject>>();
-            for (SObject sObj : SObjectList) {
-                   String code=String.valueOf(sObj.get(keyGroup));
+            for (SObject sObj : sObjectList) {
+                   final String code=String.valueOf(sObj.get(keyGroup));
                    if (dataMap.containsKey(code)) {
                         dataMap.get(code).add(sObj);
                    } else {
@@ -99,7 +103,7 @@ public with sharing class BE_TreeDataGroup_Helper {
     @param fieldLevel fieldApiName that contains the level of the data.
     @return a Map<Integer, Map<String,List<SObject>>> whith information about Data in cluster in levels.
     */
-    private static String assingSObjFields(BE_TreeGrid_Utils.Params param){
+    private static String assingSObjFields(BE_TreeGrid_Utils.Params param)  {
         String targetSObjFields=param.sObjFields;
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyField);
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyParentField);
