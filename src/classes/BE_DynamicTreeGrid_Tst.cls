@@ -21,23 +21,24 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         insert acc;
         List<Account_Accounting__c> listAccAcc = new List<Account_Accounting__c>();
         for (Integer i = 0; i < 10; i++) {
-             Account_Accounting__c accAcc=new Account_Accounting__c(Name='Account',
+             final String indicator=String.valueOf(i);
+             final Account_Accounting__c accAcc=new Account_Accounting__c(Name='Account',
              account_id__c=acc.Id,
              gl_account_amount__c=200,
              year_month_day_date__c=Date.today(),
              parent_gl_account_id__c='',
-             gl_account_id__c='PARENT'+String.valueOf(i),
+             gl_account_id__c='PARENT'+indicator,
              gl_account_id_path_desc__c='1',
-             gl_account_path_position_id__c=String.valueOf(i)
+             gl_account_path_position_id__c=indicator
              );
-            Account_Accounting__c accAccChild=new Account_Accounting__c(Name='Account',
+            final Account_Accounting__c accAccChild=new Account_Accounting__c(Name='Account',
              account_id__c=acc.Id,
              gl_account_amount__c=200,
              year_month_day_date__c=Date.today(),
-             parent_gl_account_id__c='PARENT'+String.valueOf(i),
-             gl_account_id__c='CHILD'+String.valueOf(i),
+             parent_gl_account_id__c='PARENT'+indicator,
+             gl_account_id__c='CHILD'+indicator,
              gl_account_id_path_desc__c='2',
-             gl_account_path_position_id__c=String.valueOf(i)
+             gl_account_path_position_id__c=indicator
              );
             listAccAcc.add(accAccChild);
             listAccAcc.add(accAcc);
@@ -61,12 +62,15 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         'parent_gl_account_id__c',
         'account_id__c=:recordId',
         'gl_account_id_path_desc__c',
-         false,'year_month_day_date__c',
+         false,
+        'year_month_day_date__c',
         '',
         '',
-        '',null,'gl_account_path_position_id__c');
+        '',
+        null,
+        'gl_account_path_position_id__c');
         System.assertEquals(ObjResponse.SizeData, 2);
-        System.assertEquals(ObjResponse.IsSuccess, true);
+        System.assertEquals(true,ObjResponse.IsSuccess,'Its match');
         Test.stopTest();  
     }
 
@@ -91,7 +95,7 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         'MMMM YYYY',
         'gl_account_amount__c',1,'gl_account_path_position_id__c');
         System.assertEquals(ObjResponse.SizeData, 2);
-        System.assertEquals(ObjResponse.IsSuccess, true);
+        System.assertEquals(true,ObjResponse.IsSuccess,'Its match');
         Test.stopTest();  
     }
     
@@ -118,7 +122,7 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         null,
         null,
         null);
-        System.assertEquals(ObjResponse.IsSuccess, false);
+        System.assertEquals(false,ObjResponse.IsSuccess,'Its match');
         Test.stopTest();  
     }
 

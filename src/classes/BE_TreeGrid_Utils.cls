@@ -37,7 +37,7 @@ public with sharing class BE_TreeGrid_Utils {
     @return a List<sObject> whith information about dynamic sObject.
     */
     public static List<SObject> getSOQLData(String recordId,String sObjName, String sObjFields,String filterSQOL) {
-        final String query='SELECT ' +sObjFields+ ' FROM '+sObjName+' WHERE '+filterSQOL;
+        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+sObjName+' WHERE '+filterSQOL;
         System.debug('query'+query);
         final List<SObject> sObjList=Database.query(query);
         return sObjList;
@@ -52,7 +52,7 @@ public with sharing class BE_TreeGrid_Utils {
     @return a AggregateResult[] whith information about dynamic sObject.
     */
     public static AggregateResult[] getSOQLGroupData(String recordId,String sObjName, String sObjFields,String filterSQOL) {
-        final String query ='SELECT ' +sObjFields+ ' FROM '+sObjName+' WHERE '+filterSQOL;
+        final String query ='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+filterSQOL;
         final AggregateResult[] groupedResults=Database.query(query);
         return groupedResults;
     }
@@ -91,7 +91,7 @@ public with sharing class BE_TreeGrid_Utils {
                 }
             }
         }
-        final String query='SELECT ' +sObjFields+ ' FROM '+sObjName+' WHERE '+keyGroup+' IN: setGroup'+' AND ' + filterSQOL;
+        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+sObjName+' WHERE '+keyGroup+' IN: setGroup'+' AND ' + filterSQOL;
         System.debug('query'+setGroup);
         final List<SObject> SObjectList=Database.query(query);
         System.debug('SObjectList'+SObjectList);
@@ -138,5 +138,67 @@ public with sharing class BE_TreeGrid_Utils {
         final String comma=',';
         sObjFields=sObjFields.contains(sObjField)?sObjFields:sObjFields+comma+sObjField;
         return sObjFields;
+    }
+    
+    /**
+    @Description return String whith information about string of dynamic query and prevent SOQL Inyection
+    @queryParam the param to aplicate the scope and single quotes
+    @return a String with information sObjectField to be search in dynamic SOQL
+     */
+    public static String validateBlankValue(String fieldParam, String defaultValue){
+        final String targetFieldValue= String.isNotBlank(fieldParam)?fieldParam:defaultValue;
+        return targetFieldValue;
+    }
+
+    /**
+    -------------------------------------------------------------------------------------------------
+    @Name <Response>
+    @Description Wrapper for params request.  
+    -------------------------------------------------------------------------------------------------
+     */
+    public class Params {
+        @AuraEnabled 
+        public String sObjName {set;get;}
+        @AuraEnabled 
+        public String sObjFields {set;get;}
+        @AuraEnabled 
+        public String keyField {set;get;}
+        @AuraEnabled 
+        public String keyParentField {set;get;}
+        @AuraEnabled 
+        public String filterSQOL{set;get;}
+        @AuraEnabled 
+        public String fieldLevel {set;get;}
+        @AuraEnabled 
+        public Boolean isHeaderGroup {set;get;}
+        @AuraEnabled 
+        public String keyGroup {set;get;}
+        @AuraEnabled 
+        public String filterSQOLGroup {set;get;}
+        @AuraEnabled 
+        public String formatDate {set;get;}
+        @AuraEnabled 
+        public String fieldsHeaderGroup {set;get;}
+        @AuraEnabled 
+        public Integer numGroupShow {set;get;}
+        @AuraEnabled 
+        public String fieldOrder   {set;get;}
+        public Params(String sObjName, String sObjFields, String keyField, String keyParentField, String filterSQOL, String fieldLevel, Boolean isHeaderGroup,String keyGroup,String filterSQOLGroup,String formatDate,String fieldsHeaderGroup,Integer numGroupShow,String fieldOrder){
+            final String defaultApiName='Id';
+            final String emptyValue='';
+            this.sObjName=sObjName;
+            this.sObjFields=sObjFields;
+            this.keyField=String.isNotBlank(keyField)?keyField:defaultApiName;
+            this.keyParentField=String.isNotBlank(keyParentField)?keyParentField:emptyValue;
+            this.filterSQOL=String.isNotBlank(filterSQOL)?filterSQOL:emptyValue;
+            this.fieldLevel=fieldLevel;
+            this.isHeaderGroup=isHeaderGroup;
+            this.keyGroup=keyGroup;
+            this.filterSQOLGroup=filterSQOLGroup;
+            this.formatDate=formatDate;
+            this.fieldsHeaderGroup=fieldsHeaderGroup;
+            this.numGroupShow=numGroupShow;
+            this.fieldOrder=fieldOrder;
+        }
     }
 }

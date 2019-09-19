@@ -30,22 +30,24 @@ public with sharing class BE_DynamicTreeGrid_Ctrl {
     @AuraEnabled(cacheable=true)
     public static Response getDynamicResponse(String recordId, String sObjName, String sObjFields, String keyField, String keyParentField, String filterSQOL, String fieldLevel, Boolean isHeaderGroup,String keyGroup,String filterSQOLGroup,String formatDate,String fieldsHeaderGroup,Integer numGroupShow,String fieldOrder) {
         Response response=new Response();
+        BE_TreeGrid_Utils.Params param=new BE_TreeGrid_Utils.Params(sObjName,sObjFields,keyField,keyParentField,filterSQOL,fieldLevel,isHeaderGroup,keyGroup, filterSQOLGroup, formatDate, fieldsHeaderGroup, numGroupShow, fieldOrder);
         try {
-            response.IsSuccess=true;
-            response.sObjFieldsMap=BE_TreeGrid_Utils.getSObjectFields(sObjName);
-            sObjFields=(String.isNotBlank(fieldOrder))?BE_TreeGrid_Utils.joinSobjString(sObjFields, fieldOrder):sObjFields;
+            response.isSuccess=true;
+            response.sObjFieldsMap=BE_TreeGrid_Utils.getSObjectFields(param.sObjName);
+            param.sObjFields=(String.isNotBlank(param.fieldOrder))?BE_TreeGrid_Utils.joinSobjString(param.sObjFields, param.fieldOrder):param.sObjFields;
              if (isHeaderGroup) {
-                final Boolean isNumGroupShow=(numGroupShow>0 && numGroupShow!=null)?true:false;
-                response.Periods=BE_TreeGrid_Utils.getGroupLabels(recordId, sObjName,keyGroup, filterSQOLGroup, numGroupShow);
-                response.treeGridDataGroup=BE_TreeDataGroup_Helper.getTreeRecordsGroup(recordId, sObjName, sObjFields, keyField, keyParentField, filterSQOL, keyGroup, fieldLevel, filterSQOLGroup, formatDate, fieldsHeaderGroup, isHeaderGroup,isNumGroupShow,response.Periods);
-                response.SizeData=response.TreeGridDataGroup.size();
-                if (String.isNotBlank(formatDate)) {
-                response.Periods=getFormatDate(formatDate, response.Periods);
+                final Boolean isNumGroupShow=(param.numGroupShow>0 && param.numGroupShow!=null)?true:false;
+                response.periods=BE_TreeGrid_Utils.getGroupLabels(recordId, param.sObjName,param.keyGroup, param.filterSQOLGroup, param.numGroupShow);
+                response.treeGridDataGroup=BE_TreeDataGroup_Helper.getTreeRecordsGroup(recordId,param,isNumGroupShow,response.periods);
+                response.sizeData=response.TreeGridDataGroup.size();
+                if (String.isNotBlank(param.formatDate)) {
+                response.periods=getFormatDate(param.formatDate, response.periods);
                 }
             } else {
-            response.treeGridData=BE_TreeData_Helper.getTreeRecords(recordId, sObjName, sObjFields, keyField, keyParentField, filterSQOL, fieldLevel);
-            response.SizeData=response.TreeGridData.size();        
+            response.treeGridData=BE_TreeData_Helper.getTreeRecords(recordId, param);
+            response.sizeData=response.treeGridData.size();        
             }
+            System.debug('response'+response);
         }
         catch (Exception e) {
             response.IsSuccess=false;
@@ -70,21 +72,26 @@ public with sharing class BE_DynamicTreeGrid_Ctrl {
         return targetGroupLabels;
     }
 
+    /**
+    -------------------------------------------------------------------------------------------------
+    @Name <Response>
+    @Description Wrapper Class for the reponse to lwc.  
+    -------------------------------------------------------------------------------------------------
+     */
     public with sharing class Response {
         @AuraEnabled
-        public Boolean IsSuccess{set;get;}
+        public Boolean isSuccess{set;get;}
         @AuraEnabled
-        public String Message {set;get;}
+        public String message {set;get;}
         @AuraEnabled
-        public List<Object> Periods {set;get;}
+        public List<Object> periods {set;get;}
         @AuraEnabled
-        public Integer SizeData {set;get;}
+        public Integer sizeData {set;get;}
         @AuraEnabled
-        public Map<Integer, Map<String,List<SObject>>> TreeGridDataGroup {set;get;}
+        public Map<Integer, Map<String,List<SObject>>> treeGridDataGroup {set;get;}
         @AuraEnabled
-        public Map<Integer, Map<String,SObject>> TreeGridData {set;get;}
+        public Map<Integer, Map<String,SObject>> treeGridData {set;get;}
         @AuraEnabled
         public Map<String,String> sObjFieldsMap {set;get;}
     }
-
 }

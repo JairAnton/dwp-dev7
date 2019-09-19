@@ -20,27 +20,18 @@ public with sharing class BE_TreeDataGroup_Helper {
     @param fieldLevel fieldApiName that contains the level of the data.
     @return a Map<Integer, Map<String,List<SObject>>> whith information about Data in cluster in levels.
     */
-    public static Map<Integer, Map<String,List<SObject>>> getTreeRecordsGroup(String recordId,String sObjName,String  sObjFields,String keyField,String keyParentField,String filterSQOL,String keyGroup,String fieldLevel,String filterSQOLDate,String formatDate,String fieldsHeaderGroup, Boolean isHeaderGroup,Boolean isNumGroupShow,List<Object> groupLabels) {
-        final String defaultApiName='Id';
+    public static Map<Integer, Map<String,List<SObject>>> getTreeRecordsGroup(String recordId,BE_TreeGrid_Utils.Params param,Boolean isNumGroupShow, List<Object> groupLabels) {
         final List<SObject> SObjectList;
         Map<Integer, Map<String,List<SObject>>> treeGridData=new Map<Integer, Map<String,List<SObject>>>();
-        keyField=String.isNotBlank(keyField)?keyField:defaultApiName;
-        filterSQOL=String.isNotBlank(filterSQOL)?filterSQOL:'';
-        sObjFields=String.isNotBlank(sObjFields)?sObjFields:defaultApiName;
-        keyParentField=String.isNotBlank(keyParentField)?keyParentField:null;
-        sObjFields=BE_TreeGrid_Utils.joinSobjString(sObjFields, keyField);
-        sObjFields=BE_TreeGrid_Utils.joinSobjString(sObjFields, keyParentField);
-        sObjFields=BE_TreeGrid_Utils.joinSobjString(sObjFields, keyGroup);
-        sObjFields=BE_TreeGrid_Utils.joinSobjString(sObjFields, fieldsHeaderGroup);
-        sObjFields=String.isNotBlank(fieldLevel)?BE_TreeGrid_Utils.joinSobjString(sObjFields, fieldLevel):sObjFields;
+        final String targetSObjFields=assingSObjFields(param);
         if(isNumGroupShow) {
-            SObjectList=BE_TreeGrid_Utils.getSOQLDataWithIN(recordId, sObjName, sObjFields, filterSQOL, keyGroup,groupLabels);
+            SObjectList=BE_TreeGrid_Utils.getSOQLDataWithIN(recordId, param.sObjName,targetSObjFields, param.filterSQOL, param.keyGroup,groupLabels);
         } else {
-            SObjectList=BE_TreeGrid_Utils.getSOQLData(recordId, sObjName, sObjFields, filterSQOL);
+            SObjectList=BE_TreeGrid_Utils.getSOQLData(recordId, param.sObjName, targetSObjFields, param.filterSQOL);
         }
-        final Map<String, List<SObject>> dataMap=getMapRecords(SObjectList,keyGroup);
+        final Map<String, List<SObject>> dataMap=getMapRecords(SObjectList,param.keyGroup);
         for (String codeKey : dataMap.keySet()) {
-               treeGridData=makeStructureDataGroup(dataMap.get(codeKey),treeGridData,keyField,fieldLevel,keyParentField);
+               treeGridData=makeStructureDataGroup(dataMap.get(codeKey),treeGridData,param.keyField,param.fieldLevel,param.keyParentField);
         }
         return treeGridData;
     }
@@ -99,5 +90,23 @@ public with sharing class BE_TreeDataGroup_Helper {
         } 
         return dataMap;
     } 
+
+    /**
+    @Description get information make a Data in Map according the level.
+    @param SObjectList the list of sObject to be structure.
+    @param keyField fieldApiName wich contains the code or Id of the record.
+    @param keyParentField fieldApiName wich contains the code of the parent record.
+    @param fieldLevel fieldApiName that contains the level of the data.
+    @return a Map<Integer, Map<String,List<SObject>>> whith information about Data in cluster in levels.
+    */
+    private static String assingSObjFields(BE_TreeGrid_Utils.Params param){
+        String targetSObjFields=param.sObjFields;
+        targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyField);
+        targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyParentField);
+        targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyGroup);
+        targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.fieldsHeaderGroup);
+        targetSObjFields=String.isNotBlank(param.fieldLevel)?BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.fieldLevel):targetSObjFields;
+        return targetSObjFields;
+    }
 
 }

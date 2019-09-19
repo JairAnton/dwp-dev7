@@ -34,7 +34,7 @@ export default class BE_DynamicTreeGrid_Lwc extends LightningElement {
   @wire(getDynamicResponse, {
     recordId: "$recordId",
     sObjName: "$sObjApiName",
-    sObjFields: "$sObjFieldsSOQL",
+    sObjFields: "$sObjFields",
     keyField: "$keyField",
     keyParentField: "$keyParentField",
     filterSQOL: "$filterSQOL",
@@ -43,7 +43,7 @@ export default class BE_DynamicTreeGrid_Lwc extends LightningElement {
     keyGroup: "$keyGroup",
     filterSQOLGroup: "$filterSQOLGroup",
     formatDate: "$formatDate",
-    fieldsHeaderGroup: "$fieldsHeaderGroupSOQL",
+    fieldsHeaderGroup: "$fieldsHeaderGroup",
     numGroupShow: "$numGroupShow",
     fieldOrder: "$fieldOrder"
   })
@@ -51,17 +51,19 @@ export default class BE_DynamicTreeGrid_Lwc extends LightningElement {
     this.provisionedData=provisionedData;
     const { data, error } = provisionedData;
     if (data) {
-      if (data.IsSuccess) {
+      if (data.isSuccess) {
         try {
-          let dataLst = this.isHeaderGroup ? data.TreeGridDataGroup : data.TreeGridData;
-          this.empty = data.SizeData === 0 ? true : false;
-          const subLevelSize =this.levelData <= data.SizeData? this.levelData - 1: data.SizeData - 1;
+          let dataLst = this.isHeaderGroup ? data.treeGridDataGroup : data.treeGridData;
+          console.log('dataLst');
+          console.log(dataLst);
+          this.empty = data.sizeData === 0 ? true : false;
+          const subLevelSize =this.levelData <= data.sizeData? this.levelData - 1: data.sizeData - 1;
           let fieldsGroupHeader = this.fieldsHeaderGroup;
           const sObjFieldsMap = data.sObjFieldsMap;
           this.gridColumns = this.getGridColumns(sObjFieldsMap,this.sObjFields,this.sObjFieldLabels);
           if (this.isHeaderGroup) {
             let fields = fieldsGroupHeader.split(",");
-            this.gridColumns = this.getGroupHeaderColumns(this.gridColumns,data.Periods,fields,sObjFieldsMap,this.fieldsHeaderGroupLabels);
+            this.gridColumns = this.getGroupHeaderColumns(this.gridColumns,data.periods,fields,sObjFieldsMap,this.fieldsHeaderGroupLabels);
             this.gridData = (subLevelSize>0)?this.assignTreeDataWithGroup(dataLst,this.keyParentField,fields,subLevelSize):this.assignOneLevelData(dataLst,this.keyParentField,this.isHeaderGroup,fields);
           } else {
           this.gridData =(subLevelSize>0)?this.assignTreeData(dataLst,this.keyParentField,subLevelSize):this.assignOneLevelData(dataLst,this.keyParentField,this.isHeaderGroup,null);
