@@ -85,7 +85,7 @@ public with sharing class BE_DynamicTreeGrid_Ctrl {
     public with sharing class Response {
         /**Indicate if the transaction is Success*/
         @AuraEnabled
-        public Boolean isSuccess{set;get;}
+        public Boolean isSuccess {set;get;}
         /**Message to show in the front to final user*/
         @AuraEnabled
         public String message {set;get;}

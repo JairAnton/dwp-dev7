@@ -45,7 +45,8 @@ public with sharing class BE_TreeGrid_Utils {
     @return a List<sObject> whith information about dynamic sObject.
     */
     public static List<SObject> getSOQLData(String recordId,String sObjName, String sObjFields,String filterSQOL) {
-        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+filterSQOL;
+        final String sfilterSQOL=filterSQOL.contains('like')?String.escapeSingleQuotes(filterSQOL):filterSQOL;
+        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+sfilterSQOL;
         System.debug('query'+query);
         return Database.query(query);
     }
@@ -59,8 +60,9 @@ public with sharing class BE_TreeGrid_Utils {
     @return a AggregateResult[] whith information about dynamic sObject.
     */
     public static AggregateResult[] getSOQLGroupData(String recordId,String sObjName, String sObjFields,String filterSQOL) {
-        final String query ='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+filterSQOL;
-        return Database.query(query);
+        final String sfilterSQOL=filterSQOL.contains('like')?String.escapeSingleQuotes(filterSQOL):filterSQOL;
+        final String query ='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+sfilterSQOL;
+        return (AggregateResult[])Database.query(query);
     }
 
     /**
@@ -97,10 +99,10 @@ public with sharing class BE_TreeGrid_Utils {
                 }
             }
         }
-        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+String.escapeSingleQuotes(keyGroup)+' IN: setGroup'+' AND ' + filterSQOL;
+        final String sfilterSQOL=filterSQOL.contains('like')?String.escapeSingleQuotes(filterSQOL):filterSQOL;
+        final String query='SELECT ' +String.escapeSingleQuotes(sObjFields)+ ' FROM '+String.escapeSingleQuotes(sObjName)+' WHERE '+String.escapeSingleQuotes(keyGroup)+' IN: setGroup'+' AND ' + sfilterSQOL;
         System.debug('query'+setGroup);
-        final List<SObject> sObjectList=Database.query(query);
-        return SObjectList;
+        return Database.query(query);
     }
     
     /**
@@ -138,8 +140,7 @@ public with sharing class BE_TreeGrid_Utils {
     @return a String with information sObjectField to be search in dynamic SOQL
      */
     public static String joinSobjString(String sObjFields,String sObjField) {
-        final String targetField=sObjFields.contains(sObjField)?sObjFields:sObjFields+COMMMA+sObjField;
-        return targetField;
+        return sObjFields.contains(sObjField)?sObjFields:sObjFields+COMMMA+sObjField;
     }
 
     /**
@@ -153,7 +154,7 @@ public with sharing class BE_TreeGrid_Utils {
        /** @access:public  */   public String sObjFields {set;get;}
        /** @access:public  */   public String keyField {set;get;}
        /** @access:public  */   public String keyParentField {set;get;}
-       /** @access:public  */   public String filterSQOL{set;get;}
+       /** @access:public  */   public String filterSQOL {set;get;}
        /** @access:public  */   public String fieldLevel {set;get;}
        /** @access:public  */   public Boolean isHeaderGroup {set;get;}
        /** @access:public  */   public String keyGroup {set;get;}
@@ -161,7 +162,7 @@ public with sharing class BE_TreeGrid_Utils {
        /** @access:public  */   public String formatDate {set;get;}
        /** @access:public  */   public String fieldsHeaderGroup {set;get;}
        /** @access:public  */   public Integer numGroupShow {set;get;}
-       /** @access:public  */   public String fieldOrder   {set;get;}
+       /** @access:public  */   public String fieldOrder {set;get;}
 
         /**
         @Description constructor for Params Class.
