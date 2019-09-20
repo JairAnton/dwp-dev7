@@ -10,7 +10,9 @@ public without sharing class Product_cls {
     Comments to describe the functionality of this method
     */
     @AuraEnabled public static List<OpportunityLineItem> getIdProductByOpportunity(String IdOpportunity) {
-        Final List<OpportunityLineItem> row= [SELECT  cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c, restructuring_fee_per__c  FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
+        Final List<OpportunityLineItem> row= [SELECT cancellation_fee_per__c,price_quote_id__c,Product2Id,gipr_Tipo_Garantia__c,gipr_Garantia__c,Product2.Type_of_quote__c,
+                                              price_quote_date__c,Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,
+                                              proposed_fee_per__c, restructuring_fee_per__c, currencyIsoCode, validityDate__c FROM OpportunityLineItem Where OpportunityId=: IdOpportunity LIMIT 1];
             return row.isEmpty()? new List<OpportunityLineItem>(): row;
     }
     /*Description
@@ -27,8 +29,11 @@ public without sharing class Product_cls {
     Comments to describe the functionality of this method
     */
     @AuraEnabled public static List<fprd__GBL_guarantee__c> getGuaranteeDataByProduct(String IdOpportunity,String IdProduct) {   
-        //List<fprd__GBL_guarantee__c> objData= [SELECT Id,guarantee_type__c,toLabel(guarantee_desc__c), toLabel(guarantee_modality_type__c), toLabel(guarantee_status_type__c),guarantee_term_number__c, toLabel(guarantee_periodicity_type__c),guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by isMaster__c desc];
-        return [SELECT Id,guarantee_type__c,toLabel(guarantee_desc__c), toLabel(guarantee_modality_type__c), toLabel(guarantee_status_type__c),guarantee_term_number__c, toLabel(guarantee_periodicity_type__c),guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by isMaster__c desc]; //yulino 28/11/2018 : Optimizado
+        //List<fprd__GBL_guarantee__c> objData= [SELECT Id,guarantee_type__c,toLabel(guarantee_desc__c), toLabel(guarantee_modality_type__c), toLabel(guarantee_status_type__c),
+        //guarantee_term_number__c, toLabel(guarantee_periodicity_type__c),guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where 
+        //fprd__GBL_Opportunity_product__c=: IdOpportunity Order by isMaster__c desc];
+        return [SELECT Id,guarantee_type__c,toLabel(guarantee_desc__c), toLabel(guarantee_modality_type__c), toLabel(guarantee_status_type__c),guarantee_term_number__c, 
+                toLabel(guarantee_periodicity_type__c),guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by isMaster__c desc]; //yulino 28/11/2018 : Optimizado
     }
     /*Description
     Comments to describe the functionality of this method
@@ -36,25 +41,29 @@ public without sharing class Product_cls {
     @AuraEnabled public static List<fprd__GBL_Guarantee__c> getGuaranteeDataByProductValues(String PGuaranteeId) {   
         //yulino 28/11/2018 : Comentado, se optimizó en el return
         //List<fprd__GBL_guarantee__c> objData= [SELECT Id,guarantee_type__c,guarantee_desc__c, guarantee_modality_type__c, guarantee_status_type__c,guarantee_term_number__c, guarantee_periodicity_type__c,guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where Id=: PGuaranteeId];
-        return [SELECT Id,guarantee_type__c,guarantee_desc__c, guarantee_modality_type__c, guarantee_status_type__c,guarantee_term_number__c, guarantee_periodicity_type__c,guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where Id=: PGuaranteeId];
+        return [SELECT Id,guarantee_type__c,guarantee_desc__c, guarantee_modality_type__c, guarantee_status_type__c,guarantee_term_number__c, guarantee_periodicity_type__c,
+                guarantee_id__c,guaranteed_amount__c,isMaster__c FROM fprd__GBL_guarantee__c Where Id=: PGuaranteeId];
     }
     /*Description
     Comments to describe the functionality of this method
     */
     @AuraEnabled public static List<fprd__GBL_Intervener__c> getParticipantDataByProduct(String IdOpportunity,String IdProduct) {    
         //List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,toLabel(fiscal_identifier_type__c), toLabel(guarantor_marital_status_type__c), toLabel(participant_type__c),taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by main_intervener__c desc];
-        return  [SELECT Id,Name,toLabel(fiscal_identifier_type__c), toLabel(guarantor_marital_status_type__c), toLabel(participant_type__c),taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by main_intervener__c desc]; //yulino 28/11/2018 : Comentado, se optimizó en el return
+        return  [SELECT Id,Name,toLabel(fiscal_identifier_type__c), toLabel(guarantor_marital_status_type__c), toLabel(participant_type__c),taxpayer_id__c,main_intervener__c 
+                 FROM fprd__GBL_Intervener__c Where fprd__GBL_Opportunity_product__c=: IdOpportunity Order by main_intervener__c desc]; //yulino 28/11/2018 : Comentado, se optimizó en el return
     }
     /*Description
     Comments to describe the functionality of this method
     */
     @AuraEnabled public static List<fprd__GBL_Intervener__c> getParticipantDataByProductValues(String PParticipantId) {  
         //List<fprd__GBL_Intervener__c> objData= [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId];
-        return [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c,main_intervener__c FROM fprd__GBL_Intervener__c Where  Id=: PParticipantId]; //yulino 28/11/2018 : Comentado, se optimizó en el return
+        return [SELECT Id,Name,fiscal_identifier_type__c, guarantor_marital_status_type__c, participant_type__c,taxpayer_id__c,main_intervener__c FROM 
+                fprd__GBL_Intervener__c Where  Id=: PParticipantId]; //yulino 28/11/2018 : Comentado, se optimizó en el return
     }
     @AuraEnabled public static List<OpportunityLineItem> getOpportunityLineItemDataByProduct(String IdOpportunity,String IdProduct) {    
         //List<OpportunityLineItem> objData= [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct];
-        return [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c  FROM OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct]; //yulino 28/11/2018 : Comentado, se optimizó en el return
+        return [SELECT Product2.Name,Opportunity.Amount,gipr_Plazo__c,toLabel(gipr_Periodicidad__c),proposed_apr_per__c,spread_per__c,proposed_fee_per__c FROM 
+                OpportunityLineItem Where OpportunityId=:IdOpportunity and Product2Id=:IdProduct]; //yulino 28/11/2018 : Comentado, se optimizó en el return
     }
     @AuraEnabled public static String getOportunidadSytem(String Filtro) {       
         return Object_Controller.getOportunidadSytem(Filtro);       
@@ -153,14 +162,14 @@ public without sharing class Product_cls {
             prdToForm.add(prd.Product_Code__c);
         }
         try {   
-            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId, 
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId, stageName, 
                                         (SELECT Id, ProductCode FROM OpportunityLineItems WHERE ProductCode IN:prdToForm) FROM Opportunity WHERE Id=: OpportunityId];
             Final Integer itemOppSize = itemOpp.size();
             if(itemOppSize > 0) {
                 if(Action=='btnApprove') {
                     itemOpp[0].IsProcess__c=true;
                     update itemOpp[0];
-                    itemOpp[0].StageName=label.lblFormalizarEtapa;
+                    //itemOpp[0].StageName=label.lblFormalizarEtapa;
                     //Si tiene un producto en prdToForm, pasará por el Asistente
                 	Final Integer oliSize = itemOpp[0].OpportunityLineItems.size();
                     if(oliSize > 0) {
@@ -169,7 +178,8 @@ public without sharing class Product_cls {
                     } else {//Enviar al Subgerente
                         Formalization_helper.createOrUpdateCase(itemOpp[0], 'Tier_2_Formalization', '07');
                         itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;
-                    }      
+                    }
+                    itemOpp[0].StageName=label.lblFormalizarEtapa;
                     FeedItem post = new FeedItem();
                     post.ParentId = OpportunityId;
                     post.Body = body;
@@ -183,11 +193,11 @@ public without sharing class Product_cls {
                 }
                 update itemOpp[0];
                 itemOpp[0].IsProcess__c=false;
-                update itemOpp[0]; 
+                update itemOpp[0];
                 //update itemOpp[0];
                 //BEGIN Traceability - 2018-06-11
                 //Isaías Vellázquez Cortés
-                new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,AttachedFiles),'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,AttachedFiles) ,'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
                 //END Traceability
                 return 'true';
             }
@@ -435,28 +445,30 @@ public without sharing class Product_cls {
         if(OppStatus!='32')
         {//Yulino 27/11/2018 : se quitó String.valueOf() de algunos parametros
             HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
-                '<b>Importe:</b> '+ itemOppProduct[0].Opportunity.Amount +'<br/>' +
+                '<b>Importe:</b> '+ Dwp_Utils_helper.formatAmount(itemOppProduct[0].Opportunity.Amount, itemOppProduct[0].currencyIsoCode) +'<br/>' +
                 '<b>Plazo:</b> '+itemOppProduct[0].gipr_Plazo__c +' '+ itemOppProduct[0].gipr_Periodicidad__c +'<br/>';  /// EN CASO DE QUE APLIQUE
-            if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZADOR')
-            {
-                HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c+ '% <br/>' +
+            if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZADOR') {
+                HTMLComments=HTMLComments+'<b>TEA propuesta:</b> '+itemOppProduct[0].proposed_apr_per__c+ '% <br/>' +
                     '<b>Comisión estructuración:</b> '+itemOppProduct[0].restructuring_fee_per__c +'% <br/>'+
                     '<b>Comisión Liquidacion Anticipada(%):</b> '+itemOppProduct[0].cancellation_fee_per__c+'% <br/>';
-            } else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web') {HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c + '% <br/>';  }
+            } else if(itemOppProduct[0].Product2.Type_of_quote__c=='Web') {
+                HTMLComments=HTMLComments+'<b>TEA propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c + '% <br/>';  
+                HTMLComments = HTMLComments+'<b>Validez TEA:</b> '+itemOppProduct[0].validityDate__c +'<br/>';
+                HTMLComments = HTMLComments+'<b>ID COTIZA:</b> '+itemOppProduct[0].price_quote_id__c+'<br/>';
+            }
             else if(itemOppProduct[0].Product2.Type_of_quote__c=='Tarifario') { HTMLComments=HTMLComments+'<b>Comisión Propuesta:</b> '+itemOppProduct[0].proposed_fee_per__c +'% <br/>';  }
-            else if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZA Beta')
-            {
-                HTMLComments=HTMLComments+'<b>TEA Propuesta (%):</b> '+itemOppProduct[0].proposed_apr_per__c+'% <br/>'
+            else if(itemOppProduct[0].Product2.Type_of_quote__c=='COTIZA Beta') {
+                HTMLComments=HTMLComments+'<b>TEA Propuesta:</b> '+itemOppProduct[0].proposed_apr_per__c+'% <br/>'
                     +'<b>ID COTIZA:</b> '+itemOppProduct[0].price_quote_id__c+' <br/>';
             }
-            HTMLComments =HTMLComments+'<b>Comentarios:</b> ' +Body;
-        }
-        else
-        {
+            Final Case[] casoTraza = [SELECT Id, CaseNumber FROM Case WHERE opportunity_id__c=:OpportunityId AND recordType.Name='Formalization' AND status NOT IN ('03','04', '10', '11') limit 1];
+            HTMLComments =(casoTraza.size() > 0 ? HTMLComments+'<b>Número de Petición:</b> ' +casoTraza[0].caseNumber+'<br/>' : HTMLComments);
+            HTMLComments = (body == null ? HTMLComments : HTMLComments+'<b>Comentarios:</b>' +Body);
+        } else {
             HTMLComments = '<b>Producto:</b> ' + itemOppProduct[0].Product2.Name + '<br/>' +
-                '<b>Importe:</b> '+ itemOppProduct[0].Opportunity.Amount +'<br/>' +
-                '<b>Comentarios:</b> ' +Body+ '<br/><br/>'+
-                '<b>Archivos adjuntos:</b> <br/>' +AttachedFiles;
+                '<b>Importe:</b> '+ Dwp_Utils_helper.formatAmount(itemOppProduct[0].Opportunity.Amount, itemOppProduct[0].currencyIsoCode) +'<br/>' +
+                +'<b>Comentarios:</b>' +Body+
+                '<br/><b>Archivos adjuntos:</b> ' +AttachedFiles;
         }
         return HTMLComments;
     }
@@ -486,7 +498,9 @@ public without sharing class Product_cls {
     */
     @AuraEnabled public static List<WRP_Table> getAccountBBVAInformation (String AccountId)
     {
-        list<AggregateResult> listInfoBBVA = [select account_id__r.Id Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') AND product_group_classification_id__c != '' and is_last_date__c = true group by account_id__r.id,product_group_classification_id__c, type__c];
+        list<AggregateResult> listInfoBBVA = [select account_id__r.Id Name,product_group_classification_id__c, type__c,MIN(account_id__r.bank_turnover_volume_amount__c)exp1,
+                                              SUM(average_balance_amount__c)exp2 from Account_BBVA_Information__c where account_id__r.ParentId=:AccountId and (type__c = '01' OR type__c = '02') 
+                                              AND product_group_classification_id__c != '' and is_last_date__c = true group by account_id__r.id,product_group_classification_id__c, type__c];
         set<id> Ids= new set<id>();
         for(AggregateResult item : listInfoBBVA) { Ids.add((id)item.get('Name'));}
         list<Account> listAccNames= [select id,Name from Account where id in : Ids];

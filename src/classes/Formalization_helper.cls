@@ -23,7 +23,7 @@ public without sharing class Formalization_helper {
     
     /* Public Method Class createOrUpdateCase */
     public static void createOrUpdateCase(Opportunity opp, String cola, String status) {
-        if(opp.opportunity_status_type__c == '20') {
+        if(opp.stageName == '05') {
             Formalization_helper.updateCase(opp.Id, 'Formalization');
         } else {
             Formalization_helper.createCase(opp.Id, cola, status, 'Formalization');
@@ -99,7 +99,7 @@ public without sharing class Formalization_helper {
             dynamicUpdateCase(caso, mapFields);
             if(mapFields.get(Case.status) == '08') {
                 Opportunity opp = [SELECT Id, opportunity_status_type__c FROM Opportunity WHERE Id=:caso.Opportunity_id__c];
-                Final Map<Schema.SObjectField, Object> mapOpp = new Map<Schema.SObjectField, Object>{Opportunity.opportunity_status_type__c => '19'};
+                Map<Schema.SObjectField, Object> mapOpp = new Map<Schema.SObjectField, Object>{Opportunity.opportunity_status_type__c => '19'};
                 dynamicUpdateOpp(opp, mapOpp);
             }
         } else {
@@ -120,8 +120,7 @@ public without sharing class Formalization_helper {
             mapRes.put('dialog', assistant ? Label.lblEmptyAssistant_2 : Label.lblEmptySgof_2);
         } else {
             mapRes.put('property', 'Assigned');
-            mapRes.put(MSG, assistant ? String.format(Label.lblAssignedAssistant_1, new List<String>{owner.get('name').toUpperCase()}) 
-                      					: String.format(Label.lblAssignedSgof_1, new List<String>{owner.get('name').toUpperCase()}) );
+            mapRes.put(MSG, assistant ? String.format(Label.lblAssignedAssistant_1, new List<String>{owner.get('name').toUpperCase()}) : String.format(Label.lblAssignedSgof_1, new List<String>{owner.get('name').toUpperCase()}) );
             mapRes.put('dialog', assistant ? Label.lblAssignedAssistant_2 : Label.lblAssignedSgof_2);
         }
         return mapRes;
@@ -140,7 +139,7 @@ public without sharing class Formalization_helper {
             Final Case caso = [SELECT Id, status FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('05','08', '09') limit 1];
             Final Boolean lblButtons = caso.status == '05' || caso.status == '09' ? true : false;
             mapRes.put('lblSend', lblButtons ? 'Solicitar Formalización' : 'Formalizar');
-            mapRes.put('lblReturn', lblButtons ? 'Devolver a ejecutivo' : 'Devolver a asistente');
+            mapRes.put('lblReturn', 'Devolver');
         }
         return mapRes;
     }
@@ -227,5 +226,5 @@ public without sharing class Formalization_helper {
         }
         return mapGrupos;
     }
-    
+
 }

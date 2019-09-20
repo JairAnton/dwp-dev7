@@ -333,7 +333,7 @@
         <fullName>dwp_officeName__c</fullName>
         <externalId>false</externalId>
         <formula>Account.branch_id__r.Name</formula>
-        <label>Oficina propietario del cliente</label>
+        <label>Oficina propietaria del cliente</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

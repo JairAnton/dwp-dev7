@@ -48,7 +48,7 @@ public without sharing class User_Trigger_Case_cls {
               (ROL_ASIS.contains(u.prof_position_id__c) && !ROL_ASIS.contains(userNewMap.get(u.Id).prof_position_id__c))) {
                 inactiveAsist.add(u.Id);
             } else if((ROL_SG.contains(u.prof_position_id__c) && (userOldMap.get(u.Id).isActive && !u.isActive)) ||
-                    (ROL_SG.contains(u.prof_position_id__c) && ROL_SG.contains(userNewMap.get(u.Id).prof_position_id__c))) {
+                    (ROL_SG.contains(u.prof_position_id__c) && !ROL_SG.contains(userNewMap.get(u.Id).prof_position_id__c))) {
                 inactiveSgof.add(u.Id);
             }
         }

@@ -11,9 +11,6 @@ public with sharing class Dwp_Utils_helper {
     /*Campo IS_ERROR inicializado para soluciones del SonarQ*/
     public static Final String IS_ERROR = 'isError';
     
-    /*Constructor Dwp_Utils_helper*/
-    private Dwp_Utils_helper() {}
-    
     /*Method for validate Regex Format*/
     public static Map<String, Object> validateFormatt(String regex, String input) {
         Final Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => true, 'validateError' => 'Empty'};
@@ -49,6 +46,13 @@ public with sharing class Dwp_Utils_helper {
             mapRes.put('listView', listViews);
         }
         return mapRes;
+    }
+    
+    /*Method to get formatAmount*/
+    public static String formatAmount(Decimal importe, String iso){
+        String stringAmount = ( Decimal.valueOf(importe == null || String.valueOf(importe).trim() == '' ? '0' : String.valueOf(importe)).setScale(2) + 0.001 ).format();
+        stringAmount = stringAmount.substring(0, stringAmount.length()-1);
+        return iso + ' ' + stringAmount;
     }
     
 }

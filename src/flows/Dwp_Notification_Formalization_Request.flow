@@ -147,14 +147,20 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>AND(ISPICKVAL([Opportunity].opportunity_status_type__c, &apos;20&apos;) , !ISBLANK([Opportunity].Dwp_DevolutionUser__c ), ISPICKVAL([Opportunity].StageName , &apos;05&apos; ))</stringValue>
+                <stringValue>AND(
+!ISPICKVAL(PRIORVALUE([Opportunity].opportunity_status_type__c) , &apos;20&apos; ), ISPICKVAL([Opportunity].opportunity_status_type__c, &apos;20&apos;) , !ISBLANK([Opportunity].Dwp_DevolutionUser__c ), 
+ISPICKVAL([Opportunity].StageName , &apos;05&apos;) 
+ )</stringValue>
             </value>
         </processMetadataValues>
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
-        <expression>AND(ISPICKVAL({!myVariable_current.opportunity_status_type__c}, &apos;20&apos;) , !ISBLANK({!myVariable_current.Dwp_DevolutionUser__c} ), ISPICKVAL({!myVariable_current.StageName} , &apos;05&apos; ))</expression>
+        <expression>AND(
+!ISPICKVAL(PRIORVALUE({!myVariable_current.opportunity_status_type__c}) , &apos;20&apos; ), ISPICKVAL({!myVariable_current.opportunity_status_type__c}, &apos;20&apos;) , !ISBLANK({!myVariable_current.Dwp_DevolutionUser__c} ), 
+ISPICKVAL({!myVariable_current.StageName} , &apos;05&apos;) 
+ )</expression>
     </formulas>
-    <interviewLabel>Dwp_Notification_Formalization_Request-3_InterviewLabel</interviewLabel>
+    <interviewLabel>Dwp_Notification_Formalization_Request-4_InterviewLabel</interviewLabel>
     <label>Notification Formalization Request</label>
     <processMetadataValues>
         <name>ObjectType</name>

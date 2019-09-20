@@ -149,6 +149,32 @@ public class SgofFormalization_helper_tst {
         Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
         System.assert(assertion, FAIL);
     }
+
+	@isTest
+    public static void sendProductUnitSgofTest() {
+		User ejecutivo, subgerente;
+        Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
+        Final User[] usuarios = [SELECT ID, prof_position_type__c, isActive FROM User WHERE prof_position_type__c IN ('SUBGERENTE BEC 2', 'EJECUTIVO BEC 2') AND isActive=true limit 2];
+        for(User u:usuarios) {
+            if(u.prof_position_type__c == POSITION_SGOF) {
+                subgerente = u;
+            } else if(u.prof_position_type__c == POSITION_EXE2) {
+                ejecutivo = u;
+            }
+        }
+        System.runAs(ejecutivo) {
+            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');           
+        }
+        Map<String, Object> mapRes;
+         System.runAs(subgerente) {
+         	SgofFormalization_helper.reasignCaseFromOpp(opp.Id);
+             Test.startTest();
+             mapRes = SgofFormalization_helper.sendProductUnitSgof(opp.Id);
+             Test.stopTest();
+        }
+        Final Boolean assertion = (Boolean)mapRes.get(IS_ERROR) ? false : true;
+        System.assert(assertion, FAIL);        
+    }
     
     /* isTest - getDataSubSuccessTest */
     @isTest
