@@ -58,4 +58,14 @@ public class Dwp_Utils_helper_tst {
         Final Boolean result = (Boolean) mapRes.get(IS_ERROR) ? false : true;
         System.assert(result, ERROR_ASSERT);
     }
+    
+    /* isTest - formatAmount */
+    @isTest
+    public static void formatAmount() {
+        String response;
+        Test.startTest();
+        response = Dwp_Utils_helper.formatAmount(1323.2, 'PEN');
+        Test.stopTest();
+        System.assertEquals('PEN 1,323.20', response);
+    }
 }

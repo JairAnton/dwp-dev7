@@ -50,14 +50,14 @@
                             <tr>
                                 <td>
                                     <lightning:button aura:id="btnSF" name="btnSF" class="buttonGreen sizeIconButton slds-button slds-p-horizontal_x-small slds-float_right" onclick="{!c.selectedOption}"  >
-                                        <lightning:icon iconName="utility:check" size="small" aura:id="iconSF" variant="success"/><br/><p aura:id="pSF" style="line-height:1.2rem;"><b>{!v.lblSend}</b></p>
+                                        <p aura:id="pSF" style="line-height:1.2rem;"><lightning:icon iconName="utility:check" size="small" aura:id="iconSF" variant="success"/><br/><b>{!v.lblSend}</b></p>
                                     </lightning:button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <lightning:button aura:id="btnRE" name="btnRE" class="buttonOrange sizeIconButton slds-button slds-p-horizontal_x-small slds-float_right" onclick="{!c.selectedOption}"  >
-                                        <lightning:icon iconName="utility:reply" size="small" aura:id="iconRE" variant="warning" /><br/><p aura:id="pRE" style="line-height:1.3rem;"><b>{!v.lblReturn}</b></p>
+                                        <p aura:id="pRE" style="line-height:1.3rem;"><lightning:icon iconName="utility:reply" size="small" aura:id="iconRE" variant="warning" /><br/><b>{!v.lblReturn}</b></p>
                                     </lightning:button>
                                 </td>
                             </tr>

@@ -1,6 +1,6 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp" access="global" extensible="true" controller="SgofFormalization_helper">
     <aura:attribute name="hasHeader" type="Boolean" default="false"/>
-    <aura:attribute name="title" type="String" default="Definir estado de oportunidad" access="global" description="Specify the modal"/>
+    <aura:attribute name="title" type="String" default="Formalización" access="global" description="Specify the modal"/>
     <aura:attribute name="lblContinue" type="String" />
     <aura:attribute name="loadView" type="Boolean" default="false"/>
    

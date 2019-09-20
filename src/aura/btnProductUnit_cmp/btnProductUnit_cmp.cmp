@@ -1,4 +1,20 @@
-<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp" access="global" extensible="true" controller="Formalization_helper">
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp" access="global" extensible="true" controller="SgofFormalization_helper">
 	<aura:attribute name="hasHeader" type="Boolean" default="false"/>
+    <aura:attribute name="title" type="String" default="Reasignarse petición" access="global" description="Specify the modal"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="msgProperty" type="String"/>
+    <aura:attribute name="dialog" type="String"/>
+    <aura:attribute name="validate" type="Boolean" default="false"/>
+    
+    <aura:if isTrue="{!v.validate}">
+    	<div class="slds-modal__content slds-p-around_medium">
+            <lightning:layout verticalAlign="center" multipleRows="false">
+                <lightning:layoutItem padding="around-small" size="12"><p style="text-align:center;">{!v.msgProperty}<br/>{!v.dialog}</p></lightning:layoutItem>
+            </lightning:layout>
+        </div>
+        <footer class="slds-modal__footer slds-theme_default">
+            <lightning:button variant="neutral" label="Cancelar" onclick="{!c.close}" class="slds-float_left"/>
+            <lightning:button aura:id="btnContinue" name="btnContinue" variant="brand" label="Asignarmela" onclick="{!c.asignCase}" disabled="false"/>
+        </footer>
+    </aura:if>
 </aura:component>

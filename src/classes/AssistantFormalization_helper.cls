@@ -83,6 +83,7 @@ public without sharing class AssistantFormalization_helper {
             Final Map<String, Object> lstView = Dwp_Utils_helper.getListView('Case', 'Tier_1_Formalization_Case');
             Final List<ListView> view = ((Boolean)lstView.get(IS_ERROR) ? new List<ListView>() : (List<ListView>) lstView.get('listView'));
             Final String option = (String)mapInputs.get('option');
+            Final String comments = (String)mapInputs.get('comments');
             switch on option {
                 when 'sentToFormalize' {
                     Final String contractNumber = (String)mapInputs.get('contractNumber');
@@ -100,7 +101,9 @@ public without sharing class AssistantFormalization_helper {
                         mapOppFields = new Map<Schema.SObjectField, Object>{Opportunity.frm_ContractNumber__c => contractNumber , Opportunity.opportunity_status_type__c => '19'};
                         opp = Formalization_helper.dynamicUpdateOpp(opp, mapOppFields);
                         //Auditoria
-                        new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel('19'),'<b>Número de contrato:</b> '+ contractNumber,'Opportunity',opp.Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);                        
+                        new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel('19'),'<b>Número de contrato:</b> '+ contractNumber + '<br/>'+ 
+                                                                                     Product_cls.TraceabilityMessage(opp.Id, opp.opportunity_status_type__c, comments, ''),
+                                                                                     'Opportunity',opp.Id,'elevate','TRFO00001',UserInfo.getUserId(),'embedded',1,true);                        
                         mapRes.put(IS_ERROR, false);
                         mapRes.put('msgSuccess', '¡Has enviado a formalizar la oportunidad exitosamente!');
                         mapRes.put('listView', ((Boolean)lstView.get(IS_ERROR) ? '' : view[0].Id));
@@ -108,7 +111,6 @@ public without sharing class AssistantFormalization_helper {
                 }
                 when 'returnByDocumentation' {
                     Final String devolutionReason = (String)mapInputs.get('devolutionReason');
-            		Final String comments = (String)mapInputs.get('comments');
                     Final Map<String, Object> mapReason = Formalization_helper.validateDevolutionReason(devolutionReason, comments);
                     Final Boolean errorMapReason = (Boolean)mapReason.get(IS_ERROR) ? false : true;
                     if(errorMapReason) {
@@ -118,7 +120,11 @@ public without sharing class AssistantFormalization_helper {
                         opp = Formalization_helper.dynamicUpdateOpp(opp, mapOppFields);
                         //Auditoria y Notificación
                         Final Map<String, String> devolution = Dwp_Utils_helper.getPicklistValues('Opportunity', 'devolutionReason__c');
-                        new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel('20'),'<b>Razón de devolución: </b>'+devolution.get(devolutionReason)+'<br/><b>Comentarios:</b> '+ (comments == null ? '' : comments),'Opportunity',opp.Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                        Final OpportunityLineItem[] oli = Product_cls.getIdProductByOpportunity(opp.Id);
+                        new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel('20'),'<b>Razón de devolución: </b>'+devolution.get(devolutionReason)+
+                                                                                     (comments == null ? '' : '<br/><b>Comentarios:</b> '+comments) + 
+                                                                                     (oli[0].Product2.Type_of_quote__c=='Web' ?'<br/><b>Validez TEA:</b> '+oli[0].validityDate__c: ''),
+                                                                                     'Opportunity',opp.Id,'sendBack','TRFO00001', UserInfo.getUserId(),'embedded',1,true);
                         mapRes.put(IS_ERROR, false);
                         mapRes.put('msgSuccess', '¡Has devuelto exitosamente la petición N° '+ caso[0].CaseNumber + ' al ejecutivo!');
                         mapRes.put('listView', ((Boolean)lstView.get(IS_ERROR) ? '' : view[0].Id));

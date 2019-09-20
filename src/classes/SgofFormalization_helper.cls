@@ -17,7 +17,7 @@ public without sharing class SgofFormalization_helper {
     /*Campo GET_MESSAGE inicializado para soluciones del SonarQ*/
     public static Final String GET_MESSAGE = 'e.getmessage() => ';
     
-    /* Public Method Class validateAssistant */
+    /* Public Method Class validateSGof */
     @AuraEnabled
     public static Map<String, Object> validateSGof(Id oppId) {
         Final Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => false, 'msgError' => Label.Dwp_msgGenericError};
@@ -61,6 +61,17 @@ public without sharing class SgofFormalization_helper {
         return mapRes;
     }
     
+    @AuraEnabled
+    public static Map<String, Object> sendProductUnitSgof(string recordId) {
+        Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => false, 'msgError' => Label.Dwp_msgGenericError};
+        Case[] caso = [SELECT Id, OwnerId FROM Case WHERE Opportunity_id__c=:recordId AND RecordType.DeveloperName='Formalization' 
+                     AND status NOT IN ('03','04','10','11') AND OwnerId=:UserInfo.getUserId() limit 1];
+        if(caso.size() > 0) {
+            mapRes = Formalization_helper.sendProductUnit(recordId);
+        }
+        return mapRes;
+    }
+    
     /* Public Method Class getData */
     @AuraEnabled
     public static Map<String, Object> getData(Id oppId) {
@@ -101,7 +112,7 @@ public without sharing class SgofFormalization_helper {
                     } else {
                         mapRes.put(SUCCESS,true);
                     }
-                    //mapRes.put('msgSuccess', '¡Has formalizado la oportunidad exitosamente!');
+                    mapRes.put('msgSuccess', '¡Has formalizado la oportunidad exitosamente!');
                     mapRes.put('listView', ((Boolean)lstView.get(IS_ERROR) ? '' : view[0].Id));
                 } else {
                     mapRes.put(SUCCESS, false);
@@ -148,11 +159,13 @@ public without sharing class SgofFormalization_helper {
             opp = Formalization_helper.dynamicUpdateOpp(opp, mapOppFields);
             if(option =='sentToFormalize') {
                 new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel(opp.opportunity_status_type__c),'<b>Número de contrato:</b> '+contractNumber 
-                                                                             +'<br/>'+'<b>Comentarios:</b> '+comments,'Opportunity',opp.Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                                                                             +(comments == null ? '' : '<br/><b>Comentarios:</b> '+comments),'Opportunity',opp.Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
             } else if(option == 'returnByDocumentation') {
                 Final Map<String, String> devolution = Dwp_Utils_helper.getPicklistValues('Opportunity', 'devolutionReason__c');
+                Final OpportunityLineItem[] oli = Product_cls.getIdProductByOpportunity(opp.Id);
                 new OpportunityTraceability_cls().addOpportunityTraceability(Product_cls.getStatusLabel(opp.opportunity_status_type__c),'<b>Razón de devolución: </b>' 
-                                                                             +devolution.get(devolutionReason)+'<br/><b>Comentarios:</b> '+(comments == null ? '' : comments), 
+                                                                             +devolution.get(devolutionReason)+(comments == null ? '' : '<br/><b>Comentarios:</b> '+comments)+
+                                                                             (oli[0].Product2.Type_of_quote__c=='Web' ?'<br/><b>Validez TEA:</b> '+oli[0].validityDate__c: ''), 
                                                                              'Opportunity',opp.Id,'sendBack','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
             }
         }
