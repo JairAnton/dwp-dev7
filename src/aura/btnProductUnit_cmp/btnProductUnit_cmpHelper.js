@@ -26,4 +26,5 @@
             this.destroyCmp(component, event, helper);
         }
     }
+	
 })
