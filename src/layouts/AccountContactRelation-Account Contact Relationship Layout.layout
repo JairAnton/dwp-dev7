@@ -11,7 +11,7 @@
                 <field>ContactId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>prof_position_type__c</field>
             </layoutItems>
             <layoutItems>
@@ -19,7 +19,7 @@
                 <field>decision_making_desc__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>MobilePhone__c</field>
             </layoutItems>
             <layoutItems>
@@ -48,7 +48,7 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>email__c</field>
             </layoutItems>
             <layoutItems>
