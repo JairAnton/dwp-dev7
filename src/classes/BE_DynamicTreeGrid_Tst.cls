@@ -68,21 +68,6 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         params.fieldOrder='gl_account_path_position_id__c';
         params.isHeaderGroup=false;
         final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,params);
-        /*
-        final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,
-        'Account_Accounting__c',
-        'Name,gl_account_amount__c',
-        'gl_account_id__c',
-        'parent_gl_account_id__c',
-        'account_id__c=:recordId',
-        'gl_account_id_path_desc__c',
-         false,
-        'year_month_day_date__c',
-        '',
-        '',
-        '',
-        null,
-        'gl_account_path_position_id__c');*/
         System.assertEquals(ObjResponse.SizeData, 2, 'The size of normal reponse match');
         Test.stopTest();  
     }

@@ -15,7 +15,7 @@ public with sharing class BE_TreeGrid_Utils {
     /**@Description Quotes*/
     final static String QUOTES='\'';
     /**@Description params to quotes*/
-    final static String REFACTORPER='%%';
+    final static String REFACTORPER='@@';
         
     
     /**
@@ -49,9 +49,9 @@ public with sharing class BE_TreeGrid_Utils {
     @return a List<sObject> whith information about dynamic sObject.
     */
     public static List<SObject> getSOQLData(String recordId,Params param) {
-        final String query='SELECT ' +String.escapeSingleQuotes(param.sObjFields)+ ' FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL);
+        final String query='SELECT ' +String.escapeSingleQuotes(param.sObjFields)+ ' FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
         System.debug('query'+query);
-        return Database.query(query.replaceAll(REFACTORPER,QUOTES));
+        return Database.query(query);
     }
 
     /**
@@ -63,9 +63,9 @@ public with sharing class BE_TreeGrid_Utils {
     @return a AggregateResult[] whith information about dynamic sObject.
     */
     public static AggregateResult[] getSOQLGroupData(String recordId,Params params) {
-        final String query='SELECT ' +String.escapeSingleQuotes(params.sObjFields)+ ' FROM '+String.escapeSingleQuotes(params.sObjName)+' WHERE '+String.escapeSingleQuotes(params.filterSQOL);
+        final String query='SELECT ' +String.escapeSingleQuotes(params.sObjFields)+ ' FROM '+String.escapeSingleQuotes(params.sObjName)+' WHERE '+String.escapeSingleQuotes(params.filterSQOL).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
         System.debug('query'+query);
-        return (AggregateResult[])Database.query(query.replaceAll(REFACTORPER,QUOTES));
+        return (AggregateResult[])Database.query(query);
     }
 
     /**
@@ -102,9 +102,9 @@ public with sharing class BE_TreeGrid_Utils {
                 }
             }
         }
-        final String query='SELECT ' +String.escapeSingleQuotes(params.sObjFields)+ ' FROM '+String.escapeSingleQuotes(params.sObjName)+' WHERE '+String.escapeSingleQuotes(params.keyGroup)+' IN: setGroup'+' AND ' +String.escapeSingleQuotes(params.filterSQOL);
+        final String query='SELECT ' +String.escapeSingleQuotes(params.sObjFields)+ ' FROM '+String.escapeSingleQuotes(params.sObjName)+' WHERE '+String.escapeSingleQuotes(params.keyGroup)+' IN: setGroup'+' AND ' +String.escapeSingleQuotes(params.filterSQOL).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
         System.debug('query'+setGroup);
-        return Database.query(query.replaceAll(REFACTORPER,QUOTES));
+        return Database.query(query);
     }
     
     /**
@@ -180,7 +180,8 @@ public with sharing class BE_TreeGrid_Utils {
        @AuraEnabled public Integer numGroupShow {set;get;}
        /**fieldOrder the ApiName of field to be order the record.*/
        @AuraEnabled public String fieldOrder {set;get;}
-
+       /**fieldOrder the ApiName of field to be order the record.*/
+       @AuraEnabled public List<String> filterValues {set;get;}
        /**public constructor without parametres*/
         public Params(String sObjName, String sObjFields,String filterSQOL) {
             this.sObjName=sObjName;

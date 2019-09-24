@@ -70,60 +70,22 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     if (data) {
       if (data.isSuccess) {
         try {
-          let dataLst = this.isHeaderGroup
-            ? data.treeGridDataGroup
-            : data.treeGridData;
           console.log("dataLst");
-          console.log(dataLst);
+          console.log(data);
           this.empty = data.sizeData === 0 ? true : false;
           const subLevelSize =
             this.levelData <= data.sizeData
               ? this.levelData - 1
               : data.sizeData - 1;
-          let fieldsGroupHeader = this.fieldsHeaderGroup;
-          const sObjFieldsMap = data.sObjFieldsMap;
           this.gridColumns = this.getGridColumns(
-            sObjFieldsMap,
+            data.sObjFieldsMap,
             this.sObjFields,
             this.sObjFieldLabels
           );
           if (this.isHeaderGroup) {
-            let fields = fieldsGroupHeader.split(",");
-            this.gridColumns = this.getGroupHeaderColumns(
-              this.gridColumns,
-              data.periods,
-              fields,
-              sObjFieldsMap,
-              this.fieldsHeaderGroupLabels
-            );
-            this.gridData =
-              subLevelSize > 0
-                ? this.assignTreeDataWithGroup(
-                  dataLst,
-                  this.keyParentField,
-                  fields,
-                  subLevelSize
-                )
-                : this.assignOneLevelData(
-                  dataLst,
-                  this.keyParentField,
-                  this.isHeaderGroup,
-                  fields
-                );
+            this.makeDataWithGroup(data,subLevelSize);
           } else {
-            this.gridData =
-              subLevelSize > 0
-                ? this.assignTreeData(
-                  dataLst,
-                  this.keyParentField,
-                  subLevelSize
-                )
-                : this.assignOneLevelData(
-                  dataLst,
-                  this.keyParentField,
-                  this.isHeaderGroup,
-                  null
-                );
+            this.makeData(data,subLevelSize);
           }
           this.gridData = this.sortData(
             this.gridData,
@@ -150,6 +112,46 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
       this.gridData = null;
       this.loaded = true;
     }
+  }
+
+  makeData(data, subLevelSize) {
+    this.gridData = subLevelSize > 0
+      ? this.assignTreeData(
+        data.treeGridData,
+        this.keyParentField,
+        subLevelSize
+      )
+      : this.assignOneLevelData(
+        data.treeGridData,
+        this.keyParentField,
+        this.isHeaderGroup,
+        null
+      );
+  }
+
+  makeDataWithGroup(data, subLevelSize) {
+    let fields = this.fieldsHeaderGroup.split(",");
+    this.gridColumns = this.getGroupHeaderColumns(
+      this.gridColumns,
+      data.periods,
+      fields,
+      data.sObjFieldsMap,
+      this.fieldsHeaderGroupLabels
+    );
+    this.gridData =
+      subLevelSize > 0
+        ? this.assignTreeDataWithGroup(
+          data.treeGridDataGroup,
+          this.keyParentField,
+          fields,
+          subLevelSize
+        )
+        : this.assignOneLevelData(
+          data.treeGridDataGroup,
+          this.keyParentField,
+          this.isHeaderGroup,
+          fields
+        );
   }
   refreshHandle() {
     return refreshApex(this.provisionedData);
