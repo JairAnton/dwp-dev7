@@ -49,10 +49,9 @@ public with sharing class BE_TreeGrid_Utils {
     @return a List<sObject> whith information about dynamic sObject.
     */
     public static List<SObject> getSOQLData(String recordId,Params param) {
-        final String sfilterSQOL=String.escapeSingleQuotes(param.filterSQOL);
-        final String query='SELECT ' +String.escapeSingleQuotes(param.sObjFields)+ ' FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+sfilterSQOL.replaceAll(REFACTORPER,QUOTES);
+        final String query='SELECT ' +String.escapeSingleQuotes(param.sObjFields)+ ' FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL);
         System.debug('query'+query);
-        return Database.query(query);
+        return Database.query(query.replaceAll(REFACTORPER,QUOTES));
     }
 
     /**
@@ -64,10 +63,9 @@ public with sharing class BE_TreeGrid_Utils {
     @return a AggregateResult[] whith information about dynamic sObject.
     */
     public static AggregateResult[] getSOQLGroupData(String recordId,Params params) {
-        final String sfilterSQOL=String.escapeSingleQuotes(params.filterSQOL);
-        final String query ='SELECT ' +String.escapeSingleQuotes(params.sObjFields)+ ' FROM '+String.escapeSingleQuotes(params.sObjName)+' WHERE '+sfilterSQOL.replaceAll(REFACTORPER,QUOTES);
+        final String query='SELECT ' +String.escapeSingleQuotes(params.sObjFields)+ ' FROM '+String.escapeSingleQuotes(params.sObjName)+' WHERE '+String.escapeSingleQuotes(params.filterSQOL);
         System.debug('query'+query);
-        return (AggregateResult[])Database.query(query);
+        return (AggregateResult[])Database.query(query.replaceAll(REFACTORPER,QUOTES));
     }
 
     /**
@@ -104,10 +102,9 @@ public with sharing class BE_TreeGrid_Utils {
                 }
             }
         }
-        final String sfilterSQOL=String.escapeSingleQuotes(params.filterSQOL);
-        final String query='SELECT ' +String.escapeSingleQuotes(params.sObjFields)+ ' FROM '+String.escapeSingleQuotes(params.sObjName)+' WHERE '+String.escapeSingleQuotes(params.keyGroup)+' IN: setGroup'+' AND ' + sfilterSQOL.replaceAll(REFACTORPER,QUOTES);
+        final String query='SELECT ' +String.escapeSingleQuotes(params.sObjFields)+ ' FROM '+String.escapeSingleQuotes(params.sObjName)+' WHERE '+String.escapeSingleQuotes(params.keyGroup)+' IN: setGroup'+' AND ' +String.escapeSingleQuotes(params.filterSQOL);
         System.debug('query'+setGroup);
-        return Database.query(query);
+        return Database.query(query.replaceAll(REFACTORPER,QUOTES));
     }
     
     /**

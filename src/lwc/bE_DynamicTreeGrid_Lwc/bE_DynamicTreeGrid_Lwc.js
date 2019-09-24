@@ -5,14 +5,14 @@ Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
 Date 2019-09-13
 Description JavaScript Controller
 Changes
-    Date        Author   Email                  Type        
-    2019-09-13  LMBR     lolo.bravo@bbva.com    Creation   
+Date        Author   Email                  Type
+2019-09-13  LMBR     lolo.bravo@bbva.com    Creation
 ----------------------------------------------------------------------------------------------------
  */
 import { LightningElement, wire, track, api } from "lwc";
 import { refreshApex } from "@salesforce/apex";
 import getDynamicResponse from "@salesforce/apex/BE_DynamicTreeGrid_Ctrl.getDynamicResponse";
-export default class BE_DynamicTreeGrid_Lwc extends LightningElement {
+export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   @api recordId;
   @api title;
   @api sObjApiName;
@@ -135,19 +135,19 @@ export default class BE_DynamicTreeGrid_Lwc extends LightningElement {
               ? this.setgridExpandedRows(this.gridData, this.keyField)
               : [];
           this.loaded = true;
-          this.error = undefined;
+          this.error = null;
         } catch (jsError) {
           this.error = jsError;
           this.loaded = true;
         }
       } else {
         this.error = data.Message;
-        this.gridData = undefined;
+        this.gridData = null;
         this.loaded = true;
       }
     } else if (error) {
       this.error = error;
-      this.gridData = undefined;
+      this.gridData = null;
       this.loaded = true;
     }
   }
