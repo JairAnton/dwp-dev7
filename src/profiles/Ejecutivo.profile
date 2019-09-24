@@ -6145,7 +6145,7 @@ Asistente BE</description>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Formalization</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
         <default>true</default>
