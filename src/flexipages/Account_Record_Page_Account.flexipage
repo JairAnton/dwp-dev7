@@ -1934,7 +1934,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOL</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=&apos;BG&apos;</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=%%BG%%</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
@@ -2021,7 +2021,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOL</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=&apos;GP&apos;</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=%%GP%%</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>

@@ -41,22 +41,28 @@ export default class BE_DynamicTreeGrid_Lwc extends LightningElement {
   @track empty = false;
   @track gridColumns;
   @track gridExpandedRows;
+  @track sObject;
   provisionedData;
+  connectedCallback() {
+    this.sObject = {
+      sObjName: this.sObjApiName,
+      sObjFields: this.sObjFields,
+      keyField: this.keyField,
+      keyParentField: this.keyParentField,
+      filterSQOL: this.filterSQOL,
+      fieldLevel: this.fieldLevel,
+      isHeaderGroup: this.isHeaderGroup,
+      keyGroup: this.keyGroup,
+      filterSQOLGroup: this.filterSQOLGroup,
+      formatDate: this.formatDate,
+      fieldsHeaderGroup: this.fieldsHeaderGroup,
+      numGroupShow: this.numGroupShow,
+      fieldOrder: this.fieldOrder
+    };
+  }
   @wire(getDynamicResponse, {
     recordId: "$recordId",
-    sObjName: "$sObjApiName",
-    sObjFields: "$sObjFields",
-    keyField: "$keyField",
-    keyParentField: "$keyParentField",
-    filterSQOL: "$filterSQOL",
-    fieldLevel: "$fieldLevel",
-    isHeaderGroup: "$isHeaderGroup",
-    keyGroup: "$keyGroup",
-    filterSQOLGroup: "$filterSQOLGroup",
-    formatDate: "$formatDate",
-    fieldsHeaderGroup: "$fieldsHeaderGroup",
-    numGroupShow: "$numGroupShow",
-    fieldOrder: "$fieldOrder"
+    param: "$sObject"
   })
   wiredTreeGridData(provisionedData) {
     this.provisionedData = provisionedData;
@@ -93,31 +99,31 @@ export default class BE_DynamicTreeGrid_Lwc extends LightningElement {
             this.gridData =
               subLevelSize > 0
                 ? this.assignTreeDataWithGroup(
-                    dataLst,
-                    this.keyParentField,
-                    fields,
-                    subLevelSize
-                  )
+                  dataLst,
+                  this.keyParentField,
+                  fields,
+                  subLevelSize
+                )
                 : this.assignOneLevelData(
-                    dataLst,
-                    this.keyParentField,
-                    this.isHeaderGroup,
-                    fields
-                  );
+                  dataLst,
+                  this.keyParentField,
+                  this.isHeaderGroup,
+                  fields
+                );
           } else {
             this.gridData =
               subLevelSize > 0
                 ? this.assignTreeData(
-                    dataLst,
-                    this.keyParentField,
-                    subLevelSize
-                  )
+                  dataLst,
+                  this.keyParentField,
+                  subLevelSize
+                )
                 : this.assignOneLevelData(
-                    dataLst,
-                    this.keyParentField,
-                    this.isHeaderGroup,
-                    null
-                  );
+                  dataLst,
+                  this.keyParentField,
+                  this.isHeaderGroup,
+                  null
+                );
           }
           this.gridData = this.sortData(
             this.gridData,
@@ -289,7 +295,12 @@ export default class BE_DynamicTreeGrid_Lwc extends LightningElement {
         const targetColumn = {
           label: targetfieldsLabel[indicator],
           fieldName: targetfieldsApiName[indicator],
-          type: sObjFieldsMap[targetfieldsApiName[indicator]]
+          type: sObjFieldsMap[targetfieldsApiName[indicator]],
+          /*cellAttributes: {
+            class: {
+                fieldName: "showClass"
+            }
+        }*/
         };
         columns.push(targetColumn);
       }

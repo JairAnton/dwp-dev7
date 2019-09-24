@@ -17,32 +17,20 @@ public with sharing class BE_DynamicTreeGrid_Ctrl {
     }
     /**
     @Description make a Data like a innner Response Class.
-    @recordId the recordId to be search or aplicate filter.
-    @param sObjName the ApiName of sObject to be search.
-    @param sObjFields the ApiName of all fields to be search separate by comma.
-    @param keyField  the ApiName of the Identifier of the record.
-    @param keyParentField the fieldApiName wich contains the code of the parent record.
-    @param filterSQOL filter of query.
-    @param fieldLevel fieldApiName that contains the level of the data.
-    @param keyGroup   field to group.
-    @param filterSQOLGroup  filter of group quey.
-    @param formatDate the type of format of Date.
-    @param fieldsHeaderGroup the ApiName of all fields to be search separate by comma.
-    @param numGroupShow size of group labels to show.
-    @param fieldOrder the ApiName of field to be order the record.
+	@param recordId to be search.
+    @param params Object wich contains parameters.
     @return a (Object)Response.
     */
     @AuraEnabled(cacheable=true)
-    public static Response getDynamicResponse(String recordId, String sObjName, String sObjFields, String keyField, String keyParentField, String filterSQOL, String fieldLevel, Boolean isHeaderGroup,String keyGroup,String filterSQOLGroup,String formatDate,String fieldsHeaderGroup,Integer numGroupShow,String fieldOrder) {
+    public static Response getDynamicResponse(String recordId,BE_TreeGrid_Utils.Params param) {
         final Response response=new Response();
-        final BE_TreeGrid_Utils.Params param=new BE_TreeGrid_Utils.Params(sObjName,sObjFields,keyField,keyParentField,filterSQOL,fieldLevel,isHeaderGroup,keyGroup, filterSQOLGroup, formatDate, fieldsHeaderGroup, numGroupShow, fieldOrder);
         try {
             response.isSuccess=true;
             response.sObjFieldsMap=BE_TreeGrid_Utils.getSObjectFields(param.sObjName);
             param.sObjFields=String.isNotBlank(param.fieldOrder)?BE_TreeGrid_Utils.joinSobjString(param.sObjFields, param.fieldOrder):param.sObjFields;
-             if (isHeaderGroup) {
+             if (param.isHeaderGroup) {
                 final Boolean isNumGroupShow=param.numGroupShow>0 && param.numGroupShow!=null?true:false;
-                response.periods=BE_TreeGrid_Utils.getGroupLabels(recordId, param.sObjName,param.keyGroup, param.filterSQOLGroup, param.numGroupShow);
+                response.periods=BE_TreeGrid_Utils.getGroupLabels(recordId, param);
                 response.treeGridDataGroup=BE_TreeDataGroup_Helper.getTreeRecordsGroup(recordId,param,isNumGroupShow,response.periods);
                 response.sizeData=response.TreeGridDataGroup.size();
                 if (String.isNotBlank(param.formatDate)) {

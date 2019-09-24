@@ -49,7 +49,7 @@ public with sharing class BE_TreeGrid_Tst {
     @IsTest
     static void getSObjectFieldsTest() {
         Test.startTest();
-        final Map<String,String> sObjectFieldsMap=BE_TreeGrid_Utils.getSObjectFields('Account_Accounting__c');
+        final Map<String,String> sObjectFieldsMap=BE_TreeGrid_Utils.getSObjectFields(SOBJNAME);
         final String typeName=sObjectFieldsMap.get('Name');
         System.assertEquals(typeName, 'string','Its match Name');
         Test.stopTest();
@@ -63,7 +63,8 @@ public with sharing class BE_TreeGrid_Tst {
     static void getSOQLDataTest() {
         Test.startTest();
         final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
-        final List<SObject> sObjLst=BE_TreeGrid_Utils.getSOQLData(acc.Id, 'Account', 'Name', 'Id=:recordId LIMIT 1');
+        final BE_TreeGrid_Utils.Params params=new BE_TreeGrid_Utils.Params('Account','Name', 'Id=:recordId LIMIT 1');
+        final List<SObject> sObjLst=BE_TreeGrid_Utils.getSOQLData(acc.Id,params);
         System.assertEquals(sObjLst[0].get('Name'), 'TREE GRID UTILS TEST','Its match Grid Name');
         Test.stopTest();
     }
@@ -77,7 +78,8 @@ public with sharing class BE_TreeGrid_Tst {
         Test.startTest();
         final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
         final Date dtExpected=Date.today();
-        final AggregateResult[] groupedResults=BE_TreeGrid_Utils.getSOQLGroupData(acc.Id, 'Account_Accounting__c', DATEFIELD, 'account_id__c=:recordId GROUP BY year_month_day_date__c');
+        final BE_TreeGrid_Utils.Params paramsGroup=new BE_TreeGrid_Utils.Params(SOBJNAME,DATEFIELD,'account_id__c=:recordId GROUP BY year_month_day_date__c');
+        final AggregateResult[] groupedResults=BE_TreeGrid_Utils.getSOQLGroupData(acc.Id,paramsGroup);
         System.assertEquals(dtExpected,groupedResults[0].get(DATEFIELD),'Its match DateField');
         Test.stopTest(); 
     }
@@ -90,10 +92,25 @@ public with sharing class BE_TreeGrid_Tst {
     static void getSOQLDataWithINTest() {
         Test.startTest();
         final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
-        final List<Object> groupLabels=BE_TreeGrid_Utils.getGroupLabels(acc.Id, SOBJNAME,DATEFIELD, 'account_id__c=:recordId GROUP BY year_month_day_date__c', 1);
-        final List<SObject> sObjLst=BE_TreeGrid_Utils.getSOQLDataWithIN(acc.Id, SOBJNAME, FIELDCODE, 'account_id__c=:recordId',DATEFIELD, groupLabels);
-        final List<Object> groupLabelsTwo=BE_TreeGrid_Utils.getGroupLabels(acc.Id, SOBJNAME,FIELDCODE, 'account_id__c=:recordId GROUP BY gl_account_id__c', -1);
-        BE_TreeGrid_Utils.getSOQLDataWithIN(acc.Id, SOBJNAME, FIELDCODE, 'account_id__c=:recordId',FIELDCODE, groupLabelsTwo);
+        final BE_TreeGrid_Utils.Params paramsGroup=new BE_TreeGrid_Utils.Params();
+        paramsGroup.sObjName=SOBJNAME;
+        paramsGroup.keyGroup=DATEFIELD;
+        paramsGroup.sObjFields=FIELDCODE;
+        paramsGroup.numGroupShow=1;
+        paramsGroup.filterSQOLGroup='account_id__c=:recordId GROUP BY year_month_day_date__c';
+        paramsGroup.filterSQOL='account_id__c=:recordId';
+        paramsGroup.fieldLevel='';
+        paramsGroup.isHeaderGroup=false;
+        paramsGroup.formatDate='MMM YYYY';
+        paramsGroup.fieldsHeaderGroup='Id';
+        paramsGroup.fieldOrder='';
+        final List<Object> groupLabels=BE_TreeGrid_Utils.getGroupLabels(acc.Id,paramsGroup);
+        final List<SObject> sObjLst=BE_TreeGrid_Utils.getSOQLDataWithIN(acc.Id,paramsGroup, groupLabels);
+        paramsGroup.numGroupShow=-1;
+        paramsGroup.filterSQOL='account_id__c=:recordId GROUP BY gl_account_id__c';
+        final List<Object> groupLabelsTwo=BE_TreeGrid_Utils.getGroupLabels(acc.Id, paramsGroup);
+        paramsGroup.filterSQOL='account_id__c=:recordId';
+        BE_TreeGrid_Utils.getSOQLDataWithIN(acc.Id, paramsGroup, groupLabelsTwo);
         System.assertEquals('PARENT_TEST',sObjLst[0].get(FIELDCODE),'Its match Code');  
         Test.stopTest();
     }

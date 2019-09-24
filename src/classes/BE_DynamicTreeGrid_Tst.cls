@@ -12,15 +12,17 @@
 @IsTest
 public with sharing class BE_DynamicTreeGrid_Tst {
     /** Unique code of AccAccounting*/
-    final static String UNIQUECODE='203658756EEFF'+String.valueOf(Date.today());
-    /**
-     @Description TestSetup for generated data to use in the test methods
-     */
+    final static String UNIQUECODE='203658756EEFF'+Date.today();
+    /**APINAME of the SObject*/ 
+    final static String SOBJNAME='Account_Accounting__c';
+    /**@general variable*/ 
+    final static String DATEFIELD='year_month_day_date__c';
+    /**@Description TestSetup for generated data to use in the test methods*/
     @TestSetup
     static void makeData() {
         final Account acc=new Account(Name='FINANCIAL STATEMENT',unique_id__c=UNIQUECODE);
         insert acc;
-        List<Account_Accounting__c> listAccAcc = new List<Account_Accounting__c>();
+        final List<Account_Accounting__c> listAccAcc = new List<Account_Accounting__c>();
         for (Integer i = 0; i < 10; i++) {
              final String indicator=String.valueOf(i);
              final Account_Accounting__c accAcc=new Account_Accounting__c(Name='Account',
@@ -55,6 +57,18 @@ public with sharing class BE_DynamicTreeGrid_Tst {
     static void dynamicResponseTest() {
         Test.startTest();
         final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
+        final BE_TreeGrid_Utils.Params params=new BE_TreeGrid_Utils.Params();
+        params.sObjName=SOBJNAME;
+        params.keyGroup=DATEFIELD;
+        params.sObjFields='Name,gl_account_amount__c';
+        params.keyField='gl_account_id__c';
+        params.keyParentField='parent_gl_account_id__c';
+        params.filterSQOL='account_id__c=:recordId';
+        params.fieldLevel='gl_account_id_path_desc__c';
+        params.fieldOrder='gl_account_path_position_id__c';
+        params.isHeaderGroup=false;
+        final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,params);
+        /*
         final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,
         'Account_Accounting__c',
         'Name,gl_account_amount__c',
@@ -68,7 +82,7 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         '',
         '',
         null,
-        'gl_account_path_position_id__c');
+        'gl_account_path_position_id__c');*/
         System.assertEquals(ObjResponse.SizeData, 2, 'The size of normal reponse match');
         Test.stopTest();  
     }
@@ -81,7 +95,22 @@ public with sharing class BE_DynamicTreeGrid_Tst {
     static void dynamicResponseGroupTest() {
         Test.startTest();
         final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
-        final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,
+        final BE_TreeGrid_Utils.Params paramsGroup=new BE_TreeGrid_Utils.Params();
+        paramsGroup.sObjName=SOBJNAME;
+        paramsGroup.keyGroup=DATEFIELD;
+        paramsGroup.sObjFields='Name,gl_account_amount__c';
+        paramsGroup.keyField='gl_account_id__c';
+        paramsGroup.keyParentField='parent_gl_account_id__c';
+        paramsGroup.numGroupShow=1;
+        paramsGroup.filterSQOLGroup='account_id__c=:recordId GROUP BY year_month_day_date__c';
+        paramsGroup.filterSQOL='account_id__c=:recordId';
+        paramsGroup.fieldLevel='gl_account_id_path_desc__c';
+        paramsGroup.isHeaderGroup=true;
+        paramsGroup.formatDate='MMMM YYYY';
+        paramsGroup.fieldsHeaderGroup='gl_account_amount__c';
+        paramsGroup.fieldOrder='gl_account_path_position_id__c';
+        final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,paramsGroup);
+        /*final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,
         'Account_Accounting__c',
         'Name,gl_account_amount__c',
         'gl_account_id__c',
@@ -91,7 +120,7 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         true,'year_month_day_date__c',
         'account_id__c=:recordId GROUP BY year_month_day_date__c',
         'MMMM YYYY',
-        'gl_account_amount__c',1,'gl_account_path_position_id__c');
+        'gl_account_amount__c',1,'gl_account_path_position_id__c');*/
         System.assertEquals(ObjResponse.SizeData, 2,'Size is equals');
         Test.stopTest();  
     }
@@ -104,7 +133,9 @@ public with sharing class BE_DynamicTreeGrid_Tst {
     static void dynamicResponsErrorTest() {
         Test.startTest();
         final Account acc=[SELECT Id FROM Account WHERE unique_id__c=:UNIQUECODE LIMIT 1];
-        final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,
+        final BE_TreeGrid_Utils.Params paramsGroup=new BE_TreeGrid_Utils.Params(SOBJNAME,'Name','account_id__c=:recordId');
+        final BE_DynamicTreeGrid_Ctrl.Response ObjResponse=BE_DynamicTreeGrid_Ctrl.getDynamicResponse(acc.Id,paramsGroup);
+        /*
         'Account_Accounting__c',
         'Name',
         '',
@@ -117,8 +148,8 @@ public with sharing class BE_DynamicTreeGrid_Tst {
         null,
         null,
         null,
-        null);
-        System.assertEquals(false,ObjResponse.IsSuccess);
+        null);*/
+        System.assert(!ObjResponse.IsSuccess,'Error');
         Test.stopTest();  
     }
 
