@@ -46,7 +46,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   connectedCallback() {
     this.sObject = {
       sObjName: this.sObjApiName,
-      sObjFields: this.sObjFields,
+      sObjFields: this.sObjFieldsSOQL,
       keyField: this.keyField,
       keyParentField: this.keyParentField,
       filterSQOL: this.filterSQOL,
@@ -55,7 +55,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
       keyGroup: this.keyGroup,
       filterSQOLGroup: this.filterSQOLGroup,
       formatDate: this.formatDate,
-      fieldsHeaderGroup: this.fieldsHeaderGroup,
+      fieldsHeaderGroup: this.fieldsHeaderGroupSOQL,
       numGroupShow: this.numGroupShow,
       fieldOrder: this.fieldOrder
     };
@@ -70,8 +70,6 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     if (data) {
       if (data.isSuccess) {
         try {
-          console.log("dataLst");
-          console.log(data);
           const subLevelSize = this.initValues(data);
           if (this.isHeaderGroup) {
             this.makeDataWithGroup(data,subLevelSize);
@@ -307,11 +305,6 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
           label: targetfieldsLabel[indicator],
           fieldName: targetfieldsApiName[indicator],
           type: sObjFieldsMap[targetfieldsApiName[indicator]],
-          /*cellAttributes: {
-            class: {
-                fieldName: "showClass"
-            }
-        }*/
         };
         columns.push(targetColumn);
       }

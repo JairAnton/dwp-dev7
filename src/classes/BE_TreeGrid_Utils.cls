@@ -179,8 +179,6 @@ public with sharing class BE_TreeGrid_Utils {
        @AuraEnabled public Integer numGroupShow {set;get;}
        /**fieldOrder the ApiName of field to be order the record.*/
        @AuraEnabled public String fieldOrder {set;get;}
-       /**fieldOrder the ApiName of field to be order the record.*/
-       @AuraEnabled public List<String> filterValues {set;get;}
        /**public constructor without parametres*/
         public Params(String sObjName, String sObjFields,String filterSQOL) {
             this.sObjName=sObjName;

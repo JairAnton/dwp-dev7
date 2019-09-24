@@ -18,12 +18,12 @@
             <property name="keyField" type="String" default="Id" label="Enter the key field" required="true"/>
             <property name="keyParentField" type="String" default="Id" label="Enter the parent key field" required="true"/>
             <property name="filterSQOL" type="String" default="" label="Filter to SOQL" required="true"/>
-            <property name="isExpanded" type="Boolean" default="false" label="Expanded"/>
+            <property name="isExpanded" type="Boolean" default="false" label="Is expanded?"/>
             <property name="fieldOrder" type="String" default="" label="Filter to Order"/>
             <property name="typeOrder" type="String" default="ASC" label="Type of Sort ASC/DESC"/>
             <property name="levelData" type="Integer" default="1" label="Enter the  number of sub levels" required="true"/>
             <property name="fieldLevel" type="String" default="" label="level field"/>
-            <property name="isHeaderGroup" type="Boolean" default="false" label="Is header Group"/>
+            <property name="isHeaderGroup" type="Boolean" default="false" label="Is header Group?"/>
             <property name="numGroupShow" type="Integer" min="1" default="1" label="Enter the number of groups to show"/>
             <property name="keyGroup" type="String" default="" label="Enter the field to header group"/>
             <property name="fieldsHeaderGroupSOQL" type="String" default="" label="Enter the fields to group in the header"/>
