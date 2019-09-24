@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="bE_DynamicTreeGrid_Lwc">
+    <apiVersion>46.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Dynamic TreeGrid Component</masterLabel>
+    <description>Dynamic TreeGrid Component</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="sObjApiName" type="String" default="Account" label="Enter object API Name" required="true"/>
+            <property name="sObjFieldsSOQL" type="String" default="Name" label="Enter the fields to show" required="true"/>
+            <property name="sObjFields" type="String" default="Name" label="Enter the fields to show" required="true"/>
+            <property name="sObjFieldLabels" type="String" default="Name" label="Enter the Label of fields to show" required="true"/>
+            <property name="keyField" type="String" default="Id" label="Enter the key field" required="true"/>
+            <property name="keyParentField" type="String" default="Id" label="Enter the parent key field" required="true"/>
+            <property name="filterSQOL" type="String" default="" label="Filter to SOQL" required="true"/>
+            <property name="isExpanded" type="Boolean" default="false" label="Is expanded?"/>
+            <property name="fieldOrder" type="String" default="" label="Filter to Order"/>
+            <property name="typeOrder" type="String" default="ASC" label="Type of Sort ASC/DESC"/>
+            <property name="levelData" type="Integer" default="1" label="Enter the  number of sub levels" required="true"/>
+            <property name="fieldLevel" type="String" default="" label="level field"/>
+            <property name="isHeaderGroup" type="Boolean" default="false" label="Is header Group?"/>
+            <property name="numGroupShow" type="Integer" min="1" default="1" label="Enter the number of groups to show"/>
+            <property name="keyGroup" type="String" default="" label="Enter the field to header group"/>
+            <property name="fieldsHeaderGroupSOQL" type="String" default="" label="Enter the fields to group in the header"/>
+            <property name="fieldsHeaderGroup" type="String" default="" label="Enter the fields to group in the header"/>
+            <property name="fieldsHeaderGroupLabels" type="String" default="" label="Enter the labels to group in the header"/>
+            <property name="filterSQOLGroup" type="String" default="" label="filterSQOLDate"/>
+            <property name="formatDate" type="String" default="" label="formatDate"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
