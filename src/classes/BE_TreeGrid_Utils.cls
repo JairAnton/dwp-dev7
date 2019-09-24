@@ -145,7 +145,6 @@ public with sharing class BE_TreeGrid_Utils {
     public static String joinSobjString(String sObjFields,String sObjField) {
         return sObjFields.contains(sObjField)?sObjFields:sObjFields+COMMMA+sObjField;
     }
-
     /**
     -------------------------------------------------------------------------------------------------
     @Name <Response>

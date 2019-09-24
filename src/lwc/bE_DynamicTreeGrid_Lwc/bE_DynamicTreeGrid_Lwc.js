@@ -72,32 +72,13 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
         try {
           console.log("dataLst");
           console.log(data);
-          this.empty = data.sizeData === 0 ? true : false;
-          const subLevelSize =
-            this.levelData <= data.sizeData
-              ? this.levelData - 1
-              : data.sizeData - 1;
-          this.gridColumns = this.getGridColumns(
-            data.sObjFieldsMap,
-            this.sObjFields,
-            this.sObjFieldLabels
-          );
+          const subLevelSize = this.initValues(data);
           if (this.isHeaderGroup) {
             this.makeDataWithGroup(data,subLevelSize);
           } else {
             this.makeData(data,subLevelSize);
           }
-          this.gridData = this.sortData(
-            this.gridData,
-            this.fieldOrder,
-            this.typeOrder
-          );
-          this.gridExpandedRows =
-            this.isExpanded && this.fieldOrder != null
-              ? this.setgridExpandedRows(this.gridData, this.keyField)
-              : [];
-          this.loaded = true;
-          this.error = null;
+          this.orderAndExpandedRows();
         } catch (jsError) {
           this.error = jsError;
           this.loaded = true;
@@ -112,6 +93,34 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
       this.gridData = null;
       this.loaded = true;
     }
+  }
+
+  initValues(data) {
+    this.empty = data.sizeData === 0 ? true : false;
+    const subLevelSize =
+      this.levelData <= data.sizeData
+        ? this.levelData - 1
+        : data.sizeData - 1;
+    this.gridColumns = this.getGridColumns(
+      data.sObjFieldsMap,
+      this.sObjFields,
+      this.sObjFieldLabels
+    );
+    return subLevelSize;
+  }
+
+  orderAndExpandedRows() {
+    this.gridData = this.sortData(
+      this.gridData,
+      this.fieldOrder,
+      this.typeOrder
+    );
+    this.gridExpandedRows =
+      this.isExpanded && this.fieldOrder != null
+        ? this.setgridExpandedRows(this.gridData, this.keyField)
+        : [];
+    this.loaded = true;
+    this.error = null;
   }
 
   makeData(data, subLevelSize) {
