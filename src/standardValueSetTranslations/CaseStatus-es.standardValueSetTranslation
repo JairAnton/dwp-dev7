@@ -2,27 +2,27 @@
 <StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <valueTranslation>
         <masterLabel>Assigned ACC</masterLabel>
-        <translation>Asignado AAC</translation>
+        <translation>Asignada al AAC</translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Assigned SGOF</masterLabel>
-        <translation>Asignado SGOF</translation>
+        <translation>Asignada al SGOF</translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Closed authorized</masterLabel>
-        <translation>Cerrado autorizado</translation>
+        <translation>Cerrada autorizada</translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Closed rejected</masterLabel>
-        <translation>Cerrado rechazado</translation>
+        <translation>Cerrada rechazada</translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Elevated</masterLabel>
-        <translation>Elevado</translation>
+        <translation>Elevada</translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Escalated request</masterLabel>
-        <translation>Escalado</translation>
+        <translation>Escalada</translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Formalization dismissed</masterLabel>
@@ -30,18 +30,18 @@
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Formalized</masterLabel>
-        <translation>formalizado</translation>
+        <translation>Formalizada</translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>New request</masterLabel>
-        <translation>Nuevo</translation>
+        <translation>Nueva</translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Returned to the AAC</masterLabel>
-        <translation>Devuelto al AAC</translation>
+        <translation>Devuelta al AAC</translation>
     </valueTranslation>
     <valueTranslation>
         <masterLabel>Returned to the executive</masterLabel>
-        <translation>Devuelto al ejecutivo</translation>
+        <translation>Devuelta al ejecutivo</translation>
     </valueTranslation>
 </StandardValueSetTranslation>

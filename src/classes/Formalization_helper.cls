@@ -23,7 +23,9 @@ public without sharing class Formalization_helper {
     
     /* Public Method Class createOrUpdateCase */
     public static void createOrUpdateCase(Opportunity opp, String cola, String status) {
-        if(opp.stageName == '05') {
+        Final Case[] caso = [SELECT Id FROM Case WHERE opportunity_id__c=:opp.Id AND recordType.Name='Formalization' AND status NOT IN ('03', '04', '10', '11') limit 1];
+        Final Integer casoSize =caso.size();
+        if(casoSize > 0) {
             Formalization_helper.updateCase(opp.Id, 'Formalization');
         } else {
             Formalization_helper.createCase(opp.Id, cola, status, 'Formalization');
@@ -139,7 +141,7 @@ public without sharing class Formalization_helper {
             Final Case caso = [SELECT Id, status FROM Case WHERE Opportunity_id__c=:oppId AND recordType.Name='Formalization' AND status IN ('05','08', '09') limit 1];
             Final Boolean lblButtons = caso.status == '05' || caso.status == '09' ? true : false;
             mapRes.put('lblSend', lblButtons ? 'Solicitar Formalización' : 'Formalizar');
-            mapRes.put('lblReturn', 'Devolver');
+            mapRes.put('lblReturn', lblButtons ? 'Devolver a ejecutivo' : 'Devolver');
         }
         return mapRes;
     }

@@ -61,10 +61,11 @@ public without sharing class SgofFormalization_helper {
         return mapRes;
     }
     
+    /* Public Method Class sendProductUnitSgof */
     @AuraEnabled
     public static Map<String, Object> sendProductUnitSgof(string recordId) {
         Map<String, Object> mapRes = new Map<String, Object>{IS_ERROR => false, 'msgError' => Label.Dwp_msgGenericError};
-        Case[] caso = [SELECT Id, OwnerId FROM Case WHERE Opportunity_id__c=:recordId AND RecordType.DeveloperName='Formalization' 
+        Final Case[] caso = [SELECT Id, OwnerId FROM Case WHERE Opportunity_id__c=:recordId AND RecordType.DeveloperName='Formalization' 
                      AND status NOT IN ('03','04','10','11') AND OwnerId=:UserInfo.getUserId() limit 1];
         if(caso.size() > 0) {
             mapRes = Formalization_helper.sendProductUnit(recordId);
