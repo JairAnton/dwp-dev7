@@ -6143,7 +6143,7 @@ Asistente BE</description>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Case.Formalization</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
