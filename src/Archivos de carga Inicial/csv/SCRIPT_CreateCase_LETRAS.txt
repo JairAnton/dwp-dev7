@@ -1,0 +1,26 @@
+//SCRIPT PARA OPORTUNIDADES EN FORMALIZACIÓN CON PRODUCTO ASOCIADO "LETRAS"
+List<Opportunity> lst_Opp= [SELECT Id,opportunity_status_type__c,Name,OwnerId, stageName, AccountId, 
+                           (SELECT Id, ProductCode FROM OpportunityLineItems WHERE ProductCode 
+                            ='PC00005') FROM Opportunity WHERE stageName = '05'];
+
+List<RecordType> lstRT = [SELECT Id, Name FROM RecordType WHERE sObjectType='Case' AND DeveloperName='Formalization'];
+List<Group> queue = [SELECT Id, DeveloperName FROM Group WHERE Type='Queue' AND DeveloperName='Tier_1_Formalization'];
+
+List<Case> lst_Case = new List<Case>();
+List<Opportunity> lst_Opp_Form = new List<Opportunity>();
+for(Opportunity opp:lst_Opp){
+    if(opp.OpportunityLineItems.size() > 0){
+        opp.IsProcess__c = true;
+        opp.opportunity_status_type__c = '25';
+        lst_Opp_Form.add(opp);
+        lst_Case.add(new Case(AccountId = opp.AccountId, OwnerId = queue[0].Id, Status = '01', opportunity_id__c = opp.Id, recordTypeId = lstRT[0].Id));
+    }
+}
+
+insert lst_Case;
+update lst_Opp_Form;
+
+for(Opportunity opp:lst_Opp_Form){
+    opp.IsProcess__c = false;
+}
+update lst_Opp_Form;

@@ -704,6 +704,10 @@
         <label>Formalización</label>
         <name>Formalization</name>
     </recordTypes>
+    <recordTypes>
+        <label>Sanción de precio</label>
+        <name>Sanction_Price</name>
+    </recordTypes>
     <validationRules>
         <errorMessage>No tiene permitido modificar este campo.</errorMessage>
         <name>Status_Case</name>

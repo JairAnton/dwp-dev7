@@ -5018,6 +5018,10 @@ Analistas de riesgos</description>
         <layout>Branch__c-Branch_Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Case-Price Approval Case Layout</layout>
+        <recordType>Case.Sanction_Price</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -5652,6 +5656,11 @@ Analistas de riesgos</description>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Record_Type_Economic_Group</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Case.Sanction_Price</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
