@@ -4239,6 +4239,10 @@
         <layout>Case-Formalization Case Layout</layout>
         <recordType>Case.Formalization</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Price Approval Case Layout</layout>
+        <recordType>Case.Sanction_Price</recordType>
+    </layoutAssignments>
 	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
@@ -4766,6 +4770,11 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Case.Formalization</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Sanction_Price</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

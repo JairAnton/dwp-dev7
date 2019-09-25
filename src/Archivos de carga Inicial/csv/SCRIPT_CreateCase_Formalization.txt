@@ -1,0 +1,39 @@
+//SCRIPT PARA OPORTUNIDADES EN FORMALIZACIÓN CON PRODUCTO ASOCIADO DISTRINTO A "LETRAS" O "Prestamo comercial Cotiza"
+Dwp_FormalizationProducts_AAC__c[] prdAssistForm = Dwp_FormalizationProducts_AAC__c.getAll().values();
+Set<String> prdToForm = new Set<String>();
+for(Dwp_FormalizationProducts_AAC__c prd:prdAssistForm) {
+    if(prd.Product_Code__c != 'PC00001' && prd.Product_Code__c != 'PC00005'){
+        prdToForm.add(prd.Product_Code__c);
+    }
+}
+List<Opportunity> lst_Opp = [SELECT Id,opportunity_status_type__c,Name,OwnerId, stageName, AccountId, 
+                           (SELECT Id, ProductCode FROM OpportunityLineItems WHERE ProductCode 
+                            IN:prdToForm) FROM Opportunity WHERE stageName = '05' AND LastModifiedDate != TODAY];
+
+List<RecordType> lstRT = [SELECT Id, Name FROM RecordType WHERE sObjectType='Case' AND DeveloperName='Formalization'];
+List<Group> queue1 = [SELECT Id, DeveloperName FROM Group WHERE Type='Queue' AND DeveloperName='Tier_1_Formalization'];
+List<Group> queue2 = [SELECT Id, DeveloperName FROM Group WHERE Type='Queue' AND DeveloperName='Tier_2_Formalization'];
+
+List<Case> lst_Case = new List<Case>();
+List<Opportunity> lst_Opp_Form = new List<Opportunity>();
+
+for(Opportunity opp:lst_Opp){
+    opp.IsProcess__c = true;
+    if(opp.OpportunityLineItems.size() > 0){
+        opp.opportunity_status_type__c = '25';
+        lst_Case.add(new Case(AccountId = opp.AccountId, OwnerId = queue1[0].Id, Status = '01', opportunity_id__c = opp.Id, recordTypeId = lstRT[0].Id));
+    }else {
+        opp.opportunity_status_type__c = label.lblFormalizarStatus;
+        lst_Case.add(new Case(AccountId = opp.AccountId, OwnerId = queue2[0].Id, Status = '07', opportunity_id__c = opp.Id, recordTypeId = lstRT[0].Id));
+    }
+	lst_Opp_Form.add(opp);
+}
+
+insert lst_Case;
+update lst_Opp_Form;
+
+for(Opportunity opp:lst_Opp_Form){
+    opp.IsProcess__c = false;
+}
+update lst_Opp_Form;
+

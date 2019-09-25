@@ -36,7 +36,7 @@ PEN,OPP_STATUS_REEVALUATION_PRICE_RISK,opportunity_status_type__c,Picklist,"24,1
 PEN,USER_PROFILE_EXECUTIVE_SPECIALIST,Profile.Name,Text,"Ejecutivo,Especialista,System Administrator,Administrador del sistema",,User,ID_IN
 PEN,OPP_PRODUCT_QUOTE_NOT_AVAILABLE,price_quote_available__c,Checkbox,false,,OpportunityLineItems,ID_EQUAL
 PEN,CASE_RECORDTYPE_FORMALIZATION,RecordType.DeveloperName,Text,Formalization,,Case,ID_IN
-PEN,CASE_RECORDTYPE_NULL,RecordTypeId,Text,,,Case,ID_EMPTY
+PEN,CASE_RECORDTYPE_SANCTION_PRICE,RecordType.DeveloperName,Text,Sanction_Price,,Case,ID_EQUAL
 PEN,CASE_STATUS_ASSIGNED_SGOF,status,Picklist,08,,Case,ID_IN
 PEN,CASE_SUBGERENTE_EMPTY,DWP_SGofOwner__c,Text,,,Case,ID_EMPTY
 PEN,CASE_ASSISTANT_OWNER_EMPTY,DWP_AssistantOwner__c,Text,,,Case,ID_EMPTY

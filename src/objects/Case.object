@@ -97,6 +97,27 @@
             <default>false</default>
         </values>
     </businessProcesses>
+    <businessProcesses>
+        <fullName>Sanction Price</fullName>
+        <description>Flujo de Sanción de precios para las oportunidades</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed authorized</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalated request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New request</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
     <compactLayoutAssignment>Price_Approval_Case_Compact_Layout</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Formalization_Compact_Layout</fullName>
@@ -472,6 +493,11 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Sanction_Price</value>
+        </filters>
         <label>Todas las peticiones cerradas</label>
         <language>en_US</language>
         <sharedTo>
@@ -497,6 +523,11 @@
             <field>CASES.CLOSED</field>
             <operation>equals</operation>
             <value>0</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Sanction_Price</value>
         </filters>
         <label>Todas las peticiones pendientes</label>
         <language>en_US</language>
@@ -612,6 +643,11 @@
             <operation>equals</operation>
             <value>0</value>
         </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Sanction_Price</value>
+        </filters>
         <label>Nivel 1 peticiones pendientes</label>
         <language>en_US</language>
         <queue>Tier_1</queue>
@@ -636,6 +672,11 @@
             <field>CASES.CLOSED</field>
             <operation>equals</operation>
             <value>0</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Sanction_Price</value>
         </filters>
         <label>Nivel 2 peticiones pendientes</label>
         <language>en_US</language>
@@ -663,6 +704,11 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Sanction_Price</value>
+        </filters>
         <label>Mis peticiones cerradas</label>
         <language>en_US</language>
         <sharedTo>
@@ -688,6 +734,11 @@
             <field>CASES.CLOSED</field>
             <operation>equals</operation>
             <value>0</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Sanction_Price</value>
         </filters>
         <label>Mis peticiones pendientes</label>
         <language>en_US</language>
@@ -818,6 +869,76 @@
         <businessProcess>Formalization</businessProcess>
         <compactLayoutAssignment>Formalization_Compact_Layout</compactLayoutAssignment>
         <label>Formalization</label>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Sanction_Price</fullName>
+        <active>true</active>
+        <businessProcess>Sanction Price</businessProcess>
+        <label>Sanction Price</label>
         <picklistValues>
             <picklist>Origin</picklist>
             <values>

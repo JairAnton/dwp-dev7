@@ -134,6 +134,7 @@ public with sharing class SanctionPriceDecision_ctrl {
             insert lstDetails;
             
             if(createCase) {
+                List<RecordType> rt = [SELECT Id, DeveloperName FROM RecordType WHERE DeveloperName='Sanction_Price' AND SobjectType='Case' limit 1];
                 List<Group> queueGroup = [SELECT    Id, 
                                           DeveloperName,
                                           Type  
@@ -150,6 +151,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                 caseInsert.Type = 'Other';
                 caseInsert.AccountId = lstOpp[0].AccountId;
                 caseInsert.opportunity_id__c = recordId;
+                caseInsert.RecordTypeId=rt[0].Id;
                 insert caseInsert;
             }
             mapReturn.put('isOk', true);
