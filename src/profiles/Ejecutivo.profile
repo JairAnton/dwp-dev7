@@ -5597,7 +5597,7 @@ Asistente BE</description>
         <layout>Case-Case Layout</layout>
         <recordType>Case.Formalization</recordType>
     </layoutAssignments>
-    layoutAssignments>
+    <layoutAssignments>
         <layout>Case-Case Layout</layout>
         <recordType>Case.Sanction_Price</recordType>
     </layoutAssignments>
