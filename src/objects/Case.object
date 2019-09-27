@@ -938,6 +938,7 @@
         <fullName>Sanction_Price</fullName>
         <active>true</active>
         <businessProcess>Sanction Price</businessProcess>
+        <compactLayoutAssignment>Price_Approval_Case_Compact_Layout</compactLayoutAssignment>
         <label>Sanction Price</label>
         <picklistValues>
             <picklist>Origin</picklist>
