@@ -1,17 +1,17 @@
-"NAME","DWP_DACE__ACTION_DESC__C","DWP_DACE__ACTION_UNIQUE_ID__C"
-"A-0000000066","Botón para reasignar casos en sanción de precios","btnReasign"
-"A-0000000057","Quote","btnQuote"
-"A-0000000058","Edit Product","editProduct"
-"A-0000000059","Formalization","btnFormalization"
-"A-0000000060","Risk Approval","btnPenalizeRisk"
-"A-0000000061","Generate PDF","btnPDF"
-"A-0000000062","Review","btnReevaluate"
-"A-0000000063","Reject","btnReject"
-"A-0000000064","Delete Product","deleteProduct"
-"A-0000000065","Approve","btnApprove"
-"A-0000000051","Price Approval","btnSanctionPrice2"
-"A-0000000052","Price Approval","btnSanctionPrice"
-"A-0000000053","Add Product","addProduct"
-"A-0000000054","Complete","btnComplete"
-"A-0000000055","Unlink","btnUnlink"
-"A-0000000056","Aprove Formalization","btnFormalize"
+DWP_DACE__ACTION_DESC__C,DWP_DACE__ACTION_UNIQUE_ID__C
+Botón para reasignar casos en sanción de precios,btnReasign
+Quote,btnQuote
+Edit Product,editProduct
+Formalization,btnFormalization
+Risk Approval,btnPenalizeRisk
+Generate PDF,btnPDF
+Review,btnReevaluate
+Reject,btnReject
+Delete Product,deleteProduct
+Approve,btnApprove
+Price Approval,btnSanctionPrice2
+Price Approval,btnSanctionPrice
+Add Product,addProduct
+Complete,btnComplete
+Unlink,btnUnlink
+Aprove Formalization,btnFormalize

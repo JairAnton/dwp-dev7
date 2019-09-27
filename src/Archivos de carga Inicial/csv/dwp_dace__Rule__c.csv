@@ -1,6 +1,6 @@
-"CURRENCYISOCODE","NAME","DWP_DACE__RULE_DESC__C","DWP_DACE__RULE_UNIQUE_ID__C"
-"PEN","R-0000000135","","CASE_RULE_1"
-"PEN","R-0000000103","Conditions:
+CURRENCYISOCODE,DWP_DACE__RULE_DESC__C,DWP_DACE__RULE_UNIQUE_ID__C
+PEN,,CASE_RULE_1
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 - Precio aprobado en delegaci�n
@@ -10,8 +10,8 @@ F = false
 Actions:
 - Desestimar
 - Completar
-- Reevaluar","OPP_RULE_20"
-"PEN","R-0000000104","Conditions: 
+- Reevaluar",OPP_RULE_20
+PEN,"Conditions: 
 - En Sancion
 - Ejecutivo
 - Autorizado por riesgos
@@ -22,23 +22,23 @@ Actions:
 - Cotizar
 - Reevaluar
 - Desestimar
-- Aprobar","OPP_RULE_12"
-"PEN","R-0000000105","Conditions:
+- Aprobar",OPP_RULE_12
+PEN,"Conditions:
 -Acciones Comerciales, Pendiente de Iniciar, En Gesti�n
 -Ejecutivo
 -Producto con:SR = false,SP = true,Metodo SP = Web 
 Actions:
 -Desestimar
--Sancionar Riesgo-Cotizar","OPP_RULE_03"
-"PEN","R-0000000106","Conditions:
+-Sancionar Riesgo-Cotizar",OPP_RULE_03
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 - Devuelto por riesgos
 - Devuelto por precios
 Actions:
 - Reevaluar
-- Desestimar","OPP_RULE_15"
-"PEN","R-0000000107","Conditions:
+- Desestimar",OPP_RULE_15
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 -Enviado para reevaluaci�n a riesgos
@@ -47,8 +47,8 @@ Modalidad riesgo = requiere autorizacion
 Actions:
 - Sancionar Riesgo
 - Desvincular
-- Desestimar","OPP_RULE_16"
-"PEN","R-0000000108","Conditions:
+- Desestimar",OPP_RULE_16
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 - Precio aprobado en delegaci�n
@@ -58,8 +58,8 @@ F = true
 Actions:
 - Desestimar
 - Formalizar
-- Reevaluar","OPP_RULE_21"
-"PEN","R-0000000109","Conditions: 
+- Reevaluar",OPP_RULE_21
+PEN,"Conditions: 
 -En sancion
 -Ejecutivo
 -Riesgo Aprobado
@@ -70,8 +70,8 @@ F = false
 Actions:
 -Desestimar
 -Reevaluar
--Completar","OPP_RULE_09"
-"PEN","R-0000000110","Conditions:
+-Completar",OPP_RULE_09
+PEN,"Conditions:
 - En Formalizacion
 - Ejecutivo
 - Devuelta por documentaci�n
@@ -80,14 +80,14 @@ SP = false
 SR = false
 Actions:
 - Desestimar
-- Formalizar","OPP_RULE_22"
-"PEN","R-0000000111","Conditions:
+- Formalizar",OPP_RULE_22
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 - Enviado para reevaluaci�n a riesgos o Enviado para reevaluaci�n a precio
 Actions:
-- Editar Producto","OPP_RULE_P03"
-"PEN","R-0000000122","Conditions:
+- Editar Producto",OPP_RULE_P03
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 -Enviado para reevaluaci�n a riesgos
@@ -97,22 +97,22 @@ M�todo SP = Cotiza Web
 Actions:
 - Sancionar Riesgo
 - Cotizar
-- Desestimar","OPP_RULE_17"
-"PEN","R-0000000123","Conditions:
+- Desestimar",OPP_RULE_17
+PEN,"Conditions:
 - Acciones Comerciales, Pendiente de Iniciar, En Gesti�n
 - Especialista
 - Ejecutivo
 Actions:
-- Desestimar","OPP_RULE_24"
-"PEN","R-0000000112","Conditions:
+- Desestimar",OPP_RULE_24
+PEN,"Conditions:
 - Acciones Comerciales, Pendiente de Iniciar, En Gesti�n
 - Ejecutivo o Especialista
 - Tipologia Nueva
 Actions:
 - A�adir Producto
 - Eliminar Producto
-- Editar campos del Producto","OPP_RULE_P01"
-"PEN","R-0000000113","Conditions: 
+- Editar campos del Producto",OPP_RULE_P01
+PEN,"Conditions: 
 -En sancion
 -Ejecutivo
 -Riesgo Aprobado
@@ -123,22 +123,22 @@ F = true
 Actions:
 -Desestimar
 -Reevaluar
--Formalizar","OPP_RULE_08"
-"PEN","R-0000000114","Conditions:
+-Formalizar",OPP_RULE_08
+PEN,"Conditions:
 -Acciones Comerciales, Pendiente de Iniciar, En Gesti�n
 -Ejecutivo
 -Producto con:SR = false,SP = false,F = true
 Actions:
 -Desestimar
--Formalizar","OPP_RULE_05"
-"PEN","R-0000000115","Conditions:
+-Formalizar",OPP_RULE_05
+PEN,"Conditions:
 - En Formalizaci�n
 - Operativo
 - Enviada a unidad de producto
 - Enviada para formalizaci�n
 Actions:
-- Formalizacion","OPP_RULE_27"
-"PEN","R-0000000116","Conditions:
+- Formalizacion",OPP_RULE_27
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 - Autorizado por riesgos
@@ -146,8 +146,8 @@ Actions:
 Actions:
 - Reevaluar
 - Desestimar
-- Aprobar","OPP_RULE_13"
-"PEN","R-0000000117","Conditions: 
+- Aprobar",OPP_RULE_13
+PEN,"Conditions: 
 - En Sancion
 - Ejecutivo
 - Enviado para autorizaci�n a riesgos
@@ -156,78 +156,78 @@ SP = true
 M�todo SP = Cotiza Web
 Actions:
 - Cotizar
-- Reevaluar","OPP_RULE_10"
-"PEN","R-0000000118","Conditions:
+- Reevaluar",OPP_RULE_10
+PEN,"Conditions:
 -Acciones Comerciales, Pendiente de Iniciar, En Gesti�n
 -Ejecutivo
 -Producto con:SR = true,SP = false
 Actions:
 -Desestimar
--Sancionar Riesgo","OPP_RULE_01"
-"PEN","R-0000000119","Conditions:
+-Sancionar Riesgo",OPP_RULE_01
+PEN,"Conditions:
 -Acciones Comerciales, Pendiente de Iniciar, En Gesti�n
 -Ejecutivo
 -Producto con:SR = true,SP = true,Metodo SP = Web 
 Actions:
 -Desestimar
--Sancionar Riesgo-Cotizar","OPP_RULE_02"
-"PEN","R-0000000120","Conditions:
+-Sancionar Riesgo-Cotizar",OPP_RULE_02
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 - Enviado para reevaluaci�n a precio
 Actions:
 - Desestimar
-- Sancionar Precio","OPP_RULE_19"
-"PEN","R-0000000121","Conditions:
+- Sancionar Precio",OPP_RULE_19
+PEN,"Conditions:
 -Acciones Comerciales, Pendiente de Iniciar, En Gesti�n
 -Ejecutivo
 -Especialista
 -Producto con:SR = false,SP = false,F = false
 Actions:
 -Desestimar
--Completar","OPP_RULE_06"
-"PEN","R-0000000124","Conditions: 
+-Completar",OPP_RULE_06
+PEN,"Conditions: 
 -En sancion
 -Ejecutivo
 -Enviado para autorizaci�n a riesgos
 Actions:
--Reevaluar","OPP_RULE_11"
-"PEN","R-0000000125","Conditions:
+-Reevaluar",OPP_RULE_11
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 -Enviado para reevaluaci�n a riesgos
 Actions:
 - Desestimar
-- Sancionar Riesgo","OPP_RULE_18"
-"PEN","R-0000000126","Conditions:
+- Sancionar Riesgo",OPP_RULE_18
+PEN,"Conditions:
 -En Formalizaci�n
 - Ejecutivo
 - Devuelta por documentaci�n
 Actions:
 - Revaluar
 - Desestimar
-- Formalizar","OPP_RULE_23"
-"PEN","R-0000000127","Conditions:
+- Formalizar",OPP_RULE_23
+PEN,"Conditions:
 - Acciones Comerciales, Pendiente de Iniciar, En Gesti�n
 - Ejecutivo o Especialista
 - Tipologia Cancelacion
 Actions:
-- Editar campos del Producto","OPP_RULE_P02"
-"PEN","R-0000000128","Conditions:
+- Editar campos del Producto",OPP_RULE_P02
+PEN,"Conditions:
 - En Formalizaci�n
 - Operativo
 - Enviada para formalizaci�n
 - Producto con PDF = true
 Actions:
 - PDF
-- Formalizacion","OPP_RULE_26"
-"PEN","R-0000000129","Conditions:
+- Formalizacion",OPP_RULE_26
+PEN,"Conditions:
 - En sancion
 - Enviado para autorizaci�n a precios
 - Analista
 Actions:
-- Sancionar precio","OPP_RULE_25"
-"PEN","R-0000000130","Conditions:
+- Sancionar precio",OPP_RULE_25
+PEN,"Conditions:
 - En Sanci�n
 - Ejecutivo
 -Devuelto por riesgos
@@ -237,15 +237,15 @@ M�todo SP = Cotiza Web
 Actions:
 - Cotizar
 - Reevaluar
-- Desestimar","OPP_RULE_14"
-"PEN","R-0000000131","Conditions:
+- Desestimar",OPP_RULE_14
+PEN,"Conditions:
 -Acciones Comerciales, Pendiente de Iniciar, En Gesti�n
 -Ejecutivo
 -Producto con:SR = false,SP = true
 Actions:
 -Desestimar
--Sancionar Precio","OPP_RULE_04"
-"PEN","R-0000000132","Conditions: 
+-Sancionar Precio",OPP_RULE_04
+PEN,"Conditions: 
 -En sancion
 -Ejecutivo
 -Riesgo Aprobado
@@ -255,16 +255,16 @@ Actions:
 Actions:
 -Reevaluar
 -Desestimar
--Sancionar Precio","OPP_RULE_07"
-"PEN","R-0000000133","Conditions:
+-Sancionar Precio",OPP_RULE_07
+PEN,"Conditions:
 -Acciones Comerciales, Pendiente de Iniciar, En Gestión
 -Ejecutivo
 -Producto con:SR = false,SP = true,Metodo SP = Web, Producto cotizable
 Actions:
--Desestimar","OPP_RULE_03_PRE"
-"PEN","R-0000000134","Conditions:
+-Desestimar",OPP_RULE_03_PRE
+PEN,"Conditions:
 -Acciones Comerciales, Pendiente de Iniciar, En Gestión
 -Ejecutivo
 -Producto con:SR = true,SP = true,Metodo SP = Web, Producto Cotizable
 Actions:
--Desestimar","OPP_RULE_02_PRE"
+-Desestimar",OPP_RULE_02_PRE
