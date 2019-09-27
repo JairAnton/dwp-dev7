@@ -77,6 +77,10 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
             this.makeData(data,subLevelSize);
           }
           this.orderAndExpandedRows();
+          console.log('gridColumns');
+          console.log(this.gridColumns);
+          console.log('gridData');
+          console.log(this.gridData);
         } catch (jsError) {
           this.error = jsError;
           this.loaded = true;
@@ -288,7 +292,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
               fieldName: fieldsGroupHeader[index] + indx,
               type: sObjFieldsMap[fieldsGroupHeader[index]]
             };
-            columns.push(targetColumn);
+            columns.push(this.asigntypeAttributes(targetColumn));
           }
         }
       }
@@ -298,15 +302,15 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   getGridColumns(sObjFieldsMap, fieldsApiName, fieldsLabel) {
     const targetfieldsApiName = fieldsApiName.split(",");
     const targetfieldsLabel = fieldsLabel.split(",");
-    const columns = [];
+    let columns = [];
     for (const indicator in targetfieldsApiName) {
       if ({}.hasOwnProperty.call(targetfieldsApiName, indicator)) {
         const targetColumn = {
-          label: targetfieldsLabel[indicator],
-          fieldName: targetfieldsApiName[indicator],
-          type: sObjFieldsMap[targetfieldsApiName[indicator]],
-        };
-        columns.push(targetColumn);
+          "label": targetfieldsLabel[indicator],
+          "fieldName": targetfieldsApiName[indicator],
+          "type": sObjFieldsMap[targetfieldsApiName[indicator]]
+          };
+        columns.push(this.asigntypeAttributes(targetColumn));
       }
     }
     return columns;
@@ -343,5 +347,31 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
       gridExpandedRows.add(iterator[keyField]);
     }
     return Array.from(gridExpandedRows);
+  }
+  asigntypeAttributes(Obj){
+    let targetObj = {};
+    switch (Obj.type) {
+      case "currency":
+          Object.defineProperty(targetObj,"typeAttributes", {
+            value: {currencyCode:{fieldName:"CurrencyIsoCode"}},
+            writable: true,
+            enumerable: true,
+            configurable: true
+      });
+      break;
+      case "percent":
+      case "boolean":
+        Object.defineProperty(targetObj,"initialWidth", {
+          value:60,
+          writable: true,
+          enumerable: true,
+          configurable: true
+    });
+    break;
+    default:
+        break;
+    }
+    targetObj = Object.assign(Obj,targetObj);
+    return targetObj;
   }
 }

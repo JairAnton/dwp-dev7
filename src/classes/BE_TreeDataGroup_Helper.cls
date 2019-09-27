@@ -12,7 +12,8 @@
 public with sharing class BE_TreeDataGroup_Helper {
     /**Varible to storage List<Sobject>*/
     static List<SObject> sObjectList;
-    
+    /**CurrencyIsoCode ApiName*/
+    final static String CURRENCYISOCODE='CurrencyIsoCode';
     /**@Description private constructor.*/
     private BE_TreeDataGroup_Helper() {
     }
@@ -99,6 +100,7 @@ public with sharing class BE_TreeDataGroup_Helper {
     */
     private static String assingSObjFields(BE_TreeGrid_Utils.Params param) {
         String targetSObjFields=param.sObjFields;
+        targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields,CURRENCYISOCODE);
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyField);
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyParentField);
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyGroup);

@@ -180,13 +180,13 @@ public with sharing class BE_TreeGrid_Utils {
        /**fieldOrder the ApiName of field to be order the record.*/
        @AuraEnabled public String fieldOrder {set;get;}
        /**public constructor without parametres*/
-        public Params(String sObjName, String sObjFields,String filterSQOL) {
+       public Params(String sObjName, String sObjFields,String filterSQOL) {
             this.sObjName=sObjName;
             this.sObjFields=sObjFields;
             this.filterSQOL=String.isNotBlank(filterSQOL)?filterSQOL:'';
         }
         
-        /**public constructor without parametres*/
+       /**public constructor without parametres*/
         public Params()	{
              this.keyField='Id';
              this.keyParentField='';

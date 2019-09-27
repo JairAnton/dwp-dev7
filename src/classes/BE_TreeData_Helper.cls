@@ -10,6 +10,8 @@
 ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_TreeData_Helper {
+    /**CurrencyIsoCode ApiName*/
+    final static String CURRENCYISOCODE='CurrencyIsoCode';
     /**
     @Description privet constructor.
     */
@@ -57,6 +59,7 @@ public with sharing class BE_TreeData_Helper {
     */
     private static String assingSObjFields(BE_TreeGrid_Utils.Params param) {
         String targetSObjFields=param.sObjFields;
+        targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields,CURRENCYISOCODE);
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyField);
         targetSObjFields=BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.keyParentField);
         targetSObjFields=String.isNotBlank(param.fieldLevel)?BE_TreeGrid_Utils.joinSobjString(targetSObjFields, param.fieldLevel):targetSObjFields;
