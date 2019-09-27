@@ -30,7 +30,7 @@
                 <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>buttonsAlignment</name>
+                <name>buttonsAlignment</name> 
                 <value>left,left,left,right,right,right,right,right,right,right,right,right</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
