@@ -82,7 +82,7 @@ public class SgofFormalization_helper_tst {
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Map<String, Object> mapRes;
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Test.startTest();
         mapRes = SgofFormalization_helper.validateSGof(opp.Id);  
@@ -96,7 +96,7 @@ public class SgofFormalization_helper_tst {
         Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_EXE2 AND isActive=true limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Final User subgerente = [SELECT ID FROM User WHERE prof_position_type__c=:POSITION_SGOF AND isActive=true limit 1];
         Map<String, Object> mapRes;
@@ -114,7 +114,7 @@ public class SgofFormalization_helper_tst {
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Final User subgerente = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_SGOF AND isActive=true limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         delete [SELECT Id FROM GroupMember WHERE UserOrGroupId=:subgerente.Id];
         Map<String, Object> mapRes;
@@ -138,7 +138,7 @@ public class SgofFormalization_helper_tst {
             }
         }
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');           
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');           
         }
         Map<String, Object> mapRes;
         Test.startTest();
@@ -163,7 +163,7 @@ public class SgofFormalization_helper_tst {
             }
         }
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');           
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');           
         }
         Map<String, Object> mapRes;
          System.runAs(subgerente) {
@@ -181,7 +181,7 @@ public class SgofFormalization_helper_tst {
     public static void getDataSubSuccessTest() {
         Final User subgerente = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_SGOF AND isActive=true limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+        Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         Map<String, Object> mapRes;
         Test.startTest();
         System.runAs(subgerente) {
@@ -199,7 +199,7 @@ public class SgofFormalization_helper_tst {
         Final Map<String, Object> data = new Map<String, Object>{OPTION => 'sentToFormalize', 'contractNumber' => '0011-1234-1234567890', COMMENTS => COMMENTS};
         Final User subgerente = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_SGOF AND isActive=true limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-		Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+		Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         Test.startTest();
         System.runAs(subgerente) {
             SgofFormalization_helper.reasignCaseFromOpp(opp.Id);
@@ -217,7 +217,7 @@ public class SgofFormalization_helper_tst {
         Final Map<String, Object> data = new Map<String, Object>{OPTION => 'sentToFormalize', 'contractNumber' => '0011-1234-12567890', COMMENTS => COMMENTS};
         Final User subgerente = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_SGOF AND isActive=true limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-		Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+		Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         Map<String, Object> mapRes;
         Test.startTest();
         System.runAs(subgerente) {
@@ -235,7 +235,7 @@ public class SgofFormalization_helper_tst {
         Final Map<String, Object> data = new Map<String, Object>{OPTION => 'returnByDocumentation', DEVOL_REASON => '08', COMMENTS => COMMENTS};
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Final User subgerente = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_SGOF AND isActive=true limit 1];
-		Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+		Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         Test.startTest();
         System.runAs(subgerente) {
             SgofFormalization_helper.reasignCaseFromOpp(opp.Id);
@@ -253,7 +253,7 @@ public class SgofFormalization_helper_tst {
         Final Map<String, Object> data = new Map<String, Object>{OPTION => 'returnByDocumentation', DEVOL_REASON => '10', COMMENTS => COMMENTS};
         Final User subgerente = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_SGOF AND isActive=true limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
-        Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+        Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         Map<String, Object> mapRes;
         Test.startTest();
         System.runAs(subgerente) {
@@ -271,7 +271,7 @@ public class SgofFormalization_helper_tst {
         Final Map<String, Object> data = new Map<String, Object>{OPTION => 'wrongValue', DEVOL_REASON => '08', COMMENTS => COMMENTS};
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Final User subgerente = [SELECT ID, isActive FROM User WHERE prof_position_type__c=:POSITION_SGOF AND isActive=true limit 1];
-        Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+        Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         Map<String, Object> mapRes;
         Test.startTest();
         System.runAs(subgerente) {

@@ -1,5 +1,5 @@
 ({
-    doInit : function(component, event, helper) {
+    /*doInit : function(component, event, helper) {
         var action = component.get('c.validateUser');
         action.setParams({'recordId' : component.get('v.inputAttributes.recordId')});
         action.setCallback(this, function(response) {
@@ -28,13 +28,14 @@
     },
     close : function(component, event, helper) {
 	 	helper.closeMe(component, event, helper);
-	},
+	},*/
     doPDF: function(component, event, helper) {
-        if(component.get("v.showInterface")) {
+        helper.PDF(component, event,helper);
+        /*if(component.get("v.showInterface")) {
             helper.reasignCase(component, event, helper);
         } else {
             helper.PDF(component, event,helper);
-        }
+        }*/
     }
    
 })

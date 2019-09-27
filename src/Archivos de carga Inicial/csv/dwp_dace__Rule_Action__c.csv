@@ -1,81 +1,73 @@
-CURRENCYISOCODE,DWP_DACE__RULE_ID__R.DWP_DACE__RULE_UNIQUE_ID__C,DWP_DACE__ACTION_ID__R.DWP_DACE__ACTION_UNIQUE_ID__C,DWP_DACE__RULE_ACTION_ACTIVE_TYPE__C
-PEN,OPP_RULE_07,btnReject,true
-PEN,OPP_RULE_14,btnQuote,true
-PEN,OPP_RULE_19,btnSanctionPrice,true
-PEN,OPP_RULE_19,btnReject,true
-PEN,OPP_RULE_01,btnPenalizeRisk,true
-PEN,OPP_RULE_10,btnReevaluate,true
-PEN,OPP_RULE_09,btnComplete,true
-PEN,OPP_RULE_02,btnReject,true
-PEN,OPP_RULE_02,btnQuote,true
-PEN,OPP_RULE_08,btnReevaluate,true
-PEN,OPP_RULE_13,btnReevaluate,true
-PEN,OPP_RULE_16,btnReject,true
-PEN,OPP_RULE_07,btnSanctionPrice,true
-PEN,OPP_RULE_03,btnQuote,true
-PEN,OPP_RULE_23,btnReject,true
-PEN,OPP_RULE_23,btnFormalize,true
-PEN,OPP_RULE_26,btnFormalization,true
-PEN,OPP_RULE_15,btnReevaluate,true
-PEN,OPP_RULE_10,btnQuote,true
-PEN,OPP_RULE_06,btnComplete,true
-PEN,OPP_RULE_02,btnPenalizeRisk,true
-PEN,OPP_RULE_20,btnComplete,true
-PEN,OPP_RULE_20,btnReject,true
-PEN,OPP_RULE_20,btnReevaluate,true
-PEN,OPP_RULE_16,btnUnlink,true
-PEN,OPP_RULE_18,btnReject,true
-PEN,OPP_RULE_21,btnReject,true
-PEN,OPP_RULE_21,btnReevaluate,true
-PEN,OPP_RULE_17,btnReject,true
-PEN,OPP_RULE_17,btnQuote,true
-PEN,OPP_RULE_22,btnReject,true
-PEN,OPP_RULE_16,btnPenalizeRisk,true
-PEN,OPP_RULE_09,btnReevaluate,true
-PEN,OPP_RULE_12,btnApprove,true
-PEN,OPP_RULE_14,btnReevaluate,true
-PEN,OPP_RULE_27,btnFormalization,true
-PEN,OPP_RULE_08,btnReject,true
-PEN,OPP_RULE_22,btnFormalize,true
-PEN,OPP_RULE_03,btnPenalizeRisk,true
-PEN,OPP_RULE_12,btnReject,true
-PEN,OPP_RULE_04,btnReject,true
-PEN,OPP_RULE_05,btnReject,true
-PEN,OPP_RULE_23,btnReevaluate,true
-PEN,OPP_RULE_05,btnFormalize,true
-PEN,OPP_RULE_13,btnApprove,true
-PEN,OPP_RULE_07,btnReevaluate,true
-PEN,OPP_RULE_01,btnReject,true
-PEN,OPP_RULE_08,btnFormalization,true
-PEN,OPP_RULE_18,btnPenalizeRisk,true
-PEN,OPP_RULE_13,btnReject,true
-PEN,OPP_RULE_04,btnSanctionPrice,true
-PEN,OPP_RULE_12,btnQuote,true
-PEN,OPP_RULE_12,btnReevaluate,true
-PEN,OPP_RULE_P01,editProduct,true
-PEN,OPP_RULE_P01,addProduct,true
-PEN,OPP_RULE_P03,editProduct,true
-PEN,OPP_RULE_P01,deleteProduct,true
-PEN,OPP_RULE_06,btnReject,true
-PEN,OPP_RULE_P02,editProduct,true
-PEN,OPP_RULE_25,btnSanctionPrice2,true
-PEN,OPP_RULE_24,btnReject,true
-PEN,OPP_RULE_26,btnPDF,true
-PEN,OPP_RULE_15,btnReject,true
-PEN,OPP_RULE_11,btnReevaluate,true
-PEN,OPP_RULE_14,btnReject,true
-PEN,OPP_RULE_17,btnPenalizeRisk,true
-PEN,OPP_RULE_03,btnReject,true
-PEN,OPP_RULE_21,btnFormalize,true
-PEN,OPP_RULE_09,btnReject,true
-PEN,OPP_RULE_02_PRE,btnReject,true
-PEN,OPP_RULE_03_PRE,btnReject,true
-PEN,OPP_RULE_28,btnFormalizationAssistant,true
-PEN,OPP_RULE_29,btnProductUnit,true
-PEN,OPP_RULE_26,btnProductUnit,true
-PEN,CASE_RULE_1,btnReasign,true
-PEN,CASE_RULE_2,btnReasignOwnerFormalization,true
-PEN,CASE_RULE_4,btnReasignOwnerFormalization,true
-PEN,OPP_RULE_27,btnPDF,true
-PEN,CASE_RULE_3,btnReasignOwnerFormalization,true
-PEN,OPP_RULE_28,btnPDF,true
+"CURRENCYISOCODE","NAME","DWP_DACE__ACTION_ID__C","DWP_DACE__ACTION_LINK__C","DWP_DACE__RULE_ACTION_ACTIVE_TYPE__C","DWP_DACE__RULE_ID__C","DWP_DACE__RULE_LINK__C"
+"PEN","RA-0000000439","a0617000005sfu1AAA","<a href=""a0617000005sfu1"" target=""_top"">btnReasign</a>","true","a0A1700000AFq35EAD","<a href=""a0A1700000AFq35"" target=""_top"">CASE_RULE_1</a>"
+"PEN","RA-0000000381","a0617000005bi7lAAA","<a href=""a0617000005bi7l"" target=""_top"">btnQuote</a>","true","a0A1700000AFbH0EAL","<a href=""a0A1700000AFbH0"" target=""_top"">OPP_RULE_03</a>"
+"PEN","RA-0000000382","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHLEA1","<a href=""a0A1700000AFbHL"" target=""_top"">OPP_RULE_23</a>"
+"PEN","RA-0000000383","a0617000005bi7kAAA","<a href=""a0617000005bi7k"" target=""_top"">btnFormalize</a>","true","a0A1700000AFbHLEA1","<a href=""a0A1700000AFbHL"" target=""_top"">OPP_RULE_23</a>"
+"PEN","RA-0000000384","a0617000005bi7nAAA","<a href=""a0617000005bi7n"" target=""_top"">btnFormalization</a>","true","a0A1700000AFbHNEA1","<a href=""a0A1700000AFbHN"" target=""_top"">OPP_RULE_26</a>"
+"PEN","RA-0000000385","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbH1EAL","<a href=""a0A1700000AFbH1"" target=""_top"">OPP_RULE_15</a>"
+"PEN","RA-0000000386","a0617000005bi7lAAA","<a href=""a0617000005bi7l"" target=""_top"">btnQuote</a>","true","a0A1700000AFbHCEA1","<a href=""a0A1700000AFbHC"" target=""_top"">OPP_RULE_10</a>"
+"PEN","RA-0000000387","a0617000005bi7iAAA","<a href=""a0617000005bi7i"" target=""_top"">btnComplete</a>","true","a0A1700000AFbHGEA1","<a href=""a0A1700000AFbHG"" target=""_top"">OPP_RULE_06</a>"
+"PEN","RA-0000000388","a0617000005bi7oAAA","<a href=""a0617000005bi7o"" target=""_top"">btnPenalizeRisk</a>","true","a0A1700000AFbHEEA1","<a href=""a0A1700000AFbHE"" target=""_top"">OPP_RULE_02</a>"
+"PEN","RA-0000000389","a0617000005bi7iAAA","<a href=""a0617000005bi7i"" target=""_top"">btnComplete</a>","true","a0A1700000AFbGyEAL","<a href=""a0A1700000AFbGy"" target=""_top"">OPP_RULE_20</a>"
+"PEN","RA-0000000390","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbGyEAL","<a href=""a0A1700000AFbGy"" target=""_top"">OPP_RULE_20</a>"
+"PEN","RA-0000000391","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbGyEAL","<a href=""a0A1700000AFbGy"" target=""_top"">OPP_RULE_20</a>"
+"PEN","RA-0000000392","a0617000005bi7jAAA","<a href=""a0617000005bi7j"" target=""_top"">btnUnlink</a>","true","a0A1700000AFbH2EAL","<a href=""a0A1700000AFbH2"" target=""_top"">OPP_RULE_16</a>"
+"PEN","RA-0000000393","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHKEA1","<a href=""a0A1700000AFbHK"" target=""_top"">OPP_RULE_18</a>"
+"PEN","RA-0000000394","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbH3EAL","<a href=""a0A1700000AFbH3"" target=""_top"">OPP_RULE_21</a>"
+"PEN","RA-0000000395","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbH3EAL","<a href=""a0A1700000AFbH3"" target=""_top"">OPP_RULE_21</a>"
+"PEN","RA-0000000396","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHHEA1","<a href=""a0A1700000AFbHH"" target=""_top"">OPP_RULE_17</a>"
+"PEN","RA-0000000397","a0617000005bi7lAAA","<a href=""a0617000005bi7l"" target=""_top"">btnQuote</a>","true","a0A1700000AFbHHEA1","<a href=""a0A1700000AFbHH"" target=""_top"">OPP_RULE_17</a>"
+"PEN","RA-0000000398","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbH5EAL","<a href=""a0A1700000AFbH5"" target=""_top"">OPP_RULE_22</a>"
+"PEN","RA-0000000404","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbH8EAL","<a href=""a0A1700000AFbH8"" target=""_top"">OPP_RULE_08</a>"
+"PEN","RA-0000000410","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbHLEA1","<a href=""a0A1700000AFbHL"" target=""_top"">OPP_RULE_23</a>"
+"PEN","RA-0000000405","a0617000005bi7kAAA","<a href=""a0617000005bi7k"" target=""_top"">btnFormalize</a>","true","a0A1700000AFbH5EAL","<a href=""a0A1700000AFbH5"" target=""_top"">OPP_RULE_22</a>"
+"PEN","RA-0000000406","a0617000005bi7oAAA","<a href=""a0617000005bi7o"" target=""_top"">btnPenalizeRisk</a>","true","a0A1700000AFbH0EAL","<a href=""a0A1700000AFbH0"" target=""_top"">OPP_RULE_03</a>"
+"PEN","RA-0000000407","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbGzEAL","<a href=""a0A1700000AFbGz"" target=""_top"">OPP_RULE_12</a>"
+"PEN","RA-0000000408","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHQEA1","<a href=""a0A1700000AFbHQ"" target=""_top"">OPP_RULE_04</a>"
+"PEN","RA-0000000409","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbH9EAL","<a href=""a0A1700000AFbH9"" target=""_top"">OPP_RULE_05</a>"
+"PEN","RA-0000000411","a0617000005bi7kAAA","<a href=""a0617000005bi7k"" target=""_top"">btnFormalize</a>","true","a0A1700000AFbH9EAL","<a href=""a0A1700000AFbH9"" target=""_top"">OPP_RULE_05</a>"
+"PEN","RA-0000000412","a0617000005bi7tAAA","<a href=""a0617000005bi7t"" target=""_top"">btnApprove</a>","true","a0A1700000AFbHBEA1","<a href=""a0A1700000AFbHB"" target=""_top"">OPP_RULE_13</a>"
+"PEN","RA-0000000413","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbHREA1","<a href=""a0A1700000AFbHR"" target=""_top"">OPP_RULE_07</a>"
+"PEN","RA-0000000414","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHDEA1","<a href=""a0A1700000AFbHD"" target=""_top"">OPP_RULE_01</a>"
+"PEN","RA-0000000415","a0617000005bi7nAAA","<a href=""a0617000005bi7n"" target=""_top"">btnFormalization</a>","true","a0A1700000AFbH8EAL","<a href=""a0A1700000AFbH8"" target=""_top"">OPP_RULE_08</a>"
+"PEN","RA-0000000416","a0617000005bi7oAAA","<a href=""a0617000005bi7o"" target=""_top"">btnPenalizeRisk</a>","true","a0A1700000AFbHKEA1","<a href=""a0A1700000AFbHK"" target=""_top"">OPP_RULE_18</a>"
+"PEN","RA-0000000417","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHBEA1","<a href=""a0A1700000AFbHB"" target=""_top"">OPP_RULE_13</a>"
+"PEN","RA-0000000418","a0617000005bi7gAAA","<a href=""a0617000005bi7g"" target=""_top"">btnSanctionPrice</a>","true","a0A1700000AFbHQEA1","<a href=""a0A1700000AFbHQ"" target=""_top"">OPP_RULE_04</a>"
+"PEN","RA-0000000419","a0617000005bi7lAAA","<a href=""a0617000005bi7l"" target=""_top"">btnQuote</a>","true","a0A1700000AFbGzEAL","<a href=""a0A1700000AFbGz"" target=""_top"">OPP_RULE_12</a>"
+"PEN","RA-0000000420","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbGzEAL","<a href=""a0A1700000AFbGz"" target=""_top"">OPP_RULE_12</a>"
+"PEN","RA-0000000421","a0617000005bi7mAAA","<a href=""a0617000005bi7m"" target=""_top"">editProduct</a>","true","a0A1700000AFbH7EAL","<a href=""a0A1700000AFbH7"" target=""_top"">OPP_RULE_P01</a>"
+"PEN","RA-0000000422","a0617000005bi7hAAA","<a href=""a0617000005bi7h"" target=""_top"">addProduct</a>","true","a0A1700000AFbH7EAL","<a href=""a0A1700000AFbH7"" target=""_top"">OPP_RULE_P01</a>"
+"PEN","RA-0000000423","a0617000005bi7mAAA","<a href=""a0617000005bi7m"" target=""_top"">editProduct</a>","true","a0A1700000AFbH6EAL","<a href=""a0A1700000AFbH6"" target=""_top"">OPP_RULE_P03</a>"
+"PEN","RA-0000000424","a0617000005bi7sAAA","<a href=""a0617000005bi7s"" target=""_top"">deleteProduct</a>","true","a0A1700000AFbH7EAL","<a href=""a0A1700000AFbH7"" target=""_top"">OPP_RULE_P01</a>"
+"PEN","RA-0000000425","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHGEA1","<a href=""a0A1700000AFbHG"" target=""_top"">OPP_RULE_06</a>"
+"PEN","RA-0000000426","a0617000005bi7mAAA","<a href=""a0617000005bi7m"" target=""_top"">editProduct</a>","true","a0A1700000AFbHMEA1","<a href=""a0A1700000AFbHM"" target=""_top"">OPP_RULE_P02</a>"
+"PEN","RA-0000000427","a0617000005bi7fAAA","<a href=""a0617000005bi7f"" target=""_top"">btnSanctionPrice2</a>","true","a0A1700000AFbHOEA1","<a href=""a0A1700000AFbHO"" target=""_top"">OPP_RULE_25</a>"
+"PEN","RA-0000000428","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHIEA1","<a href=""a0A1700000AFbHI"" target=""_top"">OPP_RULE_24</a>"
+"PEN","RA-0000000429","a0617000005bi7pAAA","<a href=""a0617000005bi7p"" target=""_top"">btnPDF</a>","true","a0A1700000AFbHNEA1","<a href=""a0A1700000AFbHN"" target=""_top"">OPP_RULE_26</a>"
+"PEN","RA-0000000430","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbH1EAL","<a href=""a0A1700000AFbH1"" target=""_top"">OPP_RULE_15</a>"
+"PEN","RA-0000000431","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbHJEA1","<a href=""a0A1700000AFbHJ"" target=""_top"">OPP_RULE_11</a>"
+"PEN","RA-0000000433","a0617000005bi7oAAA","<a href=""a0617000005bi7o"" target=""_top"">btnPenalizeRisk</a>","true","a0A1700000AFbHHEA1","<a href=""a0A1700000AFbHH"" target=""_top"">OPP_RULE_17</a>"
+"PEN","RA-0000000434","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbH0EAL","<a href=""a0A1700000AFbH0"" target=""_top"">OPP_RULE_03</a>"
+"PEN","RA-0000000432","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHPEA1","<a href=""a0A1700000AFbHP"" target=""_top"">OPP_RULE_14</a>"
+"PEN","RA-0000000435","a0617000005bi7kAAA","<a href=""a0617000005bi7k"" target=""_top"">btnFormalize</a>","true","a0A1700000AFbH3EAL","<a href=""a0A1700000AFbH3"" target=""_top"">OPP_RULE_21</a>"
+"PEN","RA-0000000436","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbH4EAL","<a href=""a0A1700000AFbH4"" target=""_top"">OPP_RULE_09</a>"
+"PEN","RA-0000000437","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHTEA1","<a href=""a0A1700000AFbHT"" target=""_top"">OPP_RULE_02_PRE</a>"
+"PEN","RA-0000000438","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHSEA1","<a href=""a0A1700000AFbHS"" target=""_top"">OPP_RULE_03_PRE</a>"
+"PEN","RA-0000000368","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHREA1","<a href=""a0A1700000AFbHR"" target=""_top"">OPP_RULE_07</a>"
+"PEN","RA-0000000369","a0617000005bi7lAAA","<a href=""a0617000005bi7l"" target=""_top"">btnQuote</a>","true","a0A1700000AFbHPEA1","<a href=""a0A1700000AFbHP"" target=""_top"">OPP_RULE_14</a>"
+"PEN","RA-0000000370","a0617000005bi7gAAA","<a href=""a0617000005bi7g"" target=""_top"">btnSanctionPrice</a>","true","a0A1700000AFbHFEA1","<a href=""a0A1700000AFbHF"" target=""_top"">OPP_RULE_19</a>"
+"PEN","RA-0000000371","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHFEA1","<a href=""a0A1700000AFbHF"" target=""_top"">OPP_RULE_19</a>"
+"PEN","RA-0000000372","a0617000005bi7oAAA","<a href=""a0617000005bi7o"" target=""_top"">btnPenalizeRisk</a>","true","a0A1700000AFbHDEA1","<a href=""a0A1700000AFbHD"" target=""_top"">OPP_RULE_01</a>"
+"PEN","RA-0000000373","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbHCEA1","<a href=""a0A1700000AFbHC"" target=""_top"">OPP_RULE_10</a>"
+"PEN","RA-0000000379","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbH2EAL","<a href=""a0A1700000AFbH2"" target=""_top"">OPP_RULE_16</a>"
+"PEN","RA-0000000374","a0617000005bi7iAAA","<a href=""a0617000005bi7i"" target=""_top"">btnComplete</a>","true","a0A1700000AFbH4EAL","<a href=""a0A1700000AFbH4"" target=""_top"">OPP_RULE_09</a>"
+"PEN","RA-0000000375","a0617000005bi7rAAA","<a href=""a0617000005bi7r"" target=""_top"">btnReject</a>","true","a0A1700000AFbHEEA1","<a href=""a0A1700000AFbHE"" target=""_top"">OPP_RULE_02</a>"
+"PEN","RA-0000000376","a0617000005bi7lAAA","<a href=""a0617000005bi7l"" target=""_top"">btnQuote</a>","true","a0A1700000AFbHEEA1","<a href=""a0A1700000AFbHE"" target=""_top"">OPP_RULE_02</a>"
+"PEN","RA-0000000377","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbH8EAL","<a href=""a0A1700000AFbH8"" target=""_top"">OPP_RULE_08</a>"
+"PEN","RA-0000000378","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbHBEA1","<a href=""a0A1700000AFbHB"" target=""_top"">OPP_RULE_13</a>"
+"PEN","RA-0000000380","a0617000005bi7gAAA","<a href=""a0617000005bi7g"" target=""_top"">btnSanctionPrice</a>","true","a0A1700000AFbHREA1","<a href=""a0A1700000AFbHR"" target=""_top"">OPP_RULE_07</a>"
+"PEN","RA-0000000399","a0617000005bi7oAAA","<a href=""a0617000005bi7o"" target=""_top"">btnPenalizeRisk</a>","true","a0A1700000AFbH2EAL","<a href=""a0A1700000AFbH2"" target=""_top"">OPP_RULE_16</a>"
+"PEN","RA-0000000400","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbH4EAL","<a href=""a0A1700000AFbH4"" target=""_top"">OPP_RULE_09</a>"
+"PEN","RA-0000000401","a0617000005bi7tAAA","<a href=""a0617000005bi7t"" target=""_top"">btnApprove</a>","true","a0A1700000AFbGzEAL","<a href=""a0A1700000AFbGz"" target=""_top"">OPP_RULE_12</a>"
+"PEN","RA-0000000402","a0617000005bi7qAAA","<a href=""a0617000005bi7q"" target=""_top"">btnReevaluate</a>","true","a0A1700000AFbHPEA1","<a href=""a0A1700000AFbHP"" target=""_top"">OPP_RULE_14</a>"
+"PEN","RA-0000000403","a0617000005bi7nAAA","<a href=""a0617000005bi7n"" target=""_top"">btnFormalization</a>","true","a0A1700000AFbHAEA1","<a href=""a0A1700000AFbHA"" target=""_top"">OPP_RULE_27</a>"

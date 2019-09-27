@@ -1,21 +1,17 @@
-CURRENCYISOCODE,DWP_DACE__ACTION_DESC__C,DWP_DACE__ACTION_UNIQUE_ID__C
-PEN,Price Approval,btnSanctionPrice2
-PEN,Price Approval,btnSanctionPrice
-PEN,Add Product,addProduct
-PEN,Complete,btnComplete
-PEN,Unlink,btnUnlink
-PEN,Aprove Formalization,btnFormalize
-PEN,Quote,btnQuote
-PEN,Edit Product,editProduct
-PEN,Formalization,btnFormalization
-PEN,Risk Approval,btnPenalizeRisk
-PEN,Generate PDF,btnPDF
-PEN,Review,btnReevaluate
-PEN,Reject,btnReject
-PEN,Delete Product,deleteProduct
-PEN,Approve,btnApprove
-PEN,Reasignar Propietario para casos en formalización,btnReasignOwnerFormalization
-PEN,"Botón ""Definir estado de oportunidad"" para el asistente operativo",btnFormalizationAssistant
-PEN,Botón de enviar a la unidad de producto,btnProductUnit
-PEN,Botón para reasignar casos en sanción de precios,btnReasign
-,,
+"NAME","DWP_DACE__ACTION_DESC__C","DWP_DACE__ACTION_UNIQUE_ID__C"
+"A-0000000066","Botón para reasignar casos en sanción de precios","btnReasign"
+"A-0000000057","Quote","btnQuote"
+"A-0000000058","Edit Product","editProduct"
+"A-0000000059","Formalization","btnFormalization"
+"A-0000000060","Risk Approval","btnPenalizeRisk"
+"A-0000000061","Generate PDF","btnPDF"
+"A-0000000062","Review","btnReevaluate"
+"A-0000000063","Reject","btnReject"
+"A-0000000064","Delete Product","deleteProduct"
+"A-0000000065","Approve","btnApprove"
+"A-0000000051","Price Approval","btnSanctionPrice2"
+"A-0000000052","Price Approval","btnSanctionPrice"
+"A-0000000053","Add Product","addProduct"
+"A-0000000054","Complete","btnComplete"
+"A-0000000055","Unlink","btnUnlink"
+"A-0000000056","Aprove Formalization","btnFormalize"
