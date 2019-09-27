@@ -92,7 +92,7 @@ public class Formalization_Helper_tst {
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Test.startTest();
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Test.stopTest();
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
@@ -108,7 +108,7 @@ public class Formalization_Helper_tst {
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         Test.startTest();
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Test.stopTest();
         Final Case[] lstCases = [SELECT Id, status FROM Case WHERE RecordType.Name=:FORMALIZATION AND opportunity_id__c=:opp.Id];
@@ -148,7 +148,7 @@ public class Formalization_Helper_tst {
         Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Final Case caso = [SELECT ID FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
         Map<String, Object> mapRes = new Map<String, Object>();
@@ -166,7 +166,7 @@ public class Formalization_Helper_tst {
         Final User subgerente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c='SUBGERENTE BEC' AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name = 'TEST Formalization 2' limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Final Case caso = [SELECT ID FROM Case WHERE opportunity_id__c=:opp.Id limit 1];
         Map<String, Object> mapRes = new Map<String, Object>();
@@ -184,7 +184,7 @@ public class Formalization_Helper_tst {
         Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         delete [SELECT Id, Group.DeveloperName FROM GroupMember WHERE UserOrGroupId=:asistente.id];
         Final Case caso = [SELECT Id FROM Case WHERE RecordType.DeveloperName =:FORMALIZATION];
@@ -204,7 +204,7 @@ public class Formalization_Helper_tst {
         Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name = 'TEST Formalization 2' limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Final Case caso = [SELECT Id FROM Case WHERE RecordType.DeveloperName =:FORMALIZATION];
         Boolean validate;
@@ -224,7 +224,7 @@ public class Formalization_Helper_tst {
         Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         delete [SELECT Id, Group.DeveloperName FROM GroupMember WHERE UserOrGroupId=:asistente.id];
         Final Case caso = [SELECT Id FROM Case WHERE RecordType.DeveloperName =:FORMALIZATION];
@@ -244,7 +244,7 @@ public class Formalization_Helper_tst {
         Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c=:POSITION_ASSI AND isActive=True limit 1];
         Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name =:OPP_NAME limit 1];
         System.runAs(ejecutivo) {
-            Product_cls.setFormalization(opp.Id,BTN_APPROVE,COMMENTS,'');
+            Product_cls.setFormalization_2(opp.Id,BTN_APPROVE,COMMENTS,'');
         }
         Final Case caso = [SELECT Id FROM Case WHERE RecordType.DeveloperName =:FORMALIZATION];
         Boolean validate;

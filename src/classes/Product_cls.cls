@@ -154,7 +154,48 @@ public without sharing class Product_cls {
         }
         catch(Dmlexception exp) { return exp.getMessage();}
     }
-    @AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body,String AttachedFiles) {
+    
+    @AuraEnabled public static String setFormalization(String OpportunityId,String Action,String Body,String AttachedFiles){
+        try
+        {   
+            List<Opportunity> itemOpp= [SELECT Id,opportunity_status_type__c,Name,OwnerId FROM Opportunity WHERE Id=: OpportunityId];
+            if(!itemOpp.isEmpty())
+            {
+                if(Action=='btnApprove'){
+                        itemOpp[0].IsProcess__c=true;
+                        update itemOpp[0];   
+                        itemOpp[0].StageName=label.lblFormalizarEtapa;
+                        itemOpp[0].opportunity_status_type__c=label.lblFormalizarStatus;          
+                        FeedItem post = new FeedItem();
+                        post.ParentId = OpportunityId;
+                        post.Body = body;
+                        if(!string.isBlank(Body))
+                            insert post;
+                        else{
+                            itemOpp[0].IsProcess__c=false;
+                            update itemOpp[0];     
+                            return label.lblNoCommentsFormalization;
+                        }
+                }
+                update itemOpp[0];
+                itemOpp[0].IsProcess__c=false;
+                update itemOpp[0]; 
+                //update itemOpp[0];
+                //BEGIN Traceability - 2018-06-11
+                //Isaías Vellázquez Cortés
+                new OpportunityTraceability_cls().addOpportunityTraceability(getStatusLabel(itemOpp[0].opportunity_status_type__c),TraceabilityMessage(itemOpp[0].Id,itemOpp[0].opportunity_status_type__c,Body,AttachedFiles),'Opportunity',itemOpp[0].Id,'approve','TRFO00001',UserInfo.getUserId(),'embedded',1,true);
+                //END Traceability
+                return 'true';
+            }
+            else return 'Error';
+        }
+        catch(Dmlexception exp)
+        {
+            return exp.getMessage();
+        }
+    }
+    
+    @AuraEnabled public static String setFormalization_2(String OpportunityId,String Action,String Body,String AttachedFiles) {
         //Productos que siguen el flujo de Formalización con el Asistente
         Final Dwp_FormalizationProducts_AAC__c[] prdAssistForm = Dwp_FormalizationProducts_AAC__c.getAll().values();
         Final Set<String> prdToForm = new Set<String>();
@@ -232,6 +273,7 @@ public without sharing class Product_cls {
                 else if(Action=='btnBack') {//09
                     itemOpp[0].StageName='05';
                     itemOpp[0].opportunity_status_type__c='20';
+                    itemOpp[0].Dwp_DevolutionUser__c = UserInfo.getUserId();
                     returnMap.put('success',true);
                 }
                 itemOpp[0].IsProcess__c = true;

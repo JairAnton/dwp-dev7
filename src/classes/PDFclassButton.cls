@@ -54,9 +54,9 @@ global without sharing class PDFclassButton  implements dwp_dbpn.DynamicFlowVali
    @auraenabled
     public static string  PDF_formalization(String recordId){
         string msg;
-        Case[] caso = [SELECT Id, OwnerId FROM Case WHERE Opportunity_id__c=:recordId AND RecordType.DeveloperName='Formalization' 
+        /*Case[] caso = [SELECT Id, OwnerId FROM Case WHERE Opportunity_id__c=:recordId AND RecordType.DeveloperName='Formalization' 
                      AND status NOT IN ('03','04','10','11') AND OwnerId=:UserInfo.getUserId() limit 1];
-        if(caso.size() > 0) {
+        if(caso.size() > 0) {*/
             //list<opportunityLineItem> OLI = new list<opportunityLineItem>(); //Yuliño: correcion
             Map<ID, Opportunity> m = new Map<ID, Opportunity>([SELECT Id, Name FROM Opportunity WHERE ID = :recordId  LIMIT 1]);
             String NamePDF = 'Oportunidad formalizada '+m.get(recordId).Name+'.pdf';
@@ -78,7 +78,7 @@ global without sharing class PDFclassButton  implements dwp_dbpn.DynamicFlowVali
              attach.ParentId = recordId;
     
              insert attach;
-        }
+        //}
          return msg;
     }
 }

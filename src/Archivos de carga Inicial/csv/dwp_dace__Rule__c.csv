@@ -1,4 +1,5 @@
 CURRENCYISOCODE,DWP_DACE__RULE_DESC__C,DWP_DACE__RULE_UNIQUE_ID__C
+PEN,,CASE_RULE_1
 PEN,"Conditions:
 - En Sanciï¿½n
 - Ejecutivo
@@ -87,6 +88,23 @@ PEN,"Conditions:
 Actions:
 - Editar Producto",OPP_RULE_P03
 PEN,"Conditions:
+- En Sanciï¿½n
+- Ejecutivo
+-Enviado para reevaluaciï¿½n a riesgos
+- Producto con:
+SP = true
+Mï¿½todo SP = Cotiza Web
+Actions:
+- Sancionar Riesgo
+- Cotizar
+- Desestimar",OPP_RULE_17
+PEN,"Conditions:
+- Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
+- Especialista
+- Ejecutivo
+Actions:
+- Desestimar",OPP_RULE_24
+PEN,"Conditions:
 - Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
 - Ejecutivo o Especialista
 - Tipologia Nueva
@@ -168,23 +186,6 @@ PEN,"Conditions:
 Actions:
 -Desestimar
 -Completar",OPP_RULE_06
-PEN,"Conditions:
-- En Sanciï¿½n
-- Ejecutivo
--Enviado para reevaluaciï¿½n a riesgos
-- Producto con:
-SP = true
-Mï¿½todo SP = Cotiza Web
-Actions:
-- Sancionar Riesgo
-- Cotizar
-- Desestimar",OPP_RULE_17
-PEN,"Conditions:
-- Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
-- Especialista
-- Ejecutivo
-Actions:
-- Desestimar",OPP_RULE_24
 PEN,"Conditions: 
 -En sancion
 -Ejecutivo
@@ -267,49 +268,3 @@ PEN,"Conditions:
 -Producto con:SR = true,SP = true,Metodo SP = Web, Producto Cotizable
 Actions:
 -Desestimar",OPP_RULE_02_PRE
-PEN,"Conditions:
-- En Formalizaci¿½n
-- Operativo
-- Enviada para formalizaciï¿½n
--Rol Subgerente
-Actions:
-- Send Product Unit",OPP_RULE_29
-PEN,"Conditions: 
--Perfil igual Admin, Operativo
--RecordType igual Formalization
--Campo Subgerente igual EMPTY
--Estado igual Asignado Sgof",CASE_RULE_4
-PEN,"Conditions:
--Perfil igual Admin, Operativo
--RecordTpe igual Formalization
--Campo Asistente igual EMPTY
--Estado igual Asignado AAC",CASE_RULE_3
-PEN,"Conditions:
-- Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
-- Ejecutivo o Especialista
-- Tipologia Nueva
-Actions:
-- Aï¿½adir Producto
-- Eliminar Producto
-- Editar campos del Producto",OPP_RULE_P01
-PEN,"Conditions:
-- Acciones Comerciales, Pendiente de Iniciar, En Gestiï¿½n
-- Ejecutivo o Especialista
-- Tipologia Cancelacion
-Actions:
-- Editar campos del Producto",OPP_RULE_P02
-PEN,"Conditions:
--Acciones Comerciales, Pendiente de Iniciar, En GestiÃ³n
--Ejecutivo
--Producto con:SR = false,SP = true,Metodo SP = Web, Producto cotizable
-Actions:
--Desestimar",OPP_RULE_03_PRE
-PEN,"Conditions:
--Acciones Comerciales, Pendiente de Iniciar, En GestiÃ³n
--Ejecutivo
--Producto con:SR = true,SP = true,Metodo SP = Web, Producto Cotizable
-Actions:
--Desestimar",OPP_RULE_02_PRE
-PEN,#¿NOMBRE?,CASE_RULE_2
-PEN,,CASE_RULE_1
-PEN,Enviar Oportunidad,OPP_RULE_28

@@ -1,10 +1,13 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId" extends="dwp_mdal:ModalTemplate_cmp" controller="PDFclassButton" access="GLOBAL">
-    <aura:attribute name="hasHeader" type="Boolean" default="false"/>
+    <!--<aura:attribute name="hasHeader" type="Boolean" default="false"/>-->
+    <aura:attribute name="hasHeader" type="Boolean" default="true"/>
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitlePDF}" access="global" description="Specify the modal"/>
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>-->
     <aura:attribute name="msgProperty" type="String"/>
     <aura:attribute name="dialog" type="String"/>
-    <aura:attribute name="validate" type="Boolean" default="false"/>
+    <!--<aura:attribute name="validate" type="Boolean" default="false"/>
+    <aura:attribute name="showInterface" type="Boolean" default="false"/>-->
+    <aura:attribute name="validate" type="Boolean" default="true"/>
     <aura:attribute name="showInterface" type="Boolean" default="false"/>
     
     <aura:if isTrue="{!v.validate}">
