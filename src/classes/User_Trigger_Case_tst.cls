@@ -26,8 +26,8 @@ public class User_Trigger_Case_tst {
     public static void newMembersFormalizationTest() {
         Final List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
-        for(Integer i=0; i<250; i++) {
-            if(i < 125) {
+        for(Integer i=0; i<20; i++) {
+            if(i < 10) {
                 newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E06', ProfileId=profile));
             } else {
@@ -39,7 +39,7 @@ public class User_Trigger_Case_tst {
         insert newUsers;
         Test.stopTest();
         Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: GRP');
-        System.assertEquals(250, newUsersInGroup, ASSERT_ERROR);
+        System.assertEquals(20, newUsersInGroup, ASSERT_ERROR);
     }
     
     /**
@@ -53,8 +53,8 @@ public class User_Trigger_Case_tst {
     public static void updFormalizationDeactiveOwnersTest() {
         Final List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
-        for(Integer i=0; i<200; i++) {
-            if(i < 75) {
+        for(Integer i=0; i<20; i++) {
+            if(i < 10) {
                 newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                  IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = 'E06', ProfileId=profile));
             } else {
@@ -68,15 +68,15 @@ public class User_Trigger_Case_tst {
         Final Account acc = TestFactory.getAccount(true, mapFields);
         List<Opportunity> opps = new List<Opportunity>();
         List<Case> casos = new List<Case>();
-        for(Integer i=0; i<200; i++) {
+        for(Integer i=0; i<20; i++) {
             opps.add(new Opportunity(Name='TEST Formalization', stageName='02', AccountId=acc.Id, CloseDate=Date.today(), Amount = 10000, Dwp_DevolutionUser__c=newUsers[i].Id));
-            if(i < 73) {
+            if(i < 10) {
              	newUsers[i].prof_position_id__c='';
             } else {
                 newUsers[i].isActive=false;
             }
         }
-        newUsers[199].prof_position_id__c='';
+        newUsers[19].prof_position_id__c='';
         insert opps;
         
         Final Product2 testPr = new Product2(Name='TestProd', type_of_quote__c='COTIZADOR', ProductCode='PC00012');
@@ -91,17 +91,17 @@ public class User_Trigger_Case_tst {
         
         Final Set<Id> uIds = new Set<Id>();
         List<OpportunityLineItem> lstOli = new List<OpportunityLineItem>();
-        for(Integer i=0; i<200; i++) {
+        for(Integer i=0; i<20; i++) {
             uIds.add(newUsers[i].Id);
             lstOli.add(new OpportunityLineItem(TotalPrice=120, OpportunityId=opps[i].Id, PricebookEntryId=testPE.Id, Quantity=1, gipr_Tipo_Garantia__c='03', 
                                                                   Product2Id=testPr.Id));
-            if(i < 80) {
+            if(i < 10) {
              	casos.add(new Case(OwnerId=newUsers[i].Id, status='05', DWP_AssistantOwner__c=newUsers[i].Id, opportunity_id__c=opps[i].Id));
             } else {
                 casos.add(new Case(OwnerId=newUsers[i].Id, status='07', DWP_SgofOwner__c=newUsers[i].Id, opportunity_id__c=opps[i].Id));
             }
         }
-        casos[199].status='08';
+        casos[19].status='08';
         
         insert lstOli;
 		insert casos;
@@ -115,8 +115,8 @@ public class User_Trigger_Case_tst {
         Final Integer deactiveUsersSize = deactiveUsers.size();
         Final User[] changeRolUsers = [SELECT Id FROM User WHERE Id IN: uIds AND isActive=true];
         Final Integer changeRolUsersSize = changeRolUsers.size();
-        System.assertEquals(127, deactiveUsersSize, ASSERT_ERROR);
-        System.assertEquals(73, changeRolUsersSize, ASSERT_ERROR);
+        System.assertEquals(10, deactiveUsersSize, ASSERT_ERROR);
+        System.assertEquals(10, changeRolUsersSize, ASSERT_ERROR);
     }
     
     /**
@@ -129,13 +129,13 @@ public class User_Trigger_Case_tst {
     public static void addUserToFormalizationGroupTest() {
         List<User> newUsers = new List<User>();
         Final String profile = [SELECT Id FROM Profile WHERE Name = 'Operativo'].Id;
-        for(Integer i=0; i<250; i++){
+        for(Integer i=0; i<20; i++){
             newUsers.add(new User(LastName='User '+i, Username='User'+i+'@user.com.u', Email='User'+i+'@user.com.u', Alias=i+'uAas2', TimeZoneSidKey='America/Mexico_City',
                                   IsActive=true, LocaleSidKey='en_US', EmailEncodingKey='ISO-8859-1', LanguageLocaleKey='es', prof_position_id__c = '', ProfileId=profile));
         }
         insert newUsers;
-        for(Integer i=0; i<250; i++) {
-            if(i < 125) {
+        for(Integer i=0; i<20; i++) {
+            if(i < 10) {
                 newUsers[i].prof_position_id__c='E06';
             } else {
                 newUsers[i].prof_position_id__c='E04';
@@ -145,6 +145,6 @@ public class User_Trigger_Case_tst {
 		update newUsers;
         Test.stopTest();
         Final Integer newUsersInGroup = Database.countQuery('SELECT Count() FROM GroupMember WHERE UserOrGroupId IN:newUsers AND Group.DeveloperName IN: GRP');
-        System.assertEquals(250, newUsersInGroup, ASSERT_ERROR);
+        System.assertEquals(20, newUsersInGroup, ASSERT_ERROR);
     }
 }

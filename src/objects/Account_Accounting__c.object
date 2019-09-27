@@ -103,11 +103,13 @@
     </fields>
     <fields>
         <fullName>gl_account_istotal__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Is Total</label>
+        <length>20</length>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>gl_account_path_position_id__c</fullName>
