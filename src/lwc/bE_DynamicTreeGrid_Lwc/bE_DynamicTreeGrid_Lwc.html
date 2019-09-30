@@ -1,7 +1,7 @@
 <template>
     <div class="slds-box">
-        <template if:true={loaded} class="slds-p-around_medium lgc-bg">
-            <template if:false={error}>
+        <template if:true={loaded} class="slds-p-around_medium lgc-bg treeGrid">
+            <template if:false={error} >
                 <lightning-tree-grid data={gridData} columns={gridColumns} key-field={keyField}
                     hide-checkbox-column="true" expanded-rows={gridExpandedRows}>
                 </lightning-tree-grid>
