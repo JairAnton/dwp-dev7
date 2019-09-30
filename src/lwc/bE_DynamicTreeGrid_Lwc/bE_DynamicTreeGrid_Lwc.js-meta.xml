@@ -14,7 +14,7 @@
             <property name="sObjApiName" type="String" default="Account" label="Enter object API Name" required="true"/>
             <property name="sObjFieldsSOQL" type="String" default="Name" label="Enter the fields to show" required="true"/>
             <property name="sObjFields" type="String" default="Name" label="Enter the fields to show" required="true"/>
-            <property name="sObjFieldLabels" type="String" default="Name" label="Enter the Label of fields to show" required="true"/>
+            <property name="sObjFieldLabels" type="String" default="Name" label="Enter the Label of fields to show"/>
             <property name="keyField" type="String" default="Id" label="Enter the key field" required="true"/>
             <property name="keyParentField" type="String" default="Id" label="Enter the parent key field" required="true"/>
             <property name="filterSQOL" type="String" default="" label="Filter to SOQL" required="true"/>

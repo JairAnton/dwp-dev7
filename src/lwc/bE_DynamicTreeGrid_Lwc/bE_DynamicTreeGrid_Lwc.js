@@ -43,6 +43,17 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   @track gridExpandedRows;
   @track sObject;
   provisionedData;
+  renderedCallback() {
+    if (this.hasRendered) return;
+    this.hasRendered = true;
+    const style = document.createElement('style');
+    style.innerText = `
+    c-b-e_-dynamic-tree-grid_-lwc .slds-th__action {
+      justify-content: center !important;
+      font-weight: bold;
+      }`;
+    this.template.querySelector('.slds-box').appendChild(style);
+  }
   connectedCallback() {
     this.sObject = {
       sObjName: this.sObjApiName,
@@ -77,10 +88,6 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
             this.makeData(data,subLevelSize);
           }
           this.orderAndExpandedRows();
-          console.log('gridColumns');
-          console.log(this.gridColumns);
-          console.log('gridData');
-          console.log(this.gridData);
         } catch (jsError) {
           this.error = jsError;
           this.loaded = true;
@@ -349,15 +356,21 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     return Array.from(gridExpandedRows);
   }
   asigntypeAttributes(Obj){
-    let targetObj = {};
+    let targetObj = {cellAttributes:{alignment: 'center'}};
     switch (Obj.type) {
       case "currency":
-          Object.defineProperty(targetObj,"typeAttributes", {
+        Object.defineProperty(targetObj,"typeAttributes", {
             value: {currencyCode:{fieldName:"CurrencyIsoCode"}},
             writable: true,
             enumerable: true,
             configurable: true
-      });
+        });
+        Object.defineProperty(targetObj,"cellAttributes", {
+        value: {alignment: 'right'},
+        writable: true,
+        enumerable: true,
+        configurable: true
+        });
       break;
       case "percent":
       case "boolean":
@@ -366,7 +379,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
           writable: true,
           enumerable: true,
           configurable: true
-    });
+        });
     break;
     default:
         break;
