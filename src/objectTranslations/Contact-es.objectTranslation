@@ -452,6 +452,118 @@
             <translation><!-- PRESIDENTE DE DIRECTORIO --></translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label><!-- Campos obligatorios llenos --></label>
+        <name>Campos_obligatorios_llenos__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campos obligatorios llenos inicio --></label>
+        <name>Campos_obligatorios_llenos_inicio__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cargo inicio --></label>
+        <name>Cargo_inicio__c</name>
+        <picklistValues>
+            <masterLabel>ACCIONISTA</masterLabel>
+            <translation><!-- ACCIONISTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ADMINISTRADOR</masterLabel>
+            <translation><!-- ADMINISTRADOR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>APODERADO</masterLabel>
+            <translation><!-- APODERADO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ASISTENTE</masterLabel>
+            <translation><!-- ASISTENTE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DIRECTORIO</masterLabel>
+            <translation><!-- DIRECTORIO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE COMERCIAL</masterLabel>
+            <translation><!-- GERENTE COMERCIAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE ADMINISTRACION</masterLabel>
+            <translation><!-- GERENTE DE ADMINISTRACION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE ADMINISTRACION Y FINANZAS</masterLabel>
+            <translation><!-- GERENTE DE ADMINISTRACION Y FINANZAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE CONTABILIDAD</masterLabel>
+            <translation><!-- GERENTE DE CONTABILIDAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE FINANZAS</masterLabel>
+            <translation><!-- GERENTE DE FINANZAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE OPERACIONES</masterLabel>
+            <translation><!-- GERENTE DE OPERACIONES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE DE RRHH</masterLabel>
+            <translation><!-- GERENTE DE RRHH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GERENTE GENERAL</masterLabel>
+            <translation><!-- GERENTE GENERAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE ADMINISTRACION Y FINANZAS</masterLabel>
+            <translation><!-- JEFE DE ADMINISTRACION Y FINANZAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE ADMINISTRACIÓN</masterLabel>
+            <translation><!-- JEFE DE ADMINISTRACIÓN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE CONTABILIDAD</masterLabel>
+            <translation><!-- JEFE DE CONTABILIDAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE FINANZAS</masterLabel>
+            <translation><!-- JEFE DE FINANZAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEFE DE TESORERIA</masterLabel>
+            <translation><!-- JEFE DE TESORERIA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTROS</masterLabel>
+            <translation><!-- OTROS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRESIDENTE DE DIRECTORIO</masterLabel>
+            <translation><!-- PRESIDENTE DE DIRECTORIO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Celular inicio --></label>
+        <name>Celular_inicio__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correo electronico inicio --></label>
+        <name>Correo_electronico_inicio__c</name>
+    </fields>
+    <fields>
+        <label><!-- Decisor inicio --></label>
+        <name>Decisor_inicio__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sí</masterLabel>
+            <translation><!-- Sí --></translation>
+        </picklistValues>
+    </fields>
     <layouts>
         <layout>Contact Layout</layout>
         <sections>

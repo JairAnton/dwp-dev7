@@ -849,6 +849,186 @@
         <encrypted>true</encrypted>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
+	<fields>
+        <fullName>Campos_obligatorios_llenos__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK ( Email ) , 0, 1) + IF( ISBLANK ( MobilePhone ), 0, 1) + IF( ISPICKVAL( prof_position_type__c , &apos;&apos;) , 0, 1) + IF( ISPICKVAL( decision_making_desc__c , &apos;&apos;) , 0, 1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campos obligatorios llenos</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campos_obligatorios_llenos_inicio__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK ( Correo_electronico_inicio__c ) , 0, 1) + IF( ISBLANK ( Celular_inicio__c ), 0, 1) + IF( ISPICKVAL( Cargo_inicio__c , &apos;&apos;) , 0, 1) + IF( ISPICKVAL( Decisor_inicio__c , &apos;&apos;) , 0, 1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campos obligatorios llenos inicio</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cargo_inicio__c</fullName>
+        <externalId>false</externalId>
+        <label>Cargo inicio</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACCIONISTA</fullName>
+                    <default>false</default>
+                    <label>ACCIONISTA</label>
+                </value>
+                <value>
+                    <fullName>PRESIDENTE DE DIRECTORIO</fullName>
+                    <default>false</default>
+                    <label>PRESIDENTE DE DIRECTORIO</label>
+                </value>
+                <value>
+                    <fullName>APODERADO</fullName>
+                    <default>false</default>
+                    <label>APODERADO</label>
+                </value>
+                <value>
+                    <fullName>DIRECTORIO</fullName>
+                    <default>false</default>
+                    <label>DIRECTORIO</label>
+                </value>
+                <value>
+                    <fullName>GERENTE GENERAL</fullName>
+                    <default>false</default>
+                    <label>GERENTE GENERAL</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE FINANZAS</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE ADMINISTRACION</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE ADMINISTRACION</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE RRHH</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE RRHH</label>
+                </value>
+                <value>
+                    <fullName>GERENTE COMERCIAL</fullName>
+                    <default>false</default>
+                    <label>GERENTE COMERCIAL</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE OPERACIONES</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE OPERACIONES</label>
+                </value>
+                <value>
+                    <fullName>GERENTE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <label>GERENTE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE FINANZAS</fullName>
+                    <default>false</default>
+                    <label>JEFE DE FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE TESORERIA</fullName>
+                    <default>false</default>
+                    <label>JEFE DE TESORERIA</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACION Y FINANZAS</fullName>
+                    <default>false</default>
+                    <label>JEFE DE ADMINISTRACION Y FINANZAS</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE ADMINISTRACIÓN</fullName>
+                    <default>false</default>
+                    <label>JEFE DE ADMINISTRACIÓN</label>
+                </value>
+                <value>
+                    <fullName>JEFE DE CONTABILIDAD</fullName>
+                    <default>false</default>
+                    <label>JEFE DE CONTABILIDAD</label>
+                </value>
+                <value>
+                    <fullName>ADMINISTRADOR</fullName>
+                    <default>false</default>
+                    <label>ADMINISTRADOR</label>
+                </value>
+                <value>
+                    <fullName>ASISTENTE</fullName>
+                    <default>false</default>
+                    <label>ASISTENTE</label>
+                </value>
+                <value>
+                    <fullName>OTROS</fullName>
+                    <default>false</default>
+                    <label>OTROS</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Celular_inicio__c</fullName>
+        <encryptionScheme>CaseSensitiveDeterministicEncryption</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Celular inicio</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Correo_electronico_inicio__c</fullName>
+        <encryptionScheme>CaseSensitiveDeterministicEncryption</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Correo electronico inicio</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Decisor_inicio__c</fullName>
+        <externalId>false</externalId>
+        <label>Decisor inicio</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Si</fullName>
+                    <default>false</default>
+                    <label>Sí</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <listViews>
         <fullName>AllContacts</fullName>
         <columns>FULL_NAME</columns>
