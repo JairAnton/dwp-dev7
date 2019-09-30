@@ -110,6 +110,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>rating_period__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( YEAR(year_month_day_date__c))+&apos;-&apos;+TEXT(MONTH(year_month_day_date__c))</formula>
+        <label>Period</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>status_type__c</fullName>
         <externalId>false</externalId>
         <label>Estado</label>
