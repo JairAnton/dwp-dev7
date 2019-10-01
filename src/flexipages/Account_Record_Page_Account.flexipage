@@ -1851,7 +1851,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOL</name>
-                <value>account_id__c=:recordId</value>
+                <value>account_id__c=:recordId ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>

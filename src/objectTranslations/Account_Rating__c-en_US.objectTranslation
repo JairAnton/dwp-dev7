@@ -14,24 +14,44 @@
         <relationshipLabel><!-- Account Ratings --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Qualitative score --></label>
-        <name>qualitative_rating_number__c</name>
+        <label><!-- Tipo --></label>
+        <name>certification_type__c</name>
+        <picklistValues>
+            <masterLabel>Auditado</masterLabel>
+            <translation><!-- Auditado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fiscal (SUNAT)</masterLabel>
+            <translation><!-- Fiscal (SUNAT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Situacional</masterLabel>
+            <translation><!-- Situacional --></translation>
+        </picklistValues>
     </fields>
     <fields>
-        <label><!-- Quantitative score --></label>
-        <name>quantitative_rating_number__c</name>
-    </fields>
-    <fields>
-        <label><!-- Status --></label>
-        <name>rating_class_type__c</name>
+        <label><!-- rating score --></label>
+        <name>internal_rating_score_type__c</name>
     </fields>
     <fields>
         <label><!-- Period --></label>
         <name>rating_period__c</name>
     </fields>
     <fields>
-        <label><!-- Scale --></label>
-        <name>rating_scale_type__c</name>
+        <label><!-- Estado --></label>
+        <name>status_type__c</name>
+        <picklistValues>
+            <masterLabel>Finalizado</masterLabel>
+            <translation><!-- Finalizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendiente</masterLabel>
+            <translation><!-- Pendiente --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validado</masterLabel>
+            <translation><!-- Validado --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Total score --></label>
@@ -45,6 +65,13 @@
         <label><!-- Date --></label>
         <name>year_month_day_date__c</name>
     </fields>
+    <layouts>
+        <layout>Account Rating Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <nameFieldLabel><!-- Reference --></nameFieldLabel>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

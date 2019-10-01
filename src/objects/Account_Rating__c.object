@@ -49,9 +49,9 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
@@ -112,7 +112,7 @@
     <fields>
         <fullName>rating_period__c</fullName>
         <externalId>false</externalId>
-        <formula> IF(MONTH(year_month_day_date__c)&lt;10, &apos;0&apos;+TEXT(MONTH(year_month_day_date__c)),TEXT(MONTH(year_month_day_date__c)))
+        <formula>IF(MONTH(year_month_day_date__c)&lt;10, &apos;0&apos;+TEXT(MONTH(year_month_day_date__c)),TEXT(MONTH(year_month_day_date__c)))
 +&apos;/&apos;+TEXT(YEAR(year_month_day_date__c))</formula>
         <label>Period</label>
         <required>false</required>
@@ -150,59 +150,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>qualitative_rating_number__c</fullName>
-        <externalId>false</externalId>
-        <label>Qualitative score</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>quantitative_rating_number__c</fullName>
-        <externalId>false</externalId>
-        <label>Quantitative score</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>rating_class_type__c</fullName>
-        <externalId>false</externalId>
-        <label>Status</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>rating_period__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(YEAR(year_month_day_date__c))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Period</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>rating_scale_type__c</fullName>
-        <externalId>false</externalId>
-        <label>Scale</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>total_rating_score_number__c</fullName>
         <externalId>false</externalId>
         <label>Total score</label>
@@ -216,7 +163,8 @@
     <fields>
         <fullName>unique_id__c</fullName>
         <caseSensitive>false</caseSensitive>
-		<externalId>true</externalId>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
         <label>Unique Identifier</label>
         <length>255</length>
         <required>false</required>
@@ -226,6 +174,7 @@
     </fields>
     <fields>
         <fullName>year_month_day_date__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Date</label>
         <required>false</required>
@@ -239,10 +188,6 @@
         <columns>NAME</columns>
         <columns>account_id__c</columns>
         <columns>year_month_day_date__c</columns>
-        <columns>rating_class_type__c</columns>
-        <columns>rating_scale_type__c</columns>
-        <columns>qualitative_rating_number__c</columns>
-        <columns>quantitative_rating_number__c</columns>
         <columns>total_rating_score_number__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
@@ -256,4 +201,5 @@
     <pluralLabel>Ratings</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

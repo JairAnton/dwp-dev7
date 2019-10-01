@@ -49,9 +49,9 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
@@ -103,6 +103,7 @@
     </fields>
     <fields>
         <fullName>gl_account_istotal__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Is Total</label>
         <length>20</length>
@@ -113,6 +114,7 @@
     </fields>
     <fields>
         <fullName>gl_account_path_position_id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Order</label>
         <length>20</length>
@@ -168,119 +170,10 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>l1_gl_account_desc__c</fullName>
-        <externalId>false</externalId>
-        <label>Type</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>l1_gl_account_id__c</fullName>
-        <externalId>false</externalId>
-        <label>Type code</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>l2_gl_account_desc__c</fullName>
-        <externalId>false</externalId>
-        <label>Categoria</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>l2_gl_account_id__c</fullName>
-        <externalId>false</externalId>
-        <label>Category code</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>l2_gl_account_order__c</fullName>
-        <externalId>false</externalId>
-        <formula>CASE(UPPER(l1_gl_account_desc__c)
-,&apos;01&apos;,CASE(UPPER(l2_gl_account_desc__c),&apos;PASIVO CORRIENTE&apos;,1,&apos;ACTIVO NO CORRIENTE&apos;,2,0)
-,&apos;02&apos;,CASE(UPPER(l2_gl_account_desc__c),&apos;PASIVO CORRIENTE&apos;,3,&apos;PASIVO NO CORRIENTE&apos;,4,0)
-,&apos;03&apos;,CASE(UPPER(l2_gl_account_desc__c),&apos;VENTAS&apos;,5,&apos;UTILIDAD BRUTA&apos;,6,&apos;UTILIDAD OPERATIVA&apos;,7,&apos;UTILIDAD ORDINARIA&apos;,8,&apos;UTILIDAD NETA&apos;,9,&apos;DEPRECIACIÓN DEL EJERCICIO&apos;,10,0)
-,&apos;04&apos;,CASE(UPPER(l2_gl_account_desc__c),&apos;PATRIMONIO&apos;,11,0)
-,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Category order</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>l3_gl_account_desc__c</fullName>
-        <externalId>false</externalId>
-        <label>Subcategory</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>l3_gl_account_id__c</fullName>
-        <externalId>false</externalId>
-        <label>Subcategory code</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>l3_gl_account_order__c</fullName>
-        <externalId>false</externalId>
-        <formula>CASE(UPPER(l3_gl_account_desc__c)
-,&apos;CAJA Y BANCOS&apos;,1,&apos;CLIENTES&apos;,2,&apos;EXISTENCIAS&apos;,3,&apos;OTROS AC&apos;,4
-,&apos;INM MAQ Y EQUIPO&apos;,5,&apos;DEP ACUMULADA&apos;,6
-,&apos;DEUDA FINANCIERA CP&apos;,7,&apos;DEUDA FINANCIERA LP PARTE CORRIENTE&apos;,8,&apos;PROVEEDORES&apos;,9,&apos;OTROS PC&apos;,10
-,&apos;DEUDA FINANCIERA LP PARTE NO CORRIENTE&apos;,11,&apos;OTROS PNC&apos;,12
-,&apos;COSTO DE VENTAS&apos;,13
-,&apos;ING/EGRE SIN CAJA&apos;,14,&apos;ING/EGRE CON CAJA&apos;,15,&apos;ING/EGRE OTROS&apos;,16
-,&apos;CAPITAL SOCIAL&apos;,17,&apos;REEVALUACIÓN&apos;,18,&apos;RESULTADOS ACUMULADOS&apos;,19,&apos;RESULTADOS DEL EJERCICIO&apos;,20
-,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Subcategory order</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>period__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(YEAR(year_month_day_date__c))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Period</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>unique_id__c</fullName>
         <caseSensitive>false</caseSensitive>
-		<externalId>true</externalId>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
         <label>Unique Identifier</label>
         <length>255</length>
         <required>false</required>
@@ -290,6 +183,7 @@
     </fields>
     <fields>
         <fullName>year_month_day_date__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Date</label>
         <required>false</required>
@@ -302,9 +196,6 @@
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>account_id__c</columns>
-        <columns>l1_gl_account_desc__c</columns>
-        <columns>l2_gl_account_desc__c</columns>
-        <columns>l3_gl_account_desc__c</columns>
         <columns>year_month_day_date__c</columns>
         <columns>gl_account_amount__c</columns>
         <columns>gl_account_per__c</columns>
@@ -313,10 +204,12 @@
         <language>en_US</language>
     </listViews>
     <nameField>
+        <encryptionScheme>None</encryptionScheme>
         <label>Reference</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Estados Financieros</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>
