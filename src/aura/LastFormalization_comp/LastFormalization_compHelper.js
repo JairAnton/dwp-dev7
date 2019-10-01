@@ -86,6 +86,23 @@
          });
          navEvent.fire();
     }
- 
- 
+	,
+	getContractNumber : function(component, event, helper){
+        var action = component.get("c.getOppContractNumber");
+        action.setParams({"oppId" : component.get("v.inputAttributes.recordId")});
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if(state === "SUCCESS"){
+                component.find("txtContract").set("v.value", response);
+            }else{
+                var toastEvent = $A.get("e.force:showToast");
+        		toastEvent.setParams({
+            	"message": (message ? message : "$Label.Dwp_msgGenericError"),
+                "type": (type ? type : "error")
+        		});
+            	toastEvent.fire();
+            }
+        });
+        $A.enqueueAction(action);
+    }
 })
