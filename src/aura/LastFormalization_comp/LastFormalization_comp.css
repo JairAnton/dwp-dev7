@@ -25,3 +25,13 @@
    background-color: #09864f;
    width:150px;
 }
+
+.THIS .clickedButtonOrange{
+   background-color: rgb(230, 122, 8);
+    color:white;	
+}
+
+.THIS .clickedButtonBlue{
+   background-color: rgba(27, 82, 151, 1);
+    color:white;	
+}
