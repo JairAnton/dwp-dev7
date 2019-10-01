@@ -112,7 +112,7 @@
     <fields>
         <fullName>rating_period__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(MONTH(year_month_day_date__c)&lt;10, &apos;0&apos;+TEXT(MONTH(year_month_day_date__c)),TEXT(MONTH(year_month_day_date__c)))
+        <formula> IF(MONTH(year_month_day_date__c)&lt;10, &apos;0&apos;+TEXT(MONTH(year_month_day_date__c)),TEXT(MONTH(year_month_day_date__c)))
 +&apos;/&apos;+TEXT(YEAR(year_month_day_date__c))</formula>
         <label>Period</label>
         <required>false</required>
