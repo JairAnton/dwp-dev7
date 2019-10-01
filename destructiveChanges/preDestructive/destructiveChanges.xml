@@ -4,6 +4,19 @@
 		<members>Account_Renewals__c.product_cateogry_type__c</members>
         <members>Opportunity.reevaluate__c</members>
         <members>fprd__GBL_Intervener__c.Account__c</members>
+		<members>Account_Rating__c.qualitative_rating_number__c</members>
+		<members>Account_Rating__c.quantitative_rating_number__c</members>
+		<members>Account_Rating__c.rating_scale_type__c</members>
+		<members>Account_Rating__c.rating_class_type__c</members>
+		<members>Account_Rating__c.total_rating_score_number__c</members>
+		<members>Account_Accounting__c.l2_gl_account_desc__c</members>
+		<members>Account_Accounting__c.l2_gl_account_id__c</members>
+		<members>Account_Accounting__c.l2_gl_account_order__c</members>
+		<members>Account_Accounting__c.l3_gl_account_desc__c</members>
+		<members>Account_Accounting__c.l3_gl_account_id__c</members>
+		<members>Account_Accounting__c.l3_gl_account_order__c</members>
+		<members>Account_Accounting__c.l1_gl_account_desc__c</members>
+		<members>Account_Accounting__c.l1_gl_account_id__c</members>
 		<name>CustomField</name>
     </types>
 	<types>
