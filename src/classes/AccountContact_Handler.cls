@@ -7,6 +7,7 @@
  * -------------------------------------------------------------------
  * Julio Medellin               22/02/2018          Original version.<p />
  * Alberto Gómez                27/02/2018          Added updateValuesRelationInContact method.<p />
+ * Martin Mori                  02/10/2019          Added updateTotalRequiredFields method.<p />
  *
  * @author Julio Medellin
  */
@@ -20,6 +21,7 @@ public without sharing class AccountContact_Handler extends TriggerHandler {
     protected override void afterInsert() {
       
      AccountContactParentAssociation.setValuesRelation( (List<AccountContactRelation>)(trigger.new));
+	 AccountContactParentAssociation.updateTotalRequiredFields((List<AccountContactRelation>)(trigger.new));
       
     }
 
@@ -30,6 +32,7 @@ public without sharing class AccountContact_Handler extends TriggerHandler {
      */
     protected override void afterUpdate() {
       AccountContactParentAssociation.updateValuesRelationInContact((List<AccountContactRelation>)(trigger.new));  
+	  AccountContactParentAssociation.updateTotalRequiredFields((List<AccountContactRelation>)(trigger.new));
     }
 	
 	/**
