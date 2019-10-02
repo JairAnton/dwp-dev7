@@ -7,7 +7,7 @@
  * -------------------------------------------------------------------
  * Julio Medellin               22/02/2018          Original version.<p />
  * Alberto Gómez                27/02/2018          Added updateValuesRelationInContact method.<p />
- * Martin Mori                  27/02/2018          Added updateTotalRequiredFields method.<p />
+ * Martin Mori                  02/10/2019          Added updateTotalRequiredFields method.<p />
  *
  * @author Julio Medellin
  */
