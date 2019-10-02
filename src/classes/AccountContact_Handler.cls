@@ -31,4 +31,11 @@ public without sharing class AccountContact_Handler extends TriggerHandler {
     protected override void afterUpdate() {
       AccountContactParentAssociation.updateValuesRelationInContact((List<AccountContactRelation>)(trigger.new));  
     }
+	
+	/**
+     * Method for update Total_campos_obligatorios_llenos__c field of Account to AccountContactRelation.
+     */
+    protected override void afterdelete() {
+      AccountContactParentAssociation.updateTotalRequiredFields((List<AccountContactRelation>)(trigger.old));  
+    }
 }

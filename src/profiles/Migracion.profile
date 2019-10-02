@@ -4200,6 +4200,21 @@
         <field>Contact.Decisor_inicio__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Total_campos_obligatorios_llenos__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Total_campos_obligatorios_llenos_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.Total_campos_obligatorios__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
