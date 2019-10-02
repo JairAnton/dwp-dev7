@@ -111,11 +111,11 @@ public static boolean uContact= true;
 	 /**
 	 * Method for update Total_campos_obligatorios_llenos__c field of Account to AccountContactRelation.
 	 *
-	 * @param lstAccountContactRelation Account Contact Relation List.
+	 * @param lstAccContRel Account Contact Relation List.
 	 */
-	 public static void updateTotalRequiredFields(List<AccountContactRelation> lstAccountContactRelation) {
-		 Set<Id> ids = new Set<Id>();
-		 for(AccountContactRelation acr : lstAccountContactRelation) {
+	 public static void updateTotalRequiredFields(List<AccountContactRelation> lstAccContRel) {
+		 final Set<Id> ids = new Set<Id>();
+		 for(AccountContactRelation acr : lstAccContRel) {
 			 ids.add(acr.AccountId);
 		 }
 		 if(!ids.isEmpty()) {
@@ -125,8 +125,7 @@ public static boolean uContact= true;
 					 if(accMaps.get(acr.AccountId).Total_campos_obligatorios_llenos__c < acr.Total_campos_obligatorios__c) {
 						 accMaps.put(acr.AccountId, new Account(Id=acr.AccountId, Total_campos_obligatorios_llenos__c = acr.Total_campos_obligatorios__c));
 					 }
-				 }
-				 else {
+				 } else {
 					 accMaps.put(acr.AccountId, new Account(Id=acr.AccountId, Total_campos_obligatorios_llenos__c = acr.Total_campos_obligatorios__c));
 				 }
 			 }
