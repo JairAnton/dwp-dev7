@@ -853,6 +853,14 @@
         <label>CIUU</label>
         <name>company_economic_activity_id__c</name>
     </fields>
+	<fields>
+        <label><!-- Total campos obligatorios llenos --></label>
+        <name>Total_campos_obligatorios_llenos__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total campos obligatorios llenos inicio --></label>
+        <name>Total_campos_obligatorios_llenos_inicio__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Layout</layout>
