@@ -1970,6 +1970,14 @@
                 <value>2</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>numGroupShow</name>
                 <value>3</value>
             </componentInstanceProperties>
@@ -2054,6 +2062,14 @@
             <componentInstanceProperties>
                 <name>levelData</name>
                 <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>0</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>numGroupShow</name>
