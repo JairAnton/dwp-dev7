@@ -11,26 +11,28 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
-            <property name="sObjApiName" type="String" default="Account" label="Enter object API Name" required="true"/>
-            <property name="sObjFieldsSOQL" type="String" default="Name" label="Enter the fields to show" required="true"/>
-            <property name="sObjFields" type="String" default="Name" label="Enter the fields to show" required="true"/>
-            <property name="sObjFieldLabels" type="String" default="Name" label="Enter the Label of fields to show"/>
-            <property name="keyField" type="String" default="Id" label="Enter the key field" required="true"/>
-            <property name="keyParentField" type="String" default="Id" label="Enter the parent key field" required="true"/>
+            <property name="sObjApiName" type="String" default="Account" label="Object API Name" required="true"/>
+            <property name="sObjFieldsSOQL" type="String" default="Name" label="Fields to query" required="true"/>
+            <property name="sObjFields" type="String" default="Name" label="Fields to show" required="true"/>
+            <property name="sObjFieldLabels" type="String" default="Name" label="Label of fields to show"/>
+            <property name="keyField" type="String" default="Id" label="Key field" required="true"/>
+            <property name="keyParentField" type="String" default="Id" label="Parent key field" required="true"/>
             <property name="filterSQOL" type="String" default="" label="Filter to SOQL" required="true"/>
             <property name="isExpanded" type="Boolean" default="false" label="Is expanded?"/>
             <property name="fieldOrder" type="String" default="" label="Filter to Order"/>
             <property name="typeOrder" type="String" default="ASC" label="Type of Sort ASC/DESC"/>
-            <property name="levelData" type="Integer" default="1" label="Enter the  number of sub levels" required="true"/>
-            <property name="fieldLevel" type="String" default="" label="level field"/>
+            <property name="levelData" type="Integer" default="1" label="Number of sub levels" required="true"/>
+            <property name="fieldLevel" type="String" default="" label="Level field"/>
             <property name="isHeaderGroup" type="Boolean" default="false" label="Is header Group?"/>
-            <property name="numGroupShow" type="Integer" min="1" default="1" label="Enter the number of groups to show"/>
-            <property name="keyGroup" type="String" default="" label="Enter the field to header group"/>
-            <property name="fieldsHeaderGroupSOQL" type="String" default="" label="Enter the fields to group in the header"/>
-            <property name="fieldsHeaderGroup" type="String" default="" label="Enter the fields to group in the header"/>
-            <property name="fieldsHeaderGroupLabels" type="String" default="" label="Enter the labels to group in the header"/>
-            <property name="filterSQOLGroup" type="String" default="" label="filterSQOLDate"/>
+            <property name="numGroupShow" type="Integer" min="1" default="1" label="number of groups to show"/>
+            <property name="keyGroup" type="String" default="" label="field to header group"/>
+            <property name="fieldsHeaderGroupSOQL" type="String" default="" label="fields to group query"/>
+            <property name="fieldsHeaderGroup" type="String" default="" label="fields to group in the header"/>
+            <property name="fieldsHeaderGroupLabels" type="String" default="" label="labels to group in the header"/>
+            <property name="filterSQOLGroup" type="String" default="" label="filter SQOL"/>
             <property name="formatDate" type="String" default="" label="formatDate"/>
+            <property name="maximumFractionDigits" type="Integer" label="maximumFractionDigits" default="2"/>
+            <property name="minimumFractionDigits" type="Integer" label="minimumFractionDigits" default="2"/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
