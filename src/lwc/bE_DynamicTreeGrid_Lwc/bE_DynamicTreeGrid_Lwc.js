@@ -35,6 +35,8 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   @api filterSQOLGroup = "";
   @api formatDate = "";
   @api numGroupShow = 0;
+  @api maximumFractionDigits=2;
+  @api minimumFractionDigits=2;
   @track gridData;
   @track error;
   @track loaded = false;
@@ -360,7 +362,9 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     switch (Obj.type) {
       case "currency":
         Object.defineProperty(targetObj,"typeAttributes", {
-            value: {currencyCode:{fieldName:"CurrencyIsoCode"}},
+            value: {currencyCode:{fieldName:"CurrencyIsoCode"},
+            maximumFractionDigits:this.maximumFractionDigits,
+            minimumFractionDigits:this.minimumFractionDigits},
             writable: true,
             enumerable: true,
             configurable: true
@@ -371,8 +375,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
         enumerable: true,
         configurable: true
         });
-      break;
-      case "percent":
+        break;
       case "boolean":
         Object.defineProperty(targetObj,"initialWidth", {
           value:60,
@@ -380,7 +383,22 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
           enumerable: true,
           configurable: true
         });
-    break;
+        break;
+      case "percent":
+        Object.defineProperty(targetObj,"typeAttributes", {
+            value: {maximumFractionDigits:this.maximumFractionDigits,
+            minimumFractionDigits:this.minimumFractionDigits},
+            writable: true,
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(targetObj,"initialWidth", {
+          value:60,
+          writable: true,
+          enumerable: true,
+          configurable: true
+        });
+        break;
     default:
         break;
     }

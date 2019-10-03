@@ -1904,7 +1904,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>typeOrder</name>
-                <value>DESC</value>
+                <value>ASC</value>
             </componentInstanceProperties>
             <componentName>bE_DynamicTreeGrid_Lwc</componentName>
         </componentInstances>
@@ -1939,7 +1939,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC</value>
+                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2025,11 +2025,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC</value>
+                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
-                <value>MMMM YYYY</value>
+                <value>MM/YYYY</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>isExpanded</name>
