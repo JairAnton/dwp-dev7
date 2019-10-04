@@ -1943,7 +1943,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
-                <value>MM/YYYY</value>
+                <value>MM/yyyy</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>isExpanded</name>
@@ -2037,7 +2037,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
-                <value>MM/YYYY</value>
+                <value>MM/yyyy</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>isExpanded</name>
