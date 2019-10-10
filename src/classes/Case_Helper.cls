@@ -1,29 +1,32 @@
 public with sharing class Case_Helper {
-    public static void updateCaseNotification(List<Case> lstNew, Map<Id,Case> mapOld){
+    
+    public static void updateCaseNotification(List<Case> lstNew, Map<Id,Case> mapOld) {
+        Final String rtId = [SELECT Id FROM RecordType WHERE DeveloperName = 'Formalization'].Id;
         List <Id> lstId = new List <Id>();
-        for (Case casnew : lstNew){
+        for (Case casnew : lstNew) {
             Case oldRecord = mapOld.get(casnew.Id);
-            if(!casnew.IsClosed && casnew.OwnerId!=oldRecord.OwnerId){
+            if(!casnew.IsClosed && casnew.OwnerId!=oldRecord.OwnerId && casnew.recordTypeId != rtId) {
                 lstId.add(casnew.Id);                
             }            
         }
-        if(!lstId.isEmpty()){
+        if(!lstId.isEmpty()) {
             DynamicBatchChatterNotification.getDynamicBatchChatterNotification(lstId, 'Case', Label.lblREASIGN_CASE);
         }       
-        
     }
-    public static void insertCaseNotification(List<Case> lstNew){
+    
+    public static void insertCaseNotification(List<Case> lstNew) {
+        Final String rtId = [SELECT Id FROM RecordType WHERE DeveloperName = 'Formalization'].Id;
         List <Id> lstId = new List <Id>();
-        for (Case cas : lstNew){
-            if(!cas.IsClosed){
+        for (Case cas : lstNew) {
+            if(!cas.IsClosed && cas.recordTypeId != rtId) {
                 lstId.add(cas.Id);                
             }            
         }
-        if(!lstId.isEmpty()){
+        if(!lstId.isEmpty()) {
             DynamicBatchChatterNotification.getDynamicBatchChatterNotification(lstId, 'Case', Label.lblCREATE_CASE);
         }
-        
     }
+    
     /**
 * Method using to Update rate
 * 

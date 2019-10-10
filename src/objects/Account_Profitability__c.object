@@ -58,7 +58,6 @@
     <enableStreamingApi>false</enableStreamingApi>
 	<fields>
         <fullName>Origin_currenIsoCode__c</fullName>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>Moneda Original</label>
         <length>50</length>
@@ -263,7 +262,6 @@ IF( profitability_subcategory_type__c ==&apos;TOTAL Tasa&apos;,&apos;Tasa %&apos
     </fields>
 	    <fields>
         <fullName>product_desc__c</fullName>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>product_desc</label>
         <length>255</length>
@@ -274,7 +272,6 @@ IF( profitability_subcategory_type__c ==&apos;TOTAL Tasa&apos;,&apos;Tasa %&apos
     </fields>
     <fields>
         <fullName>product_group_classification_id__c</fullName>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <label>product_group_classification_id</label>
         <length>255</length>

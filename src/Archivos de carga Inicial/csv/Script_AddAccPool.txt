@@ -1,0 +1,27 @@
+//Codigo de Asistentes Operativos
+List<String> rolAsis=new List<String>{'E06','I26'};
+//Pool de Asistentes
+List<Group> grupo = [SELECT ID FROM Group WHERE developerName = 'Asistentes_Operativos' limit 1];
+Map<Id, User> map_users=new Map<Id, User>([SELECT ID, Name, prof_position_id__c FROM User WHERE prof_position_id__c IN: rolAsis]);
+List<GroupMember> lst_members = [SELECT Id, GroupId, UserOrGroupId FROM GroupMember WHERE GroupId=:grupo[0].Id];
+
+//Eliminar usuarios que ya son miembros en la lista
+for(GroupMember gp:lst_members){
+    if(map_users.containsKey(gp.UserOrGroupId)){
+        map_users.remove(gp.UserOrGroupId);
+    }
+}
+
+//Nuevos Miembros
+List<User> lst_usuarios=map_users.Values();
+List<GroupMember> lst_newMembers=new List<GroupMember>();
+GroupMember member;
+for(User usr:lst_usuarios){
+    member=new GroupMember();
+    member.GroupId=grupo[0].id;
+    member.UserOrGroupId=usr.id;
+    lst_newMembers.add(member);
+}
+
+insert lst_newMembers;
+

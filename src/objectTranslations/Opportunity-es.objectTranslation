@@ -325,6 +325,10 @@
             <translation>Devuelta por riesgos</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Sent for contract</masterLabel>
+            <translation>Enviado para alta de contrato</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Sent for formalization</masterLabel>
             <translation>Enviado a formalización</translation>
         </picklistValues>

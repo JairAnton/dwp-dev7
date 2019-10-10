@@ -3,6 +3,7 @@
 		component.set("v.lblComments", $A.get("$Label.c.Comments"));	
 		
 	    helper.bringData(component, event, helper); 
+        helper.getContractNumber(component, event, helper);
     },
 	close : function(component, event, helper) {
 		helper.destroyCmp(component, event, helper);
@@ -21,37 +22,37 @@
 		var cmpTargetiB = component.find('iBack');
 
 		$A.util.removeClass(cmpTarget1, 'clickedButton');	
-		$A.util.removeClass(cmpTarget2, 'clickedButton');
-		$A.util.removeClass(cmpTargetbB, 'clickedButton');
+		$A.util.removeClass(cmpTarget2, 'clickedButtonBlue');
+		$A.util.removeClass(cmpTargetbB, 'clickedButtonOrange');
 
 		$A.util.removeClass(cmpTarget3, 'tclickedButton');	
-		$A.util.removeClass(cmpTarget4, 'tclickedButton');
-		$A.util.removeClass(cmpTargettB, 'tclickedButton');
+		$A.util.removeClass(cmpTarget4, 'clickedButtonBlue');
+		$A.util.removeClass(cmpTargettB, 'clickedButtonOrange');
 
 		cmpTarget5.set("v.variant","normal");
 		cmpTarget6.set("v.variant","normal");
 		cmpTargetiB.set("v.variant","normal");
 
-        $A.util.addClass(event.getSource(), 'clickedButton');
         
-
-		
 
 		if(event.getSource().get("v.name")=='btnApprove')
 		{
+            $A.util.addClass(event.getSource(), 'clickedButton');
 			cmpTarget5.set("v.variant","inverse");	
 			$A.util.addClass(cmpTarget3, 'tclickedButton');
 
 		}
 		else if(event.getSource().get("v.name")=='btnRaise')
 		{
+            $A.util.addClass(event.getSource(), 'clickedButtonBlue');
 			cmpTarget6.set("v.variant","inverse");
-			$A.util.addClass(cmpTarget4, 'tclickedButton');
+			$A.util.addClass(cmpTarget4, 'clickedButtonBlue');
 
 		}
 		else{
+            $A.util.addClass(event.getSource(), 'clickedButtonOrange');
 			cmpTargetiB.set("v.variant","inverse");
-			$A.util.addClass(cmpTargettB, 'tclickedButton');
+			$A.util.addClass(cmpTargettB, 'clickedButtonOrange');
 
 		}
 

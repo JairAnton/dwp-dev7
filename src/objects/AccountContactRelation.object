@@ -613,6 +613,18 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+	<fields>
+        <fullName>Total_campos_obligatorios__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK ( MobilePhone__c ) , 0, 1) + IF( ISBLANK ( email__c ), 0, 1) + IF( ISPICKVAL( prof_position_type__c, &apos;&apos;) , 0, 1) + IF( ISPICKVAL( decision_making_desc__c, &apos;&apos;) , 0, 1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total campos obligatorios llenados</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <validationRules>
         <fullName>ACR_ValidationRule_Position</fullName>
         <active>true</active>

@@ -16,7 +16,7 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>prof_position_type__c</field>
             </layoutItems>
             <layoutItems>
@@ -24,7 +24,7 @@
                 <field>decision_making_desc__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Email</field>
             </layoutItems>
             <layoutItems>
@@ -50,7 +50,7 @@
                 <field>other_prof_prosition_type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>MobilePhone</field>
             </layoutItems>
             <layoutItems>

@@ -1,10 +1,34 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId" extends="dwp_mdal:ModalTemplate_cmp" controller="PDFclassButton" access="GLOBAL">
-<aura:attribute name="title" type="String" default="{!$Label.c.lblTitlePDF}" access="global" description="Specify the modal"/>         
-<div class="slds-modal__content slds-p-around_medium slds-theme_shade">
-      {!$Label.c.lblMsgPDF} 
-   </div>
-   <footer class="slds-modal__footer slds-theme_default">
-       <lightning:button variant="neutral" label="Sí" onclick="{!c.doPDF}"/>
-       <lightning:button variant="neutral" label="No" onclick="{!c.close}"/>
-   </footer>
+    <!--<aura:attribute name="hasHeader" type="Boolean" default="false"/>-->
+    <aura:attribute name="hasHeader" type="Boolean" default="true"/>
+    <aura:attribute name="title" type="String" default="{!$Label.c.lblTitlePDF}" access="global" description="Specify the modal"/>
+    <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>-->
+    <aura:attribute name="msgProperty" type="String"/>
+    <aura:attribute name="dialog" type="String"/>
+    <!--<aura:attribute name="validate" type="Boolean" default="false"/>
+    <aura:attribute name="showInterface" type="Boolean" default="false"/>-->
+    <aura:attribute name="validate" type="Boolean" default="true"/>
+    <aura:attribute name="showInterface" type="Boolean" default="false"/>
+    
+    <aura:if isTrue="{!v.validate}">
+        <aura:if isTrue="{!v.showInterface}">
+            <div class="slds-modal__content slds-p-around_medium">
+                <lightning:layout verticalAlign="center" multipleRows="false">
+                    <lightning:layoutItem padding="around-small" size="12"><p style="text-align:center;">{!v.msgProperty}<br/>{!v.dialog}</p></lightning:layoutItem>
+                </lightning:layout>
+            </div>
+            <footer class="slds-modal__footer slds-theme_default">
+                <lightning:button variant="neutral" label="Cancelar" onclick="{!c.close}" class="slds-float_left"/>
+                <lightning:button aura:id="btnContinue" variant="brand" label="Asignarmela" onclick="{!c.doPDF}" disabled="false"/>
+            </footer>
+            <aura:set attribute="else">
+        		<div class="slds-modal__content slds-p-around_medium slds-theme_shade">{!$Label.c.lblMsgPDF}</div>
+                <footer class="slds-modal__footer slds-theme_default">
+                    <lightning:button variant="neutral" label="Sí" onclick="{!c.doPDF}"/>
+                    <lightning:button variant="neutral" label="No" onclick="{!c.close}"/>
+                </footer>
+            </aura:set>
+        </aura:if>
+        
+	</aura:if>
 </aura:component>

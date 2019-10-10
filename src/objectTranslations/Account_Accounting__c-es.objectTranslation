@@ -18,44 +18,40 @@
         <name>gl_account_amount__c</name>
     </fields>
     <fields>
+        <label>Código del tipo</label>
+        <name>gl_account_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Level --></label>
+        <name>gl_account_id_path_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Total --></label>
+        <name>gl_account_istotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>gl_account_path_position_id__c</name>
+    </fields>
+    <fields>
         <label>Porcentaje</label>
         <name>gl_account_per__c</name>
     </fields>
     <fields>
-        <label>Tipo</label>
-        <name>l1_gl_account_desc__c</name>
+        <label><!-- Type --></label>
+        <name>gl_account_type__c</name>
+        <picklistValues>
+            <masterLabel>Balance General</masterLabel>
+            <translation><!-- Balance General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ganancias y Perdidas</masterLabel>
+            <translation><!-- Ganancias y Perdidas --></translation>
+        </picklistValues>
     </fields>
     <fields>
-        <label>Código del tipo</label>
-        <name>l1_gl_account_id__c</name>
-    </fields>
-    <fields>
-        <label>Categoria</label>
-        <name>l2_gl_account_desc__c</name>
-    </fields>
-    <fields>
-        <label>Código de la categoria</label>
-        <name>l2_gl_account_id__c</name>
-    </fields>
-    <fields>
-        <label>Orden categoria</label>
-        <name>l2_gl_account_order__c</name>
-    </fields>
-    <fields>
-        <label>Subcategoria</label>
-        <name>l3_gl_account_desc__c</name>
-    </fields>
-    <fields>
-        <label>Código de la subcategoría</label>
-        <name>l3_gl_account_id__c</name>
-    </fields>
-    <fields>
-        <label>Orden subcategoria</label>
-        <name>l3_gl_account_order__c</name>
-    </fields>
-    <fields>
-        <label>Período</label>
-        <name>period__c</name>
+        <label><!-- Parent Code --></label>
+        <name>parent_gl_account_id__c</name>
     </fields>
     <fields>
         <label>Identificador único</label>
@@ -66,5 +62,12 @@
         <name>year_month_day_date__c</name>
     </fields>
     <gender>Masculine</gender>
+    <layouts>
+        <layout>Account Accounting Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>Referencia</nameFieldLabel>
 </CustomObjectTranslation>

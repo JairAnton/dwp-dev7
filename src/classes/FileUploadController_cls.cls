@@ -11,7 +11,7 @@
 *1.0       	28-05-2018        Isaías Velázquez                   Creation
 **/
 
-public with sharing class FileUploadController_cls {
+public without sharing class FileUploadController_cls {
  	@AuraEnabled
     public static Id saveChunk(Id parentId, String fileName, String base64Data, String contentType, String fileId) {
         // check if fileId id ''(Always blank in first chunk), then call the saveTheFile method,
@@ -45,11 +45,7 @@ public with sharing class FileUploadController_cls {
     private static void appendToFile(Id fileId, String base64Data) {
         final String v_base64Data = EncodingUtil.urlDecode(base64Data, 'UTF-8'); //Yulino 06/12/2018 : Se agrego la variable local
  
-        Attachment a = [
-            SELECT Id, Body
-            FROM Attachment
-            WHERE Id =: fileId
-        ];
+        Attachment a = [ SELECT Id, Body FROM Attachment WHERE Id =: fileId ];
  
         String existingBody = EncodingUtil.base64Encode(a.Body);
  

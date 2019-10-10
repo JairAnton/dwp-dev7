@@ -23,7 +23,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsAlignment</name>
-                <value>left</value>
+                <value>left,left</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsCollectionUniqueIdentifier</name>
@@ -31,11 +31,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsStyles</name>
-                <value>brand</value>
+                <value>brand,brand</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsUniqueIdentifiers</name>
-                <value>btnReasign</value>
+                <value>btnReasign,btnReasignOwnerFormalization</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>

@@ -134,6 +134,7 @@ public with sharing class SanctionPriceDecision_ctrl {
             insert lstDetails;
             
             if(createCase) {
+                List<RecordType> rt = [SELECT Id, DeveloperName FROM RecordType WHERE DeveloperName='Sanction_Price' AND SobjectType='Case' limit 1];
                 List<Group> queueGroup = [SELECT    Id, 
                                           DeveloperName,
                                           Type  
@@ -150,6 +151,7 @@ public with sharing class SanctionPriceDecision_ctrl {
                 caseInsert.Type = 'Other';
                 caseInsert.AccountId = lstOpp[0].AccountId;
                 caseInsert.opportunity_id__c = recordId;
+                caseInsert.RecordTypeId=rt[0].Id;
                 insert caseInsert;
             }
             mapReturn.put('isOk', true);
@@ -327,7 +329,7 @@ public with sharing class SanctionPriceDecision_ctrl {
             lstMapRes.add(new Map<String, Object>{ 'label' => 'Plazo', 'value' => oli[0].gipr_Plazo__c, 'type' => 'INTEGER', 'position' => 3});
             lstMapRes.add(new Map<String, Object>{ 'label' => 'Periodicidad', 'value' => mapPC.get('gipr_Periodicidad__c'), 'type' => 'STRING' , 'position' => 4});
             lstMapRes.add(new Map<String, Object>{ 'label' => 'Tipo de garantía', 'value' => mapPC.get('gipr_Tipo_Garantia__c'), 'type' => 'STRING', 'position' => 5});
-            if(oli[0].gipr_Tipo_Garantia__c != '03') {
+            if(oli[0].gipr_Tipo_Garantia__c != '03' && oli[0].gipr_Tipo_Garantia__c != null) {
                 lstMapRes.add(new Map<String, Object>{ 'label' => 'Garantía', 'value' => mapPC.get('gipr_Garantia__c'), 'type' => 'STRING', 'position' => 6});
                 lstMapRes.add(new Map<String, Object>{ 'label' => 'Cobertura (%)', 'value' => (oli[0].gipr_Cobertura__c !=null?oli[0].gipr_Cobertura__c.setScale(2):null), 'type' => 'PERCENT', 'position' => 7});
             }

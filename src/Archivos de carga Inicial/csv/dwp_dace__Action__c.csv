@@ -1,16 +1,17 @@
-"CURRENCYISOCODE","DWP_DACE__ACTION_DESC__C","DWP_DACE__ACTION_UNIQUE_ID__C"
-"PEN","Price Approval","btnSanctionPrice2"
-"PEN","Price Approval","btnSanctionPrice"
-"PEN","Add Product","addProduct"
-"PEN","Complete","btnComplete"
-"PEN","Unlink","btnUnlink"
-"PEN","Aprove Formalization","btnFormalize"
-"PEN","Quote","btnQuote"
-"PEN","Edit Product","editProduct"
-"PEN","Formalization","btnFormalization"
-"PEN","Risk Approval","btnPenalizeRisk"
-"PEN","Generate PDF","btnPDF"
-"PEN","Review","btnReevaluate"
-"PEN","Reject","btnReject"
-"PEN","Delete Product","deleteProduct"
-"PEN","Approve","btnApprove"
+DWP_DACE__ACTION_DESC__C,DWP_DACE__ACTION_UNIQUE_ID__C
+Botón para reasignar casos en sanción de precios,btnReasign
+Quote,btnQuote
+Edit Product,editProduct
+Formalization,btnFormalization
+Risk Approval,btnPenalizeRisk
+Generate PDF,btnPDF
+Review,btnReevaluate
+Reject,btnReject
+Delete Product,deleteProduct
+Approve,btnApprove
+Price Approval,btnSanctionPrice2
+Price Approval,btnSanctionPrice
+Add Product,addProduct
+Complete,btnComplete
+Unlink,btnUnlink
+Aprove Formalization,btnFormalize

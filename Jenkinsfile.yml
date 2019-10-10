@@ -23,6 +23,7 @@ stages:
     params:
       mdapiConfig:
         command: deploy
+        apiVersion: 46.0
 branches:
     feature:
         stages:

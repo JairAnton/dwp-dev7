@@ -47,6 +47,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AssistantFormalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AssistantFormalization_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BBVA_SBS_Classification_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -60,6 +68,18 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Contact_Handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Dwp_Utils_helper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Dwp_Utils_helper_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FileUploadController_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -107,11 +127,43 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ReOwnerFormalization_ValidationClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReOwnerFormalization_ValidationClass_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SgofFormalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SgofFormalization_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerHandler_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Handler_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_Case_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_Case_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
    <classAccesses>
@@ -125,6 +177,14 @@
     <classAccesses>
         <apexClass>approveButtonClass_Test</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass_tst</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Action_Audit_Helper</apexClass>
@@ -1257,52 +1317,37 @@ Analistas de riesgos</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_id_path_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_istotal__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_path_position_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Accounting__c.gl_account_per__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Accounting__c.l1_gl_account_desc__c</field>
+        <field>Account_Accounting__c.gl_account_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Accounting__c.l1_gl_account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l2_gl_account_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l2_gl_account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l2_gl_account_order__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l3_gl_account_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l3_gl_account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l3_gl_account_order__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.period__c</field>
+        <field>Account_Accounting__c.parent_gl_account_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1735,7 +1780,7 @@ Analistas de riesgos</description>
         <field>Account_BBVA_Information__c.product_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Account_BBVA_Information__c.product_group_classification_id__c</field>
         <readable>true</readable>
@@ -1745,19 +1790,14 @@ Analistas de riesgos</description>
         <field>Account_Profitability__c.year_month_day_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+        <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Rating__c.qualitative_rating_number__c</field>
+        <field>Account_Rating__c.certification_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Rating__c.quantitative_rating_number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Rating__c.rating_class_type__c</field>
+        <field>Account_Rating__c.internal_rating_score_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1767,7 +1807,7 @@ Analistas de riesgos</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Rating__c.rating_scale_type__c</field>
+        <field>Account_Rating__c.status_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2818,6 +2858,11 @@ Analistas de riesgos</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.ExpectedRevenue</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Formalization_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4851,6 +4896,51 @@ Analistas de riesgos</description>
         <field>OpportunityLineItem.Assigned_analyst__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Campos_obligatorios_llenos__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Campos_obligatorios_llenos_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Cargo_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Celular_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Correo_electronico_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Decisor_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Total_campos_obligatorios_llenos__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Total_campos_obligatorios_llenos_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.Total_campos_obligatorios__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
@@ -4906,6 +4996,10 @@ Analistas de riesgos</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Branch__c-Branch_Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Price Approval Case Layout</layout>
+        <recordType>Case.Sanction_Price</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
@@ -5545,6 +5639,16 @@ Analistas de riesgos</description>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Formalization</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Case.Sanction_Price</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</recordType>
         <visible>true</visible>
@@ -5709,6 +5813,10 @@ Analistas de riesgos</description>
     <tabVisibilities>
         <tab>iaso__GBL_Application_Log__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>WebPyme</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

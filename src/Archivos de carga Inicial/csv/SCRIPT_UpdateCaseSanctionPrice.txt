@@ -1,0 +1,15 @@
+List<RecordType> rtForm = [SELECT Id, DeveloperName FROM RecordType WHERE DeveloperName='Formalization' AND SobjectType='Case' limit 1];
+List<RecordType> rt = [SELECT Id, DeveloperName FROM RecordType WHERE DeveloperName='Sanction_Price' AND SobjectType='Case' limit 1];
+Case[] casos = [SELECT Id, bypass__c, status, recordTypeId FROM Case WHERE RecordTypeId!=:rtForm[0].Id ];
+for(case cas:casos){
+    cas.bypass__c = true;
+    cas.recordTypeId = rt[0].id;
+}
+
+update casos;
+
+for(case cas:casos){
+    cas.bypass__c = false;
+}
+
+update casos;

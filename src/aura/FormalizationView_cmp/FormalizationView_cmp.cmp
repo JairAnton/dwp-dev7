@@ -1,0 +1,75 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="fileName" type="String" default="" access="public"/>
+    <aura:attribute name="optionSelected" type="String" access="public"/>
+    <aura:attribute name="picklistValues" type="String[]" access="public"/>
+    <aura:attribute name="mapPicklistValues" type="Object" access="public"/>
+    <aura:attribute name="showAlert" type="Boolean" default="false" access="public"/>
+    <aura:attribute name="msgCorrection" type="String" access="public"/>
+    <aura:attribute name="lblContinue" type="String" access="public"/>
+    <aura:attribute name="showInterface" type="Boolean" access="public"/>
+    <aura:attribute name="loadView" type="Boolean" default="false" access="global"/>
+    <aura:attribute name="msgProperty" type="String" access="public"/>
+    <aura:attribute name="dialog" type="String" access="public"/>
+    <aura:attribute name="recordIdParent" type="String" access="public"/>
+    <aura:attribute name="lblSend" type="String" access="public"/>
+    <aura:attribute name="lblReturn" type="String" access="public"/>
+    <aura:handler name="uploadFileEvt" event="c:UploadedFile_evt" action="{!c.getFileName}"/>
+    <aura:registerEvent name="setContinueButton" type="c:FormalizationView_Evt"/>
+    
+    <aura:if isTrue="{!v.loadView}">
+        <aura:if isTrue="{!v.showInterface}">
+            <lightning:layout verticalAlign="center" multipleRows="false">
+                <lightning:layoutItem padding="around-small" size="12"><p style="text-align:center;">{!v.msgProperty}<br/>{!v.dialog}</p></lightning:layoutItem>
+            </lightning:layout>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.showAlert}">
+                    <div id="idAlert" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">error</span><h2><b>{!v.msgCorrection}</b></h2>
+                        <div class="slds-notify__close">
+                            <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" onclick="{!c.closeAlert}" title="close" alternativeText="Close window"/>
+                        </div>
+                    </div>
+                </aura:if>
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem padding="around-small" size="9">
+                        <lightning:input aura:id="contractNumber" label="N° de contrato" />
+                        <p style="color:rgb(62, 62, 60); font-size:.75rem;">Ingresa el n° de contrato tal como aparece en Nacar.</p>
+                        <lightning:select aura:id="picklistField" label="Si vas a devolver la oportunidad, elige una razón">
+                            <option value="">Elegir</option>
+                            <aura:iteration items="{!v.picklistValues}" var="val">
+                                <option value="{!val}">{!val}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                        <br/>
+                        <lightning:textArea aura:id="comments" label="Comentario" placeholder="Deja aquí tu comentario" />
+                        <c:fileUpload_comp parentId="{!v.recordIdParent}" />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-medium" size="3">
+                        <br/>
+                        <table cellspacing="2" style="border-collapse:separate; border-spacing: 0px 5px;">
+                            <tr>
+                                <td>
+                                    <lightning:button aura:id="btnSF" name="btnSF" class="buttonGreen sizeIconButton slds-button slds-p-horizontal_x-small slds-float_right" onclick="{!c.selectedOption}"  >
+                                        <p aura:id="pSF" style="line-height:1.2rem;"><lightning:icon iconName="utility:check" size="small" aura:id="iconSF" variant="success"/><br/><b>{!v.lblSend}</b></p>
+                                    </lightning:button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <lightning:button aura:id="btnRE" name="btnRE" class="buttonOrange sizeIconButton slds-button slds-p-horizontal_x-small slds-float_right" onclick="{!c.selectedOption}"  >
+                                        <p aura:id="pRE" style="line-height:1.3rem;"><lightning:icon iconName="utility:reply" size="small" aura:id="iconRE" variant="warning" /><br/><b>{!v.lblReturn}</b></p>
+                                    </lightning:button>
+                                </td>
+                            </tr>
+                        </table>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </aura:set>
+        </aura:if>
+        <aura:set attribute="else">
+            <div class="slds-align_absolute-center">
+            	<lightning:spinner variant="brand" class="slds-is-relative"/>
+            </div>
+        </aura:set>
+    </aura:if> 
+</aura:component>

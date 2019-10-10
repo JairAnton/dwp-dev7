@@ -1275,52 +1275,37 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_id_path_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_istotal__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_path_position_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Accounting__c.gl_account_per__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Accounting__c.l1_gl_account_desc__c</field>
+        <field>Account_Accounting__c.gl_account_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Accounting__c.l1_gl_account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l2_gl_account_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l2_gl_account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l2_gl_account_order__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l3_gl_account_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l3_gl_account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l3_gl_account_order__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.period__c</field>
+        <field>Account_Accounting__c.parent_gl_account_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1765,17 +1750,12 @@ Ejecutivos de REDES</description>
     </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Rating__c.qualitative_rating_number__c</field>
+        <field>Account_Rating__c.certification_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Rating__c.quantitative_rating_number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Rating__c.rating_class_type__c</field>
+        <field>Account_Rating__c.internal_rating_score_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1785,7 +1765,7 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Rating__c.rating_scale_type__c</field>
+        <field>Account_Rating__c.status_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4683,6 +4663,51 @@ Ejecutivos de REDES</description>
         <field>OpportunityLineItem.Assigned_analyst__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Campos_obligatorios_llenos__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Campos_obligatorios_llenos_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Cargo_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Celular_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Correo_electronico_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Decisor_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Total_campos_obligatorios_llenos__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Total_campos_obligatorios_llenos_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.Total_campos_obligatorios__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
@@ -5541,6 +5566,10 @@ Ejecutivos de REDES</description>
     <tabVisibilities>
         <tab>iaso__GBL_Application_Log__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>WebPyme</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

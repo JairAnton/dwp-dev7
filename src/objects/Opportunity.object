@@ -275,8 +275,29 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Dwp_DevolutionUser__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Usuario en devolución</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>ExpectedRevenue</fullName>
         <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Formalization_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Fecha de formalización</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>IqScore</fullName>
@@ -436,7 +457,63 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>	
+    </fields>
+    <fields>
+        <fullName>devolutionReason__c</fullName>
+        <description>Razón de devolución de una oportunidad en etapa de formalización</description>
+        <externalId>false</externalId>
+        <label>Razón de devolución</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Importe errado</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>Moneda errada</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>Importe y moneda erradas</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>Cliente clasificado</label>
+                </value>
+                <value>
+                    <fullName>05</fullName>
+                    <default>false</default>
+                    <label>Cliente buró 7 y 8</label>
+                </value>
+                <value>
+                    <fullName>06</fullName>
+                    <default>false</default>
+                    <label>Cliente no autorizado por riesgos</label>
+                </value>
+                <value>
+                    <fullName>07</fullName>
+                    <default>false</default>
+                    <label>Cliente no autorizado por Delegación Gerente</label>
+                </value>
+                <value>
+                    <fullName>08</fullName>
+                    <default>false</default>
+                    <label>Otros</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <fields>
         <fullName>frm_ContractNumber__c</fullName>
         <externalId>false</externalId>
@@ -656,6 +733,11 @@
                     <default>false</default>
                     <label>Rejected</label>
                 </value>
+                <value>
+                    <fullName>25</fullName>
+                    <default>false</default>
+                    <label>Sent for contract</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>01</controllingFieldValue>
@@ -744,6 +826,10 @@
             <valueSettings>
                 <controllingFieldValue>05</controllingFieldValue>
                 <valueName>20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>05</controllingFieldValue>
+                <valueName>25</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>06</controllingFieldValue>

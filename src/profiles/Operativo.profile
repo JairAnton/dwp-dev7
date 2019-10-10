@@ -30,6 +30,22 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AssistantFormalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AssistantFormalization_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Assistant_ValidationClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Assistant_ValidationClass_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BBVA_SBS_Classification_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -50,8 +66,24 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Dwp_Utils_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Dwp_Utils_helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>FileUploadController_cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Formalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Formalization_Helper_tst</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GraphicsGenerator_cls</apexClass>
@@ -134,7 +166,23 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ReOwnerFormalization_ValidationClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReOwnerFormalization_ValidationClass_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ReevaluateButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SgofFormalization_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SgofFormalization_helper_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -147,6 +195,30 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerHandler_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Handler_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_Case_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_Case_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>User_Trigger_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseStatusButtonClass_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1370,52 +1442,37 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_id_path_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_istotal__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Accounting__c.gl_account_path_position_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Accounting__c.gl_account_per__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Accounting__c.l1_gl_account_desc__c</field>
+        <field>Account_Accounting__c.gl_account_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Accounting__c.l1_gl_account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l2_gl_account_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l2_gl_account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l2_gl_account_order__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l3_gl_account_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l3_gl_account_id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.l3_gl_account_order__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Accounting__c.period__c</field>
+        <field>Account_Accounting__c.parent_gl_account_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1855,17 +1912,12 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Rating__c.qualitative_rating_number__c</field>
+        <field>Account_Rating__c.certification_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Rating__c.quantitative_rating_number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Rating__c.rating_class_type__c</field>
+        <field>Account_Rating__c.internal_rating_score_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1875,7 +1927,7 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Rating__c.rating_scale_type__c</field>
+        <field>Account_Rating__c.status_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2349,9 +2401,24 @@ Sub Gerentes de oficina</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DWP_AssistantOwner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DWP_SGofOwner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Case.Description</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Dwp_ElevatedDate__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2416,6 +2483,21 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.case_owner_calc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.dwp_centralcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.dwp_officeName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.dwp_returned_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2929,9 +3011,19 @@ Sub Gerentes de oficina</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Dwp_DevolutionUser__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.ExpectedRevenue</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Formalization_Date__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2981,6 +3073,11 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.contract_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.devolutionReason__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5238,6 +5335,51 @@ Sub Gerentes de oficina</description>
         <field>OpportunityLineItem.Assigned_analyst__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Campos_obligatorios_llenos__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Campos_obligatorios_llenos_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Cargo_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Celular_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Correo_electronico_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Decisor_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Total_campos_obligatorios_llenos__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Total_campos_obligatorios_llenos_inicio__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>AccountContactRelation.Total_campos_obligatorios__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
@@ -5308,6 +5450,10 @@ Sub Gerentes de oficina</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Renewals__c-Account Renewals Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Formalization Case Layout</layout>
+        <recordType>Case.Formalization</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Global-Global Layout</layout>
@@ -5913,6 +6059,11 @@ Sub Gerentes de oficina</description>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <recordType>Case.Formalization</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__AccountVisit</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6007,7 +6158,7 @@ Sub Gerentes de oficina</description>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Case</tab>
-        <visibility>Hidden</visibility>
+        <visibility>Hidden</visibility> 
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-CollaborationGroup</tab>
@@ -6140,6 +6291,10 @@ Sub Gerentes de oficina</description>
     <tabVisibilities>
         <tab>iaso__GBL_Application_Log__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>WebPyme</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

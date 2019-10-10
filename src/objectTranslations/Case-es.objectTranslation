@@ -1,5 +1,641 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Petición</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Peticiones</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Acceso a peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_access</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Nivel de acceso a petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_access_level</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Cuenta de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_account</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Alerta de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_alert</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Artículo de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_article</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Id. de artículo de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_article_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Activo de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_asset</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Regla de asignación de peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_assignment_rule</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Captura de peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_capture</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Información de la captura de peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_capture_information</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Página Captura de peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_capture_page</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Petición final</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_close</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Petición cerrada</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_closed</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Cierre de petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_closure</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Comentario de la petición</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Comentarios de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_comment</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Id. de comentario del petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_comment_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Información de comentario de peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_comment_information</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Compañía de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_company</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Contacto de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_contact</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Función del contacto de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_contact_role</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Fecha de creación de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_created_date</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Creador de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_creator</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Divisa de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_currency</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Campo personalizado de la petición</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Campos personalizados de las peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_custom_field</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Descripción de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_description</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Detalle de la petición</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Detalles de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_detail</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Vínculo de detalles de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_detail_link</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>División de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_division</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Modificación de petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_edit</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Correo electrónico de la petición</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Correos electrónicos de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_email</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Noticias en tiempo real de petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_feed</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Campo de la petición</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Campos de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_field</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Historial de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_history</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Id. del historial de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_history_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Id. del historial de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_history_info</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Propietario del historial de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_history_owner</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Informe del historial de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_history_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Estado del historial de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_history_status</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Id. de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Información de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_information</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Última modificación de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_last_modified</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Ciclo de vida de las peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_lifecycle</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Informe de ciclo de vida de los peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_lifecycle_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Lista de peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_list</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Evento clave de petición</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Eventos clave de petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_milestone</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Nombre de petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_name</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Número de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_number</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Origen de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_origin</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Propietario de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_owner</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Alias del propietario de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_owner_alias</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Función del propietario de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_owner_role</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Teléfono de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_phone</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Lista de selección de peticiones</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Listas de selección de peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_picklist</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Prioridad de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_priority</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Cola de peticiones</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Colas de peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_queue</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Motivo de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_reason</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Tipo de registro de la petición</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Tipos de registro de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_record_type</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Id. del tipo de registro de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_record_type_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Origen de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_source</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>ID de etapa de petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_stage_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Estado de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_status</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Asunto de la petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_subject</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Equipo de peticiones</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Equipos de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_team</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Miembro de equipo de peticiones</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Miembros de equipo de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_team_member</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Función de miembro de equipo de peticiones</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Funciones de miembro de equipo de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_team_member_role</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Registro de equipo de peticiones</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Registros de equipo de peticiones</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_team_record</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Tipo de petición</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>case_type</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Vista de la petición</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Vistas de peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>case_view</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Página de detalles de la petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>cases_detail_page</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Ficha Peticiones</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>cases_tab</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Nota de petición</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Notas de petición</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>feed_filter_case_note</name>
+    </fields>
     <fields>
         <label>Propietario</label>
         <name>case_owner_calc__c</name>
@@ -64,8 +700,17 @@
         <label><!-- NewChildCase --></label>
         <name>NewChildCase</name>
     </quickActions>
+    <recordTypes>
+        <label>Formalización</label>
+        <name>Formalization</name>
+    </recordTypes>
+    <recordTypes>
+        <label>Sanción de precio</label>
+        <name>Sanction_Price</name>
+    </recordTypes>
     <validationRules>
         <errorMessage>No tiene permitido modificar este campo.</errorMessage>
         <name>Status_Case</name>
     </validationRules>
+    <gender>Feminine</gender>
 </CustomObjectTranslation>

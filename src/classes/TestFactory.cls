@@ -1,8 +1,8 @@
 @isTest
 public class TestFactory {
-    public static User createUser(String userName, String Perfil){
+    public static User createUser(String userName, String Perfil) {
     	User u = new User();
-        Double random = Math.random();
+        Final Double random = Math.random();
         u.Username=userName+'u2@u.com.u'+random;
 		u.LastName=userName+'uLast2';
           u.Email=userName+'u2@u.com';
@@ -19,9 +19,9 @@ public class TestFactory {
     }
     
     //Eduardo Castillo S. Método creado para OpportunityPDFWrap
-    public static User createUser_1(String userName, String Perfil){
+    public static User createUser_1(String userName, String Perfil) {
     	User u = new User();
-        Double random = Math.random();
+        Final Double random = Math.random();
         u.Username=userName+'u2@u.com.u'+random;
 		u.LastName=userName+'uLast2';
           u.Email=userName+'u2@u.com';
@@ -37,13 +37,13 @@ public class TestFactory {
     	return u;
     }
     
-   public static Opportunity createOpportunity(Id accountId,Id userId){
+   public static Opportunity createOpportunity(Id accountId,Id userId) {
     	Opportunity opp = new Opportunity(ownerId=userId,Name='testopp', AccountId=accountId,StageName='01',Amount=100 ,CloseDate=system.Date.today(),opportunity_status_type__c='01');
     	insert opp;
         return opp;
     }
 
-    public static Attachment createAttachment(Id parentId, String attachmentName){
+    public static Attachment createAttachment(Id parentId, String attachmentName) {
     	Attachment attach=new Attachment(); 
         attach.Name= attachmentName; 
         Blob bodyBlob=Blob.valueOf('Unit Test Attachment Body'); 
@@ -56,16 +56,14 @@ public class TestFactory {
     	return attach;
     
 	}
-    public static Product2 createProduct (){
-        Product2 prod = new Product2(Name = 'Swift',
-                                     Family = 'Credit',
-                                     ProductCode='PC00009');
+    public static Product2 createProduct () {
+        Product2 prod = new Product2(Name = 'Swift', Family = 'Credit', ProductCode='PC00009');
         insert prod;
         return prod;
     }
 
-    public static OpportunityLineItem createOLI (Id oppId,Id prodId){
-        Id pricebookId = Test.getStandardPricebookId();
+    public static OpportunityLineItem createOLI (Id oppId,Id prodId) {
+        Final Id pricebookId = Test.getStandardPricebookId();
 
         PricebookEntry standardPrice = new PricebookEntry(
         Pricebook2Id = pricebookId, Product2Id = prodId,UnitPrice = 10000, IsActive = true);
@@ -84,36 +82,36 @@ public class TestFactory {
         return oli;
     }
 
-    public static Account createAccount(){
+    public static Account createAccount() {
         Account acc=new Account(Name = 'TestAcct');
         insert acc;
         return acc;
     }
-     public static Account createAccount(string Parent){
+     public static Account createAccount(string Parent) {
         Account acc=new Account(Name = 'TestAcct',ParentId=Parent);
         insert acc;
         return acc;
     }
 
-    public static Account_BBVA_Classification__c createAccBBVAClass(Id acc){
+    public static Account_BBVA_Classification__c createAccBBVAClass(Id acc) {
         Account_BBVA_Classification__c accClass = new  Account_BBVA_Classification__c(account_id__c=acc);
         insert accClass;
         return accClass;
 	}
 
-	public static Account_Banking_System_Classification__c createAccBankingSystClass(Id acc){
+	public static Account_Banking_System_Classification__c createAccBankingSystClass(Id acc) {
         Account_Banking_System_Classification__c accClass = new  Account_Banking_System_Classification__c(account_id__c=acc);
         insert accClass;
         return accClass;
 	}
 
-    public static Contact createContact(Id acc){
+    public static Contact createContact(Id acc) {
         Contact c = new  Contact(accountid=acc,LastName='test',FirstName='test',Salutation='Mr.',decision_making_desc__c='Si');
         insert c;
         return c;
 	}
 
-    public static User_Branch__c createUserBranch (Id userId){
+    public static User_Branch__c createUserBranch (Id userId) {
     	Branch__c branch = new Branch__c (Name='Test');
         insert branch;
         User_Branch__c userBranch = new User_Branch__c(branch_name__c=branch.id,User__c = userId);
@@ -121,19 +119,19 @@ public class TestFactory {
         return userBranch; 
     }
 
-    public static Account_Rating__c createAccRating (Id accountId){
+    public static Account_Rating__c createAccRating (Id accountId) {
     	Account_Rating__c accRating = new Account_Rating__c (account_id__c=accountId,total_rating_score_number__c=1);
         insert accRating;
         return accRating;
     }
 
-    public static fprd__GBL_Intervener__c createParticipants (Id oppId){
+    public static fprd__GBL_Intervener__c createParticipants (Id oppId) {
     	fprd__GBL_Intervener__c part = new fprd__GBL_Intervener__c (Name='Test', fprd__GBL_Opportunity_product__c='IDOP');
         insert part;
         return part;
     }
 
-    public static fprd__GBL_Guarantee__c createGuarantee (Id oppId){
+    public static fprd__GBL_Guarantee__c createGuarantee (Id oppId) {
         fprd__GBL_Guarantee__c guarant = new fprd__GBL_Guarantee__c (fprd__GBL_Opportunity_product__c='IDOP');
         insert guarant;
         return guarant;
@@ -141,7 +139,7 @@ public class TestFactory {
     /**
     *Method Created: dwp_kitv__Visit__c
     **/
-     public static dwp_kitv__Visit__c createVisitKit (){
+     public static dwp_kitv__Visit__c createVisitKit () {
         dwp_kitv__Visit__c visit = new dwp_kitv__Visit__c();
         visit.dwp_kitv__visit_duration_number__c='2';
         visit.dwp_kitv__visit_start_date__c=system.today();
@@ -160,7 +158,7 @@ public class TestFactory {
     /**
     *Method Created: dwp_kitv__Visit_Management_Team__c
     **/
-    public static dwp_kitv__Visit_Management_Team__c CreateVisitManagement(Id visitID,Id UserKit){
+    public static dwp_kitv__Visit_Management_Team__c CreateVisitManagement(Id visitID,Id UserKit) {
         dwp_kitv__Visit_Management_Team__c kit_Manage = new dwp_kitv__Visit_Management_Team__c
         (dwp_kitv__visit_id__c=visitID,
          dwp_kitv__user_id__c=UserKit);
@@ -168,7 +166,7 @@ public class TestFactory {
         return kit_Manage;
     }
 
-    public static void createAccountProfit(Id Account){
+    public static void createAccountProfit(Id Account) {
         Account_Profitability__c	accp = new Account_Profitability__c(
         account_id__c=Account,
         profitability_type__c ='03',
@@ -180,7 +178,7 @@ public class TestFactory {
     }
     
     //ECS
-    public static void createAccountProfit_1(Id Account){
+    public static void createAccountProfit_1(Id Account) {
         Account_Profitability__c	accp = new Account_Profitability__c(
         account_id__c=Account,
         profitability_type__c ='03',
@@ -194,7 +192,7 @@ public class TestFactory {
         Test.setCreatedDate(accp.Id, yesterday);
     }
     
-    public static Case createCase(Id userId){
+    public static Case createCase(Id userId) {
         Case casetest = new Case();
         casetest.Status = 'New';
         casetest.OwnerId = userId;
@@ -202,7 +200,7 @@ public class TestFactory {
         return casetest;
     }
     
-    public static void productConfiguration(Id IDProduct){
+    public static void productConfiguration(Id IDProduct) {
      fprd__GBL_Product_Configuration__c  PC = new fprd__GBL_Product_Configuration__c(
      FPRD__DEFAULT_VALUE__C	='2',
      FPRD__DEVELOPERNAME__C	='gipr_Periodicidad_PC00007',
@@ -233,7 +231,7 @@ public class TestFactory {
     }
     
     //Eduardo Castillo S. Método creado para OpportunityPDFWrap_Test
-    public static void productConfiguration_1(Id IDProduct){
+    public static void productConfiguration_1(Id IDProduct) {
      fprd__GBL_Product_Configuration__c  PC = new fprd__GBL_Product_Configuration__c(
      FPRD__DEFAULT_VALUE__C	='2',
      FPRD__DEVELOPERNAME__C	='gipr_Tipo_garantia_PC00005',
@@ -264,11 +262,11 @@ public class TestFactory {
     }
     
     //Eduardo Castillo S. Método creado para OpportunityPDFWrap_Test
-    public static List<dwp_cvad__Action_Audit__c> create_Action_Audit(String idopp){
+    public static List<dwp_cvad__Action_Audit__c> create_Action_Audit(String idopp) {
         List<dwp_cvad__Action_Audit__c> action_audit_list = new List<dwp_cvad__Action_Audit__c>();
-        for(integer i=0;i<2;i++){
+        for(integer i=0;i<2;i++) {
             dwp_cvad__Action_Audit__c obj = new dwp_cvad__Action_Audit__c();
-            if(i==0){
+            if(i==0) {
             	obj.dwp_cvad__action_audit_name__c = 'Autorizado por precios'; 
             } else {
                 obj.dwp_cvad__action_audit_name__c='Autorizado por riesgos';
@@ -285,7 +283,7 @@ public class TestFactory {
     }
     
     //Eduardo Castillo S. Método creado para OpportunityPDFWrap_Test
-    public static void create_Action_Audit_Detail(String action_audit_id){
+    public static void create_Action_Audit_Detail(String action_audit_id) {
         dwp_cvad__Action_Audit_Detail__c action_audit_d_list = new dwp_cvad__Action_Audit_Detail__c();
 		action_audit_d_list.dwp_cvad__action_audit_id__c = action_audit_id;	
         action_audit_d_list.dwp_cvad__action_audit_detail_content__c = 'Comentarios de prueba';
@@ -295,10 +293,45 @@ public class TestFactory {
     }
     
     //Eduardo Castillo S. Método creado para OpportunityPDFWrap_Test
-    public static void create_guarantee(String id){
+    public static void create_guarantee(String id) {
         fprd__GBL_Guarantee__c obj = new fprd__GBL_Guarantee__c();
         obj.fprd__GBL_Opportunity_product__c = id;
         insert obj;
     }
+    
+    /* Create User with Dynamic Fields*/
+    public static User getUser(Boolean doInsert, Map<Schema.SObjectField, Object> mapFields) {
+        User obj=new User();
+        Final Double random = Math.random();
+        obj.LastName='User'+random;
+        obj.Username=obj.LastName+'@user.com.u';
+        obj.Email=obj.LastName+'user@u.com.u';
+        obj.Alias= String.valueOf(random).substring(0, 3)+'uAas2';
+        obj.TimeZoneSidKey='America/Mexico_City';
+		obj.IsActive=true;
+        obj.LocaleSidKey='en_US';
+        obj.EmailEncodingKey='ISO-8859-1';
+        obj.LanguageLocaleKey='es';
+        for( Schema.SObjectField sfield : mapFields.keySet() ) {
+            obj.put(sfield, mapFields.get(sfield));
+        }
+        if( doInsert ) {
+            insert obj;
+        }
+        return obj;
+    }
 
+    /* Create dynamic Account*/
+    public static Account getAccount(Boolean doInsert, Map<Schema.SObjectField, Object> mapFields) {
+        Account obj=new Account();
+        Final Decimal random = Math.random();
+        obj.name = 'Test Business Account' + Math.round(random);
+        for( Schema.SObjectField sfield : mapFields.keySet() ) {
+            obj.put(sfield, mapFields.get(sfield));
+        }
+        if( doInsert ) {
+            insert obj;
+        }
+        return obj;
+    }
 }

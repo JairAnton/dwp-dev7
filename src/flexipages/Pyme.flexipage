@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>className</name>
+                <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>icon</name>
+                <value>custom:custom27</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>iconVariant</name>
+                <value>error</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Ir a Webpyme</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>url</name>
+                <value>https://fileunico.peru.igrupobbva/PortalFileUnico</value>
+            </componentInstanceProperties>
+            <componentName>GBL_CustomLinks</componentName>
+        </componentInstances>
+        <name>region1</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>region2</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>region3</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Pyme</masterLabel>
+    <template>
+        <name>flexipage:appHomeTemplateThreeColumns</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>
