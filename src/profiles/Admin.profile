@@ -774,6 +774,10 @@
         <apexClass>User_Trigger_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>UpdateTotalFieldsRequired_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>false</editable>
