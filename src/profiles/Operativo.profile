@@ -877,6 +877,10 @@
         <apexClass>Minuta_ctrl_TEST</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>UpdateTotalFieldsRequired_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Los cargos que mantienen son: 
 Sub Gerentes de oficina</description>
