@@ -5,73 +5,55 @@
 */
 public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
     
-    public String IdVisitaActual {get; set;}
-    public dwp_kitv__Visit__c DatosVisita {get; set;}
+    public String idVisitaActual {get; set;}
+    public dwp_kitv__Visit__c datosVisita {get; set;}
     public dwp_kitv__Visit__c visit {get; set;}
     public boolean redireccion {get; set;}
     public String currentDate { get { return formatCurrentDate(Date.today()); }}
     public String visitDate {get; set;}
     public String infoStatusVisit {get; set;}
     public boolean correoEnviado {get; set;}
-	public string sMyCS  {get; set;}
+	public string sMyCS {get; set;}
+    public Final String FORMAT_DATE = 'dd-MM-YYYY HH:mm a';
+    public Final String FORMAT_DATE_2 = 'M/d/yyyy h:mm a';
+    public Final String FORMAT_DATE_3 = 'dd/MM/yyyy hh:mm a';
+    public Final String FORMAT_DATE_4 = 'dd/MM/yyyy HH:mm';
+    public Final String FORMAT_DATE_5 = 'd.M.yyyy H:mm';
+    public Final String FORMAT_DATE_6 = 'dd.MM.yyyy HH:mm';
+    public Final String FORMAT_DATE_7 = 'd/MM/yyyy H:mm';
+    public Final String FORMAT_DATE_8 = 'yyyy-MM-dd HH:mm';
 
-    Public String formatCurrentDate(Date dateToConvert){
-       
-        Integer day = dateToConvert.day();
-        Integer month = dateToConvert.month();
-        Integer year = dateToConvert.year();
-        String strMonth  = getStringMonth(month); 
+    public String formatCurrentDate(Date dateToConvert) {
+        Final Integer day = dateToConvert.day();
+        Final Integer month = dateToConvert.month();
+        Final Integer year = dateToConvert.year();
+        Final String strMonth  = getStringMonth(month); 
         return day + ' de ' + strMonth + ' de ' + year ;  
     }
     
-    Public String getStringMonth(Integer month){
-       String strMonth ='';
-        if(month==1){
-           strMonth = 'Enero';
-        }else if (month==2){
-           strMonth = 'Febreo'; 
-        }else if (month==3){
-           strMonth = 'Marzo'; 
-        }else if (month==4){
-           strMonth = 'Abril'; 
-        }else if (month==5){
-           strMonth = 'Mayo'; 
-        }else if (month==6){
-           strMonth = 'Junio'; 
-        }else if (month==7){
-           strMonth = 'Julio'; 
-        }else if (month==8){
-           strMonth = 'Agosto'; 
-        }else if (month==9){
-           return 'Septiembre'; 
-        }else if (month==10){
-           strMonth = 'Octubre'; 
-        }else if (month==11){
-           strMonth = 'Noviembre'; 
-        }else if (month==12){
-           strMonth = 'Diciebre'; 
-        }
-        return strMonth;
+    public String getStringMonth(Integer month) {
+        Final Map<Integer, String> mapMonths = new Map<Integer, String>{ 1 => 'Enero', 2 => 'Febrero', 3 => 'Marzo', 4 => 'Abril', 5 => 'Mayo', 6 => 'Junio', 
+            7 => 'Julio', 8 => 'Agosto', 9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre' };
+        return mapMonths.get(month);
     }
     
-    
-    public Minuta_ctrl(ApexPages.StandardController controller){
+    public Minuta_ctrl(ApexPages.StandardController controller) {
  
-       IdVisitaActual = ApexPages.currentPage().getParameters().get('Id');
-       DatosVisita = new dwp_kitv__Visit__c();
+       idVisitaActual = ApexPages.currentPage().getParameters().get('Id');
+       datosVisita = new dwp_kitv__Visit__c();
        visit = new dwp_kitv__Visit__c();
        redireccion = false;
        infoStatusVisit='';
-       DatosVisita = [select id,Name,dwp_kitv__visit_start_date__c,account_name__c, dwp_kitv__visit_status_type__c,
+       datosVisita = [select id,Name,dwp_kitv__visit_start_date__c,account_name__c, dwp_kitv__visit_status_type__c,
                       (select id,dwp_kitv__contact_id__r.Name,dwp_kitv__contact_email_desc__c from dwp_kitv__Visit_Contacts__r ),
                       (SELECT id,dwp_kitv__user_id__r.Name,dwp_kitv__contact_email_desc__c FROM dwp_kitv__Visit_Management_Teams__r) 
-                      from dwp_kitv__Visit__c where Id =:IdVisitaActual limit 1]; 
-        visit.id = DatosVisita.Id;
-       	visit.dwp_kitv__visit_status_type__c = DatosVisita.dwp_kitv__visit_status_type__c;
-       	visit.dwp_kitv__visit_start_date__c=DatosVisita.dwp_kitv__visit_start_date__c;
-        if(visit.dwp_kitv__visit_status_type__c !='02'){
-        infoStatusVisit = 'AVISO: No se enviará la minuta, debe estar agendada la visita.';
-       }
+                      from dwp_kitv__Visit__c where Id =:idVisitaActual limit 1]; 
+        visit.id = datosVisita.Id;
+       	visit.dwp_kitv__visit_status_type__c = datosVisita.dwp_kitv__visit_status_type__c;
+       	visit.dwp_kitv__visit_start_date__c=datosVisita.dwp_kitv__visit_start_date__c;
+        if(visit.dwp_kitv__visit_status_type__c !='02') {
+            infoStatusVisit = 'AVISO: No se enviará la minuta, debe estar agendada la visita.';
+        }
         correoEnviado=false;
        setValues(controller.getId());
 	   visitDate=getTimeZoneValue(visit.dwp_kitv__visit_start_date__c);
@@ -79,36 +61,33 @@ public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
        sMyCS = ApexPages.currentPage().getParameters().get('myCS');
     }
     
-    
     public void sendMail() {
         System.debug('--sMyCS-->'+sMyCS);
-        if(sMyCS != null && sMyCS != ''){
+        if(sMyCS != null && sMyCS != '') {
             dwp_kitv__Template_for_type_of_visit_cs__c myCS =(dwp_kitv__Template_for_type_of_visit_cs__c)System.JSON.deserialize(sMyCS, dwp_kitv__Template_for_type_of_visit_cs__c.class);//NOSONAR
             String sDocumentos = String.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('documents'));//NOSONAR
             System.debug('--sDocumentos-->'+sDocumentos);
-            List<ContentVersion> lstDocument = (List<ContentVersion>)System.JSON.deserialize(sDocumentos, List<ContentVersion>.class);
+            Final List<ContentVersion> lstDocument = (List<ContentVersion>)System.JSON.deserialize(sDocumentos, List<ContentVersion>.class);
             System.debug('--lstDocument-->'+lstDocument);
         
-            if(myCS != null){
-                if(visit.dwp_kitv__visit_status_type__c=='02'){
+            if(myCS != null) {
+                if(visit.dwp_kitv__visit_status_type__c=='02') {
                     System.debug('--si tiene sMyCS-->'+ sMyCS);
-                    EnviarMinutaVF(visit, myCS, lstDocument);
-                }else{
+                    enviarMinutaVF(visit, myCS, lstDocument);
+                } else {
                     redireccion = true;
                 }          
              } 
         }
     }
     
-    
-     public void EnviarMinutaVF(dwp_kitv__Visit__c visitObj, dwp_kitv__Template_for_type_of_visit_cs__c myCS,List<ContentVersion> documents){
+    public void enviarMinutaVF(dwp_kitv__Visit__c visitObj, dwp_kitv__Template_for_type_of_visit_cs__c myCS,List<ContentVersion> documents) {
         //keep the status of the visit
-        String statusOldVisit = visitObj.dwp_kitv__visit_status_type__c;
+        Final String statusOldVisit = visitObj.dwp_kitv__visit_status_type__c;
         String templateConverted = 'BODY NULL';
-        list<Messaging.Emailfileattachment> lstAdjuntos = new list<Messaging.Emailfileattachment>();//adicional ASD
-        try{
+        try {
             dwp_kitv.Minute_Generator_Ctrl.updateStatusVisit(visitObj,'05');
-            dwp_kitv__Visit__c visitObjNew=dwp_kitv.Minute_Generator_Ctrl.getVisitObj(visitObj.Id);
+            Final dwp_kitv__Visit__c visitObjNew = dwp_kitv.Minute_Generator_Ctrl.getVisitObj(visitObj.Id);
             System.debug('--si tiene visitObjNew-->'+ visitObjNew);
             Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();   
             PageReference templateVF = Page.Minuta;
@@ -116,201 +95,195 @@ public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
             templateVF.getParameters().put('id',visitObjNew.Id);
             templateVF.setRedirect(true);
             //templateConverted = templateVF.getContent().tostring();
-             if(!test.isRunningTest()){
+             if(!test.isRunningTest()) {
                 templateConverted = templateVF.getContent().tostring();
-            }else{
+            } else {
                 templateConverted='';
             }
- 			String htmlBody = 	'<![CDATA[ <html lang="es">'+
+ 			Final String htmlBody = '<![CDATA[ <html lang="es">'+
                                 '<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />'+
                                 templateConverted+
                                 '</html>';
             email.setHtmlBody(htmlBody); 
-            String inputDate = visitObj.dwp_kitv__visit_start_date__c.format('dd-MM-YYYY HH:mm a');
-            String sendDate =  System.now().format('dd-MM-YYYY HH:mm a');
+            Final String inputDate = visitObj.dwp_kitv__visit_start_date__c.format(FORMAT_DATE);
+            Final String sendDate = System.now().format(FORMAT_DATE);
 			email.setSubject(myCS.dwp_kitv__Subject__c +' del '+inputDate + ' - enviado: ' + sendDate );
-  			List<String> typeAddress= dwp_kitv.Minute_Generator_Ctrl.getTypeAddress();
+  			Final List<String> typeAddress= dwp_kitv.Minute_Generator_Ctrl.getTypeAddress();
 			email = dwp_kitv.Minute_Generator_Ctrl.setAddressToEmail(email,typeAddress,visitObjNew);
-			boolean attachFile= dwp_kitv.Minute_Generator_Ctrl.getExistField(myCS, 'dwp_kitv__Attach_file__c');
-  			List<Id> ltsIdDoc = dwp_kitv.Minute_Generator_Ctrl.getIdsDocuments(documents);
+			Final boolean attachFile= dwp_kitv.Minute_Generator_Ctrl.getExistField(myCS, 'dwp_kitv__Attach_file__c');
+  			Final List<Id> ltsIdDoc = dwp_kitv.Minute_Generator_Ctrl.getIdsDocuments(documents);
  			email = dwp_kitv.Minute_Generator_Ctrl.setFiles(email, ltsIdDoc, attachFile);
             email.setSaveAsActivity(false);
             System.debug('--attachFile->'+attachFile);
             System.debug('--ltsIdDoc->'+ltsIdDoc);
-            Messaging.SingleEmailMessage[] messages =   new List<Messaging.SingleEmailMessage> {email};
-            Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);
+            Final Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage> {email};
+            Final Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);
             System.debug('---results-EMAIL->'+results);
             if (results[0].isSuccess()) {
                 createEmailAttachment(visitObjNew);
                dwp_kitv.Minute_Generator_Ctrl.createActivity(visitObjNew.Id, myCS);
 				correoEnviado=true;
-            }else{
+            } else {
                dwp_kitv.Minute_Generator_Ctrl.updateStatusVisit(visitObjNew,statusOldVisit);
             }
             redireccion = true;
-        }catch(Exception ex) {
+        } catch(Exception ex) {
             System.debug('---Exception->'+ex);
            dwp_kitv.Minute_Generator_Ctrl.updateStatusVisit(visitObj,statusOldVisit);
         }
     }
-    
-    
-    public String createEmailAttachment( dwp_kitv__Visit__c visitObjNew){
-        		PageReference pdfMinuta = Page.Minuta;
-               	pdfMinuta.getParameters().put('id',visitObjNew.Id);
-               	pdfMinuta.setRedirect(true);
-        		String templateConverted2 ='';
-               	//String templateConverted2 = pdfMinuta.getContent().tostring();
-         		if(!test.isRunningTest()){
-               	 templateConverted2 = pdfMinuta.getContent().tostring();
-            	}else{
-                	templateConverted2='';
-            	}    	
- 				String htmlBody2 = '<![CDATA[ <html lang="es">'+
-                                    '<meta content="text/html; " http-equiv="Content-Type" />'+
-                                    templateConverted2+
-                                    '</html>';
-    			Attachment attach = new Attachment();
-                Blob  body  ;
-             	try { 
-					body = Blob.valueOf(htmlBody2);
-				} catch (VisualforceException e) {
-        		body = Blob.valueOf('Some Text');
-    		}
-			attach.Body = body;  // body;
-            attach.Name = 'Minuta visita del '+formatCurrentDate(Date.today())+'.html';
-            attach.IsPrivate = false;
-            attach.ParentId  = visitObjNew.Id;
-   			insert attach;
+
+    public String createEmailAttachment( dwp_kitv__Visit__c visitObjNew) {
+        PageReference pdfMinuta = Page.Minuta;
+        pdfMinuta.getParameters().put('id',visitObjNew.Id);
+        pdfMinuta.setRedirect(true);
+        String templateCnvtd2 ='';
+        //String templateCnvtd2 = pdfMinuta.getContent().tostring();
+        if(!test.isRunningTest()) {
+            templateCnvtd2 = pdfMinuta.getContent().tostring();
+        } else {
+            templateCnvtd2='';
+        }
+        Final String htmlBody2 = '<![CDATA[ <html lang="es">'+
+            '<meta content="text/html; " http-equiv="Content-Type" />'+
+            templateCnvtd2 + '</html>';
+        Blob body;
+        try { 
+            body = Blob.valueOf(htmlBody2);
+        } catch (VisualforceException e) {
+            body = Blob.valueOf('Some Text');
+        }
+        Final Attachment attach = new Attachment(Body = body, Name = 'Minuta visita del '+formatCurrentDate(Date.today())+'.html', IsPrivate = false, 
+                                                 ParentId = visitObjNew.Id);
+        insert attach;
         return attach.id;
     }
 
 	public String getTimeZoneValue(DateTime stardDate) {
 		Map<String, String> mappedValues = new Map<String, String>(); //map for holding locale to datetime format
-		mappedValues = MapValues(); //populate the map with all the locale specific datetime formats
-		String user_locale = UserInfo.getLocale(); //grab the locale of the user
-		String datetime_format = 'M/d/yyyy h:mm a'; //variable for the datetime format defaulted to the US format
-		if (mappedValues.containsKey(user_locale)) { //if the map contains the correct datetime format
-			datetime_format = mappedValues.get(user_locale); //grab the datetime format for the locale
+		mappedValues = mapValues(); //populate the map with all the locale specific datetime formats
+		Final String userLocale = UserInfo.getLocale(); //grab the locale of the user
+		String datetimeFormat = FORMAT_DATE_2; //variable for the datetime format defaulted to the US format
+		if (mappedValues.containsKey(userLocale)) { //if the map contains the correct datetime format
+			datetimeFormat = mappedValues.get(userLocale); //grab the datetime format for the locale
 		}
-		String locale_formatted_date_time_value = stardDate.format(datetime_format); //create a string with the proper format
-		return locale_formatted_date_time_value; //return the string
+		return stardDate.format(datetimeFormat); //create a string with the proper format & return the string
 	}
     
-    private Map<String, String> MapValues() {
-		Map<String, String> locale_map = new Map<String, String>(); //holds the locale to timedate formats
-		locale_map.put('ar', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('ar_AE', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('ar_BH', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('ar_JO', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('ar_KW', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('ar_LB', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('ar_SA', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('bg_BG', 'yyyy-M-d H:mm');
-		locale_map.put('ca', 'dd/MM/yyyy HH:mm');
-		locale_map.put('ca_ES', 'dd/MM/yyyy HH:mm');
-		locale_map.put('ca_ES_EURO', 'dd/MM/yyyy HH:mm');
-		locale_map.put('cs', 'd.M.yyyy H:mm');
-		locale_map.put('cs_CZ', 'd.M.yyyy H:mm');
-		locale_map.put('da', 'dd-MM-yyyy HH:mm');
-		locale_map.put('da_DK', 'dd-MM-yyyy HH:mm');
-		locale_map.put('de', 'dd.MM.yyyy HH:mm');
-		locale_map.put('de_AT', 'dd.MM.yyyy HH:mm');
-		locale_map.put('de_AT_EURO', 'dd.MM.yyyy HH:mm');
-		locale_map.put('de_CH', 'dd.MM.yyyy HH:mm');
-		locale_map.put('de_DE', 'dd.MM.yyyy HH:mm');
-		locale_map.put('de_DE_EURO', 'dd.MM.yyyy HH:mm');
-		locale_map.put('de_LU', 'dd.MM.yyyy HH:mm');
-		locale_map.put('de_LU_EURO', 'dd.MM.yyyy HH:mm');
-		locale_map.put('el_GR', 'd/M/yyyy h:mm a');
-		locale_map.put('en_AU', 'd/MM/yyyy HH:mm');
-		locale_map.put('en_B', 'M/d/yyyy h:mm a');
-		locale_map.put('en_BM', 'M/d/yyyy h:mm a');
-		locale_map.put('en_CA', 'dd/MM/yyyy h:mm a');
-		locale_map.put('en_GB', 'dd/MM/yyyy HH:mm');
-		locale_map.put('en_GH', 'M/d/yyyy h:mm a');
-		locale_map.put('en_ID', 'M/d/yyyy h:mm a');
-		locale_map.put('en_IE', 'dd/MM/yyyy HH:mm');
-		locale_map.put('en_IE_EURO', 'dd/MM/yyyy HH:mm');
-		locale_map.put('en_NZ', 'd/MM/yyyy HH:mm');
-		locale_map.put('en_SG', 'M/d/yyyy h:mm a');
-		locale_map.put('en_US', 'M/d/yyyy h:mm a');
-		locale_map.put('en_ZA', 'yyyy/MM/dd hh:mm a');
-		locale_map.put('es', 'd/MM/yyyy H:mm');
-		locale_map.put('es_AR', 'dd/MM/yyyy HH:mm');
-		locale_map.put('es_BO', 'dd-MM-yyyy hh:mm a');
-		locale_map.put('es_CL', 'dd-MM-yyyy hh:mm a');
-		locale_map.put('es_CO', 'd/MM/yyyy hh:mm a');
-		locale_map.put('es_CR', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('es_EC', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('es_ES', 'd/MM/yyyy H:mm');
-		locale_map.put('es_ES_EURO', 'd/MM/yyyy H:mm');
-		locale_map.put('es_GT', 'd/MM/yyyy hh:mm a');
-		locale_map.put('es_HN', 'MM-dd-yyyy hh:mm a');
-		locale_map.put('es_MX', 'd/MM/yyyy hh:mm a');
-		locale_map.put('es_PE', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('es_PR', 'MM-dd-yyyy hh:mm a');
-		locale_map.put('es_PY', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('es_SV', 'MM-dd-yyyy hh:mm a');
-		locale_map.put('es_UY', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('es_VE', 'dd/MM/yyyy hh:mm a');
-		locale_map.put('et_EE', 'd.MM.yyyy H:mm');
-		locale_map.put('fi', 'd.M.yyyy H:mm');
-		locale_map.put('fi_FI', 'd.M.yyyy H:mm');
-		locale_map.put('fi_FI_EURO', 'd.M.yyyy H:mm');
-		locale_map.put('fr', 'dd/MM/yyyy HH:mm');
-		locale_map.put('fr_BE', 'd/MM/yyyy H:mm');
-		locale_map.put('fr_CA', 'yyyy-MM-dd HH:mm');
-		locale_map.put('fr_CH', 'dd.MM.yyyy HH:mm');
-		locale_map.put('fr_FR', 'dd/MM/yyyy HH:mm');
-		locale_map.put('fr_FR_EURO', 'dd/MM/yyyy HH:mm');
-		locale_map.put('fr_LU', 'dd/MM/yyyy HH:mm');
-		locale_map.put('fr_MC', 'dd/MM/yyyy HH:mm');
-		locale_map.put('hr_HR', 'yyyy.MM.dd HH:mm');
-		locale_map.put('hu', 'yyyy.MM.dd. H:mm');
-		locale_map.put('hy_AM', 'M/d/yyyy h:mm a');
-		locale_map.put('is_IS', 'd.M.yyyy HH:mm');
-		locale_map.put('it', 'dd/MM/yyyy H.mm');
-		locale_map.put('it_CH', 'dd.MM.yyyy HH:mm');
-		locale_map.put('it_IT', 'dd/MM/yyyy H.mm');
-		locale_map.put('iw', 'HH:mm dd/MM/yyyy');
-		locale_map.put('iw_IL', 'HH:mm dd/MM/yyyy');
-		locale_map.put('ja', 'yyyy/MM/dd H:mm');
-		locale_map.put('ja_JP', 'yyyy/MM/dd H:mm');
-		locale_map.put('kk_KZ', 'M/d/yyyy h:mm a');
-		locale_map.put('km_KH', 'M/d/yyyy h:mm a');
-		locale_map.put('ko', 'yyyy. M. d a h:mm');
-		locale_map.put('ko_KR', 'yyyy. M. d a h:mm');
-		locale_map.put('lt_LT', 'yyyy.M.d HH.mm');
-		locale_map.put('lv_LV', 'yyyy.d.M HH:mm');
-		locale_map.put('ms_MY', 'dd/MM/yyyy h:mm a');
-		locale_map.put('nl', 'd-M-yyyy H:mm');
-		locale_map.put('nl_BE', 'd/MM/yyyy H:mm');
-		locale_map.put('nl_NL', 'd-M-yyyy H:mm');
-		locale_map.put('nl_SR', 'd-M-yyyy H:mm');
-		locale_map.put('no', 'dd.MM.yyyy HH:mm');
-		locale_map.put('no_NO', 'dd.MM.yyyy HH:mm');
-		locale_map.put('pl', 'yyyy-MM-dd HH:mm');
-		locale_map.put('pt', 'dd-MM-yyyy H:mm');
-		locale_map.put('pt_AO', 'dd-MM-yyyy H:mm');
-		locale_map.put('pt_BR', 'dd/MM/yyyy HH:mm');
-		locale_map.put('pt_PT', 'dd-MM-yyyy H:mm');
-		locale_map.put('ro_RO', 'dd.MM.yyyy HH:mm');
-		locale_map.put('ru', 'dd.MM.yyyy H:mm');
-		locale_map.put('sk_SK', 'd.M.yyyy H:mm');
-		locale_map.put('sl_SI', 'd.M.y H:mm');
-		locale_map.put('sv', 'yyyy-MM-dd HH:mm');
-		locale_map.put('sv_SE', 'yyyy-MM-dd HH:mm');
-		locale_map.put('th', 'M/d/yyyy h:mm a');
-		locale_map.put('th_TH', 'd/M/yyyy, H:mm ?.');
-		locale_map.put('tr', 'dd.MM.yyyy HH:mm');
-		locale_map.put('ur_PK', 'M/d/yyyy h:mm a');
-		locale_map.put('vi_VN', 'HH:mm dd/MM/yyyy');
-		locale_map.put('zh', 'yyyy-M-d ah:mm');
-		locale_map.put('zh_CN', 'yyyy-M-d ah:mm');
-		locale_map.put('zh_HK', 'yyyy-M-d ah:mm');
-		locale_map.put('zh_TW', 'yyyy/M/d a h:mm');
-		return locale_map; //return the map
+    private Map<String, String> mapValues() {
+		Map<String, String> localeMap = new Map<String, String>(); //holds the locale to timedate formats
+		localeMap.put('ar', FORMAT_DATE_3);
+		localeMap.put('ar_AE', FORMAT_DATE_3);
+		localeMap.put('ar_BH', FORMAT_DATE_3);
+		localeMap.put('ar_JO', FORMAT_DATE_3);
+		localeMap.put('ar_KW', FORMAT_DATE_3);
+		localeMap.put('ar_LB', FORMAT_DATE_3);
+		localeMap.put('ar_SA', FORMAT_DATE_3);
+		localeMap.put('bg_BG', 'yyyy-M-d H:mm');
+		localeMap.put('ca', FORMAT_DATE_4);
+		localeMap.put('ca_ES', FORMAT_DATE_4);
+		localeMap.put('ca_ES_EURO', FORMAT_DATE_4);
+		localeMap.put('cs', FORMAT_DATE_5);
+		localeMap.put('cs_CZ', FORMAT_DATE_5);
+		localeMap.put('da', 'dd-MM-yyyy HH:mm');
+		localeMap.put('da_DK', 'dd-MM-yyyy HH:mm');
+		localeMap.put('de', FORMAT_DATE_6);
+		localeMap.put('de_AT', FORMAT_DATE_6);
+		localeMap.put('de_AT_EURO', FORMAT_DATE_6);
+		localeMap.put('de_CH', FORMAT_DATE_6);
+		localeMap.put('de_DE', FORMAT_DATE_6);
+		localeMap.put('de_DE_EURO', FORMAT_DATE_6);
+		localeMap.put('de_LU', FORMAT_DATE_6);
+		localeMap.put('de_LU_EURO', FORMAT_DATE_6);
+		localeMap.put('el_GR', 'd/M/yyyy h:mm a');
+		localeMap.put('en_AU', 'd/MM/yyyy HH:mm');
+		localeMap.put('en_B', FORMAT_DATE_2);
+		localeMap.put('en_BM', FORMAT_DATE_2);
+		localeMap.put('en_CA', 'dd/MM/yyyy h:mm a');
+		localeMap.put('en_GB', FORMAT_DATE_4);
+		localeMap.put('en_GH', FORMAT_DATE_2);
+		localeMap.put('en_ID', FORMAT_DATE_2);
+		localeMap.put('en_IE', FORMAT_DATE_4);
+		localeMap.put('en_IE_EURO', FORMAT_DATE_4);
+		localeMap.put('en_NZ', 'd/MM/yyyy HH:mm');
+		localeMap.put('en_SG', FORMAT_DATE_2);
+		localeMap.put('en_US', FORMAT_DATE_2);
+		localeMap.put('en_ZA', 'yyyy/MM/dd hh:mm a');
+		localeMap.put('es', FORMAT_DATE_7);
+		localeMap.put('es_AR', FORMAT_DATE_4);
+		localeMap.put('es_BO', FORMAT_DATE);
+		localeMap.put('es_CL', FORMAT_DATE);
+		localeMap.put('es_CO', 'd/MM/yyyy hh:mm a');
+		localeMap.put('es_CR', FORMAT_DATE_3);
+		localeMap.put('es_EC', FORMAT_DATE_3);
+		localeMap.put('es_ES', FORMAT_DATE_7);
+		localeMap.put('es_ES_EURO', FORMAT_DATE_7);
+		localeMap.put('es_GT', 'd/MM/yyyy hh:mm a');
+		localeMap.put('es_HN', 'MM-dd-yyyy hh:mm a');
+		localeMap.put('es_MX', 'd/MM/yyyy hh:mm a');
+		localeMap.put('es_PE', FORMAT_DATE_3);
+		localeMap.put('es_PR', 'MM-dd-yyyy hh:mm a');
+		localeMap.put('es_PY', FORMAT_DATE_3);
+		localeMap.put('es_SV', 'MM-dd-yyyy hh:mm a');
+		localeMap.put('es_UY', FORMAT_DATE_3);
+		localeMap.put('es_VE', FORMAT_DATE_3);
+		localeMap.put('et_EE', 'd.MM.yyyy H:mm');
+		localeMap.put('fi', FORMAT_DATE_5);
+		localeMap.put('fi_FI', FORMAT_DATE_5);
+		localeMap.put('fi_FI_EURO', FORMAT_DATE_5);
+		localeMap.put('fr', FORMAT_DATE_4);
+		localeMap.put('fr_BE', FORMAT_DATE_7);
+		localeMap.put('fr_CA', FORMAT_DATE_8);
+		localeMap.put('fr_CH', FORMAT_DATE_6);
+		localeMap.put('fr_FR', FORMAT_DATE_4);
+		localeMap.put('fr_FR_EURO', FORMAT_DATE_4);
+		localeMap.put('fr_LU', FORMAT_DATE_4);
+		localeMap.put('fr_MC', FORMAT_DATE_4);
+		localeMap.put('hr_HR', 'yyyy.MM.dd HH:mm');
+		localeMap.put('hu', 'yyyy.MM.dd. H:mm');
+		localeMap.put('hy_AM', FORMAT_DATE_2);
+		localeMap.put('is_IS', 'd.M.yyyy HH:mm');
+		localeMap.put('it', 'dd/MM/yyyy H.mm');
+		localeMap.put('it_CH', FORMAT_DATE_6);
+		localeMap.put('it_IT', 'dd/MM/yyyy H.mm');
+		localeMap.put('iw', 'HH:mm dd/MM/yyyy');
+		localeMap.put('iw_IL', 'HH:mm dd/MM/yyyy');
+		localeMap.put('ja', 'yyyy/MM/dd H:mm');
+		localeMap.put('ja_JP', 'yyyy/MM/dd H:mm');
+		localeMap.put('kk_KZ', FORMAT_DATE_2);
+		localeMap.put('km_KH', FORMAT_DATE_2);
+		localeMap.put('ko', 'yyyy. M. d a h:mm');
+		localeMap.put('ko_KR', 'yyyy. M. d a h:mm');
+		localeMap.put('lt_LT', 'yyyy.M.d HH.mm');
+		localeMap.put('lv_LV', 'yyyy.d.M HH:mm');
+		localeMap.put('ms_MY', 'dd/MM/yyyy h:mm a');
+		localeMap.put('nl', 'd-M-yyyy H:mm');
+		localeMap.put('nl_BE', FORMAT_DATE_7);
+		localeMap.put('nl_NL', 'd-M-yyyy H:mm');
+		localeMap.put('nl_SR', 'd-M-yyyy H:mm');
+		localeMap.put('no', FORMAT_DATE_6);
+		localeMap.put('no_NO', FORMAT_DATE_6);
+		localeMap.put('pl', FORMAT_DATE_8);
+		localeMap.put('pt', 'dd-MM-yyyy H:mm');
+		localeMap.put('pt_AO', 'dd-MM-yyyy H:mm');
+		localeMap.put('pt_BR', FORMAT_DATE_4);
+		localeMap.put('pt_PT', 'dd-MM-yyyy H:mm');
+		localeMap.put('ro_RO', FORMAT_DATE_6);
+		localeMap.put('ru', 'dd.MM.yyyy H:mm');
+		localeMap.put('sk_SK', FORMAT_DATE_5);
+		localeMap.put('sl_SI', 'd.M.y H:mm');
+		localeMap.put('sv', FORMAT_DATE_8);
+		localeMap.put('sv_SE', FORMAT_DATE_8);
+		localeMap.put('th', FORMAT_DATE_2);
+		localeMap.put('th_TH', 'd/M/yyyy, H:mm ?.');
+		localeMap.put('tr', FORMAT_DATE_6);
+		localeMap.put('ur_PK', FORMAT_DATE_2);
+		localeMap.put('vi_VN', 'HH:mm dd/MM/yyyy');
+		localeMap.put('zh', 'yyyy-M-d ah:mm');
+		localeMap.put('zh_CN', 'yyyy-M-d ah:mm');
+		localeMap.put('zh_HK', 'yyyy-M-d ah:mm');
+		localeMap.put('zh_TW', 'yyyy/M/d a h:mm');
+		return localeMap; //return the map
 	}
     
 }
