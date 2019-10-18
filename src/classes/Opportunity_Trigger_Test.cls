@@ -11,11 +11,13 @@ public class Opportunity_Trigger_Test {
     
 	static Final String TGR_CNTXT_ERROR = 'Trigger Error';
 	static Opportunity opp = new Opportunity();
-    static Map<String, Profile> perfilMapa = new Map<String, Profile>();    
+    static Map<String, Profile> perfilMapa = new Map<String, Profile>();
+    //Variable mapa de roles
     static Map<String, UserRole> rolMapa = new Map<String, UserRole>();
     static List<RecordType> rTypesClientes;
     static List<UserRole> userRole;
-	static String EJECUTIVO = 'Ejecutivo';
+    //Variable constante
+	static Final String EXXECUTIVE = 'Ejecutivo';
     
   	static {
         userRole = new List<UserRole>([SELECT Id, Name FROM UserRole limit 1000]);
@@ -24,7 +26,7 @@ public class Opportunity_Trigger_Test {
 
   	@isTest
   	static void testEjecutivo() {
-        Final User ejecutivo=creaUsuario(EJECUTIVO);  
+        Final User ejecutivo=creaUsuario(EXXECUTIVE);  
     	Final User operativo = creaUsuario('Operativo');
         creatOpp(ejecutivo);
        	test.startTest();
@@ -33,12 +35,12 @@ public class Opportunity_Trigger_Test {
         opp.ownerId=operativo.Id;
         Update opp;  
         test.stopTest();
-        System.assertEquals(opp.ownerId, operativo.Id);
+        System.assertEquals(opp.ownerId, operativo.Id, 'Error Assertion');
   	}
     
     @isTest
 	static void testEspecialista() {
-		Final User ejecutivo=creaUsuario(EJECUTIVO);  
+		Final User ejecutivo=creaUsuario(EXXECUTIVE);  
     	Final User especialista=creaUsuario('Especialista');
         creatOpp(ejecutivo);
     	test.startTest();
@@ -47,19 +49,18 @@ public class Opportunity_Trigger_Test {
     	opp.ownerId=especialista.Id;
       	Update opp;
         test.stopTest();
-        System.assertEquals(opp.ownerId, especialista.Id);
+        System.assertEquals(opp.ownerId, especialista.Id, 'Error Assertion');
   	}
 
     @isTest
     static void changeState11() {
-        Final User usuario = TestFactory.createUser('TestUser1',EJECUTIVO);
+        Final User usuario = TestFactory.createUser('TestUser1',EXXECUTIVE);
         Final Date todayDate = Date.today();
         Final Account acc = TestFactory.createAccount();
         opp = TestFactory.createOpportunity(acc.Id, usuario.Id);
         Final Product2 prod = TestFactory.createProduct();
-        Final OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
-        Final Opportunity_Solution_Commitment__c osc = new Opportunity_Solution_Commitment__c(opportunity_id__c=opp.Id);
-        insert osc;
+        TestFactory.createOLI(opp.Id, prod.Id);
+        insert new Opportunity_Solution_Commitment__c(opportunity_id__c=opp.Id);
         opp.StageName = '04';
         opp.opportunity_status_type__c = '11';
         Test.startTest();
@@ -74,13 +75,12 @@ public class Opportunity_Trigger_Test {
     
     @isTest
     static void changeState08() {
-        Final User u = TestFactory.createUser('TestUser1',EJECUTIVO);
+        Final User usuario = TestFactory.createUser('TestUser1',EXXECUTIVE);
         Final Account acc = TestFactory.createAccount();
-        opp = TestFactory.createOpportunity(acc.Id, u.Id);
+        opp = TestFactory.createOpportunity(acc.Id, usuario.Id);
         Final Product2 prod = TestFactory.createProduct();
         TestFactory.createOLI(opp.Id, prod.Id);
-        Opportunity_Solution_Commitment__c osco = new Opportunity_Solution_Commitment__c(opportunity_id__c=opp.Id);
-        insert osco;
+        insert new Opportunity_Solution_Commitment__c(opportunity_id__c=opp.Id);
         opp.StageName = '04';
         opp.opportunity_status_type__c = '08';
         Test.startTest();
@@ -94,8 +94,8 @@ public class Opportunity_Trigger_Test {
     }
 
     @isTest
-    static void state10(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state10() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '04';
@@ -110,8 +110,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state13(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);  
+    static void state13() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);  
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '04';
@@ -125,8 +125,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state19(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state19() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '05';
@@ -140,8 +140,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state23(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state23() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '06';
@@ -155,8 +155,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state12(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state12() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '04';
@@ -170,8 +170,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state24(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state24() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '04';
@@ -185,8 +185,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state18(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state18() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '04';
@@ -200,8 +200,8 @@ public class Opportunity_Trigger_Test {
     }
 
     @isTest
-    static void state17(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state17() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '04';
@@ -215,8 +215,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state09(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state09() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '04';
@@ -230,8 +230,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state22(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state22() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '07';
@@ -245,8 +245,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state21(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state21() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '05';
@@ -260,8 +260,8 @@ public class Opportunity_Trigger_Test {
     }
     
     @isTest
-    static void state20(){
-    	Final User ejecutivo=creaUsuario(EJECUTIVO);       
+    static void state20() {
+    	Final User ejecutivo=creaUsuario(EXXECUTIVE);       
     	creatOpp(ejecutivo);
     	test.startTest();
         opp.StageName = '05';
@@ -274,36 +274,36 @@ public class Opportunity_Trigger_Test {
         System.assertEquals(3, result); 
     }
     
-    static void creatOpp(User u){
+    static void creatOpp(User usuario) {
         Account acc= new Account();
         acc.Name='MyAccount';
         insert acc;
     	opp = new Opportunity(Name='Test', CloseDate=system.today(), Stagename='02', AccountId=acc.id);
-        system.RunAs(u){
+        system.RunAs(usuario){
             insert opp;
         }
     }
     
-    static User creaUsuario(String perfil){
-    	User u = new User();
-        u.Username=perfil+'u2@u.com.u';
-        u.LastName=perfil+'uLast2';
-        u.Email=perfil+'u2@u.com';
-        u.Alias= perfil.substring(0, 2)+'uAas2';
-        u.CommunityNickname=perfil+'2uComm';
-        u.TimeZoneSidKey='America/Mexico_City';
-        u.LocaleSidKey='en_US';
-        u.EmailEncodingKey='ISO-8859-1';
-        u.ProfileId=  perfilMapa.get(perfil).Id;
-        u.LanguageLocaleKey='en_US';
-        insert u;
-        return u;
+    static User creaUsuario(String perfil) {
+    	User usuario = new User();
+        usuario.Username=perfil+'u2@u.com.u';
+        usuario.LastName=perfil+'uLast2';
+        usuario.Email=perfil+'u2@u.com';
+        usuario.Alias= perfil.substring(0, 2)+'uAas2';
+        usuario.CommunityNickname=perfil+'2uComm';
+        usuario.TimeZoneSidKey='America/Mexico_City';
+        usuario.LocaleSidKey='en_US';
+        usuario.EmailEncodingKey='ISO-8859-1';
+        usuario.ProfileId=  perfilMapa.get(perfil).Id;
+        usuario.LanguageLocaleKey='en_US';
+        insert usuario;
+        return usuario;
     }
     @isTest
     public static void createOppsDifferentOwnerFromClientOwner() {
 	
         // Get profile information
-        Final List<Profile> testProfileList = [SELECT Id FROM Profile WHERE Name =: EJECUTIVO];
+        Final List<Profile> testProfileList = [SELECT Id FROM Profile WHERE Name =: EXXECUTIVE];
         
 		// Create users
 		List<User> testUsersList = new List<User>();

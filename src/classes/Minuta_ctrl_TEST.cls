@@ -98,7 +98,7 @@ public class Minuta_ctrl_TEST {
          ctrl.sendMail();
          System.debug('correo enviado? --- '+ctrl.correoEnviado);
          Final Boolean assertion = ctrl.correoEnviado ? false : true;
-         System.assert(assertion);
+         System.assert(assertion, 'ASSERTION');
          Test.StopTest();
     }    
     
@@ -115,12 +115,11 @@ public class Minuta_ctrl_TEST {
         
           Final ApexPages.StandardController stndCtr = new ApexPages.standardController(objFinal);
         
-          Minuta_ctrl  ctrl = new Minuta_ctrl(stndCtr);
+          Final Minuta_ctrl  ctrl = new Minuta_ctrl(stndCtr);
           ctrl.sendMail();
           System.debug('correo enviado? --- '+ctrl.correoEnviado);
-          System.assertEquals(true, ctrl.correoEnviado, 'Envío de correo:');
+          System.assert(ctrl.correoEnviado, 'ASSERTION');
           Test.StopTest();
     } 
     
-
 }

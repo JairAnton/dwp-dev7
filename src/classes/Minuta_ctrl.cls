@@ -9,20 +9,23 @@ public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
     public dwp_kitv__Visit__c datosVisita {get; set;}
     public dwp_kitv__Visit__c visit {get; set;}
     public boolean redireccion {get; set;}
-    public String currentDate { get { return formatCurrentDate(Date.today()); }}
+    public Final String currentDate { get { return formatCurrentDate(Date.today()); }}
     public String visitDate {get; set;}
     public String infoStatusVisit {get; set;}
     public boolean correoEnviado {get; set;}
 	public string sMyCS {get; set;}
-    public Final String FORMAT_DATE = 'dd-MM-YYYY HH:mm a';
-    public Final String FORMAT_DATE_2 = 'M/d/yyyy h:mm a';
-    public Final String FORMAT_DATE_3 = 'dd/MM/yyyy hh:mm a';
-    public Final String FORMAT_DATE_4 = 'dd/MM/yyyy HH:mm';
-    public Final String FORMAT_DATE_5 = 'd.M.yyyy H:mm';
-    public Final String FORMAT_DATE_6 = 'dd.MM.yyyy HH:mm';
-    public Final String FORMAT_DATE_7 = 'd/MM/yyyy H:mm';
-    public Final String FORMAT_DATE_8 = 'yyyy-MM-dd HH:mm';
+    public static Final String FORMAT_DATE = 'dd-MM-YYYY HH:mm a';
+    public static Final String FORMAT_DATE_2 = 'M/d/yyyy h:mm a';
+    public static Final String FORMAT_DATE_3 = 'dd/MM/yyyy hh:mm a';
+    public static Final String FORMAT_DATE_4 = 'dd/MM/yyyy HH:mm';
+    public static Final String FORMAT_DATE_5 = 'd.M.yyyy H:mm';
+    public static Final String FORMAT_DATE_6 = 'dd.MM.yyyy HH:mm';
+    public static Final String FORMAT_DATE_7 = 'd/MM/yyyy H:mm';
+    public static Final String FORMAT_DATE_8 = 'yyyy-MM-dd HH:mm';
 
+    /**
+     * formatCurrentDate
+	*/
     public String formatCurrentDate(Date dateToConvert) {
         Final Integer day = dateToConvert.day();
         Final Integer month = dateToConvert.month();
@@ -31,6 +34,9 @@ public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
         return day + ' de ' + strMonth + ' de ' + year ;  
     }
     
+    /**
+     * getStringMonth
+	*/
     public String getStringMonth(Integer month) {
         Final Map<Integer, String> mapMonths = new Map<Integer, String>{ 1 => 'Enero', 2 => 'Febrero', 3 => 'Marzo', 4 => 'Abril', 5 => 'Mayo', 6 => 'Junio', 
             7 => 'Julio', 8 => 'Agosto', 9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre' };
@@ -81,6 +87,9 @@ public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
         }
     }
     
+    /**
+     * enviarMinutaVF
+	*/
     public void enviarMinutaVF(dwp_kitv__Visit__c visitObj, dwp_kitv__Template_for_type_of_visit_cs__c myCS,List<ContentVersion> documents) {
         //keep the status of the visit
         Final String statusOldVisit = visitObj.dwp_kitv__visit_status_type__c;
@@ -171,7 +180,7 @@ public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
 	}
     
     private Map<String, String> mapValues() {
-		Map<String, String> localeMap = new Map<String, String>(); //holds the locale to timedate formats
+		Final Map<String, String> localeMap = new Map<String, String>(); //holds the locale to timedate formats
 		localeMap.put('ar', FORMAT_DATE_3);
 		localeMap.put('ar_AE', FORMAT_DATE_3);
 		localeMap.put('ar_BH', FORMAT_DATE_3);
