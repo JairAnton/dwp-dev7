@@ -5,7 +5,7 @@
 * -------------------------------------------------------------------
 * Developer                    Date                Description<p />
 * -------------------------------------------------------------------
-* Julio Medellin               18/05/2018          Original version.<p />
+* Julio Medellin               18/05/2018          Original version.<p /> 
 *
 * @author Julio Medellin
 */
