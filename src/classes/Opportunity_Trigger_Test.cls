@@ -13,7 +13,13 @@ public class Opportunity_Trigger_Test {
 	*   @Variable: TGR_CNTXT_ERROR
 	*/
 	static Final String TGR_CNTXT_ERROR = 'Trigger Error';
+    /*
+	*   @Variable: LANGUAGE_US
+	*/
     static Final String LANGUAGE_US = 'en_US';
+    /*
+	*   @Variable: opp
+	*/
 	static Opportunity opp = new Opportunity();
     static Map<String, Profile> perfilMapa = new Map<String, Profile>();
     /*

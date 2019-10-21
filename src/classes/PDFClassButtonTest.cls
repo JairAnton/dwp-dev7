@@ -72,7 +72,7 @@ public class PDFClassButtonTest {
 	*/
     public static testMethod void test1() {
         Final Id rid = [SELECT ID FROM Opportunity Limit 1].Id;
-        Final List<String> result;
+        List<String> result = new List<String>();
         Test.startTest();
         result = PDFclassButton.getErrorMessagesList(rid,'Opportunity', '');
         Test.stopTest();
@@ -85,7 +85,7 @@ public class PDFClassButtonTest {
 	*/
     public static testMethod void test2() {
         Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true LIMIT 1];
-        Final String result;
+        String result;
         system.runAs(usr) { 
             Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
             result = PDFclassButton.PDF_formalization(rid);
@@ -97,8 +97,8 @@ public class PDFClassButtonTest {
      * Test PDFclassButton.getErrorMessagesList ERROR
 	*/
     public static testMethod void test3() {
-        Final Id rId;
-        Final List<String> result;
+        Id rId;
+        List<String> result = new List<String>();
         Test.startTest();
         result = PDFclassButton.getErrorMessagesList(rId,'Opportunity', '');
         Test.stopTest();
@@ -113,7 +113,7 @@ public class PDFClassButtonTest {
     public static testmethod void validateUserSgofTest() {
         Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E04' LIMIT 1];
         Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
-        Final Map<String, Object> mapRes;
+        Map<String, Object> mapRes = new Map<String, Object>();
         system.runAs(usr) { 
             mapRes = PDFclassButton.validateUser(rid);
         }
@@ -129,7 +129,7 @@ public class PDFClassButtonTest {
         caso.OwnerId = usr.Id;
         update caso;
         Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
-        Final Map<String, Object> mapRes;
+        Map<String, Object> mapRes = new Map<String, Object>();
         system.runAs(usr) { 
             mapRes = PDFclassButton.validateUser(rid);
         }
@@ -143,7 +143,7 @@ public class PDFClassButtonTest {
     public static testmethod void reasignCaseSgofTest() {
         Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E04' LIMIT 1];
         Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
-        Final Map<String, Object> mapRes;
+        Map<String, Object> mapRes = new Map<String, Object>();
         system.runAs(usr) { 
             mapRes = PDFclassButton.reasignCase(rid);
         }
@@ -159,7 +159,7 @@ public class PDFClassButtonTest {
         caso.OwnerId = usr.Id;
         update caso;
         Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
-        Final Map<String, Object> mapRes;
+        Map<String, Object> mapRes = new Map<String, Object>();
         system.runAs(usr) { 
             mapRes = PDFclassButton.reasignCase(rid);
         }

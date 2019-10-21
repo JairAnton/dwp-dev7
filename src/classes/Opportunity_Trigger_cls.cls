@@ -15,6 +15,12 @@ public without sharing class Opportunity_Trigger_cls {
 	*   @Variable: temporal
 	*/
     private static Final String MIGRACION {get {return 'Migracion';}set;}
+    
+    /*
+	*   @Private Constructor
+	*/
+    private Opportunity_Trigger_cls() {}
+    
     /*
 	* asignBeforeInsert
 	*/

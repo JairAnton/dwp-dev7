@@ -52,7 +52,7 @@ public without sharing virtual class MinutaWrap {
             Final List<Document> lstLogoFace = [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo'];
             Final List<Document> lstLogoTwiter = [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo'];
             Final String sfdcBaseURL = URL.getSalesforceBaseUrl().toExternalForm() + '/servlet/servlet.ImageServer?id=';
-            String param = '&oid=';
+            Final String param = '&oid=';
             urlLogo = sfdcBaseURL+lstMembrete[0].Id+param+UserInfo.getOrganizationId();
             urlLogoFacebook = sfdcBaseURL+lstLogoFace[0].Id+param+UserInfo.getOrganizationId();
             urlLogoTwiter = sfdcBaseURL+lstLogoTwiter[0].Id+param+UserInfo.getOrganizationId();
