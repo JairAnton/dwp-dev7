@@ -18,12 +18,12 @@ public class Minuta_ctrl_TEST {
         //Inserta Account
         Final Account newAccount = TestFactory.createAccount();
  		//Inserta Contact
-        Contact cont = TestFactory.createContact(newAccount.id);
+        Final Contact cont = TestFactory.createContact(newAccount.id);
         cont.email='jose.ro@gmail.es';
         update cont;
         
         //Crea un usuario para asociarlo a la visita
-        User usuario = TestFactory.createUser('userVisitBBVA', 'Ejecutivo');
+        Final User usuario = TestFactory.createUser('userVisitBBVA', 'Ejecutivo');
         usuario.Email='email@dasd.com';
         update usuario;
         //Obtiene recordType

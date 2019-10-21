@@ -12,8 +12,10 @@
 @isTest
 public class PDFClassButtonTest {
     
+    /** Test IS_ERROR */
     static Final String IS_ERROR = 'isError';
-    
+    /** Test MSG_ASSERTION */
+    static Final String MSG_ASSERTION = 'Assertion Failed';
     /**
      * Test Setup()
 	*/
@@ -70,12 +72,12 @@ public class PDFClassButtonTest {
 	*/
     public static testMethod void test1() {
         Final Id rid = [SELECT ID FROM Opportunity Limit 1].Id;
-        List<String> result;
+        Final List<String> result;
         Test.startTest();
         result = PDFclassButton.getErrorMessagesList(rid,'Opportunity', '');
         Test.stopTest();
         Final String assertion = UserInfo.getLanguage() == 'Spanish' ? 'No puede generar PDF en esta etapa' : 'You can not create a PDF on this stage';
-        System.assertEquals(assertion, result[0], 'Assertion Error');
+        System.assertEquals(assertion, result[0], MSG_ASSERTION);
     }
     
     /**
@@ -83,12 +85,12 @@ public class PDFClassButtonTest {
 	*/
     public static testMethod void test2() {
         Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true LIMIT 1];
-        String result;
+        Final String result;
         system.runAs(usr) { 
             Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
             result = PDFclassButton.PDF_formalization(rid);
         }
-        System.assertEquals('SUCCESS', result, 'Error Assertion');      
+        System.assertEquals('SUCCESS', result, MSG_ASSERTION);      
     }
     
     /**
@@ -96,13 +98,13 @@ public class PDFClassButtonTest {
 	*/
     public static testMethod void test3() {
         Final Id rId;
-        List<String> result;
+        Final List<String> result;
         Test.startTest();
         result = PDFclassButton.getErrorMessagesList(rId,'Opportunity', '');
         Test.stopTest();
         Final String assertion = UserInfo.getLanguage() == 'Spanish' ? 'EL PDF contiene datos incorrectos favor de verificar que toda la informacion viene correcta' : 
         'Unable to create PDF, please make sure that all information is complete';
-        System.assertEquals(assertion, result[0], 'Assertion Error');
+        System.assertEquals(assertion, result[0], MSG_ASSERTION);
     }
     
     /**
@@ -111,11 +113,11 @@ public class PDFClassButtonTest {
     public static testmethod void validateUserSgofTest() {
         Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E04' LIMIT 1];
         Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
-        Map<String, Object> mapRes = new Map<String, Object>();
+        Final Map<String, Object> mapRes;
         system.runAs(usr) { 
             mapRes = PDFclassButton.validateUser(rid);
         }
-        System.assert((Boolean)mapRes.get(IS_ERROR), 'Assertion Failed');
+        System.assert((Boolean)mapRes.get(IS_ERROR), MSG_ASSERTION);
     }
     
     /**
@@ -127,12 +129,12 @@ public class PDFClassButtonTest {
         caso.OwnerId = usr.Id;
         update caso;
         Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
-        Map<String, Object> mapRes = new Map<String, Object>();
+        Final Map<String, Object> mapRes;
         system.runAs(usr) { 
             mapRes = PDFclassButton.validateUser(rid);
         }
         Final Boolean assert = !(Boolean)mapRes.get(IS_ERROR);
-        System.assert(assert, 'Assertion Failed');
+        System.assert(assert, MSG_ASSERTION);
     }
     
     /**
@@ -141,11 +143,11 @@ public class PDFClassButtonTest {
     public static testmethod void reasignCaseSgofTest() {
         Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E04' LIMIT 1];
         Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
-        Map<String, Object> mapRes = new Map<String, Object>();
+        Final Map<String, Object> mapRes;
         system.runAs(usr) { 
             mapRes = PDFclassButton.reasignCase(rid);
         }
-        System.assert((Boolean)mapRes.get(IS_ERROR), 'Assertion Failed');
+        System.assert((Boolean)mapRes.get(IS_ERROR), MSG_ASSERTION);
     }
     
     /**
@@ -153,17 +155,16 @@ public class PDFClassButtonTest {
 	*/
     public static testmethod void reasignCaseAssistTest() {
         Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E06' LIMIT 1];
-        System.debug('Casos => '+[SELECT Id FROM Case]);
         Case caso = [SELECT Id, OwnerId FROM Case limit 1];
         caso.OwnerId = usr.Id;
         update caso;
         Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
-        Map<String, Object> mapRes = new Map<String, Object>();
+        Final Map<String, Object> mapRes;
         system.runAs(usr) { 
             mapRes = PDFclassButton.reasignCase(rid);
         }
         Final Boolean assert = !(Boolean)mapRes.get(IS_ERROR);
         //Boolean assert = (Boolean)mapRes.get(IS_ERROR);
-        System.assert(assert, 'Assertion Failed');
+        System.assert(assert, MSG_ASSERTION);
     }
 }

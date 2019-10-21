@@ -9,14 +9,22 @@
 
 public class Opportunity_Trigger_Test {
     
+    /*
+	*   @Variable: TGR_CNTXT_ERROR
+	*/
 	static Final String TGR_CNTXT_ERROR = 'Trigger Error';
+    static Final String LANGUAGE_US = 'en_US';
 	static Opportunity opp = new Opportunity();
     static Map<String, Profile> perfilMapa = new Map<String, Profile>();
-    //Variable mapa de roles
+    /*
+	*   @Variable: rolMapa
+	*/
     static Map<String, UserRole> rolMapa = new Map<String, UserRole>();
     static List<RecordType> rTypesClientes;
     static List<UserRole> userRole;
-    //Variable constante
+    /*
+	*   @Variable: EXXECUTIVE
+	*/
 	static Final String EXXECUTIVE = 'Ejecutivo';
     
   	static {
@@ -279,23 +287,23 @@ public class Opportunity_Trigger_Test {
         acc.Name='MyAccount';
         insert acc;
     	opp = new Opportunity(Name='Test', CloseDate=system.today(), Stagename='02', AccountId=acc.id);
-        system.RunAs(usuario){
+        system.RunAs(usuario) {
             insert opp;
         }
     }
     
     static User creaUsuario(String perfil) {
-    	User usuario = new User();
+    	Final User usuario = new User();
         usuario.Username=perfil+'u2@u.com.u';
         usuario.LastName=perfil+'uLast2';
         usuario.Email=perfil+'u2@u.com';
         usuario.Alias= perfil.substring(0, 2)+'uAas2';
         usuario.CommunityNickname=perfil+'2uComm';
         usuario.TimeZoneSidKey='America/Mexico_City';
-        usuario.LocaleSidKey='en_US';
+        usuario.LocaleSidKey=LANGUAGE_US;
         usuario.EmailEncodingKey='ISO-8859-1';
         usuario.ProfileId=  perfilMapa.get(perfil).Id;
-        usuario.LanguageLocaleKey='en_US';
+        usuario.LanguageLocaleKey=LANGUAGE_US;
         insert usuario;
         return usuario;
     }
@@ -315,7 +323,7 @@ public class Opportunity_Trigger_Test {
         testUser1.CommunityNickname = 'testU1';
         testUser1.TimeZoneSidKey='America/Mexico_City';
         testUser1.LanguageLocaleKey = 'es';
-        testUser1.LocaleSidKey='en_US';
+        testUser1.LocaleSidKey=LANGUAGE_US;
         testUser1.EmailEncodingKey='ISO-8859-1';
         testUser1.ProfileId =  testProfileList.get(0).Id;
 		testUsersList.add(testUser1);
@@ -328,7 +336,7 @@ public class Opportunity_Trigger_Test {
         testUser2.CommunityNickname = 'testU2';
         testUser2.TimeZoneSidKey='America/Mexico_City';
         testUser2.LanguageLocaleKey = 'es';
-        testUser2.LocaleSidKey='en_US';
+        testUser2.LocaleSidKey=LANGUAGE_US;
         testUser2.EmailEncodingKey='ISO-8859-1';
         testUser2.ProfileId =  testProfileList.get(0).Id;
 		testUsersList.add(testUser2);
@@ -341,7 +349,7 @@ public class Opportunity_Trigger_Test {
 		
 		// Create opportunities assigned to the other users
 		List<Opportunity> testOppsList = new List<Opportunity>();
-		for(Integer i = 0; i < 202 ; i++){
+		for(Integer i = 0; i < 202 ; i++) {
 			Opportunity testOpp = new Opportunity( OwnerId = testUsersList.get(1).Id, Name='TEST OPP - '+i, AccountId = testAccount.Id , StageName='02', Amount = 10000 , CloseDate = System.Date.today());
 			testOppsList.add(testOpp);
 		}
@@ -349,7 +357,7 @@ public class Opportunity_Trigger_Test {
         
 		// Check that the account user owner is in the opp team
 		Set<Id> insertedOppIdsSet = new Set<Id>();
-		for(Opportunity insertedOpp :testOppsList){
+		for(Opportunity insertedOpp :testOppsList) {
 			insertedOppIdsSet.add(insertedOpp.Id);
 		}
 		
@@ -357,18 +365,17 @@ public class Opportunity_Trigger_Test {
 		    
 		Map<Id,List<OpportunityTeamMember>> oppTeamByOppMap = new Map<Id,List<OpportunityTeamMember>>();
 		
-		for(OpportunityTeamMember oppTeamMember : oppTeamMembersList){
-			if(oppTeamByOppMap.containsKey(oppTeamMember.OpportunityId)){
+		for(OpportunityTeamMember oppTeamMember : oppTeamMembersList) {
+			if(oppTeamByOppMap.containsKey(oppTeamMember.OpportunityId)) {
 				oppTeamByOppMap.get(oppTeamMember.OpportunityId).add(oppTeamMember);
-			}
-			else{
+			} else {
 				List<OpportunityTeamMember> newOppTeamList = new List<OpportunityTeamMember>();
 				newOppTeamList.add(oppTeamMember);
 				oppTeamByOppMap.put(oppTeamMember.OpportunityId,newOppTeamList);
 			}
 		}
 		
-		for(Opportunity insertedOpp :testOppsList){
+		for(Opportunity insertedOpp :testOppsList) {
 			System.assert(oppTeamByOppMap.containsKey(insertedOpp.Id));
 			System.assertEquals(1,oppTeamByOppMap.get(insertedOpp.Id).size());
 		}

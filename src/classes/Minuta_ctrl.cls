@@ -14,15 +14,38 @@ public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
     public String infoStatusVisit {get; set;}
     public boolean correoEnviado {get; set;}
 	public string sMyCS {get; set;}
+    /*
+	*   @Variable: FORMAT_DATE
+	*/
     public static Final String FORMAT_DATE = 'dd-MM-YYYY HH:mm a';
+    /*
+	*   @Variable: FORMAT_DATE_2
+	*/
     public static Final String FORMAT_DATE_2 = 'M/d/yyyy h:mm a';
+    /*
+	*   @Variable: FORMAT_DATE_3
+	*/
     public static Final String FORMAT_DATE_3 = 'dd/MM/yyyy hh:mm a';
+    /*
+	*   @Variable: FORMAT_DATE_4
+	*/
     public static Final String FORMAT_DATE_4 = 'dd/MM/yyyy HH:mm';
+    /*
+	*   @Variable: FORMAT_DATE_5
+	*/
     public static Final String FORMAT_DATE_5 = 'd.M.yyyy H:mm';
+    /*
+	*   @Variable: FORMAT_DATE_6
+	*/
     public static Final String FORMAT_DATE_6 = 'dd.MM.yyyy HH:mm';
+    /*
+	*   @Variable: FORMAT_DATE_7
+	*/
     public static Final String FORMAT_DATE_7 = 'd/MM/yyyy H:mm';
+    /*
+	*   @Variable: FORMAT_DATE_8
+	*/
     public static Final String FORMAT_DATE_8 = 'yyyy-MM-dd HH:mm';
-
     /**
      * formatCurrentDate
 	*/

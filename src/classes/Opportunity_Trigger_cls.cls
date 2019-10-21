@@ -7,7 +7,10 @@
 */
 public without sharing class Opportunity_Trigger_cls {
     
-    static Final String especialista = 'Especialista';
+    /*
+	*   @Variable: ESPECIALISTA
+	*/
+    static Final String ESPECIALISTA = 'Especialista';
 	/*
 	*   @Variable: temporal
 	*/
@@ -15,7 +18,7 @@ public without sharing class Opportunity_Trigger_cls {
     /*
 	* asignBeforeInsert
 	*/
-    public void asignBeforeInsert(list<Opportunity>oppsNew, Map<id,Opportunity>oppsNewMap) {
+    public static void asignBeforeInsert(list<Opportunity>oppsNew, Map<id,Opportunity>oppsNewMap) {
         //date CDate;//Yuliño: correcion
         Date pDate;
         if(!MIGRACION.equals([select Name from profile where Id=:Userinfo.getProfileId() limit 1].Name)) {
@@ -47,14 +50,14 @@ public without sharing class Opportunity_Trigger_cls {
     /**
      * asignBeforeUpdate
 	*/
-    public void asignBeforeUpdate(list<Opportunity>oppsNew, Map<id,Opportunity>oppsNewMap, list<Opportunity>oppsOld, Map<id,Opportunity>oppsOldMap) {
+    public static void asignBeforeUpdate(list<Opportunity>oppsNew, Map<id,Opportunity>oppsNewMap, list<Opportunity>oppsOld, Map<id,Opportunity>oppsOldMap) {
         valida(oppsNew, oppsOldMap);
     }
     
     /**
      * asignAfterUpdate
 	*/
-    public void asignAfterUpdate(List<Opportunity> lstNew, Map<Id,Opportunity> mapOld) {
+    public static void asignAfterUpdate(List<Opportunity> lstNew, Map<Id,Opportunity> mapOld) {
         List <Id> lstId = new List <Id>();
         for (Opportunity opNew : lstNew) {
             Opportunity oldRecord = mapOld.get(opNew.Id);
@@ -101,11 +104,11 @@ public without sharing class Opportunity_Trigger_cls {
         for(Opportunity opp:oppsNew) {
             if(opp.OwnerId!=oppsOldMap.get(opp.Id).OwnerId && opp.StageName =='01' || opp.StageName =='02'&& opp.StageName =='03') {
                 if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name=='Ejecutivo'|| MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name =='Ejecutivo') {
-					if(MapUser.get(opp.OwnerId).Profile.Name !='Ejecutivo' && MapUser.get(opp.OwnerId).Profile.Name !=especialista) {
+					if(MapUser.get(opp.OwnerId).Profile.Name !='Ejecutivo' && MapUser.get(opp.OwnerId).Profile.Name !=ESPECIALISTA) {
                         Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente1');
                     }
-                } else if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name==especialista|| MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name ==especialista) {
-                    if(MapUser.get(opp.OwnerId).Profile.Name !=especialista&& MapUser.get(opp.OwnerId).Profile.Name !=especialista) {
+                } else if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name==ESPECIALISTA|| MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name ==ESPECIALISTA) {
+                    if(MapUser.get(opp.OwnerId).Profile.Name !=ESPECIALISTA&& MapUser.get(opp.OwnerId).Profile.Name !=ESPECIALISTA) {
                         Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente2');
                     }
                 } else if(MapUser.get(opp.OwnerId).Profile.Name=='Analista'||MapUser.get(opp.OwnerId).Profile.Name =='Operativo') {
@@ -118,7 +121,7 @@ public without sharing class Opportunity_Trigger_cls {
     /**
      * asignAfterInsert
 	*/
-    public void asignAfterInsert(List <Opportunity> oppsNew) {
+    public static void asignAfterInsert(List <Opportunity> oppsNew) {
         Map<Id,Id> owneropp = new Map<Id,Id>();
         List<OpportunityTeamMember> oppTeam = new List<OpportunityTeamMember>();
         for(Opportunity opp:[Select Id, OwnerId, Account.OwnerId from Opportunity where Id =:oppsNew]) {

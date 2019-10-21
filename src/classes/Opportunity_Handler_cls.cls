@@ -14,22 +14,22 @@ public without sharing class Opportunity_Handler_cls extends TriggerHandler {
     
     @TestVisible
     protected override void beforeInsert() {
-        new Opportunity_Trigger_cls().asignBeforeInsert(oppsNew, oppsNewMap);
+        Opportunity_Trigger_cls.asignBeforeInsert(oppsNew, oppsNewMap);
     }
     
     @TestVisible
     protected override void beforeUpdate() {
-        new Opportunity_Trigger_cls().asignBeforeUpdate(oppsNew, oppsNewMap, oppsOld, oppsOldMap);
+        Opportunity_Trigger_cls.asignBeforeUpdate(oppsNew, oppsNewMap, oppsOld, oppsOldMap);
     }
     
     @TestVisible
     protected override void afterUpdate() {
-        new Opportunity_Trigger_cls().asignAfterUpdate(oppsNew, oppsOldMap);
+        Opportunity_Trigger_cls.asignAfterUpdate(oppsNew, oppsOldMap);
         OpportunityChatterNotifications.notificationMethods(oppsNew, oppsNewMap, oppsOldMap);
     }
     @TestVisible
     protected override void afterInsert() {
-        new Opportunity_Trigger_cls().asignAfterInsert(oppsNew);
+        Opportunity_Trigger_cls.asignAfterInsert(oppsNew);
     }
     
     /*
