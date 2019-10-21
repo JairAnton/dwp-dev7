@@ -7,29 +7,29 @@
 */
 public without sharing class Opportunity_Handler_cls extends TriggerHandler {
     
-    list<Opportunity>Opps_New = Trigger.new;
-    list<Opportunity>Opps_Old = Trigger.Old;
-    Map<id,Opportunity>Opps_NewMap = ((Map<Id,Opportunity>)(Trigger.NewMap));
-    Map<id,Opportunity>Opps_OldMap = ((Map<Id,Opportunity>)(Trigger.OldMap));
+    list<Opportunity> oppsNew = Trigger.new;
+    list<Opportunity> oppsOld = Trigger.Old;
+    Map<id,Opportunity> oppsNewMap = ((Map<Id,Opportunity>)(Trigger.NewMap));
+    Map<id,Opportunity> oppsOldMap = ((Map<Id,Opportunity>)(Trigger.OldMap));
     
     @TestVisible
-    protected override void beforeInsert(){
-        new Opportunity_Trigger_cls().AsignBeforeInsert(Opps_New,Opps_NewMap);
+    protected override void beforeInsert() {
+        Opportunity_Trigger_cls.asignBeforeInsert(oppsNew, oppsNewMap);
     }
     
     @TestVisible
-    protected override void beforeUpdate(){
-        new Opportunity_Trigger_cls().AsignBeforeUpdate(Opps_New, Opps_NewMap, Opps_Old, Opps_OldMap);
+    protected override void beforeUpdate() {
+        Opportunity_Trigger_cls.asignBeforeUpdate(oppsNew, oppsNewMap, oppsOld, oppsOldMap);
     }
     
     @TestVisible
-    protected override void afterUpdate(){
-        new Opportunity_Trigger_cls().AsignAfterUpdate(Opps_New, Opps_OldMap);
-        OpportunityChatterNotifications.notificationMethods(Opps_New, Opps_NewMap, Opps_OldMap);
+    protected override void afterUpdate() {
+        Opportunity_Trigger_cls.asignAfterUpdate(oppsNew, oppsOldMap);
+        OpportunityChatterNotifications.notificationMethods(oppsNew, oppsNewMap, oppsOldMap);
     }
     @TestVisible
-    protected override void afterInsert(){
-        new Opportunity_Trigger_cls().AsignAfterInsert(Opps_New);
+    protected override void afterInsert() {
+        Opportunity_Trigger_cls.asignAfterInsert(oppsNew);
     }
     
     /*

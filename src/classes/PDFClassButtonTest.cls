@@ -12,134 +12,159 @@
 @isTest
 public class PDFClassButtonTest {
     
+    /** Test IS_ERROR */
+    static Final String IS_ERROR = 'isError';
+    /** Test MSG_ASSERTION */
+    static Final String MSG_ASSERTION = 'Assertion Failed';
+    /**
+     * Test Setup()
+	*/
     @testSetup
     static void setupData() {       
-        User u = new User(
+        insert new User(
             ProfileId = [SELECT Id FROM Profile WHERE Name = 'Ejecutivo'].Id, LastName = 'last', Email = 'user@BBVA.com', Username = 'userBBVA@BBVA.com' + System.currentTimeMillis(),
             CompanyName = 'BBVA', Title = 'title', Alias = 'alias', TimeZoneSidKey = 'America/Los_Angeles', EmailEncodingKey = 'UTF-8', LanguageLocaleKey = 'en_US', 
             LocaleSidKey = 'en_US', isActive=true);
-        insert u;
         
         /*Crea Subgerente Operativo*/
 		Final String perfil=[SELECT Id FROM Profile WHERE name='Operativo'].Id;
         Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'SUBGERENTE BEC', 
             User.prof_position_id__c => 'E04', User.isActive => true};
-        User userSgof = TestFactory.getUser(true, mapFields);
+        //userSgof
+        TestFactory.getUser(true, mapFields);
         mapFields.put(User.prof_position_type__c, 'ASISTENTE BEC');
         mapFields.put(User.prof_position_id__c, 'E06');
-        User userAssistant=TestFactory.getUser(true, mapFields);
+        //userAssistant
+        TestFactory.getUser(true, mapFields);
         //Create Accounts.
-        List<Account> lstAccounts = new List<Account>();
-        List<Opportunity> lstOpportunities = new List<Opportunity>();
-        List<OpportunityLineItem> lstOpportunitiesLineItem = new List<OpportunityLineItem>();
-        lstAccounts.add(new Account(Name = 'AccountName'));    
-        insert lstAccounts;
+        Final Account acc = new Account(Name = 'AccountName');    
+        insert acc;
+        Final Opportunity oppTmp = new Opportunity(Name='testopp',AccountId = acc.Id,Amount=1000, StageName='01', CloseDate=system.Date.today(),opportunity_status_type__c='01',OwnerId=UserInfo.getUserId());
+		insert oppTmp;
         
-        lstOpportunities.add(new Opportunity(Name='testopp',AccountId = lstAccounts[0].Id,Amount=1000, StageName='01', CloseDate=system.Date.today(),opportunity_status_type__c='01',OwnerId=UserInfo.getUserId()));
+        Final RecordType rtype = [SELECT Id FROM RecordType WHERE DeveloperName = 'Formalization' AND SobjectType='Case' limit 1];
+        insert new Case(status = '01', Opportunity_id__c=oppTmp.Id, recordTypeId=rtype.Id);
         
-        insert lstOpportunities;
-        RecordType rt = [SELECT Id FROM RecordType WHERE DeveloperName = 'Formalization' AND SobjectType='Case' limit 1];
-        insert new Case(status = '01', Opportunity_id__c=lstOpportunities[0].Id, recordTypeId=rt.Id);
-        
-        Product2 prod = new Product2(Name = 'Swift', Family = 'Credit');
+        Final Product2 prod = new Product2(Name = 'Swift', Family = 'Credit');
         insert prod;
-        Account_BBVA_Classification__c  ABBVAC = new Account_BBVA_Classification__c(account_id__c= lstAccounts[0].Id);
-        insert ABBVAC;
-        Account_Banking_System_Classification__c CSBS  = new Account_Banking_System_Classification__c(account_id__c= lstAccounts[0].Id);
-        insert CSBS;
-        Contact Contacto = new Contact(Salutation='Sr.',decision_making_desc__c='Si',LastName='testLast',FirstName='test',AccountId =lstAccounts[0].Id);
-        insert Contacto;
-        Branch__c  oficina = new Branch__c();
+        insert new Account_BBVA_Classification__c(account_id__c= acc.Id);
+        insert new Account_Banking_System_Classification__c(account_id__c= acc.Id);
+        insert new Contact(Salutation='Sr.',decision_making_desc__c='Si',LastName='testLast',FirstName='test',AccountId =acc.Id);
+        Branch__c oficina = new Branch__c();
         insert oficina;
-        User_Branch__c usuarioOficina = new User_Branch__c(branch_name__c=oficina.Id,user__c=lstOpportunities[0].ownerId );
-        insert usuarioOficina;
+        insert new User_Branch__c(branch_name__c=oficina.Id,user__c=oppTmp.ownerId );
         
-        Id pricebookId = Test.getStandardPricebookId();
+        Final Id pricebookId = Test.getStandardPricebookId();
         
-        PricebookEntry standardPrice = new PricebookEntry(
-            Pricebook2Id = pricebookId, Product2Id = prod.Id,
-            UnitPrice = 10000, IsActive = true);
-        insert standardPrice;
+        insert new PricebookEntry(Pricebook2Id = pricebookId, Product2Id = prod.Id, UnitPrice = 10000, IsActive = true);
         
-        Pricebook2 customPB = new Pricebook2(Name='PriceBook', isActive=true);
+        Final Pricebook2 customPB = new Pricebook2(Name='PriceBook', isActive=true);
         insert customPB;
         
-        PricebookEntry customPrice = new PricebookEntry(
-            Pricebook2Id = customPB.Id, Product2Id = prod.Id,
-            UnitPrice = 12000, IsActive = true);
+        Final PricebookEntry customPrice = new PricebookEntry(Pricebook2Id = customPB.Id, Product2Id = prod.Id, UnitPrice = 12000, IsActive = true);
         insert customPrice;
         
-        lstOpportunitiesLineItem.add(New OpportunityLineItem(OpportunityId=lstOpportunities[0].Id ,Quantity=1,TotalPrice=10.00,PricebookEntryId=customPrice.Id));
-        insert lstOpportunitiesLineItem;
+        insert new OpportunityLineItem(OpportunityId=oppTmp.Id ,Quantity=1,TotalPrice=10.00,PricebookEntryId=customPrice.Id);
     }
     
-    
-    
+    /**
+     * Test PDFclassButton.getErrorMessagesList
+	*/
     public static testMethod void test1() {
-        Id rid = [SELECT ID FROM Opportunity Limit 1].Id;
-        PDFclassButton.getErrorMessagesList(rid,'Opportunity', '');
-        PDFclassButton.PDF_formalization(rid);
-        //sonar 
-        Integer result = 1 + 2;
-        System.assertEquals(3, result);
+        Final Id rid = [SELECT ID FROM Opportunity Limit 1].Id;
+        List<String> result = new List<String>();
+        Test.startTest();
+        result = PDFclassButton.getErrorMessagesList(rid,'Opportunity', '');
+        Test.stopTest();
+        Final String assertion = UserInfo.getLanguage() == 'Spanish' ? 'No puede generar PDF en esta etapa' : 'You can not create a PDF on this stage';
+        System.assertEquals(assertion, result[0], MSG_ASSERTION);
     }
     
+    /**
+     * Test PDFclassButton.PDF_formalization
+	*/
     public static testMethod void test2() {
-        user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true LIMIT 1];
+        Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true LIMIT 1];
+        String result;
         system.runAs(usr) { 
-            Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
-            PDFclassButton.getErrorMessagesList(rid,'Opportunity', '');
-            PDFclassButton.PDF_formalization(rid);
+            Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
+            result = PDFclassButton.PDF_formalization(rid);
         }
-        //sonar 
-        Integer result = 1 + 2;
-        System.assertEquals(3, result);      
+        System.assertEquals('SUCCESS', result, MSG_ASSERTION);      
     }
     
+    /**
+     * Test PDFclassButton.getErrorMessagesList ERROR
+	*/
+    public static testMethod void test3() {
+        Id rId;
+        List<String> result = new List<String>();
+        Test.startTest();
+        result = PDFclassButton.getErrorMessagesList(rId,'Opportunity', '');
+        Test.stopTest();
+        Final String assertion = UserInfo.getLanguage() == 'Spanish' ? 'EL PDF contiene datos incorrectos favor de verificar que toda la informacion viene correcta' : 
+        'Unable to create PDF, please make sure that all information is complete';
+        System.assertEquals(assertion, result[0], MSG_ASSERTION);
+    }
+    
+    /**
+     * Test validateUserSgofTest
+	*/
     public static testmethod void validateUserSgofTest() {
-        user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E04' LIMIT 1];
-        Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
+        Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E04' LIMIT 1];
+        Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
         Map<String, Object> mapRes = new Map<String, Object>();
         system.runAs(usr) { 
             mapRes = PDFclassButton.validateUser(rid);
         }
-        System.assert((Boolean)mapRes.get('isError'), 'Assertion Failed');
+        System.assert((Boolean)mapRes.get(IS_ERROR), MSG_ASSERTION);
     }
     
+    /**
+     * Test validateUserAssistTest
+	*/
     public static testmethod void validateUserAssistTest() {
-        user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E06' LIMIT 1];
+        Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E06' LIMIT 1];
         Case caso = [SELECT Id, OwnerId FROM Case limit 1];
         caso.OwnerId = usr.Id;
         update caso;
-        Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
+        Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
         Map<String, Object> mapRes = new Map<String, Object>();
         system.runAs(usr) { 
             mapRes = PDFclassButton.validateUser(rid);
         }
-        Boolean assert = !(Boolean)mapRes.get('isError');
-        System.assert(assert, 'Assertion Failed');
+        Final Boolean assert = !(Boolean)mapRes.get(IS_ERROR);
+        System.assert(assert, MSG_ASSERTION);
     }
     
+    /**
+     * Test reasignCaseSgofTest
+	*/
     public static testmethod void reasignCaseSgofTest() {
-        user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E04' LIMIT 1];
-        Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
+        Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E04' LIMIT 1];
+        Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
         Map<String, Object> mapRes = new Map<String, Object>();
         system.runAs(usr) { 
             mapRes = PDFclassButton.reasignCase(rid);
         }
-        System.assert((Boolean)mapRes.get('isError'), 'Assertion Failed');
+        System.assert((Boolean)mapRes.get(IS_ERROR), MSG_ASSERTION);
     }
+    
+    /**
+     * Test reasignCaseAssistTest
+	*/
     public static testmethod void reasignCaseAssistTest() {
-        user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E06' LIMIT 1];
+        Final user usr = [SELECT ID FROM User WHERE Profile.Name='Operativo' AND isActive=true AND prof_position_id__c='E06' LIMIT 1];
         Case caso = [SELECT Id, OwnerId FROM Case limit 1];
         caso.OwnerId = usr.Id;
         update caso;
-        Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
+        Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
         Map<String, Object> mapRes = new Map<String, Object>();
         system.runAs(usr) { 
             mapRes = PDFclassButton.reasignCase(rid);
         }
-        Boolean assert = !(Boolean)mapRes.get('isError');
-        //System.assert(assert, 'Assertion Failed');
+        Final Boolean assert = !(Boolean)mapRes.get(IS_ERROR);
+        //Boolean assert = (Boolean)mapRes.get(IS_ERROR);
+        System.assert(assert, MSG_ASSERTION);
     }
 }
