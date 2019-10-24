@@ -116,6 +116,7 @@ public without sharing class Account_Trigger_cls {
         Final Set<Id> idsOldOwners = new Set<Id>();
         Final Set<Id> idsAccounts = new Set<Id>();
         List<dwp_kitv__Visit_Management_Team__c> lstOldTeam = new List<dwp_kitv__Visit_Management_Team__c>();
+        List<dwp_kitv__Visit_Management_Team__c> lstTmpTeam = new List<dwp_kitv__Visit_Management_Team__c>();
         
         for(Account accNew:accsNewMap.values()) {
             //Get Old Owners Ids from Account where Owner change
@@ -128,7 +129,7 @@ public without sharing class Account_Trigger_cls {
         //If idsOldOwners contains values, do query
         Final Integer idsOldOwnersSize = idsOldOwners.size();
         if(idsOldOwnersSize > 0) {
-            lstOldTeam = [SELECT id, dwp_kitv__user_id__c, dwp_kitv__visit_id__r.dwp_kitv__account_id__c, dwp_kitv__Send_minutes__c 
+            lstTmpTeam = [SELECT id, dwp_kitv__user_id__c, dwp_kitv__visit_id__r.dwp_kitv__account_id__c, dwp_kitv__Send_minutes__c, dwp_kitv__visit_id__r.dwp_kitv__account_id__r.OwnerId 
                            FROM dwp_kitv__Visit_Management_Team__c WHERE dwp_kitv__user_id__c IN: idsOldOwners AND dwp_owner_visit__c=true AND 
                            dwp_kitv__visit_id__r.dwp_kitv__account_id__c=:idsAccounts AND 
                           (dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')];
@@ -138,15 +139,18 @@ public without sharing class Account_Trigger_cls {
         Final List<Id> userIds = new List<Id>();
         dwp_kitv__Visit_Management_Team__c tmpTeam;
         Final dwp_kitv__Visit_Management_Team__c[] lstNewTeam=new dwp_kitv__Visit_Management_Team__c[]{};
-        for(dwp_kitv__Visit_Management_Team__c equipo:lstOldTeam) {
-            tmpTeam = new dwp_kitv__Visit_Management_Team__c();
-            tmpTeam.dwp_kitv__visit_id__c=equipo.dwp_kitv__visit_id__c;
-            tmpTeam.dwp_kitv__user_id__c=accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId;
-            tmpTeam.dwp_kitv__Send_minutes__c = equipo.dwp_kitv__Send_minutes__c;
-            tmpTeam.dwp_owner_visit__c=true;
-            visitIds.add(tmpTeam.dwp_kitv__visit_id__c);
-            userIds.add(tmpTeam.dwp_kitv__user_id__c);
-            lstNewTeam.add(tmpTeam);
+        for(dwp_kitv__Visit_Management_Team__c equipo:lstTmpTeam) {
+            if(equipo.dwp_kitv__user_id__c == accsOldMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId) {
+                tmpTeam = new dwp_kitv__Visit_Management_Team__c();
+                tmpTeam.dwp_kitv__visit_id__c = equipo.dwp_kitv__visit_id__c;
+                tmpTeam.dwp_kitv__user_id__c = accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId;
+                tmpTeam.dwp_kitv__Send_minutes__c = equipo.dwp_kitv__Send_minutes__c;
+                tmpTeam.dwp_owner_visit__c=true;
+                visitIds.add(tmpTeam.dwp_kitv__visit_id__c);
+                userIds.add(tmpTeam.dwp_kitv__user_id__c);
+                lstNewTeam.add(tmpTeam);
+                lstOldTeam.add(equipo);
+            }
         }
    
         for(dwp_kitv__Visit_Management_Team__c tmp:[SELECT Id, dwp_kitv__user_id__c, dwp_kitv__visit_id__c FROM dwp_kitv__Visit_Management_Team__c WHERE 

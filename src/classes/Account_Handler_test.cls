@@ -151,7 +151,7 @@ public class Account_Handler_test {
             } 
             insert lstVisit;
             
-            dwp_kitv__Visit_Management_Team__c[] lstVMT = new dwp_kitv__Visit_Management_Team__c[]{};
+            Final dwp_kitv__Visit_Management_Team__c[] lstVMT = new dwp_kitv__Visit_Management_Team__c[]{};
             for(Integer i=0;i<150;i++) {
                 lstVMT.add(new dwp_kitv__Visit_Management_Team__c(dwp_kitv__visit_id__c=lstVisit[i].Id, dwp_kitv__user_id__c=newOwner.Id));
             }
@@ -173,7 +173,6 @@ public class Account_Handler_test {
         
 		Final dwp_kitv__Visit_Management_Team__c[] visitTeam=[SELECT Id, Name, dwp_owner_visit__c,dwp_kitv__user_id__c, dwp_kitv__visit_id__c FROM dwp_kitv__Visit_Management_Team__c 
                                                         WHERE dwp_kitv__user_id__c =:newOwner.Id AND dwp_owner_visit__c=true];
-        system.debug('visitTeam ' +visitTeam);
         System.assertEquals(150, visitTeam.size(), 'Compared VMT new owner size');
     }
     
