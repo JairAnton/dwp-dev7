@@ -115,8 +115,8 @@ public without sharing class Account_Trigger_cls {
     public static void updateTeamVisit(Map<id,Account> accsNewMap, Map<id,Account> accsOldMap) {
         Final Set<Id> idsOldOwners = new Set<Id>();
         Final Set<Id> idsAccounts = new Set<Id>();
-        List<dwp_kitv__Visit_Management_Team__c> lstOldTeam = new List<dwp_kitv__Visit_Management_Team__c>();
-        List<dwp_kitv__Visit_Management_Team__c> lstTmpTeam = new List<dwp_kitv__Visit_Management_Team__c>();
+        Final List<dwp_kitv__Visit_Management_Team__c> lstOldTeam;
+        Final List<dwp_kitv__Visit_Management_Team__c> lstTmpTeam;
         
         for(Account accNew:accsNewMap.values()) {
             //Get Old Owners Ids from Account where Owner change
@@ -158,10 +158,8 @@ public without sharing class Account_Trigger_cls {
                                                     dwp_kitv__visit_id__r.dwp_kitv__account_id__c=:idsAccounts AND (
                                                         dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR 
                                                         dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')]) {
-            if(visitIds.indexOf(tmp.dwp_kitv__visit_id__c) >= 0) {
-                if(userIds.get(visitIds.indexOf(tmp.dwp_kitv__visit_id__c)) == tmp.dwp_kitv__user_id__c) {
-                    lstOldTeam.add(tmp);
-                }
+            if(visitIds.indexOf(tmp.dwp_kitv__visit_id__c) >= 0 && userIds.get(visitIds.indexOf(tmp.dwp_kitv__visit_id__c)) == tmp.dwp_kitv__user_id__c) {
+                lstOldTeam.add(tmp);
             }
         }
         
