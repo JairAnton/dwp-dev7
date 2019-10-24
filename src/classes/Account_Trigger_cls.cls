@@ -134,6 +134,8 @@ public without sharing class Account_Trigger_cls {
                           (dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')];
         }
         
+        Final List<Id> visitIds = new List<Id>();
+        Final List<Id> userIds = new List<Id>();
         dwp_kitv__Visit_Management_Team__c tmpTeam;
         Final dwp_kitv__Visit_Management_Team__c[] lstNewTeam=new dwp_kitv__Visit_Management_Team__c[]{};
         for(dwp_kitv__Visit_Management_Team__c equipo:lstOldTeam) {
@@ -142,7 +144,21 @@ public without sharing class Account_Trigger_cls {
             tmpTeam.dwp_kitv__user_id__c=accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId;
             tmpTeam.dwp_kitv__Send_minutes__c = equipo.dwp_kitv__Send_minutes__c;
             tmpTeam.dwp_owner_visit__c=true;
+            visitIds.add(tmpTeam.dwp_kitv__visit_id__c);
+            userIds.add(tmpTeam.dwp_kitv__user_id__c);
             lstNewTeam.add(tmpTeam);
+        }
+   
+        for(dwp_kitv__Visit_Management_Team__c tmp:[SELECT Id, dwp_kitv__user_id__c, dwp_kitv__visit_id__c FROM dwp_kitv__Visit_Management_Team__c WHERE 
+                                                    dwp_kitv__visit_id__c IN:visitIds AND dwp_kitv__user_id__c IN:userIds AND dwp_owner_visit__c=false AND 
+                                                    dwp_kitv__visit_id__r.dwp_kitv__account_id__c=:idsAccounts AND (
+                                                        dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR 
+                                                        dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')]) {
+            if(visitIds.indexOf(tmp.dwp_kitv__visit_id__c) >= 0) {
+                if(userIds.get(visitIds.indexOf(tmp.dwp_kitv__visit_id__c)) == tmp.dwp_kitv__user_id__c) {
+                    lstOldTeam.add(tmp);
+                }
+            }
         }
         
         Final Integer lstOldTeamSize = lstOldTeam.size();
