@@ -115,8 +115,8 @@ public without sharing class Account_Trigger_cls {
     public static void updateTeamVisit(Map<id,Account> accsNewMap, Map<id,Account> accsOldMap) {
         Final Set<Id> idsOldOwners = new Set<Id>();
         Final Set<Id> idsAccounts = new Set<Id>();
-        Final List<dwp_kitv__Visit_Management_Team__c> lstOldTeam;
-        Final List<dwp_kitv__Visit_Management_Team__c> lstTmpTeam;
+        List<dwp_kitv__Visit_Management_Team__c> lstOldTeam = new List<dwp_kitv__Visit_Management_Team__c>();
+        List<dwp_kitv__Visit_Management_Team__c> lstTmpTeam = new List<dwp_kitv__Visit_Management_Team__c>();
         
         for(Account accNew:accsNewMap.values()) {
             //Get Old Owners Ids from Account where Owner change
