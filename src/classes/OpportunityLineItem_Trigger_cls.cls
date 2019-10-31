@@ -158,34 +158,46 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     }
 
 	/* Metod used for calculate due date of opportunity */
-    public static OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
+    private static OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
         final Integer limitNum = 999;
         final Integer valPlazo = (oli.get(plazo)==null ? -1 : Integer.valueOf(oli.get(plazo)));
         final String valPeriod = (oli.get(periodicity)==null ? null : String.valueOf(oli.get(periodicity)));
         if(valPlazo >=0 && String.isNotEmpty(valPeriod)) {
-            switch on String.valueOf(oli.get(periodicity)) {
-                when '01' {
-                    oli.cpliq_Fecha_Vencimiento__c = System.today().addDays(valPlazo);
-                }
-                when '02' {
-                    oli.cpliq_Fecha_Vencimiento__c = System.today().addMonths(valPlazo);
-                }
-                when '03' {
-                    oli.cpliq_Fecha_Vencimiento__c = System.today().addYears(valPlazo);
-                }
-            }
+            oli = setDueDate(oli, valPlazo, periodicity);
         } else if(oli.cpliq_Fecha_Vencimiento__c != null) {
-            oli.put(periodicity,'01');
-            oli.put(plazo,System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1);
+        	oli = setPeriod(oli, plazo, periodicity, limitNum);
+        }
+        return oli;
+    }
+    
+    /* Metod used for calculate due date using plazo */
+    private static OpportunityLineItem setDueDate(OpportunityLineItem oli, Integer valPlazo, String periodicity) {
+        switch on String.valueOf(oli.get(periodicity)) {
+            when '01' {
+                oli.cpliq_Fecha_Vencimiento__c = System.today().addDays(valPlazo);
+            }
+            when '02' {
+                oli.cpliq_Fecha_Vencimiento__c = System.today().addMonths(valPlazo);
+            }
+            when '03' {
+                oli.cpliq_Fecha_Vencimiento__c = System.today().addYears(valPlazo);
+            }
+        }
+        return oli;
+    }
+    
+    /* Metod used for calculate due date using period */
+    private static OpportunityLineItem setPeriod(OpportunityLineItem oli, String plazo, String periodicity, Integer limitNum) {
+        oli.put(periodicity,'01');
+        oli.put(plazo,System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1);
+        if(Integer.valueOf(oli.get(plazo))>limitNum) {
+            Integer numPlazo = Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/30);
+            oli.put(periodicity,'02');
+            oli.put(plazo, numPlazo);
             if(Integer.valueOf(oli.get(plazo))>limitNum) {
-                Integer numPlazo = Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/30);
-                oli.put(periodicity,'02');
+                oli.put(periodicity,'03');
+                numPlazo = Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/365);
                 oli.put(plazo, numPlazo);
-                if(Integer.valueOf(oli.get(plazo))>limitNum) {
-                    oli.put(periodicity,'03');
-                    numPlazo = Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/365);
-                    oli.put(plazo, numPlazo);
-                }
             }
         }
         return oli;

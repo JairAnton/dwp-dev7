@@ -87,14 +87,16 @@ public with sharing class SanctionPrice_ctrl {
                     }
                     //If product_price_approval_method__c == Web and has a OLI    
                 } else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web') {
-                    Boolean validBail = validBailLetter(lstOpp[0].OpportunityLineItems);
-                    Boolean validPeriod = validPeriodLetter(lstOpp[0].OpportunityLineItems);
+                    final Boolean validBail = validBailLetter(lstOpp[0].OpportunityLineItems);
                     if(validBail==false) {
                         genericError = 'El "tipo carta fianza" elegido no es válido en combinación con el "tipo de moneda" y "tipo de benenficiario" seleccionados. Por favor eliga otro "tipo carta fianza".';
-                    } else if(validPeriod==false) {
-                        	genericError = 'La "periodicidad comisión" elegida no es válida en combinación con el "tipo de moneda", "tipo carta fianza" y "tipo de benenficiario" seleccionados. Por favor eliga otra "periodicidad comisión".';
                     } else {
-                        SanctionPrice_ctrl.invokeWS(recordId);
+                        final Boolean validPeriod = validPeriodLetter(lstOpp[0].OpportunityLineItems);
+                        if(validPeriod==false) {
+                            genericError = 'La "periodicidad comisión" elegida no es válida en combinación con el "tipo de moneda", "tipo carta fianza" y "tipo de benenficiario" seleccionados. Por favor eliga otra "periodicidad comisión".';
+                        } else {
+                            SanctionPrice_ctrl.invokeWS(recordId);
+                        }
                     }
                     
                     if(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c!=null){

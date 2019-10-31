@@ -393,7 +393,7 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
-    </fields>
+    </fields> 
     <gender>Feminine</gender>
     <label>BE_BailLetterCombination</label>
     <nameField>
