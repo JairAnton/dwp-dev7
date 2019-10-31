@@ -1,0 +1,120 @@
+// LETRAS
+
+List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
+for(OpportunityLineItem oli : [SELECT Id FROM OpportunityLineItem WHERE product2.Unique_id__c='0159501' LIMIT 500]) {
+    oli.PE_List_Product_mode__c='01';
+	olis.add(oli);
+}
+if(olis.size()>0) {
+    update olis;
+    System.debug('######### actualizando garantias - total olis #########: '+olis.size());
+}
+else {
+    System.debug('######### no existen registros para actualizar #########');
+}
+
+
+// COMEX IMPO Y EXPO
+
+List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
+for(OpportunityLineItem oli : [SELECT Id, PE_List_Product_mode__c, FinancingType__c FROM OpportunityLineItem WHERE product2.Unique_id__c IN ('0161720', '0161710') LIMIT 500]) {
+    if(oli.PE_List_Product_mode__c=='11') {
+		oli.FinancingType__c='01';
+	} else if(oli.PE_List_Product_mode__c=='12') {
+		oli.FinancingType__c='02';
+	} else if(oli.PE_List_Product_mode__c=='13') {
+		oli.FinancingType__c='03';
+	}
+	oli.PE_List_Product_mode__c='01';
+	olis.add(oli);
+}
+if(olis.size()>0) {
+    update olis;
+    System.debug('######### actualizando garantias - total olis #########: '+olis.size());
+}
+else {
+    System.debug('######### no existen registros para actualizar #########');
+}
+
+
+
+// CARTA FIANZA
+
+List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
+for(OpportunityLineItem oli : [SELECT Id, PE_List_Product_mode__c, tcf_type_bail_letter__c, product2.Unique_id__c FROM OpportunityLineItem WHERE product2.Unique_id__c IN ('0292230_V1_DEPRECATED', '0292230', '0292235_V1_DEPRECATED', '0292235') LIMIT 500]) {
+    oli.PE_List_Product_mode__c='19';
+	if(oli.product2.Unique_id__c=='0292230_V1_DEPRECATED' || oli.product2.Unique_id__c=='0292230') {
+		oli.tcf_type_bail_letter__c='01';
+	} else {
+		oli.tcf_type_bail_letter__c='07';
+	}
+	olis.add(oli);
+}
+if(olis.size()>0) {
+    update olis;
+    System.debug('######### actualizando garantias - total olis #########: '+olis.size());
+}
+else {
+    System.debug('######### no existen registros para actualizar #########');
+}
+
+
+
+// LEASING
+
+List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
+for(OpportunityLineItem oli : [SELECT Id, PE_List_Product_mode__c, gipr_Payment_Method__c FROM OpportunityLineItem WHERE product2.Unique_id__c IN ('0159601_V1_DEPRECATED', '0159601') LIMIT 500]) {
+    if(oli.gipr_Payment_Method__c==null) {
+		oli.gipr_Payment_Method__c='01';
+	}
+	if(oli.PE_List_Product_mode__c=='08' || oli.PE_List_Product_mode__c=='06') {
+		oli.PE_List_Product_mode__c='21';
+	} else if(oli.PE_List_Product_mode__c=='07') {
+		oli.PE_List_Product_mode__c='23';
+	}
+	olis.add(oli);
+}
+if(olis.size()>0) {
+    update olis;
+    System.debug('######### actualizando garantias - total olis #########: '+olis.size());
+}
+else {
+    System.debug('######### no existen registros para actualizar #########');
+}
+
+
+
+// Prestamo comercial CP
+
+List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
+for(OpportunityLineItem oli : [SELECT Id, PE_List_Product_mode__c FROM OpportunityLineItem WHERE product2.Unique_id__c IN ('0160010_NEW', '0160010') AND PE_List_Product_mode__c='10' LIMIT 500]) {
+    oli.PE_List_Product_mode__c='01';
+	olis.add(oli);
+}
+if(olis.size()>0) {
+    update olis;
+    System.debug('######### actualizando garantias - total olis #########: '+olis.size());
+}
+else {
+    System.debug('######### no existen registros para actualizar #########');
+}
+
+
+
+
+// Prestamo comercial LP
+
+List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
+for(OpportunityLineItem oli : [SELECT Id, PE_List_Product_mode__c FROM OpportunityLineItem WHERE product2.Unique_id__c IN ('PC00009') AND PE_List_Product_mode__c='05' LIMIT 500]) {
+    oli.PE_List_Product_mode__c='21';
+	olis.add(oli);
+}
+if(olis.size()>0) {
+    update olis;
+    System.debug('######### actualizando garantias - total olis #########: '+olis.size());
+}
+else {
+    System.debug('######### no existen registros para actualizar #########');
+}
+
+

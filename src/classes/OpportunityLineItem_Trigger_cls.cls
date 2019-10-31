@@ -114,9 +114,38 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         
     }
     
-    public void updateDateLine(List<OpportunityLineItem> listRow){
+    public void updateDateLine(List<OpportunityLineItem> listRow) {
+        Set<Id> productIds = new Set<Id>();
+        Map<String, Map<String, Double>> mapFields = new Map<String, Map<String, Double>>();
+        for(OpportunityLineItem oli : listRow) {
+            productIds.add(oli.Product2Id);
+        }
+        for(fprd__GBL_Product_Configuration__c pc : [SELECT Id, fprd__Product__c, fprd__Map_field__c, fprd__Section_order__c FROM fprd__GBL_Product_Configuration__c WHERE fprd__Product__c IN : productIds]) {
+            Map<String, Double> mapFied = new Map<String, Double>();
+            if(mapFields.containsKey(pc.fprd__Product__c)) {
+                mapFied = mapFields.get(pc.fprd__Product__c);
+            }
+            mapFied.put(pc.fprd__Map_field__c, pc.fprd__Section_order__c);
+            mapFields.put(pc.fprd__Product__c, mapFied);
+        }
         
-        for(OpportunityLineItem OLI: listRow){
+        for(OpportunityLineItem OLI : listRow) {
+            if(mapFields.containsKey(OLI.Product2Id)) {
+                Map<String, Double> mapFied = mapFields.get(OLI.Product2Id);
+                if(mapFied.get('cpliq_Fecha_Vencimiento__c')!= null && mapFied.get('gipr_Plazo__c') == mapFied.get('cpliq_Fecha_Vencimiento__c') && mapFied.get('gipr_Periodicidad__c') == mapFied.get('cpliq_Fecha_Vencimiento__c')) {
+                    oli = calculateDueDate(oli, 'gipr_Plazo__c', 'gipr_Periodicidad__c');
+                }
+                else if(mapFied.get('cpliq_Fecha_Vencimiento__c')!= null && mapFied.get('gipr_Plazo__c') == mapFied.get('cpliq_Fecha_Vencimiento__c') && mapFied.get('cpliq_Periodicidad__c') == mapFied.get('cpliq_Fecha_Vencimiento__c')) {
+                    oli = calculateDueDate(oli, 'gipr_Plazo__c', 'cpliq_Periodicidad__c');
+                }
+                else if(mapFied.get('cpliq_Fecha_Vencimiento__c')!= null && mapFied.get('cpliq_n__c') == mapFied.get('cpliq_Fecha_Vencimiento__c') && mapFied.get('gipr_Periodicidad__c') == mapFied.get('cpliq_Fecha_Vencimiento__c')) {
+                    oli = calculateDueDate(oli, 'cpliq_n__c', 'gipr_Periodicidad__c');
+                }
+                else if(mapFied.get('cpliq_Fecha_Vencimiento__c')!= null && mapFied.get('cpliq_n__c') == mapFied.get('cpliq_Fecha_Vencimiento__c') && mapFied.get('cpliq_Periodicidad__c') == mapFied.get('cpliq_Fecha_Vencimiento__c')) {
+                    oli = calculateDueDate(oli, 'cpliq_n__c', 'cpliq_Periodicidad__c');
+                }
+            }
+            /*
             String oliCode =OLI.ProductCode==null?'':OLI.ProductCode;
             if(oliCode.contains('_Depre')) {
                 oliCode= oliCode.removeEnd('_Depre');
@@ -215,10 +244,11 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                            (Date.valueOf(OLI.LastModifiedDate).addMonths(Integer.valueOf(OLI.cpliq_n__c))):
                        (Date.valueOf(OLI.LastModifiedDate).addYears(Integer.valueOf(OLI.cpliq_n__c)));
                            }
-            
+        */
         }
     }
-    public  void deleteOppSolComm ( Map<id,OpportunityLineItem> Opps_OldMap){
+	
+    public void deleteOppSolComm ( Map<id,OpportunityLineItem> Opps_OldMap){
         List<Opportunity_Solution_Commitment__c> lstoppsolcom = [Select Id,opp_solution_id__c from Opportunity_Solution_Commitment__c where opp_solution_id__c =:Opps_OldMap.keySet()];
         if(!lstoppsolcom.isEmpty()){
             delete lstoppsolcom;
@@ -256,4 +286,33 @@ if(!UpCase.isempty())
 update UpCase;
 }
 }*/
+
+	public OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
+        if(oli.get(plazo) != null && oli.get(periodicity)!=null) {
+            switch on String.valueOf(oli.get(periodicity)) {
+                when '01' {
+                    oli.cpliq_Fecha_Vencimiento__c = System.today().addDays(Integer.valueOf(oli.get(plazo)));
+                }
+                when '02' {
+                    oli.cpliq_Fecha_Vencimiento__c = System.today().addMonths(Integer.valueOf(oli.get(plazo)));
+                }
+                when '03' {
+                    oli.cpliq_Fecha_Vencimiento__c = System.today().addYears(Integer.valueOf(oli.get(plazo)));
+                }
+            }
+        }
+        else if(oli.cpliq_Fecha_Vencimiento__c != null) {
+            oli.put(periodicity,'01');
+            oli.put(plazo,System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1);
+            if(Integer.valueOf(oli.get(plazo))>999) {
+                oli.put(periodicity,'02');
+                oli.put(plazo,Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/30));
+                if(Integer.valueOf(oli.get(plazo))>999) {
+                    oli.put(periodicity,'03');
+                    oli.put(plazo,Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/365));
+                }
+            }
+        }
+        return oli;
+    }
 }

@@ -48,7 +48,12 @@ public with sharing class SanctionPrice_ctrl {
                                      expected_loss_per__c, financing_cost_stockholder_per__c, 
                                      funding_cost_per__c, funding_cost_adjusted_per__c,
                                      minimum_spread_per__c, regulatory_capital_per__c,
-                                     Product2Id,product2.Type_of_quote__c
+                                     Product2Id,product2.Type_of_quote__c, 
+									 pricing_model_id__c, 
+                                     CurrencyIsoCode, 
+                                     tcf_type_beneficiary__c, 
+                                     tcf_Periodicity_commission__c, 
+                                     tcf_type_bail_letter__c
                                      FROM OpportunityLineItems) 
                                     FROM Opportunity 
                                     WHERE Id = :recordId];
@@ -81,8 +86,30 @@ public with sharing class SanctionPrice_ctrl {
                         mapReturn.put('dynamicValue',lstPriceFee[0].minimun_fee_per__c);
                     }
                     //If product_price_approval_method__c == Web and has a OLI    
-                }else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web'){
-                    SanctionPrice_ctrl.invokeWS(recordId);
+                } else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web') {
+                    Boolean validPeriod = true;
+                    Boolean validBail = true;
+                    if(!lstOpp[0].OpportunityLineItems.isEmpty() && lstOpp[0].OpportunityLineItems[0].pricing_model_id__c=='11') {
+                        validBail = false;
+                        validPeriod = false;
+                        for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c]) {
+                            if(bailLetterComb.UniqueId__c.subString(0,7)==lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode+lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c+lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c) {
+                                validBail = true;
+                                if(bailLetterComb.UniqueId__c==lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode+lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c+lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c+lstOpp[0].OpportunityLineItems[0].tcf_Periodicity_commission__c) {
+                                    validPeriod = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    
+                    if(!validBail) {
+                        genericError = 'El "tipo carta fianza" elegido no es válido en combinación con el "tipo de moneda" y "tipo de benenficiario" seleccionados. Por favor eliga otro "tipo carta fianza".';
+                    } else if(!validPeriod) {
+                        genericError = 'La "periodicidad comisión" elegida no es válida en combinación con el "tipo de moneda", "tipo carta fianza" y "tipo de benenficiario" seleccionados. Por favor eliga otra "periodicidad comisión".';
+                    } else {
+                        SanctionPrice_ctrl.invokeWS(recordId);
+                    }
                     if(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c!=null){
                         mapReturn.put('proposed',lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c);
                     }else{
