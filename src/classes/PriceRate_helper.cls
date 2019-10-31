@@ -19,56 +19,48 @@ public without sharing class PriceRate_helper {
      */
     public PriceRate_helper(String oppRecordId, Boolean isSimulate) {
         this.isSimulate = isSimulate;
-        String branchcode = '';
-        List<Opportunity> lstOpp = [SELECT 	Account.main_code_id__c, 
-                                    Account.AccountNumber, 
-                                    Branch_id__r.branch_id__c, 
-                                    (SELECT 	Id, 
-                                     unitprice, 
-                                     Product2.price_approval_web_service_id__c, 
-                                     gipr_Plazo__c, 
-                                     gipr_Periodicidad__c, 
-                                     gipr_Tipo_Garantia__c,
-                                     gipr_Cobertura__c,
-                                     pricing_model_id__c,
-                                     PE_List_Product_mode__c,
-                                     CurrencyIsoCode,
-                                     gipr_Garantia__c,
-                                     gipr_Payment_Method__c,
-                                     tcf_type_beneficiary__c,
-                                     tcf_Periodicity_commission__c,
-                                     tcf_type_bail_letter__c
-                                     FROM OpportunityLineItems) 
-                                    FROM Opportunity  WHERE Id = :oppRecordId];
-        
+        List<Opportunity> lstOpp = [SELECT Account.main_code_id__c, Account.AccountNumber, Branch_id__r.branch_id__c, 
+                                    (SELECT Id, unitprice, Product2.price_approval_web_service_id__c, gipr_Plazo__c, 
+                                     gipr_Periodicidad__c, gipr_Tipo_Garantia__c, gipr_Cobertura__c, pricing_model_id__c,
+                                     PE_List_Product_mode__c, CurrencyIsoCode, gipr_Garantia__c, gipr_Payment_Method__c,
+                                     tcf_type_beneficiary__c, tcf_Periodicity_commission__c, tcf_type_bail_letter__c
+                                     FROM OpportunityLineItems) FROM Opportunity WHERE Id = :oppRecordId];
         if(!lstOpp.isEmpty()) {
-            //Map with values
-            Final Map<String,Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String>{'TERM_PERIOCITY', 'GUARANTEE_CLASSIFICATION', 'CONTRACT_MODALITY'}, lstOpp[0].OpportunityLineItems[0].pricing_model_id__c);
-            Final Map<String,Web_Service_Value_Mapping__c> mapWsValParams = WebServiceUtils.getWebServiceValuesMapping(new List<String>{'GUARANTEE_TYPE', 'PAYMENT_METHOD_CODE', 'BENEFICIARY_CODE', 'PAYMENT_PERIOD_CODE', 'BAIL_OBJECT_CODE'},'');
-            //map the input values with the input attributes of the webservice
-            if(lstOpp[0].Branch_id__r.branch_id__c!=null) {
-                branchcode =+ lstOpp[0].Branch_id__r.branch_id__c.right(4);
-            }
-            Final List<String> ltsValues = new List<String>();
-            ltsValues.add(lstOpp[0].Account.main_code_id__c);
-            ltsValues.add(lstOpp[0].Account.AccountNumber);
-            ltsValues.add(String.valueOf(lstOpp[0].OpportunityLineItems[0].unitprice));
-            ltsValues.add((mapWsVal.get('TERM_PERIOCITY' + lstOpp[0].OpportunityLineItems[0].gipr_Periodicidad__c) == null ? null : mapWsVal.get('TERM_PERIOCITY' + lstOpp[0].OpportunityLineItems[0].gipr_Periodicidad__c).web_service_value__c));
-            ltsValues.add(String.valueOf(lstOpp[0].OpportunityLineItems[0].gipr_Plazo__c));
-            ltsValues.add((mapWsVal.get('GUARANTEE_CLASSIFICATION' + lstOpp[0].OpportunityLineItems[0].gipr_Tipo_Garantia__c) == null ? null : mapWsVal.get('GUARANTEE_CLASSIFICATION' + lstOpp[0].OpportunityLineItems[0].gipr_Tipo_Garantia__c).web_service_value__c));
-            ltsValues.add(branchcode);
-            ltsValues.add((mapWsVal.get('CONTRACT_MODALITY' + lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c) == null ? null : mapWsVal.get('CONTRACT_MODALITY' + lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c).web_service_value__c));
-            ltsValues.add(lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode);
-            ltsValues.add(lstOpp[0].OpportunityLineItems[0].Product2.price_approval_web_service_id__c);
-            ltsValues.add((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c == null ? '' : String.valueOf((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c) / 100) ));
-            ltsValues.add((mapWsValParams.get('GUARANTEE_TYPE' + lstOpp[0].OpportunityLineItems[0].gipr_Garantia__c) == null ? null : mapWsValParams.get('GUARANTEE_TYPE' + lstOpp[0].OpportunityLineItems[0].gipr_Garantia__c).web_service_value__c));
-            ltsValues.add((mapWsValParams.get('PAYMENT_METHOD_CODE' + lstOpp[0].OpportunityLineItems[0].gipr_Payment_Method__c) == null ? null : mapWsValParams.get('PAYMENT_METHOD_CODE' + lstOpp[0].OpportunityLineItems[0].gipr_Payment_Method__c).web_service_value__c));
-            ltsValues.add((mapWsValParams.get('BENEFICIARY_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c) == null ? null : mapWsValParams.get('BENEFICIARY_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c).web_service_value__c));
-            ltsValues.add((mapWsValParams.get('PAYMENT_PERIOD_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_Periodicity_commission__c) == null ? null : mapWsValParams.get('PAYMENT_PERIOD_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_Periodicity_commission__c).web_service_value__c));
-            ltsValues.add((mapWsValParams.get('BAIL_OBJECT_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c) == null ? null : mapWsValParams.get('BAIL_OBJECT_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c).web_service_value__c));
-            Final RequestPriceRate_Wrapper requestWrapper = new RequestPriceRate_Wrapper(ltsValues);
-            this.inputDataMapping = requestWrapper;
+            this.inputDataMapping = setValuesMapping(lstOpp);
         }
+    }
+    
+    /**
+	 * Method to convert the input data mapping to a JSON structure
+     */
+    public static RequestPriceRate_Wrapper setValuesMapping(List<Opportunity> lstOpp) {
+        //Map with values
+        Final Map<String,Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String>{'TERM_PERIOCITY', 'GUARANTEE_CLASSIFICATION', 'CONTRACT_MODALITY'}, lstOpp[0].OpportunityLineItems[0].pricing_model_id__c);
+        Final Map<String,Web_Service_Value_Mapping__c> mapWsValParams = WebServiceUtils.getWebServiceValuesMapping(new List<String>{'GUARANTEE_TYPE', 'PAYMENT_METHOD_CODE', 'BENEFICIARY_CODE', 'PAYMENT_PERIOD_CODE', 'BAIL_OBJECT_CODE'},'');
+        //map the input values with the input attributes of the webservice
+        String branchcode = '';
+        if(lstOpp[0].Branch_id__r.branch_id__c!=null) {
+            branchcode =+ lstOpp[0].Branch_id__r.branch_id__c.right(4);
+        }
+        Final List<String> ltsValues = new List<String>();
+        ltsValues.add(lstOpp[0].Account.main_code_id__c);
+        ltsValues.add(lstOpp[0].Account.AccountNumber);
+        ltsValues.add(String.valueOf(lstOpp[0].OpportunityLineItems[0].unitprice));
+        ltsValues.add((mapWsVal.get('TERM_PERIOCITY' + lstOpp[0].OpportunityLineItems[0].gipr_Periodicidad__c) == null ? null : mapWsVal.get('TERM_PERIOCITY' + lstOpp[0].OpportunityLineItems[0].gipr_Periodicidad__c).web_service_value__c));
+        ltsValues.add(String.valueOf(lstOpp[0].OpportunityLineItems[0].gipr_Plazo__c));
+        ltsValues.add((mapWsVal.get('GUARANTEE_CLASSIFICATION' + lstOpp[0].OpportunityLineItems[0].gipr_Tipo_Garantia__c) == null ? null : mapWsVal.get('GUARANTEE_CLASSIFICATION' + lstOpp[0].OpportunityLineItems[0].gipr_Tipo_Garantia__c).web_service_value__c));
+        ltsValues.add(branchcode);
+        ltsValues.add((mapWsVal.get('CONTRACT_MODALITY' + lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c) == null ? null : mapWsVal.get('CONTRACT_MODALITY' + lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c).web_service_value__c));
+        ltsValues.add(lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode);
+        ltsValues.add(lstOpp[0].OpportunityLineItems[0].Product2.price_approval_web_service_id__c);
+        ltsValues.add((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c == null ? '' : String.valueOf((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c) / 100) ));
+        ltsValues.add((mapWsValParams.get('GUARANTEE_TYPE' + lstOpp[0].OpportunityLineItems[0].gipr_Garantia__c) == null ? null : mapWsValParams.get('GUARANTEE_TYPE' + lstOpp[0].OpportunityLineItems[0].gipr_Garantia__c).web_service_value__c));
+        ltsValues.add((mapWsValParams.get('PAYMENT_METHOD_CODE' + lstOpp[0].OpportunityLineItems[0].gipr_Payment_Method__c) == null ? null : mapWsValParams.get('PAYMENT_METHOD_CODE' + lstOpp[0].OpportunityLineItems[0].gipr_Payment_Method__c).web_service_value__c));
+        ltsValues.add((mapWsValParams.get('BENEFICIARY_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c) == null ? null : mapWsValParams.get('BENEFICIARY_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c).web_service_value__c));
+        ltsValues.add((mapWsValParams.get('PAYMENT_PERIOD_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_Periodicity_commission__c) == null ? null : mapWsValParams.get('PAYMENT_PERIOD_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_Periodicity_commission__c).web_service_value__c));
+        ltsValues.add((mapWsValParams.get('BAIL_OBJECT_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c) == null ? null : mapWsValParams.get('BAIL_OBJECT_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c).web_service_value__c));
+        Final RequestPriceRate_Wrapper requestWrapper = new RequestPriceRate_Wrapper(ltsValues);
+        return requestWrapper;
     }
     
     /**
@@ -178,7 +170,7 @@ public without sharing class PriceRate_helper {
         }
 		
 		/**
-     	 * Method constructor of the class
+     	 * Method used for set values
      	 * @param value This is string of evaluate
      	 * @param str This is string of coverage
      	 */

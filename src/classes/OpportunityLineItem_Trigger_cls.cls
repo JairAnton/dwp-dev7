@@ -116,6 +116,11 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     
     public void updateDateLine(List<OpportunityLineItem> listRow) {
         final Set<Id> productIds = new Set<Id>();
+        final String cpliqFechaVenc = 'cpliq_Fecha_Vencimiento__c';
+        final String giprPlazo = 'gipr_Plazo__c';
+        final String giprPeriod = 'gipr_Periodicidad__c';
+        final String cpliqPeriod = 'cpliq_Periodicidad__c';
+        final String cpliqN = 'cpliq_n__c';
         Map<String, Map<String, Double>> mapFields = new Map<String, Map<String, Double>>();
         for(OpportunityLineItem oli : listRow) {
             productIds.add(oli.Product2Id);
@@ -131,20 +136,15 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         
         for(OpportunityLineItem OLI : listRow) {
             if(mapFields.containsKey(OLI.Product2Id)) {
-                final String cpliqFechaVencimiento = 'cpliq_Fecha_Vencimiento__c';
-                final String giprPlazo = 'gipr_Plazo__c';
-                final String giprPeriodicidad = 'gipr_Periodicidad__c';
-                final String cpliqPeriodicidad = 'cpliq_Periodicidad__c';
-                final String cpliqN = 'cpliq_n__c';
                 Map<String, Double> mapFied = mapFields.get(OLI.Product2Id);
-                if(mapFied.get(cpliqFechaVencimiento)!= null && mapFied.get(giprPlazo) == mapFied.get(cpliqFechaVencimiento) && mapFied.get(giprPeriodicidad) == mapFied.get(cpliqFechaVencimiento)) {
-                    oli = calculateDueDate(oli, giprPlazo, giprPeriodicidad);
-                } else if(mapFied.get(cpliqFechaVencimiento)!= null && mapFied.get(giprPlazo) == mapFied.get(cpliqFechaVencimiento) && mapFied.get(cpliqPeriodicidad) == mapFied.get(cpliqFechaVencimiento)) {
-                    oli = calculateDueDate(oli, giprPlazo, cpliqPeriodicidad);
-                } else if(mapFied.get(cpliqFechaVencimiento)!= null && mapFied.get(cpliqN) == mapFied.get(cpliqFechaVencimiento) && mapFied.get(giprPeriodicidad) == mapFied.get(cpliqFechaVencimiento)) {
-                    oli = calculateDueDate(oli, cpliqN, giprPeriodicidad);
-                } else if(mapFied.get(cpliqFechaVencimiento)!= null && mapFied.get(cpliqN) == mapFied.get(cpliqFechaVencimiento) && mapFied.get(cpliqPeriodicidad) == mapFied.get(cpliqFechaVencimiento)) {
-                    oli = calculateDueDate(oli, cpliqN, cpliqPeriodicidad);
+                if(mapFied.get(cpliqFechaVenc)!= null && mapFied.get(giprPlazo) == mapFied.get(cpliqFechaVenc) && mapFied.get(giprPeriod) == mapFied.get(cpliqFechaVenc)) {
+                    oli = calculateDueDate(oli, giprPlazo, giprPeriod);
+                } else if(mapFied.get(cpliqFechaVenc)!= null && mapFied.get(giprPlazo) == mapFied.get(cpliqFechaVenc) && mapFied.get(cpliqPeriod) == mapFied.get(cpliqFechaVenc)) {
+                    oli = calculateDueDate(oli, giprPlazo, cpliqPeriod);
+                } else if(mapFied.get(cpliqFechaVenc)!= null && mapFied.get(cpliqN) == mapFied.get(cpliqFechaVenc) && mapFied.get(giprPeriod) == mapFied.get(cpliqFechaVenc)) {
+                    oli = calculateDueDate(oli, cpliqN, giprPeriod);
+                } else if(mapFied.get(cpliqFechaVenc)!= null && mapFied.get(cpliqN) == mapFied.get(cpliqFechaVenc) && mapFied.get(cpliqPeriod) == mapFied.get(cpliqFechaVenc)) {
+                    oli = calculateDueDate(oli, cpliqN, cpliqPeriod);
                 }
             }
         }
@@ -157,10 +157,12 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         }
     }
 
-	public static OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
-        Integer valPlazo = (oli.get(plazo)==null ? -1 : Integer.valueOf(oli.get(plazo)));
-        String valPeriodicity = (oli.get(periodicity)==null ? null : String.valueOf(oli.get(periodicity)));
-        if(valPlazo >=0 && String.isNotEmpty(valPeriodicity)) {
+	/* Metod used for calculate due date of opportunity */
+    public static OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
+        final Integer limitNum = 999;
+        final Integer valPlazo = (oli.get(plazo)==null ? -1 : Integer.valueOf(oli.get(plazo)));
+        final String valPeriod = (oli.get(periodicity)==null ? null : String.valueOf(oli.get(periodicity)));
+        if(valPlazo >=0 && String.isNotEmpty(valPeriod)) {
             switch on String.valueOf(oli.get(periodicity)) {
                 when '01' {
                     oli.cpliq_Fecha_Vencimiento__c = System.today().addDays(valPlazo);
@@ -173,7 +175,6 @@ public without sharing class OpportunityLineItem_Trigger_cls {
                 }
             }
         } else if(oli.cpliq_Fecha_Vencimiento__c != null) {
-            Final Integer limitNum = 999;
             oli.put(periodicity,'01');
             oli.put(plazo,System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1);
             if(Integer.valueOf(oli.get(plazo))>limitNum) {
