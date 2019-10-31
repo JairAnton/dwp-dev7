@@ -29,7 +29,7 @@ public with sharing class SanctionPrice_ctrl {
     static Double calculateSpread;
     
     @AuraEnabled
-    public static Map<String,Object> getInfo(String recordId){
+    public static Map<String,Object> getInfo(String recordId) {
         
         List<Opportunity> lstOpp = [SELECT  Id,
                                     AccountId,
@@ -57,18 +57,18 @@ public with sharing class SanctionPrice_ctrl {
                                      FROM OpportunityLineItems) 
                                     FROM Opportunity 
                                     WHERE Id = :recordId];
-        try{
+        try {
             //If opportunity has opportunityLineItems
-            if(lstOpp[0].OpportunityLineItems.size()>0){
+            if(lstOpp[0].OpportunityLineItems.size()>0) {
                 mapReturn.put('IdOppLineItem',lstOpp[0].OpportunityLineItems[0].Id);
                 mapReturn.put('approvalMethod',lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c);
                 mapReturn.put('AccId',lstOpp[0].AccountId);
                 mapReturn.put('type_of_quote',lstOpp[0].OpportunityLineItems[0].product2.Type_of_quote__c);
                 mapReturn.put('commercial_strategy',lstOpp[0].Account.commercial_strategy__c);
                 //If product_price_approval_method__c == Tarifario and has a OLI
-                if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario'){
+                if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario') {
                     String strSegment = (lstOpp[0].Account.segment_desc__c == null?'':lstOpp[0].Account.segment_desc__c);
-                    List<Price_Fee__c> lstPriceFee = [SELECT    Id,
+                    List<Price_Fee__c> lstPriceFee = [SELECT Id,
                                                       validity_start_date__c,
                                                       validity_end_date__c, 
                                                       product_id__c,
@@ -82,56 +82,78 @@ public with sharing class SanctionPrice_ctrl {
                                                       AND product_id__c = :lstOpp[0].OpportunityLineItems[0].Product2Id
                                                       AND calc_account_segment_desc__c = :strSegment.toUpperCase(UserInfo.getLocale())];//Yuliño 11/12/2018 : Agregando el lenguaje local
                     //get minimun_fee_per__c
-                    if(!lstOpp.isEmpty() && !lstPriceFee.isEmpty()){
+                    if(!lstOpp.isEmpty() && !lstPriceFee.isEmpty()) {
                         mapReturn.put('dynamicValue',lstPriceFee[0].minimun_fee_per__c);
                     }
                     //If product_price_approval_method__c == Web and has a OLI    
                 } else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web') {
-                    Boolean validPeriod = true;
-                    Boolean validBail = true;
-                    if(!lstOpp[0].OpportunityLineItems.isEmpty() && lstOpp[0].OpportunityLineItems[0].pricing_model_id__c=='11') {
-                        validBail = false;
-                        validPeriod = false;
-                        for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c]) {
-                            if(bailLetterComb.UniqueId__c.subString(0,7)==lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode+lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c+lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c) {
-                                validBail = true;
-                                if(bailLetterComb.UniqueId__c==lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode+lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c+lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c+lstOpp[0].OpportunityLineItems[0].tcf_Periodicity_commission__c) {
-                                    validPeriod = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    
-                    if(!validBail) {
+                    Boolean validBail = validBailLetter(lstOpp[0].OpportunityLineItems);
+                    Boolean validPeriod = validPeriodLetter(lstOpp[0].OpportunityLineItems);
+                    if(validBail==false) {
                         genericError = 'El "tipo carta fianza" elegido no es válido en combinación con el "tipo de moneda" y "tipo de benenficiario" seleccionados. Por favor eliga otro "tipo carta fianza".';
-                    } else if(!validPeriod) {
-                        genericError = 'La "periodicidad comisión" elegida no es válida en combinación con el "tipo de moneda", "tipo carta fianza" y "tipo de benenficiario" seleccionados. Por favor eliga otra "periodicidad comisión".';
+                    } else if(validPeriod==false) {
+                        	genericError = 'La "periodicidad comisión" elegida no es válida en combinación con el "tipo de moneda", "tipo carta fianza" y "tipo de benenficiario" seleccionados. Por favor eliga otra "periodicidad comisión".';
                     } else {
                         SanctionPrice_ctrl.invokeWS(recordId);
                     }
+                    
                     if(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c!=null){
                         mapReturn.put('proposed',lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c);
-                    }else{
+                    } else{
                         mapReturn.put('proposed','');
                     }
                 }
                 mapReturn.put('hasOLI',true);
                 mapReturn.put('priceIndicator',lstOpp[0].OpportunityLineItems[0].product_price_approval_indicator__c);
                 //If opportunity hasn't opportunityLineItems
-            }else{
+            } else {
                 mapReturn.put('hasOLI',false);
             }     
             
-        }catch(Exception e){
+        } catch(Exception e) {
             genericError = e.getMessage();
         }
         mapReturn.put('genericError',genericError);
         return mapReturn; 
     }
+    
+    
+    /**
+	 * Method validate if the combination is correct
+     */
+    public static Boolean validBailLetter(List<OpportunityLineItem> olis) {
+        Boolean validBail = true;
+        if(!olis.isEmpty() && olis[0].pricing_model_id__c=='11') {
+            validBail = false;
+            for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c LIMIT 10000]) {
+                if(bailLetterComb.UniqueId__c.subString(0,7)==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c) {
+                    validBail = true;
+                    break;
+                }
+            }
+        }
+        return validBail;
+    }
+    
+    /**
+	 * Method validate if the combination is correct
+     */
+    public static Boolean validPeriodLetter(List<OpportunityLineItem> olis) {
+        Boolean validPeriod = true;
+        if(!olis.isEmpty() && olis[0].pricing_model_id__c=='11') {
+            validPeriod = false;
+            for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c LIMIT 10000]) {
+                if(bailLetterComb.UniqueId__c==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c+olis[0].tcf_Periodicity_commission__c) {
+                    validPeriod = true;
+                    break;
+                }
+            }
+        }
+        return validPeriod;
+    }
+    
     @AuraEnabled
-    public static Map<String,Object> getInfoAnalist(String recordId){
-        
+    public static Map<String,Object> getInfoAnalist(String recordId) {
         List<Opportunity> lstOpp = [SELECT  Id,
                                     AccountId,
                                     Account.commercial_strategy__c,
@@ -153,16 +175,16 @@ public with sharing class SanctionPrice_ctrl {
                                      FROM OpportunityLineItems) 
                                     FROM Opportunity 
                                     WHERE Id = :recordId];
-        try{
+        try {
             //If opportunity has opportunityLineItems
-            if(lstOpp[0].OpportunityLineItems.size()>0){
+            if(lstOpp[0].OpportunityLineItems.size()>0) {
                 mapReturn.put('IdOppLineItem',lstOpp[0].OpportunityLineItems[0].Id);
                 mapReturn.put('approvalMethod',lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c);
                 mapReturn.put('AccId',lstOpp[0].AccountId);
                 mapReturn.put('type_of_quote',lstOpp[0].OpportunityLineItems[0].product2.Type_of_quote__c);
                 mapReturn.put('commercial_strategy',lstOpp[0].Account.commercial_strategy__c);
                 //If product_price_approval_method__c == Tarifario and has a OLI
-                if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario'){
+                if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario') {
                     String strSegment = (lstOpp[0].Account.segment_desc__c == null?'':lstOpp[0].Account.segment_desc__c);
                     List<Price_Fee__c> lstPriceFee = [SELECT    Id,
                                                       validity_start_date__c,
@@ -178,31 +200,32 @@ public with sharing class SanctionPrice_ctrl {
                                                       AND product_id__c = :lstOpp[0].OpportunityLineItems[0].Product2Id
                                                       AND calc_account_segment_desc__c = :strSegment.toUpperCase(UserInfo.getLocale())]; //Yulino 11/12/2018 : Agregando el lenguaje local
                     //get minimun_fee_per__c
-                    if(!lstOpp.isEmpty() && !lstPriceFee.isEmpty()){
+                    if(!lstOpp.isEmpty() && !lstPriceFee.isEmpty()) {
                         mapReturn.put('dynamicValue',lstPriceFee[0].minimun_fee_per__c);
                     }
                     //If product_price_approval_method__c == Web and has a OLI    
-                }else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web'){
-                    if(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c!=null){
+                } else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web') {
+                    if(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c!=null) {
                         mapReturn.put('proposed',lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c);
-                    }else{
+                    } else {
                         mapReturn.put('proposed','');
                     }
                 }
                 mapReturn.put('hasOLI',true);
                 mapReturn.put('priceIndicator',lstOpp[0].OpportunityLineItems[0].product_price_approval_indicator__c);
                 //If opportunity hasn't opportunityLineItems
-            }else{
+            } else {
                 mapReturn.put('hasOLI',false);
             }     
             
-        }catch(Exception e){
+        } catch(Exception e) {
             genericError = e.getMessage();
         }
         mapReturn.put('genericError',genericError);
         return mapReturn; 
     }
-    public static void invokeWS (String recordId){
+    
+    public static void invokeWS (String recordId) {
         //helper to call the service
         PriceRate_helper prate = new PriceRate_helper(recordId, false);
         //invoke the service
@@ -226,7 +249,7 @@ public with sharing class SanctionPrice_ctrl {
                    }             
                }
             //get Spread
-            if(jbody.data != null && jbody.data.summary != null && jbody.data.summary[0].LiquidityIndicators !=null){
+            if(jbody.data != null && jbody.data.summary != null && jbody.data.summary[0].LiquidityIndicators !=null) {
                 List<PriceRate_helper.Response_LiquidityIndicators> lstspread = jbody.data.summary[0].LiquidityIndicators;
                 calculationid = jbody.data.summary[0].calculationId;
                 for(Integer x =0; x<lstspread.size(); x++){

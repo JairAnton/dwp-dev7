@@ -115,7 +115,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     }
     
     public void updateDateLine(List<OpportunityLineItem> listRow) {
-        Set<Id> productIds = new Set<Id>();
+        final Set<Id> productIds = new Set<Id>();
         Map<String, Map<String, Double>> mapFields = new Map<String, Map<String, Double>>();
         for(OpportunityLineItem oli : listRow) {
             productIds.add(oli.Product2Id);
@@ -131,120 +131,22 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         
         for(OpportunityLineItem OLI : listRow) {
             if(mapFields.containsKey(OLI.Product2Id)) {
+                final String cpliqFechaVencimiento = 'cpliq_Fecha_Vencimiento__c';
+                final String giprPlazo = 'gipr_Plazo__c';
+                final String giprPeriodicidad = 'gipr_Periodicidad__c';
+                final String cpliqPeriodicidad = 'cpliq_Periodicidad__c';
+                final String cpliqN = 'cpliq_n__c';
                 Map<String, Double> mapFied = mapFields.get(OLI.Product2Id);
-                if(mapFied.get('cpliq_Fecha_Vencimiento__c')!= null && mapFied.get('gipr_Plazo__c') == mapFied.get('cpliq_Fecha_Vencimiento__c') && mapFied.get('gipr_Periodicidad__c') == mapFied.get('cpliq_Fecha_Vencimiento__c')) {
-                    oli = calculateDueDate(oli, 'gipr_Plazo__c', 'gipr_Periodicidad__c');
-                }
-                else if(mapFied.get('cpliq_Fecha_Vencimiento__c')!= null && mapFied.get('gipr_Plazo__c') == mapFied.get('cpliq_Fecha_Vencimiento__c') && mapFied.get('cpliq_Periodicidad__c') == mapFied.get('cpliq_Fecha_Vencimiento__c')) {
-                    oli = calculateDueDate(oli, 'gipr_Plazo__c', 'cpliq_Periodicidad__c');
-                }
-                else if(mapFied.get('cpliq_Fecha_Vencimiento__c')!= null && mapFied.get('cpliq_n__c') == mapFied.get('cpliq_Fecha_Vencimiento__c') && mapFied.get('gipr_Periodicidad__c') == mapFied.get('cpliq_Fecha_Vencimiento__c')) {
-                    oli = calculateDueDate(oli, 'cpliq_n__c', 'gipr_Periodicidad__c');
-                }
-                else if(mapFied.get('cpliq_Fecha_Vencimiento__c')!= null && mapFied.get('cpliq_n__c') == mapFied.get('cpliq_Fecha_Vencimiento__c') && mapFied.get('cpliq_Periodicidad__c') == mapFied.get('cpliq_Fecha_Vencimiento__c')) {
-                    oli = calculateDueDate(oli, 'cpliq_n__c', 'cpliq_Periodicidad__c');
+                if(mapFied.get(cpliqFechaVencimiento)!= null && mapFied.get(giprPlazo) == mapFied.get(cpliqFechaVencimiento) && mapFied.get(giprPeriodicidad) == mapFied.get(cpliqFechaVencimiento)) {
+                    oli = calculateDueDate(oli, giprPlazo, giprPeriodicidad);
+                } else if(mapFied.get(cpliqFechaVencimiento)!= null && mapFied.get(giprPlazo) == mapFied.get(cpliqFechaVencimiento) && mapFied.get(cpliqPeriodicidad) == mapFied.get(cpliqFechaVencimiento)) {
+                    oli = calculateDueDate(oli, giprPlazo, cpliqPeriodicidad);
+                } else if(mapFied.get(cpliqFechaVencimiento)!= null && mapFied.get(cpliqN) == mapFied.get(cpliqFechaVencimiento) && mapFied.get(giprPeriodicidad) == mapFied.get(cpliqFechaVencimiento)) {
+                    oli = calculateDueDate(oli, cpliqN, giprPeriodicidad);
+                } else if(mapFied.get(cpliqFechaVencimiento)!= null && mapFied.get(cpliqN) == mapFied.get(cpliqFechaVencimiento) && mapFied.get(cpliqPeriodicidad) == mapFied.get(cpliqFechaVencimiento)) {
+                    oli = calculateDueDate(oli, cpliqN, cpliqPeriodicidad);
                 }
             }
-            /*
-            String oliCode =OLI.ProductCode==null?'':OLI.ProductCode;
-            if(oliCode.contains('_Depre')) {
-                oliCode= oliCode.removeEnd('_Depre');
-            }
-            if(!String.isEmpty(String.valueOf(OLI.gipr_Plazo__c))&&
-               (Label.lblPDFProductImport.equals(oliCode)||
-                Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)||
-                Label.lblPDFProductCartaTecnicaImport.equals(oliCode)||
-                Label.lblPDFProductForfaitingImport.equals(oliCode))&&
-               !Label.lblPDFProductCommercialLoanCP.equals(oliCode)&&
-               !Label.lblPDFProductCommercialLoanCP2.equals(oliCode)&&
-               !Label.lblPDFProductImportComex.equals(oliCode)&&
-               !Label.lblPDFProductExportComex.equals(oliCode)&&
-               !Label.lblPDFProductLeasing.equals(oliCode)) {
-                   system.debug('isPlazoNotEmpty2');
-                   //isPlazoNotEmpty2
-                   OLI.cpliq_Fecha_Vencimiento__c =OLI.gipr_Periodicidad__c=='01'?
-                       (Date.valueOf(OLI.LastModifiedDate).addDays(Integer.valueOf(OLI.gipr_Plazo__c))):
-                   (Date.valueOf(OLI.LastModifiedDate).addMonths(Integer.valueOf(OLI.gipr_Plazo__c)));
-                       }
-            else
-                if(String.isEmpty(String.valueOf(OLI.gipr_Plazo__c)) && 
-                   !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c ))&&
-                   (Label.lblPDFProductImport.equals(oliCode)||
-                    Label.lblPDFProductCartaTecnicaImport.equals(oliCode)||
-                    Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)||
-                    Label.lblPDFProductForfaitingImport.equals(oliCode))) {
-                        //isDateDueNotEmpty2 
-                        system.debug('isDateDueNotEmpty2'); 
-                        OLI.gipr_Periodicidad__c='01';
-                        OLI.gipr_Plazo__c=system.Math.abs(Date.valueOf(OLI.cpliq_Fecha_Vencimiento__c).daysBetween(Date.valueOf(OLI.LastModifiedDate)));
-                    }
-            else
-                if((!String.isEmpty(String.valueOf(OLI.gipr_Plazo__c)))&&
-                   !Label.lblPDFProductImport.equals(oliCode)&&
-                    !Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)&&
-                    !Label.lblPDFProductCartaTecnicaImport.equals(oliCode)&&
-                    !Label.lblPDFProductForfaitingImport.equals(oliCode)&&
-                    !Label.lblPDFProductImportComex.equals(oliCode)&&
-                    !Label.lblPDFProductExportComex.equals(oliCode)&&
-                    !Label.lblPDFProductCommercialLoanCP.equals(oliCode)&&
-                    !Label.lblPDFProductCommercialLoanCP2.equals(oliCode)&&
-                    !Label.lblPDFProductLeasing.equals(oliCode)&&
-                    !Label.lblPDFProductPrestamoLP.equals(oliCode)) {
-                        system.debug('isPlazoNotEmpty');
-                        //isPlazoNotEmpty
-                        OLI.cpliq_Periodicidad__c=OLI.cpliq_Periodicidad__c==null?'01':OLI.cpliq_Periodicidad__c;
-                        OLI.cpliq_Fecha_Vencimiento__c= OLI.cpliq_Periodicidad__c=='01'?	Date.ValueOf(OLI.LastModifiedDate).addDays(Integer.valueOf(OLI.gipr_Plazo__c)):
-                        OLI.cpliq_Periodicidad__c=='02'?Date.ValueOf(OLI.LastModifiedDate).ADDMONTHS(Integer.valueOf(OLI.gipr_Plazo__c)):
-                        Date.ValueOf(OLI.LastModifiedDate).ADDMONTHS(Integer.valueOf(OLI.gipr_Plazo__c*12));
-                    }
-            else
-                if((String.isEmpty(String.valueOf(OLI.cpliq_n__c)) && !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c )))&&
-                   !Label.lblPDFProductImport.equals(oliCode)&&
-                    !Label.lblPDFProductCartaTecnicaImport.equals(oliCode)&&
-                    !Label.lblPDFProductCartaTecnicaEconomica.equals(oliCode)&&
-                    !Label.lblPDFProductForfaitingImport.equals(oliCode)&&
-                    !Label.lblPDFProductPrestamoLP.equals(oliCode)&&
-                    !Label.lblPDFProductLeasing.equals(oliCode)) {
-                        //isDateDueNotEmpty 
-                        system.debug('isDateDueNotEmpty');
-                        OLI.cpliq_Periodicidad__c='01';
-                        OLI.cpliq_n__c=system.math.abs(Integer.ValueOf(Date.valueOf(OLI.cpliq_Fecha_Vencimiento__c).daysBetween(Date.valueOf(OLI.LastModifiedDate))));
-                        
-                    }
-            else
-                if((String.isEmpty(String.valueOf(OLI.cpliq_n__c))&&
-                    !String.isEmpty(String.valueOf(OLI.cpliq_Fecha_Vencimiento__c )))&&
-                   (Label.lblPDFProductPrestamoLP.equals(oliCode)||Label.lblPDFProductLeasing.equals(oliCode))) {
-                       system.debug('isDateDueNotEmpty3');
-                       //isDateDueNotEmpty3
-                       OLI.cpliq_Periodicidad__c='02';
-                       OLI.cpliq_n__c=system.math.abs(Integer.ValueOf((Date.ValueOf(OLI.LastModifiedDate).daysBetween(Date.valueOf(OLI.cpliq_Fecha_Vencimiento__c)))/30));
-                       
-                   } 
-            else
-                if(!String.isEmpty(String.valueOf(OLI.cpliq_n__c))&&
-                   (Label.lblPDFProductImportComex.equals(oliCode)||
-                    Label.lblPDFProductExportComex.equals(oliCode)||
-                    Label.lblPDFProductCommercialLoanCP.equals(oliCode)||
-                    Label.lblPDFProductCommercialLoanCP2.equals(oliCode))) {
-                        system.debug('isDateDueNotEmpty41');
-                        //isDateDueNotEmpty3
-                        OLI.cpliq_Periodicidad__c=OLI.cpliq_Periodicidad__c==null?'01':OLI.cpliq_Periodicidad__c;
-                        OLI.cpliq_Fecha_Vencimiento__c =OLI.cpliq_Periodicidad__c=='01'?
-                            (Date.valueOf(OLI.LastModifiedDate).addDays(Integer.valueOf(OLI.cpliq_n__c))):
-                        (Date.valueOf(OLI.LastModifiedDate).addMonths(Integer.valueOf(OLI.cpliq_n__c)));
-                            }
-            else
-                if( !String.isEmpty(String.valueOf(OLI.cpliq_n__c))&&
-                   !String.isEmpty(String.valueOf(OLI.cpliq_Periodicidad__c))&&
-                   (Label.lblPDFProductPrestamoLP.equals(oliCode)||Label.lblPDFProductLeasing.equals(oliCode))) {
-                       system.debug('isDateDueNotEmpty4');
-                       //isDateDueNotEmpty3
-                       OLI.cpliq_Fecha_Vencimiento__c =OLI.cpliq_Periodicidad__c=='02'?
-                           (Date.valueOf(OLI.LastModifiedDate).addMonths(Integer.valueOf(OLI.cpliq_n__c))):
-                       (Date.valueOf(OLI.LastModifiedDate).addYears(Integer.valueOf(OLI.cpliq_n__c)));
-                           }
-        */
         }
     }
 	
@@ -254,62 +156,34 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             delete lstoppsolcom;
         }
     }
-    /*
-Public void UpdateCaseAnalist(List<OpportunityLineItem> NEwlist,Map<id,OpportunityLineItem> Opps_NewMap,Map<id,OpportunityLineItem> Opps_OldMap){
-Id profileId=userinfo.getProfileId();
-String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
-if( Label.lblAnalistaProf.equals(profileName)){
-List<Case> UpCase = new List<Case>();
-Set<Id> IDs = new set<ID>();
-for(OpportunityLineItem OLI1 :Opps_NewMap.values())
-IDs.add(OLI1.OpportunityId);
-Map<Id,Case> cas = new Map<Id,Case>();
-for(Case ca:[select id,suggested_apr_per__c,opportunity_id__c from case where opportunity_id__c IN:IDs order by createdDate asc limit 1])
-cas.put(ca.opportunity_id__c,ca);
-for(OpportunityLineItem OLI1 :Opps_NewMap.values()){
 
-if(OLI1.suggested_apr_per__c != cas.get(OLI1.OpportunityId).proposed_apr_per__c && 
-!String.isBlank(String.valueOf(OLI1.suggested_apr_per__c)))
-{
-cas.get(OLI1.OpportunityId).suggested_apr_per__c=OLI1.proposed_fee_per__c;
-UpCase.add(cas.get(OLI1.OpportunityId));
-}else 
-if(OLI1.proposed_apr_per__c != cas.get(OLI1.OpportunityId).proposed_apr_per__c && 
-!String.isBlank(String.valueOf(OLI1.proposed_apr_per__c)))
-{
-cas.get(OLI1.OpportunityId).suggested_apr_per__c=OLI1.proposed_apr_per__c;
-UpCase.add(cas.get(OLI1.OpportunityId));
-}
-
-}
-if(!UpCase.isempty())
-update UpCase;
-}
-}*/
-
-	public OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
-        if(oli.get(plazo) != null && oli.get(periodicity)!=null) {
+	public static OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
+        Integer valPlazo = (oli.get(plazo)==null ? -1 : Integer.valueOf(oli.get(plazo)));
+        String valPeriodicity = (oli.get(periodicity)==null ? null : String.valueOf(oli.get(periodicity)));
+        if(valPlazo >=0 && String.isNotEmpty(valPeriodicity)) {
             switch on String.valueOf(oli.get(periodicity)) {
                 when '01' {
-                    oli.cpliq_Fecha_Vencimiento__c = System.today().addDays(Integer.valueOf(oli.get(plazo)));
+                    oli.cpliq_Fecha_Vencimiento__c = System.today().addDays(valPlazo);
                 }
                 when '02' {
-                    oli.cpliq_Fecha_Vencimiento__c = System.today().addMonths(Integer.valueOf(oli.get(plazo)));
+                    oli.cpliq_Fecha_Vencimiento__c = System.today().addMonths(valPlazo);
                 }
                 when '03' {
-                    oli.cpliq_Fecha_Vencimiento__c = System.today().addYears(Integer.valueOf(oli.get(plazo)));
+                    oli.cpliq_Fecha_Vencimiento__c = System.today().addYears(valPlazo);
                 }
             }
-        }
-        else if(oli.cpliq_Fecha_Vencimiento__c != null) {
+        } else if(oli.cpliq_Fecha_Vencimiento__c != null) {
+            Final Integer limitNum = 999;
             oli.put(periodicity,'01');
             oli.put(plazo,System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1);
-            if(Integer.valueOf(oli.get(plazo))>999) {
+            if(Integer.valueOf(oli.get(plazo))>limitNum) {
+                Integer numPlazo = Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/30);
                 oli.put(periodicity,'02');
-                oli.put(plazo,Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/30));
-                if(Integer.valueOf(oli.get(plazo))>999) {
+                oli.put(plazo, numPlazo);
+                if(Integer.valueOf(oli.get(plazo))>limitNum) {
                     oli.put(periodicity,'03');
-                    oli.put(plazo,Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/365));
+                    numPlazo = Integer.ValueOf((System.today().daysBetween(oli.cpliq_Fecha_Vencimiento__c)+1)/365);
+                    oli.put(plazo, numPlazo);
                 }
             }
         }

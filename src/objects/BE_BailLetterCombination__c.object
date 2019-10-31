@@ -386,7 +386,6 @@
     <fields>
         <fullName>UniqueId__c</fullName>
         <caseSensitive>false</caseSensitive>
-        <encryptionScheme>None</encryptionScheme>
         <externalId>true</externalId>
         <label>UniqueId</label>
         <length>9</length>
