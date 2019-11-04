@@ -14,7 +14,9 @@
 **/
 public with sharing class SimulatePrice_ctrl {
     static String idOli;
+    /* variable use for indicate to next action */
     static Boolean validParams = false;
+    /* variable use for show error */
     static String genericError;
     @AuraEnabled
     //getInfo with the id of Opportunity
