@@ -5,7 +5,7 @@
 * @group Global_HUB
 *
 * @description Controller class from SanctionPrice_cmp
- * @HIstorial de cambios:
+* @HIstorial de cambios:
 	- Actualización del web service de la version v0 a la v1
 	*****************************
 	Modificaciones:
