@@ -4,10 +4,12 @@
 @Version:1
 @HIstorial de cambios:
 - Creacion del Handler
+- Corrección del método updateDateLine
 *****************************
 Modificaciones:
 
 Isaías Velázquez Cortés  17-07-2018
+Martín Alejandro Mori Chávez  04-11-2019
 */
 public without sharing class OpportunityLineItem_Trigger_cls {
     /* static variable */

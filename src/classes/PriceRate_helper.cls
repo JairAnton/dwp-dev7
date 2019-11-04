@@ -6,7 +6,13 @@
  * @group Global_HUB
  *
  * @description Wrapper class to map the input values with the input attributes of the webservice
- */
+ * @HIstorial de cambios:
+	- Actualización del web service de la version v0 a la v1
+	*****************************
+	Modificaciones:
+
+	Martín Alejandro Mori Chávez  04-11-2019
+**/
 public without sharing class PriceRate_helper {
     
     public RequestPriceRate_Wrapper inputDataMapping { get; set; } //Ernesto 04/12/2018 : se agregó el get y set

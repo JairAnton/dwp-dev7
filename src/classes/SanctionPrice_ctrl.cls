@@ -5,6 +5,12 @@
 * @group Global_HUB
 *
 * @description Controller class from SanctionPrice_cmp
+ * @HIstorial de cambios:
+	- Actualización del web service de la version v0 a la v1
+	*****************************
+	Modificaciones:
+
+	Martín Alejandro Mori Chávez  04-11-2019
 **/
 public with sharing class SanctionPrice_ctrl {    
     static String idOli;
