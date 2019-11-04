@@ -62,7 +62,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     @Description create and update principal Intervener for Opportunity
     @return is void method
     */
-    public static void upsertMasterParticipant () {
+    public  void upsertMasterParticipant () {
         final Integer SIZE_LST=0;
         final String  VALUE_ZERO='0';
         final String  VALUE_FOUR='4';
