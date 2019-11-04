@@ -168,7 +168,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     private static OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
         OpportunityLineItem oliTemp = oli;
         if(Integer.valueOf(oliTemp.get(plazo))>=0 && (oliTemp.get(periodicity) == '01' || oliTemp.get(periodicity) == '02' || oliTemp.get(periodicity) == '03')) {
-            oliTemp = usingTermPeriodicity(oliTemp, Integer.valueOf(oliTemp.get(plazo)), String.valueOf(oliTemp.get(periodicity)));
+            oliTemp = usingTermPeriodicity(oliTemp, plazo, periodicity);
         } else if(oliTemp.cpliq_Fecha_Vencimiento__c != null) {
         	oliTemp = usingDate(oliTemp, plazo, periodicity, 999);
         }
@@ -176,17 +176,17 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     }
     
     /* Metod used for calculate due date using term peridodicity */
-    private static OpportunityLineItem usingTermPeriodicity(OpportunityLineItem oli, Integer valPlazo, String periodicity) {
+    private static OpportunityLineItem usingTermPeriodicity(OpportunityLineItem oli, String plazo, String periodicity) {
         OpportunityLineItem oliTemp = oli;
         switch on String.valueOf(oliTemp.get(periodicity)) {
             when '01' {
-                oliTemp.cpliq_Fecha_Vencimiento__c = System.today().addDays(valPlazo);
+                oliTemp.cpliq_Fecha_Vencimiento__c = System.today().addDays(Integer.valueOf(oliTemp.get(plazo)));
             }
             when '02' {
-                oliTemp.cpliq_Fecha_Vencimiento__c = System.today().addMonths(valPlazo);
+                oliTemp.cpliq_Fecha_Vencimiento__c = System.today().addMonths(Integer.valueOf(oliTemp.get(plazo)));
             }
             when '03' {
-                oliTemp.cpliq_Fecha_Vencimiento__c = System.today().addYears(valPlazo);
+                oliTemp.cpliq_Fecha_Vencimiento__c = System.today().addYears(Integer.valueOf(oliTemp.get(plazo)));
             }
         }
         return oliTemp;
