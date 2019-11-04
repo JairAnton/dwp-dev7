@@ -42,31 +42,35 @@ public without sharing class PriceRate_helper {
         if(lstOpp[0].Branch_id__r.branch_id__c!=null) {
             branchcode =+ lstOpp[0].Branch_id__r.branch_id__c.right(4);
         }
-        return new RequestPriceRate_Wrapper(setListValues(lstOpp, branchcode, mapWsVal, mapWsValParams));
-    }
-    
-    /**
-	 * Method to set list values
-     */
-    private static List<String> setListValues(List<Opportunity> lstOpp, String branchcode, Map<String,Web_Service_Value_Mapping__c> mapWsVal, Map<String,Web_Service_Value_Mapping__c> mapWsValParams) {
         Final List<String> ltsValues = new List<String>();
         ltsValues.add(lstOpp[0].Account.main_code_id__c);
         ltsValues.add(lstOpp[0].Account.AccountNumber);
         ltsValues.add(String.valueOf(lstOpp[0].OpportunityLineItems[0].unitprice));
-        ltsValues.add((mapWsVal.get('TERM_PERIOCITY' + lstOpp[0].OpportunityLineItems[0].gipr_Periodicidad__c) == null ? null : mapWsVal.get('TERM_PERIOCITY' + lstOpp[0].OpportunityLineItems[0].gipr_Periodicidad__c).web_service_value__c));
+        ltsValues.add(webServiceValue(mapWsVal, 'TERM_PERIOCITY' + lstOpp[0].OpportunityLineItems[0].gipr_Periodicidad__c));
         ltsValues.add(String.valueOf(lstOpp[0].OpportunityLineItems[0].gipr_Plazo__c));
-        ltsValues.add((mapWsVal.get('GUARANTEE_CLASSIFICATION' + lstOpp[0].OpportunityLineItems[0].gipr_Tipo_Garantia__c) == null ? null : mapWsVal.get('GUARANTEE_CLASSIFICATION' + lstOpp[0].OpportunityLineItems[0].gipr_Tipo_Garantia__c).web_service_value__c));
+        ltsValues.add(webServiceValue(mapWsVal, 'GUARANTEE_CLASSIFICATION' + lstOpp[0].OpportunityLineItems[0].gipr_Tipo_Garantia__c));
         ltsValues.add(branchcode);
-        ltsValues.add((mapWsVal.get('CONTRACT_MODALITY' + lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c) == null ? null : mapWsVal.get('CONTRACT_MODALITY' + lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c).web_service_value__c));
+        ltsValues.add(webServiceValue(mapWsVal, 'CONTRACT_MODALITY' + lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c));
         ltsValues.add(lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode);
         ltsValues.add(lstOpp[0].OpportunityLineItems[0].Product2.price_approval_web_service_id__c);
-        ltsValues.add((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c == null ? '' : String.valueOf((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c) / 100) ));
-        ltsValues.add((mapWsValParams.get('GUARANTEE_TYPE' + lstOpp[0].OpportunityLineItems[0].gipr_Garantia__c) == null ? null : mapWsValParams.get('GUARANTEE_TYPE' + lstOpp[0].OpportunityLineItems[0].gipr_Garantia__c).web_service_value__c));
-        ltsValues.add((mapWsValParams.get('PAYMENT_METHOD_CODE' + lstOpp[0].OpportunityLineItems[0].gipr_Payment_Method__c) == null ? null : mapWsValParams.get('PAYMENT_METHOD_CODE' + lstOpp[0].OpportunityLineItems[0].gipr_Payment_Method__c).web_service_value__c));
-        ltsValues.add((mapWsValParams.get('BENEFICIARY_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c) == null ? null : mapWsValParams.get('BENEFICIARY_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c).web_service_value__c));
-        ltsValues.add((mapWsValParams.get('PAYMENT_PERIOD_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_Periodicity_commission__c) == null ? null : mapWsValParams.get('PAYMENT_PERIOD_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_Periodicity_commission__c).web_service_value__c));
-        ltsValues.add((mapWsValParams.get('BAIL_OBJECT_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c) == null ? null : mapWsValParams.get('BAIL_OBJECT_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c).web_service_value__c));
-        return ltsValues;
+        ltsValues.add(String.valueOf((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c) / 100));
+        ltsValues.add(webServiceValue(mapWsValParams, 'GUARANTEE_TYPE' + lstOpp[0].OpportunityLineItems[0].gipr_Garantia__c));
+        ltsValues.add(webServiceValue(mapWsValParams, 'PAYMENT_METHOD_CODE' + lstOpp[0].OpportunityLineItems[0].gipr_Payment_Method__c));
+        ltsValues.add(webServiceValue(mapWsValParams, 'BENEFICIARY_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c));
+        ltsValues.add(webServiceValue(mapWsValParams, 'PAYMENT_PERIOD_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_Periodicity_commission__c));
+        ltsValues.add(webServiceValue(mapWsValParams, 'BAIL_OBJECT_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_bail_letter__c));
+        return new RequestPriceRate_Wrapper(ltsValues);
+    }
+    
+    /**
+	 * Method to return web service mapping
+     */
+    private static String webServiceValue(Map<String,Web_Service_Value_Mapping__c> mapWs, String key) {
+        if(mapWs.containsKey(key)) {
+            return mapWs.get(key).web_service_value__c;
+        } else {
+            return null;
+        }
     }
     
     /**
@@ -174,25 +178,25 @@ public without sharing class PriceRate_helper {
             this.paymentPeriodCode = resultValue(ltsValues.get(14), null);
             this.bailObjectCode = resultValue(ltsValues.get(15), null);
         }
-		
-		/**
-     	 * Method used for set values
-     	 * @param value This is string of evaluate
-     	 * @param str This is string of coverage
-     	 */
-        public String resultValue(String value, String str) {
-            String returnValue = '';
-            if(value==null) {
-                returnValue = '';
+    }
+    
+    /**
+    * Method used for set values
+    * @param value This is string of evaluate
+    * @param str This is string of coverage
+    */
+    private static String resultValue(String value, String str) {
+        String returnValue = '';
+        if(value==null) {
+            returnValue = '';
+        } else {
+            if(str==null) {
+                returnValue = value;
             } else {
-                if(str==null) {
-                    returnValue = value;
-                } else {
-                    returnValue = str + value + '"';
-                }
+                returnValue = str + value + '"';
             }
-            return returnValue;
         }
+        return returnValue;
     }
     
     /**

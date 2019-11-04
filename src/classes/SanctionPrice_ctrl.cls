@@ -31,32 +31,15 @@ public with sharing class SanctionPrice_ctrl {
     @AuraEnabled
     public static Map<String,Object> getInfo(String recordId) {
         
-        List<Opportunity> lstOpp = [SELECT  Id,
-                                    AccountId,
-                                    Account.commercial_strategy__c,
-                                    Account.segment_desc__c,
-                                    (SELECT     Id, 
-                                     product_price_approval_method__c, 
-                                     product_price_approval_indicator__c,
-                                     minimun_apr_per__c, 
-                                     suggested_apr_per__c, 
-                                     spread_per__c,
-                                     price_rates_calculation_Id__c,
-                                     proposed_apr_per__c,
-                                     additional_capital_per__c,additional_apread_per__c,
-                                     capital_amount__c,capital_currency_id__c, efficiency_cost__c,
-                                     expected_loss_per__c, financing_cost_stockholder_per__c, 
-                                     funding_cost_per__c, funding_cost_adjusted_per__c,
-                                     minimum_spread_per__c, regulatory_capital_per__c,
-                                     Product2Id,product2.Type_of_quote__c, 
-									 pricing_model_id__c, 
-                                     CurrencyIsoCode, 
-                                     tcf_type_beneficiary__c, 
-                                     tcf_Periodicity_commission__c, 
-                                     tcf_type_bail_letter__c
-                                     FROM OpportunityLineItems) 
-                                    FROM Opportunity 
-                                    WHERE Id = :recordId];
+        List<Opportunity> lstOpp = [SELECT Id, AccountId, Account.commercial_strategy__c, Account.segment_desc__c,
+                                    (SELECT Id, product_price_approval_method__c, product_price_approval_indicator__c, minimun_apr_per__c, 
+                                     suggested_apr_per__c, spread_per__c, price_rates_calculation_Id__c, proposed_apr_per__c, 
+                                     additional_capital_per__c, additional_apread_per__c, capital_amount__c, capital_currency_id__c, 
+                                     efficiency_cost__c, expected_loss_per__c, financing_cost_stockholder_per__c, funding_cost_per__c, 
+                                     funding_cost_adjusted_per__c, minimum_spread_per__c, regulatory_capital_per__c, Product2Id, 
+                                     product2.Type_of_quote__c, pricing_model_id__c, CurrencyIsoCode, tcf_type_beneficiary__c, 
+                                     tcf_Periodicity_commission__c, tcf_type_bail_letter__c FROM OpportunityLineItems) 
+                                    FROM Opportunity WHERE Id = :recordId];
         try {
             //If opportunity has opportunityLineItems
             if(lstOpp[0].OpportunityLineItems.size()>0) {
@@ -68,17 +51,9 @@ public with sharing class SanctionPrice_ctrl {
                 //If product_price_approval_method__c == Tarifario and has a OLI
                 if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario') {
                     String strSegment = (lstOpp[0].Account.segment_desc__c == null?'':lstOpp[0].Account.segment_desc__c);
-                    List<Price_Fee__c> lstPriceFee = [SELECT Id,
-                                                      validity_start_date__c,
-                                                      validity_end_date__c, 
-                                                      product_id__c,
-                                                      minimun_fee_per__c,
-                                                      account_segment_id__c,
-                                                      account_segment_desc__c,
-                                                      calc_account_segment_desc__c
-                                                      FROM Price_Fee__c 
-                                                      WHERE validity_start_date__c <= TODAY 
-                                                      AND validity_end_date__c >= TODAY 
+                    List<Price_Fee__c> lstPriceFee = [SELECT Id, validity_start_date__c, validity_end_date__c, product_id__c,
+                                                      minimun_fee_per__c, account_segment_id__c, account_segment_desc__c, calc_account_segment_desc__c
+                                                      FROM Price_Fee__c WHERE validity_start_date__c <= TODAY AND validity_end_date__c >= TODAY 
                                                       AND product_id__c = :lstOpp[0].OpportunityLineItems[0].Product2Id
                                                       AND calc_account_segment_desc__c = :strSegment.toUpperCase(UserInfo.getLocale())];//Yuliño 11/12/2018 : Agregando el lenguaje local
                     //get minimun_fee_per__c
@@ -87,23 +62,8 @@ public with sharing class SanctionPrice_ctrl {
                     }
                     //If product_price_approval_method__c == Web and has a OLI    
                 } else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web') {
-                    final Boolean validBail = validBailLetter(lstOpp[0].OpportunityLineItems);
-                    if(validBail==false) {
-                        genericError = 'El "tipo carta fianza" elegido no es válido en combinación con el "tipo de moneda" y "tipo de benenficiario" seleccionados. Por favor eliga otro "tipo carta fianza".';
-                    } else {
-                        final Boolean validPeriod = validPeriodLetter(lstOpp[0].OpportunityLineItems);
-                        if(validPeriod==false) {
-                            genericError = 'La "periodicidad comisión" elegida no es válida en combinación con el "tipo de moneda", "tipo carta fianza" y "tipo de benenficiario" seleccionados. Por favor eliga otra "periodicidad comisión".';
-                        } else {
-                            SanctionPrice_ctrl.invokeWS(recordId);
-                        }
-                    }
-                    
-                    if(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c!=null){
-                        mapReturn.put('proposed',lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c);
-                    } else{
-                        mapReturn.put('proposed','');
-                    }
+                    validParameters(lstOpp[0].OpportunityLineItems, recordId);
+                    mapReturn.put('proposed', (lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c == null ? '' : String.valueOf(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c)));
                 }
                 mapReturn.put('hasOLI',true);
                 mapReturn.put('priceIndicator',lstOpp[0].OpportunityLineItems[0].product_price_approval_indicator__c);
@@ -119,39 +79,31 @@ public with sharing class SanctionPrice_ctrl {
         return mapReturn; 
     }
     
-    
     /**
-	 * Method validate if the combination is correct
+	 * Method validate if the combination parameters is correct and call webservice
      */
-    public static Boolean validBailLetter(List<OpportunityLineItem> olis) {
+    public static void validParameters(List<OpportunityLineItem> olis, String recordId) {
+        Boolean validPeriod = true;
         Boolean validBail = true;
         if(!olis.isEmpty() && olis[0].pricing_model_id__c=='11') {
             validBail = false;
-            for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c LIMIT 10000]) {
-                if(bailLetterComb.UniqueId__c.subString(0,7)==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c) {
-                    validBail = true;
-                    break;
-                }
-            }
-        }
-        return validBail;
-    }
-    
-    /**
-	 * Method validate if the combination is correct
-     */
-    public static Boolean validPeriodLetter(List<OpportunityLineItem> olis) {
-        Boolean validPeriod = true;
-        if(!olis.isEmpty() && olis[0].pricing_model_id__c=='11') {
             validPeriod = false;
-            for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c LIMIT 10000]) {
+            for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c]) {
                 if(bailLetterComb.UniqueId__c==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c+olis[0].tcf_Periodicity_commission__c) {
                     validPeriod = true;
                     break;
+                } else if(validBail==false && bailLetterComb.UniqueId__c.subString(0,7)==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c) {
+                    validBail = true;
                 }
             }
         }
-        return validPeriod;
+        if(validBail==false) {
+            genericError = 'El "tipo carta fianza" elegido no es válido en combinación con el "tipo de moneda" y "tipo de benenficiario" seleccionados. Por favor eliga otro "tipo carta fianza".';
+        } else if(validPeriod==false) {
+            genericError = 'La "periodicidad comisión" elegida no es válida en combinación con el "tipo de moneda", "tipo carta fianza" y "tipo de benenficiario" seleccionados. Por favor eliga otra "periodicidad comisión".';
+        } else if(validPeriod) {
+            SanctionPrice_ctrl.invokeWS(recordId);
+        }
     }
     
     @AuraEnabled
