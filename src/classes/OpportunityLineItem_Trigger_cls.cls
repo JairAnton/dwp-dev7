@@ -10,10 +10,15 @@ Modificaciones:
 Isaías Velázquez Cortés  17-07-2018
 */
 public without sharing class OpportunityLineItem_Trigger_cls {
+    /* static variable */
     private static final String CPLIQFECHAVENC = 'cpliq_Fecha_Vencimiento__c';
+    /* static variable */
     private static final String GIPRPLAZO = 'gipr_Plazo__c';
+    /* static variable */
     private static final String GIPRPERIOD = 'gipr_Periodicidad__c';
+    /* static variable */
     private static final String CPLIQPERIOD = 'cpliq_Periodicidad__c';
+    /* static variable */
     private static final String CPLIQN = 'cpliq_n__c';
     
     public void AsignBeforeInsert(list<OpportunityLineItem>Opps_New)
@@ -126,24 +131,24 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             productIds.add(oli.Product2Id);
         }
         for(fprd__GBL_Product_Configuration__c pc : [SELECT Id, fprd__Product__c, fprd__Map_field__c, fprd__Section_order__c FROM fprd__GBL_Product_Configuration__c WHERE fprd__Product__c IN : productIds]) {
-            Map<String, Double> mapFied = new Map<String, Double>();
+            Map<String, Double> mapField = new Map<String, Double>();
             if(mapFields.containsKey(pc.fprd__Product__c)) {
-                mapFied = mapFields.get(pc.fprd__Product__c);
+                mapField = mapFields.get(pc.fprd__Product__c);
             }
-            mapFied.put(pc.fprd__Map_field__c, pc.fprd__Section_order__c);
-            mapFields.put(pc.fprd__Product__c, mapFied);
+            mapField.put(pc.fprd__Map_field__c, pc.fprd__Section_order__c);
+            mapFields.put(pc.fprd__Product__c, mapField);
         }
         
         for(OpportunityLineItem OLI : listRow) {
             if(mapFields.containsKey(OLI.Product2Id)) {
-                Map<String, Double> mapFied = mapFields.get(OLI.Product2Id);
-                if(mapFied.get(CPLIQFECHAVENC)!= null && mapFied.get(GIPRPLAZO) == mapFied.get(CPLIQFECHAVENC) && mapFied.get(GIPRPERIOD) == mapFied.get(CPLIQFECHAVENC)) {
+                final Map<String, Double> mapField = mapFields.get(OLI.Product2Id);
+                if(mapField.get(CPLIQFECHAVENC)!= null && mapField.get(GIPRPLAZO) == mapField.get(CPLIQFECHAVENC) && mapField.get(GIPRPERIOD) == mapField.get(CPLIQFECHAVENC)) {
                     oli = calculateDueDate(oli, GIPRPLAZO, GIPRPERIOD);
-                } else if(mapFied.get(CPLIQFECHAVENC)!= null && mapFied.get(GIPRPLAZO) == mapFied.get(CPLIQFECHAVENC) && mapFied.get(CPLIQPERIOD) == mapFied.get(CPLIQFECHAVENC)) {
+                } else if(mapField.get(CPLIQFECHAVENC)!= null && mapField.get(GIPRPLAZO) == mapField.get(CPLIQFECHAVENC) && mapField.get(CPLIQPERIOD) == mapField.get(CPLIQFECHAVENC)) {
                     oli = calculateDueDate(oli, GIPRPLAZO, CPLIQPERIOD);
-                } else if(mapFied.get(CPLIQFECHAVENC)!= null && mapFied.get(CPLIQN) == mapFied.get(CPLIQFECHAVENC) && mapFied.get(GIPRPERIOD) == mapFied.get(CPLIQFECHAVENC)) {
+                } else if(mapField.get(CPLIQFECHAVENC)!= null && mapField.get(CPLIQN) == mapField.get(CPLIQFECHAVENC) && mapField.get(GIPRPERIOD) == mapField.get(CPLIQFECHAVENC)) {
                     oli = calculateDueDate(oli, CPLIQN, GIPRPERIOD);
-                } else if(mapFied.get(CPLIQFECHAVENC)!= null && mapFied.get(CPLIQN) == mapFied.get(CPLIQFECHAVENC) && mapFied.get(CPLIQPERIOD) == mapFied.get(CPLIQFECHAVENC)) {
+                } else if(mapField.get(CPLIQFECHAVENC)!= null && mapField.get(CPLIQN) == mapField.get(CPLIQFECHAVENC) && mapField.get(CPLIQPERIOD) == mapField.get(CPLIQFECHAVENC)) {
                     oli = calculateDueDate(oli, CPLIQN, CPLIQPERIOD);
                 }
             }
@@ -158,13 +163,14 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     }
 
 	/* Metod used for calculate due date of opportunity */
-    public OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
-        if(Integer.valueOf(oli.get(plazo))>=0 && (oli.get(periodicity) == '01' || oli.get(periodicity) == '02' || oli.get(periodicity) == '03')) {
-            oli = usingTermPeriodicity(oli, Integer.valueOf(oli.get(plazo)), String.valueOf(oli.get(periodicity)));
-        } else if(oli.cpliq_Fecha_Vencimiento__c != null) {
-        	oli = usingDate(oli, plazo, periodicity, 999);
+    private static OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
+        OpportunityLineItem oliTemp = oli;
+        if(Integer.valueOf(oliTemp.get(plazo))>=0 && (oliTemp.get(periodicity) == '01' || oliTemp.get(periodicity) == '02' || oliTemp.get(periodicity) == '03')) {
+            oliTemp = usingTermPeriodicity(oliTemp, Integer.valueOf(oliTemp.get(plazo)), String.valueOf(oliTemp.get(periodicity)));
+        } else if(oliTemp.cpliq_Fecha_Vencimiento__c != null) {
+        	oliTemp = usingDate(oliTemp, plazo, periodicity, 999);
         }
-        return oli;
+        return oliTemp;
     }
     
     /* Metod used for calculate due date using term peridodicity */

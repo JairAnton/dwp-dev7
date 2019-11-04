@@ -53,7 +53,7 @@ public without sharing class PriceRate_helper {
         ltsValues.add(webServiceValue(mapWsVal, 'CONTRACT_MODALITY' + lstOpp[0].OpportunityLineItems[0].PE_List_Product_mode__c));
         ltsValues.add(lstOpp[0].OpportunityLineItems[0].CurrencyIsoCode);
         ltsValues.add(lstOpp[0].OpportunityLineItems[0].Product2.price_approval_web_service_id__c);
-        ltsValues.add(String.valueOf((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c) / 100));
+        ltsValues.add(String.valueOf((lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c == null ? 0 : lstOpp[0].OpportunityLineItems[0].gipr_Cobertura__c) / 100));
         ltsValues.add(webServiceValue(mapWsValParams, 'GUARANTEE_TYPE' + lstOpp[0].OpportunityLineItems[0].gipr_Garantia__c));
         ltsValues.add(webServiceValue(mapWsValParams, 'PAYMENT_METHOD_CODE' + lstOpp[0].OpportunityLineItems[0].gipr_Payment_Method__c));
         ltsValues.add(webServiceValue(mapWsValParams, 'BENEFICIARY_CODE' + lstOpp[0].OpportunityLineItems[0].tcf_type_beneficiary__c));
@@ -66,11 +66,11 @@ public without sharing class PriceRate_helper {
 	 * Method to return web service mapping
      */
     private static String webServiceValue(Map<String,Web_Service_Value_Mapping__c> mapWs, String key) {
+        final String valueMap;
         if(mapWs.containsKey(key)) {
-            return mapWs.get(key).web_service_value__c;
-        } else {
-            return null;
+            valueMap = mapWs.get(key).web_service_value__c;
         }
+        return valueMap;
     }
     
     /**

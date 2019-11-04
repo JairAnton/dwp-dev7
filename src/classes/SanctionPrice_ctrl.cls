@@ -51,7 +51,7 @@ public with sharing class SanctionPrice_ctrl {
                 //If product_price_approval_method__c == Tarifario and has a OLI
                 if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario') {
                     String strSegment = (lstOpp[0].Account.segment_desc__c == null?'':lstOpp[0].Account.segment_desc__c);
-                    List<Price_Fee__c> lstPriceFee = [SELECT Id, validity_start_date__c, validity_end_date__c, product_id__c,
+                    final List<Price_Fee__c> lstPriceFee = [SELECT Id, validity_start_date__c, validity_end_date__c, product_id__c,
                                                       minimun_fee_per__c, account_segment_id__c, account_segment_desc__c, calc_account_segment_desc__c
                                                       FROM Price_Fee__c WHERE validity_start_date__c <= TODAY AND validity_end_date__c >= TODAY 
                                                       AND product_id__c = :lstOpp[0].OpportunityLineItems[0].Product2Id
@@ -88,7 +88,7 @@ public with sharing class SanctionPrice_ctrl {
         if(!olis.isEmpty() && olis[0].pricing_model_id__c=='11') {
             validBail = false;
             validPeriod = false;
-            for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c]) {
+            for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c LIMIT 10000]) {
                 if(bailLetterComb.UniqueId__c==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c+olis[0].tcf_Periodicity_commission__c) {
                     validPeriod = true;
                     break;
@@ -97,6 +97,13 @@ public with sharing class SanctionPrice_ctrl {
                 }
             }
         }
+        returnError(validPeriod, validBail, recordId);
+    }
+    
+    /**
+	 * Method for return error of the validation bail letter
+     */
+    public static void returnError(Boolean validPeriod, Boolean validBail, String recordId) {
         if(validBail==false) {
             genericError = 'El "tipo carta fianza" elegido no es válido en combinación con el "tipo de moneda" y "tipo de benenficiario" seleccionados. Por favor eliga otro "tipo carta fianza".';
         } else if(validPeriod==false) {
