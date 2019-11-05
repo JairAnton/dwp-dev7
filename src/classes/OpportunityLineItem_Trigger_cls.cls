@@ -3,14 +3,20 @@
 @Name <OpportunityLineItem_Trigger_cls>
 @Author Isaías Velázquez Cortés  17-07-2018
 @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
+<<<<<<< HEAD
 @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
+=======
+>>>>>>> origin/develop
 @Date 2019-09-13
 @Description Class Helper for Trigger for OpportunityLineItem(OLI)
 @Changes
 Date        Author   Email                  Type   
 			ISV								Creation
 2019-11-04  LMBR     lolo.bravo@bbva.com    Modify  
+<<<<<<< HEAD
 2019-11-05  MAMC     martin.mori.contractor@bbva.com    Modify  
+=======
+>>>>>>> origin/develop
 -------------------------------------------------------------------------------------------------
  */
 public without sharing class OpportunityLineItem_Trigger_cls {
@@ -85,6 +91,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             oppList.add(new Opportunity(Id=oLI.OpportunityId,opportunity_product__c=oLi.Product2.Name,opportunity_product_family__c=oLi.Product2.Family));
         	oppIds.add(oLI.OpportunityId);
 	    }
+<<<<<<< HEAD
         
         if (oppIds.size()>SIZE_LST) {
             update oppList;
@@ -177,6 +184,41 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             }
         }
         return oliTemp;
+=======
+        
+        if (oppIds.size()>SIZE_LST) {
+            update oppList;
+           	Map<Id,fprd__GBL_Intervener__c> intvrMap =new Map<Id,fprd__GBL_Intervener__c>();
+            List<fprd__GBL_Intervener__c> intvrList=new List<fprd__GBL_Intervener__c>();
+            for(fprd__GBL_Intervener__c iter:[SELECT Id,fprd__GBL_Opportunity_product__c FROM fprd__GBL_Intervener__c WHERE  fprd__GBL_Opportunity_product__c IN:oppIds AND  main_intervener__c=TRUE]) {
+               intvrMap.put(iter.fprd__GBL_Opportunity_product__c,iter);
+            }
+            
+            for(OpportunityLineItem oLI:oLIMap.values()) {
+                 fprd__GBL_Intervener__c ro = new fprd__GBL_Intervener__c();
+                if(intvrMap.containsKey(oLI.OpportunityId)){
+                    ro.Id=intvrMap.get(oLI.OpportunityId).Id;
+                 	ro.Name=oLI.Opportunity.Account.Name;
+                	ro.participant_type__c=VALUE_ZERO;
+                	ro.fiscal_identifier_type__c=VALUE_ZERO;
+                	ro.guarantor_marital_status_type__c=VALUE_FOUR;
+                	ro.taxpayer_id__c=oLI.Opportunity.Account.AccountNumber;
+                } else {
+                   	ro.fprd__GBL_Opportunity_product__c=OLi.OpportunityId;
+                	ro.Name=oLI.Opportunity.Account.Name;
+                	ro.participant_type__c=VALUE_ZERO;
+                	ro.fiscal_identifier_type__c=VALUE_ZERO;
+                	ro.taxpayer_id__c=oLI.Opportunity.Account.AccountNumber;
+                	ro.guarantor_marital_status_type__c=VALUE_FOUR;
+                	ro.main_intervener__c=true; 
+                }
+                intvrList.add(ro);
+            }
+            if(intvrList.size()>SIZE_LST) {
+            upsert intvrList;
+            }
+       	 }
+>>>>>>> origin/develop
     }
     
     /* Metod used for calculate due date using date */
