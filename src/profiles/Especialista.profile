@@ -4712,6 +4712,36 @@ Ejecutivos de REDES</description>
         <field>AccountContactRelation.Total_campos_obligatorios__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+		<editable>true</editable>
+		<field>OpportunityLineItem.FinancingType__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>false</editable>
+		<field>BE_BailLetterCombination__c.BailObject__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>false</editable>
+		<field>BE_BailLetterCombination__c.Beneficiary__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>false</editable>
+		<field>BE_BailLetterCombination__c.Currency__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>false</editable>
+		<field>BE_BailLetterCombination__c.Period__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>false</editable>
+		<field>BE_BailLetterCombination__c.UniqueId__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
@@ -5387,7 +5417,16 @@ Ejecutivos de REDES</description>
         <object>Account_variation_information__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-	<pageAccesses>
+	<objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>BE_BailLetterCombination__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <pageAccesses>
         <apexPage>Minuta</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
