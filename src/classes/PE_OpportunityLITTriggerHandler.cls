@@ -23,7 +23,7 @@ public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
 
     public Override void afterInsert(){
         new OpportunityLineItem_Trigger_cls().MasteRecord_Guarantee(Opps_New);
-        new OpportunityLineItem_Trigger_cls().upsertMasterParticipant(Opps_New);
+        new OpportunityLineItem_Trigger_cls().upsertMasterParticipant();
     }
 
     public Override void afterUpdate(){

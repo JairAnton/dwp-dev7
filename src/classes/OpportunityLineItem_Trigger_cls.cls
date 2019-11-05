@@ -1,16 +1,18 @@
 /**
-* @Autor: Arsenio Perez Lopez
-* @Proyect: BBVA PERU
-* @Version:1
-* @HIstorial de cambios:
-- Creacion del Handler
-- Corrección del método updateDateLine
-*****************************
-Modificaciones:
-
-Isaías Velázquez Cortés  17-07-2018
-Martín Alejandro Mori Chávez  04-11-2019
-**/
+-------------------------------------------------------------------------------------------------
+@Name <OpportunityLineItem_Trigger_cls>
+@Author Isaías Velázquez Cortés  17-07-2018
+@Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
+@Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
+@Date 2019-09-13
+@Description Class Helper for Trigger for OpportunityLineItem(OLI)
+@Changes
+Date        Author   Email                  Type   
+			ISV								Creation
+2019-11-04  LMBR     lolo.bravo@bbva.com    Modify  
+2019-11-05  MAMC     martin.mori.contractor@bbva.com    Modify  
+-------------------------------------------------------------------------------------------------
+ */
 public without sharing class OpportunityLineItem_Trigger_cls {
     /* static variable */
     private static final String CPLIQFECHAVENC = 'cpliq_Fecha_Vencimiento__c';
@@ -68,62 +70,54 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         }
     }
     
-    public  void upsertMasterParticipant (List<OpportunityLineItem> listRow) {
-        Map<id,id> OLiOpportunity = new Map<id,id>();
-        Map<id,id> OLiProduct = new Map<id,id>();
-        Map<id,Opportunity> MapOLiOpportunity = new Map<id,Opportunity>();
-        Map<id,Product2> MapOLiProduct = new Map<id,Product2>();
-        List<Opportunity> Oppupdate = new List<Opportunity>();
-        for(OpportunityLineItem Opp :listRow){
-            OLiOpportunity.put(Opp.id,opp.OpportunityId);
-            OLiProduct.put(Opp.id,opp.Product2Id);  
-        }
+    /**
+    @Description create and update principal Intervener for Opportunity
+    @return is void method
+    */
+    public  void upsertMasterParticipant () {
+        final Integer SIZE_LST=0;
+        final String  VALUE_ZERO='01';
+        final String  VALUE_FOUR='04';
+        Set<Id> oppIds=new Set<Id>();
+        List<Opportunity> oppList=new List<Opportunity>();
+        final Map<Id,OpportunityLineItem> oLIMap=new Map<Id,OpportunityLineItem>([SELECT Id,OpportunityId,Opportunity.Account.Name,Opportunity.Account.AccountNumber, Product2.Name, Product2.Family FROM OpportunityLineItem WHERE Id IN: TRIGGER.NEW AND Product2.risk_sanction__c=TRUE]);
+        for(OpportunityLineItem oLI:oLIMap.values()) {
+            oppList.add(new Opportunity(Id=oLI.OpportunityId,opportunity_product__c=oLi.Product2.Name,opportunity_product_family__c=oLi.Product2.Family));
+        	oppIds.add(oLI.OpportunityId);
+	    }
         
-        List<Opportunity>  opName = [Select Id, Account.Name,Account.AccountNumber,opportunity_product__c,opportunity_product_family__c From Opportunity WHERE Id IN:OLiOpportunity.values()];
-        List<Product2>  opProduct = [Select Id, Name, Family From Product2 WHERE Id IN:OLiProduct.values()];
-        for(Opportunity opi:opName )
-            MapOLiOpportunity.put(opi.id,opi);
-        for(Product2 pro: opProduct)
-            MapOLiProduct.put(pro.id, pro);
-        for(OpportunityLineItem OLi :listRow){
-            Opportunity temp = MapOLiOpportunity.get(OLi.OpportunityId);
-            temp.opportunity_product__c = MapOLiProduct.get(OLi.Product2Id).Name;
-            temp.opportunity_product_family__c =  MapOLiProduct.get(OLi.Product2Id).Family;
-            Oppupdate.add(temp);
-        }
-        update Oppupdate;
-        
-        List<fprd__GBL_Intervener__c> row =[SELECT Id,fprd__GBL_Opportunity_product__c FROM fprd__GBL_Intervener__c WHERE  fprd__GBL_Opportunity_product__c IN:OLiOpportunity.values() and  main_intervener__c=true];
-        if(row.isEmpty())
-        {
-            List<fprd__GBL_Intervener__c> Inter = new List<fprd__GBL_Intervener__c>();
-            for(OpportunityLineItem OLi :listRow){
-                fprd__GBL_Intervener__c nRow = new fprd__GBL_Intervener__c();
-                nRow.fprd__GBL_Opportunity_product__c=OLi.OpportunityId;
-                nRow.Name=MapOLiOpportunity.get(OLi.OpportunityId).Account.Name;
-                nRow.participant_type__c='01';
-                nRow.fiscal_identifier_type__c='01';
-                nRow.taxpayer_id__c=MapOLiOpportunity.get(OLi.OpportunityId).Account.AccountNumber;
-                nRow.guarantor_marital_status_type__c='04';
-                nRow.main_intervener__c=true;
-                Inter.add(nRow);
+        if (oppIds.size()>SIZE_LST) {
+            update oppList;
+           	Map<Id,fprd__GBL_Intervener__c> intvrMap =new Map<Id,fprd__GBL_Intervener__c>();
+            List<fprd__GBL_Intervener__c> intvrList=new List<fprd__GBL_Intervener__c>();
+            for(fprd__GBL_Intervener__c iter:[SELECT Id,fprd__GBL_Opportunity_product__c FROM fprd__GBL_Intervener__c WHERE  fprd__GBL_Opportunity_product__c IN:oppIds AND  main_intervener__c=TRUE]) {
+               intvrMap.put(iter.fprd__GBL_Opportunity_product__c,iter);
             }
-            insert Inter;
-        }
-        else
-        {
-            List<fprd__GBL_Intervener__c> Inter = new List<fprd__GBL_Intervener__c>();
-            for(fprd__GBL_Intervener__c ro :row){
-                ro.Name=MapOLiOpportunity.get(ro.fprd__GBL_Opportunity_product__c).Account.Name;
-                ro.participant_type__c='01';
-                ro.fiscal_identifier_type__c='01';
-                ro.guarantor_marital_status_type__c='04';
-                ro.taxpayer_id__c=MapOLiOpportunity.get(ro.fprd__GBL_Opportunity_product__c).Account.AccountNumber;
-                Inter.add(ro);
+            
+            for(OpportunityLineItem oLI:oLIMap.values()) {
+                 fprd__GBL_Intervener__c ro = new fprd__GBL_Intervener__c();
+                if(intvrMap.containsKey(oLI.OpportunityId)){
+                    ro.Id=intvrMap.get(oLI.OpportunityId).Id;
+                 	ro.Name=oLI.Opportunity.Account.Name;
+                	ro.participant_type__c=VALUE_ZERO;
+                	ro.fiscal_identifier_type__c=VALUE_ZERO;
+                	ro.guarantor_marital_status_type__c=VALUE_FOUR;
+                	ro.taxpayer_id__c=oLI.Opportunity.Account.AccountNumber;
+                } else {
+                   	ro.fprd__GBL_Opportunity_product__c=OLi.OpportunityId;
+                	ro.Name=oLI.Opportunity.Account.Name;
+                	ro.participant_type__c=VALUE_ZERO;
+                	ro.fiscal_identifier_type__c=VALUE_ZERO;
+                	ro.taxpayer_id__c=oLI.Opportunity.Account.AccountNumber;
+                	ro.guarantor_marital_status_type__c=VALUE_FOUR;
+                	ro.main_intervener__c=true; 
+                }
+                intvrList.add(ro);
             }
-            update Inter;
-        }
-        
+            if(intvrList.size()>SIZE_LST) {
+            upsert intvrList;
+            }
+       	 }
     }
     
     public void updateDateLine(List<OpportunityLineItem> listRow) {
@@ -156,15 +150,8 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             }
         }
     }
-	
-    public void deleteOppSolComm ( Map<id,OpportunityLineItem> Opps_OldMap){
-        List<Opportunity_Solution_Commitment__c> lstoppsolcom = [Select Id,opp_solution_id__c from Opportunity_Solution_Commitment__c where opp_solution_id__c =:Opps_OldMap.keySet()];
-        if(!lstoppsolcom.isEmpty()){
-            delete lstoppsolcom;
-        }
-    }
-
-	/* Metod used for calculate due date of opportunity */
+    
+    /* Metod used for calculate due date of opportunity */
     private static OpportunityLineItem calculateDueDate(OpportunityLineItem oli, String plazo, String periodicity) {
         OpportunityLineItem oliTemp = oli;
         if(Integer.valueOf(oliTemp.get(plazo))>=0 && (oliTemp.get(periodicity) == '01' || oliTemp.get(periodicity) == '02' || oliTemp.get(periodicity) == '03')) {
@@ -209,4 +196,43 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         }
         return oliTemp;
     }
+    
+    public  void deleteOppSolComm ( Map<id,OpportunityLineItem> Opps_OldMap){
+        List<Opportunity_Solution_Commitment__c> lstoppsolcom = [Select Id,opp_solution_id__c from Opportunity_Solution_Commitment__c where opp_solution_id__c =:Opps_OldMap.keySet()];
+        if(!lstoppsolcom.isEmpty()){
+            delete lstoppsolcom;
+        }
+    }
+    /*
+Public void UpdateCaseAnalist(List<OpportunityLineItem> NEwlist,Map<id,OpportunityLineItem> Opps_NewMap,Map<id,OpportunityLineItem> Opps_OldMap){
+Id profileId=userinfo.getProfileId();
+String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+if( Label.lblAnalistaProf.equals(profileName)){
+List<Case> UpCase = new List<Case>();
+Set<Id> IDs = new set<ID>();
+for(OpportunityLineItem OLI1 :Opps_NewMap.values())
+IDs.add(OLI1.OpportunityId);
+Map<Id,Case> cas = new Map<Id,Case>();
+for(Case ca:[select id,suggested_apr_per__c,opportunity_id__c from case where opportunity_id__c IN:IDs order by createdDate asc limit 1])
+cas.put(ca.opportunity_id__c,ca);
+for(OpportunityLineItem OLI1 :Opps_NewMap.values()){
+
+if(OLI1.suggested_apr_per__c != cas.get(OLI1.OpportunityId).proposed_apr_per__c && 
+!String.isBlank(String.valueOf(OLI1.suggested_apr_per__c)))
+{
+cas.get(OLI1.OpportunityId).suggested_apr_per__c=OLI1.proposed_fee_per__c;
+UpCase.add(cas.get(OLI1.OpportunityId));
+}else 
+if(OLI1.proposed_apr_per__c != cas.get(OLI1.OpportunityId).proposed_apr_per__c && 
+!String.isBlank(String.valueOf(OLI1.proposed_apr_per__c)))
+{
+cas.get(OLI1.OpportunityId).suggested_apr_per__c=OLI1.proposed_apr_per__c;
+UpCase.add(cas.get(OLI1.OpportunityId));
+}
+
+}
+if(!UpCase.isempty())
+update UpCase;
+}
+}*/
 }
