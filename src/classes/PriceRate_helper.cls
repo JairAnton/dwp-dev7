@@ -17,8 +17,6 @@ public without sharing class PriceRate_helper {
     
     public RequestPriceRate_Wrapper inputDataMapping { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     public Boolean isSimulate { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
-    /* variable use for return webservice value*/
-    static String valueMap;
     
 	/**
 	 * Method constructor of the class use to get input information
@@ -74,7 +72,7 @@ public without sharing class PriceRate_helper {
 	 * Method to return web service mapping
      */
     private static String webServiceValue(Map<String,Web_Service_Value_Mapping__c> mapWs, String key) {
-        valueMap = null;
+        String valueMap = '';
         if(mapWs.containsKey(key)) {
             valueMap = mapWs.get(key).web_service_value__c;
         }
