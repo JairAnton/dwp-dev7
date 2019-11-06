@@ -5536,6 +5536,11 @@ Asistente BE</description>
 		<field>BE_BailLetterCombination__c.UniqueId__c</field>
 		<readable>true</readable>
 	</fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.CreatedDateFormula__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>

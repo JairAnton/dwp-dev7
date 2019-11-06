@@ -295,6 +295,11 @@
             <field>dwp_kitv__account_id__c.branch_level4_desc__c</field>
             <table>dwp_kitv__Visit__c</table>
         </columns>
+		<columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDateFormula__c</field>
+            <table>dwp_kitv__Visit__c</table>
+        </columns>
         <masterLabel>Visitas</masterLabel>
     </sections>
     <sections>

@@ -97,6 +97,7 @@ public with sharing class SanctionPrice_ctrl {
             for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c LIMIT 10000]) {
                 if(bailLetterComb.UniqueId__c==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c+olis[0].tcf_Periodicity_commission__c) {
                     validPeriod = true;
+                    validBail = true;
                     break;
                 } else if(validBail==false && bailLetterComb.UniqueId__c.subString(0,7)==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c) {
                     validBail = true;
