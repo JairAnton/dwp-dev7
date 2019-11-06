@@ -74,10 +74,11 @@ public without sharing class PriceRate_helper {
 	 * Method to return web service mapping
      */
     private static String webServiceValue(Map<String,Web_Service_Value_Mapping__c> mapWs, String key) {
-        valueMap = null;
         if(mapWs.containsKey(key)) {
             valueMap = mapWs.get(key).web_service_value__c;
-        }
+        } else {
+			valueMap = null;
+		}
         return valueMap;
     }
     
