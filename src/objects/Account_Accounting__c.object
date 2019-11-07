@@ -70,6 +70,56 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>gf_ratio_category_type__c</fullName>
+        <externalId>false</externalId>
+        <label>Ratio Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>Liquidez</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>Gestión</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>Solvencia</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>Generación de recursos y rentabilidad</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>Cobertura de deuda</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>gf_ratio_value_number__c</fullName>
+        <externalId>false</externalId>
+        <label>Ratio Value</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>gl_account_amount__c</fullName>
         <externalId>false</externalId>
         <label>Amount</label>
@@ -155,6 +205,11 @@
                     <default>false</default>
                     <label>Ganancias y Perdidas</label>
                 </value>
+                <value>
+                    <fullName>RT</fullName>
+                    <default>false</default>
+                    <label>Ratios Financieros</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -167,6 +222,17 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ratio_type__c</fullName>
+        <externalId>false</externalId>
+        <label>Ratio Type</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
