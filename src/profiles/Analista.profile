@@ -1315,6 +1315,16 @@ Analistas de riesgos</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Accounting__c.gf_ratio_category_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Accounting__c.gf_ratio_value_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account_Accounting__c.gl_account_amount__c</field>
         <readable>true</readable>
@@ -1352,6 +1362,11 @@ Analistas de riesgos</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Accounting__c.parent_gl_account_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Accounting__c.ratio_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
