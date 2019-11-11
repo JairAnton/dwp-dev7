@@ -6130,7 +6130,7 @@ Sub Gerentes de oficina</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account_Legal_Representative__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
         <apexPage>PDF_formalizacion_vfp</apexPage>
