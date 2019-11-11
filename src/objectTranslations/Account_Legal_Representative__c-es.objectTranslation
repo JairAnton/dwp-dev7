@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Legal Representative</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Legal Representative</value>
+    </caseValues>
+    <fields>
+        <label>Cliente</label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Legal Representatives --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>F. Nacimiento</label>
+        <name>Birth_Date__c</name>
+    </fields>
+    <fields>
+        <label>DOI</label>
+        <name>Personal_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Personal Type --></label>
+        <name>Personal_Type__c</name>
+        <picklistValues>
+            <masterLabel>E</masterLabel>
+            <translation><!-- E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L</masterLabel>
+            <translation><!-- L --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M</masterLabel>
+            <translation><!-- M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>O</masterLabel>
+            <translation><!-- O --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P</masterLabel>
+            <translation><!-- P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R</masterLabel>
+            <translation><!-- R --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S</masterLabel>
+            <translation><!-- S --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>F. Inicio cargo</label>
+        <name>Position_Begin_Date__c</name>
+    </fields>
+    <fields>
+        <label>Cargo</label>
+        <name>Position__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Payer Id --></label>
+        <name>Tax_Payer_Id__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Nombres y apellidos</nameFieldLabel>
+</CustomObjectTranslation>
