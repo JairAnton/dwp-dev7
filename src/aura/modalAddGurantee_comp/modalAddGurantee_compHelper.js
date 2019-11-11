@@ -27,7 +27,8 @@
         component.set("v.optModality", optModality);
         var optGuaranteeType = [			
             { value: "01", label: "Dineraria" },
-            { value: "02", label: "No dineraria" }
+            { value: "02", label: "No dineraria" },
+            { value: "04", label: "Hipotecaria" }
             
         ];
         component.set("v.optGuaranteeType", optGuaranteeType);
@@ -37,7 +38,6 @@
             { value: "06", label: "Certificados bancarios" },
             { value: "07", label: "Fianza bancaria" },				            
             { value: "09", label: "Fondos mutuos" },
-            { value: "10", label: "Hipoteca" },
             { value: "11", label: "Leasing" },
             { value: "12", label: "Prenda agrícola" },
             { value: "13", label: "Prenda industrial" },
@@ -66,7 +66,6 @@
                 { value: "06", label: "Certificados bancarios" },
                 { value: "07", label: "Fianza bancaria" },				            
                 { value: "09", label: "Fondos mutuos" },
-                { value: "10", label: "Hipoteca" },
                 { value: "11", label: "Leasing" },
                 { value: "12", label: "Prenda agrícola" },
                 { value: "13", label: "Prenda industrial" },
@@ -74,6 +73,13 @@
                 { value: "15", label: "Prenda transporte" },
                 { value: "16", label: "Prenda vehicular" },
                 { value: "17", label: "Warants" }
+            ];
+            component.set("v.optGuarantee", optGuarantee);
+        }
+        else if(component.get("v.PGuarantee")[0].guarantee_type__c=="04")
+        {
+            var optGuarantee = [			
+                { value: "10", label: "Hipoteca" }
             ];
             component.set("v.optGuarantee", optGuarantee);
         }

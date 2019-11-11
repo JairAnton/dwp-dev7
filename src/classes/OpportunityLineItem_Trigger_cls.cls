@@ -43,7 +43,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     
     public void MasteRecord_Guarantee(list<OpportunityLineItem>Opps_New)
     {
-        if(Opps_New[0].gipr_Tipo_Garantia__c=='01' || Opps_New[0].gipr_Tipo_Garantia__c=='02'){
+        if(Opps_New[0].gipr_Tipo_Garantia__c!=null && Opps_New[0].gipr_Tipo_Garantia__c!='03'){
             List<fprd__GBL_Guarantee__c> row =[SELECT Id FROM fprd__GBL_Guarantee__c WHERE fprd__GBL_Opportunity_product__c=: Opps_New[0].OpportunityId and  isMaster__c=true];
             System.debug(Opps_New[0].gipr_Garantia__c);
             if(row.isEmpty())
