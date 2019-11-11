@@ -105,12 +105,12 @@
 	        ];
 	        component.set("v.optGuarantee", optGuarantee);
     	}
-        else if(String(event.getSource().get("v.value"))=="04")
+        else if(String(event.getSource().get("v.value"))==="04")
     	{
-    		var optGuarantee = [			
+    		var optGuaranteeHip = [
 				{ value: "10", label: "Hipoteca" }
 	        ];
-	        component.set("v.optGuarantee", optGuarantee);
+	        component.set("v.optGuarantee", optGuaranteeHip);
     	}
     	else
     		component.set("v.optGuarantee", null);

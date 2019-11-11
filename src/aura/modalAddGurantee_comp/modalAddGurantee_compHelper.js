@@ -76,12 +76,12 @@
             ];
             component.set("v.optGuarantee", optGuarantee);
         }
-        else if(component.get("v.PGuarantee")[0].guarantee_type__c=="04")
+        else if(component.get("v.PGuarantee")[0].guarantee_type__c==="04")
         {
-            var optGuarantee = [			
+            var optGuaranteeHip = [
                 { value: "10", label: "Hipoteca" }
             ];
-            component.set("v.optGuarantee", optGuarantee);
+            component.set("v.optGuarantee", optGuaranteeHip);
         }
             else
                 component.set("v.optGuarantee", null);
