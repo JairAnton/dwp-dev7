@@ -1440,12 +1440,12 @@ Sub Gerentes de oficina</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Accounting__c.gf_ratio_category_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Accounting__c.gf_ratio_value_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1490,7 +1490,7 @@ Sub Gerentes de oficina</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Accounting__c.ratio_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
