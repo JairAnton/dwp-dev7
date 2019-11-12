@@ -1940,12 +1940,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Accounting__c.gf_ratio_category_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Accounting__c.gf_ratio_value_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2000,7 +2000,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Accounting__c.ratio_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
