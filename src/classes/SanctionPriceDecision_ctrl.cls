@@ -398,9 +398,11 @@ public with sharing class SanctionPriceDecision_ctrl {
         if(!mqBusinessAgentsList.isEmpty()) {
             Final List<User> userList = [SELECT Id, FirstName, LastName FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id AND IsActive = true];
             if(!userList.isEmpty()) {
+				oliRecord.price_quote_owner_id__c = userList[0].Id;
                 mapReturn.put(IDANALIST, userList[0].Id);
                 assignedAnalyst = userList[0].FirstName + ' ' + userList[0].LastName;
             } else {
+				oliRecord.price_quote_owner_id__c = null;
                 assignedAnalyst = mqBusinessAgentsList[0].firstName + ' ' + mqBusinessAgentsList[0].lastName + ' ' + mqBusinessAgentsList[0].secondLastName;
             }
         }
