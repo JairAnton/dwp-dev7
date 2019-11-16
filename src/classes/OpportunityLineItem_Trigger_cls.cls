@@ -71,14 +71,16 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         final Map<Id,OpportunityLineItem> oLIMap=new Map<Id,OpportunityLineItem>([SELECT Id,OpportunityId,Opportunity.Account.Name,Opportunity.Account.AccountNumber, Product2.Name, Product2.Family FROM OpportunityLineItem WHERE Id IN: TRIGGER.NEW AND Product2.risk_sanction__c=TRUE]);
         for(OpportunityLineItem oLI:oLIMap.values()) {
             oppList.add(new Opportunity(Id=oLI.OpportunityId,opportunity_product__c=oLi.Product2.Name,opportunity_product_family__c=oLi.Product2.Family));
-        	oppIds.add(oLI.OpportunityId);
+            if(String.isNotBlank(oLI.OpportunityId)) {
+             oppIds.add(oLI.OpportunityId);
+            }
 	    }
         
         if (oppIds.size()>SIZE_LST) {
             update oppList;
            	Map<Id,fprd__GBL_Intervener__c> intvrMap =new Map<Id,fprd__GBL_Intervener__c>();
             List<fprd__GBL_Intervener__c> intvrList=new List<fprd__GBL_Intervener__c>();
-            for(fprd__GBL_Intervener__c iter:[SELECT Id,fprd__GBL_Opportunity_product__c FROM fprd__GBL_Intervener__c WHERE  fprd__GBL_Opportunity_product__c IN:oppIds AND  main_intervener__c=TRUE]) {
+            for(fprd__GBL_Intervener__c iter:[SELECT Id,fprd__GBL_Opportunity_product__c FROM fprd__GBL_Intervener__c WHERE  fprd__GBL_Opportunity_product__c IN:oppIds AND  main_intervener__c=TRUE LIMIT 200000]) {
                intvrMap.put(iter.fprd__GBL_Opportunity_product__c,iter);
             }
             
@@ -105,7 +107,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
             if(intvrList.size()>SIZE_LST) {
             upsert intvrList;
             }
-       	 }
+       	}
     }
     
     public void updateDateLine(List<OpportunityLineItem> listRow){
