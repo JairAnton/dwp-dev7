@@ -71,7 +71,7 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         final Map<Id,OpportunityLineItem> oLIMap=new Map<Id,OpportunityLineItem>([SELECT Id,OpportunityId,Opportunity.Account.Name,Opportunity.Account.AccountNumber, Product2.Name, Product2.Family FROM OpportunityLineItem WHERE Id IN: TRIGGER.NEW AND Product2.risk_sanction__c=TRUE]);
         for(OpportunityLineItem oLI:oLIMap.values()) {
             oppList.add(new Opportunity(Id=oLI.OpportunityId,opportunity_product__c=oLi.Product2.Name,opportunity_product_family__c=oLi.Product2.Family));
-            if(String.isNotBlank(oLI.OpportunityId)){
+            if(String.isNotBlank(oLI.OpportunityId)) {
              oppIds.add(oLI.OpportunityId);
             }
 	    }
