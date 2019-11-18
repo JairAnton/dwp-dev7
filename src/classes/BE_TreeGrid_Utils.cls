@@ -35,7 +35,8 @@ public with sharing class BE_TreeGrid_Utils {
         for (Schema.SObjectField sObjFieldDescribe: mfields) {
         final String code=String.valueOf(sObjFieldDescribe.getDescribe().getName());
         final String type=String.valueOf(sObjFieldDescribe.getDescribe().getType()).toLowerCase();
-        sObjFieldsMap.put(code, type);
+        final String typeFinal=(type=='double')?'number':type;
+        sObjFieldsMap.put(code, typeFinal);
         }
         return sObjFieldsMap;
     }
