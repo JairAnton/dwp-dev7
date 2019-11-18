@@ -15,6 +15,7 @@ import getDynamicResponse from "@salesforce/apex/BE_DynamicTreeGrid_Ctrl.getDyna
 export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   @api recordId;
   @api title;
+  @api hideTitle;
   @api sObjApiName;
   @api sObjFields;
   @api sObjFieldsSOQL;
@@ -35,8 +36,8 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   @api filterSQOLGroup = "";
   @api formatDate = "";
   @api numGroupShow = 0;
-  @api maximumFractionDigits=2;
-  @api minimumFractionDigits=2;
+  @api maximumFractionDigits = 2;
+  @api minimumFractionDigits = 2;
   @track gridData;
   @track error;
   @track loaded = false;
@@ -48,13 +49,14 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   renderedCallback() {
     if (this.hasRendered) return;
     this.hasRendered = true;
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.innerText = `
     c-b-e_-dynamic-tree-grid_-lwc .slds-th__action {
       justify-content: center !important;
       font-weight: bold;
       }`;
-    this.template.querySelector('.slds-box').appendChild(style);
+    this.template.querySelector(".slds-box").appendChild(style);
+    this.template.querySelector("div.slds-box").classList.add("treeGrid");
   }
   connectedCallback() {
     this.sObject = {
@@ -79,15 +81,17 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   })
   wiredTreeGridData(provisionedData) {
     this.provisionedData = provisionedData;
+    console.log("provisionedData");
+    console.log(provisionedData);
     const { data, error } = provisionedData;
     if (data) {
       if (data.isSuccess) {
         try {
           const subLevelSize = this.initValues(data);
           if (this.isHeaderGroup) {
-            this.makeDataWithGroup(data,subLevelSize);
+            this.makeDataWithGroup(data, subLevelSize);
           } else {
-            this.makeData(data,subLevelSize);
+            this.makeData(data, subLevelSize);
           }
           this.orderAndExpandedRows();
         } catch (jsError) {
@@ -109,9 +113,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   initValues(data) {
     this.empty = data.sizeData === 0 ? true : false;
     const subLevelSize =
-      this.levelData <= data.sizeData
-        ? this.levelData - 1
-        : data.sizeData - 1;
+      this.levelData <= data.sizeData ? this.levelData - 1 : data.sizeData - 1;
     this.gridColumns = this.getGridColumns(
       data.sObjFieldsMap,
       this.sObjFields,
@@ -135,18 +137,19 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   }
 
   makeData(data, subLevelSize) {
-    this.gridData = subLevelSize > 0
-      ? this.assignTreeData(
-        data.treeGridData,
-        this.keyParentField,
-        subLevelSize
-      )
-      : this.assignOneLevelData(
-        data.treeGridData,
-        this.keyParentField,
-        this.isHeaderGroup,
-        null
-      );
+    this.gridData =
+      subLevelSize > 0
+        ? this.assignTreeData(
+            data.treeGridData,
+            this.keyParentField,
+            subLevelSize
+          )
+        : this.assignOneLevelData(
+            data.treeGridData,
+            this.keyParentField,
+            this.isHeaderGroup,
+            null
+          );
   }
 
   makeDataWithGroup(data, subLevelSize) {
@@ -161,17 +164,17 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     this.gridData =
       subLevelSize > 0
         ? this.assignTreeDataWithGroup(
-          data.treeGridDataGroup,
-          this.keyParentField,
-          fields,
-          subLevelSize
-        )
+            data.treeGridDataGroup,
+            this.keyParentField,
+            fields,
+            subLevelSize
+          )
         : this.assignOneLevelData(
-          data.treeGridDataGroup,
-          this.keyParentField,
-          this.isHeaderGroup,
-          fields
-        );
+            data.treeGridDataGroup,
+            this.keyParentField,
+            this.isHeaderGroup,
+            fields
+          );
   }
   refreshHandle() {
     return refreshApex(this.provisionedData);
@@ -315,10 +318,10 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     for (const indicator in targetfieldsApiName) {
       if ({}.hasOwnProperty.call(targetfieldsApiName, indicator)) {
         const targetColumn = {
-          "label": targetfieldsLabel[indicator],
-          "fieldName": targetfieldsApiName[indicator],
-          "type": sObjFieldsMap[targetfieldsApiName[indicator]]
-          };
+          label: targetfieldsLabel[indicator],
+          fieldName: targetfieldsApiName[indicator],
+          type: sObjFieldsMap[targetfieldsApiName[indicator]]
+        };
         columns.push(this.asigntypeAttributes(targetColumn));
       }
     }
@@ -357,52 +360,73 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     }
     return Array.from(gridExpandedRows);
   }
-  asigntypeAttributes(Obj){
-    let targetObj = {cellAttributes:{alignment: 'center'}};
+  asigntypeAttributes(Obj) {
+    let targetObj = { cellAttributes: { alignment: "center" } };
     switch (Obj.type) {
       case "currency":
-        Object.defineProperty(targetObj,"typeAttributes", {
-            value: {currencyCode:{fieldName:"CurrencyIsoCode"},
-            maximumFractionDigits:this.maximumFractionDigits,
-            minimumFractionDigits:this.minimumFractionDigits},
-            writable: true,
-            enumerable: true,
-            configurable: true
+        Object.defineProperty(targetObj, "typeAttributes", {
+          value: {
+            currencyCode: { fieldName: "CurrencyIsoCode" },
+            maximumFractionDigits: this.maximumFractionDigits,
+            minimumFractionDigits: this.minimumFractionDigits
+          },
+          writable: true,
+          enumerable: true,
+          configurable: true
         });
-        Object.defineProperty(targetObj,"cellAttributes", {
-        value: {alignment: 'right'},
-        writable: true,
-        enumerable: true,
-        configurable: true
+        Object.defineProperty(targetObj, "cellAttributes", {
+          value: { alignment: "right" },
+          writable: true,
+          enumerable: true,
+          configurable: true
+        });
+        break;
+      case "number":
+        Object.defineProperty(targetObj, "typeAttributes", {
+          value: {
+            maximumFractionDigits: this.maximumFractionDigits,
+            minimumFractionDigits: this.minimumFractionDigits
+          },
+          writable: true,
+          enumerable: true,
+          configurable: true
+        });
+        Object.defineProperty(targetObj, "cellAttributes", {
+          value: { alignment: "right" },
+          writable: true,
+          enumerable: true,
+          configurable: true
         });
         break;
       case "boolean":
-        Object.defineProperty(targetObj,"initialWidth", {
-          value:60,
+        Object.defineProperty(targetObj, "initialWidth", {
+          value: 60,
           writable: true,
           enumerable: true,
           configurable: true
         });
         break;
       case "percent":
-        Object.defineProperty(targetObj,"typeAttributes", {
-            value: {maximumFractionDigits:this.maximumFractionDigits,
-            minimumFractionDigits:this.minimumFractionDigits},
-            writable: true,
-            enumerable: true,
-            configurable: true
+        Object.defineProperty(targetObj, "typeAttributes", {
+          value: {
+            maximumFractionDigits: this.maximumFractionDigits,
+            minimumFractionDigits: this.minimumFractionDigits
+          },
+          writable: true,
+          enumerable: true,
+          configurable: true
         });
-        Object.defineProperty(targetObj,"initialWidth", {
-          value:60,
+        Object.defineProperty(targetObj, "initialWidth", {
+          value: 60,
           writable: true,
           enumerable: true,
           configurable: true
         });
         break;
-    default:
+      default:
         break;
     }
-    targetObj = Object.assign(Obj,targetObj);
+    targetObj = Object.assign(Obj, targetObj);
     return targetObj;
   }
 }
