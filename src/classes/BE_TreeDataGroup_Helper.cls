@@ -52,7 +52,7 @@ public with sharing class BE_TreeDataGroup_Helper {
         List<SObject> sObjLst;
         for(SObject item:sObjectList) {
             final Integer level=String.isNotBlank(params.fieldLevel)?Integer.valueOf(item.get(params.fieldLevel)):(String.isNotBlank((String)item.get(params.keyParentField)))?1:0;
-            final String code =(String)item.get(params.keyField);
+            final String code =String.valueOf(item.get(params.keyField));
             if(sObjDataMap.containsKey(level)) {
                 if(sObjDataMap.get(level).containsKey(code)) {
                     sObjDataMap.get(level).get(code).add(item);
