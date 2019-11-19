@@ -11,6 +11,8 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
+            <property name="title" type="String" default="Title" label="Title" required="false"/>
+            <property name="hideTitle" type="Boolean" default="false" label="Hide title" required="true"/>
             <property name="sObjApiName" type="String" default="Account" label="Object API Name" required="true"/>
             <property name="sObjFieldsSOQL" type="String" default="Name" label="Fields to query" required="true"/>
             <property name="sObjFields" type="String" default="Name" label="Fields to show" required="true"/>

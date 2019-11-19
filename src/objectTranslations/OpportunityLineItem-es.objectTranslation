@@ -899,6 +899,46 @@
             <masterLabel>14</masterLabel>
             <translation>Refinanciado</translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation>Plan a medida</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>16</masterLabel>
+            <translation>Prorroga</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>17</masterLabel>
+            <translation>Subrogado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18</masterLabel>
+            <translation>Canal internet</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>19</masterLabel>
+            <translation>Linea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20</masterLabel>
+            <translation>Nuevo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21</masterLabel>
+            <translation>Edificio y terreno</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>22</masterLabel>
+            <translation>Maquinaria amarilla</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>23</masterLabel>
+            <translation>Otras maquinarias; equipos y mobiliario</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24</masterLabel>
+            <translation>Transporte</translation>
+        </picklistValues>
     </fields>	
     <fields>
         <label>Garantía</label>
@@ -1155,6 +1195,10 @@
             <masterLabel>03</masterLabel>
             <translation>Sin garantía</translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Hipotecaria</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>Tipo</label>
@@ -1242,6 +1286,10 @@
         <picklistValues>
             <masterLabel>04</masterLabel>
             <translation>Anual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Cuatrimestral</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1475,6 +1523,22 @@
     <fields>
         <label>Validez TEA</label>
         <name>validityDate__c</name>
+    </fields>
+	<fields>
+        <label><!-- FinancingType --></label>
+        <name>FinancingType__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Pre embarque</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Post embarque</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Sepymex</translation>
+        </picklistValues>
     </fields>
     <validationRules>
         <errorMessage>Nº de contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>

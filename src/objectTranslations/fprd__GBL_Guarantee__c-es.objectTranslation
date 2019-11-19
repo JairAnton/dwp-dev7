@@ -27,6 +27,10 @@
             <masterLabel>03</masterLabel>
             <translation>Sin garantía</translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Hipotecaria</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>Garantía</label>

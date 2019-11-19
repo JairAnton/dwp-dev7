@@ -1,1 +1,23 @@
-.slds-th__action{ justify-content: center !important; font-weight: bold}
+.slds-th__action {
+  justify-content: center !important;
+  font-weight: bold;
+}
+.treeGrid {
+  display: inline-block;
+  word-wrap: normal;
+  width: 100%;
+}
+@media (min-device-width: 800px) and (max-device-width: 1280px) {
+  .treeGrid {
+    width: 150%;
+    display: inline-block;
+    word-wrap: normal;
+  }
+}
+@media (max-width: 600px) {
+  .treeGrid {
+    width: 200%;
+    display: inline-block;
+    word-wrap: normal;
+  }
+}
