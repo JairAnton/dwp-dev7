@@ -57,7 +57,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
       }`;
     this.template.querySelector(".slds-box").appendChild(style);
     this.template.querySelector("div.slds-box").classList.add("treeGrid");
-  }
+  } 
   connectedCallback() {
     this.sObject = {
       sObjName: this.sObjApiName,
