@@ -81,8 +81,6 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
   })
   wiredTreeGridData(provisionedData) {
     this.provisionedData = provisionedData;
-    console.log("provisionedData");
-    console.log(provisionedData);
     const { data, error } = provisionedData;
     if (data) {
       if (data.isSuccess) {
