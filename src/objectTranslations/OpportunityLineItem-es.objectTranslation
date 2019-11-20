@@ -1296,16 +1296,112 @@
         <label>Beneficiario</label>
         <name>tcf_beneficiary__c</name>
     </fields>
-    <fields>
+	<fields>
         <label>Tipo de carta fianza</label>
         <name>tcf_type_bail_letter__c</name>
         <picklistValues>
             <masterLabel>01</masterLabel>
-            <translation>Técnica</translation>
+            <translation>Adelantos</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>02</masterLabel>
-            <translation>Económica</translation>
+            <translation>Aduanas - Despacho almacen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Aduanas - Deuda adm.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>AFP - Rentabilidad mínima</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Cierre minas</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>Diferencial precio</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>Fiel cumplimiento</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>Fondos garantía</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>Jud. / Arb. / Indecopi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>Ob. Laboral / Prev</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>Pago alquileres</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>Pago deudas O/B</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation>Pago Oblig. Gral.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14</masterLabel>
+            <translation>Premios sorteos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation>Promotores O/B</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>16</masterLabel>
+            <translation>Seriedad oferta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>17</masterLabel>
+            <translation>Sunat Tri. Mult.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18</masterLabel>
+            <translation>Sunat - Devolución IGV</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>19</masterLabel>
+            <translation>Deuda Tributaria</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20</masterLabel>
+            <translation>Devolución</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21</masterLabel>
+            <translation>Otros</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>22</masterLabel>
+            <translation>Pago deudas</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>23</masterLabel>
+            <translation>Pago obligaciones</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24</masterLabel>
+            <translation>Pago tributos</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>25</masterLabel>
+            <translation>Procesos judiciales</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>26</masterLabel>
+            <translation>Rentabilidad mínima</translation>
         </picklistValues>
     </fields>
     <fields>

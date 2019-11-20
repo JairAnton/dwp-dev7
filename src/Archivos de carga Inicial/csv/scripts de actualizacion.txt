@@ -106,7 +106,7 @@ else {
 
 List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
 for(OpportunityLineItem oli : [SELECT Id, PE_List_Product_mode__c FROM OpportunityLineItem WHERE product2.Unique_id__c IN ('PC00009') AND PE_List_Product_mode__c='05' AND Opportunity.StageName NOT IN ('06', '07') LIMIT 500]) {
-    oli.PE_List_Product_mode__c='21';
+    oli.PE_List_Product_mode__c='01';
 	olis.add(oli);
 }
 if(olis.size()>0) {
