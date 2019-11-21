@@ -4,7 +4,7 @@
 * @Autor Antony de la rosa
 * @Date 06/11/2019 
 * @Group DWP Peru.
-* @Description Modificación  se agrega diseño en los botones del modal acorde a lo especificado por UX.
+* @Description Modificación  se agrega diseño en los botones del modal acorde a lo especificado por UX SA 20190343.
 -->
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,flexipage:availableForAllPageTypes,force:hasRecordId" controller="Risk_Approval_cls" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
     <aura:attribute name="title" type="String" default="Titulo de sancion de riesgo" access="global" description="Specify the modal"/>
