@@ -57,7 +57,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
       }`;
     this.template.querySelector(".slds-box").appendChild(style);
     this.template.querySelector("div.slds-box").classList.add("treeGrid");
-  } 
+  }
   connectedCallback() {
     this.sObject = {
       sObjName: this.sObjApiName,
@@ -84,7 +84,6 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     const { data, error } = provisionedData;
     if (data) {
       if (data.isSuccess) {
-        try {
           const subLevelSize = this.initValues(data);
           if (this.isHeaderGroup) {
             this.makeDataWithGroup(data, subLevelSize);
@@ -92,10 +91,6 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
             this.makeData(data, subLevelSize);
           }
           this.orderAndExpandedRows();
-        } catch (jsError) {
-          this.error = jsError;
-          this.loaded = true;
-        }
       } else {
         this.error = data.Message;
         this.gridData = null;
@@ -107,7 +102,6 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
       this.loaded = true;
     }
   }
-
   initValues(data) {
     this.empty = data.sizeData === 0 ? true : false;
     const subLevelSize =
@@ -119,7 +113,6 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     );
     return subLevelSize;
   }
-
   orderAndExpandedRows() {
     this.gridData = this.sortData(
       this.gridData,
@@ -133,7 +126,6 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     this.loaded = true;
     this.error = null;
   }
-
   makeData(data, subLevelSize) {
     this.gridData =
       subLevelSize > 0
@@ -149,11 +141,11 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
             null
           );
   }
-
   makeDataWithGroup(data, subLevelSize) {
     let fields = this.fieldsHeaderGroup.split(",");
     this.gridColumns = this.getGroupHeaderColumns(
       this.gridColumns,
+      data.formatPeriods,
       data.periods,
       fields,
       data.sObjFieldsMap,
@@ -162,12 +154,14 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     this.gridData =
       subLevelSize > 0
         ? this.assignTreeDataWithGroup(
+            data.periods,
             data.treeGridDataGroup,
             this.keyParentField,
             fields,
             subLevelSize
           )
         : this.assignOneLevelData(
+            data.periods,
             data.treeGridDataGroup,
             this.keyParentField,
             this.isHeaderGroup,
@@ -178,6 +172,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     return refreshApex(this.provisionedData);
   }
   assignOneLevelData(
+    periods,
     treeDataMap,
     keyParentField,
     isHeaderGroup,
@@ -191,7 +186,8 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
         if (isHeaderGroup) {
           targetObj = this.createObj(
             treeDataMap[levelSize][keyParent],
-            fieldsGroupHeader
+            fieldsGroupHeader,
+            periods
           );
         } else {
           targetObj = Object.assign({}, treeDataMap[levelSize][keyParent]);
@@ -226,6 +222,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     return Array.from(response.values());
   }
   assignTreeDataWithGroup(
+    periods,
     treeDataMap,
     keyParentField,
     fieldsGroupHeader,
@@ -238,7 +235,8 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
         if ({}.hasOwnProperty.call(treeDataMap[index], keyParent)) {
           let targetObj = this.createObj(
             treeDataMap[index][keyParent],
-            fieldsGroupHeader
+            fieldsGroupHeader,
+            periods
           );
           parentMap.set(keyParent, targetObj);
         }
@@ -250,7 +248,8 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
           if ({}.hasOwnProperty.call(treeDataMap[targetIndex], key)) {
             let targetChildObj = this.createObj(
               treeDataMap[targetIndex][key],
-              fieldsGroupHeader
+              fieldsGroupHeader,
+              periods
             );
             response.set(key, targetChildObj);
           }
@@ -277,11 +276,11 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
         parentMap.set(parentCode, parentObj);
       }
     }
-
     return parentMap;
   }
   getGroupHeaderColumns(
     columns,
+    formatPeriods,
     periods,
     fieldsGroupHeader,
     sObjFieldsMap,
@@ -295,7 +294,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
           if ({}.hasOwnProperty.call(fieldsGroupHeader, index)) {
             let targetLabel = targetLabels[index];
             if (targetLabels[index] === formatGroup) {
-              targetLabel = periods[indx];
+              targetLabel = formatPeriods[indx];
             }
             const targetColumn = {
               label: targetLabel,
@@ -325,13 +324,15 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     }
     return columns;
   }
-  createObj(objData, fieldsGroupHeader) {
+  createObj(objData, fieldsGroupHeader, periods) {
     let targetObj = {};
-    for (let iterator in objData) {
+    let contPeriod = 0;
+    for (let iterator of periods) {
       if ({}.hasOwnProperty.call(objData, iterator)) {
         for (const fieldName of fieldsGroupHeader) {
-          Object.defineProperty(targetObj, fieldName + iterator, {
-            value: objData[iterator][fieldName],
+          const valueField = objData[iterator][fieldName];
+          Object.defineProperty(targetObj, fieldName + contPeriod, {
+            value: valueField,
             writable: true,
             enumerable: true,
             configurable: true
@@ -339,6 +340,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
         }
         targetObj = Object.assign(targetObj, objData[iterator]);
       }
+      contPeriod = contPeriod + 1;
     }
     return targetObj;
   }

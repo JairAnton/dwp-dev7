@@ -1943,7 +1943,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2041,7 +2041,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2187,7 +2187,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@1@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2284,7 +2284,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@2@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2381,7 +2381,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@3@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2478,7 +2478,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@4@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2575,7 +2575,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@5@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
