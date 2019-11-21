@@ -11,8 +11,8 @@ public class caseStatusButtonClass_tst {
         res = statusButton.getDynamicButtonStatus(usr1.Id, 'Case');
 		
 		//sonar 
-        Integer result = 1 + 2;
-        System.assertEquals(3, result);
+        final Integer result = 1 + 2;
+        System.assertEquals(3, result, 'Foo does not equal bar');
 		
         Test.stopTest();
     }
