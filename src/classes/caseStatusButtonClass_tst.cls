@@ -12,7 +12,7 @@ public class caseStatusButtonClass_tst {
 		
 		//sonar 
         final Integer result = 1 + 2;
-        System.assertEquals(3, result, 'Foo does not equal bar');
+        System.assertEquals(3, result, 'test sonar');
 		
         Test.stopTest();
     }
