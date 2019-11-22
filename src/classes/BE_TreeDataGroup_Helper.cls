@@ -47,7 +47,7 @@ public static Map<Integer, Map<String,Map<String,SObject>>>getTreeRecordsGroup(S
  */
 private static Map<Integer, Map<String,Map<String,SObject>>>makeStructureDataGroup(List<SObject>sObjectList,Map<Integer, Map<String,Map<String,SObject>>>sObjDataMap,BE_TreeGrid_Utils.Params params) {
 	Map<String,Map<String,SObject>>sObjMap;
-	Map<String,SObject>sObjMapItems=new Map<String,SObject>();
+	Map<String,SObject>sObjMapItems;
 	for(SObject item:sObjectList) {
 		final Integer level=String.isNotBlank(params.fieldLevel) ? Integer.valueOf(item.get(params.fieldLevel)) : (String.isNotBlank((String)item.get(params.keyParentField))) ? 1 : 0;
 		final String code =String.valueOf(item.get(params.keyField));
