@@ -712,7 +712,6 @@
     </dashboardGridLayout>
     <dashboardType>LoggedInUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <runningUser>glook@bbva.com.dwpprod</runningUser>
     <textColor>#000000</textColor>
     <title>Campañas</title>
     <titleColor>#000000</titleColor>
