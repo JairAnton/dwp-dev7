@@ -30,7 +30,7 @@
                             <lightning:inputField fieldName="Risk_modality_type__c" aura:id="input_modal" onchange="{!c.setValueModality}" value=""/>
                             <aura:if isTrue="{!v.showSIOSearch}">
                                 <br/>
-                                <div class="slds-size_1-of-1"> 
+                                <div class="slds-size_1-of-1  slds-text-align_right"> 
                                     <lightning:button aura:id="submit" label="{!$Label.c.lblRiskSearchSio}" variant="brand" onclick="{!c.openModel}" />    
                                 </div> 
                             </aura:if>
