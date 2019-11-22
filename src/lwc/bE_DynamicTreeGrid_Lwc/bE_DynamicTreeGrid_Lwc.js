@@ -84,13 +84,13 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     const { data, error } = provisionedData;
     if (data) {
       if (data.isSuccess) {
-          const subLevelSize = this.initValues(data);
-          if (this.isHeaderGroup) {
-            this.makeDataWithGroup(data, subLevelSize);
-          } else {
-            this.makeData(data, subLevelSize);
-          }
-          this.orderAndExpandedRows();
+        const subLevelSize = this.initValues(data);
+        if (this.isHeaderGroup) {
+          this.makeDataWithGroup(data, subLevelSize);
+        } else {
+          this.makeData(data, subLevelSize);
+        }
+        this.orderAndExpandedRows();
       } else {
         this.error = data.Message;
         this.gridData = null;
@@ -135,6 +135,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
             subLevelSize
           )
         : this.assignOneLevelData(
+            data.periods,
             data.treeGridData,
             this.keyParentField,
             this.isHeaderGroup,
