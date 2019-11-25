@@ -8,6 +8,9 @@
 */
 global without sharing class Sharing_VisitTeam_User_cls {
 
+    /*Constructor Method*/
+    public Sharing_VisitTeam_User_cls() {}
+    
     /**
      * Metodo Invocado desde el Process Builder "Visit Management Team Sharing", aplicando los filtros de dicho process builder
      * */
@@ -21,16 +24,13 @@ global without sharing class Sharing_VisitTeam_User_cls {
         if(visitShareSize > 0) {insert lstVisitShare;}
     }
     
-	/**
-     * Clase de soporte para parametrizar los valores desde el process builder
-     * */
     global class WrapperVMT {
+        @InvocableVariable(required=true)
 		//Variable Id visit
+        public Id visitId;
         @InvocableVariable(required=true)
-        global Id visitId;
-		//Variable Id user
-        @InvocableVariable(required=true)
-        global Id userId;
+        //Variable Id User
+        public Id userId;
     }
     
 }
