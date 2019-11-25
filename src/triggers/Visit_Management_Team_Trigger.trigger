@@ -11,7 +11,7 @@ trigger Visit_Management_Team_Trigger on dwp_kitv__Visit_Management_Team__c(befo
         }
     } else {
         if(trigger.isdelete) {
-            Handlervisithelper.deleteVMTShare(trigger.oldMap);
+            visit_helper_Trigger_cls.deleteVMTShare(trigger.oldMap);
         }
     }
 }
