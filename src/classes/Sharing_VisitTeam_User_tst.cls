@@ -9,6 +9,7 @@
 @isTest
 public class Sharing_VisitTeam_User_tst {
 
+	/*Setup Data*/
     @TestSetup
     public static void setUp() {
         Final String perfil=[SELECT Id FROM Profile WHERE name='Ejecutivo'].Id;
@@ -21,7 +22,7 @@ public class Sharing_VisitTeam_User_tst {
         /*Crea Ejecutivo a compartir registro*/
         mapFields = new Map<Schema.SObjectField, Object>{User.LastName => 'Vinegar', User.ProfileId => perfil, 
             User.user_position_equivalence__c => 'GERENTE BEC'};
-        Final User userShare=TestFactory.getUser(true, mapFields);
+		TestFactory.getUser(true, mapFields);
         //Crea oficina
         Final Branch__c oficina = new Branch__c(Name = 'Chincha BEC');
         insert oficina;
@@ -30,10 +31,10 @@ public class Sharing_VisitTeam_User_tst {
         TestFactory.getAccount(true, mapFields);
     }
     
+	/*Method to test sharingVisitTeamMember*/
     public static testmethod void shareRecordSuccess() {
         Final User owner = [SELECT Id, Name, LastName FROM User WHERE LastName = 'Risotto' limit 1];
         Final Account cuenta = [SELECT Id, branch_id__c FROM Account WHERE OwnerId =: owner.Id limit 1];
-        Final RecordType rtId = [SELECT Id FROM RecordType WHERE sobjectType='dwp_kitv__Visit__c' AND developerName='AccountVisit' limit 1];
         Final dwp_kitv__Visit__c visita;
         System.runAs(owner) {
             visita = new dwp_kitv__Visit__c(Name = 'Visita', dwp_kitv__account_id__c = cuenta.Id, dwp_kitv__visit_duration_number__c='15', 
@@ -44,6 +45,7 @@ public class Sharing_VisitTeam_User_tst {
         }
         Final List<dwp_kitv__Visit__Share> visitShare = [SELECT Id, ParentID, RowCause, UserOrGroupId FROM dwp_kitv__Visit__Share WHERE RowCause = 'Manual' AND 
                                                       ParentID =:visita.Id];
-        System.assertEquals(1, visitShare.size());
+		Final Integer visitShareSize = visitShare.size();
+        System.assertEquals(1, visitShareSize, 'Assertion Error');
     }
 }

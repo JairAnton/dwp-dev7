@@ -152,7 +152,7 @@ public class Account_Handler_test {
             Final dwp_kitv__Visit_Management_Team__c[] lstVMT = new dwp_kitv__Visit_Management_Team__c[]{};
             for(Integer i=0;i<200;i++) {
                 lstVMT.add(new dwp_kitv__Visit_Management_Team__c(dwp_kitv__visit_id__c=lstVisit[i].Id, dwp_kitv__user_id__c=newOwner.Id));
-                if(i<20){
+                if(i<20) {
                     lstVisit[i].dwp_kitv__visit_status_type__c='06';
                 }
             }

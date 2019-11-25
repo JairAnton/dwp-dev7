@@ -6,9 +6,9 @@
 public without sharing class visit_helper_Trigger_cls {
     
     /**
-     * static variable lstProfilesName
+     * static variable PROFILE_NAMES
 	*/
-    static Final List<String> lstProfilesName = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};
+    static Final List<String> PROFILE_NAMES = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};
         
     /*
      * Method prevent deleted data
@@ -28,7 +28,7 @@ public without sharing class visit_helper_Trigger_cls {
             stagea.put((id)obs.get('Id'),(String)obs.get('dwp_kitv__visit_status_type__c'));
         }
         for(SObject a : objectInsert) {
-            if('06'.equals(stagea.get((Id)a.get('dwp_kitv__visit_id__c'))) && !lstProfilesName.contains(profileName)) {
+            if('06'.equals(stagea.get((Id)a.get('dwp_kitv__visit_id__c'))) && !PROFILE_NAMES.contains(profileName)) {
                 a.addError(System.Label.ErrorVisitManagementTeam);
             }
         }
@@ -40,7 +40,7 @@ public without sharing class visit_helper_Trigger_cls {
     public void deleteOwner(List<dwp_kitv__Visit_Management_Team__c> lstvmt) {
         Final Id profileId=UserInfo.getProfileId();
         Final String profileName=[SELECT id, Name FROM Profile WHERE Id=:profileId].Name;
-            if(!lstProfilesName.contains(profileName)) {
+            if(!PROFILE_NAMES.contains(profileName)) {
                 for(dwp_kitv__Visit_Management_Team__c vmt : lstvmt) {
                     if(vmt.dwp_owner_visit__c) {
                         vmt.addError(System.Label.Msg_DeleteOwner_VMT);

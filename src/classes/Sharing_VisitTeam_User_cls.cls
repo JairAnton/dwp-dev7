@@ -21,9 +21,14 @@ global without sharing class Sharing_VisitTeam_User_cls {
         if(visitShareSize > 0) {insert lstVisitShare;}
     }
     
+	/**
+     * Clase de soporte para parametrizar los valores desde el process builder
+     * */
     global class WrapperVMT {
+		//Variable Id visit
         @InvocableVariable(required=true)
         global Id visitId;
+		//Variable Id user
         @InvocableVariable(required=true)
         global Id userId;
     }

@@ -24,11 +24,11 @@ public class Visit_helper_Trigger_tst {
         /*Crea Ejecutivo a compartir registro*/
         mapFields = new Map<Schema.SObjectField, Object>{User.LastName => 'Vinegar', User.ProfileId => perfil, 
             User.user_position_equivalence__c => 'GERENTE BEC'};
-        Final User userShare=TestFactory.getUser(true, mapFields);
+        TestFactory.getUser(true, mapFields);
         /*Crea Ejecutivo 2 a compartir registro*/
         mapFields = new Map<Schema.SObjectField, Object>{User.LastName => 'Guido', User.ProfileId => perfil, 
             User.user_position_equivalence__c => 'GERENTE BEC'};
-        Final User userShare2=TestFactory.getUser(true, mapFields);
+        TestFactory.getUser(true, mapFields);
         //Crea oficina
         Final Branch__c oficina = new Branch__c(Name = 'Chincha BEC');
         insert oficina;
@@ -67,6 +67,7 @@ public class Visit_helper_Trigger_tst {
         System.assert(!pass, '!pass is false');
     }
     
+	/*Method to test deleteVMTShare*/
     @isTest
     public static void deleteSharingVMT() {
         Final User owner = [SELECT Id, Name, LastName FROM User WHERE LastName = 'Owner_Account' limit 1];
@@ -86,6 +87,6 @@ public class Visit_helper_Trigger_tst {
         Test.stopTest();
         Final List<dwp_kitv__Visit__Share> visitShare = [SELECT Id, ParentID, RowCause, UserOrGroupId FROM dwp_kitv__Visit__Share WHERE RowCause = 'Manual'];
         Final Integer visitShareSize = visitShare.size();
-        System.assertEquals(0, visitShareSize);
+        System.assertEquals(0, visitShareSize, 'Assertion Error');
     }
 }
