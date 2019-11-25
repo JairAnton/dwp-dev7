@@ -152,17 +152,10 @@ public without sharing class Account_Trigger_cls {
                 lstOldTeam.add(equipo);
             }
         }
-   
-        for(dwp_kitv__Visit_Management_Team__c tmp:[SELECT Id, dwp_kitv__user_id__c, dwp_kitv__visit_id__c FROM dwp_kitv__Visit_Management_Team__c WHERE 
-                                                    dwp_kitv__visit_id__c IN:visitIds AND dwp_kitv__user_id__c IN:userIds AND dwp_owner_visit__c=false AND 
-                                                    dwp_kitv__visit_id__r.dwp_kitv__account_id__c=:idsAccounts AND (
-                                                        dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR 
-                                                        dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')]) {
-            if(visitIds.indexOf(tmp.dwp_kitv__visit_id__c) >= 0 && userIds.get(visitIds.indexOf(tmp.dwp_kitv__visit_id__c)) == tmp.dwp_kitv__user_id__c) {
-                lstOldTeam.add(tmp);
-            }
-        }
-        
+        //Delete all members in VMT (delete sharing on VMT)
+        lstOldTeam.addAll([SELECT Id, dwp_kitv__user_id__c, dwp_kitv__visit_id__c FROM dwp_kitv__Visit_Management_Team__c WHERE dwp_kitv__visit_id__c IN:visitIds 
+                           AND dwp_owner_visit__c=false AND (dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR 
+                                                             dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')]);
         Final Integer lstOldTeamSize = lstOldTeam.size();
         if(lstOldTeamSize > 0) {
             delete lstOldTeam;

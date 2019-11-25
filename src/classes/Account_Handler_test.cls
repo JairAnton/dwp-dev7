@@ -130,10 +130,8 @@ public class Account_Handler_test {
         Final User oldOwner = [SELECT Id, isActive, prof_position_type__c, Name FROM User WHERE LastName LIKE '%OwnerVisit%' limit 1];
         
         //Create new Owner
-        Final Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>();
         Final String perfil=[SELECT Id FROM Profile WHERE name='Ejecutivo'].Id;
-        mapFields.put(User.ProfileId, perfil);
-        mapFields.put(User.prof_position_type__c, 'EJECUTIVO BEC');
+        Final Map<Schema.SObjectField, Object> mapFields=new Map<Schema.SObjectField, Object>{User.ProfileId => perfil, User.prof_position_type__c => 'EJECUTIVO BEC'};
         Final User newOwner=getUser(true, mapFields);
         
         //get Accounts
@@ -152,14 +150,13 @@ public class Account_Handler_test {
             insert lstVisit;
             
             Final dwp_kitv__Visit_Management_Team__c[] lstVMT = new dwp_kitv__Visit_Management_Team__c[]{};
-            for(Integer i=0;i<150;i++) {
+            for(Integer i=0;i<200;i++) {
                 lstVMT.add(new dwp_kitv__Visit_Management_Team__c(dwp_kitv__visit_id__c=lstVisit[i].Id, dwp_kitv__user_id__c=newOwner.Id));
+                if(i<20){
+                    lstVisit[i].dwp_kitv__visit_status_type__c='06';
+                }
             }
             insert lstVMT;
-            
-            for(Integer i=0; i<50; i++) {
-                lstVisit[i].dwp_kitv__visit_status_type__c='06';
-            } 
             update lstVisit;
         } 
         
@@ -171,9 +168,11 @@ public class Account_Handler_test {
         update lstNewOwnsAcc;
         Test.stopTest();
         
-		Final dwp_kitv__Visit_Management_Team__c[] visitTeam=[SELECT Id, Name, dwp_owner_visit__c,dwp_kitv__user_id__c, dwp_kitv__visit_id__c FROM dwp_kitv__Visit_Management_Team__c 
-                                                        WHERE dwp_kitv__user_id__c =:newOwner.Id AND dwp_owner_visit__c=true];
-        System.assertEquals(150, visitTeam.size(), 'Compared VMT new owner size');
+		Final dwp_kitv__Visit_Management_Team__c[] visitTeam = [SELECT Id, Name, dwp_owner_visit__c,dwp_kitv__user_id__c, dwp_kitv__visit_id__c FROM 
+                                                              dwp_kitv__Visit_Management_Team__c WHERE dwp_kitv__user_id__c =:newOwner.Id AND 
+                                                              (dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR 
+                                                               dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')];
+        System.assertEquals(180, visitTeam.size(), 'Compared VMT new owner size');
     }
     
     /*Test Update Branch in Visit Object*/
