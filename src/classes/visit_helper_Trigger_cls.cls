@@ -52,7 +52,7 @@ public without sharing class visit_helper_Trigger_cls {
     /*
      * Method to deleted Sharing with Visit Managment Team
 	*/
-    public void deleteVMTShare(Map<Id, dwp_kitv__Visit_Management_Team__c> mapVMT) {
+    public static void deleteVMTShare(Map<Id, dwp_kitv__Visit_Management_Team__c> mapVMT) {
         //Id visit - List Id Users in VMT to delete
         Final Map<Id, List<Id>> mapVM = new Map<Id, List<Id>>();
         Final List<Id> idsUser = new List<Id>();
