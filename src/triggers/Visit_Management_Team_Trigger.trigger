@@ -9,7 +9,7 @@ trigger Visit_Management_Team_Trigger on dwp_kitv__Visit_Management_Team__c(befo
             Handlervisithelper.comunMethod1(trigger.old);
             Handlervisithelper.deleteOwner(trigger.old);
         }
-    } else if(Trigger.isAfter) {
+    } else {
         if(trigger.isdelete) {
             Handlervisithelper.deleteVMTShare(trigger.oldMap);
         }
