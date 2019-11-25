@@ -345,6 +345,7 @@
     </dashboardGridLayout>
     <dashboardType>SpecifiedUser</dashboardType>
     <isGridLayout>true</isGridLayout>
+    <runningUser>glook@bbva.com.dwpprod</runningUser>
     <textColor>#000000</textColor>
     <title>Resumen Oportunidades en Formalización</title>
     <titleColor>#000000</titleColor>

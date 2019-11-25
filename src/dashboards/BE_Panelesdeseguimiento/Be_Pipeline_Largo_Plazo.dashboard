@@ -1168,6 +1168,7 @@
     <dashboardType>SpecifiedUser</dashboardType>
     <description>Oportunidades de largo plazo</description>
     <isGridLayout>true</isGridLayout>
+    <runningUser>glook@bbva.com.dwpprod</runningUser>
     <textColor>#000000</textColor>
     <title>Pipeline Largo Plazo</title>
     <titleColor>#000000</titleColor>
