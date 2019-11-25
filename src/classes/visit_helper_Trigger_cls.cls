@@ -74,7 +74,7 @@ public without sharing class visit_helper_Trigger_cls {
         Final List<dwp_kitv__Visit__Share> lstVisitShare = [SELECT Id, ParentID, RowCause, UserOrGroupId FROM dwp_kitv__Visit__Share WHERE RowCause = 'Manual' AND 
                                                       ParentID IN:mapVM.keySet() AND UserOrGroupId IN:idsUser];
         Final List<dwp_kitv__Visit__Share> visitShareDelete = new List<dwp_kitv__Visit__Share>();
-        //Validate records to delete
+        //Validate records to delete 
         for(dwp_kitv__Visit__Share vShare:lstVisitShare) {
             idsUserByVisit = mapVM.get(vShare.ParentID);
             if(idsUserByVisit.contains(vShare.UserOrGroupId)) {
