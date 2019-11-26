@@ -28,10 +28,10 @@ global without sharing class Sharing_VisitTeam_User_cls {
     global class WrapperVMT {
         @InvocableVariable(required=true)
 		/*Variable Id visit*/
-        public Id visitId;
+        public Id visitId;//NOSONAR
         @InvocableVariable(required=true)
         /*Variable Id User*/
-        public Id userId;
+        public Id userId;//NOSONAR
     }
     
 }
