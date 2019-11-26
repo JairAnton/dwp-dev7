@@ -11,9 +11,9 @@
  */
 public with sharing class BE_ForecastPlanGroupingManager_Queue implements Queueable {
 /**Profile Owner of Plan */
-final String PROF_NAME='Ejecutivo';
+final static String PROF_NAME='Ejecutivo';
 /** Over size update */
-final Integer SIZE_UPDATE=0;
+final static Integer SIZE_UPDATE=0;
 /**
     @Description create grouping pla for manager.
     @param QueueableContext.
