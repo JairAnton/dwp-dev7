@@ -25,7 +25,7 @@ global without sharing class Sharing_VisitTeam_User_cls {
     }
 	
     /*Global class for parameters in process builder*/
-	@SUPPRESSWARNINGS
+	@SUPPRESSWARNINGS('all')
     global class WrapperVMT {
         @InvocableVariable(required=true)
 		/*Variable Id visit*/
