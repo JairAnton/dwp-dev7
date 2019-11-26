@@ -11,16 +11,15 @@
  */
 public with sharing class BE_ForecastPlanGroupingManager_Queue implements Queueable {
 /**Profile Owner of Plan */
-final static String PROF_NAME='Ejecutivo';
+final String PROF_NAME='Ejecutivo';
 /** Over size update */
-final static Integer SIZE_UPDATE=0;
+final Integer SIZE_UPDATE=0;
 /**
     @Description create grouping pla for manager.
     @param QueueableContext.
     @return void
  */
-public static void execute(QueueableContext context) {
-	final AggregateResult[] groupedResults = [SELECT count(Id) userSize FROM User WHERE Profile.Name=:PROF_NAME];
+public void execute(QueueableContext context) {
 	final DateTime dtToday=Datetime.now();
 	final List<dwp_frct__grouping__c>groupDataLst=[SELECT Id,dwp_frct__management_plan_id__c,dwp_frct__management_plan_id__r.OwnerId FROM dwp_frct__grouping__c WHERE dwp_frct__management_plan_id__r.dwp_frct__management_plan_start_date__c <=: dtToday AND dwp_frct__management_plan_id__r.dwp_frct__management_plan_end_date__c >=: dtToday];
 	final List<dwp_frct__grouping__c>groupList=new List<dwp_frct__grouping__c>();
@@ -29,6 +28,7 @@ public static void execute(QueueableContext context) {
 		for(dwp_frct__grouping__c groupItem:groupDataLst) {
 			planGroupSet.add(groupItem.dwp_frct__management_plan_id__c);
 		}
+		final AggregateResult[] groupedResults = [SELECT count(Id) userSize FROM User WHERE Profile.Name=:PROF_NAME];
 		if((Integer)groupedResults[0].get('userSize')>planGroupSet.size()) {
 			final Map<String,BE_FamilyGroupingForecast__c>familyProductMap=BE_FamilyGroupingForecast__c.getAll();
 			for(dwp_frct__management_plan__c plan :[SELECT Id,OwnerId FROM dwp_frct__management_plan__c WHERE Id NOT IN:planGroupSet AND dwp_frct__management_plan_end_date__c >=: dtToday AND dwp_frct__management_plan_start_date__c <=: dtToday AND Owner.Profile.Name=:PROF_NAME]) {

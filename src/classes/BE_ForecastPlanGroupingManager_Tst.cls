@@ -13,6 +13,8 @@
 public with sharing class BE_ForecastPlanGroupingManager_Tst {
 /** Profile Name */
 final static String PROF_NAME='Ejecutivo';
+/** Cron Expression */
+final static String SCH = '0 0 0 * * ?';
 /**@Description TestSetup for generated data to use in the test methods*/
 @TestSetup
 static void makeData() {
@@ -78,10 +80,9 @@ static void groupingManagerQueuedable() {
 static void groupingManagerSchedule() {
 	Test.startTest();
 	final BE_ForecastPlanGroupingManager_Qs planSch = new BE_ForecastPlanGroupingManager_Qs();
-	final String sch = '0 0 0 * * ?';
 	final String jobId=System.schedule('PPG_Grouping', sch, planSch);
-	final CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime FROM CronTrigger WHERE id = :jobId];
-	System.assertEquals(sch,ct.CronExpression,'Scheduler PPG-Grouping run!');
+	final CronTrigger cronTrigger= [SELECT Id, CronExpression, TimesTriggered, NextFireTime FROM CronTrigger WHERE id = :jobId];
+	System.assertEquals(SCH,cronTrigger.CronExpression,'Scheduler PPG-Grouping run!');
 	Test.stopTest();
 }
 }
