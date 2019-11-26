@@ -63,9 +63,11 @@ static void makeData() {
    @Class BE_ForecastPlanGroupingManager_Queue,ManagementPlanAfterUpdate_handler
  */
 @IsTest
-static void GroupingManagerQueuedable() {
+static void groupingManagerQueuedable() {
 	Test.startTest();
-	System.enqueueJob(new BE_ForecastPlanGroupingManager_Queue());
+	final Id jobID=System.enqueueJob(new BE_ForecastPlanGroupingManager_Queue());
+	final AsyncApexJob jobInfo = [SELECT Status,JobType,NumberOfErrors FROM AsyncApexJob WHERE Id=:jobID];
+	System.assertEquals('Queueable',jobInfo.JobType, 'Queuedable run correctly!');
 	Test.stopTest();
 }
 /**
@@ -73,11 +75,13 @@ static void GroupingManagerQueuedable() {
    @Class BE_ForecastPlanGroupingManager_Qs
  */
 @IsTest
-static void GroupingManagerSchedule() {
+static void groupingManagerSchedule() {
 	Test.startTest();
 	final BE_ForecastPlanGroupingManager_Qs planSch = new BE_ForecastPlanGroupingManager_Qs();
 	final String sch = '0 0 0 * * ?';
-	System.schedule('One Time Pro', sch, planSch);
+	final String jobId=System.schedule('PPG_Grouping', sch, planSch);
+	final CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime FROM CronTrigger WHERE id = :jobId];
+	System.assertEquals(sch,ct.CronExpression,'Scheduler PPG-Grouping run!');
 	Test.stopTest();
 }
 }

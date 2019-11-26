@@ -11,16 +11,11 @@
  */
 public with sharing class BE_ForecastPlanGroupingManager_Qs implements Schedulable {
 /**
-   @Description privet constructor.
- */
-public BE_ForecastPlanGroupingManager_Qs () {
-}
-/**
     @Description create grouping plan for manager.
     @param SchedulableContext.
     @return void
  */
-public void execute(SchedulableContext sc) {
+public void execute(SchedulableContext schContext) {
 	System.enqueueJob(new BE_ForecastPlanGroupingManager_Queue());
 }
 }
