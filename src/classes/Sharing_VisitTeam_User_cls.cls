@@ -25,13 +25,14 @@ global without sharing class Sharing_VisitTeam_User_cls {
     }
 	
     /*Global class for parameters in process builder*/
+	@SUPPRESSWARNINGS
     global class WrapperVMT {
         @InvocableVariable(required=true)
 		/*Variable Id visit*/
-        public Id visitId;//NOSONAR
+        public Id visitId;
         @InvocableVariable(required=true)
         /*Variable Id User*/
-        public Id userId;//NOSONAR
+        public Id userId;
     }
     
 }
