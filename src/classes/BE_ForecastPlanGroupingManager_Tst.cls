@@ -80,7 +80,7 @@ static void groupingManagerQueuedable() {
 static void groupingManagerSchedule() {
 	Test.startTest();
 	final BE_ForecastPlanGroupingManager_Qs planSch = new BE_ForecastPlanGroupingManager_Qs();
-	final String jobId=System.schedule('PPG_Grouping', sch, planSch);
+	final String jobId=System.schedule('PPG_Grouping_Test', sch, planSch);
 	final CronTrigger cronTrigger= [SELECT Id, CronExpression, TimesTriggered, NextFireTime FROM CronTrigger WHERE id = :jobId];
 	System.assertEquals(SCH,cronTrigger.CronExpression,'Scheduler PPG-Grouping run!');
 	Test.stopTest();
