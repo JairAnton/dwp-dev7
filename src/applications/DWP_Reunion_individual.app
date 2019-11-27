@@ -3,8 +3,16 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Management_Plan_Record_Page11</content>
+        <content>BE_Management_Plan_Record_Page</content>
         <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>dwp_frct__management_plan__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Management_Plan_Record_Page</content>
+        <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
         <pageOrSobjectType>dwp_frct__management_plan__c</pageOrSobjectType>
@@ -16,9 +24,80 @@
         <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
     </brand>
     <description>Aplicación para el componente PPG</description>
+    <formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Reunión Individual</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Page_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Client</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Group_Lightning_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Economic_Group</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>HOMEPAGE_OPERATIVO</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Operativo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>HOMEPAGE_ANALISTA</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>HOMEPAGE_ESPECIALISTA</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Especialista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>HOME_EJECUTIVO</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Page_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Client</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Group_Lightning_Record_Page2</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Economic_Group</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
     <tabs>standard-home</tabs>
     <tabs>dwp_frct__management_plan__c</tabs>
     <tabs>standard-Forecasting3</tabs>
