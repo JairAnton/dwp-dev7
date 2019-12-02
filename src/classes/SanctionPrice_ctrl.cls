@@ -51,6 +51,7 @@ public with sharing class SanctionPrice_ctrl {
             if(lstOpp[0].OpportunityLineItems.size()>0) {
                 mapReturn.put('IdOppLineItem',lstOpp[0].OpportunityLineItems[0].Id);
                 mapReturn.put('approvalMethod',lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c);
+                mapReturn.put('pricingModelId',lstOpp[0].OpportunityLineItems[0].pricing_model_id__c);
                 mapReturn.put('AccId',lstOpp[0].AccountId);
                 mapReturn.put('type_of_quote',lstOpp[0].OpportunityLineItems[0].product2.Type_of_quote__c);
                 mapReturn.put('commercial_strategy',lstOpp[0].Account.commercial_strategy__c);

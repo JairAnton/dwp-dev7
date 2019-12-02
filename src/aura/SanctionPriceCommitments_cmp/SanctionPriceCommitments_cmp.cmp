@@ -10,7 +10,7 @@
         <c:CommitmentsTable_cmp oppRecordId="{!v.inputAttributes.recordId}" quoteMethod="{!v.inputAttributes.approvalMethod}"/>
         <aura:set attribute="else">
              <aura:if isTrue="{!v.step == '2'}">
-                <c:newCommitment_cmp oppLineItem="{!v.inputAttributes.opportunityLineItem}" approvalMethod="{!v.inputAttributes.approvalMethod}" oppRecordId="{!v.inputAttributes.recordId}"/>
+                <c:newCommitment_cmp oppLineItem="{!v.inputAttributes.opportunityLineItem}" approvalMethod="{!v.inputAttributes.approvalMethod}" pricingModelId="{!v.inputAttributes.pricingModelId}" oppRecordId="{!v.inputAttributes.recordId}"/>
             	<aura:set attribute="else">
                     <aura:if isTrue="{!v.step == '3'}">
                         <c:ErrorMessageWS_cmp errorMessagesList="{!v.errorlst}" />

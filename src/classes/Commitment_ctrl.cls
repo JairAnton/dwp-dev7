@@ -8,7 +8,7 @@
 **/
 public with sharing class Commitment_ctrl {
  	@AuraEnabled
-    public static Map<String,Object> getInfo(String quoteType){
+    public static Map<String,Object> getInfo(String quoteType, String pricingModel){
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<Commitment_Value__c> lstCommitmentValues = [SELECT     Id,
                                                                     commitment_product_name__c,
@@ -19,7 +19,7 @@ public with sharing class Commitment_ctrl {
                                                                     quote_type__c,
                                                                     commitment_id__c
                                                             FROM Commitment_Value__c
-                                                            WHERE quote_type__c = :quoteType
+                                                            WHERE quote_type__c = :quoteType AND pricing_model_id__c = :pricingModel 
                                                             ORDER BY commitment_product_name__c];
         mapReturn.put('lstCommitments', lstCommitmentValues);
         Set<String> setApiName = new Set<String>();
