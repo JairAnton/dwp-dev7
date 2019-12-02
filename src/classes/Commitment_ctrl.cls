@@ -5,10 +5,19 @@
 * @group Global_HUB
 *
 * @description Controller class from Commitment_cmp
+* @HIstorial de cambios:
+	- Actualización del web service de la version v0 a la v1
+	*****************************
+	Modificaciones:
+
+	Martín Alejandro Mori Chávez  02-12-2019
 **/
 public with sharing class Commitment_ctrl {
+ 	/*
+     * Method used to return compromises available
+	*/
  	@AuraEnabled
-    public static Map<String,Object> getInfo(String quoteType){
+    public static Map<String,Object> getInfo(String quoteType, String pricingModel) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<Commitment_Value__c> lstCommitmentValues = [SELECT     Id,
                                                                     commitment_product_name__c,
@@ -19,7 +28,7 @@ public with sharing class Commitment_ctrl {
                                                                     quote_type__c,
                                                                     commitment_id__c
                                                             FROM Commitment_Value__c
-                                                            WHERE quote_type__c = :quoteType
+                                                            WHERE quote_type__c = :quoteType AND pricing_model_id__c = :pricingModel 
                                                             ORDER BY commitment_product_name__c];
         mapReturn.put('lstCommitments', lstCommitmentValues);
         Set<String> setApiName = new Set<String>();

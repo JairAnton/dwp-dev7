@@ -1,9 +1,11 @@
 ({
 	getInfo : function(cmp, evt, helper) {
 		var approvalMethod = cmp.get('v.approvalMethod');
+        var pricingModelId = cmp.get('v.pricingModelId');
         var action = cmp.get("c.getInfo");
         action.setParams({
-            "quoteType" : approvalMethod
+            "quoteType" : approvalMethod,
+            "pricingModel" : pricingModelId
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
