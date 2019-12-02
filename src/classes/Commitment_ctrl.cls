@@ -5,6 +5,12 @@
 * @group Global_HUB
 *
 * @description Controller class from Commitment_cmp
+* @HIstorial de cambios:
+	- Actualización del web service de la version v0 a la v1
+	*****************************
+	Modificaciones:
+
+	Martín Alejandro Mori Chávez  02-12-2019
 **/
 public with sharing class Commitment_ctrl {
  	@AuraEnabled
