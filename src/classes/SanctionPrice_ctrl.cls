@@ -10,7 +10,7 @@
 	*****************************
 	Modificaciones:
 
-	Martín Alejandro Mori Chávez  04-11-2019
+	Martín Alejandro Mori Chávez  02-12-2019
 **/
 public with sharing class SanctionPrice_ctrl {    
     static String idOli;

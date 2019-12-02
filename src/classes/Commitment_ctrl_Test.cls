@@ -23,7 +23,7 @@ public class Commitment_ctrl_Test {
         List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2];
         lstProd[0].Type_of_quote__c = 'Tarifario';
         update lstProd;
-        Map<String,Object> mapReturnInfo = Commitment_ctrl.getInfo('Tarifario');
+        Map<String,Object> mapReturnInfo = Commitment_ctrl.getInfo('Tarifario', null);
         System.assert(mapReturnInfo.containsKey('schemaSetup'));
 
         List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
