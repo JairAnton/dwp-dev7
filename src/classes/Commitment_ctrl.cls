@@ -13,8 +13,11 @@
 	Martín Alejandro Mori Chávez  02-12-2019
 **/
 public with sharing class Commitment_ctrl {
+ 	/*
+     * Method used to return compromises available
+	*/
  	@AuraEnabled
-    public static Map<String,Object> getInfo(String quoteType, String pricingModel){
+    public static Map<String,Object> getInfo(String quoteType, String pricingModel) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<Commitment_Value__c> lstCommitmentValues = [SELECT     Id,
                                                                     commitment_product_name__c,
