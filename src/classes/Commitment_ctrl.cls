@@ -13,6 +13,8 @@
 	Martín Alejandro Mori Chávez  02-12-2019
 **/
 public with sharing class Commitment_ctrl {
+    /* type commitment */
+    final static String strAmount = 'AMOUNT';
     
     /*
      * Method used to return compromises available
@@ -76,13 +78,12 @@ public with sharing class Commitment_ctrl {
      * Method used to save compromises
 	*/
  	@AuraEnabled
-    public static Map<String,Object> saveCommitment(String recordId, List<Object> lstData, String oppLineItem, String unitType){
+    public static Map<String,Object> saveCommitment(String recordId, List<Object> lstData, String oppLineItem, String unitType) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         Opportunity_Solution_Commitment__c oppSolCommitment = new Opportunity_Solution_Commitment__c();
         oppSolCommitment.opp_solution_comt_product_name__c = String.valueOf(lstData[0]);
         oppSolCommitment.CurrencyIsoCode = String.valueOf(lstData[1]);
         oppSolCommitment.opp_soln_comt_expiry_days_number__c = Double.valueOf(lstData[2]);
-        final String strAmount = 'AMOUNT';
         if(unitType==strAmount) {
             oppSolCommitment.opp_solution_commitment_amount__c = Double.valueOf(lstData[3]);
         } else {

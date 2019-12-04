@@ -73,12 +73,14 @@
 		var objSetup = cmp.get('v.objSetup');
 		objSetup['lstVal2value']='-';
         objSetup['valExpvalue']='';
-        if(objSetup['valPicklistUnitType'][objSetup.mapPosPicklistProd[objSetup.lstVal1value]]==='QUANTITY') {
+        var posValue = objSetup.mapPosPicklistProd[objSetup.lstVal1value];
+        if(objSetup['valPicklistUnitType'][posValue]==='QUANTITY') {
             objSetup['lstVal2value']='PEN';
-            if(objSetup.lstValExp[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.mapPosPicklist2[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.lstVal2value]]===undefined) {
+            
+            if(objSetup.lstValExp[posValue][objSetup.mapPosPicklist2[posValue][objSetup.lstVal2value]]===undefined) {
                 objSetup['valExpvalue'] = '';
             } else {
-                objSetup['valExpvalue'] = objSetup.lstValExp[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.mapPosPicklist2[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.lstVal2value]];
+                objSetup['valExpvalue'] = objSetup.lstValExp[posValue][objSetup.mapPosPicklist2[posValue][objSetup.lstVal2value]];
             }
         	cmp.set('v.isRequired', false);
         } else {
