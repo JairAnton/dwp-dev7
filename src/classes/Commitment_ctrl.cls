@@ -14,7 +14,7 @@
 **/
 public with sharing class Commitment_ctrl {
     /* type commitment */
-    final static String strAmount = 'AMOUNT';
+    final static String STRAMOUNT = 'AMOUNT';
     
     /*
      * Method used to return compromises available
@@ -84,7 +84,7 @@ public with sharing class Commitment_ctrl {
         oppSolCommitment.opp_solution_comt_product_name__c = String.valueOf(lstData[0]);
         oppSolCommitment.CurrencyIsoCode = String.valueOf(lstData[1]);
         oppSolCommitment.opp_soln_comt_expiry_days_number__c = Double.valueOf(lstData[2]);
-        if(unitType==strAmount) {
+        if(unitType==STRAMOUNT) {
             oppSolCommitment.opp_solution_commitment_amount__c = Double.valueOf(lstData[3]);
         } else {
             oppSolCommitment.opp_solution_commitment_number__c = Double.valueOf(lstData[3]);
