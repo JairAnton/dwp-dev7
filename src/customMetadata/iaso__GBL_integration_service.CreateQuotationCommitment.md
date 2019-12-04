@@ -37,10 +37,7 @@
 		&quot;id&quot; : &quot;#commitmentProductId#&quot;,
 		&quot;committedData&quot; : {
 			&quot;validityDays&quot; : &quot;#validityDays#&quot;,
-			&quot;unitValue&quot; : {
-				&quot;amount&quot; : &quot;#ammount#&quot;,
-				&quot;currency&quot; : &quot;#strCurrency#&quot;
-			}
+			&quot;unitValue&quot; : #unitValue#
 		}
 	}
 }</value>

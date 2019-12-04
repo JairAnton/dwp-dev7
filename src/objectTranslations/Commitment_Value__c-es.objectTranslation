@@ -52,5 +52,9 @@
         <label>Id modelo precios</label>
         <name>pricing_model_id__c</name>
     </fields>
+	<fields>
+        <label><!-- unit type --></label>
+        <name>commitment_unit_type__c</name>
+    </fields>
     <gender>Feminine</gender>
 </CustomObjectTranslation>

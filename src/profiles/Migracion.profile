@@ -3642,6 +3642,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Commitment_Value__c.commitment_unit_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.bypass__c</field>
         <readable>true</readable>
     </fieldPermissions>

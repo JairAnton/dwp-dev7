@@ -1620,7 +1620,11 @@
         <label><!-- lblbtnSanctionGOF_cfg --></label>
         <name>lblbtnSanctionGOF_cfg</name>
     </customLabels>
-	<quickActions>
+	<customLabels>
+        <label>Importe/Cantidad</label>
+        <name>BE_CommitmentAmountQuantity</name>
+    </customLabels>
+    <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
     </quickActions>
