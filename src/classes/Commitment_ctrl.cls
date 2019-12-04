@@ -57,7 +57,7 @@ public with sharing class Commitment_ctrl {
                                                                     WHERE opportunity_id__c = :recordId];
         for(Opportunity_Solution_Commitment__c oppSolComm : lstCommitments) {
             if(oppSolComm.opp_solution_commitment_amount__c==null) {
-                oppSolComm.CurrencyIsoCode = null;
+                oppSolComm.CurrencyIsoCode = '';
             }
         }
         mapReturn.put('lstCommitments', lstCommitments); 
@@ -72,14 +72,18 @@ public with sharing class Commitment_ctrl {
         return mapReturn; 
     }
     
-    @AuraEnabled
-    public static Map<String,Object> saveCommitment(String recordId, List<Object> lstData, String oppLineItem, String unitType) {
+    /*
+     * Method used to save compromises
+	*/
+ 	@AuraEnabled
+    public static Map<String,Object> saveCommitment(String recordId, List<Object> lstData, String oppLineItem, String unitType){
         Map<String,Object> mapReturn = new Map<String,Object>();
         Opportunity_Solution_Commitment__c oppSolCommitment = new Opportunity_Solution_Commitment__c();
         oppSolCommitment.opp_solution_comt_product_name__c = String.valueOf(lstData[0]);
         oppSolCommitment.CurrencyIsoCode = String.valueOf(lstData[1]);
         oppSolCommitment.opp_soln_comt_expiry_days_number__c = Double.valueOf(lstData[2]);
-        if(unitType=='AMOUNT') {
+        final String strAmount = 'AMOUNT';
+        if(unitType==strAmount) {
             oppSolCommitment.opp_solution_commitment_amount__c = Double.valueOf(lstData[3]);
         } else {
             oppSolCommitment.opp_solution_commitment_number__c = Double.valueOf(lstData[3]);

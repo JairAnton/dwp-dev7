@@ -15,7 +15,7 @@
 				var objSetup = {
 								'valPicklistProd':[], 
 								'valPicklistUnitType':[], 
-								'lstPick2':[], 
+								'lstPick2':[],
 								'lstValExp':[],
 								'mapPosPicklistProd':{},
 								'mapPosPicklist2':[{}],
@@ -75,8 +75,12 @@
         objSetup['valExpvalue']='';
         if(objSetup['valPicklistUnitType'][objSetup.mapPosPicklistProd[objSetup.lstVal1value]]==='QUANTITY') {
             objSetup['lstVal2value']='PEN';
-        	objSetup['valExpvalue'] = (objSetup.lstValExp[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.mapPosPicklist2[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.lstVal2value]]==undefined?'':objSetup.lstValExp[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.mapPosPicklist2[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.lstVal2value]]);
-            cmp.set('v.isRequired', false);
+            if(objSetup.lstValExp[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.mapPosPicklist2[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.lstVal2value]]===undefined) {
+                objSetup['valExpvalue'] = '';
+            } else {
+                objSetup['valExpvalue'] = objSetup.lstValExp[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.mapPosPicklist2[objSetup.mapPosPicklistProd[objSetup.lstVal1value]][objSetup.lstVal2value]];
+            }
+        	cmp.set('v.isRequired', false);
         } else {
             cmp.set('v.isRequired', true);
         }

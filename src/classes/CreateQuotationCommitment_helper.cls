@@ -26,12 +26,12 @@ public without sharing class CreateQuotationCommitment_helper {
             inputWrapper.operationId = (lstOli.isEmpty() || lstOli[0].price_operation_id__c == null ? '' : lstOli[0].price_operation_id__c);
             
             if(lstCommitments[0].opp_solution_commitment_number__c == null) {
-                Request_unitValueAmount unitValueAmount = new Request_unitValueAmount();
+                final Request_unitValueAmount unitValueAmount = new Request_unitValueAmount();
                 unitValueAmount.amount = (lstCommitments[0].opp_solution_commitment_amount__c == null ? '' : String.valueOf(lstCommitments[0].opp_solution_commitment_amount__c));
-                unitValueAmount.currency_type = (lstCommitments[0].CurrencyIsoCode == null ? '' : lstCommitments[0].CurrencyIsoCode);
+                unitValueAmount.currencyType = (lstCommitments[0].CurrencyIsoCode == null ? '' : lstCommitments[0].CurrencyIsoCode);
                 inputWrapper.unitValue = JSON.serialize(unitValueAmount);
             } else {
-                Request_unitValueQuantity unitValueQuantity = new Request_unitValueQuantity();
+                final Request_unitValueQuantity unitValueQuantity = new Request_unitValueQuantity();
                 unitValueQuantity.value = String.valueOf(lstCommitments[0].opp_solution_commitment_number__c);
                 inputWrapper.unitValue = JSON.serialize(unitValueQuantity);
             }
@@ -45,12 +45,16 @@ public without sharing class CreateQuotationCommitment_helper {
         public String validityDays {get; set;} //Yulino 30/11/2018 : se agregó el get y set
         public String quotationId {get; set;} //Yulino 30/11/2018 : se agregó el get y set
         public String operationId {get; set;} //Yulino 30/11/2018 : se agregó el get y set
+        /* unitValue param */
         public String unitValue {get; set;}
     }
 
-    public String generateJSONRequest(){
+    /**
+     * method used to generate json
+     */
+    public String generateJSONRequest() {
         String json = JSON.serialize(this.inputDataMapping);
-        json = json.replace('currency_type', 'currency');
+        json = json.replace('currencyType', 'currency');
         return json;
     }
     
@@ -59,12 +63,21 @@ public without sharing class CreateQuotationCommitment_helper {
         return iaso.GBL_Integration_GenericService.invoke('CreateQuotationCommitment',generateJSONRequest());
     }
     
+    /**
+     * Request_unitValueAmount class to the request
+     */
     public class Request_unitValueAmount {
+        /* amount param */
 		public String amount { get; set; }
-		public String currency_type { get; set; }
+		/* currency param */
+		public String currencyType { get; set; }
 	}
     
+    /**
+     * Request_unitValueQuantity class to the request
+     */
     public class Request_unitValueQuantity {
-		public String value { get; set; }
+		/* value param */
+        public String value { get; set; }
 	}
 }
