@@ -150,6 +150,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>commitment_unit_type__c</fullName>
+        <externalId>false</externalId>
+        <label>unit type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <gender>Feminine</gender>
     <label>Commitment Value</label>
     <listViews>

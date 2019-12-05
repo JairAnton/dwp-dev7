@@ -9,7 +9,7 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 var ordenField = ['opp_solution_comt_product_name__c', 'CurrencyIsoCode', 'opp_solution_commitment_amount__c',
-                    'opp_soln_comt_expiry_days_number__c', 'opp_soln_comt_stay_days_number__c'];
+                    'opp_solution_commitment_number__c', 'opp_soln_comt_expiry_days_number__c', 'opp_soln_comt_stay_days_number__c'];
                 var objSetup = {
                     'lstHead': [],
                     'lstData': []
