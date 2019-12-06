@@ -1,0 +1,89 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                controller="BE_RelateList_Cls" access="global" >
+    <aura:attribute name="title" type="String" default="Test" description="Titulo de la lista relacionada"/>
+    <aura:attribute name="Icon" type="String" default="standard:opportunity" description="Muestra el icono de la lista relacionada"/>
+    <aura:attribute name="showTitleHeader" type="boolean" default="false" access="global"/>
+    <aura:attribute name="resultResponse" type="boolean" default="true" description="Booleano para control de errores si no existen datos"/>
+    <aura:attribute name="object" type="String" default="" description="Nombre del objeto para obtener sus datos" required = "true"/>
+    <aura:attribute name="fields" type="String" default="" description="Atributo que almacena los campos a mostrar" required = "true"/>
+    <aura:attribute name="columnsName" type="String" default="" description="Nombre de las columnas a mostrar" required = "true"/>
+     <aura:attribute name="columnsType" type="String" default="" description="Nombre de las columnas a mostrar" required = "true"/>
+    <aura:attribute name="filters" type="String" required = "true" default="" description="Atributo para almacenar si desea un filtro en la consulta que retornara la lista"/>
+    <aura:attribute name="orders" type="String" description="Atributo para ordenar la lista" />
+    <aura:attribute name="limits" type="String" default="" description="Atributo para limitar la lista"/>
+    <aura:attribute name="TypeList" type="String" required = "true" default="short" description="Atributo para controlar la visibilidad del link ver todas existen dos tipos (short and long)"/>
+    <aura:attribute name="FieldNameRelation" type="String" required = "true" default="" description="Atributo para el nombre del campo realacion con el registro visto"/>
+    <aura:attribute name="showRecords" type="Integer" default="4" access="global" required = "true"/>
+    <aura:attribute name="recordId" type="String" description="Referencia al registro"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--Start Encabezado-->
+    <div class="slds-page-header customContainer">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-opportunity" title="{!v.title}">
+                    <lightning:icon iconName="{!v.Icon}" size="medium" alternativeText="Report"/>
+                </span>
+            </div>
+            <div class="slds-media__body">
+                <p class="slds-text-body_small slds-line-height_reset">{!v.title}</p>
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="{!v.title}">{!v.title}</h1>
+            </div>
+        </div>
+    </div>
+    <!--End Encabezado-->
+    <!--Start Table List-->
+    <aura:if isTrue="{!v.resultResponse}">
+         <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                <div aura:id="changeIt" class="Normal">
+                    <lightning:datatable data="{!v.data}"
+                                         columns="{!v.columns}"
+                                         keyField="id"
+                                         hideCheckboxColumn="true"/>
+                </div>
+                <aura:set attribute="else">
+                    <div aura:id="changeIt" class="Normal mobileCustomDiv slds-scrollable">
+                        <aura:iteration items="{!v.data}" var="item">
+                            <!--this.oppUrl = '/lightning/r/Opportunity/' + opp.Id + '/view';-->                       
+                            <lightning:card>
+                                <aura:set attribute="title">
+                                    <a href="{!item.Id}">{!item.Name}</a>
+                                </aura:set>
+                                <div class="slds-p-horizontal--small">
+                                    <p class="slds-truncate">ESTADO: <lightning:formattedText value="{!item.StageName_Formula__c}" /></p>
+                                    <p class="slds-truncate">IMPORTE: <lightning:formattedNumber value="{!item.Amount}" style="currency" currencyCode="{!item.isoCode}" /></p>
+                                    <p class="slds-truncate">FECHA DE INICIO: <lightning:formattedDateTime value="{!item.CreatedDate}" year="numeric" day="2-digit" month="2-digit" /></p>
+                                </div>
+                            </lightning:card>        
+                        </aura:iteration>
+                    </div>
+                </aura:set>
+            </aura:if>
+         <aura:if isTrue="{!v.TypeList == 'short'}">
+        <p class="customBox slds-box">
+            <a href="javascript:void(0);" onclick="{!c.viewall}" >Ver todas las oportunidades</a>
+        </p>
+         </aura:if>
+        <aura:set attribute="else">       
+            <section role="log" class="slds-chat">
+                <ul class="slds-chat-list">
+                    <li class="slds-chat-listitem slds-chat-listitem_event">
+                        <div class="slds-chat-event">
+                            <div class="slds-chat-event__rule"></div>
+                            <div class="slds-chat-event__body">
+                                <span class="slds-icon_container slds-icon-utility-change_owner slds-chat-icon">
+                                    <lightning:icon iconName="utility:info" alternativeText="info!" variant="warning"/>
+                                </span>
+                                <p>No se encontraron {!v.title}</p>
+                            </div>
+                            <div class="slds-chat-event__rule"></div>
+                            <div class="slds-chat-event__agent-message">No se Encontraron registros</div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </aura:set>
+    </aura:if>
+    <!--End Table List-->
+</aura:component>

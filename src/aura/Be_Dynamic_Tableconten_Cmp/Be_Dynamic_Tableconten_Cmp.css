@@ -1,0 +1,27 @@
+div.THIS {
+   overflow-x:auto !important;
+}
+/*
+ .THIS table.slds-table{
+  table-layout: fixed;
+  width: 100%;  
+}
+.THIS table.slds-text-title{
+    white-space: nowrap; 
+    text-overflow:ellipsis;
+    overflow: hidden;
+    max-width:1px;
+}
+.THIS th{
+    white-space: nowrap; 
+    text-overflow:ellipsis;
+    overflow: hidden;
+    max-width:1px;
+}
+.THIS  tr td {
+    white-space: nowrap; 
+    text-overflow:ellipsis;
+    overflow: hidden;
+    max-width:1px;
+}
+*/

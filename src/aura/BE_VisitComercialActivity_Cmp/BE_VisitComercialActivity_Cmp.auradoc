@@ -1,0 +1,5 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="BE_VisitComercialActivity_Cmp" ref="c:BE_VisitComercialActivity_Cmp" label="Label">
+		Componete que muestra el cintillo de visitas	</aura:example>
+</aura:documentation>

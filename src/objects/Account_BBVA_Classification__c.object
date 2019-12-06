@@ -57,6 +57,19 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+	  <fields>
+        <fullName>BE_Indicador__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(bbva_classification_type__c ,&apos;0&apos;,5,&apos;10&apos;,1,&apos;20&apos;,2,&apos;30&apos;,3,&apos;40&apos;,4,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Indicador</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>account_id__c</fullName>
         <description>Cliente</description>

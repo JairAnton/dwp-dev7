@@ -1,0 +1,114 @@
+/**
+* _________________________________________________________________________________
+* @Name     BE_OppsCommercialActivity_Cls
+* @Author   Antony de la rosa guzman.
+* @Date     2019-11-13
+* @Group    DWP Perú
+* @Description Creación de la clase controladora para el componente lightning 
+*              BE_OppsCommercialActivity_Cmp. Funciona obteniendo los datos del cliente para mostrarlos en el cintillo.
+*              *Clase de pruebas BE_OppsCommercialActivity_Test.
+* _________________________________________________________________________________
+* @Changes
+* _________________________________________________________________________________
+*/
+public with sharing class BE_OppsCommercialActivity_Cls {
+     /**
+* _____________________________________________________________________________
+* @Description Constructor de la clase
+* _____________________________________________________________________________
+* @Author Antony de la rosa guzman.
+* @Date 2019-11-13
+* @example BE_DetailRowBusiness_Cls example = new BE_DetailRowBusiness_Cls();
+* _____________________________________________________________________________
+**/
+     @testVisible private BE_OppsCommercialActivity_Cls() {}
+    
+        /**
+* _____________________________________________________________________________
+* @Description Metodo que retorna la lista con la informacion para el cintillo Oportunidades.
+* _____________________________________________________________________________
+* @Author Antony de la rosa guzman.
+* @Date 2019-11-13
+* @example Account example = getOppInfo(9098098);
+* _____________________________________________________________________________
+**/
+    @auraEnabled
+    public static String getOppInfo(String accId) {
+        Decimal sumWon = 0;
+        Integer sizeWon = 0;
+        Decimal sumLost = 0;
+        Integer sizeLost = 0;
+        Decimal sumLive = 0;
+        Integer sizeLive = 0;
+        Integer numOpp = 0;
+        String oppType = '';
+        final List<wrapperClass> lWrapClassAux = new List<wrapperClass>();
+        List<Opportunity> oppDenormList = [SELECT Id, Amount, StageName FROM Opportunity WHERE AccountId =: accId AND CreatedDate = THIS_YEAR];
+        if(oppDenormList.size()>0 && !oppDenormList.isEmpty()) {
+            for(Opportunity i : oppDenormList) {
+                if(i.StageName == '06') {
+                    sumWon = sumWon + (i.Amount == null ? 0 : i.Amount);
+                    sizeWon = sizeWon + 1;
+                } else if(i.StageName == '07') {
+                    sumLost = sumLost + (i.Amount == null ? 0 : i.Amount);
+                    sizeLost = sizeLost + 1;
+                } else {
+                    sumLive = sumLive + (i.Amount == null ? 0 : i.Amount);
+                    sizeLive = sizeLive + 1;
+                }
+            }
+            numOpp = oppDenormList.size();
+            lWrapClassAux.add(new wrapperClass(numOpp,sumWon,sumLost,sizeWon,sizeLost,oppType,sizeLive,sumLive)); 
+        }else{
+            lWrapClassAux.add(new wrapperClass(numOpp,sumWon,sumLost,sizeWon,sizeLost,oppType,sizeLive,sumLive));
+        }
+        return JSON.serialize(lWrapClassAux);
+    }
+    
+     public class wrapperClass {
+        private Integer returnTotalOpp; //NOSONAR
+        private String returnWon; //NOSONAR
+        private String returnLost; //NOSONAR
+        private String returnCurrencyCode; //NOSONAR
+        private Integer oppWonNumber; //NOSONAR
+        private Integer oppLostNumber; //NOSONAR
+        private String oppType; //NOSONAR
+        private String hitMiss; //NOSONAR
+        private Integer oppLiveNumber; //NOSONAR
+        private String returnLive; //NOSONAR
+
+        /**
+        * @author Global Desktop
+        * @description Contruye la lista wrapper
+        */
+        public wrapperClass(Integer totalOpp, Decimal won, Decimal lost, Integer sizeOppWon, Integer sizeOppLost, String oppType, Integer sizeOppLive, Decimal live) {
+            this.returnTotalOpp = totalOpp;
+
+            final List<String> args = new String[] {'0','number','###.###.##0,00'};
+            final String sWonFormat = Dwp_Utils_helper.formatAmount(won,'PEN');
+            this.returnWon = sWonFormat;
+
+            final Decimal lostFormat = lost.setScale(2);
+            final String sLostFormat =  Dwp_Utils_helper.formatAmount(lostFormat,'PEN');
+            this.returnLost = sLostFormat;
+
+            final Decimal liveFormat = live.setScale(2);
+            final String sLiveFormat = String.format(liveFormat.format(), args);
+            this.returnLive = sLiveFormat;
+
+            this.returnCurrencyCode = UserInfo.getDefaultCurrency();
+            this.oppWonNumber = sizeOppWon;
+            this.oppLostNumber = sizeOppLost;
+            this.oppLiveNumber = sizeOppLive;
+            this.oppType = oppType;
+            Decimal value = 0;
+            if(oppWonNumber > 0 ){
+                value = (oppWonNumber*100.0)/(oppWonNumber+oppLostNumber);
+            }
+            final Decimal hitMissFormat = value.setScale(2);
+            final String sHitMissFormat = String.format(hitMissFormat.format(), args);
+            this.hitMiss = sHitMissFormat;
+        }
+    }
+ 
+}

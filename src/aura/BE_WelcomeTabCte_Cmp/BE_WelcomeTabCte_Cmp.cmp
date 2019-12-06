@@ -1,0 +1,74 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,flexipage:availableForRecordHome,force:hasRecordId"
+                controller="BE_Ulr_Modalwelcome_Cls" access="global">
+    <aura:handler name = "init" value = "{!this}" action = "{!c.doInit}"/>
+    <aura:attribute name = "itmsSlider" type="BE_Urls_Dynamic__c" description = "Atributo que contiene el registro de los links" />
+    <!--Custom Styles for Modal Header and Footer--> 
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        height:unset !important;
+        max-height:unset !important;
+        overflow-y: auto;
+        overflow-x: auto;
+        }
+    </aura:html>
+    <ui:scrollerWrapper aura:Id="scroller">
+        <!--Modal Header-->  
+        <div class="modal-header slds-modal__header slds-size_1-of-1 slds-is-relative">
+            <h2 class="title slds-text-heading--medium">Qué hay de nuevo?</h2>
+        </div>
+        <!--End Modal Header-->  
+        
+        <!--Modal Body-->   
+        <div class="slds-modal__content slds-size_1-of-1 slds-is-relative">
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:layout>
+                    <lightning:layoutItem padding="around-small" size="8">
+                        <div class="page-section page-main">
+                            <h3 class="slds-text-heading_large" style="font-weight: bold;">&nbsp;&nbsp;&nbsp;Bienvenido a tu nueva ficha cliente</h3>
+                            <br/>
+                            <p>Hemos actualizado la estructura de la ficha cliente para que puedas obtener la información necesaria para tu análisis, de una formas más ordenada y mejor agrupada.</p>  
+                            <br/>
+                            <p>Negocio BBVA: Contiene la información pertinente a los productos y servicios que ya tiene el cliente con el banco.</p>   
+                            <br/>
+                            <p>Actividad comercial: Encontraras un registro de las últimas oportunidades y visitas realizadas a tu cliente, así como tu progreso durante el año.</p>   
+                            <br/>
+                            <p>Riesgo: Datos de la calificación de la empresa en nuestros sistemas y SBS, así como información histórica de su performance en años pasados.</p>   
+                            <br/>
+                            <p>Potencial BBVA: Analiza data de rentabilidad y facturación durante los años para trazar la estrategia de nuevas oportunidades con tu cliente.</p>   
+                            <br/>
+                            <aura:if isTrue = "{!not(empty(v.itmsSlider))}">
+                                <aura:iteration items = "{!v.itmsSlider}" var = "item">
+                                    <p><a href="{!item.BE_Url__c}">{!item.BE_Titulo_Url__c}</a>.</p>
+                                </aura:iteration>
+                                <aura:set attribute = "else">
+                                    <p><a href="javascript:void(0);">Revisa Información más detallada de las mejoras en este PDF</a>.</p>
+                                </aura:set>
+                            </aura:if>
+                            <br/>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">
+                        <br/> <br/>
+                        <img src="{!$Label.c.BE}" alt="Ficha cliente" style="height:60%;width:100%;"/>
+                        <br/> <br/>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </div>
+        <!--End of Modal Body--> 
+        
+        <!--Modal Footer-->
+        <div class="slds-docked-form-footer slds-is-relative">
+            <div class="slds-col_bump-left slds-text-align_right slds-m-right_large">
+                <lightning:button variant="Brand" class="slds-button" label="Entendido!" onclick="{!c.handleClose}"/>
+            </div>
+        </div>
+    </ui:scrollerWrapper>
+    <!--End of Modal Footer-->
+</aura:component>

@@ -1,0 +1,8 @@
+.THIS .chart-container{
+  height: 80vh;
+  width: 80vw;
+}
+.THIS .scroll{
+    overflow-y: auto !important;
+        overflow-x: auto !important;
+}

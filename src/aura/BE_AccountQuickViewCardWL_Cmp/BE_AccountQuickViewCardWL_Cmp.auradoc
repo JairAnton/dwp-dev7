@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="BE_AccountQuickViewCardWL_Cmp" ref="c:BE_AccountQuickViewCardWL_Cmp" label="Ficha cliente WL">
+		Componente contenedor de las cards de la nueva ficha cliente.
+	</aura:example>
+</aura:documentation>

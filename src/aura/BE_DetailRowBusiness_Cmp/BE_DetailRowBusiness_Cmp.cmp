@@ -1,0 +1,114 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+                controller="BE_DetailRowBusiness_Cls" access="global">
+    <aura:attribute name="recordId" type="String" description="Referencia al registro"/>
+    <aura:attribute name="data" type="Object"/>
+    <ltng:require scripts="" afterScriptsLoaded="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!empty(v.data)}">
+        <div class="slds-box">
+            <!--<div class="slds-text-align_center"><ui:outputText value="{!$Label.c.NoOppCurrentYear}"/></div>-->
+        </div>
+        
+        <aura:set attribute="else">
+            
+            <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                <div aura:id="changeIt" class="Normal">
+                    
+                    <table class="slds-table slds-table_fixed-layout slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
+                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                            <div class="slds-text-title_caps slds-truncate">Vol. Negocio</div>
+                            <div class="horizontal"><strong><ui:outputText value="{!v.data.volBusiness}"/></strong></div>
+                        </th>
+                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                            <div class="slds-text-title_caps slds-truncate">Margen Ordinario</div>
+                            <div class="horizontal"><strong><ui:outputText value="{!v.data.marOrdinal}"/></strong></div>
+                        </th>
+                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                            <div class="slds-text-title_caps slds-truncate">Estrategia</div>
+                            <div class="horizontal"><strong><ui:outputText value="{!v.data.strategy}" /></strong></div>
+                        </th>
+                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                            <div class="slds-text-title_caps slds-truncate">Alerta</div>
+                            <div class="horizontal"><strong><aura:unescapedHtml value="{!v.data.alert}"/></strong></div>
+                        </th>
+                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                            <div class="slds-text-title_caps slds-truncate">Vencimiento PF</div>
+                            <div class="horizontal"><strong>
+                                <aura:if isTrue="{!not(empty(v.data.IconDate))}">
+                                    <span class="slds-media__figure">
+                                        <span class="slds-avatar slds-avatar_x-small" style="width: 1.22rem;height: 1.22rem;">
+                                            <img src="{!v.data.IconDate}"/>
+                                        </span>
+                                    </span>
+                                </aura:if>
+                                <ui:outputText value="{!v.data.duePF}" /></strong></div>
+                        </th>
+                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                            <div class="slds-text-title_caps slds-truncate">Netcash</div>
+                            <div class="horizontal"><strong>
+                                <aura:if isTrue="{!not(empty(v.data.IconNetcash))}">
+                                    <span class="slds-media__figure">
+                                        <span class="slds-avatar slds-avatar_x-small" style="width: 1.22rem;height: 1.22rem;">
+                                            <img src="{!v.data.IconNetcash}"/>
+                                        </span>
+                                    </span>
+                                </aura:if>
+                                <ui:outputText value="{!v.data.netcash}" /></strong></div>
+                        </th>
+                    </table>
+                </div>
+                
+                <aura:set attribute="else">
+                    <div aura:id="changeIt" class="Normal mobileCustomDiv slds-scrollable">
+                        <table class="slds-table slds-table_fixed-layout slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
+                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                                <div class="slds-text-title_caps slds-truncate">Vol. Negocio</div>
+                                <div class="horizontal"><strong><ui:outputText value="{!v.data.volBusiness}"/></strong></div>
+                            </th>
+                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                                <div class="slds-text-title_caps slds-truncate">Margen Ordinario</div>
+                                <div class="horizontal"><strong><ui:outputText value="{!v.data.marOrdinal}"/></strong></div>
+                            </th>
+                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                                <div class="slds-text-title_caps slds-truncate">Estrategia</div>
+                                <div class="horizontal"><strong><ui:outputText value="{!v.data.strategy}" /></strong></div>
+                            </th>
+                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                                <div class="slds-text-title_caps slds-truncate">Alerta</div>
+                                <div class="horizontal"><strong><aura:unescapedHtml value="{!v.data.alert}"/></strong></div>
+                            </th>
+                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                                <div class="slds-text-title_caps slds-truncate">Vencimiento PF</div>
+                                <div class="horizontal"><strong> 
+                                    <aura:if isTrue="{!not(empty(v.data.IconDate))}">
+                                        <span class="slds-media__figure">
+                                            <span class="slds-avatar slds-avatar_x-small" style="width: 1.22rem;height: 1.22rem;">
+                                                <img src="{!v.data.IconDate}"/>
+                                            </span>
+                                        </span>
+                                    </aura:if>
+                                    <ui:outputText value="{!v.data.duePF}" /></strong></div>
+                            </th>
+                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+                                <div class="slds-text-title_caps slds-truncate">Netcash</div>
+                                <div class="horizontal"><strong>
+                                    <aura:if isTrue="{!not(empty(v.data.IconNetcash))}">
+                                        <span class="slds-media__figure">
+                                            <span class="slds-avatar slds-avatar_x-small" style="width: 1.22rem;height: 1.22rem;">
+                                                <img src="{!v.data.IconNetcash}"/>
+                                            </span>
+                                        </span>
+                                    </aura:if>
+                                    <ui:outputText value="{!v.data.netcash}" /></strong></div>
+                            </th>
+                        </table>
+                    </div>
+                    
+                </aura:set>
+            </aura:if>
+            
+        </aura:set>
+        
+    </aura:if>
+    
+</aura:component>

@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="BE_DetailRowRisk_Cmp" ref="c:BE_DetailRowRisk_Cmp" label="Label">
+		Muestra el cintillo detalle de la tab riesgos,
+	</aura:example>
+</aura:documentation>
