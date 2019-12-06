@@ -1,3 +1,6 @@
+div.THIS {
+   overflow-x:auto !important;
+}
 .THIS.Normal td th{
   display:inline;
   padding: 20px;

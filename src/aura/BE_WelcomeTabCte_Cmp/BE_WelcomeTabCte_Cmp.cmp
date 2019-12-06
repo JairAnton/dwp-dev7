@@ -55,7 +55,7 @@
                     </lightning:layoutItem>
                     <lightning:layoutItem padding="around-small" size="4">
                         <br/> <br/>
-                        <img src="{!$Label.c.BE}" alt="Ficha cliente" style="height:60%;width:100%;"/>
+                        <img src="{!$Label.c.BE_WelcomeTabCteImg}" alt="Ficha cliente" style="height:60%;width:100%;"/>
                         <br/> <br/>
                     </lightning:layoutItem>
                 </lightning:layout>

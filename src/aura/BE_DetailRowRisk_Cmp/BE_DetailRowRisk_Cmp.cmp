@@ -11,7 +11,7 @@
             <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
                 <div aura:id="changeIt" class="Normal">
                     
-                    <table class="slds-table slds-table_fixed-layout slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
+                    <table class="slds-table  slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
                         <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
                             <div class="slds-text-title_caps slds-truncate">Estrategia</div>
                             <div class="horizontal"><strong><ui:outputText value="{!v.data[0].strategy}"/></strong></div>
