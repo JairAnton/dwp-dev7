@@ -71,6 +71,18 @@ public without sharing class OpportunityLineItem_Trigger_cls {
     }
     
     /**
+    @Description Method used to update name and family of product
+    @return is void method
+    */
+    public  void updateNameFamilyProduct() {
+        List<Opportunity> oppList=new List<Opportunity>();
+        for(OpportunityLineItem oli : [SELECT Id,OpportunityId, Product2.Name, Product2.Family FROM OpportunityLineItem WHERE Id IN: TRIGGER.NEW]) {
+            oppList.add(new Opportunity(Id=oli.OpportunityId, opportunity_product__c=oli.Product2.Name,opportunity_product_family__c=oli.Product2.Family));
+        }
+        update oppList;
+    }
+    
+    /**
     @Description create and update principal Intervener for Opportunity
     @return is void method
     */
@@ -79,16 +91,13 @@ public without sharing class OpportunityLineItem_Trigger_cls {
         final String  VALUE_ZERO='01';
         final String  VALUE_FOUR='04';
         Set<Id> oppIds=new Set<Id>();
-        List<Opportunity> oppList=new List<Opportunity>();
         final Map<Id,OpportunityLineItem> oLIMap=new Map<Id,OpportunityLineItem>([SELECT Id,OpportunityId,Opportunity.Account.Name,Opportunity.Account.AccountNumber, Product2.Name, Product2.Family FROM OpportunityLineItem WHERE Id IN: TRIGGER.NEW AND Product2.risk_sanction__c=TRUE]);
         for(OpportunityLineItem oLI:oLIMap.values()) {
-            oppList.add(new Opportunity(Id=oLI.OpportunityId,opportunity_product__c=oLi.Product2.Name,opportunity_product_family__c=oLi.Product2.Family));
-        	oppIds.add(oLI.OpportunityId);
+            oppIds.add(oLI.OpportunityId);
 	    }
         
         if (oppIds.size()>SIZE_LST) {
-            update oppList;
-           	Map<Id,fprd__GBL_Intervener__c> intvrMap =new Map<Id,fprd__GBL_Intervener__c>();
+            Map<Id,fprd__GBL_Intervener__c> intvrMap =new Map<Id,fprd__GBL_Intervener__c>();
             List<fprd__GBL_Intervener__c> intvrList=new List<fprd__GBL_Intervener__c>();
             for(fprd__GBL_Intervener__c iter:[SELECT Id,fprd__GBL_Opportunity_product__c FROM fprd__GBL_Intervener__c WHERE  fprd__GBL_Opportunity_product__c IN:oppIds AND  main_intervener__c=TRUE]) {
                intvrMap.put(iter.fprd__GBL_Opportunity_product__c,iter);
