@@ -1,7 +1,16 @@
+<!--
+* **********************************************************************************************************************
+* @Name 
+* @Autor Antony de la rosa
+* @Date 09/12/2019 
+* @Group DWP Peru.
+* @Description Modificación  Se agrega modificacion por actualizacion de componentes Quick
+  View Card y Dynamic Details Table.
+-->
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName">
     <div class="slds-box c-container" style="background-color: white;">
         
-        <lightning:layout multipleRows="true">
+        <lightning:layout multipleRows="true" class="scroll">
             <lightning:layoutItem flexibility="auto" padding="around-small">
                 <dwp_dv:DynamicDetailRow_Comp recordId="{!v.recordId}" 
                                               sObjectName="{!v.sObjectName}"
@@ -15,7 +24,7 @@
                                               currencyDimension="None"/>
             </lightning:layoutItem>
         </lightning:layout>
-		<qvcd:GBL_Carousel_CMP hasRecordId="{!v.recordId}" nameCards="CarruselRelatedTable" infinite="true" slidesToShow="4" relationMode="true" readAllRecords="true" />
+		<qvcd:GBL_Carousel_CMP recordId="{!v.recordId}" nameCards="CarruselRelatedTable" infinite="true" slidesToShow="4" relationMode="true" />
 		<lightning:layout multipleRows="true">
             <lightning:layoutItem flexibility="auto" padding="around-small">
                 <c:Flash_client_secondBlock recordId="{!v.recordId}" />

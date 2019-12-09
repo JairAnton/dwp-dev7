@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>qvcd__GBL_FiltersFunction__c</field>
-        <value xsi:type="xsd:string">indicator_name__c IN (&apos;SPREAD (%)&apos;, &apos;ACTIVO Directa&apos;, &apos;CUOTA Directa (%)&apos;, &apos;MARGEN FINANCIERO&apos;) ORDER BY order__c ASC</value>
+        <value xsi:type="xsd:string">indicator_name__c !=null ORDER BY order__c ASC</value>
     </values>
     <values>
         <field>qvcd__GBL_Function__c</field>
