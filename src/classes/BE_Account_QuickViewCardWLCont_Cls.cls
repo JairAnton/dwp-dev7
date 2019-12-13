@@ -113,50 +113,27 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             listCard3.add(field);
             
             /*----------------------------------Fields Cards4------------------------------------------*/
-            String activoDirecta = '-';
-            String cuotaDirecta = '-';
-            String spread = '-';
-            String margenFinanciero = '-';
-            String periodo = '-';
-            for(Account_variation_information__c avi : [SELECT Id, validation_color_type__c, indicator_name__c, indicator_update_date__c FROM Account_variation_information__c WHERE Account_Id__c = :accId AND indicator_name__c IN ('ACTIVO Directa', 'CUOTA Directa (%)', 'SPREAD (%)', 'MARGEN FINANCIERO')]) {
-                switch on avi.indicator_name__c {
-                    when 'ACTIVO Directa' {
-                        activoDirecta = avi.validation_color_type__c;
-                    }	
-                    when 'CUOTA Directa (%)' {
-                        cuotaDirecta = avi.validation_color_type__c;
-                    }
-                    when 'SPREAD (%)' {
-                        spread = avi.validation_color_type__c;
-                    }
-                    when 'MARGEN FINANCIERO' {
-                        margenFinanciero = avi.validation_color_type__c;
-                    }
-                }
-                periodo = DateTime.newInstance(avi.indicator_update_date__c.year(), avi.indicator_update_date__c.month(), avi.indicator_update_date__c.day(), 0, 0, 0).format('MM-yyyy');
-            }
-            
             field = new wrapperClass('Name', 'Potencial BBVA', '08', 'Card4');
             field.isSubtitle = 'true';
             listCard4.add(field);
             
-            field = new wrapperClass('Activo Directa', activoDirecta, '08', 'Card4');
+            field = new wrapperClass('Activo Directa', Indicador(accId,'ACTIVO Directa'), '08', 'Card4');
             field = addIcon(field);
             listCard4.add(field);
             
-            field = new wrapperClass('CUOTA Directa', cuotaDirecta, '08', 'Card4');
+            field = new wrapperClass('CUOTA Directa', Indicador(accId,'CUOTA Directa (%)'), '08', 'Card4');
             field = addIcon(field);
             listCard4.add(field);
             
-            field = new wrapperClass('Spread', spread, '08', 'Card4');
+            field = new wrapperClass('Spread',Indicador(accId,'SPREAD (%)') , '08', 'Card4');
             field = addIcon(field);
             listCard4.add(field);
             
-            field = new wrapperClass('Margen Financiero', margenFinanciero, '08', 'Card4');
+            field = new wrapperClass('Margen Financiero', Indicador(accId,'MARGEN FINANCIERO'), '08', 'Card4');
             field = addIcon(field);
             listCard4.add(field);
             
-            field = new wrapperClass('', periodo, '08', 'Card4');
+            field = new wrapperClass('', periodo(accId), '08', 'Card4');
             listCard4.add(field);
             
             /*----------------------------------Fields Cards5------------------------------------------*/
@@ -168,17 +145,9 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             listCard5.add(field);
             
             String dir = '-';
-            if(accs[0].BillingStreet!=null || accs[0].BillingCity!=null) {
-                if(accs[0].BillingStreet!=null) {
-                    dir = accs[0].BillingStreet;
-                    if(accs[0].BillingCity!=null) {
-                        dir += ', ' + accs[0].BillingCity;
-                    }
-                }
-                else {
-                    dir = accs[0].BillingCity;
-                }
-            }
+            String dirstreet =  String.isNotEmpty(accs[0].BillingStreet) ? accs[0].BillingStreet :'';
+            String dircity =  String.isNotEmpty(accs[0].BillingCity) ? accs[0].BillingCity :'';
+            dir =  String.isNotEmpty(dircity) && String.isNotEmpty(dirstreet) ? dirstreet +', '+ dircity: accs[0].BillingCity;
             field = new wrapperClass('Dirección', dir, '08', 'Card5');
             listCard5.add(field);
             
@@ -285,6 +254,44 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         }else{
             resultvalues = Type =='quantity' ? quantityOpps : AmountTotal;
             return resultvalues;
+        }
+    }
+    
+        /**
+* _____________________________________________________________________________
+* @Description Metodo que consulta el tipo de indicador.
+* _____________________________________________________________________________
+* @Author Antony de la rosa guzman.
+* @Date 2019-12-13
+* @example String example = Indicador(AccountId,directa);
+* _____________________________________________________________________________
+**/
+    Public static String Indicador(Id AccountId,String Type){
+        String result = '-';        
+        List<Account_variation_information__c>  avi = [SELECT Id, validation_color_type__c, indicator_name__c, indicator_update_date__c FROM Account_variation_information__c WHERE Account_Id__c = :AccountId AND indicator_name__c = :Type];
+        if(!avi.isEmpty()){
+            return result = avi[0].validation_color_type__c;
+        }else{
+            return result; 
+        }
+    }
+    
+       /**
+* _____________________________________________________________________________
+* @Description Metodo que consulta el periodo de actulizacion de los indicadores.
+* _____________________________________________________________________________
+* @Author Antony de la rosa guzman.
+* @Date 2019-12-13
+* @example String example = periodo(AccountId);
+* _____________________________________________________________________________
+**/
+    Public static String periodo(Id AccountId){
+        String result = '-';        
+        List<Account_variation_information__c>  periodo = [SELECT Id, validation_color_type__c, indicator_name__c, indicator_update_date__c FROM Account_variation_information__c WHERE Account_Id__c = :AccountId AND indicator_name__c IN ('ACTIVO Directa', 'CUOTA Directa (%)', 'SPREAD (%)', 'MARGEN FINANCIERO')];
+        if(!periodo.isEmpty()){
+            return result =  DateTime.newInstance(periodo[0].indicator_update_date__c.year(), periodo[0].indicator_update_date__c.month(), periodo[0].indicator_update_date__c.day(), 0, 0, 0).format('MM-yyyy');
+        }else{
+            return result; 
         }
     }
     

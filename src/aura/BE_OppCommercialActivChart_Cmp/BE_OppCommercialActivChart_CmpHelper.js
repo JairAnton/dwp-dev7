@@ -26,7 +26,6 @@
                 StageName05 =  datas[0].StageName05;
                 Labels =  datas[0].Labels;
                 graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels);
-            }else{
             }
         });
         $A.enqueueAction(action);
@@ -174,7 +173,6 @@
                 StageName05 =  datas[0].StageName05;
                 Labels =  datas[0].Labels;
                 graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels);
-            }else{
             }
         });
         $A.enqueueAction(action);
@@ -315,7 +313,6 @@
                 hits =  datas[0].Hits;
                 Labels =  datas[0].Labels;
                 graficaHits(hits,Opplist,Labels);
-            }else{
             }
         });
         $A.enqueueAction(action);
@@ -419,7 +416,6 @@
                 hits =  datas[0].Hits;
                 Labels =  datas[0].Labels;
                 graficahitCamp(hits,Opplist,Labels);
-            }else{
             }
         });
         $A.enqueueAction(action);

@@ -2,7 +2,6 @@
 	doInit : function(cmp, event, helper){
 		var accountId = cmp.get("v.recordId");
         var relatedVisits = cmp.get("c.getVisitInfo");
-        var countryName = cmp.get("v.country");
         relatedVisits.setParams({
     		"accId" : accountId
     	});

@@ -6,7 +6,6 @@
             "accId" : accountId
         });
         dataCards.setCallback(this, function(response){
-            let estado =response.getState();
             if(response.getState() === "SUCCESS"){
                 let stringJson = '{"inputJsonCs": {'+
                     '"qvcd__GBL_Show_title__c":true,'+
