@@ -1,4 +1,11 @@
-<!--Component for Penalize Risk button-->
+<!--
+* **********************************************************************************************************************
+* @Name Risk_Approval_Cmp
+* @Autor Antony de la rosa
+* @Date 06/11/2019 
+* @Group DWP Peru.
+* @Description Modificación  se agrega diseño en los botones del modal acorde a lo especificado por UX SA 20190343.
+-->
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,flexipage:availableForAllPageTypes,force:hasRecordId" controller="Risk_Approval_cls" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
     <aura:attribute name="title" type="String" default="Titulo de sancion de riesgo" access="global" description="Specify the modal"/>
     <aura:attribute name="recordId2" type="String" default="{!v.inputAttributes.recordId}"/>
@@ -23,8 +30,8 @@
                             <lightning:inputField fieldName="Risk_modality_type__c" aura:id="input_modal" onchange="{!c.setValueModality}" value=""/>
                             <aura:if isTrue="{!v.showSIOSearch}">
                                 <br/>
-                                <div class="slds-size_1-of-1"> 
-                                    <lightning:button aura:id="submit" label="{!$Label.c.lblRiskSearchSio}" variant="neutral" onclick="{!c.openModel}" />    
+                                <div class="slds-size_1-of-1  slds-text-align_right"> 
+                                    <lightning:button aura:id="submit" label="{!$Label.c.lblRiskSearchSio}" variant="brand" onclick="{!c.openModel}" />    
                                 </div> 
                             </aura:if>
                         </aura:set>
@@ -41,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                        <br/>
+                    <br/>
                     <aura:if isTrue="{!v.SIOCodes == null}">
                         <ui:outputText class="slds-hide" aura:id="messageOutput" value="{!$Label.c.lblRiskAnySioCode}"/>
                         <aura:set attribute="else">
@@ -66,13 +73,13 @@
             </lightning:recordEditForm>
         </lightning:layoutItem>
     </div>
-    <div class="slds-modal__footer">
+    <div class="slds-modal__footer slds-modal__footer_directional">        
+        <lightning:button variant="neutral" label="{!$Label.c.Cancel}" onclick="{!c.closeModel}"/>
         <aura:if isTrue="{!and(or(v.selectedRow != null, v.oppRecord.Risk_modality_type__c == $Label.c.OppModalityRA), v.showSendApproveBtn == false)}"> 
             <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.saveModel}" aura:id="submit" label="{!$Label.c.lblOpportunityLink}" />
         </aura:if>
         <aura:if isTrue="{!v.showSendApproveBtn}">
             <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.sendApprove}" label="{!$Label.c.lblOpportunityApproval}" />
         </aura:if>
-        <lightning:button variant="neutral" label="{!$Label.c.Cancel}" onclick="{!c.closeModel}"/>
     </div>
 </aura:component>

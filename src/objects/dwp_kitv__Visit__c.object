@@ -690,6 +690,16 @@
         <trackTrending>false</trackTrending>
         <type>Location</type>
     </fields>
+	<fields>
+        <fullName>CreatedDateFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fecha de creacion hora</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
     <label>Visit</label>
     <nameField>
         <encrypted>false</encrypted>

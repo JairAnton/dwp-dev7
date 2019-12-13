@@ -1860,6 +1860,10 @@
                 <name>formatDate</name>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>isExpanded</name>
                 <value>false</value>
             </componentInstanceProperties>
@@ -1939,11 +1943,15 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
                 <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>isExpanded</name>
@@ -2033,11 +2041,15 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
                 <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>isExpanded</name>
@@ -2151,6 +2163,495 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>fieldLevel</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldOrder</name>
+                <value>gl_account_path_position_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroup</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupLabels</name>
+                <value>formatGroup</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupSOQL</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOL</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@1@@</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOLGroup</name>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@1@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>formatDate</name>
+                <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isExpanded</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isHeaderGroup</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyField</name>
+                <value>ratio_type__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyGroup</name>
+                <value>year_month_day_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyParentField</name>
+                <value>Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>levelData</name>
+                <value>1</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numGroupShow</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjApiName</name>
+                <value>Account_Accounting__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldLabels</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFields</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldsSOQL</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Liquidez</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>typeOrder</name>
+                <value>ASC</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>fieldLevel</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldOrder</name>
+                <value>gl_account_path_position_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroup</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupLabels</name>
+                <value>formatGroup</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupSOQL</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOL</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@2@@</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOLGroup</name>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@2@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>formatDate</name>
+                <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isExpanded</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isHeaderGroup</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyField</name>
+                <value>ratio_type__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyGroup</name>
+                <value>year_month_day_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyParentField</name>
+                <value>Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>levelData</name>
+                <value>1</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numGroupShow</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjApiName</name>
+                <value>Account_Accounting__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldLabels</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFields</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldsSOQL</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Gestión</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>typeOrder</name>
+                <value>ASC</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>fieldLevel</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldOrder</name>
+                <value>gl_account_path_position_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroup</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupLabels</name>
+                <value>formatGroup</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupSOQL</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOL</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@3@@</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOLGroup</name>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@3@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>formatDate</name>
+                <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isExpanded</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isHeaderGroup</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyField</name>
+                <value>ratio_type__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyGroup</name>
+                <value>year_month_day_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyParentField</name>
+                <value>Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>levelData</name>
+                <value>1</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numGroupShow</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjApiName</name>
+                <value>Account_Accounting__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldLabels</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFields</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldsSOQL</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Solvencia</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>typeOrder</name>
+                <value>ASC</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>fieldLevel</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldOrder</name>
+                <value>gl_account_path_position_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroup</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupLabels</name>
+                <value>formatGroup</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupSOQL</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOL</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@4@@</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOLGroup</name>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@4@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>formatDate</name>
+                <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isExpanded</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isHeaderGroup</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyField</name>
+                <value>ratio_type__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyGroup</name>
+                <value>year_month_day_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyParentField</name>
+                <value>Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>levelData</name>
+                <value>1</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numGroupShow</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjApiName</name>
+                <value>Account_Accounting__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldLabels</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFields</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldsSOQL</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Generación de recursos y rentabilidad</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>typeOrder</name>
+                <value>ASC</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>fieldLevel</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldOrder</name>
+                <value>gl_account_path_position_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroup</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupLabels</name>
+                <value>formatGroup</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupSOQL</name>
+                <value>gf_ratio_value_number__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOL</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@5@@</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOLGroup</name>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@5@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>formatDate</name>
+                <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isExpanded</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isHeaderGroup</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyField</name>
+                <value>ratio_type__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyGroup</name>
+                <value>year_month_day_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyParentField</name>
+                <value>Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>levelData</name>
+                <value>1</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numGroupShow</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjApiName</name>
+                <value>Account_Accounting__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldLabels</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFields</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldsSOQL</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Cobertura de deuda</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>typeOrder</name>
+                <value>ASC</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-27844249-8731-4853-8c27-012beaef2ff6</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>body</name>
                 <value>Facet-599cdd9e-4289-4c5a-925c-93606d93b6bb</value>
             </componentInstanceProperties>
@@ -2176,6 +2677,21 @@
             <componentInstanceProperties>
                 <name>name</name>
                 <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-27844249-8731-4853-8c27-012beaef2ff6</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Ratios</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--0izghlgksnfg</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>

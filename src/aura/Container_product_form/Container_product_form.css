@@ -1,0 +1,12 @@
+/*
+* **********************************************************************************************************************
+* @Name Risk_Approval_Cmp
+* @Autor Antony de la rosa
+* @Date 06/11/2019 
+* @Group DWP Peru.
+* @Description Modificación  se agrega diseño en los botones del modal acorde a lo especificado por UX.
+*/
+.THIS div.slds-modal__footer{
+     display: flex;
+     justify-content: space-between;
+}

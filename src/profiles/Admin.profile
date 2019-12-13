@@ -1941,6 +1941,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account_Accounting__c.gf_ratio_category_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Accounting__c.gf_ratio_value_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account_Accounting__c.gl_account_amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1987,6 +1997,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Accounting__c.year_month_day_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Accounting__c.ratio_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3760,6 +3775,11 @@
         <field>Commitment_Value__c.web_product_code__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Commitment_Value__c.commitment_unit_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.CloseDate__c</field>
@@ -4380,6 +4400,66 @@
         <field>AccountContactRelation.Total_campos_obligatorios__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>OpportunityLineItem.FinancingType__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>true</editable>
+		<field>BE_BailLetterCombination__c.BailObject__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>true</editable>
+		<field>BE_BailLetterCombination__c.Beneficiary__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>true</editable>
+		<field>BE_BailLetterCombination__c.Currency__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>true</editable>
+		<field>BE_BailLetterCombination__c.Period__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+		<editable>true</editable>
+		<field>BE_BailLetterCombination__c.UniqueId__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.CreatedDateFormula__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Legal_Representative__c.Birth_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Legal_Representative__c.Personal_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Legal_Representative__c.Position_Begin_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Legal_Representative__c.Position__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Legal_Representative__c.Tax_Payer_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
@@ -4935,6 +5015,24 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>User_Position_equivalence__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>BE_BailLetterCombination__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Account_Legal_Representative__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <pageAccesses>

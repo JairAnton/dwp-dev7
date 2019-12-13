@@ -2,9 +2,11 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:registerEvent name="commitmentsEvent" type="c:Commitments_evt" />
     <aura:attribute name="approvalMethod" type="String" default=""/>
+    <aura:attribute name="pricingModelId" type="String" default=""/>
     <aura:attribute name="oppRecordId" type="String" default=""/>
     <aura:attribute name="oppLineItem" type="String" default=""/>
     <aura:attribute name="objSetup" type="Object" />
+    <aura:attribute name="isRequired" type="Boolean" default="false"/>
     
 
 	<div class="slds-modal__content slds-p-around_medium" >
@@ -18,7 +20,7 @@
                 </lightning:select>
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small" size="6">
-                <lightning:select messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="field" label="{!$Label.c.Currency}" value="{!v.objSetup.lstVal2value}" onchange="{! c.onChangeDivisa }" required="true">
+                <lightning:select messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="field" label="{!$Label.c.Currency}" value="{!v.objSetup.lstVal2value}" onchange="{! c.onChangeDivisa }" required="{!v.isRequired}">
                     <option value="">-</option>
                     <aura:iteration items="{!v.objSetup.lstVal2}" var="item">
                         <option value="{!item}">{!item}</option>
@@ -29,7 +31,7 @@
                 <lightning:input aura:id="field" label="{!v.objSetup.schemaSetup.mapLabel.opp_soln_comt_expiry_days_number__c}" value="{!v.objSetup.valExpvalue}" readonly="true"/>
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small" size="6">
-                <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" type="number" label="{!v.objSetup.schemaSetup.mapLabel.opp_solution_commitment_amount__c}" value="{!v.objSetup.valImport}" step="0.01" required="true"/>
+                <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" type="number" label="{!$Label.c.BE_CommitmentAmountQuantity}" value="{!v.objSetup.valImport}" step="0.01" required="true"/>
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small" size="6">
                 <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" messageWhenStepMismatch="{!$Label.c.lblFieldsFormValidateDecimal}" type="number" label="{!v.objSetup.schemaSetup.mapLabel.opp_soln_comt_stay_days_number__c}" value="{!v.objSetup.valPer}" required="true"/>

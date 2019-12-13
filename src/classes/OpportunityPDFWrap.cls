@@ -123,9 +123,9 @@ public without sharing virtual class OpportunityPDFWrap {
             }
             final string Olitemp=OLI.Product2Id;
             Product = database.query( String.escapeSingleQuotes(getQuery('Product2')+' WHERE  Id =:Olitemp LIMIT 1'));
-            final String ProductTemp = Product.ProductCode;
+            final String ProductTemp = Product.UNIQUE_ID__C;
             final List<String> Litemp3= new List<String>{'Criterios de pago y liquidación', 'Información general del producto'};
-            ProductConfiguration = database.query(String.escapeSingleQuotes(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.ProductCode =:ProductTemp AND FPRD__SECTION_NAME__C IN:Litemp3  ORDER BY FPRD__SECTION_NAME__C,FPRD__ORDER__C'));
+            ProductConfiguration = database.query(String.escapeSingleQuotes(getQuery('fprd__GBL_Product_Configuration__c')+' WHERE FPRD__PRODUCT__R.UNIQUE_ID__C =:ProductTemp AND FPRD__SECTION_NAME__C IN:Litemp3  ORDER BY FPRD__SECTION_NAME__C,FPRD__ORDER__C'));
             system.debug('ProductConfiguration'+ProductConfiguration);
             filterVisibility(ProductConfiguration);
             final String ClieAcountID= opp.Accountid;

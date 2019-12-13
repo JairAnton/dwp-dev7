@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>dwp_frct__position_code__c</field>
-        <value xsi:type="xsd:string">CA1,OS8,E01,E03,I21,I32</value>
+        <value xsi:type="xsd:string">AL1,OS8,E01,E03,I21,I32</value>
     </values>
     <values>
         <field>dwp_frct__position_field__c</field>

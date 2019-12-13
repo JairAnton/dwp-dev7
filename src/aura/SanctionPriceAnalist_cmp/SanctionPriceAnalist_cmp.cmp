@@ -1,3 +1,11 @@
+<!--
+* **********************************************************************************************************************
+* @Name SanctionAnalist_Cmp
+* @Autor Antony de la rosa
+* @Date 06/11/2019 
+* @Group DWP Peru.
+* @Description Modificación  se agrega diseño en los botones del modal acorde a lo especificado por UX SA 20190343.
+-->
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" controller="SanctionPrice_ctrl" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:attribute name="objectInput" type="Object" />
@@ -47,8 +55,8 @@
             </aura:if>
         </div> 
     </div>
-    <footer class="slds-modal__footer slds-theme_default">
-        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPA"/>
+    <footer class="slds-modal__footer slds-modal__footer_directional">
         <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
-    </footer>
+        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPA"/>
+     </footer>
 </aura:component>

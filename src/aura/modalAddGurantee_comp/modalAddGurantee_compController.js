@@ -95,7 +95,6 @@
 	            { value: "06", label: "Certificados bancarios" },
 	            { value: "07", label: "Fianza bancaria" },	          
 	            { value: "09", label: "Fondos mutuos" },
-	            { value: "10", label: "Hipoteca" },
 	            { value: "11", label: "Leasing" },
 	            { value: "12", label: "Prenda agrícola" },
 	            { value: "13", label: "Prenda industrial" },
@@ -105,6 +104,13 @@
 	            { value: "17", label: "Warants" }
 	        ];
 	        component.set("v.optGuarantee", optGuarantee);
+    	}
+        else if(String(event.getSource().get("v.value"))==="04")
+    	{
+    		var optGuaranteeHip = [
+				{ value: "10", label: "Hipoteca" }
+	        ];
+	        component.set("v.optGuarantee", optGuaranteeHip);
     	}
     	else
     		component.set("v.optGuarantee", null);

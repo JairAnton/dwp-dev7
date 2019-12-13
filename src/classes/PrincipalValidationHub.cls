@@ -120,10 +120,10 @@ global class PrincipalValidationHub {
             }
         }
         List<String> lstFields = new List<String>(setFields);      
-        List<OpportunityLineItem> oliInfo = Database.query('Select Id, '+String.join(lstFields, ',')+' FROM OpportunityLineItem WHERE OpportunityId = \''+recordId+'\'');
+        final List<OpportunityLineItem> oliInfo = Database.query('Select Id, Product2.ProductCode, ' + String.escapeSingleQuotes(String.join(lstFields, ',')) + ' FROM OpportunityLineItem WHERE OpportunityId = :recordId');
         for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
             if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
-                if( mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null &&oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)!=null && 
+                if( mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)!=null && 
                   oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)!='') {
                       List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
                       List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
@@ -142,7 +142,7 @@ global class PrincipalValidationHub {
                       }
                 }
             } else if((mdt.fprd__map_field__c!=null && mdt.fprd__map_field__c!='')&&(mdt.fprd__Section_order__c== 1)) {
-                if(oliInfo[0].get(mdt.fprd__map_field__c)==null) {
+                if(oliInfo[0].get(mdt.fprd__map_field__c)==null && !((oliInfo[0].Product2.ProductCode=='PC00011' || oliInfo[0].Product2.ProductCode=='PC00012') && (mdt.fprd__map_field__c=='tcf_beneficiary__c' || mdt.fprd__map_field__c=='tcf_Legal_VB_text__c'))) {
                     lstErrorMessage.add(Label.Error_validation_031 +' '+ mdt.fprd__Label__c);
                 }               
             }

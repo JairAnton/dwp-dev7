@@ -27,6 +27,7 @@
                 var objectInput = {
                     'IdOppLineItem':ret.IdOppLineItem,
                     'approvalMethod':ret.approvalMethod,
+                    'pricingModelId':ret.pricingModelId,
                     'dinamicInput':'-'
                 };
                 var generr = ret.genericError;
@@ -72,6 +73,7 @@
         var inputObject=cmp.get('v.inputAttributes');
         inputObject['approvalMethod'] = cmp.get('v.objectInput').approvalMethod;
         inputObject['opportunityLineItem'] = cmp.get('v.objectInput').IdOppLineItem;
+        inputObject['pricingModelId'] = cmp.get('v.objectInput').pricingModelId;
         if(isOk){
             var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
             compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:SanctionPriceCommitments_cmp'});

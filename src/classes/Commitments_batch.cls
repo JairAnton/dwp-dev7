@@ -36,6 +36,7 @@ global without sharing class Commitments_batch implements Database.Batchable<Obj
             CompromiseProducts_helper.Response_data dataResponse = (CompromiseProducts_helper.Response_data) data;
             for(CompromiseProducts_helper.Response_committableData committable : dataResponse.committableData){
                 Commitment_Value__c commitment = new Commitment_Value__c(   CurrencyIsoCode = committable.currency_type,
+                                                                            commitment_unit_type__c = committable.unitType,
                                                                             commitment_product_name__c = dataResponse.name,
                                                                             commitment_id__c = dataResponse.id,
                                                                             quote_type__c = 'Web',

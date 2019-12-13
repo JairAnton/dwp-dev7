@@ -92,6 +92,11 @@
                     <default>false</default>
                     <label>03</label>
                 </value>
+				<value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>

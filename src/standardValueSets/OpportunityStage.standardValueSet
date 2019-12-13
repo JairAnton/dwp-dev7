@@ -7,7 +7,7 @@
         <description>Qualification</description>
         <label>01</label>
         <closed>false</closed>
-        <forecastCategory>Pipeline</forecastCategory>
+        <forecastCategory>Omitted</forecastCategory>
         <probability>0</probability>
         <won>false</won>
     </standardValue>

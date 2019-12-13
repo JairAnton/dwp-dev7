@@ -39,7 +39,7 @@
                 <tr>
                     <td >
                         <lightning:textarea aura:id="txtComments" name="txtComments" value="{!v.comments}" label="{!v.lblComments}" maxlength="254" class="slds-size_2-of-2 slds-p-horizontal_x-small topText"/><br/>
-                        <lightning:input aura:id="txtContract" name="txtContract"  label="Número de contrato" value="" pattern="[0-9]{4}-[0-9]{4}-[0-9]{10}" messageWhenPatternMismatch="Nº de contrato no válido, el formato correcto: 0000-0000-000000000"  />
+                        <lightning:input aura:id="txtContract" name="txtContract"  label="Número de contrato" value="" pattern="[0-9]{4}-[0-9]{4}-[0-9]{10}" messageWhenPatternMismatch="Nº de contrato no válido, el formato correcto: 0000-0000-0000000000"  />
                     </td>
                     <td width="170px">
                     <table>

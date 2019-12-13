@@ -5,13 +5,26 @@
 * @group Global_HUB
 *
 * @description Controller class from Commitment_cmp
+* @HIstorial de cambios:
+	- Actualización del web service de la version v0 a la v1
+	*****************************
+	Modificaciones: 
+
+	Martín Alejandro Mori Chávez  02-12-2019
 **/
 public with sharing class Commitment_ctrl {
+    /* type commitment */
+    final static String STRAMOUNT = 'AMOUNT';
+    
+    /*
+     * Method used to return compromises available
+	*/
  	@AuraEnabled
-    public static Map<String,Object> getInfo(String quoteType){
+    public static Map<String,Object> getInfo(String quoteType, String pricingModel) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         List<Commitment_Value__c> lstCommitmentValues = [SELECT     Id,
                                                                     commitment_product_name__c,
+                                                                    commitment_unit_type__c,
                                                                     web_product_code__c,
                                                                     commitment_expiry_days_number__c,
                                                                     commitment_stay_days_number__c,
@@ -19,7 +32,7 @@ public with sharing class Commitment_ctrl {
                                                                     quote_type__c,
                                                                     commitment_id__c
                                                             FROM Commitment_Value__c
-                                                            WHERE quote_type__c = :quoteType
+                                                            WHERE quote_type__c = :quoteType AND pricing_model_id__c = :pricingModel 
                                                             ORDER BY commitment_product_name__c];
         mapReturn.put('lstCommitments', lstCommitmentValues);
         Set<String> setApiName = new Set<String>();
@@ -27,6 +40,7 @@ public with sharing class Commitment_ctrl {
         setApiName.add('opp_soln_comt_expiry_days_number__c');
         setApiName.add('opp_soln_comt_stay_days_number__c');
         setApiName.add('opp_solution_comt_product_name__c');
+        setApiName.add('opp_solution_commitment_number__c');
         setApiName.add('CurrencyIsoCode');
         mapReturn.put('schemaSetup', FieldForm_ctrl.getInfoSchema(setApiName, 'Opportunity_Solution_Commitment__c'));
         return mapReturn; 
@@ -39,28 +53,42 @@ public with sharing class Commitment_ctrl {
                                                                             opp_soln_comt_expiry_days_number__c,
                                                                             opp_soln_comt_stay_days_number__c,
                                                                             opp_solution_comt_product_name__c,
+                                                                            opp_solution_commitment_number__c,
                                                                             CurrencyIsoCode
                                                                     FROM Opportunity_Solution_Commitment__c
                                                                     WHERE opportunity_id__c = :recordId];
+        for(Opportunity_Solution_Commitment__c oppSolComm : lstCommitments) {
+            if(oppSolComm.opp_solution_commitment_amount__c==null) {
+                oppSolComm.CurrencyIsoCode = '';
+            }
+        }
         mapReturn.put('lstCommitments', lstCommitments); 
         Set<String> setApiName = new Set<String>();
         setApiName.add('opp_solution_commitment_amount__c');
         setApiName.add('opp_soln_comt_expiry_days_number__c');
         setApiName.add('opp_soln_comt_stay_days_number__c');
         setApiName.add('opp_solution_comt_product_name__c');
+        setApiName.add('opp_solution_commitment_number__c');
         setApiName.add('CurrencyIsoCode');
         mapReturn.put('schemaSetup', FieldForm_ctrl.getInfoSchema(setApiName, 'Opportunity_Solution_Commitment__c'));
         return mapReturn; 
     }
     
-    @AuraEnabled
-    public static Map<String,Object> saveCommitment(String recordId, List<Object> lstData, String oppLineItem){
+    /*
+     * Method used to save compromises
+	*/
+ 	@AuraEnabled
+    public static Map<String,Object> saveCommitment(String recordId, List<Object> lstData, String oppLineItem, String unitType) {
         Map<String,Object> mapReturn = new Map<String,Object>();
         Opportunity_Solution_Commitment__c oppSolCommitment = new Opportunity_Solution_Commitment__c();
         oppSolCommitment.opp_solution_comt_product_name__c = String.valueOf(lstData[0]);
         oppSolCommitment.CurrencyIsoCode = String.valueOf(lstData[1]);
         oppSolCommitment.opp_soln_comt_expiry_days_number__c = Double.valueOf(lstData[2]);
-        oppSolCommitment.opp_solution_commitment_amount__c = Double.valueOf(lstData[3]);
+        if(unitType==STRAMOUNT) {
+            oppSolCommitment.opp_solution_commitment_amount__c = Double.valueOf(lstData[3]);
+        } else {
+            oppSolCommitment.opp_solution_commitment_number__c = Double.valueOf(lstData[3]);
+        }
         oppSolCommitment.opp_soln_comt_stay_days_number__c = Double.valueOf(lstData[4]);
         oppSolCommitment.opp_solution_commitment_id__c = String.valueOf(lstData[5]);
 		oppSolCommitment.price_quotation_method__c = String.valueOf(lstData[6]);

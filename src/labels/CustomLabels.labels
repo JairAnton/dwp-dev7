@@ -2224,4 +2224,11 @@
         <shortDescription>lblbtnSanctionGOF_cfg</shortDescription>
         <value>Definir estado de oportunidad</value>
     </labels>
+	<labels>
+        <fullName>BE_CommitmentAmountQuantity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_CommitmentAmountQuantity</shortDescription>
+        <value>Amount/Quantity</value>
+    </labels>
 </CustomLabels>
