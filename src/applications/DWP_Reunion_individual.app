@@ -9,14 +9,6 @@
         <type>Flexipage</type>
         <pageOrSobjectType>dwp_frct__management_plan__c</pageOrSobjectType>
     </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <content>BE_Management_Plan_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>dwp_frct__management_plan__c</pageOrSobjectType>
-    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <logo>apps_logo1</logo>
@@ -76,24 +68,6 @@
         <content>HOME_EJECUTIVO</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>standard-home</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Ejecutivo</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page_Account</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Record_Type_Client</recordType>
-        <type>Flexipage</type>
-        <profile>Ejecutivo</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Group_Lightning_Record_Page2</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <recordType>Account.Record_Type_Economic_Group</recordType>
         <type>Flexipage</type>
         <profile>Ejecutivo</profile>
     </profileActionOverrides>
