@@ -12,7 +12,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <content>BE_Management_Plan_Record_Page</content>
-        <formFactor>Small</formFactor>
+        <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
         <pageOrSobjectType>dwp_frct__management_plan__c</pageOrSobjectType>
@@ -24,7 +24,6 @@
         <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
     </brand>
     <description>Aplicación para el componente PPG</description>
-    <formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
@@ -83,7 +82,7 @@
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Account_Record_Page_Account</content>
-        <formFactor>Small</formFactor>
+        <formFactor>Large</formFactor>
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Record_Type_Client</recordType>
         <type>Flexipage</type>
@@ -92,7 +91,7 @@
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Group_Lightning_Record_Page2</content>
-        <formFactor>Small</formFactor>
+        <formFactor>Large</formFactor>
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Record_Type_Economic_Group</recordType>
         <type>Flexipage</type>
