@@ -111,7 +111,7 @@
                                                },
                                                scales:{
 											   xAxes:[{
-											   stacked: true, 
+												   stacked:true,
                                                gridLines:{display: false},
                                                }],
                                                yAxes:[{
