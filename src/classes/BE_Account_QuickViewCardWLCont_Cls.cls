@@ -40,7 +40,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         final List<wrapperClass> listCard3 = new List<wrapperClass>();
         final List<wrapperClass> listCard4 = new List<wrapperClass>();
         final List<wrapperClass> listCard5 = new List<wrapperClass>();
-        final String Name = 'Name';
+        String Name = 'Name';
         final List<Account> accs = [SELECT Id, bank_turnover_volume_amount__c, margin_ordinary_amount__c, net_cash_desc__c, financial_program_expiry_date__c,
                               bbva_classification_desc__c, banking_system_classification_desc__c, Rating, bureau_classification_type__c,
                               AccountNumber, BillingStreet, BillingCity, economic_activity_sector__c, Parent.Name FROM Account WHERE Id = :accId];

@@ -14,10 +14,10 @@
 public class BE_DetailRowBusiness_Test {
     @testSetup
     private static void makeData() {
-        User thisUser = BE_UtilitysDataTest_Test.crearUsuario('User test','Administrador del sistema','');
+        final User thisUser = BE_UtilitysDataTest_Test.crearUsuario('User test','Administrador del sistema','');
         insert thisUser;
         System.runAs(thisUser) {
-            Account acc = BE_UtilitysDataTest_Test.crearCuenta('Test acc');
+            final Account acc = BE_UtilitysDataTest_Test.crearCuenta('Test acc');
             acc.BillingStreet = 'test';
             acc.BillingCity='Lima';
             acc.net_cash_desc__c='Premiun';
@@ -28,24 +28,25 @@ public class BE_DetailRowBusiness_Test {
     
     @isTest
     private static void testMethod1() {
-        User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
-        List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
+        final User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
+        final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
         System.runAs(thisUser) {
             test.startTest();
             BE_DetailRowBusiness_Cls.getDataInfo(lsAcc[0].Id);
+            System.assertNotEquals(null, lsAcc[0].Name, 'datos registrados con exito');
             test.stopTest();
         }
     }
     
     @isTest
     private static void testMethod2() {
-        BE_DetailRowBusiness_Cls tstCls = new BE_DetailRowBusiness_Cls();
+        final BE_DetailRowBusiness_Cls tstCls = new BE_DetailRowBusiness_Cls();
         System.assertNotEquals(null, tstCls, 'Constructor iniciado con éxito');
     }
      @isTest
     private static void testMethod3() {
-        User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
-        List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
+       final User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
+       final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
         System.runAs(thisUser) {
             test.startTest();
             BE_DetailRowBusiness_Cls.getDataInfo('8977');

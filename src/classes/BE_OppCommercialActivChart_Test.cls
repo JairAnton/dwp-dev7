@@ -14,26 +14,26 @@
 public class BE_OppCommercialActivChart_Test {
     @testSetup
     private static void makeData() {
-        User thisUser = BE_UtilitysDataTest_Test.crearUsuario('User test','Administrador del sistema','');
+        final User thisUser = BE_UtilitysDataTest_Test.crearUsuario('User test','Administrador del sistema','');
         insert thisUser;
         System.runAs(thisUser) {
-            Account acc = BE_UtilitysDataTest_Test.crearCuenta('Test acc');
+            final Account acc = BE_UtilitysDataTest_Test.crearCuenta('Test acc');
             acc.BillingStreet = 'test';
             acc.BillingCity='Lima';
             acc.financial_program_expiry_date__c = system.today()-1;
             insert acc;
-            Opportunity opp = BE_UtilitysDataTest_Test.crearOportunidad('Test opp', acc.Id, userInfo.getUserId(),null);
+            final Opportunity opp = BE_UtilitysDataTest_Test.crearOportunidad('Test opp', acc.Id, userInfo.getUserId(),null);
             opp.Amount=79888;
             insert opp;
-            Opportunity opp1 = BE_UtilitysDataTest_Test.crearOportunidad('Test opp1', acc.Id, userInfo.getUserId(),null);
+            final Opportunity opp1 = BE_UtilitysDataTest_Test.crearOportunidad('Test opp1', acc.Id, userInfo.getUserId(),null);
             opp1.Amount=79888;
             opp1.opportunity_planning_date__c= system.today();
             insert opp1;
-            Opportunity opp2 = BE_UtilitysDataTest_Test.crearOportunidad('Test opp2', acc.Id, userInfo.getUserId(),null);
+            final Opportunity opp2 = BE_UtilitysDataTest_Test.crearOportunidad('Test opp2', acc.Id, userInfo.getUserId(),null);
             opp2.Amount=79888;
             opp2.opportunity_planning_date__c= system.today();
             insert opp2; 
-            Opportunity opp3 = BE_UtilitysDataTest_Test.crearOportunidad('Test opp2', acc.Id, userInfo.getUserId(),null);
+            final Opportunity opp3 = BE_UtilitysDataTest_Test.crearOportunidad('Test opp2', acc.Id, userInfo.getUserId(),null);
             opp3.Amount=79888;
             insert opp3; 
             opp.StageName='06';
@@ -47,25 +47,26 @@ public class BE_OppCommercialActivChart_Test {
     
     @isTest
     private static void testMethod1() {
-        User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
-        List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
+        final User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
+        final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
         System.runAs(thisUser) {
             test.startTest();
             BE_OppCommercialActivChart_Cls.getOppAbierInfo(lsAcc[0].Id,false);
             BE_OppCommercialActivChart_Cls.getOppInfoHits(lsAcc[0].Id,false);
+            System.assertNotEquals(null, lsAcc[0].Name, 'datos registrados con exito');
             test.stopTest();
         }
     }
     
     @isTest
     private static void testMethod2() {
-        BE_OppCommercialActivChart_Cls tstCls = new BE_OppCommercialActivChart_Cls();
+        final BE_OppCommercialActivChart_Cls tstCls = new BE_OppCommercialActivChart_Cls();
         System.assertNotEquals(null, tstCls, 'Constructor iniciado con éxito');
     }
      @isTest
     private static void testMethod3() {
-        User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
-        List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
+        final User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
+        final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
         System.runAs(thisUser) {
             test.startTest();
             BE_OppCommercialActivChart_Cls.getOppAbierInfo('897897',false);
