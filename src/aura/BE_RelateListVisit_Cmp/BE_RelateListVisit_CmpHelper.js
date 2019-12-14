@@ -24,7 +24,7 @@
                 for(var i = 0; i < resultData.length; i++) {
                     resultData[i].Id = '/'+resultData[i].Id;
                     resultData[i].OwnerId = '/'+resultData[i].OwnerId;
-                    if(resultData[i].CreatedBy.Name || resultData[i].Owner.Name){resultData[i].OwnerName = resultData[i].CreatedBy.Name; } 
+                    if(resultData[i].CreatedBy.Name || resultData[i].Owner.Name){resultData[i].OwnerName = resultData[i].CreatedBy.Name;} 
                 }
                 cmp.set("v.alldata", resultData);
             }else{

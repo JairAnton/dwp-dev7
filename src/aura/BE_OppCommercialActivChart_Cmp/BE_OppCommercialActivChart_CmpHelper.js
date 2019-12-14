@@ -104,25 +104,25 @@
                         tooltips: {
                         mode: 'label',
                         callbacks: {
-                        label: function(tooltipItem, data) { 
-                        return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
+                        label: function(tooltipItem, data){
+							return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
                             }
             }
                                                },
-                                               scales: {
-                                               xAxes: [{ 
-                                               stacked: true, 
-                                               gridLines: { display: false },
+                                               scales:{
+											   xAxes:[{
+											   stacked: true, 
+                                               gridLines:{display: false},
                                                }],
-                                               yAxes: [{ 
-                                               stacked: true, 
-                                                ticks: {
+                                               yAxes:[{
+												stacked:true,
+                                                ticks:{
                                                beginAtZero:true,
-                                                callback: function(value, index, values) {
+                                                callback: function(value, index, values){
                 return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             }
-        }, 
-    }],
+			},
+			}],
 },
  legend: {display: true,position:'bottom',labels: {
  boxWidth: 30,
@@ -142,7 +142,7 @@
     })
 }
 }]
-}); 
+});
 }
 },
     PipelineOppCamp  : function(component,event,helper) {
@@ -250,26 +250,26 @@
                         tooltips: {
                         mode: 'label',
                         callbacks: {
-                        label: function(tooltipItem, data) { 
-                        return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
+                        label: function(tooltipItem, data){
+							return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
                             }
             }
                                                },
-                                               scales: {
-                                               xAxes: [{ 
-                                               stacked: true, 
-                                               gridLines: { display: false },
-                                               }],
-                                               yAxes: [{ 
-                                               stacked: true, 
-                                               ticks: {
-                                               beginAtZero:true,
-                                               callback: function(value, index, values) {
-                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");},
-        }, 
-    }],
-},
- legend: {display: true,position:'bottom',labels: {
+                                               scales:{
+											   xAxes:[{
+												   stacked:true,
+												   gridLines: { display: false },
+												   }],
+                                               yAxes:[{ 
+                                               stacked: true,
+                                               ticks:{
+												   beginAtZero:true,
+												   callback: function(value, index, values){
+													   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");},
+   },
+   }],
+   },
+   legend: {display: true,position:'bottom',labels: {
  boxWidth: 30,
             }}
  },
@@ -287,7 +287,7 @@
     })
 }
 }]
-}); 
+});
 }
 },
      HitOpp : function(component,event,helper) {
@@ -385,7 +385,7 @@
  boxWidth: 30,
             }}
  },
-}); 
+});
 }
 },
      HitOppCamp : function(component,event,helper) {

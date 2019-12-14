@@ -21,9 +21,8 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 * @example BE_Account_QuickViewCardWLCont_Cls example = new BE_Account_QuickViewCardWLCont_Cls();
 * _____________________________________________________________________________
 **/
-    @testVisible private BE_Account_QuickViewCardWLCont_Cls() {}
-    
-    /**
+    @testVisible private BE_Account_QuickViewCardWLCont_Cls() {} 
+/**
 * _____________________________________________________________________________
 * @Description Metodo que retorna la lista con la configuracion indicada de cada cards.
 * _____________________________________________________________________________
@@ -34,12 +33,12 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 **/
     @auraEnabled (cacheable=true)
     public static String getData(String accId) {
-        List<List<wrapperClass>> listCards = new List<List<wrapperClass>>();
-        List<wrapperClass> listCard1 = new List<wrapperClass>();
-        List<wrapperClass> listCard2 = new List<wrapperClass>();
-        List<wrapperClass> listCard3 = new List<wrapperClass>();
-        List<wrapperClass> listCard4 = new List<wrapperClass>();
-        List<wrapperClass> listCard5 = new List<wrapperClass>();
+        final List<List<wrapperClass>> listCards = new List<List<wrapperClass>>();
+        final List<wrapperClass> listCard1 = new List<wrapperClass>();
+        final List<wrapperClass> listCard2 = new List<wrapperClass>();
+        final List<wrapperClass> listCard3 = new List<wrapperClass>();
+        final List<wrapperClass> listCard4 = new List<wrapperClass>();
+        final List<wrapperClass> listCard5 = new List<wrapperClass>();
         final List<Account> accs = [SELECT Id, bank_turnover_volume_amount__c, margin_ordinary_amount__c, net_cash_desc__c, financial_program_expiry_date__c,
                               bbva_classification_desc__c, banking_system_classification_desc__c, Rating, bureau_classification_type__c,
                               AccountNumber, BillingStreet, BillingCity, economic_activity_sector__c, Parent.Name FROM Account WHERE Id = :accId];

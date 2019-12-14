@@ -15,9 +15,7 @@
          if(title.indexOf("Pasadas")){
             type = "VisitLast";
             filter = cmp.get("v.filters");
-         }else{
-            type = "VisitNext"; 
-         }
+         }else{type = "VisitNext";}
         let evt = $A.get("e.force:navigateToComponent");
         evt.setParams({
             componentDef : "c:BE_ViewAllOpps_Cmp",
