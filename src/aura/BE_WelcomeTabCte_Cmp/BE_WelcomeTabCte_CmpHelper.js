@@ -1,10 +1,10 @@
 ({
-	 loadData : function(cmp, event, helper) {
+	 loadData : function(cmp, event, helper){
         let action = cmp.get("c.getlisAllData");
         action.setParams({
             'NameConfig' : 'Modal_Info_new_tabWL'
         });
-        action.setCallback(this, function(response) {
+        action.setCallback(this, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {
                 let ListMdt = response.getReturnValue();

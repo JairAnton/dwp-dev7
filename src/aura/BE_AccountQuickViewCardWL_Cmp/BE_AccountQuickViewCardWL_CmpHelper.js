@@ -13,12 +13,9 @@
                     '"qvcd__GBL_Orientation__c":2,'+
                     '"Name":"inputJsonModeCS"'+
                     '},'+
-                    //'"defaultCardSelected": "Card1",'+
                     '"inputJsonData": '+
                     response.getReturnValue()+
-                    '}';
-                let device = $A.get("$Browser.formFactor");
-                let num = 4;
+                    '}';                let num = 4;
                 if($A.get("$Browser.isTablet") || $A.get("$Browser.isIPad") || $A.get("$Browser.isPhone")) {
                     num = 2;
                 }

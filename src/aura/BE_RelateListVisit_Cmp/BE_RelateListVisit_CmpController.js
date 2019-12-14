@@ -24,7 +24,7 @@
             componentAttributes: {
                 Id : cmp.get("v.recordId"),
                 TypeLists : type,
-                filtersLastVisit : filter 
+                filtersLastVisit : filter
             }
         });
         evt.fire();

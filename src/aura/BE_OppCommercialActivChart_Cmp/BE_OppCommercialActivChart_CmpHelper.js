@@ -33,7 +33,6 @@
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
         function graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels) {
-            var  resultadosChart;
             var dates = Labels;
             window.resultadosChart = new Chart(ctx,{
                 type: 'bar',
@@ -180,7 +179,6 @@
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
         function graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels) {
-            var  resultadosChart;
             var dates = Labels;
             window.resultadosChart = new Chart(ctx,{
                 type: 'bar',
@@ -320,7 +318,6 @@
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
         function graficaHits(hits,opplist,Labels) {
-            var  resultadosChart;
             var dates = Labels;
             window.resultadosChart = new Chart(ctx,{
                 type: 'bar',
@@ -341,7 +338,6 @@
                     pointBackgroundColor: '#01A1DF',
                     pointHoverRadius: 3,
                         },
-
                         {
                             label: 'Oportunidades',
                             yAxisID: 'opp',
@@ -423,7 +419,6 @@
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
         function graficahitCamp(hits,opplist,Labels) {
-            var  resultadosChart;
             var dates = Labels;
               window.resultadosChart = new Chart(ctx,{
                 type: 'bar',
@@ -444,7 +439,6 @@
                     pointBackgroundColor: '#01A1DF',
                     pointHoverRadius: 3,
                         },
-
                         {
                             label: 'Oportunidades',
                             yAxisID: 'opp',
