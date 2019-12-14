@@ -44,11 +44,11 @@ public class BE_DetailRowRisk_Test {
     }
      @isTest
     private static void testMethod3() {
-        final User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
-        final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
+        final User thisUser = [SELECT Id,Name FROM User WHERE Name = 'User test'];
         System.runAs(thisUser) {
             test.startTest();
             BE_DetailRowRisk_Cls.getDataInfo('8977');
+            System.assertNotEquals(null, thisUser.Name, 'Usuario encontrado');
             test.stopTest();
         }
     }

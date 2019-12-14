@@ -53,7 +53,7 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         integer index2 =0 ;
         Map<Integer,Integer> Quarters= new Map<Integer,Integer>();
         Map<Integer,Integer> YearsMap= new Map<Integer,Integer>();
-        List<WPR_Clasifica_QsOpps> lWrapClassAux = new List<WPR_Clasifica_QsOpps>();
+        final List<WPR_Clasifica_QsOpps> lWrapClassAux = new List<WPR_Clasifica_QsOpps>();
         for(integer i=0;i<4;i++){
             if((index+i)<4){
                 Quarters.put(index+i,i);
@@ -64,8 +64,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
                 YearsMap.put(i,MyDate.year());
             }
         }
-        List<AggregateResult> OppList =[SELECT COUNT(Id) Total,SUM(Amount) TotalAmount,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('01','02','03','04','05') AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
-        if(OppList.size() > 0 && !OppList.isEmpty()){
+        final List<AggregateResult> OppList =[SELECT COUNT(Id) Total,SUM(Amount) TotalAmount,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('01','02','03','04','05') AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
+        if(!OppList.isEmpty()){
         for(AggregateResult Opps : OppList ){
             Integer QuarterRec = (Integer)(Opps.get('Q')) -1;
             If(Opps.get('StageName')=='01' && yearsMap.get(Quarters.get(QuarterRec)) == (Integer)(Opps.get('AA'))) StageName01[Quarters.get(QuarterRec)]=string.valueOf(Opps.get('TotalAmount'));
@@ -101,7 +101,7 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         integer index2 =0 ;
         Map<Integer,Integer> Quarters= new Map<Integer,Integer>();
         Map<Integer,Integer> YearsMap= new Map<Integer,Integer>();
-        List<WPR_HitsOPP> lWrapClassHits = new List<WPR_HitsOPP>();
+        final List<WPR_HitsOPP> lWrapClassHits = new List<WPR_HitsOPP>();
         for(integer i=0;i<4;i++){
             if((index+i)<4){
                 Quarters.put(index+i,i);
@@ -112,8 +112,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
                 YearsMap.put(i,MyDate.year());
             }
         }
-        List<AggregateResult> OppList =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c) order by CALENDAR_YEAR(opportunity_planning_date__c)];
-        if(OppList.size() > 0 && !OppList.isEmpty()){
+        final List<AggregateResult> OppList =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c) order by CALENDAR_YEAR(opportunity_planning_date__c)];
+        if(!OppList.isEmpty()){
             for(AggregateResult Opps : OppList ){
                 Integer QuarterRec = (Integer)(Opps.get('Q')) -1;
                 If(yearsMap.get(Quarters.get(QuarterRec)) == (Integer)(Opps.get('AA'))) OppsHits[Quarters.get(QuarterRec)]=string.valueOf(Opps.get('Total'));
@@ -131,12 +131,33 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 
     /* wRAPPER CLASS FOR "Q oportunidades" GRAPH */
     public class WPR_Clasifica_QsOpps {
+         /*
+        * Attribute
+        */
         @AuraEnabled public list<string> StageName01 {get;set;}
+         /*
+        * Attribute
+        */
         @AuraEnabled public list<string> StageName02 {get;set;}
+         /*
+        * Attribute
+        */
         @AuraEnabled public list<string> StageName03 {get;set;}
+         /*
+        * Attribute
+        */
         @AuraEnabled public list<string> StageName04 {get;set;}
+         /*
+        * Attribute
+        */
         @AuraEnabled public list<string> StageName05 {get;set;}
+         /*
+        * Attribute
+        */
         @AuraEnabled public list<string> Labels {get;set;}
+         /*
+        * Attribute
+        */
         public WPR_Clasifica_QsOpps(List<string> LabelsList,List<string> StageName01List, List<string>StageName02List, List<string> StageName03List, List<string> StageName04List,List<string> StageName05List){
             this.Labels = LabelsList;
             this.StageName01 = StageName01List;
@@ -149,8 +170,17 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     
     /* wRAPPER CLASS FOR "Q oportunidades" GRAPH */
     public class WPR_HitsOPP {
+         /*
+        * Attribute
+        */
         @AuraEnabled public list<string> Opps {get;set;}
+         /*
+        * Attribute
+        */
         @AuraEnabled public list<string> Labels {get;set;}
+         /*
+        * Attribute
+        */
         @AuraEnabled public list<string> Hits {get;set;}
         public WPR_HitsOPP(List<string> LabelsList,list<string> OppList,List<string> HitList){
             this.Labels = LabelsList;
@@ -158,12 +188,14 @@ public with sharing class BE_OppCommercialActivChart_Cls {
             this.Hits = HitList;
         }  
     }
-    
+     /*
+        * Attribute
+        */
     public static list<String> sortQs(){
         string Q = 'Q1,Q2,Q3,Q4';
-        list<string> Qs = Q.split(',');
-        list<string> QsOrder= new list<String>();
-        Integer quarter = (System.today().month() / 3) + 1;
+        final list<string> Qs = Q.split(',');
+        final list<string> QsOrder= new list<String>();
+        final Integer quarter = (System.today().month() / 3) + 1;
         integer quarter2 =0 ;
         for(integer i=0;i<4;i++){
             if((quarter+i)<4){

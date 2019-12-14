@@ -305,14 +305,41 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 * _____________________________________________________________________________
 */
     public class wrapperClass {
+        /*
+        * Attribute
+        */
         private String label;
+        /*
+        * Attribute
+        */
         private String value;
+        /*
+        * Attribute
+        */
         private String type;
+        /*
+        * Attribute
+        */
         private String format;
-        private String icon; 
+        /*
+        * Attribute
+        */
+        private String icon;
+        /*
+        * Attribute
+        */
         private String typeIcon;
+        /*
+        * Attribute
+        */
         private String idRecord;
-        private String isSubtitle; 
+        /*
+        * Attribute
+        */
+        private String isSubtitle;
+        /*
+        * Attribute
+        */
         public wrapperClass(String label, String value, String type, String idRecord) {
             this.label = label;
             this.value = value;

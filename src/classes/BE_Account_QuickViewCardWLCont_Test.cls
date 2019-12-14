@@ -12,8 +12,10 @@
 */
 @isTest
 public class BE_Account_QuickViewCardWLCont_Test{
+
     @testSetup
     private static void makeData() {
+        
         final User thisUser = BE_UtilitysDataTest_Test.crearUsuario('User test','Administrador del sistema','');
         insert thisUser;
         System.runAs(thisUser) {
@@ -62,10 +64,11 @@ public class BE_Account_QuickViewCardWLCont_Test{
     }
     @isTest
     private static void testMethodNotCte() {
-        User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
+        final User thisUser = [SELECT Id,Name FROM User WHERE Name = 'User test'];
         System.runAs(thisUser) {
             test.startTest();
             BE_Account_QuickViewCardWLCont_Cls.getData('676789');
+            System.assertNotEquals(null, thisUser.Name, 'Usuario encontrado');
             test.stopTest();
         }
     }    

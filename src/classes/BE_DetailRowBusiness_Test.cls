@@ -25,6 +25,7 @@ public class BE_DetailRowBusiness_Test {
             insert acc;
         }
     }
+    
     @isTest
     private static void testMethod1() {
         final User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
@@ -36,6 +37,7 @@ public class BE_DetailRowBusiness_Test {
             test.stopTest();
         }
     }
+    
     @isTest
     private static void testMethod2() {
         final BE_DetailRowBusiness_Cls tstCls = new BE_DetailRowBusiness_Cls();
@@ -43,11 +45,11 @@ public class BE_DetailRowBusiness_Test {
     }
      @isTest
     private static void testMethod3() {
-       final User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
-       final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
+       final User thisUser = [SELECT Id,Name FROM User WHERE Name = 'User test'];
         System.runAs(thisUser) {
             test.startTest();
             BE_DetailRowBusiness_Cls.getDataInfo('8977');
+            System.assertNotEquals(null, thisUser.Name, 'Usuario encontrado');
             test.stopTest();
         }
     }

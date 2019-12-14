@@ -27,10 +27,10 @@ public with sharing class BE_VisitComercialActivity_Cls {
         Integer totalVisitsYTD = 0;
 	    Integer totalVisitsYF = 0;
 	    Integer numVisitsCQ = 0;
-        totalVisitsYTD = Visist(accId,'AnoAct');
-        totalVisitsYF = Visist(accId,'AnoAnt');
-        numVisitsCQ = Visist(accId,'trimestre');
-        List<wrapperClass> listWrapperClass = new List<wrapperClass>();
+        totalVisitsYTD = visist(accId,'AnoAct');
+        totalVisitsYF = visist(accId,'AnoAnt');
+        numVisitsCQ = visist(accId,'trimestre');
+        final List<wrapperClass> listWrapperClass = new List<wrapperClass>();
         listWrapperClass.add(new wrapperClass(totalVisitsYTD,totalVisitsYF,numVisitsCQ));   
 	    return JSON.serialize(listWrapperClass);
 	  }
@@ -72,27 +72,27 @@ public with sharing class BE_VisitComercialActivity_Cls {
 * @example Integer example = Visist(AccountId,Trimestre);
 * _____________________________________________________________________________
 **/
-    Public static Integer Visist(Id AccountId,String Type){
+    Public static Integer visist(Id accountId,String type){
         datetime dateOfYear;
         datetime dateOfActu;
-        if(Type =='AnoAnt'){
+        if(type =='AnoAnt'){
             dateOfYear = datetime.newInstance(System.today().year()-1,1,1);
             dateOfActu = datetime.newInstance(System.today().year()-1,System.today().month(),System.today().day()+1);
         }else{dateOfYear = datetime.newInstance(System.today().year(),1,1);dateOfActu = datetime.newInstance(System.today().year(),System.today().month(),System.today().day()+1);}
         String[] todas = new String[]{'01','02','03','04','05','06'}; 
-        String[] Finalizadas = new String[]{'05','06'};
+        String[] finalizadas = new String[]{'05','06'};
         Integer year = Type == 'AnoAnt'? System.today().year()-1 : System.today().year(); 
         Integer quantityVisitTri = 0;
         Integer quantityyear = 0;
         Integer quarter = (System.today().month() / 3) + 1;
-        for(dwp_kitv__Visit__c visit : [SELECT Id, dwp_kitv__visit_start_date__c FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c = :AccountId AND dwp_kitv__visit_start_date__c >=: (dateOfYear) AND dwp_kitv__visit_start_date__c <=: (dateOfActu) AND dwp_kitv__visit_status_type__c IN :Finalizadas ]) {
+        for(dwp_kitv__Visit__c visit : [SELECT Id, dwp_kitv__visit_start_date__c FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c = :accountId AND dwp_kitv__visit_start_date__c >=: (dateOfYear) AND dwp_kitv__visit_start_date__c <=: (dateOfActu) AND dwp_kitv__visit_status_type__c IN :finalizadas ]) {
            quantityyear++;
             Integer quaterVisit = (visit.dwp_kitv__visit_start_date__c.month() / 3) + 1;
             if(quarter == quaterVisit && Type =='trimestre') {
                 quantityVisitTri++;
             }
         } 
-        return  Type == 'trimestre'? quantityVisitTri : quantityyear;
+        return  type == 'trimestre'? quantityVisitTri : quantityyear;
     }
     
 }

@@ -43,7 +43,7 @@ public with sharing class BE_OppsCommercialActivity_Cls {
         Integer numOpp = 0;
         String oppType = '';
         final List<wrapperClass> lWrapClassAux = new List<wrapperClass>();
-        List<Opportunity> oppDenormList = [SELECT Id, Amount, StageName FROM Opportunity WHERE AccountId =: accId AND CreatedDate = THIS_YEAR];
+        final List<Opportunity> oppDenormList = [SELECT Id, Amount, StageName FROM Opportunity WHERE AccountId =: accId AND CreatedDate = THIS_YEAR];
         if(oppDenormList.size()>0 && !oppDenormList.isEmpty()) {
             for(Opportunity i : oppDenormList) {
                 if(i.StageName == '06') {
@@ -64,17 +64,49 @@ public with sharing class BE_OppsCommercialActivity_Cls {
         }
         return JSON.serialize(lWrapClassAux);
     }
-    
+     /*
+        * wrapperClass
+        */
      public class wrapperClass {
+          /*
+        * Attribute
+        */
         private Integer returnTotalOpp; //NOSONAR
+          /*
+        * Attribute
+        */
         private String returnWon; //NOSONAR
+        /*
+        * Attribute
+        */
         private String returnLost; //NOSONAR
+        /*
+        * Attribute
+        */
         private String returnCurrencyCode; //NOSONAR
+        /*
+        * Attribute
+        */
         private Integer oppWonNumber; //NOSONAR
+        /*
+        * Attribute
+        */
         private Integer oppLostNumber; //NOSONAR
+        /*
+        * Attribute
+        */
         private String oppType; //NOSONAR
+        /*
+        * Attribute
+        */
         private String hitMiss; //NOSONAR
+        /*
+        * Attribute
+        */
         private Integer oppLiveNumber; //NOSONAR
+        /*
+        * Attribute
+        */
         private String returnLive; //NOSONAR
 
         /**
