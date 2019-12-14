@@ -40,10 +40,10 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         List<wrapperClass> listCard3 = new List<wrapperClass>();
         List<wrapperClass> listCard4 = new List<wrapperClass>();
         List<wrapperClass> listCard5 = new List<wrapperClass>();
-        List<String> lts = new List<String>();
-        List<Account> accs = [SELECT Id, bank_turnover_volume_amount__c, margin_ordinary_amount__c, net_cash_desc__c, financial_program_expiry_date__c,
+        final List<Account> accs = [SELECT Id, bank_turnover_volume_amount__c, margin_ordinary_amount__c, net_cash_desc__c, financial_program_expiry_date__c,
                               bbva_classification_desc__c, banking_system_classification_desc__c, Rating, bureau_classification_type__c,
                               AccountNumber, BillingStreet, BillingCity, economic_activity_sector__c, Parent.Name FROM Account WHERE Id = :accId];
+       
         if(!accs.isEmpty()){
             /*----------------------------------Fields Cards1------------------------------------------*/
             wrapperClass field = new wrapperClass('Name', 'Negocio BBVA', '08', 'Card1');
@@ -242,17 +242,17 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
     Public static String OppValues(Id AccountId,String Type){
         String quantityOpps = '0';
         String resultvalues = '0';
-        String AmountTotal = '0';
+        String amountTotal = '0';
         List<AggregateResult> Opps = [SELECT count(Id) quantity, sum(Amount) amount FROM Opportunity WHERE AccountId = :AccountId AND StageName IN('02','03','04','05') GROUP BY AccountId];{}
         if(!Opps.isEmpty()){
             if(Type =='quantity'){
                 resultvalues = quantityOpps = String.valueOf((Integer)Opps[0].get('quantity'));
             }else{
-                resultvalues =  AmountTotal = String.valueOf((Decimal)Opps[0].get('amount'));
+                resultvalues =  amountTotal = String.valueOf((Decimal)Opps[0].get('amount'));
             } 
             return resultvalues;
         }else{
-            resultvalues = Type =='quantity' ? quantityOpps : AmountTotal;
+            resultvalues = Type =='quantity' ? quantityOpps : amountTotal;
             return resultvalues;
         }
     }
@@ -275,7 +275,6 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             return result; 
         }
     }
-    
        /**
 * _____________________________________________________________________________
 * @Description Metodo que consulta el periodo de actulizacion de los indicadores.
@@ -294,7 +293,6 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             return result; 
         }
     }
-    
     /**
 * _____________________________________________________________________________
 * @Description Metodo wrapper que retorna la lista de valores para la construccion de las cards.
@@ -313,7 +311,6 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         private String typeIcon;
         private String idRecord;
         private String isSubtitle; 
-        
         public wrapperClass(String label, String value, String type, String idRecord) {
             this.label = label;
             this.value = value;

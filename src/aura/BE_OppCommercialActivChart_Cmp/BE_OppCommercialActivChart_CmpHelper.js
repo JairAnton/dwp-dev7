@@ -314,9 +314,6 @@
             }
         });
         $A.enqueueAction(action);
-        var numberWithCommas = function(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        };
         function graficaHits(hits,opplist,Labels) {
             var dates = Labels;
             window.resultadosChart = new Chart(ctx,{
@@ -415,9 +412,6 @@
             }
         });
         $A.enqueueAction(action);
-        var numberWithCommas = function(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        };
         function graficahitCamp(hits,opplist,Labels) {
             var dates = Labels;
               window.resultadosChart = new Chart(ctx,{
