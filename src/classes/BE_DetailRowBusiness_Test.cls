@@ -25,7 +25,6 @@ public class BE_DetailRowBusiness_Test {
             insert acc;
         }
     }
-    
     @isTest
     private static void testMethod1() {
         final User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
@@ -37,7 +36,6 @@ public class BE_DetailRowBusiness_Test {
             test.stopTest();
         }
     }
-    
     @isTest
     private static void testMethod2() {
         final BE_DetailRowBusiness_Cls tstCls = new BE_DetailRowBusiness_Cls();
