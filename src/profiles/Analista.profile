@@ -1556,6 +1556,11 @@ Analistas de riesgos</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Banking_System_Debt__c.Indirect_Debt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Banking_System_Debt__c.debt_current_balance_amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1747,6 +1752,16 @@ Analistas de riesgos</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Profitability__c.Facturaci_n__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.Financial_Margin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.Spread__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

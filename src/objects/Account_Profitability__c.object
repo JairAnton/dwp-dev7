@@ -81,6 +81,18 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Financial_Margin__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(profitability_category_type__c=&quot;Margen Financiero&quot;, currenct_mon_amount__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Margen financiero</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Origin_currenIsoCode__c</fullName>
         <externalId>false</externalId>
         <label>Moneda Original</label>
@@ -89,6 +101,18 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Spread__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(profitability_category_type__c=&quot;Spread&quot; &amp;&amp; product_desc__c=&quot;CLIENTE&quot;,currenct_mon_per__c , 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Spread</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>origin_currenIso_Name__c</fullName>
