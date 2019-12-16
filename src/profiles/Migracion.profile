@@ -845,6 +845,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Profitability__c.Commissions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Profitability__c.Facturaci_n__c</field>
         <readable>true</readable>
     </fieldPermissions>
