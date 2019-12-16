@@ -20,32 +20,13 @@ public class BE_UtilitysDataTest_Test {
     final static String DATEFIELD='year_month_day_date__c';
     /**@general variable*/ 
     final static String UNIQUECODE='203658756Utils'+Date.today();
-    
-    static Map<String, Profile> perfilMapa = new Map<String, Profile>();
-    static Map<String, UserRole> rolMapa   = new Map<String, UserRole>();
-    static List<Profile> lstProfile;
-    static List<UserRole> userRole;
-
-    static{
-        lstProfile = new List<Profile>([SELECT Id, Name FROM Profile WHERE Name != null]);
-        userRole   = new List<UserRole>([SELECT Id, Name FROM UserRole WHERE Name != null]);    
-        for(Profile perfil:lstProfile){ perfilMapa.put(perfil.Name, perfil); }
-        for(UserRole ur:userRole){ rolMapa.put(ur.Name, ur); }    
-    }
-
-    @isTest static void test_method_two() {
-        Integer MAX_QUERY = Limits.getLimitQueries(); 
-        Integer NUM_QUERY = MAX_QUERY - 1;
-        System.assert(Limits.getQueries() < NUM_QUERY, 'numero de querys dentro del rango  permitido');
-    }
-     
     /**
     * @Method:      crearUsuario
     * @param:       String strLastName, String strProfileName, String strRol
     * @Description: Funcion que retorna un objeto User 
     */
     public static User crearUsuario(String strLastName, String strProfileName, String strRol) {
-        String email                  = 'tstBBVA'+Math.random()*10000+'@bbva.test.com';   
+        final String email                  = 'tstBBVA'+Math.random()*10000+'@bbva.test.com';   
         final User usuario                  = new User(); 
         usuario.LastName              = strLastName;
         usuario.Alias                 = String.valueOf((Math.random() * 10000).round());
@@ -57,7 +38,6 @@ public class BE_UtilitysDataTest_Test {
         usuario.LocaleSidKey          = 'en_US';
         usuario.IsActive              = true;
         usuario.ProfileId = userinfo.getProfileId();
-        if(String.isNotBlank(strRol)) {usuario.UserRoleId = rolMapa.get(strRol).Id;}
         usuario.CompanyName           = 'DWP Perú';
         return usuario;
     }
@@ -129,11 +109,11 @@ public class BE_UtilitysDataTest_Test {
     * @param:       String strName, Id idAccount
     * @Description: Funcion que retorna un objeto Account_variation_information__c
     */
-    public static Account_variation_information__c crearVariation(String strName, Id idAccount,String StrColor) {     
+    public static Account_variation_information__c crearVariation(String strName, Id idAccount,String strColor) {     
         final Account_variation_information__c Variation = new Account_variation_information__c();
         Variation.indicator_name__c=strName;
         Variation.Account_Id__c=idAccount;
-        Variation.validation_color_type__c = StrColor;
+        Variation.validation_color_type__c = strColor;
         Variation.indicator_update_date__c=Date.today();
         return Variation;
     }
@@ -165,7 +145,7 @@ public class BE_UtilitysDataTest_Test {
         contacto.prof_position_type__c = 'APODERADO';
         contacto.Cargo_inicio__c = 'APODERADO';
 		contacto.Email     = 'tstBBVA'+ (Math.random()*10000).round()+'@bbva.test.com';
-        if(idCuenta!=null){contacto.AccountId = idCuenta;}
+        if(idCuenta!=null) { contacto.AccountId = idCuenta; }
 		return contacto;
     }
 }

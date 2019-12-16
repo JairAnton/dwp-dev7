@@ -60,6 +60,10 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 	* Attribute
 	*/
 	private static final String STAGEFIELD = 'StageName';
+    /*
+	* Attribute
+	*/
+	private static final Integer QCUATRO = 4;
     
     
 /**
@@ -89,8 +93,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         final Map<Integer,Integer> quarters= new Map<Integer,Integer>();
         final Map<Integer,Integer> yearsMap= new Map<Integer,Integer>();
         final List<WPR_Clasifica_QsOpps> lWrapClassAux = new List<WPR_Clasifica_QsOpps>();
-        for(integer i=0;i<4;i++) {
-            if(index+i <4) {
+        for(integer i=0;i< QCUATRO;i++) {
+            if(index+i < QCUATRO) {
                 quarters.put(index+i,i);
                 yearsMap.put(i,MyDate.year()-1);
             }else {
@@ -128,8 +132,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         final Map<Integer,Integer> quarters= new Map<Integer,Integer>();
         final Map<Integer,Integer> yearsMap= new Map<Integer,Integer>();
         final List<WPR_HitsOPP> lWrapClassHits = new List<WPR_HitsOPP>();
-        for(integer i=0;i<4;i++) {
-            if( index + i < 4) {
+        for(integer i=0;i< QCUATRO;i++) {
+            if( index + i < QCUATRO) {
                 quarters.put(index+i,i);
                 yearsMap.put(i,MyDate.year()-1);
             } else {
@@ -219,8 +223,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         final list<string> qsOrder= new list<String>();
         final Integer quarter = System.today().month() / 3 + 1;
         integer quarter2 =0 ;
-        for(integer i=0;i<4;i++) {
-            if(quarter+i < 4) {
+        for(integer i=0;i< QCUATRO;i++) {
+            if(quarter+i < QCUATRO) {
                 qsOrder.add(qs[(quarter+i)]+' '+String.valueof(myDate.year()-1));
             } else {
                 qsOrder.add(qs[quarter2]+' '+String.valueof(myDate.year()));
@@ -263,8 +267,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         }
         if(q1oppWonNumber > 0 && q1oppWonNumber != null ) {q1= (q1oppWonNumber*100)/(q1oppWonNumber+q1oppLostNumber);}
         if(q2oppWonNumber > 0 && q2oppWonNumber != null ) {q2 = (q2oppWonNumber*100)/(q2oppWonNumber+q2oppLostNumber);}  
-        if(q3oppWonNumber > 0 && q3oppWonNumber != null ) {q3= (q3oppWonNumber*100)/(q3oppWonNumber+q1oppLostNumber);}
-        if(q4oppWonNumber > 0 && q4oppWonNumber != null ) {q4 = (q4oppWonNumber*100)/(q4oppWonNumber+q2oppLostNumber);}
+        if(q3oppWonNumber > 0 && q3oppWonNumber != null ) {q3= (q3oppWonNumber*100)/(q3oppWonNumber+q3oppLostNumber);}
+        if(q4oppWonNumber > 0 && q4oppWonNumber != null ) {q4 = (q4oppWonNumber*100)/(q4oppWonNumber+q4oppLostNumber);}
         histsOrder.add(string.valueOf(q1));histsOrder.add(string.valueOf(q2));histsOrder.add(string.valueOf(q3));histsOrder.add(string.valueOf(q4));
         hists = histsOrder(histsOrder);
         return hists;
@@ -274,8 +278,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         final list<string> qsOrder= new list<String>();
         final Integer quarter = System.today().month() / 3 + 1;
         integer quarter2 =0 ;
-        for(integer i=0;i<4;i++) {
-            if(quarter + i <4 ) {
+        for(integer i=0;i< QCUATRO;i++) {
+            if(quarter + i < QCUATRO ) {
                 qsOrder.add(values[(quarter+i)]);
             } else {
                 qsOrder.add(values[quarter2]);

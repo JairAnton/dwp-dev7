@@ -51,11 +51,11 @@ public with sharing class BE_VisitComercialActivity_Cls {
 		 /*
         * Attribute
         */
-		private Integer TotalVisitsYTD;
+		final Integer TotalVisitsYTD;
 		 /*
         * Attribute
         */
-		private Integer TotalVisitsYF;
+		final Integer TotalVisitsYF;
 		 /*
         * Attribute
         */
@@ -63,7 +63,7 @@ public with sharing class BE_VisitComercialActivity_Cls {
 		 /*
         * Attribute
         */
-		private Integer TotalVisitsCQ;
+		final Integer TotalVisitsCQ;
 		/**
 		* @author Global Desktop
 		* @description Method que construye la clase wrapper

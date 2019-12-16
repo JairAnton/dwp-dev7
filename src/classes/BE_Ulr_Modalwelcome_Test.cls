@@ -32,4 +32,10 @@ public class BE_Ulr_Modalwelcome_Test {
             test.stopTest();
         }
     }
+    
+     @isTest
+    private static void testMethod2() {
+        final BE_Ulr_Modalwelcome_Cls tstCls = new BE_Ulr_Modalwelcome_Cls();
+        System.assertNotEquals(null, tstCls, 'Constructor iniciado con éxito');
+    }
 }

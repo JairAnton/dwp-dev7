@@ -12,6 +12,15 @@
 * _________________________________________________________________________________
 */
 public with sharing class BE_Ulr_Modalwelcome_Cls {
+    /**
+	* @author Global Desktop
+	* @description Constructor de la clase
+	*/
+	@testVisible private BE_Ulr_Modalwelcome_Cls() {}
+    /**
+	* @author Global Desktop
+	* @description Constructor de la clase
+	*/
     @AuraEnabled 
     public static List<BE_Urls_Dynamic__c> getlisAllData(string NameConfig){
         List<BE_Urls_Dynamic__c> ltsUrls = [select id,BE_Titulo_Url__c,BE_Url__c from BE_Urls_Dynamic__c  where  Name =:NameConfig];
