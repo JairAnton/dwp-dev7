@@ -16,11 +16,11 @@ public with sharing class BE_VisitComercialActivity_Cls {
     /*
     * Attribute
     */
-    private static final string anant = 'AnoAnt';
+    private static final string AANT = 'AnoAnt';
     /*
     * Attribute
     */
-    private static final string trimestre = 'trimestre';
+    private static final string TRIMES = 'trimestre';
 	/**
 	* @author Global Desktop
 	* @description Constructor de la clase
@@ -31,7 +31,7 @@ public with sharing class BE_VisitComercialActivity_Cls {
 	* @description Recupera las visitas relacionadas con la cuenta
 	*/
   	@auraEnabled
-  	public static String getVisitInfo(String accId){
+  	public static String getVisitInfo(String accId) {
         Integer totalVisitsYTD = 0;
 	    Integer totalVisitsYF = 0;
 	    Integer numVisitsCQ = 0;
@@ -73,7 +73,7 @@ public with sharing class BE_VisitComercialActivity_Cls {
   			this.TotalVisitsYF = totalVisitsYF;
             this.TotalVisitsCQ = totalVisitsCQ;
             if (TotalVisitsYTD > 0 && TotalVisitsYTD != null ) {
-                Decimal numVisitsTRYOY =  (((Decimal) TotalVisitsYTD - (Decimal) TotalVisitsYF)/TotalVisitsYTD) * 100;
+                final Decimal numVisitsTRYOY =  (((Decimal) TotalVisitsYTD - (Decimal) TotalVisitsYF)/TotalVisitsYTD) * 100;
                 TotalVisitsYOY = numVisitsTRYOY.setScale(2);
             }
 		}
@@ -88,13 +88,13 @@ public with sharing class BE_VisitComercialActivity_Cls {
 * @example Integer example = Visist(AccountId,Trimestre);
 * _____________________________________________________________________________
 **/
-    Public static Integer visist(Id accountId,String type){
+    Public static Integer visist(Id accountId,String type) {
         datetime dateOfYear;
         datetime dateOfActu;
-        if(type == anant){
+        if(type == AANT) {
             dateOfYear = datetime.newInstance(System.today().year()-1,1,1);
             dateOfActu = datetime.newInstance(System.today().year()-1,System.today().month(),System.today().day()+1);
-        }else{
+         } else {
             dateOfYear = datetime.newInstance(System.today().year(),1,1);
             dateOfActu = datetime.newInstance(System.today().year(),System.today().month(),System.today().day()+1);
         }
@@ -105,11 +105,11 @@ public with sharing class BE_VisitComercialActivity_Cls {
         for(dwp_kitv__Visit__c visit : [SELECT Id, dwp_kitv__visit_start_date__c FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c = :accountId AND dwp_kitv__visit_start_date__c >=: (dateOfYear) AND dwp_kitv__visit_start_date__c <=: (dateOfActu) AND dwp_kitv__visit_status_type__c IN :finalizadas ]) {
            quantityyear++;
             final Integer quaterVisit = visit.dwp_kitv__visit_start_date__c.month() / 3 + 1;
-            if(quarter == quaterVisit && Type == trimestre) {
+            if(quarter == quaterVisit && Type == TRIMES) {
                 quantityVisitTri++;
             }
         } 
-        return  type == trimestre ? quantityVisitTri : quantityyear;
+        return  type == TRIMES ? quantityVisitTri : quantityyear;
     }
     
 }

@@ -18,11 +18,11 @@
                         </th>
                         <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
                             <div class="slds-text-title_caps slds-truncate">Clasificación BBVA</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].bbvaClassification}"/></strong></div>
+                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].bbvaClassif}"/></strong></div>
                         </th>
                         <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
                             <div class="slds-text-title_caps slds-truncate">Clasificación SBS</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].sbsClassification}" /></strong></div>
+                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].sbsClassifi}" /></strong></div>
                         </th>
                         <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
                             <div class="slds-text-title_caps slds-truncate">Buró</div>
@@ -47,11 +47,11 @@
                             </th>
                             <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
                                 <div class="slds-text-title_caps slds-truncate">Clasificación BBVA</div>
-                                <div class="horizontal"><strong><ui:outputText value="{!v.data[0].bbvaClassification}"/></strong></div>
+                                <div class="horizontal"><strong><ui:outputText value="{!v.data[0].bbvaClassif}"/></strong></div>
                             </th>
                             <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
                                 <div class="slds-text-title_caps slds-truncate">Clasificación SBS</div>
-                                <div class="horizontal"><strong> <ui:outputText value="{!v.data[0].sbsClassification}" /></strong></div>
+                                <div class="horizontal"><strong> <ui:outputText value="{!v.data[0].sbsClassifi}" /></strong></div>
                             </th>
                             <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
                                 <div class="slds-text-title_caps slds-truncate">Buró</div>

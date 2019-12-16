@@ -123,7 +123,7 @@ public with sharing class BE_OppsCommercialActivity_Cls {
             this.oppLiveNumber = sizeOppLive;
             this.oppType = oppType;
             Decimal value = 0;
-            if(oppWonNumber > 0 ){
+            if(oppWonNumber > 0 ) {
                 value = (oppWonNumber*100.0)/(oppWonNumber+oppLostNumber);
             }
             final Decimal hitMissFormat = value.setScale(2);

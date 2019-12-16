@@ -34,19 +34,19 @@ public with sharing class BE_DetailRowRisk_Cls {
 **/ 
     @auraEnabled
     public static String getDataInfo(String accId) {
-        String strategy ='';String bbvaClassification=''; String sbsClassification ='';String watchlist=''; String statusPE25='';
+        String strategy ='';String bbvaCla=''; String sbsClas ='';String watchlist=''; String statusPE25='';
         Integer bureau=0;
         final List<wrapperClass> lWrapClassAux = new List<wrapperClass>();
         final List<Account> row = [SELECT Id, risk_strategy_class_name__c, bbva_classification_desc__c, banking_system_classification_desc__c, bureau_classification_type__c, watchlist_calif_id__c, Estado_PE25__c FROM Account WHERE Id =: accId];
-        if(row.size()>0 && !row.isEmpty()) {
+        if(!row.isEmpty()) {
             strategy = String.isNotEmpty(row[0].risk_strategy_class_name__c)?row[0].risk_strategy_class_name__c :'';
-            bbvaClassification = String.isNotEmpty(row[0].bbva_classification_desc__c) ? row[0].bbva_classification_desc__c :'';
-            sbsClassification = String.isNotEmpty(row[0].banking_system_classification_desc__c) ? row[0].banking_system_classification_desc__c : '';
-            bureau = row[0].bureau_classification_type__c != null ? Integer.valueOf(row[0].bureau_classification_type__c) : 0;
+            bbvaCla = String.isNotEmpty(row[0].bbva_classification_desc__c) ? row[0].bbva_classification_desc__c :'';
+            sbsClas = String.isNotEmpty(row[0].banking_system_classification_desc__c) ? row[0].banking_system_classification_desc__c : '';
+            bureau = row[0].bureau_classification_type__c == null ? 0 : Integer.valueOf(row[0].bureau_classification_type__c);
             watchlist = String.isNotEmpty(row[0].watchlist_calif_id__c) ? row[0].watchlist_calif_id__c : '';
             statusPE25 = String.isNotEmpty(row[0].Estado_PE25__c) ? row[0].Estado_PE25__c : ''; 
         }
-        lWrapClassAux.add(new wrapperClass(strategy, bbvaClassification,sbsClassification,bureau,watchlist,statusPE25));
+        lWrapClassAux.add(new wrapperClass(strategy, bbvaCla,sbsClas,bureau,watchlist,statusPE25));
         return JSON.serialize(lWrapClassAux);
     }
     
@@ -63,11 +63,11 @@ public with sharing class BE_DetailRowRisk_Cls {
         /*
         * Attribute
         */
-        private String bbvaClassification; //NOSONAR
+        private String bbvaClassif; //NOSONAR
         /*
         * Attribute
         */
-        private String sbsClassification; //NOSONAR
+        private String sbsClassifi; //NOSONAR
         /*
         * Attribute
         */
@@ -84,10 +84,10 @@ public with sharing class BE_DetailRowRisk_Cls {
 * @author Global Desktop
 * @description Contruye la lista wrapper
 */
-        public wrapperClass(String strategy, String bbvaClassification, String sbsClassification, Integer bureau, String watchlist, String statusPE25) {
+        public wrapperClass(String strategy, String listbbvaCla, String LstsbsCl, Integer bureau, String watchlist, String statusPE25) {
             this.strategy = strategy;
-            this.bbvaClassification = bbvaClassification;
-            this.sbsClassification = sbsClassification;
+            this.bbvaClassif = listbbvaCla;
+            this.sbsClassifi = LstsbsCl;
             this.bureau = bureau;
             this.watchlist = watchlist;
             this.statusPE25 = statusPE25;
