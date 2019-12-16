@@ -239,9 +239,9 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         return QsOrder;
     } 
     
-    private static void fillArrayInit(list<string> ListInit,string value) {
-        for(integer i =0;i<ListInit.size();i++) {
-          ListInit[i]=value;
+    private static void fillArrayInit(list<string> listInit,string value) {
+        for(integer i =0;i<listInit.size();i++) {
+          listInit[i]=value;
         }
     }
     

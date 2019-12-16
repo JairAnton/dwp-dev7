@@ -15,7 +15,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 * @Date 2019-11-08
 * @example BE_Account_QuickViewCardWLCont_Cls example = new BE_Account_QuickViewCardWLCont_Cls();
 */
-    @testVisible private BE_Account_QuickViewCardWLCont_Cls(){} 
+    @testVisible private BE_Account_QuickViewCardWLCont_Cls() {} 
 /*
 * @Description funcion que retorna la lista con la configuracion indicada de cada cards.
 * @Author Antony de la rosa guzman.
@@ -31,17 +31,17 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         final List<wrapperClass> listCard3 = new List<wrapperClass>();
         final List<wrapperClass> listCard4 = new List<wrapperClass>();
         final List<wrapperClass> listCard5 = new List<wrapperClass>();
-        String name = 'Name';
-        String card1 = 'Card1';
-        String card2 = 'Card2';
-        String card3 = 'Card3';
-        String card4 = 'Card4';
-        String card5 = 'Card5';
+        final String name = 'Name';
+        final String card1 = 'Card1';
+        final String card2 = 'Card2';
+        final String card3 = 'Card3';
+        final String card4 = 'Card4';
+        final String card5 = 'Card5';
         final List<Account> accs = [SELECT Id, bank_turnover_volume_amount__c, margin_ordinary_amount__c, net_cash_desc__c, financial_program_expiry_date__c,
                               bbva_classification_desc__c, banking_system_classification_desc__c, Rating, bureau_classification_type__c,
                               AccountNumber, BillingStreet, BillingCity, economic_activity_sector__c, Parent.Name FROM Account WHERE Id = :accId];
        
-        if(!accs.isEmpty()){
+        if(!accs.isEmpty()) {
             
             /*----------------------------------Fields Cards1------------------------------------------*/
             wrapperClass field = new wrapperClass(name, 'Negocio BBVA', '08', card1);
@@ -206,7 +206,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 * @Date 2019-11-08
 * @example Integer example = Visist(AccountId,Trimestre);
 */
-    Public static Integer visist(Id accountId,String type){
+    Public static Integer visist(Id accountId,String type) {
         final String[] finalizadas = new String[]{'05','06'}; 
         Integer quantityVisitYTD = 0;
         Integer quantityVisitTri = 0;
@@ -227,15 +227,15 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 * @Date 2019-11-08
 * @example String example = OppValues(AccountId,amout);
 */
-    Public static String oppValues(Id accountId,String type){
+    Public static String oppValues(Id accountId,String type) {
         String quantityOpps = '0';
         String resultvalues = '0';
         String amountTotal = '0';
         final List<AggregateResult> Opps = [SELECT count(Id) quantity, sum(Amount) amount FROM Opportunity WHERE AccountId = :accountId AND StageName IN('02','03','04','05') GROUP BY AccountId];{}
-        if(!Opps.isEmpty()){
-            if(type =='quantity'){
+        if(!Opps.isEmpty()) {
+            if(type =='quantity') {
                 resultvalues = quantityOpps = String.valueOf((Integer)Opps[0].get('quantity'));
-            }else{
+            } else {
                 resultvalues =  amountTotal = String.valueOf((Decimal)Opps[0].get('amount'));
             } 
         }
@@ -249,10 +249,10 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 * @Date 2019-12-13
 * @example String example = Indicador(AccountId,directa);
 */
-    Public static String indicador(Id accountId,String type){
+    Public static String indicador(Id accountId,String type) {
         String result = '-';        
         final List<Account_variation_information__c>  avi = [SELECT Id, validation_color_type__c, indicator_name__c, indicator_update_date__c FROM Account_variation_information__c WHERE Account_Id__c = :accountId AND indicator_name__c = :type];
-        if(!avi.isEmpty()){
+        if(!avi.isEmpty()) {
              result = avi[0].validation_color_type__c;
         }
         return result;
@@ -263,10 +263,10 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 * @Date 2019-12-13
 * @example String example = periodo(AccountId);
 */
-    Public static String periodo(Id accountId){
+    Public static String periodo(Id accountId) {
         String result = '-';        
         final List<Account_variation_information__c>  periodo = [SELECT Id, validation_color_type__c, indicator_name__c, indicator_update_date__c FROM Account_variation_information__c WHERE Account_Id__c = :accountId AND indicator_name__c IN ('ACTIVO Directa', 'CUOTA Directa (%)', 'SPREAD (%)', 'MARGEN FINANCIERO')];
-        if(!periodo.isEmpty()){
+        if(!periodo.isEmpty()) {
            result =  DateTime.newInstance(periodo[0].indicator_update_date__c.year(), periodo[0].indicator_update_date__c.month(), periodo[0].indicator_update_date__c.day(), 0, 0, 0).format('MM-yyyy');
         }
         return result; 
@@ -281,15 +281,15 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         /*
         * Attribute
         */
-        private String label;
+        final String label;
         /*
         * Attribute
         */
-        private String value;
+        final String value;
         /*
         * Attribute
         */
-        private String type;
+        final String type;
         /*
         * Attribute
         */
@@ -305,7 +305,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         /*
         * Attribute
         */
-        private String idRecord;
+        final String idRecord;
         /*
         * Attribute
         */

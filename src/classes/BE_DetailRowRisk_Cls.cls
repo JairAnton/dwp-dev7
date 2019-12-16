@@ -39,12 +39,12 @@ public with sharing class BE_DetailRowRisk_Cls {
         final List<wrapperClass> lWrapClassAux = new List<wrapperClass>();
         final List<Account> row = [SELECT Id, risk_strategy_class_name__c, bbva_classification_desc__c, banking_system_classification_desc__c, bureau_classification_type__c, watchlist_calif_id__c, Estado_PE25__c FROM Account WHERE Id =: accId];
         if(!row.isEmpty()) {
-            strategy = String.isNotEmpty(row[0].risk_strategy_class_name__c)?row[0].risk_strategy_class_name__c :'';
-            bbvaCla = String.isNotEmpty(row[0].bbva_classification_desc__c) ? row[0].bbva_classification_desc__c :'';
-            sbsClas = String.isNotEmpty(row[0].banking_system_classification_desc__c) ? row[0].banking_system_classification_desc__c : '';
-            bureau = row[0].bureau_classification_type__c == null ? 0 : Integer.valueOf(row[0].bureau_classification_type__c);
-            watchlist = String.isNotEmpty(row[0].watchlist_calif_id__c) ? row[0].watchlist_calif_id__c : '';
-            statusPE25 = String.isNotEmpty(row[0].Estado_PE25__c) ? row[0].Estado_PE25__c : ''; 
+            strategy = row[0].risk_strategy_class_name__c;
+            bbvaCla = row[0].bbva_classification_desc__c;
+            sbsClas = row[0].banking_system_classification_desc__c;
+            bureau = Integer.valueOf(row[0].bureau_classification_type__c);
+            watchlist = row[0].watchlist_calif_id__c;
+            statusPE25 = row[0].Estado_PE25__c; 
         }
         lWrapClassAux.add(new wrapperClass(strategy, bbvaCla,sbsClas,bureau,watchlist,statusPE25));
         return JSON.serialize(lWrapClassAux);
@@ -84,10 +84,10 @@ public with sharing class BE_DetailRowRisk_Cls {
 * @author Global Desktop
 * @description Contruye la lista wrapper
 */
-        public wrapperClass(String strategy, String listbbvaCla, String LstsbsCl, Integer bureau, String watchlist, String statusPE25) {
+        public wrapperClass(String strategy, String listbbvaCla, String lstsbsCl, Integer bureau, String watchlist, String statusPE25) {
             this.strategy = strategy;
             this.bbvaClassif = listbbvaCla;
-            this.sbsClassifi = LstsbsCl;
+            this.sbsClassifi = lstsbsCl;
             this.bureau = bureau;
             this.watchlist = watchlist;
             this.statusPE25 = statusPE25;
