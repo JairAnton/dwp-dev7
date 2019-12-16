@@ -1,21 +1,15 @@
 /**
-* _________________________________________________________________________________
 * @Name     BE_Account_QuickViewCardWLCont_Test
 * @Author   Antony de la rosa guzman
 * @Date     2019-11-11
 * @Group    DWP Perú
 * @Description Clase de pruebas del controlador BE_Account_QuickViewCardWLCont_Ctrl que muestra 
 *              los datos de la ficha cliente version WLCont.
-* _________________________________________________________________________________
-* @Changes
-* _________________________________________________________________________________
 */
 @isTest
-public class BE_Account_QuickViewCardWLCont_Test{
-
+public class BE_Account_QuickViewCardWLCont_Test {
     @testSetup
     private static void makeData() {
-        
         final User thisUser = BE_UtilitysDataTest_Test.crearUsuario('User test','Administrador del sistema','');
         insert thisUser;
         System.runAs(thisUser) {

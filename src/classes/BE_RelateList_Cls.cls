@@ -20,17 +20,17 @@ public with sharing class BE_RelateList_Cls {
 * @Date 2019-11-13
 * @example BE_RelateList_Cls example = new BE_RelateList_Cls();
 * _____________________________________________________________________________
-**/
+*/
     @testVisible private BE_RelateList_Cls() {}
     
     /**
 * _____________________________________________________________________________
-* @Description Metodo que retorna la lista con la configuracion indicada de cada lista relacionada de visitas.
+* @Description funcion que retorna la lista con la configuracion indicada de cada lista relacionada de visitas.
 * _____________________________________________________________________________
 * @Author Antony de la rosa guzman.
 * @Date 2019-11-13
 * _____________________________________________________________________________
-**/
+*/
     @auraEnabled
     public static string getRelatedVisit(String accId, String objectName,String FieldNameRelation, String fields, String filters, String orderRow, String limitRow) {
         String query = 'SELECT Id,OwnerId, ' + fields + ' FROM ' + objectName + ' WHERE '+ FieldNameRelation + ' = :accId';

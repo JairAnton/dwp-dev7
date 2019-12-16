@@ -12,7 +12,7 @@
 * _________________________________________________________________________________
 */
 public with sharing class BE_DetailRowRisk_Cls {
-    /**
+/**
 * _____________________________________________________________________________
 * @Description Constructor de la clase
 * _____________________________________________________________________________
@@ -20,12 +20,12 @@ public with sharing class BE_DetailRowRisk_Cls {
 * @Date 2019-11-13
 * @example BE_DetailRowRisk_Cls example = new BE_DetailRowRisk_Cls();
 * _____________________________________________________________________________
-**/
+*/
     @testVisible private BE_DetailRowRisk_Cls() {}
     
     /**
 * _____________________________________________________________________________
-* @Description Metodo que retorna la lista con la informacion para el cintillo Riesgos BBVA.
+* @Description funcion que retorna la lista con la informacion para el cintillo Riesgos BBVA.
 * _____________________________________________________________________________
 * @Author Antony de la rosa guzman.
 * @Date 2019-11-13
@@ -44,11 +44,9 @@ public with sharing class BE_DetailRowRisk_Cls {
             sbsClassification = String.isNotEmpty(row[0].banking_system_classification_desc__c) ? row[0].banking_system_classification_desc__c : '';
             bureau = row[0].bureau_classification_type__c != null ? Integer.valueOf(row[0].bureau_classification_type__c) : 0;
             watchlist = String.isNotEmpty(row[0].watchlist_calif_id__c) ? row[0].watchlist_calif_id__c : '';
-            statusPE25 = String.isNotEmpty(row[0].Estado_PE25__c) ? row[0].Estado_PE25__c : '';
-            lWrapClassAux.add(new wrapperClass(strategy, bbvaClassification,sbsClassification,bureau,watchlist,statusPE25));
-        }else{
-            lWrapClassAux.add(new wrapperClass(strategy, bbvaClassification,sbsClassification,bureau,watchlist,statusPE25));
+            statusPE25 = String.isNotEmpty(row[0].Estado_PE25__c) ? row[0].Estado_PE25__c : ''; 
         }
+        lWrapClassAux.add(new wrapperClass(strategy, bbvaClassification,sbsClassification,bureau,watchlist,statusPE25));
         return JSON.serialize(lWrapClassAux);
     }
     

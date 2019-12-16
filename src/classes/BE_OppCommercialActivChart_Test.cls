@@ -63,15 +63,4 @@ public class BE_OppCommercialActivChart_Test {
         final BE_OppCommercialActivChart_Cls tstCls = new BE_OppCommercialActivChart_Cls();
         System.assertNotEquals(null, tstCls, 'Constructor iniciado con éxito');
     }
-     @isTest
-    private static void testMethod3() {
-        final User thisUser = [SELECT Id,Name FROM User WHERE Name = 'User test'];
-        System.runAs(thisUser) {
-            test.startTest();
-            BE_OppCommercialActivChart_Cls.getOppAbierInfo('897897',false);
-            System.assertNotEquals(null, thisUser.Name, 'Usuario encontrado');
-            BE_OppCommercialActivChart_Cls.getOppInfoHits('897897',false);
-            test.stopTest();
-        }
-    }
 }

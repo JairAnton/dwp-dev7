@@ -1,14 +1,10 @@
 /**
-* _________________________________________________________________________________
 * @Name     BE_OppsCommercialActivity_Test
 * @Author   Antony de la rosa guzman
 * @Date     2019-11-13
 * @Group    DWP Perú
 * @Description Clase de pruebas del controlador BE_OppsCommercialActivity_Cls que muestra 
 *              los datos de las oportunidades.
-* _________________________________________________________________________________
-* @Changes
-* _________________________________________________________________________________
 */
 @isTest
 public class BE_OppsCommercialActivity_Test {
@@ -41,7 +37,7 @@ public class BE_OppsCommercialActivity_Test {
     @isTest
     private static void testMethod1() {
         final User thisUser = [SELECT Id FROM User WHERE Name = 'User test'];
-        List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
+        final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
         System.runAs(thisUser) {
             test.startTest();
             BE_OppsCommercialActivity_Cls.getOppInfo(lsAcc[0].Id);

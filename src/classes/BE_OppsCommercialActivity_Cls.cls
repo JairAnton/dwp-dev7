@@ -1,5 +1,4 @@
 /**
-* _________________________________________________________________________________
 * @Name     BE_OppsCommercialActivity_Cls
 * @Author   Antony de la rosa guzman.
 * @Date     2019-11-13
@@ -7,30 +6,22 @@
 * @Description Creación de la clase controladora para el componente lightning 
 *              BE_OppsCommercialActivity_Cmp. Funciona obteniendo los datos del cliente para mostrarlos en el cintillo.
 *              *Clase de pruebas BE_OppsCommercialActivity_Test.
-* _________________________________________________________________________________
 * @Changes
-* _________________________________________________________________________________
 */
 public with sharing class BE_OppsCommercialActivity_Cls {
-     /**
-* _____________________________________________________________________________
+/*
 * @Description Constructor de la clase
-* _____________________________________________________________________________
 * @Author Antony de la rosa guzman.
 * @Date 2019-11-13
 * @example BE_DetailRowBusiness_Cls example = new BE_DetailRowBusiness_Cls();
-* _____________________________________________________________________________
 **/
      @testVisible private BE_OppsCommercialActivity_Cls() {}
     
-        /**
-* _____________________________________________________________________________
-* @Description Metodo que retorna la lista con la informacion para el cintillo Oportunidades.
-* _____________________________________________________________________________
+/*
+* @Description funcion que retorna la lista con la informacion para el cintillo Oportunidades.
 * @Author Antony de la rosa guzman.
 * @Date 2019-11-13
 * @example Account example = getOppInfo(9098098);
-* _____________________________________________________________________________
 **/
     @auraEnabled
     public static String getOppInfo(String accId) {
@@ -41,10 +32,10 @@ public with sharing class BE_OppsCommercialActivity_Cls {
         Decimal sumLive = 0;
         Integer sizeLive = 0;
         Integer numOpp = 0;
-        String oppType = '';
+        final String oppType = '';
         final List<wrapperClass> lWrapClassAux = new List<wrapperClass>();
         final List<Opportunity> oppDenormList = [SELECT Id, Amount, StageName FROM Opportunity WHERE AccountId =: accId AND CreatedDate = THIS_YEAR];
-        if(oppDenormList.size()>0 && !oppDenormList.isEmpty()) {
+        if(!oppDenormList.isEmpty()) {
             for(Opportunity i : oppDenormList) {
                 if(i.StageName == '06') {
                     sumWon = sumWon + (i.Amount == null ? 0 : i.Amount);
@@ -58,10 +49,8 @@ public with sharing class BE_OppsCommercialActivity_Cls {
                 }
             }
             numOpp = oppDenormList.size();
-            lWrapClassAux.add(new wrapperClass(numOpp,sumWon,sumLost,sizeWon,sizeLost,oppType,sizeLive,sumLive)); 
-        }else{
-            lWrapClassAux.add(new wrapperClass(numOpp,sumWon,sumLost,sizeWon,sizeLost,oppType,sizeLive,sumLive));
         }
+        lWrapClassAux.add(new wrapperClass(numOpp,sumWon,sumLost,sizeWon,sizeLost,oppType,sizeLive,sumLive));
         return JSON.serialize(lWrapClassAux);
     }
      /*

@@ -15,15 +15,15 @@
                 <table class="slds-table  slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
                         <th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
                             <div class="slds-text-title--caps slds-truncate">Total de visitas (YTD)</div>
-                            <div class="horizontal "><strong><ui:outputNumber value="{!v.data[0].returnTotalVisitsYTD}"/></strong></div>
+                            <div class="horizontal "><strong><ui:outputNumber value="{!v.data[0].TotalVisitsYTD}"/></strong></div>
                         </th>
                     	<th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
                             <div class="slds-text-title--caps slds-truncate">Total de visitas trimestre</div>
-                            <div class="horizontal "><strong><ui:outputText value="{!v.data[0].returnTotalVisitsCQ}"/> </strong></div>
+                            <div class="horizontal "><strong><ui:outputText value="{!v.data[0].TotalVisitsCQ}"/> </strong></div>
                         </th>
                     	<th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
                             <div class="slds-text-title--caps slds-truncate">Variación vs. año anterior</div>
-                                 <div class="horizontal "><strong><ui:outputText value="{!v.data[0].returnTotalVisitsYOY}"/>%</strong></div>
+                                 <div class="horizontal "><strong><ui:outputText value="{!v.data[0].TotalVisitsYOY}"/>%</strong></div>
                         </th>
                 </table>
             </div>
@@ -33,19 +33,19 @@
                 <table class="slds-table slds-table_fixed-layout slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
                         <th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
                             <div class="slds-text-title--caps slds-truncate">Total Visits (YTD)</div>
-                            <div class="horizontal "><strong><ui:outputNumber value="{!v.data[0].returnTotalVisitsYTD}"/></strong></div>
+                            <div class="horizontal "><strong><ui:outputNumber value="{!v.data[0].TotalVisitsYTD}"/></strong></div>
                         </th>
                     	<th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
                             <div class="slds-text-title--caps slds-truncate">Total Visits (FY)</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].returnTotalVisitsYF}"/> </strong></div>
+                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].TotalVisitsYF}"/> </strong></div>
                         </th>
                     	<th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
                             <div class="slds-text-title--caps slds-truncate">% (YOY)</div>
-                              <aura:if isTrue="{!v.data[0].returnTotalVisitsYOY gt 0}">
-                                 <div class="horizontal "><strong>+<ui:outputText value="{!v.data[0].returnTotalVisitsYOY}"/>%</strong></div>
+                              <aura:if isTrue="{!v.data[0].TotalVisitsYOY gt 0}">
+                                 <div class="horizontal "><strong>+<ui:outputText value="{!v.data[0].TotalVisitsYOY}"/>%</strong></div>
                                  <aura:set attribute="else">
-                                      <aura:if isTrue="{!v.data[0].returnTotalVisitsYOY le 0}">
-                                         <div class="horizontal "><strong><ui:outputText value="{!v.data[0].returnTotalVisitsYOY}"/>%</strong></div>
+                                      <aura:if isTrue="{!v.data[0].TotalVisitsYOY le 0}">
+                                         <div class="horizontal "><strong><ui:outputText value="{!v.data[0].TotalVisitsYOY}"/>%</strong></div>
                                       </aura:if>
                                  </aura:set>
                              </aura:if>

@@ -42,13 +42,13 @@ public class BE_UtilitysDataTest_Test {
     /**
     * @Method:      crearUsuario
     * @param:       String strLastName, String strProfileName, String strRol
-    * @Description: Método que retorna un objeto User 
+    * @Description: Funcion que retorna un objeto User 
     */
     public static User crearUsuario(String strLastName, String strProfileName, String strRol) {
-        String email                  = 'tstBBVA'+(Math.random()*10000)+'@bbva.test.com';   
-        User usuario                  = new User(); 
+        String email                  = 'tstBBVA'+Math.random()*10000+'@bbva.test.com';   
+        final User usuario                  = new User(); 
         usuario.LastName              = strLastName;
-        usuario.Alias                 = String.valueOf((Math.random()*10000).round());
+        usuario.Alias                 = String.valueOf((Math.random() * 10000).round());
         usuario.Email                 = email;
         usuario.UserName              = email;
         usuario.EmailEncodingKey      = 'UTF-8';
@@ -57,7 +57,7 @@ public class BE_UtilitysDataTest_Test {
         usuario.LocaleSidKey          = 'en_US';
         usuario.IsActive              = true;
         usuario.ProfileId = userinfo.getProfileId();
-        if(String.isNotBlank(strRol)) usuario.UserRoleId = rolMapa.get(strRol).Id;
+        if(String.isNotBlank(strRol)) {usuario.UserRoleId = rolMapa.get(strRol).Id;}
         usuario.CompanyName           = 'DWP Perú';
         return usuario;
     }
@@ -65,10 +65,10 @@ public class BE_UtilitysDataTest_Test {
     /**
     * @Method:      crearCuenta
     * @param:       String strName
-    * @Description: Método que retorna un objeto cliente
+    * @Description: Funcion que retorna un objeto cliente
     */
 	public static Account crearCuenta(String strName) {
-		Account cliente          = new Account();
+		final Account cliente          = new Account();
 		cliente.Name             = strName;
 		cliente.unique_id__c = UNIQUECODE;	
 		return cliente;
@@ -77,10 +77,10 @@ public class BE_UtilitysDataTest_Test {
     /**
     * @Method:      crearCuenta Accounting
     * @param:       String strName,Id Acc
-    * @Description: Método que retorna un objeto Account_Accounting__c
+    * @Description: Funcion que retorna un objeto Account_Accounting__c
     */
 	public static Account_Accounting__c crearAccount_Accouting(String strName,Id idAccount) {
-		Account_Accounting__c accAcc = new Account_Accounting__c();
+		final Account_Accounting__c accAcc = new Account_Accounting__c();
         accAcc.Name = strName;
         accAcc.account_id__c = idAccount;
         accAcc.gl_account_amount__c=200;
@@ -95,10 +95,10 @@ public class BE_UtilitysDataTest_Test {
     /**
     * @Method:      crearOportunidad
     * @param:       String strName, Id idAccount,  Id idOwner, String strTipoProd
-    * @Description: Método que retorna un objeto Oportunidad
+    * @Description: Funcion que retorna un objeto Oportunidad
     */
     public static Opportunity crearOportunidad(String strName, Id idAccount,  Id idOwner, String strTipoProd) {     
-        Opportunity objOpp       = new Opportunity();
+        final Opportunity objOpp       = new Opportunity();
         objOpp.Name              = strName;
         objOpp.StageName         = '02';
         objOpp.AccountId         = idAccount;
@@ -110,10 +110,10 @@ public class BE_UtilitysDataTest_Test {
     /**
     * @Method:      crearVisitas
     * @param:       String strName, Id idAccount,  Id idOwner, String strTipoVisita
-    * @Description: Método que retorna un objeto Visita
+    * @Description: Funcion que retorna un objeto Visita
     */
     public static dwp_kitv__Visit__c crearVisita(String strName, Id idAccount, String strTipoVisita) {     
-        dwp_kitv__Visit__c visit = new dwp_kitv__Visit__c();
+        final dwp_kitv__Visit__c visit = new dwp_kitv__Visit__c();
         visit.Name=strName;
         visit.dwp_kitv__visit_start_date__c = datetime.newInstance(System.today().year(), System.today().Month(), System.today().day(), 13, 30, 0);
         visit.dwp_kitv__visit_duration_number__c='30';
@@ -127,10 +127,10 @@ public class BE_UtilitysDataTest_Test {
     /**
     * @Method:      crearVariation
     * @param:       String strName, Id idAccount
-    * @Description: Método que retorna un objeto Account_variation_information__c
+    * @Description: Funcion que retorna un objeto Account_variation_information__c
     */
     public static Account_variation_information__c crearVariation(String strName, Id idAccount,String StrColor) {     
-        Account_variation_information__c Variation = new Account_variation_information__c();
+        final Account_variation_information__c Variation = new Account_variation_information__c();
         Variation.indicator_name__c=strName;
         Variation.Account_Id__c=idAccount;
         Variation.validation_color_type__c = StrColor;
@@ -143,8 +143,8 @@ public class BE_UtilitysDataTest_Test {
     * @Description: Crea un registro del tipo dwp_kitv__Visit_Topic__c
     * @param: String tipoRegistro
     */
-    public static dwp_kitv__Visit_Topic__c crtVisitTopic(String visita){
-        dwp_kitv__Visit_Topic__c topic = new dwp_kitv__Visit_Topic__c();
+    public static dwp_kitv__Visit_Topic__c crtVisitTopic(String visita) {
+        final dwp_kitv__Visit_Topic__c topic = new dwp_kitv__Visit_Topic__c();
         topic.dwp_kitv__visit_id__c = visita;
         return topic;
     }
@@ -152,10 +152,10 @@ public class BE_UtilitysDataTest_Test {
       /**
     * @Method:      crearContacto
     * @param:       Id idCuenta, String strFirstName, String strLastName,  String devNameTipoRegistro
-    * @Description: Método que retorna un objeto contacto
+    * @Description: Funcion que retorna un objeto contacto
     */
 	public static Contact crearContacto(Id idCuenta, String strFirstName, String strLastName) {
-		Contact contacto   = new Contact();
+		final Contact contacto   = new Contact();
 		contacto.FirstName = strFirstName;
         contacto.Salutation='Sr.';
 		contacto.LastName  = strLastName;
@@ -164,8 +164,8 @@ public class BE_UtilitysDataTest_Test {
         contacto.decision_making_desc__c ='Si';
         contacto.prof_position_type__c = 'APODERADO';
         contacto.Cargo_inicio__c = 'APODERADO';
-		contacto.Email     = 'tstBBVA'+((Math.random()*10000).round())+'@bbva.test.com';
-		if(idCuenta!=null)contacto.AccountId = idCuenta;
+		contacto.Email     = 'tstBBVA'+ (Math.random()*10000).round()+'@bbva.test.com';
+        if(idCuenta!=null){contacto.AccountId = idCuenta;}
 		return contacto;
     }
 }

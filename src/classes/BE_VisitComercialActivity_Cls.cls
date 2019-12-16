@@ -12,12 +12,20 @@
 * _________________________________________________________________________________
 */
 public with sharing class BE_VisitComercialActivity_Cls {
-	
+    
+    /*
+    * Attribute
+    */
+    private static final string anant = 'AnoAnt';
+    /*
+    * Attribute
+    */
+    private static final string trimestre = 'trimestre';
 	/**
 	* @author Global Desktop
 	* @description Constructor de la clase
 	*/
-	public BE_VisitComercialActivity_Cls() {}
+	@testVisible private BE_VisitComercialActivity_Cls() {}
 	/**
 	* @author Global Desktop
 	* @description Recupera las visitas relacionadas con la cuenta
@@ -40,32 +48,40 @@ public with sharing class BE_VisitComercialActivity_Cls {
 	* @description Clase que construye la clase wrapper
 	*/
 	public class wrapperClass {
-		//Declaracion de variable para devolver en la lista wrapper
-		private Integer returnTotalVisitsYTD;
-		//Declaracion de variable para devolver en la lista wrapper
-		private Integer returnTotalVisitsYF;
-		//Declaracion de variable para devolver en la lista wrapper
-		private Decimal returnTotalVisitsYOY = 0;
-		//Declaracion de variable para devolver en la lista wrapper
-		private Integer returnTotalVisitsCQ;
+		 /*
+        * Attribute
+        */
+		private Integer TotalVisitsYTD;
+		 /*
+        * Attribute
+        */
+		private Integer TotalVisitsYF;
+		 /*
+        * Attribute
+        */
+		private Decimal TotalVisitsYOY = 0;
+		 /*
+        * Attribute
+        */
+		private Integer TotalVisitsCQ;
 		/**
 		* @author Global Desktop
 		* @description Method que construye la clase wrapper
 		*/
 		public wrapperClass(Integer totalVisitsYTD, Integer totalVisitsYF,Integer totalVisitsCQ) {
-  			this.returnTotalVisitsYTD = totalVisitsYTD;
-  			this.returnTotalVisitsYF = totalVisitsYF;
-            this.returnTotalVisitsCQ = totalVisitsCQ;
-            if (returnTotalVisitsYTD > 0 && returnTotalVisitsYTD != null ) {
-                Decimal numVisitsTRYOY =  (((Decimal) returnTotalVisitsYTD - (Decimal) returnTotalVisitsYF)/returnTotalVisitsYTD) * 100;
-                returnTotalVisitsYOY = numVisitsTRYOY.setScale(2);
+  			this.TotalVisitsYTD = totalVisitsYTD;
+  			this.TotalVisitsYF = totalVisitsYF;
+            this.TotalVisitsCQ = totalVisitsCQ;
+            if (TotalVisitsYTD > 0 && TotalVisitsYTD != null ) {
+                Decimal numVisitsTRYOY =  (((Decimal) TotalVisitsYTD - (Decimal) TotalVisitsYF)/TotalVisitsYTD) * 100;
+                TotalVisitsYOY = numVisitsTRYOY.setScale(2);
             }
 		}
 	}
     
        /**
 * _____________________________________________________________________________
-* @Description Metodo que consulta el total de visitas ya sea por año o por trimestre.
+* @Description funcion que consulta el total de visitas ya sea por año o por trimestre.
 * _____________________________________________________________________________
 * @Author Antony de la rosa guzman.
 * @Date 2019-11-08
@@ -75,24 +91,25 @@ public with sharing class BE_VisitComercialActivity_Cls {
     Public static Integer visist(Id accountId,String type){
         datetime dateOfYear;
         datetime dateOfActu;
-        if(type =='AnoAnt'){
+        if(type == anant){
             dateOfYear = datetime.newInstance(System.today().year()-1,1,1);
             dateOfActu = datetime.newInstance(System.today().year()-1,System.today().month(),System.today().day()+1);
-        }else{dateOfYear = datetime.newInstance(System.today().year(),1,1);dateOfActu = datetime.newInstance(System.today().year(),System.today().month(),System.today().day()+1);}
-        String[] todas = new String[]{'01','02','03','04','05','06'}; 
-        String[] finalizadas = new String[]{'05','06'};
-        Integer year = Type == 'AnoAnt'? System.today().year()-1 : System.today().year(); 
+        }else{
+            dateOfYear = datetime.newInstance(System.today().year(),1,1);
+            dateOfActu = datetime.newInstance(System.today().year(),System.today().month(),System.today().day()+1);
+        }
+        final String[] finalizadas = new String[]{'05','06'};
         Integer quantityVisitTri = 0;
         Integer quantityyear = 0;
-        Integer quarter = (System.today().month() / 3) + 1;
+        final Integer quarter = System.today().month() / 3 + 1;
         for(dwp_kitv__Visit__c visit : [SELECT Id, dwp_kitv__visit_start_date__c FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c = :accountId AND dwp_kitv__visit_start_date__c >=: (dateOfYear) AND dwp_kitv__visit_start_date__c <=: (dateOfActu) AND dwp_kitv__visit_status_type__c IN :finalizadas ]) {
            quantityyear++;
-            Integer quaterVisit = (visit.dwp_kitv__visit_start_date__c.month() / 3) + 1;
-            if(quarter == quaterVisit && Type =='trimestre') {
+            final Integer quaterVisit = visit.dwp_kitv__visit_start_date__c.month() / 3 + 1;
+            if(quarter == quaterVisit && Type == trimestre) {
                 quantityVisitTri++;
             }
         } 
-        return  type == 'trimestre'? quantityVisitTri : quantityyear;
+        return  type == trimestre ? quantityVisitTri : quantityyear;
     }
     
 }

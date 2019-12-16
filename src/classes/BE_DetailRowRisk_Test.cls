@@ -1,13 +1,9 @@
 /**
-* _________________________________________________________________________________
 * @Name     BE_DetailRowRisk_Test
 * @Author   Antony de la rosa guzman
 * @Date     2019-11-13
 * @Group    DWP Perú
 * @Description Clase de pruebas del controlador BE_DetailRowRisk_Cls.
-* _________________________________________________________________________________
-* @Changes
-* _________________________________________________________________________________
 */
 @isTest
 public class BE_DetailRowRisk_Test {
