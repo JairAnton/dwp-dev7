@@ -3296,6 +3296,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_frct__management_plan__c.owner_prof_position_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>dwp_kitv__Visit_Contact__c.dwp_kitv__contact_called_type__c</field>
         <readable>true</readable>

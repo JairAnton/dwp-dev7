@@ -241,6 +241,17 @@
         <type>LongTextArea</type>
         <visibleLines>2</visibleLines>
     </fields>
+    <fields>
+        <fullName>owner_prof_position_id__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.prof_position_id__c</formula>
+        <label>Owner Position Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Management Plan</label>
     <listViews>
         <fullName>My_plans</fullName>

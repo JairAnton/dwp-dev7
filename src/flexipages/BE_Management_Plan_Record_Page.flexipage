@@ -45,86 +45,6 @@
                 <name>title</name>
                 <value>Financiamiento a corto plazo</value>
             </componentInstanceProperties>
-            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>blockingStage</name>
-                <value>05</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>oppType</name>
-                <value>-</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>stringStates</name>
-                <value>04</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Financiamiento a largo plazo</value>
-            </componentInstanceProperties>
-            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>blockingStage</name>
-                <value>05</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>oppType</name>
-                <value>-</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>stringStates</name>
-                <value>04</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Riesgo de firma</value>
-            </componentInstanceProperties>
-            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>blockingStage</name>
-                <value>05</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>oppType</name>
-                <value>-</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>stringStates</name>
-                <value>04</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Recursos</value>
-            </componentInstanceProperties>
-            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
-        </componentInstances>
-        <name>Facet-7409e8f1-8a96-4bab-a4bd-1edfa00b223d</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>blockingStage</name>
-                <value>05</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>oppType</name>
-                <value>-</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>stringStates</name>
-                <value>04</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Financiamiento a corto plazo</value>
-            </componentInstanceProperties>
             <componentName>dwp_frct:OpportunitiesByClientsForecast</componentName>
         </componentInstances>
         <componentInstances>
@@ -189,12 +109,107 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentInstanceProperties>
+                <name>blockingStage</name>
+                <value>05</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>oppType</name>
+                <value>-</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>stringStates</name>
+                <value>04</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Financiamiento a corto plazo</value>
+            </componentInstanceProperties>
+            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>blockingStage</name>
+                <value>05</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>oppType</name>
+                <value>-</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>stringStates</name>
+                <value>04</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Financiamiento a largo plazo</value>
+            </componentInstanceProperties>
+            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>blockingStage</name>
+                <value>05</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>oppType</name>
+                <value>-</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>stringStates</name>
+                <value>04</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Riesgo de firma</value>
+            </componentInstanceProperties>
+            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>blockingStage</name>
+                <value>05</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>oppType</name>
+                <value>-</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>stringStates</name>
+                <value>04</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Recursos</value>
+            </componentInstanceProperties>
+            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
+        </componentInstances>
+        <name>Facet-7409e8f1-8a96-4bab-a4bd-1edfa00b223d</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
         <name>Facet-aeceef14-f406-491c-b6fe-66bf0596f5f5</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>active</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-8f8a4be4-4f4a-4e82-9286-b6d658d5e680</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Oportunidades por cliente</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>active</name>
@@ -207,17 +222,6 @@
             <componentInstanceProperties>
                 <name>title</name>
                 <value>Oportunidades por familia</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:tab</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
-                <value>Facet-8f8a4be4-4f4a-4e82-9286-b6d658d5e680</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Oportunidades por cliente</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
@@ -246,19 +250,6 @@
                 <value>Financiamiento a corto plazo</value>
             </componentInstanceProperties>
             <componentName>dwp_frct:PlansByFamilyForecast_cmp</componentName>
-            <visibilityRule>
-                <booleanFilter>1 AND 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>E01</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>I21</rightValue>
-                </criteria>
-            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -270,19 +261,6 @@
                 <value>Financiamiento a largo plazo</value>
             </componentInstanceProperties>
             <componentName>dwp_frct:PlansByFamilyForecast_cmp</componentName>
-            <visibilityRule>
-                <booleanFilter>1 AND 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>E01</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>I21</rightValue>
-                </criteria>
-            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -294,19 +272,6 @@
                 <value>Riesgo de firma</value>
             </componentInstanceProperties>
             <componentName>dwp_frct:PlansByFamilyForecast_cmp</componentName>
-            <visibilityRule>
-                <booleanFilter>1 AND 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>E01</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>I21</rightValue>
-                </criteria>
-            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -318,147 +283,6 @@
                 <value>Recursos</value>
             </componentInstanceProperties>
             <componentName>dwp_frct:PlansByFamilyForecast_cmp</componentName>
-            <visibilityRule>
-                <booleanFilter>1 AND 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>E01</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>I21</rightValue>
-                </criteria>
-            </visibilityRule>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>blockingStage</name>
-                <value>05</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>oppType</name>
-                <value>-</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>stringStates</name>
-                <value>04</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Financiamiento a corto plazo</value>
-            </componentInstanceProperties>
-            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
-            <visibilityRule>
-                <booleanFilter>1 OR 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>E01</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>I21</rightValue>
-                </criteria>
-            </visibilityRule>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>blockingStage</name>
-                <value>05</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>oppType</name>
-                <value>-</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>stringStates</name>
-                <value>04</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Financiamiento a largo plazo</value>
-            </componentInstanceProperties>
-            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
-            <visibilityRule>
-                <booleanFilter>1 OR 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>E01</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>I21</rightValue>
-                </criteria>
-            </visibilityRule>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>blockingStage</name>
-                <value>05</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>oppType</name>
-                <value>-</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>stringStates</name>
-                <value>04</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Riesgo de firma</value>
-            </componentInstanceProperties>
-            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
-            <visibilityRule>
-                <booleanFilter>1 OR 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>E01</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>I21</rightValue>
-                </criteria>
-            </visibilityRule>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>blockingStage</name>
-                <value>05</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>oppType</name>
-                <value>-</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>stringStates</name>
-                <value>04</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Recursos</value>
-            </componentInstanceProperties>
-            <componentName>dwp_frct:OpportunitiesByFamilyForecast_cmp</componentName>
-            <visibilityRule>
-                <booleanFilter>1 OR 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>E01</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!Record.dwp_frct__user_id__r.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>I21</rightValue>
-                </criteria>
-            </visibilityRule>
         </componentInstances>
         <name>Facet-bcdada0e-3d62-4f6a-9f8a-c2e41dc1deb0</name>
         <type>Facet</type>
@@ -510,12 +334,12 @@
             <visibilityRule>
                 <booleanFilter>1 OR 2</booleanFilter>
                 <criteria>
-                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <leftValue>{!Record.owner_prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>E03</rightValue>
                 </criteria>
                 <criteria>
-                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <leftValue>{!Record.owner_prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>I32</rightValue>
                 </criteria>
@@ -528,16 +352,26 @@
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
             <visibilityRule>
-                <booleanFilter>1 AND 2</booleanFilter>
+                <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
                 <criteria>
-                    <leftValue>{!$User.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>E03</rightValue>
+                    <leftValue>{!Record.owner_prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>E01</rightValue>
                 </criteria>
                 <criteria>
-                    <leftValue>{!$User.prof_position_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>I32</rightValue>
+                    <leftValue>{!Record.owner_prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I21</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.owner_prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>OS8</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.owner_prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>AL1</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
