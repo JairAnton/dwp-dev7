@@ -1773,6 +1773,11 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Banking_System_Debt__c.Indirect_Debt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Banking_System_Debt__c.debt_current_balance_amount__c</field>
         <readable>true</readable>
     </fieldPermissions>

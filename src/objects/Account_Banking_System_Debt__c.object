@@ -69,6 +69,18 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Indirect_Debt__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(product_group_classification_id__c=&quot;INDIRECTA&quot;,  debt_current_balance_amount__c , 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Deuda indirecta</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>account_id__c</fullName>
         <externalId>false</externalId>
         <label>Account</label>
