@@ -56,13 +56,13 @@
         <field>ACCOUNT.NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Top Margen2</name>
+    <name>Top Margen</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
     <reportType>AccountCustomEntity$Account_Profitability__c</reportType>
-    <scope>organization</scope>
+    <scope>user</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>

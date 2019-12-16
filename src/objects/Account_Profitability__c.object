@@ -56,7 +56,31 @@
     <enableSearch>false</enableSearch>
     <enableSharing>false</enableSharing>
     <enableStreamingApi>false</enableStreamingApi>
-	<fields>
+    <fields>
+        <fullName>Commissions__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(profitability_category_type__c=&quot;Comisiones&quot;, currenct_mon_amount__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Comisiones</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Facturaci_n__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( profitability_category_type__c=&quot;Altas&quot; &amp;&amp; product_desc__c=&quot;CLIENTE&quot;, currenct_mon_amount__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Facturación</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Origin_currenIsoCode__c</fullName>
         <externalId>false</externalId>
         <label>Moneda Original</label>

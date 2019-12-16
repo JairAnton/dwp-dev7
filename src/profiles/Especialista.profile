@@ -878,6 +878,11 @@ Ejecutivos de REDES</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Record_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.ShippingAddress</field>
         <readable>true</readable>
@@ -1695,6 +1700,11 @@ Ejecutivos de REDES</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Product__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.Facturaci_n__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
