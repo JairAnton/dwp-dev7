@@ -84,12 +84,6 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 */
     @auraEnabled
     public static string getOppAbierInfo(String accId,Boolean Camping) {
-        fillArrayInit(stageName01,'0');
-        fillArrayInit(stageName02,'0');
-        fillArrayInit(stageName03,'0');
-        fillArrayInit(stageName04,'0');
-        fillArrayInit(stageName05,'0');
-        fillArrayInit(labels,'0');
         final integer index = myDate.month();
         integer index2 =0 ;
         final Map<Integer,Integer> quarters= new Map<Integer,Integer>();
@@ -129,9 +123,6 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 */
     @auraEnabled
     public static string getOppInfoHits(String accId,Boolean Camping) {
-        fillArrayInit(oppsHits,'0');
-        fillArrayInit(labels,'0');
-        fillArrayInit(hitOpp,'0');
         final integer index = myDate.month();
         integer index2 =0 ;
         final Map<Integer,Integer> quarters= new Map<Integer,Integer>();
@@ -189,13 +180,13 @@ public with sharing class BE_OppCommercialActivChart_Cls {
          /*
         * Attribute
         */
-        public WPR_Clasifica_QsOpps(List<string> LabelsList,List<string> StageName01List, List<string>StageName02List, List<string> StageName03List, List<string> StageName04List,List<string> StageName05List){
-            this.Labels = LabelsList;
-            this.StageName01 = StageName01List;
-            this.StageName02 = StageName02List;
-            this.StageName03 = StageName03List;
-            this.StageName04 = StageName04List;
-            this.StageName05 = StageName05List;
+        public WPR_Clasifica_QsOpps(List<string>labelsList,List<string> stageName01List, List<string>stageName02List, List<string> stageName03List, List<string> stageName04List,List<string> stageName05List){
+            this.Labels = labelsList;
+            this.StageName01 = stageName01List;
+            this.StageName02 = stageName02List;
+            this.StageName03 = stageName03List;
+            this.StageName04 = stageName04List;
+            this.StageName05 = stageName05List;
         }  
     }
     
@@ -213,37 +204,32 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         * Attribute
         */
         public list<string> Hits {get;set;}
-        public WPR_HitsOPP(List<string> LabelsList,list<string> OppList,List<string> HitList) {
-            this.Labels = LabelsList;
-            this.Opps = OppList;
-            this.Hits = HitList;
+        public WPR_HitsOPP(List<string> labelsList,list<string> oppList,List<string> hitList) {
+            this.Labels = labelsList;
+            this.Opps = oppList;
+            this.Hits = hitList;
         }  
     }
      /*
         * Attribute
         */
     public static list<String> sortQs() {
-        string Q = 'Q1,Q2,Q3,Q4';
-        final list<string> Qs = Q.split(',');
-        final list<string> QsOrder= new list<String>();
+        string q = 'Q1,Q2,Q3,Q4';
+        final list<string> qs = q.split(',');
+        final list<string> qsOrder= new list<String>();
         final Integer quarter = System.today().month() / 3 + 1;
         integer quarter2 =0 ;
         for(integer i=0;i<4;i++) {
             if(quarter+i < 4) {
-                QsOrder.add(Qs[(quarter+i)]+' '+String.valueof(myDate.year()-1));
+                qsOrder.add(qs[(quarter+i)]+' '+String.valueof(myDate.year()-1));
             } else {
-                QsOrder.add(Qs[quarter2]+' '+String.valueof(myDate.year()));
+                qsOrder.add(qs[quarter2]+' '+String.valueof(myDate.year()));
                 quarter2++;
             }
         }
-        return QsOrder;
+        return qsOrder;
     } 
     
-    private static void fillArrayInit(list<string> listInit,string value) {
-        for(integer i =0;i<listInit.size();i++) {
-          listInit[i]=value;
-        }
-    }
     
        /**
 * _____________________________________________________________________________
@@ -254,49 +240,49 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 * @example Integer example = hits(AccountId,Camping);
 * _____________________________________________________________________________
 */
-    Public static list<string> hits(Id AccountId,Boolean Camping) {
-          List<string> Hists = new List<string>();
-          List<string> HistsOrder = new List<string>();
-          Integer Q1oppWonNumber = 0; Integer Q1=0;Integer Q2=0; Integer Q3=0;Integer Q4=0;
-          Integer Q2oppWonNumber = 0; Integer Q3oppWonNumber = 0;Integer Q4oppWonNumber = 0;Integer Q1oppLostNumber = 0;
-          Integer Q2oppLostNumber = 0;Integer Q3oppLostNumber = 0;Integer Q4oppLostNumber = 0;
-          List<AggregateResult> OppListHit =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:AccountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('07','06') AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
-          for(AggregateResult ListHit : OppListHit) {
-            final Integer QuarterRec = (Integer)(ListHit.get('Q'));
-           if(ListHit.get(STAGEFIELD)=='06') {
-            if(QuarterRec == 1) {Q1oppWonNumber = (Integer)(ListHit.get(LABELTOTAL));}
-            if(QuarterRec == 2) {Q2oppWonNumber = (Integer)(ListHit.get(LABELTOTAL));}
-            if(QuarterRec == 3) {Q3oppWonNumber = (Integer)(ListHit.get(LABELTOTAL));}
-            if(QuarterRec == 4) {Q4oppWonNumber = (Integer)(ListHit.get(LABELTOTAL));}
-              }else{
-            if(QuarterRec == 1) {Q1oppLostNumber = (Integer)(ListHit.get(LABELTOTAL));}
-            if(QuarterRec == 2) {Q2oppLostNumber = (Integer)(ListHit.get(LABELTOTAL));}
-            if(QuarterRec == 3) {Q3oppLostNumber = (Integer)(ListHit.get(LABELTOTAL));}
-            if(QuarterRec == 4) {Q4oppLostNumber = (Integer)(ListHit.get(LABELTOTAL));}
+    Public static list<string> hits(Id accountId,Boolean Camping) {
+          List<string> hists = new List<string>();
+          List<string> histsOrder = new List<string>();
+          Integer q1oppWonNumber = 0; Integer q1=0;Integer q2=0; Integer q3=0;Integer Q4=0;
+          Integer q2oppWonNumber = 0; Integer q3oppWonNumber = 0;Integer q4oppWonNumber = 0;Integer q1oppLostNumber = 0;
+          Integer q2oppLostNumber = 0;Integer q3oppLostNumber = 0;Integer q4oppLostNumber = 0;
+          final List<AggregateResult> oppListHit =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('07','06') AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
+          for(AggregateResult listHit : oppListHit) {
+            final Integer quarterRec = (Integer)(listHit.get('Q'));
+           if(listHit.get(STAGEFIELD)=='06') {
+            if(quarterRec == 1) {q1oppWonNumber = (Integer)(listHit.get(LABELTOTAL));}
+            if(quarterRec == 2) {q2oppWonNumber = (Integer)(listHit.get(LABELTOTAL));}
+            if(quarterRec == 3) {q3oppWonNumber = (Integer)(listHit.get(LABELTOTAL));}
+            if(quarterRec == 4) {q4oppWonNumber = (Integer)(listHit.get(LABELTOTAL));}
+              } else {
+            if(quarterRec == 1) {q1oppLostNumber = (Integer)(listHit.get(LABELTOTAL));}
+            if(quarterRec == 2) {q2oppLostNumber = (Integer)(listHit.get(LABELTOTAL));}
+            if(quarterRec == 3) {q3oppLostNumber = (Integer)(listHit.get(LABELTOTAL));}
+            if(quarterRec == 4) {q4oppLostNumber = (Integer)(listHit.get(LABELTOTAL));}
               }
         }
-        if(Q1oppWonNumber > 0 && Q1oppWonNumber != null ) {Q1= (Q1oppWonNumber*100)/(Q1oppWonNumber+Q1oppLostNumber);}
-        if(Q2oppWonNumber > 0 && Q2oppWonNumber != null ) {Q2 = (Q2oppWonNumber*100)/(Q2oppWonNumber+Q2oppLostNumber);}  
-        if(Q3oppWonNumber > 0 && Q3oppWonNumber != null ) {Q3= (Q3oppWonNumber*100)/(Q3oppWonNumber+Q1oppLostNumber);}
-        if(Q4oppWonNumber > 0 && Q4oppWonNumber != null ) {Q4 = (Q4oppWonNumber*100)/(Q4oppWonNumber+Q2oppLostNumber);}
-        HistsOrder.add(string.valueOf(Q1));HistsOrder.add(string.valueOf(Q2));HistsOrder.add(string.valueOf(Q3));HistsOrder.add(string.valueOf(Q4));
-        Hists = HistsOrder(HistsOrder);
-        return Hists;
+        if(q1oppWonNumber > 0 && q1oppWonNumber != null ) {q1= (q1oppWonNumber*100)/(q1oppWonNumber+q1oppLostNumber);}
+        if(q2oppWonNumber > 0 && q2oppWonNumber != null ) {q2 = (q2oppWonNumber*100)/(q2oppWonNumber+q2oppLostNumber);}  
+        if(q3oppWonNumber > 0 && q3oppWonNumber != null ) {q3= (q3oppWonNumber*100)/(q3oppWonNumber+q1oppLostNumber);}
+        if(q4oppWonNumber > 0 && q4oppWonNumber != null ) {q4 = (q4oppWonNumber*100)/(q4oppWonNumber+q2oppLostNumber);}
+        histsOrder.add(string.valueOf(q1));histsOrder.add(string.valueOf(q2));histsOrder.add(string.valueOf(q3));histsOrder.add(string.valueOf(q4));
+        hists = histsOrder(histsOrder);
+        return hists;
     }
     
-    public static list<String> HistsOrder(list<string> values) {
-        final list<string> QsOrder= new list<String>();
+    public static list<String> histsOrder(list<string> values) {
+        final list<string> qsOrder= new list<String>();
         final Integer quarter = System.today().month() / 3 + 1;
         integer quarter2 =0 ;
         for(integer i=0;i<4;i++) {
             if(quarter + i <4 ) {
-                QsOrder.add(values[(quarter+i)]);
+                qsOrder.add(values[(quarter+i)]);
             } else {
-                QsOrder.add(values[quarter2]);
+                qsOrder.add(values[quarter2]);
                 quarter2++;
             }
         }
-        return QsOrder;
+        return qsOrder;
     } 
     
 }
