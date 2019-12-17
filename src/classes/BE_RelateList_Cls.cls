@@ -33,18 +33,8 @@ public with sharing class BE_RelateList_Cls {
 */
     @auraEnabled
     public static string getRelatedVisit(String accId, String objectName,String FieldNameRelation, String fields, String filters, String orderRow, String limitRow) {
-        String headquery = 'SELECT Id,OwnerId, ' +String.escapeSingleQuotes(fields)+ ' FROM ' +String.escapeSingleQuotes(objectName)+ ' WHERE '+String.escapeSingleQuotes(FieldNameRelation)+' = :accId';
-        String query = '';
-        if(filters!=null && filters!='') {
-            query += ' AND ' + filters;
-        }
-        if(orderRow!=null && orderRow!='') {
-            query += ' ORDER BY ' + orderRow;
-        }
-        if(limitRow!=null && limitRow!='') {
-            query += ' LIMIT ' + limitRow;
-        }
-        final List<sObject> sobjList = Database.query( headquery + query);
+        String query = 'SELECT Id,OwnerId, ' +String.escapeSingleQuotes(fields)+ ' FROM ' +String.escapeSingleQuotes(objectName)+ ' WHERE '+String.escapeSingleQuotes(FieldNameRelation)+' = :accId'+ (filters!='' && filters!=null?' AND ' + filters : '') + (orderRow!='' && orderRow!=null?' ORDER BY  ' + orderRow : '')+(limitRow!='' && limitRow!=null?' LIMIT ' + limitRow : '');
+        final List<sObject> sobjList = Database.query(query);
         return JSON.serialize(sobjList);
     }
 }
