@@ -289,7 +289,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 * @example String example = validationdir(mexico,peru,'-');
 */
     Public static String validationdir(string BillingStreet ,string BillingCity) {
-        final String result = '-';
+        String result = '-';
         final String dirstreet =  String.isNotEmpty(BillingStreet) ? BillingStreet :'-';
         final String dircity =  String.isNotEmpty(BillingCity) ? BillingCity :'-';
         result =  String.isNotEmpty(dircity) && String.isNotEmpty(dirstreet) ? dirstreet +', '+ dircity: BillingCity;
