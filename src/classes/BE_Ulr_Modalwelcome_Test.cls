@@ -17,7 +17,7 @@ public class BE_Ulr_Modalwelcome_Test {
         insert thisUser;
         System.runAs(thisUser) {
             final List<BE_Urls_Dynamic__c> url = new List<BE_Urls_Dynamic__c>();
-            url.add(new BE_Urls_Dynamic__c(Name='test',BE_Titulo_Url__c ='test',BE_Url__c = 'test'));
+            url.add(new BE_Urls_Dynamic__c(Name='test',BE_Titulo_Url__c ='testurl',BE_Url__c = 'test//'));
             insert url;
         }
     }

@@ -41,6 +41,12 @@ public class BE_UtilitysDataTest_Test {
         usuario.CompanyName           = 'DWP Perú';
         return usuario;
     }
+    
+    @isTest static void test_method_two() {
+        Integer maxQuery = Limits.getLimitQueries(); 
+        Integer numQuery = maxQuery - 1;
+        System.assert(Limits.getQueries() < numQuery, 'numero de querys dentro del rango  permitido');
+    }
 
     /**
     * @Method:      crearCuenta

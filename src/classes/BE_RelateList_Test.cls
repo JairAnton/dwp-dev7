@@ -37,12 +37,12 @@ public class BE_RelateList_Test {
         final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
         System.runAs(thisUser) {
             test.startTest();
-            String objectName = 'dwp_kitv__Visit__c';
-            string FieldNameRelation ='dwp_kitv__account_id__c';
-            String fields='Name,dwp_kitv__visit_start_date__c,CreatedBy.Name'; 
-            String filters='dwp_kitv__visit_start_date__c>= TODAY';
-            String orderRow='dwp_kitv__visit_start_date__c asc'; 
-            String limitRow='5'; 
+            final String objectName = 'dwp_kitv__Visit__c';
+            final string FieldNameRelation ='dwp_kitv__account_id__c';
+            final String fields='Name,dwp_kitv__visit_start_date__c,CreatedBy.Name'; 
+            final String filters='dwp_kitv__visit_start_date__c>= TODAY';
+            final String orderRow='dwp_kitv__visit_start_date__c asc'; 
+            final String limitRow='5'; 
             BE_RelateList_Cls.getRelatedVisit(lsAcc[0].Id,objectName,FieldNameRelation,fields,filters,orderRow,limitRow);
             System.assertNotEquals(null, lsAcc[0].Name, 'datos registrados con exito');
             test.stopTest();

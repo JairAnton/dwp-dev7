@@ -9,6 +9,14 @@
 * @Changes
 */
 public with sharing class BE_OppsCommercialActivity_Cls {
+    /*
+	* Attribute
+	*/
+    private static final String STAGE06 = '06';
+     /*
+	* Attribute
+	*/
+    private static final String STAGE07 = '07';
 /*
 * @Description Constructor de la clase
 * @Author Antony de la rosa guzman.
@@ -37,10 +45,10 @@ public with sharing class BE_OppsCommercialActivity_Cls {
         final List<Opportunity> oppDenormList = [SELECT Id, Amount, StageName FROM Opportunity WHERE AccountId =: accId AND CreatedDate = THIS_YEAR];
         if(!oppDenormList.isEmpty()) {
             for(Opportunity i : oppDenormList) {
-                if(i.StageName == '06') {
+                if(i.StageName == STAGE06) {
                     sumWon = sumWon + (i.Amount == null ? 0 : i.Amount);
                     sizeWon = sizeWon + 1;
-                } else if(i.StageName == '07') {
+                } else if(i.StageName == STAGE07) {
                     sumLost = sumLost + (i.Amount == null ? 0 : i.Amount);
                     sizeLost = sizeLost + 1;
                 } else {

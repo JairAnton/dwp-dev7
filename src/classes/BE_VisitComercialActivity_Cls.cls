@@ -59,7 +59,7 @@ public with sharing class BE_VisitComercialActivity_Cls {
 		 /*
         * Attribute
         */
-		private Decimal TotalVisitsYOY = 0;
+		final Decimal TotalVisitsYOY;
 		 /*
         * Attribute
         */
