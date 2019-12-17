@@ -32,7 +32,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Número de Clientes</header>
+                <header>Número de clientes</header>
                 <legendPosition>Right</legendPosition>
                 <maxValuesDisplayed>6</maxValuesDisplayed>
                 <report>unfiled$public/Total_client_by_segment</report>
@@ -71,7 +71,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Volumen de Negocio</header>
+                <header>Volumen de negocio</header>
                 <legendPosition>Right</legendPosition>
                 <maxValuesDisplayed>6</maxValuesDisplayed>
                 <report>unfiled$public/Business_Volume</report>
@@ -229,7 +229,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Top Caídas en Activos (D+I)</header>
+                <header>Top caídas en activos (D+I)</header>
                 <report>unfiled$public/Top_caida_activos</report>
             </dashboardComponent>
             <rowIndex>8</rowIndex>
@@ -267,7 +267,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Top Caídas en Pasivos</header>
+                <header>Top caídas en pasivos</header>
                 <report>unfiled$public/Top_caidas_pasivos</report>
             </dashboardComponent>
             <rowIndex>8</rowIndex>
@@ -310,7 +310,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Top Facturación</header>
+                <header>Top facturación</header>
                 <report>unfiled$public/Facturacion</report>
             </dashboardComponent>
             <rowIndex>8</rowIndex>
@@ -346,7 +346,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Deudas Total Sistema Financiero</header>
+                <header>Deudas total sistema financiero</header>
                 <legendPosition>Right</legendPosition>
                 <report>unfiled$public/Debt_DI_DD_DT</report>
                 <showPercentage>false</showPercentage>
@@ -387,7 +387,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Deuda Directa Sistema Financiero</header>
+                <header>Deuda directa sistema financiero</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>unfiled$public/Debt_DI_DD_DT</report>
                 <showPercentage>false</showPercentage>
@@ -428,7 +428,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Deudas Indirecta Sistema Financiero</header>
+                <header>Deudas indirecta sistema financiero</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>unfiled$public/Debt_DI_DD_DT</report>
                 <showPercentage>false</showPercentage>
@@ -476,7 +476,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Facturación y Spread</header>
+                <header>Facturación y spread</header>
                 <report>unfiled$public/Billing_and_Spread</report>
             </dashboardComponent>
             <rowIndex>24</rowIndex>
@@ -525,7 +525,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Top Margen</header>
+                <header>Top margen</header>
                 <report>unfiled$public/Top_Margen1</report>
             </dashboardComponent>
             <rowIndex>24</rowIndex>
@@ -693,7 +693,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Sector Financiero</header>
+                <header>Sector financiero</header>
                 <report>unfiled$public/Sectores</report>
             </dashboardComponent>
             <rowIndex>32</rowIndex>
