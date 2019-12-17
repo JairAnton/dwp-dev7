@@ -48,15 +48,15 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             field.isSubtitle = 'true';
             listCard1.add(field);
             
-            field = new wrapperClass('Volumen Negocio', String.valueOf((accs[0].bank_turnover_volume_amount__c == null  ? 0 : accs[0].bank_turnover_volume_amount__c)), '02', card1);
+            field = new wrapperClass('Volumen Negocio',  validation(String.valueOf(accs[0].bank_turnover_volume_amount__c), '0'), '02', card1);
             field.format = 'PEN ###,###,##0.00';
             listCard1.add(field);
             
-            field = new wrapperClass('Margen Ordinario', String.valueOf((accs[0].margin_ordinary_amount__c == null ? 0 : accs[0].margin_ordinary_amount__c)), '02', card1);
+            field = new wrapperClass('Margen Ordinario', validation(String.valueOf(accs[0].margin_ordinary_amount__c), '0'), '02', card1);
             field.format = 'PEN ###,###,##0.00';
             listCard1.add(field);
             
-            field = new wrapperClass('Net Cash', (String.isEmpty(accs[0].net_cash_desc__c) ? '-' : accs[0].net_cash_desc__c), '08', card1);
+            field = new wrapperClass('Net Cash',validation(String.valueOf(accs[0].net_cash_desc__c),'-'), '08', card1);
             listCard1.add(field);
             
             field = new wrapperClass('Vencimiento PF', (accs[0].financial_program_expiry_date__c == null ? '-' : DateTime.newInstance(accs[0].financial_program_expiry_date__c.year(), accs[0].financial_program_expiry_date__c.month(), accs[0].financial_program_expiry_date__c.day(), 0, 0, 0).format('dd/MM/yyyy')), '08', card1);
@@ -95,16 +95,16 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             field.isSubtitle = 'true';
             listCard3.add(field);
             
-            field = new wrapperClass('Clasificación BBVA', (String.isEmpty(accs[0].bbva_classification_desc__c) ? '-' : accs[0].bbva_classification_desc__c), '08', card3);
+            field = new wrapperClass('Clasificación BBVA',validation(String.valueOf(accs[0].bbva_classification_desc__c),'-'), '08', card3);
             listCard3.add(field);
             
-            field = new wrapperClass('Clasificación SBS', (String.isEmpty(accs[0].banking_system_classification_desc__c) ? '-' : accs[0].banking_system_classification_desc__c), '08', card3);
+            field = new wrapperClass('Clasificación SBS', validation(String.valueOf(accs[0].banking_system_classification_desc__c), '-'), '08', card3);
             listCard3.add(field);
             
-            field = new wrapperClass('Rating', (String.isEmpty(accs[0].Rating) ? '-' : accs[0].Rating), '08', card3);
+            field = new wrapperClass('Rating',validation(String.valueOf(accs[0].Rating), '-'), '08', card3);
             listCard3.add(field);
             
-            field = new wrapperClass('Buro', String.valueOf((accs[0].bureau_classification_type__c == null ? 0 : accs[0].bureau_classification_type__c)), '08', card3);
+            field = new wrapperClass('Buro',validation(String.valueOf(accs[0].bureau_classification_type__c), '0'), '08', card3);
             listCard3.add(field);
             
             field = new wrapperClass('', '', '08', card3);
@@ -139,20 +139,16 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             field.isSubtitle = 'true';
             listCard5.add(field);
             
-            field = new wrapperClass('RUC', (String.isEmpty(accs[0].AccountNumber) ? '-' : accs[0].AccountNumber), '08', card5);
+            field = new wrapperClass('RUC', validation(String.valueOf(accs[0].AccountNumber), '-'), '08', card5);
             listCard5.add(field);
             
-            String dir = '-';
-            final String dirstreet =  String.isNotEmpty(accs[0].BillingStreet) ? accs[0].BillingStreet :'';
-            final String dircity =  String.isNotEmpty(accs[0].BillingCity) ? accs[0].BillingCity :'';
-            dir =  String.isNotEmpty(dircity) && String.isNotEmpty(dirstreet) ? dirstreet +', '+ dircity: accs[0].BillingCity;
-            field = new wrapperClass('Dirección', dir, '08', card5);
+            field = new wrapperClass('Dirección',validationdir(String.valueOf(accs[0].BillingStreet) ,String.valueOf(accs[0].BillingCity)), '08', card5);
             listCard5.add(field);
             
-            field = new wrapperClass('Sector', (String.isEmpty(accs[0].economic_activity_sector__c) ? '-' : accs[0].economic_activity_sector__c), '08', card5);
+            field = new wrapperClass('Sector',validation(String.valueOf(accs[0].economic_activity_sector__c), '-'), '08', card5);
             listCard5.add(field);
             
-            field = new wrapperClass('Grupo', (String.isEmpty(accs[0].Parent.Name) ? '-' : accs[0].Parent.Name), '08', card5);
+            field = new wrapperClass('Grupo',validation(String.valueOf(accs[0].Parent.Name), '-'), '08', card5);
             listCard5.add(field);
             
             field = new wrapperClass('', '', '08', card5);
@@ -271,6 +267,35 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         }
         return result; 
     }
+    
+    /*
+* @Description funcion que valida campos nulos.
+* @Author Antony de la rosa guzman.
+* @Date 2019-12-13
+* @example String example = validation(888,'0');
+*/
+    Public static String validation(string value ,string initvalue) {
+        final String result = value;
+        if(string.isEmpty(value)){
+            result = initvalue;
+        }
+        return result; 
+    }
+    
+   /*
+* @Description funcion que valida direccion.
+* @Author Antony de la rosa guzman.
+* @Date 2019-12-13
+* @example String example = validationdir(mexico,peru,'-');
+*/
+    Public static String validationdir(string BillingStreet ,string BillingCity) {
+        final String result = '-';
+        final String dirstreet =  String.isNotEmpty(BillingStreet) ? BillingStreet :'-';
+        final String dircity =  String.isNotEmpty(BillingCity) ? BillingCity :'-';
+        result =  String.isNotEmpty(dircity) && String.isNotEmpty(dirstreet) ? dirstreet +', '+ dircity: BillingCity;
+        return result;  
+    }  
+            
 /*
 * @Description funcion wrapper que retorna la lista de valores para la construccion de las cards.
 * @Author Antony de la rosa guzman.
