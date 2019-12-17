@@ -240,26 +240,22 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 * _____________________________________________________________________________
 */
     Public static list<string> hits(Id accountId,Boolean Camping) {
-          List<string> hists = new List<string>();
-          List<string> histsOrder = new List<string>();
-          Integer q1oppWonNumber = 0; Integer q1=0;Integer q2=0; Integer q3=0;Integer Q4=0;
-          Integer q2oppWonNumber = 0; Integer q3oppWonNumber = 0;Integer q4oppWonNumber = 0;Integer q1oppLostNumber = 0;
-          Integer q2oppLostNumber = 0;Integer q3oppLostNumber = 0;Integer q4oppLostNumber = 0;
-          final List<AggregateResult> oppListHit =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('07','06') AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
-          for(AggregateResult listHit : oppListHit) {
-            final Integer quarterRec = (Integer)(listHit.get('Q'));
-            if(listHit.get(STAGEFIELD)=='06') {
-            if(quarterRec == 1) {q1oppWonNumber = (Integer)(listHit.get(LABELTOTAL));}
-            if(quarterRec == 2) {q2oppWonNumber = (Integer)(listHit.get(LABELTOTAL));}
-            if(quarterRec == 3) {q3oppWonNumber = (Integer)(listHit.get(LABELTOTAL));}
-            if(quarterRec == 4) {q4oppWonNumber = (Integer)(listHit.get(LABELTOTAL));}
-              } else {
-            if(quarterRec == 1) {q1oppLostNumber = (Integer)(listHit.get(LABELTOTAL));}
-            if(quarterRec == 2) {q2oppLostNumber = (Integer)(listHit.get(LABELTOTAL));}
-            if(quarterRec == 3) {q3oppLostNumber = (Integer)(listHit.get(LABELTOTAL));}
-            if(quarterRec == 4) {q4oppLostNumber = (Integer)(listHit.get(LABELTOTAL));}
-              }
-        }
+        List<string> hists = new List<string>();
+        List<string> histsOrder = new List<string>();
+        Integer q1oppWonNumber = 0; Integer q1=0;Integer q2=0; Integer q3=0;Integer Q4=0;
+        Integer q2oppWonNumber = 0; Integer q3oppWonNumber = 0;Integer q4oppWonNumber = 0;Integer q1oppLostNumber = 0;
+        Integer q2oppLostNumber = 0;Integer q3oppLostNumber = 0;Integer q4oppLostNumber = 0;
+        final List<AggregateResult> oppWon =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName = '06' AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
+        final List<AggregateResult> oppLost =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName = '07' AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
+        
+        q1oppWonNumber = countOpp(oppWon,1);
+        q2oppWonNumber = countOpp(oppWon,2);
+        q3oppWonNumber = countOpp(oppWon,3);
+        q4oppWonNumber = countOpp(oppWon,4);
+        q1oppLostNumber = countOpp(oppLost,1);
+        q2oppLostNumber = countOpp(oppLost,2);
+        q3oppLostNumber = countOpp(oppLost,3);
+        q4oppLostNumber = countOpp(oppLost,4);
         q1= formulaHits(q1oppWonNumber,q1oppLostNumber);
         q2= formulaHits(q2oppWonNumber,q2oppLostNumber);
         q3= formulaHits(q3oppWonNumber,q3oppLostNumber);
@@ -269,6 +265,24 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         return hists;
     }
   
+ /**
+* _____________________________________________________________________________
+* @Description funcion que realiza conteo de opotunidades ganadas y perdidas
+* _____________________________________________________________________________
+* @Author Antony de la rosa guzman.
+* @Date 2019-11-08
+* @example Integer example = formulaHits(won,lost);
+* _____________________________________________________________________________
+*/
+    public static Integer countOpp(List<AggregateResult> oppList ,Integer quarter) {
+        Integer resultOpp = 0;
+        for(AggregateResult opp : oppList) {
+            final Integer quarterRec = (Integer)(opp.get('Q'));
+            if(quarterRec == quarter) {resultOpp = (Integer)(opp.get(LABELTOTAL));}
+        }
+        return resultOpp;
+    } 
+    
  /**
 * _____________________________________________________________________________
 * @Description funcion que realiza el calulo de hits
