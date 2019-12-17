@@ -6,7 +6,7 @@
     
     <aura:if isTrue="{!empty(v.data)}">
         <div class="slds-box">
-            <!--<div class="slds-text-align_center"><ui:outputText value="{!$Label.c.NoOppCurrentYear}"/></div>-->
+            <div class="slds-text-align_center"><ui:outputText value="No se encontraron datos"/></div>
         </div>
         
         <aura:set attribute="else">

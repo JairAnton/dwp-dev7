@@ -41,10 +41,10 @@ public with sharing class BE_DetailRowBusiness_Cls {
             res.volBusiness = Dwp_Utils_helper.formatAmount(row[0].bank_turnover_volume_amount__c, 'PEN');
             res.marOrdinal = Dwp_Utils_helper.formatAmount(row[0].margin_ordinary_amount__c, 'PEN');
             res.strategy = String.isEmpty(row[0].risk_strategy_class_name__c) ? '-' : row[0].risk_strategy_class_name__c;
-            res.alert = String.isEmpty(row[0].alert__c) ? '' : row[0].alert__c;
+            res.alert = row[0].alert__c;
             res.duePF = row[0].financial_program_expiry_date__c == null ? '-' : formatdate(row[0].financial_program_expiry_date__c);
-            res.netcash =  String.isEmpty(row[0].net_cash_desc__c) ? '' : row[0].net_cash_desc__c;
-            res.IconDate = row[0].financial_program_expiry_date__c == null ? '' : icoaddDate(row[0].financial_program_expiry_date__c);
+            res.netcash = row[0].net_cash_desc__c;
+            res.IconDate = icoaddDate(row[0].financial_program_expiry_date__c);
             res.IconNetcash = icoaddNetCash(row[0].net_cash_desc__c);
         }
         return res;
