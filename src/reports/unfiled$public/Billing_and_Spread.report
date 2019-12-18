@@ -22,7 +22,7 @@
         <field>Account_Profitability__c.Facturaci_n__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
+        <aggregateTypes>Average</aggregateTypes>
         <field>Account_Profitability__c.Spread__c</field>
     </columns>
     <columns>
