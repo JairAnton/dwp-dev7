@@ -113,18 +113,37 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     @auraEnabled
     public static string getOppAbierInfo(String accId,Boolean Camping) {
         final List<WPR_Clasifica_QsOpps> lWrapClassAux = new List<WPR_Clasifica_QsOpps>();
-        for(AggregateResult opps : [SELECT COUNT(Id) Total,SUM(Amount) TotalAmount,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('01','02','03','04','05') AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)] ) {
-            final Integer quarterRec = (Integer)(opps.get('Q')) -1;
-            If(opps.get(STAGEFIELD)=='01' && yearsMap.get(quarters.get(quarterRec)) == (Integer)(opps.get('AA'))) {stageName01[quarters.get(quarterRec)]=string.valueOf(Opps.get(LABELAMOU));}
-                If(opps.get(STAGEFIELD)=='02' && yearsMap.get(quarters.get(quarterRec)) == (Integer)(opps.get('AA'))) {stageName02[quarters.get(quarterRec)]=string.valueOf(Opps.get(LABELAMOU));}
-                    If(opps.get(STAGEFIELD)=='03' && yearsMap.get(quarters.get(quarterRec)) == (Integer)(opps.get('AA'))) {stageName03[quarters.get(quarterRec)]=string.valueOf(Opps.get(LABELAMOU));}
-                        If(opps.get(STAGEFIELD)=='04' && yearsMap.get(quarters.get(quarterRec)) == (Integer)(opps.get('AA'))) {stageName04[quarters.get(quarterRec)]=string.valueOf(Opps.get(LABELAMOU));}
-                            If(opps.get(STAGEFIELD)=='05' && yearsMap.get(quarters.get(quarterRec)) == (Integer)(opps.get('AA'))) {stageName05[quarters.get(quarterRec)]=string.valueOf(Opps.get(LABELAMOU));}
-        }
-            labels = sortQs();
-            lWrapClassAux.add(new WPR_Clasifica_QsOpps(labels,stageName01,stageName02,stageName03,stageName04,stageName05));
+        final List<AggregateResult>  oppList =  [SELECT COUNT(Id) Total,SUM(Amount) TotalAmount,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('01','02','03','04','05') AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
+        stageName01 = countOppOpen(oppList ,'01');
+        stageName02 = countOppOpen(oppList ,'02');
+        stageName03 = countOppOpen(oppList ,'03');
+        stageName04 = countOppOpen(oppList ,'04');
+        stageName05 = countOppOpen(oppList ,'05');
+        labels = sortQs();
+        lWrapClassAux.add(new WPR_Clasifica_QsOpps(labels,stageName01,stageName02,stageName03,stageName04,stageName05));
         return JSON.serialize(lWrapClassAux);
     } 
+    
+     /**
+* _____________________________________________________________________________
+* @Description funcion que realiza conteo de opotunidades ganadas y perdidas
+* _____________________________________________________________________________
+* @Author Antony de la rosa guzman.
+* @Date 2019-11-08
+* @example Integer example = formulaHits(won,lost);
+* _____________________________________________________________________________
+*/
+    public static list<string> countOppOpen(List<AggregateResult> oppList ,string etapa) {
+        list<string> listvalues = new  string[4];
+        for(AggregateResult opp : oppList) {
+            final Integer quarterRec = (Integer)(opp.get('Q')) -1;
+            if(opp.get(STAGEFIELD)==etapa && yearsMap.get(quarters.get(quarterRec)) == (Integer)(opp.get('AA'))) {
+                listvalues[quarters.get(quarterRec)]=string.valueOf(opp.get(LABELAMOU));
+            }
+        }
+        return listvalues;
+    } 
+    
     
        /**
 * _____________________________________________________________________________
