@@ -205,7 +205,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 */
     Public static String indicador(list<Account_variation_information__c> fields,String type) {
         String result = '-';  
-        if(!fields.isEmpty()){
+        if(!fields.isEmpty()) {
           for(Account_variation_information__c avi : fields ) {
               if(avi.indicator_name__c == type) {
                 result = avi.validation_color_type__c;
@@ -279,15 +279,15 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         /*
         * Attribute
         */
-        private String format;
+        final String format;
         /*
         * Attribute
         */
-        private String icon;
+        final String icon;
         /*
         * Attribute
         */
-        private String typeIcon;
+        final String typeIcon;
         /*
         * Attribute
         */
@@ -295,7 +295,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         /*
         * Attribute
         */
-        private String isSubtitle;
+        final String isSubtitle;
         /*
         * Attribute
         */
