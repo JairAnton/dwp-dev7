@@ -260,7 +260,7 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 */
     Public static list<string> hits(Id accountId,Boolean Camping) {
         List<string> hists = new List<string>();
-        List<string> histsOrder = new List<string>();
+        final List<string> histsOrder = new List<string>();
         Integer q1oppWonNumber = 0; Integer q1=0;Integer q2=0; Integer q3=0;Integer Q4=0;
         Integer q2oppWonNumber = 0; Integer q3oppWonNumber = 0;Integer q4oppWonNumber = 0;Integer q1oppLostNumber = 0;
         Integer q2oppLostNumber = 0;Integer q3oppLostNumber = 0;Integer q4oppLostNumber = 0;
