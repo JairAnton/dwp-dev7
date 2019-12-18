@@ -79,6 +79,7 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     /*
 	* Attribute
 	*/
+    
 	static {
         final integer index = myDate.month();
         integer index2 =0 ;
@@ -178,37 +179,37 @@ public with sharing class BE_OppCommercialActivChart_Cls {
          /*
         * Attribute
         */
-        public list<string> StageName01 {get;set;}
+        public list<string> stage01 {get;set;}
          /*
         * Attribute
         */
-        public list<string> StageName02 {get;set;}
+        public list<string> stage02 {get;set;}
          /*
         * Attribute
         */
-        public list<string> StageName03 {get;set;}
+        public list<string> stage03 {get;set;}
          /*
         * Attribute
         */
-        public list<string> StageName04 {get;set;}
+        public list<string> stage04 {get;set;}
          /*
         * Attribute
         */
-        public list<string> StageName05 {get;set;}
+        public list<string> stage05 {get;set;}
          /*
         * Attribute
         */
-         public list<string> Labels {get;set;}
+         public list<string> labels {get;set;}
          /*
         * Attribute
         */
         public WPR_Clasifica_QsOpps(List<string>labelsList,List<string> stageName01List, List<string>stageName02List, List<string> stageName03List, List<string> stageName04List,List<string> stageName05List) {
-            this.Labels = labelsList;
-            this.StageName01 = stageName01List;
-            this.StageName02 = stageName02List;
-            this.StageName03 = stageName03List;
-            this.StageName04 = stageName04List;
-            this.StageName05 = stageName05List;
+            this.labels = labelsList;
+            this.stage01 = stageName01List;
+            this.stage02 = stageName02List;
+            this.stage03 = stageName03List;
+            this.stage04 = stageName04List;
+            this.stage05 = stageName05List;
         }  
     }
     
@@ -217,22 +218,22 @@ public with sharing class BE_OppCommercialActivChart_Cls {
          /*
         * Attribute
         */
-        public list<string> Opps {get;set;}
+        public list<string> opps {get;set;}
          /*
         * Attribute
         */
-         public list<string> Labels {get;set;}
+         public list<string> labels {get;set;}
          /*
         * Attribute
         */
-        public list<string> Hits {get;set;}
+        public list<string> hits {get;set;}
         /*
         * Attribute
         */
         public WPR_HitsOPP(List<string> labelsList,list<string> oppList,List<string> hitList) {
-            this.Labels = labelsList;
-            this.Opps = oppList;
-            this.Hits = hitList;
+            this.labels = labelsList;
+            this.opps = oppList;
+            this.hits = hitList;
         }  
     }
      /*

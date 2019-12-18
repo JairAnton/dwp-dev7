@@ -21,9 +21,9 @@ public class BE_UtilitysDataTest_Test {
     /**@general variable*/ 
     final static String UNIQUECODE='203658756Utils'+Date.today();
     /**@general variable*/ 
-    final static Integer maxQuery = Limits.getLimitQueries(); 
+    final static Integer MAXQUERY = Limits.getLimitQueries(); 
     /**@general variable*/ 
-    final static Integer numQuery = maxQuery - 1;
+    final static Integer NUMQUERY = MAXQUERY - 1;
     
     /**
 * @Method:      crearUsuario
@@ -48,7 +48,7 @@ public class BE_UtilitysDataTest_Test {
     }
     
     @isTest static void testmethod1() {
-        System.assert(Limits.getQueries() < numQuery, 'numero de querys dentro del rango  permitido');
+        System.assert(Limits.getQueries() < NUMQUERY, 'numero de querys dentro del rango  permitido');
     }
     
     /**

@@ -15,25 +15,28 @@ public class BE_RelateList_Test {
     /*
 	* Attribute
 	*/
-    private static final String objectName = 'dwp_kitv__Visit__c';
+    private static final String OBJECTNAME = 'dwp_kitv__Visit__c';
     /*
 	* Attribute
 	*/
-    private static final string FieldNameRelation ='dwp_kitv__account_id__c';
+    private static final string FIELNAMERELATION ='dwp_kitv__account_id__c';
     /*
 	* Attribute
 	*/
-    private static final String fields='Name,dwp_kitv__visit_start_date__c,CreatedBy.Name'; 
+    private static final String FIELDS='Name,dwp_kitv__visit_start_date__c,CreatedBy.Name'; 
     /*
 	* Attribute
 	*/
-    private static final String filters='dwp_kitv__visit_start_date__c>= TODAY';
+    private static final String FILTERS='dwp_kitv__visit_start_date__c>= TODAY';
     /*
 	* Attribute
 	*/
-    private static final String orderRow='dwp_kitv__visit_start_date__c asc'; 
+    private static final String ORDERROW='dwp_kitv__visit_start_date__c asc'; 
+    /*
+	* Attribute
+	*/
+    private static final String LIMITROW='5'; 
     
-    private static final String limitRow='5'; 
     @testSetup
     private static void makeData() {
         final  User thisUser = BE_UtilitysDataTest_Test.crearUsuario('User test','Administrador del sistema','');
@@ -59,7 +62,7 @@ public class BE_RelateList_Test {
         final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
         System.runAs(thisUser) {
             test.startTest();
-            BE_RelateList_Cls.getRelatedVisit(lsAcc[0].Id,objectName,FieldNameRelation,fields,filters,orderRow,limitRow);
+            BE_RelateList_Cls.getRelatedVisit(lsAcc[0].Id,OBJECTNAME,FIELNAMERELATION,FIELDS,FILTERS,ORDERROW,LIMITROW);
             System.assertNotEquals(null, lsAcc[0].Name, 'datos registrados con exito');
             test.stopTest();
         }

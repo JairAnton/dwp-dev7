@@ -19,12 +19,12 @@
             var estado = result.getState();
             if (estado === "SUCCESS") {
                 var datas = JSON.parse(result.getReturnValue());
-                StageName01 =  datas[0].StageName01;
-                StageName02 =  datas[0].StageName02;
-                StageName03 =  datas[0].StageName03;
-                StageName04 =  datas[0].StageName04;
-                StageName05 =  datas[0].StageName05;
-                Labels =  datas[0].Labels;
+                StageName01 =  datas[0].stage01;
+                StageName02 =  datas[0].stage02;
+                StageName03 =  datas[0].stage03;
+                StageName04 =  datas[0].stage04;
+                StageName05 =  datas[0].stage05;
+                Labels =  datas[0].labels;
                 graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels);
             }
         });
@@ -165,12 +165,12 @@
             var estado = result.getState();
             if (estado === "SUCCESS") {
                 var datas = JSON.parse(result.getReturnValue());
-                StageName01 =  datas[0].StageName01;
-                StageName02 =  datas[0].StageName02;
-                StageName03 =  datas[0].StageName03;
-                StageName04 =  datas[0].StageName04;
-                StageName05 =  datas[0].StageName05;
-                Labels =  datas[0].Labels;
+                StageName01 =  datas[0].stage01;
+                StageName02 =  datas[0].stage02;
+                StageName03 =  datas[0].stage03;
+                StageName04 =  datas[0].stage04;
+                StageName05 =  datas[0].stage05;
+                Labels =  datas[0].labels;
                 graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels);
             }
         });
@@ -307,9 +307,9 @@
             var estado = result.getState();
             if (estado === "SUCCESS") {
                 var datas = JSON.parse(result.getReturnValue());
-                Opplist =  datas[0].Opps;
-                hits =  datas[0].Hits;
-                Labels =  datas[0].Labels;
+                Opplist =  datas[0].opps;
+                hits =  datas[0].hits;
+                Labels =  datas[0].labels;
                 graficaHits(hits,Opplist,Labels);
             }
         });
@@ -405,9 +405,9 @@
             var estado = result.getState();
             if (estado === "SUCCESS") {
                 var datas = JSON.parse(result.getReturnValue());
-                Opplist =  datas[0].Opps;
-                hits =  datas[0].Hits;
-                Labels =  datas[0].Labels;
+                Opplist =  datas[0].opps;
+                hits =  datas[0].hits;
+                Labels =  datas[0].labels;
                 graficahitCamp(hits,Opplist,Labels);
             }
         });

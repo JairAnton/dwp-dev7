@@ -20,27 +20,27 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
     /*
 	* Attribute
 	*/
-    private static final  String name = 'Name';
+    private static final  String NAME = 'Name';
     /*
 	* Attribute
 	*/
-    private static final  String card1 = 'Card1';
+    private static final  String CARD1 = 'Card1';
     /*
 	* Attribute
 	*/
-    private static final  String card2 = 'Card2';
+    private static final  String CARD2 = 'Card2';
     /*
 	* Attribute
 	*/
-    private static final  String card3 = 'Card3';
+    private static final  String CARD3 = 'Card3';
     /*
 	* Attribute
 	*/
-    private static final  String card4 = 'Card4';
+    private static final  String CARD4 = 'Card4';
     /*
 	* Attribute
 	*/
-    private static final  String card5 = 'Card5';
+    private static final  String CARD5 = 'Card5';
 /*
 * @Description Constructor de la clase
 * @Author Antony de la rosa guzman.
@@ -70,114 +70,114 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         if(!accs.isEmpty()) {
             
             /*----------------------------------Fields Cards1------------------------------------------*/
-            wrapperClass field = new wrapperClass(name, 'Negocio BBVA', '08', card1);
+            wrapperClass field = new wrapperClass(NAME, 'Negocio BBVA', '08', CARD1);
             field.isSubtitle = TRUES;
             listCard1.add(field);
             
-            field = new wrapperClass('Volumen Negocio',  validation(String.valueOf(accs[0].bank_turnover_volume_amount__c), '0'), '02', card1);
+            field = new wrapperClass('Volumen Negocio',  validation(String.valueOf(accs[0].bank_turnover_volume_amount__c), '0'), '02', CARD1);
             field.format = 'PEN ###,###,##0.00';
             listCard1.add(field);
             
-            field = new wrapperClass('Margen Ordinario', validation(String.valueOf(accs[0].margin_ordinary_amount__c), '0'), '02', card1);
+            field = new wrapperClass('Margen Ordinario', validation(String.valueOf(accs[0].margin_ordinary_amount__c), '0'), '02', CARD1);
             field.format = 'PEN ###,###,##0.00';
             listCard1.add(field);
             
-            field = new wrapperClass('Net Cash',validation(String.valueOf(accs[0].net_cash_desc__c),'-'), '08', card1);
+            field = new wrapperClass('Net Cash',validation(String.valueOf(accs[0].net_cash_desc__c),'-'), '08', CARD1);
             listCard1.add(field);
             
-            field = new wrapperClass('Vencimiento PF', (accs[0].financial_program_expiry_date__c == null ? '-' : DateTime.newInstance(accs[0].financial_program_expiry_date__c.year(), accs[0].financial_program_expiry_date__c.month(), accs[0].financial_program_expiry_date__c.day(), 0, 0, 0).format('dd/MM/yyyy')), '08', card1);
+            field = new wrapperClass('Vencimiento PF', (accs[0].financial_program_expiry_date__c == null ? '-' : DateTime.newInstance(accs[0].financial_program_expiry_date__c.year(), accs[0].financial_program_expiry_date__c.month(), accs[0].financial_program_expiry_date__c.day(), 0, 0, 0).format('dd/MM/yyyy')), '08', CARD1);
             if(accs[0].financial_program_expiry_date__c != null && accs[0].financial_program_expiry_date__c.addDays(60)<System.today()) {
                 field.icon = '/resource/bbva_icon_alert';
                 field.typeIcon = '02';
             }
             listCard1.add(field);
-            field = new wrapperClass('', '', '08', card1);
+            field = new wrapperClass('', '', '08', CARD1);
             listCard1.add(field);
             
             /*----------------------------------Fields Cards2------------------------------------------*/
             
-            field = new wrapperClass(name, 'Actividad Comercial', '08', card2);
+            field = new wrapperClass(NAME, 'Actividad Comercial', '08', CARD2);
             field.isSubtitle = TRUES;
             listCard2.add(field);
             
-            field = new wrapperClass('Oportunidades Abiertas', oppValues(accId,QUANTITY), '08', card2);
+            field = new wrapperClass('Oportunidades Abiertas', oppValues(accId,QUANTITY), '08', CARD2);
             listCard2.add(field);
             
-            field = new wrapperClass('Pipeline', oppValues(accId,'Amount'), '02', card2);
+            field = new wrapperClass('Pipeline', oppValues(accId,'Amount'), '02', CARD2);
             field.format = 'PEN ###,###,##0.00';
             listCard2.add(field);
             
-            field = new wrapperClass('Visitas YTD', String.valueOf(visist(accId,'Año')), '08', card2);
+            field = new wrapperClass('Visitas YTD', String.valueOf(visist(accId,'Año')), '08', CARD2);
             listCard2.add(field);
             
-            field = new wrapperClass('Visitas Trimestre', String.valueOf(visist(accId,'Trimestre')), '08', card2);
+            field = new wrapperClass('Visitas Trimestre', String.valueOf(visist(accId,'Trimestre')), '08', CARD2);
             listCard2.add(field);
             
-            field = new wrapperClass('', System.now().format('MM-yyyy'), '08', card2);
+            field = new wrapperClass('', System.now().format('MM-yyyy'), '08', CARD2);
             listCard2.add(field);
             
             /*----------------------------------Fields Cards3------------------------------------------*/
-            field = new wrapperClass(name, 'Riesgo', '08', card3);
+            field = new wrapperClass(NAME, 'Riesgo', '08', CARD3);
             field.isSubtitle = TRUES;
             listCard3.add(field);
             
-            field = new wrapperClass('Clasificación BBVA',validation(String.valueOf(accs[0].bbva_classification_desc__c),'-'), '08', card3);
+            field = new wrapperClass('Clasificación BBVA',validation(String.valueOf(accs[0].bbva_classification_desc__c),'-'), '08', CARD3);
             listCard3.add(field);
             
-            field = new wrapperClass('Clasificación SBS', validation(String.valueOf(accs[0].banking_system_classification_desc__c), '-'), '08', card3);
+            field = new wrapperClass('Clasificación SBS', validation(String.valueOf(accs[0].banking_system_classification_desc__c), '-'), '08', CARD3);
             listCard3.add(field);
             
-            field = new wrapperClass('Rating',validation(String.valueOf(accs[0].Rating), '-'), '08', card3);
+            field = new wrapperClass('Rating',validation(String.valueOf(accs[0].Rating), '-'), '08', CARD3);
             listCard3.add(field);
             
-            field = new wrapperClass('Buro',validation(String.valueOf(accs[0].bureau_classification_type__c), '0'), '08', card3);
+            field = new wrapperClass('Buro',validation(String.valueOf(accs[0].bureau_classification_type__c), '0'), '08', CARD3);
             listCard3.add(field);
             
-            field = new wrapperClass('', '', '08', card3);
+            field = new wrapperClass('', '', '08', CARD3);
             listCard3.add(field);
             
             /*----------------------------------Fields Cards4------------------------------------------*/
-            field = new wrapperClass(name, 'Potencial BBVA', '08', 'Card4');
+            field = new wrapperClass(NAME, 'Potencial BBVA', '08', CARD4);
             field.isSubtitle = TRUES;
             listCard4.add(field);
             
-            field = new wrapperClass('Activo Directa', indicador(accId,'ACTIVO Directa'), '08', card4);
+            field = new wrapperClass('Activo Directa', indicador(accId,'ACTIVO Directa'), '08', CARD4);
             field = addIcon(field);
             listCard4.add(field);
             
-            field = new wrapperClass('CUOTA Directa', indicador(accId,'CUOTA Directa (%)'), '08', card4);
+            field = new wrapperClass('CUOTA Directa', indicador(accId,'CUOTA Directa (%)'), '08', CARD4);
             field = addIcon(field);
             listCard4.add(field);
             
-            field = new wrapperClass('Spread',indicador(accId,'SPREAD (%)') , '08', card4);
+            field = new wrapperClass('Spread',indicador(accId,'SPREAD (%)') , '08', CARD4);
             field = addIcon(field);
             listCard4.add(field);
             
-            field = new wrapperClass('Margen Financiero', indicador(accId,'MARGEN FINANCIERO'), '08', card4);
+            field = new wrapperClass('Margen Financiero', indicador(accId,'MARGEN FINANCIERO'), '08', CARD4);
             field = addIcon(field);
             listCard4.add(field);
             
-            field = new wrapperClass('', periodo(accId), '08', card4);
+            field = new wrapperClass('', periodo(accId), '08', CARD4);
             listCard4.add(field);
             
             /*----------------------------------Fields Cards5------------------------------------------*/
-            field = new wrapperClass(name, 'Info Cliente', '08', card5);
+            field = new wrapperClass(NAME, 'Info Cliente', '08', CARD5);
             field.isSubtitle = TRUES;
             listCard5.add(field);
             
-            field = new wrapperClass('RUC', validation(String.valueOf(accs[0].AccountNumber), '-'), '08', card5);
+            field = new wrapperClass('RUC', validation(String.valueOf(accs[0].AccountNumber), '-'), '08', CARD5);
             listCard5.add(field);
             
-            field = new wrapperClass('Dirección',validationdir(String.valueOf(accs[0].BillingStreet) ,String.valueOf(accs[0].BillingCity)), '08', card5);
+            field = new wrapperClass('Dirección',validationdir(String.valueOf(accs[0].BillingStreet) ,String.valueOf(accs[0].BillingCity)), '08', CARD5);
             listCard5.add(field);
             
-            field = new wrapperClass('Sector',validation(String.valueOf(accs[0].economic_activity_sector__c), '-'), '08', card5);
+            field = new wrapperClass('Sector',validation(String.valueOf(accs[0].economic_activity_sector__c), '-'), '08', CARD5);
             listCard5.add(field);
             
-            field = new wrapperClass('Grupo',validation(String.valueOf(accs[0].Parent.Name), '-'), '08', card5);
+            field = new wrapperClass('Grupo',validation(String.valueOf(accs[0].Parent.Name), '-'), '08', CARD5);
             listCard5.add(field);
             
-            field = new wrapperClass('', '', '08', card5);
+            field = new wrapperClass('', '', '08', CARD5);
             listCard5.add(field);
             
             listCards.add(listCard1);
