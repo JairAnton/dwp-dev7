@@ -82,7 +82,7 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     
 	static {
         final integer index = myDate.month();
-        integer index2 =0 ;
+        Integer index2 = 0;
         for(integer i=0;i< QCUATRO;i++) {
             if(index+i < QCUATRO) {
                 quarters.put(index+i,i);
@@ -243,8 +243,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         final list<string> quarters = QSVALUES.split(',');
         final list<string> qsOrder= new list<String>();
         final Integer quarter = System.today().month() / 3 + 1;
-        integer quarter2 =0 ;
         for(integer i=0;i< QCUATRO;i++) {
+            Integer quarter2 = 0;
             if(quarter+i < QCUATRO) {
                 qsOrder.add(quarters[(quarter+i)]+' '+String.valueof(myDate.year()-1));
             } else {
@@ -267,7 +267,7 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 */
     Public static list<string> hits(Id accountId,Boolean camping) {
         List<string> hists = new List<string>();
-        List<string> histsOrder = new List<string>();
+        final List<string> histsOrder = new List<string>();
         Integer q1oppWonNumber = 0; Integer quarter1=0;Integer quarter2=0; Integer quarter3=0;Integer quarter4=0;
         Integer q2oppWonNumber = 0; Integer q3oppWonNumber = 0;Integer q4oppWonNumber = 0;Integer q1oppLostNumber = 0;
         Integer q2oppLostNumber = 0;Integer q3oppLostNumber = 0;Integer q4oppLostNumber = 0;
@@ -338,13 +338,13 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     public static list<String> histsOrder(list<string> values) {
         final list<string> qsOrder= new list<String>();
         final Integer quarter = System.today().month() / 3 + 1;
-        integer quarter2 =0 ;
         for(integer i=0;i< QCUATRO;i++) {
+        integer auxiliar = 0;
             if(quarter + i < QCUATRO ) {
                 qsOrder.add(values[(quarter+i)]);
             } else {
-                qsOrder.add(values[quarter2]);
-                quarter2++;
+                qsOrder.add(values[auxiliar]);
+                auxiliar++;
             }
         }
         return qsOrder;
