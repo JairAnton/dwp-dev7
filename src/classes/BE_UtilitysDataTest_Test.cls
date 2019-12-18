@@ -5,7 +5,7 @@
 * @Date     2019-11-11
 * @Group    DWP Perú
 * @Description Clase para crear los Datos de prueba generales de utilería para ser usados
-                en las demas clases de prueba.
+en las demas clases de prueba.
 * _________________________________________________________________________________
 * @Changes
 * _________________________________________________________________________________
@@ -20,11 +20,16 @@ public class BE_UtilitysDataTest_Test {
     final static String DATEFIELD='year_month_day_date__c';
     /**@general variable*/ 
     final static String UNIQUECODE='203658756Utils'+Date.today();
+    /**@general variable*/ 
+    final static Integer maxQuery = Limits.getLimitQueries(); 
+    /**@general variable*/ 
+    final static Integer numQuery = maxQuery - 1;
+    
     /**
-    * @Method:      crearUsuario
-    * @param:       String strLastName, String strProfileName, String strRol
-    * @Description: Funcion que retorna un objeto User 
-    */
+* @Method:      crearUsuario
+* @param:       String strLastName, String strProfileName, String strRol
+* @Description: Funcion que retorna un objeto User 
+*/
     public static User crearUsuario(String strLastName, String strProfileName, String strRol) {
         final String email                  = 'tstBBVA'+Math.random()*10000+'@bbva.test.com';   
         final User usuario                  = new User(); 
@@ -42,31 +47,29 @@ public class BE_UtilitysDataTest_Test {
         return usuario;
     }
     
-    @isTest static void test_method_two() {
-        Integer maxQuery = Limits.getLimitQueries(); 
-        Integer numQuery = maxQuery - 1;
+    @isTest static void testmethod1() {
         System.assert(Limits.getQueries() < numQuery, 'numero de querys dentro del rango  permitido');
-    }
-
-    /**
-    * @Method:      crearCuenta
-    * @param:       String strName
-    * @Description: Funcion que retorna un objeto cliente
-    */
-	public static Account crearCuenta(String strName) {
-		final Account cliente          = new Account();
-		cliente.Name             = strName;
-		cliente.unique_id__c = UNIQUECODE;	
-		return cliente;
     }
     
     /**
-    * @Method:      crearCuenta Accounting
-    * @param:       String strName,Id Acc
-    * @Description: Funcion que retorna un objeto Account_Accounting__c
-    */
-	public static Account_Accounting__c crearAccount_Accouting(String strName,Id idAccount) {
-		final Account_Accounting__c accAcc = new Account_Accounting__c();
+* @Method:      crearCuenta
+* @param:       String strName
+* @Description: Funcion que retorna un objeto cliente
+*/
+    public static Account crearCuenta(String strName) {
+        final Account cliente          = new Account();
+        cliente.Name             = strName;
+        cliente.unique_id__c = UNIQUECODE;	
+        return cliente;
+    }
+    
+    /**
+* @Method:      crearCuenta Accounting
+* @param:       String strName,Id Acc
+* @Description: Funcion que retorna un objeto Account_Accounting__c
+*/
+    public static Account_Accounting__c crearAccount_Accouting(String strName,Id idAccount) {
+        final Account_Accounting__c accAcc = new Account_Accounting__c();
         accAcc.Name = strName;
         accAcc.account_id__c = idAccount;
         accAcc.gl_account_amount__c=200;
@@ -75,14 +78,14 @@ public class BE_UtilitysDataTest_Test {
         accAcc.gl_account_id__c='PARENT_TEST';
         accAcc.gl_account_id_path_desc__c='1';
         accAcc.gl_account_path_position_id__c='1';
-		return accAcc;
+        return accAcc;
     }
     
     /**
-    * @Method:      crearOportunidad
-    * @param:       String strName, Id idAccount,  Id idOwner, String strTipoProd
-    * @Description: Funcion que retorna un objeto Oportunidad
-    */
+* @Method:      crearOportunidad
+* @param:       String strName, Id idAccount,  Id idOwner, String strTipoProd
+* @Description: Funcion que retorna un objeto Oportunidad
+*/
     public static Opportunity crearOportunidad(String strName, Id idAccount,  Id idOwner, String strTipoProd) {     
         final Opportunity objOpp       = new Opportunity();
         objOpp.Name              = strName;
@@ -94,10 +97,10 @@ public class BE_UtilitysDataTest_Test {
     }
     
     /**
-    * @Method:      crearVisitas
-    * @param:       String strName, Id idAccount,  Id idOwner, String strTipoVisita
-    * @Description: Funcion que retorna un objeto Visita
-    */
+* @Method:      crearVisitas
+* @param:       String strName, Id idAccount,  Id idOwner, String strTipoVisita
+* @Description: Funcion que retorna un objeto Visita
+*/
     public static dwp_kitv__Visit__c crearVisita(String strName, Id idAccount, String strTipoVisita) {     
         final dwp_kitv__Visit__c visit = new dwp_kitv__Visit__c();
         visit.Name=strName;
@@ -111,10 +114,10 @@ public class BE_UtilitysDataTest_Test {
     }
     
     /**
-    * @Method:      crearVariation
-    * @param:       String strName, Id idAccount
-    * @Description: Funcion que retorna un objeto Account_variation_information__c
-    */
+* @Method:      crearVariation
+* @param:       String strName, Id idAccount
+* @Description: Funcion que retorna un objeto Account_variation_information__c
+*/
     public static Account_variation_information__c crearVariation(String strName, Id idAccount,String strColor) {     
         final Account_variation_information__c Variation = new Account_variation_information__c();
         Variation.indicator_name__c=strName;
@@ -124,34 +127,34 @@ public class BE_UtilitysDataTest_Test {
         return Variation;
     }
     
-     /**
-    * @Method:      crtVisitTopic
-    * @Description: Crea un registro del tipo dwp_kitv__Visit_Topic__c
-    * @param: String tipoRegistro
-    */
+    /**
+* @Method:      crtVisitTopic
+* @Description: Crea un registro del tipo dwp_kitv__Visit_Topic__c
+* @param: String tipoRegistro
+*/
     public static dwp_kitv__Visit_Topic__c crtVisitTopic(String visita) {
         final dwp_kitv__Visit_Topic__c topic = new dwp_kitv__Visit_Topic__c();
         topic.dwp_kitv__visit_id__c = visita;
         return topic;
     }
     
-      /**
-    * @Method:      crearContacto
-    * @param:       Id idCuenta, String strFirstName, String strLastName,  String devNameTipoRegistro
-    * @Description: Funcion que retorna un objeto contacto
-    */
-	public static Contact crearContacto(Id idCuenta, String strFirstName, String strLastName) {
-		final Contact contacto   = new Contact();
-		contacto.FirstName = strFirstName;
+    /**
+* @Method:      crearContacto
+* @param:       Id idCuenta, String strFirstName, String strLastName,  String devNameTipoRegistro
+* @Description: Funcion que retorna un objeto contacto
+*/
+    public static Contact crearContacto(Id idCuenta, String strFirstName, String strLastName) {
+        final Contact contacto   = new Contact();
+        contacto.FirstName = strFirstName;
         contacto.Salutation='Sr.';
-		contacto.LastName  = strLastName;
-		contacto.Phone     = '(234) 567-8987';
+        contacto.LastName  = strLastName;
+        contacto.Phone     = '(234) 567-8987';
         contacto.MobilePhone = '999999999';
         contacto.decision_making_desc__c ='Si';
         contacto.prof_position_type__c = 'APODERADO';
         contacto.Cargo_inicio__c = 'APODERADO';
-		contacto.Email     = 'tstBBVA'+ (Math.random()*10000).round()+'@bbva.test.com';
+        contacto.Email     = 'tstBBVA'+ (Math.random()*10000).round()+'@bbva.test.com';
         if(idCuenta!=null) { contacto.AccountId = idCuenta; }
-		return contacto;
+        return contacto;
     }
 }

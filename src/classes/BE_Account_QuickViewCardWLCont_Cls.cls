@@ -9,6 +9,38 @@
 * @Changes
 */
 public with sharing class BE_Account_QuickViewCardWLCont_Cls {
+    /*
+	* Attribute
+	*/
+	private static final String TRUES = 'true';
+    /*
+	* Attribute
+	*/
+	private static final String QUANTITY = 'quantity';
+    /*
+	* Attribute
+	*/
+    private static final  String name = 'Name';
+    /*
+	* Attribute
+	*/
+    private static final  String card1 = 'Card1';
+    /*
+	* Attribute
+	*/
+    private static final  String card2 = 'Card2';
+    /*
+	* Attribute
+	*/
+    private static final  String card3 = 'Card3';
+    /*
+	* Attribute
+	*/
+    private static final  String card4 = 'Card4';
+    /*
+	* Attribute
+	*/
+    private static final  String card5 = 'Card5';
 /*
 * @Description Constructor de la clase
 * @Author Antony de la rosa guzman.
@@ -31,12 +63,6 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         final List<wrapperClass> listCard3 = new List<wrapperClass>();
         final List<wrapperClass> listCard4 = new List<wrapperClass>();
         final List<wrapperClass> listCard5 = new List<wrapperClass>();
-        final String name = 'Name';
-        final String card1 = 'Card1';
-        final String card2 = 'Card2';
-        final String card3 = 'Card3';
-        final String card4 = 'Card4';
-        final String card5 = 'Card5';
         final List<Account> accs = [SELECT Id, bank_turnover_volume_amount__c, margin_ordinary_amount__c, net_cash_desc__c, financial_program_expiry_date__c,
                               bbva_classification_desc__c, banking_system_classification_desc__c, Rating, bureau_classification_type__c,
                               AccountNumber, BillingStreet, BillingCity, economic_activity_sector__c, Parent.Name FROM Account WHERE Id = :accId];
@@ -45,7 +71,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             
             /*----------------------------------Fields Cards1------------------------------------------*/
             wrapperClass field = new wrapperClass(name, 'Negocio BBVA', '08', card1);
-            field.isSubtitle = 'true';
+            field.isSubtitle = TRUES;
             listCard1.add(field);
             
             field = new wrapperClass('Volumen Negocio',  validation(String.valueOf(accs[0].bank_turnover_volume_amount__c), '0'), '02', card1);
@@ -71,10 +97,10 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             /*----------------------------------Fields Cards2------------------------------------------*/
             
             field = new wrapperClass(name, 'Actividad Comercial', '08', card2);
-            field.isSubtitle = 'true';
+            field.isSubtitle = TRUES;
             listCard2.add(field);
             
-            field = new wrapperClass('Oportunidades Abiertas', oppValues(accId,'quantity'), '08', card2);
+            field = new wrapperClass('Oportunidades Abiertas', oppValues(accId,QUANTITY), '08', card2);
             listCard2.add(field);
             
             field = new wrapperClass('Pipeline', oppValues(accId,'Amount'), '02', card2);
@@ -92,7 +118,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             
             /*----------------------------------Fields Cards3------------------------------------------*/
             field = new wrapperClass(name, 'Riesgo', '08', card3);
-            field.isSubtitle = 'true';
+            field.isSubtitle = TRUES;
             listCard3.add(field);
             
             field = new wrapperClass('Clasificación BBVA',validation(String.valueOf(accs[0].bbva_classification_desc__c),'-'), '08', card3);
@@ -112,7 +138,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             
             /*----------------------------------Fields Cards4------------------------------------------*/
             field = new wrapperClass(name, 'Potencial BBVA', '08', 'Card4');
-            field.isSubtitle = 'true';
+            field.isSubtitle = TRUES;
             listCard4.add(field);
             
             field = new wrapperClass('Activo Directa', indicador(accId,'ACTIVO Directa'), '08', card4);
@@ -136,7 +162,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             
             /*----------------------------------Fields Cards5------------------------------------------*/
             field = new wrapperClass(name, 'Info Cliente', '08', card5);
-            field.isSubtitle = 'true';
+            field.isSubtitle = TRUES;
             listCard5.add(field);
             
             field = new wrapperClass('RUC', validation(String.valueOf(accs[0].AccountNumber), '-'), '08', card5);
@@ -227,15 +253,15 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         String quantityOpps = '0';
         String resultvalues = '0';
         String amountTotal = '0';
-        final List<AggregateResult> Opps = [SELECT count(Id) quantity, sum(Amount) amount FROM Opportunity WHERE AccountId = :accountId AND StageName IN('02','03','04','05') GROUP BY AccountId];{}
+        final List<AggregateResult> Opps = [SELECT count(Id) quantity, sum(Amount) amount FROM Opportunity WHERE AccountId = :accountId AND StageName IN('02','03','04','05') GROUP BY AccountId];        
         if(!Opps.isEmpty()) {
-            if(type =='quantity') {
-                resultvalues = quantityOpps = String.valueOf((Integer)Opps[0].get('quantity'));
+            if(type ==QUANTITY) {
+                resultvalues = quantityOpps = String.valueOf((Integer)Opps[0].get(QUANTITY));
             } else {
                 resultvalues =  amountTotal = String.valueOf((Decimal)Opps[0].get('amount'));
             } 
         }
-        resultvalues = type =='quantity' ? quantityOpps : amountTotal;
+        resultvalues = type ==QUANTITY ? quantityOpps : amountTotal;
         return resultvalues;
     }
     
@@ -276,7 +302,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 */
     Public static String validation(string value ,string initvalue) {
         final String result = value;
-        if(string.isEmpty(value)){
+        if(string.isEmpty(value)) {
             result = initvalue;
         }
         return result; 
@@ -288,11 +314,11 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 * @Date 2019-12-13
 * @example String example = validationdir(mexico,peru,'-');
 */
-    Public static String validationdir(string BillingStreet ,string BillingCity) {
+    Public static String validationdir(string billingStreet ,string billingCity) {
         String result = '-';
-        final String dirstreet =  String.isNotEmpty(BillingStreet) ? BillingStreet :'-';
-        final String dircity =  String.isNotEmpty(BillingCity) ? BillingCity :'-';
-        result =  String.isNotEmpty(dircity) && String.isNotEmpty(dirstreet) ? dirstreet +', '+ dircity: BillingCity;
+        final String dirstreet =  String.isNotEmpty(billingStreet) ? billingStreet :'-';
+        final String dircity =  String.isNotEmpty(billingCity) ? billingCity :'-';
+        result =  String.isNotEmpty(dircity) && String.isNotEmpty(dirstreet) ? dirstreet +', '+ dircity: billingCity;
         return result;  
     }  
             

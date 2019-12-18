@@ -75,6 +75,10 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     /*
 	* Attribute
 	*/
+    private static final string QSVALUES = 'Q1,Q2,Q3,Q4';
+    /*
+	* Attribute
+	*/
 	static {
         final integer index = myDate.month();
         integer index2 =0 ;
@@ -111,9 +115,9 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 * _____________________________________________________________________________
 */
     @auraEnabled
-    public static string getOppAbierInfo(String accId,Boolean Camping) {
+    public static string getOppAbierInfo(String accId,Boolean camping) {
         final List<WPR_Clasifica_QsOpps> lWrapClassAux = new List<WPR_Clasifica_QsOpps>();
-        final List<AggregateResult>  oppList =  [SELECT COUNT(Id) Total,SUM(Amount) TotalAmount,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('01','02','03','04','05') AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
+        final List<AggregateResult>  oppList =  [SELECT COUNT(Id) Total,SUM(Amount) TotalAmount,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('01','02','03','04','05') AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
         stageName01 = countOppOpen(oppList ,'01');
         stageName02 = countOppOpen(oppList ,'02');
         stageName03 = countOppOpen(oppList ,'03');
@@ -155,16 +159,16 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 * _____________________________________________________________________________
 */
     @auraEnabled
-    public static string getOppInfoHits(String accId,Boolean Camping) {
+    public static string getOppInfoHits(String accId,Boolean camping) {
         final List<WPR_HitsOPP> lWrapClassHits = new List<WPR_HitsOPP>();
-        for(AggregateResult opps :[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c) order by CALENDAR_YEAR(opportunity_planning_date__c)]) {
+        for(AggregateResult opps :[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c) order by CALENDAR_YEAR(opportunity_planning_date__c)]) {
             final Integer quarterRec = (Integer)(opps.get('Q')) -1;
             If(yearsMap.get(quarters.get(quarterRec)) == (Integer)(opps.get('AA'))) {
                 oppsHits[quarters.get(quarterRec)]=string.valueOf(opps.get(LABELTOTAL));  
             }     
         }
         labels = sortQs();
-        hitOpp = hits(accId,Camping); 
+        hitOpp = hits(accId,camping); 
         lWrapClassHits.add(new WPR_HitsOPP(labels,oppsHits,hitOpp));
         return JSON.serialize(lWrapClassHits);
     }
@@ -222,6 +226,9 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         * Attribute
         */
         public list<string> Hits {get;set;}
+        /*
+        * Attribute
+        */
         public WPR_HitsOPP(List<string> labelsList,list<string> oppList,List<string> hitList) {
             this.Labels = labelsList;
             this.Opps = oppList;
@@ -232,16 +239,15 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         * Attribute
         */
     public static list<String> sortQs() {
-        string q = 'Q1,Q2,Q3,Q4';
-        final list<string> qs = q.split(',');
+        final list<string> quarters = QSVALUES.split(',');
         final list<string> qsOrder= new list<String>();
         final Integer quarter = System.today().month() / 3 + 1;
         integer quarter2 =0 ;
         for(integer i=0;i< QCUATRO;i++) {
             if(quarter+i < QCUATRO) {
-                qsOrder.add(qs[(quarter+i)]+' '+String.valueof(myDate.year()-1));
+                qsOrder.add(quarters[(quarter+i)]+' '+String.valueof(myDate.year()-1));
             } else {
-                qsOrder.add(qs[quarter2]+' '+String.valueof(myDate.year()));
+                qsOrder.add(quarters[quarter2]+' '+ myDate.year());
                 quarter2++;
             }
         }
@@ -258,14 +264,14 @@ public with sharing class BE_OppCommercialActivChart_Cls {
 * @example Integer example = hits(AccountId,Camping);
 * _____________________________________________________________________________
 */
-    Public static list<string> hits(Id accountId,Boolean Camping) {
+    Public static list<string> hits(Id accountId,Boolean camping) {
         List<string> hists = new List<string>();
-        final List<string> histsOrder = new List<string>();
-        Integer q1oppWonNumber = 0; Integer q1=0;Integer q2=0; Integer q3=0;Integer Q4=0;
+        List<string> histsOrder = new List<string>();
+        Integer q1oppWonNumber = 0; Integer quarter1=0;Integer quarter2=0; Integer quarter3=0;Integer quarter4=0;
         Integer q2oppWonNumber = 0; Integer q3oppWonNumber = 0;Integer q4oppWonNumber = 0;Integer q1oppLostNumber = 0;
         Integer q2oppLostNumber = 0;Integer q3oppLostNumber = 0;Integer q4oppLostNumber = 0;
-        final List<AggregateResult> oppWon =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName = '06' AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
-        final List<AggregateResult> oppLost =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName = '07' AND Opportunity_of_campaign_type__c =:Camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
+        final List<AggregateResult> oppWon =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName = '06' AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
+        final List<AggregateResult> oppLost =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName = '07' AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
         
         q1oppWonNumber = countOpp(oppWon,1);
         q2oppWonNumber = countOpp(oppWon,2);
@@ -275,11 +281,11 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         q2oppLostNumber = countOpp(oppLost,2);
         q3oppLostNumber = countOpp(oppLost,3);
         q4oppLostNumber = countOpp(oppLost,4);
-        q1= formulaHits(q1oppWonNumber,q1oppLostNumber);
-        q2= formulaHits(q2oppWonNumber,q2oppLostNumber);
-        q3= formulaHits(q3oppWonNumber,q3oppLostNumber);
-        q4= formulaHits(q4oppWonNumber,q4oppLostNumber);
-        histsOrder.add(string.valueOf(q1));histsOrder.add(string.valueOf(q2));histsOrder.add(string.valueOf(q3));histsOrder.add(string.valueOf(q4));
+        quarter1= formulaHits(q1oppWonNumber,q1oppLostNumber);
+        quarter2= formulaHits(q2oppWonNumber,q2oppLostNumber);
+        quarter3= formulaHits(q3oppWonNumber,q3oppLostNumber);
+        quarter4= formulaHits(q4oppWonNumber,q4oppLostNumber);
+        histsOrder.add(string.valueOf(quarter1));histsOrder.add(string.valueOf(quarter2));histsOrder.add(string.valueOf(quarter3));histsOrder.add(string.valueOf(quarter4));
         hists = histsOrder(histsOrder);
         return hists;
     }

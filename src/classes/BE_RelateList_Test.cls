@@ -12,6 +12,28 @@
 */
 @isTest
 public class BE_RelateList_Test {
+    /*
+	* Attribute
+	*/
+    private static final String objectName = 'dwp_kitv__Visit__c';
+    /*
+	* Attribute
+	*/
+    private static final string FieldNameRelation ='dwp_kitv__account_id__c';
+    /*
+	* Attribute
+	*/
+    private static final String fields='Name,dwp_kitv__visit_start_date__c,CreatedBy.Name'; 
+    /*
+	* Attribute
+	*/
+    private static final String filters='dwp_kitv__visit_start_date__c>= TODAY';
+    /*
+	* Attribute
+	*/
+    private static final String orderRow='dwp_kitv__visit_start_date__c asc'; 
+    
+    private static final String limitRow='5'; 
     @testSetup
     private static void makeData() {
         final  User thisUser = BE_UtilitysDataTest_Test.crearUsuario('User test','Administrador del sistema','');
@@ -19,7 +41,7 @@ public class BE_RelateList_Test {
         System.runAs(thisUser) {
             //Create custom settings
             Final dwp_kitv__Visit_validations_acc_cs__c[] lstCsValidation=new dwp_kitv__Visit_validations_acc_cs__c[]{};
-            Final dwp_kitv__Visit_validations_acc_cs__c csValidation=new dwp_kitv__Visit_validations_acc_cs__c(SetupOwnerId=UserInfo.getOrganizationId(), dwp_kitv__User_Team_Member__c=true);
+                Final dwp_kitv__Visit_validations_acc_cs__c csValidation=new dwp_kitv__Visit_validations_acc_cs__c(SetupOwnerId=UserInfo.getOrganizationId(), dwp_kitv__User_Team_Member__c=true);
             lstCsValidation.add(csValidation);
             insert lstCsValidation;
             final Account acc = BE_UtilitysDataTest_Test.crearCuenta('Test acc');
@@ -37,12 +59,6 @@ public class BE_RelateList_Test {
         final List<Account> lsAcc = [SELECT Id,Name FROM Account WHERE OwnerId =:thisUser.id];
         System.runAs(thisUser) {
             test.startTest();
-            final String objectName = 'dwp_kitv__Visit__c';
-            final string FieldNameRelation ='dwp_kitv__account_id__c';
-            final String fields='Name,dwp_kitv__visit_start_date__c,CreatedBy.Name'; 
-            final String filters='dwp_kitv__visit_start_date__c>= TODAY';
-            final String orderRow='dwp_kitv__visit_start_date__c asc'; 
-            final String limitRow='5'; 
             BE_RelateList_Cls.getRelatedVisit(lsAcc[0].Id,objectName,FieldNameRelation,fields,filters,orderRow,limitRow);
             System.assertNotEquals(null, lsAcc[0].Name, 'datos registrados con exito');
             test.stopTest();

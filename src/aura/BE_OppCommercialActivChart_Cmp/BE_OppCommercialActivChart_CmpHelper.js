@@ -13,7 +13,7 @@
         var action = component.get("c.getOppAbierInfo");
         action.setParams({
             "accId" : Account,
-            "Camping" : Camping
+            "camping" : Camping
         });
         action.setCallback(this, function(result) {
             var estado = result.getState();
@@ -159,7 +159,7 @@
         var action = component.get("c.getOppAbierInfo");
         action.setParams({
             "accId" : Account,
-            "Camping" : Camping
+            "camping" : Camping
         });
         action.setCallback(this, function(result) {
             var estado = result.getState();
@@ -301,7 +301,7 @@
         var action = component.get("c.getOppInfoHits");
         action.setParams({
             "accId" : Account,
-            "Camping" : Camping
+            "camping" : Camping
         });
         action.setCallback(this, function(result) {
             var estado = result.getState();
@@ -399,7 +399,7 @@
         var action = component.get("c.getOppInfoHits");
         action.setParams({
             "accId" : Account,
-            "Camping" : Camping
+            "camping" : Camping
         });
         action.setCallback(this, function(result) {
             var estado = result.getState();
