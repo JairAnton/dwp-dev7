@@ -68,7 +68,7 @@ public class BE_UtilitysDataTest_Test {
 * @param:       String strName,Id Acc
 * @Description: Funcion que retorna un objeto Account_Accounting__c
 */
-    public static Account_Accounting__c crearAccount_Accouting(String strName,Id idAccount) {
+    public static Account_Accounting__c crearAccAccouting(String strName,Id idAccount) {
         final Account_Accounting__c accAcc = new Account_Accounting__c();
         accAcc.Name = strName;
         accAcc.account_id__c = idAccount;

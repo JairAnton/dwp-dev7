@@ -240,15 +240,15 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         * Attribute
         */
     public static list<String> sortQs() {
-        final list<string> quarters = QSVALUES.split(',');
+        final list<string> quartersv = QSVALUES.split(',');
         final list<string> qsOrder= new list<String>();
         final Integer quarter = System.today().month() / 3 + 1;
+        Integer quarter2 = 0;
         for(integer i=0;i< QCUATRO;i++) {
-            Integer quarter2 = 0;
             if(quarter+i < QCUATRO) {
-                qsOrder.add(quarters[(quarter+i)]+' '+String.valueof(myDate.year()-1));
+                qsOrder.add(quartersv[(quarter+i)]+' '+String.valueof(myDate.year()-1));
             } else {
-                qsOrder.add(quarters[quarter2]+' '+ myDate.year());
+                qsOrder.add(quartersv[quarter2]+' '+ myDate.year());
                 quarter2++;
             }
         }
@@ -338,8 +338,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     public static list<String> histsOrder(list<string> values) {
         final list<string> qsOrder= new list<String>();
         final Integer quarter = System.today().month() / 3 + 1;
+        Integer auxiliar = 0;
         for(integer i=0;i< QCUATRO;i++) {
-        integer auxiliar = 0;
             if(quarter + i < QCUATRO ) {
                 qsOrder.add(values[(quarter+i)]);
             } else {

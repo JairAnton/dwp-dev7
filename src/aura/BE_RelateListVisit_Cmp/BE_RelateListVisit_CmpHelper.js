@@ -11,7 +11,7 @@
         relatedOpps.setParams({
             "accId" : accountId,
             "objectName" : object,
-            "FieldNameRelation" : FieldNameRelation,
+            "fieldNameRelation" : FieldNameRelation,
             "fields" : fields,
             "filters" : filters,
             "orderRow" : orders,

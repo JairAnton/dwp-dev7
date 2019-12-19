@@ -32,8 +32,8 @@ public with sharing class BE_RelateList_Cls {
 * _____________________________________________________________________________
 */
     @auraEnabled
-    public static string getRelatedVisit(String accId, String objectName,String FieldNameRelation, String fields, String filters, String orderRow, String limitRow) {
-        String query = 'SELECT Id,OwnerId, ' +String.escapeSingleQuotes(fields)+ ' FROM ' +String.escapeSingleQuotes(objectName)+ ' WHERE '+String.escapeSingleQuotes(FieldNameRelation)+' = :accId'+ (filters!='' && filters!=null?' AND ' + filters : '');
+    public static string getRelatedVisit(String accId, String objectName,String fieldNameRelation, String fields, String filters, String orderRow, String limitRow) {
+        String query = 'SELECT Id,OwnerId, ' +String.escapeSingleQuotes(fields)+ ' FROM ' +String.escapeSingleQuotes(objectName)+ ' WHERE '+String.escapeSingleQuotes(fieldNameRelation)+' = :accId'+ (filters!='' && filters!=null?' AND ' + filters : '');
         if(orderRow!=null && orderRow!='') {
             query += ' ORDER BY ' + String.escapeSingleQuotes(orderRow);
         }
