@@ -64,12 +64,13 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
 */
     @auraEnabled (cacheable=true)
     public static String getData(String accId) {
-        string result = ''; string fieldIcon ='';
-        final List<List<wrapperClass>> listCards = new List<List<wrapperClass>>();final List<wrapperClass> listCard1 = new List<wrapperClass>(); final List<wrapperClass> listCard2 = new List<wrapperClass>();
-        final List<wrapperClass> listCard3 = new List<wrapperClass>();final List<wrapperClass> listCard4 = new List<wrapperClass>();final List<wrapperClass> listCard5 = new List<wrapperClass>();
+        string result = ''; 
         final List<Account> accs = [SELECT Id, bank_turnover_volume_amount__c, margin_ordinary_amount__c, net_cash_desc__c, financial_program_expiry_date__c,bbva_classification_desc__c, banking_system_classification_desc__c, Rating, bureau_classification_type__c,AccountNumber, BillingStreet, BillingCity, economic_activity_sector__c, Parent.Name FROM Account WHERE Id = :accId];
-        final List<Account_variation_information__c> avi=[SELECT Id, validation_color_type__c, indicator_name__c, indicator_update_date__c FROM Account_variation_information__c WHERE Account_Id__c = :accId AND indicator_name__c IN ('ACTIVO Directa', 'CUOTA Directa (%)', 'SPREAD (%)', 'MARGEN FINANCIERO')];
-        if(!accs.isEmpty()) { 
+        if(!accs.isEmpty()) {
+            string fieldIcon ='';
+            final List<Account_variation_information__c> avi=[SELECT Id, validation_color_type__c, indicator_name__c, indicator_update_date__c FROM Account_variation_information__c WHERE Account_Id__c = :accId AND indicator_name__c IN ('ACTIVO Directa', 'CUOTA Directa (%)', 'SPREAD (%)', 'MARGEN FINANCIERO')];
+            final List<List<wrapperClass>> listCards = new List<List<wrapperClass>>();final List<wrapperClass> listCard1 = new List<wrapperClass>(); final List<wrapperClass> listCard2 = new List<wrapperClass>();
+            final List<wrapperClass> listCard3 = new List<wrapperClass>();final List<wrapperClass> listCard4 = new List<wrapperClass>();final List<wrapperClass> listCard5 = new List<wrapperClass>();
             /*----------------------------------Fields Cards1------------------------------------------*/
             listCard1.add(new wrapperClass(NAME, 'Negocio BBVA', '08', CARD1,ISEMPTY,ISEMPTY,ISEMPTY,TRUES));
             listCard1.add(new wrapperClass('Volumen Negocio',  validation(String.valueOf(accs[0].bank_turnover_volume_amount__c), '0'), '02', CARD1,'PEN ###,###,##0.00',ISEMPTY,ISEMPTY,FALSES));
