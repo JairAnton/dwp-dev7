@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>qvcd__GBL_FiltersFunction__c</field>
-        <value xsi:type="xsd:string">account_id__c=.Id ORDER BY order__c ASC</value>
+        <value xsi:type="xsd:string">indicator_name__c !=null ORDER BY order__c ASC</value>
     </values>
     <values>
         <field>qvcd__GBL_Function__c</field>
@@ -40,7 +40,7 @@
     </values>
     <values>
         <field>qvcd__GBL_Relation__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Account_variation_information__r</value>
     </values>
     <values>
         <field>qvcd__GBL_Stage__c</field>
@@ -65,5 +65,9 @@
     <values>
         <field>qvcd__GBL_Type_relation__c</field>
         <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>qvcd__GBL_blankSpace__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
 </CustomMetadata>

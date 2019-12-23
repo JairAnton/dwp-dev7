@@ -1,0 +1,48 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:appHostable" access="global">
+    <aura:attribute name="Id" type="String" default="" description="Atributo de tipo cadena que guarda el Id de la consulta que hara el componente QVCD" />  
+    <aura:attribute name="TypeLists" type="String" default="Oportunidades" description="Atributo para realizar el switch de lista oportunidades o visitas " />  
+    <aura:attribute name="filtersLastVisit" type="String" default=""  />  
+    <aura:if isTrue="{!v.TypeLists == 'Oportunidades'}">
+    <c:BE_RelateList_Cmp title="Oportunidades en progreso"
+        Icon="standard:opportunity"
+        showTitleHeader = "true"
+        showRecords = "49999"
+        object = "Opportunity"
+        FieldNameRelation = "AccountId"
+        fields = "Name,StageName_Formula__c,Amount,CreatedDate"
+        filters = "StageName IN ('01','02','03','04','05')"
+        orders = "CreatedDate desc"
+        TypeList = "long"
+        recordId = "{!v.Id}"
+        />
+    </aura:if>
+    <aura:if isTrue="{!v.TypeLists == 'VisitNext'}">
+    <c:BE_RelateListVisit_Cmp title="Proximas Visitas"
+        Icon="standard:partners"
+        showTitleHeader = "true"
+        showRecords = "49999"
+        object = "dwp_kitv__Visit__c"
+        FieldNameRelation = "dwp_kitv__account_id__c"
+        fields = "Name,dwp_kitv__visit_start_date__c,CreatedBy.Name"
+        filters = "dwp_kitv__visit_start_date__c>= TODAY"
+        orders = "dwp_kitv__visit_start_date__c desc"
+        TypeList = "long"
+        recordId = "{!v.Id}"
+        />
+    </aura:if>
+    <aura:if isTrue="{!v.TypeLists == 'VisitLast'}">
+    <c:BE_RelateListVisit_Cmp title="Visitas Pasadas"
+        Icon="standard:partners"
+        showTitleHeader = "true"
+        showRecords = "49999"
+        object = "dwp_kitv__Visit__c"
+        FieldNameRelation = "dwp_kitv__account_id__c"
+        fields = "Name,dwp_kitv__visit_start_date__c,CreatedBy.Name"
+        filters = "{!v.filtersLastVisit}"
+        orders = "dwp_kitv__visit_start_date__c desc"
+        TypeList = "long"
+        recordId = "{!v.Id}"
+        />
+    </aura:if>
+    <br/>
+</aura:component>

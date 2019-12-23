@@ -2231,4 +2231,12 @@
         <shortDescription>BE_CommitmentAmountQuantity</shortDescription>
         <value>Amount/Quantity</value>
     </labels>
+	 <labels>
+        <fullName>BE_WelcomeTabCteImg</fullName>
+        <categories>Imagen</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Imagen Modal de bienvenida WL</shortDescription>
+        <value>/resource/BE_WelcomeTabCte</value>
+    </labels>
 </CustomLabels>

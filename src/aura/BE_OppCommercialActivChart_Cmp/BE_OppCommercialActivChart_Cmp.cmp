@@ -1,0 +1,33 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller="BE_OppCommercialActivChart_Cls" >
+    <ltng:require scripts="{!join(',',
+                           $Resource.ChartjsAP + '/chartjs/Chart.bundle.js',
+                           $Resource.ChartjsAP + '/chartjs/Chart.bundle.min.js',
+                           $Resource.ChartjsAP  + '/chartjs/Chart.js',
+                           $Resource.ChartjsAP  + '/chartjs/Chart.min.js',
+                           $Resource.ChartJS23
+                           )}"
+                  afterScriptsLoaded="{!c.iniciaGraficas}" />
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 slds-large-size_6-of-12 slds-box scroll " >
+                <div class="slds-text-heading_small" style="color:#292366">Pipeline por oportunidades propias.</div>
+                <br/> <br/> 
+                <canvas aura:id="PipelineOpp" ></canvas>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 slds-large-size_6-of-12 slds-box  scroll">
+                <div class="slds-text-heading_small" style="color:#292366" >Hit/Miss (Efectividad) de oportunidades propias.</div>
+                <br/> <br/>
+                <canvas aura:id="HitsOpp"></canvas>       
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 slds-large-size_6-of-12 slds-box  scroll">
+                <div class="slds-text-heading_small" style="color:#292366" >Pipeline por oportunidades de campañas.</div>
+                <br/> <br/><br/>
+                <canvas aura:id="PipelineOppCamp" ></canvas>        
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 slds-large-size_6-of-12 slds-box  scroll">
+                <div class="slds-text-heading_small" style="color:#292366" >Hit/Miss (Efectividad) de oportunidades de campañas.</div>
+                <br/> <br/>
+                <canvas aura:id="HitsOppCamp"></canvas>        
+            </div>
+        </div>
+</aura:component>

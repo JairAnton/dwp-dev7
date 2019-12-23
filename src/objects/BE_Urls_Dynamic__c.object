@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Configuracion para asiganar dinamicamente Urls</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BE_Titulo_Url__c</fullName>
+        <description>Muestra el titulo de las Urls</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Titulo Url</label>
+        <length>60</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BE_Url__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>ejemplo:&apos;https://www.google.es/&apos;</inlineHelpText>
+        <label>Url</label>
+        <length>200</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Url Dinamica</label>
+    <visibility>Public</visibility>
+</CustomObject>

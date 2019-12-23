@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="BE_OppCommercialActivChart_Cmp" ref="c:BE_OppCommercialActivChart_Cmp" label="Label">
+		Componente que grafica las oportunidades de actividad comercial
+	</aura:example>
+</aura:documentation>
