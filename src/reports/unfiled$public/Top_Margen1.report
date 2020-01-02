@@ -4,7 +4,7 @@
         <calculatedFormula>Account_Profitability__c.Financial_Margin__c:SUM</calculatedFormula>
         <datatype>currency</datatype>
         <developerName>FORMULA1</developerName>
-        <isActive>true</isActive>
+        <isActive>false</isActive>
         <isCrossBlock>false</isCrossBlock>
         <masterLabel>Total Margen Financiero</masterLabel>
         <scale>2</scale>
@@ -13,7 +13,7 @@
         <calculatedFormula>Account_Profitability__c.Commissions__c:SUM</calculatedFormula>
         <datatype>currency</datatype>
         <developerName>FORMULA2</developerName>
-        <isActive>true</isActive>
+        <isActive>false</isActive>
         <isCrossBlock>false</isCrossBlock>
         <masterLabel>Total comisiones</masterLabel>
         <scale>2</scale>
@@ -42,6 +42,12 @@
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account_Profitability__c.profitability_type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>03</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>

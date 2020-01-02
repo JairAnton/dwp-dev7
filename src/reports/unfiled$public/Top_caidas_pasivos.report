@@ -15,6 +15,12 @@
             <operator>equals</operator>
             <value>02</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>Account_BBVA_Information__c.is_last_date__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Tabular</format>

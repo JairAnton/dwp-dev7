@@ -22,13 +22,13 @@
     </filter>
     <format>Summary</format>
     <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>Account.Account_Indicators__r$indicator_name__c</field>
+        <dateGranularity>Month</dateGranularity>
+        <field>Account.Account_Indicators__r$year_month_day_date__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
-        <dateGranularity>Month</dateGranularity>
-        <field>Account.Account_Indicators__r$year_month_day_date__c</field>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Account_Indicators__r$indicator_name__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Vinculación</name>

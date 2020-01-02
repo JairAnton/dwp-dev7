@@ -4,21 +4,21 @@
         <calculatedFormula>(RowCount - RowCount) +1</calculatedFormula>
         <datatype>number</datatype>
         <developerName>FORMULA1</developerName>
-        <isActive>true</isActive>
+        <isActive>false</isActive>
         <isCrossBlock>false</isCrossBlock>
         <masterLabel>Conteo</masterLabel>
         <scale>0</scale>
     </aggregates>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
+        <field>CDF1</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
         <field>Account_Banking_System_Debt__c.debt_current_balance_amount__c</field>
     </columns>
     <columns>
         <field>Account_Banking_System_Debt__c.entity_name__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>CDF1</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
@@ -65,7 +65,7 @@
     </params>
     <reportType>AccountCustomEntity$Account_Banking_System_Debt__c</reportType>
     <scope>user</scope>
-    <showDetails>true</showDetails>
+    <showDetails>false</showDetails>
     <showGrandTotal>false</showGrandTotal>
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
