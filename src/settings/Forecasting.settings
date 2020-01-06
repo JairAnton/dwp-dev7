@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ForecastingSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <displayCurrency>CORPORATE</displayCurrency>
     <enableForecasts>true</enableForecasts>
     <forecastingCategoryMappings>
         <forecastingItemCategoryApiName>commitonly</forecastingItemCategoryApiName>
@@ -302,10 +303,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -318,7 +315,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -350,7 +347,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -362,11 +359,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -376,10 +373,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -430,12 +423,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>ACCOUNT.NAME</field>
@@ -486,11 +475,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -498,14 +486,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -518,8 +505,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -740,10 +726,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -756,7 +738,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -788,7 +770,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -800,11 +782,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -814,10 +796,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -868,12 +846,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -924,11 +898,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -936,14 +909,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -956,8 +928,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -1182,10 +1153,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -1198,7 +1165,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1230,7 +1197,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1242,11 +1209,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1256,10 +1223,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -1310,12 +1273,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>ACCOUNT.NAME</field>
@@ -1367,11 +1326,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -1379,14 +1337,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -1399,8 +1356,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -1621,10 +1577,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -1637,7 +1589,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1669,7 +1621,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1681,11 +1633,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1695,10 +1647,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -1749,12 +1697,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -1805,11 +1749,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -1817,14 +1760,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -1837,8 +1779,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -2063,10 +2004,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -2079,7 +2016,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2111,7 +2048,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2123,11 +2060,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2137,10 +2074,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -2191,12 +2124,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -2248,11 +2177,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -2260,14 +2188,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -2280,8 +2207,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -2502,10 +2428,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -2518,7 +2440,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2550,7 +2472,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2562,11 +2484,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2576,10 +2498,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -2630,12 +2548,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -2686,11 +2600,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -2698,14 +2611,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -2718,8 +2630,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -2944,10 +2855,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -2960,7 +2867,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2992,7 +2899,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3004,11 +2911,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3018,10 +2925,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -3072,12 +2975,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -3129,11 +3028,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -3141,14 +3039,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -3161,8 +3058,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -3383,10 +3279,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -3399,7 +3291,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3431,7 +3323,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3443,11 +3335,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3457,10 +3349,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -3511,12 +3399,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -3567,11 +3451,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -3579,14 +3462,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -3599,8 +3481,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -3825,10 +3706,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -3841,7 +3718,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3873,7 +3750,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3885,11 +3762,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -3899,10 +3776,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -3953,12 +3826,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -4010,11 +3879,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -4022,14 +3890,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -4042,8 +3909,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -4264,10 +4130,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -4280,7 +4142,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4312,7 +4174,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4324,11 +4186,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4338,10 +4200,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -4392,12 +4250,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -4448,11 +4302,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -4460,14 +4313,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -4480,8 +4332,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -4706,10 +4557,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -4722,7 +4569,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4754,7 +4601,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4766,11 +4613,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -4780,10 +4627,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -4834,12 +4677,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -4891,11 +4730,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -4903,14 +4741,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -4923,8 +4760,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
@@ -5145,10 +4981,6 @@
             <label>Discovery Completed</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qa</field>
-            <label>Fecha de formalización</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eO</field>
             <label>frm_ContractNumber</label>
         </opportunityListFieldsLabelMappings>
@@ -5161,7 +4993,7 @@
             <label>Information reason for dismissal</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <label>Initial Amount</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5193,7 +5025,7 @@
             <label>Loss winner bank</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <label>Oportunidad de Tipo de Campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5205,11 +5037,11 @@
             <label>Planning date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqe</field>
+            <field>00N1I00000Nv3W2</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W3</field>
             <label>Prioridad de la campaña</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -5219,10 +5051,6 @@
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eU</field>
             <label>Product family</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5Qb</field>
-            <label>Razón de devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
             <field>00N1I00000Mp8eQ</field>
@@ -5273,12 +5101,8 @@
             <label>Unique identifier</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N4C000001H6lL</field>
+            <field>00N1I00000NHXkZ</field>
             <label>USER EJECUTIVO</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
-            <field>00N4C000001P5QZ</field>
-            <label>Usuario en devolución</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsSelectedSettings>
             <field>OPPORTUNITY.NAME</field>
@@ -5329,11 +5153,10 @@
             <field>00N1I00000Mp8eH</field>
             <field>00N1I00000Mp8ed</field>
             <field>00N1I00000IvmUT</field>
-            <field>00N4C000001P5Qa</field>
             <field>00N1I00000Mp8eO</field>
             <field>00N1I00000Mp8ef</field>
             <field>00N1I00000Mp8ea</field>
-            <field>00N4C000001A0tg</field>
+            <field>00N1I00000Nv3Uh</field>
             <field>00N1I00000Mp8eP</field>
             <field>00N1I00000Mp8eW</field>
             <field>00N1I00000Mp8eX</field>
@@ -5341,14 +5164,13 @@
             <field>00N1I00000Mp8eZ</field>
             <field>00N1I00000IvmUV</field>
             <field>00N1I00000Mp8eb</field>
-            <field>00N4C0000019zqd</field>
+            <field>00N1I00000Nv3W1</field>
             <field>00N1I00000Mp8eI</field>
             <field>00N1I00000Mp8eS</field>
-            <field>00N4C0000019zqe</field>
-            <field>00N4C0000019zqf</field>
+            <field>00N1I00000Nv3W2</field>
+            <field>00N1I00000Nv3W3</field>
             <field>00N1I00000Mp8eT</field>
             <field>00N1I00000Mp8eU</field>
-            <field>00N4C000001P5Qb</field>
             <field>00N1I00000Mp8eQ</field>
             <field>00N1I00000Mp8ee</field>
             <field>00N1I00000Mp8eJ</field>
@@ -5361,8 +5183,7 @@
             <field>00N1I00000Mp8ei</field>
             <field>00N1I00000Mp7Iy</field>
             <field>00N1I00000Mp8ej</field>
-            <field>00N4C000001H6lL</field>
-            <field>00N4C000001P5QZ</field>
+            <field>00N1I00000NHXkZ</field>
         </opportunityListFieldsUnselectedSettings>
         <ownerAdjustableCategoryApiNames>commitonly</ownerAdjustableCategoryApiNames>
         <ownerAdjustableCategoryApiNames>bestcaseonly</ownerAdjustableCategoryApiNames>
