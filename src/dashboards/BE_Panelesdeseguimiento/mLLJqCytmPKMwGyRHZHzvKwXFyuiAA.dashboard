@@ -727,7 +727,7 @@
     </dashboardGridLayout>
     <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <runningUser>glook@bbva.com.dwpprod</runningUser>
+    <runningUser>diego.carbajal@bbva.com</runningUser>
     <textColor>#000000</textColor>
     <title>Cartera de Gestores</title>
     <titleColor>#000000</titleColor>
