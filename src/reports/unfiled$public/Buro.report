@@ -14,18 +14,16 @@
         <field>ACCOUNT.NAME</field>
     </columns>
     <columns>
-        <field>Account.banking_system_classification_type__c</field>
+        <field>Account.bbva_classification_desc__c</field>
+    </columns>
+    <columns>
+        <field>Account.banking_system_classification_desc__c</field>
     </columns>
     <currency>PEN</currency>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>Account.bureau_classification_type__c</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsDown>
-    <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>Account.bbva_classification_type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Buro</name>

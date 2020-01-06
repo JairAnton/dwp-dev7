@@ -52,7 +52,7 @@
         <field>ACCOUNT.NAME</field>
     </columns>
     <columns>
-        <field>Account.banking_system_classification_type__c</field>
+        <field>Account.banking_system_classification_desc__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>

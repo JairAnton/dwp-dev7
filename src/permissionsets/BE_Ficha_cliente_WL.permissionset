@@ -597,8 +597,4 @@
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Ficha cliente WL</label>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>LightningOnMobile</name>
-    </userPermissions>
 </PermissionSet>

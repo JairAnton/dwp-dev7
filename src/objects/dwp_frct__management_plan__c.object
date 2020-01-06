@@ -336,7 +336,7 @@ CASE(PRIORVALUE(dwp_frct__management_plan_stage_type__c),
         <fullName>dwp_frct__Owner_can_not_access_in_progress_stage</fullName>
         <active>true</active>
         <description>You can not access to &apos;In progress&apos; stage.</description>
-        <errorConditionFormula>IF(AND((ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;04&apos;)),(OwnerId  =  $User.Id),($Profile.Name &lt;&gt; &apos;System Administrator&apos;)),true,false)</errorConditionFormula>
+        <errorConditionFormula>IF(AND((ISPICKVAL( dwp_frct__management_plan_stage_type__c , &apos;04&apos;)),(OwnerId  =  $User.Id),($Profile.Name &lt;&gt; &apos;System Administrator&apos;), NOT(ISNULL( dwp_frct__user_id__c))),true,false)</errorConditionFormula>
         <errorDisplayField>dwp_frct__other_information_desc__c</errorDisplayField>
         <errorMessage>You can not access to &apos;In progress&apos; stage.</errorMessage>
     </validationRules>

@@ -198,7 +198,7 @@
         <deprecated>false</deprecated>
         <description>By default it shows the sum of cancellations, amortizations and anticipated maturities.</description>
         <externalId>false</externalId>
-        <formula>dwp_frct__opportunity_amortization_amount__c +  dwp_frct__opportunity_antcp_expiry_amount__c  +  dwp_frct__opportunity_cancellation_amount__c</formula>
+        <formula>MAX((dwp_frct__opportunity_amortization_amount__c +  dwp_frct__opportunity_antcp_expiry_amount__c  +  dwp_frct__opportunity_cancellation_amount__c), dwp_frct__management_expected_drop_amount__c )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Expected drop</label>
         <precision>18</precision>
