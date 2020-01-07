@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
-    <aggregates>
-        <calculatedFormula>(RowCount - RowCount) +1</calculatedFormula>
-        <datatype>number</datatype>
-        <developerName>FORMULA1</developerName>
-        <isActive>false</isActive>
-        <isCrossBlock>false</isCrossBlock>
-        <masterLabel>Conteo</masterLabel>
-        <scale>0</scale>
-    </aggregates>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>CDF1</field>

@@ -688,10 +688,16 @@
                 <flexComponentProperties>
                     <decimalPrecision>-1</decimalPrecision>
                     <flexTableColumn>
-                        <reportColumn>INDUSTRY</reportColumn>
+                        <reportColumn>Account.economic_activity_sector__c</reportColumn>
                         <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>grouping</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>s!Account.Record_Count__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>aggregate</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>s!CDF1</reportColumn>
@@ -700,7 +706,7 @@
                         <type>aggregate</type>
                     </flexTableColumn>
                     <flexTableColumn>
-                        <reportColumn>RowCount</reportColumn>
+                        <reportColumn>s!Account_Banking_System_Debt__c.debt_current_balance_amount__c</reportColumn>
                         <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>aggregate</type>

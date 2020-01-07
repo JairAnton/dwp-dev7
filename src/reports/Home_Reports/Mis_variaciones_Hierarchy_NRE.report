@@ -42,11 +42,11 @@
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Account_BBVA_Information__c.current_balance_var_quart_amount__c</field>
+        <field>Account_BBVA_Information__c.current_balance_var_month_amount__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Account_BBVA_Information__c.current_balance_var_month_amount__c</field>
+        <field>Account_BBVA_Information__c.current_balance_var_quart_amount__c</field>
     </columns>
     <currency>PEN</currency>
     <filter>
@@ -94,8 +94,8 @@
     <reportType>AccountCustomEntity$Account_BBVA_Information__c</reportType>
     <scope>team</scope>
     <showDetails>true</showDetails>
-    <!-- <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>false</showSubTotals> -->
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>LAST_UPDATE</dateColumn>
         <interval>INTERVAL_THISMONTH</interval>

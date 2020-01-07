@@ -9,6 +9,15 @@
         <field>Account_Profitability__c.current_ydt_amount__c</field>
     </columns>
     <currency>PEN</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account_Profitability__c.is_type_3_last_date__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
