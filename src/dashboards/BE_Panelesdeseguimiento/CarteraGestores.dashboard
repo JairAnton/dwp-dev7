@@ -187,7 +187,8 @@
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
-                        <sortOrder>a</sortOrder>
+                        <sortColumn>FORMULA3</sortColumn>
+                        <sortOrder>d</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
                 <header>Top margen</header>
@@ -224,6 +225,7 @@
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
+                        <sortColumn>s!Account_BBVA_Information__c.current_balance_var_year_amount__c</sortColumn>
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
@@ -591,7 +593,8 @@
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
-                        <sortOrder>a</sortOrder>
+                        <sortColumn>s!Account_Profitability__c.current_ydt_amount__c</sortColumn>
+                        <sortOrder>d</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
                 <header>Top rentabilidad</header>
@@ -719,7 +722,8 @@
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
-                        <sortOrder>a</sortOrder>
+                        <sortColumn>s!Account_Banking_System_Debt__c.debt_current_balance_amount__c</sortColumn>
+                        <sortOrder>d</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
                 <header>Sector financiero</header>

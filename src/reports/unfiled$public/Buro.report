@@ -20,6 +20,15 @@
         <field>Account.banking_system_classification_desc__c</field>
     </columns>
     <currency>PEN</currency>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Account.Record_Type_Economic_Group</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
