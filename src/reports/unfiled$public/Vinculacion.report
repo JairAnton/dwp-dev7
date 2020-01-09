@@ -5,7 +5,7 @@
     </columns>
     <currency>PEN</currency>
     <filter>
-        <booleanFilter>1 OR 2</booleanFilter>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
         <criteriaItems>
             <column>Account.Account_Indicators__r$year_month_day_date__c</column>
             <isUnlocked>true</isUnlocked>
@@ -17,6 +17,12 @@
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>THIS_MONTH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Account_Indicators__r$indicator_type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>03</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
