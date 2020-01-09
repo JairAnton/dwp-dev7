@@ -1,53 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
-    <aggregates>
-        <calculatedFormula>RowCount / PARENTGROUPVAL(RowCount, GRAND_SUMMARY)</calculatedFormula>
-        <datatype>percent</datatype>
-        <developerName>FORMULA1</developerName>
-        <downGroupingContext>BucketField_67238009</downGroupingContext>
-        <isActive>true</isActive>
-        <isCrossBlock>false</isCrossBlock>
-        <masterLabel>Porcentaje</masterLabel>
-        <scale>2</scale>
-    </aggregates>
-    <buckets>
-        <bucketType>text</bucketType>
-        <developerName>BucketField_67238009</developerName>
-        <masterLabel>Clasificación BBVA</masterLabel>
-        <nullTreatment>n</nullTreatment>
-        <sourceColumnName>Account.bbva_classification_type__c</sourceColumnName>
-        <useOther>false</useOther>
-        <values>
-            <sourceValues>
-                <sourceValue>0</sourceValue>
-            </sourceValues>
-            <value>Normal</value>
-        </values>
-        <values>
-            <sourceValues>
-                <sourceValue>10</sourceValue>
-            </sourceValues>
-            <value>Perdida</value>
-        </values>
-        <values>
-            <sourceValues>
-                <sourceValue>20</sourceValue>
-            </sourceValues>
-            <value>Dudosa</value>
-        </values>
-        <values>
-            <sourceValues>
-                <sourceValue>30</sourceValue>
-            </sourceValues>
-            <value>Deficiente</value>
-        </values>
-        <values>
-            <sourceValues>
-                <sourceValue>40</sourceValue>
-            </sourceValues>
-            <value>CPP</value>
-        </values>
-    </buckets>
     <columns>
         <field>ACCOUNT.NAME</field>
     </columns>
@@ -59,10 +11,19 @@
         <field>Account.bureau_classification_type__c</field>
     </columns>
     <currency>PEN</currency>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Account.Record_Type_Economic_Group</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>BucketField_67238009</field>
+        <field>Account.bbva_classification_desc__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Clasificacion BBVA</name>
