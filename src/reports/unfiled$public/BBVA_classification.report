@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_67238009</developerName>
+        <masterLabel>Clasificación BBVA</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Account.bbva_classification_desc__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>NOR</sourceValue>
+            </sourceValues>
+            <value>1. NOR</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>CPP</sourceValue>
+            </sourceValues>
+            <value>2. CPP</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>DEF</sourceValue>
+            </sourceValues>
+            <value>3. DEF</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>DUD</sourceValue>
+            </sourceValues>
+            <value>4. DUD</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>PER</sourceValue>
+            </sourceValues>
+            <value>5 PER</value>
+        </values>
+    </buckets>
     <columns>
         <field>ACCOUNT.NAME</field>
     </columns>
@@ -23,7 +61,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.bbva_classification_desc__c</field>
+        <field>BucketField_67238009</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Clasificacion BBVA</name>
