@@ -9,7 +9,7 @@
     </columns>
     <currency>PEN</currency>
     <filter>
-        <booleanFilter>(1 OR 4) AND 2 AND 3</booleanFilter>
+        <booleanFilter>(1 OR 4) AND 2 AND 3 AND 5</booleanFilter>
         <criteriaItems>
             <column>Account_Profitability__c.year_month_day_date__c</column>
             <isUnlocked>true</isUnlocked>
@@ -33,6 +33,12 @@
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>THIS_MONTH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account_Profitability__c.profitability_category_type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Spread</value>
         </criteriaItems>
         <language>es</language>
     </filter>

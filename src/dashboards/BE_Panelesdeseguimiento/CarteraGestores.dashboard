@@ -593,7 +593,7 @@
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
-                        <sortColumn>s!Account_Profitability__c.current_ydt_amount__c</sortColumn>
+                        <sortColumn>s!Account_Profitability__c.previous_ydt_amount__c</sortColumn>
                         <sortOrder>d</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
