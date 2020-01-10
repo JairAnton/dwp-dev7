@@ -35,7 +35,7 @@
             <sourceValues>
                 <sourceValue>PER</sourceValue>
             </sourceValues>
-            <value>5 PER</value>
+            <value>5. PER</value>
         </values>
     </buckets>
     <columns>
