@@ -762,7 +762,12 @@
         <editable>true</editable>
         <field>Account_Accounting__c.gf_ratio_value_number__c</field>
         <readable>true</readable>
-    </fieldPermissions>   
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Record_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Accounting__c.gl_account_amount__c</field>
@@ -826,6 +831,36 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Rating__c.internal_rating_score_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Banking_System_Debt__c.Direct_Debt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Banking_System_Debt__c.Indirect_Debt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.Commissions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.Facturaci_n__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.Financial_Margin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Profitability__c.Spread__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

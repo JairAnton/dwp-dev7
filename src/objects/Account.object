@@ -205,6 +205,19 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Record_Count__c</fullName>
+        <description>Campo utilitario para reportes. Ejm &quot;Sectores&quot;</description>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ShippingAddress</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>

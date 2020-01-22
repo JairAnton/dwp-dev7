@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="BE_OppsCommercialActivity_Cmp" ref="c:BE_OppsCommercialActivity_Cmp" label="BE_OppsCommercialActivity_Cmp">
+		Componete que muestra el cintillo de oportunidades relacionadas con el cliente.
+	</aura:example>
+</aura:documentation>

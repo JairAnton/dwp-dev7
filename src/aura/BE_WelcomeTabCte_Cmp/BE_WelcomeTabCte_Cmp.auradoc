@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="BE_WelcomeTabCte_Cmp" ref="c:BE_WelcomeTabCte_Cmp" label="Label">
+		Modal de bienvenida nueva ficha cliente WL
+	</aura:example>
+</aura:documentation>

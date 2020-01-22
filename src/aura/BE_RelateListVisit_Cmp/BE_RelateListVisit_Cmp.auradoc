@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="example" ref="c:BE_RelateListVisit_Cmp" label="Label">
+		Componete que muestra la lista relacionada de vistas
+	</aura:example>
+</aura:documentation>

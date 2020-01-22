@@ -1,0 +1,32 @@
+<design:component >
+    <design:attribute name="Type" label="Table type" datasource="Summary,Matrix" required="true" default="Summary" />
+    <design:attribute name="customLabelAPInameError" label="Error custom label API name (All)" required="true" />
+    <design:attribute name="showTitle" label="Show table title? (All)" />
+    <design:attribute name="reportTitleAPI" label="Table title custom label API name (All)" /> 
+    <design:attribute name="Object" label="Object related (All)" description="API name of the object that contains the table data" required="true"/>
+    <design:attribute name="RelatedField" label="Related field API name (All)" description="API name of the field that relates the table data with the lightning record page object. For example: field1__c" required="true"/>
+    <design:attribute name="Header" label="Header Api name (All)" description="API name of the field that will be used to display the columns of the table. For example: field1__c,field2__c" required="true" />
+    <design:attribute name="headerApiName" label="Columns headers titles API names formula field (All - optional)" description="Allows to replace the header columns labels by the value of lightning record page object fields. For example: -,field1__c,field2__c"/>
+    <design:attribute name="Format" label="Cell values format (All - optional)" description="Allows specify the values format of the fields specified in 'Header Api name' attribute. For example: CUR,-,%,IMG" required="true" />
+    <design:attribute name="FilterStatic" label="Static filter (All - optional)" description="Filter criteria will be aply to the table information. The syntax should be as a SOQL statement. For example: date__c = THIS_MONTH AND Amount > 1000"/>
+    <design:attribute name="Order" label="Order (All - optional)" description="Order in which the rows of the table will be displayed. The syntax should be as a SOQL statement. For example: Name DESC,date__c ASC"/>
+    <design:attribute name="Group" label="Group API name (All - optional)" description="API name of the field that will be used to summarize. For example: field1__c,field2__c" />
+    <design:attribute name="HeaderGroup" label="Header group Matrix (Matrix)" description="Api name of the field that will be used to summarize the columns in the matrix. For example: field1__c,field2__c" />
+    <design:attribute name="hidenSubHeadMatrix" label="Hide sub-header matrix? (Matrix - optional)" description="If selected, hiddes the 'Header Api name' labels" default="false" />
+    <design:attribute name="Collapsed" label="Collapsible groupings? (All - optional)" description="If selected the groupings rows will be collapsibles" />
+    <design:attribute name="CollapsedDefault" label="Collapsibles by default? (All - optional)"  description="If selected the groupings rows will be default collapsibled" />
+    <design:attribute name="Summarize" label="Summarize operation (Summary - optional / Matrix - required)" description="Allows to specify which fields from the 'Header Api name' attribute will be summarized and with which operation. For example: SUM,-,AVG,SUM" />
+    <design:attribute name="showTotal" label="Show Grand Total Row? (All - optional)" description="If selected, totalized row is displayed at the bottom of the table"/>
+    <design:attribute name="labelTotalApi" label="Total api label (All - optional)" />
+    <design:attribute name="FormatDivisa" label="Apply format to currency? (All - optional)" description="If selected, the format specified in the 'Currency dymension' attibute will be used to display the value of the cells specified as 'CUR' in the 'Cell values format'" />
+    <design:attribute name="CurrencyDimension" label="Currency dymension (All - optional)" datasource="Thousand,Million" default="Thousand" />
+    <design:attribute name="Symbol" label="Show symbol? (All - optional)" description="If selected, the value of the cells specified as 'CUR' in the 'Cell values format' will be displayed with currency symbol specified in the custom setting 'CurrencySymbols__c'" />
+    <design:attribute name="LocaleCur" label="Use logged user currency? (All - optional)" description="If selected, the value of the cells specified as 'CUR' in the 'Cell values format' will be displayed in the logged user currency"/>
+    <design:attribute name="PositionCurrency" label="Currency position (All - optional)" datasource="Left,Right" description="Allows to specify the position of the currency code/symbol" default="Left" />
+    <design:attribute name="showFilter" label="Show dynamic filter? (All - optional)" description="If selected, the dynamic filter will be displayed"/>
+    <design:attribute name="FilterDynamicField" label="Dynamic filter field API name (All - optional)" description="Api name of the field that will be used in the dynamic filter. For example: field1__c"/>
+    <design:attribute name="FilterDynamic" label="Dynamic filter values (All - optional)" description="List of values to select on the dynamic filter. For example: Direct,Indirect" />
+    <design:attribute name="allFilter" label="Show all option in filter? (All - optional)" description="If selected, the option of displaying all values will be available in the dynamic filter"/>
+    <design:attribute name="labelFilterApi" label="Dynamic filter custom label Api name (All - optional)" description="Api name of the custom label that will be used as the dynamic filter label" />
+    <design:attribute name="showLink" label="Show link to detail row information? (Summary)" description="If selected, the first column will be displayed as a link to the detail page of the row record" />
+</design:component>

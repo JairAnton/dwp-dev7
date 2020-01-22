@@ -1,0 +1,13 @@
+<design:component>
+    <design:attribute name="title" label="Nombre de la lista" description="Es el nombre del titulo" />
+    <design:attribute name="showTitleHeader" label="Mostrar Encabezado" description="Habilita si desea que se muestre el título de la lista" />
+    <design:attribute name="showRecords" label="Registros a mostrar" description="Número de registros a mostrar en cada página" />
+    <design:attribute name="Icon" label="Muestra el icono" description="Muestra el icono a mostrar en el encabezado example slds standard:opportunity " />
+    <design:attribute name="object" label="Nombre del objeto realacionado" description="Nombre del objeto para obtener sus datos"/>
+    <design:attribute name="FieldNameRelation" label="FieldNameRelation" default="" description="Atributo para el nombre del campo realacion con el registro visto"/>
+    <design:attribute name="fields" label="Nombre de los campos a mostrar" description="Atributo que almacena los campos a mostrar"/>
+    <design:attribute name="columnsName" label="Nombre de las columnas" description="Nombre de las columnas a mostrar"/>
+    <design:attribute name="filters" label="Filtros" description="Filtros para la consulta ejemplo: StageName IN ('01','02','03','04','05')"/>
+    <design:attribute name="orders" label="orders" description="Atributo para ordenar la lista ejemplo :"/>
+    <design:attribute name="TypeList" label="Tipo de lista" description="Si el tipo es short Muestra el boton o accion Ver todos si es long no lo muestra existen solo estos dos tipos (short and long)"/>
+</design:component>

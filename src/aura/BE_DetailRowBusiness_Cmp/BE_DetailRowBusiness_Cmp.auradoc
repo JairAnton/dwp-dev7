@@ -1,0 +1,9 @@
+<aura:documentation>
+	 <aura:description>
+        <p>El <code>c:BE_DetailRowBussiness_Cmp</code> es un componente que muestra el cintillo en tan Negocio BBVA para la ficha cliente.</p>
+        <!--More markup here, such as <pre> for code samples-->
+    </aura:description>
+    <aura:example name="BE_DetailRowBussiness_Cmp" ref="c:BE_DetailRowBussiness_Cmp" label="Usando el c:BE_DetailRowBussiness_Cmp Component">
+        <h2>es un componente que muestra el cintillo en tan Negocio BBVA para la ficha cliente. <code>BE_DetailRowBussiness_Cmp</code>.</h2>
+    </aura:example>
+</aura:documentation>
