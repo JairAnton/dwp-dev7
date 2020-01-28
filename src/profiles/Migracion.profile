@@ -5130,16 +5130,6 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Question.Record_type_for_community_09a30000000JJ5OAAW_entity_Question</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Reply.Record_type_for_community_09a30000000JJ5OAAW_entity_Reply</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Task.dwp_kitv__visit_agreement</recordType>
