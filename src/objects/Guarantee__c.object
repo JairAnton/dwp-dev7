@@ -801,7 +801,7 @@
         <label>DOI</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Garantías (DOI)</relationshipLabel>
-        <relationshipName>Avales</relationshipName>
+        <relationshipName>Aval</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
