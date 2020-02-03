@@ -1545,7 +1545,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Guarantee__c.guarantor_account__c</field>
+        <field>Guarantee__c.guarantor_account_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -795,13 +795,13 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>guarantor_account__c</fullName>
+        <fullName>guarantor_account_id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>DOI</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Garantías (DOI)</relationshipLabel>
-        <relationshipName>Avales</relationshipName>
+        <relationshipName>Aval</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
