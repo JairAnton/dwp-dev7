@@ -158,7 +158,7 @@
         <label>Cliente</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Garantías</relationshipLabel>
-        <relationshipName>Garantias</relationshipName>
+        <relationshipName>Garantias_Account</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>

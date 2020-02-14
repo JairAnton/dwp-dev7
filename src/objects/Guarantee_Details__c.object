@@ -445,7 +445,7 @@
         <label>Codigo central (cliente)</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Detalles de garantías</relationshipLabel>
-        <relationshipName>Fianzas_solidarias</relationshipName>
+        <relationshipName>Detalles_Garantías</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
