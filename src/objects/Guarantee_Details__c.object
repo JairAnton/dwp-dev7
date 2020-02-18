@@ -193,27 +193,27 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>CASA HABITACION</fullName>
+                    <fullName>1</fullName>
                     <default>false</default>
                     <label>CASA HABITACION</label>
                 </value>
                 <value>
-                    <fullName>LOCAL COMERCIAL</fullName>
+                    <fullName>2</fullName>
                     <default>false</default>
                     <label>LOCAL COMERCIAL</label>
                 </value>
                 <value>
-                    <fullName>LOCAL INDUSTRIAL</fullName>
+                    <fullName>3</fullName>
                     <default>false</default>
                     <label>LOCAL INDUSTRIAL</label>
                 </value>
                 <value>
-                    <fullName>TERRENO</fullName>
+                    <fullName>4</fullName>
                     <default>false</default>
                     <label>TERRENO</label>
                 </value>
                 <value>
-                    <fullName>OTROS (Embarcaciones)</fullName>
+                    <fullName>5</fullName>
                     <default>false</default>
                     <label>OTROS (Embarcaciones)</label>
                 </value>
@@ -336,104 +336,104 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>INMUEBLE</fullName>
+                    <fullName>H111-01</fullName>
                     <default>false</default>
                     <label>INMUEBLE</label>
                 </value>
                 <value>
-                    <fullName>NAVAL</fullName>
+                    <fullName>H111-02</fullName>
                     <default>false</default>
                     <label>NAVAL</label>
                 </value>
                 <value>
-                    <fullName>AEREA</fullName>
+                    <fullName>H111-03</fullName>
                     <default>false</default>
                     <label>AEREA</label>
                 </value>
                 <value>
-                    <fullName>TIT. C.HIPO</fullName>
+                    <fullName>H111-04</fullName>
                     <default>false</default>
                     <label>TIT. C.HIPO</label>
                 </value>
                 <value>
-                    <fullName>CTA.CTE</fullName>
+                    <fullName>D123-01</fullName>
                     <default>false</default>
                     <label>CTA.CTE</label>
                 </value>
                 <value>
-                    <fullName>AHORRO</fullName>
+                    <fullName>D123-02</fullName>
                     <default>false</default>
                     <label>AHORRO</label>
                 </value>
                 <value>
-                    <fullName>SUPER REN</fullName>
+                    <fullName>D129-04</fullName>
                     <default>false</default>
                     <label>SUPER REN</label>
                 </value>
                 <value>
-                    <fullName>FMUT.COLAT</fullName>
+                    <fullName>D129-09</fullName>
                     <default>false</default>
                     <label>FMUT.COLAT</label>
                 </value>
                 <value>
-                    <fullName>MISMO DOCUM.</fullName>
+                    <fullName>A311-01</fullName>
                     <default>false</default>
                     <label>MISMO DOCUM.</label>
                 </value>
                 <value>
-                    <fullName>DOCUM. APARTE</fullName>
+                    <fullName>A311-02</fullName>
                     <default>false</default>
                     <label>DOCUM. APARTE</label>
                 </value>
                 <value>
-                    <fullName>CREDITOS</fullName>
+                    <fullName>A217-1</fullName>
                     <default>false</default>
                     <label>CREDITOS</label>
                 </value>
                 <value>
-                    <fullName>LOGISTICA</fullName>
+                    <fullName>A217-2</fullName>
                     <default>false</default>
                     <label>LOGISTICA</label>
                 </value>
                 <value>
-                    <fullName>EXTERIOR</fullName>
+                    <fullName>A217-3</fullName>
                     <default>false</default>
                     <label>EXTERIOR</label>
                 </value>
                 <value>
-                    <fullName>GTIAS FOGEM</fullName>
+                    <fullName>A217-456</fullName>
                     <default>false</default>
                     <label>GTIAS FOGEM</label>
                 </value>
                 <value>
-                    <fullName>Almacenero</fullName>
+                    <fullName>P133-01</fullName>
                     <default>false</default>
-                    <label>Almacenero</label>
+                    <label>ALMACENERO</label>
                 </value>
                 <value>
-                    <fullName>Aduanero</fullName>
+                    <fullName>P133-02</fullName>
                     <default>false</default>
-                    <label>Aduanero</label>
+                    <label>ADUANERO</label>
                 </value>
                 <value>
-                    <fullName>acciones</fullName>
+                    <fullName>P131-06</fullName>
                     <default>false</default>
-                    <label>acciones</label>
+                    <label>ACCIONES</label>
                 </value>
                 <value>
-                    <fullName>Otros valores</fullName>
+                    <fullName>P131-07</fullName>
                     <default>false</default>
-                    <label>Otros valores</label>
+                    <label>OTROS VALORES</label>
                 </value>
                 <value>
-                    <fullName>fideicomiso</fullName>
+                    <fullName>P131-08</fullName>
                     <default>false</default>
-                    <label>fideicomiso</label>
+                    <label>FIDEICOMISO</label>
                 </value>
                 <value>
-                    <fullName>fiduciario.</fullName>
+                    <fullName>P131-09</fullName>
                     <default>false</default>
-                    <label>fiduciario.</label>
+                    <label>FIDUCIARIO.</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -445,7 +445,7 @@
         <label>Codigo central (cliente)</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Detalles de garantías</relationshipLabel>
-        <relationshipName>Detalles_Garantias</relationshipName>
+        <relationshipName>Fianzas_solidarias</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -547,50 +547,50 @@
         <picklistValues>
             <picklist>asset_type__c</picklist>
             <values>
-                <fullName>CASA HABITACION</fullName>
+                <fullName>1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL COMERCIAL</fullName>
+                <fullName>2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL INDUSTRIAL</fullName>
+                <fullName>3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OTROS %28Embarcaciones%29</fullName>
+                <fullName>4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TERRENO</fullName>
+                <fullName>5</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>guarantee_subtype__c</picklist>
             <values>
-                <fullName>CREDITOS</fullName>
+                <fullName>A217-1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DOCUM%2E APARTE</fullName>
+                <fullName>A217-2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>EXTERIOR</fullName>
+                <fullName>A217-3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GTIAS FOGEM</fullName>
+                <fullName>A217-456</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOGISTICA</fullName>
+                <fullName>A311-01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MISMO DOCUM%2E</fullName>
+                <fullName>A311-02</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -602,42 +602,42 @@
         <picklistValues>
             <picklist>asset_type__c</picklist>
             <values>
-                <fullName>CASA HABITACION</fullName>
+                <fullName>1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL COMERCIAL</fullName>
+                <fullName>2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL INDUSTRIAL</fullName>
+                <fullName>3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OTROS %28Embarcaciones%29</fullName>
+                <fullName>4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TERRENO</fullName>
+                <fullName>5</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>guarantee_subtype__c</picklist>
             <values>
-                <fullName>AHORRO</fullName>
+                <fullName>D123-01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CTA%2ECTE</fullName>
+                <fullName>D123-02</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FMUT%2ECOLAT</fullName>
+                <fullName>D129-04</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>SUPER REN</fullName>
+                <fullName>D129-09</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -649,42 +649,42 @@
         <picklistValues>
             <picklist>asset_type__c</picklist>
             <values>
-                <fullName>CASA HABITACION</fullName>
+                <fullName>1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL COMERCIAL</fullName>
+                <fullName>2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL INDUSTRIAL</fullName>
+                <fullName>3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OTROS %28Embarcaciones%29</fullName>
+                <fullName>4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TERRENO</fullName>
+                <fullName>5</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>guarantee_subtype__c</picklist>
             <values>
-                <fullName>AEREA</fullName>
+                <fullName>H111-01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>INMUEBLE</fullName>
+                <fullName>H111-02</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NAVAL</fullName>
+                <fullName>H111-03</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TIT%2E C%2EHIPO</fullName>
+                <fullName>H111-04</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -696,106 +696,106 @@
         <picklistValues>
             <picklist>asset_type__c</picklist>
             <values>
-                <fullName>CASA HABITACION</fullName>
+                <fullName>1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL COMERCIAL</fullName>
+                <fullName>2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL INDUSTRIAL</fullName>
+                <fullName>3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OTROS %28Embarcaciones%29</fullName>
+                <fullName>4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TERRENO</fullName>
+                <fullName>5</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>guarantee_subtype__c</picklist>
             <values>
-                <fullName>AEREA</fullName>
+                <fullName>A217-1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AHORRO</fullName>
+                <fullName>A217-2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Aduanero</fullName>
+                <fullName>A217-3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Almacenero</fullName>
+                <fullName>A217-456</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CREDITOS</fullName>
+                <fullName>A311-01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CTA%2ECTE</fullName>
+                <fullName>A311-02</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DOCUM%2E APARTE</fullName>
+                <fullName>D123-01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>EXTERIOR</fullName>
+                <fullName>D123-02</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FMUT%2ECOLAT</fullName>
+                <fullName>D129-04</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GTIAS FOGEM</fullName>
+                <fullName>D129-09</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>INMUEBLE</fullName>
+                <fullName>H111-01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOGISTICA</fullName>
+                <fullName>H111-02</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MISMO DOCUM%2E</fullName>
+                <fullName>H111-03</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NAVAL</fullName>
+                <fullName>H111-04</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Otros valores</fullName>
+                <fullName>P131-06</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>SUPER REN</fullName>
+                <fullName>P131-07</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TIT%2E C%2EHIPO</fullName>
+                <fullName>P131-08</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>acciones</fullName>
+                <fullName>P131-09</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>fideicomiso</fullName>
+                <fullName>P133-01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>fiduciario%2E</fullName>
+                <fullName>P133-02</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -807,50 +807,50 @@
         <picklistValues>
             <picklist>asset_type__c</picklist>
             <values>
-                <fullName>CASA HABITACION</fullName>
+                <fullName>1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL COMERCIAL</fullName>
+                <fullName>2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LOCAL INDUSTRIAL</fullName>
+                <fullName>3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OTROS %28Embarcaciones%29</fullName>
+                <fullName>4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TERRENO</fullName>
+                <fullName>5</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>guarantee_subtype__c</picklist>
             <values>
-                <fullName>Aduanero</fullName>
+                <fullName>P131-06</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Almacenero</fullName>
+                <fullName>P131-07</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Otros valores</fullName>
+                <fullName>P131-08</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>acciones</fullName>
+                <fullName>P131-09</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>fideicomiso</fullName>
+                <fullName>P133-01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>fiduciario%2E</fullName>
+                <fullName>P133-02</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
