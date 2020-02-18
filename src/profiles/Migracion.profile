@@ -1639,7 +1639,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Guarantee_Details__c.amount_real__c</field>
         <readable>true</readable>
     </fieldPermissions>
