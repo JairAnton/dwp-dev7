@@ -6,6 +6,7 @@
 */
 public without sharing class Account_Trigger_cls {
 
+	//Reusable variable in methods
     static Final List<String> PROFILE_NAMES = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};
         
     /*Method Master for trigger*/
