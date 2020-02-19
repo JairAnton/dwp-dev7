@@ -22,7 +22,6 @@ public without sharing class Account_Trigger_Visit_cls {
     public static void updateVisit(list<Account> accsNew, Map<id,Account> accsNewMap, list<Account> accsOld, Map<id,Account> accsOldMap) {
         
         updateVisitAfterChangeBranch(accsNew, accsOldMap);
-        updateVisitAfterChangeOwner(accsNewMap, accsOldMap);
         
 		Final Integer mapSize=visitUpdMap.size();
         if(mapSize > 0) {
@@ -56,46 +55,5 @@ public without sharing class Account_Trigger_Visit_cls {
         }
 
     }
-    
-    /*Update Active Visit with New Owner*/
-    public static void updateVisitAfterChangeOwner(Map<id,Account> accsNewMap, Map<id,Account> accsOldMap) {
-        Final Set<Id> idsOldOwners = new Set<Id>();
-        Final Set<Id> idsAccounts = new Set<Id>();
-        List<dwp_kitv__Visit_Management_Team__c> lstEquipo = new List<dwp_kitv__Visit_Management_Team__c>();
-        
-        for(Account accNew:accsNewMap.values()) {
-            //Get Old Owners Ids from Accounts where Owner change
-            if(accNew.OwnerId != accsOldMap.get(accNew.Id).OwnerId) {
-                idsOldOwners.add(accsOldMap.get(accNew.Id).OwnerId);
-                idsAccounts.add(accsOldMap.get(accNew.Id).Id);
-            }
-        }
-        
-        //If Ids_account_new_branch contains values, do query
-        Final Integer idsOldOwnersSize = idsOldOwners.size();
-        if(idsOldOwnersSize > 0) {
-            //Get Team Visit where visit are related with accounts where changes Owner and status is not finish
-            lstEquipo = [SELECT Id, dwp_kitv__user_id__c, dwp_kitv__visit_id__c, dwp_kitv__visit_id__r.dwp_kitv__account_id__c FROM 
-                          dwp_kitv__Visit_Management_Team__c WHERE dwp_kitv__user_id__c IN: idsOldOwners 
-                          AND dwp_kitv__visit_id__r.dwp_kitv__account_id__c=:idsAccounts AND dwp_owner_visit__c=true AND
-                          (dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')];
-        }
-        
-        dwp_kitv__Visit__c visita;
-        for(dwp_kitv__Visit_Management_Team__c equipo: lstEquipo) {
-                //Replace new Owner
-                visita = new dwp_kitv__Visit__c();
-                //If record exists in map, update record
-                if(visitUpdMap.containsKey(equipo.dwp_kitv__visit_id__c)) {
-                    visita = visitUpdMap.get(equipo.dwp_kitv__visit_id__c);
-                    visita.OwnerId = accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId;
-                } else {//If record doesn't exists in map, add
-                    visita.Id=equipo.dwp_kitv__visit_id__c;
-                	visita.OwnerId=accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId;
-                }
-                visitUpdMap.put(visita.Id, visita);
-        }
- 
-    }
-    
+
 }
