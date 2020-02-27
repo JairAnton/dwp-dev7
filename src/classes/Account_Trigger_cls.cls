@@ -6,7 +6,7 @@
 */
 public without sharing class Account_Trigger_cls {
 
-	//Reusable variable in methods
+	/*Reusable variable in methods*/
     static Final List<String> PROFILE_NAMES = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};
         
     /*Method Master for trigger*/
@@ -137,8 +137,8 @@ public without sharing class Account_Trigger_cls {
         Final Integer idsOldOwnersSize = idsOldOwners.size();
         if(idsOldOwnersSize > 0) {
             lstTmpTeam = [SELECT id, dwp_kitv__user_id__c, dwp_kitv__visit_id__r.dwp_kitv__account_id__c, dwp_kitv__Send_minutes__c, dwp_kitv__visit_id__r.dwp_kitv__account_id__r.OwnerId 
-                           FROM dwp_kitv__Visit_Management_Team__c WHERE dwp_kitv__user_id__c IN: idsOldOwners AND dwp_owner_visit__c=true AND 
-                           dwp_kitv__visit_id__r.dwp_kitv__account_id__c=:idsAccounts AND 
+                           FROM dwp_kitv__Visit_Management_Team__c WHERE dwp_owner_visit__c=true AND 
+                           dwp_kitv__visit_id__r.dwp_kitv__account_id__c=:idsAccounts AND dwp_kitv__visit_id__r.Keep_Owner__c = false AND
                           (dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')];
         }
         
@@ -148,8 +148,7 @@ public without sharing class Account_Trigger_cls {
         Final dwp_kitv__Visit_Management_Team__c[] lstNewTeam=new dwp_kitv__Visit_Management_Team__c[]{};
         for(dwp_kitv__Visit_Management_Team__c equipo:lstTmpTeam) {
             //Validar que el propietario del VMT es el mismo que le propietario de la cuenta y que el nuevo propietario no tenga el perfil migracion
-            if(equipo.dwp_kitv__user_id__c == accsOldMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId && 
-               !mapUMigration.containsKey(accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId)) {
+            if(!mapUMigration.containsKey(accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId)) {
                 tmpTeam = new dwp_kitv__Visit_Management_Team__c();
                 tmpTeam.dwp_kitv__visit_id__c = equipo.dwp_kitv__visit_id__c;
                 tmpTeam.dwp_kitv__user_id__c = accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId;

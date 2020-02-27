@@ -621,6 +621,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>keep_owner__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Mantener propietario</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>report_visit_status_type__c</fullName>
         <description>Status to Vistit Reports</description>
         <externalId>false</externalId>
