@@ -3734,6 +3734,11 @@ Ejecutivos de REDES</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>dwp_kitv__Visit__c.keep_owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.branch_level3_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>

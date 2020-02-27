@@ -4337,6 +4337,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>dwp_kitv__Visit__c.keep_owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.customer_excluded_type__c</field>
         <readable>true</readable>
     </fieldPermissions>
