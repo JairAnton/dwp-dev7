@@ -55,6 +55,7 @@ public with sharing class Dwp_Utils_helper {
         return iso + ' ' + stringAmount;
     }
     
+    /**@Description Method for validate access to sObject*/
     public static Boolean sObjectAccessCRUD(String sObjName, String access) {
         Boolean result;
         Schema.DescribeSObjectResult sObjResult = Schema.getGlobalDescribe().get(sObjName).getDescribe();
@@ -75,6 +76,7 @@ public with sharing class Dwp_Utils_helper {
         return result;
     }
     
+    /**@Description Method for delete dynamic record*/
     public static Map<String, Object> deletesObjectRecord(String sObj, String recordId) {
         Map<String, Object> resDelete = new Map<String, Object>{'isSuccess' => false};
         List<SObject> sObjDel = Database.query('SELECT Id FROM '+sObj+' WHERE Id=:recordId');

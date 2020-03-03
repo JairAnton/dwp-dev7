@@ -15,12 +15,12 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
     /**@Description Method to get Modal header*/
     @AuraEnabled(cacheable=true)
     public static Map<String, Object> getHeader(String config) {
-        Map<String, Object> response = new Map<String, Object>{'isSuccess' => false, 'message' => 'No se ha encontrado la configuraciÃ³n especificada.'};
-        List<BE_Modal_Record_Form__mdt> header = getModalConfig(config);
+        Final Map<String, Object> response = new Map<String, Object>{'isSuccess' => false, 'message' => 'No se ha encontrado la configuración especificada.'};
+        Final List<BE_Modal_Record_Form__mdt> header = getModalConfig(config);
         if(header.size() > 0) {
-            String accessMessage = header[0].No_sObject_Access_Message__c;
+            Final String accessMessage = header[0].No_sObject_Access_Message__c;
             response.put('message', accessMessage != null ? accessMessage : 'No tiene permisos para acceder a los registros de este objeto.');
-            Boolean access = Dwp_Utils_helper.sObjectAccessCRUD(header[0].sObject_Target__c, 'isAccessible');
+            Final Boolean access = Dwp_Utils_helper.sObjectAccessCRUD(header[0].sObject_Target__c, 'isAccessible');
             if(access) {
                 response.put('header', header[0]);
                 response.put('isSuccess', true);
@@ -33,20 +33,20 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
     /**@Description Method to get Modal info*/
     @AuraEnabled
     public static Response getInfo(String recordId, String config) {
-        Response result = new Response();
+        Final Response result = new Response();
         result.isSuccess = false;
         try {
-            Map<String, Object> header = getHeader(config);
-            BE_Modal_Record_Form__mdt modal = (Boolean)header.get('isSuccess') ? (BE_Modal_Record_Form__mdt)header.get('header') : null;
+            Final Map<String, Object> header = getHeader(config);
+            Final BE_Modal_Record_Form__mdt modal = (Boolean)header.get('isSuccess') ? (BE_Modal_Record_Form__mdt)header.get('header') : null;
             List<Structure> structure = (modal != null ? getConfig(modal.Id) : null);
-            Boolean validate = ( structure != null ? validateStructure(structure) : false);
+            Final Boolean validate = ( structure != null ? validateStructure(structure) : false);
             if(!(Boolean)header.get('isSuccess')) {
                 result.message = (String) header.get('message');
             } else if(validate) {
                 String[] lstFieldsApiName = formatSOQLFields(modal.sObject_Target__c);
-                Map<String, String> fieldsReference = convertReferenceFields(modal.sObject_Target__c, lstFieldsApiName);
+                Final Map<String, String> fieldsReference = convertReferenceFields(modal.sObject_Target__c, lstFieldsApiName);
                 lstFieldsApiName = fieldsReference.values();
-                BE_SingleRelatedList_Ctr.Params param = new BE_SingleRelatedList_Ctr.Params();
+                Final BE_SingleRelatedList_Ctr.Params param = new BE_SingleRelatedList_Ctr.Params();
                 param.sObjName = modal.sObject_Target__c;
                 param.filterSQOL = modal.Filter_SOQL__c;
                 param.filterSQOL = (modal.Order_Records__c != null ? param.filterSQOL +' '+modal.Order_Records__c : param.filterSQOL);
@@ -54,16 +54,16 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
                 structure = putIdField(structure);
                 structure = putTypesFields(structure, BE_SingleRelatedList_Ctr.getSObjectFields(modal.sObject_Target__c));
                 structure = putFieldsLabel(structure, lstFieldsApiName, modal.sObject_Target__c);
-                List<sObject> data = BE_SingleRelatedList_Ctr.getSOQLData(recordId, param);
+                Final List<sObject> data = BE_SingleRelatedList_Ctr.getSOQLData(recordId, param);
                 result.data = (data.size() > 0 ? data : null);
                 result.result =  generateStructure(structure, data);
                 result.isSuccess = true;
             } else {
-                result.message = Label.BE_DynamicModalRecordForm;//Obtain custom label
+                result.message = Label.BE_DynamicModalRecordForm;
             }
         } catch (Exception e) {
             System.debug('BE_DynamicModalRecordForm_ctr.getInfo() => '+e.getMessage());
-            result.message = e.getMessage();
+            result.message = Label.Dwp_msgGenericError;
         }
         return result;
     }
@@ -76,23 +76,23 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
 
     /**@Description Method to get Metadata Config*/
     public static List<Structure> getConfig(String idConfig){
-        List<Structure> structure = new List<structure>();
+        Final List<Structure> structure = new List<structure>();
         try {
             //Get Metadata Rows Config
-            Set<Id> idRows = new Set<Id>();
+            Final Set<Id> idRows = new Set<Id>();
             for(BE_Modal_Record_Row__mdt row: [SELECT Id, Row_Order__c, Modal_Record_Form__c FROM BE_Modal_Record_Row__mdt WHERE Modal_Record_Form__c=:idConfig order by Row_Order__c asc]) {
                 structure.add(new Structure(row.Id, Integer.valueOf(row.Row_Order__c)));
                 idRows.add(row.Id);
             }
             
             //Get Metadata Fields Config
-            List<BE_Modal_Record_Field__mdt> fields = [SELECT Id, MasterLabel, Field_ApiName__c, Modal_Record_Row__c, Data_Type__c, Field_Width__c, 
+            Final List<BE_Modal_Record_Field__mdt> fields = [SELECT Id, MasterLabel, Field_ApiName__c, Modal_Record_Row__c, Data_Type__c, Field_Width__c, 
                                                         Order__c, ReadOnly__c, Required__c, Help_Text__c FROM BE_Modal_Record_Field__mdt 
                                                         WHERE Modal_Record_Row__c IN: idRows order by Order__c asc];
 
             //Generate Structure
             for(Structure str: structure) {
-                List<BE_Modal_Record_Field__mdt> lstFields = new List<BE_Modal_Record_Field__mdt>();
+                Final List<BE_Modal_Record_Field__mdt> lstFields = new List<BE_Modal_Record_Field__mdt>();
                 for(BE_Modal_Record_Field__mdt field: fields) {
                     if(str.uniqueId == field.Modal_Record_Row__c) {
                         lstFields.add(field);
@@ -125,11 +125,11 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
 
     /**@Description Method to putIdField*/
     public static List<Structure> putIdField(List<Structure> structure) {
-        BE_Modal_Record_Field__mdt fieldId = new BE_Modal_Record_Field__mdt(MasterLabel = 'Id', Field_ApiName__c='Id', 
-        Modal_Record_Row__c=structure[0].fields[0].Modal_Record_Row__c, Field_Width__c=6, Order__c=0);
-        Structure str = new Structure('IdField', 0);
+        Final BE_Modal_Record_Field__mdt fieldId = new BE_Modal_Record_Field__mdt(MasterLabel = 'Id', Field_ApiName__c='Id', 
+        Modal_Record_Row__c = structure[0].fields[0].Modal_Record_Row__c, Field_Width__c=6, Order__c=0);
+        Final Structure str = new Structure('IdField', 0);
         str.fields = new List<BE_Modal_Record_Field__mdt>{fieldId};
-        List<Structure> lstStr = new List<Structure>{str};
+        Final List<Structure> lstStr = new List<Structure>{str};
         lstStr.addAll(structure);
         return lstStr;
     }
@@ -138,7 +138,7 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
     public static String[] formatSOQLFields(String sObj) {
         sObjFields = sObjFields.replace(' ', '');
         String[] lstFieldsApiName = (sObjFields.contains(',') ? (List<String>)sObjFields.split(',') : new List<String>{sObjFields});
-        Schema.SObjectType schema = Schema.getGlobalDescribe().get(sObj);
+        Final Schema.SObjectType schema = Schema.getGlobalDescribe().get(sObj);
         String fieldsSOQL = lstFieldsApiName[0];
         for(Integer i = 1; i < lstFieldsApiName.size(); i++) {
             String field = lstFieldsApiName[i];
@@ -163,7 +163,7 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
 
     /**@Description Method to putFieldsLabel*/
     public static List<Structure> putFieldsLabel(List<Structure> structure, List<String> fieldsApiName, String sObjectType) {
-        Map<String, String> mapLabel = getLabelFields(fieldsApiName, sObjectType);
+        Final Map<String, String> mapLabel = getLabelFields(fieldsApiName, sObjectType);
         for(Structure str: structure) {
             for(BE_Modal_Record_Field__mdt strField: str.fields) {
                 strField.MasterLabel = mapLabel.get(strField.Field_ApiName__c);
@@ -174,8 +174,8 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
 
     /**@Description Method to getLabelFields*/
     public static Map<String, String> getLabelFields(List<String> fieldsApiName, String sObjectType) {
-        Map<String, String> fields = new Map<String, String>();
-        Schema.sObjectType schema = Schema.getGlobalDescribe().get(sObjectType);
+        Final Map<String, String> fields = new Map<String, String>();
+        Final Schema.sObjectType schema = Schema.getGlobalDescribe().get(sObjectType);
         for(String field: fieldsApiName) {
             fields.put(field, schema.getDescribe().fields.getMap().get(field).getDescribe().Label);
         }
@@ -184,7 +184,7 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
 
     /**@Description Method to generateStructure*/
     public static List<List<Map<String, Object>>> generateStructure(List<Structure> structure, List<sObject> data) {
-        List<List<Map<String, Object>>> lstResult = new List<List<Map<String, Object>>>();
+        Final List<List<Map<String, Object>>> lstResult = new List<List<Map<String, Object>>>();
         List<Map<String, Object>> lstMapRecord;
         for(sObject obj: data) {
             lstMapRecord = new List<Map<String, Object>>();
@@ -198,7 +198,7 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
     }
 
     public static List<Map<String, Object>> getFieldsStructure(List<BE_Modal_Record_Field__mdt> fields, sObject obj) {
-        List<Map<String, Object>> lstMap = new List<Map<String, Object>>();
+        Final List<Map<String, Object>> lstMap = new List<Map<String, Object>>();
         Map<String, Object> mapField;
         Integer cont = 1;
         for(BE_Modal_Record_Field__mdt mrf: fields) {
@@ -225,8 +225,8 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
     }
 
     public static Map<String, String> convertReferenceFields(String sObj, List<String> fields) {
-        Map<String, String> mapFields = new Map<String, String>();
-        Map<String, String> fieldsValues = BE_SingleRelatedList_Ctr.getSObjectFields(sObj);
+        Final Map<String, String> mapFields = new Map<String, String>();
+        Final Map<String, String> fieldsValues = BE_SingleRelatedList_Ctr.getSObjectFields(sObj);
         for(String field: fields) {
             if(fieldsValues.get(field) == 'reference') {
                 if(field.endsWith('Id')) {
@@ -245,14 +245,14 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
 
     @AuraEnabled
     public static Map<String, Object> deletesobject(String recordId, String config) {
-        Map<String, Object> response = new Map<String, Object>{'isSuccess' => false, 'message' => 'No se ha encontrado la configuraciÃ³n especificada.'};
-        List<BE_Modal_Record_Form__mdt> lstMrf = getModalConfig(config);
-        Boolean validateConfig = (lstMrf.size() > 0 ? true : false);
+        Map<String, Object> response = new Map<String, Object>{'isSuccess' => false, 'message' => 'No se ha encontrado la configuración especificada.'};
+        Final List<BE_Modal_Record_Form__mdt> lstMrf = getModalConfig(config);
+        Final Boolean validateConfig = (lstMrf.size() > 0 ? true : false);
         try {
             if(validateConfig) {
-                String deleteMessage = lstMrf[0].No_sObject_Delete_Message__c;
-                response.put('message', deleteMessage != null ? deleteMessage : 'Usted no tiene permisos de eliminaciÃ³n sobre el objeto.');
-                Boolean permissionDelete = Dwp_Utils_helper.sObjectAccessCRUD(lstMrf[0].sObject_Target__c, 'isDeletable');
+                Final String deleteMessage = lstMrf[0].No_sObject_Delete_Message__c;
+                response.put('message', deleteMessage != null ? deleteMessage : 'Usted no tiene permisos de eliminación sobre el objeto.');
+                Final Boolean permissionDelete = Dwp_Utils_helper.sObjectAccessCRUD(lstMrf[0].sObject_Target__c, 'isDeletable');
                 if(permissionDelete) {
                     response = Dwp_Utils_helper.deletesObjectRecord(lstMrf[0].sObject_Target__c, recordId);
                 }
