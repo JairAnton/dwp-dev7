@@ -23,7 +23,7 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
     @AuraEnabled(cacheable=true)
     public static Map<String, Object> getHeader(String config) {
         Final Map<String, Object> response = new Map<String, Object>{IS_SUCCESS => false, MESSAGE => 'No se ha encontrado la configuración especificada.'};
-        Final List<BE_Modal_Record_Form__mdt> header = getModalConfig(config);
+        Final List<BE_Modal_Record_Form__mdt> header = BE_DynamicModalRecordForm_helper.getModalConfig(config);
         Final Integer headerSize = header.size();
         if(headerSize > 0) {
             Final String accessMessage = header[0].No_sObject_Access_Message__c;
@@ -47,7 +47,7 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
         try {
             Final Map<String, Object> header = getHeader(config);
             Final BE_Modal_Record_Form__mdt modal = (Boolean)header.get(IS_SUCCESS) ? (BE_Modal_Record_Form__mdt)header.get('header') : new BE_Modal_Record_Form__mdt();
-            Final Map<String, Object> mapRes = getValidations(header, modal);
+            Final Map<String, Object> mapRes = BE_DynamicModalRecordForm_helper.getValidations(header, modal);
             if((Boolean)mapRes.get('headerSuccess')) {
                 result.message = (String) header.get(MESSAGE);
             } else if((Boolean)mapRes.get('validate')) {
@@ -61,17 +61,6 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
         return result;
     }
 
-    /**@Description Method getValidations*/
-    public static Map<String, Object> getValidations(Map<String, Object> header, BE_Modal_Record_Form__mdt modal) {
-        Final Map<String, Object> mapRes = new Map<String, Object>();
-        Final List<structure> structure = (modal == null ? new List<Structure>() : getConfig(modal.Id));
-        mapRes.put('structure', structure);
-        Final Integer structureSize = structure.size();
-        mapRes.put('validate', structureSize > 0 ? validateStructure(structure) : false);
-        mapRes.put('headerSuccess', (Boolean)header.get(IS_SUCCESS) ? false : true);
-        return mapRes;
-    }
-
     /**@Description Method getInfoValidated*/
     public static Response getInfoValidated(BE_Modal_Record_Form__mdt modal, List<Structure> structure, String recordId) {
         Final Response result = new Response();        
@@ -83,21 +72,15 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
         param.filterSQOL = modal.Filter_SOQL__c;
         param.filterSQOL = (modal.Order_Records__c == null ? param.filterSQOL : param.filterSQOL +' '+modal.Order_Records__c);
         param.sObjFields = sObjFields;
-        List<Structure> str = putIdField(structure);
-        str = putTypesFields(str, BE_SingleRelatedList_Ctr.getSObjectFields(modal.sObject_Target__c));
-        str = putFieldsLabel(str, lstFieldsApiName, modal.sObject_Target__c);
+        List<Structure> str = BE_DynamicModalRecordForm_helper.putIdField(structure);
+        str = BE_DynamicModalRecordForm_helper.putTypesFields(str, BE_SingleRelatedList_Ctr.getSObjectFields(modal.sObject_Target__c));
+        str = BE_DynamicModalRecordForm_helper.putFieldsLabel(str, lstFieldsApiName, modal.sObject_Target__c);
         Final List<sObject> data = BE_SingleRelatedList_Ctr.getSOQLData(recordId, param);
         Final Integer dataSize = data.size();
         result.data = (dataSize > 0 ? data : new List<SObject>());
-        result.result =  generateStructure(str, data);
+        result.result =  BE_DynamicModalRecordForm_helper.generateStructure(str, data);
         result.isSuccess = true;
         return result;
-    }
-
-    /**@Description Method to get ModalConfig*/
-    public static List<BE_Modal_Record_Form__mdt> getModalConfig(String config) {
-        return [SELECT Id, MasterLabel, sObject_Target__c, Filter_SOQL__c, Order_Records__c, view_mode__c, delete_mode__c, Records_per_page__c,
-        No_sObject_Access_Message__c, No_sObject_Delete_Message__c FROM BE_Modal_Record_Form__mdt WHERE DeveloperName=:config limit 1];
     }
 
     /**@Description Method to get Metadata Config*/
@@ -127,7 +110,7 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
                 str.fields = lstFields;
             } 
         } catch(Exception e) {
-            System.debug('Exception BE_DynamicModalRecordForm_ctr.getModalConfig() ==> '+e.getMessage());
+            System.debug('Exception BE_DynamicModalRecordForm_ctr.getConfig() ==> '+e.getMessage());
         }
         return structure;
     }
@@ -149,17 +132,6 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
         return result;
     }
 
-    /**@Description Method to putIdField*/
-    public static List<Structure> putIdField(List<Structure> structure) {
-        Final BE_Modal_Record_Field__mdt fieldId = new BE_Modal_Record_Field__mdt(MasterLabel = 'Id', Field_ApiName__c='Id', 
-        Modal_Record_Row__c = structure[0].fields[0].Modal_Record_Row__c, Field_Width__c=6, Order__c=0);
-        Final Structure str = new Structure('IdField', 0);
-        str.fields = new List<BE_Modal_Record_Field__mdt>{fieldId};
-        Final List<Structure> lstStr = new List<Structure>{str};
-        lstStr.addAll(structure);
-        return lstStr;
-    }
-
     /**@Description Method to formatSOQLFields*/
     public static String[] formatSOQLFields(String sObj) {
         sObjFields = sObjFields.replace(' ', '');
@@ -175,73 +147,6 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
         }
         sObjFields = fieldsSOQL;
         return lstFieldsApiName;
-    }
-
-    /**@Description Method to putTypesFields*/
-    public static List<Structure> putTypesFields(List<Structure> structure, Map<String, String> sObjFieldsMap) {
-        for(Structure str: structure) {
-            for(BE_Modal_Record_Field__mdt mdf: str.fields) {
-                mdf.Data_Type__c = sObjFieldsMap.get(mdf.Field_ApiName__c);
-            }
-        }
-        return structure;
-    }
-
-    /**@Description Method to putFieldsLabel*/
-    public static List<Structure> putFieldsLabel(List<Structure> structure, List<String> fieldsApiName, String sObjectType) {
-        Final Map<String, String> mapLabel = getLabelFields(fieldsApiName, sObjectType);
-        for(Structure str: structure) {
-            for(BE_Modal_Record_Field__mdt strField: str.fields) {
-                strField.MasterLabel = mapLabel.get(strField.Field_ApiName__c);
-            }
-        }
-        return structure;
-    }
-
-    /**@Description Method to getLabelFields*/
-    public static Map<String, String> getLabelFields(List<String> fieldsApiName, String sObjectType) {
-        Final Map<String, String> fields = new Map<String, String>();
-        Final Schema.sObjectType schema = Schema.getGlobalDescribe().get(sObjectType);
-        for(String field: fieldsApiName) {
-            fields.put(field, schema.getDescribe().fields.getMap().get(field).getDescribe().Label);
-        }
-        return fields;
-    }
-
-    /**@Description Method to generateStructure*/
-    public static List<List<Map<String, Object>>> generateStructure(List<Structure> structure, List<sObject> data) {
-        Final List<List<Map<String, Object>>> lstResult = new List<List<Map<String, Object>>>();
-        List<Map<String, Object>> lstMapRecord;
-        for(sObject obj: data) {
-            lstMapRecord = new List<Map<String, Object>>();
-            for(Structure str: structure) {
-                lstMapRecord.add(new Map<String, Object>{
-                    'fields' => getFieldsStructure(str.fields, obj), 'order' => str.order, 'uniqueId' => str.uniqueId});
-            }
-            lstResult.add(lstMapRecord);
-        }
-        return lstResult;
-    }
-
-    /**@Description Method to getFieldsStructure*/
-    public static List<Map<String, Object>> getFieldsStructure(List<BE_Modal_Record_Field__mdt> fields, sObject obj) {
-        Final List<Map<String, Object>> lstMap = new List<Map<String, Object>>();
-        Final String[] lstDataTypes = new String[]{'Id', 'Boolean', 'Date', 'DateTime', 'Time', 'Currency', 'Percent', 'Double',
-                                                    'Textarea', 'Email', 'Url', 'Phone'};
-        Map<String, Object> mapField;
-        Integer cont = 1;
-        for(BE_Modal_Record_Field__mdt mrf: fields) {
-            mapField = new Map<String, Object>{'key' => obj.get('Id') +'-'+cont, 'id' => obj.get('Id'), 'label' => mrf.MasterLabel,
-                        'fieldName' => mrf.Field_ApiName__c, 'order' => mrf.Order__c, 'fieldWidth' => mrf.Field_Width__c, 
-                        'dataType' => mrf.Data_Type__c, 'value' => obj.get(mrf.Field_ApiName__c)};
-            for(String dataTypes: lstDataTypes) {
-                mapField.put('is'+dataTypes, dataTypes == mrf.Data_Type__c);
-            }
-            mapField.put('isString', mrf.Data_Type__c == 'String' || mrf.Data_Type__c == 'reference' || mrf.Data_Type__c == 'picklist' ? true : false);
-            lstMap.add(mapField);
-            cont++;
-        }
-        return lstMap;
     }
 
     /**@Description Method to convertReferenceFields*/
@@ -268,7 +173,7 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
     @AuraEnabled
     public static Map<String, Object> deletesobject(String recordId, String config) {
         Map<String, Object> response = new Map<String, Object>{IS_SUCCESS => false, MESSAGE => 'No se ha encontrado la configuración especificada.'};
-        Final List<BE_Modal_Record_Form__mdt> lstMrf = getModalConfig(config);
+        Final List<BE_Modal_Record_Form__mdt> lstMrf = BE_DynamicModalRecordForm_helper.getModalConfig(config);
         Final Integer lstMrfSize = lstMrf.size();
         Final Boolean validateConfig = (lstMrfSize > 0 ? true : false);
         try {
