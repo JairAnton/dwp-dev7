@@ -117,70 +117,90 @@ export default class ApexWireMethodWithParams extends NavigationMixin(LightningE
     }
     /**BUILD AND SET COLUMS TO DATATABLE*/
     getGridColumns(sObjFieldsMap, fieldsApiName, fieldsLabel) {
-        const targetfieldsApiName = fieldsApiName.split(",");
-        const targetfieldsLabel = fieldsLabel.split(",");
-        const targetRelObj = (this.isObjRelFields) ? JSON.parse(this.configMeta[0].FieldsUrlRelationship__c) : [];
-        const targetRelObjKeys = (this.isObjRelFields) ? Object.keys(targetRelObj) : [];
-        const targetObjBtn = (this.isBtnFields) ? JSON.parse(this.configMeta[0].FieldsButtons__c.trim()) : [];
-        const targetObjBtnName = (this.isBtnFields) ? Object.keys(targetObjBtn) : [];
+        const configCols=this.getGridColSetttings(fieldsApiName, fieldsLabel);
         let columns = [];
-        for (const indicator in targetfieldsApiName) {
-            if ({}.hasOwnProperty.call(targetfieldsApiName, indicator)) {
+        for (const indicator in configCols.fieldsApiName) {
+            if ({}.hasOwnProperty.call(configCols.fieldsApiName, indicator)) {
                 let targetColumn = {};
-                let targetPropCol = {
-                    fieldName: "",
-                    label: "",
-                };
-                if (targetRelObjKeys.includes(targetfieldsApiName[indicator])) {
-                    if (targetRelObj[targetfieldsApiName[indicator]].isObject) {
-                        targetPropCol.fieldName = targetRelObj[targetfieldsApiName[indicator]].relApiName + targetRelObj[targetfieldsApiName[indicator]].fieldName;
-                        switch (targetRelObj[targetfieldsApiName[indicator]].type) {
-                            case "url":
-                                targetPropCol.fieldName = targetPropCol.fieldName + 'Url';
-                                targetPropCol.label = targetRelObj[targetfieldsApiName[indicator]].relApiName + targetRelObj[targetfieldsApiName[indicator]].label;
-                                targetColumn = {
-                                    label: targetfieldsLabel[indicator],
-                                    fieldName: targetPropCol.fieldName,
-                                    type: 'url',
-                                    typeAttributes: { label: { fieldName: targetPropCol.label }, tooltip: { fieldName: targetPropCol.label }, target: '_self' }
-                                };
-                                break;
-                            default:
-                                targetColumn = {
-                                    label: targetfieldsLabel[indicator],
-                                    fieldName: targetPropCol.fieldName,
-                                    type: targetRelObj[targetfieldsApiName[indicator]].type
-                                };
-                                break;
-                        }
-                    } else {
-                        targetPropCol.fieldName = targetRelObj[targetfieldsApiName[indicator]].fieldName + "Url";
-                        targetPropCol.label = targetRelObj[targetfieldsApiName[indicator]].label;
-                        targetColumn = {
-                            label: targetfieldsLabel[indicator],
-                            fieldName: targetPropCol.fieldName,
-                            type: targetRelObj[targetfieldsApiName[indicator]].type,
-                            typeAttributes: { label: { fieldName: targetPropCol.label }, tooltip: { fieldName: targetPropCol.label }, target: '_self' }
-                        };
-                    }
-                } else if (targetObjBtnName.includes(targetfieldsApiName[indicator])) {
+                /** COLUMNS URL AND RELATIONSHIPS */
+                if (configCols.relObjKeys.includes(configCols.fieldsApiName[indicator])) {
+                    targetColumn=this.makeUrlRelationshipColumns(configCols);
+                /**  COLUMNS BUTTONS */
+                } else if (configCols.objBtnName.includes(configCols.fieldsApiName[indicator])) {
                     targetColumn = {
-                        label: targetfieldsLabel[indicator],
-                        fieldName: targetfieldsApiName[indicator],
+                        label: configCols.fieldsLabel[indicator],
+                        fieldName: configCols.fieldsApiName[indicator],
                         type: 'button',
-                        typeAttributes: targetObjBtn.typeAttributes
+                        typeAttributes: configCols.objBtn.typeAttributes
                     };
+                /** COMON COLUMNS */
                 } else {
                     targetColumn = {
-                        label: targetfieldsLabel[indicator],
-                        fieldName: targetfieldsApiName[indicator],
-                        type: sObjFieldsMap[targetfieldsApiName[indicator]]
+                        label:configCols.fieldsLabel[indicator],
+                        fieldName: configCols.fieldsApiName[indicator],
+                        type: sObjFieldsMap[configCols.fieldsApiName[indicator]]
                     };
                 }
                 columns.push(this.asigntypeAttributes(targetColumn));
             }
         }
         return columns;
+    }
+    /** ASSING INITIAL COLUMN VARIABLE */
+    getGridColSetttings(fieldsApiName, fieldsLabel){
+        const targetRelObj = (this.isObjRelFields) ? JSON.parse(this.configMeta[0].FieldsUrlRelationship__c) : [];
+        const targetRelObjKeys = (this.isObjRelFields) ? Object.keys(targetRelObj) : [];
+        const targetObjBtn = (this.isBtnFields) ? JSON.parse(this.configMeta[0].FieldsButtons__c.trim()) : [];
+        const targetObjBtnName = (this.isBtnFields) ? Object.keys(targetObjBtn) : [];
+        let settingsColumn={
+        fieldsApiName : fieldsApiName.split(","),
+        fieldsLabel : fieldsLabel.split(","),
+        relObj : targetRelObj,
+        relObjKeys:targetRelObjKeys,
+        objBtn :targetObjBtn,
+        objBtnName :targetObjBtnName
+        }
+        return settingsColumn;
+    }
+    /*BUILD URL AND RELATIONSHIP COLUM*/
+    makeUrlRelationshipColumns(configCols){
+        let targetColumn={};
+        let targetPropCol = {
+            fieldName: "",
+            label: "",
+        };
+        if (configCols.relObj[configCols.fieldsApiName[indicator]].isObject) {
+            targetPropCol.fieldName = configCols.relObj[configCols.fieldsApiName[indicator]].relApiName + configCols.relObj[configCols.fieldsApiName[indicator]].fieldName;
+            switch (configCols.relObj[configCols.fieldsApiName[indicator]].type) {
+                case "url":
+                    targetPropCol.fieldName = targetPropCol.fieldName + 'Url';
+                    targetPropCol.label = configCols.relObj[configCols.fieldsApiName[indicator]].relApiName + configCols.relObj[configCols.fieldsApiName[indicator]].label;
+                    targetColumn = {
+                        label: configCols.fieldsLabel[indicator],
+                        fieldName: targetPropCol.fieldName,
+                        type: 'url',
+                        typeAttributes: { label: { fieldName: targetPropCol.label }, tooltip: { fieldName: targetPropCol.label }, target: '_self' }
+                    };
+                    break;
+                default:
+                    targetColumn = {
+                        label: configCols.fieldsLabel[indicator],
+                        fieldName: targetPropCol.fieldName,
+                        type: configCols.relObj[configCols.fieldsApiName[indicator]].type
+                    };
+                    break;
+            }
+        } else {
+            targetPropCol.fieldName = configCols.relObj[configCols.fieldsApiName[indicator]].fieldName + "Url";
+            targetPropCol.label = configCols.relObj[configCols.fieldsApiName[indicator]].label;
+            targetColumn = {
+                label: configCols.fieldsLabel[indicator],
+                fieldName: targetPropCol.fieldName,
+                type: configCols.relObj[configCols.fieldsApiName[indicator]].type,
+                typeAttributes: { label: { fieldName: targetPropCol.label }, tooltip: { fieldName: targetPropCol.label }, target: '_self' }
+            };
+        }
+        return targetColumn;
     }
     /*BUILD AND MAKE ATRIBUTES TO OBJECT*/
     asigntypeAttributes(Obj) {

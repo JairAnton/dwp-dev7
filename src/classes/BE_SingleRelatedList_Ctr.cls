@@ -10,6 +10,11 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_SingleRelatedList_Ctr {
+  /**
+  @Description privet constructor.
+  */
+  private BE_SingleRelatedList_Ctr() {
+  }
   /**@Description Quotes*/
   final static String QUOTES='\'';
   /**@Description params to quotes*/
@@ -31,8 +36,6 @@ public without sharing class BE_SingleRelatedList_Ctr {
 		response.IsSuccess=false;
 		response.Message='Error'+e.getMessage();
     }
-      System.debug('Response');
-      System.debug(response);
     return response;
   }
   
@@ -43,7 +46,6 @@ public without sharing class BE_SingleRelatedList_Ctr {
    */
   public static List<SObject> getSOQLData(String recordId,Params param) { 
   	  final String query='SELECT ' +String.escapeSingleQuotes(param.sObjFields)+ ' FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
-      System.debug(query);
       return Database.query(query);
   }
   

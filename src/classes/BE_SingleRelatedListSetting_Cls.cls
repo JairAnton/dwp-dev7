@@ -17,8 +17,7 @@ global without sharing class BE_SingleRelatedListSetting_Cls  extends VisualEdit
      @return a VisualEditor.DataRow with default value NONE.
    */
     global override VisualEditor.DataRow getDefaultValue(){
-      VisualEditor.DataRow defaultValue = new VisualEditor.DataRow('None', 'NONE');
-      return defaultValue;
+      return new VisualEditor.DataRow('None', 'NONE');
     }
 
     /**
@@ -27,7 +26,7 @@ global without sharing class BE_SingleRelatedListSetting_Cls  extends VisualEdit
    */
     global override VisualEditor.DynamicPickListRows getValues() {
       VisualEditor.DynamicPickListRows  myValues = new VisualEditor.DynamicPickListRows();
-      for (BE_SingleRelatedList_Setting__mdt itemMdt : [SELECT MasterLabel, DeveloperName FROM BE_SingleRelatedList_Setting__mdt]) {
+      for (BE_SingleRelatedList_Setting__mdt itemMdt : [SELECT MasterLabel, DeveloperName FROM BE_SingleRelatedList_Setting__mdt LIMIT 10000]) {
         myValues.addRow(new VisualEditor.DataRow(itemMdt.MasterLabel, itemMdt.DeveloperName));
       }
       return myValues;

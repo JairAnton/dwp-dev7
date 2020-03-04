@@ -47,13 +47,11 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
         try {
             Final Map<String, Object> header = getHeader(config);
             Final BE_Modal_Record_Form__mdt modal = (Boolean)header.get(IS_SUCCESS) ? (BE_Modal_Record_Form__mdt)header.get('header') : new BE_Modal_Record_Form__mdt();
-            Final List<Structure> structure = (modal == null ? new List<Structure>() : getConfig(modal.Id));
-            Final Boolean validate = ( structure == null ? false : validateStructure(structure));
-            Final Boolean headerSuccess = (Boolean)header.get(IS_SUCCESS) ? false : true;
-            if(headerSuccess) {
+            Final Map<String, Object> mapRes = getValidations(header, modal);
+            if((Boolean)mapRes.get('headerSuccess')) {
                 result.message = (String) header.get(MESSAGE);
-            } else if(validate) {
-                result = getInfoValidated(modal, structure, recordId);
+            } else if((Boolean)mapRes.get('validate')) {
+                result = getInfoValidated(modal, (List<Structure>) mapRes.get('structure'), recordId);
             } else {
                 result.message = Label.BE_DynamicModalRecordForm;
             }
@@ -61,6 +59,17 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
             System.debug('BE_DynamicModalRecordForm_ctr.getInfo() => '+e.getMessage());
         }
         return result;
+    }
+
+    /**@Description Method getValidations*/
+    public static Map<String, Object> getValidations(Map<String, Object> header, BE_Modal_Record_Form__mdt modal) {
+        Final Map<String, Object> mapRes = new Map<String, Object>();
+        Final List<structure> structure = (modal == null ? new List<Structure>() : getConfig(modal.Id));
+        mapRes.put('structure', structure);
+        Final Integer structureSize = structure.size();
+        mapRes.put('validate', structureSize > 0 ? validateStructure(structure) : false);
+        mapRes.put('headerSuccess', (Boolean)header.get(IS_SUCCESS) ? false : true);
+        return mapRes;
     }
 
     /**@Description Method getInfoValidated*/
