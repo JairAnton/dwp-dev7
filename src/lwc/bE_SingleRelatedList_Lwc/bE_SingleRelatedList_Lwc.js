@@ -7,7 +7,7 @@ import { NavigationMixin } from 'lightning/navigation';
 import { refreshApex } from "@salesforce/apex";
 import viewAlll from '@salesforce/label/c.BE_SingleRelatedList_ViewAll';
 import errorMsg from '@salesforce/label/c.Dwp_msgGenericError';
-export default class ApexWireMethodWithParams extends NavigationMixin(LightningElement) {
+export default class SingleRelatedList extends NavigationMixin(LightningElement) {
     // EXPOSE LABEL TO USE IN TEMPLATE
     label = {
         viewAlll,

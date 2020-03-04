@@ -1,4 +1,4 @@
-/*
+/**
 * ------------------------------------------------------------------------------------------------
 * @Name BE_DynamicModalRecordForm_helper
 * @Author Diego Carbajal diego.carbajal@bbva.com
@@ -16,7 +16,7 @@ public with sharing class BE_DynamicModalRecordForm_helper {
         return [SELECT Id, MasterLabel, sObject_Target__c, Filter_SOQL__c, Order_Records__c, view_mode__c, delete_mode__c, Records_per_page__c,
         No_sObject_Access_Message__c, No_sObject_Delete_Message__c FROM BE_Modal_Record_Form__mdt WHERE DeveloperName=:config limit 1];
     }
-
+    
     /**@Description Method getValidations*/
     public static Map<String, Object> getValidations(Map<String, Object> header, BE_Modal_Record_Form__mdt modal) {
         Final Map<String, Object> mapRes = new Map<String, Object>();
@@ -39,7 +39,6 @@ public with sharing class BE_DynamicModalRecordForm_helper {
         return lstStr;
     }
 
-    /**@Description Method to putTypesFields*/
     public static List<BE_DynamicModalRecordForm_ctr.Structure> putTypesFields(List<BE_DynamicModalRecordForm_ctr.Structure> structure, Map<String, String> sObjFieldsMap) {
         for(BE_DynamicModalRecordForm_ctr.Structure str: structure) {
             for(BE_Modal_Record_Field__mdt mdf: str.fields) {
