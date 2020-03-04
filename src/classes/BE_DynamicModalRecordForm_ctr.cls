@@ -9,14 +9,15 @@
 */
 public with sharing class BE_DynamicModalRecordForm_ctr {
 
-    /**@Description constructor BE_DynamicModalRecordForm_ctr*/
-    private BE_DynamicModalRecordForm_ctr() {}
     /**@Description varaible sObjFields*/
-    public static String sObjFields = 'Id';
+    private static String sObjFields = 'Id';
     /**@Description variable MESSAGE for sonarQ*/
     Final static String MESSAGE = 'message';
     /**@Description variable IS_SUCCESS for sonarQ*/
     Final static String IS_SUCCESS = 'isSuccess';
+
+    /**@Description constructor BE_DynamicModalRecordForm_ctr*/
+    private BE_DynamicModalRecordForm_ctr() {}
 
     /**@Description Method to get Modal header*/
     @AuraEnabled(cacheable=true)
@@ -42,10 +43,11 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
     public static Response getInfo(String recordId, String config) {
         Response result = new Response();
         result.isSuccess = false;
+        result.message = Label.Dwp_msgGenericError;
         try {
             Final Map<String, Object> header = getHeader(config);
-            Final BE_Modal_Record_Form__mdt modal = (Boolean)header.get(IS_SUCCESS) ? (BE_Modal_Record_Form__mdt)header.get('header') : null;
-            List<Structure> structure = (modal == null ? null : getConfig(modal.Id));
+            Final BE_Modal_Record_Form__mdt modal = (Boolean)header.get(IS_SUCCESS) ? (BE_Modal_Record_Form__mdt)header.get('header') : new BE_Modal_Record_Form__mdt();
+            Final List<Structure> structure = (modal == null ? new List<Structure>() : getConfig(modal.Id));
             Final Boolean validate = ( structure == null ? false : validateStructure(structure));
             Final Boolean headerSuccess = (Boolean)header.get(IS_SUCCESS) ? false : true;
             if(headerSuccess) {
@@ -57,7 +59,6 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
             }
         } catch (Exception e) {
             System.debug('BE_DynamicModalRecordForm_ctr.getInfo() => '+e.getMessage());
-            result.message = Label.Dwp_msgGenericError;
         }
         return result;
     }
@@ -73,13 +74,13 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
         param.filterSQOL = modal.Filter_SOQL__c;
         param.filterSQOL = (modal.Order_Records__c == null ? param.filterSQOL : param.filterSQOL +' '+modal.Order_Records__c);
         param.sObjFields = sObjFields;
-        structure = putIdField(structure);
-        structure = putTypesFields(structure, BE_SingleRelatedList_Ctr.getSObjectFields(modal.sObject_Target__c));
-        structure = putFieldsLabel(structure, lstFieldsApiName, modal.sObject_Target__c);
+        List<Structure> str = putIdField(structure);
+        str = putTypesFields(str, BE_SingleRelatedList_Ctr.getSObjectFields(modal.sObject_Target__c));
+        str = putFieldsLabel(str, lstFieldsApiName, modal.sObject_Target__c);
         Final List<sObject> data = BE_SingleRelatedList_Ctr.getSOQLData(recordId, param);
         Final Integer dataSize = data.size();
-        result.data = (dataSize > 0 ? data : null);
-        result.result =  generateStructure(structure, data);
+        result.data = (dataSize > 0 ? data : new List<SObject>());
+        result.result =  generateStructure(str, data);
         result.isSuccess = true;
         return result;
     }

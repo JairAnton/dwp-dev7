@@ -75,7 +75,7 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
         getInfo({recordId: this.idRecord, config: this.metaDataConfig})
         .then((result)=> {
             if (result.isSuccess) {
-                if(result.data === null || result.data === undefined) {
+                if(result.data.length === 0 || result.data === undefined) {
                     this.noRecordsFound = true;
                     this.loadDetails = false;
                     this.spinner = true;
