@@ -124,7 +124,7 @@ export default class ApexWireMethodWithParams extends NavigationMixin(LightningE
                 let targetColumn = {};
                 /** COLUMNS URL AND RELATIONSHIPS */
                 if (configCols.relObjKeys.includes(configCols.fieldsApiName[indicator])) {
-                    targetColumn=this.makeUrlRelationshipColumns(configCols);
+                    targetColumn=this.makeUrlRelationshipColumns(configCols,indicator);
                 /**  COLUMNS BUTTONS */
                 } else if (configCols.objBtnName.includes(configCols.fieldsApiName[indicator])) {
                     targetColumn = {
@@ -163,7 +163,7 @@ export default class ApexWireMethodWithParams extends NavigationMixin(LightningE
         return settingsColumn;
     }
     /*BUILD URL AND RELATIONSHIP COLUM*/
-    makeUrlRelationshipColumns(configCols){
+    makeUrlRelationshipColumns(configCols,indicator){
         let targetColumn={};
         let targetPropCol = {
             fieldName: "",
@@ -268,7 +268,7 @@ export default class ApexWireMethodWithParams extends NavigationMixin(LightningE
 
     /** SET DATA  */
     assignData(data) {
-        const targetRelObj = (this.isObjRelFields) ? Object.values(JSON.parse(this.configMeta[0].UrlRelConfig__c)) : [];
+        const targetRelObj = (this.isObjRelFields) ? Object.values(JSON.parse(this.configMeta[0].FieldsUrlRelationship__c)) : [];
         let currentData;
         let dataLst = [];
         for (currentData of data) {

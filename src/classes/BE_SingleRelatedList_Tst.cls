@@ -49,9 +49,8 @@ public without sharing class BE_SingleRelatedList_Tst {
     */
     @IsTest
     static void getConfigMetaTest() {
-        String devMetadata='TESTMETADATA_TST';
         Test.startTest();
-        BE_SingleRelatedList_Ctr.getConfigMeta(devMetadata);
+        BE_SingleRelatedList_Ctr.getConfigMeta('TESTMETADATA_TST');
         Test.stopTest();
         final List<BE_SingleRelatedList_Setting__mdt> configMeta=(List<BE_SingleRelatedList_Setting__mdt>)JSON.deserialize('[{"DeveloperName":"TESTMETADATA_TST","MasterLabel":"Phone"}]', List<BE_SingleRelatedList_Setting__mdt>.class);
         System.assertEquals(1,configMeta.size(), 'Size correcto');

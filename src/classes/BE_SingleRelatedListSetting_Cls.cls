@@ -9,14 +9,14 @@
    2020-03-03  LMBR     lolo.bravo@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
-global without sharing class BE_SingleRelatedListSetting_Cls  extends VisualEditor.DynamicPickList{
+global without sharing class BE_SingleRelatedListSetting_Cls  extends VisualEditor.DynamicPickList {
     
     
     /**
      @Description return a default value of Metadata
      @return a VisualEditor.DataRow with default value NONE.
    */
-    global override VisualEditor.DataRow getDefaultValue(){
+    global override VisualEditor.DataRow getDefaultValue() {
       return new VisualEditor.DataRow('None', 'NONE');
     }
 

@@ -10,15 +10,15 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_SingleRelatedList_Ctr {
+  /**@Description Quotes*/
+  final static String QUOTES='\'';
+  /**@Description params to quotes*/
+  final static String REFACTORPER='@@';
   /**
   @Description privet constructor.
   */
   private BE_SingleRelatedList_Ctr() {
   }
-  /**@Description Quotes*/
-  final static String QUOTES='\'';
-  /**@Description params to quotes*/
-  final static String REFACTORPER='@@';
   /**
      @Description return a Map of String with type of all fields of sObject.
      @param sObjName the ApiName of sObject to be search.
