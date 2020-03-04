@@ -47,7 +47,7 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
         })
         .catch((error) => {
             console.log(error);
-            this.showToast('Error', label.msgError, 'Error');
+            this.showToast('Error', msgError, 'Error');
             this.handleCloseModal();
         });
     }
@@ -92,14 +92,14 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
         })
         .catch((error) => {
             console.log(error);
-            this.showToast('Error', label.msgError, 'Error');
+            this.showToast('Error', msgError, 'Error');
             this.handleCloseModal();
         })
     }
 
     convertStructure(resultado) {
         let str = [];
-        for(let i = 0; i < resultado.result.length; i++) { 
+        for(let i = 0; i < resultado.result.length; i++) {
             for(let j = 0; j < resultado.result[i].length; j++) {
                 for(let k = 0; k < resultado.result[i][j].fields.length; k++) {
                     resultado.result[i][j].fields[k] = this.getFieldsStructure(resultado, i, j, k);
@@ -108,10 +108,30 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
             str.push({'Id' : 'record_'+i, 'record':resultado.result[i]});
         }
         this.structure = [];
-        this.totalPages = 0;
         this.recordsInPage = str;
+        this.totalPages = 0;
+        this.createpages(str);
+        this.loadDetails = true;
+        this.spinner = true;
+    }
+
+    getFieldsStructure (resultado, i, j, k) {
+        for(let d = 0; d < resultado.data.length; d++) {
+            let fieldName = resultado.result[i][j].fields[k].fieldName;
+            if(resultado.result[i][j].fields[k].dataType === 'reference' && resultado.result[i][j].fields[k].value === resultado.data[d][fieldName]) {
+                if(fieldName.endsWith('Id')) {
+                    resultado.result[i][j].fields[k].value = resultado.data[d][fieldName.slice(0, -2)].Name;
+                } else {
+                    resultado.result[i][j].fields[k].value = resultado.data[d][fieldName.slice(0, -1)+'r'].Name;
+                }
+            }
+        }
+        return resultado.result[i][j].fields[k];
+    }
+
+    createpages(str) {
         let arrayRecords = [];
-        if((this.header.Records_per_page__c !== null || this.header.Records_per_page__c !== undefined) && 
+        if((this.header.Records_per_page__c !== null || this.header.Records_per_page__c !== undefined) &&
             str.length > this.header.Records_per_page__c) {
             for(let i=0; i < str.length; i++) {
                 arrayRecords.push(str[i]);
@@ -129,22 +149,6 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
             buttonL.classList.remove('arrowsButton');
             buttonR.classList.remove('arrowsButton');
         }
-        this.loadDetails = true;
-        this.spinner = true;
-    }
-
-    getFieldsStructure (resultado, i, j, k) {
-        for(let d = 0; d < resultado.data.length; d++) {
-            let fieldName = resultado.result[i][j].fields[k].fieldName;
-            if(resultado.result[i][j].fields[k].dataType === 'reference' && resultado.result[i][j].fields[k].value === resultado.data[d][fieldName]) {
-                if(fieldName.endsWith('Id')) {
-                    resultado.result[i][j].fields[k].value = resultado.data[d][fieldName.slice(0, -2)].Name;
-                } else {
-                    resultado.result[i][j].fields[k].value = resultado.data[d][fieldName.slice(0, -1)+'r'].Name;
-                }
-            }
-        }
-        return resultado.result[i][j].fields[k];
     }
 
     redirect(event) {
@@ -209,9 +213,8 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
             this.spinner = true;
             this.loadDetails = true;
             console.log(error);
-            this.showToast('Error', label.msgError, 'Error');
+            this.showToast('Error', msgError, 'Error');
         });
-        
     }
 
     handleCloseModal() {

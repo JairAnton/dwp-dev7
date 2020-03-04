@@ -58,7 +58,7 @@ public with sharing class Dwp_Utils_helper {
     /**@Description Method for validate access to sObject*/
     public static Boolean sObjectAccessCRUD(String sObjName, String access) {
         Boolean result;
-        Schema.DescribeSObjectResult sObjResult = Schema.getGlobalDescribe().get(sObjName).getDescribe();
+        Final Schema.DescribeSObjectResult sObjResult = Schema.getGlobalDescribe().get(sObjName).getDescribe();
         switch on access {
             when 'isCreateable' {
                 result = sObjResult.isCreateable();
@@ -72,15 +72,19 @@ public with sharing class Dwp_Utils_helper {
             when 'isDeletable' {
                 result = sObjResult.isDeletable();
             }
+            when else {
+                result = false;
+            }
         }
         return result;
     }
     
     /**@Description Method for delete dynamic record*/
     public static Map<String, Object> deletesObjectRecord(String sObj, String recordId) {
-        Map<String, Object> resDelete = new Map<String, Object>{'isSuccess' => false};
-        List<SObject> sObjDel = Database.query('SELECT Id FROM '+sObj+' WHERE Id=:recordId');
-        if(sObjDel.size() > 0) {
+        Final Map<String, Object> resDelete = new Map<String, Object>{'isSuccess' => false};
+        Final List<SObject> sObjDel = Database.query('SELECT Id FROM '+String.escapeSingleQuotes(sObj)+' WHERE Id=:recordId');
+        Final Integer sObjDelSize = sObjDel.size();
+        if(sObjDelSize > 0) {
             delete sObjDel;
             resDelete.put('isSuccess', true);
         } else {

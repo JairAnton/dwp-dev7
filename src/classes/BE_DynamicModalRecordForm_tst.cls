@@ -11,7 +11,9 @@
 public with sharing class BE_DynamicModalRecordForm_tst {
 
     /**@Description Variable METHOD_RESULT*/
-    Final static String METHOD_RESULT = 'Success';
+    Final static String METHOD_RESULT = 'isSuccess';
+    /**@Description Variable METADATA_NAME*/
+    Final static String METADATA_NAME = 'Form_Class_Test';
 
     /**@Description Method for setUp test*/
     @testSetup
@@ -30,9 +32,9 @@ public with sharing class BE_DynamicModalRecordForm_tst {
     @isTest
     private static void getHeaderSuccess() {
         Test.startTest();
-		Final Map<String, Object> mapRes = BE_DynamicModalRecordForm_ctr.getHeader('Form_Class_Test');
+		Final Map<String, Object> mapRes = BE_DynamicModalRecordForm_ctr.getHeader(METADATA_NAME);
         Test.stopTest();
-        System.assert((Boolean) mapRes.get('isSuccess'), METHOD_RESULT);
+        System.assert((Boolean) mapRes.get(METHOD_RESULT), METHOD_RESULT);
     }
     
     /**@Description Method to test getHeaderError()*/
@@ -41,7 +43,7 @@ public with sharing class BE_DynamicModalRecordForm_tst {
         Test.startTest();
 		Final Map<String, Object> mapRes = BE_DynamicModalRecordForm_ctr.getHeader('Test_Error');
         Test.stopTest();
-        Final Boolean result = (Boolean) mapRes.get('isSuccess') ? false : true;
+        Final Boolean result = (Boolean) mapRes.get(METHOD_RESULT) ? false : true;
         System.assert(result, METHOD_RESULT);
     }
     
@@ -50,7 +52,7 @@ public with sharing class BE_DynamicModalRecordForm_tst {
     private static void getInfoSuccess() {
         Final Account acc = [SELECT Id FROM Account WHERE unique_id__c ='1234567890' LIMIT 1];
         Test.startTest();
-		Final BE_DynamicModalRecordForm_ctr.Response res = BE_DynamicModalRecordForm_ctr.getInfo( acc.Id,'Form_Class_Test');
+		Final BE_DynamicModalRecordForm_ctr.Response res = BE_DynamicModalRecordForm_ctr.getInfo( acc.Id, METADATA_NAME);
         Test.stopTest();
         System.assert(res.isSuccess, METHOD_RESULT);
     }
@@ -71,18 +73,18 @@ public with sharing class BE_DynamicModalRecordForm_tst {
     private static void deletesobjectSuccess() {
         Final Opportunity opp = [SELECT Id FROM Opportunity LIMIT 1];
         Test.startTest();
-		Final Map<String, Object> mapRes = BE_DynamicModalRecordForm_ctr.deletesobject( opp.Id,'Form_Class_Test');
+		Final Map<String, Object> mapRes = BE_DynamicModalRecordForm_ctr.deletesobject( opp.Id, METADATA_NAME);
         Test.stopTest();
-        System.assert((Boolean)mapRes.get('isSuccess'), METHOD_RESULT);
+        System.assert((Boolean)mapRes.get(METHOD_RESULT), METHOD_RESULT);
     }
     
     /**@Description Method to test deletesobjectError()*/
     @isTest
     private static void deletesobjectError() {
         Test.startTest();
-		Final Map<String, Object> mapRes = BE_DynamicModalRecordForm_ctr.deletesobject( '','Form_Class_Test');
+		Final Map<String, Object> mapRes = BE_DynamicModalRecordForm_ctr.deletesobject( '', METADATA_NAME);
         Test.stopTest();
-        Final Boolean result = (Boolean)mapRes.get('isSuccess') ? false : true;
+        Final Boolean result = (Boolean)mapRes.get(METHOD_RESULT) ? false : true;
         System.assert(result, METHOD_RESULT);
     }
 }
