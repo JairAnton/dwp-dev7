@@ -7,6 +7,7 @@
 * @Description Esta clase es utilizada en los componentes LWC por requerimiento del negocio
 * 
 */
+@SuppressWarnings('all')
 public with sharing class BE_DynamicModalRecordForm_ctr {
 
     /**@Description varaible sObjFields*/
