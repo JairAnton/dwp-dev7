@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Modal_Record_Form__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Modal Record Form</label>
+        <referenceTo>BE_Modal_Record_Form__mdt</referenceTo>
+        <relationshipLabel>Modal Records Rows</relationshipLabel>
+        <relationshipName>Modal_Records_Rows</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Row_Order__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Orden de fila en modal</inlineHelpText>
+        <label>Row Order</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Modal Record Row</label>
+    <pluralLabel>Modal Records Rows</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

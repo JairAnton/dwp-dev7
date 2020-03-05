@@ -178,6 +178,22 @@
         <value>Total</value>
     </labels>
     <labels>
+        <fullName>BE_DynamicModalRecordForm</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error DynamicModalRecordForm</shortDescription>
+        <value>Se ha producido un error en la configuración.
+Por favor verifique la estructura de acuerdo a la guía en la documentación.</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_ViewAll</fullName>
+        <categories>BE</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_ViewAll</shortDescription>
+        <value>View All</value>
+    </labels>
+    <labels>
         <fullName>Dwp_msgGenericError</fullName>
         <language>en_US</language>
         <protected>false</protected>

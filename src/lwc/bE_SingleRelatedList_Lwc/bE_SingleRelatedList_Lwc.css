@@ -1,0 +1,13 @@
+div .LARGE {
+  width: 33.3333%;
+}
+div .MEDIUM {
+  width: 50%;
+}
+div .SMALL {
+  width: 100%;
+}
+.bodyBox{
+  border-top:gainsboro 1px;
+  border-top-style: solid;
+}
