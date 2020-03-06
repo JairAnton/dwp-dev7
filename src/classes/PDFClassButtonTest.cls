@@ -90,7 +90,7 @@ public class PDFClassButtonTest {
             Final Id rid = [SELECT ID FROM Opportunity LIMIT 1].Id;
             result = PDFclassButton.PDF_formalization(rid);
         }
-        System.assertEquals('SUCCESS', result, MSG_ASSERTION);      
+        System.assert(String.isBlank(result));      
     }
     
     /**
