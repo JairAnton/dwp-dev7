@@ -5820,46 +5820,6 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentInstanceProperties>
-                <name>allowCardClick</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>configTable</name>
-                <value>Name</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>infinite</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>nameCards</name>
-                <value>CarruselRelatedTableWL</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>readAllRecords</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>refreshOnRefreshView</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relationMode</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showButtons</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>sizeTable</name>
-                <value>150</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>slidesToShow</name>
-                <value>4</value>
-            </componentInstanceProperties>
             <componentName>BE_PotentialBBVACards</componentName>
         </componentInstances>
         <componentInstances>
