@@ -208,12 +208,12 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-af9f7270-e9a7-4370-a482-5cc700d5f9f4</name>
         <type>Facet</type>
     </flexiPageRegions>
-	<flexiPageRegions>
+    <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>iconName</name>
@@ -318,7 +318,7 @@
         <name>Facet-zelqc64gga</name>
         <type>Facet</type>
     </flexiPageRegions>
-	<flexiPageRegions>
+    <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
@@ -405,6 +405,36 @@
             </componentInstanceProperties>
             <componentName>flexipage:accordion</componentName>
         </componentInstances>
+        <name>Facet-fb45031f-57b6-431d-8230-b9f736e8c754</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-fb45031f-57b6-431d-8230-b9f736e8c754</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>BBVA</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <name>Facet-6e47db4f-07b4-4d81-80ce-c38e3485d27c</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-6e47db4f-07b4-4d81-80ce-c38e3485d27c</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
         <name>Facet-49c7717f-a1e2-4877-85d6-baa5f7b22966</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -484,7 +514,7 @@
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-		<componentInstances>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
                 <value>Facet-49c7717f-a1e2-4877-85d6-baa5f7b22966</value>
@@ -611,7 +641,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-78e235cc-de88-4281-aca9-ba1360189d63</name>
         <type>Facet</type>
@@ -729,7 +759,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentName>AccountBankingSystemRankingContainer_comp</componentName>
@@ -857,7 +887,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentName>AccountBankingSystemDebtQuoteContainer_comp</componentName>
@@ -975,7 +1005,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-11a00169-4e61-4cd0-b81f-cd59cdc5c6cc</name>
         <type>Facet</type>
@@ -1092,7 +1122,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-147227f5-7177-4a33-a469-890fc43d4e20</name>
         <type>Facet</type>
@@ -1292,7 +1322,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-7f747f9f-a554-49f4-8977-ecebaaec0869</name>
         <type>Facet</type>
@@ -1413,7 +1443,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-757848ee-d6fc-4e70-8dad-ebb7a685b838</name>
         <type>Facet</type>
@@ -1535,7 +1565,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-5e885e1c-4345-49f5-8f06-a8b3f987b1aa</name>
         <type>Facet</type>
@@ -1650,7 +1680,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-db341fc5-e041-46ae-8866-2bc2282000a6</name>
         <type>Facet</type>
@@ -1873,7 +1903,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -1991,7 +2021,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-3b924f5f-e400-4c99-a90a-99fc3346d596</name>
         <type>Facet</type>
@@ -3641,7 +3671,7 @@
             </componentInstanceProperties>
             <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
-        <name>Facet-cf0caa7c-a50f-44b7-9b77-554021180ea8</name>
+		<name>Facet-cf0caa7c-a50f-44b7-9b77-554021180ea8</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -3953,7 +3983,7 @@
         <name>Facet-e3afa713-4d71-4c55-adb9-3e53e889c283</name>
         <type>Facet</type>
     </flexiPageRegions>
-	<flexiPageRegions>
+    <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>iconName</name>
@@ -4135,6 +4165,17 @@
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
         <name>Facet-a08e2f82-b583-41f4-a334-e3be43ac18f8</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-a08e2f82-b583-41f4-a334-e3be43ac18f8</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
+        <name>Facet-d514950f-b5d8-4467-aac8-027aa3a64774</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -5017,7 +5058,7 @@
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-		<componentInstances>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
                 <value>Facet-d514950f-b5d8-4467-aac8-027aa3a64774</value>
@@ -5099,6 +5140,124 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>Collapsed</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CollapsedDefault</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CurrencyDimension</name>
+                <value>Thousand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamicField</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterStatic</name>
+                <value>profitability_type__c = &apos;03&apos; AND is_date_type_3_within_last_6_months__c = true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Format</name>
+                <value>CUR</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FormatDivisa</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Group</name>
+                <value>profitability_category_type__c,profitability_subcategory_type__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Header</name>
+                <value>currenct_mon_amount__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>HeaderGroup</name>
+                <value>period__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>LocaleCur</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Object</name>
+                <value>Account_Profitability__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Order</name>
+                <value>profitability_category_type_order__c ASC,profitability_subcategory_type_order__c ASC,year_month_day_date__c ASC</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>PositionCurrency</name>
+                <value>Left</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>RelatedField</name>
+                <value>account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Summarize</name>
+                <value>SUM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Symbol</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Type</name>
+                <value>Matrix</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>allFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>customLabelAPInameError</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>headerApiName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hidenSubHeadMatrix</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelFilterApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelTotalApi</name>
+                <value>AccountProfitabilityTotalLabel</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportTitleAPI</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLink</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotal</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
+        </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>Collapsed</name>
@@ -5661,6 +5820,46 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentInstanceProperties>
+                <name>allowCardClick</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>configTable</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>infinite</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>nameCards</name>
+                <value>CarruselRelatedTableWL</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>readAllRecords</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>refreshOnRefreshView</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relationMode</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showButtons</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sizeTable</name>
+                <value>150</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>slidesToShow</name>
+                <value>4</value>
+            </componentInstanceProperties>
             <componentName>BE_PotentialBBVACards</componentName>
         </componentInstances>
         <componentInstances>
@@ -5924,7 +6123,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>Facet-5088493e-8df5-4b15-ba3f-d8433d08ed49</name>
         <type>Facet</type>
@@ -6187,7 +6386,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>Facet-b67b0e99-3eb3-4324-9a5e-aceb24d5856b</name>
         <type>Facet</type>

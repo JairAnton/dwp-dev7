@@ -1,5 +1,10 @@
 <aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" controller="Hangout_ctrl">
     <aura:attribute name="HangoutId" type="String"/>
+	<aura:attribute name="alignment" type="String"/>
+	<aura:attribute name="marginTop" type="String"/>
+	<aura:attribute name="marginBottom" type="String"/>
+	<aura:attribute name="marginLeft" type="String"/>
+	<aura:attribute name="marginRight" type="String"/>
     <div class="slds-grid slds-grid_align-center">
         <div class="slds-col">
             <button class="slds-button slds-button--neutral cHangouts" onclick="{!c.handleClick}">
