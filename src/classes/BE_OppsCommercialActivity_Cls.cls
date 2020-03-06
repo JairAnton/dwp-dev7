@@ -7,7 +7,7 @@
 *              BE_OppsCommercialActivity_Cmp. Funciona obteniendo los datos del cliente para mostrarlos en el cintillo.
 *              *Clase de pruebas BE_OppsCommercialActivity_Test.
 * @Changes
-			- Actualización del método getOppInfo se cambio el filtro de fecha de CreatedDate por CloseDate
+			- Actualización getOppInfo se cambio el filtro de fecha de CreatedDate por CloseDate
 			*****************************
 			Modificaciones:
 			Martín Alejandro Mori Chávez  2020-02-25

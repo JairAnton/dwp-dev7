@@ -9,7 +9,7 @@
 *              *Clase de pruebas BE_OppCommercialActivChart_Test.
 * _________________________________________________________________________________
 * @Changes
-			- Actualización del método getOppInfo se cambio el filtro de fecha de opportunity_planning_date__c por CloseDate y se elimino la etapa 01
+			- Actualización getOppInfo se cambio el filtro de fecha de opportunity_planning_date__c por CloseDate y se elimino la etapa 01
 			*****************************
 			Modificaciones:
 			Martín Alejandro Mori Chávez  2020-02-25																			

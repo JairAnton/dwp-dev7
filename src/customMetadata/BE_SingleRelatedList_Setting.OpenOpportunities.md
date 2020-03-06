@@ -39,24 +39,6 @@
         <value xsi:type="xsd:double">5.0</value>
     </values>
     <values>
-        <field>UrlRelConfig__c</field>
-        <value xsi:type="xsd:string">{
-    &quot;Name&quot;: {
-        &quot;label&quot;: &quot;Name&quot;,
-        &quot;fieldName&quot;: &quot;Id&quot;,
-        &quot;isObject&quot;: false,
-        &quot;type&quot;: &quot;url&quot;
-    },
-    &quot;CreatedBy&quot;: {
-        &quot;label&quot;: &quot;Name&quot;,
-        &quot;fieldName&quot;: &quot;Id&quot;,
-        &quot;isObject&quot;: true,
-        &quot;type&quot;: &quot;url&quot;,
-        &quot;relApiName&quot;: &quot;CreatedBy&quot;
-    }
-}</value>
-    </values>
-    <values>
         <field>maximumFractionDigits__c</field>
         <value xsi:type="xsd:double">2.0</value>
     </values>

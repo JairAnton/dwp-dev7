@@ -53,7 +53,6 @@ global without sharing class PDFclassButton implements dwp_dbpn.DynamicFlowValid
     
    @auraenabled
     public static string PDF_formalization(String recordId) {
-        string msg;
         /*Case[] caso = [SELECT Id, OwnerId FROM Case WHERE Opportunity_id__c=:recordId AND RecordType.DeveloperName='Formalization' 
                      AND status NOT IN ('03','04','10','11') AND OwnerId=:UserInfo.getUserId() limit 1];
         if(caso.size() > 0) {*/
@@ -65,16 +64,16 @@ global without sharing class PDFclassButton implements dwp_dbpn.DynamicFlowValid
     
         	Final pageReference pdf = Page.PDF_formalizacion_vfp;
         	pdf.getParameters().put('id',recordId);
-            msg=PDF_formalizacion_ctrl.msg(recordId);
+            PDF_formalizacion_ctrl.msg(recordId);
             Blob cuerpo;
             if(!test.isRunningTest()) {
                 cuerpo = pdf.getContent();
             } else {
                 cuerpo=blob.valueOf('TestString');
             }
-        	Attachment attach = new Attachment(Body = cuerpo, Name = namePDF, IsPrivate = false, ParentId = recordId);
+        	final Attachment attach = new Attachment(Body = cuerpo, Name = namePDF, IsPrivate = false, ParentId = recordId);
         	insert attach;
         //}
-        return attach.Id;
+         return attach.Id;
     }
 }

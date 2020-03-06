@@ -53,10 +53,6 @@
         <value xsi:type="xsd:double">5.0</value>
     </values>
     <values>
-        <field>UrlRelConfig__c</field>
-        <value xsi:nil="true"/>
-    </values>
-    <values>
         <field>maximumFractionDigits__c</field>
         <value xsi:type="xsd:double">0.0</value>
     </values>

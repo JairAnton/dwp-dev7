@@ -28,7 +28,6 @@
         else {
 			helper.getInfo(cmp, evt, helper);
         }
-        
     },
     saveResponse: function(cmp, evt, helper) {
         var web = cmp.get("v.showWebForm");

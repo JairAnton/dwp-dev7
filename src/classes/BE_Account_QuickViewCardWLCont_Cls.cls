@@ -7,7 +7,7 @@
 *              AccountQuickViewCardWLCont_Cmp. Funciona obteniendo los datos del cliente para mostrarlos en la QuickViewCardWL.
 *              *Clase de pruebas BE_Account_QuickViewCardWLCont_Test.
 * @Changes
-	- Actualización del método oppValues se agregó el filtro de este año a la query de oportunidades y se corrigió el valor 1 Positivo
+	- Actualización oppValues se agregó el filtro de este año a la query de oportunidades y se corrigió el valor 1 Positivo
 	*****************************
 	Modificaciones:
 	Martín Alejandro Mori Chávez  2020-02-25
