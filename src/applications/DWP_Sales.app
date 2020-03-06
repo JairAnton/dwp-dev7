@@ -18,14 +18,59 @@
         <type>Flexipage</type>
         <pageOrSobjectType>Event</pageOrSobjectType>
     </actionOverrides>
+	<actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Opportunity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <logo>apps_logo</logo>
         <logoVersion>1</logoVersion>
+		<shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
+	<formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
+	<isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>DWP Sales</label>
     <navType>Standard</navType>
+	<profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>HOMEPAGE_OPERATIVO</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Operativo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>HOMEPAGE_ANALISTA</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>HOMEPAGE_ESPECIALISTA</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Especialista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>HOME_EJECUTIVO</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Account_Record_Page_Account</content>
@@ -182,6 +227,7 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+	<setupExperience>all</setupExperience>
     <tabs>standard-home</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>

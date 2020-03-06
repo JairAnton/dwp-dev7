@@ -10,7 +10,7 @@
                   afterScriptsLoaded="{!c.iniciaGraficas}" />
         <div class="slds-grid slds-wrap">
             <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 slds-large-size_6-of-12 slds-box scroll " >
-                <div class="slds-text-heading_small" style="color:#292366">Pipeline por oportunidades propias.</div>
+                <div class="slds-text-heading_small" style="color:#292366">Gestión de oportunidades propias.</div>
                 <br/> <br/> 
                 <canvas aura:id="PipelineOpp" ></canvas>
             </div>
@@ -20,7 +20,7 @@
                 <canvas aura:id="HitsOpp"></canvas>       
             </div>
             <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 slds-large-size_6-of-12 slds-box  scroll">
-                <div class="slds-text-heading_small" style="color:#292366" >Pipeline por oportunidades de campañas.</div>
+                <div class="slds-text-heading_small" style="color:#292366" >Gestión de oportunidades de campañas.</div>
                 <br/> <br/><br/>
                 <canvas aura:id="PipelineOppCamp" ></canvas>        
             </div>

@@ -18,7 +18,17 @@
         }
     },
     doInit: function(cmp, evt, helper) {
-        helper.getInfo(cmp, evt, helper);
+        var isPhone = $A.get("$Browser.isIPhone");
+        if(isPhone) {
+            cmp.set('v.isError', true);
+            cmp.set('v.errorlst', $A.get("$Label.c.BE_FlowNotAvailable"));
+            cmp.set('v.hasHeader', false);
+            cmp.set('v.isLoad', true);
+        }
+        else {
+			helper.getInfo(cmp, evt, helper);
+        }
+        
     },
     saveResponse: function(cmp, evt, helper) {
         var web = cmp.get("v.showWebForm");

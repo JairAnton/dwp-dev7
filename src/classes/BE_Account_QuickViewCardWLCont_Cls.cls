@@ -7,6 +7,10 @@
 *              AccountQuickViewCardWLCont_Cmp. Funciona obteniendo los datos del cliente para mostrarlos en la QuickViewCardWL.
 *              *Clase de pruebas BE_Account_QuickViewCardWLCont_Test.
 * @Changes
+	- Actualización del método oppValues se agregó el filtro de este año a la query de oportunidades y se corrigió el valor 1 Positivo
+	*****************************
+	Modificaciones:
+	Martín Alejandro Mori Chávez  2020-02-25
 */
 public with sharing class BE_Account_QuickViewCardWLCont_Cls {
     /*
@@ -133,7 +137,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
             when '1 Negativo.' {
                 field = '/resource/Red_Flag_Icon';
             }
-            when '1 Positivo' {
+            when '1 Positivo.' {
                 field = '/resource/Green_Flag_Icon';
             }
         }
@@ -170,7 +174,7 @@ public with sharing class BE_Account_QuickViewCardWLCont_Cls {
         String quantityOpps = '0';
         String resultvalues = '0';
         String amountTotal = '0';
-        final List<AggregateResult> Opps = [SELECT count(Id) quantity, sum(Amount) amount FROM Opportunity WHERE AccountId = :accountId AND StageName IN('02','03','04','05') GROUP BY AccountId];        
+        final List<AggregateResult> Opps = [SELECT count(Id) quantity, sum(Amount) amount FROM Opportunity WHERE AccountId = :accountId AND StageName IN ('02','03','04','05') AND CloseDate = THIS_YEAR GROUP BY AccountId];        
         if(!Opps.isEmpty()) {
             if(type ==QUANTITY) {
                 resultvalues = quantityOpps = String.valueOf((Integer)Opps[0].get(QUANTITY));

@@ -1134,6 +1134,97 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Group_01__c</fullName>
+        <externalId>false</externalId>
+        <label>Group 01</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G1</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Group_02__c</fullName>
+        <externalId>false</externalId>
+        <label>Group 02</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G2</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Group_03__c</fullName>
+        <externalId>false</externalId>
+        <label>Group 03</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G3</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Group_04__c</fullName>
+        <externalId>false</externalId>
+        <label>Group 04</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G4</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+	<fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Group_01__c &gt; 0, &quot;VISITAS G1&quot;, IF( Group_02__c &gt; 0, &quot;VISITAS G2&quot;, IF( Group_03__c &gt; 0, &quot;VISITAS G3&quot;, IF( Group_04__c &gt; 0, &quot;VISITAS G4&quot;, NULL ) ) ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Priority</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Is_Migration__c</fullName>
+        <externalId>false</externalId>
+        <label>Is Migration</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>M</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+	<fields>
+        <fullName>user_code__c</fullName>
+        <description>Código del gestor principal del cliente.</description>
+        <externalId>false</externalId>
+        <formula>Owner.user_id__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Registro Gestor Principal</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>

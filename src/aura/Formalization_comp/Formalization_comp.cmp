@@ -13,7 +13,7 @@
 <aura:attribute name="comments" type="String" default=""/>
 <aura:handler name="init" value="{!this}" action="{!c.init}" />
 <aura:handler name="PasoParametrosPadre" event="c:UploadedFile_evt" action="{!c.RecibeParametros}"/>
-<aura:attribute name="modalWidthCustom" type="String" default="44rem" access="global" description="Specify the modal" />
+<aura:attribute name="modalWidthCustom" type="String" default="{!if($Browser.formFactor eq 'DESKTOP', '44rem', '')}" access="global" description="Specify the modal" />
 <aura:attribute name="closeButton" type="Boolean" default="false"/>
 
 

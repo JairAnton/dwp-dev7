@@ -72,8 +72,9 @@ global without sharing class PDFclassButton implements dwp_dbpn.DynamicFlowValid
             } else {
                 cuerpo=blob.valueOf('TestString');
             }
-        	insert new Attachment(Body = cuerpo, Name = namePDF, IsPrivate = false, ParentId = recordId);
+        	Attachment attach = new Attachment(Body = cuerpo, Name = namePDF, IsPrivate = false, ParentId = recordId);
+        	insert attach;
         //}
-         return msg;
+        return attach.Id;
     }
 }

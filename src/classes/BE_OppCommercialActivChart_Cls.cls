@@ -9,6 +9,10 @@
 *              *Clase de pruebas BE_OppCommercialActivChart_Test.
 * _________________________________________________________________________________
 * @Changes
+			- Actualización del método getOppInfo se cambio el filtro de fecha de opportunity_planning_date__c por CloseDate y se elimino la etapa 01
+			*****************************
+			Modificaciones:
+			Martín Alejandro Mori Chávez  2020-02-25																			
 * _________________________________________________________________________________
 */
 public with sharing class BE_OppCommercialActivChart_Cls {
@@ -16,10 +20,6 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     * Attribute
     */
     private static date myDate = system.Date.today();
-    /*
-    * Attribute
-    */
-    private static list<string> stageName01 = new  string[4];
     /*
     * Attribute
     */
@@ -118,14 +118,13 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     @auraEnabled
     public static string getOppAbierInfo(String accId,Boolean camping) {
         final List<WPR_Clasifica_QsOpps> lWrapClassAux = new List<WPR_Clasifica_QsOpps>();
-        final List<AggregateResult>  oppList =  [SELECT COUNT(Id) Total,SUM(Amount) TotalAmount,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName IN('01','02','03','04','05') AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
-        stageName01 = countOppOpen(oppList ,'01');
+        final List<AggregateResult>  oppList =  [SELECT COUNT(Id) Total, SUM(Amount) TotalAmount, CALENDAR_QUARTER(CloseDate) Q, CALENDAR_YEAR(CloseDate) AA, StageName FROM Opportunity WHERE AccountId=:accId  AND (CloseDate>= LAST_N_QUARTERS:3 AND CloseDate<= THIS_QUARTER ) AND StageName IN ('03','04','05') AND Opportunity_of_campaign_type__c =:camping GROUP BY CALENDAR_QUARTER(CloseDate), CALENDAR_YEAR(CloseDate), StageName ORDER BY CALENDAR_YEAR(CloseDate)];
         stageName02 = countOppOpen(oppList ,'02');
         stageName03 = countOppOpen(oppList ,'03');
         stageName04 = countOppOpen(oppList ,'04');
         stageName05 = countOppOpen(oppList ,'05');
         labels = sortQs();
-        lWrapClassAux.add(new WPR_Clasifica_QsOpps(labels,stageName01,stageName02,stageName03,stageName04,stageName05));
+        lWrapClassAux.add(new WPR_Clasifica_QsOpps(labels,stageName02,stageName03,stageName04,stageName05));
         return JSON.serialize(lWrapClassAux);
     } 
     
@@ -162,7 +161,7 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     @auraEnabled
     public static string getOppInfoHits(String accId,Boolean camping) {
         final List<WPR_HitsOPP> lWrapClassHits = new List<WPR_HitsOPP>();
-        for(AggregateResult opps :[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA FROM Opportunity where AccountId=:accId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c) order by CALENDAR_YEAR(opportunity_planning_date__c)]) {
+        for(AggregateResult opps :[SELECT COUNT(Id) Total, CALENDAR_QUARTER(CloseDate) Q, CALENDAR_YEAR(CloseDate) AA FROM Opportunity WHERE AccountId=:accId  AND (CloseDate>=LAST_N_QUARTERS:3 and CloseDate<=THIS_QUARTER) AND Opportunity_of_campaign_type__c =:camping GROUP BY CALENDAR_QUARTER(CloseDate), CALENDAR_YEAR(CloseDate) ORDER BY CALENDAR_YEAR(CloseDate)]) {
             final Integer quarterRec = (Integer)(opps.get('Q')) -1;
             If(yearsMap.get(quarters.get(quarterRec)) == (Integer)(opps.get('AA'))) {
                 oppsHits[quarters.get(quarterRec)]=string.valueOf(opps.get(LABELTOTAL));  
@@ -176,10 +175,6 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     
     /* wRAPPER CLASS FOR "Q oportunidades" GRAPH */
     public class WPR_Clasifica_QsOpps {
-         /*
-        * Attribute
-        */
-        public list<string> stage01 {get;set;}
          /*
         * Attribute
         */
@@ -203,9 +198,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
          /*
         * Attribute
         */
-        public WPR_Clasifica_QsOpps(List<string>labelsList,List<string> stageName01List, List<string>stageName02List, List<string> stageName03List, List<string> stageName04List,List<string> stageName05List) {
+        public WPR_Clasifica_QsOpps(List<string>labelsList, List<string>stageName02List, List<string> stageName03List, List<string> stageName04List,List<string> stageName05List) {
             this.labels = labelsList;
-            this.stage01 = stageName01List;
             this.stage02 = stageName02List;
             this.stage03 = stageName03List;
             this.stage04 = stageName04List;
@@ -271,8 +265,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         Integer q1oppWonNumber = 0; Integer quarter1=0;Integer quarter2=0; Integer quarter3=0;Integer quarter4=0;
         Integer q2oppWonNumber = 0; Integer q3oppWonNumber = 0;Integer q4oppWonNumber = 0;Integer q1oppLostNumber = 0;
         Integer q2oppLostNumber = 0;Integer q3oppLostNumber = 0;Integer q4oppLostNumber = 0;
-        final List<AggregateResult> oppWon =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName = '06' AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
-        final List<AggregateResult> oppLost =[SELECT COUNT(Id) Total,CALENDAR_QUARTER(opportunity_planning_date__c) Q,CALENDAR_YEAR(opportunity_planning_date__c) AA,StageName FROM Opportunity where AccountId=:accountId  AND (opportunity_planning_date__c>= LAST_N_QUARTERS:3 and opportunity_planning_date__c<= THIS_QUARTER ) AND StageName = '07' AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(opportunity_planning_date__c),CALENDAR_YEAR(opportunity_planning_date__c),StageName order by CALENDAR_YEAR(opportunity_planning_date__c)];
+        final List<AggregateResult> oppWon =[SELECT COUNT(Id) Total, CALENDAR_QUARTER(CloseDate) Q, CALENDAR_YEAR(CloseDate) AA, StageName FROM Opportunity WHERE AccountId=:accountId AND (CloseDate>=LAST_N_QUARTERS:3 AND CloseDate<=THIS_QUARTER ) AND StageName = '06' AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(CloseDate), CALENDAR_YEAR(CloseDate),StageName ORDER BY CALENDAR_YEAR(CloseDate)];
+        final List<AggregateResult> oppLost =[SELECT COUNT(Id) Total, CALENDAR_QUARTER(CloseDate) Q, CALENDAR_YEAR(CloseDate) AA, StageName FROM Opportunity WHERE AccountId=:accountId AND (CloseDate>=LAST_N_QUARTERS:3 AND CloseDate<=THIS_QUARTER ) AND StageName = '07' AND Opportunity_of_campaign_type__c =:camping  GROUP BY CALENDAR_QUARTER(CloseDate), CALENDAR_YEAR(CloseDate),StageName ORDER BY CALENDAR_YEAR(CloseDate)];
         
         q1oppWonNumber = countOpp(oppWon,1);
         q2oppWonNumber = countOpp(oppWon,2);
