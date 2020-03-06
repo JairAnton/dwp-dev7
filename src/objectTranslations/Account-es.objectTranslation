@@ -861,6 +861,34 @@
         <label><!-- Total campos obligatorios llenos inicio --></label>
         <name>Total_campos_obligatorios_llenos_inicio__c</name>
     </fields>
+	<fields>
+        <label><!-- Group 01 --></label>
+        <name>Group_01__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 02 --></label>
+        <name>Group_02__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 03 --></label>
+        <name>Group_03__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 04 --></label>
+        <name>Group_04__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Migration --></label>
+        <name>Is_Migration__c</name>
+    </fields>
+	<fields>
+        <label><!-- Registro Gestor Principal --></label>
+        <name>user_code__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Layout</layout>

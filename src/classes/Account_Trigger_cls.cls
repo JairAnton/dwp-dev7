@@ -31,7 +31,7 @@ public without sharing class Account_Trigger_cls {
     }
     
     //Method onChangeBranch
-    private static void onChangeBranch(Map<Id,Id> mapBranchIds) {
+    public static void onChangeBranch(Map<Id,Id> mapBranchIds) {
 
         final List<Opportunity> listOpp = [SELECT Id, AccountId, Branch_id__c FROM Opportunity WHERE AccountId=: mapBranchIds.KeySet() AND StageName NOT IN ('06','07')];
         if(listOpp.isEmpty()) {
