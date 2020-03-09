@@ -13,7 +13,7 @@
         <field>Account.segment_desc__c</field>
     </columns>
     <columns>
-        <field>Opportunity.opportunity_product__c</field>
+        <field>PRODUCT_NAME</field>
     </columns>
     <columns>
         <field>OPPORTUNITY_NAME</field>
@@ -25,11 +25,20 @@
         <field>Opportunity.opportunity_status_type__c</field>
     </columns>
     <columns>
+        <aggregateTypes>Sum</aggregateTypes>
         <field>AMOUNT</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>AMOUNT.CONVERT</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>OpportunityLineItem.PE_List_Mejorado__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>OpportunityLineItem.cpliq_Rof__c</field>
     </columns>
     <columns>
         <field>CLOSE_DATE</field>
@@ -54,7 +63,7 @@
             <operator>equals</operator>
             <value>01</value>
         </criteriaItems>
-        <language>es</language>
+        <language>en_US</language>
     </filter>
     <format>Summary</format>
     <groupingsDown>
@@ -72,7 +81,7 @@
         <field>ACCOUNT_OWNER</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Oportunidades largo plazo - sin ROF</name>
+    <name>Oportunidades largo plazo</name>
     <params>
         <name>open</name>
         <value>all</value>
@@ -85,7 +94,7 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>Opportunity</reportType>
+    <reportType>OpportunityProduct</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
