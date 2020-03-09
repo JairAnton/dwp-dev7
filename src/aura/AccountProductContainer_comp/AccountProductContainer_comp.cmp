@@ -1,6 +1,6 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName">
-	<lightning:layout >
-        <lightning:layoutItem flexibility="auto" padding="around-small">
+	<div class="slds-grid slds-gutters slds-wrap">
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
 			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Summary"
@@ -14,8 +14,8 @@
                                                       Format="-,IMG"
                                                       headerApiName="-,empty_value__c"
                                                       Order="product_contracted_calc__c ASC"/>
-        </lightning:layoutItem>
-        <lightning:layoutItem flexibility="auto" padding="around-small">
+		</div>
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
 			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Summary"
@@ -29,6 +29,6 @@
                                                       Format="-,IMG"
                                                       headerApiName="-,empty_value__c"
                                                       Order="product_contracted_calc__c ASC"/>
-        </lightning:layoutItem>
-    </lightning:layout>
+		</div>
+	</div>
 </aura:component>

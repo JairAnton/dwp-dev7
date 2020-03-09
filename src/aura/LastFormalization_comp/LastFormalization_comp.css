@@ -14,7 +14,7 @@
 .THIS .cButton {
    background-color: #ffffff;
    color:gray;
-   width:150px;   
+   width:100%;   
 }
 
 .THIS, .THIS.mainApp, .THIS .slds-tabs_scoped__content  {
@@ -23,7 +23,7 @@
 
 .THIS .clickedButton{
    background-color: #09864f;
-   width:150px;
+   width:100%;
 }
 
 .THIS .clickedButtonOrange{

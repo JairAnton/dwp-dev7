@@ -20,7 +20,7 @@
             
             <lightning:layout multipleRows="true">
                 <aura:iteration items="{!v.lstFields}" var="field">
-                    <lightning:layoutItem padding="around-small" size="6">
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
                         <!-- <lightning:inputField aura:id="input" id="1" fieldName="{!field.ApiName}" disabled="{!field.readOnly}" value="{!field.value}" onchange="{!c.changeValue}"/>-->
                         <c:InputFieldCustom aura:id="input" fieldObject="{!field}" />
                     </lightning:layoutItem>
@@ -40,7 +40,7 @@
                     <aura:set attribute="else">
                         <lightning:layout multipleRows="true">
                             <aura:iteration items="{!v.lstFields}" var="field">
-                                <lightning:layoutItem padding="around-small" size="6">
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
                                     <div class="{!v.hasDivider?'slds-has-divider--bottom':''}">
                                         <c:OutputFieldCustom aura:id="output" fieldObject="{!field}" />
                                     </div>

@@ -208,9 +208,234 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-af9f7270-e9a7-4370-a482-5cc700d5f9f4</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>Guarantee_Hipotecas</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-6eb17ebb-29f1-45ea-92b0-07c60bc45f56</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>Guarantee_Depositos</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-c3257e6b-d906-49fb-85d3-f412cd1f87e4</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>GuaranteeAvales</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-tbxmreqiyze</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>Guarantee_Prendas</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-ezc1o8ld0jm</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>Guarantee_Otros</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-zelqc64gga</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-6eb17ebb-29f1-45ea-92b0-07c60bc45f56</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Hipoteca</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-c3257e6b-d906-49fb-85d3-f412cd1f87e4</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Depósitos</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-tbxmreqiyze</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Avales</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--wclgndhcrf7</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-ezc1o8ld0jm</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Prendas</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--3c5ybop66rm</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-zelqc64gga</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Otros</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--h4ndnxw1tq7</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <name>Facet-8db50c58-ab9a-4f28-8bc2-67380067529e</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-8db50c58-ab9a-4f28-8bc2-67380067529e</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
+        <name>Facet-fb45031f-57b6-431d-8230-b9f736e8c754</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-fb45031f-57b6-431d-8230-b9f736e8c754</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>BBVA</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <name>Facet-6e47db4f-07b4-4d81-80ce-c38e3485d27c</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-6e47db4f-07b4-4d81-80ce-c38e3485d27c</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
+        <name>Facet-49c7717f-a1e2-4877-85d6-baa5f7b22966</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -286,6 +511,21 @@
             <componentInstanceProperties>
                 <name>name</name>
                 <value>accordionSection--yrld1ost8o9</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-49c7717f-a1e2-4877-85d6-baa5f7b22966</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Garantías</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--pogdq2c532</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
@@ -401,7 +641,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-78e235cc-de88-4281-aca9-ba1360189d63</name>
         <type>Facet</type>
@@ -519,7 +759,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentName>AccountBankingSystemRankingContainer_comp</componentName>
@@ -647,7 +887,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentName>AccountBankingSystemDebtQuoteContainer_comp</componentName>
@@ -765,7 +1005,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-11a00169-4e61-4cd0-b81f-cd59cdc5c6cc</name>
         <type>Facet</type>
@@ -882,7 +1122,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-147227f5-7177-4a33-a469-890fc43d4e20</name>
         <type>Facet</type>
@@ -1082,7 +1322,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-7f747f9f-a554-49f4-8977-ecebaaec0869</name>
         <type>Facet</type>
@@ -1203,7 +1443,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-757848ee-d6fc-4e70-8dad-ebb7a685b838</name>
         <type>Facet</type>
@@ -1325,7 +1565,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-5e885e1c-4345-49f5-8f06-a8b3f987b1aa</name>
         <type>Facet</type>
@@ -1440,7 +1680,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-db341fc5-e041-46ae-8866-2bc2282000a6</name>
         <type>Facet</type>
@@ -1663,7 +1903,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -1781,7 +2021,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>facet-3b924f5f-e400-4c99-a90a-99fc3346d596</name>
         <type>Facet</type>
@@ -3414,52 +3654,24 @@
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
-                <name>FieldNameRelation</name>
-                <value>AccountId</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>Icon</name>
+                <name>iconName</name>
                 <value>standard:opportunity</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>TypeList</name>
-                <value>short</value>
+                <name>relListSet</name>
+                <value>OpenOpportunities</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>columnsName</name>
-                <value>NOMBRE,ETAPA,IMPORTE,FECHA DE CREACION</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>fields</name>
-                <value>Name,StageName_Formula__c,Amount,CreatedDate</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>filters</name>
-                <value>StageName IN (&apos;01&apos;,&apos;02&apos;,&apos;03&apos;,&apos;04&apos;,&apos;05&apos;)</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>object</name>
-                <value>Opportunity</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>orders</name>
-                <value>CreatedDate desc</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showRecords</name>
-                <value>5</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showTitleHeader</name>
-                <value>true</value>
+                <name>relListType</name>
+                <value>Basic</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
                 <value>Oportunidades en progreso</value>
             </componentInstanceProperties>
-            <componentName>BE_RelateList_Cmp</componentName>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
-        <name>Facet-cf0caa7c-a50f-44b7-9b77-554021180ea8</name>
+		<name>Facet-cf0caa7c-a50f-44b7-9b77-554021180ea8</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -3468,97 +3680,41 @@
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
-                <name>FieldNameRelation</name>
-                <value>dwp_kitv__account_id__c</value>
+                <name>iconName</name>
+                <value>standard:visit_templates</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>Icon</name>
-                <value>standard:partners</value>
+                <name>relListSet</name>
+                <value>Proximas_Visitas</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>columnsName</name>
-                <value>NOMBRE,FECHA DE INICIO,CREADO POR</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>columnsType</name>
-                <value>url,Fecha,url</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>fields</name>
-                <value>Name,dwp_kitv__visit_start_date__c,CreatedBy.Name</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>filters</name>
-                <value>dwp_kitv__visit_start_date__c&gt;= TODAY</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>object</name>
-                <value>dwp_kitv__Visit__c</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>orders</name>
-                <value>dwp_kitv__visit_start_date__c desc</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showRecords</name>
-                <value>5</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showTitleHeader</name>
-                <value>true</value>
+                <name>relListType</name>
+                <value>Basic</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Proximas Visitas</value>
+                <value>Próximas visitas</value>
             </componentInstanceProperties>
-            <componentName>BE_RelateListVisit_Cmp</componentName>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
-                <name>FieldNameRelation</name>
-                <value>dwp_kitv__account_id__c</value>
+                <name>iconName</name>
+                <value>standard:visit_templates</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>Icon</name>
-                <value>standard:partners</value>
+                <name>relListSet</name>
+                <value>Visitas_pasadas</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>columnsName</name>
-                <value>NOMBRE,FECHA DE INICIO,CREADO POR</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>columnsType</name>
-                <value>url,Fecha,url</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>fields</name>
-                <value>Name,dwp_kitv__visit_start_date__c,CreatedBy.Name</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>filters</name>
-                <value>dwp_kitv__visit_start_date__c&lt; TODAY</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>object</name>
-                <value>dwp_kitv__Visit__c</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>orders</name>
-                <value>dwp_kitv__visit_start_date__c desc</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showRecords</name>
-                <value>5</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showTitleHeader</name>
-                <value>true</value>
+                <name>relListType</name>
+                <value>Basic</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Visitas Pasadas</value>
+                <value>Visitas pasadas</value>
             </componentInstanceProperties>
-            <componentName>BE_RelateListVisit_Cmp</componentName>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
         <name>Facet-104e3e91-58e3-42f7-91cf-babe8b64e05c</name>
         <type>Facet</type>
@@ -3822,9 +3978,204 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>Facet-e3afa713-4d71-4c55-adb9-3e53e889c283</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>Guarantee_Hipotecas</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-3fe4a477-eb92-4481-8cb0-bffe653afb50</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>Guarantee_Depositos</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-5bbbd79b-1e8a-45b4-bbb5-616f0d8265df</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>GuaranteeAvales</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-4ea46060-ba47-4304-b056-7232b13eebe5</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>Guarantee_Prendas</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-1a4ebf79-ae9c-420f-8f5c-679bcfa23392</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>Guarantee_Otros</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+            </componentInstanceProperties>
+            <componentName>bE_SingleRelatedList_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-50ad078e-0bc1-4251-9f59-8f4ad368225f</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-3fe4a477-eb92-4481-8cb0-bffe653afb50</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Hipoteca</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-5bbbd79b-1e8a-45b4-bbb5-616f0d8265df</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Depósitos</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--t6f3ehhcuc</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-4ea46060-ba47-4304-b056-7232b13eebe5</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Avales</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-1a4ebf79-ae9c-420f-8f5c-679bcfa23392</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Prendas</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--g7var6hvx3i</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-50ad078e-0bc1-4251-9f59-8f4ad368225f</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Otros</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--ealg9xrkp9q</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <name>Facet-a08e2f82-b583-41f4-a334-e3be43ac18f8</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-a08e2f82-b583-41f4-a334-e3be43ac18f8</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
+        </componentInstances>
+        <name>Facet-d514950f-b5d8-4467-aac8-027aa3a64774</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -4710,6 +5061,21 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
+                <value>Facet-d514950f-b5d8-4467-aac8-027aa3a64774</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Garantías</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--5cl46yejkyl</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
                 <value>Facet-4qgq8i405fd</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
@@ -4890,7 +5256,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -5135,7 +5501,7 @@
                 <name>showTotal</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentName>AccountBankingSystemRankingContainer_comp</componentName>
@@ -5263,7 +5629,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentName>AccountBankingSystemDebtQuoteContainer_comp</componentName>
@@ -5454,47 +5820,7 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentInstanceProperties>
-                <name>allowCardClick</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>configTable</name>
-                <value>Name</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>infinite</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>nameCards</name>
-                <value>CarruselRelatedTableWL</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>readAllRecords</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>refreshOnRefreshView</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relationMode</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showButtons</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>sizeTable</name>
-                <value>150</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>slidesToShow</name>
-                <value>4</value>
-            </componentInstanceProperties>
-            <componentName>qvcd:GBL_Carousel_CMP</componentName>
+            <componentName>BE_PotentialBBVACards</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -5665,7 +5991,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>Opportunity_of_campaign_type__c=true and priority_opp_of_campaign_type__c !=&apos;&apos;</value>
+                <value>Opportunity_of_campaign_type__c=true and priority_opp_of_campaign_type__c !=&apos;&apos; AND (StageName NOT IN (&apos;06&apos;,&apos;07&apos;) AND CloseDate = THIS_MONTH)</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -5757,7 +6083,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>Facet-5088493e-8df5-4b15-ba3f-d8433d08ed49</name>
         <type>Facet</type>
@@ -6020,7 +6346,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <name>Facet-b67b0e99-3eb3-4324-9a5e-aceb24d5856b</name>
         <type>Facet</type>

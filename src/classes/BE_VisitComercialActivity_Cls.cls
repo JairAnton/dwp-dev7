@@ -9,6 +9,10 @@
 *              *Clase de pruebas BE_VisitComercialActivity_Test.
 * _________________________________________________________________________________
 * @Changes
+	- Actualización de la formula de la variable numVisitsTRYOY
+	*****************************
+	Modificaciones:
+	Martín Alejandro Mori Chávez  2020-02-25
 * _________________________________________________________________________________
 */
 public with sharing class BE_VisitComercialActivity_Cls {
@@ -73,7 +77,7 @@ public with sharing class BE_VisitComercialActivity_Cls {
   			this.TotalVisitsYF = totalVisitsYF;
             this.TotalVisitsCQ = totalVisitsCQ;
             if (TotalVisitsYTD > 0 && TotalVisitsYTD != null ) {
-                final Decimal numVisitsTRYOY =  (((Decimal) TotalVisitsYTD - (Decimal) TotalVisitsYF)/TotalVisitsYTD) * 100;
+                final Decimal numVisitsTRYOY =  (((Decimal) TotalVisitsYTD - (Decimal) TotalVisitsYF)/TotalVisitsYF) * 100;
                 TotalVisitsYOY = numVisitsTRYOY.setScale(2);
             }
 		}
@@ -103,7 +107,7 @@ public with sharing class BE_VisitComercialActivity_Cls {
         Integer quantityyear = 0;
         final Integer quarter = System.today().month() / 3 + 1;
         for(dwp_kitv__Visit__c visit : [SELECT Id, dwp_kitv__visit_start_date__c FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c = :accountId AND dwp_kitv__visit_start_date__c >=: (dateOfYear) AND dwp_kitv__visit_start_date__c <=: (dateOfActu) AND dwp_kitv__visit_status_type__c IN :finalizadas ]) {
-           quantityyear++;
+            quantityyear++;
             final Integer quaterVisit = visit.dwp_kitv__visit_start_date__c.month() / 3 + 1;
             if(quarter == quaterVisit && Type == TRIMES) {
                 quantityVisitTri++;

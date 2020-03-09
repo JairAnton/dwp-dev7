@@ -1624,6 +1624,10 @@
         <label>Importe/Cantidad</label>
         <name>BE_CommitmentAmountQuantity</name>
     </customLabels>
+	<customLabels>
+        <label>No se puede sancionar el precio de una oportunidad en un dispositivo móvil, vuelve a intentarlo desde tu equipo de escritorio o laptop.</label>
+        <name>BE_FlowNotAvailable</name>
+    </customLabels>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>

@@ -2255,4 +2255,11 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>Imagen Modal de bienvenida WL</shortDescription>
         <value>/resource/BE_WelcomeTabCte</value>
     </labels>
+	<labels>
+        <fullName>BE_FlowNotAvailable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_FlowNotAvailable</shortDescription>
+        <value>You cannot sanction price of an opportunity on a mobile device, try again from your desktop or laptop.</value>
+    </labels>
 </CustomLabels>

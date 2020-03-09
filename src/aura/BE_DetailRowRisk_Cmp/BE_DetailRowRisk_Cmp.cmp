@@ -3,72 +3,40 @@
     <aura:attribute name="recordId" type="String" description="Referencia al registro"/>
     <aura:attribute name="data" type="Object"/>
     <ltng:require scripts="" afterScriptsLoaded="{!c.doInit}"/>
+    
     <aura:if isTrue="{!empty(v.data)}">
         <div class="slds-box">
             <div class="slds-text-align_center"><ui:outputText value="No se encontraron datos"/></div>
         </div>
         <aura:set attribute="else">
-            <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
-                <div aura:id="changeIt" class="Normal">
-                    
-                    <table class="slds-table  slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Estrategia</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].strategy}"/></strong></div>
-                        </th>
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Clasificación BBVA</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].bbvaClassif}"/></strong></div>
-                        </th>
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Clasificación SBS</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].sbsClassifi}" /></strong></div>
-                        </th>
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Buró</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].bureau}" /></strong></div>
-                        </th>
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Watchlist</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].watchlist}" /></strong></div>
-                        </th>
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Estado PE25</div>
-                            <div class="horizontal"><strong><aura:unescapedHtml value="{!v.data[0].statusPE25}"/></strong></div>
-                        </th>
-                    </table>
+            <div aura:id="changeIt" class="Normal slds-scrollable">
+				<table class="slds-table slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Estrategia</div>
+						<div class="horizontal"><strong><ui:outputText value="{!v.data[0].strategy}"/></strong></div>
+					</th>
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Clasificación BBVA</div>
+						<div class="horizontal"><strong><ui:outputText value="{!v.data[0].bbvaClassif}"/></strong></div>
+					</th>
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Clasificación SBS</div>
+						<div class="horizontal"><strong><ui:outputText value="{!v.data[0].sbsClassifi}" /></strong></div>
+					</th>
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Buró</div>
+						<div class="horizontal"><strong><ui:outputText value="{!v.data[0].bureau}" /></strong></div>
+					</th>
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Watchlist</div>
+						<div class="horizontal"><strong><ui:outputText value="{!v.data[0].watchlist}" /></strong></div>
+					</th>
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Estado PE25</div>
+						<div class="horizontal"><strong><aura:unescapedHtml value="{!v.data[0].statusPE25}"/></strong></div>
+					</th>
+				</table>
                 </div>
-                <aura:set attribute="else">
-                    <div aura:id="changeIt" class="Normal mobileCustomDiv slds-scrollable">
-                        <table class="slds-table slds-table_fixed-layout slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Estrategia</div>
-                                <div class="horizontal"><strong><ui:outputText value="{!v.data[0].strategy}"/></strong></div>
-                            </th>
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Clasificación BBVA</div>
-                                <div class="horizontal"><strong><ui:outputText value="{!v.data[0].bbvaClassif}"/></strong></div>
-                            </th>
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Clasificación SBS</div>
-                                <div class="horizontal"><strong> <ui:outputText value="{!v.data[0].sbsClassifi}" /></strong></div>
-                            </th>
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Buró</div>
-                                <div class="horizontal"><strong><ui:outputText value="{!v.data[0].bureau}" /></strong></div>
-                            </th>
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Watchlist</div>
-                                <div class="horizontal"><strong><ui:outputText value="{!v.data[0].watchlist}" /></strong></div>
-                            </th>
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Estado PE25</div>
-                                <div class="horizontal"><strong><aura:unescapedHtml value="{!v.data[0].statusPE25}"/></strong></div>
-                            </th>
-                        </table>
-                    </div>
-                </aura:set>
-            </aura:if>
         </aura:set>
     </aura:if>
 </aura:component>

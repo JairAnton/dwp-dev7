@@ -1,11 +1,11 @@
-.THIS,
+.THIS button,
 .THIS:focus,
 .THIS.is-selected {
 	background-color: #26B14C;
 	color: #FFFFFF
 }
 
-.THIS:hover{
+.THIS button:hover{
     background-color: #4dea4d;
     color: #FFFFFF;
 }

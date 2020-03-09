@@ -41,7 +41,7 @@
                 cmp.set('v.type_of_quote',ret.type_of_quote);
                 if(ret.type_of_quote==='COTIZA Beta')
                 {
-                  cmp.set('v.modalWidthCustom','37rem');
+                    helper.formFactor(cmp, evt, helper);
                 }
                 cmp.set('v.commercial_strategy',ret.commercial_strategy);
                 var objectInput = {
@@ -158,5 +158,13 @@
            else{
                helper.continue(cmp, evt, helper);
            }
-       }
+       },
+    formFactor : function(cmp, evt,helper) {
+		var device = $A.get("$Browser.formFactor");
+		if(device!=='DESKTOP') {
+			cmp.set('v.modalWidthCustom', "85%");
+		} else {
+			cmp.set('v.modalWidthCustom','37rem');
+		}
+    }
 })

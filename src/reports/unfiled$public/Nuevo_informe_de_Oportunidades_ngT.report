@@ -10,6 +10,9 @@
         <field>ACCOUNT_NAME</field>
     </columns>
     <columns>
+        <field>Account.segment_desc__c</field>
+    </columns>
+    <columns>
         <field>Opportunity.opportunity_product__c</field>
     </columns>
     <columns>
@@ -43,7 +46,7 @@
             <column>STAGE_NAME</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>02,03,04,05</value>
+            <value>02,03,Negotiation,04,05</value>
         </criteriaItems>
         <criteriaItems>
             <column>TYPE</column>
@@ -69,7 +72,7 @@
         <field>ACCOUNT_OWNER</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Oportunidades Largo Plazo</name>
+    <name>Oportunidades largo plazo - sin ROF</name>
     <params>
         <name>open</name>
         <value>all</value>
@@ -86,7 +89,7 @@
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
+    <showSubTotals>false</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CLOSE_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

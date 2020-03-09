@@ -1,6 +1,5 @@
 ({
     PipelineOpp : function(component,event,helper) {
-        var StageName01 = [];
         var StageName02 = [];
         var StageName03 = [];
         var StageName04 = [];
@@ -19,38 +18,25 @@
             var estado = result.getState();
             if (estado === "SUCCESS") {
                 var datas = JSON.parse(result.getReturnValue());
-                StageName01 =  datas[0].stage01;
                 StageName02 =  datas[0].stage02;
                 StageName03 =  datas[0].stage03;
                 StageName04 =  datas[0].stage04;
                 StageName05 =  datas[0].stage05;
                 Labels =  datas[0].labels;
-                graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels);
+                graficaPipelineOpp(StageName02,StageName03,StageName04,StageName05,Labels);
             }
         });
         $A.enqueueAction(action);
         var numberWithCommas = function(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
-        function graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels) {
+        function graficaPipelineOpp(StageName02,StageName03,StageName04,StageName05,Labels) {
             var dates = Labels;
             window.resultadosChart = new Chart(ctx,{
                 type: 'bar',
                 data: {
                     labels: dates,
                     datasets: [
-                        {
-                            label: 'Acciones Comerciales',
-                            data: StageName01,
-                            backgroundColor: ['#004481','#004481',
-                                              '#004481','#004481',
-                                              '#004481','#004481',
-                                              '#004481','#004481',
-                                              '#004481','#004481',
-                                              '#004481','#004481'],
-                            hoverBackgroundColor: "#004481",
-                            hoverBorderWidth: 0
-                        },
                         {
                             label: 'Pendiente de iniciar',
                             data: StageName02,
@@ -146,7 +132,6 @@
 }
 },
     PipelineOppCamp  : function(component,event,helper) {
-        var StageName01 = [];
         var StageName02 = [];
         var StageName03 = [];
         var StageName04 = [];
@@ -165,38 +150,25 @@
             var estado = result.getState();
             if (estado === "SUCCESS") {
                 var datas = JSON.parse(result.getReturnValue());
-                StageName01 =  datas[0].stage01;
                 StageName02 =  datas[0].stage02;
                 StageName03 =  datas[0].stage03;
                 StageName04 =  datas[0].stage04;
                 StageName05 =  datas[0].stage05;
                 Labels =  datas[0].labels;
-                graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels);
+                graficaPipelineOpp(StageName02,StageName03,StageName04,StageName05,Labels);
             }
         });
         $A.enqueueAction(action);
         var numberWithCommas = function(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
-        function graficaPipelineOpp(StageName01,StageName02,StageName03,StageName04,StageName05,Labels) {
+        function graficaPipelineOpp(StageName02,StageName03,StageName04,StageName05,Labels) {
             var dates = Labels;
             window.resultadosChart = new Chart(ctx,{
                 type: 'bar',
                 data: {
                     labels: dates,
                     datasets: [
-                        {
-                            label: 'Acciones Comerciales',
-                            data: StageName01,
-                            backgroundColor: ['#004481','#004481',
-                                              '#004481','#004481',
-                                              '#004481','#004481',
-                                              '#004481','#004481',
-                                              '#004481','#004481',
-                                              '#004481','#004481'],
-                            hoverBackgroundColor: "#004481",
-                            hoverBorderWidth: 0
-                        },
                         {
                             label: 'Pendiente de iniciar',
                             data: StageName02,

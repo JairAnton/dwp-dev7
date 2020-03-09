@@ -21,7 +21,6 @@
                     if(ret.type_of_quote==='Carta de credito'){
                         cmp.set('v.title','Sanción de Precio');
                     }
-                    cmp.set('v.modalWidthCustom','37rem');
                 }
                 cmp.set('v.commercial_strategy',ret.commercial_strategy);
                 var objectInput = {

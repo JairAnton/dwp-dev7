@@ -2,6 +2,11 @@
  * @Name: Account_tgr
  * @Description: Trigger de Ejecucion Account
  * @Create by: Isaías Velázquez Cortés
+ * @HIstorial de cambios:
+	- Actualización AsignAfterUpdate y onChangeBranch para que solo se actualize la oficina de las oportunidades si la oficina de la cuenta esta cambiando
+	*****************************
+	Modificaciones:
+	Martín Alejandro Mori Chávez  02-12-2019
  * 
 */
 public without sharing class Account_Trigger_cls {
@@ -12,22 +17,36 @@ public without sharing class Account_Trigger_cls {
     /*Method Master for trigger*/
     public void AsignAfterUpdate(list<Account>oppsNew, Map<id,Account>oppsNewMap,
                                   list<Account>oppsOld, Map<id,Account>oppsOldMap) {
+			
+			final Map<Id,Id> mapBranchIds = new Map<Id,Id>();
+			for(Account acc : oppsNew) {
+				if(acc.Branch_id__c!=oppsOldMap.get(acc.Id).Branch_id__c) {
+					mapBranchIds.put(acc.Id, acc.Branch_id__c);
+				}
+			}
+			if(mapBranchIds.isEmpty()==false) {
+				onChangeBranch(mapBranchIds);
+			}
 
-            onChangeBranch(oppsNew);
             /**Actualizar Primero Objeto Relacionado, despues objeto hijo del relacionado**/
             Account_Trigger_Visit_cls.updateVisit(oppsNew, oppsNewMap, oppsOld, oppsOldMap);
             updateTeamVisit(oppsNewMap, oppsOldMap);
     }
     
-    //Method onChangeBranch
-    private void onChangeBranch(list<Account>oppsNew) {
+    /*Method to update branch*/
+    public static void onChangeBranch(Map<Id,Id> mapBranchIds) {
 
-        List<Opportunity> listOpp = [select Id,Branch_id__c from Opportunity where AccountId=: oppsNew[0].Id and StageName not in ('06','07')];
-
-        for(Opportunity item :listOpp ) {
-        	item.Branch_id__c=oppsNew[0].Branch_id__c;
+        final List<Opportunity> listOpp = [SELECT Id, AccountId, Branch_id__c FROM Opportunity WHERE AccountId=: mapBranchIds.KeySet() AND StageName NOT IN ('06','07')];
+        if(listOpp.isEmpty()) {
+            return;
         }
-        update listOpp;
+        
+        final List<Opportunity> updateOpps = new List<Opportunity>();
+        for(Opportunity item : listOpp ) {
+            item.Branch_id__c=mapBranchIds.get(item.AccountId);
+            updateOpps.add(new Opportunity(id=item.Id, Branch_id__c=item.Branch_id__c));
+        }
+        update updateOpps;
 
     }
     

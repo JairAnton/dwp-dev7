@@ -1,7 +1,7 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName">
 	<lightning:layout multipleRows="true">
-        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize="6" size="6">
-			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+        <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+			<c:Be_Dynamic_Tableconten_Cmp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Matrix"
                                                       customLabelAPInameError="AccountNoData"
@@ -21,8 +21,8 @@
                                                       Summarize="SUM"
                                                       Symbol="true"/>
         </lightning:layoutItem>
-        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize="6" size="6">
-			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+        <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+			<c:Be_Dynamic_Tableconten_Cmp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Matrix"
                                                       customLabelAPInameError="AccountNoData"
@@ -42,8 +42,8 @@
                                                       Summarize="SUM"
                                                       Symbol="true"/>
         </lightning:layoutItem>
-        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize="6" size="6">
-			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+        <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+			<c:Be_Dynamic_Tableconten_Cmp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Matrix"
                                                       customLabelAPInameError="AccountNoData"
@@ -62,8 +62,8 @@
                                                       Summarize="SUM"
                                                       Symbol="true"/>
         </lightning:layoutItem>
-        <lightning:layoutItem flexibility="auto" padding="around-small" largeDeviceSize="6" size="6">
-			<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+        <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+			<c:Be_Dynamic_Tableconten_Cmp recordId="{!v.recordId}" 
                                                       sObjectName="{!v.sObjectName}"
                                                       Type="Matrix"
                                                       customLabelAPInameError="AccountNoData"

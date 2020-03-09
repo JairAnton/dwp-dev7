@@ -9,9 +9,10 @@
     <aura:attribute name="Per" type="List"/>
     <aura:attribute name="SBS" type="List"/>
     <aura:attribute name="valoresBBVA" type="List"/>
-    <div style="width:100%;">
-    <canvas id="DWPChart"/>
-   </div>    
- 
+    <div class="slds-scrollable">
+        <div class="container">
+            <canvas id="DWPChart" />
+        </div>
+    </div>
     <ltng:require scripts="{!$Resource.ChartJS23}" afterScriptsLoaded="{!c.init}"/> 
     </aura:component>

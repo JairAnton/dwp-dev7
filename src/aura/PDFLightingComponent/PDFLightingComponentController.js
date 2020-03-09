@@ -36,6 +36,8 @@
         } else {
             helper.PDF(component, event,helper);
         }*/
+    },
+    close : function(component, event, helper) {
+        helper.closeMe(component, event);
     }
-   
 })
