@@ -1,0 +1,67 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container modalWidth">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCloseModal}>
+                    <lightning-icon icon-name="utility:close" size="medium"></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <div data-id="headerModal" class="alignButtons">
+                    <lightning-button-icon class="arrowsButton" icon-name="utility:chevronleft" value="left" data-id="left" onclick={redirect}></lightning-button-icon>
+                    <div class="slds-text-heading_medium"><b>{header.MasterLabel}</b></div>
+                    <lightning-button-icon class="arrowsButton" icon-name="utility:chevronright" value="right" data-id="right" onclick={redirect}></lightning-button-icon>
+                </div>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <lightning-spinner if:false={spinner} alternative-text="Loading" size="medium" variant="brand" class="loadSpinner"></lightning-spinner>
+                <div if:true={noRecordsFound} style="text-align: center;">No se han encontrado registros.</div>
+                <template if:true={loadDetails}>
+                    <template for:each={recordsInPage} for:item="res">
+                        <lightning-layout key={res.Id} multiple-rows="true">
+                            <lightning-layout-item padding="around-small" size="12">
+                                <div class="slds-box">
+                                    <template for:each={res.record} for:item="item">
+                                        <lightning-layout multiple-rows="true" key={item.uniqueId}>
+                                            <template for:each={item.fields} for:item="field">
+                                                <template if:true={field.isId}>
+                                                    <template if:true={mode}>
+                                                        <div key={field.id} class="buttonsMode">
+                                                            <lightning-button if:true={editMode} label='Editar' value={field.id} key={field.key} class="buttons" variant="neutral" icon-name="utility:edit" ></lightning-button>
+                                                            <lightning-button if:true={deleteMode} label='Eliminar' value={field.id} key={field.key} class="buttons" variant="destructive-text" icon-name="utility:delete" onclick={recordToDelete}></lightning-button>
+                                                        </div>
+                                                    </template>
+                                                </template>
+                                                <template if:false={field.isId}>
+                                                    <lightning-layout-item key={field.key} flexibility="auto" padding="around-small" size={field.fieldWidth}>
+                                                        <lightning-input if:true={field.isString} key={field.key} label={field.label} type="text" value={field.value} disabled></lightning-input>
+                                                        <lightning-input if:true={field.isBoolean} key={field.key} label={field.label} type="checkbox" value={field.value} disabled></lightning-input>
+                                                        <lightning-textarea if:true={field.isTextarea} key={field.key} label={field.label} value={field.value} disabled></lightning-textarea>
+                                                        <lightning-input if:true={field.isCurrency} key={field.key} label={field.label} type="number" formatter="currency"  value={field.value} disabled></lightning-input>
+                                                        <lightning-input if:true={field.isNumber} key={field.key} label={field.label} type="number" value={field.value} disabled></lightning-input>
+                                                        <lightning-input if:true={field.isPercent} key={field.key} label={field.label} type="Percent" formatter="percent"  value={field.value} disabled></lightning-input>
+                                                        <lightning-input if:true={field.isEmail} key={field.key} label={field.label} type="email" value={field.value} disabled></lightning-input>
+                                                        <lightning-input if:true={field.isPhone} key={field.key} label={field.label} type="tel" value={field.value} disabled></lightning-input>
+                                                        <lightning-input if:true={field.isDateTime} key={field.key} label={field.label} type="datetime" value={field.value} disabled></lightning-input>
+                                                        <lightning-input if:true={field.isDate} key={field.key} label={field.label} type="date" value={field.value} disabled></lightning-input>
+                                                        <lightning-input if:true={field.isTime} key={field.key} label={field.label} type="time" value={field.value} disabled></lightning-input>
+                                                    </lightning-layout-item>
+                                                </template>
+                                            </template>
+                                        </lightning-layout>
+                                    </template>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </template>
+                </template>
+            </div>
+            <footer class="slds-modal__footer">
+                <div class="alignButtons" style="width: 90%;">
+                    <lightning-button label="Cerrar" variant="neutral" onclick={handleCloseModal} class="buttonFooter"></lightning-button>
+                    <div if:true={pagination} style="margin: auto;">Página {pagina}</div>
+                </div>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

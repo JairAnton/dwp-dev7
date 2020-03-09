@@ -11,6 +11,9 @@
 */
 public without sharing class Account_Trigger_cls {
 
+	/*Reusable variable in methods*/
+    static Final List<String> PROFILE_NAMES = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};
+        
     /*Method Master for trigger*/
     public void AsignAfterUpdate(list<Account>oppsNew, Map<id,Account>oppsNewMap,
                                   list<Account>oppsOld, Map<id,Account>oppsOldMap) {
@@ -58,7 +61,7 @@ public without sharing class Account_Trigger_cls {
             ownerIds.add(acc.OwnerId);
         }
         //User Assistant Team list with the Owner Ids of the Account records
-        lstUsers = [Select Id, user_id__c, assistant_id__c from User_Assistant_Team__c where user_id__c IN :ownerIds];    
+        lstUsers = [Select Id, user_id__c, assistant_id__c from User_Assistant_Team__c where user_id__c IN :ownerIds AND user_id__r.isActive=true];    
         for(Account acc : accsNew) {
             for(User_Assistant_Team__c userAT : lstUsers) {
                 //If the Owner Id of the Account record is equal than user_id__c field on User_Assistant_Team__c record, it will create a new AccountTeamMember record
@@ -101,7 +104,7 @@ public without sharing class Account_Trigger_cls {
             lstAtmOld = [Select Id From AccountTeamMember where AccountId IN :accIds];
             
             //Get the User Assistant Team records with the new OwnerId of the account
-            lstUsers = [Select Id, user_id__c, assistant_id__c from User_Assistant_Team__c where user_id__c IN :ownerIdsNew];
+            lstUsers = [Select Id, user_id__c, assistant_id__c from User_Assistant_Team__c where user_id__c IN :ownerIdsNew AND assistant_id__r.isActive = true];
             
             Final List<AccountTeamMember> lstAtmNews = new List<AccountTeamMember>();
             for(Account acc : accsNew) {
@@ -134,6 +137,7 @@ public without sharing class Account_Trigger_cls {
     public static void updateTeamVisit(Map<id,Account> accsNewMap, Map<id,Account> accsOldMap) {
         Final Set<Id> idsOldOwners = new Set<Id>();
         Final Set<Id> idsAccounts = new Set<Id>();
+        Final Set<Id> idsNewOwners = new Set<Id>();
         List<dwp_kitv__Visit_Management_Team__c> lstOldTeam = new List<dwp_kitv__Visit_Management_Team__c>();
         List<dwp_kitv__Visit_Management_Team__c> lstTmpTeam = new List<dwp_kitv__Visit_Management_Team__c>();
         
@@ -141,16 +145,19 @@ public without sharing class Account_Trigger_cls {
             //Get Old Owners Ids from Account where Owner change
             if(accNew.OwnerId != accsOldMap.get(accNew.Id).OwnerId) {
                 idsOldOwners.add(accsOldMap.get(accNew.Id).OwnerId);
+                idsNewOwners.add(accNew.OwnerId);
                 idsAccounts.add(accsOldMap.get(accNew.Id).Id);
             }
         }
+        //Obtener usuarios con perfil Migracion
+        Final Map<Id, User> mapUMigration = new Map<Id,User>([SELECT Id FROM User WHERE Id IN: idsNewOwners AND Profile.Name IN: PROFILE_NAMES]);
         
         //If idsOldOwners contains values, do query
         Final Integer idsOldOwnersSize = idsOldOwners.size();
         if(idsOldOwnersSize > 0) {
             lstTmpTeam = [SELECT id, dwp_kitv__user_id__c, dwp_kitv__visit_id__r.dwp_kitv__account_id__c, dwp_kitv__Send_minutes__c, dwp_kitv__visit_id__r.dwp_kitv__account_id__r.OwnerId 
-                           FROM dwp_kitv__Visit_Management_Team__c WHERE dwp_kitv__user_id__c IN: idsOldOwners AND dwp_owner_visit__c=true AND 
-                           dwp_kitv__visit_id__r.dwp_kitv__account_id__c=:idsAccounts AND 
+                           FROM dwp_kitv__Visit_Management_Team__c WHERE dwp_owner_visit__c=true AND 
+                           dwp_kitv__visit_id__r.dwp_kitv__account_id__c=:idsAccounts AND dwp_kitv__visit_id__r.Keep_Owner__c = false AND
                           (dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')];
         }
         
@@ -159,7 +166,8 @@ public without sharing class Account_Trigger_cls {
         dwp_kitv__Visit_Management_Team__c tmpTeam;
         Final dwp_kitv__Visit_Management_Team__c[] lstNewTeam=new dwp_kitv__Visit_Management_Team__c[]{};
         for(dwp_kitv__Visit_Management_Team__c equipo:lstTmpTeam) {
-            if(equipo.dwp_kitv__user_id__c == accsOldMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId) {
+            //Validar que el propietario del VMT es el mismo que le propietario de la cuenta y que el nuevo propietario no tenga el perfil migracion
+            if(!mapUMigration.containsKey(accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId)) {
                 tmpTeam = new dwp_kitv__Visit_Management_Team__c();
                 tmpTeam.dwp_kitv__visit_id__c = equipo.dwp_kitv__visit_id__c;
                 tmpTeam.dwp_kitv__user_id__c = accsNewMap.get(equipo.dwp_kitv__visit_id__r.dwp_kitv__account_id__c).OwnerId;

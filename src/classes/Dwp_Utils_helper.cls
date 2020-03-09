@@ -55,4 +55,41 @@ public with sharing class Dwp_Utils_helper {
         return iso + ' ' + stringAmount;
     }
     
+    /**@Description Method for validate access to sObject*/
+    public static Boolean sObjectAccessCRUD(String sObjName, String access) {
+        Boolean result;
+        Final Schema.DescribeSObjectResult sObjResult = Schema.getGlobalDescribe().get(sObjName).getDescribe();
+        switch on access {
+            when 'isCreateable' {
+                result = sObjResult.isCreateable();
+            }
+            when 'isAccessible' {
+                result = sObjResult.isAccessible();
+            }
+            when 'isUpdateable' {
+                result = sObjResult.isUpdateable();
+            }
+            when 'isDeletable' {
+                result = sObjResult.isDeletable();
+            }
+            when else {
+                result = false;
+            }
+        }
+        return result;
+    }
+    
+    /**@Description Method for delete dynamic record*/
+    public static Map<String, Object> deletesObjectRecord(String sObj, String recordId) {
+        Final Map<String, Object> resDelete = new Map<String, Object>{'isSuccess' => false};
+        Final List<SObject> sObjDel = Database.query('SELECT Id FROM '+String.escapeSingleQuotes(sObj)+' WHERE Id=:recordId');
+        Final Integer sObjDelSize = sObjDel.size();
+        if(sObjDelSize > 0) {
+            delete sObjDel;
+            resDelete.put('isSuccess', true);
+        } else {
+            resDelete.put('message', 'No se ha podido encontrar el registro seleccionado.');
+        }
+        return resDelete;
+    }
 }
