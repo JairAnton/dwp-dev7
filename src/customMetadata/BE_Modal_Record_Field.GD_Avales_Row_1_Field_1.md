@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Tipo de Bien</label>
+    <label>Subtipo de garantía</label>
     <protected>false</protected>
     <values>
         <field>Data_Type__c</field>
@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Field_ApiName__c</field>
-        <value xsi:type="xsd:string">asset_type__c</value>
+        <value xsi:type="xsd:string">guarantee_subtype__c</value>
     </values>
     <values>
         <field>Field_Width__c</field>
@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>Modal_Record_Row__c</field>
-        <value xsi:type="xsd:string">Guarantee_Details_Row_1</value>
+        <value xsi:type="xsd:string">GD_Avales_Row_1</value>
     </values>
     <values>
         <field>Order__c</field>

@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>Modal_Record_Form__c</field>
-        <value xsi:type="xsd:string">Modal_Guarantee_Details</value>
+        <value xsi:type="xsd:string">Guarantee_Details_Hipoteca</value>
     </values>
     <values>
         <field>Row_Order__c</field>
