@@ -5,13 +5,18 @@ import deletesobject from "@salesforce/apex/BE_DynamicModalRecordForm_ctr.delete
 import templateInit from './bE_DynamicModalRecordForm_Lwc.html';
 import templateForm from './bE_DynamicRecordFormDisabled_Lwc.html';
 import templateDelete from './bE_DeleteRecord_Lwc.html';
+import templateMobile from './bE_DynamicRecordFormDisabledMobile_Lwc.html';
 import msgError from '@salesforce/label/c.Dwp_msgGenericError'
 import { ShowToastEvent } from 'lightning/platformShowToastEvent'
+import FORM_FACTOR from '@salesforce/client/formFactor';
+import { NavigationMixin } from 'lightning/navigation';
 
-export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
+export default class BE_DynamicModalRecordForm_Lwc extends NavigationMixin(LightningElement) {
     label = {msgError};
     enabledTempInit = templateInit;
     //Config
+    @api isMobile = false;
+    @api checkMobile = false;
     @api idRecord;
     @api metaDataConfig;
     @api header;
@@ -28,7 +33,12 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
     @api totalPages = 0;
 
     connectedCallback() {
-        this.getHeaderModal();
+        this.isMobile = (FORM_FACTOR === 'Small' || FORM_FACTOR === 'Medium') ? true : false;
+        if(this.isMobile && !this.checkMobile) {
+            this.handleMobileCmp();
+        } else {
+            this.getHeaderModal();
+        }
     }
 
     getHeaderModal() {
@@ -37,7 +47,8 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
         .then((response) => {
             if(response.isSuccess) {
                 this.header = response.header;
-                this.switchTemplate("templateForm");
+                let template = (this.checkMobile) ? "templateMobile" : "templateForm";
+                this.switchTemplate(template);
                 this.getConfig();
             } else {
                 console.log(result.message);
@@ -65,6 +76,9 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
             case "templateDelete":
                 temp = templateDelete;
                 break;
+            case "templateMobile":
+                temp = templateMobile;
+                break;
             default:
                 temp = templateInit;
         }
@@ -82,7 +96,11 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
                 } else {
                     this.noRecordsFound = false;
                     let resultado = {'result': JSON.parse(JSON.stringify(result.result)), 'data': JSON.parse(JSON.stringify(result.data))};
-                    this.convertStructure(resultado);
+                    if(this.checkMobile) {
+                        this.structureForMobile(resultado);
+                    } else {
+                        this.convertStructure(resultado);
+                    }
                 }
             } else {
                 console.log(result.message);
@@ -97,6 +115,25 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
         })
     }
 
+    structureForMobile(resultado) {
+        let str = [];
+        for(let i = 0; i < resultado.result.length; i++) {
+            let rows = [];
+            for(let j = 0; j < resultado.result[i].length; j++) {
+                for(let k = 0; k < resultado.result[i][j].fields.length; k++) {
+                    let field = this.getFieldsStructure(resultado, i, j, k);
+                    field.fieldWidth = 12;
+                    field.order = 1;
+                    let row = {fields : [field], order : k, uniqueId : 'Row_'+i+'_'+k};
+                    rows.push(row);
+                }
+            }
+            resultado.result[i] = rows;
+            str.push({'Id' : 'record_'+i, 'record':resultado.result[i]});
+        }
+        this.convertionConfigs(str);
+    }
+
     convertStructure(resultado) {
         let str = [];
         for(let i = 0; i < resultado.result.length; i++) {
@@ -107,6 +144,10 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
             }
             str.push({'Id' : 'record_'+i, 'record':resultado.result[i]});
         }
+        this.convertionConfigs(str);
+    }
+
+    convertionConfigs(str) {
         this.structure = [];
         this.recordsInPage = str;
         this.totalPages = 0;
@@ -121,7 +162,7 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
             if(resultado.result[i][j].fields[k].dataType === 'reference' && resultado.result[i][j].fields[k].value === resultado.data[d][fieldName]) {
                 if(fieldName.endsWith('Id')) {
                     resultado.result[i][j].fields[k].value = resultado.data[d][fieldName.slice(0, -2)].Name;
-                } else {
+                } else if(fieldName.endsWith('__c')){
                     resultado.result[i][j].fields[k].value = resultado.data[d][fieldName.slice(0, -1)+'r'].Name;
                 }
             }
@@ -217,6 +258,22 @@ export default class BE_DynamicModalRecordForm_Lwc extends LightningElement {
         });
     }
 
+    handleMobileCmp() {
+        let sObject = {
+            idRecord: this.idRecord,
+            metaData: this.metaDataConfig,
+            checkMobile: true
+        }
+        this[NavigationMixin.Navigate]({
+            type: 'standard__component',
+            attributes: {
+                componentName: 'c__BE_DynamicModalRecordFormMobile_Cmp',
+            },
+            state:{
+                c__sObject: sObject
+            }
+        });
+    }
     handleCloseModal() {
         this.dispatchEvent(new CustomEvent('close'));
     }

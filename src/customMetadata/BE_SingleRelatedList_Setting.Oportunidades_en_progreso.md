@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Proximas Visitas</label>
+    <label>Oportunidades en progreso</label>
     <protected>false</protected>
     <values>
         <field>BtnConfig__c</field>
@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Name,start_date_calculated__c,CreatedBy.Name</value>
+        <value xsi:type="xsd:string">Name,toLabel(StageName),Amount,CloseDate,CreatedBy.Name</value>
     </values>
     <values>
         <field>FieldsUrlRelationship__c</field>
@@ -23,7 +23,7 @@
         &quot;isObject&quot;: false,
         &quot;type&quot;: &quot;url&quot;
     },
-    &quot;CreatedByName&quot;: {
+    &quot;CreatedBy&quot;: {
         &quot;label&quot;: &quot;Name&quot;,
         &quot;fieldName&quot;: &quot;Id&quot;,
         &quot;isObject&quot;: true,
@@ -34,15 +34,15 @@
     </values>
     <values>
         <field>Fields__c</field>
-        <value xsi:type="xsd:string">Name,start_date_calculated__c,CreatedByName</value>
+        <value xsi:type="xsd:string">Name,StageName,Amount,CloseDate,CreatedBy</value>
     </values>
     <values>
         <field>Filter__c</field>
-        <value xsi:type="xsd:string">dwp_kitv__account_id__c = :recordId AND start_date_calculated__c &gt;= TODAY ORDER BY start_date_calculated__c DESC</value>
+        <value xsi:type="xsd:string">AccountId=:recordId</value>
     </values>
     <values>
         <field>Labels__c</field>
-        <value xsi:type="xsd:string">NOMBRE,FECHA DE INICIO,CREADO POR</value>
+        <value xsi:type="xsd:string">Nombre,Etapa,Monto,Fecha de cierre,Creado por</value>
     </values>
     <values>
         <field>ModalName__c</field>
@@ -50,18 +50,18 @@
     </values>
     <values>
         <field>NumberRows__c</field>
-        <value xsi:type="xsd:double">5.0</value>
+        <value xsi:type="xsd:double">4.0</value>
     </values>
     <values>
         <field>maximumFractionDigits__c</field>
-        <value xsi:type="xsd:double">0.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>minimumFractionDigits__c</field>
-        <value xsi:type="xsd:double">0.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>sObjectApiName__c</field>
-        <value xsi:type="xsd:string">dwp_kitv__Visit__c</value>
+        <value xsi:type="xsd:string">Opportunity</value>
     </values>
 </CustomMetadata>

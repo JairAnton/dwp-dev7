@@ -1,0 +1,21 @@
+.loadSpinner {
+    height: 45%;
+    width: 100%;
+    position: absolute;
+    margin:auto;
+}
+
+.alignButtons {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons {
+    margin: auto 5px;
+}
+
+.arrowsButton {
+    visibility: hidden;
+}

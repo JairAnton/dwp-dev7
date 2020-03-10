@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">toLabel(guarantee_type__c),Name,CurrencyIsoCode,guaranteed_amount__c,toLabel(guarantee_status_type__c),guarantee_release_date__c,toLabel(guarantee_class__c)</value>
+        <value xsi:type="xsd:string">toLabel(guarantee_type__c),Name,guaranteed_amount__c,toLabel(guarantee_status_type__c),guarantee_release_date__c,toLabel(guarantee_class__c)</value>
     </values>
     <values>
         <field>FieldsUrlRelationship__c</field>
@@ -20,19 +20,19 @@
     </values>
     <values>
         <field>Fields__c</field>
-        <value xsi:type="xsd:string">guarantee_type__c,Name,CurrencyIsoCode,guaranteed_amount__c,guarantee_status_type__c,guarantee_release_date__c,guarantee_class__c</value>
+        <value xsi:type="xsd:string">guarantee_type__c,Name,guaranteed_amount__c,guarantee_status_type__c,guarantee_release_date__c,guarantee_class__c</value>
     </values>
     <values>
         <field>Filter__c</field>
-        <value xsi:type="xsd:string">account_id__c=:recordId AND guarantee_type__c IN (@@131@@,@@133@@,@@136@@,@@143@@,@@301@@,@@302@@,@@303@@,@@304@@,@@305@@)</value>
+        <value xsi:type="xsd:string">account_id__c=:recordId AND guarantee_type__c IN (@@131@@,@@133@@,@@136@@,@@143@@,@@301@@,@@302@@,@@303@@,@@304@@,@@305@@) ORDER BY guarantee_release_date__c DESC NULLS LAST, guarantee_status_type__c ASC</value>
     </values>
     <values>
         <field>Labels__c</field>
-        <value xsi:type="xsd:string">Tipo,N° Garantía,Divisa,Importe,Situación,F.Formalización,Clase</value>
+        <value xsi:type="xsd:string">Tipo,N° Garantía,Importe,Situación,F.Formalización,Clase</value>
     </values>
     <values>
         <field>ModalName__c</field>
-        <value xsi:type="xsd:string">Modal_Guarantee_Details</value>
+        <value xsi:type="xsd:string">Guarantee_Detailes_Prendas</value>
     </values>
     <values>
         <field>NumberRows__c</field>
