@@ -23,10 +23,6 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     /*
     * Attribute
     */
-    private static list<string> stageName02 = new  string[4];
-    /*
-    * Attribute
-    */
     private static list<string> stageName03 = new  string[4];
     /*
     * Attribute
@@ -119,12 +115,11 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     public static string getOppAbierInfo(String accId,Boolean camping) {
         final List<WPR_Clasifica_QsOpps> lWrapClassAux = new List<WPR_Clasifica_QsOpps>();
         final List<AggregateResult>  oppList =  [SELECT COUNT(Id) Total, SUM(Amount) TotalAmount, CALENDAR_QUARTER(CloseDate) Q, CALENDAR_YEAR(CloseDate) AA, StageName FROM Opportunity WHERE AccountId=:accId  AND (CloseDate>= LAST_N_QUARTERS:3 AND CloseDate<= THIS_QUARTER ) AND StageName IN ('03','04','05') AND Opportunity_of_campaign_type__c =:camping GROUP BY CALENDAR_QUARTER(CloseDate), CALENDAR_YEAR(CloseDate), StageName ORDER BY CALENDAR_YEAR(CloseDate)];
-        stageName02 = countOppOpen(oppList ,'02');
         stageName03 = countOppOpen(oppList ,'03');
         stageName04 = countOppOpen(oppList ,'04');
         stageName05 = countOppOpen(oppList ,'05');
         labels = sortQs();
-        lWrapClassAux.add(new WPR_Clasifica_QsOpps(labels,stageName02,stageName03,stageName04,stageName05));
+        lWrapClassAux.add(new WPR_Clasifica_QsOpps(labels,stageName03,stageName04,stageName05));
         return JSON.serialize(lWrapClassAux);
     } 
     
@@ -178,10 +173,6 @@ public with sharing class BE_OppCommercialActivChart_Cls {
          /*
         * Attribute
         */
-        public list<string> stage02 {get;set;}
-         /*
-        * Attribute
-        */
         public list<string> stage03 {get;set;}
          /*
         * Attribute
@@ -198,9 +189,8 @@ public with sharing class BE_OppCommercialActivChart_Cls {
          /*
         * Attribute
         */
-        public WPR_Clasifica_QsOpps(List<string>labelsList, List<string>stageName02List, List<string> stageName03List, List<string> stageName04List,List<string> stageName05List) {
+        public WPR_Clasifica_QsOpps(List<string>labelsList, List<string> stageName03List, List<string> stageName04List,List<string> stageName05List) {
             this.labels = labelsList;
-            this.stage02 = stageName02List;
             this.stage03 = stageName03List;
             this.stage04 = stageName04List;
             this.stage05 = stageName05List;

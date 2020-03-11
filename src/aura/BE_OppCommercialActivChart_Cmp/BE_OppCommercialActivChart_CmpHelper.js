@@ -1,6 +1,5 @@
 ({
     PipelineOpp : function(component,event,helper) {
-        var StageName02 = [];
         var StageName03 = [];
         var StageName04 = [];
         var StageName05 = [];
@@ -18,37 +17,24 @@
             var estado = result.getState();
             if (estado === "SUCCESS") {
                 var datas = JSON.parse(result.getReturnValue());
-                StageName02 =  datas[0].stage02;
                 StageName03 =  datas[0].stage03;
                 StageName04 =  datas[0].stage04;
                 StageName05 =  datas[0].stage05;
                 Labels =  datas[0].labels;
-                graficaPipelineOpp(StageName02,StageName03,StageName04,StageName05,Labels);
+                graficaPipelineOpp(StageName03,StageName04,StageName05,Labels);
             }
         });
         $A.enqueueAction(action);
         var numberWithCommas = function(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
-        function graficaPipelineOpp(StageName02,StageName03,StageName04,StageName05,Labels) {
+        function graficaPipelineOpp(StageName03,StageName04,StageName05,Labels) {
             var dates = Labels;
             window.resultadosChart = new Chart(ctx,{
                 type: 'bar',
                 data: {
                     labels: dates,
                     datasets: [
-                        {
-                            label: 'Pendiente de iniciar',
-                            data: StageName02,
-                            backgroundColor: ['#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF'],
-                            hoverBackgroundColor: "#01A1DF",
-                            hoverBorderWidth: 0
-                        },
                         {
                             label: 'En gestión',
                             data: StageName03,
@@ -132,7 +118,6 @@
 }
 },
     PipelineOppCamp  : function(component,event,helper) {
-        var StageName02 = [];
         var StageName03 = [];
         var StageName04 = [];
         var StageName05 = [];
@@ -150,37 +135,24 @@
             var estado = result.getState();
             if (estado === "SUCCESS") {
                 var datas = JSON.parse(result.getReturnValue());
-                StageName02 =  datas[0].stage02;
                 StageName03 =  datas[0].stage03;
                 StageName04 =  datas[0].stage04;
                 StageName05 =  datas[0].stage05;
                 Labels =  datas[0].labels;
-                graficaPipelineOpp(StageName02,StageName03,StageName04,StageName05,Labels);
+                graficaPipelineOpp(StageName03,StageName04,StageName05,Labels);
             }
         });
         $A.enqueueAction(action);
         var numberWithCommas = function(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
-        function graficaPipelineOpp(StageName02,StageName03,StageName04,StageName05,Labels) {
+        function graficaPipelineOpp(StageName03,StageName04,StageName05,Labels) {
             var dates = Labels;
             window.resultadosChart = new Chart(ctx,{
                 type: 'bar',
                 data: {
                     labels: dates,
                     datasets: [
-                        {
-                            label: 'Pendiente de iniciar',
-                            data: StageName02,
-                            backgroundColor: ['#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF',
-                                              '#01A1DF','#01A1DF'],
-                            hoverBackgroundColor: "#01A1DF",
-                            hoverBorderWidth: 0
-                        },
                         {
                             label: 'En gestión',
                             data: StageName03,
