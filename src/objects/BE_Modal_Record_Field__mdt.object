@@ -94,11 +94,17 @@
     <listViews>
         <fullName>Fields_View</fullName>
         <columns>MasterLabel</columns>
+        <columns>DeveloperName</columns>
+        <columns>Modal_Record_Row__c</columns>
         <columns>Field_ApiName__c</columns>
         <columns>Field_Width__c</columns>
         <columns>Order__c</columns>
-        <columns>Modal_Record_Row__c</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>MasterLabel</field>
+            <operation>notContain</operation>
+            <value>Test</value>
+        </filters>
         <label>Vista de campos</label>
         <language>en_US</language>
     </listViews>

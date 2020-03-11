@@ -319,7 +319,7 @@
         <fullName>guarantee_pledge__c</fullName>
         <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
-        <label>Descripción</label>
+        <label>Descripción de la prenda</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
@@ -454,7 +454,7 @@
         <fullName>guarantor_name__c</fullName>
         <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
-        <label>Nombre fiador</label>
+        <label>Nombre del fiador</label>
         <length>100</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
