@@ -230,6 +230,7 @@
 	<setupExperience>all</setupExperience>
     <tabs>standard-home</tabs>
     <tabs>standard-Account</tabs>
+    <tabs>nonc__Prospects</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>

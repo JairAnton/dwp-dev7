@@ -74,7 +74,7 @@ public without sharing class BE_SingleRelatedList_Ctr {
   */
   @AuraEnabled(cacheable=true)
   public static Object getConfigMeta(String nameMetaData) {
-    return [SELECT Id,sObjectApiName__c,Fields__c,FieldsQuery__c,Filter__c,Labels__c , maximumFractionDigits__c,minimumFractionDigits__c,NumberRows__c,FieldsUrlRelationship__c,FieldsButtons__c,	BtnConfig__c,ModalName__r.DeveloperName FROM BE_SingleRelatedList_Setting__mdt WHERE DeveloperName=:nameMetaData];
+    return [SELECT Id,sObjectApiName__c,Fields__c,FieldsQuery__c,Filter__c,Labels__c , maximumFractionDigits__c,minimumFractionDigits__c,NumberRows__c,FieldsUrlRelationship__c,FieldsButtons__c,	BtnConfig__c,ModalName__r.DeveloperName,RowActions__c,RowActionView__c,RowActionDelete__c FROM BE_SingleRelatedList_Setting__mdt WHERE DeveloperName=:nameMetaData];
   }
   
   /**

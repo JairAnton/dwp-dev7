@@ -5,13 +5,21 @@ import getConfigMetaData from "@salesforce/apex/BE_SingleRelatedList_Ctr.getConf
 import FORM_FACTOR from '@salesforce/client/formFactor';
 import { NavigationMixin } from 'lightning/navigation';
 import { refreshApex } from "@salesforce/apex";
+import LANG from '@salesforce/i18n/lang';
+import btnDelete from '@salesforce/label/c.BE_SingleRelatedList_BtnDelete';
+import btnView from '@salesforce/label/c.BE_SingleRelatedList_BtnView';
+import btnNew from '@salesforce/label/c.BE_SingleRelatedList_BtnNew';
 import viewAlll from '@salesforce/label/c.BE_SingleRelatedList_ViewAll';
 import errorMsg from '@salesforce/label/c.Dwp_msgGenericError';
 export default class SingleRelatedList extends NavigationMixin(LightningElement) {
+    lang = LANG;
     // EXPOSE LABEL TO USE IN TEMPLATE
     label = {
         viewAlll,
-        errorMsg
+        errorMsg,
+        btnView,
+        btnNew,
+        btnDelete
     };
     /* GENERAL INPUT ATTRIBUTES*/
     @api flexipageRegionWidth;
@@ -22,6 +30,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     @api relListType; /**Type of template: Basic, Title */
 
     /** CONTROL ATRIBUTES */
+    @track customTitle;
     @track hasRendered = false;
     @api isViewAll = false;
     @track isObjRelFields = false;
@@ -30,13 +39,18 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     /** DATATABLE ATRIBUTTES */
     @track columns; /** Colums of datatable */
     @track sObjectData; /** Data of datatable */
-
+    @track customHeadActions;
+    @track rowActions;
+    @track customRowActions;
     /** MOBILE ATRIBUTES */
     @track columnsMobile; /** List of fields ApiName*/
     @track error;
 
     /** BUTTONS */
-    @track BtnConfig;
+    @track BtnConfig = {
+        values: [],
+        map: null
+    }
     @track sObject;
 
     /**  CUSTOM MODAL ATTRIBUTES */
@@ -46,6 +60,14 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         metadataName: '' /** Dev Name of Medadata */
     }
 
+    /** STANDARD MODAL */
+    @track modalStandard = {
+        show: false, /** Show modal */
+        recordId: '', /** recordId of Modal */
+        sobjectType: '',
+        fields: '',
+        mode: ''
+    };
     /** METADATA SETTINGS*/
     @track configMeta;
     wiredsObjectList;
@@ -55,6 +77,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         this.isMobile = (FORM_FACTOR === 'Small' || FORM_FACTOR === 'Medium') ? true : false;
         this.sfdcBaseURL = window.location.origin;
         this.switchTemplateMode();
+        this.customTitle=this.isNotEmpty(this.title)?JSON.parse((this.title))[this.lang]:'';
     }
     renderedCallback() {
         if (this.hasRendered) return;
@@ -68,7 +91,8 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         if (data) {
             try {
                 this.configMeta = data;
-                this.BtnConfig = this.isNotEmpty(data[0].BtnConfig__c) ? Object.values(JSON.parse(data[0].BtnConfig__c)) : [];
+                this.BtnConfig.map = this.isNotEmpty(data[0].BtnConfig__c) ? JSON.parse(data[0].BtnConfig__c) : [];
+                this.BtnConfig.values = this.setHeadActions();
                 const targetFilter = (this.isViewAll) ? data[0].Filter__c : data[0].Filter__c + ' LIMIT ' + data[0].NumberRows__c;
                 this.sObject = {
                     sObjName: data[0].sObjectApiName__c,
@@ -117,15 +141,17 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     /**BUILD AND SET COLUMS TO DATATABLE*/
     getGridColumns(sObjFieldsMap, fieldsApiName, fieldsLabel) {
-        const configCols=this.getGridColSetttings(fieldsApiName, fieldsLabel);
+        const configCols = this.getGridColSetttings(fieldsApiName, fieldsLabel);
+        this.rowActions = this.setRowActions();
         let columns = [];
         for (const indicator in configCols.fieldsApiName) {
             if ({}.hasOwnProperty.call(configCols.fieldsApiName, indicator)) {
-                let targetColumn = {};
+                let targetColumn = {
+                };
                 /** COLUMNS URL AND RELATIONSHIPS */
                 if (configCols.relObjKeys.includes(configCols.fieldsApiName[indicator])) {
-                    targetColumn=this.makeUrlRelationshipColumns(configCols,indicator);
-                /**  COLUMNS BUTTONS */
+                    targetColumn = this.makeUrlRelationshipColumns(configCols, indicator);
+                    /**  COLUMNS BUTTONS */
                 } else if (configCols.objBtnName.includes(configCols.fieldsApiName[indicator])) {
                     targetColumn = {
                         label: configCols.fieldsLabel[indicator],
@@ -133,10 +159,10 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
                         type: 'button',
                         typeAttributes: configCols.objBtn.typeAttributes
                     };
-                /** COMON COLUMNS */
+                    /** COMON COLUMNS */
                 } else {
                     targetColumn = {
-                        label:configCols.fieldsLabel[indicator],
+                        label: configCols.fieldsLabel[indicator],
                         fieldName: configCols.fieldsApiName[indicator],
                         type: sObjFieldsMap[configCols.fieldsApiName[indicator]]
                     };
@@ -144,27 +170,34 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
                 columns.push(this.asigntypeAttributes(targetColumn));
             }
         }
+        /** SET ROW ACTIONS */
+        if (this.rowActions.length > 0) {
+            columns.push({
+                type: 'action',
+                typeAttributes: { rowActions: this.rowActions },
+            });
+        }
         return columns;
     }
     /** ASSING INITIAL COLUMN VARIABLE */
-    getGridColSetttings(fieldsApiName, fieldsLabel){
+    getGridColSetttings(fieldsApiName, fieldsLabel) {
         const targetRelObj = (this.isObjRelFields) ? JSON.parse(this.configMeta[0].FieldsUrlRelationship__c) : [];
         const targetRelObjKeys = (this.isObjRelFields) ? Object.keys(targetRelObj) : [];
         const targetObjBtn = (this.isBtnFields) ? JSON.parse(this.configMeta[0].FieldsButtons__c.trim()) : [];
         const targetObjBtnName = (this.isBtnFields) ? Object.keys(targetObjBtn) : [];
-        let settingsColumn={
-        fieldsApiName : fieldsApiName.split(","),
-        fieldsLabel : fieldsLabel.split(","),
-        relObj : targetRelObj,
-        relObjKeys:targetRelObjKeys,
-        objBtn :targetObjBtn,
-        objBtnName :targetObjBtnName
+        let settingsColumn = {
+            fieldsApiName: fieldsApiName.split(","),
+            fieldsLabel: fieldsLabel.split(","),
+            relObj: targetRelObj,
+            relObjKeys: targetRelObjKeys,
+            objBtn: targetObjBtn,
+            objBtnName: targetObjBtnName
         }
         return settingsColumn;
     }
     /*BUILD URL AND RELATIONSHIP COLUM*/
-    makeUrlRelationshipColumns(configCols,indicator){
-        let targetColumn={};
+    makeUrlRelationshipColumns(configCols, indicator) {
+        let targetColumn = {};
         let targetPropCol = {
             fieldName: "",
             label: "",
@@ -358,7 +391,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             iconName: this.iconName,
             title: this.title,
             relListSet: this.relListSet,
-            relListType: this.relListType,
+            relListType: 'Basic',
             isMobile: this.isMobile,
             isViewAll: true
         }
@@ -373,6 +406,72 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         });
     }
 
+    /** STANDARD MODAL */
+    handleOpenStanModal(modalSet) {
+        this.modalStandard.show = true;
+        this.modalStandard.title = modalSet.title;
+        this.modalStandard.recordId = modalSet.recordId;
+        this.modalStandard.sobjectType = modalSet.sObjectApiName;
+        this.modalStandard.mode = modalSet.mode;
+        this.modalStandard.fields = modalSet.fields;
+        this.modalStandard.className = modalSet.className;
+        console.log('modalStandard');
+        console.log(this.modalStandard);
+    }
+    handleCloseStanModal() {
+        this.modalStandard.show = false;
+        refreshApex(this.wiredsObjectList);
+    }
+    /** ROW ACTIONS */
+    handleRowActionWeb(event) {
+        const row = event.detail.row;
+        this.handleRowAction(row.Id, event.detail.action.name);
+    }
+    handleRowActionMobile(event) {
+        const row = event.detail;
+        this.handleRowAction(row.recordId, row.mode);
+    }
+    handleRowAction(recordId, mode) {
+        const customRow = this.customRowActions[mode];
+        console.log('row');
+        console.log(customRow);
+        const modalSet = {
+            recordId: recordId,
+            mode: mode,
+            fields: '',
+            className: '',
+            sObjectApiName: this.configMeta[0].sObjectApiName__c,
+        };
+        if (this.isNotEmpty(customRow)) {
+            modalSet.title = customRow.title;
+            modalSet.fields = (this.isNotEmpty(customRow.fields)) ? customRow.fields.split(',') : null;
+            modalSet.className = customRow.className;
+        }
+        this.handleOpenStanModal(modalSet);
+    }
+    /** HEAD ACTIONS */
+    handleHeadAction(event) {
+        const btnVal = event.target.value;
+        const modalSet = {
+            recordId: '',
+            title: this.BtnConfig.map[btnVal].title[this.lang],
+            mode: this.BtnConfig.map[btnVal].mode,
+            fields: null,
+            sObjectApiName: this.BtnConfig.map[btnVal].sObjectApiName,
+            className: this.BtnConfig.map[btnVal].className
+        }
+        if (this.BtnConfig.map[btnVal].mode == 'insert') {
+            let insertFields = new Map;
+            for (const field of this.BtnConfig.map[btnVal].fields) {
+                insertFields.set(field.fieldName, field);
+            }
+            insertFields.get(this.BtnConfig.map[btnVal].defaultValue).value = this.recordId;
+            modalSet.fields = Array.from(insertFields.values());
+        } else {
+            modalSet.fields = this.BtnConfig.map[btnVal].fields.split(',');
+        }
+        this.handleOpenStanModal(modalSet);
+    }
     /** CUSTOM MODAL RECORD */
     getSelectedName(event) {
         this.handleModal(event.detail.row.Id, true);
@@ -390,7 +489,6 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         const cId = event.detail;
         this.handleModal(cId, true);
     }
-
     /**UTILS FUNCTIONS*/
     /** SHOW TOAST MESSAJE */
     showToastEvent(title, message, variant) {
@@ -406,4 +504,36 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         const notEmpty = (obj === null || obj === undefined || obj === "") ? false : true;
         return notEmpty;
     }
+
+    setRowActions() {
+        let actions = new Map();
+        let currentCustomRow = {};
+        this.customRowActions = this.isNotEmpty(this.configMeta[0].RowActions__c) ? JSON.parse(this.configMeta[0].RowActions__c) : [];
+        if (this.configMeta[0].RowActionView__c) {
+            actions.set(1, { label: this.btnView, name: 'view' });
+        }
+        if (this.configMeta[0].RowActionDelete__c) {
+            actions.set(2, { label: this.btnDelete, name: 'delete' });
+        }
+        for (const key in this.customRowActions) {
+            if (this.customRowActions.hasOwnProperty(key)) {
+                currentCustomRow = this.customRowActions[key];
+                currentCustomRow.label = this.customRowActions[key].label[this.lang];
+                currentCustomRow.title = this.customRowActions[key].title[this.lang];
+                actions.set(key, currentCustomRow);
+            }
+        }
+        return Array.from(actions.values());
+    }
+    setHeadActions() {
+        let actions = [];
+        let currentCustomRow = {};
+        for (const headAction of  Object.values(this.BtnConfig.map)) {
+                currentCustomRow = headAction;
+                currentCustomRow.label = headAction.label[this.lang];
+                actions.push(currentCustomRow);
+        }
+        return actions;
+    }
+
 }
