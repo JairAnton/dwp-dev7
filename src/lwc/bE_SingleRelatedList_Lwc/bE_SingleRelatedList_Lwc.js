@@ -77,7 +77,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         this.isMobile = (FORM_FACTOR === 'Small' || FORM_FACTOR === 'Medium') ? true : false;
         this.sfdcBaseURL = window.location.origin;
         this.switchTemplateMode();
-        this.customTitle=this.isNotEmpty(this.title)?JSON.parse((this.title))[this.lang]:'';
+        this.customTitle = this.isNotEmpty(this.title) ? JSON.parse((this.title))[this.lang] : '';
     }
     renderedCallback() {
         if (this.hasRendered) return;
@@ -88,6 +88,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         "nameMetaData": "$relListSet"
     }) wiredMetadaConfig(value) {
         const { data, error } = value;
+        this.wiredsObjectList = value;
         if (data) {
             try {
                 this.configMeta = data;
@@ -415,17 +416,19 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         this.modalStandard.mode = modalSet.mode;
         this.modalStandard.fields = modalSet.fields;
         this.modalStandard.className = modalSet.className;
-        console.log('modalStandard');
-        console.log(this.modalStandard);
     }
-    handleCloseStanModal() {
+    handleCloseStanModal(event) {
         this.modalStandard.show = false;
-        refreshApex(this.wiredsObjectList);
+        return refreshApex(this.wiredsObjectList);
     }
     /** ROW ACTIONS */
     handleRowActionWeb(event) {
         const row = event.detail.row;
-        this.handleRowAction(row.Id, event.detail.action.name);
+        if (this.isNotEmpty(this.configMeta[0].ModalName__r.DeveloperName)) {
+            this.handleModal(event.detail.row.Id, true);
+        } else {
+            this.handleRowAction(row.Id, event.detail.action.name);
+        }
     }
     handleRowActionMobile(event) {
         const row = event.detail;
@@ -528,10 +531,10 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     setHeadActions() {
         let actions = [];
         let currentCustomRow = {};
-        for (const headAction of  Object.values(this.BtnConfig.map)) {
-                currentCustomRow = headAction;
-                currentCustomRow.label = headAction.label[this.lang];
-                actions.push(currentCustomRow);
+        for (const headAction of Object.values(this.BtnConfig.map)) {
+            currentCustomRow = headAction;
+            currentCustomRow.label = headAction.label[this.lang];
+            actions.push(currentCustomRow);
         }
         return actions;
     }

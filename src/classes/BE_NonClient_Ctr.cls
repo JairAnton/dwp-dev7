@@ -12,7 +12,7 @@
 global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interface_prospect {
     
     /** private constructor */
-    private BE_NonClient_Ctr() {}
+    //private BE_NonClient_Ctr() {}
     /**
     @Description search NonClient in Salesforce (DWP-PE) with similar RUC
     @param  strSearchName is Non Client Name

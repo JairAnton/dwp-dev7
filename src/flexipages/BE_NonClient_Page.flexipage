@@ -327,7 +327,7 @@
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Group Lightning Record Page</masterLabel>
+    <masterLabel>Non Client Page</masterLabel>
     <sobjectType>Account</sobjectType>
     <template>
         <name>flexipage:recordHomeTemplateDesktop</name>
