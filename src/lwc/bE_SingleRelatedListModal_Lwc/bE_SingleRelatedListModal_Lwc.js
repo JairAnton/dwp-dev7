@@ -141,9 +141,6 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             "sobjectType": this.sobjectType,
             'Id': this.recordId
         };
-        const inputFields = this.template.querySelectorAll(
-            'lightning-input-field'
-        );
         targetObjLst.push(targetObj);
         this.handleDeleteRecords(targetObjLst);
     }

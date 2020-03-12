@@ -1,19 +1,34 @@
+/**
+   -------------------------------------------------------------------------------------------------
+   @Name <BE_SingleRelatedList_Tst>
+   @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
+   @Date 2020-03-03
+   @Description virtual Class BE_SingleRelatedListCRUD_Cls for custom CRUD and Callout Service
+   @Changes
+   Date        Author   Email                  Type
+   2020-03-03  LMBR     lolo.bravo@bbva.com    Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public virtual class BE_SingleRelatedListCRUD_Cls {
     /**RESPONSE */
     Response response;
-    public virtual Response createRecords(List<SObject> sObjs){
+    /** create record */
+    public virtual Response createRecords(List<SObject> sObjs) {
         response=new Response();
         return response;
     }
-    public virtual Response updateRecords(List<SObject> sObjs){
+    /** update record */
+    public virtual Response updateRecords(List<SObject> sObjs) {
         response=new Response();
         return response;
     }
-    public virtual Response deleteRecords(List<SObject> sObjsIds){
+    /** delete record */
+    public virtual Response deleteRecords(List<SObject> sObjsIds) {
         response=new Response();
         return response;
     }
-    public virtual Response readRecords(){
+    /** read record */
+    public virtual Response readRecords() {
         response=new Response();
         return response;
     }

@@ -262,7 +262,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>GuaranteeAvales</value>
+                <value>Guarantee_Avales</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -4032,7 +4032,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>GuaranteeAvales</value>
+                <value>Guarantee_Avales</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>

@@ -460,7 +460,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             sObjectApiName: this.BtnConfig.map[btnVal].sObjectApiName,
             className: this.BtnConfig.map[btnVal].className
         }
-        if (this.BtnConfig.map[btnVal].mode == 'insert') {
+        if (this.BtnConfig.map[btnVal].mode === 'insert') {
             let insertFields = new Map;
             for (const field of this.BtnConfig.map[btnVal].fields) {
                 insertFields.set(field.fieldName, field);

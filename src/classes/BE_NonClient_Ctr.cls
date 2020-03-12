@@ -11,6 +11,8 @@
 */
 global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interface_prospect {
     
+    /** private constructor */
+    BE_NonClient_Ctr() {}
     /**
     @Description search NonClient in Salesforce (DWP-PE) with similar RUC
     @param  strSearchName is Non Client Name
@@ -75,7 +77,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     @AuraEnabled
     global static String validateNonCliente(Account client) {
         Boolean isRucValid=BE_SearchClient_Helper.validateRUC(client.AccountNumber);
-        ResultValidation objRespuesta =new ResultValidation();
+        final ResultValidation objRespuesta =new ResultValidation();
         if(isRucValid) {
             objRespuesta.status='success';
             objRespuesta.message='The Non Client create successfull';
@@ -124,15 +126,17 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     }
     */
     /** wrapper to validate to validateNonCliente method and send response */
-     global class ResultValidation {
+     public class ResultValidation {
+       /**Indicates status of the transaction*/
        @AuraEnabled
-       public String status                                  { get; set; }
+       public String status    { get; set; }
        @AuraEnabled
-       public String message                                 { get; set; }
+       /**Message to show in the front to final user*/
+       public String message   { get; set; }
      }
      /** lProspect has accounts on salforces database with equal unique identifier, mapUniqueIDAccount is a map with the unique identifier as a key and the client with the same identifier as the prospect */
      @AuraEnabled
-     public static String checkConvertedClients(List<Account> lProspect, Map<String, Account> mapUniqueIDAccount){
+     public static String checkConvertedClients(List<Account> lProspect, Map<String, Account> mapUniqueIDAccount) {
        return '';
      }
 }

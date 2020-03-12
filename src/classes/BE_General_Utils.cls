@@ -10,13 +10,17 @@
 ----------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_General_Utils {
-    public BE_General_Utils() {
 
-    }
-    public static  Map<String,Schema.RecordTypeInfo> getRecordTypeInfo(List<String> sObjName){
-        //Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(new String[]{sObjName});
+    /** private constructor */
+    BE_General_Utils() {}
+    /**
+    @Description get RecordType of different sObject
+    @param  sObjName list of sObjectName
+    @return  return a Map<String,Schema.RecordTypeInfo>
+    */
+    public static  Map<String,Schema.RecordTypeInfo> getRecordTypeInfo(List<String> sObjName) {
         Map<String,Schema.RecordTypeInfo> recordTypeInfo;
-        Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(sObjName);
+        final Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(sObjName);
         for(Schema.DescribeSObjectResult schRes: descResult){
             recordTypeInfo=schRes.getRecordTypeInfosByDeveloperName();
         }

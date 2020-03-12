@@ -15,7 +15,7 @@ public without sharing class BE_AccountNonClient_Trigger_Cls {
     @Description merge Non Client to Client
     @return void
    */
-    public void mergeNonClientToClient(){
+    public void mergeNonClientToClient() {
         final List<String> sObjNames=new List<String>{'Account'};
         final Map<String,Schema.RecordTypeInfo> recordType=BE_General_Utils.getRecordTypeInfo(sObjNames);
         final String rtNonClientId=recordType.get('Record_Type_Non_Client').getRecordTypeId();
@@ -60,5 +60,4 @@ public without sharing class BE_AccountNonClient_Trigger_Cls {
     }
     
     */
-
 }

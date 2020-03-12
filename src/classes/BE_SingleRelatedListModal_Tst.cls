@@ -16,9 +16,8 @@ public without sharing class BE_SingleRelatedListModal_Tst {
     */
     @IsTest
     static void createSuccessMethodsTest() {
-    	List<Account> accs = new List<Account>();
-        accs.add(new Account(Name='Test'));
-        BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.createRecords(accs, '');
+        final List<Account> accs = new List<Account>{new Account(Name='Test')};
+        final BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.createRecords(accs, '');
         System.assert(resp.isSuccess, 'success!');
     }
     
@@ -27,11 +26,10 @@ public without sharing class BE_SingleRelatedListModal_Tst {
     */
     @IsTest
     static void updateSuccessMethodsTest() {
-    	List<Account> accs = new List<Account>();
-        accs.add(new Account(Name='Test'));
+        final List<Account> accs = new List<Account>{new Account(Name='Test_Success')};
         insert accs;
-        BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.updateRecords(accs, '');
-        System.assert(resp.isSuccess, 'success!');
+        final BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.updateRecords(accs, '');
+        System.assert(resp.isSuccess, 'successUpdate!');
     }
     
     /**
@@ -39,11 +37,10 @@ public without sharing class BE_SingleRelatedListModal_Tst {
     */
     @IsTest
     static void deleteSuccessMethodsTest() {
-    	List<Account> accs = new List<Account>();
-        accs.add(new Account(Name='Test'));
+        final List<Account> accs = new List<Account>{new Account(Name='Test_Delete_Success')};
         insert accs;
-        BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.deleteRecords(accs, '');
-        System.assert(resp.isSuccess, 'success!');
+        final BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.deleteRecords(accs, '');
+        System.assert(resp.isSuccess, 'successDeleteSucess!');
     }
     
     /**
@@ -51,8 +48,8 @@ public without sharing class BE_SingleRelatedListModal_Tst {
     */
     @IsTest
     static void createErrorMethodsTest() {
-    	BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.createRecords(null, '');
-        System.assert(!resp.isSuccess, 'error!');
+    	final BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.createRecords(null, '');
+        System.assert(!resp.isSuccess, 'errorCreate!');
     }
     
     /**
@@ -60,8 +57,8 @@ public without sharing class BE_SingleRelatedListModal_Tst {
     */
     @IsTest
     static void updateErrorMethodsTest() {
-    	BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.updateRecords(null, '');
-        System.assert(!resp.isSuccess, 'error!');
+    	final BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.updateRecords(null, '');
+        System.assert(!resp.isSuccess, 'errorUpdate!');
     }
     
     /**
@@ -69,8 +66,8 @@ public without sharing class BE_SingleRelatedListModal_Tst {
     */
     @IsTest
     static void deleteErrorMethodsTest() {
-    	BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.deleteRecords(null, '');
-        System.assert(!resp.isSuccess, 'error!');
+    	final BE_SingleRelatedListCRUD_Cls.Response resp = (BE_SingleRelatedListCRUD_Cls.Response)BE_SingleRelatedListModal_Ctr.deleteRecords(null, '');
+        System.assert(!resp.isSuccess, 'errorDelete!');
     }
 
     /**
@@ -78,15 +75,15 @@ public without sharing class BE_SingleRelatedListModal_Tst {
     */
     @IsTest
     static void allCRUDsTest() {
-    	BE_SingleRelatedListCRUD_Cls srl = new BE_SingleRelatedListCRUD_Cls();
+    	final BE_SingleRelatedListCRUD_Cls srl = new BE_SingleRelatedListCRUD_Cls();
         srl.createRecords(null);
         srl.updateRecords(null);
         srl.deleteRecords(null);
         Boolean isNull = false;
-        BE_SingleRelatedListCRUD_Cls.Response resp = srl.readRecords();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = srl.readRecords();
         if(resp==null) {
             isNull = true;
         }
-        System.assert(!isNull, 'success!');
+        System.assert(!isNull, 'successAll!');
     }
 }

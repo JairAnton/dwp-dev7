@@ -85,15 +85,14 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
         });
     }
     /** OPEN CUSTOM MODAL EVENT */
-    handleOpenModalMobile(event){
+    handleOpenModalMobile(event) {
         event.preventDefault();
         let evt = new CustomEvent('mobilemodal',
         {detail:this.sObjData.Id});
         this.dispatchEvent(evt);
     }
-    
     /** OPEN CUSTOM MODAL EVENT */
-    handleRowAction(event){
+    handleRowAction(event) {
         event.preventDefault();
         console.log('Open Close');
         console.log(event.target.value);

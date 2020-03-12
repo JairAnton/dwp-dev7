@@ -12,6 +12,9 @@
 public without sharing class BE_SearchClient_Helper {
     /** response */
     static Response res;
+
+    /** private constructor */
+    BE_SearchClient_Helper () {}
     /**
     @Description search NonClient in Salesforce (DWP-PE) with similar RUC
     @param  accNumber is Non Client RUC
@@ -20,7 +23,7 @@ public without sharing class BE_SearchClient_Helper {
     public static Response searchClienteSF(String accNumber){
         res=new Response();
         final List<Account> accLst=[SELECT Id,Name,RecordType.Name,OwnerId,Owner.Name,AccountNumber FROM ACCOUNT WHERE  AccountNumber=:accNumber];
-        if(accLst.size()>0){
+        if(accLst.size()>0) {
             res.acc=accLst[0];
             res.isSuccess=true;
         }
@@ -65,14 +68,14 @@ public without sharing class BE_SearchClient_Helper {
     @param  accNumber is RUC of NonClient 
     @return Boolean (is valid or not)
     */
-    public static Boolean validateRUC(String accNumber){
+    public static Boolean validateRUC(String accNumber) {
         Boolean isRucValid=false;
         //Integer currentNumber=Integer.valueOf(accNumber);
-        List<String> rucTypes=new List<String>{'10','15','16','17','20'};
+        final List<String> rucTypes=new List<String>{'10','15','16','17','20'};
         for(String itemRuc : rucTypes) {
             isRucValid=(itemRuc.startsWithIgnoreCase(itemRuc))?true:false;
         }
-        isRucValid=(isRucValid==true && accNumber.length()==11 && accNumber.isNumeric())?true:false;
+        isRucValid=isRucValid==true && accNumber.length()==11 && accNumber.isNumeric()?true:false;
         System.debug('RUC');
         System.debug(isRucValid);
         return isRucValid;
@@ -97,6 +100,7 @@ public without sharing class BE_SearchClient_Helper {
         /**is Non Client exist in Salesforce, Altamira o Alpha */
         @AuraEnabled
         public Account acc {set; get;}
+        /** public constructor */
         public Response () {
             this.isExistNonClient=false;
             this.isSuccess=false;
