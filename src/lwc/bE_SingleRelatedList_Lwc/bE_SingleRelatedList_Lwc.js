@@ -38,7 +38,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     @api isMobile;
     /** DATATABLE ATRIBUTTES */
     @track columns; /** Colums of datatable */
-    @track sObjectData; /** Data of datatable */
+    sObjectData; /** Data of datatable */
     @track customHeadActions;
     @track rowActions;
     @track customRowActions;
@@ -419,7 +419,8 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     handleCloseStanModal(event) {
         this.modalStandard.show = false;
-        return refreshApex(this.wiredsObjectList);
+        this.sObjectData=[];
+        this.callListData();
     }
     /** ROW ACTIONS */
     handleRowActionWeb(event) {
@@ -486,7 +487,8 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     handleCloseModal(event) {
         this.modalRecord.show = false;
-        refreshApex(this.wiredsObjectList);
+        this.sObjectData=[];
+        this.callListData();
     }
     handleModalMobile(event) {
         const cId = event.detail;
