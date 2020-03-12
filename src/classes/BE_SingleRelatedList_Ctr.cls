@@ -24,7 +24,7 @@ public without sharing class BE_SingleRelatedList_Ctr {
      @param sObjName the ApiName of sObject to be search.
      @return a Map<String,String> with information about the type of sObjectFields.
    */
-  @AuraEnabled(cacheable=true)
+  @AuraEnabled(cacheable=false)
   public static Response getDynamicResponse(String recordId,Params param) {
 	final Response response=new Response();
     try {

@@ -18,8 +18,8 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Phone</field>
+                <behavior>Edit</behavior>
+                <field>other_phone_number__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

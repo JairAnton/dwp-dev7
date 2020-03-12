@@ -21,12 +21,12 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
     @track mode;
     @track error;
     connectedCallback() {
-        console.log('Config');
-        console.log(this.sObjFields);
         this.switchMode(this.modeAction);
     }
-    handleCloseModal() {
-        this.dispatchEvent(new CustomEvent('closemodalweb'));
+    handleCloseModal(refresh) {
+        let evt = new CustomEvent('closemodalweb',
+        {detail:refresh});
+        this.dispatchEvent(evt);
     }
     /** CALL APEX */
     /**CREATE RECORDS */
@@ -59,8 +59,8 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             .then(result => {
                 if (result.isSuccess) {
                     try {
-                        this.showToastEvent("Success", data[0].message, "success");
-                        this.handleCloseModal();
+                        this.showToastEvent("Success", result.message, "success");
+                        this.handleCloseModal(true);
                     } catch (ex) {
                         this.showToastEvent("Error", ex.message, "error");
                     }
@@ -80,7 +80,7 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
                 if (result.isSuccess) {
                     try {
                         this.showToastEvent("Success", result.message, "success");
-                        this.handleCloseModal();
+                        this.handleCloseModal(true);
                     } catch (ex) {
                         this.showToastEvent("Error", ex.message, "error");
                     }
@@ -141,6 +141,9 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             "sobjectType": this.sobjectType,
             'Id': this.recordId
         };
+        const inputFields = this.template.querySelectorAll(
+            'lightning-input-field'
+        );
         targetObjLst.push(targetObj);
         this.handleDeleteRecords(targetObjLst);
     }

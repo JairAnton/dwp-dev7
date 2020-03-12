@@ -784,6 +784,16 @@
         <field>Account.Record_Count__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.non_client_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.nonc__Onboarding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Account_BBVA_Information__c.Oficer_Manager__c</field>
@@ -5293,6 +5303,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Record_Type_Economic_Group</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.Record_Type_Non_Client</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

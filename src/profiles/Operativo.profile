@@ -1271,6 +1271,16 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.non_client_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.nonc__Onboarding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.other_phone_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6390,6 +6400,11 @@ Sub Gerentes de oficina</description>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Record_Type_Economic_Group</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.Record_Type_Non_Client</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
