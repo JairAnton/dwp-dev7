@@ -12,7 +12,7 @@
 global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interface_prospect {
     
     /** private constructor */
-    BE_NonClient_Ctr() {}
+    private BE_NonClient_Ctr() {}
     /**
     @Description search NonClient in Salesforce (DWP-PE) with similar RUC
     @param  strSearchName is Non Client Name
@@ -24,7 +24,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
         final BE_SearchClient_Helper.Response resClient=BE_SearchClient_Helper.searchClienteSF(strFielValueCode);
         List<WrapperAccount> lWrapper = new List<WrapperAccount>();
         if(resClient.isSuccess) {
-            WrapperAccount wrpAcc=new WrapperAccount((String)resClient.acc.Id, resClient.acc.Name,(String)resClient.acc.OwnerId);
+            final WrapperAccount wrpAcc=new WrapperAccount((String)resClient.acc.Id, resClient.acc.Name,(String)resClient.acc.OwnerId);
             wrpAcc.clientType=resClient.acc.AccountNumber;
             wrpAcc.code=resClient.acc.AccountNumber;
             wrpAcc.ownerName=resClient.acc.Owner.Name;
@@ -39,11 +39,11 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     @Description Wrapper Class for duplicate NonClients
     -------------------------------------------------------------------------------------------------
     */
-    global without sharing class  WrapperAccount {
+    public without sharing class  WrapperAccount {
        /** ownerName */
-       public String ownerName  {set;get;}
+       public String ownerName {set;get;}
        /** ownerLink */
-       public String ownerLink  {set;get;}
+       public String ownerLink {set;get;}
        /** clientName */
        public String clientName {set;get;}
        /** clientLink */
@@ -51,17 +51,17 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
        /** clientType */
        public String clientType {set;get;}
        /** country */
-       public String country    {set;get;}
+       public String country {set;get;}
        /** code */
-       public String code       {set;get;}
+       public String code {set;get;}
 
        /* Constructor */
-       global WrapperAccount () {
+        public WrapperAccount () {
             System.debug('Empty constructor');
-       }
+        }
 
        /* Constructor whith params */
-        global WrapperAccount (String clientID, String clientName, String ownerID) {
+        public WrapperAccount (String clientID, String clientName, String ownerID) {
             this.clientLink   = '/lightning/r/Account/' + clientID + '/view';
             this.ownerLink    = '/lightning/r/User/' + ownerID + '/view';
             this.clientName   = clientName;
@@ -76,7 +76,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     */
     @AuraEnabled
     global static String validateNonCliente(Account client) {
-        Boolean isRucValid=BE_SearchClient_Helper.validateRUC(client.AccountNumber);
+        final Boolean isRucValid=BE_SearchClient_Helper.validateRUC(client.AccountNumber);
         final ResultValidation objRespuesta =new ResultValidation();
         if(isRucValid) {
             objRespuesta.status='success';
@@ -129,14 +129,14 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
      public class ResultValidation {
        /**Indicates status of the transaction*/
        @AuraEnabled
-       public String status    { get; set; }
+       public String status { get; set; }
        @AuraEnabled
        /**Message to show in the front to final user*/
-       public String message   { get; set; }
+       public String message { get; set; }
      }
-     /** lProspect has accounts on salforces database with equal unique identifier, mapUniqueIDAccount is a map with the unique identifier as a key and the client with the same identifier as the prospect */
+     /** Don´t use this method */
      @AuraEnabled
-     public static String checkConvertedClients(List<Account> lProspect, Map<String, Account> mapUniqueIDAccount) {
+     public static String checkConvertedClients(List<Account> lProspect, Map<String, Account> mapAccs) {
        return '';
      }
 }

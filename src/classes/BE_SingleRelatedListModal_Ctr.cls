@@ -10,9 +10,10 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_SingleRelatedListModal_Ctr {
+    /** Response variable */
     static BE_SingleRelatedListCRUD_Cls.Response res;
     /** private constructor */
-    BE_SingleRelatedListModal_Ctr() {}
+    private BE_SingleRelatedListModal_Ctr() {}
     /**
      @Description insert records with standard or custom Class Extends
      @param sObjs List<SObject> to insert

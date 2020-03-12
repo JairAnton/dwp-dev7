@@ -14,13 +14,13 @@ public without sharing class BE_SearchClient_Helper {
     static Response res;
 
     /** private constructor */
-    BE_SearchClient_Helper () {}
+    private BE_SearchClient_Helper () {}
     /**
     @Description search NonClient in Salesforce (DWP-PE) with similar RUC
     @param  accNumber is Non Client RUC
     @return Response Class  with Non Client Record (Account)
     */
-    public static Response searchClienteSF(String accNumber){
+    public static Response searchClienteSF(String accNumber) {
         res=new Response();
         final List<Account> accLst=[SELECT Id,Name,RecordType.Name,OwnerId,Owner.Name,AccountNumber FROM ACCOUNT WHERE  AccountNumber=:accNumber];
         if(accLst.size()>0) {
@@ -73,7 +73,7 @@ public without sharing class BE_SearchClient_Helper {
         //Integer currentNumber=Integer.valueOf(accNumber);
         final List<String> rucTypes=new List<String>{'10','15','16','17','20'};
         for(String itemRuc : rucTypes) {
-            isRucValid=(itemRuc.startsWithIgnoreCase(itemRuc))?true:false;
+            isRucValid=itemRuc.startsWithIgnoreCase(itemRuc)?true:false;
         }
         isRucValid=isRucValid==true && accNumber.length()==11 && accNumber.isNumeric()?true:false;
         System.debug('RUC');
