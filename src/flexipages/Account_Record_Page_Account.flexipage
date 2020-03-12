@@ -262,7 +262,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>GuaranteeAvales</value>
+                <value>Guarantee_Avales</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -3435,7 +3435,6 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>product_category_type__c = &apos;ACTIVO&apos;</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -3447,7 +3446,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Group</name>
-                <value>product_subcategory_type__c</value>
+                <value>product_category_type__c,product_subcategory_type__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
@@ -3667,11 +3666,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Oportunidades en progreso</value>
+                <value>{     "es": "Oportunidades en progreso",     "en-US": "Opportunities in progress" }</value>
             </componentInstanceProperties>
             <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
-		<name>Facet-cf0caa7c-a50f-44b7-9b77-554021180ea8</name>
+        <name>Facet-cf0caa7c-a50f-44b7-9b77-554021180ea8</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -3693,7 +3692,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Próximas visitas</value>
+                <value>{     "es": "Próximas visitas",     "en-US": "Next visits" }</value>
             </componentInstanceProperties>
             <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
@@ -3712,7 +3711,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Visitas pasadas</value>
+                <value>{     "es": "Visitas pasadas",     "en-US": "Last visits" }</value>
             </componentInstanceProperties>
             <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
@@ -4032,7 +4031,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>GuaranteeAvales</value>
+                <value>Guarantee_Avales</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -5342,7 +5341,8 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>headerApiName</name>
-            </componentInstanceProperties>
+				<value>empty_value__c,-,-</value>
+			</componentInstanceProperties>
             <componentInstanceProperties>
                 <name>hidenSubHeadMatrix</name>
                 <value>false</value>
@@ -5419,7 +5419,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Group</name>
-                <value>product_group_classification_id__c</value>
+                <value>product_group_classification_id__c,product_desc__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
@@ -5439,7 +5439,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Order</name>
-                <value>product_group_classification_order__c</value>
+                <value>product_group_classification_order__c ASC, product_desc_order__c ASC, entity_order__c ASC</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>PositionCurrency</name>
@@ -5459,7 +5459,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Type</name>
-                <value>Summary</value>
+                <value>Matrix</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>allFilter</name>
@@ -5478,9 +5478,6 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>labelFilterApi</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>labelTotalApi</name>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportTitleAPI</name>
@@ -5719,6 +5716,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>headerApiName</name>
+				<value>empty_value__c,-,-,-</value>								   
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>hidenSubHeadMatrix</name>
@@ -5726,9 +5724,6 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>labelFilterApi</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>labelTotalApi</name>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>reportTitleAPI</name>

@@ -4,6 +4,12 @@
  * @Create by: 
  * 
  * V0-Creacion
+ * @change history:
+	- add addUserToOppTeam method used to add users with position code GE8 and GE9 to Opportunity Team
+	*****************************
+	Updates:
+	Martín Alejandro Mori Chávez  2020-03-11
+ * 
 */
 public without sharing class Opportunity_Trigger_cls {
     
@@ -71,7 +77,7 @@ public without sharing class Opportunity_Trigger_cls {
                 lstId.add(opNew.Id);
             }
         }
-        Final Integer lstIdSize = lstId.size(); 
+        Final Integer lstIdSize = lstId.size();
         if(lstIdSize > 0) {
             List<OpportunityLineItem> oliList = [select Id, price_quote_date__c from OpportunityLineItem where OpportunityId =:lstId];
             Final Integer oliListSize = oliList.size();
@@ -144,4 +150,33 @@ public without sharing class Opportunity_Trigger_cls {
         }
     }
     
+    /**
+     * method used to add users to opportunityTeam
+	*/
+    public static void addUserToOppTeam(List<Opportunity> lstNew, Map<Id,Opportunity> mapOld) {
+        final List<Id> lstIdOppTeam = new List<Id>();
+        for (Opportunity opNew : lstNew) {
+            if((opNew.opportunity_product_family__c != mapOld.get(opNew.Id).opportunity_product_family__c || opNew.CurrencyIsoCode != mapOld.get(opNew.Id).CurrencyIsoCode) && opNew.opportunity_product_family__c=='Financiamiento a largo plazo' && opNew.CurrencyIsoCode=='USD') {
+                lstIdOppTeam.add(opNew.Id);
+            }
+        }
+        if(!lstIdOppTeam.isEmpty()) {
+            createOppTeam(lstIdOppTeam);
+        }
+    }
+    
+    /**
+     * method used to create opportunityTeam
+	*/
+    private static void createOppTeam(List<Id> lstIdOppTeam) {
+        final List<OpportunityTeamMember> oppTeam = new List<OpportunityTeamMember>();
+        for(User usr : [SELECT Id FROM User WHERE IsActive=true AND prof_position_id__c IN ('GE8', 'GE9')]) {
+            for(Id oppId : lstIdOppTeam) {
+                oppTeam.add(new OpportunityTeamMember(UserId = usr.Id, TeamMemberRole = '02', OpportunityAccessLevel = 'Edit', OpportunityId = oppId));
+            }
+        }
+        if(!oppTeam.isEmpty()) {
+            insert oppTeam;
+        }
+    }
 }
