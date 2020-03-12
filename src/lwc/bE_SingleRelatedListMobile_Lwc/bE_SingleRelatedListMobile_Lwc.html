@@ -38,10 +38,11 @@
                 </lightning-layout-item>
                 <lightning-layout-item if:true={it.first} key={it.value.value} size="1" small-device-size="1"
                     medium-device-size="1" padding="horizontal-small">
-                    <div>
+                    <div class="slds-text-align_center">
                         <lightning-button-menu icon-size="x-small" menu-alignment="auto">
-                            <lightning-menu-item label="Edit" value="item1"></lightning-menu-item>
-                            <lightning-menu-item label="Deletes" value="item2"></lightning-menu-item>
+                            <template for:each={rowActions} for:item="row">
+                                <lightning-menu-item key={row.label} label={row.label} value={row.name} onclick={handleRowAction}></lightning-menu-item>
+                            </template>
                         </lightning-button-menu>
                     </div>
                 </lightning-layout-item>

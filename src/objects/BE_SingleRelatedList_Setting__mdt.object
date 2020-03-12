@@ -93,6 +93,31 @@ replace simple  quotes for @@</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>RowActionDelete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Row Action Delete</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RowActionView__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Row Action View</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RowActions__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>RowActions</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
         <fullName>maximumFractionDigits__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>DeveloperControlled</fieldManageability>

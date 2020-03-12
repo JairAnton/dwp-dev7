@@ -186,6 +186,41 @@
 Por favor verifique la estructura de acuerdo a la guía en la documentación.</value>
     </labels>
     <labels>
+        <fullName>BE_SingleRelatedListModal_MsgDelete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedListModal_MsgDelete</shortDescription>
+        <value>¿ Are you sure you want to remove this record ?</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_BtnDelete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_BtnDelete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_BtnEdit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_BtnEdit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_BtnNew</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_BtnNew</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_BtnView</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_BtnView</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
         <fullName>BE_SingleRelatedList_ViewAll</fullName>
         <categories>BE</categories>
         <language>en_US</language>
