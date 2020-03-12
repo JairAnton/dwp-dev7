@@ -1,12 +1,12 @@
 /**
    -------------------------------------------------------------------------------------------------
-   @Name <BE_DynamicRelatedList_Ctr>
+   @Name <BE_SingleRelatedList_Ctr>
    @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
-   @Date 2019-01-13
-   @Description Controller Class for generated dynamic Related List.
+   @Date 2020-03-11
+   @Description Controller Class for generated BE_SingleRelatedList_Lwc
    @Changes
    Date        Author   Email                  Type
-   2019-01-13  LMBR     lolo.bravo@bbva.com    Creation
+   2020-03-11  LMBR     lolo.bravo@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_SingleRelatedList_Ctr {
@@ -74,7 +74,7 @@ public without sharing class BE_SingleRelatedList_Ctr {
   */
   @AuraEnabled(cacheable=true)
   public static Object getConfigMeta(String nameMetaData) {
-    return [SELECT Id,sObjectApiName__c,Fields__c,FieldsQuery__c,Filter__c,Labels__c , maximumFractionDigits__c,minimumFractionDigits__c,NumberRows__c,FieldsUrlRelationship__c,FieldsButtons__c,	BtnConfig__c,ModalName__r.DeveloperName FROM BE_SingleRelatedList_Setting__mdt WHERE DeveloperName=:nameMetaData];
+    return [SELECT Id,sObjectApiName__c,Fields__c,FieldsQuery__c,Filter__c,Labels__c , maximumFractionDigits__c,minimumFractionDigits__c,NumberRows__c,FieldsUrlRelationship__c,FieldsButtons__c,	BtnConfig__c,ModalName__r.DeveloperName,RowActions__c,RowActionView__c,RowActionDelete__c FROM BE_SingleRelatedList_Setting__mdt WHERE DeveloperName=:nameMetaData];
   }
   
   /**

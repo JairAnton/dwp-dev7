@@ -7,6 +7,7 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
     @api sObjApiName; /** sObject ApiName */
     @api sObjFieldLabels; /** Labels of Fields */
     @api columns; /** columns of data */
+    @api rowActions;
     /** DATA ATRIBUTES */
     @api sObjData; /** initial data */
     @track sObjDataLst; /** final data*/
@@ -84,10 +85,32 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
         });
     }
     /** OPEN CUSTOM MODAL EVENT */
-    handleOpenModalMobile(event){
+    handleOpenModalMobile(event) {
         event.preventDefault();
         let evt = new CustomEvent('mobilemodal',
         {detail:this.sObjData.Id});
+        this.dispatchEvent(evt);
+    }
+    /** OPEN CUSTOM MODAL EVENT */
+    handleRowAction(event) {
+        event.preventDefault();
+        console.log('Open Close');
+        console.log(event.target.value);
+        const objParam={
+            recordId:this.sObjData.Id,
+            mode:event.target.value
+        }
+        let evt = new CustomEvent('rowaction',
+        {detail:objParam});
+        this.dispatchEvent(evt);
+    }
+    /** SHOW TOAST MESSAJE */
+    showToastEvent(title, message, variant) {
+        const evt = new ShowToastEvent({
+            title: title,
+            message: message,
+            variant: variant
+        });
         this.dispatchEvent(evt);
     }
 }
