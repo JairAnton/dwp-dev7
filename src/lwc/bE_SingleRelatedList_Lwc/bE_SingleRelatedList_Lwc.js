@@ -419,8 +419,12 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     handleCloseStanModal(event) {
         this.modalStandard.show = false;
-        this.sObjectData=[];
-        this.callListData();
+        console.log('event');
+        console.log(event.detail);
+        if(event.detail==true){
+            this.sObjectData=[];
+            this.callListData();
+        }
     }
     /** ROW ACTIONS */
     handleRowActionWeb(event) {
@@ -487,8 +491,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     handleCloseModal(event) {
         this.modalRecord.show = false;
-        this.sObjectData=[];
-        this.callListData();
+        refreshApex(this.wiredsObjectList);
     }
     handleModalMobile(event) {
         const cId = event.detail;
