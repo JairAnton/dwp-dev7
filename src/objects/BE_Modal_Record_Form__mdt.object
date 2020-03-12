@@ -102,9 +102,11 @@
     <listViews>
         <fullName>Modal_View</fullName>
         <columns>MasterLabel</columns>
+        <columns>DeveloperName</columns>
         <columns>sObject_Target__c</columns>
-        <columns>view_mode__c</columns>
         <columns>Records_per_page__c</columns>
+        <columns>view_mode__c</columns>
+        <columns>delete_mode__c</columns>
         <filterScope>Everything</filterScope>
         <label>Vista de Modales</label>
         <language>en_US</language>

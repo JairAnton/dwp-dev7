@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>ModalName__c</field>
-        <value xsi:type="xsd:string">Guarantee_Detailes_Depositos</value>
+        <value xsi:type="xsd:string">Guarantee_Detailes_Otros</value>
     </values>
     <values>
         <field>NumberRows__c</field>
