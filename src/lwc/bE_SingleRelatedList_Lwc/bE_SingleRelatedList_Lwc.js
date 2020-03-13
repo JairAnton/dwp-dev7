@@ -419,9 +419,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     handleCloseStanModal(event) {
         this.modalStandard.show = false;
-        console.log('event');
-        console.log(event.detail);
-        if(event.detail==true){
+        if(event.detail===true){
             this.sObjectData=[];
             this.callListData();
         }
@@ -429,7 +427,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     /** ROW ACTIONS */
     handleRowActionWeb(event) {
         const row = event.detail.row;
-        if (this.isNotEmpty(this.configMeta[0].ModalName__r.DeveloperName)) {
+        if (this.isNotEmpty(this.configMeta[0].ModalName__c)) {
             this.handleModal(event.detail.row.Id, true);
         } else {
             this.handleRowAction(row.Id, event.detail.action.name);
@@ -437,7 +435,11 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     handleRowActionMobile(event) {
         const row = event.detail;
-        this.handleRowAction(row.recordId, row.mode);
+        if (this.isNotEmpty(this.configMeta[0].ModalName__c)) {
+            this.handleModal(row, true);
+        } else {
+            this.handleRowAction(row.recordId, row.mode);
+        }
     }
     handleRowAction(recordId, mode) {
         const customRow = this.customRowActions[mode];
@@ -481,9 +483,6 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         this.handleOpenStanModal(modalSet);
     }
     /** CUSTOM MODAL RECORD */
-    getSelectedName(event) {
-        this.handleModal(event.detail.row.Id, true);
-    }
     handleModal(cId, showCmp) {
         this.modalRecord.recordId = cId;
         this.modalRecord.show = showCmp;
@@ -492,10 +491,6 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     handleCloseModal(event) {
         this.modalRecord.show = false;
         refreshApex(this.wiredsObjectList);
-    }
-    handleModalMobile(event) {
-        const cId = event.detail;
-        this.handleModal(cId, true);
     }
     /**UTILS FUNCTIONS*/
     /** SHOW TOAST MESSAJE */

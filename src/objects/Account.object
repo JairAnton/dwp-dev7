@@ -34,6 +34,20 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -2131,4 +2145,11 @@
         <searchResultsAdditionalFields>Owner_calculated__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>BE_OnlyCreateNonClient</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(RecordType.DeveloperName  &lt;&gt;  &apos;Record_Type_Non_Client&apos;,
+ AND($Profile.Name &lt;&gt; &apos;Migracion&apos;,$Profile.Name &lt;&gt; &apos;System Administrator&apos;,$Profile.Name &lt;&gt; &apos;Administrador de sistema&apos;))</errorConditionFormula>
+        <errorMessage>No tiene los permisos suficientes para crear clientes</errorMessage>
+    </validationRules>
 </CustomObject>

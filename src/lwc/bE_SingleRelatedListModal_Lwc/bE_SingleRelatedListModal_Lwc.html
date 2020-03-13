@@ -54,23 +54,23 @@
             </div>
             <!--FOOTER-->
             <footer class="slds-modal__footer">
-                <lightning-button label="Cancel" title="Primary action" class="slds-button slds-m-left_x-small" onclick={handleCloseModal}>
+                <lightning-button label={label.btnCancel} title="Primary action" class="slds-button slds-m-left_x-small" onclick={handleCloseModal}>
                 </lightning-button>
                 <!--CREATE-->
                 <template if:true={mode.isInsert}>
-                    <lightning-button variant="brand" label="Save" title="Primary action"
+                    <lightning-button variant="brand" label={label.btnSave} title="Primary action"
                         class="slds-button slds-m-left_x-small" onclick={handleCreateBtn}>
                     </lightning-button>
                 </template>
                 <!--UPDATE-->
                 <template if:true={mode.isUpdate}>
-                    <lightning-button variant="brand" label="Save" title="Primary action"
+                    <lightning-button variant="brand" label={label.btnSave} title="Primary action"
                         class="slds-button slds-m-left_x-small" onclick={handleUpdateBtn}>
                     </lightning-button>
                 </template>
                 <!--DELETE-->
                 <template if:true={mode.isDelete}>
-                    <lightning-button variant="brand" label="Delete" title="Delete Action"
+                    <lightning-button variant="brand" label={label.btnDelete} title="Delete Action"
                         class="slds-button slds-m-left_x-small" onclick={handleDeleteBtn}>
                     </lightning-button>
                 </template>

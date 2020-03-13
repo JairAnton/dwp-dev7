@@ -2,13 +2,19 @@ import { LightningElement, track, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { NavigationMixin } from 'lightning/navigation';
 import deleteMessage from '@salesforce/label/c.BE_SingleRelatedListModal_MsgDelete';
+import btnCancel from '@salesforce/label/c.BE_SingleRelatedListModal_BtnCancel';
+import btnSave from '@salesforce/label/c.BE_SingleRelatedListModal_BtnSave';
+import btnDelete from '@salesforce/label/c.BE_SingleRelatedListModal_BtnDelete';
 import createRecords from "@salesforce/apex/BE_SingleRelatedListModal_Ctr.createRecords";
 import updateRecords from "@salesforce/apex/BE_SingleRelatedListModal_Ctr.updateRecords";
 import deleteRecords from "@salesforce/apex/BE_SingleRelatedListModal_Ctr.deleteRecords";
 export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(LightningElement) {
     // EXPOSE LABEL TO USE IN TEMPLATE
     label = {
-        deleteMessage
+        deleteMessage,
+        btnCancel,
+        btnSave,
+        btnDelete
     }
     /** GENERAL ATRIBUTTES */
     @api recordId;
@@ -141,9 +147,6 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             "sobjectType": this.sobjectType,
             'Id': this.recordId
         };
-        const inputFields = this.template.querySelectorAll(
-            'lightning-input-field'
-        );
         targetObjLst.push(targetObj);
         this.handleDeleteRecords(targetObjLst);
     }
