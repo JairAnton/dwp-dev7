@@ -32,7 +32,7 @@
         <actionName>ListClean</actionName>
         <type>Default</type>
     </actionOverrides>
-    <actionOverrides>
+     <actionOverrides>
         <actionName>New</actionName>
         <content>OverrideStandardButtonMessage_cmp</content>
         <formFactor>Large</formFactor>
