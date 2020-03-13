@@ -1057,7 +1057,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>    
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.AccountNumber</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1382,7 +1382,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.other_phone_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5961,9 +5961,9 @@ Asistente BE</description>
         <layout>Web_Service_Value_Mapping__c-Web Service Value Mapping Layout</layout>
     </layoutAssignments>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>

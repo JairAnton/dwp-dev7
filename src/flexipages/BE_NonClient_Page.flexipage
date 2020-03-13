@@ -186,7 +186,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>COMMERCIAL ACTIVITY</value>
+                <value>Actividad Comercial</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
