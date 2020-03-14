@@ -46,7 +46,7 @@ public with sharing class BE_OppsCommercialActivity_Cls {
         Integer numOpp = 0;
         final String oppType = '';
         final List<wrapperClass> lWrapClassAux = new List<wrapperClass>();
-        final List<Opportunity> oppDenormList = [SELECT Id, Amount, StageName FROM Opportunity WHERE AccountId =: accId AND CloseDate = THIS_YEAR AND StageName IN ('02', '03', '04', '05', '06', '07')];
+        final List<Opportunity> oppDenormList = [SELECT Id, Amount, StageName FROM Opportunity WHERE AccountId =: accId AND CloseDate = THIS_YEAR AND StageName IN ('06', '07')];
         if(!oppDenormList.isEmpty()) {
             for(Opportunity i : oppDenormList) {
                 if(i.StageName == STAGE06) {
