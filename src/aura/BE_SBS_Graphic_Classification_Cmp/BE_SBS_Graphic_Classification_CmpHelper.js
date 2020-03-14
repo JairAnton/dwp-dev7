@@ -10,7 +10,6 @@
         var Dud=[];
         var Per=[];
         var meses=[];
-        var bbva=[];
         var SBS=[];
       action.setCallback(this, function(response) {
       var state = response.getState();
@@ -38,9 +37,6 @@
                                             break;
                                      case 5:
                                             Per[j] = Informe[i][j];
-                                            break;
-                                     case 6:
-                                            bbva[j] = Informe[i][j];
                                             break;
                                      case 7:
                                             SBS[j] = Informe[i][j];
@@ -130,13 +126,13 @@
         } ]
      }
      var ctx = document.getElementById("DWPChart").getContext('2d');
-     var myChart = new Chart(ctx, { // 2018/11/30 -  CORRECCION DEUDA TECNICA: La variable no es utilizada en esta funcion
+     var myChart = new Chart(ctx, {
          type:'bar',
          data: barChartData,
          options: {
                  elements: {
                  line: {
-                        tension: 0 // disables curves in line graphics
+                        tension: 0
                        }
                  },
          scales: {
@@ -170,6 +166,6 @@
 }}
         });
          $A.enqueueAction(action);
-         lista = component.get("v.mesesLista");  // 2018/11/30 -  CORRECCION DEUDA TECNICA: La variable no es utilizada en esta funcion
+         lista = component.get("v.mesesLista");
 	}
 })
