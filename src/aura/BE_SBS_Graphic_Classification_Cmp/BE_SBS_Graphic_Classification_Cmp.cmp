@@ -13,8 +13,7 @@
         <div class="container">
             <div class="slds-m-left_small">
                 <br/><span class="slds-card__header-title slds-truncate" title="Clasificación SBS"><strong>Clasificación SBS</strong></span>
-            </div>
-            <br/>
+            </div><br/>
             <canvas id="DWPChart" />
         </div>
     </div>
