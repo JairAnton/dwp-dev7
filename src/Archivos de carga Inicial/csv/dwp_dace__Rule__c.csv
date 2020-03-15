@@ -268,3 +268,9 @@ PEN,"Conditions:
 -Producto con:SR = true,SP = true,Metodo SP = Web, Producto Cotizable
 Actions:
 -Desestimar",OPP_RULE_02_PRE
+PEN,"Conditions:
+- En Sanción
+- Codigo de puesto GE8 y GE9
+- Enviado para reevaluación a riesgos o Enviado para reevaluación a precio
+Actions:
+- Editar Producto",OPP_RULE_P04

@@ -37,3 +37,4 @@ PEN,OpportunityLineItems-product_price_approval_indicator__c = true,OPP_PRODUCT_
 PEN,OpportunityLineItems-price_quote_available__c = false,OPP_PRODUCT_QUOTE_NOT_AVAILABLE,price_quote_available__c,Checkbox,false,,OpportunityLineItems,ID_EQUAL
 PEN,Case-RecordType.DeveloperName IN Sanction_Price,CASE_RECORDTYPE_SANCTION_PRICE,RecordType.DeveloperName,Text,Sanction_Price,,Case,ID_IN
 PEN,OpportunityLineItems,ALL_OPP_PRODUCT,,,,ID_ALL,OpportunityLineItems,
+PEN,Opportunity-opportunity_status_type__c IN 14,OPP_STATUS_SENT_FOR_RISK_APPROVAL,opportunity_status_type__c,Picklist,14,,Opportunity,ID_IN

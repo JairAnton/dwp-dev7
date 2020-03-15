@@ -3,8 +3,7 @@
       var action = component.get("c.getJSON");
       action.setParams({ recordId : component.get("v.recordId") });
       console.log(action+' : '+component.get("v.recordId"));
-      	var lista=[];
-	  	var Nor=[];
+      	var Nor=[];
         var CPP=[];
         var Def=[];
         var Dud=[];
@@ -126,7 +125,7 @@
         } ]
      }
      var ctx = document.getElementById("DWPChart").getContext('2d');
-     var myChart = new Chart(ctx, {
+     new Chart(ctx, {
          type:'bar',
          data: barChartData,
          options: {
@@ -166,6 +165,5 @@
 }}
         });
          $A.enqueueAction(action);
-         lista = component.get("v.mesesLista");
 	}
 })
