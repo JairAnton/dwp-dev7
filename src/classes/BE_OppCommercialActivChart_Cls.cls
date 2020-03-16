@@ -226,7 +226,7 @@ public with sharing class BE_OppCommercialActivChart_Cls {
     public static list<String> sortQs() {
         final list<string> quartersv = QSVALUES.split(',');
         final list<string> qsOrder= new list<String>();
-        final Integer quarter = System.today().month() / 3 + 1;
+        final Integer quarter = System.today().month() / 3;
         Integer quarter2 = 0;
         for(integer i=0;i< QCUATRO;i++) {
             if(quarter+i < QCUATRO) {
