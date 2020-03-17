@@ -10,8 +10,10 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_EditNonClient_Ctr {
-    static Map<String,Object> mapReturn = new Map<String,Object>();
-    
+    /** constructor */
+    private BE_EditNonClient_Ctr() {}
+    /** mapReturn */
+    static Map<String,Object> mapReturn = new Map<String,Object>(); 
     /**
     @Description get Metadata Config
     @param  nameMetadata DeveloperName of Metadata for QuickAction
@@ -37,7 +39,7 @@ public without sharing class BE_EditNonClient_Ctr {
     @return Account
     */
     @AuraEnabled
-    public static Account getNonClient(String accId, List<String> sObjFields){
+    public static Account getNonClient(String accId, List<String> sObjFields) {
         final String query= 'SELECT '+ String.join(sObjFields, ',') + ' FROM Account WHERE Id=:accId';
         return Database.query(String.escapeSingleQuotes(query));
     }
@@ -49,8 +51,6 @@ public without sharing class BE_EditNonClient_Ctr {
     */
     @AuraEnabled
     public static Object updateNonClient(String sObjs) {
-        System.debug('sObjs');
-        System.debug(sObjs);
         final sObject obj = (sObject) JSON.deserialize(sObjs, Account.class);
         final List<sObject> lstObjs = new List<sObject>{obj};
         return BE_SingleRelatedListModal_Ctr.updateRecords(lstObjs, null);

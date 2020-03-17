@@ -11,6 +11,6 @@
         helper.updateNonClients(cmp,evt,JSON.stringify(sObjectUpdate));
     },
     closeModal:function (cmp,evt,helper){
-     helper.closeModal(cmp,evt); 
+     helper.closeModal(cmp,evt);
     }
 })

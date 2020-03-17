@@ -56,9 +56,9 @@
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
                 if(res.isSuccess){
-                   this.closeModal(cmp,evt); 
+                   this.closeModal(cmp,evt);
                 }else{
-                    this.showToast('Error', res.message, 'error');  
+                    this.showToast('Error', res.message, 'error');
                 }
                 this.closeModal(cmp, evt);
             } else {

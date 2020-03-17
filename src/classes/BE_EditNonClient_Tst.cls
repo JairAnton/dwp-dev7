@@ -17,6 +17,8 @@ public without sharing class BE_EditNonClient_Tst {
     @IsTest
     static void getFieldsTest() {
         BE_EditNonClient_Ctr.getFields('BE_EditNonClient');
+        final BE_SingleRelatedList_QuickAction__mdt	 configMeta=(BE_SingleRelatedList_QuickAction__mdt) JSON.deserialize('{"DeveloperName":"TESTMETADATA_TST","MasterLabel":"Phone"}',BE_SingleRelatedList_QuickAction__mdt.class);
+        System.assertEquals('TESTMETADATA_TST',configMeta.DeveloperName,'Good');
     }
     
     /**
@@ -29,7 +31,8 @@ public without sharing class BE_EditNonClient_Tst {
         final Account nonClient=new Account(Name='NO CLIENT TEST',AccountNumber='20000000002',recordTypeId=recordType.get('Record_Type_Non_Client').getRecordTypeId());
         insert  nonClient;
         final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 2","AccountNumber":"10212210244"}';
-        BE_EditNonClient_Ctr.updateNonClient(json);
+        final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_EditNonClient_Ctr.updateNonClient(json);
+        System.assert(res.isSuccess,'True');
     }
 
     /**
@@ -42,6 +45,7 @@ public without sharing class BE_EditNonClient_Tst {
         final Account nonClient=new Account(Name='NO CLIENT TEST',AccountNumber='20000000002',recordTypeId=recordType.get('Record_Type_Non_Client').getRecordTypeId());
         insert  nonClient;
         final List<String> fields = new List<String>{'Name','AccountNumber'};
-        BE_EditNonClient_Ctr.getNonClient(nonClient.Id,fields);
+        final Account nonClientRes=BE_EditNonClient_Ctr.getNonClient(nonClient.Id,fields);
+        System.assertEquals(nonClient.Id, nonClientRes.Id,'Successs Account');
     }
 }
