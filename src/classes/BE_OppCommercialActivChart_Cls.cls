@@ -253,7 +253,7 @@ public with sharing class BE_OppCommercialActivChart_Cls {
         q3oppLostNumber = countOpp(oppLost,3);
         q4oppLostNumber = countOpp(oppLost,4);
         
-        Map<Integer, Integer> mapQs = new Map<Integer, Integer>();
+        final Map<Integer, Integer> mapQs = new Map<Integer, Integer>();
         mapQs.put(1,formulaHits(q1oppWonNumber,q1oppLostNumber));
         mapQs.put(2,formulaHits(q2oppWonNumber,q2oppLostNumber));
         mapQs.put(3,formulaHits(q3oppWonNumber,q3oppLostNumber));

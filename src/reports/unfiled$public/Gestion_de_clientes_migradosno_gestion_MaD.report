@@ -4,10 +4,10 @@
         <field>Account$branch_level4_desc__c</field>
     </columns>
     <columns>
-        <field>Account$Name</field>
+        <field>Account$main_code_id__c</field>
     </columns>
     <columns>
-        <field>Account$Id</field>
+        <field>Account$Name</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
