@@ -1808,6 +1808,10 @@
         <label><!-- NClient_lbl_WishContinue --></label>
         <name>nonc__NClient_lbl_WishContinue</name>
     </customLabels>
+    <customTabs>
+        <label>No clientes</label>
+        <name>nonc__Prospects</name>
+    </customTabs>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
