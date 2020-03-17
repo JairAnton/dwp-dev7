@@ -4750,10 +4750,6 @@
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-        <recordType>Account.Record_Type_Non_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account_Indicator__c-Account Indicator Layout</layout>
     </layoutAssignments>
 	<layoutAssignments>
