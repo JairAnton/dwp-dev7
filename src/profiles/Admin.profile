@@ -799,6 +799,11 @@
         <field>Account.nonc__Onboarding__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.phone_area_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Account_BBVA_Information__c.Oficer_Manager__c</field>
@@ -4696,19 +4701,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-        <recordType>Account.Record_Type_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-        <recordType>Account.Record_Type_Economic_Group</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-        <recordType>Account.Record_Type_Non_Client</recordType>
+        <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account_Page_Layout_Non_Client</layout>
@@ -4748,6 +4741,10 @@
     <layoutAssignments>
         <layout>Account-Account_Page_Layout_Economic_Group</layout>
         <recordType>Account.Record_Type_Economic_Group</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
+        <recordType>Account.Record_Type_Non_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Indicator__c-Account Indicator Layout</layout>

@@ -1317,12 +1317,12 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.economic_activity_sector__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.economic_activity_subsector__c</field>
         <readable>true</readable>
     </fieldPermissions>
