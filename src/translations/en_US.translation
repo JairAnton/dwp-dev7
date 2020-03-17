@@ -113,6 +113,46 @@
         <name>Amount</name>
     </customLabels>
     <customLabels>
+        <label><!-- BE_NotCreateEditAccount --></label>
+        <name>BE_NotCreateEditAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BE_SingleRelatedListModal_BtnCancel --></label>
+        <name>BE_SingleRelatedListModal_BtnCancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BE_SingleRelatedListModal_BtnDelete --></label>
+        <name>BE_SingleRelatedListModal_BtnDelete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BE_SingleRelatedListModal_BtnSave --></label>
+        <name>BE_SingleRelatedListModal_BtnSave</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BE_SingleRelatedListModal_MsgDelete --></label>
+        <name>BE_SingleRelatedListModal_MsgDelete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BE_SingleRelatedList_BtnDelete --></label>
+        <name>BE_SingleRelatedList_BtnDelete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BE_SingleRelatedList_BtnEdit --></label>
+        <name>BE_SingleRelatedList_BtnEdit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BE_SingleRelatedList_BtnNew --></label>
+        <name>BE_SingleRelatedList_BtnNew</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BE_SingleRelatedList_BtnView --></label>
+        <name>BE_SingleRelatedList_BtnView</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BE_SingleRelatedList_ViewAll --></label>
+        <name>BE_SingleRelatedList_ViewAll</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Cancel --></label>
         <name>Cancel</name>
     </customLabels>
@@ -387,6 +427,142 @@
     <customLabels>
         <label><!-- lblSearch --></label>
         <name>lblSearch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Check Similar Name Non Client --></label>
+        <name>nonc__Check_Similar_Name_Non_Client</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contact your Admin --></label>
+        <name>nonc__Contact_your_Admin</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create Non --></label>
+        <name>nonc__Create_Non</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error --></label>
+        <name>nonc__Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Help Text Non Client Form --></label>
+        <name>nonc__Help_Text_Non_Client_Form</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClientAdd_lbl_FielSet --></label>
+        <name>nonc__NClientAdd_lbl_FielSet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_headerText_New --></label>
+        <name>nonc__NClient_headerText_New</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Back --></label>
+        <name>nonc__NClient_lbl_Back</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Cancel --></label>
+        <name>nonc__NClient_lbl_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Client_Name --></label>
+        <name>nonc__NClient_lbl_Client_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Close --></label>
+        <name>nonc__NClient_lbl_Close</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_CompleteUnique --></label>
+        <name>nonc__NClient_lbl_CompleteUnique</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Continue --></label>
+        <name>nonc__NClient_lbl_Continue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Contrast --></label>
+        <name>nonc__NClient_lbl_Contrast</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_CustomClassNotWork --></label>
+        <name>nonc__NClient_lbl_CustomClassNotWork</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_ExistDuplicate --></label>
+        <name>nonc__NClient_lbl_ExistDuplicate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_FielSet --></label>
+        <name>nonc__NClient_lbl_FielSet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Icon_Description --></label>
+        <name>nonc__NClient_lbl_Icon_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_NewProspect --></label>
+        <name>nonc__NClient_lbl_NewProspect</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Next --></label>
+        <name>nonc__NClient_lbl_Next</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_NoListView --></label>
+        <name>nonc__NClient_lbl_NoListView</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No accounts under the name --></label>
+        <name>nonc__NClient_lbl_No_accounts_under_name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_NotExistCustomClass --></label>
+        <name>nonc__NClient_lbl_NotExistCustomClass</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_NotExistCustomField --></label>
+        <name>nonc__NClient_lbl_NotExistCustomField</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_NotExistCustomValue --></label>
+        <name>nonc__NClient_lbl_NotExistCustomValue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_NotExistRecordtype --></label>
+        <name>nonc__NClient_lbl_NotExistRecordtype</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_NotExistsRT --></label>
+        <name>nonc__NClient_lbl_NotExistsRT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Owner --></label>
+        <name>nonc__NClient_lbl_Owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Please_Follow_The_Requirements --></label>
+        <name>nonc__NClient_lbl_Please_Follow_The_Requirements</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Save --></label>
+        <name>nonc__NClient_lbl_Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_Select_a_record_type --></label>
+        <name>nonc__NClient_lbl_Select_a_record_type</name>
+    </customLabels>
+    <customLabels>
+        <label>Non Client %field% has similar RUC.</label>
+        <name>nonc__NClient_lbl_Similar</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_UniqueIDExist --></label>
+        <name>nonc__NClient_lbl_UniqueIDExist</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NClient_lbl_WishContinue --></label>
+        <name>nonc__NClient_lbl_WishContinue</name>
     </customLabels>
     <customLabels>
         <label><!-- profAdministrator --></label>

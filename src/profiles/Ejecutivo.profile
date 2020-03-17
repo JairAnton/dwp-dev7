@@ -1327,7 +1327,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.email__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1377,6 +1377,11 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.non_client_converted_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.nonc__Onboarding__c</field>
         <readable>true</readable>
@@ -1399,6 +1404,11 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.payment_days_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.phone_area_code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5827,22 +5837,22 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
         <recordType>Account.Record_Type_Non_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
         <recordType>Account.dwp_kitv__Customer</recordType>
     </layoutAssignments>
 	<layoutAssignments>
@@ -6626,6 +6636,10 @@ Asistente BE</description>
     <tabVisibilities>
         <tab>User_Branch__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>nonc__Prospects</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>

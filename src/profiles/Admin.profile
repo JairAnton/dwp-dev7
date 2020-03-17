@@ -791,6 +791,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.non_client_converted_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.nonc__Onboarding__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4745,7 +4750,8 @@
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_BBVA_Classification__c-Account BBVA Classification Layout</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
+        <recordType>Account.Record_Type_Non_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Indicator__c-Account Indicator Layout</layout>
@@ -4779,6 +4785,12 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Renewals__c-Account Renewals Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>BE_SingleRelatedList_QuickAction__mdt-BE_SingleRelatedList_QuickAction Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>BE_SingleRelatedList_Setting__mdt-Related List Config Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Formalization Case Layout</layout>
@@ -5500,6 +5512,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>dwp_dace__Rules_Set__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>nonc__Prospects</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

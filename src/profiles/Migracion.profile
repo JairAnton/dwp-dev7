@@ -753,6 +753,31 @@
         <field>Account_Profitability__c.origin_currenIso_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.non_client_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.non_client_converted_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.nonc__Onboarding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.other_phone_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.phone_area_code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
      <fieldPermissions>
         <editable>true</editable>
         <field>Account_Accounting__c.gf_ratio_category_type__c</field>
@@ -4521,22 +4546,22 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
         <recordType>Account.Record_Type_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
         <recordType>Account.Record_Type_Non_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
         <recordType>Account.dwp_kitv__Customer</recordType>
     </layoutAssignments>
 	<layoutAssignments>
@@ -5389,8 +5414,8 @@
         <tab>User_Position_equivalence__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-	<tabVisibilities>
-        <tab>Organizational_Unit_Equivalence__c</tab>
+    <tabVisibilities>
+        <tab>nonc__Prospects</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
