@@ -57,6 +57,12 @@
             <operator>notEqual</operator>
             <value></value>
         </criteriaItems>
+        <criteriaItems>
+            <column>Account$Is_Migration__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Summary</format>

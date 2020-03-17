@@ -36,6 +36,12 @@
             <operator>equals</operator>
             <value>06</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.Is_Migration__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Summary</format>
