@@ -618,6 +618,6 @@
     </customLabels>
     <customTabs>
         <label><!-- Prospects --></label>
-        <name>nonc_Prospects</name>
+        <name>nonc__Prospects</name>
     </customTabs>
 </Translations>
