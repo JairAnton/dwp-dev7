@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId"
+    controller="BE_EditNonClient_Ctr" access="global">
+    <aura:attribute name="nameMetadata" type="String" default="BE_EditNonClient" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="sObjData" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--HEADER-->
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>
+    </header>
+    <!--CONTENT-->
+    <div class="slds-p-around_medium">
+        <lightning:recordEditForm onsubmit="{!c.handleSubmitCustom}" objectApiName="{!v.sObjData.sObjectType}">
+            <lightning:layout multipleRows="true">
+                <aura:iteration items="{!v.sObjData.fields}" var="item">
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6">
+                        <lightning:inputField fieldName="{!item.fieldName}" value="{!item.value}" />
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </lightning:layout>
+            <div class="slds-m-top_medium slds-text-align_center">
+                <lightning:button name="cancelar" label="Cancelar" onclick="{!c.closeModal}" />
+                <lightning:button variant="brand" type="submit" name="save" label="Guardar" />
+            </div>
+        </lightning:recordEditForm>
+    </div>
+</aura:component>

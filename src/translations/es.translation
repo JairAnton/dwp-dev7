@@ -161,6 +161,30 @@
         <name>BE_SingleRelatedListModal_MsgDelete</name>
     </customLabels>
     <customLabels>
+        <label>Eliminar</label>
+        <name>BE_SingleRelatedList_BtnDelete</name>
+    </customLabels>
+    <customLabels>
+        <label>Editar</label>
+        <name>BE_SingleRelatedList_BtnEdit</name>
+    </customLabels>
+    <customLabels>
+        <label>Nuevo</label>
+        <name>BE_SingleRelatedList_BtnNew</name>
+    </customLabels>
+    <customLabels>
+        <label>Ver</label>
+        <name>BE_SingleRelatedList_BtnView</name>
+    </customLabels>
+    <customLabels>
+        <label>Ver todos</label>
+        <name>BE_SingleRelatedList_ViewAll</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Imagen Modal de bienvenida WL --></label>
+        <name>BE_WelcomeTabCteImg</name>
+    </customLabels>
+    <customLabels>
         <label>DIRECTA</label>
         <name>LblDirectDebt</name>
     </customLabels>
@@ -1697,7 +1721,7 @@
         <name>nonc__NClient_lbl_CompleteUnique</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_Continue --></label>
+        <label>Continuar</label>
         <name>nonc__NClient_lbl_Continue</name>
     </customLabels>
     <customLabels>

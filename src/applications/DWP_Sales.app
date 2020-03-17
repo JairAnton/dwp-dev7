@@ -227,14 +227,32 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
-     <profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_NonClient_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Non_Client</recordType>
+        <type>Flexipage</type>
+        <profile>Analista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
         <actionName>View</actionName>
         <content>BE_NonClient_Page</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Record_Type_Non_Client</recordType>
         <type>Flexipage</type>
-        <profile>Admin</profile>
+        <profile>Analista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_NonClient_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Non_Client</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -248,11 +266,29 @@
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>BE_NonClient_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Non_Client</recordType>
+        <type>Flexipage</type>
+        <profile>Especialista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_NonClient_Page</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Record_Type_Non_Client</recordType>
         <type>Flexipage</type>
         <profile>Especialista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_NonClient_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Non_Client</recordType>
+        <type>Flexipage</type>
+        <profile>Migracion</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -266,11 +302,38 @@
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>BE_NonClient_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Non_Client</recordType>
+        <type>Flexipage</type>
+        <profile>Operativo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_NonClient_Page</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Record_Type_Non_Client</recordType>
         <type>Flexipage</type>
         <profile>Operativo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_NonClient_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Non_Client</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_NonClient_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Record_Type_Non_Client</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
     </profileActionOverrides>
 	<setupExperience>all</setupExperience>
     <tabs>standard-home</tabs>

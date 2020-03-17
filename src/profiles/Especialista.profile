@@ -1108,6 +1108,11 @@ Ejecutivos de REDES</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.non_client_converted_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.nonc__Onboarding__c</field>
         <readable>true</readable>
@@ -5048,6 +5053,10 @@ Ejecutivos de REDES</description>
         <recordType>Account.Record_Type_Economic_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <recordType>Account.Record_Type_Non_Client</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>AccountContactRelation-Account Contact Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -5964,6 +5973,10 @@ Ejecutivos de REDES</description>
     <tabVisibilities>
         <tab>WebPyme</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>nonc__Prospects</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

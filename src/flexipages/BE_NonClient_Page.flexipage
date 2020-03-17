@@ -3,6 +3,17 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>nameTopic</name>
+                <value>NewOppFromAccount,NewVisitFromAccount,NewContactFromAccount</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedApiName</name>
+                <value>AccountId,dwp_kitv__account_id__c,AccountId</value>
+            </componentInstanceProperties>
+            <componentName>DynamicRedirect_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>collapsed</name>
                 <value>false</value>
             </componentInstanceProperties>
@@ -118,7 +129,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
-                <value>OPPORTUNITIES</value>
+                <value>Oportunidades</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>
@@ -133,7 +144,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
-                <value>VISITS</value>
+                <value>Visitas</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>
