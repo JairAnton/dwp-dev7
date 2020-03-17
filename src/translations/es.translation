@@ -1810,7 +1810,7 @@
     </customLabels>
     <customTabs>
         <label>No clientes</label>
-        <name>Prospects</name>
+        <name>nonc_Prospects</name>
     </customTabs>
     <quickActions>
         <label>Llamada</label>

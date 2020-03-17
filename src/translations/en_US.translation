@@ -616,4 +616,8 @@
         <label>You cannot end a visit that hasn´t been completed</label>
         <name>dwp_kitv__Status_visit_to_finalize</name>
     </customLabels>
+    <customTabs>
+        <label><!-- Prospects --></label>
+        <name>nonc_Prospects</name>
+    </customTabs>
 </Translations>
