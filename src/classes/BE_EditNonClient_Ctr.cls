@@ -10,10 +10,10 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_EditNonClient_Ctr {
+    /** mapReturn */
+    static Map<String,Object> mapReturn = new Map<String,Object>();
     /** constructor */
     private BE_EditNonClient_Ctr() {}
-    /** mapReturn */
-    static Map<String,Object> mapReturn = new Map<String,Object>(); 
     /**
     @Description get Metadata Config
     @param  nameMetadata DeveloperName of Metadata for QuickAction

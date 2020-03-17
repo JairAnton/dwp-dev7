@@ -395,7 +395,129 @@
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
-            <valueSetName>Area_Code_Phone</valueSetName>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>41</fullName>
+                    <default>false</default>
+                    <label>Amazonas - 41</label>
+                </value>
+                <value>
+                    <fullName>43</fullName>
+                    <default>false</default>
+                    <label>Ancash - 43</label>
+                </value>
+                <value>
+                    <fullName>83</fullName>
+                    <default>false</default>
+                    <label>Apurimac - 83</label>
+                </value>
+                <value>
+                    <fullName>54</fullName>
+                    <default>false</default>
+                    <label>Arequipa - 54</label>
+                </value>
+                <value>
+                    <fullName>66</fullName>
+                    <default>false</default>
+                    <label>Ayacucho - 66</label>
+                </value>
+                <value>
+                    <fullName>76</fullName>
+                    <default>false</default>
+                    <label>Cajamarca - 76</label>
+                </value>
+                <value>
+                    <fullName>84</fullName>
+                    <default>false</default>
+                    <label>Cusco - 84</label>
+                </value>
+                <value>
+                    <fullName>67</fullName>
+                    <default>false</default>
+                    <label>Huancavelica - 67</label>
+                </value>
+                <value>
+                    <fullName>62</fullName>
+                    <default>false</default>
+                    <label>Huanuco - 62</label>
+                </value>
+                <value>
+                    <fullName>56</fullName>
+                    <default>false</default>
+                    <label>Ica - 56</label>
+                </value>
+                <value>
+                    <fullName>64</fullName>
+                    <default>false</default>
+                    <label>Junin - 64</label>
+                </value>
+                <value>
+                    <fullName>44</fullName>
+                    <default>false</default>
+                    <label>La Libertad - 44</label>
+                </value>
+                <value>
+                    <fullName>74</fullName>
+                    <default>false</default>
+                    <label>Lambayeque - 74</label>
+                </value>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>Lima y Callao - 01</label>
+                </value>
+                <value>
+                    <fullName>65</fullName>
+                    <default>false</default>
+                    <label>Loreto - 65</label>
+                </value>
+                <value>
+                    <fullName>82</fullName>
+                    <default>false</default>
+                    <label>Madre de Dios - 82</label>
+                </value>
+                <value>
+                    <fullName>53</fullName>
+                    <default>false</default>
+                    <label>Moquegua - 53</label>
+                </value>
+                <value>
+                    <fullName>63</fullName>
+                    <default>false</default>
+                    <label>Pasco - 63</label>
+                </value>
+                <value>
+                    <fullName>73</fullName>
+                    <default>false</default>
+                    <label>Piura - 73</label>
+                </value>
+                <value>
+                    <fullName>51</fullName>
+                    <default>false</default>
+                    <label>Puno - 51</label>
+                </value>
+                <value>
+                    <fullName>42</fullName>
+                    <default>false</default>
+                    <label>San Martin - 42</label>
+                </value>
+                <value>
+                    <fullName>52</fullName>
+                    <default>false</default>
+                    <label>Tacna - 52</label>
+                </value>
+                <value>
+                    <fullName>72</fullName>
+                    <default>false</default>
+                    <label>Tumbes - 72</label>
+                </value>
+                <value>
+                    <fullName>61</fullName>
+                    <default>false</default>
+                    <label>Ucayali - 61</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
