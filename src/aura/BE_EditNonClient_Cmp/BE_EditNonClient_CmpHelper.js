@@ -60,7 +60,6 @@
                 }else{
                     this.showToast('Error', res.message, 'error');
                 }
-                this.closeModal(cmp, evt);
             } else {
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }

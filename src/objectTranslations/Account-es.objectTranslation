@@ -790,7 +790,7 @@
         <name>non_client_code__c</name>
     </fields>
     <fields>
-        <label><!-- Converted Date --></label>
+        <label>Fecha de conversión</label>
         <name>non_client_converted_date__c</name>
     </fields>
     <fields>
