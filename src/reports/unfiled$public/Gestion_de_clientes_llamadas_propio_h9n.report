@@ -4,10 +4,16 @@
         <field>Account.branch_level4_desc__c</field>
     </columns>
     <columns>
+        <field>Account.main_code_id__c</field>
+    </columns>
+    <columns>
         <field>ACCOUNT.NAME</field>
     </columns>
     <columns>
-        <field>ACCOUNT_ID</field>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>DESCRIPTION</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
@@ -30,7 +36,7 @@
         <criteriaItems>
             <column>Account.Is_Migration__c</column>
             <isUnlocked>true</isUnlocked>
-            <operator>lessOrEqual</operator>
+            <operator>equals</operator>
             <value>0</value>
         </criteriaItems>
         <language>es</language>

@@ -4,10 +4,16 @@
         <field>FK_$Account.branch_level4_desc__c</field>
     </columns>
     <columns>
+        <field>FK_$Account.main_code_id__c</field>
+    </columns>
+    <columns>
         <field>FK_NAME</field>
     </columns>
     <columns>
-        <field>FK_ACC_ID</field>
+        <field>dwp_kitv__Visit__c.start_date_calculated__c</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_status_type__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
@@ -26,6 +32,12 @@
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>06</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.Is_Migration__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
         </criteriaItems>
         <language>es</language>
     </filter>

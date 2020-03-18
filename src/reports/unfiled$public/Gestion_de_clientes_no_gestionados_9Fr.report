@@ -4,10 +4,10 @@
         <field>Account$branch_level4_desc__c</field>
     </columns>
     <columns>
-        <field>Account$Name</field>
+        <field>Account$main_code_id__c</field>
     </columns>
     <columns>
-        <field>Account$Id</field>
+        <field>Account$Name</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
@@ -56,6 +56,12 @@
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Is_Migration__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>

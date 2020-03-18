@@ -16,9 +16,6 @@
         <field>dwp_kitv__Visit__c.dwp_kitv__visit_status_type__c</field>
     </columns>
     <columns>
-        <field>FK_ACC_ID</field>
-    </columns>
-    <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>FK_$Account.Record_Count__c</field>
     </columns>
@@ -35,6 +32,12 @@
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>06</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.Is_Migration__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
