@@ -1672,8 +1672,8 @@
         <label>No se puede sancionar el precio de una oportunidad en un dispositivo móvil, vuelve a intentarlo desde tu equipo de escritorio o laptop.</label>
         <name>BE_FlowNotAvailable</name>
     </customLabels>
-        <customLabels>
-        <label><!-- Check Similar Name Non Client --></label>
+    <customLabels>
+        <label>Para evitar duplicados y archivos de no clientes existentes, complete el nombre del cliente que desea registrar para que podamos contrastar esta información con las bases de datos del banco.</label>
         <name>nonc__Check_Similar_Name_Non_Client</name>
     </customLabels>
     <customLabels>
@@ -1717,7 +1717,7 @@
         <name>nonc__NClient_lbl_Close</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_CompleteUnique --></label>
+        <label>Completa el campo &amp;AccountNumber&amp;.</label>
         <name>nonc__NClient_lbl_CompleteUnique</name>
     </customLabels>
     <customLabels>
@@ -1757,7 +1757,7 @@
         <name>nonc__NClient_lbl_NoListView</name>
     </customLabels>
     <customLabels>
-        <label><!-- No accounts under the name --></label>
+        <label>No se encontraron registros con el nombre</label>
         <name>nonc__NClient_lbl_No_accounts_under_name</name>
     </customLabels>
     <customLabels>
@@ -1773,19 +1773,19 @@
         <name>nonc__NClient_lbl_NotExistCustomValue</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_NotExistRecordtype --></label>
+        <label>RecordType of Non Clients no está configurado en una configuración personalizada.</label>
         <name>nonc__NClient_lbl_NotExistRecordtype</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_NotExistsRT --></label>
+        <label>No existe un tipo de registro en la cuenta con el nombre especificado en la configuración personalizada.</label>
         <name>nonc__NClient_lbl_NotExistsRT</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_Owner --></label>
+        <label>Dueño</label>
         <name>nonc__NClient_lbl_Owner</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_Please_Follow_The_Requirements --></label>
+        <label>Siga los requisitos para un contraste exitoso.</label>
         <name>nonc__NClient_lbl_Please_Follow_The_Requirements</name>
     </customLabels>
     <customLabels>
@@ -1793,7 +1793,7 @@
         <name>nonc__NClient_lbl_Save</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_Select_a_record_type --></label>
+        <label>Seleccionar tipo de registro</label>
         <name>nonc__NClient_lbl_Select_a_record_type</name>
     </customLabels>
     <customLabels>
@@ -1805,7 +1805,7 @@
         <name>nonc__NClient_lbl_UniqueIDExist</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_WishContinue --></label>
+        <label>¿Desea continuar?</label>
         <name>nonc__NClient_lbl_WishContinue</name>
     </customLabels>
     <customTabs>

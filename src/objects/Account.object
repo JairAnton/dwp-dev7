@@ -2774,15 +2774,26 @@
     </searchLayouts>
     <sharingModel>Read</sharingModel>
     <validationRules>
+        <fullName>BE_OnlyCreateNonClient</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(RecordType.DeveloperName  &lt;&gt;  &apos;Record_Type_Non_Client&apos;,
+ AND($Profile.Name &lt;&gt; &apos;Migracion&apos;,$Profile.Name &lt;&gt; &apos;System Administrator&apos;,$Profile.Name &lt;&gt; &apos;Administrador de sistema&apos;))</errorConditionFormula>
+        <errorMessage>No tiene los permisos suficientes para crear clientes</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>BE_PhoneValidationNonClient</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
 RecordType.DeveloperName = &apos;Record_Type_Non_Client&apos;,
-OR(NOT(ISPICKVAL(phone_area_code__c, &quot;&quot;)),NOT(ISBLANK(other_phone_number__c))),
+IF(NOT(ISPICKVAL(phone_area_code__c, &quot;&quot;)) || NOT(ISBLANK(other_phone_number__c)),
 OR(
 AND(ISPICKVAL(phone_area_code__c, &quot;01&quot;),LEN(other_phone_number__c) &lt;&gt; 6),
 AND(NOT(ISPICKVAL(phone_area_code__c, &quot;01&quot;)),LEN(other_phone_number__c) &lt;&gt; 7),
-NOT(ISNUMBER(other_phone_number__c))
+NOT(ISNUMBER(other_phone_number__c)),
+ISPICKVAL(phone_area_code__c, &quot;&quot;),
+ISBLANK(other_phone_number__c),
+NOT(REGEX(other_phone_number__c, &quot;\\d*&quot;))
+),false
 )
 )</errorConditionFormula>
         <errorDisplayField>other_phone_number__c</errorDisplayField>

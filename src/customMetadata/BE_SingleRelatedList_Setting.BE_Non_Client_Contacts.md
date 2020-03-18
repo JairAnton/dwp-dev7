@@ -136,7 +136,7 @@
     },
     &quot;update&quot;: {
         &quot;label&quot;: {
-            &quot;es&quot;: &quot;Editar relation&quot;,
+            &quot;es&quot;: &quot;Editar relación&quot;,
             &quot;en-US&quot;: &quot;Edit Relationship&quot;
         },
         &quot;title&quot;: {
@@ -148,7 +148,7 @@
     },
     &quot;delete&quot;: {
         &quot;label&quot;: {
-            &quot;es&quot;: &quot;Eliminar relation&quot;,
+            &quot;es&quot;: &quot;Eliminar relación&quot;,
             &quot;en-US&quot;: &quot;Remove Relationship&quot;
         },
         &quot;title&quot;: {
