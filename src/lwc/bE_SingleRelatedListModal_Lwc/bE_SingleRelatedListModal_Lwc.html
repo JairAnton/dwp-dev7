@@ -20,6 +20,7 @@
                 <!--CREATE-->
                 <template if:true={mode.isInsert}>
                     <lightning-record-edit-form object-api-name={sobjectType}>
+                        <lightning-messages></lightning-messages>
                         <lightning-layout multiple-rows>
                             <template for:each={sObjFields} for:item="fieldItem">
                                 <lightning-layout-item key={fieldItem.name} size="12" small-device-size="12"
@@ -38,7 +39,7 @@
                             <template for:each={sObjFields} for:item="fieldItem">
                                 <lightning-layout-item key={fieldItem} size="12" small-device-size="12"
                                     medium-device-size="12" large-device-size="6" padding="horizontal-medium">
-                                        <lightning-input-field key={fieldItem} field-name={fieldItem}>
+                                        <lightning-input-field key={fieldItem.fieldName} field-name={fieldItem.fieldName} value={fieldItem.value} required={fieldItem.required}>
                                         </lightning-input-field>
                                 </lightning-layout-item>
                             </template>

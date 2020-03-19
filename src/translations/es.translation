@@ -161,6 +161,10 @@
         <name>BE_SingleRelatedListModal_MsgDelete</name>
     </customLabels>
     <customLabels>
+        <label>Completar los campos requeridos</label>
+        <name>BE_SingleRelatedListModal_MsgRequiredField</name>
+    </customLabels>
+    <customLabels>
         <label>Eliminar</label>
         <name>BE_SingleRelatedList_BtnDelete</name>
     </customLabels>

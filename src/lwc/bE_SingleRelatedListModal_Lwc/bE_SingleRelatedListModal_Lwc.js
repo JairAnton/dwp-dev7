@@ -5,16 +5,19 @@ import deleteMessage from '@salesforce/label/c.BE_SingleRelatedListModal_MsgDele
 import btnCancel from '@salesforce/label/c.BE_SingleRelatedListModal_BtnCancel';
 import btnSave from '@salesforce/label/c.BE_SingleRelatedListModal_BtnSave';
 import btnDelete from '@salesforce/label/c.BE_SingleRelatedListModal_BtnDelete';
+import requiredFieldsMsg from "@salesforce/label/c.BE_SingleRelatedListModal_MsgRequiredField";
 import createRecords from "@salesforce/apex/BE_SingleRelatedListModal_Ctr.createRecords";
 import updateRecords from "@salesforce/apex/BE_SingleRelatedListModal_Ctr.updateRecords";
 import deleteRecords from "@salesforce/apex/BE_SingleRelatedListModal_Ctr.deleteRecords";
+
 export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(LightningElement) {
     // EXPOSE LABEL TO USE IN TEMPLATE
     label = {
         deleteMessage,
         btnCancel,
         btnSave,
-        btnDelete
+        btnDelete,
+        requiredFieldsMsg
     }
     /** GENERAL ATRIBUTTES */
     @api recordId;
@@ -31,7 +34,7 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
     }
     handleCloseModal(refresh) {
         let evt = new CustomEvent('closemodalweb',
-        {detail:refresh});
+            { detail: refresh });
         this.dispatchEvent(evt);
     }
     /** CALL APEX */
@@ -99,27 +102,33 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
 
     /**ACTIONS BUTTONS */
     handleCreateBtn() {
-        let targetObjLst = [];
+        let targetObjLst= [];
+        let isError=false;
         let targetObj = { "sobjectType": this.sobjectType };
         const inputFields = this.template.querySelectorAll(
             'lightning-input-field'
         );
-        if (inputFields) {
-            inputFields.forEach(field => {
-                Object.defineProperty(targetObj, field.fieldName, {
-                    value: field.value,
-                    writable: true,
-                    enumerable: true,
-                    configurable: true
-                });
+        for (const field of inputFields) {
+            Object.defineProperty(targetObj, field.fieldName, {
+                value: field.value,
+                writable: true,
+                enumerable: true,
+                configurable: true
             });
+            if (field.required && !this.isNotEmpty(field.value)) {
+                this.showToastEvent('Error', this.label.requiredFieldsMsg, 'error');
+                isError=true;
+                break;
+            }
         }
-        targetObjLst.push(targetObj);
-        this.handleCreateRecords(targetObjLst);
+        if(isError===false){
+            targetObjLst.push(targetObj);
+            this.handleCreateRecords(targetObjLst);
+        }
     }
-
     handleUpdateBtn() {
-        let targetObjLst = [];
+        let targetObjLst= [];
+        let isError=false;
         let targetObj = {
             "sobjectType": this.sobjectType,
             'Id': this.recordId
@@ -127,20 +136,24 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
         const inputFields = this.template.querySelectorAll(
             'lightning-input-field'
         );
-        if (inputFields) {
-            inputFields.forEach(field => {
-                Object.defineProperty(targetObj, field.fieldName, {
-                    value: field.value,
-                    writable: true,
-                    enumerable: true,
-                    configurable: true
-                });
+        for (const field of inputFields) {
+            Object.defineProperty(targetObj, field.fieldName, {
+                value: field.value,
+                writable: true,
+                enumerable: true,
+                configurable: true
             });
+            if (field.required && !this.isNotEmpty(field.value)) {
+                this.showToastEvent('Error', this.label.requiredFieldsMsg, 'error');
+                isError=true;
+                break;
+            }
         }
-        targetObjLst.push(targetObj);
-        this.handleUpdateRecords(targetObjLst);
+        if(isError===false){
+            targetObjLst.push(targetObj);
+            this.handleUpdateRecords(targetObjLst);
+        }
     }
-
     handleDeleteBtn() {
         let targetObjLst = [];
         let targetObj = {
@@ -194,6 +207,11 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             variant: variant
         });
         this.dispatchEvent(evt);
+    }
+    /**VALIDATE NULL, EMPTY AND BLANK*/
+    isNotEmpty(obj) {
+        const notEmpty = (obj === null || obj === undefined || obj === "") ? false : true;
+        return notEmpty;
     }
 
 }
