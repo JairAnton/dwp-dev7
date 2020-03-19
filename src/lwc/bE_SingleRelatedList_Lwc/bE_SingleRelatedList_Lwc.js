@@ -436,15 +436,13 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     handleRowActionMobile(event) {
         const row = event.detail;
         if (this.isNotEmpty(this.configMeta[0].ModalName__c)) {
-            this.handleModal(row, true);
+            this.handleModal(row.recordId, true);
         } else {
             this.handleRowAction(row.recordId, row.mode);
         }
     }
     handleRowAction(recordId, mode) {
         const customRow = this.customRowActions[mode];
-        console.log('row');
-        console.log(customRow);
         const modalSet = {
             recordId: recordId,
             mode: mode,
@@ -454,7 +452,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         };
         if (this.isNotEmpty(customRow)) {
             modalSet.title = customRow.title;
-            modalSet.fields = (this.isNotEmpty(customRow.fields)) ? customRow.fields.split(',') : null;
+            modalSet.fields = (this.isNotEmpty(customRow.fields)) ? customRow.fields : null;
             modalSet.className = customRow.className;
         }
         this.handleOpenStanModal(modalSet);

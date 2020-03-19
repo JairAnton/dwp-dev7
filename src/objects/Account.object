@@ -1319,7 +1319,7 @@
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
-		<columns>PARENT_NAME</columns>
+        <columns>PARENT_NAME</columns>
         <columns>main_code_id__c</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
         <columns>segment_desc__c</columns>
@@ -1340,7 +1340,7 @@
             <operation>equals</operation>
             <value>Account.Record_Type_Non_Client</value>
         </filters>
-        <label>My Non Clients</label>
+        <label>Mis No Clientes</label>
     </listViews>
     <listViews>
         <fullName>BE_Non_Clients</fullName>
@@ -1354,12 +1354,12 @@
             <operation>equals</operation>
             <value>Account.Record_Type_Non_Client</value>
         </filters>
-        <label>Non Clients</label>
+        <label>No Clientes</label>
     </listViews>
     <listViews>
         <fullName>MyAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
-		<columns>PARENT_NAME</columns>
+        <columns>PARENT_NAME</columns>
         <columns>main_code_id__c</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
         <columns>segment_desc__c</columns>
@@ -1367,7 +1367,7 @@
         <filterScope>Mine</filterScope>
         <label>My Accounts</label>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>Org_Account_Hierarchy</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>bureau_classification_type__c</columns>
@@ -2787,8 +2787,8 @@
 RecordType.DeveloperName = &apos;Record_Type_Non_Client&apos;,
 IF(NOT(ISPICKVAL(phone_area_code__c, &quot;&quot;)) || NOT(ISBLANK(other_phone_number__c)),
 OR(
-AND(ISPICKVAL(phone_area_code__c, &quot;01&quot;),LEN(other_phone_number__c) &lt;&gt; 6),
-AND(NOT(ISPICKVAL(phone_area_code__c, &quot;01&quot;)),LEN(other_phone_number__c) &lt;&gt; 7),
+AND(ISPICKVAL(phone_area_code__c, &quot;01&quot;),LEN(other_phone_number__c) &lt;&gt; 7),
+AND(NOT(ISPICKVAL(phone_area_code__c, &quot;01&quot;)),LEN(other_phone_number__c) &lt;&gt; 6),
 NOT(ISNUMBER(other_phone_number__c)),
 ISPICKVAL(phone_area_code__c, &quot;&quot;),
 ISBLANK(other_phone_number__c),

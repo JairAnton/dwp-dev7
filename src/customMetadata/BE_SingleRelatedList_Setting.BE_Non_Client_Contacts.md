@@ -144,7 +144,57 @@
             &quot;en-US&quot;: &quot;Modify Account Contact Relationship&quot;
         },
         &quot;name&quot;: &quot;update&quot;,
-        &quot;fields&quot;: &quot;ContactId,AccountId,prof_position_type__c,other_prof_prosition_type__c,decision_making_desc__c,MobilePhone__c,email__c,phone_1_area_code__c,phone_1__c,phone_2_area_code__c,phone_2__c,events_info_type__c,Status_desc__c,Description__c&quot;
+        &quot;fields&quot;: [
+            {
+                &quot;fieldName&quot;: &quot;ContactId&quot;,
+                &quot;required&quot;: &quot;true&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;AccountId&quot;,
+                &quot;required&quot;: &quot;true&quot;,
+                &quot;value&quot;: &quot;recordId&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;prof_position_type__c&quot;,
+                &quot;required&quot;: &quot;true&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;other_prof_prosition_type__c&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;decision_making_desc__c&quot;,
+                &quot;required&quot;: &quot;true&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;MobilePhone__c&quot;,
+                &quot;required&quot;: &quot;true&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;email__c&quot;,
+                &quot;required&quot;: &quot;true&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;Status_desc__c&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;phone_1_area_code__c&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;phone_1__c&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;phone_2_area_code__c&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;phone_2__c&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;events_info_type__c&quot;
+            },
+            {
+                &quot;fieldName&quot;: &quot;Description__c&quot;
+            }
+        ]
     },
     &quot;delete&quot;: {
         &quot;label&quot;: {

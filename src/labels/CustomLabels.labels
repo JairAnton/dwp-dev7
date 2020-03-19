@@ -221,6 +221,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>¿ Are you sure you want to remove this record ?</value>
     </labels>
     <labels>
+        <fullName>BE_SingleRelatedListModal_MsgRequiredField</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedListModal_MsgRequiredField</shortDescription>
+        <value>Complete required fields.</value>
+    </labels>
+    <labels>
         <fullName>BE_SingleRelatedList_BtnDelete</fullName>
         <language>en_US</language>
         <protected>false</protected>

@@ -133,6 +133,10 @@
         <name>BE_SingleRelatedListModal_MsgDelete</name>
     </customLabels>
     <customLabels>
+        <label><!-- BE_SingleRelatedListModal_MsgRequiredField --></label>
+        <name>BE_SingleRelatedListModal_MsgRequiredField</name>
+    </customLabels>
+    <customLabels>
         <label><!-- BE_SingleRelatedList_BtnDelete --></label>
         <name>BE_SingleRelatedList_BtnDelete</name>
     </customLabels>
