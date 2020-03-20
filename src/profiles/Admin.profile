@@ -4704,10 +4704,6 @@
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-        <recordType>Account.dwp_kitv__Customer</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

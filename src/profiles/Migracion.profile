@@ -4546,25 +4546,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-        <recordType>Account.Record_Type_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-        <recordType>Account.Record_Type_Economic_Group</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-        <recordType>Account.Record_Type_Non_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-        <recordType>Account.dwp_kitv__Customer</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -4577,6 +4558,10 @@
     <layoutAssignments>
         <layout>Account-Account_Page_Layout_Economic_Group</layout>
         <recordType>Account.Record_Type_Economic_Group</recordType>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Account-Account_Page_Layout_Non_Client</layout>
+        <recordType>Account.Record_Type_Non_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>

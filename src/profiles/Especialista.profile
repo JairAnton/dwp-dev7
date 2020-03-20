@@ -5023,25 +5023,6 @@ Ejecutivos de REDES</description>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-        <recordType>Account.Record_Type_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-        <recordType>Account.Record_Type_Economic_Group</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-        <recordType>Account.Record_Type_Non_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client</layout>
-        <recordType>Account.dwp_kitv__Customer</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

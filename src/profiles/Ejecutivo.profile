@@ -5837,25 +5837,6 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-        <recordType>Account.Record_Type_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-        <recordType>Account.Record_Type_Economic_Group</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-        <recordType>Account.Record_Type_Non_Client</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
-        <recordType>Account.dwp_kitv__Customer</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -5889,6 +5870,10 @@ Asistente BE</description>
     <layoutAssignments>
         <layout>Account-Account_Page_Layout_Economic_Group</layout>
         <recordType>Account.Record_Type_Economic_Group</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-Account_Page_Layout_Non_Client_Executive</layout>
+        <recordType>Account.Record_Type_Non_Client</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_BBVA_Classification__c-Account BBVA Classification Layout</layout>
