@@ -5063,7 +5063,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
-                <value>Raiting</value>
+                <value>Rating</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>
