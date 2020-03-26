@@ -32,6 +32,20 @@
         <actionName>ListClean</actionName>
         <type>Default</type>
     </actionOverrides>
+     <actionOverrides>
+        <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
         <type>Default</type>
@@ -90,9 +104,54 @@
         <fields>branch_id__c</fields>
         <label>Account Compact Layout Group</label>
     </compactLayouts>
+    <compactLayouts>
+        <fullName>BE_Acc_NonClient</fullName>
+        <fields>Name</fields>
+        <fields>RecordTypeId</fields>
+        <fields>AccountNumber</fields>
+        <fields>OwnerId</fields>
+        <label>Non Client</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>dwp_cglp__Group_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>RecordTypeId</fields>
+        <fields>OwnerId</fields>
+        <label>Group Compact Layout</label>
+    </compactLayouts>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
+    <fieldSets>
+        <fullName>nonc__Non_Client</fullName>
+        <description>It&apos;s used in the creation form of prospects.</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>phone_area_code__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>other_phone_number__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Non Client</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>nonc__Non_Client_Additional</fullName>
+        <description>It&apos;s used in the creation form of prospects from additional recordtype.</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Non Client Additional</label>
+    </fieldSets>
     <fields>
         <fullName>AccountNumber</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1112,6 +1171,26 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+     <fields>
+        <fullName>non_client_code__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Non Client Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>non_client_converted_date__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Converted Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
 	<fields>
         <fullName>Total_campos_obligatorios_llenos__c</fullName>
         <externalId>false</externalId>
@@ -1122,6 +1201,18 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>phone_area_code__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Area Code</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Area_Code_Phone</valueSetName>
+        </valueSet>
     </fields>
 	<fields>
         <fullName>Total_campos_obligatorios_llenos_inicio__c</fullName>
@@ -1134,10 +1225,101 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Group_01__c</fullName>
+        <externalId>false</externalId>
+        <label>Group 01</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G1</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Group_02__c</fullName>
+        <externalId>false</externalId>
+        <label>Group 02</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G2</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Group_03__c</fullName>
+        <externalId>false</externalId>
+        <label>Group 03</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G3</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Group_04__c</fullName>
+        <externalId>false</externalId>
+        <label>Group 04</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G4</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+	<fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Group_01__c &gt; 0, &quot;VISITAS G1&quot;, IF( Group_02__c &gt; 0, &quot;VISITAS G2&quot;, IF( Group_03__c &gt; 0, &quot;VISITAS G3&quot;, IF( Group_04__c &gt; 0, &quot;VISITAS G4&quot;, NULL ) ) ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Priority</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Is_Migration__c</fullName>
+        <externalId>false</externalId>
+        <label>Is Migration</label>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>VISITAS G</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Opportunity.Name</field>
+            <operation>contains</operation>
+            <value>M</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+	<fields>
+        <fullName>user_code__c</fullName>
+        <description>Código del gestor principal del cliente.</description>
+        <externalId>false</externalId>
+        <formula>Owner.user_id__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Registro Gestor Principal</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
-		<columns>PARENT_NAME</columns>
+        <columns>PARENT_NAME</columns>
         <columns>main_code_id__c</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
         <columns>segment_desc__c</columns>
@@ -1147,9 +1329,37 @@
         <label>All Accounts</label>
     </listViews>
     <listViews>
+        <fullName>BE_My_Non_Clients</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ACCOUNT_NUMBER</columns>
+        <columns>other_phone_number__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Record_Type_Non_Client</value>
+        </filters>
+        <label>Mis No Clientes</label>
+    </listViews>
+    <listViews>
+        <fullName>BE_Non_Clients</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ACCOUNT_NUMBER</columns>
+        <columns>other_phone_number__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Record_Type_Non_Client</value>
+        </filters>
+        <label>No Clientes</label>
+    </listViews>
+    <listViews>
         <fullName>MyAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
-		<columns>PARENT_NAME</columns>
+        <columns>PARENT_NAME</columns>
         <columns>main_code_id__c</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
         <columns>segment_desc__c</columns>
@@ -1157,7 +1367,7 @@
         <filterScope>Mine</filterScope>
         <label>My Accounts</label>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>Org_Account_Hierarchy</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>bureau_classification_type__c</columns>
@@ -1422,6 +1632,105 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>phone_area_code__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>41</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>42</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>43</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>44</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>51</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>52</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>53</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>54</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>61</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>62</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>63</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>64</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>65</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>66</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>67</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>72</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>73</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>74</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>76</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>82</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>83</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>84</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Record_Type_Economic_Group</fullName>
@@ -1679,6 +1988,753 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>phone_area_code__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>41</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>42</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>43</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>44</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>51</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>52</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>53</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>54</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>61</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>62</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>63</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>64</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>65</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>66</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>67</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>72</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>73</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>74</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>76</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>82</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>83</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>84</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Record_Type_Non_Client</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>BE_Acc_NonClient</compactLayoutAssignment>
+        <label>Non Client</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Google AdWords</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Analyst</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Integrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>phone_area_code__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>41</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>42</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>43</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>44</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>51</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>52</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>53</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>54</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>61</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>62</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>63</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>64</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>65</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>66</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>67</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>72</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>73</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>74</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>76</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>82</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>83</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>84</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>dwp_kitv__Customer</fullName>
+        <active>true</active>
+        <description>Account customer type</description>
+        <label>Customer</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>phone_area_code__c</picklist>
+            <values>
+                <fullName>01</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>41</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>42</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>43</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>44</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>51</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>52</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>53</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>54</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>61</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>62</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>63</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>64</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>65</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>66</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>67</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>72</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>73</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>74</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>76</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>82</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>83</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>84</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
@@ -1717,4 +2773,30 @@
         <searchResultsAdditionalFields>Owner_calculated__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>BE_OnlyCreateNonClient</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(RecordType.DeveloperName  &lt;&gt;  &apos;Record_Type_Non_Client&apos;,
+ AND($Profile.Name &lt;&gt; &apos;Migracion&apos;,$Profile.Name &lt;&gt; &apos;System Administrator&apos;,$Profile.Name &lt;&gt; &apos;Administrador de sistema&apos;))</errorConditionFormula>
+        <errorMessage>No tiene los permisos suficientes para crear clientes</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BE_PhoneValidationNonClient</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+RecordType.DeveloperName = &apos;Record_Type_Non_Client&apos;,
+IF(NOT(ISPICKVAL(phone_area_code__c, &quot;&quot;)) || NOT(ISBLANK(other_phone_number__c)),
+OR(
+AND(ISPICKVAL(phone_area_code__c, &quot;01&quot;),LEN(other_phone_number__c) &lt;&gt; 7),
+AND(NOT(ISPICKVAL(phone_area_code__c, &quot;01&quot;)),LEN(other_phone_number__c) &lt;&gt; 6),
+NOT(ISNUMBER(other_phone_number__c)),
+ISPICKVAL(phone_area_code__c, &quot;&quot;),
+ISBLANK(other_phone_number__c),
+NOT(REGEX(other_phone_number__c, &quot;\\d*&quot;))
+),false
+)
+)</errorConditionFormula>
+        <errorDisplayField>other_phone_number__c</errorDisplayField>
+        <errorMessage>Please, check that the phone contains  the correct format.</errorMessage>
+    </validationRules>
 </CustomObject>

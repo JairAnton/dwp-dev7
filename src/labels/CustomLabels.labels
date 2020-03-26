@@ -178,6 +178,92 @@
         <value>Total</value>
     </labels>
     <labels>
+        <fullName>BE_DynamicModalRecordForm</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error DynamicModalRecordForm</shortDescription>
+        <value>Se ha producido un error en la configuración.
+Por favor verifique la estructura de acuerdo a la guía en la documentación.</value>
+    </labels>
+    <labels>
+        <fullName>BE_NotCreateEditAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_NotCreateEditAccount</shortDescription>
+        <value>Register a new Non Client you must access the Prospects tab and press the &quot;New Non-Client&quot; button</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedListModal_BtnCancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedListModal_BtnCancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedListModal_BtnDelete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedListModal_BtnDelete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedListModal_BtnSave</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedListModal_BtnSave</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedListModal_MsgDelete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedListModal_MsgDelete</shortDescription>
+        <value>¿ Are you sure you want to remove this record ?</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedListModal_MsgRequiredField</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedListModal_MsgRequiredField</shortDescription>
+        <value>Complete required fields.</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_BtnDelete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_BtnDelete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_BtnEdit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_BtnEdit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_BtnNew</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_BtnNew</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_BtnView</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_BtnView</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>BE_SingleRelatedList_ViewAll</fullName>
+        <categories>BE</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SingleRelatedList_ViewAll</shortDescription>
+        <value>View All</value>
+    </labels>
+    <labels>
         <fullName>Dwp_msgGenericError</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2238,5 +2324,12 @@
         <protected>false</protected>
         <shortDescription>Imagen Modal de bienvenida WL</shortDescription>
         <value>/resource/BE_WelcomeTabCte</value>
+    </labels>
+	<labels>
+        <fullName>BE_FlowNotAvailable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_FlowNotAvailable</shortDescription>
+        <value>You cannot sanction price of an opportunity on a mobile device, try again from your desktop or laptop.</value>
     </labels>
 </CustomLabels>

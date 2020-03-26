@@ -12,7 +12,7 @@
     	<aura:set attribute="else">
     	<aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
             <div aura:id="changeIt" class="Normal">
-                <table class="slds-table  slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
                         <th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
                             <div class="slds-text-title--caps slds-truncate">Total de visitas (YTD)</div>
                             <div class="horizontal "><strong><ui:outputNumber value="{!v.data[0].TotalVisitsYTD}"/></strong></div>
@@ -23,14 +23,14 @@
                         </th>
                     	<th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
                             <div class="slds-text-title--caps slds-truncate">Variación vs. año anterior</div>
-                                 <div class="horizontal "><strong><ui:outputText value="{!v.data[0].TotalVisitsYOY}"/>%</strong></div>
+                            <div class="horizontal "><strong><ui:outputText value="{!v.data[0].TotalVisitsYOY}"/>%</strong></div>
                         </th>
                 </table>
             </div>
             <aura:set attribute="else">
             <div aura:id="changeIt" class="Normal" style="height:100%; width:100%;">
 
-                <table class="slds-table slds-table_fixed-layout slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
                         <th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
                             <div class="slds-text-title--caps slds-truncate">Total Visits (YTD)</div>
                             <div class="horizontal "><strong><ui:outputNumber value="{!v.data[0].TotalVisitsYTD}"/></strong></div>

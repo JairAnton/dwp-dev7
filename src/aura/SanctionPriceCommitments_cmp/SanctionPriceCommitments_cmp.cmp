@@ -5,7 +5,8 @@
     <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to display" />
     <aura:attribute name="hasHeader" type="Boolean" default="true" description="Allow show header section" />
     <aura:handler name="commitmentsEvent" event="c:Commitments_evt" action="{!c.doTypeMode}"/>
-
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
     <aura:if isTrue="{!v.step == '1'}">
         <c:CommitmentsTable_cmp oppRecordId="{!v.inputAttributes.recordId}" quoteMethod="{!v.inputAttributes.approvalMethod}"/>
         <aura:set attribute="else">

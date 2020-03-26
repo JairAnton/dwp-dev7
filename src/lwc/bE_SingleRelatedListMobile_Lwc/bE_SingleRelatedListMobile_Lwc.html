@@ -1,0 +1,79 @@
+<template>
+    <!--<div onclick={navigateToRecordViewPage}>-->
+    <div class="slds-p-bottom_small">
+        <lightning-layout multiple-rows="true">
+            <!--MOBILE-->
+            <template slot="body" iterator:it={sObjDataLst}>
+                <!--RECORD LABELS-->
+                <lightning-layout-item if:false={it.first} key={it.value.label} size="4" small-device-size="4"
+                    medium-device-size="4" padding="horizontal-small">
+                    <div class="slds-text-align_left slds-text-color_weak">{it.value.label}:</div>
+                </lightning-layout-item>
+                <!--FIRST RECORD VALUES-->
+                <lightning-layout-item if:true={it.first} key={it.value.value} size="11" small-device-size="10"
+                    medium-device-size="10" padding="horizontal-small">
+                    <div class="slds-text-align_left">
+                        <lightning-formatted-text if:true={it.value.isText} value={it.value.value}>
+                        </lightning-formatted-text>
+                        <lightning-formatted-number if:true={it.value.isCurrency} value={it.value.value}
+                            format-style="currency" currency-code={it.value.CurrencyIsoCode} currency-display-as="code">
+                        </lightning-formatted-number>
+                        <lightning-formatted-number if:true={it.value.isPercent} value={it.value.value}
+                            format-style="percent">
+                        </lightning-formatted-number>
+                        <lightning-formatted-number if:true={it.value.isDecimal} value={it.value.value}
+                            format-style="decimal">
+                        </lightning-formatted-number>
+                        <lightning-formatted-phone if:true={it.value.isPhoneNumber} value={it.value.value}>
+                        </lightning-formatted-phone>
+                        <lightning-formatted-url if:true={it.value.isUrl} value={it.value.value}
+                            label={it.value.urlLabel}>
+                        </lightning-formatted-url>
+                        <lightning-formatted-email if:true={it.value.isEmail} value={it.value.value}>
+                        </lightning-formatted-email>
+                        <lightning-button if:true={it.value.isButton} label={it.value.value} title="Mostrar detalle"
+                            value={it.value.value} icon-name="utility:search" onclick={handleOpenModalMobile}>
+                        </lightning-button>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item if:true={it.first} key={it.value.value} size="1" small-device-size="1"
+                    medium-device-size="1" padding="horizontal-small">
+                    <div class="slds-text-align_center">
+                        <lightning-button-menu icon-size="x-small" menu-alignment="auto">
+                            <template for:each={rowActions} for:item="row">
+                                <lightning-menu-item key={row.label} label={row.label} value={row.name} onclick={handleRowAction}></lightning-menu-item>
+                            </template>
+                        </lightning-button-menu>
+                    </div>
+                </lightning-layout-item>
+                <!--ALL RECORDS VALUES-->
+                <lightning-layout-item if:false={it.first} key={it.value.value} size="8" small-device-size="8"
+                    medium-device-size="8" padding="horizontal-small">
+                    <div class="slds-text-align_left">
+                        <lightning-formatted-text if:true={it.value.isText} value={it.value.value}>
+                        </lightning-formatted-text>
+                        <lightning-formatted-number if:true={it.value.isCurrency} value={it.value.value}
+                            format-style="currency" currency-code={it.value.CurrencyIsoCode} currency-display-as="code">
+                        </lightning-formatted-number>
+                        <lightning-formatted-number if:true={it.value.isPercent} value={it.value.value}
+                            format-style="percent">
+                        </lightning-formatted-number>
+                        <lightning-formatted-number if:true={it.value.isDecimal} value={it.value.value}
+                            format-style="decimal">
+                        </lightning-formatted-number>
+                        <lightning-formatted-phone if:true={it.value.isPhoneNumber} value={it.value.value}>
+                        </lightning-formatted-phone>
+                        <lightning-formatted-url if:true={it.value.isUrl} value={it.value.value}
+                            label={it.value.urlLabel}>
+                        </lightning-formatted-url>
+                        <lightning-formatted-email if:true={it.value.isEmail} value={it.value.value}>
+                        </lightning-formatted-email>
+                        <lightning-button if:true={it.value.isButton} label={it.value.value} title="Mostrar detalle"
+                            value={it.value.value} icon-name="utility:search" onclick={handleOpenModalMobile}>
+                        </lightning-button>
+                    </div>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </div>
+</template>

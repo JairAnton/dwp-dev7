@@ -7,7 +7,7 @@
     <aura:attribute name="modalTheme" type="String" default="slds-theme_alert-texture slds-theme_warning" access="global" description="Specify modal theme"/>
     <aura:attribute name="customColorHeader" type="String" default="none" access="global" description="Specify a custom color header"/>
     <aura:attribute name="modalSizeSLDS" type="String" default="" access="global" description="Specify Lightning Design System themes to be added to the modal´s size style."/>
-    <aura:attribute name="modalWidthCustom" type="String" default="37rem" access="global" description="Specify a custom width."/>
+    <aura:attribute name="modalWidthCustom" type="String" default="{!if($Browser.formFactor eq 'DESKTOP', '37rem', '95%')}" access="global" description="Specify a custom width."/>
     <aura:attribute name="errorMessagesList" type="String[]" default="" description="List of error messages to be displayed"/>
     <aura:registerEvent name="dynamicFlowWizardCancel" type="dwp_dbpn:DynamicFlowWizardCancel_evt"/>
     

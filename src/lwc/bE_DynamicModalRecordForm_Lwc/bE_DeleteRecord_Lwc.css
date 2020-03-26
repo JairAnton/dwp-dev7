@@ -1,0 +1,18 @@
+.modalWidth {
+    max-width: 60rem !important;
+}
+
+.loadSpinner {
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    margin:auto;
+}
+
+.buttonFooter {
+    float: left;
+}
+
+.buttons {
+    margin: auto 5px;
+}

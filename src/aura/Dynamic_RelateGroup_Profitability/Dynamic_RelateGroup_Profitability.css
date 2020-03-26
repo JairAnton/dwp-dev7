@@ -1,0 +1,16 @@
+.THIS .paddingBottom {
+  padding-bottom: 1%;
+}
+
+.THIS .container {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .THIS .container {
+    width: 150%;
+  }
+  .THIS .paddingTop{
+    padding-top: 1%;
+  }
+}

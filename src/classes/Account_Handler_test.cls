@@ -135,13 +135,12 @@ public class Account_Handler_test {
         Final User newOwner=getUser(true, mapFields);
         
         //get Accounts
-        List<Account> lstNewOwnsAcc = [SELECT Id, OwnerId, Name FROM Account WHERE OwnerId=:oldOwner.Id limit 200];
+        List<Account> lstNewOwnsAcc = [SELECT Id, OwnerId, Name FROM Account WHERE OwnerId=:oldOwner.Id limit 100];
         
         //Create Visit for each account
         System.runAs(oldOwner) {
             dwp_kitv__Visit__c visita;
             Final List<dwp_kitv__Visit__c> lstVisit = new List<dwp_kitv__Visit__c>();
-            
             for(Account a:lstNewOwnsAcc) {
                 visita = new dwp_kitv__Visit__c(Name='Visit'+a.Name, dwp_kitv__visit_start_date__c=System.today(), dwp_kitv__visit_duration_number__c='15',
                                                dwp_kitv__account_id__c=a.Id, dwp_kitv__visit_purpose_type__c='01', dwp_kitv__visit_status_type__c='01');
@@ -150,7 +149,7 @@ public class Account_Handler_test {
             insert lstVisit;
             
             Final dwp_kitv__Visit_Management_Team__c[] lstVMT = new dwp_kitv__Visit_Management_Team__c[]{};
-            for(Integer i=0;i<200;i++) {
+            for(Integer i=0;i<100;i++) {
                 lstVMT.add(new dwp_kitv__Visit_Management_Team__c(dwp_kitv__visit_id__c=lstVisit[i].Id, dwp_kitv__user_id__c=newOwner.Id));
                 if(i<20) {
                     lstVisit[i].dwp_kitv__visit_status_type__c='06';
@@ -172,7 +171,7 @@ public class Account_Handler_test {
                                                               dwp_kitv__Visit_Management_Team__c WHERE dwp_kitv__user_id__c =:newOwner.Id AND 
                                                               (dwp_kitv__visit_id__r.report_visit_status_type__c='No realizada' OR 
                                                                dwp_kitv__visit_id__r.report_visit_status_type__c='Pendiente de feedback')];
-        System.assertEquals(180, visitTeam.size(), 'Compared VMT new owner size');
+        System.assertEquals(80, visitTeam.size(), 'Compared VMT new owner size');
     }
     
     /*Test Update Branch in Visit Object*/
@@ -186,7 +185,7 @@ public class Account_Handler_test {
         insert newBranch;
         
         //Create Visit's
-        List<Account> lstAcc=[SELECT Id, Name, Branch_id__c, OwnerId FROM Account WHERE OwnerId=:owner.Id limit 200];  
+        List<Account> lstAcc=[SELECT Id, Name, Branch_id__c, OwnerId FROM Account WHERE OwnerId=:owner.Id limit 100];  
         system.debug('lstAcc ' +lstAcc);        
         System.runAs(owner) {
             dwp_kitv__Visit__c visita;
@@ -215,7 +214,7 @@ public class Account_Handler_test {
         Test.stopTest();
         
         Final dwp_kitv__Visit__c[] visitasAct=[SELECT id, Name FROM dwp_kitv__Visit__c WHERE dwp_branch_id__c=:newBranch.Id];
-        System.assertEquals(150, visitasAct.size(), 'Compared Visit Size');
+        System.assertEquals(50, visitasAct.size(), 'Compared Visit Size');
     }
     
     /*Create User Data*/

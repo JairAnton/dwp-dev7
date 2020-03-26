@@ -8,6 +8,7 @@
     <aura:attribute name="recordError" type="String" description="An error message bound to force:recordData"/>
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
     <aura:attribute name="rows" type="List" />
+    
     <force:recordData aura:id="record"
                       layoutType="FULL"
                       recordId="{!v.recordId}"
@@ -20,7 +21,7 @@
             <aura:set attribute="label">
                 Rent. Cliente
             </aura:set>            
-            <div width="43rem">
+            <div> 
                 <c:Dynamic_RelateGroup_Profitability recordId="{!v.recordId}"/>
                 <br/>
             </div>
@@ -29,20 +30,21 @@
             <aura:set attribute="label">
                 Deuda SBS<br/>
             </aura:set> 
-            <div width="43rem">
-                <div class="ccenter">      <lightning:select aura:id="selFiltro" name="selFiltro" label=" "  onchange="{!c.filtroGrafica}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  >
-                    <option value="Total">Total</option>
-                    <option value="DIRECTA">Directa</option>
-                    <option value="PRESTAMO">Prestamo</option>
-                    <option value="COMEX">Comex</option>
-                    <option value="LEASING">Leasing</option>
-                    <option value="DESCUENTO DE LETRAS">Descuento de Letras</option>
-                    <option value="FACTORING">Factoring</option>
-                    <option value="OTROS">Otros directas</option>
-                    <option value="INDIRECTA">Indirecta</option>
-                    <option value="AVALES Y FIANZAS">Fianzas</option>
-                    <option value="CARTA. CREDITO">Carta crédito</option> 
-                    <option value="ACEPTACIONES BANCARIAS (OTROS)">Otros indirectas</option>
+            <div>
+                <div class="ccenter">
+                    <lightning:select aura:id="selFiltro" name="selFiltro" label=" "  onchange="{!c.filtroGrafica}" class="slds-size_1-of-2 slds-p-horizontal_x-small"  >
+                        <option value="Total">Total</option>
+                        <option value="DIRECTA">Directa</option>
+                        <option value="PRESTAMO">Prestamo</option>
+                        <option value="COMEX">Comex</option>
+                        <option value="LEASING">Leasing</option>
+                        <option value="DESCUENTO DE LETRAS">Descuento de Letras</option>
+                        <option value="FACTORING">Factoring</option>
+                        <option value="OTROS">Otros directas</option>
+                        <option value="INDIRECTA">Indirecta</option>
+                        <option value="AVALES Y FIANZAS">Fianzas</option>
+                        <option value="CARTA. CREDITO">Carta crédito</option> 
+                        <option value="ACEPTACIONES BANCARIAS (OTROS)">Otros indirectas</option>
                     </lightning:select>
                     <br/>
                     <aura:if isTrue="{!v.bGrafica}">
@@ -56,7 +58,8 @@
                                                       Filtro="{!v.sFiltro}"
                                                       />
                         </div>
-                        <dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
+                        <div class="slds-scrollable">
+                        	<dwp_dv:DynamicRelatedGrupedTable_comp recordId="{!v.recordId}" 
                                                                sObjectName="Account_Banking_System_Debt__c"
                                                                Type="Matrix"
                                                                customLabelAPInameError="AccountNoData"
@@ -77,8 +80,8 @@
                                                                showTotal="true"
                                                                Symbol="true"
                                                                PositionCurrency="Left"/>
+                        </div>
                     </aura:if>
-                    
                 </div>  
             </div>
         </lightning:tab>

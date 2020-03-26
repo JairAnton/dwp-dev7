@@ -8,6 +8,14 @@
         <plural>true</plural>
         <value>Clientes</value>
     </caseValues>
+    <fieldSets>
+        <label><!-- Non Client --></label>
+        <name>nonc__Non_Client</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Non Client Additional --></label>
+        <name>nonc__Non_Client_Additional</name>
+    </fieldSets>
     <fields>
         <caseValues>
             <plural>false</plural>
@@ -722,7 +730,7 @@
         <name>economic_activity_subsector__c</name>
     </fields>
     <fields>
-        <label>Email</label>
+        <label>Correo electrónico</label>
         <name>email__c</name>
     </fields>
     <fields>
@@ -778,7 +786,19 @@
         <name>net_income_amount__c</name>
     </fields>
     <fields>
-        <label>Teléfono 2</label>
+        <label>Codigo del No Cliente</label>
+        <name>non_client_code__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de conversión</label>
+        <name>non_client_converted_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Onboarding --></label>
+        <name>nonc__Onboarding__c</name>
+    </fields>
+    <fields>
+        <label>Teléfono</label>
         <name>other_phone_number__c</name>
     </fields>
     <fields>
@@ -792,6 +812,10 @@
     <fields>
         <label>Días de pago</label>
         <name>payment_days_number__c</name>
+    </fields>
+    <fields>
+        <label>Código de teléfono</label>
+        <name>phone_area_code__c</name>
     </fields>
     <fields>
         <label>Area regional</label>
@@ -861,6 +885,34 @@
         <label><!-- Total campos obligatorios llenos inicio --></label>
         <name>Total_campos_obligatorios_llenos_inicio__c</name>
     </fields>
+	<fields>
+        <label><!-- Group 01 --></label>
+        <name>Group_01__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 02 --></label>
+        <name>Group_02__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 03 --></label>
+        <name>Group_03__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 04 --></label>
+        <name>Group_04__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Migration --></label>
+        <name>Is_Migration__c</name>
+    </fields>
+	<fields>
+        <label><!-- Registro Gestor Principal --></label>
+        <name>user_code__c</name>
+    </fields>
     <gender>Masculine</gender>
     <layouts>
         <layout>Account Layout</layout>
@@ -915,6 +967,21 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Account_Page_Layout_Account_WL</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Descripción de la empresa --></label>
+            <section>Descripción de la empresa</section>
+        </sections>
+        <sections>
+            <label><!-- Información básica --></label>
+            <section>Información básica</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Account_Page_Layout_Economic_Group</layout>
         <sections>
             <label>Enlaces Personalizados</label>
@@ -947,6 +1014,28 @@
             <section>Fields</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Account_Page_Layout_Non_Client</layout>
+        <sections>
+            <label><!-- Descripción de la empresa --></label>
+            <section>Descripción de la empresa</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account_Page_Layout_Non_Client_Executive</layout>
+        <sections>
+            <label><!-- Descripción de la empresa --></label>
+            <section>Descripción de la empresa</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label>Editar</label>
+        <name>BE_EditNonClient</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Info.Ficha --></label>
+        <name>BE_Info_Ficha</name>
+    </quickActions>
     <quickActions>
         <label><!-- Child Account --></label>
         <name>Child_Account</name>
@@ -976,6 +1065,23 @@
         <label>Grupo económico</label>
         <name>Record_Type_Economic_Group</name>
     </recordTypes>
+    <recordTypes>
+        <label>No Cliente</label>
+        <name>Record_Type_Non_Client</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Account customer type --></description>
+        <label><!-- Customer --></label>
+        <name>dwp_kitv__Customer</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- No tiene los permisos suficientes para crear clientes --></errorMessage>
+        <name>BE_OnlyCreateNonClient</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Por favor, ingresar el teléfono con el formato correcto</errorMessage>
+        <name>BE_PhoneValidationNonClient</name>
+    </validationRules>
     <webLinks>
         <label><!-- GoogleMaps --></label>
         <name>GoogleMaps</name>

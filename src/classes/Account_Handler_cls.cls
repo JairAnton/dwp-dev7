@@ -11,19 +11,18 @@
  */
 public without sharing class Account_Handler_cls extends TriggerHandler {
     
-    list<Account>Opps_New = Trigger.new;
-    list<Account>Opps_Old = Trigger.Old;
-    Map<id,Account>Opps_NewMap = ((Map<Id,Account>)(Trigger.NewMap));
-    Map<id,Account>Opps_OldMap = ((Map<Id,Account>)(Trigger.OldMap));
-
+    List<Account> newAccs = Trigger.new;
+    List<Account> oldAccs = Trigger.Old;
+    Map<id,Account> newAccsMap = ((Map<Id,Account>)(Trigger.NewMap));
+    Map<id,Account> oldAccsMap = ((Map<Id,Account>)(Trigger.OldMap));
 
     @TestVisible
     protected override void afterUpdate(){
-        new Account_Trigger_cls().AsignAfterUpdate(Opps_New, Opps_NewMap, Opps_Old, Opps_OldMap);
-        new Account_Trigger_cls().AfterUpdateOwner(Opps_New, Opps_OldMap);
+        new Account_Trigger_cls().AsignAfterUpdate(newAccs, newAccsMap, oldAccs, oldAccsMap);
+        new Account_Trigger_cls().AfterUpdateOwner(newAccs, oldAccsMap);
     }
     protected override void afterInsert() {
-        new Account_Trigger_cls().AfterInsert(Opps_New);
+        new Account_Trigger_cls().AfterInsert(newAccs);
+        new BE_AccountNonClient_Trigger_cls().mergeNonClientToClient();
     }
-
 }

@@ -1,0 +1,9 @@
+.THIS .container {
+  width: 75%;
+}
+
+@media (max-width: 600px) {
+  .THIS .container {
+    width: 100%;
+  }
+}

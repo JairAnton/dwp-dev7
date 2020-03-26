@@ -25,10 +25,15 @@
         var save_action = component.get("c.PDF_formalization");
         save_action.setParams({recordId : inputObject.recordId});
         save_action.setCallback(this, function(response) {
-            var state = response.getReturnValue();
+            var state = response.getState();
             if (state === "SUCCESS") {
-                $A.get("e.force:navigateToURL");//Ernesto: correcion
-                window.open('/apex/PDF_formalizacion_vfp?Id='+inputObject.recordId);
+                var attachId = response.getReturnValue();
+                var navEvt = $A.get("e.force:navigateToSObject");
+                navEvt.setParams({
+                    "recordId": attachId,
+                    "slideDevName": "detail"
+                });
+                navEvt.fire();
                 $A.get('e.force:refreshView').fire();
                 component.destroy();
             } else {

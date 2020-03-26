@@ -1,18 +1,16 @@
 <aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" controller="Hangout_ctrl">
-
-	<aura:attribute name="HangoutId" type="String"/>
+    <aura:attribute name="HangoutId" type="String"/>
 	<aura:attribute name="alignment" type="String"/>
-	
 	<aura:attribute name="marginTop" type="String"/>
 	<aura:attribute name="marginBottom" type="String"/>
 	<aura:attribute name="marginLeft" type="String"/>
 	<aura:attribute name="marginRight" type="String"/>
-
-	<button style = "{!'float:'+v.alignment+';margin-top:'+v.marginTop+';margin-bottom:'+v.marginBottom+';margin-left:'+v.marginLeft+';margin-right:'+v.marginRight}" class="slds-button slds-button--neutral cHangouts" onclick="{!c.handleClick}">
-			
-            <lightning:icon iconName="utility:video" variant="inverse"/>                                              
-			{!$Label.c.Hangout}
-            
-	</button>
-	
+    <div class="slds-grid slds-grid_align-center">
+        <div class="slds-col">
+            <button class="slds-button slds-button--neutral cHangouts" onclick="{!c.handleClick}">
+                <lightning:icon iconName="utility:video" variant="inverse"/>                                              
+                {!$Label.c.Hangout} 
+            </button>
+        </div>
+    </div>
 </aura:component>

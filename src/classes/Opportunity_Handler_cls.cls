@@ -26,6 +26,7 @@ public without sharing class Opportunity_Handler_cls extends TriggerHandler {
     protected override void afterUpdate() {
         Opportunity_Trigger_cls.asignAfterUpdate(oppsNew, oppsOldMap);
         OpportunityChatterNotifications.notificationMethods(oppsNew, oppsNewMap, oppsOldMap);
+		Opportunity_Trigger_cls.addUserToOppTeam(oppsNew, oppsOldMap);
     }
     @TestVisible
     protected override void afterInsert() {

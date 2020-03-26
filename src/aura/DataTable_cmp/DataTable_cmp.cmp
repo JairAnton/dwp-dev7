@@ -27,11 +27,13 @@
             </tbody>
         </table>
         <aura:set attribute="else">
-            <lightning:datatable keyField="id"
-                                 columns="{! v.headers }"
-                                 data="{! v.data }"
-                                 hideCheckboxColumn="true"
-                                 resizeColumnDisabled="true"/>
+            <div style="width:37rem;">
+                <lightning:datatable keyField="id"
+                                     columns="{! v.headers }"
+                                     data="{! v.data }"
+                                     hideCheckboxColumn="true"
+                                     resizeColumnDisabled="true"/>
+            </div>
         </aura:set>
     </aura:if>
 </aura:component>

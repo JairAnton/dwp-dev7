@@ -1,0 +1,92 @@
+<template>
+    <!--CONTAINER-->
+    <!--CARD-->
+    <template if:true={hasRendered}>
+        <div class="slds-box">
+            <lightning-card variant="Narrow" title={customTitle} icon-name={iconName}>
+                <!--DESKTOP-->
+                <template if:false={isMobile}>
+                    <!--TEMPLATE BASIC-->
+                    <template if:true={relListTypeMode.isBasic}>
+                        <!--ACTIONS-->
+                        <template for:each={BtnConfig.values} for:item="btnItem">
+                            <lightning-button key={btnItem.label} label={btnItem.label} variant={btnItem.variant}
+                                icon-name={btnItem.iconname} icon-position={btnItem.iconposition} title={btnItem.title}
+                                slot="actions" class="slds-m-left_x-small" value={btnItem.name}
+                                onclick={handleHeadAction}></lightning-button>
+                        </template>
+                        <!--DATA TABLE-->
+                        <div class="slds-p-horizontal_small bodyBox">
+                            <lightning-datatable key-field="Id" hide-checkbox-column="true" data={sObjectData}
+                                columns={columns} onrowaction={handleRowActionWeb}></lightning-datatable>
+                        </div>
+                    </template>
+                    <!--TEMPLATE TITLE-->
+                    <template if:true={relListTypeMode.isTitle}>
+                        <!--ACTIONS-->
+                        <lightning-button-menu icon-size="x-small" menu-alignment="auto" slot="actions">
+                            <template for:each={BtnConfig.values} for:item="btnItem">
+                                <lightning-menu-item key={btnItem.label} label={btnItem.label} value={btnItem.name}
+                                    onclick={handleHeadAction}></lightning-menu-item>
+                            </template>
+                        </lightning-button-menu>
+                        <!--BODY-->
+                        <div class="slds-card__body slds-card__body_inner bodyBox">
+                            <ul class="slds-grid slds-wrap slds-grid_pull-padded">
+                                <template iterator:item={sObjectData}>
+                                    <li key={item.value.Id} class={flexipageRegionWidth}>
+                                        <c-b-e_-single-related-list-mobile_-lwc key={item.value.Id}
+                                            record-id={item.value.Id} s-obj-api-name={sObjApiName}
+                                            columns-mobile={columnsMobile} s-obj-field-labels={sObjFieldLabels}
+                                            s-obj-data={item.value} columns={columns} row-actions={rowActions}
+                                            onrowaction={handleRowActionMobile}>
+                                        </c-b-e_-single-related-list-mobile_-lwc>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </template>
+                </template>
+                <!--MOBILE-->
+                <template if:true={isMobile}>
+                    <!--BODY-->
+                    <div class="slds-card__body slds-card__body_inner">
+                        <ul class="slds-grid slds-wrap slds-grid_pull-padded">
+                            <template iterator:item={sObjectData}>
+                                <li if:true={isMobile} key={item.value.Id}>
+                                    <c-b-e_-single-related-list-mobile_-lwc key={item.value.Id}
+                                        record-id={item.value.Id} s-obj-api-name={sObjApiName}
+                                        columns-mobile={columnsMobile} s-obj-field-labels={sObjFieldLabels}
+                                        s-obj-data={item.value} columns={columns} row-actions={rowActions}
+                                        onrowaction={handleRowActionMobile}>
+                                    </c-b-e_-single-related-list-mobile_-lwc>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+                <!--FOOTER-->
+                <div if:false={isViewAll} slot="footer">
+                    <a onclick={handleViewAll}>{label.viewAlll}</a>
+                </div>
+            </lightning-card>
+        </div>
+    </template>
+    <template if:false={hasRendered}>
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+    </template>
+    <!--CUSTOM MODAL RECORD -->
+    <template if:true={modalRecord.show}>
+        <c-b-e_-dynamic-modal-record-form_-lwc id-record={modalRecord.recordId}
+            meta-data-config={modalRecord.metadataName} onclose={handleCloseModal}>
+        </c-b-e_-dynamic-modal-record-form_-lwc>
+    </template>
+    <!--STANDARD MODAL-->
+    <template if:true={modalStandard.show}>
+        <c-b-e_-single-related-list-modal_-lwc record-id={modalStandard.recordId} title={modalStandard.title}
+            sobject-type={modalStandard.sobjectType} s-obj-fields={modalStandard.fields}
+            class-name={modalStandard.className} mode-action={modalStandard.mode}
+            onclosemodalweb={handleCloseStanModal}>
+        </c-b-e_-single-related-list-modal_-lwc>
+    </template>
+</template>
