@@ -1,51 +1,36 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" access="global" >
-  <aura:attribute name="reportTitleAPI" type="String" default="" access="global" description="Custom Label API Name for Report's title" />
-  <aura:attribute name="customLabelAPInameError" type="String" default="" access="global" description="Custom Label API Name for error message"/>
-  <aura:attribute name="Collapsed" type="Boolean" default="false" access="global" description="If selected the groupings rows will be collapsibles"/>
-  <aura:attribute name="CollapsedDefault" type="Boolean" default="false" access="global" description="If selected the groupings rows will be default collapsibled"/>
-  <aura:attribute name="showTitle" type="Boolean" default="false" access="global" description="Allow show Title"/>
-  <aura:attribute name="showTotal" type="Boolean" default="false" access="global" description="If selected, totalized row is displayed at the bottom of the table"/>
-  <aura:attribute name="headerApiName" type="String" default="" access="global" description="Allows to replace the header columns labels by the value of lightning record page object fields. For example: -,field1__c,field2__c" />
-  <aura:attribute name="showLink" type="Boolean" default="false" access="global" description="If selected, the first column will be displayed as a link to the detail page of the row record" />
-  <aura:attribute name="showFilter" type="Boolean" default="false" access="global" description="If selected, the dynamic filter will be displayed"/>
-  <aura:attribute name="allFilter" type="Boolean" default="false" access="global" description="If selected, the option of displaying all values will be available in the dynamic filter"/>
-  <aura:attribute name="labelFilterApi" type="String" default="" access="global" description="Api name of the custom label that will be used as the dynamic filter label" />
-  <aura:attribute name="Group" type="String" access="global" default="" description="API name of the field that will be used to summarize. For example: field1__c,field2__c"/>
-  <aura:attribute name="Header" type="String" access="global" default="" description="API name of the field that will be used to display the columns of the table. For example: field1__c,field2__c"/>
-  <aura:attribute name="Object" type="String" access="global" default="" description="API name of the object that contains the table data"/>
-  <aura:attribute name="RelatedField" type="String" access="global" default="" description="API name of the field that relates the table data with the lightning record page object. For example: field1__c"/>
-  <aura:attribute name="Format" type="String" access="global" default="" description="Allows specify the values format of the fields specified in 'Header Api name' attribute. For example: CUR,-,%,IMG"/>
-  <aura:attribute name="Order" type="String" access="global" default="" description="Order in which the rows of the table will be displayed. The syntax should be as a SOQL statement. For example: Name DESC,date__c ASC"/>
-  <aura:attribute name="Summarize" type="String" access="global" default="" description="Allows to specify which fields from the 'Header Api name' attribute will be summarized and with which operation. For example: SUM,-,AVG,SUM"/>
-  <aura:attribute name="FilterStatic" type="String" access="global" default="" description="Filter criteria will be aply to the table information. The syntax should be as a SOQL statement. For example: date__c = THIS_MONTH AND Amount > 1000"/>
-  <aura:attribute name="FilterDynamic" type="String" access="global" default="" description="List of values to select on the dynamic filter. For example: Direct,Indirect"/>
-  <aura:attribute name="FilterDynamicField" type="String" access="global" default="" description="Api name of the field that will be used in the dynamic filter. For example: field1__c"/>
-  <aura:attribute name="Type" type="String" access="global" default="" description="Type of the table. For example: Summary"/>
-  <aura:attribute name="HeaderGroup" type="String" access="global" default="" description="Api name of the field that will be used to summarize the columns in the matrix. For example: field1__c,field2__c"/>
-  <aura:attribute name="FormatDivisa" type="Boolean" access="global" default="" description="If selected, the format specified in the 'Currency dymension' attibute will be used to display the value of the cells specified as 'CUR' in the 'Cell values format'"/>
-  <aura:attribute name="Symbol" type="Boolean" access="global" default="" description="If selected, the value of the cells specified as 'CUR' in the 'Cell values format' will be displayed with currency symbol specified in the custom setting 'CurrencySymbols__c'"/>
-  <aura:attribute name="LocaleCur" type="Boolean" access="global" default="" description="If selected, the value of the cells specified as 'CUR' in the 'Cell values format' will be displayed in the logged user currency"/>
-  <aura:attribute name="PositionCurrency" type="String" access="global" default="" description="Allows to specify the position of the currency code/symbol"/>
-  <aura:attribute name="CurrencyDimension" type="String" access="global" default="" description="Allows to specify dimension"/>
-  <aura:attribute name="hidenSubHeadMatrix" type="Boolean" access="global" default="false" description="If selected, hiddes the 'Header Api name' labels"/>
-  <aura:attribute name="labelTotalApi" type="String" access="global" default="" description="Allow to display a custom total label"/>
-  <aura:attribute name="reportTitle" type="String" default="" access="public" description="N/A - Internal use only"/>
-  <aura:attribute name="lstRow" type="Object[]" access="public" description="N/A - Internal use only"/>
-  <aura:attribute name="isGroup" type="Boolean" default="false" access="public" description="N/A - Internal use only"/>
-  <aura:attribute name="lstHead" type="String[]" access="public" description="N/A - Internal use only"/>
-  <aura:attribute name="isLoad" type="Boolean" default="false" access="public" description="N/A - Internal use only"/>
-  <aura:attribute name="isError" type="Boolean" access="public" description="N/A - Internal use only"/>
-  <aura:attribute name="labelMessageError" type="String" default="" access="public" description="N/A - Internal use only"/>
-  <aura:attribute name="filter" type="String" access="public" description="N/A - Internal use only"/>
-  <aura:attribute name="filterList" type="Object[]" access="public" description="N/A - Internal use only"/>
-  <aura:attribute name="labelFilter" type="String" default="" access="public" description="N/A - Internal use only" />
-  <aura:attribute name="sizeColSpanMatrix" type="String" default="" access="public" description="N/A - Internal use only" />
-  <aura:attribute name="LstHeaderGroup" type="String" default="" access="public" description="N/A - Internal use only" />
-  <aura:attribute name="labelTotal" type="String" default="" access="public" description="N/A - Internal use only" />
-  <aura:attribute name="groupSize" type="Integer" access="public" description="N/A - Internal use only" />
-  <aura:attribute name="ShowSymbol" type="Boolean" default="" access="public" description="N/A - Internal use only" />
-  <aura:attribute name="showTotalApiLabel" type="Boolean" default="false" access="public" description="N/A - Internal use only" />
-  <aura:attribute name="recordId" type="String" description="Referencia al registro"/> 
+    <aura:attribute name="reportTitleAPI" type="String" default="" access="global" description="Custom Label API Name for Report's title" />
+    <aura:attribute name="customLabelAPInameError" type="String" default="" access="global" description="Custom Label API Name for error message"/>
+    <aura:attribute name="Collapsed" type="Boolean" default="false" access="global" description="If selected the groupings rows will be collapsibles"/>
+    <aura:attribute name="CollapsedDefault" type="Boolean" default="false" access="global" description="If selected the groupings rows will be default collapsibled"/>
+    <aura:attribute name="showTitle" type="Boolean" default="false" access="global" description="Allow show Title"/>
+    <aura:attribute name="showTotal" type="Boolean" default="false" access="global" description="If selected, totalized row is displayed at the bottom of the table"/>
+    <aura:attribute name="headerApiName" type="String" default="" access="global" description="Allows to replace the header columns labels by the value of lightning record page object fields. For example: -,field1__c,field2__c" />
+    <aura:attribute name="showLink" type="Boolean" default="false" access="global" description="If selected, the first column will be displayed as a link to the detail page of the row record" />
+    <aura:attribute name="showFilter" type="Boolean" default="false" access="global" description="If selected, the dynamic filter will be displayed"/>
+    <aura:attribute name="allFilter" type="Boolean" default="false" access="global" description="If selected, the option of displaying all values will be available in the dynamic filter"/>
+    <aura:attribute name="labelFilterApi" type="String" default="" access="global" description="Api name of the custom label that will be used as the dynamic filter label" />
+    <aura:attribute name="Group" type="String" access="global" default="" description="API name of the field that will be used to summarize. For example: field1__c,field2__c"/>
+    <aura:attribute name="Header" type="String" access="global" default="" description="API name of the field that will be used to display the columns of the table. For example: field1__c,field2__c"/>
+    <aura:attribute name="Object" type="String" access="global" default="" description="API name of the object that contains the table data"/>
+    <aura:attribute name="RelatedField" type="String" access="global" default="" description="API name of the field that relates the table data with the lightning record page object. For example: field1__c"/>
+    <aura:attribute name="Format" type="String" access="global" default="" description="Allows specify the values format of the fields specified in 'Header Api name' attribute. For example: CUR,-,%,IMG"/>
+    <aura:attribute name="Order" type="String" access="global" default="" description="Order in which the rows of the table will be displayed. The syntax should be as a SOQL statement. For example: Name DESC,date__c ASC"/>
+    <aura:attribute name="Summarize" type="String" access="global" default="" description="Allows to specify which fields from the 'Header Api name' attribute will be summarized and with which operation. For example: SUM,-,AVG,SUM"/>
+    <aura:attribute name="FilterStatic" type="String" access="global" default="" description="Filter criteria will be aply to the table information. The syntax should be as a SOQL statement. For example: date__c = THIS_MONTH AND Amount > 1000"/>
+    <aura:attribute name="FilterDynamic" type="String" access="global" default="" description="List of values to select on the dynamic filter. For example: Direct,Indirect"/>
+    <aura:attribute name="FilterDynamicField" type="String" access="global" default="" description="Api name of the field that will be used in the dynamic filter. For example: field1__c"/>
+    <aura:attribute name="Type" type="String" access="global" default="" description="Type of the table. For example: Summary"/>
+    <aura:attribute name="HeaderGroup" type="String" access="global" default="" description="Api name of the field that will be used to summarize the columns in the matrix. For example: field1__c,field2__c"/>
+    <aura:attribute name="FormatDivisa" type="Boolean" access="global" default="" description="If selected, the format specified in the 'Currency dymension' attibute will be used to display the value of the cells specified as 'CUR' in the 'Cell values format'"/>
+    <aura:attribute name="Symbol" type="Boolean" access="global" default="" description="If selected, the value of the cells specified as 'CUR' in the 'Cell values format' will be displayed with currency symbol specified in the custom setting 'CurrencySymbols__c'"/>
+    <aura:attribute name="LocaleCur" type="Boolean" access="global" default="" description="If selected, the value of the cells specified as 'CUR' in the 'Cell values format' will be displayed in the logged user currency"/>
+    <aura:attribute name="PositionCurrency" type="String" access="global" default="" description="Allows to specify the position of the currency code/symbol"/>
+    <aura:attribute name="CurrencyDimension" type="String" access="global" default="" description="Allows to specify dimension"/>
+    <aura:attribute name="hidenSubHeadMatrix" type="Boolean" access="global" default="false" description="If selected, hiddes the 'Header Api name' labels"/>
+    <aura:attribute name="labelTotalApi" type="String" access="global" default="" description="Allow to display a custom total label"/>
+	<aura:attribute name="sObjectName" type="String"/>
+    
     <dwp_dv:DynamicRelatedGrupedTable_comp 
            Type = "{!v.Type}" 
            customLabelAPInameError = "{!v.customLabelAPInameError}"
@@ -78,5 +63,6 @@
            labelFilterApi = "{!v.labelFilterApi}" 
            showLink = "{!v.showLink}"
            recordId = "{!v.recordId}"
+           sObjectName = "{!v.sObjectName}"
         />
 </aura:component>
