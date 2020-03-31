@@ -19,7 +19,7 @@ export default class bE_TableHome_Lwc extends NavigationMixin(LightningElement) 
         "reportDev": "$devReport",
     })
     wiredResult({ error, data }) {
-        if (data && data!==null && data!=='undefined' && data.length > 0) {
+        if (data) {
             this.idReport = data;
         } else if (error) {
             this.idReport = '';

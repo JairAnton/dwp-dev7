@@ -22,8 +22,7 @@
     */
     @AuraEnabled(cacheable=true)
     public static String getId(String reportDev) {
-        final String reportId = [SELECT Id FROM Report WHERE DeveloperName = :reportDev LIMIT 1][0].Id;
-        return reportId;
+        return [SELECT Id FROM Report WHERE DeveloperName = :reportDev LIMIT 1][0].Id;
     }
     
     /**
