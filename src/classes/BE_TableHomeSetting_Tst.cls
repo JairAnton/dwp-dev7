@@ -28,7 +28,7 @@ public without sharing class BE_TableHomeSetting_Tst {
     static void getValuesTest() {
         final BE_TableHomeSetting_Cls tableSet = new BE_TableHomeSetting_Cls();
         final VisualEditor.DynamicPickListRows  myValues = tableSet.getValues();
-        final Boolean myValuesCheck = (myValues!=null) ? true : false;
-        System.assertEquals(true, myValuesCheck);
+        final Boolean myValuesCheck = (myValues==null) ? false : true;
+        System.assert(myValuesCheck, 'Correct value');
     }
 }

@@ -9,9 +9,7 @@
    2020-03-23  MAMC     martin.mori.contractor@bbva.com     Creation
    -------------------------------------------------------------------------------------------------
  */
-global without sharing class BE_TableHomeSetting_Cls  extends VisualEditor.DynamicPickList {
-    
-    
+global without sharing class BE_TableHomeSetting_Cls extends VisualEditor.DynamicPickList {
     /**
      @Description return a default value of Metadata
      @return a VisualEditor.DataRow with default value NONE.
@@ -25,7 +23,7 @@ global without sharing class BE_TableHomeSetting_Cls  extends VisualEditor.Dynam
      @return a VisualEditor.DynamicPickListRowsw from information of Reports
    */
     global override VisualEditor.DynamicPickListRows getValues() {
-        VisualEditor.DynamicPickListRows  myValues = new VisualEditor.DynamicPickListRows();
+        final VisualEditor.DynamicPickListRows  myValues = new VisualEditor.DynamicPickListRows();
         for (Report rep : [SELECT Id, Name FROM Report WHERE Format='Tabular' LIMIT 10000]) {
             myValues.addRow(new VisualEditor.DataRow(rep.Name, String.valueOf(rep.Id)));
         }

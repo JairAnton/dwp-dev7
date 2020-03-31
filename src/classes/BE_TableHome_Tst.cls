@@ -16,11 +16,11 @@ public without sharing class BE_TableHome_Tst {
     */
     @IsTest(SeeAllData='true')
     static void getDataTest() {
-        final String reportId;
+        String reportId;
         for(Report rep : [SELECT Id FROM Report WHERE Format = 'Tabular' LIMIT 1]) {
             reportId = rep.Id;
         }
-        final List<List<String>> data = BE_TableHome_Ctr.getData(reportId);
+        final List<List<String>> data = BE_TableHome_Ctr.getData(reportId, 5);
         System.assert(!data.isEmpty(), 'Correct Value');
     }
 }

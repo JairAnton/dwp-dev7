@@ -11,6 +11,12 @@
  */
  public without sharing class BE_TableHome_Ctr {
     /**
+     @Description constructor of class
+    */
+    private BE_TableHome_Ctr() {
+    }
+
+    /**
      @Description return a data of report
      @return a List<List<String>> with data of report.
     */
