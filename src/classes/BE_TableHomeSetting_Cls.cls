@@ -24,8 +24,8 @@ global without sharing class BE_TableHomeSetting_Cls extends VisualEditor.Dynami
    */
     global override VisualEditor.DynamicPickListRows getValues() {
         final VisualEditor.DynamicPickListRows  myValues = new VisualEditor.DynamicPickListRows();
-        for (Report rep : [SELECT Id, Name FROM Report WHERE Format='Tabular' LIMIT 10000]) {
-            myValues.addRow(new VisualEditor.DataRow(rep.Name, String.valueOf(rep.Id)));
+        for (Report rep : [SELECT DeveloperName, Name FROM Report WHERE Format='Tabular' LIMIT 10000]) {
+            myValues.addRow(new VisualEditor.DataRow(rep.Name, rep.DeveloperName));
         }
         return myValues;
     }

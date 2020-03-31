@@ -133,12 +133,12 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>footer</name>
-                <value>{&quot;es&quot;: &quot;Ver informe&quot;, &quot;en-US&quot;: &quot;View Report&quot;}</value>
+                <name>devReport</name>
+                <value>Contratos_de_cuentas_impagos_qkj</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>idReport</name>
-                <value>00O6C000000WS2iUAG</value>
+                <name>footer</name>
+                <value>{&quot;es&quot;: &quot;Ver informe&quot;, &quot;en-US&quot;: &quot;View Report&quot;}</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>numRows</name>

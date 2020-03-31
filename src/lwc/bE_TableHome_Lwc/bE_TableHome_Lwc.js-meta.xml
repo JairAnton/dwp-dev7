@@ -10,7 +10,7 @@
     <targetConfigs>
         <targetConfig targets="lightning__AppPage">
             <property name="title" type="String" default='{"es": "Title", "en-US": "Title"}' label="Title" required="true"/>
-            <property name="idReport" type="String" default="None" label="Report" datasource="apex://BE_TableHomeSetting_Cls" required="true"/>
+            <property name="devReport" type="String" default="None" label="Report" datasource="apex://BE_TableHomeSetting_Cls" required="true"/>
             <property name="numRows" type="Integer" default="5" label="Number of rows" required="true"/>
             <property name="footer" type="String" default='{"es": "Ver informe", "en-US": "View Report"}' label="footer" required="true"/>
             <supportedFormFactors>
@@ -19,7 +19,7 @@
         </targetConfig>
         <targetConfig targets="lightning__HomePage">
             <property name="title" type="String" default='{"es": "Title", "en-US": "Title"}' label="Title" required="true"/>
-            <property name="idReport" type="String" default="None" label="Report" datasource="apex://BE_TableHomeSetting_Cls" required="true"/>
+            <property name="devReport" type="String" default="None" label="Report" datasource="apex://BE_TableHomeSetting_Cls" required="true"/>
             <property name="numRows" type="Integer" default="5" label="Number of rows" required="true"/>
             <property name="footer" type="String" default='{"es": "Ver informe", "en-US": "View Report"}' label="footer" required="true"/>
             <supportedFormFactors>
@@ -28,7 +28,7 @@
         </targetConfig>
         <targetConfig targets="lightning__RecordPage">
             <property name="title" type="String" default='{"es": "Title", "en-US": "Title"}' label="Title" required="true"/>
-            <property name="idReport" type="String" default="None" label="Report" datasource="apex://BE_TableHomeSetting_Cls" required="true"/>
+            <property name="devReport" type="String" default="None" label="Report" datasource="apex://BE_TableHomeSetting_Cls" required="true"/>
             <property name="numRows" type="Integer" default="5" label="Number of rows" required="true"/>
             <property name="footer" type="String" default='{"es": "Ver informe", "en-US": "View Report"}' label="footer" required="true"/>
             <supportedFormFactors>

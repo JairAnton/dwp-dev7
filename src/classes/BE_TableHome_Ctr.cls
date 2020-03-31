@@ -21,6 +21,16 @@
      @return a List<List<String>> with data of report.
     */
     @AuraEnabled(cacheable=true)
+    public static String getId(String reportDev) {
+        final String reportId = [SELECT Id FROM Report WHERE DeveloperName = :reportDev LIMIT 1][0].Id;
+        return reportId;
+    }
+    
+    /**
+     @Description return a data of report
+     @return a List<List<String>> with data of report.
+    */
+    @AuraEnabled(cacheable=true)
     public static List<List<String>> getData(String reportId, Integer limitRows) {
         final List<List<String>> data = new List<List<String>>();
         List<String> row = new List<String>();

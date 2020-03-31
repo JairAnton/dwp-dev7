@@ -12,6 +12,19 @@
 @IsTest
 public without sharing class BE_TableHome_Tst {
     /**
+     @Description test BE_TableHome_Ctr.getId(param), correct scenary
+    */
+    @IsTest(SeeAllData='true')
+    static void getIdTest() {
+        String reportDev;
+        for(Report rep : [SELECT DeveloperName FROM Report WHERE Format = 'Tabular' LIMIT 1]) {
+            reportDev = rep.DeveloperName;
+        }
+        final String reportId = BE_TableHome_Ctr.getId(reportDev);
+        System.assert(!String.isBlank(reportId), 'Correct Value');
+    }
+    
+    /**
      @Description test BE_TableHome_Ctr.getData(param), correct scenary
     */
     @IsTest(SeeAllData='true')
