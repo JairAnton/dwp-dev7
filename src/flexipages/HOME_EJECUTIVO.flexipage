@@ -127,21 +127,37 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <componentInstances>
-            <componentName>home:eventContainer</componentName>
-        </componentInstances>
         <name>right2</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>footer</name>
+                <value>{&quot;es&quot;: &quot;Ver informe&quot;, &quot;en-US&quot;: &quot;View Report&quot;}</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>idReport</name>
+                <value>00O6C000000WS2iUAG</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numRows</name>
+                <value>5</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{&quot;es&quot;: &quot;Contratos impagos&quot;, &quot;en-US&quot;: &quot;Contracts unpaid&quot;}</value>
+            </componentInstanceProperties>
+            <componentName>bE_TableHome_Lwc</componentName>
+        </componentInstances>
+        <name>main2</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentName>runtime_sales_activities:todayTaskContainer</componentName>
         </componentInstances>
-        <name>main2</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <name>right3</name>
+        <name>left3</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -159,6 +175,13 @@
                 <value>3</value>
             </componentInstanceProperties>
             <componentName>flexipage:recentItems</componentName>
+        </componentInstances>
+        <name>right3</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentName>home:eventContainer</componentName>
         </componentInstances>
         <name>main3</name>
         <type>Region</type>

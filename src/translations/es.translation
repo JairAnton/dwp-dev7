@@ -1812,6 +1812,14 @@
         <label>¿Desea continuar?</label>
         <name>nonc__NClient_lbl_WishContinue</name>
     </customLabels>
+	<customLabels>
+        <label>Contratos impagos</label>
+        <name>BE_UnpaidContracts</name>
+    </customLabels>
+	<customLabels>
+        <label>Contratos vencidos</label>
+        <name>BE_ExpiredContracts</name>
+    </customLabels>
     <customTabs>
         <label>No clientes</label>
         <name>nonc__Prospects</name>

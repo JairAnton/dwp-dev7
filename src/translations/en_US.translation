@@ -620,6 +620,14 @@
         <label>You cannot end a visit that hasn´t been completed</label>
         <name>dwp_kitv__Status_visit_to_finalize</name>
     </customLabels>
+	<customLabels>
+        <label><!-- BE_UnpaidContracts --></label>
+        <name>BE_UnpaidContracts</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- BE_ExpiredContracts --></label>
+        <name>BE_ExpiredContracts</name>
+    </customLabels>
     <customTabs>
         <label><!-- Prospects --></label>
         <name>nonc__Prospects</name>

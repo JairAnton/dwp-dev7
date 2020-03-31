@@ -1,0 +1,26 @@
+/**
+   -------------------------------------------------------------------------------------------------
+   @Name <BE_TableHome_Tst>
+   @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
+   @Date 2020-03-26
+   @Description test for BE_TableHome_Ctr class
+   @Changes
+   Date        Author   Email                               Type
+   2019-09-13  MAMC     martin.mori.contractor@bbva.com     Creation
+   -------------------------------------------------------------------------------------------------
+ */
+@IsTest
+public without sharing class BE_TableHome_Tst {
+    /**
+     @Description test BE_TableHome_Ctr.getData(param), correct scenary
+    */
+    @IsTest(SeeAllData='true')
+    static void getDataTest() {
+        final String reportId;
+        for(Report rep : [SELECT Id FROM Report WHERE Format = 'Tabular' LIMIT 1]) {
+            reportId = rep.Id;
+        }
+        final List<List<String>> data = BE_TableHome_Ctr.getData(reportId);
+        System.assert(!data.isEmpty(), 'Correct Value');
+    }
+}
