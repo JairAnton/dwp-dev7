@@ -56,18 +56,12 @@
                 {!v.left2}
             </lightning:layoutItem>
             </div>   
-            <div class="l2" >
+            <div class="hl2" >
             <lightning:layoutItem
                                   class="slds-m-left_small slds-m-top_small">
                 {!v.main2}
             </lightning:layoutItem>
             </div>
-             <div class="l3" >
-            <lightning:layoutItem 
-                                  class="slds-m-left_small slds-m-top_small">
-                {!v.right2}
-            </lightning:layoutItem>
-            </div>    
         </lightning:layout>
         <p/>
         <lightning:layout>

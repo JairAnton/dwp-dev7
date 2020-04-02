@@ -8,6 +8,7 @@
     <aura:attribute name="AccId" type="String"/>
     <aura:attribute name="commercial_strategy" type="String"/>
     <aura:attribute name="type_of_quote" type="String"/>
+    <aura:attribute name="modalWidthCustom" type="String"  access="global" description="Specify the modal" default="74rem" />
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
     <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section"/>    
     <aura:attribute name="isError" type="Boolean" default="false" />
@@ -32,65 +33,46 @@
                         </div>
                     </aura:if>
                     <aura:if isTrue="{!v.type_of_quote!='Carta de credito'}">
-                        <div class="slds-grid slds-wrap slds-m-horizontal_medium">
-                            <p style="padding-left:10px; font-size:12pt; font-family:'Salesforce Sans';">Proponer Precio</p>
-                            <aura:if isTrue="{!v.showWebForm}">
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_6-of-12">
-                                    <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
-                                    <div class="slds-align_absolute-center">
-                                        <lightning:button class="{!if($Browser.formFactor eq 'DESKTOP', '', 'slds-button slds-button_neutral slds-button_stretch')}" variant="{!if($Browser.formFactor eq 'DESKTOP', 'brand', 'neutral')}" onclick="{!c.updateSpread}">Actualizar</lightning:button>
-                                    </div>
-                                    <br/>
-                                    <div class="slds-m-right_small slds-m-left_small">
-                                        <div id="idAlert" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
-                                            <span class="slds-assistive-text">warning</span>
-                                            <h2><b>Actualizar el spread antes de continuar</b></h2>
-                                            <br/>
-                                            <div class="slds-notify__close">
-                                                <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" onclick="{!c.closeAlert}" title="close" alternativeText="Close window"/>
-                                            </div>
-                                        </div>
-                                        <br/>
-                                    </div>
-                                    <br/>
-                                </div>
-                                <aura:set attribute="else">
-                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
-                                        <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
-                                    </div>
-                                </aura:set>
-                            </aura:if>
-                            <aura:if isTrue="{!(v.type_of_quote!='COTIZA Beta')}">
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_6-of-12">                            
-                                    <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
-                                </div>
-                            </aura:if>  
-                        </div>
+                        <div class="slds-grid">
+                      <div class="slds-col sizeSPRICE">
+                      	  <p style="padding-left:10px; font-size:12pt; font-family:'Salesforce Sans';">Proponer Precio</p>
+                      	  <aura:if isTrue="{!v.showWebForm}">
+                              <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
+                              <div class="slds-align_absolute-center">
+                                  <lightning:button variant="brand" onclick="{!c.updateSpread}">Actualizar</lightning:button>
+                              </div>
+                              <br/>
+                              <div id="idAlert" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+                                  <span class="slds-assistive-text">warning</span>
+                                  <h2><b>Actualizar el spread antes de continuar</b></h2>
+                                  <div class="slds-notify__close">
+                                      <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" onclick="{!c.closeAlert}" title="close" alternativeText="Close window"/>
+                                  </div>
+                              </div>
+                              <aura:set attribute="else">
+                              	<c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
+                              </aura:set>
+                          </aura:if>
+                      </div>
+                      <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
+                          <div class="slds-col sizeSPRICE">                            
+                            <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
+                          </div>
+                       </aura:if>  
+                    </div>
                     </aura:if>
                 </div>              
                 <footer class="slds-modal__footer slds-theme_default">
-                    <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
-                        <table width="100%">
-                            <tr>
-                                <td>
-                                    <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
-                                </td>
-                                <td>
-                                    <div class="slds-float_right"><c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/></div>
-                                </td>
-                            </tr>
-                        </table>
-                        <aura:set attribute="else">
-                            <lightning:layout multipleRows="true">
-                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
-                                    <c:ButtonWithoutDoubleClick_cmp class="slds-button slds-button_neutral slds-button_stretch" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
-                                </lightning:layoutItem>
-                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
-                                    <lightning:button class="slds-button slds-button_neutral slds-button_stretch" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
-                                </lightning:layoutItem>
-                            </lightning:layout>
-                        </aura:set>
-                    </aura:if>
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+                            </td>
+                            <td>
+                                <div class="slds-float_right"><c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/></div>
+                            </td>
+                        </tr>
+                    </table>
                 </footer>
             </aura:set>
         </aura:if>
