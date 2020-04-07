@@ -1813,11 +1813,11 @@
         <name>nonc__NClient_lbl_WishContinue</name>
     </customLabels>
 	<customLabels>
-        <label>Contratos impagos</label>
+        <label>Contratos vigentes e impagos</label>
         <name>BE_UnpaidContracts</name>
     </customLabels>
 	<customLabels>
-        <label>Contratos vencidos</label>
+        <label>Contratos vigentes</label>
         <name>BE_ExpiredContracts</name>
     </customLabels>
     <customTabs>

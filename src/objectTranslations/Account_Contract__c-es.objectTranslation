@@ -8,6 +8,14 @@
         <plural>true</plural>
         <value>Account Contracts</value>
     </caseValues>
+	<fields>
+        <label><!-- F. Vcto --></label>
+        <name>F_Vcto__c</name>
+    </fields>
+    <fields>
+        <label>Divisa origen</label>
+        <name>Origin_Currency__c</name>
+    </fields>
     <fields>
         <label><!-- Subcategory formula --></label>
         <name>Subcategory_formula__c</name>

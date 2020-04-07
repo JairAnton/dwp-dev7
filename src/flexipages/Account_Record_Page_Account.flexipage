@@ -1165,7 +1165,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
-                <value>solution_category_name__c,contract_id__c,gf_lc_contract_lc_amount__c,gf_tl_bal_contract_oc_amount__c,CurrencyIsoCode,gf_next_payment_expir_date__c,contract_end_date__c,Unpaid_Days__c</value>
+                <value>solution_category_name__c,contract_id__c,Origin_Currency__c,gf_tl_bal_contract_oc_amount__c,gf_lc_contract_lc_amount__c,gf_next_payment_expir_date__c,contract_end_date__c,Unpaid_Days__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>HeaderGroup</name>
@@ -1208,7 +1208,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>customLabelAPInameError</name>
-                <value>AccountNoDat</value>
+                <value>AccountNoData</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>headerApiName</name>
@@ -1315,7 +1315,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
-                <value>Contratos impagos</value>
+                <value>Contratos vigentes e impagos</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>
@@ -1858,7 +1858,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
-                <value>solution_category_name__c,contract_id__c,gf_lc_contract_lc_amount__c,gf_tl_bal_contract_oc_amount__c,CurrencyIsoCode,contract_end_date__c</value>
+                <value>solution_category_name__c,contract_id__c,Origin_Currency__c,gf_tl_bal_contract_oc_amount__c,gf_lc_contract_lc_amount__c,contract_end_date__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>HeaderGroup</name>
@@ -1901,7 +1901,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>customLabelAPInameError</name>
-                <value>AccountNoDat</value>
+                <value>AccountNoData</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>headerApiName</name>
@@ -2023,7 +2023,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
-                <value>Contratos vencidos</value>
+                <value>Contratos vigentes</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>
@@ -3371,7 +3371,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>customLabelAPInameError</name>
-                <value>AccountNoDat</value>
+                <value>AccountNoData</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>headerApiName</name>
@@ -3440,7 +3440,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
-                <value>solution_category_name__c,contract_id__c,gf_lc_contract_lc_amount__c,gf_tl_bal_contract_oc_amount__c,CurrencyIsoCode,gf_next_payment_expir_date__c,contract_end_date__c,Unpaid_Days__c</value>
+                <value>solution_category_name__c,contract_id__c,Origin_Currency__c,gf_tl_bal_contract_oc_amount__c,gf_lc_contract_lc_amount__c,gf_next_payment_expir_date__c,contract_end_date__c,Unpaid_Days__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>HeaderGroup</name>
@@ -3483,7 +3483,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>customLabelAPInameError</name>
-                <value>AccountNoDat</value>
+                <value>AccountNoData</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>headerApiName</name>
@@ -3678,7 +3678,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
-                <value>solution_category_name__c,contract_id__c,gf_lc_contract_lc_amount__c,gf_tl_bal_contract_oc_amount__c,CurrencyIsoCode,contract_end_date__c</value>
+                <value>solution_category_name__c,contract_id__c,Origin_Currency__c,gf_tl_bal_contract_oc_amount__c,gf_lc_contract_lc_amount__c,contract_end_date__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>HeaderGroup</name>
@@ -3721,7 +3721,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>customLabelAPInameError</name>
-                <value>AccountNoDat</value>
+                <value>AccountNoData</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>headerApiName</name>
