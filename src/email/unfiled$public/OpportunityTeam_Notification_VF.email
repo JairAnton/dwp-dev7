@@ -6,7 +6,7 @@
                 <tbody>
                     <tr>
                         <td style="color:#000000;background-color:#ffffff;padding:0px 20px 0px 20px">
-                            <p style="margin:28px 0px 10px 0px;font-size:24px;font-weight:light">Hola {!recipient.name},</p>
+                            <p style="margin:28px 0px 10px 0px;font-size:24px;font-weight:light">Hola {!relatedTo.User.Name},</p>
                             <p style="margin:28px 0px 10px 0px;font-size:24px;font-weight:light">{!relatedTo.CreatedBy.Name} te ha agregado como miembro del equipo de la oportunidad:</p>
                             <table width="100%" class="m_-8965921847410507544pst" bgcolor="#F2F2F2">
                                 <tbody>
