@@ -1,0 +1,79 @@
+<messaging:emailTemplate subject="Ha sido agregado al equipo de la oportunidad: {!relatedTo.Opportunity.Name}" recipientType="User" relatedToType="OpportunityTeamMember">
+    <messaging:htmlEmailBody >
+        <html>
+            <body>
+                <table width="100%" bgcolor="#F2F2F2">
+                <tbody>
+                    <tr>
+                        <td style="color:#000000;background-color:#ffffff;padding:0px 20px 0px 20px">
+                            <p style="margin:28px 0px 10px 0px;font-size:24px;font-weight:light">Hola {!recipient.name},</p>
+                            <p style="margin:28px 0px 10px 0px;font-size:24px;font-weight:light">{!relatedTo.CreatedBy.Name} te ha agregado como miembro del equipo de la oportunidad:</p>
+                            <table width="100%" class="m_-8965921847410507544pst" bgcolor="#F2F2F2">
+                                <tbody>
+                                    <tr>
+                                        <td style="padding:18px 20px 18px 0px;font-size:16px">
+                                            <b>Oportunidad: <a href="/{!relatedTo.OpportunityId}" style="text-decoration:none;color:#015ba7" target="_blank">{!relatedTo.Opportunity.Name}</a></b>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Cliente</b>&nbsp;&nbsp;&nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <div><a href="/{!relatedTo.Opportunity.AccountId}" target="_blank">{!relatedTo.Opportunity.Account.Name}</a></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Producto</b>&nbsp;&nbsp;&nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <div>{!relatedTo.Opportunity.opportunity_product__c}</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Importe</b>&nbsp;&nbsp;&nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <div>{!relatedTo.Opportunity.CurrencyIsoCode}&nbsp;{!relatedTo.Opportunity.Amount}</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Etapa</b>&nbsp;&nbsp;&nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <div>{!relatedTo.Opportunity.StageName_Formula__c}</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Fecha estimada de cierre</b>&nbsp;&nbsp;&nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <div>{!relatedTo.Opportunity.CloseDate}</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Gestor de la oportunidad</b>&nbsp;&nbsp;&nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <div><a href="/{!relatedTo.Opportunity.OwnerId}" target="_blank">{!relatedTo.Opportunity.Owner.Name}</a></div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table> 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>
