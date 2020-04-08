@@ -136,7 +136,7 @@ public without sharing class Opportunity_Trigger_cls {
     public static void asignAfterInsert(List <Opportunity> oppsNew) {
         Map<Id,Id> owneropp = new Map<Id,Id>();
         List<OpportunityTeamMember> oppTeam = new List<OpportunityTeamMember>();
-        for(Opportunity opp:[Select Id, OwnerId, Account.OwnerId from Opportunity where Id =:oppsNew]) {
+        for(Opportunity opp : [SELECT Id, OwnerId, Account.OwnerId FROM Opportunity WHERE Id =:oppsNew AND Account.Owner.IsActive = TRUE]) {
             if(opp.OwnerId != opp.Account.OwnerId) {
                 owneropp.put(opp.Id,opp.Account.OwnerId);
             }
