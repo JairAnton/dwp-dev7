@@ -5838,6 +5838,16 @@ Asistente BE</description>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
+        <field>Account_Contract__c.F_Vcto__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Contract__c.Origin_Currency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Contract__c.Subcategory_formula__c</field>
         <readable>true</readable>
     </fieldPermissions>

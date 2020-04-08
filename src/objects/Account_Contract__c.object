@@ -152,6 +152,27 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+	<fields>
+        <fullName>F_Vcto__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISNULL( gf_next_payment_expir_date__c ), contract_end_date__c, gf_next_payment_expir_date__c  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>F. Vcto</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Origin_Currency__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( CurrencyIsoCode )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Origin Currency</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Subcategory_formula__c</fullName>
         <externalId>false</externalId>
@@ -166,7 +187,7 @@
     <fields>
         <fullName>Unpaid_Days__c</fullName>
         <externalId>false</externalId>
-        <formula>IF((TODAY() - gf_next_payment_expir_date__c) &lt; 0, 0, TODAY() - gf_next_payment_expir_date__c)</formula>
+        <formula>IF((TODAY() - F_Vcto__c - 1) &lt; 0, 0, TODAY() - F_Vcto__c -1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Unpaid Days</label>
         <precision>18</precision>

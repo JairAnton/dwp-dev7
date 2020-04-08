@@ -2337,13 +2337,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>BE_ExpiredContracts</shortDescription>
-        <value>Expired contracts</value>
+        <value>Current contracts</value>
     </labels>
 	<labels>
         <fullName>BE_UnpaidContracts</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>BE_UnpaidContracts</shortDescription>
-        <value>Unpaid contracts</value>
+        <value>Current and unpaid contracts</value>
     </labels>
 </CustomLabels>
