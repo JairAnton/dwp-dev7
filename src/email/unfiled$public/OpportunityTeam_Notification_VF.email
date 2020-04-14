@@ -6,15 +6,22 @@
                 <tbody>
                     <tr>
                         <td style="color:#000000;background-color:#ffffff;padding:0px 20px 0px 20px">
-                            <p style="margin:28px 0px 10px 0px;font-size:24px;font-weight:light">Hola {!relatedTo.User.Name},</p>
-                            <p style="margin:28px 0px 10px 0px;font-size:24px;font-weight:light">{!relatedTo.CreatedBy.Name} te ha agregado como miembro del equipo de la oportunidad:</p>
+                            <p style="margin:28px 0px 10px 0px;font-size:16px;">Hola {!relatedTo.User.Name},</p>
+                            <p style="margin:28px 0px 10px 0px;font-size:16px;">{!relatedTo.CreatedBy.Name} te ha agregado como miembro del equipo de la oportunidad:</p>
                             <table width="100%" class="m_-8965921847410507544pst" bgcolor="#F2F2F2">
                                 <tbody>
                                     <tr>
                                         <td style="padding:18px 20px 18px 0px;font-size:16px">
-                                            <b>Oportunidad: <a href="/{!relatedTo.OpportunityId}" style="text-decoration:none;color:#015ba7" target="_blank">{!relatedTo.Opportunity.Name}</a></b>
                                             <table>
                                                 <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <b>Oportunidad</b>&nbsp;&nbsp;&nbsp;
+                                                        </td>
+                                                        <td>
+                                                            <div><a href="/{!relatedTo.OpportunityId}" style="text-decoration:none;color:#015ba7" target="_blank">{!relatedTo.Opportunity.Name}</a></div>
+                                                        </td>
+                                                    </tr>
                                                     <tr>
                                                         <td>
                                                             <b>Cliente</b>&nbsp;&nbsp;&nbsp;
@@ -52,7 +59,11 @@
                                                             <b>Fecha estimada de cierre</b>&nbsp;&nbsp;&nbsp;
                                                         </td>
                                                         <td>
-                                                            <div>{!relatedTo.Opportunity.CloseDate}</div>
+                                                            <div>
+                                                                <apex:outputText value="{0, date, dd/MM/yyyy}">
+                                                                    <apex:Param value="{!relatedTo.Opportunity.CloseDate}"/>
+                                                                </apex:outputText>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -69,6 +80,27 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div style="height: 206px; text-align:center; vertical-align: middle;">
+                                <table style="width:100%;height:100%">
+                                    <tr>
+                                        <td style="text-align:center; font-size: 10px; font-family: Arial; color: #9B9B9B; vertical-align: middle; text-align:center;">
+                                            <c:BE_Document_GetImage_Vfc devName="Logo_BBVA" height="50px" width="90px"/>
+                                            <table style="width:100%;">
+                                                <tr style="text-align:center;">
+                                                    <td class="text-align:center; font-size: 10px; font-family: Arial; color: #9B9B9B; vertical-align: middle; text-align:center;">
+                                                    ©2019 BBVA. Derechos Reservados.
+                                                    </td>
+                                                </tr>
+                                                <tr style="text-align:center;">
+                                                    <td class="text-align:center; font-size: 10px; font-family: Arial; color: #9B9B9B; vertical-align: middle; text-align:center;">
+                                                    Av. República de Panamá 3055 - San Isidro, Lima - Perú
+                                                    </td>
+                                                </tr>
+                                            </table> 
+                                        </td>
+                                    </tr>
+                                </table> 
+                            </div>
                         </td>
                     </tr>
                 </tbody>
