@@ -738,7 +738,15 @@
         <apexClass>User_Trigger_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	<fieldPermissions>
+	<classAccesses>
+        <apexClass>BE_Document_GetImage_Ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_Document_GetImage_Tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account_BBVA_Information__c.Oficer_Manager__c</field>
         <readable>true</readable>
