@@ -56,6 +56,7 @@ public without sharing class  User_Trigger_cls {
         User_Trigger_Case_cls.updFormalizationDeactiveOwners(userNewMap, userOldMap);
         User_Trigger_Case_cls.changeRolAssis_Sgof(userNewMap, userOld);
         User_Trigger_Case_cls.addUserToFormalizationGroup(userNewMap, userOld);
+        BE_User_Trigger_VisitTeam_Cls.sharingVisitTeamMember(userNewMap, userOldMap);
     }
     /*
     * @Name: setEquivalentValues
