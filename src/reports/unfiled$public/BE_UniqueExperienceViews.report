@@ -4,16 +4,10 @@
         <field>dwp_kitv__Visit__c.dwp_branch_id__c</field>
     </columns>
     <columns>
-        <field>CUST_OWNER_ALIAS</field>
-    </columns>
-    <columns>
         <field>dwp_kitv__Visit__c.dwp_kitv__account_id__c</field>
     </columns>
     <columns>
         <field>CUST_NAME</field>
-    </columns>
-    <columns>
-        <field>field_key</field>
     </columns>
     <columns>
         <field>OLDVAL</field>
@@ -22,29 +16,29 @@
         <field>NEWVAL</field>
     </columns>
     <columns>
-        <field>CREATED_DATE</field>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</field>
     </columns>
     <columns>
-        <field>CREATED</field>
+        <field>CUST_CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>dwp_kitv__Visit__c.dwp_kitv__visit_desc__c</field>
+    </columns>
+    <columns>
+        <field>CUST_OWNER_NAME</field>
     </columns>
     <currency>PEN</currency>
     <filter>
         <criteriaItems>
-            <column>OLDVAL</column>
-            <isUnlocked>false</isUnlocked>
-            <operator>equals</operator>
-            <value>Agendada</value>
-        </criteriaItems>
-        <criteriaItems>
             <column>NEWVAL</column>
-            <isUnlocked>false</isUnlocked>
+            <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>Finalizada</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Vistas de Calidad</name>
+    <name>Vistas de Experiencia Única</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -56,6 +50,6 @@
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</dateColumn>
-        <interval>INTERVAL_LASTMONTH</interval>
+        <interval>INTERVAL_THISMONTH</interval>
     </timeFrameFilter>
 </Report>
