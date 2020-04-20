@@ -42,7 +42,7 @@ public without sharing class BE_User_Trigger_VisitTeam_Cls {
         final List<Id> recordTypes=new List<Id>{recordType.get('Record_Type_Non_Client').getRecordTypeId(),recordType.get('Record_Type_Client').getRecordTypeId()};
         Final List<dwp_kitv__Visit__Share> lstVisitShare = new List<dwp_kitv__Visit__Share>();
         for (dwp_kitv__Visit_Management_Team__c visitManTeam : [SELECT dwp_kitv__user_id__c, dwp_kitv__visit_id__c FROM dwp_kitv__Visit_Management_Team__c WHERE 
-        dwp_kitv__visit_id__r.report_visit_status_type__c IN:openStatus AND dwp_owner_visit__c=false AND dwp_kitv__visit_id__r.dwp_kitv__account_id__r.RecordTypeId IN:recordTypes]) {
+        dwp_kitv__visit_id__r.report_visit_status_type__c IN:openStatus AND dwp_owner_visit__c=false AND dwp_kitv__visit_id__r.dwp_kitv__account_id__r.RecordTypeId IN:recordTypes AND dwp_kitv__user_id__c IN:userIds]) {
             lstVisitShare.add(new dwp_kitv__Visit__Share(ParentId = visitManTeam.dwp_kitv__visit_id__c, UserOrGroupId  =  visitManTeam.dwp_kitv__user_id__c, AccessLevel = 'Edit', RowCause = 'Manual'));
         }
         final Integer visitShareSize = lstVisitShare.size();
