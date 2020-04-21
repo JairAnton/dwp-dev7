@@ -10,6 +10,10 @@
         <field>Account_Contract__c.solution_category_name__c</field>
     </columns>
     <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Account_Contract__c.gf_lc_contract_lc_amount__c</field>
+    </columns>
+    <columns>
         <field>Account_Contract__c.F_Vcto__c</field>
     </columns>
     <columns>
