@@ -990,6 +990,14 @@
         <apexClass>BE_Document_GetImage_Tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>BE_TableHome_Ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_TableHomeSetting_Cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Los cargos pueden ser:
 Gerente de Banca de Empresas
@@ -5912,6 +5920,11 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Contract__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit__c.Account_Owner__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
