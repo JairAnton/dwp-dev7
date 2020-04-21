@@ -228,6 +228,10 @@
         <label>Grupo</label>
         <name>account_parent__c</name>
     </fields>
+    <fields>
+        <label>Gestor principal</label>
+        <name>Account_Owner__c</name>
+    </fields>
     <gender>Feminine</gender>
     <layouts>
         <layout>Visit Layout Account Peru</layout>

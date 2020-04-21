@@ -220,6 +220,10 @@
         <label><!-- Users number --></label>
         <name>dwp_kitv__visit_users_number__c</name>
     </fields>
+	<fields>
+        <label><!-- Account Owner --></label>
+        <name>Account_Owner__c</name>
+    </fields>
     <layouts>
         <layout>Visit Layout Account Peru</layout>
         <sections>

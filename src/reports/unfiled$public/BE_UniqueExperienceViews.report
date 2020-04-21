@@ -4,6 +4,9 @@
         <field>dwp_kitv__Visit__c.dwp_branch_id__c</field>
     </columns>
     <columns>
+        <field>dwp_kitv__Visit__c.Account_Owner__c</field>
+    </columns>
+    <columns>
         <field>dwp_kitv__Visit__c.dwp_kitv__account_id__c</field>
     </columns>
     <columns>
@@ -38,7 +41,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Vistas de Experiencia Única</name>
+    <name>Vistas Experiencia Única</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -50,6 +53,6 @@
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>dwp_kitv__Visit__c.dwp_kitv__visit_start_date__c</dateColumn>
-        <interval>INTERVAL_THISMONTH</interval>
+        <interval>INTERVAL_LASTMONTH</interval>
     </timeFrameFilter>
 </Report>

@@ -27,7 +27,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Contratos de cuentas impagos</name>
+    <name>Contratos impagos</name>
     <params>
         <name>co</name>
         <value>1</value>
