@@ -1,0 +1,6 @@
+<apex:component controller="BE_Document_GetImage_Ctrl" access="global">
+    <apex:attribute name="devName" description="Developer name of document" type="String" required="required" assignTo="{!developerName}"/>
+    <apex:attribute name="width" description="width of image" type="String" required="required"/>
+    <apex:attribute name="height" description="height of image" type="String" required="required"/>
+	<p><apex:image url="{!StringUrl}" height="{!height}" width="{!width}"/></p>
+</apex:component>

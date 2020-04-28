@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <available>true</available>
+    <description>Notification that you have been added to the opportunity team</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>OpportunityTeam Notification VF</name>
+    <style>none</style>
+    <subject>Ha sido agregado al equipo de oportunidad</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

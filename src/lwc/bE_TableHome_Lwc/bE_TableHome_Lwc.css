@@ -1,0 +1,11 @@
+div {
+    overflow-x:auto !important;
+    height: 100%;
+ }
+
+ .asOfDateCustom {
+    font-size: .75rem;
+    color: rgb(84, 105, 141);
+    font-style: normal;
+    font-weight: normal;
+}

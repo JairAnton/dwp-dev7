@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Contract</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Contracts</value>
+    </caseValues>
+	<fields>
+        <label><!-- F. Vcto --></label>
+        <name>F_Vcto__c</name>
+    </fields>
+    <fields>
+        <label>Divisa origen</label>
+        <name>Origin_Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subcategory formula --></label>
+        <name>Subcategory_formula__c</name>
+    </fields>
+    <fields>
+        <label>Días impagos</label>
+        <name>Unpaid_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>F. cancelación</label>
+        <name>contract_end_date__c</name>
+    </fields>
+    <fields>
+        <label>Contrato</label>
+        <name>contract_id__c</name>
+    </fields>
+    <fields>
+        <label>Monto soles</label>
+        <name>gf_lc_contract_lc_amount__c</name>
+    </fields>
+    <fields>
+        <label>F. vencimiento</label>
+        <name>gf_next_payment_expir_date__c</name>
+    </fields>
+    <fields>
+        <label>Monto origen</label>
+        <name>gf_tl_bal_contract_oc_amount__c</name>
+    </fields>
+    <fields>
+        <label>Categoría del producto</label>
+        <name>product_type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Activo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Pasivo</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Producto</label>
+        <name>solution_category_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term Type --></label>
+        <name>solution_expiry_type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Corto plazo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Largo plazo</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Subcategoria del producto</label>
+        <name>subproduct_type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Directa</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Indirecta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Recursos</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <gender>Masculine</gender>
+</CustomObjectTranslation>
