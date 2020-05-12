@@ -9,52 +9,59 @@
         <value>Account Legal Representative</value>
     </caseValues>
     <fields>
-        <label>Cliente</label>
-        <name>account_id__c</name>
-        <relationshipLabel><!-- Account Legal Representatives --></relationshipLabel>
+        <label>F. nacimiento</label>
+        <name>Birth_Date__c</name>
     </fields>
     <fields>
-        <label>F. Nacimiento</label>
-        <name>Birth_Date__c</name>
+        <label>T. Doc.</label>
+        <name>Document_Type_Abbreviation__c</name>
     </fields>
     <fields>
         <label>DOI</label>
         <name>Personal_Id__c</name>
     </fields>
     <fields>
-        <label><!-- Personal Type --></label>
+        <label>Tipo de documento</label>
         <name>Personal_Type__c</name>
         <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation>CARNET FUERZAS ARMADAS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation>CARNET FUERZAS POLICIALES</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>E</masterLabel>
-            <translation><!-- E --></translation>
+            <translation>CARNET EXTRANJERÍA</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>L</masterLabel>
-            <translation><!-- L --></translation>
+            <translation>DNI</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>M</masterLabel>
-            <translation><!-- M --></translation>
+            <masterLabel>LT</masterLabel>
+            <translation>LIBRETA TRIBUTARIA</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>O</masterLabel>
-            <translation><!-- O --></translation>
+            <translation>OTROS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>P</masterLabel>
-            <translation><!-- P --></translation>
+            <translation>PASAPORTE</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R</masterLabel>
-            <translation><!-- R --></translation>
+            <translation>RUC</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>S</masterLabel>
-            <translation><!-- S --></translation>
+            <masterLabel>V</masterLabel>
+            <translation>DOC. PROVISIONAL DE IDENTIDAD</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label>F. Inicio cargo</label>
+        <label>F. inicio cargo</label>
         <name>Position_Begin_Date__c</name>
     </fields>
     <fields>
@@ -64,6 +71,15 @@
     <fields>
         <label><!-- Tax Payer Id --></label>
         <name>Tax_Payer_Id__c</name>
+    </fields>
+    <fields>
+        <label>Cliente</label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Legal Representatives --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
     </fields>
     <gender>Feminine</gender>
     <nameFieldLabel>Nombres y apellidos</nameFieldLabel>

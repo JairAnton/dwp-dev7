@@ -5662,6 +5662,16 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Legal_Representative__c.Document_Type_Abbreviation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Legal_Representative__c.Personal_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Legal_Representative__c.Personal_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5678,6 +5688,11 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Legal_Representative__c.Tax_Payer_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Legal_Representative__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
