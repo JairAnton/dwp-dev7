@@ -28,36 +28,39 @@
                         cmp.set('v.modalWidthCustom', '37rem');
                     }
                 }
-                cmp.set('v.commercial_strategy', ret.commercial_strategy);
-                var objectInput = {
-                    'IdOppLineItem': ret.IdOppLineItem,
-                    'approvalMethod': ret.approvalMethod,
-                    'pricingModelId': ret.pricingModelId,
-                    'dinamicInput': '-'
-                };
-                var generr = ret.genericError;
-                cmp.set('v.hasHeader', true);
-                if (ret.approvalMethod == 'Tarifario' && ret.dynamicValue != undefined) {
-                    objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
-                    cmp.set('v.hasHeader', true);
-                } else if (ret.approvalMethod == 'Web') {
-                    cmp.set("v.showWebForm", true);
-                    if (generr != undefined) {
-                        cmp.set('v.isError', true);
-                        cmp.set('v.errorlst', generr);
-                        cmp.set('v.hasHeader', false);
-                    } else {
-                        cmp.set('v.hasHeader', true);
-                        cmp.set('v.isError', false);
-                        objectInput['dinamicInput'] = ret.sugtea + ',' + ret.minimtea + ',' + ret.proposed + ',' + ret.spread;
-                        cmp.set("v.proposedEmpty", (ret.proposed) ? false : true);
-                    }
-                }
-                cmp.set('v.objectInput', objectInput);
-                cmp.set('v.isLoad', true);
+                helper.setValues(cmp, ret);
             }
         });
         $A.enqueueAction(action);
+    },
+    setValues: function (cmp, ret) {
+        cmp.set('v.commercial_strategy', ret.commercial_strategy);
+        var objectInput = {
+            'IdOppLineItem': ret.IdOppLineItem,
+            'approvalMethod': ret.approvalMethod,
+            'pricingModelId': ret.pricingModelId,
+            'dinamicInput': '-'
+        };
+        var generr = ret.genericError;
+        cmp.set('v.hasHeader', true);
+        if (ret.approvalMethod == 'Tarifario' && ret.dynamicValue != undefined) {
+            objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
+            cmp.set('v.hasHeader', true);
+        } else if (ret.approvalMethod == 'Web') {
+            cmp.set("v.showWebForm", true);
+            if (generr != undefined) {
+                cmp.set('v.isError', true);
+                cmp.set('v.errorlst', generr);
+                cmp.set('v.hasHeader', false);
+            } else {
+                cmp.set('v.hasHeader', true);
+                cmp.set('v.isError', false);
+                objectInput['dinamicInput'] = ret.sugtea + ',' + ret.minimtea + ',' + ret.proposed + ',' + ret.spread;
+                cmp.set("v.proposedEmpty", (ret.proposed) ? false : true);
+            }
+        }
+        cmp.set('v.objectInput', objectInput);
+        cmp.set('v.isLoad', true);
     },
     continue: function (cmp, evt, helper) {
         var fieldsForm;
