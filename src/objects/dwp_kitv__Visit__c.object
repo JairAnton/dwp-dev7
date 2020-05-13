@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -39,11 +99,35 @@
         <type>LightningComponent</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -53,6 +137,15 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>dwp_kitv__Visit_Compact_Layout_Account</compactLayoutAssignment>
@@ -68,20 +161,23 @@
     <compactLayouts>
         <fullName>dwp_kitv__Visit_Compact_Layout_Account</fullName>
         <fields>dwp_kitv__account_id__c</fields>
-        <fields>dwp_kitv__account_type__c</fields>
-        <fields>dwp_kitv__visit_start_date__c</fields>
-        <fields>dwp_kitv__visit_duration_number__c</fields>
+        <fields>Name</fields>
         <fields>dwp_kitv__visit_status_type__c</fields>
-        <fields>Notify_meeting_changed_peru__c</fields>
+        <fields>dwp_kitv__visit_start_date__c</fields>
+        <fields>dwp_kitv__visit_location_desc__c</fields>
+        <fields>dwp_kitv__visit_purpose_type__c</fields>
+        <fields>dwp_kitv__Main_Contact__c</fields>
         <label>Visit Compact Layout Account</label>
     </compactLayouts>
     <compactLayouts>
         <fullName>dwp_kitv__Visit_Compact_Layout_Lead</fullName>
         <fields>dwp_kitv__lead_id__c</fields>
-        <fields>dwp_kitv__visit_start_date__c</fields>
-        <fields>dwp_kitv__visit_duration_number__c</fields>
+        <fields>Name</fields>
         <fields>dwp_kitv__visit_status_type__c</fields>
-        <fields>dwp_kitv__notify_meeting_changed__c</fields>
+        <fields>dwp_kitv__visit_start_date__c</fields>
+        <fields>dwp_kitv__visit_location_desc__c</fields>
+        <fields>dwp_kitv__visit_purpose_type__c</fields>
+        <fields>dwp_kitv__Main_Contact__c</fields>
         <label>Visit Compact Layout Lead</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -91,6 +187,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -136,15 +233,78 @@
         <label>Fields To Identify A Visit Change</label>
     </fieldSets>
     <fields>
+        <fullName>Account_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>dwp_kitv__account_id__r.Owner.FirstName &amp; &quot; &quot; &amp; dwp_kitv__account_id__r.Owner.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CreatedDateFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fecha de creacion hora</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Hora_Check_In__c</fullName>
+        <description>Hora Check In</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Hora Check In</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Hora_Check_Out__c</fullName>
+        <description>Hora Check Out</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Hora Check Out</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Notify_meeting_changed_peru__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(dwp_kitv__visit_status_type__c,&quot;03&quot;),(IMAGE(&quot;/resource/bbva_icon_alert&quot;,&quot;Recuerda pulsar click en &apos;Crear / Actualizar visita&apos; para sincronizar el calendario del contacto seleccionado.&quot;,24,24)),&quot;&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Notify meeting changed</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ubicaci_n_Check_In__c</fullName>
+        <description>Ubicación de check in</description>
+        <displayLocationInDecimal>false</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Ubicación Check In</label>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>Ubicaci_n_Check_Out__c</fullName>
+        <description>Ubicacíon Check Out</description>
+        <displayLocationInDecimal>false</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Ubicación Check Out</label>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <type>Location</type>
     </fields>
     <fields>
         <fullName>account_name__c</fullName>
@@ -153,7 +313,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Name</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -164,7 +324,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Parent</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -177,8 +337,95 @@
         <relationshipLabel>Visitas</relationshipLabel>
         <relationshipName>Visitas</relationshipName>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__CloseAllTopics__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This checkbox allows execute the functionality of close all topics. This field should be hidden for any page layout.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This checkbox allows execute the functionality of close all topics.</inlineHelpText>
+        <label>Do you want to close all topics?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__Main_Contact__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the main contact of the visit</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the main contact of the visit</inlineHelpText>
+        <label>Main Contact</label>
+        <length>75</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__TravelTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field allows you to indicate and knows a travel time that the executive takes between the branch office to the client office.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please indicate the time it will take to travel from the branch to the client&apos;s office.</inlineHelpText>
+        <label>Travel Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>10 Minutes</fullName>
+                    <default>false</default>
+                    <label>10 Minutes</label>
+                </value>
+                <value>
+                    <fullName>20 Minutes</fullName>
+                    <default>false</default>
+                    <label>20 Minutes</label>
+                </value>
+                <value>
+                    <fullName>30 Minutes</fullName>
+                    <default>false</default>
+                    <label>30 Minutes</label>
+                </value>
+                <value>
+                    <fullName>40 Minutes</fullName>
+                    <default>false</default>
+                    <label>40 Minutes</label>
+                </value>
+                <value>
+                    <fullName>60 Minutes</fullName>
+                    <default>false</default>
+                    <label>60 Minutes</label>
+                </value>
+                <value>
+                    <fullName>90 Minutes</fullName>
+                    <default>false</default>
+                    <label>90 Minutes</label>
+                </value>
+                <value>
+                    <fullName>120 Minutes</fullName>
+                    <default>false</default>
+                    <label>120 Minutes</label>
+                </value>
+                <value>
+                    <fullName>150 Minutes</fullName>
+                    <default>false</default>
+                    <label>150 Minutes</label>
+                </value>
+                <value>
+                    <fullName>180 Minutes</fullName>
+                    <default>false</default>
+                    <label>180 Minutes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>dwp_kitv__account_id__c</fullName>
@@ -191,7 +438,7 @@
         <relationshipLabel>Visits</relationshipLabel>
         <relationshipName>Visits</relationshipName>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -203,9 +450,160 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Type</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__country_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                    <label>Argentina</label>
+                </value>
+                <value>
+                    <fullName>BE</fullName>
+                    <default>false</default>
+                    <label>Belgium</label>
+                </value>
+                <value>
+                    <fullName>CL</fullName>
+                    <default>false</default>
+                    <label>Chile</label>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                    <label>Colombia</label>
+                </value>
+                <value>
+                    <fullName>Compass</fullName>
+                    <default>false</default>
+                    <label>Compass</label>
+                </value>
+                <value>
+                    <fullName>ES</fullName>
+                    <default>false</default>
+                    <label>Spain</label>
+                </value>
+                <value>
+                    <fullName>FR</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>DE</fullName>
+                    <default>false</default>
+                    <label>Germany</label>
+                </value>
+                <value>
+                    <fullName>HK</fullName>
+                    <default>false</default>
+                    <label>Hong Kong</label>
+                </value>
+                <value>
+                    <fullName>IN</fullName>
+                    <default>false</default>
+                    <label>India</label>
+                </value>
+                <value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                    <label>Indonesia</label>
+                </value>
+                <value>
+                    <fullName>IT</fullName>
+                    <default>false</default>
+                    <label>Italy</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>Japan</label>
+                </value>
+                <value>
+                    <fullName>MX</fullName>
+                    <default>false</default>
+                    <label>Mexico</label>
+                </value>
+                <value>
+                    <fullName>NY</fullName>
+                    <default>false</default>
+                    <label>NY</label>
+                </value>
+                <value>
+                    <fullName>PE</fullName>
+                    <default>false</default>
+                    <label>Peru</label>
+                </value>
+                <value>
+                    <fullName>PT</fullName>
+                    <default>false</default>
+                    <label>Portugal</label>
+                </value>
+                <value>
+                    <fullName>GB</fullName>
+                    <default>false</default>
+                    <label>United Kingdom</label>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>false</default>
+                    <label>Singapore</label>
+                </value>
+                <value>
+                    <fullName>TW</fullName>
+                    <default>false</default>
+                    <label>Taiwan</label>
+                </value>
+                <value>
+                    <fullName>UY</fullName>
+                    <default>false</default>
+                    <label>Uruguay</label>
+                </value>
+                <value>
+                    <fullName>VE</fullName>
+                    <default>false</default>
+                    <label>Venezuela</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__disclosure_info_type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field to select if the visit is Public or Confidential.</description>
+        <externalId>false</externalId>
+        <label>Information disclosure</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not applicable</fullName>
+                    <default>true</default>
+                    <label>Not applicable</label>
+                </value>
+                <value>
+                    <fullName>Confidential information</fullName>
+                    <default>false</default>
+                    <label>Confidential information</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>dwp_kitv__dwp_kitv_TravelTime__c</fullName>
@@ -215,7 +613,7 @@
         <inlineHelpText>Please indicate the time it will take to travel from the branch to the client&apos;s office.</inlineHelpText>
         <label>Travel Time</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -256,7 +654,7 @@
         <description>Check if visit is changed from the related event.</description>
         <externalId>false</externalId>
         <label>Event changed</label>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -266,7 +664,7 @@
         <description>True if there was a modification on the invitee list</description>
         <externalId>false</externalId>
         <label>Invitee changed</label>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -280,7 +678,7 @@
         <relationshipLabel>Visits</relationshipLabel>
         <relationshipName>Visits</relationshipName>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -290,7 +688,7 @@
         <description>True: the meeting was updated after creation</description>
         <externalId>false</externalId>
         <label>Meeting Changed</label>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -302,7 +700,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Most recent visits</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -316,7 +714,7 @@
         <inlineHelpText>Recuerde pulsar en &quot;Actualizar visita&quot; para sincronizar el calendario del contacto seleccionado</inlineHelpText>
         <label>Notify meeting changed</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -330,9 +728,67 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__region_name__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dwp_kitv__solution_name_path_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Involved areas</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GTB</fullName>
+                    <default>false</default>
+                    <label>GTB</label>
+                </value>
+                <value>
+                    <fullName>GM</fullName>
+                    <default>false</default>
+                    <label>GM</label>
+                </value>
+                <value>
+                    <fullName>GF</fullName>
+                    <default>false</default>
+                    <label>GF</label>
+                </value>
+                <value>
+                    <fullName>GCC</fullName>
+                    <default>false</default>
+                    <label>GCC</label>
+                </value>
+                <value>
+                    <fullName>CIB</fullName>
+                    <default>false</default>
+                    <label>CIB</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>dwp_kitv__visit_channel__c</fullName>
@@ -341,7 +797,7 @@
         <externalId>false</externalId>
         <label>Channel</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -369,18 +825,18 @@
         <label>Contacts number</label>
         <summaryForeignKey>dwp_kitv__Visit_Contact__c.dwp_kitv__visit_id__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
         <fullName>dwp_kitv__visit_desc__c</fullName>
         <deprecated>false</deprecated>
         <description>Visit Description</description>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Description</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -392,7 +848,7 @@
         <inlineHelpText>Seleccione la duración en minutos</inlineHelpText>
         <label>Duration</label>
         <required>true</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -459,19 +915,19 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>End Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
         <fullName>dwp_kitv__visit_location_desc__c</fullName>
         <deprecated>false</deprecated>
         <description>Field to determinate the place where the visit will be realized.</description>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Location</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -482,7 +938,7 @@
         <externalId>false</externalId>
         <label>Type</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -509,11 +965,11 @@
         <fullName>dwp_kitv__visit_start_date__c</fullName>
         <deprecated>false</deprecated>
         <description>Field to set the start date time of the visit.</description>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Start Date</label>
         <required>true</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -550,7 +1006,7 @@
                     <default>false</default>
                     <label>Visit Completed - Pending Feedback</label>
                 </value>
-				<value>
+                <value>
                     <fullName>05</fullName>
                     <default>false</default>
                     <label>Visit Completed - Minute Sent</label>
@@ -567,10 +1023,11 @@
         <fullName>dwp_kitv__visit_summary_desc__c</fullName>
         <deprecated>false</deprecated>
         <description>Summary of the visit once finished.</description>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Summary</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Html</type>
         <visibleLines>25</visibleLines>
     </fields>
@@ -583,7 +1040,7 @@
         <label>Topics number</label>
         <summaryForeignKey>dwp_kitv__Visit_Topic__c.dwp_kitv__visit_id__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -595,7 +1052,7 @@
         <label>Users number</label>
         <summaryForeignKey>dwp_kitv__Visit_Management_Team__c.dwp_kitv__visit_id__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -605,7 +1062,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Oficina</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -616,7 +1073,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Region</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -625,7 +1082,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Mantener propietario</label>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -644,10 +1101,10 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Estado de visitas</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>    
+    </fields>
     <fields>
         <fullName>start_date_calculated__c</fullName>
         <externalId>false</externalId>
@@ -655,82 +1112,171 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Start Date Calculated</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-    <fields>
-        <fullName>Hora_Check_In__c</fullName>
-        <description>Hora Check In</description>
-        <externalId>false</externalId>
-        <label>Hora Check In</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Hora_Check_Out__c</fullName>
-        <description>Hora Check Out</description>
-        <externalId>false</externalId>
-        <label>Hora Check Out</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Ubicaci_n_Check_In__c</fullName>
-        <description>Ubicación de check in</description>
-        <displayLocationInDecimal>false</displayLocationInDecimal>
-        <externalId>false</externalId>
-        <label>Ubicación Check In</label>
-        <required>false</required>
-        <scale>4</scale>
-        <trackTrending>false</trackTrending>
-        <type>Location</type>
-    </fields>
-    <fields>
-        <fullName>Ubicaci_n_Check_Out__c</fullName>
-        <description>Ubicacíon Check Out</description>
-        <displayLocationInDecimal>false</displayLocationInDecimal>
-        <externalId>false</externalId>
-        <label>Ubicación Check Out</label>
-        <required>false</required>
-        <scale>4</scale>
-        <trackTrending>false</trackTrending>
-        <type>Location</type>
-    </fields>
-	<fields>
-        <fullName>CreatedDateFormula__c</fullName>
-        <externalId>false</externalId>
-        <formula>CreatedDate</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Fecha de creacion hora</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-	<fields>
-        <fullName>Account_Owner__c</fullName>
-        <externalId>false</externalId>
-        <formula>dwp_kitv__account_id__r.Owner.FirstName &amp; &quot; &quot; &amp; dwp_kitv__account_id__r.Owner.LastName</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Account Owner</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
     <label>Visit</label>
+    <listViews>
+        <fullName>Tests_Funcionales</fullName>
+        <columns>NAME</columns>
+        <columns>dwp_kitv__visit_status_type__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Tests Funcionales</label>
+    </listViews>
     <nameField>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <label>Visit Name</label>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
     <pluralLabel>Visits</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>dwp_kitv__AccountVisit</fullName>
         <active>true</active>
         <description>Visit Recordtype from Account</description>
         <label>AccountVisit</label>
+        <picklistValues>
+            <picklist>dwp_kitv__TravelTime__c</picklist>
+            <values>
+                <fullName>10 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>120 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>180 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90 Minutes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__country_name__c</picklist>
+            <values>
+                <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Compass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__disclosure_info_type__c</picklist>
+            <values>
+                <fullName>Confidential information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not applicable</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>dwp_kitv__dwp_kitv_TravelTime__c</picklist>
             <values>
@@ -751,6 +1297,33 @@
             </values>
             <values>
                 <fullName>60 Minutos</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__solution_name_path_desc__c</picklist>
+            <values>
+                <fullName>CIB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GTB</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -845,7 +1418,7 @@
                 <fullName>05</fullName>
                 <default>false</default>
             </values>
-			  <values>
+            <values>
                 <fullName>06</fullName>
                 <default>false</default>
             </values>
@@ -857,6 +1430,147 @@
         <description>Visit RecordType from Lead</description>
         <label>LeadVisit</label>
         <picklistValues>
+            <picklist>dwp_kitv__TravelTime__c</picklist>
+            <values>
+                <fullName>10 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>120 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>180 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90 Minutes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__country_name__c</picklist>
+            <values>
+                <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Compass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__disclosure_info_type__c</picklist>
+            <values>
+                <fullName>Confidential information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not applicable</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>dwp_kitv__dwp_kitv_TravelTime__c</picklist>
             <values>
                 <fullName>10 Minutos</fullName>
@@ -876,6 +1590,33 @@
             </values>
             <values>
                 <fullName>60 Minutos</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>dwp_kitv__solution_name_path_desc__c</picklist>
+            <values>
+                <fullName>CIB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GTB</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -970,7 +1711,7 @@
                 <fullName>05</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>06</fullName>
                 <default>false</default>
             </values>
@@ -985,6 +1726,20 @@
         <errorConditionFormula>AND (ISCHANGED( dwp_kitv__account_id__c ),$Setup.dwp_kitv__Visit_validations_acc_cs__c.dwp_kitv__bypass__c  = false,$Setup.dwp_kitv__Visit_validations_lead_cs__c.dwp_kitv__bypass__c = false)</errorConditionFormula>
         <errorDisplayField>dwp_kitv__account_id__c</errorDisplayField>
         <errorMessage>Change Account is not allowed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_kitv__CSIsActiveToCloseAllTopicsAccounts</fullName>
+        <active>true</active>
+        <description>This rule shows a error message if the user want use the Close All Topics feature and the Custom Setting is inactive.</description>
+        <errorConditionFormula>AND( dwp_kitv__account_id__c != null, dwp_kitv__lead_id__c  == null, NOT( $Setup.dwp_kitv__TopicValidationsAcc__c.dwp_kitv__ActivateCloseAllTopicsFeature__c ), NOT(PRIORVALUE( dwp_kitv__CloseAllTopics__c )), dwp_kitv__CloseAllTopics__c)</errorConditionFormula>
+        <errorMessage>You can&apos;t use the Close All Topics feature if the Custom Setting isn&apos;t active. Please read the documentation for activation this feature.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>dwp_kitv__CSIsActiveToCloseAllTopicsLeads</fullName>
+        <active>true</active>
+        <description>This rule shows a error message if the user want use the Close All Topics feature and the Custom Setting is inactive.</description>
+        <errorConditionFormula>AND( dwp_kitv__account_id__c == null, dwp_kitv__lead_id__c  != null, NOT( $Setup.dwp_kitv__TopicValidationsLead__c.dwp_kitv__ActivateCloseAllTopicsFeature__c ), NOT(PRIORVALUE( dwp_kitv__CloseAllTopics__c )), dwp_kitv__CloseAllTopics__c)</errorConditionFormula>
+        <errorMessage>You can&apos;t use the Close All Topics feature if the Custom Setting isn&apos;t active. Please read the documentation for activation this feature.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>dwp_kitv__Days_to_create_account</fullName>
