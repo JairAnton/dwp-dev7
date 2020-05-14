@@ -163,16 +163,26 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Personal_Id__c</fullName>
-        <caseSensitive>false</caseSensitive>
-        <encryptionScheme>None</encryptionScheme>
-        <externalId>true</externalId>
-        <label>Personal Id</label>
-        <length>20</length>
-        <required>true</required>
+        <fullName>Document_Type_Abbreviation__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( TEXT(Personal_Type__c), &quot;L&quot;, &quot;DNI&quot;, &quot;E&quot;, &quot;CE&quot;, &quot;C&quot;, &quot;CFFP&quot;, &quot;A&quot;, &quot;CFFAA&quot;, &quot;P&quot;, &quot;PAS&quot;, &quot;R&quot;, &quot;RUC&quot;, &quot;T&quot;, &quot;LT&quot;, &quot;V&quot;, &quot;DPI&quot;, &quot;O&quot;, &quot;Otros&quot;, &quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Document Type Abbreviation</label>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>true</unique>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Personal_Id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Personal Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Personal_Type__c</fullName>
@@ -191,14 +201,19 @@
                     <label>L</label>
                 </value>
                 <value>
-                    <fullName>R</fullName>
-                    <default>false</default>
-                    <label>R</label>
-                </value>
-                <value>
                     <fullName>E</fullName>
                     <default>false</default>
                     <label>E</label>
+                </value>
+                <value>
+                    <fullName>C</fullName>
+                    <default>false</default>
+                    <label>C</label>
+                </value>
+                <value>
+                    <fullName>A</fullName>
+                    <default>false</default>
+                    <label>A</label>
                 </value>
                 <value>
                     <fullName>P</fullName>
@@ -206,14 +221,19 @@
                     <label>P</label>
                 </value>
                 <value>
-                    <fullName>M</fullName>
+                    <fullName>R</fullName>
                     <default>false</default>
-                    <label>M</label>
+                    <label>R</label>
                 </value>
                 <value>
-                    <fullName>S</fullName>
+                    <fullName>T</fullName>
                     <default>false</default>
-                    <label>S</label>
+                    <label>LT</label>
+                </value>
+                <value>
+                    <fullName>V</fullName>
+                    <default>false</default>
+                    <label>V</label>
                 </value>
                 <value>
                     <fullName>O</fullName>
@@ -267,6 +287,18 @@
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
+    <fields>
+        <fullName>unique_id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <label>Unique Identifier</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
     <gender>Feminine</gender>
     <label>Account Legal Representative</label>
     <nameField>
@@ -274,7 +306,7 @@
         <label>Customer Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Account Legal Representatives</pluralLabel>
+    <pluralLabel>Account Legal Representative</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
