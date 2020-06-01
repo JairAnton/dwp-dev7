@@ -1,208 +1,207 @@
 /* -------------------------------------------------------------------
-* Jose Rodriguez               07/08/2019          Original version.<p />
-*
-* @author Jose Rodriguez
-*/
-public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
-    
-    public String idVisitaActual {get; set;}
-    public dwp_kitv__Visit__c datosVisita {get; set;}
-    public dwp_kitv__Visit__c visit {get; set;}
-    public boolean redireccion {get; set;}
-    public Final String currentDate { get { return formatCurrentDate(Date.today()); }}
-    public String visitDate {get; set;}
-    public String infoStatusVisit {get; set;}
-    public boolean correoEnviado {get; set;}
+ * Jose Rodriguez               07/08/2019          Original version.<p />
+ *
+ * @author Jose Rodriguez
+ */
+public virtual class Minuta_ctrl extends MinutaWrap {//NOSONAR
+	public String idVisitaActual {get; set;}
+	public dwp_kitv__Visit__c datosVisita {get; set;}
+	public dwp_kitv__Visit__c visit {get; set;}
+	public boolean redireccion {get; set;}
+	public Final String currentDate { get { return formatCurrentDate(Date.today()); }}
+	public String visitDate {get; set;}
+	public String infoStatusVisit {get; set;}
+	public boolean correoEnviado {get; set;}
 	public string sMyCS {get; set;}
-    /*
-	*   @Variable: FORMAT_DATE
-	*/
-    public static Final String FORMAT_DATE = 'dd-MM-YYYY HH:mm a';
-    /*
-	*   @Variable: FORMAT_DATE_2
-	*/
-    public static Final String FORMAT_DATE_2 = 'M/d/yyyy h:mm a';
-    /*
-	*   @Variable: FORMAT_DATE_3
-	*/
-    public static Final String FORMAT_DATE_3 = 'dd/MM/yyyy hh:mm a';
-    /*
-	*   @Variable: FORMAT_DATE_4
-	*/
-    public static Final String FORMAT_DATE_4 = 'dd/MM/yyyy HH:mm';
-    /*
-	*   @Variable: FORMAT_DATE_5
-	*/
-    public static Final String FORMAT_DATE_5 = 'd.M.yyyy H:mm';
-    /*
-	*   @Variable: FORMAT_DATE_6
-	*/
-    public static Final String FORMAT_DATE_6 = 'dd.MM.yyyy HH:mm';
-    /*
-	*   @Variable: FORMAT_DATE_7
-	*/
-    public static Final String FORMAT_DATE_7 = 'd/MM/yyyy H:mm';
-    /*
-	*   @Variable: FORMAT_DATE_8
-	*/
-    public static Final String FORMAT_DATE_8 = 'yyyy-MM-dd HH:mm';
-    /**
-     * formatCurrentDate
-	*/
-    public String formatCurrentDate(Date dateToConvert) {
-        Final Integer day = dateToConvert.day();
-        Final Integer month = dateToConvert.month();
-        Final Integer year = dateToConvert.year();
-        Final String strMonth  = getStringMonth(month); 
-        return day + ' de ' + strMonth + ' de ' + year ;  
-    }
-    
-    /**
-     * getStringMonth
-	*/
-    public String getStringMonth(Integer month) {
-        Final Map<Integer, String> mapMonths = new Map<Integer, String>{ 1 => 'Enero', 2 => 'Febrero', 3 => 'Marzo', 4 => 'Abril', 5 => 'Mayo', 6 => 'Junio', 
-            7 => 'Julio', 8 => 'Agosto', 9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre' };
-        return mapMonths.get(month);
-    }
-    
-    public Minuta_ctrl(ApexPages.StandardController controller) {
- 
-       idVisitaActual = ApexPages.currentPage().getParameters().get('Id');
-       datosVisita = new dwp_kitv__Visit__c();
-       visit = new dwp_kitv__Visit__c();
-       redireccion = false;
-       infoStatusVisit='';
-       datosVisita = [select id,Name,dwp_kitv__visit_start_date__c,account_name__c, dwp_kitv__visit_status_type__c,
-                      (select id,dwp_kitv__contact_id__r.Name,dwp_kitv__contact_email_desc__c from dwp_kitv__Visit_Contacts__r ),
-                      (SELECT id,dwp_kitv__user_id__r.Name,dwp_kitv__contact_email_desc__c FROM dwp_kitv__Visit_Management_Teams__r) 
-                      from dwp_kitv__Visit__c where Id =:idVisitaActual limit 1]; 
-        visit.id = datosVisita.Id;
-       	visit.dwp_kitv__visit_status_type__c = datosVisita.dwp_kitv__visit_status_type__c;
-       	visit.dwp_kitv__visit_start_date__c=datosVisita.dwp_kitv__visit_start_date__c;
-        if(visit.dwp_kitv__visit_status_type__c !='02') {
-            infoStatusVisit = 'AVISO: No se enviará la minuta, debe estar agendada la visita.';
-        }
-        correoEnviado=false;
-       setValues(controller.getId());
-	   visitDate=getTimeZoneValue(visit.dwp_kitv__visit_start_date__c);
-	   System.debug('--sMyCS-->'+ApexPages.currentPage().getParameters().get('myCS'));
-       sMyCS = ApexPages.currentPage().getParameters().get('myCS');
-    }
-    
-    public void sendMail() {
-        System.debug('--sMyCS-->'+sMyCS);
-        if(sMyCS != null && sMyCS != '') {
-            dwp_kitv__Template_for_type_of_visit_cs__c myCS =(dwp_kitv__Template_for_type_of_visit_cs__c)System.JSON.deserialize(sMyCS, dwp_kitv__Template_for_type_of_visit_cs__c.class);//NOSONAR
-            String sDocumentos = String.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('documents'));//NOSONAR
-            System.debug('--sDocumentos-->'+sDocumentos);
-            Final List<ContentVersion> lstDocument = (List<ContentVersion>)System.JSON.deserialize(sDocumentos, List<ContentVersion>.class);
-            System.debug('--lstDocument-->'+lstDocument);
-        
-            if(myCS != null) {
-                if(visit.dwp_kitv__visit_status_type__c=='02') {
-                    System.debug('--si tiene sMyCS-->'+ sMyCS);
-                    enviarMinutaVF(visit, myCS, lstDocument);
-                } else {
-                    redireccion = true;
-                }          
-             } 
-        }
-    }
-    
-    /**
-     * enviarMinutaVF
-	*/
-    public void enviarMinutaVF(dwp_kitv__Visit__c visitObj, dwp_kitv__Template_for_type_of_visit_cs__c myCS,List<ContentVersion> documents) {
-        //keep the status of the visit
-        Final String statusOldVisit = visitObj.dwp_kitv__visit_status_type__c;
-        String templateConverted = 'BODY NULL';
-        try {
-            dwp_kitv.Minute_Generator_Ctrl.updateStatusVisit(visitObj,'05');
-            Final dwp_kitv__Visit__c visitObjNew = dwp_kitv.Minute_Generator_Ctrl.getVisitObj(visitObj.Id);
-            System.debug('--si tiene visitObjNew-->'+ visitObjNew);
-            Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();   
-            PageReference templateVF = Page.Minuta;
-             System.debug('-- PageReference templateVF->'+templateVF);
-            templateVF.getParameters().put('id',visitObjNew.Id);
-            templateVF.setRedirect(true);
-            //templateConverted = templateVF.getContent().tostring();
-             if(!test.isRunningTest()) {
-                templateConverted = templateVF.getContent().tostring();
-            } else {
-                templateConverted='';
-            }
- 			Final String htmlBody = '<![CDATA[ <html lang="es">'+
-                                '<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />'+
-                                templateConverted+
-                                '</html>';
-            email.setHtmlBody(htmlBody); 
-            Final String inputDate = visitObj.dwp_kitv__visit_start_date__c.format(FORMAT_DATE);
-            Final String sendDate = System.now().format(FORMAT_DATE);
-			email.setSubject(myCS.dwp_kitv__Subject__c +' del '+inputDate + ' - enviado: ' + sendDate );
-  			Final List<String> typeAddress= dwp_kitv.Minute_Generator_Ctrl.getTypeAddress();
-			email = dwp_kitv.Minute_Generator_Ctrl.setAddressToEmail(email,typeAddress,visitObjNew);
-			Final boolean attachFile= dwp_kitv.Minute_Generator_Ctrl.getExistField(myCS, 'dwp_kitv__Attach_file__c');
-  			Final List<Id> ltsIdDoc = dwp_kitv.Minute_Generator_Ctrl.getIdsDocuments(documents);
- 			email = dwp_kitv.Minute_Generator_Ctrl.setFiles(email, ltsIdDoc, attachFile);
-            email.setSaveAsActivity(false);
-            System.debug('--attachFile->'+attachFile);
-            System.debug('--ltsIdDoc->'+ltsIdDoc);
-            Final Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage> {email};
-            Final Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);
-            System.debug('---results-EMAIL->'+results);
-            if (results[0].isSuccess()) {
-                createEmailAttachment(visitObjNew);
-               dwp_kitv.Minute_Generator_Ctrl.createActivity(visitObjNew.Id, myCS);
-				correoEnviado=true;
-            } else {
-               dwp_kitv.Minute_Generator_Ctrl.updateStatusVisit(visitObjNew,statusOldVisit);
-            }
-            redireccion = true;
-        } catch(Exception ex) {
-            System.debug('---Exception->'+ex);
-           dwp_kitv.Minute_Generator_Ctrl.updateStatusVisit(visitObj,statusOldVisit);
-        }
-    }
+	/*
+	 *   @Variable: FORMAT_DATE
+	 */
+	public static Final String FORMAT_DATE = 'dd-MM-YYYY HH:mm a';
+	/*
+	 *   @Variable: FORMAT_DATE_2
+	 */
+	public static Final String FORMAT_DATE_2 = 'M/d/yyyy h:mm a';
+	/*
+	 *   @Variable: FORMAT_DATE_3
+	 */
+	public static Final String FORMAT_DATE_3 = 'dd/MM/yyyy hh:mm a';
+	/*
+	 *   @Variable: FORMAT_DATE_4
+	 */
+	public static Final String FORMAT_DATE_4 = 'dd/MM/yyyy HH:mm';
+	/*
+	 *   @Variable: FORMAT_DATE_5
+	 */
+	public static Final String FORMAT_DATE_5 = 'd.M.yyyy H:mm';
+	/*
+	 *   @Variable: FORMAT_DATE_6
+	 */
+	public static Final String FORMAT_DATE_6 = 'dd.MM.yyyy HH:mm';
+	/*
+	 *   @Variable: FORMAT_DATE_7
+	 */
+	public static Final String FORMAT_DATE_7 = 'd/MM/yyyy H:mm';
+	/*
+	 *   @Variable: FORMAT_DATE_8
+	 */
+	public static Final String FORMAT_DATE_8 = 'yyyy-MM-dd HH:mm';
+	/**
+	 * formatCurrentDate
+	 */
+	public String formatCurrentDate(Date dateToConvert) {
+		Final Integer day = dateToConvert.day();
+		Final Integer month = dateToConvert.month();
+		Final Integer year = dateToConvert.year();
+		Final String strMonth  = getStringMonth(month);
+		return day + ' de ' + strMonth + ' de ' + year;
+	}
 
-    public String createEmailAttachment( dwp_kitv__Visit__c visitObjNew) {
-        PageReference pdfMinuta = Page.Minuta;
-        pdfMinuta.getParameters().put('id',visitObjNew.Id);
-        pdfMinuta.setRedirect(true);
-        String templateCnvtd2 ='';
-        //String templateCnvtd2 = pdfMinuta.getContent().tostring();
-        if(!test.isRunningTest()) {
-            templateCnvtd2 = pdfMinuta.getContent().tostring();
-        } else {
-            templateCnvtd2='';
-        }
-        Final String htmlBody2 = '<![CDATA[ <html lang="es">'+
-            '<meta content="text/html; " http-equiv="Content-Type" />'+
-            templateCnvtd2 + '</html>';
-        Blob body;
-        try { 
-            body = Blob.valueOf(htmlBody2);
-        } catch (VisualforceException e) {
-            body = Blob.valueOf('Some Text');
-        }
-        Final Attachment attach = new Attachment(Body = body, Name = 'Minuta visita del '+formatCurrentDate(Date.today())+'.html', IsPrivate = false, 
-                                                 ParentId = visitObjNew.Id);
-        insert attach;
-        return attach.id;
-    }
+	/**
+	 * getStringMonth
+	 */
+	public String getStringMonth(Integer month) {
+		Final Map<Integer, String> mapMonths = new Map<Integer, String> { 1 => 'Enero', 2 => 'Febrero', 3 => 'Marzo', 4 => 'Abril', 5 => 'Mayo', 6 => 'Junio',
+			                                                              7 => 'Julio', 8 => 'Agosto', 9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre' };
+		return mapMonths.get(month);
+	}
+
+	public Minuta_ctrl(ApexPages.StandardController controller) {
+		idVisitaActual = ApexPages.currentPage().getParameters().get('Id');
+		datosVisita = new dwp_kitv__Visit__c();
+		visit = new dwp_kitv__Visit__c();
+		redireccion = false;
+		infoStatusVisit = '';
+		datosVisita = [select id, Name, dwp_kitv__visit_start_date__c, account_name__c, dwp_kitv__visit_status_type__c,
+		               (select id, dwp_kitv__contact_id__r.Name, dwp_kitv__contact_email_desc__c from dwp_kitv__Visit_Contacts__r),
+		               (SELECT id, dwp_kitv__user_id__r.Name, dwp_kitv__contact_email_desc__c FROM dwp_kitv__Visit_Management_Teams__r)
+		               from dwp_kitv__Visit__c where Id =:idVisitaActual limit 1];
+		visit.id = datosVisita.Id;
+		visit.dwp_kitv__visit_status_type__c = datosVisita.dwp_kitv__visit_status_type__c;
+		visit.dwp_kitv__visit_start_date__c = datosVisita.dwp_kitv__visit_start_date__c;
+		if(visit.dwp_kitv__visit_status_type__c != '02') {
+			infoStatusVisit = 'AVISO: No se enviará la minuta, debe estar agendada la visita.';
+		}
+		correoEnviado = false;
+		setValues(controller.getId());
+		visitDate = getTimeZoneValue(visit.dwp_kitv__visit_start_date__c);
+		System.debug('--sMyCS-->' + ApexPages.currentPage().getParameters().get('myCS'));
+		sMyCS = ApexPages.currentPage().getParameters().get('myCS');
+	}
+
+	public void sendMail() {
+		System.debug('--sMyCS-->' + sMyCS);
+		if(sMyCS != null && sMyCS != '') {
+			sMyCS = sMyCS.replaceAll('@@',':');
+			dwp_kitv__Template_for_type_of_visit_cs__c myCS = (dwp_kitv__Template_for_type_of_visit_cs__c)System.JSON.deserialize(sMyCS, dwp_kitv__Template_for_type_of_visit_cs__c.class);//NOSONAR
+			String sDocumentos = String.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('documents'));//NOSONAR
+			System.debug('--sDocumentos-->' + sDocumentos);
+			Final List<ContentVersion> lstDocument = (List<ContentVersion>)System.JSON.deserialize(sDocumentos, List<ContentVersion>.class);
+			System.debug('--lstDocument-->' + lstDocument);
+
+			if(myCS != null) {
+				if(visit.dwp_kitv__visit_status_type__c == '02') {
+					System.debug('--si tiene sMyCS-->' + sMyCS);
+					enviarMinutaVF(visit, myCS, lstDocument);
+				} else {
+					redireccion = true;
+				}
+			}
+		}
+	}
+
+	/**
+	 * enviarMinutaVF
+	 */
+	public void enviarMinutaVF(dwp_kitv__Visit__c visitObj, dwp_kitv__Template_for_type_of_visit_cs__c myCS, List<ContentVersion> documents) {
+		//keep the status of the visit
+		Final String statusOldVisit = visitObj.dwp_kitv__visit_status_type__c;
+		String templateConverted = 'BODY NULL';
+		try {
+			dwp_kitv.Minute_Generator_Ctrl.updateStatusVisit(visitObj, '05');
+			Final dwp_kitv__Visit__c visitObjNew = dwp_kitv.Minute_Generator_Ctrl.getVisitObj(visitObj.Id);
+			System.debug('--si tiene visitObjNew-->' + visitObjNew);
+			Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+			PageReference templateVF = Page.Minuta;
+			System.debug('-- PageReference templateVF->' + templateVF);
+			templateVF.getParameters().put('id', visitObjNew.Id);
+			templateVF.setRedirect(true);
+			//templateConverted = templateVF.getContent().tostring();
+			if(!test.isRunningTest()) {
+				templateConverted = templateVF.getContent().tostring();
+			} else {
+				templateConverted = '';
+			}
+			Final String htmlBody = '<![CDATA[ <html lang="es">' +
+			                        '<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />' +
+			                        templateConverted +
+			                        '</html>';
+			email.setHtmlBody(htmlBody);
+			Final String inputDate = visitObj.dwp_kitv__visit_start_date__c.format(FORMAT_DATE);
+			Final String sendDate = System.now().format(FORMAT_DATE);
+			email.setSubject(myCS.dwp_kitv__Subject__c + ' del ' + inputDate + ' - enviado: ' + sendDate);
+			Final List<String> typeAddress = dwp_kitv.Minute_Generator_Ctrl.getTypeAddress();
+			email = dwp_kitv.Minute_Generator_Ctrl.setAddressToEmail(email, typeAddress, visitObjNew);
+			Final boolean attachFile = dwp_kitv.Minute_Generator_Ctrl.getExistField(myCS, 'dwp_kitv__Attach_file__c');
+			Final List<Id> ltsIdDoc = dwp_kitv.Minute_Generator_Ctrl.getIdsDocuments(documents);
+			email = dwp_kitv.Minute_Generator_Ctrl.setFiles(email, ltsIdDoc, attachFile);
+			email.setSaveAsActivity(false);
+			System.debug('--attachFile->' + attachFile);
+			System.debug('--ltsIdDoc->' + ltsIdDoc);
+			Final Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage> {email};
+			Final Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);
+			System.debug('---results-EMAIL->' + results);
+			if(results[0].isSuccess()) {
+				createEmailAttachment(visitObjNew);
+				dwp_kitv.Minute_Generator_Ctrl.createActivity(visitObjNew.Id, myCS);
+				correoEnviado = true;
+			} else {
+				dwp_kitv.Minute_Generator_Ctrl.updateStatusVisit(visitObjNew, statusOldVisit);
+			}
+			redireccion = true;
+		} catch(Exception ex) {
+			System.debug('---Exception->' + ex);
+			dwp_kitv.Minute_Generator_Ctrl.updateStatusVisit(visitObj, statusOldVisit);
+		}
+	}
+
+	public String createEmailAttachment(dwp_kitv__Visit__c visitObjNew) {
+		PageReference pdfMinuta = Page.Minuta;
+		pdfMinuta.getParameters().put('id', visitObjNew.Id);
+		pdfMinuta.setRedirect(true);
+		String templateCnvtd2 = '';
+		//String templateCnvtd2 = pdfMinuta.getContent().tostring();
+		if(!test.isRunningTest()) {
+			templateCnvtd2 = pdfMinuta.getContent().tostring();
+		} else {
+			templateCnvtd2 = '';
+		}
+		Final String htmlBody2 = '<![CDATA[ <html lang="es">' +
+		                         '<meta content="text/html; " http-equiv="Content-Type" />' +
+		                         templateCnvtd2 + '</html>';
+		Blob body;
+		try {
+			body = Blob.valueOf(htmlBody2);
+		} catch(VisualforceException e) {
+			body = Blob.valueOf('Some Text');
+		}
+		Final Attachment attach = new Attachment(Body = body, Name = 'Minuta visita del ' + formatCurrentDate(Date.today()) + '.html', IsPrivate = false,
+		                                         ParentId = visitObjNew.Id);
+		insert attach;
+		return attach.id;
+	}
 
 	public String getTimeZoneValue(DateTime stardDate) {
 		Map<String, String> mappedValues = new Map<String, String>(); //map for holding locale to datetime format
 		mappedValues = mapValues(); //populate the map with all the locale specific datetime formats
 		Final String userLocale = UserInfo.getLocale(); //grab the locale of the user
 		String datetimeFormat = FORMAT_DATE_2; //variable for the datetime format defaulted to the US format
-		if (mappedValues.containsKey(userLocale)) { //if the map contains the correct datetime format
+		if(mappedValues.containsKey(userLocale)) {  //if the map contains the correct datetime format
 			datetimeFormat = mappedValues.get(userLocale); //grab the datetime format for the locale
 		}
 		return stardDate.format(datetimeFormat); //create a string with the proper format & return the string
 	}
-    
-    private Map<String, String> mapValues() {
+
+	private Map<String, String> mapValues() {
 		Final Map<String, String> localeMap = new Map<String, String>(); //holds the locale to timedate formats
 		localeMap.put('ar', FORMAT_DATE_3);
 		localeMap.put('ar_AE', FORMAT_DATE_3);
@@ -317,5 +316,4 @@ public virtual class Minuta_ctrl extends MinutaWrap{//NOSONAR
 		localeMap.put('zh_TW', 'yyyy/M/d a h:mm');
 		return localeMap; //return the map
 	}
-    
 }

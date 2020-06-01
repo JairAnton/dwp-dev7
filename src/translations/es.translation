@@ -1820,6 +1820,58 @@
         <label>Contratos vigentes</label>
         <name>BE_ExpiredContracts</name>
     </customLabels>
+	<customLabels>
+        <label>Cerrar</label>
+        <name>dwp_kitv__topicsView_button_close</name>
+    </customLabels>
+    <customLabels>
+        <label>Eliminar</label>
+        <name>dwp_kitv__topicsView_button_delete</name>
+    </customLabels>
+    <customLabels>
+        <label>Editar</label>
+        <name>dwp_kitv__topicsView_button_edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Sin temas</label>
+        <name>dwp_kitv__topicsView_notopics</name>
+    </customLabels>
+    <customLabels>
+        <label>Temas</label>
+        <name>dwp_kitv__topicsView_title</name>
+    </customLabels>
+    <customLabels>
+        <label>Cerrado</label>
+        <name>dwp_kitv__topicsView_title_closed</name>
+    </customLabels>
+    <customLabels>
+        <label>Creado por</label>
+        <name>dwp_kitv__topicsView_title_createdby</name>
+    </customLabels>
+    <customLabels>
+        <label>Descripción</label>
+        <name>dwp_kitv__topicsView_title_description</name>
+    </customLabels>
+    <customLabels>
+        <label>Relacionado con</label>
+        <name>dwp_kitv__topicsView_title_related</name>
+    </customLabels>
+    <customLabels>
+        <label>Tema</label>
+        <name>dwp_kitv__topicsView_title_topic</name>
+    </customLabels>
+	<customLabels>
+        <label>Participantes</label>
+        <name>dwp_kitv__MngrAttendeeHeader</name>
+    </customLabels>
+    <customLabels>
+        <label>Agregar</label>
+        <name>dwp_kitv__MngrAttendeeSubmitLabel</name>
+    </customLabels>
+	<customLabels>
+        <label> Participante(s) agregado correctamente</label>
+        <name>dwp_kitv__MngrAttendeeToastMessage</name>
+    </customLabels>
     <customTabs>
         <label>No clientes</label>
         <name>nonc__Prospects</name>

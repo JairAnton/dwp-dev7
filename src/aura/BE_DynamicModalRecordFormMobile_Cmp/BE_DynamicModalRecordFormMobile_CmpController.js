@@ -4,7 +4,7 @@
         cmp.set("v.sObject", pageReference.state.c__sObject);
     },
 
-    reInit : function(component, event, helper) {
+    reInit: function (component, event, helper) {
         $A.get('e.force:refreshView').fire();
     }
 })

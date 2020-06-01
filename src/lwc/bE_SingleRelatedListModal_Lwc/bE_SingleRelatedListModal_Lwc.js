@@ -29,12 +29,20 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
     @api isCustom;
     @track mode;
     @track error;
+    @track loaded = false;
+    @api redirectToRecordPage;
     connectedCallback() {
         this.switchMode(this.modeAction);
+        this.loaded = true;
     }
-    handleCloseModal(refresh) {
+    handleCloseModal(refresh, refreshView) {
         let evt = new CustomEvent('closemodalweb',
-            { detail: refresh });
+            {
+                detail: {
+                    refresh: refresh,
+                    view: refreshView
+                }
+            });
         this.dispatchEvent(evt);
     }
     /** CALL APEX */
@@ -47,18 +55,27 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             .then(result => {
                 if (result.isSuccess) {
                     try {
-                        this.navigateToRecordViewPage(result.data[0].Id);
+                        this.loaded = true;
+                        this.toggleSpinner();
+                        if (this.redirectToRecordPage) {
+                            this.navigateToRecordViewPage(result.data[0].Id);
+                        }
                         this.showToastEvent("Success", result.message, "success");
+                        this.handleCloseModal(true, true);
                     } catch (ex) {
+                        this.loaded = true;
+                        this.toggleSpinner();
                         this.showToastEvent("Error", ex.message, "error");
                     }
                 } else {
+                    this.loaded = true;
+                    this.toggleSpinner();
                     this.error = result.message;
                     this.showToastEvent("Error", this.error, "error");
                 }
-
             })
     }
+
     /**UPDATE RECORDS */
     handleUpdateRecords(objVal) {
         updateRecords({
@@ -68,17 +85,24 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             .then(result => {
                 if (result.isSuccess) {
                     try {
+                        this.loaded = true;
+                        this.toggleSpinner();
                         this.showToastEvent("Success", result.message, "success");
-                        this.handleCloseModal(true);
+                        this.handleCloseModal(true, true);
                     } catch (ex) {
+                        this.loaded = true;
+                        this.toggleSpinner();
                         this.showToastEvent("Error", ex.message, "error");
                     }
                 } else {
+                    this.loaded = true;
+                    this.toggleSpinner();
                     this.error = result.message;
                     this.showToastEvent("Error", this.error, "error");
                 }
             })
     }
+
     /*DELETE RECORDS*/
     handleDeleteRecords(objVal) {
         deleteRecords({
@@ -88,22 +112,30 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             .then(result => {
                 if (result.isSuccess) {
                     try {
+                        this.loaded = true;
+                        this.toggleSpinner();
                         this.showToastEvent("Success", result.message, "success");
-                        this.handleCloseModal(true);
+                        this.handleCloseModal(true, true);
                     } catch (ex) {
                         this.showToastEvent("Error", ex.message, "error");
+                        this.loaded = true;
+                        this.toggleSpinner();
                     }
                 } else {
                     this.error = result.message;
                     this.showToastEvent("Error", this.error, "error");
+                    this.loaded = true;
+                    this.toggleSpinner();
                 }
             })
     }
 
     /**ACTIONS BUTTONS */
     handleCreateBtn() {
-        let targetObjLst= [];
-        let isError=false;
+        this.loaded = false;
+        this.toggleSpinner();
+        let targetObjLst = [];
+        let isError = false;
         let targetObj = { "sobjectType": this.sobjectType };
         const inputFields = this.template.querySelectorAll(
             'lightning-input-field'
@@ -117,18 +149,22 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             });
             if (field.required && !this.isNotEmpty(field.value)) {
                 this.showToastEvent('Error', this.label.requiredFieldsMsg, 'error');
-                isError=true;
+                isError = true;
+                this.loaded = true;
+                this.toggleSpinner();
                 break;
             }
         }
-        if(isError===false){
+        if (isError === false) {
             targetObjLst.push(targetObj);
             this.handleCreateRecords(targetObjLst);
         }
     }
     handleUpdateBtn() {
-        let targetObjLst= [];
-        let isError=false;
+        this.loaded = false;
+        this.toggleSpinner();
+        let targetObjLst = [];
+        let isError = false;
         let targetObj = {
             "sobjectType": this.sobjectType,
             'Id': this.recordId
@@ -145,16 +181,20 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
             });
             if (field.required && !this.isNotEmpty(field.value)) {
                 this.showToastEvent('Error', this.label.requiredFieldsMsg, 'error');
-                isError=true;
+                isError = true;
+                this.loaded = true;
+                this.toggleSpinner();
                 break;
             }
         }
-        if(isError===false){
+        if (isError === false) {
             targetObjLst.push(targetObj);
             this.handleUpdateRecords(targetObjLst);
         }
     }
     handleDeleteBtn() {
+        this.loaded = false;
+        this.toggleSpinner();
         let targetObjLst = [];
         let targetObj = {
             "sobjectType": this.sobjectType,
@@ -213,5 +253,8 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
         const notEmpty = (obj === null || obj === undefined || obj === "") ? false : true;
         return notEmpty;
     }
-
+    /** TOOGLE  */
+    toggleSpinner() {
+        this.template.querySelector('.customForm').classList.toggle('slds-transition-hide');
+    }
 }

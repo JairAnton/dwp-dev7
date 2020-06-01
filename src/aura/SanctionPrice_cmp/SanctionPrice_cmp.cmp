@@ -36,7 +36,7 @@
                         <p style="padding-left:10px; font-size:12pt; font-family:'Salesforce Sans';">Proponer Precio</p>
                         <div class="slds-grid slds-wrap slds-m-horizontal_medium">
                             <aura:if isTrue="{!v.showWebForm}">
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_6-of-12">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_5-of-12">
                                     <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
                                     <div class="slds-align_absolute-center">
                                         <lightning:button variant="brand" onclick="{!c.updateSpread}">Actualizar</lightning:button>
@@ -62,7 +62,7 @@
                                 </aura:set>
                             </aura:if>
                             <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_6-of-12">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_7-of-12">
                                     <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
                                 </div>
                             </aura:if>  

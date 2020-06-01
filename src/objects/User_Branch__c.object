@@ -54,7 +54,6 @@
     <description>Usuario Oficina</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -170,6 +169,7 @@
         <columns>branch_name__c</columns>
         <columns>branch_id__c</columns>
         <columns>branch_category_type__c</columns>
+		<columns>User__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>

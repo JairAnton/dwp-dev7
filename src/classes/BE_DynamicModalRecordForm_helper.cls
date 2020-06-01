@@ -94,7 +94,7 @@ public with sharing class BE_DynamicModalRecordForm_helper {
         for(BE_Modal_Record_Field__mdt mrf: fields) {
             mapField = new Map<String, Object>{'key' => obj.get('Id') +'-'+cont, 'id' => obj.get('Id'), 'label' => mrf.MasterLabel,
                         'fieldName' => mrf.Field_ApiName__c, 'order' => mrf.Order__c, 'fieldWidth' => mrf.Field_Width__c, 
-                        'dataType' => mrf.Data_Type__c, 'value' => obj.get(mrf.Field_ApiName__c)};
+                        'dataType' => mrf.Data_Type__c, 'value' => obj.get(mrf.Field_ApiName__c), 'currencyCode' => obj.get('CurrencyIsoCode')};
             for(String dataTypes: lstDataTypes) {
                 mapField.put('is'+dataTypes, dataTypes == mrf.Data_Type__c);
             }

@@ -12,23 +12,19 @@
 public virtual class BE_SingleRelatedListCRUD_Cls {
     /**RESPONSE */
     Response response;
-    /** create record */
-    public virtual Response createRecords(List<SObject> sObjs) {
+    public virtual Response createRecords(List<SObject> sObjs){
         response=new Response();
         return response;
     }
-    /** update record */
-    public virtual Response updateRecords(List<SObject> sObjs) {
+    public virtual Response updateRecords(List<SObject> sObjs){
         response=new Response();
         return response;
     }
-    /** delete record */
-    public virtual Response deleteRecords(List<SObject> sObjsIds) {
+    public virtual Response deleteRecords(List<SObject> sObjsIds){
         response=new Response();
         return response;
     }
-    /** read record */
-    public virtual Response readRecords() {
+    public virtual Response readRecords(){
         response=new Response();
         return response;
     }
@@ -47,6 +43,18 @@ public virtual class BE_SingleRelatedListCRUD_Cls {
     public String message {set; get;}
     /**List of Sobject*/
     @AuraEnabled
-    public List<SObject>data {set; get;}
+    public List<SObject> data {set; get;}
+
+    /**Constructor */
+    public Response () {
+      this.data = new List<SObject>();
+    }
+
+    /**Constructor */
+    public Response (Boolean isSuccess, String message) {
+        this.isSuccess = isSuccess;
+        this.message = message;
+        this.data = new List<SObject>();
+    }
   }
 }

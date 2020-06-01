@@ -6,7 +6,34 @@
                 <name>collapsed</name>
                 <value>false</value>
             </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideChatterActions</name>
+                <value>false</value>
+            </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>dismissible</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldName</name>
+                <value>dwp_kitv__visit_status_type__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>guidanceName</name>
+                <value>BE_KitVisit_GS</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimised</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>nomenu</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>gfsc:guidanceforSuccessWrapper</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>header</name>
@@ -99,6 +126,30 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>buttonStripName</name>
+                <value>VisitButtonStripPeru</value>
+            </componentInstanceProperties>
+            <componentName>dwp_kitv:buttonStrip</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Large</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentName>dwp_kitv:topics</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Large</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>parentFieldApiName</name>
                 <value>dwp_kitv__Visit__c.Id</value>
             </componentInstanceProperties>
@@ -110,7 +161,22 @@
                 <name>relatedListComponentOverride</name>
                 <value>NONE</value>
             </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>10</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
+            </componentInstanceProperties>
             <componentName>force:relatedListSingleContainer</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Small</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -132,34 +198,7 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentInstanceProperties>
-                <name>parentFieldApiName</name>
-                <value>dwp_kitv__Visit__c.Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListApiName</name>
-                <value>dwp_kitv__Visit_Contacts__r</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListComponentOverride</name>
-                <value>NONE</value>
-            </componentInstanceProperties>
-            <componentName>force:relatedListSingleContainer</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>parentFieldApiName</name>
-                <value>dwp_kitv__Visit__c.Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListApiName</name>
-                <value>dwp_kitv__Visit_Management_Teams__r</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListComponentOverride</name>
-                <value>NONE</value>
-            </componentInstanceProperties>
-            <componentName>force:relatedListSingleContainer</componentName>
+            <componentName>dwp_kitv:ManageVisitAttendees</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>

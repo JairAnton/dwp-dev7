@@ -36,7 +36,7 @@
                 for (const iterator of fields) {
                     object.fields.push({
                         fieldName: iterator,
-                        value:this.isNotEmpty(res[iterator])?res[iterator]:''
+                        value: this.isNotEmpty(res[iterator]) ? res[iterator] : ''
                     });
                 }
                 cmp.set("v.sObjData", object);
@@ -55,9 +55,9 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
-                if(res.isSuccess){
-                   this.closeModal(cmp,evt);
-                }else{
+                if (res.isSuccess) {
+                    this.closeModal(cmp, evt);
+                } else {
                     this.showToast('Error', res.message, 'error');
                 }
             } else {

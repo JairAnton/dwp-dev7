@@ -10,7 +10,6 @@
          <div class="slds-text-align_center"><ui:outputText value="No existe visitas relacionadas"/></div>
         </div>
     	<aura:set attribute="else">
-    	<aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
             <div aura:id="changeIt" class="Normal">
                 <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
                         <th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
@@ -27,33 +26,6 @@
                         </th>
                 </table>
             </div>
-            <aura:set attribute="else">
-            <div aura:id="changeIt" class="Normal" style="height:100%; width:100%;">
-
-                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
-                        <th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title--caps slds-truncate">Total Visits (YTD)</div>
-                            <div class="horizontal "><strong><ui:outputNumber value="{!v.data[0].TotalVisitsYTD}"/></strong></div>
-                        </th>
-                    	<th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title--caps slds-truncate">Total Visits (FY)</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].TotalVisitsYF}"/> </strong></div>
-                        </th>
-                    	<th scope="col" class="slds-size_1-of-3 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title--caps slds-truncate">% (YOY)</div>
-                              <aura:if isTrue="{!v.data[0].TotalVisitsYOY gt 0}">
-                                 <div class="horizontal "><strong>+<ui:outputText value="{!v.data[0].TotalVisitsYOY}"/>%</strong></div>
-                                 <aura:set attribute="else">
-                                      <aura:if isTrue="{!v.data[0].TotalVisitsYOY le 0}">
-                                         <div class="horizontal "><strong><ui:outputText value="{!v.data[0].TotalVisitsYOY}"/>%</strong></div>
-                                      </aura:if>
-                                 </aura:set>
-                             </aura:if>
-                        </th>
-                </table>
-            </div>
-            </aura:set>
-   		 </aura:if>
         </aura:set>
     </aura:if>
 </aura:component>

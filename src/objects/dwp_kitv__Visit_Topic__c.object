@@ -47,7 +47,6 @@
     <description>Topics about visits</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -87,7 +86,7 @@
         <externalId>false</externalId>
         <label>Opportunity</label>
         <lookupFilter>
-            <active>true</active>
+            <active>false</active>
             <filterItems>
                 <field>Opportunity.IsClosed</field>
                 <operation>equals</operation>
@@ -119,10 +118,11 @@
         <fullName>dwp_kitv__topic_desc__c</fullName>
         <deprecated>false</deprecated>
         <description>Topic description</description>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Topic</label>
         <length>255</length>
-        <required>false</required>
+        <required>true</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -147,7 +147,7 @@
         <relationshipLabel>Visit Topics</relationshipLabel>
         <relationshipName>Visit_Topics</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>

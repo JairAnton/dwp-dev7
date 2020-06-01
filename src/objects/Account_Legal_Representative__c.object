@@ -299,7 +299,7 @@
         <type>Text</type>
         <unique>true</unique>
     </fields>
-    <gender>Feminine</gender>
+    <gender>Masculine</gender>
     <label>Account Legal Representative</label>
     <nameField>
         <encryptionScheme>None</encryptionScheme>

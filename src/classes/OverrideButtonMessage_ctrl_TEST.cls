@@ -4,7 +4,7 @@ private without sharing class OverrideButtonMessage_ctrl_TEST {
 		Test.startTest();
 		Map<String, Object> mapReturn = OverrideButtonMessage_ctrl.getInfo('Test');
 
-	  	System.assertNotEquals(mapReturn.get('data'), null);
+		System.assertNotEquals(mapReturn.get('data'), null);
 		Test.stopTest();
-	}	
+	}
 }

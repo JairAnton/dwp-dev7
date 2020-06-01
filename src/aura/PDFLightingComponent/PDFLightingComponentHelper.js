@@ -1,15 +1,15 @@
 ({
-    closeMe : function(component, event) {
-		component.destroy();
-	},
-    reasignCase : function(component, event, helper) {
+    closeMe: function (component, event) {
+        component.destroy();
+    },
+    reasignCase: function (component, event, helper) {
         var action = component.get('c.reasignCase');
-        action.setParams({"recordId" : component.get('v.inputAttributes.recordId')});
-        action.setCallback(this, function(response) {
+        action.setParams({ "recordId": component.get('v.inputAttributes.recordId') });
+        action.setCallback(this, function (response) {
             var state = response.getState();
-            if(state === "SUCCESS") {
+            if (state === "SUCCESS") {
                 var res = response.getReturnValue();
-                if(!res.isError) {
+                if (!res.isError) {
                     helper.msgAndClose(component, event, helper, res.msgSuccess, 'success', true);
                 } else {
                     helper.msgAndClose(component, event, helper, res.msgError, '', true);
@@ -20,11 +20,11 @@
         });
         $A.enqueueAction(action);
     },
-    PDF : function(component, event, helper) {
+    PDF: function (component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
         var save_action = component.get("c.PDF_formalization");
-        save_action.setParams({recordId : inputObject.recordId});
-        save_action.setCallback(this, function(response) {
+        save_action.setParams({ recordId: inputObject.recordId });
+        save_action.setCallback(this, function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var attachId = response.getReturnValue();
@@ -42,7 +42,7 @@
         });
         $A.enqueueAction(save_action);
     },
-    msgAndClose : function(component, event, helper, message, type, close) {
+    msgAndClose: function (component, event, helper, message, type, close) {
         var toastEvent = $A.get("e.force:showToast");
         var message = (message ? message : $A.get("$Label.c.Dwp_msgGenericError"));
         toastEvent.setParams({
@@ -51,7 +51,7 @@
         });
         toastEvent.fire();
         $A.get('e.force:refreshView').fire();
-        if(close) {
+        if (close) {
             this.destroyCmp(component, event, helper);
         }
     }

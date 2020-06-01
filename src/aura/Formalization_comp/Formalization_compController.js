@@ -7,7 +7,6 @@
 		helper.destroyCmp(component, event, helper);
 	},
 	formalize: function (component, event, helper) {
-
 		var cmpTarget1 = component.find('btnApprove');
 		var cmpTarget3 = component.find('tApprove');
 		var cmpTarget5 = component.find('iApprove');
@@ -19,7 +18,6 @@
 			cmpTarget5.set("v.variant", "inverse");
 			$A.util.addClass(cmpTarget3, 'tclickedButton');
 		}
-
 		component.set('v.Action', event.getSource().get("v.name"));
 		component.find("btnContinue").set("v.disabled", false);
 	},
@@ -35,5 +33,4 @@
 		var parametrohijo0 = event.getParam("FileName");
 		cmp.set("v.FileName", parametrohijo0);
 	},
-
 })

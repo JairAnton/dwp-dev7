@@ -73,6 +73,8 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     wiredsObjectList;
     sfdcBaseURL;
     relListTypeMode;
+    /**AURA REFRESH ATTRIBUTES*/
+    @api auraRefresh;
     connectedCallback() {
         this.isMobile = (FORM_FACTOR === 'Small' || FORM_FACTOR === 'Medium') ? true : false;
         this.sfdcBaseURL = window.location.origin;
@@ -416,12 +418,16 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         this.modalStandard.mode = modalSet.mode;
         this.modalStandard.fields = modalSet.fields;
         this.modalStandard.className = modalSet.className;
+        this.modalStandard.redirect = modalSet.redirect === null || modalSet.redirect === undefined ? true : modalSet.redirect;
     }
     handleCloseStanModal(event) {
         this.modalStandard.show = false;
-        if(event.detail===true){
-            this.sObjectData=[];
+        if (event.detail.refresh === true) {
+            this.sObjectData = [];
             this.callListData();
+        }//If LWC is inside Aura, execute RefreshView
+        if (this.auraRefresh && event.detail.view === true) {
+            this.refreshOnAura();
         }
     }
     /** ROW ACTIONS */
@@ -466,7 +472,8 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             mode: this.BtnConfig.map[btnVal].mode,
             fields: null,
             sObjectApiName: this.BtnConfig.map[btnVal].sObjectApiName,
-            className: this.BtnConfig.map[btnVal].className
+            className: this.BtnConfig.map[btnVal].className,
+            redirect: this.BtnConfig.map[btnVal].redirectToRecordPage,
         }
         if (this.BtnConfig.map[btnVal].mode === 'insert') {
             let insertFields = new Map;
@@ -536,5 +543,15 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         }
         return actions;
     }
-
+    /**Refresh if lwc is involved in aura*/
+    refreshOnAura() {
+        const refreshView = new CustomEvent('refreshCmp', {
+            detail: { "refresh": true }
+        });
+        this.dispatchEvent(refreshView);
+    }
+    /**Show button actions*/
+    get showButtonActions() {
+        return this.BtnConfig !== undefined && this.BtnConfig.values.length > 0;
+    }
 }
