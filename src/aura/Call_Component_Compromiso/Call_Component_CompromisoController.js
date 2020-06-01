@@ -1,20 +1,20 @@
 ({
-    init: function(component){
-        component.set("v.title" , "Compromiso");
-        var flow = component.find("flowData");        
+    init: function (component) {
+        component.set("v.title", "Compromiso");
+        var flow = component.find("flowData");
         var inputVariables = [{
-            name :"ID_Init",
-            type :"SObject",
-            value :component.get("v.recordId")
+            name: "ID_Init",
+            type: "SObject",
+            value: component.get("v.recordId")
         }];
-        flow.startFlow("Compromisos",inputVariables);
+        flow.startFlow("Compromisos", inputVariables);
     },
     destroyCmp: function (cmp, event, helper) {
         console.log("funciona");
-        cmp.set("v.showModal",false);
+        cmp.set("v.showModal", false);
     },
-    handleStatusChange : function(component, event, helper) {
-        if(event.getParam("status")==="FINISHED"){ 
+    handleStatusChange: function (component, event, helper) {
+        if (event.getParam("status") === "FINISHED") {
             var toastEventF = $A.get("e.force:showToast");
             toastEventF.setParams({
                 title: "Success!",
@@ -30,7 +30,7 @@
             });
             urlEventF.fire();  // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
         }
-        if(event.getParam("status")==="FINISHED_SCREEN"){
+        if (event.getParam("status") === "FINISHED_SCREEN") {
             var outputVar = component.get("v.recordId");
             var urlEvent = $A.get("e.force:navigateToSObject");
             urlEvent.setParams({
@@ -39,7 +39,7 @@
             });
             urlEvent.fire();
         }
-        if(event.getParam("status")==="ERROR"){
+        if (event.getParam("status") === "ERROR") {
             var toastEventE = $A.get("e.force:showToast");   // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
             toastEventE.setParams({   // 2018/11/29 - 17:30 - CORRECCION DEUDA TECNICA
                 title: "Error Message!",

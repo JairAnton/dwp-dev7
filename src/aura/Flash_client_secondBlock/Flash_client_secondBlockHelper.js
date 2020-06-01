@@ -32,5 +32,4 @@
             $A.util.toggleClass(component.find("cont2"), "slds-hide");
         }
     }
-
 })

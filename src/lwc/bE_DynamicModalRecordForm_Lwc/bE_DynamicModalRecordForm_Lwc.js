@@ -166,6 +166,9 @@ export default class BE_DynamicModalRecordForm_Lwc extends NavigationMixin(Light
                     resultado.result[i][j].fields[k].value = resultado.data[d][fieldName.slice(0, -1)+'r'].Name;
                 }
             }
+            if(resultado.result[i][j].fields[k].dataType === 'currency' && resultado.result[i][j].fields[k].value === resultado.data[d][fieldName]) {
+                resultado.result[i][j].fields[k].value = resultado.result[i][j].fields[k].currencyCode+' '+this.numberWithCommas(resultado.result[i][j].fields[k].value);
+            }
         }
         return resultado.result[i][j].fields[k];
     }
@@ -285,5 +288,9 @@ export default class BE_DynamicModalRecordForm_Lwc extends NavigationMixin(Light
             variant : type
         });
         this.dispatchEvent(event);
+    }
+
+    numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 }

@@ -8,7 +8,7 @@
     <div class="slds-scrollable">
       <div class="container">
         <aura:if isTrue="{!v.bGrafica}">
-          <c:GraphicsGenerator_comp NombreCanvas="EVOLUCIÓN DEUDA SBS" posicionLeyenda="right"
+          <c:GraphicsGenerator_comp NombreCanvas="EVOLUCIÓN DEUDA SBS" posicionLeyenda="{!if($Browser.formFactor == 'DESKTOP', 'right', 'bottom')}"
             NombreInforme="EVOLUCION_DEUDA_SBS" TipoGrafica="line" Id="{!v.recordId}"
             Colores="#004481,#f7893b,#da3851,#48ae64,#bdbdbd" Filtro="{!v.sFiltro}" />
         </aura:if>

@@ -81,6 +81,6 @@
         <label><!-- Unique Identifier --></label>
         <name>unique_id__c</name>
     </fields>
-    <gender>Feminine</gender>
-    <nameFieldLabel>Nombres y apellidos</nameFieldLabel>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Apellidos y nombres</nameFieldLabel>
 </CustomObjectTranslation>

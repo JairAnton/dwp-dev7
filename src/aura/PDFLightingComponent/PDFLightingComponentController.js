@@ -29,15 +29,15 @@
     close : function(component, event, helper) {
 	 	helper.closeMe(component, event, helper);
 	},*/
-    doPDF: function(component, event, helper) {
-        helper.PDF(component, event,helper);
+    doPDF: function (component, event, helper) {
+        helper.PDF(component, event, helper);
         /*if(component.get("v.showInterface")) {
             helper.reasignCase(component, event, helper);
         } else {
             helper.PDF(component, event,helper);
         }*/
     },
-    close : function(component, event, helper) {
+    close: function (component, event, helper) {
         helper.closeMe(component, event);
     }
 })

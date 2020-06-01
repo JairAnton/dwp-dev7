@@ -4,6 +4,6 @@
   
   @media (max-width: 600px) {
     .THIS .container {
-      width: 150%;
+      width: 100%;
     }
   }

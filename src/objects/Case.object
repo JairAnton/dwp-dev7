@@ -118,7 +118,7 @@
             <default>true</default>
         </values>
     </businessProcesses>
-    <compactLayoutAssignment>Price_Approval_Case_Compact_Layout</compactLayoutAssignment>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Formalization_Compact_Layout</fullName>
         <fields>CaseNumber</fields>

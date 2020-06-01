@@ -11,24 +11,24 @@
  */
 @IsTest
 public without sharing class BE_TableHomeSetting_Tst {
-    /**
-     @Description test BE_TableHomeSetting_Cls.getDefaultValueTest(), correct scenary
-    */
-    @IsTest
-    static void getDefaultValueTest() {
-        final BE_TableHomeSetting_Cls tableSet = new BE_TableHomeSetting_Cls();
-        final VisualEditor.DataRow defaultValue = tableSet.getDefaultValue();
-        System.assertEquals('NONE', defaultValue.getValue(), 'Correct Value');
-    }
-    
-    /**
-     @Description test BE_TableHomeSetting_Cls.getValues(),correct scenary
-    */
-    @IsTest(SeeAllData='true')
-    static void getValuesTest() {
-        final BE_TableHomeSetting_Cls tableSet = new BE_TableHomeSetting_Cls();
-        final VisualEditor.DynamicPickListRows  myValues = tableSet.getValues();
-        final Boolean myValuesCheck = (myValues==null) ? false : true;
-        System.assert(myValuesCheck, 'Correct value');
-    }
+	/**
+	   @Description test BE_TableHomeSetting_Cls.getDefaultValueTest(), correct scenary
+	 */
+	@IsTest
+	static void getDefaultValueTest() {
+		final BE_TableHomeSetting_Cls tableSet = new BE_TableHomeSetting_Cls();
+		final VisualEditor.DataRow defaultValue = tableSet.getDefaultValue();
+		System.assertEquals('NONE', defaultValue.getValue(), 'Correct Value');
+	}
+
+	/**
+	   @Description test BE_TableHomeSetting_Cls.getValues(),correct scenary
+	 */
+	@IsTest(SeeAllData = 'true')
+	static void getValuesTest() {
+		final BE_TableHomeSetting_Cls tableSet = new BE_TableHomeSetting_Cls();
+		final VisualEditor.DynamicPickListRows myValues = tableSet.getValues();
+		final Boolean myValuesCheck = (myValues == null) ? false : true;
+		System.assert (myValuesCheck, 'Correct value');
+	}
 }

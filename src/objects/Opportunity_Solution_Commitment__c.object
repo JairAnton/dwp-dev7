@@ -60,7 +60,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -179,7 +178,7 @@
     </fields>
     <fields>
         <fullName>price_quotation_id__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Price quotation id</label>
         <length>255</length>
@@ -190,7 +189,7 @@
     </fields>
     <fields>
         <fullName>price_quotation_method__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Price quotation method</label>
         <length>255</length>

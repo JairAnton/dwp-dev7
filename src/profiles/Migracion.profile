@@ -3438,11 +3438,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dwp_kitv__Visit_Topic__c.dwp_kitv__topic_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>dwp_kitv__Visit_Topic__c.dwp_kitv__visit_done_type__c</field>
         <readable>true</readable>
     </fieldPermissions>    
@@ -4649,6 +4644,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>dwp_kitv__Visit__c.Account_Owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>gfsc__Guidance_for_Success__c.gfsc__dismiss__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>gfsc__Guidance_for_Success__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.BE_User_DWP__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>

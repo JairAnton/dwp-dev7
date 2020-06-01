@@ -36,7 +36,8 @@
                                                         <lightning-input if:true={field.isString} key={field.key} label={field.label} type="text" value={field.value} disabled></lightning-input>
                                                         <lightning-input if:true={field.isBoolean} key={field.key} label={field.label} type="checkbox" value={field.value} disabled></lightning-input>
                                                         <lightning-textarea if:true={field.isTextarea} key={field.key} label={field.label} value={field.value} disabled></lightning-textarea>
-                                                        <lightning-input if:true={field.isCurrency} key={field.key} label={field.label} type="number" formatter="currency"  value={field.value} disabled></lightning-input>
+                                                        <!--<lightning-input if:true={field.isCurrency} key={field.key} label={field.label} type="number" formatter="currency" code={field.currencyCode} value={field.value} disabled></lightning-input>-->
+                                                        <lightning-input if:true={field.isCurrency} key={field.key} label={field.label} type="text" value={field.value} disabled></lightning-input>
                                                         <lightning-input if:true={field.isNumber} key={field.key} label={field.label} type="number" value={field.value} disabled></lightning-input>
                                                         <lightning-input if:true={field.isPercent} key={field.key} label={field.label} type="Percent" formatter="percent"  value={field.value} disabled></lightning-input>
                                                         <lightning-input if:true={field.isEmail} key={field.key} label={field.label} type="email" value={field.value} disabled></lightning-input>

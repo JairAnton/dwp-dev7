@@ -6,7 +6,7 @@
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value>Oficinas del usuario</value>
+        <value>Oficinas de Usuario</value>
     </caseValues>
     <fields>
         <label>Usuario</label>

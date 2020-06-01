@@ -50,7 +50,7 @@
                     <aura:if isTrue="{!v.bGrafica}">
                         <div class="ChartZoom">
                             <c:GraphicsGenerator_comp NombreCanvas=" "
-                                                      posicionLeyenda="right" 
+                                                      posicionLeyenda="{!if($Browser.formFactor == 'DESKTOP', 'right', 'bottom')}" 
                                                       NombreInforme="EVOLUCION_DEUDA_SBS"        
                                                       TipoGrafica="line"
                                                       Id="{!v.recordId}"

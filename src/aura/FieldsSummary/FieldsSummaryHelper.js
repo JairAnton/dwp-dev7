@@ -1,4 +1,4 @@
 ({
-    closeMe : function(component, event) {
+    closeMe: function (component, event) {
     },
 })

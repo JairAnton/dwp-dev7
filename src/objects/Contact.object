@@ -379,7 +379,7 @@
     </fields>
     <fields>
         <fullName>phone_1__c</fullName>
-        <encrypted>true</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <externalId>false</externalId>
         <label>Phone 1</label>
         <required>false</required>
@@ -522,7 +522,7 @@
     </fields>
     <fields>
         <fullName>phone_2__c</fullName>
-        <encrypted>true</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <externalId>false</externalId>
         <label>Phone 2</label>
         <required>false</required>
@@ -836,7 +836,7 @@
     </fields>
     <fields>
         <fullName>HomePhone</fullName>
-        <encrypted>true</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -846,7 +846,7 @@
     </fields>
     <fields>
         <fullName>Phone</fullName>
-        <encrypted>true</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
 	<fields>

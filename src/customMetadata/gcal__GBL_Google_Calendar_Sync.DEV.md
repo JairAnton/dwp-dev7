@@ -4,7 +4,15 @@
     <protected>false</protected>
     <values>
         <field>gcal__GBL_Base_Url__c</field>
-        <value xsi:type="xsd:string">https://dev-bbva-gateway.appspot.com/gcalendar/v3</value>
+        <value xsi:type="xsd:string">https://dev-bbva-gateway.appspot.com/</value>
+    </values>
+    <values>
+        <field>gcal__GBL_Days__c</field>
+        <value xsi:type="xsd:double">365.0</value>
+    </values>
+    <values>
+        <field>gcal__GBL_Events_privacy__c</field>
+        <value xsi:type="xsd:string">All public</value>
     </values>
     <values>
         <field>gcal__GBL_Google_Oauth2_Url__c</field>
@@ -17,6 +25,10 @@
     <values>
         <field>gcal__GBL_Mail_Domain__c</field>
         <value xsi:type="xsd:string">dev.bbva.com</value>
+    </values>
+    <values>
+        <field>gcal__GBL_Max_Results__c</field>
+        <value xsi:type="xsd:double">250.0</value>
     </values>
     <values>
         <field>gcal__GBL_Pkcs8_Key__c</field>
@@ -37,5 +49,17 @@
     <values>
         <field>gcal__GBL_Session_Duration__c</field>
         <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>gcal__GCalendar_URI__c</field>
+        <value xsi:type="xsd:string">gcalendar/v3</value>
+    </values>
+    <values>
+        <field>gcal__GNameIndexer_URI__c</field>
+        <value xsi:type="xsd:string">gnameindexer</value>
+    </values>
+    <values>
+        <field>gcal__UserFieldKey__c</field>
+        <value xsi:type="xsd:string">FederationIdentifier</value>
     </values>
 </CustomMetadata>

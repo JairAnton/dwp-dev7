@@ -10,12 +10,12 @@
    -------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_ForecastPlanGroupingManager_Qs implements Schedulable {
-/**
-    @Description create grouping plan for manager.
-    @param SchedulableContext.
-    @return void
- */
-public void execute(SchedulableContext schContext) {
-	System.enqueueJob(new BE_ForecastPlanGroupingManager_Queue());
-}
+	/**
+	   @Description create grouping plan for manager.
+	   @param SchedulableContext.
+	   @return void
+	 */
+	public void execute(SchedulableContext schContext) {
+		System.enqueueJob(new BE_ForecastPlanGroupingManager_Queue());
+	}
 }
