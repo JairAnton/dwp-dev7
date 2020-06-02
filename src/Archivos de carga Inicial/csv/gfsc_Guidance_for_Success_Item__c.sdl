@@ -1,0 +1,10 @@
+#Mapping values
+#Tue Jun 02 16:09:51 COT 2020
+GFSC__REFRESH_VISIBILITY__C=gfsc__Refresh_visibility__c
+GFSC__GUIDANCE_TITLE__C=gfsc__Guidance_Title__c
+UNIQUE_ID__C=unique_id__c
+GFSC__GUIDANCE_FOR_SUCCESS__R.UNIQUE_ID__C=gfsc__Guidance_for_Success__r\:unique_id__c
+NAME=Name
+GFSC__FIELD_VALUE__C=gfsc__Field_value__c
+GFSC__GUIDANCE_CONTENT__C=gfsc__Guidance_content__c
+GFSC__VERSION__C=gfsc__version__c
