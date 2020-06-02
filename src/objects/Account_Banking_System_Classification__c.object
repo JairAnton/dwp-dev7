@@ -68,7 +68,7 @@
         <unique>true</unique>
     </fields>
     <fields>
-        <fullName>account_id__c</fullName>
+        <fullName>account_id__c</fullName> 
         <description>a relationship with account</description>
         <externalId>false</externalId>
         <label>Account</label>

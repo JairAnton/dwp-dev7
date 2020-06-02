@@ -95,7 +95,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>branch_name__c</fullName>
+        <fullName>branch_name__c</fullName> 
         <description>Oficina</description>
         <externalId>false</externalId>
         <label>Branch</label>
