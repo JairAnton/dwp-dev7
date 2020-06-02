@@ -4803,12 +4803,12 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
-        <field>gfsc__Guidance_for_Success__c.gfsc__dismiss__c</field>
+        <field>gfsc__Guidance_for_Success__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>gfsc__Guidance_for_Success__c.unique_id__c</field>
+        <field>gfsc__Guidance_for_Success_Item__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
