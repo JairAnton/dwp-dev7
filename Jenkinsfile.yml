@@ -33,8 +33,6 @@ branches:
                         credentialId: SFDC_DEV
                         command: testDeploy
                         testLevel: RunLocalTests
-                    delta:
-                        skip: true
     develop:
         stages:
             publish:
@@ -42,8 +40,6 @@ branches:
                     mdapiConfig:
                         credentialId: SFDC_DEV
                         testLevel: RunLocalTests
-                    delta:
-                        skip: true
     release:
         stages:
             publish:

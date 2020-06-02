@@ -70,7 +70,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>account_id__c</fullName>
+        <fullName>account_id__c</fullName> 
         <description>Cliente</description>
         <externalId>false</externalId>
         <label>Account</label>

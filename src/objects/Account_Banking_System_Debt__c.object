@@ -80,7 +80,7 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>account_id__c</fullName>
+        <fullName>account_id__c</fullName> 
         <externalId>false</externalId>
         <label>Account</label>
         <referenceTo>Account</referenceTo>
