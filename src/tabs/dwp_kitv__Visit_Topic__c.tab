@@ -2,5 +2,6 @@
 <CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
     <customObject>true</customObject>
     <description>Visit Topic</description>
+    <icon>dwp_kitv__IconsKitVisit/dwp_kitv__Icon_Object_Topic.png</icon>
     <motif>Custom283: TV Widescreen</motif>
 </CustomTab>
