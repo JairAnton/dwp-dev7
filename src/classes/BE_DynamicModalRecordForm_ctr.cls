@@ -141,6 +141,9 @@ public with sharing class BE_DynamicModalRecordForm_ctr {
 		String fieldsSOQL = lstFieldsApiName[0];
 		for(Integer i = 1; i < lstFieldsApiName.size(); i++) {
 			String field = lstFieldsApiName[i];
+            if(field=='CurrencyIsoCode') {
+                continue;
+            }
 			if(String.valueOf(schema.getDescribe().fields.getMap().get(lstFieldsApiName[i]).getDescribe().getType()) == 'picklist') {
 				field = 'toLabel(' + field + ')';
 			}

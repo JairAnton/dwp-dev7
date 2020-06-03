@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Name,toLabel(StageName),Amount,CloseDate</value>
+        <value xsi:type="xsd:string">Name,toLabel(StageName),Amount,CloseDate </value>
     </values>
     <values>
         <field>FieldsUrlRelationship__c</field>

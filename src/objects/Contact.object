@@ -6,7 +6,7 @@
         <fields>Name</fields>
         <fields>MobilePhone</fields>
         <fields>Email</fields>
-        <fields>Status_desc__c</fields>
+        <fields>Formula_Cliente__c</fields>
         <label>Contact</label>
     </compactLayouts>
     <fields>
