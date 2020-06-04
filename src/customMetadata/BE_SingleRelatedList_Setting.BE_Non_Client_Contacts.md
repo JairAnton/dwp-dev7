@@ -78,7 +78,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Contact.Name,calc_prof_position_type__c,decision_making_desc__c,Contact_decisor__c</value>
+        <value xsi:type="xsd:string">Contact.Name,calc_prof_position_type__c,decision_making_desc__c,Contact_decisor__c </value>
     </values>
     <values>
         <field>FieldsUrlRelationship__c</field>

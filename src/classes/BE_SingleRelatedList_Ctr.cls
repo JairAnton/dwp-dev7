@@ -45,7 +45,7 @@ public without sharing class BE_SingleRelatedList_Ctr {
      @return a Map<String,String> with information about the type of sObjectFields.
    */
   public static List<SObject> getSOQLData(String recordId,Params param) { 
-  	  final String query='SELECT CurrencyIsoCode, ' +String.escapeSingleQuotes(param.sObjFields)+ ' FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
+  	  final String query='SELECT ' +String.escapeSingleQuotes(param.sObjFields)+ ' ,CurrencyIsoCode FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
       return Database.query(query);
   }
   

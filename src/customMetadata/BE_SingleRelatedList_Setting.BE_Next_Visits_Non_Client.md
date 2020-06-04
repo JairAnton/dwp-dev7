@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Name,start_date_calculated__c,CreatedBy.Name</value>
+        <value xsi:type="xsd:string">Name,start_date_calculated__c,CreatedBy.Name </value>
     </values>
     <values>
         <field>FieldsUrlRelationship__c</field>
