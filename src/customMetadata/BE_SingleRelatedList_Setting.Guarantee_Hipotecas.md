@@ -3,47 +3,86 @@
     <label>Garantías de Hipotecas</label>
     <protected>false</protected>
     <values>
-        <field>BtnConfig__c</field>
-        <value xsi:nil="true"/>
-    </values>
-    <values>
-        <field>FieldsButtons__c</field>
-        <value xsi:type="xsd:string">{&quot;Name&quot;:&quot;Id&quot;,&quot;typeAttributes&quot;:{&quot;label&quot;:{&quot;fieldName&quot;:&quot;Name&quot;},&quot;title&quot;:&quot;Mostrar detalles&quot;,&quot;name&quot;:&quot;show_details&quot;,&quot;disabled&quot;:false,&quot;value&quot;:&quot;view&quot;,&quot;iconName&quot;:&quot;utility:search&quot;,&quot;iconPosition&quot;:&quot;right&quot;}}</value>
+        <field>Columns__c</field>
+        <value xsi:type="xsd:string">{
+    &quot;values&quot;: [
+        {
+            &quot;label&quot;: &quot;Tipo&quot;,
+            &quot;fieldName&quot;: &quot;guarantee_type__c&quot;,
+            &quot;type&quot;: &quot;text&quot;
+        },
+        {
+            &quot;label&quot;: &quot;N° Garantía&quot;,
+            &quot;fieldName&quot;: &quot;Name&quot;,
+            &quot;type&quot;: &quot;custombutton&quot;,
+            &quot;typeAttributes&quot;: {
+                &quot;isCustom&quot;: &quot;true&quot;,
+                &quot;fieldName&quot;: {
+                    &quot;fieldName&quot;: &quot;Id&quot;
+                },
+                &quot;label&quot;: {
+                    &quot;fieldName&quot;: &quot;Name&quot;
+                },
+                &quot;modalName&quot;: &quot;Guarantee_Details_Hipoteca&quot;,
+                &quot;iconName&quot;: &quot;utility:search&quot;,
+                &quot;iconPosition&quot;: &quot;right&quot;,
+                &quot;rowData&quot;: {
+                    &quot;fieldName&quot;: &quot;rowData&quot;
+                }
+            }
+        },
+        {
+            &quot;label&quot;: &quot;Importe&quot;,
+            &quot;fieldName&quot;: &quot;guaranteed_amount__c&quot;,
+            &quot;type&quot;: &quot;currency&quot;,
+            &quot;typeAttributes&quot;: {
+                &quot;currencyCode&quot;: {
+                    &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
+                },
+                &quot;currencyDisplayAs&quot;: &quot;code&quot;,
+                &quot;minimumFractionDigits&quot;: 2,
+                &quot;maximumFractionDigits&quot;: 2
+            },
+            &quot;cellAttributes&quot;: {
+                &quot;alignment&quot;: &quot;right&quot;
+            }
+        },
+        {
+            &quot;label&quot;: &quot;Situación&quot;,
+            &quot;fieldName&quot;: &quot;guarantee_status_type__c&quot;,
+            &quot;type&quot;: &quot;picklist&quot;
+        },
+        {
+            &quot;label&quot;: &quot;F.Formalización&quot;,
+            &quot;fieldName&quot;: &quot;guarantee_release_date__c&quot;,
+            &quot;type&quot;: &quot;date&quot;
+        },
+        {
+            &quot;label&quot;: &quot;Clase&quot;,
+            &quot;fieldName&quot;: &quot;guarantee_class__c&quot;,
+            &quot;type&quot;: &quot;text&quot;
+        }
+    ]
+}</value>
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">toLabel(guarantee_type__c),Name,guaranteed_amount__c,toLabel(guarantee_status_type__c),guarantee_release_date__c,toLabel(guarantee_class__c) </value>
-    </values>
-    <values>
-        <field>FieldsUrlRelationship__c</field>
-        <value xsi:nil="true"/>
-    </values>
-    <values>
-        <field>Fields__c</field>
-        <value xsi:type="xsd:string">guarantee_type__c,Name,guaranteed_amount__c,guarantee_status_type__c,guarantee_release_date__c,guarantee_class__c</value>
+        <value xsi:type="xsd:string">toLabel(guarantee_type__c),Name,guaranteed_amount__c,toLabel(guarantee_status_type__c),guarantee_release_date__c,toLabel(guarantee_class__c)</value>
     </values>
     <values>
         <field>Filter__c</field>
         <value xsi:type="xsd:string">account_id__c=:recordId AND guarantee_type__c=@@111@@ ORDER BY guarantee_release_date__c DESC NULLS LAST, guarantee_status_type__c ASC</value>
     </values>
     <values>
-        <field>Labels__c</field>
-        <value xsi:type="xsd:string">Tipo,N° Garantía,Importe,Situación,F.Formalización,Clase</value>
-    </values>
-    <values>
-        <field>ModalName__c</field>
-        <value xsi:type="xsd:string">Guarantee_Details_Hipoteca</value>
+        <field>HeadActions__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>NumberRows__c</field>
         <value xsi:type="xsd:double">6.0</value>
     </values>
     <values>
-        <field>maximumFractionDigits__c</field>
-        <value xsi:nil="true"/>
-    </values>
-    <values>
-        <field>minimumFractionDigits__c</field>
+        <field>Settings__c</field>
         <value xsi:nil="true"/>
     </values>
     <values>

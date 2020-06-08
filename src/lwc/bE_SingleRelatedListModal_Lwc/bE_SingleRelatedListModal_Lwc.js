@@ -26,23 +26,21 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
     @api sObjFields;
     @api className;
     @api modeAction;
-    @api isCustom;
+    @api redirect = false;
     @track mode;
     @track error;
     @track loaded = false;
-    @api redirectToRecordPage;
     connectedCallback() {
         this.switchMode(this.modeAction);
         this.loaded = true;
     }
-    handleCloseModal(refresh, refreshView) {
+    handleCloseModal(refresh, isDML) {
         let evt = new CustomEvent('closemodalweb',
-            {
-                detail: {
-                    refresh: refresh,
-                    view: refreshView
-                }
-            });
+            { detail: {
+                refresh: refresh,
+                isDML: isDML
+            }
+        });
         this.dispatchEvent(evt);
     }
     /** CALL APEX */
@@ -57,11 +55,12 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
                     try {
                         this.loaded = true;
                         this.toggleSpinner();
-                        if (this.redirectToRecordPage) {
-                            this.navigateToRecordViewPage(result.data[0].Id);
-                        }
                         this.showToastEvent("Success", result.message, "success");
-                        this.handleCloseModal(true, true);
+                        if (this.redirect) {
+                            this.navigateToRecordViewPage(result.data[0].Id);
+                        } else {
+                            this.handleCloseModal(true, true);
+                        }
                     } catch (ex) {
                         this.loaded = true;
                         this.toggleSpinner();
@@ -75,7 +74,6 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
                 }
             })
     }
-
     /**UPDATE RECORDS */
     handleUpdateRecords(objVal) {
         updateRecords({
@@ -102,7 +100,6 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
                 }
             })
     }
-
     /*DELETE RECORDS*/
     handleDeleteRecords(objVal) {
         deleteRecords({

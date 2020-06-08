@@ -2,24 +2,20 @@ import { LightningElement, wire, track, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getDynamicResponse from "@salesforce/apex/BE_SingleRelatedList_Ctr.getDynamicResponse";
 import getConfigMetaData from "@salesforce/apex/BE_SingleRelatedList_Ctr.getConfigMeta";
+import updateRecords from "@salesforce/apex/BE_SingleRelatedList_Ctr.updateRecords";
 import FORM_FACTOR from '@salesforce/client/formFactor';
 import { NavigationMixin } from 'lightning/navigation';
 import { refreshApex } from "@salesforce/apex";
 import LANG from '@salesforce/i18n/lang';
-import btnDelete from '@salesforce/label/c.BE_SingleRelatedList_BtnDelete';
-import btnView from '@salesforce/label/c.BE_SingleRelatedList_BtnView';
-import btnNew from '@salesforce/label/c.BE_SingleRelatedList_BtnNew';
 import viewAlll from '@salesforce/label/c.BE_SingleRelatedList_ViewAll';
 import errorMsg from '@salesforce/label/c.Dwp_msgGenericError';
+import { isNotEmpty, transformColumns, transformHeadActions, transformData, getSettingsObj } from './bE_SingleRelatedListHelper_Lwc.js';
 export default class SingleRelatedList extends NavigationMixin(LightningElement) {
     lang = LANG;
     // EXPOSE LABEL TO USE IN TEMPLATE
     label = {
         viewAlll,
-        errorMsg,
-        btnView,
-        btnNew,
-        btnDelete
+        errorMsg
     };
     /* GENERAL INPUT ATTRIBUTES*/
     @api flexipageRegionWidth;
@@ -33,53 +29,35 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     @track customTitle;
     @track hasRendered = false;
     @api isViewAll = false;
-    @track isObjRelFields = false;
-    @track isBtnFields = false;
     @api isMobile;
     /** DATATABLE ATRIBUTTES */
     @track columns; /** Colums of datatable */
-    sObjectData; /** Data of datatable */
-    @track customHeadActions;
-    @track rowActions;
-    @track customRowActions;
+    @track draftValues = [];
+    @track sObjectData; /** Data of datatable */
+    @track headActions;
+    lastSavedData = [];
     /** MOBILE ATRIBUTES */
-    @track columnsMobile; /** List of fields ApiName*/
     @track error;
-
-    /** BUTTONS */
-    @track BtnConfig = {
-        values: [],
-        map: null
-    }
-    @track sObject;
-
     /**  CUSTOM MODAL ATTRIBUTES */
-    @track modalRecord = {
-        show: false, /** Show modal */
-        recordId: '', /** recordId of Modal */
-        metadataName: '' /** Dev Name of Medadata */
-    }
-
-    /** STANDARD MODAL */
     @track modalStandard = {
         show: false, /** Show modal */
         recordId: '', /** recordId of Modal */
         sobjectType: '',
         fields: '',
-        mode: ''
+        mode: '',
+        redirect: false
     };
     /** METADATA SETTINGS*/
+    @track sObject;
     @track configMeta;
     wiredsObjectList;
     sfdcBaseURL;
     relListTypeMode;
-    /**AURA REFRESH ATTRIBUTES*/
-    @api auraRefresh;
     connectedCallback() {
         this.isMobile = (FORM_FACTOR === 'Small' || FORM_FACTOR === 'Medium') ? true : false;
         this.sfdcBaseURL = window.location.origin;
         this.switchTemplateMode();
-        this.customTitle = this.isNotEmpty(this.title) ? JSON.parse((this.title))[this.lang] : '';
+        this.customTitle = isNotEmpty(this.title) ? JSON.parse((this.title))[this.lang] : '';
     }
     renderedCallback() {
         if (this.hasRendered) return;
@@ -92,31 +70,24 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         const { data, error } = value;
         this.wiredsObjectList = value;
         if (data) {
-            try {
+            //try {
                 this.configMeta = data;
-                this.BtnConfig.map = this.isNotEmpty(data[0].BtnConfig__c) ? JSON.parse(data[0].BtnConfig__c) : [];
-                this.BtnConfig.values = this.setHeadActions();
-                const targetFilter = (this.isViewAll) ? data[0].Filter__c : data[0].Filter__c + ' LIMIT ' + data[0].NumberRows__c;
-                this.sObject = {
-                    sObjName: data[0].sObjectApiName__c,
-                    sObjFields: data[0].FieldsQuery__c,
-                    filterSQOL: targetFilter
-                };
-                this.isObjRelFields = this.isNotEmpty(data[0].FieldsUrlRelationship__c);
-                this.isBtnFields = this.isNotEmpty(data[0].FieldsButtons__c);
-                this.columnsMobile = data[0].Fields__c.split(",");
-                this.sObjFieldLabels = data[0].Labels__c;
+                console.log('this.columns');
+                console.log(data[0].Columns__c);
+                this.sObject = getSettingsObj(data[0], this.viewAlll);
+                this.columns = transformColumns(data[0].Columns__c, this.lang);
+                this.headActions = transformHeadActions(data[0].HeadActions__c, this.recordId, this.lang);
                 this.callListData();
-            } catch (ex) {
+            /*} catch (ex) {
                 this.showToastEvent("Error", ex.message, "Error");
-            }
+            }*/
         } else {
-            console.log("ERROR");
-            console.log(error);
+            this.showToastEvent("Error", "Please enter a custom metadata settings", "Error");
         }
     }
     /*GET DATA*/
     callListData() {
+        console.log(this.sObject);
         getDynamicResponse({
             recordId: this.recordId,
             param: this.sObject
@@ -125,12 +96,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
                 const { data, error } = result;
                 if (data) {
                     if (result.isSuccess) {
-                        try {
-                            this.columns = this.getGridColumns(result.sObjFieldsMap, this.configMeta[0].Fields__c, this.configMeta[0].Labels__c);
-                            this.sObjectData = (this.isObjRelFields) ? this.assignData(result.data) : result.data;
-                        } catch (ex) {
-                            this.showToastEvent("Error", ex.message, "Error");
-                        }
+                        this.sObjectData = transformData(result.data, this.columns);
                     } else {
                         this.error = data.message;
                         this.showToastEvent("Error", this.error, "Error");
@@ -142,228 +108,6 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
                 this.loaded = true;
             })
     }
-    /**BUILD AND SET COLUMS TO DATATABLE*/
-    getGridColumns(sObjFieldsMap, fieldsApiName, fieldsLabel) {
-        const configCols = this.getGridColSetttings(fieldsApiName, fieldsLabel);
-        this.rowActions = this.setRowActions();
-        let columns = [];
-        for (const indicator in configCols.fieldsApiName) {
-            if ({}.hasOwnProperty.call(configCols.fieldsApiName, indicator)) {
-                let targetColumn = {
-                };
-                /** COLUMNS URL AND RELATIONSHIPS */
-                if (configCols.relObjKeys.includes(configCols.fieldsApiName[indicator])) {
-                    targetColumn = this.makeUrlRelationshipColumns(configCols, indicator);
-                    /**  COLUMNS BUTTONS */
-                } else if (configCols.objBtnName.includes(configCols.fieldsApiName[indicator])) {
-                    targetColumn = {
-                        label: configCols.fieldsLabel[indicator],
-                        fieldName: configCols.fieldsApiName[indicator],
-                        type: 'button',
-                        typeAttributes: configCols.objBtn.typeAttributes
-                    };
-                    /** COMON COLUMNS */
-                } else {
-                    targetColumn = {
-                        label: configCols.fieldsLabel[indicator],
-                        fieldName: configCols.fieldsApiName[indicator],
-                        type: sObjFieldsMap[configCols.fieldsApiName[indicator]]
-                    };
-                }
-                columns.push(this.asigntypeAttributes(targetColumn));
-            }
-        }
-        /** SET ROW ACTIONS */
-        if (this.rowActions.length > 0) {
-            columns.push({
-                type: 'action',
-                typeAttributes: { rowActions: this.rowActions },
-            });
-        }
-        return columns;
-    }
-    /** ASSING INITIAL COLUMN VARIABLE */
-    getGridColSetttings(fieldsApiName, fieldsLabel) {
-        const targetRelObj = (this.isObjRelFields) ? JSON.parse(this.configMeta[0].FieldsUrlRelationship__c) : [];
-        const targetRelObjKeys = (this.isObjRelFields) ? Object.keys(targetRelObj) : [];
-        const targetObjBtn = (this.isBtnFields) ? JSON.parse(this.configMeta[0].FieldsButtons__c.trim()) : [];
-        const targetObjBtnName = (this.isBtnFields) ? Object.keys(targetObjBtn) : [];
-        let settingsColumn = {
-            fieldsApiName: fieldsApiName.split(","),
-            fieldsLabel: fieldsLabel.split(","),
-            relObj: targetRelObj,
-            relObjKeys: targetRelObjKeys,
-            objBtn: targetObjBtn,
-            objBtnName: targetObjBtnName
-        }
-        return settingsColumn;
-    }
-    /*BUILD URL AND RELATIONSHIP COLUM*/
-    makeUrlRelationshipColumns(configCols, indicator) {
-        let targetColumn = {};
-        let targetPropCol = {
-            fieldName: "",
-            label: "",
-        };
-        if (configCols.relObj[configCols.fieldsApiName[indicator]].isObject) {
-            targetPropCol.fieldName = configCols.relObj[configCols.fieldsApiName[indicator]].relApiName + configCols.relObj[configCols.fieldsApiName[indicator]].fieldName;
-            switch (configCols.relObj[configCols.fieldsApiName[indicator]].type) {
-                case "url":
-                    targetPropCol.fieldName = targetPropCol.fieldName + 'Url';
-                    targetPropCol.label = configCols.relObj[configCols.fieldsApiName[indicator]].relApiName + configCols.relObj[configCols.fieldsApiName[indicator]].label;
-                    targetColumn = {
-                        label: configCols.fieldsLabel[indicator],
-                        fieldName: targetPropCol.fieldName,
-                        type: 'url',
-                        typeAttributes: { label: { fieldName: targetPropCol.label }, tooltip: { fieldName: targetPropCol.label }, target: '_self' }
-                    };
-                    break;
-                default:
-                    targetColumn = {
-                        label: configCols.fieldsLabel[indicator],
-                        fieldName: targetPropCol.fieldName,
-                        type: configCols.relObj[configCols.fieldsApiName[indicator]].type
-                    };
-                    break;
-            }
-        } else {
-            targetPropCol.fieldName = configCols.relObj[configCols.fieldsApiName[indicator]].fieldName + "Url";
-            targetPropCol.label = configCols.relObj[configCols.fieldsApiName[indicator]].label;
-            targetColumn = {
-                label: configCols.fieldsLabel[indicator],
-                fieldName: targetPropCol.fieldName,
-                type: configCols.relObj[configCols.fieldsApiName[indicator]].type,
-                typeAttributes: { label: { fieldName: targetPropCol.label }, tooltip: { fieldName: targetPropCol.label }, target: '_self' }
-            };
-        }
-        return targetColumn;
-    }
-    /*BUILD AND MAKE ATRIBUTES TO OBJECT*/
-    asigntypeAttributes(Obj) {
-        let targetObj = { cellAttributes: { alignment: "center" } };
-        switch (Obj.type) {
-            case "currency":
-                Object.defineProperty(targetObj, "typeAttributes", {
-                    value: {
-                        currencyCode: { fieldName: "CurrencyIsoCode" },
-                        maximumFractionDigits: this.maximumFractionDigits,
-                        minimumFractionDigits: this.minimumFractionDigits,
-                        currencyDisplayAs: "code"
-                    },
-                    writable: true,
-                    enumerable: true,
-                    configurable: true
-                });
-                Object.defineProperty(targetObj, "cellAttributes", {
-                    value: { alignment: "left" },
-                    writable: true,
-                    enumerable: true,
-                    configurable: true
-                });
-                break;
-            case "number":
-                Object.defineProperty(targetObj, "typeAttributes", {
-                    value: {
-                        maximumFractionDigits: this.maximumFractionDigits,
-                        minimumFractionDigits: this.minimumFractionDigits
-                    },
-                    writable: true,
-                    enumerable: true,
-                    configurable: true
-                });
-                Object.defineProperty(targetObj, "cellAttributes", {
-                    value: { alignment: "right" },
-                    writable: true,
-                    enumerable: true,
-                    configurable: true
-                });
-                break;
-            case "percent":
-                Object.defineProperty(targetObj, "typeAttributes", {
-                    value: {
-                        maximumFractionDigits: this.maximumFractionDigits,
-                        minimumFractionDigits: this.minimumFractionDigits
-                    },
-                    writable: true,
-                    enumerable: true,
-                    configurable: true
-                });
-                break;
-            default:
-                Object.defineProperty(targetObj, "cellAttributes", {
-                    value: { alignment: "left" },
-                    writable: true,
-                    enumerable: true,
-                    configurable: true
-                });
-                break;
-        }
-        targetObj = Object.assign(Obj, targetObj);
-        return targetObj;
-    }
-
-    /** SET DATA  */
-    assignData(data) {
-        const targetRelObj = (this.isObjRelFields) ? Object.values(JSON.parse(this.configMeta[0].FieldsUrlRelationship__c)) : [];
-        let currentData;
-        let dataLst = [];
-        for (currentData of data) {
-            let targetObj = {};
-            let indx;
-            let targetProp = {
-                fieldName: "",
-                fieldNameValue: 0,
-                label: "",
-                labelValue: 0
-            };
-            for (indx of targetRelObj) {
-                if (indx.isObject) {
-                    targetProp.fieldName = indx.relApiName + indx.fieldName;
-                    targetProp.fieldNameValue = currentData[indx.relApiName][indx.fieldName];
-                    switch (indx.type) {
-                        case "url":
-                            targetProp.fieldName = targetProp.fieldName + 'Url';
-                            targetProp.label = indx.relApiName + indx.label;
-                            targetProp.labelValue = currentData[indx.relApiName][indx.label];
-                            Object.defineProperty(targetObj, targetProp.fieldName, {
-                                value: this.sfdcBaseURL + '/' + targetProp.fieldNameValue,
-                                writable: true,
-                                enumerable: true,
-                                configurable: true
-                            });
-                            Object.defineProperty(targetObj, targetProp.label, {
-                                value: targetProp.labelValue,
-                                writable: true,
-                                enumerable: true,
-                                configurable: true
-                            });
-                            break;
-                        default:
-                            Object.defineProperty(targetObj, targetProp.fieldName, {
-                                value: targetProp.fieldNameValue,
-                                writable: true,
-                                enumerable: true,
-                                configurable: true
-                            });
-                            break;
-                    }
-                } else {
-                    targetProp.fieldName = indx.fieldName + 'Url';
-                    targetProp.fieldNameValue = currentData[indx.fieldName];
-                    Object.defineProperty(targetObj, targetProp.fieldName, {
-                        value: this.sfdcBaseURL + '/' + targetProp.fieldNameValue,
-                        writable: true,
-                        enumerable: true,
-                        configurable: true
-                    });
-                }
-            }
-            targetObj = Object.assign(targetObj, currentData);
-            dataLst.push(targetObj);
-        }
-        return dataLst;
-    }
-
     /*SET TEMPLATE*/
     switchTemplateMode() {
         this.relListTypeMode = {
@@ -408,98 +152,97 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             }
         });
     }
-
     /** STANDARD MODAL */
     handleOpenStanModal(modalSet) {
         this.modalStandard.show = true;
         this.modalStandard.title = modalSet.title;
         this.modalStandard.recordId = modalSet.recordId;
-        this.modalStandard.sobjectType = modalSet.sObjectApiName;
+        this.modalStandard.sobjectType = modalSet.objectApiName;
         this.modalStandard.mode = modalSet.mode;
         this.modalStandard.fields = modalSet.fields;
         this.modalStandard.className = modalSet.className;
-        this.modalStandard.redirect = modalSet.redirect === null || modalSet.redirect === undefined ? true : modalSet.redirect;
+        this.modalStandard.redirect = modalSet.redirect;
     }
     handleCloseStanModal(event) {
         this.modalStandard.show = false;
         if (event.detail.refresh === true) {
             this.sObjectData = [];
             this.callListData();
-        }//If LWC is inside Aura, execute RefreshView
-        if (this.auraRefresh && event.detail.view === true) {
+        }
+        //if LWC is inside Aura and dml action is execute in modal
+        if(this.sObject.settings['refreshView'] && event.detail.isDML === true) {
             this.refreshOnAura();
         }
     }
     /** ROW ACTIONS */
     handleRowActionWeb(event) {
-        const row = event.detail.row;
-        if (this.isNotEmpty(this.configMeta[0].ModalName__c)) {
-            this.handleModal(event.detail.row.Id, true);
-        } else {
-            this.handleRowAction(row.Id, event.detail.action.name);
-        }
+        event.stopPropagation();
+        const modalSet = {
+            recordId: event.detail.row.Id,
+            mode: event.detail.action.name,
+            fields: event.detail.action.fields,
+            className: event.detail.action.className,
+            objectApiName: event.detail.action.objectApiName,
+            title: event.detail.action.title[this.lang],
+        };
+        this.handleOpenStanModal(modalSet);
     }
     handleRowActionMobile(event) {
-        const row = event.detail;
-        if (this.isNotEmpty(this.configMeta[0].ModalName__c)) {
-            this.handleModal(row.recordId, true);
-        } else {
-            this.handleRowAction(row.recordId, row.mode);
-        }
-    }
-    handleRowAction(recordId, mode) {
-        const customRow = this.customRowActions[mode];
+        event.stopPropagation();
         const modalSet = {
-            recordId: recordId,
-            mode: mode,
-            fields: '',
-            className: '',
-            sObjectApiName: this.configMeta[0].sObjectApiName__c,
+            recordId: event.detail.Id,
+            mode: event.detail.action.name,
+            fields: event.detail.action.fields,
+            className: event.detail.action.className,
+            objectApiName: event.detail.action.objectApiName,
+            title: event.detail.action.title[this.lang]
         };
-        if (this.isNotEmpty(customRow)) {
-            modalSet.title = customRow.title;
-            modalSet.fields = (this.isNotEmpty(customRow.fields)) ? customRow.fields : null;
-            modalSet.className = customRow.className;
-        }
         this.handleOpenStanModal(modalSet);
     }
     /** HEAD ACTIONS */
     handleHeadAction(event) {
-        const btnVal = event.target.value;
+        event.stopPropagation();
         const modalSet = {
             recordId: '',
-            title: this.BtnConfig.map[btnVal].title[this.lang],
-            mode: this.BtnConfig.map[btnVal].mode,
-            fields: null,
-            sObjectApiName: this.BtnConfig.map[btnVal].sObjectApiName,
-            className: this.BtnConfig.map[btnVal].className,
-            redirect: this.BtnConfig.map[btnVal].redirectToRecordPage,
-        }
-        if (this.BtnConfig.map[btnVal].mode === 'insert') {
-            let insertFields = new Map;
-            for (const field of this.BtnConfig.map[btnVal].fields) {
-                insertFields.set(field.fieldName, field);
-            }
-            insertFields.get(this.BtnConfig.map[btnVal].defaultValue).value = this.recordId;
-            modalSet.fields = Array.from(insertFields.values());
-        } else {
-            modalSet.fields = this.BtnConfig.map[btnVal].fields.split(',');
-        }
+            mode: event.target.value.name,
+            fields: event.target.value.fields,
+            className: event.target.value.className,
+            objectApiName: event.target.value.objectApiName,
+            title: event.target.value.title[this.lang],
+            redirect: event.target.value.redirect
+        };
         this.handleOpenStanModal(modalSet);
     }
-    /** CUSTOM MODAL RECORD */
-    handleModal(cId, showCmp) {
-        this.modalRecord.recordId = cId;
-        this.modalRecord.show = showCmp;
-        this.modalRecord.metadataName = this.configMeta[0].ModalName__r.DeveloperName;
-    }
-    handleCloseModal(event) {
-        this.modalRecord.show = false;
-        refreshApex(this.wiredsObjectList);
+    /** HANDLE SAVE*/
+    handleInlineSave(event) {
+        event.stopPropagation();
+        let targetObjLst = [];
+        for (const iterator of event.detail.draftValues) {
+            targetObjLst.push(Object.assign({ "sobjectType": this.configMeta[0].sObjectApiName__c }, iterator));
+        }
+        updateRecords({
+            recordId: this.recordId,
+            sObjs: targetObjLst,
+            className: this.sObject.settings['readClassName']
+        })
+            .then(result => {
+                if (result.isSuccess) {
+                    try {
+                        this.draftValues = [];
+                        this.sObjectData = [];
+                        this.callListData();
+                        this.showToastEvent("Success", result.message, "success");
+                    } catch (ex) {
+                        this.showToastEvent("Error", ex.message, "error");
+                    }
+                } else {
+                    this.showToastEvent("Error", result.message, "error");
+                }
+            })
     }
     /**UTILS FUNCTIONS*/
     /** SHOW TOAST MESSAJE */
-    showToastEvent(title, message, variant) {
+    showToastEvent = (title, message, variant) => {
         const evt = new ShowToastEvent({
             title: title,
             message: message,
@@ -507,51 +250,52 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         });
         this.dispatchEvent(evt);
     }
-    /**VALIDATE NULL, EMPTY AND BLANK*/
-    isNotEmpty(obj) {
-        const notEmpty = (obj === null || obj === undefined || obj === "") ? false : true;
-        return notEmpty;
+    /** CUSTOM DATATYPES */
+    handleCustomTypeLookup(event) {
+        event.stopPropagation();
+        this.updateDraftValues(event.detail);
+        this.updateDataValues(event.detail);
+    }
+    updateDataValues(updateItem) {
+        let copyData = [... this.sObjectData];
+        copyData.forEach(item => {
+            if (item.Id === updateItem.Id) {
+                for (let field in updateItem) {
+                    item[field] = updateItem[field];
+                }
+            }
+        });
+        //write changes back to original data
+        this.data = [...copyData];
+    }
+    updateDraftValues(updateItem) {
+        let draftValueChanged = false;
+        let copyDraftValues = [...this.draftValues];
+        //store changed value to do operations
+        //on save. This will enable inline editing &
+        //show standard cancel & save button
+        copyDraftValues.forEach(item => {
+            if (item.Id === updateItem.Id) {
+                for (let field in updateItem) {
+                    item[field] = updateItem[field];
+                }
+                draftValueChanged = true;
+            }
+        });
+
+        if (draftValueChanged) {
+            this.draftValues = [...copyDraftValues];
+        } else {
+            this.draftValues = [...copyDraftValues, updateItem];
+        }
     }
 
-    setRowActions() {
-        let actions = new Map();
-        let currentCustomRow = {};
-        this.customRowActions = this.isNotEmpty(this.configMeta[0].RowActions__c) ? JSON.parse(this.configMeta[0].RowActions__c) : [];
-        if (this.configMeta[0].RowActionView__c) {
-            actions.set(1, { label: this.btnView, name: 'view' });
-        }
-        if (this.configMeta[0].RowActionDelete__c) {
-            actions.set(2, { label: this.btnDelete, name: 'delete' });
-        }
-        for (const key in this.customRowActions) {
-            if (this.customRowActions.hasOwnProperty(key)) {
-                currentCustomRow = this.customRowActions[key];
-                currentCustomRow.label = this.customRowActions[key].label[this.lang];
-                currentCustomRow.title = this.customRowActions[key].title[this.lang];
-                actions.set(key, currentCustomRow);
-            }
-        }
-        return Array.from(actions.values());
-    }
-    setHeadActions() {
-        let actions = [];
-        let currentCustomRow = {};
-        for (const headAction of Object.values(this.BtnConfig.map)) {
-            currentCustomRow = headAction;
-            currentCustomRow.label = headAction.label[this.lang];
-            actions.push(currentCustomRow);
-        }
-        return actions;
-    }
     /**Refresh if lwc is involved in aura*/
     refreshOnAura() {
         const refreshView = new CustomEvent('refreshCmp', {
-            detail: { "refresh": true }
+            detail: { "refresh" : true }
         });
         this.dispatchEvent(refreshView);
     }
-    /**Show button actions*/
-    get showButtonActions() {
-        return this.BtnConfig !== undefined && this.BtnConfig.values.length > 0;
-    }
+
 }

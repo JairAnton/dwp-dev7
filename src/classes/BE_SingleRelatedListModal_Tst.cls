@@ -80,7 +80,7 @@ public without sharing class BE_SingleRelatedListModal_Tst {
         srl.updateRecords(null);
         srl.deleteRecords(null);
         Boolean isNull = false;
-        final BE_SingleRelatedListCRUD_Cls.Response resp = srl.readRecords();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = srl.readRecords(null);
         if(resp==null) {
             isNull = true;
         }
