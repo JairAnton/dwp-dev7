@@ -1,0 +1,10 @@
+<template>
+    <lightning-button variant={buttonData.variant} label={buttonData.label} title={buttonData.label}
+        icon-name={buttonData.iconName} icon-position={buttonData.iconPosition} class="slds-m-left_x-small"
+        onclick={handleClick}></lightning-button>
+    <template if:true={show}>
+        <c-b-e_-dynamic-modal-record-form_-lwc id-record={buttonData.fieldName}
+            meta-data-config={buttonData.modalName} onclose={handleCloseModal}>
+        </c-b-e_-dynamic-modal-record-form_-lwc>
+    </template>
+</template>

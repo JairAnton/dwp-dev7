@@ -4892,6 +4892,9 @@
         <layout>Account_Renewals__c-Account Renewals Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>BE_SingleRelatedList_Setting__mdt-Related List Config Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Case-Formalization Case Layout</layout>
         <recordType>Case.Formalization</recordType>
     </layoutAssignments>

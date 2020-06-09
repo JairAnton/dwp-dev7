@@ -9,38 +9,38 @@
                     <!--TEMPLATE BASIC-->
                     <template if:true={relListTypeMode.isBasic}>
                         <!--ACTIONS-->
-                        <template for:each={BtnConfig.values} for:item="btnItem">
-                            <lightning-button key={btnItem.label} label={btnItem.label} variant={btnItem.variant}
+                        <template if:true={headActions} for:each={headActions} for:item="btnItem">
+                            <lightning-button key={btnItem.name} label={btnItem.label} variant={btnItem.variant}
                                 icon-name={btnItem.iconname} icon-position={btnItem.iconposition} title={btnItem.title}
-                                slot="actions" class="slds-m-left_x-small" value={btnItem.name}
-                                onclick={handleHeadAction}></lightning-button>
+                                slot="actions" class="slds-m-left_x-small" value={btnItem} onclick={handleHeadAction}>
+                            </lightning-button>
                         </template>
                         <!--DATA TABLE-->
                         <div class="slds-p-horizontal_small bodyBox">
-                            <lightning-datatable key-field="Id" hide-checkbox-column="true" data={sObjectData}
-                                columns={columns} onrowaction={handleRowActionWeb}></lightning-datatable>
+                            <c-b-e_-custom-data-table_-lwc key-field="Id" hide-checkbox-column="true"
+                                draft-values={draftValues} data={sObjectData} wrap-text-max-lines="2" columns={columns}
+                                onrowaction={handleRowActionWeb} onsave={handleInlineSave}
+                                oncustomtypelookup={handleCustomTypeLookup} onvalueselect={handleSelection}>
+                            </c-b-e_-custom-data-table_-lwc>
                         </div>
                     </template>
                     <!--TEMPLATE TITLE-->
                     <template if:true={relListTypeMode.isTitle}>
                         <!--ACTIONS-->
-                        <lightning-button-menu if:true={showButtonActions} icon-size="x-small" menu-alignment="auto"
+                        <lightning-button-menu if:true={headActions} icon-size="x-small" menu-alignment="auto"
                             slot="actions">
-                            <template for:each={BtnConfig.values} for:item="btnItem">
-                                <lightning-menu-item key={btnItem.label} label={btnItem.label} value={btnItem.name}
+                            <template for:each={headActions} for:item="btnItem">
+                                <lightning-menu-item key={btnItem.label} label={btnItem.label} value={btnItem}
                                     onclick={handleHeadAction}></lightning-menu-item>
                             </template>
                         </lightning-button-menu>
                         <!--BODY-->
-                        <div if:true={showButtonActions} class="bodyBox"></div>
-                        <div class="slds-card__body slds-card__body_inner">
+                        <div class="slds-card__body slds-card__body_inner bodyBox">
                             <ul class="slds-grid slds-wrap slds-grid_pull-padded">
                                 <template iterator:item={sObjectData}>
                                     <li key={item.value.Id} class={flexipageRegionWidth}>
                                         <c-b-e_-single-related-list-mobile_-lwc key={item.value.Id}
-                                            record-id={item.value.Id} s-obj-api-name={sObjApiName}
-                                            columns-mobile={columnsMobile} s-obj-field-labels={sObjFieldLabels}
-                                            s-obj-data={item.value} columns={columns} row-actions={rowActions}
+                                            s-obj-data={item.value} columns={columns}
                                             onrowaction={handleRowActionMobile}>
                                         </c-b-e_-single-related-list-mobile_-lwc>
                                     </li>
@@ -56,11 +56,8 @@
                         <ul class="slds-grid slds-wrap slds-grid_pull-padded">
                             <template iterator:item={sObjectData}>
                                 <li if:true={isMobile} key={item.value.Id}>
-                                    <c-b-e_-single-related-list-mobile_-lwc key={item.value.Id}
-                                        record-id={item.value.Id} s-obj-api-name={sObjApiName}
-                                        columns-mobile={columnsMobile} s-obj-field-labels={sObjFieldLabels}
-                                        s-obj-data={item.value} columns={columns} row-actions={rowActions}
-                                        onrowaction={handleRowActionMobile}>
+                                    <c-b-e_-single-related-list-mobile_-lwc key={item.value.Id} s-obj-data={item.value}
+                                        columns={columns} onrowaction={handleRowActionMobile}>
                                     </c-b-e_-single-related-list-mobile_-lwc>
                                 </li>
                             </template>
@@ -77,18 +74,12 @@
     <template if:false={hasRendered}>
         <lightning-spinner alternative-text="Loading"></lightning-spinner>
     </template>
-    <!--CUSTOM MODAL RECORD -->
-    <template if:true={modalRecord.show}>
-        <c-b-e_-dynamic-modal-record-form_-lwc id-record={modalRecord.recordId}
-            meta-data-config={modalRecord.metadataName} onclose={handleCloseModal}>
-        </c-b-e_-dynamic-modal-record-form_-lwc>
-    </template>
     <!--STANDARD MODAL-->
     <template if:true={modalStandard.show}>
         <c-b-e_-single-related-list-modal_-lwc record-id={modalStandard.recordId} title={modalStandard.title}
             sobject-type={modalStandard.sobjectType} s-obj-fields={modalStandard.fields}
-            class-name={modalStandard.className} mode-action={modalStandard.mode} onclosemodalweb={handleCloseStanModal}
-            redirect-to-record-page={modalStandard.redirect}>
+            class-name={modalStandard.className} mode-action={modalStandard.mode} redirect={modalStandard.redirect}
+            onclosemodalweb={handleCloseStanModal}>
         </c-b-e_-single-related-list-modal_-lwc>
     </template>
 </template>

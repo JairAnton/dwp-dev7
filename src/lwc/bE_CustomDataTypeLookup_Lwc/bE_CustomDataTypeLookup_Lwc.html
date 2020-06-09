@@ -1,0 +1,20 @@
+<template>
+    <template if:false={isEdit}>
+        <div class="slds-cell-edit">
+            <span class="slds-grid slds-grid_align-spread">
+                <a class="slds-truncate" href={urlValue} id="link-01" tabindex="0" title={urlLabel}>{urlLabel}</a>
+                <template if:true={editable}>
+                    <lightning-button-icon icon-name="utility:edit" size="xx-small" alternative-text="edit"
+                        onclick={handleEditAction}></lightning-button-icon>
+                </template>
+            </span>
+        </div>
+    </template>
+    <template if:true={isEdit}>
+        <lightning-record-edit-form object-api-name={objectApiName} record-id={recordId} data-navigation="enable"
+            keyboard-mode="ACTION">
+            <lightning-input-field field-name={fieldName} variant="label-hidden" onchange={handleSetValue}>
+            </lightning-input-field>
+        </lightning-record-edit-form>
+    </template>
+</template>

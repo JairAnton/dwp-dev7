@@ -3,35 +3,55 @@
     <label>Oportunidades en progreso</label>
     <protected>false</protected>
     <values>
-        <field>BtnConfig__c</field>
-        <value xsi:nil="true"/>
-    </values>
-    <values>
-        <field>FieldsButtons__c</field>
-        <value xsi:nil="true"/>
+        <field>Columns__c</field>
+        <value xsi:type="xsd:string">{
+    &quot;values&quot;: [
+        {
+            &quot;label&quot;: &quot;Nombre&quot;,
+            &quot;fieldName&quot;: &quot;Id&quot;,
+            &quot;type&quot;: &quot;customurl&quot;,
+            &quot;typeAttributes&quot;: {
+                &quot;rowData&quot;: {
+                    &quot;fieldName&quot;: &quot;rowData&quot;
+                },
+                &quot;isCustom&quot;: true,
+                &quot;label&quot;: &quot;Name&quot;,
+                &quot;fieldName&quot;: &quot;Id&quot;
+            }
+        },
+        {
+            &quot;label&quot;: &quot;Etapa&quot;,
+            &quot;fieldName&quot;: &quot;StageName&quot;,
+            &quot;type&quot;: &quot;picklist&quot;
+        },
+        {
+            &quot;label&quot;: &quot;Monto&quot;,
+            &quot;fieldName&quot;: &quot;Amount&quot;,
+            &quot;type&quot;: &quot;currency&quot;,
+            &quot;typeAttributes&quot;: {
+                &quot;minimumFractionDigits&quot;: &quot;2&quot;,
+                &quot;maximumFractionDigits&quot;: &quot;2&quot;,
+                &quot;currencyCode&quot;: {
+                    &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
+                }
+            },
+            &quot;cellAttributes&quot;: {
+                &quot;alignment&quot;: &quot;right&quot;
+            }
+        }
+    ]
+}</value>
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Name,toLabel(StageName),Amount,CloseDate </value>
-    </values>
-    <values>
-        <field>FieldsUrlRelationship__c</field>
-        <value xsi:type="xsd:string">{&quot;Name&quot;:{&quot;label&quot;:&quot;Name&quot;,&quot;fieldName&quot;:&quot;Id&quot;,&quot;isObject&quot;:false,&quot;type&quot;:&quot;url&quot;}}</value>
-    </values>
-    <values>
-        <field>Fields__c</field>
-        <value xsi:type="xsd:string">Name,StageName,Amount,CloseDate</value>
+        <value xsi:type="xsd:string">Name,toLabel(StageName),Amount,CloseDate</value>
     </values>
     <values>
         <field>Filter__c</field>
         <value xsi:type="xsd:string">AccountId=:recordId AND StageName IN (@@02@@,@@03@@,@@04@@,@@05@@)</value>
     </values>
     <values>
-        <field>Labels__c</field>
-        <value xsi:type="xsd:string">Nombre,Etapa,Monto,Fecha de cierre</value>
-    </values>
-    <values>
-        <field>ModalName__c</field>
+        <field>HeadActions__c</field>
         <value xsi:nil="true"/>
     </values>
     <values>
@@ -39,12 +59,8 @@
         <value xsi:type="xsd:double">5.0</value>
     </values>
     <values>
-        <field>maximumFractionDigits__c</field>
-        <value xsi:type="xsd:double">2.0</value>
-    </values>
-    <values>
-        <field>minimumFractionDigits__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <field>Settings__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>sObjectApiName__c</field>
