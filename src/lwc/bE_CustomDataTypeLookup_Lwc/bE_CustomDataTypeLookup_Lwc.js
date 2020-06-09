@@ -1,7 +1,4 @@
 import { LightningElement, api, track } from 'lwc';
-// Accessibility module
-import { baseNavigation } from 'lightning/datatableKeyboardMixins';
-import { NavigationMixin } from 'lightning/navigation';
 export default class BE_CustomDataTypeLookup_Lwc extends LightningElement {
     @api label;
     @api fieldName;

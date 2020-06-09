@@ -13,7 +13,7 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
     @track sObjDataLst; /** final data*/
     connectedCallback() {
         this.sObjDataLst = this.assignData();
-        this.isHeadAction=(this.columns.lenght>0)?true:false;
+        this.isHeadAction = (this.columns.lenght > 0) ? true : false;
     }
     /** TRANSFORM AND ASSING DATA */
     assignData() {
@@ -78,6 +78,7 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
                     break;
                 case "action":
                     this.rowActions = element.typeAttributes.rowActions;
+                    break;
                 default:
                     currentObj.isText = true;
                     break;

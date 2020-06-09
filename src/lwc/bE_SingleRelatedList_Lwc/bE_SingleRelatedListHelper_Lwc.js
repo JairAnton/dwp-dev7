@@ -1,8 +1,18 @@
+/** VALIDATE NOT EMPTY */
+const isNotEmpty = (obj) => {
+    const notEmpty = (obj === null || obj === undefined || obj === "") ? false : true;
+    return notEmpty;
+};
 /** SET SETTINGS */
 const getSettingsObj = (metaData, isViewAll) => {
     const targetFilter = (isViewAll) ? metaData.Filter__c : metaData.Filter__c + ' LIMIT ' + metaData.NumberRows__c;
     const targetSettings = isNotEmpty(metaData.Settings__c) ? JSON.parse(metaData.Settings__c) : {};
-    const sObject = { sObjName: metaData.sObjectApiName__c, sObjFields: metaData.FieldsQuery__c, filterSQOL: targetFilter, settings: targetSettings };
+    const sObject = {
+        sObjName: metaData.sObjectApiName__c,
+        sObjFields: metaData.FieldsQuery__c,
+        filterSQOL: targetFilter,
+        settings: targetSettings
+    };
     return sObject;
 }
 /** TRANSFORM COLUMS*/
@@ -57,11 +67,6 @@ const transformHeadActions = (headActions, recordId, lang) => {
     }
     return targetHeadActions;
 }
-/** VALIDATE NOT EMPTY */
-const isNotEmpty = (obj) => {
-    const notEmpty = (obj === null || obj === undefined || obj === "") ? false : true;
-    return notEmpty;
-};
 /** SET HEAD ACTIONS */
 const setHeadActions = (lang) => {
     let actions = [];
@@ -73,4 +78,4 @@ const setHeadActions = (lang) => {
     }
     return actions;
 }
-export { isNotEmpty, transformColumns, transformHeadActions, transformData,getSettingsObj};
+export { isNotEmpty, transformColumns, transformHeadActions, transformData, getSettingsObj };

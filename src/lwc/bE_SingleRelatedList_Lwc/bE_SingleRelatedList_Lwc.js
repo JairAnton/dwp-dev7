@@ -70,17 +70,15 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         const { data, error } = value;
         this.wiredsObjectList = value;
         if (data) {
-            //try {
+            try {
                 this.configMeta = data;
-                console.log('this.columns');
-                console.log(data[0].Columns__c);
                 this.sObject = getSettingsObj(data[0], this.viewAlll);
                 this.columns = transformColumns(data[0].Columns__c, this.lang);
                 this.headActions = transformHeadActions(data[0].HeadActions__c, this.recordId, this.lang);
                 this.callListData();
-            /*} catch (ex) {
+            } catch (ex) {
                 this.showToastEvent("Error", ex.message, "Error");
-            }*/
+            }
         } else {
             this.showToastEvent("Error", "Please enter a custom metadata settings", "Error");
         }
@@ -98,11 +96,11 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
                     if (result.isSuccess) {
                         this.sObjectData = transformData(result.data, this.columns);
                     } else {
-                        this.error = data.message;
+                        this.error += data.message;
                         this.showToastEvent("Error", this.error, "Error");
                     }
                 } else if (error) {
-                    this.error = error;
+                    this.error += error;
                     this.showToastEvent("Error", this.error, "Error");
                 }
                 this.loaded = true;
@@ -170,7 +168,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             this.callListData();
         }
         //if LWC is inside Aura and dml action is execute in modal
-        if(this.sObject.settings['refreshView'] && event.detail.isDML === true) {
+        if (this.sObject.settings['refreshView'] && event.detail.isDML === true) {
             this.refreshOnAura();
         }
     }
@@ -293,7 +291,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     /**Refresh if lwc is involved in aura*/
     refreshOnAura() {
         const refreshView = new CustomEvent('refreshCmp', {
-            detail: { "refresh" : true }
+            detail: { "refresh": true }
         });
         this.dispatchEvent(refreshView);
     }
