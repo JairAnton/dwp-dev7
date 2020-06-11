@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">toLabel(guarantee_type__c),Name,guaranteed_amount__c,toLabel(guarantee_status_type__c),guarantee_release_date__c,toLabel(guarantee_class__c)</value>
+        <value xsi:type="xsd:string">toLabel(guarantee_type__c),Name,guaranteed_amount__c,toLabel(guarantee_status_type__c),guarantee_release_date__c,toLabel(guarantee_class__c) </value>
     </values>
     <values>
         <field>FieldsUrlRelationship__c</field>

@@ -1,5 +1,5 @@
 ({
-	cancel : function(cmp, evt, helper) {
-		cmp.set("v.hide" , true);
+	cancel: function (cmp, evt, helper) {
+		cmp.set("v.hide", true);
 	}
 })

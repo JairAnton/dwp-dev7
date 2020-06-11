@@ -39,6 +39,123 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentInstanceProperties>
+                <name>Collapsed</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CollapsedDefault</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CurrencyDimension</name>
+                <value>Thousand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamicField</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterStatic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Format</name>
+                <value>-,,-,,-,</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FormatDivisa</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Group</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Header</name>
+                <value>Name,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>HeaderGroup</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>LocaleCur</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Object</name>
+                <value>Account_Legal_Representative__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Order</name>
+                <value>Position_Begin_Date__c DESC</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>PositionCurrency</name>
+                <value>Left</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>RelatedField</name>
+                <value>account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Summarize</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Symbol</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Type</name>
+                <value>Summary</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>allFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>customLabelAPInameError</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>headerApiName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hidenSubHeadMatrix</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelFilterApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelTotalApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportTitleAPI</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLink</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotal</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
+        </componentInstances>
+        <name>Facet-e46ee256-81a5-4e78-90e5-dd4b12ef033d</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
             <componentName>BBVA_and_SBS_graphic_classification</componentName>
         </componentInstances>
         <name>facet-5d82925d-fa73-489a-9420-6dd46d6cea1e</name>
@@ -86,6 +203,39 @@
                 <value>true</value>
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Large</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>cacheAge</name>
+                <value>1440</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportFilter</name>
+                <value>Account.Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportName</name>
+                <value>Evolucin_Estrategia_ver_movil_qiU</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showRefreshButton</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:reportChart</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Small</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>facet-4a138a3c-98e0-4586-ac43-e95fbc5a2032</name>
         <type>Facet</type>
@@ -451,6 +601,21 @@
             <componentInstanceProperties>
                 <name>name</name>
                 <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-e46ee256-81a5-4e78-90e5-dd4b12ef033d</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Representantes Legales</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--7kiatqfe2fr</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
@@ -1127,7 +1292,7 @@
         <name>facet-147227f5-7177-4a33-a469-890fc43d4e20</name>
         <type>Facet</type>
     </flexiPageRegions>
-	<flexiPageRegions>
+    <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>Collapsed</name>
@@ -1153,7 +1318,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
-                <value>-,-,CUR,-,-,-,-,NUM</value>
+                <value>-,-,-,NUM,NUM,-,-,NUM</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FormatDivisa</name>
@@ -1180,7 +1345,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Order</name>
-                <value>solution_category_name__c ASC</value>
+                <value>Unpaid_Days__c DESC, gf_next_payment_expir_date__c ASC</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>PositionCurrency</name>
@@ -1308,7 +1473,7 @@
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-		<componentInstances>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
                 <value>Facet-9a6d3959-a068-43d9-80f0-ecf93e410b19</value>
@@ -1464,7 +1629,23 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>GraphicVinculacion_comp</componentName>
+            <componentInstanceProperties>
+                <name>cacheAge</name>
+                <value>1440</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportFilter</name>
+                <value>Account.Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportName</name>
+                <value>BE_Vinculacion_XXh</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showRefreshButton</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:reportChart</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -1820,7 +2001,7 @@
         <name>facet-db341fc5-e041-46ae-8866-2bc2282000a6</name>
         <type>Facet</type>
     </flexiPageRegions>
-	<flexiPageRegions>
+    <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>Collapsed</name>
@@ -1846,7 +2027,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
-                <value>-,-,NUM,NUM,-,-,-,NUM</value>
+                <value>-,-,-,NUM,NUM,-</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FormatDivisa</name>
@@ -1873,7 +2054,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Order</name>
-                <value>solution_category_name__c ASC</value>
+                <value>contract_end_date__c ASC</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>PositionCurrency</name>
@@ -2016,7 +2197,7 @@
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-		<componentInstances>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
                 <value>Facet-b068a567-4dee-4f6c-b4e0-8315c98d799e</value>
@@ -2523,6 +2704,114 @@
                 <value>ASC</value>
             </componentInstanceProperties>
             <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Large</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>fieldLevel</name>
+                <value>gl_account_id_path_desc__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldOrder</name>
+                <value>gl_account_path_position_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroup</name>
+                <value>gl_account_amount__c,gl_account_per__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupLabels</name>
+                <value>formatGroup,%</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupSOQL</name>
+                <value>gl_account_amount__c,gl_account_per__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOL</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ AND gl_account_id__c IN  (@@101010@@,@@101025@@,@@101050@@,@@1010@@,@@201030@@,@@20103070@@,@@2010@@,@@TOTAL ACTIVOS@@,@@301010@@,@@301015@@,@@301025@@,@@301035@@,@@301040@@,@@4010@@,@@TOTAL PASIVO@@,@@501010@@,@@501030@@,@@501040@@,@@5010@@,@@TOTAL PASIVO + PATRIMONIO@@)</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOLGroup</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>formatDate</name>
+                <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isExpanded</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isHeaderGroup</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyField</name>
+                <value>gl_account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyGroup</name>
+                <value>year_month_day_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyParentField</name>
+                <value>parent_gl_account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>levelData</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numGroupShow</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjApiName</name>
+                <value>Account_Accounting__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldLabels</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFields</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldsSOQL</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>typeOrder</name>
+                <value>ASC</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Small</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>Facet-028b400e-227c-473a-ade7-1acfb10a4b33</name>
         <type>Facet</type>
@@ -2621,6 +2910,114 @@
                 <value>ASC</value>
             </componentInstanceProperties>
             <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Large</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>fieldLevel</name>
+                <value>gl_account_id_path_desc__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldOrder</name>
+                <value>gl_account_path_position_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroup</name>
+                <value>gl_account_amount__c,gl_account_per__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupLabels</name>
+                <value>formatGroup,%</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupSOQL</name>
+                <value>gl_account_amount__c,gl_account_per__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOL</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ AND gl_account_id__c IN (@@601020308050402@@,@@601020308050401@@,@@60102030805040@@,@@60102030805030@@,@@60102030805020@@,@@601020308050@@,@@601020308040@@,@@601020308030@@,@@6010203080@@,@@6010203030@@,@@6010203020@@,@@60102030@@,@@60102020@@,@@60@@)</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOLGroup</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>formatDate</name>
+                <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isExpanded</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isHeaderGroup</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyField</name>
+                <value>gl_account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyGroup</name>
+                <value>year_month_day_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyParentField</name>
+                <value>parent_gl_account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>levelData</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numGroupShow</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjApiName</name>
+                <value>Account_Accounting__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldLabels</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFields</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldsSOQL</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>typeOrder</name>
+                <value>ASC</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Small</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>Facet-6377f1e6-41a2-4926-bec8-63d7ca955077</name>
         <type>Facet</type>
@@ -3407,7 +3804,7 @@
             </componentInstanceProperties>
             <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
-		<componentInstances>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>Collapsed</name>
                 <value>true</value>
@@ -3428,7 +3825,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
-                <value>-,-,NUM,NUM,-,-,-,NUM</value>
+                <value>-,-,-,NUM,NUM,-,-,NUM</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FormatDivisa</name>
@@ -3455,7 +3852,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Order</name>
-                <value>solution_category_name__c ASC</value>
+                <value>Unpaid_Days__c DESC, gf_next_payment_expir_date__c ASC</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>PositionCurrency</name>
@@ -3641,7 +4038,7 @@
             </componentInstanceProperties>
             <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
-		<componentInstances>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>Collapsed</name>
                 <value>true</value>
@@ -3666,7 +4063,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
-                <value>-,-,NUM,NUM,-,-,-,NUM</value>
+                <value>-,-,-,NUM,NUM,-</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FormatDivisa</name>
@@ -3693,7 +4090,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Order</name>
-                <value>solution_category_name__c ASC</value>
+                <value>contract_end_date__c ASC</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>PositionCurrency</name>
@@ -4166,7 +4563,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>{     "es": "Oportunidades en progreso",     "en-US": "Opportunities in progress" }</value>
+                <value>{     &quot;es&quot;: &quot;Oportunidades en progreso&quot;,     &quot;en-US&quot;: &quot;Opportunities in progress&quot; }</value>
             </componentInstanceProperties>
             <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
@@ -4192,7 +4589,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>{     "es": "Próximas visitas",     "en-US": "Next visits" }</value>
+                <value>{     &quot;es&quot;: &quot;Próximas visitas&quot;,     &quot;en-US&quot;: &quot;Next visits&quot; }</value>
             </componentInstanceProperties>
             <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
@@ -4211,7 +4608,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>{     "es": "Visitas pasadas",     "en-US": "Last visits" }</value>
+                <value>{     &quot;es&quot;: &quot;Visitas pasadas&quot;,     &quot;en-US&quot;: &quot;Last visits&quot; }</value>
             </componentInstanceProperties>
             <componentName>bE_SingleRelatedList_Lwc</componentName>
         </componentInstances>
@@ -4271,7 +4668,7 @@
         <componentInstances>
             <componentName>BE_SBS_Graphic_Classification_Cmp</componentName>
         </componentInstances>
-		<componentInstances>
+        <componentInstances>
             <componentInstanceProperties>
                 <name>cacheAge</name>
                 <value>1440</value>
@@ -4316,6 +4713,39 @@
                 <value>true</value>
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Large</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>cacheAge</name>
+                <value>1440</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportFilter</name>
+                <value>Account.Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportName</name>
+                <value>Evolucin_Estrategia_ver_movil_qiU</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showRefreshButton</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:reportChart</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Small</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -4852,6 +5282,114 @@
                 <value>ASC</value>
             </componentInstanceProperties>
             <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Large</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>fieldLevel</name>
+                <value>gl_account_id_path_desc__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldOrder</name>
+                <value>gl_account_path_position_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroup</name>
+                <value>gl_account_amount__c,gl_account_per__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupLabels</name>
+                <value>formatGroup,%</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupSOQL</name>
+                <value>gl_account_amount__c,gl_account_per__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOL</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ AND gl_account_id__c IN  (@@101010@@,@@101025@@,@@101050@@,@@1010@@,@@201030@@,@@20103070@@,@@2010@@,@@TOTAL ACTIVOS@@,@@301010@@,@@301015@@,@@301025@@,@@301035@@,@@301040@@,@@4010@@,@@TOTAL PASIVO@@,@@501010@@,@@501030@@,@@501040@@,@@5010@@,@@TOTAL PASIVO + PATRIMONIO@@)</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOLGroup</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>formatDate</name>
+                <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isExpanded</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isHeaderGroup</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyField</name>
+                <value>gl_account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyGroup</name>
+                <value>year_month_day_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyParentField</name>
+                <value>parent_gl_account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>levelData</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numGroupShow</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjApiName</name>
+                <value>Account_Accounting__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldLabels</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFields</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldsSOQL</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>typeOrder</name>
+                <value>ASC</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Small</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>Facet-d28c5ea9-9071-4d66-8afd-2e7ba27e3e46</name>
         <type>Facet</type>
@@ -4953,6 +5491,114 @@
                 <value>ASC</value>
             </componentInstanceProperties>
             <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Large</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>fieldLevel</name>
+                <value>gl_account_id_path_desc__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldOrder</name>
+                <value>gl_account_path_position_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroup</name>
+                <value>gl_account_amount__c,gl_account_per__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupLabels</name>
+                <value>formatGroup,%</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>fieldsHeaderGroupSOQL</name>
+                <value>gl_account_amount__c,gl_account_per__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOL</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ AND gl_account_id__c IN (@@601020308050402@@,@@601020308050401@@,@@60102030805040@@,@@60102030805030@@,@@60102030805020@@,@@601020308050@@,@@601020308040@@,@@601020308030@@,@@6010203080@@,@@6010203030@@,@@6010203020@@,@@60102030@@,@@60102020@@,@@60@@)</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterSQOLGroup</name>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>formatDate</name>
+                <value>MM/yyyy</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideTitle</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isExpanded</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>isHeaderGroup</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyField</name>
+                <value>gl_account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyGroup</name>
+                <value>year_month_day_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>keyParentField</name>
+                <value>parent_gl_account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>levelData</name>
+                <value>2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>maximumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>minimumFractionDigits</name>
+                <value>0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numGroupShow</name>
+                <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjApiName</name>
+                <value>Account_Accounting__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldLabels</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFields</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sObjFieldsSOQL</name>
+                <value>Name</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>typeOrder</name>
+                <value>ASC</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTreeGrid_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Client.formFactor}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Small</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>Facet-6061a831-ad96-4f22-81f8-6a69860f8f0f</name>
         <type>Facet</type>
@@ -5825,8 +6471,8 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>headerApiName</name>
-				<value>empty_value__c,-,-</value>
-			</componentInstanceProperties>
+                <value>empty_value__c,-,-</value>
+            </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>hidenSubHeadMatrix</name>
                 <value>false</value>
@@ -6200,7 +6846,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>headerApiName</name>
-				<value>empty_value__c,-,-,-</value>								   
+                <value>empty_value__c,-,-,-</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>hidenSubHeadMatrix</name>
@@ -6318,6 +6964,172 @@
     <flexiPageRegions>
         <componentInstances>
             <componentName>force:detailPanel</componentName>
+        </componentInstances>
+        <name>Facet-926297bb-5062-4781-88ba-5575c13b21f0</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>Collapsed</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CollapsedDefault</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CurrencyDimension</name>
+                <value>Thousand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamicField</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterStatic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Format</name>
+                <value>-,,-,,-,</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FormatDivisa</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Group</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Header</name>
+                <value>Name,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>HeaderGroup</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>LocaleCur</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Object</name>
+                <value>Account_Legal_Representative__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Order</name>
+                <value>Position_Begin_Date__c DESC</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>PositionCurrency</name>
+                <value>Left</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>RelatedField</name>
+                <value>account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Summarize</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Symbol</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Type</name>
+                <value>Summary</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>allFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>customLabelAPInameError</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>headerApiName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hidenSubHeadMatrix</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelFilterApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelTotalApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportTitleAPI</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLink</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotal</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
+        </componentInstances>
+        <name>Facet-1e7cf46e-36f4-42d8-b1a8-96ee9b505ec8</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-926297bb-5062-4781-88ba-5575c13b21f0</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Datos Empresa</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-1e7cf46e-36f4-42d8-b1a8-96ee9b505ec8</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Representantes Legales</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection2</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <name>Facet-60fe32c5-29e3-40d4-8208-2cfd97b6fae5</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>accordionSections</name>
+                <value>Facet-60fe32c5-29e3-40d4-8208-2cfd97b6fae5</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>defaultSectionName</name>
+                <value>accordionSection1</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordion</componentName>
         </componentInstances>
         <name>Facet-d2bccdc6-acf8-4b20-894c-4c236e224153</name>
         <type>Facet</type>

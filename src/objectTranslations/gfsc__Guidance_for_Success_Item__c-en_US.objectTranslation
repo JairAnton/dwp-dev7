@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Field value --></label>
+        <name>gfsc__Field_value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>gfsc__Guidance_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guidance for Success --></label>
+        <name>gfsc__Guidance_content__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guidance for Success --></label>
+        <name>gfsc__Guidance_for_Success__c</name>
+        <relationshipLabel><!-- Guidance for Success Item --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Refresh visibility --></label>
+        <name>gfsc__Refresh_visibility__c</name>
+    </fields>
+    <fields>
+        <label><!-- version --></label>
+        <name>gfsc__version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+</CustomObjectTranslation>

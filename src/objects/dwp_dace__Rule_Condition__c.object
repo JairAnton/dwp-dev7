@@ -47,7 +47,6 @@
     <description>Relationship between rules and conditions</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -55,7 +54,7 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>dwp_dace__condition_id__c</fullName>
+        <fullName>dwp_dace__condition_id__c</fullName> 
         <deprecated>false</deprecated>
         <description>Relation with a condition</description>
         <externalId>false</externalId>
@@ -96,7 +95,7 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>dwp_dace__rule_id__c</fullName>
+        <fullName>dwp_dace__rule_id__c</fullName> 
         <deprecated>false</deprecated>
         <description>Relation with a rule</description>
         <externalId>false</externalId>

@@ -9,12 +9,54 @@
         <value>equipo BBVA</value>
     </caseValues>
     <fields>
+        <label>Usuario DWP</label>
+        <name>BE_User_DWP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checkbox that identifies the user Owner of the visit. --></help>
+        <label><!-- Owner Visit --></label>
+        <name>dwp_kitv__Owner_Visit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select if the minutes will be sent and how --></help>
+        <label><!-- Send minutes --></label>
+        <name>dwp_kitv__Send_minutes__c</name>
+        <picklistValues>
+            <masterLabel>CC</masterLabel>
+            <translation><!-- CC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CCO</masterLabel>
+            <translation><!-- CCO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Do not send</masterLabel>
+            <translation><!-- Do not send --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To</masterLabel>
+            <translation><!-- To --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>Correo</label>
         <name>dwp_kitv__contact_email_desc__c</name>
     </fields>
     <fields>
         <label>Celular</label>
         <name>dwp_kitv__contact_phone_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Google --></label>
+        <name>dwp_kitv__gf_sf_external_cust_mail_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Id Google --></label>
+        <name>dwp_kitv__gf_sf_external_customer_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name Google User --></label>
+        <name>dwp_kitv__gf_sf_external_customer_name__c</name>
     </fields>
     <fields>
         <label>Usuario</label>
@@ -27,10 +69,25 @@
         <relationshipLabel>Equipo BBVA</relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Propietario de la visita --></label>
+        <name>dwp_owner_visit__c</name>
+    </fields>
+    <fields>
+        <label><!-- on a team --></label>
+        <name>on_a_team__c</name>
+    </fields>
+    <fields>
         <label>Cargo</label>
         <name>user_prof_position_type__c</name>
     </fields>
     <gender>Feminine</gender>
+    <layouts>
+        <layout>Visit Management Team Layout Peru</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>equipo BBVA</nameFieldLabel>
     <validationRules>
         <errorMessage>Agregar un usuario</errorMessage>
@@ -40,7 +97,7 @@
         <errorMessage>No se puede añadir datos a una una visita finalizada</errorMessage>
         <name>Visit_is_Active</name>
     </validationRules>
-    <validationRules>		 
+    <validationRules>
         <errorMessage>No está permitido cambiar el usuario, Por favor, elimine el usuario de la visita</errorMessage>
         <name>dwp_kitv__Change_user</name>
     </validationRules>

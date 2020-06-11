@@ -1,5 +1,5 @@
 ({
-	init : function(component,event){
-		component.set("v.bGrafica",true);		
+	init: function (component, event) {
+		component.set("v.bGrafica", true);
 	}
 })

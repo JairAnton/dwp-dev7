@@ -1,5 +1,5 @@
-({   
-    handleClick : function(cmp, evt, helper){
+({
+    handleClick: function (cmp, evt, helper) {
         helper.hangoutsId(cmp, evt, helper);
-	}
+    }
 })

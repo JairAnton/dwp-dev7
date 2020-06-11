@@ -50,7 +50,6 @@
     <description>Account Banking System Classification Object</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -69,7 +68,7 @@
         <unique>true</unique>
     </fields>
     <fields>
-        <fullName>account_id__c</fullName>
+        <fullName>account_id__c</fullName> 
         <description>a relationship with account</description>
         <externalId>false</externalId>
         <label>Account</label>

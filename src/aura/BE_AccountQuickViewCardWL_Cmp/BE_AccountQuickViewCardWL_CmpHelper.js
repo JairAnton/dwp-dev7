@@ -1,22 +1,22 @@
 ({
-	getDataInit : function(cmp, event, helper) {
+    getDataInit: function (cmp, event, helper) {
         let accountId = cmp.get("v.recordId");
         let dataCards = cmp.get("c.getData");
         dataCards.setParams({
-            "accId" : accountId
+            "accId": accountId
         });
-        dataCards.setCallback(this, function(response){
-            if(response.getState() === "SUCCESS"){
-                let stringJson = '{"inputJsonCs": {'+
-                    '"qvcd__GBL_Show_title__c":true,'+
-                    '"Id":"inputJsonModeId",'+
-                    '"qvcd__GBL_Orientation__c":2,'+
-                    '"Name":"inputJsonModeCS"'+
-                    '},'+
-                    '"inputJsonData": '+
-                    response.getReturnValue()+
-                    '}';                let num = 4;
-                if($A.get("$Browser.isTablet") || $A.get("$Browser.isIPad") || $A.get("$Browser.isPhone")) {
+        dataCards.setCallback(this, function (response) {
+            if (response.getState() === "SUCCESS") {
+                let stringJson = '{"inputJsonCs": {' +
+                    '"qvcd__GBL_Show_title__c":true,' +
+                    '"Id":"inputJsonModeId",' +
+                    '"qvcd__GBL_Orientation__c":2,' +
+                    '"Name":"inputJsonModeCS"' +
+                    '},' +
+                    '"inputJsonData": ' +
+                    response.getReturnValue() +
+                    '}'; let num = 4;
+                if ($A.get("$Browser.isTablet") || $A.get("$Browser.isIPad") || $A.get("$Browser.isPhone")) {
                     num = 2;
                 }
                 $A.createComponent(
@@ -29,7 +29,7 @@
                         "infinite": true,
                         "slidesToShow": num
                     },
-                    function(newComp, status, errorMessage){
+                    function (newComp, status, errorMessage) {
                         //Add the new button to the body array
                         if (status === "SUCCESS") {
                             let body = cmp.get("v.body");
@@ -40,14 +40,14 @@
                             console.log("estado No response from server or client is offline.")
                             // Show offline error
                         }
-                            else if (status === "ERROR") {
-                                console.log("Estado Error: " + errorMessage);
-                                // Show error message
-                            }
+                        else if (status === "ERROR") {
+                            console.log("Estado Error: " + errorMessage);
+                            // Show error message
+                        }
                     }
                 );
             }
-            setTimeout(function(){ cmp.set("v.showSpinner", false); }, 1500);
+            setTimeout(function () { cmp.set("v.showSpinner", false); }, 1500);
         });
         $A.enqueueAction(dataCards);
     },

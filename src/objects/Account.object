@@ -82,7 +82,7 @@
         <actionName>WebsiteHighlightAction</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>Account_Compact_Layout_Account</compactLayoutAssignment>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Account_Compact_Layout_Account</fullName>
         <fields>Name</fields>
@@ -212,7 +212,7 @@
     </fields>
     <fields>
         <fullName>Name</fullName>
-        <encrypted>true</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>true</trackFeedHistory>
     </fields>
     <fields>

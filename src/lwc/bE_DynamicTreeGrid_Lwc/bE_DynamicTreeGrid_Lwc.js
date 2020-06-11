@@ -130,17 +130,17 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     this.gridData =
       subLevelSize > 0
         ? this.assignTreeData(
-            data.treeGridData,
-            this.keyParentField,
-            subLevelSize
-          )
+          data.treeGridData,
+          this.keyParentField,
+          subLevelSize
+        )
         : this.assignOneLevelData(
-            data.periods,
-            data.treeGridData,
-            this.keyParentField,
-            this.isHeaderGroup,
-            null
-          );
+          data.periods,
+          data.treeGridData,
+          this.keyParentField,
+          this.isHeaderGroup,
+          null
+        );
   }
   makeDataWithGroup(data, subLevelSize) {
     let fields = this.fieldsHeaderGroup.split(",");
@@ -155,19 +155,19 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     this.gridData =
       subLevelSize > 0
         ? this.assignTreeDataWithGroup(
-            data.periods,
-            data.treeGridDataGroup,
-            this.keyParentField,
-            fields,
-            subLevelSize
-          )
+          data.periods,
+          data.treeGridDataGroup,
+          this.keyParentField,
+          fields,
+          subLevelSize
+        )
         : this.assignOneLevelData(
-            data.periods,
-            data.treeGridDataGroup,
-            this.keyParentField,
-            this.isHeaderGroup,
-            fields
-          );
+          data.periods,
+          data.treeGridDataGroup,
+          this.keyParentField,
+          this.isHeaderGroup,
+          fields
+        );
   }
   refreshHandle() {
     return refreshApex(this.provisionedData);
@@ -361,6 +361,7 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
     }
     return Array.from(gridExpandedRows);
   }
+  /** ASING EXTRA ATTRIBUTES OF CELLS */
   asigntypeAttributes(Obj) {
     let targetObj = { cellAttributes: { alignment: "center" } };
     switch (Obj.type) {
@@ -418,14 +419,22 @@ export default class bE_DynamicTreeGrid_Lwc extends LightningElement {
           configurable: true
         });
         Object.defineProperty(targetObj, "initialWidth", {
-          value: 60,
+          value: 80,
           writable: true,
           enumerable: true,
           configurable: true
         });
         break;
-      default:
+      case "text":
+        Object.defineProperty(targetObj, "initialWidth", {
+          value: 300,
+          writable: true,
+          enumerable: true,
+          configurable: true
+        });
         break;
+        default:
+          break;
     }
     targetObj = Object.assign(Obj, targetObj);
     return targetObj;

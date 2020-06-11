@@ -49,7 +49,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>false</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -139,7 +138,7 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>account_id__c</fullName>
+        <fullName>account_id__c</fullName> 
         <externalId>false</externalId>
         <label>Account</label>
         <referenceTo>Account</referenceTo>

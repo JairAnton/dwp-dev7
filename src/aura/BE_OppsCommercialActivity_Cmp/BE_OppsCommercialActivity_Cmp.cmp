@@ -10,51 +10,26 @@
             <div class="slds-text-align_center"><ui:outputText value="No existe oportunidades relacionadas"/></div>
         </div>
         <aura:set attribute="else">
-            <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
-                <div aura:id="changeIt" class="Normal">
-                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Total de Oportunidades (YTD)</div>
-                            <div class="horizontal"><strong><ui:outputNumber value="{!v.data[0].returnTotalOpp}"/></strong></div>
-                        </th>
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Formalizadas (YTD)</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].returnWon}"/></strong></div>
-                        </th>
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Desestimadas (YTD)</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].returnLost}" /></strong></div>
-                        </th>
-                        <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                            <div class="slds-text-title_caps slds-truncate">Hit/Miss (Efectividad)</div>
-                            <div class="horizontal"><strong><ui:outputText value="{!v.data[0].hitMiss}" /> %</strong></div>
-                        </th>
-                    </table>
-                </div>
-                <aura:set attribute="else">
-                    <div aura:id="changeIt" class="Normal mobileCustomDiv slds-scrollable">
-                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Total de Oportunidades (YTD)</div>
-                                <div class="horizontal slds-text-heading_medium"><strong><ui:outputNumber value="{!v.data[0].returnTotalOpp}"/></strong></div>
-                            </th>
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Formalizadas (YTD)</div>
-                                <div class="horizontal slds-text-heading_medium"><strong><ui:outputText value="{!v.data[0].returnWon}"/></strong></div>
-                            </th>
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Desestimadas (YTD)</div>
-                                <div class="horizontal slds-text-heading_medium"><strong><ui:outputText value="{!v.data[0].returnLost}" /></strong></div>
-                            </th>
-                            <!--<aura:if isTrue="{!$Label.c.DES_RT_Subsidiary == v.data[0].oppType}">-->
-                            <th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
-                                <div class="slds-text-title_caps slds-truncate">Hit/Miss (Efectividad)</div>
-                                <div class="horizontal slds-text-heading_medium"><strong><ui:outputText value="{!v.data[0].hitMiss}" /> %</strong></div>
-                            </th>
-                        </table>
-                    </div>
-                </aura:set>
-            </aura:if>
+            <div aura:id="changeIt" class="Normal">
+				<table class="slds-table slds-table_bordered slds-table_cell-buffer slds-border_left slds-border_right slds-table_striped slds-no-row-hover">
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Total de Oportunidades (YTD)</div>
+						<div class="horizontal"><strong><ui:outputNumber value="{!v.data[0].returnTotalOpp}"/></strong></div>
+					</th>
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Formalizadas (YTD)</div>
+						<div class="horizontal"><strong><ui:outputText value="{!v.data[0].returnWon}"/></strong></div>
+					</th>
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Desestimadas (YTD)</div>
+						<div class="horizontal"><strong><ui:outputText value="{!v.data[0].returnLost}" /></strong></div>
+					</th>
+					<th scope="col" class="slds-size_1-of-6 slds-truncate cells-border customBackground">
+						<div class="slds-text-title_caps slds-truncate">Hit/Miss (Efectividad)</div>
+						<div class="horizontal"><strong><ui:outputText value="{!v.data[0].hitMiss}" /> %</strong></div>
+					</th>
+				</table>
+			</div>
         </aura:set>
     </aura:if>
 </aura:component>

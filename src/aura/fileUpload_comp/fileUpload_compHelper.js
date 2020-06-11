@@ -1,8 +1,8 @@
 ({
     MAX_FILE_SIZE: 4500000, //Max file size 4.5 MB 
     CHUNK_SIZE: 750000,      //Chunk Max size 750Kb 
-    
-    uploadHelper: function(component, event) {
+
+    uploadHelper: function (component, event) {
         // start/show the loading spinner   
         component.set("v.showLoadingSpinner", true);
         // get the selected files using aura:id [return array of files]
@@ -17,35 +17,34 @@
             component.set("v.fileName", 'Alert : El archivo no puede exceder ' + self.MAX_FILE_SIZE + ' bytes.\n' + ' Tamaño del archivo seleccionado: ' + file.size);
             return;
         }
- 
+
         // create a FileReader object 
         var objFileReader = new FileReader();
         // set onload function of FileReader object   
-        objFileReader.onload = $A.getCallback(function() {
+        objFileReader.onload = $A.getCallback(function () {
             var fileContents = objFileReader.result;
             var base64 = 'base64,';
             var dataStart = fileContents.indexOf(base64) + base64.length;
- 
+
             fileContents = fileContents.substring(dataStart);
             // call the uploadProcess method 
             self.uploadProcess(component, file, fileContents);
         });
- 
+
         objFileReader.readAsDataURL(file);
     },
- 
-    uploadProcess: function(component, file, fileContents) {
+
+    uploadProcess: function (component, file, fileContents) {
         // set a default size or startpostiton as 0 
         var startPosition = 0;
         // calculate the end size or endPostion using Math.min() function which is return the min. value   
         var endPosition = Math.min(fileContents.length, startPosition + this.CHUNK_SIZE);
- 
+
         // start with the initial chunk, and set the attachId(last parameter)is null in begin
         this.uploadInChunk(component, file, fileContents, startPosition, endPosition, '');
     },
- 
- 
-    uploadInChunk: function(component, file, fileContents, startPosition, endPosition, attachId) {
+
+    uploadInChunk: function (component, file, fileContents, startPosition, endPosition, attachId) {
         // call the apex method 'saveChunk'
         var getchunk = fileContents.substring(startPosition, endPosition);
         var action = component.get("c.saveChunk");
@@ -56,9 +55,9 @@
             contentType: file.type,
             fileId: attachId
         });
- 
+
         // set call back 
-        action.setCallback(this, function(response) {
+        action.setCallback(this, function (response) {
             // store the response / Attachment Id   
             attachId = response.getReturnValue();
             var state = response.getState();
@@ -73,10 +72,10 @@
                     this.uploadInChunk(component, file, fileContents, startPosition, endPosition, attachId);
                 } else {
                     alert('Archivo cargado con éxito');
-                    var EnvioParametros= component.getEvent("PasoParametrosPadre");
-                
+                    var EnvioParametros = component.getEvent("PasoParametrosPadre");
+
                     EnvioParametros.setParams({
-                       "FileName":component.get("v.fileName")
+                        "FileName": component.get("v.fileName")
                     });
                     EnvioParametros.fire();
                     component.set("v.showLoadingSpinner", false);

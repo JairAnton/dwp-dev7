@@ -1,12 +1,12 @@
 /**
    -------------------------------------------------------------------------------------------------
-   @Name <BE_SingleRelatedList_Ctr>
+   @Name <BE_DynamicRelatedList_Ctr>
    @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
-   @Date 2020-03-11
-   @Description Controller Class for generated BE_SingleRelatedList_Lwc
+   @Date 2019-01-13
+   @Description Controller Class for generated dynamic Related List.
    @Changes
    Date        Author   Email                  Type
-   2020-03-11  LMBR     lolo.bravo@bbva.com    Creation
+   2019-01-13  LMBR     lolo.bravo@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_SingleRelatedList_Ctr {
@@ -28,13 +28,13 @@ public without sharing class BE_SingleRelatedList_Ctr {
   public static Response getDynamicResponse(String recordId,Params param) {
 	final Response response=new Response();
     try {
-		response.isSuccess=true;
+		    response.isSuccess=true;
         response.message='Consulta satisfactoria';
         response.data=getSOQLData(recordId, param);
         response.sObjFieldsMap=getSObjectFields(param.sObjName);
 	  } catch (Exception e) {
-		response.IsSuccess=false;
-		response.Message='Error'+e.getMessage();
+		    response.IsSuccess=false;
+		    response.Message='Error'+e.getMessage();
     }
     return response;
   }
@@ -45,7 +45,7 @@ public without sharing class BE_SingleRelatedList_Ctr {
      @return a Map<String,String> with information about the type of sObjectFields.
    */
   public static List<SObject> getSOQLData(String recordId,Params param) { 
-  	  final String query='SELECT ' +String.escapeSingleQuotes(param.sObjFields)+ ' FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
+  	  final String query='SELECT ' +String.escapeSingleQuotes(param.sObjFields)+ ' ,CurrencyIsoCode FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
       return Database.query(query);
   }
   
@@ -55,16 +55,16 @@ public without sharing class BE_SingleRelatedList_Ctr {
      @return a Map<String,String> with information about the type of sObjectFields.
    */
   public static Map<String,String>getSObjectFields(String sObjName) {
-	final Map<String,String>sObjFieldsMap= new Map<String,String>();
-	final Schema.SObjectType sObjType = Schema.getGlobalDescribe().get(sObjName);
-	final List<Schema.SObjectField>mfields = sObjType.getDescribe().fields.getMap().values();
-	for(Schema.SObjectField sObjFieldDescribe: mfields) {
-		final String code=String.valueOf(sObjFieldDescribe.getDescribe().getName());
-		final String type=String.valueOf(sObjFieldDescribe.getDescribe().getType()).toLowerCase();
-		final String typeFinal=(type=='double') ? 'number' : type;
-		sObjFieldsMap.put(code, typeFinal);
-	}
-	return sObjFieldsMap;
+	    final Map<String,String>sObjFieldsMap= new Map<String,String>();
+	    final Schema.SObjectType sObjType = Schema.getGlobalDescribe().get(sObjName);
+	    final List<Schema.SObjectField>mfields = sObjType.getDescribe().fields.getMap().values();
+	    for(Schema.SObjectField sObjFieldDescribe: mfields) {
+		    final String code=String.valueOf(sObjFieldDescribe.getDescribe().getName());
+		    final String type=String.valueOf(sObjFieldDescribe.getDescribe().getType()).toLowerCase();
+		    final String typeFinal=(type=='double') ? 'number' : type;
+		    sObjFieldsMap.put(code, typeFinal);
+	    }
+	    return sObjFieldsMap;
   }
 
   /**
@@ -83,7 +83,7 @@ public without sharing class BE_SingleRelatedList_Ctr {
    @Description Wrapper Class for the reponse to lwc.
    -------------------------------------------------------------------------------------------------
  */
-  public with sharing class Response {
+  public without sharing class Response {
     /**Indicate if the transaction is Success*/
     @AuraEnabled
     public Boolean isSuccess {set; get;}

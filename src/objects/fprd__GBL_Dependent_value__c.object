@@ -46,7 +46,6 @@
     <deprecated>false</deprecated>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -88,7 +87,7 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>fprd__Product_configuration__c</fullName>
+        <fullName>fprd__Product_configuration__c</fullName> 
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Product configuration</label>
@@ -114,7 +113,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Dependent value</label>
+    <label>List value</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -126,8 +125,8 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <displayFormat>DV-{000000}</displayFormat>
-        <label>Dependent list Name</label>
+        <displayFormat>LV-{000000}</displayFormat>
+        <label>Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

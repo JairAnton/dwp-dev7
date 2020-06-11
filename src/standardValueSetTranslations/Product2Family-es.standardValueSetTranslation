@@ -28,4 +28,8 @@
         <masterLabel>Serv. Transaccionales</masterLabel>
         <translation>Serv. Transaccionales</translation>
     </valueTranslation>
+	<valueTranslation>
+        <masterLabel>Tesorería</masterLabel>
+        <translation>Tesorería</translation>
+    </valueTranslation>
 </StandardValueSetTranslation>

@@ -1,32 +1,32 @@
 ({
-    sectionZero : function(component, event, helper) {
-        helper.helperFun(component,event,'articleZero');
+    sectionZero: function (component, event, helper) {
+        helper.helperFun(component, event, 'articleZero');
     },
-    
-    sectionOne : function(component, event, helper) {
-        helper.helperFun(component,event,'articleOne');
+
+    sectionOne: function (component, event, helper) {
+        helper.helperFun(component, event, 'articleOne');
     },
-    
-    sectionTwo : function(component, event, helper) {
-        helper.helperFun(component,event,'articleTwo');
+
+    sectionTwo: function (component, event, helper) {
+        helper.helperFun(component, event, 'articleTwo');
     },
-    
-    sectionThree : function(component, event, helper) {
-        helper.helperFun(component,event,'articleThree');
+
+    sectionThree: function (component, event, helper) {
+        helper.helperFun(component, event, 'articleThree');
     },
-    
-    sectionFour : function(component, event, helper) {
-        helper.helperFun(component,event,'articleFour');
+
+    sectionFour: function (component, event, helper) {
+        helper.helperFun(component, event, 'articleFour');
     },
-    handleSelectedEvent : function(cmp, evt, helper) {
+    handleSelectedEvent: function (cmp, evt, helper) {
         var opportunityProductId = evt.getParam('productId');
-        if(opportunityProductId==="")
-            cmp.set('v.bProduct',false);
-        else{          
-            cmp.set('v.bProduct',true);
+        if (opportunityProductId === "")
+            cmp.set('v.bProduct', false);
+        else {
+            cmp.set('v.bProduct', true);
             var action = cmp.get("c.getProduct2");
             action.setParams({
-                "ProdId":opportunityProductId
+                "ProdId": opportunityProductId
             });
             action.setCallback(this, $A.getCallback(function (response) {
                 var state = response.getState();
@@ -38,7 +38,6 @@
                 }
             }));
             $A.enqueueAction(action);
-        }   
+        }
     }
-    
 })

@@ -3096,12 +3096,12 @@
         <field>OpportunityLineItem.da_Replacement_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions> 
-  <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.cpliq_Manual__c</field>
         <readable>true</readable>
     </fieldPermissions>
-  <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.da_nOperation__c</field>
         <readable>true</readable>
@@ -3534,11 +3534,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>dwp_kitv__Visit_Topic__c.dwp_kitv__summary__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>dwp_kitv__Visit_Topic__c.dwp_kitv__topic_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4662,6 +4657,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Legal_Representative__c.Document_Type_Abbreviation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Legal_Representative__c.Personal_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account_Legal_Representative__c.Personal_Type__c</field>
         <readable>true</readable>
@@ -4679,6 +4684,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Legal_Representative__c.Tax_Payer_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Legal_Representative__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
@@ -4789,6 +4799,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>dwp_kitv__Visit__c.Account_Owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>gfsc__Guidance_for_Success__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>gfsc__Guidance_for_Success_Item__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.BE_User_DWP__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>

@@ -4797,11 +4797,6 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>dwp_kitv__Visit_Topic__c.dwp_kitv__topic_desc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>dwp_kitv__Visit_Topic__c.dwp_kitv__visit_done_type__c</field>
         <readable>true</readable>
     </fieldPermissions>    
@@ -5662,6 +5657,16 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Legal_Representative__c.Document_Type_Abbreviation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Legal_Representative__c.Personal_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Legal_Representative__c.Personal_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5678,6 +5683,11 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Legal_Representative__c.Tax_Payer_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Legal_Representative__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5788,6 +5798,21 @@ Sub Gerentes de oficina</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>dwp_kitv__Visit__c.Account_Owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>gfsc__Guidance_for_Success__c.gfsc__dismiss__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>gfsc__Guidance_for_Success__c.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>dwp_kitv__Visit_Management_Team__c.BE_User_DWP__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>

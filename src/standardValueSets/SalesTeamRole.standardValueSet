@@ -4,16 +4,16 @@
     <standardValue>
         <fullName>01</fullName>
         <default>false</default>
-        <label>01</label>
+        <label>Sales Rep</label>
     </standardValue>
     <standardValue>
         <fullName>02</fullName>
         <default>false</default>
-        <label>02</label>
+        <label>Specialist</label>
     </standardValue>
     <standardValue>
         <fullName>03</fullName>
         <default>false</default>
-        <label>03</label>
+        <label>Assistant</label>
     </standardValue>
 </StandardValueSet>

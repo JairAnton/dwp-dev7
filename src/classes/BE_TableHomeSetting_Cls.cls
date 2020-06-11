@@ -11,22 +11,22 @@
  */
 global without sharing class BE_TableHomeSetting_Cls extends VisualEditor.DynamicPickList {
     /**
-     @Description return a default value of Metadata
-     @return a VisualEditor.DataRow with default value NONE.
-   */
-    global override VisualEditor.DataRow getDefaultValue() {
-      return new VisualEditor.DataRow('None', 'NONE');
-    }
+    @Description return a default value of Metadata
+    @return a VisualEditor.DataRow with default value NONE.
+    */
+	global override VisualEditor.DataRow getDefaultValue() {
+		return new VisualEditor.DataRow('None', 'NONE');
+	}
 
     /**
-     @Description return List of Metadata options
-     @return a VisualEditor.DynamicPickListRowsw from information of Reports
-   */
-    global override VisualEditor.DynamicPickListRows getValues() {
-        final VisualEditor.DynamicPickListRows  myValues = new VisualEditor.DynamicPickListRows();
-        for (Report rep : [SELECT DeveloperName, Name FROM Report WHERE Format='Tabular' LIMIT 10000]) {
-            myValues.addRow(new VisualEditor.DataRow(rep.Name, rep.DeveloperName));
-        }
-        return myValues;
-    }
+    @Description return List of Metadata options
+    @return a VisualEditor.DynamicPickListRowsw from information of Reports
+    */
+	global override VisualEditor.DynamicPickListRows getValues() {
+		final VisualEditor.DynamicPickListRows myValues = new VisualEditor.DynamicPickListRows();
+		for(Report rep : [SELECT DeveloperName, Name FROM Report WHERE Format = 'Tabular' LIMIT 10000]) {
+			myValues.addRow(new VisualEditor.DataRow(rep.Name, rep.DeveloperName));
+		}
+		return myValues;
+	}
 }

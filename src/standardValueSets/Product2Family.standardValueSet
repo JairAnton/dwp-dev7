@@ -43,4 +43,9 @@
         <default>false</default>
         <label>Programa financiero</label>
     </standardValue>
+	<standardValue>
+        <fullName>Tesorería</fullName>
+        <default>false</default>
+        <label>Tesorería</label>
+    </standardValue>
 </StandardValueSet>

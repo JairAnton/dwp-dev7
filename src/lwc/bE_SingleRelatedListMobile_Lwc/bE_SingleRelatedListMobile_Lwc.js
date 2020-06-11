@@ -33,7 +33,9 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
                 urlLabel: '',
                 isEmail: false,
                 isPhoneNumber: false,
-                isButton:false
+                isButton: false,
+                //New
+                isRowAction: false
             };
             switch (this.columns[indx].type) {
                 case "currency":
@@ -65,8 +67,11 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
                     currentObj.isButton = true;
                     break;
                 default:
-                    currentObj.isText=true;
+                    currentObj.isText = true;
                     break;
+            }
+            if (indx === 0 && this.rowActions !== undefined && this.rowActions.length > 0) {
+                currentObj.isRowAction = true;
             }
             currentdataLst.push(currentObj);
             indx++;
@@ -85,24 +90,21 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
         });
     }
     /** OPEN CUSTOM MODAL EVENT */
-    handleOpenModalMobile(event) {
-        event.preventDefault();
-        let evt = new CustomEvent('mobilemodal',
-        {detail:this.sObjData.Id});
-        this.dispatchEvent(evt);
-    }
-    /** OPEN CUSTOM MODAL EVENT */
     handleRowAction(event) {
         event.preventDefault();
         console.log('Open Close');
         console.log(event.target.value);
-        const objParam={
-            recordId:this.sObjData.Id,
-            mode:event.target.value
+        const objParam = {
+            recordId: this.sObjData.Id,
+            mode: event.target.value
         }
         let evt = new CustomEvent('rowaction',
-        {detail:objParam});
+            { detail: objParam });
         this.dispatchEvent(evt);
+    }
+    /** OPEN CUSTOM MODAL EVENT */
+    get showRowActions() {
+        return this.rowActions.length > 0;
     }
     /** SHOW TOAST MESSAJE */
     showToastEvent(title, message, variant) {

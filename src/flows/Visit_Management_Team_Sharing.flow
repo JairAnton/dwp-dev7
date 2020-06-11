@@ -130,14 +130,14 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>AND($User.Id != [dwp_kitv__Visit_Management_Team__c].dwp_kitv__user_id__c, [dwp_kitv__Visit_Management_Team__c].dwp_kitv__visit_id__c.OwnerId  != [dwp_kitv__Visit_Management_Team__c].dwp_kitv__user_id__c )</stringValue>
+                <stringValue>AND([dwp_kitv__Visit_Management_Team__c].dwp_kitv__user_id__c!=NULL, $User.Id != [dwp_kitv__Visit_Management_Team__c].dwp_kitv__user_id__c, [dwp_kitv__Visit_Management_Team__c].dwp_kitv__visit_id__c.OwnerId  != [dwp_kitv__Visit_Management_Team__c].dwp_kitv__user_id__c )</stringValue>
             </value>
         </processMetadataValues>
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
-        <expression>AND({!$User.Id} != {!myVariable_current.dwp_kitv__user_id__c}, {!myVariable_current.dwp_kitv__visit_id__r.OwnerId}  != {!myVariable_current.dwp_kitv__user_id__c} )</expression>
+        <expression>AND({!myVariable_current.dwp_kitv__user_id__c}!=NULL, {!$User.Id} != {!myVariable_current.dwp_kitv__user_id__c}, {!myVariable_current.dwp_kitv__visit_id__r.OwnerId}  != {!myVariable_current.dwp_kitv__user_id__c} )</expression>
     </formulas>
-    <interviewLabel>Visit_Management_Team_Sharing-4_InterviewLabel</interviewLabel>
+    <interviewLabel>Visit_Management_Team_Sharing-5_InterviewLabel</interviewLabel>
     <label>Visit Management Team Sharing</label>
     <processMetadataValues>
         <name>ObjectType</name>

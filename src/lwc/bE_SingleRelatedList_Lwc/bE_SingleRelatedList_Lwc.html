@@ -24,14 +24,16 @@
                     <!--TEMPLATE TITLE-->
                     <template if:true={relListTypeMode.isTitle}>
                         <!--ACTIONS-->
-                        <lightning-button-menu icon-size="x-small" menu-alignment="auto" slot="actions">
+                        <lightning-button-menu if:true={showButtonActions} icon-size="x-small" menu-alignment="auto"
+                            slot="actions">
                             <template for:each={BtnConfig.values} for:item="btnItem">
                                 <lightning-menu-item key={btnItem.label} label={btnItem.label} value={btnItem.name}
                                     onclick={handleHeadAction}></lightning-menu-item>
                             </template>
                         </lightning-button-menu>
                         <!--BODY-->
-                        <div class="slds-card__body slds-card__body_inner bodyBox">
+                        <div if:true={showButtonActions} class="bodyBox"></div>
+                        <div class="slds-card__body slds-card__body_inner">
                             <ul class="slds-grid slds-wrap slds-grid_pull-padded">
                                 <template iterator:item={sObjectData}>
                                     <li key={item.value.Id} class={flexipageRegionWidth}>
@@ -85,8 +87,8 @@
     <template if:true={modalStandard.show}>
         <c-b-e_-single-related-list-modal_-lwc record-id={modalStandard.recordId} title={modalStandard.title}
             sobject-type={modalStandard.sobjectType} s-obj-fields={modalStandard.fields}
-            class-name={modalStandard.className} mode-action={modalStandard.mode}
-            onclosemodalweb={handleCloseStanModal}>
+            class-name={modalStandard.className} mode-action={modalStandard.mode} onclosemodalweb={handleCloseStanModal}
+            redirect-to-record-page={modalStandard.redirect}>
         </c-b-e_-single-related-list-modal_-lwc>
     </template>
 </template>

@@ -51,7 +51,7 @@ CASE([dwp_kitv__Visit__c].CreatedBy.User_position_equivalence__c,
 IF([dwp_kitv__Visit__c].CreatedById == [dwp_kitv__Visit__c].dwp_kitv__account_id__c.OwnerId, false, true ), false)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A2_9268950163</name>
+        <name>formula_2_myRule_1_A2_7123483057</name>
         <dataType>Boolean</dataType>
         <expression>IF(
 CASE({!myVariable_current.CreatedBy.User_position_equivalence__c}, 
@@ -90,7 +90,7 @@ IF({!myVariable_current.CreatedById} == {!myVariable_current.dwp_kitv__account_i
 [dwp_kitv__Visit__c].dwp_kitv__account_id__c.Owner.Id ) </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_3_myRule_1_A1_6203712284</name>
+        <name>formula_3_myRule_1_A1_8251898077</name>
         <dataType>String</dataType>
         <expression>CASE({!myVariable_current.CreatedBy.User_position_equivalence__c}, 
 &quot;GRTE ADJTO BCA EMPRESA Y CORP&quot;, {!myVariable_current.CreatedBy.Id} , 
@@ -108,11 +108,122 @@ IF({!myVariable_current.CreatedById} == {!myVariable_current.dwp_kitv__account_i
 {!myVariable_current.dwp_kitv__account_id__r.Owner.Id} )</expression>
     </formulas>
     <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>CASE([dwp_kitv__Visit__c].CreatedBy.User_position_equivalence__c, 
+&quot;GRTE ADJTO BCA EMPRESA Y CORP&quot;, [dwp_kitv__Visit__c].CreatedBy.Email , 
+&quot;GERENTE REGIONAL BEC&quot;,  [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;JEFE PROMOCION DE NEGOCIO&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;GERENTE BEC&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;EJECUTIVO BEC&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;ASSOCIATE&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;GTE LEASING &amp; COMEX&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;EJECUTIVO COMEX&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;EJECUTIVO LEASING&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;GTE REDES&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;EJECUTIVO REDES&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+&quot;EJECUTIVO DT&quot;, [dwp_kitv__Visit__c].CreatedBy.Email, 
+[dwp_kitv__Visit__c].dwp_kitv__account_id__c.Owner.Email ) </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_4_myRule_1_A1_2175041410</name>
+        <dataType>String</dataType>
+        <expression>CASE({!myVariable_current.CreatedBy.User_position_equivalence__c}, 
+&quot;GRTE ADJTO BCA EMPRESA Y CORP&quot;, {!myVariable_current.CreatedBy.Email} , 
+&quot;GERENTE REGIONAL BEC&quot;,  {!myVariable_current.CreatedBy.Email}, 
+&quot;JEFE PROMOCION DE NEGOCIO&quot;, {!myVariable_current.CreatedBy.Email}, 
+&quot;GERENTE BEC&quot;, {!myVariable_current.CreatedBy.Email}, 
+&quot;EJECUTIVO BEC&quot;, {!myVariable_current.CreatedBy.Email}, 
+&quot;ASSOCIATE&quot;, {!myVariable_current.CreatedBy.Email}, 
+&quot;GTE LEASING &amp; COMEX&quot;, {!myVariable_current.CreatedBy.Email}, 
+&quot;EJECUTIVO COMEX&quot;, {!myVariable_current.CreatedBy.Email}, 
+&quot;EJECUTIVO LEASING&quot;, {!myVariable_current.CreatedBy.Email}, 
+&quot;GTE REDES&quot;, {!myVariable_current.CreatedBy.Email}, 
+&quot;EJECUTIVO REDES&quot;, {!myVariable_current.CreatedBy.Email}, 
+&quot;EJECUTIVO DT&quot;, {!myVariable_current.CreatedBy.Email}, 
+{!myVariable_current.dwp_kitv__account_id__r.Owner.Email} )</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>CASE([dwp_kitv__Visit__c].CreatedBy.User_position_equivalence__c, 
+&quot;GRTE ADJTO BCA EMPRESA Y CORP&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier , 
+&quot;GERENTE REGIONAL BEC&quot;,  [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;JEFE PROMOCION DE NEGOCIO&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;GERENTE BEC&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;EJECUTIVO BEC&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;ASSOCIATE&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;GTE LEASING &amp; COMEX&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;EJECUTIVO COMEX&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;EJECUTIVO LEASING&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;GTE REDES&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;EJECUTIVO REDES&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+&quot;EJECUTIVO DT&quot;, [dwp_kitv__Visit__c].CreatedBy.FederationIdentifier, 
+[dwp_kitv__Visit__c].dwp_kitv__account_id__c.Owner.FederationIdentifier ) </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_5_myRule_1_A1_3239981549</name>
+        <dataType>String</dataType>
+        <expression>CASE({!myVariable_current.CreatedBy.User_position_equivalence__c}, 
+&quot;GRTE ADJTO BCA EMPRESA Y CORP&quot;, {!myVariable_current.CreatedBy.FederationIdentifier} , 
+&quot;GERENTE REGIONAL BEC&quot;,  {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;JEFE PROMOCION DE NEGOCIO&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;GERENTE BEC&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;EJECUTIVO BEC&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;ASSOCIATE&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;GTE LEASING &amp; COMEX&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;EJECUTIVO COMEX&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;EJECUTIVO LEASING&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;GTE REDES&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;EJECUTIVO REDES&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+&quot;EJECUTIVO DT&quot;, {!myVariable_current.CreatedBy.FederationIdentifier}, 
+{!myVariable_current.dwp_kitv__account_id__r.Owner.FederationIdentifier} )</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>CASE([dwp_kitv__Visit__c].CreatedBy.User_position_equivalence__c, 
+&quot;GRTE ADJTO BCA EMPRESA Y CORP&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName , 
+&quot;GERENTE REGIONAL BEC&quot;,  [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;JEFE PROMOCION DE NEGOCIO&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;GERENTE BEC&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;EJECUTIVO BEC&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;ASSOCIATE&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;GTE LEASING &amp; COMEX&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;EJECUTIVO COMEX&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;EJECUTIVO LEASING&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;GTE REDES&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;EJECUTIVO REDES&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+&quot;EJECUTIVO DT&quot;, [dwp_kitv__Visit__c].CreatedBy.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].CreatedBy.LastName, 
+[dwp_kitv__Visit__c].dwp_kitv__account_id__c.Owner.FirstName &amp; &quot; &quot; &amp; [dwp_kitv__Visit__c].dwp_kitv__account_id__c.Owner.LastName ) </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_6_myRule_1_A1_3319327293</name>
+        <dataType>String</dataType>
+        <expression>CASE({!myVariable_current.CreatedBy.User_position_equivalence__c}, 
+&quot;GRTE ADJTO BCA EMPRESA Y CORP&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName} , 
+&quot;GERENTE REGIONAL BEC&quot;,  {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;JEFE PROMOCION DE NEGOCIO&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;GERENTE BEC&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;EJECUTIVO BEC&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;ASSOCIATE&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;GTE LEASING &amp; COMEX&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;EJECUTIVO COMEX&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;EJECUTIVO LEASING&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;GTE REDES&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;EJECUTIVO REDES&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+&quot;EJECUTIVO DT&quot;, {!myVariable_current.CreatedBy.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.CreatedBy.LastName}, 
+{!myVariable_current.dwp_kitv__account_id__r.Owner.FirstName} &amp; &quot; &quot; &amp; {!myVariable_current.dwp_kitv__account_id__r.Owner.LastName} )</expression>
+    </formulas>
+    <formulas>
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
         <expression>true</expression>
     </formulas>
-    <interviewLabel>dwp_create_OwnerVisitTeam-3_InterviewLabel</interviewLabel>
+    <interviewLabel>dwp_create_OwnerVisitTeam-4_InterviewLabel</interviewLabel>
     <label>Process to create Owner Visit Team</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -187,6 +298,114 @@ IF({!myVariable_current.CreatedById} == {!myVariable_current.dwp_kitv__account_i
             <processMetadataValues>
                 <name>dataType</name>
                 <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Email Google</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>dwp_kitv__gf_sf_external_cust_mail_desc__c</field>
+            <value>
+                <elementReference>formula_4_myRule_1_A1_2175041410</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>User Id Google</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>dwp_kitv__gf_sf_external_customer_id__c</field>
+            <value>
+                <elementReference>formula_5_myRule_1_A1_3239981549</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Name Google User</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>dwp_kitv__gf_sf_external_customer_name__c</field>
+            <value>
+                <elementReference>formula_6_myRule_1_A1_3319327293</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
                     <stringValue>ID</stringValue>
                 </value>
             </processMetadataValues>
@@ -216,7 +435,7 @@ IF({!myVariable_current.CreatedById} == {!myVariable_current.dwp_kitv__account_i
             </processMetadataValues>
             <field>dwp_kitv__user_id__c</field>
             <value>
-                <elementReference>formula_3_myRule_1_A1_6203712284</elementReference>
+                <elementReference>formula_3_myRule_1_A1_8251898077</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -362,7 +581,7 @@ IF({!myVariable_current.CreatedById} == {!myVariable_current.dwp_kitv__account_i
             </processMetadataValues>
             <field>keep_owner__c</field>
             <value>
-                <elementReference>formula_2_myRule_1_A2_9268950163</elementReference>
+                <elementReference>formula_2_myRule_1_A2_7123483057</elementReference>
             </value>
         </inputAssignments>
         <object>dwp_kitv__Visit__c</object>

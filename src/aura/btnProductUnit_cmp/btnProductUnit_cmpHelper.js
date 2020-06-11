@@ -1,10 +1,10 @@
 ({
-	productUnit : function(component, event, helper) {
-		var action=component.get("c.sendProductUnitSgof");
-        action.setParams({"recordId" : component.get("v.inputAttributes.recordId")});
-        action.setCallback(this, function(response) {
+    productUnit: function (component, event, helper) {
+        var action = component.get("c.sendProductUnitSgof");
+        action.setParams({ "recordId": component.get("v.inputAttributes.recordId") });
+        action.setCallback(this, function (response) {
             var state = response.getState();
-            if(state === "SUCCESS") {
+            if (state === "SUCCESS") {
                 var res = response.getReturnValue();
                 var error = res.isError ? "error" : "success";
                 helper.msgAndClose(component, event, helper, res.msg, error, true);
@@ -13,8 +13,8 @@
             }
         });
         $A.enqueueAction(action);
-	},
-    msgAndClose : function(component, event, helper, message, type, close) {
+    },
+    msgAndClose: function (component, event, helper, message, type, close) {
         var toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams({
             "message": (message ? message : $A.get("$Label.c.Dwp_msgGenericError")),
@@ -22,9 +22,8 @@
         });
         toastEvent.fire();
         $A.get('e.force:refreshView').fire();
-        if(close) {
+        if (close) {
             this.destroyCmp(component, event, helper);
         }
     }
-
 })
