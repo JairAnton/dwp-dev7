@@ -116,7 +116,7 @@
         var linea100 = [];
         var valortamano;
 
-        for (i = 0; i < concepto.length; i++) {
+        for (var i = 0; i < concepto.length; i++) {
             var colorBorder = bibliotecaColor[i];
             if (colorBorder === '#ffffff')
                 colorBorder = '#676767';

@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSobjectName"
+    access="global" controller="BE_AP_Administration_helper">
+    <aura:attribute name="title" type="String" default="" />
+    <aura:attribute name="iconName" type="String" default="" />
+    <aura:attribute name="relListSet" type="String" default="" />
+    <aura:attribute name="relListType" type="String" default="" />
+    <aura:attribute name="refresh" type="Boolean" />
+    <aura:attribute name="replaceId" type="Boolean" />
+    <aura:attribute name="load" type="Boolean" default="false" />
+    <aura:attribute name="error" type="Boolean" default="false" />
+    <aura:attribute name="parentId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler event="force:refreshView" action="{!c.init}" description="Handler to update completion" />
+
+    <aura:if isTrue="{!v.load}">
+        <aura:if isTrue="{!v.error}">Ha ocurrido un error. Por favor contactese con su administrador.</aura:if>
+        <c:bE_SingleRelatedList_Lwc title="{!v.title}" iconName="{!v.iconName}" relListSet="{!v.relListSet}"
+            relListType="{!v.relListType}" recordId="{!v.parentId}" auraRefresh="{!v.refresh}"
+            onrefreshCmp="{!c.refreshOnAura}" />
+        <aura:set attribute="else">
+                <lightning:spinner></lightning:spinner>
+        </aura:set>
+    </aura:if>
+</aura:component>

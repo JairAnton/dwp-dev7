@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Gestor de plan de cuenta --></label>
+        <name>account_planning_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Planning --></label>
+        <name>acpl__gf_account_planning_id__c</name>
+        <relationshipLabel><!-- Planning Team Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>bupl__country_id__c</name>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Notification date --></label>
+        <name>bupl__gf_ap_team_new_member_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Role --></label>
+        <name>bupl__gf_ap_team_role_user_name__c</name>
+        <picklistValues>
+            <masterLabel>Acompañante</masterLabel>
+            <translation><!-- Acompañante --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gestor del Plan</masterLabel>
+            <translation><!-- Gestor del Plan --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>bupl__gf_ap_team_user_id__c</name>
+        <relationshipLabel><!-- Planning Team Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- I am a member of the AP Team --></label>
+        <name>bupl__gf_ap_user_team_ind_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Plan --></label>
+        <name>bupl__gf_business_plan_id__c</name>
+        <relationshipLabel><!-- Business Plan Team --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Family --></label>
+        <name>bupl__solution_category_type__c</name>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- No puede editar un miembro del equipo. --></errorMessage>
+        <name>Edit_Record</name>
+    </validationRules>
+</CustomObjectTranslation>

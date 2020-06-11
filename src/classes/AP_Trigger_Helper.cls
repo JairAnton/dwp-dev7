@@ -1,0 +1,134 @@
+/**
+ * Handler class of Trigger handler of the AccountPlanning object.
+ * <p /><p />
+ * Modification log:<p />
+ * -------------------------------------------------------------------
+ * Developer                    Date                Description<p />
+ * -------------------------------------------------------------------
+ * Diego Carbajal    		15/05/2020          Original version.<p />
+ *
+ * @author Diego Carbajal
+ */
+public without sharing class AP_Trigger_Helper {
+	/*
+	 * @Description  Crea registros de BusinessPlan relacionados a los AP
+	 */
+	public static void createRelatedBP(List<bupl__BusinessPlan__c> lstNewBP) {
+		Final Integer lstNewBPSize = lstNewBP.size();
+		if(lstNewBPSize > 0) {
+			insert lstNewBP;
+			AP_Trigger_Helper.createBPV(lstNewBP);
+		}
+	}
+
+	/*
+	 * @Description  Crea APT propietarios a los AP's
+	 */
+	public static void createAptOwner(Map<Id, Id> ownersAPT) {
+		Final Integer ownersAPTSize = ownersAPT.size();
+		if(ownersAPTSize > 0) {
+			Final Map<Id, User> mapUsers = new Map<Id, User>([SELECT Id FROM User WHERE Id IN: ownersAPT.values() AND isActive = true]);
+			Final bupl__AP_Team__c[] lstAPTOwners = new bupl__AP_Team__c[] {};
+			bupl__AP_Team__c aptOwner;
+			for(Id key:ownersAPT.keySet()) {
+				aptOwner = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = key, account_planning_Owner__c = true, bupl__gf_ap_team_role_user_name__c = 'Gestor del Plan',
+				                                bupl__gf_ap_team_user_id__c = ownersAPT.get(key));
+				lstAPTOwners.add(aptOwner);
+			}
+			Final Integer lstAPTOwnersSize = lstAPTOwners.size();
+			if(lstAPTOwnersSize > 0) {
+				insert lstAPTOwners;
+			}
+		}
+	}
+
+	/*
+	 * @Description  Elimina APT
+	 */
+	public static void deleteAPTeam(Map<Id, acpl__Account_Planning__c> triggerOldMap) {
+		delete [Select id From bupl__AP_Team__c Where acpl__gf_account_planning_id__c in : triggerOldMap.keySet()];
+	}
+
+	/*
+	 * @Description  Elimina historial de seguimiento
+	 */
+	public static void deleteAPHistory(Map<Id, acpl__Account_Planning__c> triggerOldMap) {
+		delete [Select id From dwp_cvad__Action_Audit__c Where dwp_cvad__action_audit_record_id__c in : triggerOldMap.keySet()];
+	}
+
+	/*
+	 * @Description  Elimina fieldsConfig
+	 */
+	public static void deleteFieldsConfig(Map<Id, acpl__Account_Planning__c> triggerOldMap) {
+		Final List<String> lstDeveloperNames = new List<String>();
+		for(String apId:triggerOldMap.keySet()) {
+			for(Integer i = 1; i <= triggerOldMap.get(apId).acpl__gf_ap_question_form_number__c; i++) {
+				String dvName = apId + '_' + i;
+				lstDeveloperNames.add(dvName);
+			}
+		}
+		delete [SELECT Id FROM dyfr__Field_Config__c WHERE dyfr__DeveloperName__c IN : lstDeveloperNames];
+	}
+
+	/*
+	 * @Description  Elimina BusinessPlan
+	 */
+	public static void deleteBusinessPlan(Map<Id, acpl__Account_Planning__c> triggerOldMap) {
+		delete [SELECT ID, acpl__gf_account_planning_id__c, name FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c IN : triggerOldMap.keySet()];
+	}
+
+	/*
+	 * @Description  Crea BusinessPlanVersion a cada BusinessPlan
+	 */
+	public static void createBPV(List<bupl__BusinessPlan__c> lstNewBP) {
+		Final List<bupl__BusinessPlan_Version__c> lstNewBPV = new List<bupl__BusinessPlan_Version__c>();
+		bupl__BusinessPlan_Version__c newBPV;
+		for(bupl__BusinessPlan__c bp: lstNewBP) {
+			newBPV = new bupl__BusinessPlan_Version__c(bupl__gf_business_plan_id__c = bp.Id, Name = bp.Name + ' V1', bupl__gf_business_plan_act_ind_type__c = 'Yes');
+			lstNewBPV.add(newBPV);
+		}
+		Final Integer lstNewBPVSize = lstNewBPV.size();
+		if(lstNewBPVSize > 0) {
+			insert lstNewBPV;
+		}
+	}
+
+	/*
+	 * @Description  Asocia valores de lista del catalogo a cada pregunta clonada
+	 */
+	public static void relateListValues(List<List<dyfr__Field_Config__c>> lstFullFieldConfig, List<dyfr__Field_Config__c> catalogCnfig) {
+		Final Set<Id> ctlgCnfigSet = new Set<Id>();
+		for(dyfr__Field_Config__c fieldConfigAux : catalogCnfig) {
+			if(!ctlgCnfigSet.contains(fieldConfigAux.Id)) {
+				ctlgCnfigSet.add(fieldConfigAux.Id);
+			}
+		}
+		//Obtengo los dependent values del AP Catalog
+		final List<dyfr__Dependent_value__c> catalogListValues = [SELECT Id, dyfr__LoV_labels__c, dyfr__LoV_values__c, dyfr__Values_control_value__c,
+		                                                          dyfr__Field_Config__c, dyfr__Field_Config__r.Id, dyfr__Field_Config__r.dyfr__DeveloperName__c
+		                                                          FROM dyfr__Dependent_value__c WHERE dyfr__Field_Config__r.Id IN :ctlgCnfigSet];
+
+		final List<dyfr__Dependent_value__c> depValuesToInsert = new List<dyfr__Dependent_value__c>();
+
+		//recorro los fieldconfig a insertar
+		for(Integer i = 0; i < lstFullFieldConfig.size(); i++) {
+			for(dyfr__Field_Config__c fieldConfigAux : lstFullFieldConfig[i]) {
+				//cojo el correspondiente fieldConfig del cat�logo - bueno cojo los dep values con LIKE en el dyfr__Field_Config__r.dyfr__DeveloperName__c.dev
+				dyfr__Dependent_value__c depValue;
+				for(dyfr__Dependent_value__c depValueAux : catalogListValues) {
+					depValue = new dyfr__Dependent_value__c(dyfr__LoV_labels__c = depValueAux.dyfr__LoV_labels__c, dyfr__LoV_values__c = depValueAux.dyfr__LoV_values__c,
+					                                        dyfr__Values_control_value__c = depValueAux.dyfr__Values_control_value__c);
+					final List<String> developerNameFC = fieldConfigAux.dyfr__DeveloperName__c.split('_');
+					final List<String> developerNameDV = depValueAux.dyfr__Field_Config__r.dyfr__DeveloperName__c.split('_');
+					//  y voy creando sus dependent values
+					if(developerNameFC.get(1) == developerNameDV.get(1)) {
+						depValue.dyfr__Field_Config__c = fieldConfigAux.Id;
+						depValuesToInsert.add(depValue);
+					}
+				}
+			}
+		}
+		//inserto los dependent values
+		insert depValuesToInsert;
+	}
+}

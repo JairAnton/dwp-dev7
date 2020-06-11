@@ -21,6 +21,13 @@
         <shortDescription>Hangout</shortDescription>
         <value>Start a Hangout</value>
     </labels>
+    <labels>
+        <fullName>AP_ValidatorsCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_ValidatorsCode</shortDescription>
+        <value>E01,I21,OS8</value>
+    </labels>
 	<labels>
         <fullName>Agree</fullName>
         <language>en_US</language>
@@ -178,6 +185,13 @@
         <value>Total</value>
     </labels>
     <labels>
+        <fullName>Ask_for_validation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ask_for_validation</shortDescription>
+        <value>Elevar</value>
+    </labels>
+    <labels>
         <fullName>BE_DynamicModalRecordForm</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -264,11 +278,25 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>View All</value>
     </labels>
     <labels>
+        <fullName>Button_Collection_No_Actions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button Collection No Actions</shortDescription>
+        <value>No existen acciones disponibles.</value>
+    </labels>
+    <labels>
         <fullName>Dwp_msgGenericError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Mensaje de error generico</shortDescription>
         <value>Ha ocurrido un error en el sistema, por favor inténtalo otra vez.</value>
+    </labels>
+    <labels>
+        <fullName>DynamicActionsAudit_SectionTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dynamic Action Audit Title</shortDescription>
+        <value>Historial de seguimiento</value>
     </labels>
     <labels>
         <fullName>LblDirectDebt</fullName>

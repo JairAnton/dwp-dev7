@@ -33,8 +33,20 @@ public without sharing class User_Trigger_cls {
 	 */
 	public void AsignAfterInsert(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
 		User_Trigger_Case_cls.newMembersFormalization(userNew);
+		//Assigment AP Validation Permission
+		Final Set<Id> userGOF = new Set<Id>();
+		//Obtenemos los codigos de los usuarios que deben ser validadores
+		Final List<String> lstVCodes = System.Label.AP_ValidatorsCode.split(',');
+		for(User usuario:userNew) {
+			if(lstVCodes.contains(usuario.prof_position_id__c)) {
+				userGOF.add(usuario.Id);
+			}
+		}
+        Final Integer userGSize = userGOF.size();
+		if(userGSize > 0) {
+			AssigmentPermissionValidationAP_cls.assigmentPermission(userGOF);
+		}
 	}
-
 	/*
 	 * @Name: AsignBeforeUpdate
 	 * @Description: Invoca al metodo setEquivalentValues.
@@ -58,7 +70,36 @@ public without sharing class User_Trigger_cls {
 		User_Trigger_Case_cls.addUserToFormalizationGroup(userNewMap, userOld);
 		BE_User_Trigger_VisitTeam_Cls.sharingVisitTeamMember(userNewMap, userOldMap);
 	}
-    
+
+	public void assigmentPermission(Map<id, User> userOldMap, Map<id, User> userNewMap) {
+		//Obtenemos los codigos de los usuarios que deben ser validadores
+		Final List<String> lstVCodes = System.Label.AP_ValidatorsCode.split(',');
+		Final Set<Id> userIds = new Set<Id>();
+		Final Set<Id> userGOF = new Set<Id>();
+		Final Set<Id> usersExGOF = new Set<Id>();
+		for(User usuario:userOldMap.values()) {
+			if(!usuario.isActive && userNewMap.get(usuario.Id).isActive) {
+				userIds.add(usuario.Id);
+			}
+			if(lstVCodes.contains(userNewMap.get(usuario.Id).prof_position_id__c)) {
+				userGOF.add(usuario.Id);
+			}
+			if(usuario.prof_position_id__c != userNewMap.get(usuario.Id).prof_position_id__c &&
+			   lstVCodes.contains(usuario.prof_position_id__c)) {
+				usersExGOF.add(usuario.Id);
+			}
+		}
+		if(userIds.size() > 0) {
+			User_APSharing_batch userAPShareBatch = new User_APSharing_batch(userIds);
+			Database.executeBatch(userAPShareBatch);
+		}
+		if(userGOF.size() > 0) {
+			AssigmentPermissionValidationAP_cls.assigmentPermission(userGOF);
+		}
+		if(usersExGOF.size() > 0) {
+			AssigmentPermissionValidationAP_cls.deletePermission(usersExGOF);
+		}
+	}
 	/*
 	 * @Name: setEquivalentValues
 	 * @Description: Ejecuta la logica para la asignacion de unidad organizativa y cargo equivalente de un usuario.

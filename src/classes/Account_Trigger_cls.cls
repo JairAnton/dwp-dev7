@@ -10,25 +10,33 @@
  *
  */
 public without sharing class Account_Trigger_cls {
+
 	/*Reusable variable in methods*/
 	static Final List<String> PROFILE_NAMES = new List<String> {'Migracion', System.Label.profAdministrator, 'System Administrator'};
 
 	/*Method Master for trigger*/
-	public void AsignAfterUpdate(list<Account>oppsNew, Map<id, Account>oppsNewMap,
-	                             list<Account>oppsOld, Map<id, Account>oppsOldMap) {
-		final Map<Id, Id> mapBranchIds = new Map<Id, Id>();
-		for(Account acc : oppsNew) {
-			if(acc.Branch_id__c != oppsOldMap.get(acc.Id).Branch_id__c) {
-				mapBranchIds.put(acc.Id, acc.Branch_id__c);
-			}
+	public void AsignAfterUpdate(list<Account>accsNew, Map<id,Account>accsNewMap, list<Account>accsOld, Map<id,Account>accsOldMap) {
+		Map<id, User> userAdmins = new Map<Id,User>([SELECT Id FROM user WHERE profile.Name IN: PROFILE_NAMES AND isActive=true]);
+        Map<Id, Id> mapAccsOwnersChange = new Map<Id, Id>();
+        final Map<Id, Id> mapBranchIds = new Map<Id, Id>();
+        for(Account acc : accsNew) {
+            if(acc.Branch_id__c!=accsOldMap.get(acc.Id).Branch_id__c) {
+                mapBranchIds.put(acc.Id, acc.Branch_id__c);
+            }
+            //Get Old Owners Ids from Account where Owner change for AP
+            if(!userAdmins.containsKey(acc.OwnerId) && acc.OwnerId != accsOldMap.get(acc.Id).OwnerId) {
+                mapAccsOwnersChange.put(acc.Id, acc.OwnerId);
+            }
 		}
 		if(mapBranchIds.isEmpty() == false) {
 			onChangeBranch(mapBranchIds);
 		}
 
 		/**Actualizar Primero Objeto Relacionado, despues objeto hijo del relacionado**/
-		Account_Trigger_Visit_cls.updateVisit(oppsNew, oppsNewMap, oppsOld, oppsOldMap);
-		updateTeamVisit(oppsNewMap, oppsOldMap);
+        Account_Trigger_Visit_cls.updateVisit(accsNew, accsNewMap, accsOld, accsOldMap);
+        updateTeamVisit(accsNewMap, accsOldMap);
+        //Actualiza gestores principales de los AP's activos
+        updateAPMainGestor(mapAccsOwnersChange);
 	}
 
 	/*Method to update branch*/
@@ -188,4 +196,51 @@ public without sharing class Account_Trigger_cls {
 			insert lstNewTeam;
 		}
 	}
+	
+	private void updateAPMainGestor(Map<Id,Id> mapAccsOwnersChange) {
+        Final Map<Id, Id> mapNewOwnerByAP = new Map<Id, Id>();
+        //Obtenemos los AP's afectados de acuerdo a los clientes actualizados, que no esten validados ni expirados y sean de RT Account_Planning
+        Final Map<Id, acpl__Account_Planning__c> mapAP = new Map<Id, acpl__Account_Planning__c>(
+            										[SELECT Id, acpl__participant_id__c, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c, 
+                                                     acpl__gf_ap_indvi_lock_edit_ind_type__c, acpl__proposal_manager_id__c FROM acpl__Account_Planning__c WHERE 
+                                                     acpl__participant_id__c IN: mapAccsOwnersChange.keySet() AND RecordType.DeveloperName = 'Account_Planning' AND 
+                                                     (acpl__gf_ap_status_type_name__c !='Validated' AND acpl__gf_ap_substatus_type_name__c != 'In place') 
+                                                     AND acpl__gf_ap_substatus_type_name__c !=: Label.acpl.AP_Timed_Out]);
+        Final Integer lstAPSize = mapAP.values().size();
+        if(lstAPSize > 0) {
+            for(acpl__Account_Planning__c ap:mapAP.values()) {
+                //Actualizamos el nuevo gestor principal
+                ap.acpl__proposal_manager_id__c = mapAccsOwnersChange.get(ap.acpl__participant_id__c);
+                //Creamos un mapa para identificar si los nuevos gestores existen como miembros en los AP's a actualizar
+                // key = Id record, value = Id new gestor
+                mapNewOwnerByAP.put(ap.Id, mapAccsOwnersChange.get(ap.acpl__participant_id__c));
+            }
+            update mapAP.values();
+            //Obtenemos los antiguos gestores principales para eliminarlos
+            Final Map<Id, bupl__AP_Team__c> mapAPTOldGestor = new Map<Id, bupl__AP_Team__c>(
+                										[SELECT Id, bupl__gf_ap_team_user_id__c, acpl__gf_account_planning_id__r.acpl__proposal_manager_id__c, 
+                                                         acpl__gf_account_planning_id__c, bupl__gf_ap_team_role_user_name__c, account_planning_Owner__c 
+                                                         FROM bupl__AP_Team__c WHERE acpl__gf_account_planning_id__c IN:mapAP.keySet() AND account_planning_Owner__c = true]);
+            //Obtenemos los usuarios que serán nuevos gestores y se encuentren en los AP's como miembros
+            Final List<bupl__AP_Team__c> lstAPTOld = [SELECT Id, bupl__gf_ap_team_user_id__c, acpl__gf_account_planning_id__r.acpl__proposal_manager_id__c, account_planning_Owner__c, 
+                                                acpl__gf_account_planning_id__c, bupl__gf_ap_team_role_user_name__c FROM bupl__AP_Team__c WHERE account_planning_Owner__c = false AND
+                                                acpl__gf_account_planning_id__c IN:mapAP.keySet() AND bupl__gf_ap_team_user_id__c IN:mapAccsOwnersChange.values()];
+            //Usuarios antiguos que serán nuevos gestores principales
+            Final List<bupl__AP_Team__c> usersInAPT = new List<bupl__AP_Team__c>();
+            for(bupl__AP_Team__c apt:lstAPTOld) {
+                if(mapNewOwnerByAP.get(apt.acpl__gf_account_planning_id__c) == apt.bupl__gf_ap_team_user_id__c) {
+                    usersInAPT.add(apt);
+                }
+            }
+            Final List<bupl__AP_Team__c> lstAPTNewGestor = new List<bupl__AP_Team__c>();
+            for(acpl__Account_Planning__c ap:mapAP.values()) {
+                lstAPTNewGestor.add(new bupl__AP_Team__c(bupl__gf_ap_team_user_id__c = mapNewOwnerByAP.get(ap.Id), account_planning_Owner__c = true,
+                                              acpl__gf_account_planning_id__c = ap.Id, bupl__gf_ap_team_role_user_name__c = 'Gestor del Plan'));
+            }
+            //Juntamos los antiguos gestores principales con los antiguos miembros que serán nuevos gestores
+            usersInAPT.addAll(mapAPTOldGestor.values());
+            delete usersInAPT;
+            insert lstAPTNewGestor;
+        }
+    }
 }

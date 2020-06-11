@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Answer --></label>
+        <name>acpl__AA_answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer checkbox --></label>
+        <name>acpl__AA_answer_checkbox__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer currency --></label>
+        <name>acpl__AA_answer_currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer date --></label>
+        <name>acpl__AA_answer_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer is checkbox --></label>
+        <name>acpl__AA_answer_is_checkbox__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer number --></label>
+        <name>acpl__AA_answer_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer text --></label>
+        <name>acpl__AA_answer_text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer text area --></label>
+        <name>acpl__AA_answer_text_area__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Planning --></label>
+        <name>acpl__gf_account_planning_id__c</name>
+        <relationshipLabel><!-- Account Planning Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Answer formula --></label>
+        <name>acpl__gf_ap_answer_form_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question --></label>
+        <name>acpl__gf_ap_question_form_desc__c</name>
+    </fields>
+</CustomObjectTranslation>

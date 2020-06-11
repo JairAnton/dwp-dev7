@@ -338,4 +338,78 @@ public class TestFactory {
 		}
 		return obj;
 	}
+	
+	/**
+  * Account planning record
+  */
+    public static acpl__Account_Planning__c createAccountPlanning(String account, String usuario, Id rt, Boolean unlock) {
+        final acpl__Account_Planning__c accountPlanning = new acpl__Account_Planning__c();
+        accountPlanning.Name = 'Account Planning';
+        accountPlanning.acpl__gf_ap_status_type_name__c = 'Not started';
+        accountPlanning.acpl__gf_ap_substatus_type_name__c = 'Not started';
+        accountPlanning.acpl__participant_id__c = account;
+        accountPlanning.acpl__gf_ap_priority_type_name__c = 'High';
+        accountPlanning.acpl__gf_mandatory_type__c = 'Mandatory';
+        accountPlanning.acpl__gf_ap_limit_date__c = System.today()+31;
+        accountPlanning.acpl__proposal_manager_id__c = usuario;
+        accountPlanning.acpl__gf_ap_indvi_lock_edit_ind_type__c = unlock;
+        accountPlanning.acpl__gf_ap_validator_user_id__c = null;
+        if(String.isNotBlank(rt)) {
+            accountPlanning.recordTypeId = rt;
+        }
+        return accountPlanning;
+    }
+    
+    /**
+  * Account Planning Question record
+  */
+    public static acpl__AP_Question__c createAPQuestion(acpl__Account_Planning__c accountPlanning) {
+        final acpl__AP_Question__c apQuestion = new acpl__AP_Question__c();
+        apQuestion.Name = accountPlanning.Id + '_Q' + DateTime.now().getTime()*Math.abs(Math.random()*10);
+        apQuestion.acpl__gf_account_planning_id__c = accountPlanning.Id;
+        apQuestion.acpl__gf_ap_question_form_desc__c = 'question';
+        return apQuestion;
+	}
+	
+	/**
+  * Dynamic form template record
+  */
+	public static dyfr__Template__c createDfTemplate() {
+        final dyfr__Template__c dfTemplate = new dyfr__Template__c();
+        dfTemplate.dyfr__Template_Code__c = 'dfTemplate_' + DateTime.now().getTime()*Math.abs(Math.random()*10);
+        dfTemplate.Name = dfTemplate.dyfr__Template_Code__c;
+        return dfTemplate;
+	}
+	
+	/**
+  * Dynamic form tab record
+  */
+	public static dyfr__Tab__c createDfTab(dyfr__Template__c dfTemplate) {
+        final dyfr__Tab__c dfTab = new dyfr__Tab__c();
+        dfTab.dyfr__Tab_Code__c = 'dfTab_' + DateTime.now().getTime()*Math.abs(Math.random()*10);
+        dfTab.Name = dfTab.dyfr__Tab_Code__c;
+        dfTab.dyfr__Column_Number__c = 1;
+        dfTab.dyfr__Template__c = dfTemplate.Id;
+        return dfTab;
+	}
+	
+	/**
+  * Dynamic form field config record
+  */
+	public static dyfr__Field_Config__c createDfFieldConfig(dyfr__Tab__c dfTab) {
+        final dyfr__Field_Config__c fieldConfig = new dyfr__Field_Config__c();
+        fieldConfig.dyfr__Tab__c = dfTab.Id;
+        return fieldConfig;
+	}
+	
+	/**
+  * Dynamic form dependent value record
+  */
+	public static dyfr__Dependent_value__c createDfFieldConfig(dyfr__Field_Config__c fieldConfig) {
+        final dyfr__Dependent_value__c depedentValue = new dyfr__Dependent_value__c();
+        depedentValue.dyfr__Field_Config__c = fieldConfig.Id;
+        depedentValue.dyfr__LoV_labels__c = 'value 1,value 2,value 3';
+        depedentValue.dyfr__LoV_values__c = 'value 1,value 2,value 3';
+        return depedentValue;
+	}
 }

@@ -3,10 +3,14 @@
  * @Description: Trigger de Ejecucion User
  * @Create by: Jose Rodriguez
  *
- * V0-Creacion
+   @Changes
+   Date        Author   Email                  				Type
+   2019-06-15  JERP     jose.rodriguez.paredes@bbva.com		Creation
+   2020-06-04  MAMC     martin.mori.contractor@bbva.com		Update (add AsignAfterInsertTest, AsignAfterUpdateTest and setEquivalentValuesTest methods)
  */
 @isTest(seeAllData = false)
 private class User_Trigger_Test {
+	/*static variable*/
 	static List<User> users;
 	/*
 	 * @Name: static var
@@ -14,17 +18,55 @@ private class User_Trigger_Test {
 	 * @author Jose Rodriguez
 	 */
 	static { users = new List<User>([SELECT Id, Name, unique_id__c, organizational_unit_id__c, organizational_unit_name__c, prof_position_type__c, isactive FROM User where isactive = true and profile.name in('Ejecutivo', 'Especialista', 'Operativo', 'Analista') limit 50]); }
-	
-    /*
+
+	/*Setup Data*/
+	@TestSetup
+	public static void setUp() {
+		final List<String> sObjNames = new List<String> {'acpl__Account_Planning__c'};
+		final Map<String, Schema.RecordTypeInfo> recordType = BE_General_Utils.getRecordTypeInfo(sObjNames);
+
+		final User userOwner = TestFactory.createUser('userExecutiveOwner', 'Ejecutivo');
+		final User userBranch = TestFactory.createUser('userExecutiveBranch', 'Ejecutivo');
+		final Account acc = TestFactory.createAccount();
+
+		final acpl__Account_Planning__c accPlan = new acpl__Account_Planning__c();
+		accPlan.recordTypeId = recordType.get('Account_Planning').getRecordTypeId();
+		accPlan.Name = 'Account_Planning Test';
+		accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = true;
+		accPlan.acpl__gf_ap_limit_date__c = System.today().addDays(90);
+		accPlan.acpl__gf_ap_status_type_name__c = 'Not started';
+		accPlan.acpl__participant_id__c = acc.Id;
+		accPlan.acpl__proposal_manager_id__c = userOwner.Id;
+		insert accPlan;
+
+		final bupl__BusinessPlan__c bussPlan = new bupl__BusinessPlan__c();
+		bussPlan.Name = 'Plan de Negocio AP_RECORD_102';
+		bussPlan.bupl__gf_ap_public_ind_type__c = false;
+		bussPlan.bupl__gf_business_growth_rec_number__c = 1;
+		bussPlan.bupl__status_type__c = 'Not started';
+		bussPlan.acpl__gf_account_planning_id__c = accPlan.id;
+		insert bussPlan;
+
+		final bupl__AP_Team__c apTeam = new bupl__AP_Team__c();
+		apTeam.Name = 'BRUNELLA MARIA MELLO CROSBY MELLO CROSBY';
+		apTeam.bupl__gf_ap_team_role_user_name__c = 'Gestor del Plan';
+		apTeam.bupl__gf_ap_team_user_id__c = userBranch.Id;
+		apTeam.bupl__gf_business_plan_id__c = bussPlan.Id;
+		apTeam.acpl__gf_account_planning_id__c = accPlan.Id;
+		apTeam.account_planning_Owner__c = true;
+		insert apTeam;
+	}
+
+	/*
 	 * @Name: AsignBeforeInsert
 	 * @Description: Ejecuta el trigger de usuarios al insertar.
 	 * @author Jose Rodriguez
 	 */
 	@isTest
-	static void AsignBeforeInsert() {
-		String userName = 'usuario.salesforce';
-		User userToInsert = new User();
-		Double random = Math.random();
+	static void asignBeforeInsert() {
+		final String userName = 'usuario.salesforce';
+		final User userToInsert = new User();
+		final Double random = Math.random();
 		userToInsert.Username = userName + 'u2@u.com.u' + random;
 		userToInsert.LastName = userName + 'uLast2';
 		userToInsert.Email = userName + 'u2@u.com';
@@ -33,7 +75,7 @@ private class User_Trigger_Test {
 		userToInsert.IsActive = true;
 		userToInsert.LocaleSidKey = 'en_US';
 		userToInsert.EmailEncodingKey = 'ISO-8859-1';
-		List<Profile> prof = new List<Profile>([SELECT Id, Name FROM Profile where Name = 'Ejecutivo']);
+		final List<Profile> prof = new List<Profile>([SELECT Id, Name FROM Profile where Name = 'Ejecutivo']);
 		userToInsert.ProfileId =  prof[0].Id;
 		userToInsert.LanguageLocaleKey = 'es';
 		userToInsert.Unique_id__c = 'p088888';
@@ -47,19 +89,127 @@ private class User_Trigger_Test {
 		System.assert (exito, 'exito');
 		Test.stopTest();
 	}
-	
-    /*
+	/*
 	 * @Name: AsignBeforeUpdate
 	 * @Description: Ejecuta el trigger de usuarios al hacer update.
 	 * @author Jose Rodriguez
 	 */
 	@isTest
-	static void AsignBeforeUpdate() {
+	static void asignBeforeUpdate() {
 		boolean exito = false;
 		Test.startTest();
 		update(users);
 		exito = true;
 		System.assert (exito, 'exito');
+		Test.stopTest();
+	}
+
+	/*
+	 * @Name: AsignAfterInsert
+	 * @Description: call to AssigmentPermissionValidationAP_cls class after create user with prof_position_id__c = 'E01'
+	 * @author Martin Mori
+	 */
+	@isTest
+	static void asignAfterInsertTest() {
+		final String userName = 'usuario.salesforce';
+		final User userToInsert = new User();
+		final Double random = Math.random();
+		userToInsert.Username = userName + 'u2@u.com.u' + random;
+		userToInsert.LastName = userName + 'uLast2';
+		userToInsert.Email = userName + 'u2@u.com';
+		userToInsert.Alias = String.valueOf(random).substring(0, 3) + 'uAas2';
+		userToInsert.TimeZoneSidKey = 'America/Mexico_City';
+		userToInsert.IsActive = true;
+		userToInsert.LocaleSidKey = 'en_US';
+		userToInsert.EmailEncodingKey = 'ISO-8859-1';
+		final List<Profile> prof = new List<Profile>([SELECT Id, Name FROM Profile where Name = 'Ejecutivo']);
+		userToInsert.ProfileId =  prof[0].Id;
+		userToInsert.LanguageLocaleKey = 'es';
+		userToInsert.Unique_id__c = 'p088888';
+		userToInsert.organizational_unit_id__c = '00027902';
+		userToInsert.organizational_unit_name__c = 'BIBEC PERU';
+		userToInsert.prof_position_type__c = 'LEVEL C';
+		userToInsert.prof_position_id__c = 'E01';
+		Test.startTest();
+		insert userToInsert;
+		final List<PermissionSet> validationPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
+		Boolean permisSionAP = false;
+		if(validationPermission.size() != 0) {
+			permisSionAP = true;
+		} else   {
+			permisSionAP = false;
+		}
+		System.assert (permisSionAP, 'success!');
+		Test.stopTest();
+	}
+
+	/*
+	 * @Name: AsignAfterUpdate
+	 * @Description: call to AssigmentPermissionValidationAP_cls class after create user with prof_position_id__c = 'E01'
+	 * @author Martin Mori
+	 */
+	@isTest
+	static void asignAfterUpdateTest() {
+		final bupl__AP_Team__c apTeam = [SELECT Id, bupl__gf_ap_team_user_id__c FROM bupl__AP_Team__c LIMIT 1][0];
+
+		final User userTest1 = new User(Id = apTeam.bupl__gf_ap_team_user_id__c);
+		userTest1.isActive = false;
+		update userTest1;
+		final User userTest2 = new User(Id = apTeam.bupl__gf_ap_team_user_id__c);
+		userTest2.isActive = true;
+		userTest2.prof_position_id__c = 'E01';
+
+		Test.startTest();
+		update userTest2;
+		final List<PermissionSet> validationPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
+		Boolean permisSionAP;
+		if(validationPermission.size() != 0) {
+			permisSionAP = true;
+		} else   {
+			permisSionAP = false;
+		}
+		System.assert (permisSionAP, 'success!');
+		Test.stopTest();
+	}
+
+	/*
+	 * @Name: setEquivalentValuesTest method
+	 * @Description: call to setEquivalentValuesTest method when user is created to migracion
+	 * @author Martin Mori
+	 */
+	@isTest
+	static void setEquivalentValuesTest() {
+		final User userExecutive = TestFactory.createUser('userExecutiveOwner', 'Migracion');
+		Test.startTest();
+		System.runAs(userExecutive) {
+			final String userName = 'usuario.salesforce';
+			final User userToInsert = new User();
+			final Double random = Math.random();
+			userToInsert.Username = userName + 'u2@u.com.u' + random;
+			userToInsert.LastName = userName + 'uLast2';
+			userToInsert.Email = userName + 'u2@u.com';
+			userToInsert.Alias = String.valueOf(random).substring(0, 3) + 'uAas2';
+			userToInsert.TimeZoneSidKey = 'America/Mexico_City';
+			userToInsert.IsActive = true;
+			userToInsert.LocaleSidKey = 'en_US';
+			userToInsert.EmailEncodingKey = 'ISO-8859-1';
+			final List<Profile> prof = new List<Profile>([SELECT Id, Name FROM Profile where Name = 'Ejecutivo']);
+			userToInsert.ProfileId =  prof[0].Id;
+			userToInsert.LanguageLocaleKey = 'es';
+			userToInsert.Unique_id__c = 'p088888';
+			userToInsert.organizational_unit_id__c = '00027902';
+			userToInsert.organizational_unit_name__c = 'BIBEC PERU';
+			userToInsert.prof_position_type__c = 'LEVEL C';
+			userToInsert.prof_position_id__c = 'E01';
+			insert userToInsert;
+			Boolean successInsert;
+			if(userToInsert.Id != null) {
+				successInsert = true;
+			} else {
+				successInsert = false;
+			}
+			System.assert (successInsert, 'success!');
+		}
 		Test.stopTest();
 	}
 }

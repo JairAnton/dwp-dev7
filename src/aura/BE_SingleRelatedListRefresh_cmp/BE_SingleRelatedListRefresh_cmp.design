@@ -1,0 +1,6 @@
+<design:component label="Single Related List Aura">
+    <design:attribute name="title" label="Title" />
+    <design:attribute name="iconName" label="Icon Name" />
+    <design:attribute name="relListSet" label="Metadata Developer Name" datasource="apex://BE_SingleRelatedListSetting_Cls" required="true"/>
+    <design:attribute name="relListType" label="Table mode" datasource="Basic,Enhaced,Title,Default" default="Basic" required="true"/>
+</design:component>

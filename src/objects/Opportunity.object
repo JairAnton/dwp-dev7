@@ -459,6 +459,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>commercial_plan_event__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Plan comercial</label>
+        <referenceTo>acpl__Commercial_Plan_Event__c</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>devolutionReason__c</fullName>
         <description>Razón de devolución de una oportunidad en etapa de formalización</description>
         <externalId>false</externalId>

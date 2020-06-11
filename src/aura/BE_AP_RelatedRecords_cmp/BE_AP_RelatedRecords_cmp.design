@@ -1,0 +1,8 @@
+<design:component label="Related Records to AP">
+    <design:attribute name="title" label="Title" />
+    <design:attribute name="iconName" label="Icon Name" />
+    <design:attribute name="relListSet" label="Metadata Developer Name" datasource="apex://BE_SingleRelatedListSetting_Cls" required="true"/>
+    <design:attribute name="replaceId" label="Replace Id" />
+    <design:attribute name="refresh" label="Refresh on save" />
+    <design:attribute name="relListType" label="Table mode" datasource="Basic,Enhaced,Title,Default" default="Basic" required="true"/>
+</design:component>

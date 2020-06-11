@@ -1,0 +1,8 @@
+<design:component>
+    <design:attribute name="currentSObjectType" label="SObject in Page" required="true" description="Put ApiName of SObject in current page"/>
+    <design:attribute name="fieldName" label="FieldName value to redirect" description="Put FieldName value to redirect to"/>
+    <design:attribute name="redirectSObjectType" label="SObject redirect Page" required="true" description="Put ApiName of SObject page to redirect"/>
+	<design:attribute name="exceptionProfile" label="Exception Profiles" description="Put profiles names separated by commas"/>
+    <design:attribute name="exceptionUsers" label="Exception Users" description="Put user code separated by commas"/>
+    <design:attribute name="redirectInFieldNull" label="Redirect in null value" description="Redirect to Home Tab when fieldName is null"/>
+</design:component>

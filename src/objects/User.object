@@ -149,7 +149,9 @@
     </fields>
     <fields>
         <fullName>user_id__c</fullName>
+        <caseSensitive>false</caseSensitive>
         <description>this field is used as external code for the user</description>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>true</externalId>
         <label>User code</label>
         <length>20</length>

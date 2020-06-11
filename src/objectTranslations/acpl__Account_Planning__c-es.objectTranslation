@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Plan de cuenta</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Planes de cuentas</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Planning Administration --></label>
+        <name>Account_Planning_Administration__c</name>
+    </fields>
+    <fields>
+        <label>Estrategia de la compañía</label>
+        <name>Strategic_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group has PF --></label>
+        <name>acpl__Group_has_PF__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Required by (area) --></label>
+        <name>acpl__business_area_desc__c</name>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>acpl__country_id__c</name>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Account Planning external id --></label>
+        <name>acpl__external_reference_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Due Date (Deprecated) --></label>
+        <name>acpl__gf_account_planning_limit_date__c</name>
+    </fields>
+    <fields>
+        <label>Tipo</label>
+        <name>acpl__gf_account_planning_name__c</name>
+        <picklistValues>
+            <masterLabel>Full</masterLabel>
+            <translation><!-- Full --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Light</masterLabel>
+            <translation><!-- Light --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Event date (Deprecated) --></label>
+        <name>acpl__gf_acct_plan_edit_event_date__c</name>
+    </fields>
+    <fields>
+        <label>Guía de Plan de negocio</label>
+        <name>acpl__gf_ap_bus_pl_guide_desc__c</name>
+    </fields>
+    <fields>
+        <label>Guía de Plan comercial</label>
+        <name>acpl__gf_ap_comm_plan_guide_desc__c</name>
+    </fields>
+    <fields>
+        <label>Desbloquear plan de cuenta</label>
+        <name>acpl__gf_ap_indvi_lock_edit_ind_type__c</name>
+    </fields>
+    <fields>
+        <label>Tipo de lanzamiento</label>
+        <name>acpl__gf_ap_launch_name__c</name>
+        <picklistValues>
+            <masterLabel>Automatic</masterLabel>
+            <translation>Automatico</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event driven</masterLabel>
+            <translation><!-- Event driven --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General period</masterLabel>
+            <translation>Período general</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Period by priority</masterLabel>
+            <translation>Período por prioridad</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Período de lanzamiento</label>
+        <name>acpl__gf_ap_launch_period_desc__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de vencimiento</label>
+        <name>acpl__gf_ap_limit_date__c</name>
+    </fields>
+    <fields>
+        <label>Pre-validación requerida</label>
+        <name>acpl__gf_ap_prev_validated_ind_type__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation>No</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation>Sí</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Prioridad</label>
+        <name>acpl__gf_ap_priority_type_name__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation>Alta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation>Media</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation>Baja</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Plan de negocio público</label>
+        <name>acpl__gf_ap_public_ind_type__c</name>
+    </fields>
+    <fields>
+        <label>Número de preguntas</label>
+        <name>acpl__gf_ap_question_form_number__c</name>
+    </fields>
+    <fields>
+        <label>Validación requerida</label>
+        <name>acpl__gf_ap_req_validation_ind_type__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation>No</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation>Sí</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Estado</label>
+        <name>acpl__gf_ap_status_type_name__c</name>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation>En progreso</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not started</masterLabel>
+            <translation>No iniciado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Validation</masterLabel>
+            <translation>Pendiente de validación</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validated</masterLabel>
+            <translation>Validado</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Guía de Análisis estratégico</label>
+        <name>acpl__gf_ap_strat_anlys_guide_desc__c</name>
+    </fields>
+    <fields>
+        <label>Sub-estado</label>
+        <name>acpl__gf_ap_substatus_type_name__c</name>
+        <picklistValues>
+            <masterLabel>AP team invited</masterLabel>
+            <translation>Equipo invitado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP team not invited</masterLabel>
+            <translation>Equipo no invitado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation>Expirado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In place</masterLabel>
+            <translation>Hecho</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not started</masterLabel>
+            <translation>No iniciado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending pre-validation</masterLabel>
+            <translation>Pendiente de pre-validación</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending review</masterLabel>
+            <translation>Pendiente de revisión</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending validation</masterLabel>
+            <translation>Pendiente de validación</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-validated</masterLabel>
+            <translation>Pre-validado</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Plan validado</label>
+        <name>acpl__gf_ap_validated_ind_type__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de validación</label>
+        <name>acpl__gf_ap_validation_date__c</name>
+    </fields>
+    <fields>
+        <label>Validador asignado</label>
+        <name>acpl__gf_ap_validator_user_id__c</name>
+        <relationshipLabel><!-- Account Plannings (Assigned Validator) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Planning Counter --></label>
+        <name>acpl__gf_counter_number__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de evento</label>
+        <name>acpl__gf_event_date__c</name>
+    </fields>
+    <fields>
+        <label>Requerido</label>
+        <name>acpl__gf_mandatory_type__c</name>
+        <picklistValues>
+            <masterLabel>Mandatory</masterLabel>
+            <translation>Obligatorio</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Optional</masterLabel>
+            <translation>Opcional</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Country of Management --></label>
+        <name>acpl__management_country_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Frequency (months) --></label>
+        <name>acpl__month_number__c</name>
+    </fields>
+    <fields>
+        <label>Cliente</label>
+        <name>acpl__participant_id__c</name>
+        <relationshipLabel>Planes de cuentas</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Gestor del plan</label>
+        <name>acpl__proposal_manager_id__c</name>
+        <relationshipLabel><!-- Account Plannings (Global Banker) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Segmento --></label>
+        <name>segment_desc__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Plan de cuenta</nameFieldLabel>
+    <recordTypes>
+        <label><!-- Account Planning --></label>
+        <name>acpl__Account_Planning</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Question Catalog --></label>
+        <name>acpl__Question_Catalog</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- No puede cambiar al propietario del plan de cuenta. --></errorMessage>
+        <name>Change_Owner</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Los campos cliente, fecha de vencimiento y gestor son obligatorios --></errorMessage>
+        <name>Validate_Fields</name>
+    </validationRules>
+</CustomObjectTranslation>

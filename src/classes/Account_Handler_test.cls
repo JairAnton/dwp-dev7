@@ -14,35 +14,33 @@ public class Account_Handler_test {
 	//Setup data.
 	@testSetup
 	static void setupData() {
-		//Create Owner Account
-		Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object>();
+		//Obtenemos el perfil Ejecutivo
 		Final String perfil = [SELECT Id FROM Profile WHERE name = 'Ejecutivo'].Id;
-		mapFields.put(User.LastName, 'OwnerVisit');
-		mapFields.put(User.ProfileId, perfil);
-		mapFields.put(User.prof_position_type__c, 'EJECUTIVO BEC');
+		//Create Owner Account
+		Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {User.LastName => 'OwnerVisit', User.ProfileId => perfil,
+			                                                                               User.prof_position_type__c => 'EJECUTIVO BEC'};
 		Final User userOwner = getUser(true, mapFields);
 		//Create new User
-		mapFields = new Map<Schema.SObjectField, Object>();
-		mapFields.put(User.LastName, 'SecondOwner');
-		mapFields.put(User.ProfileId, perfil);
-		mapFields.put(User.prof_position_type__c, 'EJECUTIVO BEC');
+		mapFields = new Map<Schema.SObjectField, Object> {User.LastName => 'SecondOwner', User.ProfileId => perfil,
+			                                              User.prof_position_type__c => 'EJECUTIVO BEC'};
 		getUser(true, mapFields);
 		//Create Branches.
-		List<Branch__c> lstBranches = new List<Branch__c>();
+		Final List<Branch__c> lstBranches = new List<Branch__c>();
 		for(Integer intI = 0; intI < 5; intI++) {
 			lstBranches.add(new Branch__c(Name = 'Oficina ' + intI));
 		}
 		insert lstBranches;
 		//Create Accounts.
-		List<Account> lstAccounts = new List<Account>();
-		for(Integer intI = 0; intI < 200; intI++) {
+		Final List<Account> lstAccounts = new List<Account>();
+		for(Integer intI = 0; intI < 20; intI++) {
 			lstAccounts.add(new Account(Name = 'AccountName ' + intI, Branch_id__c = lstBranches[0].Id, OwnerId = userOwner.Id));
 		}
 		insert lstAccounts;
 
-		//Create custom settings
+		//Create custom settings for Visit
 		Final dwp_kitv__Visit_validations_acc_cs__c[] lstCsValidation = new dwp_kitv__Visit_validations_acc_cs__c[] {};
-		Final dwp_kitv__Visit_validations_acc_cs__c csValidation = new dwp_kitv__Visit_validations_acc_cs__c(SetupOwnerId = UserInfo.getOrganizationId(), dwp_kitv__User_Team_Member__c = true);
+		Final dwp_kitv__Visit_validations_acc_cs__c csValidation = new dwp_kitv__Visit_validations_acc_cs__c(SetupOwnerId = UserInfo.getOrganizationId(),
+		                                                                                                     dwp_kitv__User_Team_Member__c = true);
 		lstCsValidation.add(csValidation);
 		insert lstCsValidation;
 	}
@@ -122,7 +120,7 @@ public class Account_Handler_test {
 
 	/*Test Update Owner in VMT*/
 	@isTest
-	public static void updateOwnerVisitVisitTeam() {
+	public static void updateOwnerVisitTeam() {
 		//get Owner
 		Final User oldOwner = [SELECT Id, isActive, prof_position_type__c, Name FROM User WHERE LastName LIKE '%OwnerVisit%' limit 1];
 
@@ -132,7 +130,7 @@ public class Account_Handler_test {
 		Final User newOwner = getUser(true, mapFields);
 
 		//get Accounts
-		List<Account> lstNewOwnsAcc = [SELECT Id, OwnerId, Name FROM Account WHERE OwnerId =:oldOwner.Id limit 40];
+		List<Account> lstNewOwnsAcc = [SELECT Id, OwnerId, Name FROM Account WHERE OwnerId =:oldOwner.Id limit 20];
 
 		//Create Visit for each account
 		System.runAs(oldOwner) {
@@ -146,7 +144,7 @@ public class Account_Handler_test {
 			insert lstVisit;
 
 			Final dwp_kitv__Visit_Management_Team__c[] lstVMT = new dwp_kitv__Visit_Management_Team__c[] {};
-			for(Integer i = 0; i < 40; i++) {
+			for(Integer i = 0; i < 20; i++) {
 				lstVMT.add(new dwp_kitv__Visit_Management_Team__c(dwp_kitv__visit_id__c = lstVisit[i].Id, dwp_kitv__user_id__c = newOwner.Id));
 				if(i < 10) {
 					lstVisit[i].dwp_kitv__visit_status_type__c = '06';
@@ -168,7 +166,7 @@ public class Account_Handler_test {
 		                                                        dwp_kitv__Visit_Management_Team__c WHERE dwp_kitv__user_id__c =:newOwner.Id AND
 		                                                                                                                            (dwp_kitv__visit_id__r.report_visit_status_type__c = 'No realizada' OR
 		                                                                                                                                                                                 dwp_kitv__visit_id__r.report_visit_status_type__c = 'Pendiente de feedback')];
-		System.assertEquals(30, visitTeam.size(), 'Compared VMT new owner size');
+		System.assertEquals(10, visitTeam.size(), 'Compared VMT new owner size');
 	}
 
 	/*Test Update Branch in Visit Object*/
@@ -182,8 +180,7 @@ public class Account_Handler_test {
 		insert newBranch;
 
 		//Create Visit's
-		List<Account> lstAcc = [SELECT Id, Name, Branch_id__c, OwnerId FROM Account WHERE OwnerId =:owner.Id limit 80];
-		system.debug('lstAcc ' + lstAcc);
+		List<Account> lstAcc = [SELECT Id, Name, Branch_id__c, OwnerId FROM Account WHERE OwnerId =:owner.Id limit 20];
 		System.runAs(owner) {
 			dwp_kitv__Visit__c visita;
 			List<dwp_kitv__Visit__c> lstVisit = new List<dwp_kitv__Visit__c>();
@@ -194,8 +191,8 @@ public class Account_Handler_test {
 				lstVisit.add(visita);
 			}
 			insert lstVisit;
-			//End 50 Visit
-			for(Integer i = 0; i < 40; i++) {
+			//End 10 Visit
+			for(Integer i = 0; i < 10; i++) {
 				lstVisit[i].dwp_kitv__visit_status_type__c = '06';
 			}
 			update lstVisit;
@@ -205,12 +202,39 @@ public class Account_Handler_test {
 		for(Account acc:lstAcc) {
 			acc.Branch_id__c = newBranch.Id;
 		}
-		lstAcc[40].OwnerId = newOwner.Id;
+		lstAcc[10].OwnerId = newOwner.Id;
 		update lstAcc;
 		Test.stopTest();
 
 		Final dwp_kitv__Visit__c[] visitasAct = [SELECT id, Name FROM dwp_kitv__Visit__c WHERE dwp_branch_id__c =:newBranch.Id];
-		System.assertEquals(40, visitasAct.size(), 'Compared Visit Size');
+		System.assertEquals(10, visitasAct.size(), 'Compared Visit Size');
+	}
+
+	/*Test Change Gestor for AP*/
+	@isTest
+	public static void updateAPMainGestor() {
+		User[] lstUser = [SELECT Id FROM User WHERE LastName Like '%Owner%' LIMIT 2];
+		Account[] lstAcc = [SELECT Id FROM Account LIMIT 20];
+		//Create AP's
+		Final acpl__Account_Planning__c[] lstAP = new acpl__Account_Planning__c[] {};
+		for(Account acc:lstAcc) {
+			lstAP.add(TestFactory.createAccountPlanning(acc.Id, lstUser[0].Id, null, true));
+		}
+		insert lstAP;
+		bupl__AP_Team__c[] lstAPT = new bupl__AP_Team__c[] {};
+		for(acpl__Account_Planning__c ap:lstAP) {
+			lstAPT.add(new bupl__AP_Team__c(bupl__gf_ap_team_user_id__c = lstUser[1].Id, acpl__gf_account_planning_id__c = ap.Id,
+			                                account_planning_Owner__c = false, bupl__gf_ap_team_role_user_name__c = 'Acompanante'));
+		}
+		insert lstAPT;
+		Test.startTest();
+		for(Account acc:lstAcc) {
+			acc.OwnerId = lstUser[1].Id;
+		}
+		update lstAcc;
+		Test.stopTest();
+		bupl__AP_Team__c[] resultAPT = [SELECT Id FROM bupl__AP_Team__c WHERE bupl__gf_ap_team_user_id__c =: lstUser[1].Id AND account_planning_Owner__c = true];
+		System.assertEquals(20, resultAPT.size(), 'Fail Assert');
 	}
 
 	/*Create User Data*/
