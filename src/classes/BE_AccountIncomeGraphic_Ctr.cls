@@ -1,7 +1,28 @@
+/**
+   -------------------------------------------------------------------------------------------------
+   @Name <BE_AccountIncomeGraphic_Ctr>
+   @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
+   @Date 2020-06-10
+   @Description controller for BE_AccountIncomeGraphic_Lwc component
+   @Changes
+   Date        Author   Email                               Type
+   2020-06-10  MAMC     martin.mori.contractor@bbva.com     Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public with sharing class BE_AccountIncomeGraphic_Ctr {
+    /**
+     @Description constructor of class
+    */
+    private BE_AccountIncomeGraphic_Ctr() {
+    }
+
+    /**
+     @Description return a data of graphic
+     @return a map<String, map<Integer, Decimal>> with data of graphic.
+    */
 	@AuraEnabled(cacheable = true)
 	public static map<String, map<Integer, Decimal>> getAvgMthBal(Id recordId) {
-		map<String, map<Integer, Decimal>> years = new map<String, map<Integer, Decimal>>();
+		final map<String, map<Integer, Decimal>> years = new map<String, map<Integer, Decimal>>();
 		String key;
 		String oldkey;
 		map<Integer, Decimal> months;
@@ -24,7 +45,7 @@ public with sharing class BE_AccountIncomeGraphic_Ctr {
 			}
 			if(months.containsKey(item.gf_income_movement_date__c.month())) {
 				months.put(item.gf_income_movement_date__c.month(), months.get(item.gf_income_movement_date__c.month()) + item.gf_income_amount__c);
-			} else   {
+			} else {
 				months.put(item.gf_income_movement_date__c.month(), item.gf_income_amount__c);
 				numMth++;
 			}
@@ -32,7 +53,11 @@ public with sharing class BE_AccountIncomeGraphic_Ctr {
 		years.put(key, months);
 		return years;
 	}
-
+    
+    /**
+     @Description return report
+     @return a List<Object> with report.
+    */
 	@AuraEnabled(cacheable = true)
 	public static List<Object> findReport(String developerName) {
 		return [SELECT Id, Name FROM Report WHERE DeveloperName =: developerName LIMIT 1];

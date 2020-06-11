@@ -9,7 +9,7 @@ import labelViewReport from '@salesforce/label/c.BE_ViewReport';
 import labelAvgMthBal from '@salesforce/label/c.BE_AvgMonthlyBalance';
 import LANG from '@salesforce/i18n/lang';
 
-export default class BE_AccountIncomeGraphic_Lwc extends NavigationMixin(LightningElement) {
+export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(LightningElement) {
     lang = LANG;
     @api recordId;
     @track error;
@@ -25,35 +25,19 @@ export default class BE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
     maxValue = 100;
     @wire(findReport, { developerName: 'BE_Average_monthly_balance_Tmi' })
     wiredReport({ error, data }) {
-        if (data && data!==null && data!=='undefined' && data.length > 0) {
+        if (data && data!=null && data!='undefined' && data.length > 0) {
             this.wiredReportId = data[0].Id;
         } else if (error) {
             this.wiredReportId = '';
         }
     }
-
     @wire(getAvgMthBal, { recordId: '$recordId' })
     wiredResult(value) {
         if(value) {
-            debugger;
             this.wiredData = value;
             const { data, error } = value;
             if (data) {
-                this.mapData = data;
-                this.labelData = Object.keys(this.mapData);
-                for(var i in this.mapData) {
-                    for(var j in this.mapData[i]) {
-                        if(this.maxValue < this.mapData[i][j]) {
-                            this.maxValue = this.mapData[i][j];
-                        }
-                    }
-                }
-                if(this.mapData!==null && this.mapData!=='undefined' && Object.keys(this.mapData).length > 0){
-                    this.buildChart();
-                } else {
-                    this.cssDisplay = "slds-hidden";
-                    this.error = 'No hay data disponible';
-                }
+                createMap(data);
             } else if(error) {
                 this.cssDisplay = "slds-hidden";
                 this.error = 'No hay data disponible';
@@ -65,7 +49,25 @@ export default class BE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
             this.cssDisplay = "slds-hidden";
         }
     }
-    
+    createMap(data) {
+        this.mapData = data;
+        this.labelData = Object.keys(this.mapData);
+        notEmpty = false;
+        for(var i in this.mapData) {
+            for(var j in this.mapData[i]) {
+                notEmpty = true;
+                if(this.maxValue < this.mapData[i][j]) {
+                    this.maxValue = this.mapData[i][j];
+                }
+            }
+        }
+        if(notEmpty){
+            this.buildChart();
+        } else {
+            this.cssDisplay = "slds-hidden";
+            this.error = 'No hay data disponible';
+        }
+    }
     buildChart() {
         var MONTHS = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Aug', 'Set', 'Oct', 'Nov', 'Dic'];
         var config = {
@@ -154,12 +156,10 @@ export default class BE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
                 }
             }
         };
-
         if (this.chartjsInitialized) {
             return;
         }
         this.chartjsInitialized = true;
-
         loadScript(this, chart)
             .then(() => {
                 const canvas = document.createElement('canvas');
@@ -175,25 +175,21 @@ export default class BE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
             });
         this.cssDisplay = "slds-hidden";
     }
-
     connectedCallback(){
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
         var d = new Date();
         this.lastRun = d.toLocaleString(this.lang, options);
     }
-
     handleClick(e) {
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
         var d = new Date();
         this.lastRun = d.toLocaleString(this.lang, options);
-
         this.cssDisplay = "slds-visible";
         refreshApex(this.wiredData);
         this.chartjsInitialized = false;
         this.chart.update();
         this.cssDisplay = "slds-hidden";
     }
-
     navigateToReport(){
         const filterValues = JSON.stringify([{
             column: 'ACCOUNT_ID',
@@ -201,7 +197,6 @@ export default class BE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
             operator: 'equals',
             isContextFilter: true
         }]);
-        
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
