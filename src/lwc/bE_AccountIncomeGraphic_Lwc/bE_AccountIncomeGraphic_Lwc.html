@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-box">
+        <lightning-spinner class={cssDisplay} id="spinnerId" alternative-text="Loading" size="medium"></lightning-spinner>
+        <div class="slds-text-title_bold slds-text-align_center">
+            {label.labelAvgMthBal}
+        </div>
+        <div class="chart slds-m-around_medium" lwc:dom="manual"></div>
+        <template if:true={error}>
+            {error}
+        </template>
+        <div class="slds-grid slds-grid--vertical-align-center">
+            <div class="slds-col slds-size_1-of-2 slds-text-align_left">
+                <a class="slds-card__footer-action" href="javascript:void(0);" onclick={navigateToReport}>{label.labelViewReport}
+                    <span class="slds-assistive-text">{label.labelViewReport}</span>
+                </a>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                <span class="asOfDateCustom">{lastRun}</span>&nbsp;&nbsp;<lightning-button-icon icon-name="utility:refresh" variant="bare" alternative-text="refresh" onclick={handleClick}></lightning-button-icon>
+            </div>
+        </div>
+    </div>
+</template>

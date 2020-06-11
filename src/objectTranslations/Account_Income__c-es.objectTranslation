@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Income</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Incomes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Month --></label>
+        <name>Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Period --></label>
+        <name>Period__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type Label --></label>
+        <name>Type_Label__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Account Incomes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>gf_income_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Income Date --></label>
+        <name>gf_income_movement_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>gf_income_type__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Ingreso Manual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Ingreso Automático</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Saldo Medio Anual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Saldo Medio Mensual</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Number --></label>
+        <name>product_service_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <gender>Masculine</gender>
+</CustomObjectTranslation>
