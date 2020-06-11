@@ -58,7 +58,7 @@ public without sharing class BE_AccountIncomeGraphic_Tst {
     */
     @IsTest(SeeAllData='true')
     static void findReportTest() {
-        final String reportDev;
+        String reportDev;
         for(Report rep : [SELECT DeveloperName FROM Report LIMIT 1]) {
             reportDev = rep.DeveloperName;
         }

@@ -25,7 +25,7 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
     maxValue = 100;
     @wire(findReport, { developerName: 'BE_Average_monthly_balance_Tmi' })
     wiredReport({ error, data }) {
-        if (data && data!=null && data!='undefined' && data.length > 0) {
+        if (data) {
             this.wiredReportId = data[0].Id;
         } else if (error) {
             this.wiredReportId = '';
