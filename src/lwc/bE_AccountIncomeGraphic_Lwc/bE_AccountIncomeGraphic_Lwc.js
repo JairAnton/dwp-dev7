@@ -52,7 +52,7 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
     createMap(data) {
         this.mapData = data;
         this.labelData = Object.keys(this.mapData);
-        notEmpty = false;
+        var notEmpty = false;
         for(var i in this.mapData) {
             for(var j in this.mapData[i]) {
                 notEmpty = true;
