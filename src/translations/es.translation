@@ -1872,6 +1872,14 @@
         <label> Participante(s) agregado correctamente</label>
         <name>dwp_kitv__MngrAttendeeToastMessage</name>
     </customLabels>
+	<customLabels>
+        <label>Ver Informe</label>
+        <name>BE_ViewReport</name>
+    </customLabels>
+	<customLabels>
+        <label>Saldo medio mensual</label>
+        <name>BE_AvgMonthlyBalance</name>
+    </customLabels>
     <customTabs>
         <label>No clientes</label>
         <name>nonc__Prospects</name>

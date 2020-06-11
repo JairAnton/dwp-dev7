@@ -628,6 +628,14 @@
         <label><!-- BE_ExpiredContracts --></label>
         <name>BE_ExpiredContracts</name>
     </customLabels>
+	<customLabels>
+        <label><!-- BE_ViewReport --></label>
+        <name>BE_ViewReport</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- BE_AvgMonthlyBalance --></label>
+        <name>BE_AvgMonthlyBalance</name>
+    </customLabels>
     <customTabs>
         <label><!-- Prospects --></label>
         <name>nonc__Prospects</name>

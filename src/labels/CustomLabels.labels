@@ -2346,4 +2346,18 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>BE_UnpaidContracts</shortDescription>
         <value>Current and unpaid contracts</value>
     </labels>
+	<labels>
+        <fullName>BE_AvgMonthlyBalance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_AvgMonthlyBalance</shortDescription>
+        <value>Average monthly balance</value>
+    </labels>
+	<labels>
+        <fullName>BE_ViewReport</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ViewReport</shortDescription>
+        <value>View Report</value>
+    </labels>
 </CustomLabels>
