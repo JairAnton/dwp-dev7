@@ -8,6 +8,20 @@
         <value>Para {0} este plan de cuenta, debe hacerlo a tráves de la petición del gestor.</value>
     </labels>
     <labels>
+        <fullName>AP_CantAddExistingUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_CantAddExistingUser</shortDescription>
+        <value>No puede agregar a un miembro ya existente en el equipo.</value>
+    </labels>
+    <labels>
+        <fullName>AP_CantDeleteItSelfAPT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_CantDeleteItSelfAPT</shortDescription>
+        <value>No puede eliminar su propio registro como miembro.</value>
+    </labels>
+    <labels>
         <fullName>AP_ChangeValidatorOutPetition</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -43,11 +57,39 @@
         <value>No puede asignar otro validador a este plan de cuenta.</value>
     </labels>
     <labels>
+        <fullName>AP_MainGestorAddGestors</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_MainGestorAddGestors</shortDescription>
+        <value>Solo el gestor principal puede eliminar otros gestores.</value>
+    </labels>
+    <labels>
+        <fullName>AP_OnlyGestorAddMembers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_OnlyGestorAddMembers</shortDescription>
+        <value>Solo los gestores pueden agregar miembros al equipo.</value>
+    </labels>
+    <labels>
+        <fullName>AP_OnlyGestorsDeleteMembers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_OnlyGestorsDeleteMembers</shortDescription>
+        <value>Solo los gestores pueden eliminar miembros en el equipo.</value>
+    </labels>
+    <labels>
         <fullName>AP_UnableToReturnAPUnassigned</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AP_UnableToReturnAPUnassigned</shortDescription>
         <value>No puede devolver un plan de cuenta que no tiene asignado.</value>
+    </labels>
+    <labels>
+        <fullName>AP_UserCantAddGestor</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_UserCantAddGestor</shortDescription>
+        <value>Solo el gestor principal puede asignar otro gestor al plan de cuenta.</value>
     </labels>
     <labels>
         <fullName>AP_ValidationByUnAssignedUser</fullName>

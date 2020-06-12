@@ -62,9 +62,7 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
 	protected override void beforeDelete() {
 		//Valida si los AP's pueden ser eliminados de acuerdo a su estado, bloqueo y usuario
 		AccountPlanning_Trigger_cls.beforeDML(triggerOldMap, null, 'delete');
-		/*
-	 	* @Description  Metodo que elimina los registros de APT, Historial y Fields Config relacionados al AP
-	 	*/
+		//Metodo que elimina los registros de APT, Historial y Fields Config relacionados al AP
 		AccountPlanning_Trigger_cls.beforeDeleteRelatedRecords(triggerOldMap);
 	}
 

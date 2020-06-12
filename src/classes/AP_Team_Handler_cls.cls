@@ -26,7 +26,7 @@ public class AP_Team_Handler_cls extends TriggerHandler {
      * @Description variable triggerOldMap
      */
 	Map<id, bupl__AP_Team__c> triggerOldMap = ((Map<Id, bupl__AP_Team__c>)(Trigger.OldMap));
-	//Clase implementada por Global
+	/*** @Description Clase implementada por Global*/
 	Final acpl.AP_TeamHandler apTeamHandler = acpl.AP_TeamHandler.getInstance();
 
     /**
@@ -42,19 +42,17 @@ public class AP_Team_Handler_cls extends TriggerHandler {
 		apTeamHandler.fillBPLookup(triggerNew);
 	}
     /**
-     * @Description beforeUpdate
+     * @Description beforeUpdate: Ejecuta diversos metodos de acuerdo a los criterios establecidos
      */
 	@TestVisible
 	protected override void beforeUpdate() {
-		//Ejecuta diversos metodos de acuerdo a los criterios establecidos
 		AP_Team_Trigger_cls.beforeDML(triggerNew, 'update');
 	}
     /**
-     * @Description beforeDelete
+     * @Description beforeDelete: diversos metodos de acuerdo a los criterios establecidos
      */
 	@TestVisible
 	protected override void beforeDelete() {
-		//Ejecuta diversos metodos de acuerdo a los criterios establecidos
 		AP_Team_Trigger_cls.beforeDML(triggerOld, 'delete');
 	}
     /**
@@ -62,18 +60,16 @@ public class AP_Team_Handler_cls extends TriggerHandler {
      */
 	@TestVisible
 	protected override void afterInsert() {
-		//AP_TeamLocalHandler.checkCreatorAP(triggerNew);
 		//Comparte registros de AP y BP con el miembro agregado
 		Sharing_AP_Team_User_cls.SharingAPT(triggerNewMap, true);
 		//Actualiza el estado desde 'Not started' a 'In progress' cuando se agrega un APT
 		AP_Team_Trigger_cls.updateStatusOnAP(triggerNewMap);
 	}
     /**
-     * @Description afterDelete
+     * @Description afterDelete: Eliminar el compartimiento de registros de AP y BP
      */
 	@TestVisible
 	protected override void afterDelete() {
-		//Eliminar el compartimiento de registros de AP y BP
 		Sharing_AP_Team_User_cls.deleteSharing(triggerOldMap);
 	}
 }

@@ -18,20 +18,20 @@ public without sharing class User_Trigger_cls {
 	private static final String PERFIL_MIGRACION {get {return 'Migracion';} set;}
 
 	/*
-	 * @Name: AsignBeforeInsert
-	 * @Description: Invoca al metodo setEquivalentValues.
+	 * @Name: asignBeforeInsert
+	 * @Description: call to method setEquivalentValues.
 	 * @author Jose Rodriguez
 	 */
-	public void AsignBeforeInsert(List<User> userNew, Map<id, User> userNewMap) {
+	public void asignBeforeInsert(List<User> userNew, Map<id, User> userNewMap) {
 		setEquivalentValues(userNew);
 	}
 
 	/*
-	 * @Name: AsignAfterInsert
-	 * @Description: Invoca al metodo newMembersFormalization.
+	 * @Name: asignAfterInsert
+	 * @Description: call to method newMembersFormalization.
 	 * @author Diego Carbajal
 	 */
-	public void AsignAfterInsert(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
+	public void asignAfterInsert(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
 		User_Trigger_Case_cls.newMembersFormalization(userNew);
 		//Assigment AP Validation Permission
 		Final Set<Id> userGOF = new Set<Id>();
@@ -48,58 +48,80 @@ public without sharing class User_Trigger_cls {
 		}
 	}
 	/*
-	 * @Name: AsignBeforeUpdate
-	 * @Description: Invoca al metodo setEquivalentValues.
+	 * @Name: asignBeforeUpdate
+	 * @Description: call to method setEquivalentValues.
 	 * @author Jose Rodriguez
 	 */
-	public void AsignBeforeUpdate(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
+	public void asignBeforeUpdate(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
 		setEquivalentValues(userNew);
 	}
 
 	/*
-	 * @Name: AsignAfterUpdate
-	 * @Description: Invoca a los metodos de la clase User_Trigger_Case_cls.
+	 * @Name: asignAfterUpdate
+	 * @Description: call to methods to User_Trigger_Case_cls class.
 	 * updFormalizationDeactiveOwners
 	 * changeRolAssis_Sgof
 	 * addUserToFormalizationGroup
 	 * @author Diego Carbajal
 	 */
-	public void AsignAfterUpdate(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
+	public void asignAfterUpdate(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
 		User_Trigger_Case_cls.updFormalizationDeactiveOwners(userNewMap, userOldMap);
 		User_Trigger_Case_cls.changeRolAssis_Sgof(userNewMap, userOld);
 		User_Trigger_Case_cls.addUserToFormalizationGroup(userNewMap, userOld);
 		BE_User_Trigger_VisitTeam_Cls.sharingVisitTeamMember(userNewMap, userOldMap);
 	}
-
-	public void assigmentPermission(Map<id, User> userOldMap, Map<id, User> userNewMap) {
-		//Obtenemos los codigos de los usuarios que deben ser validadores
-		Final List<String> lstVCodes = System.Label.AP_ValidatorsCode.split(',');
-		Final Set<Id> userIds = new Set<Id>();
-		Final Set<Id> userGOF = new Set<Id>();
-		Final Set<Id> usersExGOF = new Set<Id>();
-		for(User usuario:userOldMap.values()) {
-			if(!usuario.isActive && userNewMap.get(usuario.Id).isActive) {
-				userIds.add(usuario.Id);
-			}
-			if(lstVCodes.contains(userNewMap.get(usuario.Id).prof_position_id__c)) {
-				userGOF.add(usuario.Id);
-			}
-			if(usuario.prof_position_id__c != userNewMap.get(usuario.Id).prof_position_id__c &&
-			   lstVCodes.contains(usuario.prof_position_id__c)) {
-				usersExGOF.add(usuario.Id);
-			}
+    
+    /*
+	 * @Name: assigmentPermission
+	 * @Description: call to method used for assigment permission to AP
+	 * @author 
+	 */
+    public void assigmentPermission(Map<id, User> userOldMap, Map<id, User> userNewMap) {
+		Set<Id> userIds = new Set<Id>();
+		Set<Id> userGOF = new Set<Id>();
+		Set<Id> usersExGOF = new Set<Id>();
+		for(User usuario : userOldMap.values()) {
+            userIds = getUserIds(1, usuario, userNewMap, userIds);
+            userGOF = getUserIds(2, usuario, userNewMap, userGOF);
+            usersExGOF = getUserIds(3, usuario, userNewMap, usersExGOF);
 		}
-		if(userIds.size() > 0) {
+		if(!userIds.isEmpty()) {
 			User_APSharing_batch userAPShareBatch = new User_APSharing_batch(userIds);
 			Database.executeBatch(userAPShareBatch);
 		}
-		if(userGOF.size() > 0) {
+		if(!userGOF.isEmpty()) {
 			AssigmentPermissionValidationAP_cls.assigmentPermission(userGOF);
 		}
-		if(usersExGOF.size() > 0) {
+		if(!usersExGOF.isEmpty()) {
 			AssigmentPermissionValidationAP_cls.deletePermission(usersExGOF);
 		}
 	}
+    
+    /*
+	 * @Name: getUserIds
+	 * @Description: get users ids valids
+	 * @author Martin Mori
+	 */
+    public Set<Id> getUserIds(Integer option, User usuario, Map<id, User> userNewMap, Set<Id> setIds) {
+		//Obtenemos los codigos de los usuarios que deben ser validadores
+		Final List<String> lstVCodes = System.Label.AP_ValidatorsCode.split(',');
+        if(option == 1) {
+            if(!usuario.isActive && userNewMap.get(usuario.Id).isActive) {
+				setIds.add(usuario.Id);
+			}
+        } else if(option == 2) {
+            if(lstVCodes.contains(userNewMap.get(usuario.Id).prof_position_id__c)) {
+				setIds.add(usuario.Id);
+			}
+        } else if(option == 3) {
+            if(usuario.prof_position_id__c != userNewMap.get(usuario.Id).prof_position_id__c &&
+			   lstVCodes.contains(usuario.prof_position_id__c)) {
+				setIds.add(usuario.Id);
+			}
+        }
+        return setIds;
+	}
+    
 	/*
 	 * @Name: setEquivalentValues
 	 * @Description: Ejecuta la logica para la asignacion de unidad organizativa y cargo equivalente de un usuario.

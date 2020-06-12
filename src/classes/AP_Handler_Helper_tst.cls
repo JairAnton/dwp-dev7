@@ -13,19 +13,21 @@ public class AP_Handler_Helper_tst {
     /**
 	 * @Description mapUsers
 	 */
-	static Map<String, User> mapUsers = AP_FactoryTest_tst.getUsers();
+	static Final Map<String, User> mapUsers = AP_FactoryTest_tst.getUsers();
     /** @Description EJECUTIVO*/
-	Final static String EJECUTIVO = 'EJECUTIVO';
+	static Final String EJECUTIVO = 'EJECUTIVO';
     /** @Description MANAGER*/
-    Final static String MANAGER = 'MANAGER';
+    static Final String MANAGER = 'MANAGER';
     /**@Description GERENTE*/
-    Final static String GERENTE = 'GERENTE';
+    static Final String GERENTE = 'GERENTE';
     /**@Description PENDING_VALID */
-    Final static String PENDING_VALID = 'Pending Validation';
+    static Final String PENDING_VALID = 'Pending Validation';
     /**@Description VALIDATED*/
-    Final static String VALIDATED = 'Validated';
+    static Final String VALIDATED = 'Validated';
     /** @Description FAIL*/
-    Final static String FAIL = 'FAIL';
+    static Final String FAIL = 'FAIL';
+    /** @Description FAIL*/
+    static Final String COMENTARIOS = 'Comentarios';
     /**
 	 * @Description CASE_RT
 	 */
@@ -197,20 +199,19 @@ public class AP_Handler_Helper_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
 		insert apR;
-		List<acpl__Commercial_Plan_Event__c> lstCPE = new List<acpl__Commercial_Plan_Event__c>();
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = 'Comentarios', Name = 'Visita', Asiggned_User__c = UserInfo.getUserId(),
+		Final List<acpl__Commercial_Plan_Event__c> lstCPE = new List<acpl__Commercial_Plan_Event__c>();
+		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Visita', Asiggned_User__c = UserInfo.getUserId(),
 		                                              acpl__gf_event_date__c = Date.today() + 20, acpl__gf_comm_plan_event_type_name__c = 'Visit', acpl__participant_id__c = acc.Id));
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = 'Comentarios', Name = 'Oportunidad', Asiggned_User__c = UserInfo.getUserId(),
+		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Oportunidad', Asiggned_User__c = UserInfo.getUserId(),
 		                                              acpl__gf_event_date__c = Date.today() + 25, acpl__gf_comm_plan_event_type_name__c = 'Opportunity', acpl__participant_id__c = acc.Id));
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = 'Comentarios', Name = 'Tarea', Asiggned_User__c = UserInfo.getUserId(),
+		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Tarea', Asiggned_User__c = UserInfo.getUserId(),
 		                                              acpl__gf_event_date__c = Date.today() + 30, acpl__gf_comm_plan_event_type_name__c = 'Task', acpl__participant_id__c = acc.Id));
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = 'Comentarios', Name = 'Llamada', Asiggned_User__c = UserInfo.getUserId(),
+		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Llamada', Asiggned_User__c = UserInfo.getUserId(),
 		                                              acpl__gf_event_date__c = Date.today() + 31, acpl__gf_comm_plan_event_type_name__c = 'Call', acpl__participant_id__c = acc.Id));
 		insert lstCPE;
 		apR.acpl__gf_ap_status_type_name__c = VALIDATED;
 		apR.acpl__gf_ap_substatus_type_name__c = 'In place';
 		update apR;
-		Final String VALIDATED = VALIDATED;
 		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {

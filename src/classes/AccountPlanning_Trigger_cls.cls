@@ -131,7 +131,7 @@ public without sharing class AccountPlanning_Trigger_cls {
 		                                                   acpl__AA_answer_is_checkbox__c FROM acpl__AP_Question__c WHERE acpl__gf_account_planning_id__r.Name = 'Question Catalog'];
 		//Obtengo los fieldConfigs del AP Catalog
 		if(!apQuestionList.isEmpty()) {
-			List<acpl__AP_Question__c> apQuestionsInsrt = new List<acpl__AP_Question__c>();
+			Final List<acpl__AP_Question__c> apQuestionsInsrt = new List<acpl__AP_Question__c>();
 			final String catalogDevName = apQuestionList.get(0).acpl__gf_account_planning_id__c + '%';
 			final List<dyfr__Field_Config__c> fieldConfigList = [SELECT Id, dyfr__Tab__c, dyfr__Section_name__c, dyfr__Section_order__c,
 			                                                     dyfr__Subsection_name__c, dyfr__Subsection_order__c, dyfr__Order__c,
@@ -142,7 +142,7 @@ public without sharing class AccountPlanning_Trigger_cls {
 			                                                     FROM dyfr__Field_Config__c WHERE dyfr__DeveloperName__c LIKE :catalogDevName];
 			List<dyfr__Field_Config__c> catalogCnfig = new List<dyfr__Field_Config__c>();
 			catalogCnfig = fieldConfigList.deepClone(true, true);
-			List<List<dyfr__Field_Config__c>> lstFullFieldConfig = new List<List<dyfr__Field_Config__c>>();
+			Final List<List<dyfr__Field_Config__c>> lstFullFConfig = new List<List<dyfr__Field_Config__c>>();
 			List<dyfr__Field_Config__c> tmpFieldsConfig;
 			for(acpl__Account_Planning__c apAux : triggernew) {
 				tmpFieldsConfig = new List<dyfr__Field_Config__c>();
@@ -181,16 +181,16 @@ public without sharing class AccountPlanning_Trigger_cls {
 					fieldConfigAux.Id = null; //NOSONAR
 					tmpFieldsConfig.add(tmpFieldConfig);
 				}
-				lstFullFieldConfig.add(tmpFieldsConfig);
+				lstFullFConfig.add(tmpFieldsConfig);
 			}
 			tmpFieldsConfig = new List<dyfr__Field_Config__c>();
-			for(Integer i = 0; i < lstFullFieldConfig.size(); i++) {
-				tmpFieldsConfig.addAll(lstFullFieldConfig[i]);
+			for(Integer i = 0; i < lstFullFConfig.size(); i++) {
+				tmpFieldsConfig.addAll(lstFullFConfig[i]);
 			}
 			//inserto las preguntas
 			insert apQuestionsInsrt;
 			insert tmpFieldsConfig;
-			AP_Trigger_Helper.relateListValues(lstFullFieldConfig, catalogCnfig);
+			AP_Trigger_Helper.relateListValues(lstFullFConfig, catalogCnfig);
 		}
 	}
 

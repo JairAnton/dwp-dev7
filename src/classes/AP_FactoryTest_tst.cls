@@ -10,8 +10,11 @@
  * @author Diego Carbajal
  */
 @isTest
-public class AP_FactoryTest_tst {//NOSONAR
+public class AP_FactoryTest_tst {
 
+    /*
+	 * @Description  forSetUp
+	 */
     public static void forSetUp() {
         Final String perfil=[SELECT Id FROM Profile WHERE name='Ejecutivo'].Id;
         //Creación de GOF
@@ -32,7 +35,7 @@ public class AP_FactoryTest_tst {//NOSONAR
         //Obtain admin
         Final User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId() LIMIT 1];
         System.runAs(admin) {
-            Id questionRT = [SELECT Id FROM RecordType WHERE DeveloperName = 'Question_Catalog' LIMIT 1].Id;
+            Final Id questionRT = [SELECT Id FROM RecordType WHERE DeveloperName = 'Question_Catalog' LIMIT 1].Id;
             //Creación cuenta
             TestFactory.createAccount();
 
@@ -61,7 +64,10 @@ public class AP_FactoryTest_tst {//NOSONAR
             insert depValue;
         }
     }
-    
+
+	/*
+	 * @Description  getUsers
+	 */    
     public static Map<String, User> getUsers() {
         Final Map<String, User> mapUsers = new Map<String, User>();
         for(User usuario: [SELECT Id, LastName FROM User WHERE user_position_equivalence__c LIKE 'User Test' LIMIT 3]) {

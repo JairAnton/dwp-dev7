@@ -10,6 +10,10 @@
  */
 @isTest(seeAllData = false)
 private class User_Trigger_Test {
+    /*
+	*   @Variable: STR_EJECUTIVO
+	*/
+	private static final String USER_NAME = 'usuario.salesforce';
 	/*static variable*/
 	static List<User> users;
 	/*
@@ -64,12 +68,11 @@ private class User_Trigger_Test {
 	 */
 	@isTest
 	static void asignBeforeInsert() {
-		final String userName = 'usuario.salesforce';
 		final User userToInsert = new User();
 		final Double random = Math.random();
-		userToInsert.Username = userName + 'u2@u.com.u' + random;
-		userToInsert.LastName = userName + 'uLast2';
-		userToInsert.Email = userName + 'u2@u.com';
+		userToInsert.Username = USER_NAME + 'u2@u.com.u' + random;
+		userToInsert.LastName = USER_NAME + 'uLast2';
+		userToInsert.Email = USER_NAME + 'u2@u.com';
 		userToInsert.Alias = String.valueOf(random).substring(0, 3) + 'uAas2';
 		userToInsert.TimeZoneSidKey = 'America/Mexico_City';
 		userToInsert.IsActive = true;
@@ -111,12 +114,11 @@ private class User_Trigger_Test {
 	 */
 	@isTest
 	static void asignAfterInsertTest() {
-		final String userName = 'usuario.salesforce';
 		final User userToInsert = new User();
 		final Double random = Math.random();
-		userToInsert.Username = userName + 'u2@u.com.u' + random;
-		userToInsert.LastName = userName + 'uLast2';
-		userToInsert.Email = userName + 'u2@u.com';
+		userToInsert.Username = USER_NAME + 'u2@u.com.u' + random;
+		userToInsert.LastName = USER_NAME + 'uLast2';
+		userToInsert.Email = USER_NAME + 'u2@u.com';
 		userToInsert.Alias = String.valueOf(random).substring(0, 3) + 'uAas2';
 		userToInsert.TimeZoneSidKey = 'America/Mexico_City';
 		userToInsert.IsActive = true;
@@ -134,10 +136,10 @@ private class User_Trigger_Test {
 		insert userToInsert;
 		final List<PermissionSet> validationPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
 		Boolean permisSionAP = false;
-		if(validationPermission.size() != 0) {
-			permisSionAP = true;
-		} else   {
+		if(validationPermission.size() == 0) {
 			permisSionAP = false;
+		} else {
+			permisSionAP = true;
 		}
 		System.assert (permisSionAP, 'success!');
 		Test.stopTest();
@@ -161,12 +163,12 @@ private class User_Trigger_Test {
 
 		Test.startTest();
 		update userTest2;
-		final List<PermissionSet> validationPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
+		final List<PermissionSet> valPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
 		Boolean permisSionAP;
-		if(validationPermission.size() != 0) {
-			permisSionAP = true;
-		} else   {
+		if(valPermission.size() == 0) {
 			permisSionAP = false;
+		} else   {
+			permisSionAP = true;
 		}
 		System.assert (permisSionAP, 'success!');
 		Test.stopTest();
@@ -182,12 +184,11 @@ private class User_Trigger_Test {
 		final User userExecutive = TestFactory.createUser('userExecutiveOwner', 'Migracion');
 		Test.startTest();
 		System.runAs(userExecutive) {
-			final String userName = 'usuario.salesforce';
 			final User userToInsert = new User();
 			final Double random = Math.random();
-			userToInsert.Username = userName + 'u2@u.com.u' + random;
-			userToInsert.LastName = userName + 'uLast2';
-			userToInsert.Email = userName + 'u2@u.com';
+			userToInsert.Username = USER_NAME + 'u2@u.com.u' + random;
+			userToInsert.LastName = USER_NAME + 'uLast2';
+			userToInsert.Email = USER_NAME + 'u2@u.com';
 			userToInsert.Alias = String.valueOf(random).substring(0, 3) + 'uAas2';
 			userToInsert.TimeZoneSidKey = 'America/Mexico_City';
 			userToInsert.IsActive = true;
@@ -203,10 +204,10 @@ private class User_Trigger_Test {
 			userToInsert.prof_position_id__c = 'E01';
 			insert userToInsert;
 			Boolean successInsert;
-			if(userToInsert.Id != null) {
-				successInsert = true;
-			} else {
+			if(userToInsert.Id == null) {
 				successInsert = false;
+			} else {
+				successInsert = true;
 			}
 			System.assert (successInsert, 'success!');
 		}

@@ -13,11 +13,13 @@ public without sharing class AccountPlanning_Trigger_Validation_cls {
 	/* @Description guarda id del RecordType de AP*/
 	private static Final Id RT_AP = [SELECT Id FROM RecordType WHERE developerName = 'Account_Planning' AND SobjectType = 'acpl__Account_Planning__c' LIMIT 1].Id;
 	/* @Description lstAP*/
-	public static List<acpl__Account_Planning__c> lstAP = new List<acpl__Account_Planning__c>();
+	private static List<acpl__Account_Planning__c> lstAP = new List<acpl__Account_Planning__c>();
 	/* @Description mapAPs*/
 	private static Map<Id, List<acpl__Account_Planning__c>> mapAPs = new Map<Id, List<acpl__Account_Planning__c>>();
 	/* @Description message*/
 	private static String message;
+    /* @Description NOT_STARTED*/
+    private static final String NOT_STARTED = 'Not started';
     /* @Description PENDINGV*/
     private static final String PENDINGV = 'Pending Validation';
     /* @Description EXPIRED*/
@@ -28,6 +30,16 @@ public without sharing class AccountPlanning_Trigger_Validation_cls {
 	private static Final String IN_PROGRESS = 'In Progress';
     /* @Description PENDV*/
     private static Final String PENDV = 'Pending validation';
+    /* @Description UPD*/
+    private static Final String UPD = 'update';
+    /* @Description R_S_R*/
+    private static Final String R_S_R = 'Request Sent For Review';
+    /* @Description R_R_R*/
+    private static Final String R_R_R = 'Request Re-Assigned';
+    /*
+	 * @Description  method AccountPlanning_Trigger_Validation_cls
+	 */
+    private AccountPlanning_Trigger_Validation_cls() {}
 	/*
 	 * @Description  method preventModifyAP
 	 */
@@ -36,10 +48,9 @@ public without sharing class AccountPlanning_Trigger_Validation_cls {
 		Boolean adminUser = apAdministration.adminPermission();
 		adminUser = adminUser || apAdministration.permissionOnAP(actionType);
 		Final Map<String, Set<Id>> mapAPInCases = getAPsInRequest(triggerMap.keySet());
-        Final String updat = 'update';//Sonar
 		for(acpl__Account_Planning__c apR:triggerMap.values()) {
 			if(apR.RecordTypeId == RT_AP) {
-				if(actionType == updat) {
+				if(actionType == UPD) {
 					message = null;//NOSONAR
 					Final Boolean checkCV = checkUserChangeValidator(apR, triggerOldMap, mapAPInCases.get('reAssigned'), adminUser);
 					//Previene que un AP se devuelva o valide por un usuario que no sea el validador, administrador del AP o el Admin
@@ -69,16 +80,14 @@ public without sharing class AccountPlanning_Trigger_Validation_cls {
 		Final Set<Id> idsAPReassigned = new Set<Id>();
 		Final Set<Id> idsAPReview = new Set<Id>();
 		Final Set<Id> idsAPApproved = new Set<Id>();
-        Final String rsfr = 'Request Sent For Review';
-        Final String rra = 'Request Re-Assigned';
 		//La gestión de la query es en orden desde la fecha mas antigua a la actual, la asignación de Ids se realizan acorde a las fechas
 		for(Case request: [SELECT Id, Status, OwnerId, acpl__Account_plan_id__c, CreatedDate FROM Case WHERE RecordType.developerName = 'Account_Plan_Validation'
-                            AND acpl__Account_plan_id__c IN:idsAPs AND Status IN('Request Re-Assigned', 'Request Sent For Review', 'Request Approved') ORDER BY CreatedDate ASC]) {
+                            AND acpl__Account_plan_id__c IN:idsAPs AND Status IN('Request Sent For Review', 'Request Re-Assigned', 'Request Approved') ORDER BY CreatedDate ASC]) {
 			//Si el AP ha sido devuelto
-			if(request.Status == rsfr) {
+			if(request.Status == R_S_R) {
 				idsAPReview.add(request.acpl__Account_plan_id__c);
 			} else //Si el AP ha sido reasignado
-			if(request.Status == rra) {
+			if(request.Status == R_R_R) {
 				idsAPReassigned.add(request.acpl__Account_plan_id__c);
 				//Si un AP devuelto tiene una reasignación despues de haber sido devuelta, significa que no debe existir una solicitud de devolución actual,
 				//por lo tanto se elimina
@@ -104,27 +113,52 @@ public without sharing class AccountPlanning_Trigger_Validation_cls {
 	 */
 	private static Boolean checkUserChangeValidator(acpl__Account_Planning__c apR, Map<Id, acpl__Account_Planning__c> triggerOldMap, Set<Id> idsAPInRequest, Boolean adminUser) {
 		Boolean checkUser = false;
+        //Validaciones reutilizables
+        //Si lo valores del campo Unlock son iguales
+        Final Boolean equalsFieldLock = triggerOldMap.get(apR.Id).acpl__gf_ap_indvi_lock_edit_ind_type__c == apR.acpl__gf_ap_indvi_lock_edit_ind_type__c;
+        //Si el validador anterior y el nuevo son diferentes
+        Final Boolean notEqualValidator = triggerOldMap.get(apR.Id).acpl__gf_ap_validator_user_id__c != apR.acpl__gf_ap_validator_user_id__c;
+        //Si los subestados son iguales y son diferentes a Expired
+        Final Boolean equalSubStatusNE = getEqualsSubStatusNE(triggerOldMap, apR);
+        //Primera validación IF
+        Final Boolean equalStatusPV = getEqualsStatusPV(triggerOldMap, apR);
+        //Segunda validación IF
+        Final Boolean equalStatusNI = getEqualsStatusNI(triggerOldMap, apR);
 		//Si se cambia de validador cuando el AP esta en pendiente de validación
-		if(triggerOldMap.get(apR.Id).acpl__gf_ap_validator_user_id__c != apR.acpl__gf_ap_validator_user_id__c &&
-		   triggerOldMap.get(apR.Id).acpl__gf_ap_status_type_name__c == apR.acpl__gf_ap_status_type_name__c &&
-		   triggerOldMap.get(apR.Id).acpl__gf_ap_substatus_type_name__c == apR.acpl__gf_ap_substatus_type_name__c &&
-		   triggerOldMap.get(apR.Id).acpl__gf_ap_indvi_lock_edit_ind_type__c == apR.acpl__gf_ap_indvi_lock_edit_ind_type__c &&
-		   apR.acpl__gf_ap_status_type_name__c == PENDINGV && apR.acpl__gf_ap_substatus_type_name__c != EXPIRED &&
-		   !apR.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
+		if(notEqualValidator && equalsFieldLock && equalStatusPV && equalSubStatusNE && !apR.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
 			checkUser = true;
 			changeWPetition(apR, triggerOldMap, idsAPInRequest, adminUser);
 		} else //Si se cambia de validador cuando el AP esta en Not started o In progress
-            if(triggerOldMap.get(apR.Id).acpl__gf_ap_validator_user_id__c != apR.acpl__gf_ap_validator_user_id__c &&
-		          triggerOldMap.get(apR.Id).acpl__gf_ap_status_type_name__c == apR.acpl__gf_ap_status_type_name__c &&
-		          triggerOldMap.get(apR.Id).acpl__gf_ap_substatus_type_name__c == apR.acpl__gf_ap_substatus_type_name__c &&
-		          triggerOldMap.get(apR.Id).acpl__gf_ap_indvi_lock_edit_ind_type__c == apR.acpl__gf_ap_indvi_lock_edit_ind_type__c &&
-		          apR.acpl__gf_ap_status_type_name__c != PENDINGV && apR.acpl__gf_ap_status_type_name__c != VALIDATED &&
-		          apR.acpl__gf_ap_substatus_type_name__c != EXPIRED && apR.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
+            if(notEqualValidator && equalsFieldLock && equalStatusNI && equalSubStatusNE && apR.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
 			checkUser = true;
 			changeWOutPetition(apR, triggerOldMap, adminUser);
 		}
 		return checkUser;
 	}
+    
+    /*
+	 * @Description  Si los subestados son iguales y ademas es diferente a Expired
+	 */
+    private static Boolean getEqualsSubStatusNE(Map<Id, acpl__Account_Planning__c> triggerOldMap, acpl__Account_Planning__c apR) {
+        return triggerOldMap.get(apR.Id).acpl__gf_ap_substatus_type_name__c == apR.acpl__gf_ap_substatus_type_name__c 
+	            && apR.acpl__gf_ap_status_type_name__c != 'Expired';
+    }
+    
+    /*
+	 * @Description  Si los estados son iguales, y es Pending Validation
+	 */
+    private static Boolean getEqualsStatusPV(Map<Id, acpl__Account_Planning__c> triggerOldMap, acpl__Account_Planning__c apR) {
+        return triggerOldMap.get(apR.Id).acpl__gf_ap_status_type_name__c == apR.acpl__gf_ap_status_type_name__c 
+            	&& apR.acpl__gf_ap_status_type_name__c == PENDINGV;
+    }
+    
+    /*
+	 * @Description  Si los estados son iguales, y igual a Not started o In progress
+	 */
+    private static Boolean getEqualsStatusNI(Map<Id, acpl__Account_Planning__c> triggerOldMap, acpl__Account_Planning__c apR) {
+        Final Boolean statusNI = apR.acpl__gf_ap_status_type_name__c == NOT_STARTED || apR.acpl__gf_ap_status_type_name__c == IN_PROGRESS;
+        return triggerOldMap.get(apR.Id).acpl__gf_ap_status_type_name__c == apR.acpl__gf_ap_status_type_name__c && statusNI;
+    }
 
     /*
 	 * @Description  changeWPetition
@@ -157,38 +191,42 @@ public without sharing class AccountPlanning_Trigger_Validation_cls {
 	/*
 	 * @Description  Compruebra el usuario retorna un AP y si esta asociado a un caso activo
 	 */
-	private static Boolean checkReturnOrValidation(acpl__Account_Planning__c ap, Map<Id, acpl__Account_Planning__c> triggerOldMap, 
+	private static Boolean checkReturnOrValidation(acpl__Account_Planning__c apR, Map<Id, acpl__Account_Planning__c> triggerOldMap, 
                                                    Map<String, Set<Id>> mapAPInCases, Boolean adminUser) {
-		Final Set<Id> idsAPReview = mapAPInCases.get('review');
-		Final Set<Id> idsAPApproved = mapAPInCases.get('approved');
 		Boolean checkUser = false;
+        //Si el estado y subEstado es Pending Validation
+        Final Boolean statSubStatPV = getStatSbStatPV(apR, triggerOldMap);
 		//Cuando se devuelve un AP del proceso de validación
-		if(triggerOldMap.get(ap.Id).acpl__gf_ap_status_type_name__c == PENDINGV && triggerOldMap.get(ap.Id).acpl__gf_ap_substatus_type_name__c == PENDV &&
-		   ap.acpl__gf_ap_status_type_name__c == IN_PROGRESS && ap.acpl__gf_ap_substatus_type_name__c == 'Pending review' &&
-		   ap.acpl__gf_ap_req_validation_ind_type__c == 'Yes') {
+		if(statSubStatPV && apR.acpl__gf_ap_status_type_name__c == IN_PROGRESS && apR.acpl__gf_ap_substatus_type_name__c == 'Pending review') {
 			checkUser = true;
-			returnAPCriteria(idsAPReview, ap, triggerOldMap, adminUser);
+			returnAPCriteria(mapAPInCases.get('review'), apR, triggerOldMap, adminUser);
 		} else //Cuando se valida un AP con validación requerida
-		if(triggerOldMap.get(ap.Id).acpl__gf_ap_status_type_name__c == PENDINGV && triggerOldMap.get(ap.Id).acpl__gf_ap_substatus_type_name__c == PENDV &&
-		   ap.acpl__gf_ap_status_type_name__c == VALIDATED && ap.acpl__gf_ap_substatus_type_name__c == 'In place' &&
-		   ap.acpl__gf_ap_req_validation_ind_type__c == 'Yes') {
+		if(statSubStatPV && apR.acpl__gf_ap_status_type_name__c == VALIDATED && apR.acpl__gf_ap_substatus_type_name__c == 'In place') {
 			checkUser = true;
-			validateAPCriteria(idsAPApproved, ap, triggerOldMap, adminUser);
+			validateAPCriteria(mapAPInCases.get('approved'), apR, triggerOldMap, adminUser);
 		}
 		return checkUser;
 	}
     
     /*
+	 * @Description  Si el estado y SubEstado es Pending Validation y la validación es requerida
+	 */
+    private static Boolean getStatSbStatPV(acpl__Account_Planning__c apR, Map<Id, acpl__Account_Planning__c> triggerOldMap) {
+        return triggerOldMap.get(apR.Id).acpl__gf_ap_status_type_name__c == PENDINGV && 
+            triggerOldMap.get(apR.Id).acpl__gf_ap_substatus_type_name__c == PENDV && apR.acpl__gf_ap_req_validation_ind_type__c == 'Yes';
+    }
+    
+    /*
 	 * @Description  returnAPCriteria
 	 */
-    private static void returnAPCriteria(Set<Id> idsAPReview, acpl__Account_Planning__c ap, Map<Id, acpl__Account_Planning__c> triggerOldMap, Boolean adminUser) {
+    private static void returnAPCriteria(Set<Id> idsAPReview, acpl__Account_Planning__c apR, Map<Id, acpl__Account_Planning__c> triggerOldMap, Boolean adminUser) {
         //Si el AP se devuelves desde la petición
-			if(idsAPReview.contains(ap.Id)) {//Si el usuario que devuelve no es validador o admin
-				if(!(UserInfo.getUserId() == triggerOldMap.get(ap.Id).acpl__gf_ap_validator_user_id__c || adminUser)) {
+			if(idsAPReview.contains(apR.Id)) {//Si el usuario que devuelve no es validador o admin
+				if(!(UserInfo.getUserId() == triggerOldMap.get(apR.Id).acpl__gf_ap_validator_user_id__c || adminUser)) {
 					message = System.Label.AP_UnableToReturnAPUnassigned;
 				}
 			} else {   //Si el AP no es devuelto desde la petición
-				if(UserInfo.getUserId() == triggerOldMap.get(ap.Id).acpl__gf_ap_validator_user_id__c) {
+				if(UserInfo.getUserId() == triggerOldMap.get(apR.Id).acpl__gf_ap_validator_user_id__c) {
 					message = String.format(System.Label.AP_BadActionWithAPOutPetition, new String[]{'devolver'});
 				} else if(!adminUser) {
 					message = System.Label.AP_UnableToReturnAPUnassigned;
@@ -199,14 +237,14 @@ public without sharing class AccountPlanning_Trigger_Validation_cls {
     /*
 	 * @Description  validateAPCriteria
 	 */
-    private static void validateAPCriteria(Set<Id> idsAPApproved, acpl__Account_Planning__c ap, Map<Id, acpl__Account_Planning__c> triggerOldMap, Boolean adminUser) {
+    private static void validateAPCriteria(Set<Id> idsAPApproved, acpl__Account_Planning__c apR, Map<Id, acpl__Account_Planning__c> triggerOldMap, Boolean adminUser) {
         //Cuando el AP es validado desde la petición
-        if(idsAPApproved.contains(ap.Id)) {    //Si el AP no es validado por el validador o administrador
-            if(!(UserInfo.getUserId() == triggerOldMap.get(ap.Id).acpl__gf_ap_validator_user_id__c || adminUser)) {
+        if(idsAPApproved.contains(apR.Id)) {    //Si el AP no es validado por el validador o administrador
+            if(!(UserInfo.getUserId() == triggerOldMap.get(apR.Id).acpl__gf_ap_validator_user_id__c || adminUser)) {
                 message = System.Label.AP_ValidationByUnAssignedUser;
             }
         } else {    //Cuando el AP es validado fuera del proceso de la petición
-           	if(UserInfo.getUserId() == triggerOldMap.get(ap.Id).acpl__gf_ap_validator_user_id__c) {
+           	if(UserInfo.getUserId() == triggerOldMap.get(apR.Id).acpl__gf_ap_validator_user_id__c) {
                 message = String.format(System.Label.AP_BadActionWithAPOutPetition, new String[]{'validar'});
             } else if(!adminUser) {
                 message = System.Label.AP_ValidationByUnAssignedUser;

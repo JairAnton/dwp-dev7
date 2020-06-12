@@ -21,7 +21,6 @@
                 } else {
                     component.set("v.error", true);
                 }
-                
             } else {
                 component.set("v.error", true);
             }
