@@ -10,6 +10,8 @@
  * @author Diego Carbajal
  */
 public without sharing class AP_ConvertCPE_cls {
+    /** @Description  TASK*/
+    private static Final String TASK = 'Task';
 	/*
 	 * @Description  private constructor
 	 */
@@ -22,7 +24,7 @@ public without sharing class AP_ConvertCPE_cls {
 	public static void convertCPERecords(Map<Id, acpl__Commercial_Plan_Event__c> mapCPE) {
 		Final Set<Id> idsCPEVisit = createdActions(mapCPE.keySet(), 'dwp_kitv__Visit__c');
 		Final Set<Id> idsCPEOpp = createdActions(mapCPE.keySet(), 'Opportunity');
-		Final Set<Id> idsCPETask = createdActions(mapCPE.keySet(), 'Task');
+		Final Set<Id> idsCPETask = createdActions(mapCPE.keySet(), TASK);
 		List<dwp_kitv__Visit__c> newVisitCPE = new List<dwp_kitv__Visit__c>();
 		List<Opportunity> newOppCPE = new List<Opportunity>();
 		List<Task> newTaskCPE = new List<Task>();
@@ -161,9 +163,9 @@ public without sharing class AP_ConvertCPE_cls {
 	}
 
 	private static List<Task> setNewTask(acpl__Commercial_Plan_Event__c cpe, Set<Id> idsCPETask, List<Task> newTaskCPE) {
-		if((cpe.acpl__gf_comm_plan_event_type_name__c == 'Task' || cpe.acpl__gf_comm_plan_event_type_name__c == 'Call') && !idsCPETask.contains(cpe.Id)) {
+		if((cpe.acpl__gf_comm_plan_event_type_name__c == TASK || cpe.acpl__gf_comm_plan_event_type_name__c == 'Call') && !idsCPETask.contains(cpe.Id)) {
 			newTaskCPE.add(new Task(OwnerId = (String.isBlank(cpe.Asiggned_User__c) ? cpe.acpl__gf_account_planning_id__r.acpl__proposal_manager_id__c : cpe.Asiggned_User__c),
-			                        Subject = (cpe.acpl__gf_comm_plan_event_type_name__c == 'Task' ? 'Other' : 'Call'), ActivityDate = Date.today().addMonths(2), WhatId = cpe.Id));
+			                        Subject = (cpe.acpl__gf_comm_plan_event_type_name__c == TASK ? 'Other' : 'Call'), ActivityDate = Date.today().addMonths(2), WhatId = cpe.Id));
 		}
 		return newTaskCPE;
 	}

@@ -11,17 +11,19 @@
  */
 public without sharing class AccountPlanning_Trigger_cls {
 	/* @Description guarda id del RecordType de AP*/
-	private static Final Id rtAP = [SELECT Id FROM RecordType WHERE developerName = 'Account_Planning' AND SobjectType = 'acpl__Account_Planning__c' LIMIT 1].Id;
+	private static Final Id RT_AP = [SELECT Id FROM RecordType WHERE developerName = 'Account_Planning' AND SobjectType = 'acpl__Account_Planning__c' LIMIT 1].Id;
 
+    /* @Description AccountPlanning_Trigger_cls*/
+    private AccountPlanning_Trigger_cls() {}
 	/**
 	 * @Description Ejecuta diversos metodos de acuerdo a diferentes criterios
 	 */
 	public static void beforeInsert(List<acpl__Account_Planning__c> triggerNew) {
-		Set<Id> idsGestor = new Set<Id>();
-		Set<Id> idsAccount = new Set<Id>();
+		Final Set<Id> idsGestor = new Set<Id>();
+		Final Set<Id> idsAccount = new Set<Id>();
 		for(acpl__Account_Planning__c ap: triggerNew) {
 			//Only AP's with RecordType 'Account_Planning'
-			if(ap.RecordTypeId == rtAP) {
+			if(ap.RecordTypeId == RT_AP) {
 				idsGestor.add(ap.acpl__proposal_manager_id__c);
 				idsAccount.add(ap.acpl__participant_id__c);
 			}
@@ -29,10 +31,10 @@ public without sharing class AccountPlanning_Trigger_cls {
 		//Obtienen los validadores de acuerdo al jefe directo de cada gestor del AP asignado
 		Final Map<Id, User> mapGestor = new Map<Id, User>([SELECT Id, ManagerId, isActive, Manager.isActive FROM User WHERE Id IN: idsGestor]);
 		//Obtiene el valor de la estrategia del ultimo AP validado
-		Map<Id, String> mapStrategic = getStrategicHistorial(idsAccount);
+		Final Map<Id, String> mapStrategic = getStrategicHistorial(idsAccount);
 		for(acpl__Account_Planning__c ap: triggerNew) {
 			//Only AP's with RecordType 'Account_Planning'
-			if(ap.RecordTypeId == rtAP) {
+			if(ap.RecordTypeId == RT_AP) {
 				//Coloca validadores correspondientes
 				if(String.isNotBlank(ap.acpl__proposal_manager_id__c) && String.isNotBlank(mapGestor.get(ap.acpl__proposal_manager_id__c).ManagerId)) {
 					ap.acpl__gf_ap_validator_user_id__c = mapGestor.get(ap.acpl__proposal_manager_id__c).ManagerId;
@@ -66,7 +68,7 @@ public without sharing class AccountPlanning_Trigger_cls {
 		//Variable for createAptOwner() method
 		Final Map<Id, Id> ownersAPT = new Map<Id, Id>();
 		for(acpl__Account_Planning__c ap: triggerNew) {
-			if(ap.RecordTypeId == rtAP) {
+			if(ap.RecordTypeId == RT_AP) {
 				lstNewBP.add(new bupl__BusinessPlan__c(acpl__gf_account_planning_id__c = ap.Id, Name = 'Plan de Negocio ' + ap.Name, bupl__gf_ap_public_ind_type__c = false,
 				                                       bupl__status_type__c = ap.acpl__gf_ap_status_type_name__c));
 				if(String.isNotBlank(ap.acpl__proposal_manager_id__c)) {
@@ -81,7 +83,7 @@ public without sharing class AccountPlanning_Trigger_cls {
 	}
 
 	/*
-	 * @Description  Previene la modificaci�n/eliminaci�n de AP de acuerdo a diferentes usuarios/estados del AP
+	 * @Description  Previene la modificación/eliminación de AP de acuerdo a diferentes usuarios/estados del AP
 	 */
 	public static void beforeDML(Map<Id, acpl__Account_Planning__c> triggerMap, Map<Id, acpl__Account_Planning__c> triggerOldMap, String actionType) {
 		AccountPlanning_Trigger_Validation_cls.preventModifyAP(triggerMap, triggerOldMap, actionType);
@@ -91,25 +93,16 @@ public without sharing class AccountPlanning_Trigger_cls {
 	 * @Description  Cambia el estado del AP de 'Not Started' a 'In Progress' cuando el AP no esta bloqueado o expirado y el usuario se encuentra en el APT
 	 */
 	public static void updateStatusOnAPnotStarted(List<acpl__Account_Planning__c> triggerNew, Map<Id, acpl__Account_Planning__c> triggerOldMap) {
-		//Obtenemos gu�as de exito
+		//Obtenemos guías de exito
 		Final acpl__AP_PeriodConfiguration__c[] config = [SELECT Id, acpl__gf_ap_bus_pl_guide_desc__c, acpl__gf_ap_comm_plan_guide_desc__c,
 		                                                  acpl__gf_ap_strat_anlys_guide_desc__c FROM acpl__AP_PeriodConfiguration__c
 		                                                  WHERE Name = 'Configuration' LIMIT 1];
 		Final Integer configSize = config.size();
 		Final BE_AP_Permission_helper permission = new BE_AP_Permission_helper(UserInfo.getUserId());
 		Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(triggerOldMap.keySet());
-		for(acpl__Account_Planning__c ap : triggerNew) {
-			if(ap.RecordTypeId == rtAP) {
-				Boolean userInAPT = (mapAPTs.get(ap.Id) != null ? mapAPTs.get(ap.Id).contains(UserInfo.getUserId()) : false);
-				if(userInAPT && ap.acpl__gf_ap_status_type_name__c == 'Not started' && ap.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
-					ap.acpl__gf_ap_status_type_name__c = 'In Progress';
-					ap.acpl__gf_ap_substatus_type_name__c = 'AP team not invited';
-				}
-				if(configSize > 0 && ap.acpl__gf_ap_status_type_name__c == 'Validated' && ap.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
-					ap.acpl__gf_ap_bus_pl_guide_desc__c = config[0].acpl__gf_ap_bus_pl_guide_desc__c;
-					ap.acpl__gf_ap_comm_plan_guide_desc__c = config[0].acpl__gf_ap_comm_plan_guide_desc__c;
-					ap.acpl__gf_ap_strat_anlys_guide_desc__c = config[0].acpl__gf_ap_strat_anlys_guide_desc__c;
-				}
+		for(acpl__Account_Planning__c apR : triggerNew) {
+			if(apR.RecordTypeId == RT_AP) {
+				AP_Trigger_Helper.putValues(mapAPTs, apR, configSize, config);
 			}
 		}
 	}
@@ -132,7 +125,7 @@ public without sharing class AccountPlanning_Trigger_cls {
 	/*
 	 * @Description  Clona las preguntas del Catalogo y los asocia a cada AP insertado
 	 */
-	public static void relateAPQuestions(List<acpl__Account_Planning__c> triggernew) {
+	public static void relateAPQuestions(List<acpl__Account_Planning__c> triggernew) {//NOSONAR
 		//Guardo las preguntas del AP Catalog
 		final List<acpl__AP_Question__c> apQuestionList = [SELECT Id, acpl__gf_account_planning_id__c, acpl__gf_account_planning_id__r.Name, acpl__gf_ap_question_form_desc__c, Name,
 		                                                   acpl__AA_answer_is_checkbox__c FROM acpl__AP_Question__c WHERE acpl__gf_account_planning_id__r.Name = 'Question Catalog'];
@@ -213,7 +206,8 @@ public without sharing class AccountPlanning_Trigger_cls {
 				validatedAP.put(ap.Id, ap);
 			}
 		}
-		if(validatedAP.size() > 0) {
+        Final Integer validateSize = validatedAP.size();
+		if(validateSize > 0) {
 			//Obtiene las acciones comerciales relacionadas al AP
 			Final Map<Id, acpl__Commercial_Plan_Event__c> mapCPE = new Map<Id, acpl__Commercial_Plan_Event__c>([SELECT Id, acpl__gf_account_planning_id__c, Comments__c, Name, acpl__gf_event_date__c,
 			                                                                                                    acpl__gf_account_planning_id__r.acpl__participant_id__r.Name, acpl__gf_comm_plan_event_type_name__c, Asiggned_User__c,

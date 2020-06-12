@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+	<labels>
+        <fullName>AP_BadActionWithAPOutPetition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_BadActionWithAPOutPetition</shortDescription>
+        <value>Para {0} este plan de cuenta, debe hacerlo a tráves de la petición del gestor.</value>
+    </labels>
+    <labels>
+        <fullName>AP_ChangeValidatorOutPetition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_ChangeValidatorOutPetition</shortDescription>
+        <value>Para cambiar de validador debe hacerlo a tráves de la petición solicitada por el gestor.</value>
+    </labels>
     <labels>
         <fullName>NewOpportunityWarning</fullName>
         <language>es</language>
@@ -20,6 +34,27 @@
         <protected>false</protected>
         <shortDescription>Hangout</shortDescription>
         <value>Start a Hangout</value>
+    </labels>
+    <labels>
+        <fullName>AP_InvalidAssignationValidatorByUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_InvalidAssignationValidatorByUser</shortDescription>
+        <value>No puede asignar otro validador a este plan de cuenta.</value>
+    </labels>
+    <labels>
+        <fullName>AP_UnableToReturnAPUnassigned</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_UnableToReturnAPUnassigned</shortDescription>
+        <value>No puede devolver un plan de cuenta que no tiene asignado.</value>
+    </labels>
+    <labels>
+        <fullName>AP_ValidationByUnAssignedUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_ValidationByUnAssignedUser</shortDescription>
+        <value>No puede validar un plan de cuenta que no tiene asignado.</value>
     </labels>
     <labels>
         <fullName>AP_ValidatorsCode</fullName>

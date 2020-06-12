@@ -55,7 +55,7 @@ public without sharing class AP_CommercialPlan_Trigger_cls {
 			Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(apIdList);
 			final list<acpl__Account_Planning__c> listAPtoUpdate = [SELECT Id, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c FROM acpl__Account_Planning__c WHERE Id IN :apIdList AND acpl__gf_ap_status_type_name__c = 'Not started'];
 			for(acpl__Account_Planning__c ap : listAPtoUpdate) {
-				Boolean userInAPT = (mapAPTs.get(ap.Id) == null ? false : mapAPTs.get(ap.Id).contains(UserInfo.getUserId()));
+				Final Boolean userInAPT = (mapAPTs.get(ap.Id) == null ? false : mapAPTs.get(ap.Id).contains(UserInfo.getUserId()));
 				if(userInAPT && ap.acpl__gf_ap_status_type_name__c == 'Not started' && ap.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
 					ap.acpl__gf_ap_status_type_name__c = 'In Progress';
 					ap.acpl__gf_ap_substatus_type_name__c = 'AP team not invited';

@@ -26,7 +26,9 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
 	 * @Description  triggerOldMap
 	 */
 	Map<id, acpl__Account_Planning__c> triggerOldMap = ((Map<Id, acpl__Account_Planning__c>)(Trigger.OldMap));
-	//Clase implementada por Global
+	/*
+	 * @Description  Clase implementada por Global
+	 */
 	final acpl.AccountPlanningHandler apHandler = acpl.AccountPlanningHandler.getInstance();
 
 	/*
@@ -60,7 +62,9 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
 	protected override void beforeDelete() {
 		//Valida si los AP's pueden ser eliminados de acuerdo a su estado, bloqueo y usuario
 		AccountPlanning_Trigger_cls.beforeDML(triggerOldMap, null, 'delete');
-		//Metodo que elimina los registros de APT, Historial y Fields Config relacionados al AP
+		/*
+	 	* @Description  Metodo que elimina los registros de APT, Historial y Fields Config relacionados al AP
+	 	*/
 		AccountPlanning_Trigger_cls.beforeDeleteRelatedRecords(triggerOldMap);
 	}
 

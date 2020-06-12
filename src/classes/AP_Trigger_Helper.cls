@@ -113,7 +113,7 @@ public without sharing class AP_Trigger_Helper {
 		//recorro los fieldconfig a insertar
 		for(Integer i = 0; i < lstFullFieldConfig.size(); i++) {
 			for(dyfr__Field_Config__c fieldConfigAux : lstFullFieldConfig[i]) {
-				//cojo el correspondiente fieldConfig del cat�logo - bueno cojo los dep values con LIKE en el dyfr__Field_Config__r.dyfr__DeveloperName__c.dev
+				//cojo el correspondiente fieldConfig del catálogo - bueno cojo los dep values con LIKE en el dyfr__Field_Config__r.dyfr__DeveloperName__c.dev
 				dyfr__Dependent_value__c depValue;
 				for(dyfr__Dependent_value__c depValueAux : catalogListValues) {
 					depValue = new dyfr__Dependent_value__c(dyfr__LoV_labels__c = depValueAux.dyfr__LoV_labels__c, dyfr__LoV_values__c = depValueAux.dyfr__LoV_values__c,
@@ -131,4 +131,20 @@ public without sharing class AP_Trigger_Helper {
 		//inserto los dependent values
 		insert depValuesToInsert;
 	}
+    
+    /*
+	 * @Description  putValues
+	 */
+    public static void putValues(Final Map<Id, Set<Id>> mapAPTs, acpl__Account_Planning__c apR, Integer configSize, acpl__AP_PeriodConfiguration__c[] config) {
+        Final Boolean userInAPT = (mapAPTs.get(apR.Id) == null ? false : mapAPTs.get(apR.Id).contains(UserInfo.getUserId()) );
+        if(userInAPT && apR.acpl__gf_ap_status_type_name__c == 'Not started' && apR.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
+            apR.acpl__gf_ap_status_type_name__c = 'In Progress';
+            apR.acpl__gf_ap_substatus_type_name__c = 'AP team not invited';
+        }
+        if(configSize > 0 && apR.acpl__gf_ap_status_type_name__c == 'Validated' && apR.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
+            apR.acpl__gf_ap_bus_pl_guide_desc__c = config[0].acpl__gf_ap_bus_pl_guide_desc__c;
+            apR.acpl__gf_ap_comm_plan_guide_desc__c = config[0].acpl__gf_ap_comm_plan_guide_desc__c;
+            apR.acpl__gf_ap_strat_anlys_guide_desc__c = config[0].acpl__gf_ap_strat_anlys_guide_desc__c;
+        }
+    }
 }

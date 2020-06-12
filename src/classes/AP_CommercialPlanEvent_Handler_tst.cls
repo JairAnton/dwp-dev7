@@ -16,13 +16,17 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	 */
 	static Map<String, User> mapUsers = AP_FactoryTest_tst.getUsers();
 	/**
-	 * @Description variable ejecutivo
+	 * @Description variable EJECUTIVO
 	 */
-	static Final String ejecutivo = 'EJECUTIVO';
+	static Final String EJECUTIVO = 'EJECUTIVO';
 	/**
-	 * @Description variable fail
+	 * @Description variable FAIL
 	 */
-	static Final String fail = 'Fail Assertion';
+	static Final String FAIL = 'FAIL Assertion';
+    /**
+	 * @Description variable VISIT
+	 */
+	static Final String VISIT = 'Visit';
 	/**
 	 * @Description method setUp
 	 */
@@ -36,14 +40,14 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	 */
 	public static testmethod void beforeInsert() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(ejecutivo).Id, null, false);
+		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
 		insert apRecord;
 		Test.startTest();
-		System.runAs(mapUsers.get(ejecutivo)) {
+		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
 				Final acpl__Commercial_Plan_Event__c[] cpeAux = new acpl__Commercial_Plan_Event__c[] {};
 				cpeAux.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apRecord.Id, acpl__participant_id__c = acc.Id,
-				                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = 'Visit'));
+				                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = VISIT));
 				cpeAux.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apRecord.Id, acpl__participant_id__c = acc.Id,
 				                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = 'Opportunity'));
 				insert cpeAux;
@@ -54,7 +58,7 @@ public class AP_CommercialPlanEvent_Handler_tst {
 		Test.stopTest();
 		Final acpl__Commercial_Plan_Event__c[] lstCPE = [SELECT Id FROM acpl__Commercial_Plan_Event__c WHERE acpl__gf_account_planning_id__c =:apRecord.Id];
 		Final Integer size = lstCPE.size();
-		System.assertEquals(size, 0, fail);
+		System.assertEquals(size, 0, FAIL);
 	}
 
 	/**
@@ -62,14 +66,14 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	 */
 	public static testmethod void beforeUpdate() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(ejecutivo).Id, null, false);
+		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
 		insert apRecord;
 		Final acpl__Commercial_Plan_Event__c cpe = new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apRecord.Id, acpl__participant_id__c = acc.Id,
-		                                                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = 'Visit');
+		                                                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = VISIT);
 		insert cpe;
 		Final Date eventDate = cpe.acpl__gf_event_date__c;
 		Test.startTest();
-		System.runAs(mapUsers.get(ejecutivo)) {
+		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
 				cpe.acpl__gf_event_date__c = System.today() + 15;
 				update cpe;
@@ -79,7 +83,7 @@ public class AP_CommercialPlanEvent_Handler_tst {
 		}
 		Test.stopTest();
 		Final acpl__Commercial_Plan_Event__c[] lstCPE = [SELECT Id, acpl__gf_event_date__c FROM acpl__Commercial_Plan_Event__c WHERE acpl__gf_account_planning_id__c =:apRecord.Id];
-		System.assertEquals(eventDate, lstCPE[0].acpl__gf_event_date__c, fail);
+		System.assertEquals(eventDate, lstCPE[0].acpl__gf_event_date__c, FAIL);
 	}
 
 	/**
@@ -87,13 +91,13 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	 */
 	public static testmethod void beforeDelete() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(ejecutivo).Id, null, false);
+		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
 		insert apRecord;
 		Final acpl__Commercial_Plan_Event__c cpe = new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apRecord.Id, acpl__participant_id__c = acc.Id,
-		                                                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = 'Visit');
+		                                                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = VISIT);
 		insert cpe;
 		Test.startTest();
-		System.runAs(mapUsers.get(ejecutivo)) {
+		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
 				delete cpe;
 			} catch(Exception e) {
@@ -103,7 +107,7 @@ public class AP_CommercialPlanEvent_Handler_tst {
 		Test.stopTest();
 		Final acpl__Commercial_Plan_Event__c[] lstCPE = [SELECT Id, acpl__gf_event_date__c FROM acpl__Commercial_Plan_Event__c WHERE acpl__gf_account_planning_id__c =:apRecord.Id];
 		Final Integer size = lstCPE.size();
-		System.assertEquals(size, 1, fail);
+		System.assertEquals(size, 1, FAIL);
 	}
 
 	/**
@@ -111,15 +115,15 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	 */
 	public static testmethod void afterInsert() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(ejecutivo).Id, null, true);
+		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
 		Test.startTest();
-		System.runAs(mapUsers.get(ejecutivo)) {
+		System.runAs(mapUsers.get(EJECUTIVO)) {
 			insert new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apRecord.Id, acpl__participant_id__c = acc.Id,
-			                                          acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = 'Visit');
+			                                          acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = VISIT);
 		}
 		Test.stopTest();
 		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c WHERE Id =:apRecord.Id LIMIT 1];
-		System.assertEquals('In Progress', apAux.acpl__gf_ap_status_type_name__c, fail);
+		System.assertEquals('In Progress', apAux.acpl__gf_ap_status_type_name__c, FAIL);
 	}
 }
