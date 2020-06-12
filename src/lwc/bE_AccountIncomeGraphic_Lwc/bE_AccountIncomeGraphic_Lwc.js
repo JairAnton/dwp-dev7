@@ -37,7 +37,7 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
             this.wiredData = value;
             const { data, error } = value;
             if (data) {
-                createMap(data);
+                this.createMap(data);
             } else if(error) {
                 this.cssDisplay = "slds-hidden";
                 this.error = 'No hay data disponible';
