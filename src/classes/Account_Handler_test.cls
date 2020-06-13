@@ -16,6 +16,14 @@ public class Account_Handler_test {
 	*/
 	private static final String STR_EJECUTIVO = 'Ejecutivo';
     /*
+	*   @Variable: TWO
+	*/
+    private static final Integer TWO = 2;
+    /*
+	*   @Variable: THREE
+	*/
+    private static final Integer THREE = 3;
+    /*
 	*   @Variable: TEN
 	*/
     private static final Integer TEN = 10;
@@ -59,7 +67,7 @@ public class Account_Handler_test {
 	static void positiveMethod() {
 		//Start test.
 		Test.startTest();
-		List<Account> lstAccounts = [SELECT Id, Name FROM Account LIMIT 20];
+		Final List<Account> lstAccounts = [SELECT Id, Name FROM Account LIMIT 20];
 		Final List<Branch__c> lstBranches = [SELECT Id, Name FROM Branch__c limit 5];
 		Integer iterator = 0;
 		Final Integer cont = lstBranches.size() - 1;
@@ -100,7 +108,7 @@ public class Account_Handler_test {
 		}
         Boolean result;
         Final List<User_Assistant_Team__c> ltsAssistant = [SELECT Id FROM User_Assistant_Team__c LIMIT 10];
-        if(ltsAssistant.size() == 2) {
+        if(ltsAssistant.size() == TWO) {
             result = true;
         } else {
             result = false;
@@ -135,7 +143,7 @@ public class Account_Handler_test {
 		}
         Boolean result;
         Final List<User_Assistant_Team__c> ltsAssistant = [SELECT Id FROM User_Assistant_Team__c LIMIT 10];
-        if(ltsAssistant.size() == 3) {
+        if(ltsAssistant.size() == THREE) {
             result = true;
         } else {
             result = false;
@@ -257,9 +265,9 @@ public class Account_Handler_test {
 		}
 		insert lstAPT;
 		Test.startTest();
-        List<Account> ltsAccUpd = new List<Account>();
+        Final List<Account> ltsAccUpd = new List<Account>();
 		for(Account acc : lstAcc) {
-            Account accAux = new Account();
+            Final Account accAux = new Account();
             accAux.Id = acc.Id;
 			accAux.OwnerId = lstUser[1].Id;
             ltsAccUpd.add(accAux);

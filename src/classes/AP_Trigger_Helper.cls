@@ -27,7 +27,6 @@ public without sharing class AP_Trigger_Helper {
 	public static void createAptOwner(Map<Id, Id> ownersAPT) {
 		Final Integer ownersAPTSize = ownersAPT.size();
 		if(ownersAPTSize > 0) {
-			Final Map<Id, User> mapUsers = new Map<Id, User>([SELECT Id FROM User WHERE Id IN: ownersAPT.values() AND isActive = true]);
 			Final bupl__AP_Team__c[] lstAPTOwners = new bupl__AP_Team__c[] {};
 			bupl__AP_Team__c aptOwner;
 			for(Id key:ownersAPT.keySet()) {
@@ -63,7 +62,7 @@ public without sharing class AP_Trigger_Helper {
 		Final List<String> lstDeveloperNames = new List<String>();
 		for(String apId:triggerOldMap.keySet()) {
 			for(Integer i = 1; i <= triggerOldMap.get(apId).acpl__gf_ap_question_form_number__c; i++) {
-				String dvName = apId + '_' + i;
+				Final String dvName = apId + '_' + i;
 				lstDeveloperNames.add(dvName);
 			}
 		}
@@ -96,7 +95,7 @@ public without sharing class AP_Trigger_Helper {
 	/*
 	 * @Description  Asocia valores de lista del catalogo a cada pregunta clonada
 	 */
-	public static void relateListValues(List<List<dyfr__Field_Config__c>> lstFullFieldConfig, List<dyfr__Field_Config__c> catalogCnfig) {
+	public static void relateListValues(List<List<dyfr__Field_Config__c>> fieldsConfig, List<dyfr__Field_Config__c> catalogCnfig) {
 		Final Set<Id> ctlgCnfigSet = new Set<Id>();
 		for(dyfr__Field_Config__c fieldConfigAux : catalogCnfig) {
 			if(!ctlgCnfigSet.contains(fieldConfigAux.Id)) {
@@ -111,18 +110,16 @@ public without sharing class AP_Trigger_Helper {
 		final List<dyfr__Dependent_value__c> depValuesToInsert = new List<dyfr__Dependent_value__c>();
 
 		//recorro los fieldconfig a insertar
-		for(Integer i = 0; i < lstFullFieldConfig.size(); i++) {
-			for(dyfr__Field_Config__c fieldConfigAux : lstFullFieldConfig[i]) {
+		for(Integer i = 0; i < fieldsConfig.size(); i++) {
+			for(dyfr__Field_Config__c fieldConfigAux : fieldsConfig[i]) {
 				//cojo el correspondiente fieldConfig del catálogo - bueno cojo los dep values con LIKE en el dyfr__Field_Config__r.dyfr__DeveloperName__c.dev
-				dyfr__Dependent_value__c depValue;
 				for(dyfr__Dependent_value__c depValueAux : catalogListValues) {
-					depValue = new dyfr__Dependent_value__c(dyfr__LoV_labels__c = depValueAux.dyfr__LoV_labels__c, dyfr__LoV_values__c = depValueAux.dyfr__LoV_values__c,
-					                                        dyfr__Values_control_value__c = depValueAux.dyfr__Values_control_value__c);
 					final List<String> developerNameFC = fieldConfigAux.dyfr__DeveloperName__c.split('_');
 					final List<String> developerNameDV = depValueAux.dyfr__Field_Config__r.dyfr__DeveloperName__c.split('_');
 					//  y voy creando sus dependent values
 					if(developerNameFC.get(1) == developerNameDV.get(1)) {
-						depValue.dyfr__Field_Config__c = fieldConfigAux.Id;
+                        Final dyfr__Dependent_value__c depValue = new dyfr__Dependent_value__c(dyfr__LoV_labels__c = depValueAux.dyfr__LoV_labels__c, dyfr__LoV_values__c = depValueAux.dyfr__LoV_values__c,
+					                                        dyfr__Values_control_value__c = depValueAux.dyfr__Values_control_value__c, dyfr__Field_Config__c = fieldConfigAux.Id);
 						depValuesToInsert.add(depValue);
 					}
 				}

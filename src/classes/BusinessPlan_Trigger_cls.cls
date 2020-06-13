@@ -10,6 +10,9 @@
  * @author Diego Carbajal
  */
 public without sharing class BusinessPlan_Trigger_cls {
+    
+    /*** @Description BusinessPlan_Trigger_cls*/
+    private BusinessPlan_Trigger_cls() {}
 	/*
 	 * @author       Global Desktop
 	 * @Description  Check if BP has changed and if so propagates this change on Status field in related AP.
@@ -29,26 +32,36 @@ public without sharing class BusinessPlan_Trigger_cls {
 			}
 		}
 		if(!APidList.isEmpty()) {
-			final list<acpl__Account_Planning__c> listAPtoUpdate = [SELECT Id, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c FROM acpl__Account_Planning__c WHERE Id IN :APidList AND acpl__gf_ap_status_type_name__c = 'Not started'];
-			Final BE_AP_Permission_helper permission = new BE_AP_Permission_helper(UserInfo.getUserId());
-			Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(APidList);
-			for(acpl__Account_Planning__c ap : listAPtoUpdate) {
-				Boolean userInAPT = (mapAPTs.get(ap.Id) != null ? mapAPTs.get(ap.Id).contains(UserInfo.getUserId()) : false);
-				if(changeStatus.contains(ap.Id)) {
-					ap.acpl__gf_ap_status_type_name__c = 'Validated';
-					ap.acpl__gf_ap_substatus_type_name__c = 'In place';
-				} else if(changeAnother.contains(ap.Id) &&  userInAPT) {
-					ap.acpl__gf_ap_status_type_name__c = 'In Progress';
-					ap.acpl__gf_ap_substatus_type_name__c = 'AP team not invited';
-				}
-			}
-			Final Integer listAPtoUpdateSize = listAPtoUpdate.size();
-			if(listAPtoUpdateSize > 0) {
-				update listAPtoUpdate;
-			}
+			updateAP(APidList, changeStatus, changeAnother);
 		}
 	}
 
+	/**
+	* @Description updateAP
+	*/    
+    private static void updateAP(Set<Id> APidList, Set<Id> changeStatus, Set<Id> changeAnother) {
+        final list<acpl__Account_Planning__c> listAPtoUpdate = [SELECT Id, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c FROM 
+                                                                acpl__Account_Planning__c WHERE Id IN :APidList AND acpl__gf_ap_status_type_name__c = 'Not started'];
+        Final BE_AP_Permission_helper permission = new BE_AP_Permission_helper(UserInfo.getUserId());
+        Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(APidList);
+        for(acpl__Account_Planning__c ap : listAPtoUpdate) {
+            Final Boolean userInAPT = (mapAPTs.get(ap.Id) == null ? false : mapAPTs.get(ap.Id).contains(UserInfo.getUserId()));
+            if(changeStatus.contains(ap.Id)) {
+                ap.acpl__gf_ap_status_type_name__c = 'Validated';
+                ap.acpl__gf_ap_substatus_type_name__c = 'In place';
+            } else if(changeAnother.contains(ap.Id) &&  userInAPT) {
+                ap.acpl__gf_ap_status_type_name__c = 'In Progress';
+                ap.acpl__gf_ap_substatus_type_name__c = 'AP team not invited';
+            }
+        }
+        if(!listAPtoUpdate.isEmpty()) {
+            update listAPtoUpdate;
+        }
+    }
+
+    /**
+	* @Description preventModifyBP
+	*/
 	public static void preventModifyBP(Map<Id, bupl__BusinessPlan__c> triggerMap, String actionType) {
 		Final Map<Id, List<bupl__BusinessPlan__c>> mapBP = new Map<Id, List<bupl__BusinessPlan__c>>();
 		List<bupl__BusinessPlan__c> lstBP;

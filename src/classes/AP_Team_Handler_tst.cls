@@ -58,7 +58,7 @@ public class AP_Team_Handler_tst {
 		Final Integer sharingBPSize = sharingBP.size();
         System.assertEquals(aptSize, 1, fail);
 		System.assertEquals(sharingAPSize, 3, fail);
-		System.assertEquals(sharingBPSize, 3, FAIL);
+        System.assertEquals(sharingBPSize, 3, FAIL);
 	}
 
 	/**

@@ -28,13 +28,13 @@ public without sharing class AP_Team_Trigger_cls {
 		Final Map<Id, User> mapUser = new Map<Id, User>([SELECT Id, Name, LastName FROM User LIMIT 2000]);
 		for(bupl__AP_Team__c apt:newAPTs) {
 			//Completa el campo Name del APT
-			if(String.isNotBlank(apt.bupl__gf_ap_team_user_id__c)) {
+			if(mapUser.containsKey(apt.bupl__gf_ap_team_user_id__c)) {
 				apt.Name = mapUser.get(apt.bupl__gf_ap_team_user_id__c).Name;
 			}
 		}
 	}
 	/*
-	 * @Description  Recorre los APT y ejecutida diversos metodos de acuerdo al tipo de DML y filtros de APT
+	 * @Description  Go through the APTs and execute various methods according to the type of DML and APT filters
 	 */
 	public static void beforeDML(bupl__AP_Team__c[] newAPTs, String actionType) {
 		Final Map<Id, List<bupl__AP_Team__c>> mapAPTs = new Map<Id, List<bupl__AP_Team__c>>();

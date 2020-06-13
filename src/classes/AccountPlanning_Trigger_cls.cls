@@ -16,7 +16,7 @@ public without sharing class AccountPlanning_Trigger_cls {
     /* @Description AccountPlanning_Trigger_cls*/
     private AccountPlanning_Trigger_cls() {}
 	/**
-	 * @Description Ejecuta diversos metodos de acuerdo a diferentes criterios
+	 * @Description Execute various methods according to different criteria
 	 */
 	public static void beforeInsert(List<acpl__Account_Planning__c> triggerNew) {
 		Final Set<Id> idsGestor = new Set<Id>();

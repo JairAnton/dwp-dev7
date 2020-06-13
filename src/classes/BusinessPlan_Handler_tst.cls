@@ -11,10 +11,10 @@
  */
 @isTest
 public class BusinessPlan_Handler_tst {
-	/**
-	   @Description mapUsers
-	 */
-	Final static Map<String, User> mapUsers = AP_FactoryTest_tst.getUsers();
+	/**@Description MAP_USERS*/
+	private static Final Map<String, User> MAP_USERS = AP_FactoryTest_tst.getUsers();
+    /**@Description EJECUTIVO*/
+    private static Final String EJECUTIVO = 'EJECUTIVO';
 
 	/**
 	   @Description setUp
@@ -29,18 +29,17 @@ public class BusinessPlan_Handler_tst {
 	 */
 	public static testmethod void afterUpdateValidatedBP() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c ap = TestFactory.createAccountPlanning(acc.Id, mapUsers.get('EJECUTIVO').Id, null, true);
-		insert ap;
-		Final bupl__BusinessPlan__c bpAux = [SELECT Id, acpl__gf_account_planning_id__c, bupl__status_type__c FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:ap.Id LIMIT 1];
-		Final String assert = 'Validated';
+		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
+		insert apR;
+		Final bupl__BusinessPlan__c bpAux = [SELECT Id, acpl__gf_account_planning_id__c, bupl__status_type__c FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
-		System.runAs(mapUsers.get('EJECUTIVO')) {
+		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			bpAux.bupl__status_type__c = 'Validated';
 			update bpAux;
 		}
 		Test.stopTest();
-		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c WHERE Id =:ap.Id LIMIT 1];
-		System.assert (apAux.acpl__gf_ap_status_type_name__c == assert, 'Fail Assertion');
+		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c WHERE Id =:apR.Id LIMIT 1];
+		System.assertEquals ('Validated', apAux.acpl__gf_ap_status_type_name__c, 'Fail Assertion');
 	}
 
 	/**
@@ -48,17 +47,17 @@ public class BusinessPlan_Handler_tst {
 	 */
 	public static testmethod void afterUpdateInProgressBP() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c ap = TestFactory.createAccountPlanning(acc.Id, mapUsers.get('EJECUTIVO').Id, null, true);
-		insert ap;
-		Final bupl__BusinessPlan__c bpAux = [SELECT Id, acpl__gf_account_planning_id__c, bupl__status_type__c FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:ap.Id LIMIT 1];
-		Final String assert = 'In Progress';
+		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
+		insert apR;
+		Final bupl__BusinessPlan__c bpAux = [SELECT Id, acpl__gf_account_planning_id__c, bupl__status_type__c FROM bupl__BusinessPlan__c WHERE 
+                                             acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
-		System.runAs(mapUsers.get('EJECUTIVO')) {
+		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			bpAux.bupl__status_type__c = 'In Progress';
 			update bpAux;
 		}
 		Test.stopTest();
-		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c WHERE Id =:ap.Id LIMIT 1];
-		System.assert (apAux.acpl__gf_ap_status_type_name__c == assert, 'Fail Assertion');
+		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c WHERE Id =:apR.Id LIMIT 1];
+		System.assertEquals ('In Progress', apAux.acpl__gf_ap_status_type_name__c, 'Fail Assertion');
 	}
 }

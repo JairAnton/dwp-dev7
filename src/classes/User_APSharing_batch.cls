@@ -24,18 +24,19 @@ public without sharing class User_APSharing_batch implements Database.Batchable<
 	/**
 	   @Description start
 	 */
-	public Database.QueryLocator start(Database.BatchableContext bc) {
-		return Database.getQueryLocator([SELECT Id, acpl__gf_account_planning_id__c, bupl__gf_ap_team_user_id__c, bupl__gf_business_plan_id__c FROM bupl__AP_Team__c WHERE bupl__gf_ap_team_user_id__c IN: userIds
-		                                 AND acpl__gf_account_planning_id__r.RecordType.DeveloperName = 'Account_Planning' AND(acpl__gf_account_planning_id__r.acpl__gf_ap_status_type_name__c != 'Validated'
-		                                                                                                                       OR acpl__gf_account_planning_id__r.acpl__gf_ap_substatus_type_name__c != 'Expired')]);
+	public Database.QueryLocator start(Database.BatchableContext batchC) {
+		return Database.getQueryLocator([SELECT Id, acpl__gf_account_planning_id__c, bupl__gf_ap_team_user_id__c, bupl__gf_business_plan_id__c FROM bupl__AP_Team__c 
+                                         WHERE bupl__gf_ap_team_user_id__c IN: userIds AND acpl__gf_account_planning_id__r.RecordType.DeveloperName = 'Account_Planning' 
+                                         AND(acpl__gf_account_planning_id__r.acpl__gf_ap_status_type_name__c NOT IN ('Validated') OR 
+                                             acpl__gf_account_planning_id__r.acpl__gf_ap_substatus_type_name__c NOT IN ('Expired'))]);
 	}
 
 	/**
 	   @Description execute
 	 */
-	public void execute(Database.BatchableContext BC, List<bupl__AP_Team__c> lstobj) {
+	public void execute(Database.BatchableContext batchC, List<bupl__AP_Team__c> lstobj) {
 		system.debug('>>>>> BATCH lstobj: ' + lstobj);
-		Map<Id, bupl__AP_Team__c> mapAPT = new Map<Id, bupl__AP_Team__c>();
+		Final Map<Id, bupl__AP_Team__c> mapAPT = new Map<Id, bupl__AP_Team__c>();
 		for(bupl__AP_Team__c apt:lstobj) {
 			mapAPT.put(apt.Id, apt);
 		}
@@ -47,6 +48,5 @@ public without sharing class User_APSharing_batch implements Database.Batchable<
 	/**
 	   @Description finish
 	 */
-	public void finish(Database.BatchableContext BC) {
-	}
+	public void finish(Database.BatchableContext batchC) {}
 }

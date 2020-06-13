@@ -86,7 +86,7 @@ public without sharing class User_Trigger_cls {
             usersExGOF = getUserIds(3, usuario, userNewMap, usersExGOF);
 		}
 		if(!userIds.isEmpty()) {
-			User_APSharing_batch userAPShareBatch = new User_APSharing_batch(userIds);
+			Final User_APSharing_batch userAPShareBatch = new User_APSharing_batch(userIds);
 			Database.executeBatch(userAPShareBatch);
 		}
 		if(!userGOF.isEmpty()) {
@@ -105,19 +105,23 @@ public without sharing class User_Trigger_cls {
     public Set<Id> getUserIds(Integer option, User usuario, Map<id, User> userNewMap, Set<Id> setIds) {
 		//Obtenemos los codigos de los usuarios que deben ser validadores
 		Final List<String> lstVCodes = System.Label.AP_ValidatorsCode.split(',');
-        if(option == 1) {
-            if(!usuario.isActive && userNewMap.get(usuario.Id).isActive) {
-				setIds.add(usuario.Id);
-			}
-        } else if(option == 2) {
-            if(lstVCodes.contains(userNewMap.get(usuario.Id).prof_position_id__c)) {
-				setIds.add(usuario.Id);
-			}
-        } else if(option == 3) {
-            if(usuario.prof_position_id__c != userNewMap.get(usuario.Id).prof_position_id__c &&
-			   lstVCodes.contains(usuario.prof_position_id__c)) {
-				setIds.add(usuario.Id);
-			}
+        switch on option {
+            when 1 {
+                if(!usuario.isActive && userNewMap.get(usuario.Id).isActive) {
+                    setIds.add(usuario.Id);
+                }
+            }
+            when 2 {
+                if(lstVCodes.contains(userNewMap.get(usuario.Id).prof_position_id__c)) {
+                    setIds.add(usuario.Id);
+                }
+            }
+            when 3 {
+                if(usuario.prof_position_id__c != userNewMap.get(usuario.Id).prof_position_id__c &&
+                   lstVCodes.contains(usuario.prof_position_id__c)) {
+                    setIds.add(usuario.Id);
+                }
+            }
         }
         return setIds;
 	}

@@ -10,6 +10,11 @@
  * @author Diego Carbajal
  */
 public without sharing class DynamicRedirectPage_ctr {
+    
+    /**
+	   @Description DynamicRedirectPage_ctr
+	 */
+    private DynamicRedirectPage_ctr() {}
 	/**
 	   @Description test Be_DynamicTablePresentationSettings_cls.getDefaultValue(),correct scenary
 	 */
@@ -30,7 +35,6 @@ public without sharing class DynamicRedirectPage_ctr {
 		mapResponse.put('isSuccess', isSuccess);
 		if(!stayPage && String.isNotBlank(fieldName)) {
 			try {
-				Final String currentSObj = sObjectType;
 				Final String query = 'SELECT Id, ' + String.escapeSingleQuotes(fieldName) + ' FROM ' + String.escapeSingleQuotes(sObjectType) + ' WHERE Id=:recordId LIMIT 1';
 				Final List<SObject> lstCurrentObj = Database.query(query);
 				Final Integer lstCurrentObjSize = lstCurrentObj.size();
@@ -64,9 +68,9 @@ public without sharing class DynamicRedirectPage_ctr {
 			}
 			//Si existen perfiles permitidos en la configuración
 			if(mapAllowed.containsKey('profiles')) {
-				Final String strAllowedProfiles = (String)mapAllowed.get('profiles');
-				Final List<String> lstAllowedProfiles = strAllowedProfiles.split(',');
-				stayPage = stayPage || lstAllowedProfiles.contains(currentUser[0].Profile.Name);
+				Final String strAllowedP = (String)mapAllowed.get('profiles');
+				Final List<String> lstAllowedP = strAllowedP.split(',');
+				stayPage = stayPage || lstAllowedP.contains(currentUser[0].Profile.Name);
 			}
 			//Validate Permission Administrator
 			stayPage = stayPage || PROFILE_NAMES.contains(currentUser[0].Profile.Name);

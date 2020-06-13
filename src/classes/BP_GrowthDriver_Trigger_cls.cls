@@ -10,6 +10,11 @@
  * @author Diego Carbajal
  */
 public without sharing class BP_GrowthDriver_Trigger_cls {
+    
+    /*
+	 * @Description  BP_GrowthDriver_Trigger_cls
+	 */
+    private BP_GrowthDriver_Trigger_cls() {}
 	/*
 	 * @Description  Valida que el usuario tenga permisos para insertar/modificar/eliminar registros
 	 */
@@ -46,27 +51,31 @@ public without sharing class BP_GrowthDriver_Trigger_cls {
 			BPidList.add(gd.bupl__gf_business_plan_id__c);
 		}
 		if(!BPidList.isEmpty()) {
-			final List<bupl__BusinessPlan__c> listRelatedBP = [SELECT Id, acpl__gf_account_planning_id__c FROM bupl__BusinessPlan__c WHERE Id IN :BPidList AND acpl__gf_account_planning_id__r.acpl__gf_ap_status_type_name__c = 'Not started'];
-			final Set<Id> APidList = new Set<Id>();
+			final List<bupl__BusinessPlan__c> listRelatedBP = [SELECT Id, acpl__gf_account_planning_id__c FROM bupl__BusinessPlan__c WHERE Id IN :BPidList AND 
+                                                               acpl__gf_account_planning_id__r.acpl__gf_ap_status_type_name__c = 'Not started'];
+			final Set<Id> apIdList = new Set<Id>();
 			for(bupl__BusinessPlan__c bp : listRelatedBP) {
-				APidList.add(bp.acpl__gf_account_planning_id__c);
+				apIdList.add(bp.acpl__gf_account_planning_id__c);
 			}
-			if(!APidList.isEmpty()) {
-				Final BE_AP_Permission_helper permission = new BE_AP_Permission_helper(UserInfo.getUserId());
-				Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(apIdList);
-				final List<acpl__Account_Planning__c> listAPtoUpdate = [SELECT Id, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c FROM acpl__Account_Planning__c WHERE Id IN :APidList AND acpl__gf_ap_status_type_name__c = 'Not started'];
-				for(acpl__Account_Planning__c ap : listAPtoUpdate) {
-					Boolean userInAPT = (mapAPTs.get(ap.Id) != null ? mapAPTs.get(ap.Id).contains(UserInfo.getUserId()) : false);
-					if(userInAPT && ap.acpl__gf_ap_status_type_name__c == 'Not started' && ap.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
-						ap.acpl__gf_ap_status_type_name__c = 'In Progress';
-						ap.acpl__gf_ap_substatus_type_name__c = 'AP team not invited';
-					}
-				}
-				Final Integer listAPtoUpdateSize = listAPtoUpdate.size();
-				if(listAPtoUpdateSize > 0) {
-					update listAPtoUpdate;
-				}
+			if(!apIdList.isEmpty()) {
+				updateAP(apIdList);
 			}
 		}
 	}
+    
+    private static void updateAP(Set<Id> apIdList) {
+        Final BE_AP_Permission_helper permission = new BE_AP_Permission_helper(UserInfo.getUserId());
+        Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(apIdList);
+        final List<acpl__Account_Planning__c> listAPtoUpdate = [SELECT Id, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c FROM acpl__Account_Planning__c WHERE Id IN :APidList AND acpl__gf_ap_status_type_name__c = 'Not started'];
+        for(acpl__Account_Planning__c ap : listAPtoUpdate) {
+            Final Boolean userInAPT = (mapAPTs.get(ap.Id) == null ? false : mapAPTs.get(ap.Id).contains(UserInfo.getUserId()) );
+            if(userInAPT && ap.acpl__gf_ap_status_type_name__c == 'Not started' && ap.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
+                ap.acpl__gf_ap_status_type_name__c = 'In Progress';
+                ap.acpl__gf_ap_substatus_type_name__c = 'AP team not invited';
+            }
+        }
+        if(!listAPtoUpdate.isEmpty()) {
+            update listAPtoUpdate;
+        }
+    }
 }

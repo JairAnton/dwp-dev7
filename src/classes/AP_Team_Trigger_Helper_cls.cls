@@ -61,10 +61,10 @@ public class AP_Team_Trigger_Helper_cls {
     /*
 	 * @Description  Si el usuario que no es gestor principal intenta eliminar otros gestores
 	 */
-	public static void putErrorDeleteGestor(Map<Id, Set<Id>> mapAptMainGestorUser, bupl__AP_Team__c apt, Boolean adminUser) {
-		if((!adminUser && !mapAptMainGestorUser.containsKey(apt.acpl__gf_account_planning_id__c)) ||
-		   (!adminUser && mapAptMainGestorUser.containsKey(apt.acpl__gf_account_planning_id__c) &&
-		    !mapAptMainGestorUser.get(apt.acpl__gf_account_planning_id__c).contains(UserInfo.getUserId()) &&
+	public static void putErrorDeleteGestor(Map<Id, Set<Id>> mapMainGestor, bupl__AP_Team__c apt, Boolean adminUser) {
+		if((!adminUser && !mapMainGestor.containsKey(apt.acpl__gf_account_planning_id__c)) ||
+		   (!adminUser && mapMainGestor.containsKey(apt.acpl__gf_account_planning_id__c) &&
+		    !mapMainGestor.get(apt.acpl__gf_account_planning_id__c).contains(UserInfo.getUserId()) &&
 		    apt.bupl__gf_ap_team_role_user_name__c == GESTOR)) {
 			apt.addError(System.Label.AP_MainGestorAddGestors);
 		}

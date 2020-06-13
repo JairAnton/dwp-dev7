@@ -21,8 +21,8 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 	   @Description Be_RecordId_Related_Sobject_helper
 	 */
 	public Be_RecordId_Related_Sobject_helper() {
-		report = Be_Dynamic_Report_Chart__c.getInstance(ApexPages.currentPage().getParameters().get('configName'));
-		report.Filters__c = report.Filters__c.replace('recordId', ApexPages.currentPage().getParameters().get('Id'));
+		report = Be_Dynamic_Report_Chart__c.getInstance(String.valueOf(ApexPages.currentPage().getParameters().get('configName')));
+		report.Filters__c = report.Filters__c.replace('recordId', String.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('Id')));
 	}
 
 	/**
@@ -33,7 +33,7 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 		Final String query = 'SELECT Id, ' + String.escapeSingleQuotes(field) + ' FROM ' + String.escapeSingleQuotes(sObjType) + ' WHERE Id=:recordId LIMIT 1';
 		Final List<sObject> listSobject = Database.query(query);
 		String result = '';
-		if(listSobject.size() > 0) {
+		if(!listSobject.isEmpty()) {
 			result = (String)listSobject[0].get(field);
 		}
 		return result;
@@ -43,13 +43,13 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 	   @Description getUrlPage
 	 */
 	@AuraEnabled
-	public static Map<String, Object> getUrlPage(String reportDeveloperName, String sObjType, String field, String recordId) {
+	public static Map<String, Object> getUrlPage(String reportDVN, String sObjType, String field, String recordId) {
 		Final Map<String, Object> mapRes = new Map<String, Object> {'isError' => true};
-		Final List<Report> lstReport = [SELECT Id FROM Report WHERE DeveloperName =:reportDeveloperName LIMIT 1];
+		Final List<Report> lstReport = [SELECT Id FROM Report WHERE DeveloperName =:reportDVN LIMIT 1];
 		Final String record = getRecordIdSobject(sObjType, field, recordId);
-		if((!lstReport.isEmpty() && String.isNotEmpty(record)) || Test.isRunningTest()) {
+        if((!lstReport.isEmpty() && String.isNotEmpty(record))) {
 			mapRes.put('isError', false);
-			mapRes.put('url', URL.getSalesforceBaseUrl().toExternalForm() + '/apex/Be_Dynamic_ReportChart_vfp?Id=' + record + '&configName=' + reportDeveloperName);
+			mapRes.put('url', URL.getSalesforceBaseUrl().toExternalForm() + '/apex/Be_Dynamic_ReportChart_vfp?Id=' + record + '&configName=' + reportDVN);
 		}
 		return mapRes;
 	}
@@ -60,10 +60,10 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 	@AuraEnabled
 	public static List<Integer> getVisitValues(String recordId) {
 		Final Integer[] lstData = new Integer[3];
-		Final acpl__Account_Planning__c[] ap = BE_AP_Administration_helper.getAP(recordId);
-		Final Integer apSize = ap.size();
-		if(apSize > 0 && String.isNotBlank(ap[0].acpl__participant_id__c)) {
-			Id accountId = ap[0].acpl__participant_id__c;
+		Final acpl__Account_Planning__c[] apR = BE_AP_Administration_helper.getAP(recordId);
+		Final Integer apSize = apR.size();
+		if(apSize > 0 && String.isNotBlank(apR[0].acpl__participant_id__c)) {
+			Final Id accountId = apR[0].acpl__participant_id__c;
 			lstData[0] = Database.countQuery(String.escapeSingleQuotes('SELECT count() FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c=:accountId AND dwp_kitv__visit_start_date__c = LAST_YEAR'));
 			lstData[1] = Database.countQuery(String.escapeSingleQuotes('SELECT count() FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c=:accountId AND dwp_kitv__visit_start_date__c = THIS_YEAR'));
 			lstData[2] = Database.countQuery(String.escapeSingleQuotes('SELECT count() FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c=:accountId AND dwp_kitv__visit_start_date__c >= TODAY'));

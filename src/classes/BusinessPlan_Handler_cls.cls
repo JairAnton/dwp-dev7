@@ -26,7 +26,7 @@ public without sharing class BusinessPlan_Handler_cls extends TriggerHandler {
 	   @Description triggerOldMap
 	 */
 	Map<id, bupl__BusinessPlan__c> triggerOldMap = ((Map<Id, bupl__BusinessPlan__c>)(Trigger.OldMap));
-	//Clase implementada por Global
+    /**@Description Clase implementada por Global*/
 	final acpl.BusinessPlan_TriggerHandler bpHandler = acpl.BusinessPlan_TriggerHandler.getInstance();
 
 	/**

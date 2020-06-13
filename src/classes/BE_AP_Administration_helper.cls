@@ -10,6 +10,12 @@
  * @author Diego Carbajal
  */
 public without sharing class BE_AP_Administration_helper {
+    /** @Description  EXPIRED*/
+    private static Final String EXPIRED = 'Expired';
+    /** @Description  EXPIRED*/
+    private static Final String PENDG_VAL = 'Pending Validation';
+    /** @Description  EXPIRED*/
+    private static Final String VALIDATED = 'Validated';
 	/*
 	 * @Description  private constructor
 	 */
@@ -29,13 +35,13 @@ public without sharing class BE_AP_Administration_helper {
 	/*
 	 * @Description  method validateStatus
 	 */
-	public static Map<String, Object> validateStatus(acpl__Account_Planning__c ap) {
+	public static Map<String, Object> validateStatus(acpl__Account_Planning__c apR) {
 		Final Map<String, Object> mapRes = new Map<String, Object> {'validation' => false};
-		if(ap.acpl__gf_ap_substatus_type_name__c == 'Expired') {
+		if(apR.acpl__gf_ap_substatus_type_name__c == EXPIRED) {
 			mapRes.put('status', 'expirado.');
-		} else if(ap.acpl__gf_ap_status_type_name__c == 'Pending Validation') {
-			mapRes.put('status', 'pendiente de validaci�n.');
-		} else if(ap.acpl__gf_ap_status_type_name__c == 'Validated')  {
+		} else if(apR.acpl__gf_ap_status_type_name__c == PENDG_VAL) {
+			mapRes.put('status', 'pendiente de validación.');
+		} else if(apR.acpl__gf_ap_status_type_name__c == VALIDATED) {
 			mapRes.put('status', 'validado.');
 		} else {
 			mapRes.put('validation', true);
@@ -50,7 +56,7 @@ public without sharing class BE_AP_Administration_helper {
 		Final List<SObject> castRecords = (List<SObject>)Type.forName('List<' + sobjType + '>').newInstance();
 		castRecords.addAll(lstSObject);
 		for(Sobject sobj:castRecords) {
-			sobj.addError(msg, false);
+			sobj.addError(msg);
 		}
 	}
 

@@ -10,10 +10,15 @@
  * @author
  */
 public with sharing class Case_Helper {
-	/**
-	   @Description rtId
+    
+    /**
+	   @Description Case_Helper
 	 */
-	Final static String rtId = [SELECT Id FROM RecordType WHERE DeveloperName = 'Sanction_Price'].Id;
+    private Case_Helper() {}
+	/**
+	   @Description RT_ID
+	 */
+	Final static String RT_ID = [SELECT Id FROM RecordType WHERE DeveloperName = 'Sanction_Price'].Id;
 
 	/**
 	   @Description updateCaseNotification
@@ -21,8 +26,7 @@ public with sharing class Case_Helper {
 	public static void updateCaseNotification(List<Case> lstNew, Map<Id, Case> mapOld) {
 		Final List <Id> lstId = new List <Id>();
 		for(Case casnew : lstNew) {
-			Case oldRecord = mapOld.get(casnew.Id);
-			if(!casnew.IsClosed && casnew.OwnerId != oldRecord.OwnerId && casnew.recordTypeId == rtId) {
+			if(!casnew.IsClosed && casnew.OwnerId != mapOld.get(casnew.Id).OwnerId && casnew.recordTypeId == RT_ID) {
 				lstId.add(casnew.Id);
 			}
 		}
@@ -37,7 +41,7 @@ public with sharing class Case_Helper {
 	public static void insertCaseNotification(List<Case> lstNew) {
 		Final List <Id> lstId = new List <Id>();
 		for(Case cas : lstNew) {
-			if(!cas.IsClosed && cas.recordTypeId == rtId) {
+			if(!cas.IsClosed && cas.recordTypeId == RT_ID) {
 				lstId.add(cas.Id);
 			}
 		}

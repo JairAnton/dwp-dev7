@@ -14,7 +14,7 @@ public without sharing class Sharing_AP_Team_User_cls {
 	/*
 	 * @Description	Comparte los registros de AP/BP
 	 */
-	public static void SharingAPT(Map<Id, bupl__AP_Team__c> triggerNew, Boolean isTrigger) {
+	public static void sharingAPT(Map<Id, bupl__AP_Team__c> triggerNew, Boolean isTrigger) {
 		Final List<acpl__Account_Planning__Share> lstAPTShare = new List<acpl__Account_Planning__Share>();
 		Final List<bupl__BusinessPlan__Share> lstBPShare = new List<bupl__BusinessPlan__Share>();
 		Final List<bupl__AP_Team__c> lstAPT = triggerNew.values();
@@ -46,14 +46,13 @@ public without sharing class Sharing_AP_Team_User_cls {
 			if(result[i].isSuccess()) {
 				System.debug('Sharing success on record with Id: ' + lstShare[i].get('ParentId'));
 			} else if(isTrigger) {
-				lstAPT[i].addError(result[i].getErrors()[0].getStatusCode() + ' : ' + result[i].getErrors()[0].getMessage());
+                lstAPT[i].addError(String.format(System.Label.AP_ErrorSharingAPT, new String[]{result[i].getErrors()[0].getMessage()}));
 				System.debug(result[i].getErrors()[0].getStatusCode() + ' : ' + result[i].getErrors()[0].getMessage());
 			} else {
 				System.debug(result[i].getErrors()[0].getStatusCode() + ' : ' + result[i].getErrors()[0].getMessage());
 			}
 		}
 	}
-	//PROBAR CARGA DE APT DESACTIVADO Y DESACTIVAR Y VOLVER A ACTIVAR AÑADIENDO PERMISOS DE EDICION A LOS AP DONDE ES APT
 
 	/*
 	 * @Description  Elimina el compartimiento de registro cuando se elimina un APT
@@ -93,7 +92,7 @@ public without sharing class Sharing_AP_Team_User_cls {
 			}
 		}
 		Final Integer aptSDSize = aptShareDelete.size();
-		if(aptSDSize > 0) delete aptShareDelete;
+        if(aptSDSize > 0) {delete aptShareDelete;}
 	}
 
 	/*
@@ -108,6 +107,6 @@ public without sharing class Sharing_AP_Team_User_cls {
 			}
 		}
 		Final Integer aptSDSize = aptShareDelete.size();
-		if(aptSDSize > 0) delete aptShareDelete;
+        if(aptSDSize > 0) { delete aptShareDelete;}
 	}
 }

@@ -21,7 +21,10 @@ private class User_Trigger_Test {
 	 * @Description: obtiene lista de usuarios para test.
 	 * @author Jose Rodriguez
 	 */
-	static { users = new List<User>([SELECT Id, Name, unique_id__c, organizational_unit_id__c, organizational_unit_name__c, prof_position_type__c, isactive FROM User where isactive = true and profile.name in('Ejecutivo', 'Especialista', 'Operativo', 'Analista') limit 50]); }
+	static { 
+        users = new List<User>([SELECT Id, Name, unique_id__c, organizational_unit_id__c, organizational_unit_name__c, prof_position_type__c, isactive FROM User 
+                                where isactive = true and profile.name in('Ejecutivo', 'Especialista', 'Operativo', 'Analista') limit 50]); 
+    }
 
 	/*Setup Data*/
 	@TestSetup
@@ -134,9 +137,9 @@ private class User_Trigger_Test {
 		userToInsert.prof_position_id__c = 'E01';
 		Test.startTest();
 		insert userToInsert;
-		final List<PermissionSet> validationPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
-		Boolean permisSionAP = false;
-		if(validationPermission.size() == 0) {
+		final List<PermissionSet> vPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
+		Boolean permisSionAP;
+		if(!vPermission.isEmpty()) {
 			permisSionAP = false;
 		} else {
 			permisSionAP = true;
@@ -165,7 +168,7 @@ private class User_Trigger_Test {
 		update userTest2;
 		final List<PermissionSet> valPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
 		Boolean permisSionAP;
-		if(valPermission.size() == 0) {
+		if(!valPermission.isEmpty()) {
 			permisSionAP = false;
 		} else   {
 			permisSionAP = true;

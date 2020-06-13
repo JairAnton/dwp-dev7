@@ -9,6 +9,8 @@
  */
 @isTest
 public class Be_RecordId_Related_Sobject_tst {
+    /*FAIL*/
+    private static Final String FAIL = 'Fail';
 	/*Setup Data*/
 	@TestSetup
 	public static void setUp() {
@@ -20,8 +22,8 @@ public class Be_RecordId_Related_Sobject_tst {
 		                                                                              unique_id__c = 'AP_Account_Risk_Strategy');
 		insert chartConfig;
 		//Create Account
-		Final Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {Account.OwnerId => UserInfo.getUserId(), Account.Name => 'CLIENTE MART�N'};
-		Final Account acc = TestFactory.getAccount(true, mapFields);
+		Final Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {Account.OwnerId => UserInfo.getUserId(), Account.Name => 'CLIENTE MARTÍN'};
+		TestFactory.getAccount(true, mapFields);
 	}
 
 	/*
@@ -35,13 +37,13 @@ public class Be_RecordId_Related_Sobject_tst {
 		ApexPages.currentPage().getParameters().put('configName', String.valueOf(chartConfig[0].Report_DeveloperName__c));
 		Test.startTest();
 		Try {
-			Final Be_RecordId_Related_Sobject_helper testAccPlan = new Be_RecordId_Related_Sobject_helper();
+			new Be_RecordId_Related_Sobject_helper();
 			condition = true;
 		} catch(Exception e) {
 			System.debug(e.getMessage());
 		}
 		Test.stopTest();
-		System.assert (condition, 'Success');
+		System.assert (condition, FAIL);
 	}
 
 	/*
@@ -58,7 +60,7 @@ public class Be_RecordId_Related_Sobject_tst {
 		result = Be_RecordId_Related_Sobject_helper.getRecordIdSobject('dwp_kitv__Visit__c', 'dwp_kitv__account_id__c', visita.Id);
 		Test.stopTest();
 		Final Boolean condition = String.isNotBlank(result);
-		System.assert (condition, 'Success');
+		System.assert (condition, FAIL);
 	}
 
 	/*
@@ -75,7 +77,7 @@ public class Be_RecordId_Related_Sobject_tst {
 		mapResult = Be_RecordId_Related_Sobject_helper.getUrlPage('Account_Risk_Strategy', 'dwp_kitv__Visit__c', 'dwp_kitv__account_id__c', visita.Id);
 		Test.stopTest();
 		Final Boolean condition = (Boolean)mapResult.get('isError');
-		System.assertEquals(condition, false, 'Success');
+		System.assert(condition, FAIL);
 	}
 
 	/*
@@ -83,19 +85,19 @@ public class Be_RecordId_Related_Sobject_tst {
 	 */
 	public static testmethod void getVisitValues() {
 		Final String perfil = [SELECT Id FROM Profile WHERE name = 'Ejecutivo'].Id;
-		Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {User.LastName => 'Risotto', User.ProfileId => perfil,
+		Final Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {User.LastName => 'Risotto', User.ProfileId => perfil,
 			                                                                               User.user_position_equivalence__c => 'EJECUTIVO BEC'};
 		Final User userOwner = TestFactory.getUser(true, mapFields);
 		Final Account cuenta = [SELECT Id, branch_id__c FROM Account LIMIT 1];
-		acpl__Account_Planning__c ap = new acpl__Account_Planning__c(acpl__participant_id__c = cuenta.Id, acpl__external_reference_id__c = 'AP123', Name = 'AP record',
+		acpl__Account_Planning__c apR = new acpl__Account_Planning__c(acpl__participant_id__c = cuenta.Id, acpl__external_reference_id__c = 'AP123', Name = 'AP record',
 		                                                             acpl__gf_ap_limit_date__c = System.today(), acpl__proposal_manager_id__c = userOwner.Id);
-		insert ap;
+		insert apR;
 		List<Integer> lstResult;
 		Test.startTest();
-		lstResult = Be_RecordId_Related_Sobject_helper.getVisitValues(ap.Id);
+		lstResult = Be_RecordId_Related_Sobject_helper.getVisitValues(apR.Id);
 		Test.stopTest();
 		Final Integer size = lstResult.size();
 		Final Boolean condition = size > 0;
-		System.assert (condition, 'Success');
+		System.assert (condition, FAIL);
 	}
 }

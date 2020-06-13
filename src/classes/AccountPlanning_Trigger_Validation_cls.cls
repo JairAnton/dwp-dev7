@@ -22,8 +22,6 @@ public without sharing class AccountPlanning_Trigger_Validation_cls {
     private static final String NOT_STARTED = 'Not started';
     /* @Description PENDINGV*/
     private static final String PENDINGV = 'Pending Validation';
-    /* @Description EXPIRED*/
-    private static Final String EXPIRED = 'Expired';
     /* @Description VALIDATED*/
     private static Final String VALIDATED = 'Validated';
     /* @Description IN_PROGRESS*/
@@ -115,26 +113,35 @@ public without sharing class AccountPlanning_Trigger_Validation_cls {
 		Boolean checkUser = false;
         //Validaciones reutilizables
         //Si lo valores del campo Unlock son iguales
-        Final Boolean equalsFieldLock = triggerOldMap.get(apR.Id).acpl__gf_ap_indvi_lock_edit_ind_type__c == apR.acpl__gf_ap_indvi_lock_edit_ind_type__c;
-        //Si el validador anterior y el nuevo son diferentes
-        Final Boolean notEqualValidator = triggerOldMap.get(apR.Id).acpl__gf_ap_validator_user_id__c != apR.acpl__gf_ap_validator_user_id__c;
-        //Si los subestados son iguales y son diferentes a Expired
-        Final Boolean equalSubStatusNE = getEqualsSubStatusNE(triggerOldMap, apR);
+        Final Boolean validationCV = getValidationsCV(triggerOldMap, apR);
         //Primera validación IF
         Final Boolean equalStatusPV = getEqualsStatusPV(triggerOldMap, apR);
         //Segunda validación IF
         Final Boolean equalStatusNI = getEqualsStatusNI(triggerOldMap, apR);
 		//Si se cambia de validador cuando el AP esta en pendiente de validación
-		if(notEqualValidator && equalsFieldLock && equalStatusPV && equalSubStatusNE && !apR.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
+		if(validationCV && equalStatusPV && !apR.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
 			checkUser = true;
 			changeWPetition(apR, triggerOldMap, idsAPInRequest, adminUser);
 		} else //Si se cambia de validador cuando el AP esta en Not started o In progress
-            if(notEqualValidator && equalsFieldLock && equalStatusNI && equalSubStatusNE && apR.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
+            if(validationCV && equalStatusNI && apR.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
 			checkUser = true;
 			changeWOutPetition(apR, triggerOldMap, adminUser);
 		}
 		return checkUser;
 	}
+    
+    /*
+	 * @Description  Get same validation in method checkUserChangeValidator
+	 */
+    private static Boolean getValidationsCV(Map<Id, acpl__Account_Planning__c> triggerOldMap, acpl__Account_Planning__c apR) {
+        //Si lo valores del campo Unlock son iguales
+        Final Boolean equalsFieldLock = triggerOldMap.get(apR.Id).acpl__gf_ap_indvi_lock_edit_ind_type__c == apR.acpl__gf_ap_indvi_lock_edit_ind_type__c;
+        //Si el validador anterior y el nuevo son diferentes
+        Final Boolean notEqualValidator = triggerOldMap.get(apR.Id).acpl__gf_ap_validator_user_id__c != apR.acpl__gf_ap_validator_user_id__c;
+        //Si los subestados son iguales y son diferentes a Expired
+        Final Boolean equalSubStatusNE = getEqualsSubStatusNE(triggerOldMap, apR);
+        return equalsFieldLock && notEqualValidator && equalSubStatusNE;
+    }
     
     /*
 	 * @Description  Si los subestados son iguales y ademas es diferente a Expired
