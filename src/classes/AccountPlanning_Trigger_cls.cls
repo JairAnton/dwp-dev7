@@ -31,7 +31,7 @@ public without sharing class AccountPlanning_Trigger_cls {
 		//Obtienen los validadores de acuerdo al jefe directo de cada gestor del AP asignado
 		Final Map<Id, User> mapGestor = new Map<Id, User>([SELECT Id, ManagerId, isActive, Manager.isActive FROM User WHERE Id IN: idsGestor]);
 		//Obtiene el valor de la estrategia del ultimo AP validado
-		Final Map<Id, String> mapStrategic = getStrategicHistorial(idsAccount);
+		Final Map<Id, String> mapStrategic = AP_Trigger_Helper.getStrategicHistorial(idsAccount);
 		for(acpl__Account_Planning__c ap: triggerNew) {
 			//Only AP's with RecordType 'Account_Planning'
 			if(ap.RecordTypeId == RT_AP) {
@@ -45,18 +45,6 @@ public without sharing class AccountPlanning_Trigger_cls {
 				}
 			}
 		}
-	}
-
-	/**
-	 * @Description Obtiene la estrategia rellenada en el AP pasado y validado
-	 */
-	public static Map<Id, String> getStrategicHistorial(Set<Id> idsAccount) {
-		Final Map<Id, String> mapStrategic = new Map<Id, String>();
-		for(acpl__Account_Planning__c apAux:[SELECT Id, acpl__participant_id__c, Strategic_desc__c, acpl__gf_ap_status_type_name__c, createdDate FROM acpl__Account_Planning__c
-		                                     WHERE acpl__participant_id__c IN:idsAccount AND acpl__gf_ap_status_type_name__c = 'Validated' ORDER BY createdDate ASC]) {
-			mapStrategic.put(apAux.acpl__participant_id__c, apAux.Strategic_desc__c);
-		}
-		return mapStrategic;
 	}
 
 	/**
@@ -97,12 +85,11 @@ public without sharing class AccountPlanning_Trigger_cls {
 		Final acpl__AP_PeriodConfiguration__c[] config = [SELECT Id, acpl__gf_ap_bus_pl_guide_desc__c, acpl__gf_ap_comm_plan_guide_desc__c,
 		                                                  acpl__gf_ap_strat_anlys_guide_desc__c FROM acpl__AP_PeriodConfiguration__c
 		                                                  WHERE Name = 'Configuration' LIMIT 1];
-		Final Integer configSize = config.size();
 		Final BE_AP_Permission_helper permission = new BE_AP_Permission_helper(UserInfo.getUserId());
 		Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(triggerOldMap.keySet());
 		for(acpl__Account_Planning__c apR : triggerNew) {
 			if(apR.RecordTypeId == RT_AP) {
-				AP_Trigger_Helper.putValues(mapAPTs, apR, configSize, config);
+				AP_Trigger_Helper.putValues(mapAPTs, apR, config);
 			}
 		}
 	}

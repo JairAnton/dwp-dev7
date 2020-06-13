@@ -11,9 +11,10 @@
  */
 public without sharing class BE_AP_CheckEditionByPeriodBatch implements Database.Batchable<Sobject>, Database.Stateful {
 	//--------------------------------------- PRIVATE ATTRIBUTES ------------------------------------
+	/** @Description    Records processed*/
 	private Integer recordsProcessed = 0;
-	//private Integer relationshipsCreated = 0;
-	private String query = 'SELECT Id, Name, acpl__gf_ap_indvi_lock_edit_ind_type__c, acpl__gf_event_date__c, acpl__gf_ap_priority_type_name__c '
+	/** @Description    Query to obtain records*/
+	private Final String query = 'SELECT Id, Name, acpl__gf_ap_indvi_lock_edit_ind_type__c, acpl__gf_event_date__c, acpl__gf_ap_priority_type_name__c, acpl__gf_ap_launch_name__c '
 	                       + 'FROM acpl__Account_Planning__c WHERE acpl__gf_ap_status_type_name__c != \'Validated\' AND acpl__gf_ap_status_type_name__c != \'Pending Validation\' AND acpl__gf_ap_substatus_type_name__c != \'Expired\''
 	                       + 'AND RecordType.Name = \'Account Planning\'';
 
@@ -29,7 +30,7 @@ public without sharing class BE_AP_CheckEditionByPeriodBatch implements Database
 	 * * @author         Global Desktop
 	 * @Description    Batchable method
 	 */
-	public Database.QueryLocator start(Database.BatchableContext bc) {
+	public Database.QueryLocator start(Database.BatchableContext batchC) {
 		return Database.getQueryLocator(query);
 	}
 
@@ -37,7 +38,7 @@ public without sharing class BE_AP_CheckEditionByPeriodBatch implements Database
 	 * @author         Global Desktop
 	 * @Description    Batchable method
 	 */
-	public void execute(Database.BatchableContext bc, List<acpl__Account_Planning__c> apList) {
+	public void execute(Database.BatchableContext batchC, List<acpl__Account_Planning__c> apList) {
 		system.debug('>>>>> BATCH apList: ' + apList);
 		BE_AP_CheckEditionByPeriodBatchHandler.editionControl(apList);
 		system.debug('>>>>> DESPUES apList');
@@ -48,8 +49,8 @@ public without sharing class BE_AP_CheckEditionByPeriodBatch implements Database
 	 * @author         Global Desktop
 	 * @Description    Batchable method
 	 */
-	public void finish(Database.BatchableContext bc) {
-		AsyncApexJob job = [SELECT Id, Status, NumberOfErrors, JobItemsProcessed, TotalJobItems, CreatedBy.Email FROM AsyncApexJob WHERE Id = :bc.getJobId()];
+	public void finish(Database.BatchableContext batchC) {
+		Final AsyncApexJob job = [SELECT Id, Status, NumberOfErrors, JobItemsProcessed, TotalJobItems, CreatedBy.Email FROM AsyncApexJob WHERE Id = :batchC.getJobId()];
 		System.debug('>>>>> SUMMARY: ');
 		System.debug('>>>>>   Records Processed: ' + recordsProcessed);
 		System.debug('>>>>>   Batches Created: ' + job.JobItemsProcessed);

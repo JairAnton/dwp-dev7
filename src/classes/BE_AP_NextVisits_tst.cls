@@ -20,7 +20,7 @@ public class BE_AP_NextVisits_tst {
 		Final User admin = [SELECT Id FROM USER Where Id =:UserInfo.getUserId()];
 		Final User ejecutivo = [SELECT Id FROM USER Where LastName LIKE 'EJECUTIVO' LIMIT 1];
 		System.runAs(admin) {
-			Account acc = [SELECT Id FROM Account LIMIT 1];
+			Final Account acc = [SELECT Id FROM Account LIMIT 1];
 			final acpl__Account_Planning__c accountPlanning1 = TestFactory.createAccountPlanning(acc.Id, ejecutivo.Id, null, false);
 			insert accountPlanning1;
 		}
@@ -30,9 +30,9 @@ public class BE_AP_NextVisits_tst {
 	 * @Description  method readRecords
 	 */
 	public static testmethod void readRecords() {
-		Final String apId = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.DeveloperName != 'Question_Catalog' LIMIT 1].Id;
-		Final Map<String, Object> mapParams = new Map<String, Object> {'sObjName' => 'dwp_kitv__Visit__c',
-			                                                           'sObjFields' => 'Name,start_date_calculated__c,dwp_kitv__visit_desc__c', 'recordId' => apId,
+		Final String apId = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.DeveloperName = 'Account_Planning' LIMIT 1].Id;
+		Final Map<String, Object> mapParams = new Map<String, Object> {'sObjName' => 'dwp_kitv__Visit__c', 'recordId' => apId,
+			                                                           'sObjFields' => 'Name,start_date_calculated__c,dwp_kitv__visit_desc__c', 
 			                                                           'filterSQOL' => 'dwp_kitv__account_id__c = :recordId AND start_date_calculated__c >= TODAY ORDER BY start_date_calculated__c DESC'};
 		Test.startTest();
 		Final BE_SingleRelatedListCRUD_Cls singleClas = (BE_SingleRelatedListCRUD_Cls)Type.forName('BE_AP_NextVisits_cls').newInstance();

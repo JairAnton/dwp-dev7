@@ -173,12 +173,8 @@ public class AP_Team_Helper_tst {
 			}
 		}
 		Test.stopTest();
-		Final bupl__BusinessPlan__c bPlan = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:accPlan.Id LIMIT 1];
 		Final acpl__Account_Planning__Share[] sharingAP = [SELECT Id, UserOrGroup.Name FROM acpl__Account_Planning__Share WHERE parentId =:accPlan.Id];
-		Final bupl__BusinessPlan__Share[] sharingBP = [SELECT Id, UserOrGroup.Name FROM bupl__BusinessPlan__Share WHERE parentId =:bPlan.Id];
 		Final Integer sharingAPSize = sharingAP.size();
-		Final Integer sharingBPSize = sharingBP.size();
-		System.assertEquals(sharingAPSize, 2, FAIL);
-		System.assertEquals(sharingBPSize, 2, FAIL);
+        System.assertEquals(sharingAPSize, 2, FAIL);
 	}
 }

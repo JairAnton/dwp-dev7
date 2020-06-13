@@ -84,8 +84,8 @@ public class Account_Handler_test {
 		Test.stopTest();
 
 		//sonar
-		final Integer result = 1 + 2;
-		System.assertEquals(3, result, 'success!!!');
+		final Integer result = iterator + 2;
+		System.assertEquals(2, result, 'success!!!');
 	}
 
 	/*Test AfterInsert*/

@@ -9,7 +9,7 @@
  *
  * @author Diego Carbajal
  */
-public class AP_Team_Trigger_Helper_cls {
+public without sharing class AP_Team_Trigger_Helper_cls {
 
     /** @Description  GESTOR*/
     private static Final String GESTOR = 'Gestor del Plan';

@@ -10,6 +10,10 @@
  * @author Diego Carbajal
  */
 public without sharing class AP_Question_Trigger_cls {
+    
+    /* @Description AP_Question_Trigger_cls*/
+    private AP_Question_Trigger_cls() {}
+    
 	/* @Description guarda id del RecordType de AP*/
 	private static Final Id RT_AP = [SELECT Id FROM RecordType WHERE developerName = 'Account_Planning' AND SobjectType = 'acpl__Account_Planning__c' LIMIT 1].Id;
 

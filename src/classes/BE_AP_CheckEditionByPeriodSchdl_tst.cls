@@ -12,6 +12,16 @@
  */
 @isTest
 public class BE_AP_CheckEditionByPeriodSchdl_tst {
+    /** @Description  FAIL*/
+    private static Final String FAIL = 'Fail';
+    /** @Description  days*/
+    private static Final Integer DAYS = 1;
+    /** @Description  FIVE*/
+    private static Final Integer FIVE = 5;
+    /** @Description  TEN*/
+    private static Final Integer TEN = 10;
+    /** @Description  FIFT*/
+    private static Final Integer FIFT = 15;
 	/*
 	 * @Description  method setUp
 	 */
@@ -37,19 +47,17 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 					lstAP.add(TestFactory.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, true));
 				}
 			}
-			Integer i = 0;
-			for(acpl__Account_Planning__c ap:lstAP) {
-				if(i < 5) {
-					ap = getAP(ap, 'General period', Date.today() - 1);
-				} else if(i < 10) {
-					ap = getAP(ap, 'Period by priority', Date.today() + 1);
-				} else if(i < 15) {
-					ap = getAP(ap, 'Event driven', Date.today() - 1);
+            for(Integer ite = 0; ite < lstAP.size(); ite++) {
+                if(ite < FIVE) {
+					lstAP[ite] = getAP(lstAP[ite], 'General period', Date.today() - DAYS);
+				} else if(ite < TEN) {
+					lstAP[ite] = getAP(lstAP[ite], 'Period by priority', Date.today() + DAYS);
+				} else if(ite < FIFT) {
+					lstAP[ite] = getAP(lstAP[ite], 'Event driven', Date.today() - DAYS);
 				} else {
-					ap = getAP(ap, 'Event driven', Date.today());
+					lstAP[ite] = getAP(lstAP[ite], 'Event driven', Date.today());
 				}
-				i++;
-			}
+            }
 			insert lstAP;
 		}
 	}
@@ -63,10 +71,10 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final BE_AP_CheckEditionByPeriodSchedulable batch = new BE_AP_CheckEditionByPeriodSchedulable();
 		batch.execute(null);
 		Test.stopTest();
-		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND
-		                                                                                                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'General period'];
+		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND 
+                                                   RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'General period'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, 'Fail');
+		System.assertEquals(size, 5, FAIL);
 	}
 
 	/*
@@ -78,10 +86,10 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final BE_AP_CheckEditionByPeriodSchedulable batch = new BE_AP_CheckEditionByPeriodSchedulable();
 		batch.execute(null);
 		Test.stopTest();
-		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = false AND
-		                                                                                                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'General period'];
+		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = false AND 
+                                                   RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'General period'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, 'Fail');
+		System.assertEquals(size, 5, FAIL);
 	}
 
 	/*
@@ -93,10 +101,10 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final BE_AP_CheckEditionByPeriodSchedulable batch = new BE_AP_CheckEditionByPeriodSchedulable();
 		batch.execute(null);
 		Test.stopTest();
-		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = false AND
-		                                                                                                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Period by priority'];
+		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = false AND 
+                                                   RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Period by priority'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, 'Fail');
+		System.assertEquals(size, 5, FAIL);
 	}
 
 	/*
@@ -108,10 +116,10 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final BE_AP_CheckEditionByPeriodSchedulable batch = new BE_AP_CheckEditionByPeriodSchedulable();
 		batch.execute(null);
 		Test.stopTest();
-		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND
-		                                                                                                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Period by priority'];
+		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND 
+                                                   RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Period by priority'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, 'Fail');
+		System.assertEquals(size, 5, FAIL);
 	}
 
 	/*
@@ -123,33 +131,35 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final BE_AP_CheckEditionByPeriodSchedulable batch = new BE_AP_CheckEditionByPeriodSchedulable();
 		batch.execute(null);
 		Test.stopTest();
-		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND
-		                                                                                                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Event driven'];
+		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND 
+                                                   RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Event driven' 
+                                                   AND acpl__gf_event_date__c =:Date.today()];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 10, 'Fail');
+		System.assertEquals(size, 5, FAIL);
 	}
 
 	/*
 	 * @Description  method setEventEndAPUnLock
 	 */
-	public static testmethod void setEventEndAPUnLock() {
+	public static testmethod void setEventEndAPLock() {
 		setGeneral(System.today(), System.today() + 1, -2);
 		Test.startTest();
 		Final BE_AP_CheckEditionByPeriodSchedulable batch = new BE_AP_CheckEditionByPeriodSchedulable();
 		batch.execute(null);
 		Test.stopTest();
-		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND
-		                                                                                                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Event driven'];
+		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = false AND 
+                                                   RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Event driven' 
+                                                   AND acpl__gf_event_date__c =:(Date.today()-DAYS)];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 10, 'Fail');
+		System.assertEquals(size, 5, FAIL);
 	}
 
 	/*
 	 * @Description  method setGeneral
 	 */
 	private static void setGeneral(Date inicio, Date fin, Integer leftDays) {
-		delete [SELECT Id FROM acpl__AP_PeriodConfiguration__c];
-		delete [SELECT Id FROM acpl__AP_Period__c];
+		delete [SELECT Id FROM acpl__AP_PeriodConfiguration__c LIMIT 10];
+		delete [SELECT Id FROM acpl__AP_Period__c LIMIT 10];
 		insert new acpl__AP_PeriodConfiguration__c(acpl__gf_ap_edit_prms_type_name__c = 'General',
 		                                           acpl__gf_ap_edit_days_left_number__c = leftDays,
 		                                           acpl__gf_ap_genrl_lock_edit_ind_type__c = false);
@@ -160,24 +170,26 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 	 * @Description  method setPriority
 	 */
 	private static void setPriority(Date inicio, Date fin, Integer leftDays) {
-		delete [SELECT Id FROM acpl__AP_PeriodConfiguration__c];
-		delete [SELECT Id FROM acpl__AP_Period__c];
+		delete [SELECT Id FROM acpl__AP_PeriodConfiguration__c LIMIT 10];
+		delete [SELECT Id FROM acpl__AP_Period__c LIMIT 10];
 		insert new acpl__AP_PeriodConfiguration__c(acpl__gf_ap_edit_prms_type_name__c = 'Priority',
 		                                           acpl__gf_ap_edit_days_left_number__c = leftDays,
 		                                           acpl__gf_ap_genrl_lock_edit_ind_type__c = false);
-		Final List<acpl__AP_Period__c> period = new List<acpl__AP_Period__c> {new acpl__AP_Period__c(acpl__gf_ap_edit_start_date__c = inicio,
-			                                                                                         acpl__gf_ap_edit_end_date__c = fin, acpl__gf_ap_priority_edit_type__c = 'High'),
-			                                                                  new acpl__AP_Period__c(acpl__gf_ap_edit_start_date__c = inicio, acpl__gf_ap_edit_end_date__c = fin, acpl__gf_ap_priority_edit_type__c = 'Medium'),
-			                                                                  new acpl__AP_Period__c(acpl__gf_ap_edit_start_date__c = inicio, acpl__gf_ap_edit_end_date__c = fin, acpl__gf_ap_priority_edit_type__c = 'Low')};
+		Final List<acpl__AP_Period__c> period = new List<acpl__AP_Period__c> {new acpl__AP_Period__c(acpl__gf_ap_edit_start_date__c = inicio, 
+                                                                                                     acpl__gf_ap_edit_end_date__c = fin, acpl__gf_ap_priority_edit_type__c = 'High'),
+			                                                                  new acpl__AP_Period__c(acpl__gf_ap_edit_start_date__c = inicio, acpl__gf_ap_edit_end_date__c = fin, 
+                                                                                                     acpl__gf_ap_priority_edit_type__c = 'Medium'),
+			                                                                  new acpl__AP_Period__c(acpl__gf_ap_edit_start_date__c = inicio, acpl__gf_ap_edit_end_date__c = fin, 
+                                                                                                     acpl__gf_ap_priority_edit_type__c = 'Low')};
 		insert period;
 	}
 
 	/*
 	 * @Description  method getAP
 	 */
-	private static acpl__Account_Planning__c getAP(acpl__Account_Planning__c ap, String type, Date fecha) {
-		ap.acpl__gf_ap_launch_name__c = type;
-		ap.acpl__gf_event_date__c = fecha;
-		return ap;
+	private static acpl__Account_Planning__c getAP(acpl__Account_Planning__c apR, String type, Date fecha) {
+		apR.acpl__gf_ap_launch_name__c = type;
+		apR.acpl__gf_event_date__c = fecha;
+		return apR;
 	}
 }

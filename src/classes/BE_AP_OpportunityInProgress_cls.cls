@@ -13,7 +13,8 @@ public with sharing class BE_AP_OpportunityInProgress_cls extends BE_SingleRelat
 	/*
 	 * @Description  method constructor
 	 */
-	private BE_AP_OpportunityInProgress_cls() {
+	public BE_AP_OpportunityInProgress_cls() {
+        super();
 	}
 
 	/*

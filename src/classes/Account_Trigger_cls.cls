@@ -52,7 +52,7 @@ public without sharing class Account_Trigger_cls {
         update updateOpps;
     }
     
-    //Insert new AccountTeamMember records depend on a new Account record and User Assistant Team records with the Account Owner like user_id__c
+    /*Insert new AccountTeamMember records depend on a new Account record and User Assistant Team records with the Account Owner like user_id__c*/
     public void afterInsert(List<Account> accsNew) {
         List<User_Assistant_Team__c> lstUsers =  new List<User_Assistant_Team__c>();
         Final List<String> ownerIds = new List<String>();

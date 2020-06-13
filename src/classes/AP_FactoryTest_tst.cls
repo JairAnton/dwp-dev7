@@ -68,6 +68,7 @@ public class AP_FactoryTest_tst {
 	/*
 	 * @Description  getUsers
 	 */    
+    @isTest
     public static Map<String, User> getUsers() {
         Final Map<String, User> mapUsers = new Map<String, User>();
         for(User usuario: [SELECT Id, LastName FROM User WHERE user_position_equivalence__c LIKE 'User Test' LIMIT 3]) {

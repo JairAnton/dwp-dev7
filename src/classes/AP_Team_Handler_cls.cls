@@ -34,22 +34,20 @@ public class AP_Team_Handler_cls extends TriggerHandler {
      */
 	@TestVisible
 	protected override void beforeInsert() {
-		//Ejecuta diversos metodos de acuerdo a los criterios establecidos
+		//Execute various methods according to established criteria
 		AP_Team_Trigger_cls.beforeDML(triggerNew, 'insert');
 		//Ejecuta diversas acciones de acuerdo a los criterios establecidos
 		AP_Team_Trigger_cls.putValuesAPT(triggerNew);
 		//Completa el campo de BusinessPlan
 		apTeamHandler.fillBPLookup(triggerNew);
 	}
-    /**
-     * @Description beforeUpdate: Ejecuta diversos metodos de acuerdo a los criterios establecidos
-     */
+    /** @Description beforeUpdate: Execute various methods according to established criteria*/
 	@TestVisible
 	protected override void beforeUpdate() {
 		AP_Team_Trigger_cls.beforeDML(triggerNew, 'update');
 	}
     /**
-     * @Description beforeDelete: diversos metodos de acuerdo a los criterios establecidos
+     * @Description beforeDelete: various methods according to the established criteria
      */
 	@TestVisible
 	protected override void beforeDelete() {

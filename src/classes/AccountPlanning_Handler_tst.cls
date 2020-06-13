@@ -5,7 +5,7 @@
 * @Date Created: 2020-05-01
 * @Group 
 * @Description AccountPlanning_Handler_tst
-* 				Metodos en la clase complementaria AP_Handler_Helper_tst
+* 				Methods in companion class AP_Handler_Helper_tst
 */
 @isTest
 public class AccountPlanning_Handler_tst {
@@ -42,9 +42,7 @@ public class AccountPlanning_Handler_tst {
 		AP_FactoryTest_tst.forSetUp();
 	}
 
-	/**
-	 * @Description Testea las funcionalidades de los metodos: beforeInsert, afterInsert y relateAPQuestions
-	 */
+	/** @Description Test the functionalities of the methods: beforeInsert, afterInsert and relateAPQuestions*/
 	public static testmethod void testMethod1() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		final acpl__Account_Planning__c accountPlanning1 = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);

@@ -15,8 +15,8 @@ public without sharing class BE_AP_CheckEditionByPeriodSchedulable implements Sc
 	 * @Description  Ejecuta el batch para lock/unlock AP's
 	 */
 	public void execute(SchedulableContext scMain) {
-		acpl__Account_Plan_Settings__c apSetting = acpl__Account_Plan_Settings__c.getInstance();
-		BE_AP_CheckEditionByPeriodBatch eventNotifBatch = new BE_AP_CheckEditionByPeriodBatch();
+		Final acpl__Account_Plan_Settings__c apSetting = acpl__Account_Plan_Settings__c.getInstance();
+		Final BE_AP_CheckEditionByPeriodBatch eventNotifBatch = new BE_AP_CheckEditionByPeriodBatch();
 		database.executebatch(eventNotifBatch, (Integer)apSetting.acpl__Edition_Schedulable_batch_size__c);
 	}
 }

@@ -14,8 +14,11 @@ public class AP_Question_Handler_tst {
 	/**
 	 * @Description variable MAP_USERS
 	 */
-	static Map<String, User> MAP_USERS = AP_FactoryTest_tst.getUsers();
-
+	private static Final Map<String, User> MAP_USERS = AP_FactoryTest_tst.getUsers();
+    /**
+	 * @Description variable EJECUTIVO
+	 */
+    private static Final String EJECUTIVO = 'EJECUTIVO';
 	/**
 	 * @Description method setUp
 	 */
@@ -29,12 +32,12 @@ public class AP_Question_Handler_tst {
 	 */
 	public static testmethod void beforeUpdate() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get('EJECUTIVO').Id, null, false);
+		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
 		insert apR;
 		Final acpl__AP_Question__c question = [SELECT Id, acpl__AA_answer_text__c FROM acpl__AP_Question__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Final String assert = question.acpl__AA_answer_text__c;
 		Test.startTest();
-		System.runAs(MAP_USERS.get('EJECUTIVO')) {
+		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
 				question.acpl__AA_answer_text__c = 'new values';
 				update question;
@@ -52,11 +55,11 @@ public class AP_Question_Handler_tst {
 	 */
 	public static testmethod void beforeDelete() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get('EJECUTIVO').Id, null, false);
+		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
 		insert apR;
 		Final acpl__AP_Question__c question = [SELECT Id, acpl__AA_answer_text__c FROM acpl__AP_Question__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
-		System.runAs(MAP_USERS.get('EJECUTIVO')) {
+		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
 				delete question;
 			} catch(Exception e) {
@@ -74,11 +77,11 @@ public class AP_Question_Handler_tst {
 	 */
 	public static testmethod void afterUpdate() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get('EJECUTIVO').Id, null, true);
+		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
 		Final acpl__AP_Question__c question = [SELECT Id, acpl__AA_answer_text__c FROM acpl__AP_Question__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
-		System.runAs(MAP_USERS.get('EJECUTIVO')) {
+		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
 				question.acpl__AA_answer_text__c = 'new values';
 				update question;

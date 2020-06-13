@@ -137,15 +137,10 @@ private class User_Trigger_Test {
 		userToInsert.prof_position_id__c = 'E01';
 		Test.startTest();
 		insert userToInsert;
-		final List<PermissionSet> vPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
-		Boolean permisSionAP;
-		if(!vPermission.isEmpty()) {
-			permisSionAP = false;
-		} else {
-			permisSionAP = true;
-		}
-		System.assert (permisSionAP, 'success!');
-		Test.stopTest();
+        Test.stopTest();
+		final List<PermissionSet> valPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
+        Final List<PermissionSetAssignment> userAS = [SELECT Id FROM PermissionSetAssignment WHERE PermissionSetId =: valPermission[0].Id AND AssigneeId =: userToInsert.Id];
+		System.assertEquals (userAS.size(), 1, 'Fail!');
 	}
 
 	/*
@@ -166,15 +161,24 @@ private class User_Trigger_Test {
 
 		Test.startTest();
 		update userTest2;
-		final List<PermissionSet> valPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
-		Boolean permisSionAP;
-		if(!valPermission.isEmpty()) {
-			permisSionAP = false;
-		} else   {
-			permisSionAP = true;
-		}
-		System.assert (permisSionAP, 'success!');
-		Test.stopTest();
+        Test.stopTest();
+        final List<PermissionSet> valPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
+        Final List<PermissionSetAssignment> userAS = [SELECT Id FROM PermissionSetAssignment WHERE PermissionSetId =: valPermission[0].Id AND AssigneeId =: userTest2.Id];
+		System.assertEquals (userAS.size(), 1, 'Fail!');
+	}
+    
+    @isTest
+	static void deleteAssigment() {
+        final User userT = TestFactory.createUser('TestDelete', 'Ejecutivo');
+		userT.prof_position_id__c = 'E01';
+        update userT;
+        userT.prof_position_id__c = '';
+		Test.startTest();
+		update userT;
+        Test.stopTest();
+        final List<PermissionSet> valPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
+        Final List<PermissionSetAssignment> userAS = [SELECT Id FROM PermissionSetAssignment WHERE PermissionSetId =: valPermission[0].Id AND AssigneeId =: userT.Id];
+		System.assertEquals (userAS.size(), 0, 'Fail!');
 	}
 
 	/*

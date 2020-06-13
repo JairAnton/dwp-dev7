@@ -10,6 +10,22 @@
  * @author Diego Carbajal
  */
 public without sharing class AP_Trigger_Helper {
+    
+    /**
+	 * @Description AP_Trigger_Helper
+	 */
+    private AP_Trigger_Helper() {}
+    /**
+	 * @Description Obtiene la estrategia rellenada en el AP pasado y validado
+	 */
+	public static Map<Id, String> getStrategicHistorial(Set<Id> idsAccount) {
+		Final Map<Id, String> mapStrategic = new Map<Id, String>();
+		for(acpl__Account_Planning__c apAux:[SELECT Id, acpl__participant_id__c, Strategic_desc__c, acpl__gf_ap_status_type_name__c, createdDate FROM acpl__Account_Planning__c
+		                                     WHERE acpl__participant_id__c IN:idsAccount AND acpl__gf_ap_status_type_name__c = 'Validated' ORDER BY createdDate ASC]) {
+			mapStrategic.put(apAux.acpl__participant_id__c, apAux.Strategic_desc__c);
+		}
+		return mapStrategic;
+	}
 	/*
 	 * @Description  Crea registros de BusinessPlan relacionados a los AP
 	 */
@@ -17,7 +33,7 @@ public without sharing class AP_Trigger_Helper {
 		Final Integer lstNewBPSize = lstNewBP.size();
 		if(lstNewBPSize > 0) {
 			insert lstNewBP;
-			AP_Trigger_Helper.createBPV(lstNewBP);
+			createBPV(lstNewBP);
 		}
 	}
 
@@ -132,13 +148,13 @@ public without sharing class AP_Trigger_Helper {
     /*
 	 * @Description  putValues
 	 */
-    public static void putValues(Final Map<Id, Set<Id>> mapAPTs, acpl__Account_Planning__c apR, Integer configSize, acpl__AP_PeriodConfiguration__c[] config) {
+    public static void putValues(Final Map<Id, Set<Id>> mapAPTs, acpl__Account_Planning__c apR, acpl__AP_PeriodConfiguration__c[] config) {
         Final Boolean userInAPT = (mapAPTs.get(apR.Id) == null ? false : mapAPTs.get(apR.Id).contains(UserInfo.getUserId()) );
         if(userInAPT && apR.acpl__gf_ap_status_type_name__c == 'Not started' && apR.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
             apR.acpl__gf_ap_status_type_name__c = 'In Progress';
             apR.acpl__gf_ap_substatus_type_name__c = 'AP team not invited';
         }
-        if(configSize > 0 && apR.acpl__gf_ap_status_type_name__c == 'Validated' && apR.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
+        if(!config.isEmpty() && apR.acpl__gf_ap_status_type_name__c == 'Validated' && apR.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
             apR.acpl__gf_ap_bus_pl_guide_desc__c = config[0].acpl__gf_ap_bus_pl_guide_desc__c;
             apR.acpl__gf_ap_comm_plan_guide_desc__c = config[0].acpl__gf_ap_comm_plan_guide_desc__c;
             apR.acpl__gf_ap_strat_anlys_guide_desc__c = config[0].acpl__gf_ap_strat_anlys_guide_desc__c;

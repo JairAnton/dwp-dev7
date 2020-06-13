@@ -36,7 +36,7 @@ public class BE_AP_Administration_tst {
 	 * @Description  method getAP
 	 */
 	public static testmethod void getAP() {
-		Final Id apId = getCurrentAP().Id;
+		Final Id apId = [SELECT Id, acpl__gf_ap_substatus_type_name__c, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c LIMIT 1].Id;
 		Test.startTest();
 		Final acpl__Account_Planning__c[] lstAP = BE_AP_Administration_helper.getAp(apId);
 		Test.stopTest();
@@ -49,7 +49,7 @@ public class BE_AP_Administration_tst {
 	 */
 	public static testmethod void validateStatusExpired() {
 		Map<String, Object> mapExpired = new Map<String, Object>();
-		Final acpl__Account_Planning__c apR = getCurrentAP();
+		Final acpl__Account_Planning__c apR = [SELECT Id, acpl__gf_ap_substatus_type_name__c, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c LIMIT 1];
 		apR.acpl__gf_ap_substatus_type_name__c = 'Expired';
 		update apR;
 		Test.startTest();
@@ -63,7 +63,7 @@ public class BE_AP_Administration_tst {
 	 */
 	public static testmethod void validateStatusPending() {
 		Map<String, Object> mapPending = new Map<String, Object>();
-		Final acpl__Account_Planning__c apR = getCurrentAP();
+		Final acpl__Account_Planning__c apR = [SELECT Id, acpl__gf_ap_substatus_type_name__c, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c LIMIT 1];
 		apR.acpl__gf_ap_status_type_name__c = 'Pending Validation';
 		update apR;
 		Test.startTest();
@@ -77,19 +77,12 @@ public class BE_AP_Administration_tst {
 	 */
 	public static testmethod void validateStatusValidation() {
 		Map<String, Object> mapValidation = new Map<String, Object>();
-		Final acpl__Account_Planning__c apR = getCurrentAP();
+		Final acpl__Account_Planning__c apR = [SELECT Id, acpl__gf_ap_substatus_type_name__c, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c LIMIT 1];
 		apR.acpl__gf_ap_status_type_name__c = 'Validated';
 		update apR;
 		Test.startTest();
 		mapValidation = BE_AP_Administration_helper.validateStatus(apR);
 		Test.stopTest();
 		System.assertEquals (mapValidation.get('status'), 'validado.', FAIL);
-	}
-
-	/*
-	 * @Description  method getCurrentAP
-	 */
-	public static acpl__Account_Planning__c getCurrentAP() {
-		return [SELECT Id, acpl__gf_ap_substatus_type_name__c, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c LIMIT 1];
 	}
 }

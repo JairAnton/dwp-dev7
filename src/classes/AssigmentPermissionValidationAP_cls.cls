@@ -9,7 +9,12 @@
  *
  * @author Diego Carbajal
  */
-global class AssigmentPermissionValidationAP_cls {
+public with sharing class AssigmentPermissionValidationAP_cls {
+    
+    /*
+	 * @Description  AssigmentPermissionValidationAP_cls
+	 */
+    private AssigmentPermissionValidationAP_cls() {}
 	/*
 	 * @Description  method assigmentPermission
 	 */
