@@ -10,12 +10,11 @@
  * 
 */
 public without sharing class Account_Trigger_cls {
-    
-    /*Constructor Account_Trigger_cls*/
-    private Account_Trigger_cls() {}
 
 	/*Reusable variable in methods*/
     private static Final List<String> PROFILE_NAMES = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};
+    /*Constructor Account_Trigger_cls*/
+    private Account_Trigger_cls() {}
         
     /*Method Master for trigger*/
     public static void asignAfterUpdate(list<Account>accsNew, Map<id,Account>accsNewMap, list<Account>accsOld, Map<id,Account>accsOldMap) {

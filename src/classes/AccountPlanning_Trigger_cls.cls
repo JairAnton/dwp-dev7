@@ -6,9 +6,11 @@
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		15/05/2020          Original version.<p />
- *
+ * @SuppressWarnings("PMD.CyclomaticComplexity"): Se utiliza para excluir del sonar para el metodo relateAPQuestions
+ * implementado por Global
  * @author Diego Carbajal
  */
+@SuppressWarnings('PMD.CyclomaticComplexity')
 public without sharing class AccountPlanning_Trigger_cls {
 	/* @Description guarda id del RecordType de AP*/
 	private static Final Id RT_AP = [SELECT Id FROM RecordType WHERE developerName = 'Account_Planning' AND SobjectType = 'acpl__Account_Planning__c' LIMIT 1].Id;
@@ -114,7 +116,6 @@ public without sharing class AccountPlanning_Trigger_cls {
 	/*
 	 * @Description  Clona las preguntas del Catalogo y los asocia a cada AP insertado
 	 */
-    @SuppressWarnings('all')
 	public static void relateAPQuestions(List<acpl__Account_Planning__c> triggernew) {//NOSONAR
 		//Guardo las preguntas del AP Catalog
 		final List<acpl__AP_Question__c> apQuestionList = [SELECT Id, acpl__gf_account_planning_id__c, acpl__gf_account_planning_id__r.Name, acpl__gf_ap_question_form_desc__c, Name,

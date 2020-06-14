@@ -5,26 +5,19 @@
  * @Date Created: 2020-05-01
  * @Group
  * @Description Controller class Be_DynamicTablePresentation_ctr
- *
  */
+@SuppressWarnings('PMD.CyclomaticComplexity')
 public without sharing class Be_DynamicTablePresentation_ctr {
-    /*
-	 * @Description  DEVELOPER_NAME
-	 */
+    /** @Description  DEVELOPER_NAME*/
     private static Final String DEVELOPER_NAME = 'developerName';
-    /*
-	 * @Description  SOBJ_TYPE
-	 */
+    /** @Description  SOBJ_TYPE*/
     private static Final String SOBJ_TYPE = 'sobjecttype';
-	/*
-	 * @Description  Be_DynamicTablePresentation_ctr
-	 */
+	/** @Description  Be_DynamicTablePresentation_ctr*/
 	private Be_DynamicTablePresentation_ctr() {}
 
 	/*
 	 * @Description  getFilters
 	 */
-    @SuppressWarnings('all')
 	@AuraEnabled
 	public static String getFilters(String config) {
 		Final List<Be_Dynamic_Table_Presentation__mdt> mdtDTP = (List<Be_Dynamic_Table_Presentation__mdt>) getConfig(config);
