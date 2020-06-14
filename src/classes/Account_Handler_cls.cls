@@ -21,7 +21,7 @@ public without sharing class Account_Handler_cls extends TriggerHandler {
 
     /** @Description  afterUpdate*/
     @TestVisible
-    protected override void afterUpdate(){
+    protected override void afterUpdate() {
         Account_Trigger_cls.asignAfterUpdate(newAccs, newAccsMap, oldAccs, oldAccsMap);
         Account_Trigger_cls.afterUpdateOwner(newAccs, oldAccsMap);
     }

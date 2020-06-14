@@ -9,13 +9,8 @@
  *
  * @author Diego Carbajal
  */
- @SuppressWarnings('all')
+@SuppressWarnings('all')
 public with sharing class BE_AP_OpportunityInProgress_cls extends BE_SingleRelatedListCRUD_Cls {
-	/*
-	 * @Description  method constructor
-	 */
-	private BE_AP_OpportunityInProgress_cls() {}
-
 	/*
 	 * @Description  method readRecords
 	 */

@@ -13,7 +13,7 @@
 public class AP_Team_Helper_tst {
 
     /** @Description variable mapUsers*/
-	static Final Map<String, User> MAPUSERS = AP_FactoryTest_tst.getUsers();
+	static Final Map<String, User> MAPUSERS = AP_FactoryTest_tst.obtainUsers();
 	/** @Description variable fail*/
 	static Final String FAIL = 'Fail Assertion';
     /** @Description variable GERENTE*/
@@ -41,7 +41,7 @@ public class AP_Team_Helper_tst {
 	 */
 	public static testmethod void checkAPTInvalidMember() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Test.startTest();
 		System.runAs(MAPUSERS.get(EJECUTIVO)) {
@@ -64,7 +64,7 @@ public class AP_Team_Helper_tst {
 	 */
 	public static testmethod void updateValidateUserPermission() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, false);
 		insert accPlan;
 		Final bupl__AP_Team__c apt = [SELECT Id, bupl__gf_ap_team_new_member_date__c FROM bupl__AP_Team__c WHERE acpl__gf_account_planning_id__c =:accPlan.Id LIMIT 1];
 		Final Date fecha = apt.bupl__gf_ap_team_new_member_date__c;
@@ -87,7 +87,7 @@ public class AP_Team_Helper_tst {
 	 */
 	public static testmethod void deleteOwnAPT() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Final bupl__AP_Team__c aptAux = [SELECT Id FROM bupl__AP_Team__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id LIMIT 1];
 		Test.startTest();
@@ -109,7 +109,7 @@ public class AP_Team_Helper_tst {
 	 */
 	public static testmethod void deleteAPTInvalidUser() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = Acompanante,
 		                                                  bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
@@ -134,7 +134,7 @@ public class AP_Team_Helper_tst {
 	 */
 	public static testmethod void deleteMainGestor() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = GESTOR,
 		                                                  bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
@@ -159,7 +159,7 @@ public class AP_Team_Helper_tst {
 	 */
 	public static testmethod void deleteBPAndAPTSharing() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = Acompanante,
 		                                                  bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);

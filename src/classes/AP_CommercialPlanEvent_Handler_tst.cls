@@ -14,7 +14,7 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	/**
 	 * @Description variable mapUsers
 	 */
-	static Map<String, User> mapUsers = AP_FactoryTest_tst.getUsers();
+	static Map<String, User> mapUsers = AP_FactoryTest_tst.obtainUsers();
 	/**
 	 * @Description variable EJECUTIVO
 	 */
@@ -40,7 +40,7 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	 */
 	public static testmethod void beforeInsert() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
 		insert apRecord;
 		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {
@@ -66,7 +66,7 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	 */
 	public static testmethod void beforeUpdate() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
 		insert apRecord;
 		Final acpl__Commercial_Plan_Event__c cpe = new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apRecord.Id, acpl__participant_id__c = acc.Id,
 		                                                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = VISIT);
@@ -91,7 +91,7 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	 */
 	public static testmethod void beforeDelete() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
 		insert apRecord;
 		Final acpl__Commercial_Plan_Event__c cpe = new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apRecord.Id, acpl__participant_id__c = acc.Id,
 		                                                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = VISIT);
@@ -115,7 +115,7 @@ public class AP_CommercialPlanEvent_Handler_tst {
 	 */
 	public static testmethod void afterInsert() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = TestFactory.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
 		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {

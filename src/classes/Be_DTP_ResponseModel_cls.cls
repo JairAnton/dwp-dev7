@@ -28,6 +28,7 @@ public virtual class Be_DTP_ResponseModel_cls {
 		public List<Object> data {set; get;}
 
 		/**Constructor */
+        @SuppressWarnings('all')
 		public Response() {}
 	}
 }

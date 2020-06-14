@@ -24,8 +24,9 @@ public without sharing class Be_DynamicTablePresentation_ctr {
 	/*
 	 * @Description  getFilters
 	 */
+    @SuppressWarnings('all')
 	@AuraEnabled
-	public static String getFilters(String config) {//NOSONAR
+	public static String getFilters(String config) {
 		Final List<Be_Dynamic_Table_Presentation__mdt> mdtDTP = (List<Be_Dynamic_Table_Presentation__mdt>) getConfig(config);
 		Final Integer mdtDTPSize = mdtDTP.size();
 		String jsonFilters = mdtDTP[0].Filters__c;

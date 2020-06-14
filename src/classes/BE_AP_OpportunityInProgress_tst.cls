@@ -21,7 +21,7 @@ public class BE_AP_OpportunityInProgress_tst {
 		Final User ejecutivo = [SELECT Id FROM USER Where LastName LIKE 'EJECUTIVO' LIMIT 1];
 		System.runAs(admin) {
 			Final Account acc = [SELECT Id FROM Account LIMIT 1];
-			final acpl__Account_Planning__c accountPlanning1 = TestFactory.createAccountPlanning(acc.Id, ejecutivo.Id, null, false);
+			final acpl__Account_Planning__c accountPlanning1 = AP_FactoryTest_tst.createAccountPlanning(acc.Id, ejecutivo.Id, null, false);
 			insert accountPlanning1;
 		}
 	}

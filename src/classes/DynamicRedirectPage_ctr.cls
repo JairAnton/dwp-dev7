@@ -15,15 +15,14 @@ public without sharing class DynamicRedirectPage_ctr {
 	   @Description test Be_DynamicTablePresentationSettings_cls.getDefaultValue(),correct scenary
 	 */
 	Final static List<String> PROFILE_NAMES = new List<String> {'Migracion', System.Label.profAdministrator, 'System Administrator'};
-    /**
-	   @Description DynamicRedirectPage_ctr
-	 */
-    private DynamicRedirectPage_ctr() {}
-	
 	/**
 	   @Description test Be_DynamicTablePresentationSettings_cls.getDefaultValue(),correct scenary
 	 */
 	private static Boolean isSuccess = true;
+    /**
+	   @Description DynamicRedirectPage_ctr
+	 */
+    private DynamicRedirectPage_ctr() {}
 
 	/**
 	   @Description test Be_DynamicTablePresentationSettings_cls.getDefaultValue(),correct scenary

@@ -28,7 +28,7 @@ public class BE_AP_Administration_tst {
 		Final User usuario = [SELECT Id FROM User WHERE Id =:UserInfo.getUserId()];
 		System.runAs(usuario) {
 			Final Account acc = TestFactory.createAccount();
-			insert TestFactory.createAccountPlanning(acc.Id, gof.Id, null, true);
+			insert AP_FactoryTest_tst.createAccountPlanning(acc.Id, gof.Id, null, true);
 		}
 	}
 

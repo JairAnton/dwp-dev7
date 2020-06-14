@@ -10,6 +10,9 @@
  * 
 */
 public without sharing class Account_Trigger_cls {
+    
+    /*Constructor Account_Trigger_cls*/
+    private Account_Trigger_cls() {}
 
 	/*Reusable variable in methods*/
     private static Final List<String> PROFILE_NAMES = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};

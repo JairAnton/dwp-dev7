@@ -255,7 +255,7 @@ public class Account_Handler_test {
 		//Create AP's
 		Final acpl__Account_Planning__c[] lstAP = new acpl__Account_Planning__c[] {};
 		for(Account acc:lstAcc) {
-			lstAP.add(TestFactory.createAccountPlanning(acc.Id, lstUser[0].Id, null, true));
+			lstAP.add(AP_FactoryTest_tst.createAccountPlanning(acc.Id, lstUser[0].Id, null, true));
 		}
 		insert lstAP;
 		Final bupl__AP_Team__c[] lstAPT = new bupl__AP_Team__c[] {};

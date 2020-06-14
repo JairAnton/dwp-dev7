@@ -42,9 +42,9 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 			Final acpl__Account_Planning__c[] lstAP = new acpl__Account_Planning__c[] {};
 			for(Integer i = 0; i < 20; i++) {
 				if(math.mod(i, 2) == 0) {
-					lstAP.add(TestFactory.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, false));
+					lstAP.add(AP_FactoryTest_tst.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, false));
 				} else {
-					lstAP.add(TestFactory.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, true));
+					lstAP.add(AP_FactoryTest_tst.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, true));
 				}
 			}
             for(Integer ite = 0; ite < lstAP.size(); ite++) {

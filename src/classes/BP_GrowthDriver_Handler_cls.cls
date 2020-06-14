@@ -29,26 +29,26 @@ public without sharing class BP_GrowthDriver_Handler_cls extends TriggerHandler 
 
 	/**
 	   @Description beforeInsert
+	 * validateUserPermission: Valida si se puede insertar variables de crecimiento, validados por estado y bloqueo en el AP y usuario
 	 */
 	@TestVisible
 	protected override void beforeInsert() {
-		//Valida si se puede insertar variables de crecimiento, validados por estado y bloqueo en el AP y usuario
 		BP_GrowthDriver_Trigger_cls.validateUserPermission(triggerNew, 'insert');
 	}
 	/**
 	   @Description beforeUpdate
+	 * validateUserPermission: Valida si se puede modificar variables de crecimiento, validados por estado y bloqueo en el AP y usuario
 	 */
 	@TestVisible
 	protected override void beforeUpdate() {
-		//Valida si se puede modificar variables de crecimiento, validados por estado y bloqueo en el AP y usuario
 		BP_GrowthDriver_Trigger_cls.validateUserPermission(triggerNew, 'update');
 	}
 	/**
 	   @Description beforeDelete
+	 * validateUserPermission: Valida si se puede eliminar variables de crecimiento, validados por estado y bloqueo en el AP y usuario
 	 */
 	@TestVisible
 	protected override void beforeDelete() {
-		//Valida si se puede eliminar variables de crecimiento, validados por estado y bloqueo en el AP y usuario
 		BP_GrowthDriver_Trigger_cls.validateUserPermission(triggerOld, 'delete');
 	}
 	/**

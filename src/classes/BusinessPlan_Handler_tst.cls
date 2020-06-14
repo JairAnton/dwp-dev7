@@ -12,7 +12,7 @@
 @isTest
 public class BusinessPlan_Handler_tst {
 	/**@Description MAP_USERS*/
-	private static Final Map<String, User> MAP_USERS = AP_FactoryTest_tst.getUsers();
+	private static Final Map<String, User> MAP_USERS = AP_FactoryTest_tst.obtainUsers();
     /**@Description EJECUTIVO*/
     private static Final String EJECUTIVO = 'EJECUTIVO';
 
@@ -29,7 +29,7 @@ public class BusinessPlan_Handler_tst {
 	 */
 	public static testmethod void afterUpdateValidatedBP() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
 		Final bupl__BusinessPlan__c bpAux = [SELECT Id, acpl__gf_account_planning_id__c, bupl__status_type__c FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
@@ -47,7 +47,7 @@ public class BusinessPlan_Handler_tst {
 	 */
 	public static testmethod void afterUpdateInProgressBP() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
 		Final bupl__BusinessPlan__c bpAux = [SELECT Id, acpl__gf_account_planning_id__c, bupl__status_type__c FROM bupl__BusinessPlan__c WHERE 
                                              acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];

@@ -4,7 +4,6 @@
  * @Date Created: 2020-06-01
  * @Group
  * @Description Esta clase valida la funcionalidad de los metodos de la clase Be_RecordId_Related_Sobject_helper
- *
  */
 @isTest
 public class Be_RecordId_Related_Sobject_tst {

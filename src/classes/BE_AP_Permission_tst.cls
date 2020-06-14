@@ -161,7 +161,7 @@ public class BE_AP_Permission_tst {
 			update settings;
 		}
 		Final Account acc = TestFactory.createAccount();
-		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, ejecutivo.Id, null, true);
+		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, ejecutivo.Id, null, true);
 		insert apR;
 		return apR;
 	}

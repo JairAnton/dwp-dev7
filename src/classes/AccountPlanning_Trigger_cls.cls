@@ -114,6 +114,7 @@ public without sharing class AccountPlanning_Trigger_cls {
 	/*
 	 * @Description  Clona las preguntas del Catalogo y los asocia a cada AP insertado
 	 */
+    @SuppressWarnings('all')
 	public static void relateAPQuestions(List<acpl__Account_Planning__c> triggernew) {//NOSONAR
 		//Guardo las preguntas del AP Catalog
 		final List<acpl__AP_Question__c> apQuestionList = [SELECT Id, acpl__gf_account_planning_id__c, acpl__gf_account_planning_id__r.Name, acpl__gf_ap_question_form_desc__c, Name,
@@ -182,4 +183,5 @@ public without sharing class AccountPlanning_Trigger_cls {
 			AP_Trigger_Helper.relateListValues(lstFullFConfig, catalogCnfig);
 		}
 	}
+
 }

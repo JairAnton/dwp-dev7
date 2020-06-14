@@ -12,7 +12,7 @@
 @isTest
 public class AP_Team_Handler_tst {
 	/** @Description variable mapUsers*/
-	static Final Map<String, User> MAPUSERS = AP_FactoryTest_tst.getUsers();
+	static Final Map<String, User> MAPUSERS = AP_FactoryTest_tst.obtainUsers();
 	/** @Description variable fail*/
 	static Final String FAIL = 'Fail Assertion';
     /** @Description variable GERENTE*/
@@ -40,13 +40,12 @@ public class AP_Team_Handler_tst {
 	 */
 	public static testmethod void valuesAndSharingAPT() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Test.startTest();
 		System.runAs(MAPUSERS.get(EJECUTIVO)) {
-			Final bupl__AP_Team__c accPlanTeam = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, 
+			insert new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, 
                                                                       bupl__gf_ap_team_role_user_name__c = ACOMPANANTE, bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
-			insert accPlanTeam;
 		}
 		Test.stopTest();
 		Final bupl__BusinessPlan__c bPlan = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:accPlan.Id LIMIT 1];
@@ -56,7 +55,7 @@ public class AP_Team_Handler_tst {
         Final Integer sharingAPSize = sharingAP.size();
 		Final Integer aptSize = accPlanTeams.size();
 		Final Integer sharingBPSize = sharingBP.size();
-        Final Boolean result = sharingAPSize == 1 && aptSize == 3 && sharingBPSize == 3;
+        Final Boolean result = sharingAPSize == 3 && aptSize == 1 && sharingBPSize == 3;
 		System.assert(result, fail);
 	}
 
@@ -65,7 +64,7 @@ public class AP_Team_Handler_tst {
 	 */
 	public static testmethod void beforeDMLInsertAPLock() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, false);
 		insert accPlan;
 		Test.startTest();
 		System.runAs(MAPUSERS.get(EJECUTIVO)) {
@@ -88,7 +87,7 @@ public class AP_Team_Handler_tst {
 	 */
 	public static testmethod void beforeDMLInsertExpired() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, false);
 		insert accPlan;
 		accPlan.acpl__gf_ap_status_type_name__c = 'Not started';
 		accPlan.acpl__gf_ap_substatus_type_name__c = 'Expired';
@@ -114,7 +113,7 @@ public class AP_Team_Handler_tst {
 	 */
 	public static testmethod void beforeDMLInsertInvalidUser() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Test.startTest();
 		System.runAs(MAPUSERS.get(MANAGER)) {
@@ -137,7 +136,7 @@ public class AP_Team_Handler_tst {
 	 */
 	public static testmethod void checkAPTInvalidUser() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Final bupl__AP_Team__c aptAux = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = ACOMPANANTE,
 		                                                     bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
@@ -163,7 +162,7 @@ public class AP_Team_Handler_tst {
 	 */
 	public static testmethod void checkAPTInvalidGestor() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = TestFactory.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Final bupl__AP_Team__c aptAux = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = GESTOR,
 		                                                     bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);

@@ -35,23 +35,22 @@ public without sharing class BusinessPlan_Handler_cls extends TriggerHandler {
 	@TestVisible
 	protected override void beforeUpdate() {
 		//EVALUAR
-		//Inserta registros de seguimiento de AP creado
 		//BusinessPlan_Trigger_Helper.preventModifyBP(triggerNewMap, 'update');
 	}
 	/**
 	   @Description beforeDelete
+	 * preventModifyBP: Inserta registros de seguimiento de AP creado
 	 */
 	@TestVisible
 	protected override void beforeDelete() {
-		//Inserta registros de seguimiento de AP creado
 		BusinessPlan_Trigger_cls.preventModifyBP(triggerOldMap, 'delete');
 	}
 	/**
 	   @Description afterInsert
+	 * insertAPHistory:Inserta registros de seguimiento de AP creado
 	 */
 	@TestVisible
 	protected override void afterInsert() {
-		//Inserta registros de seguimiento de AP creado
 		bpHandler.insertAPHistory(triggerNewMap, null);
 	}
 	/**
