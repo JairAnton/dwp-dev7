@@ -9,6 +9,7 @@
  *
  * @author Diego Carbajal
  */
+ @SuppressWarnings('all')
 public with sharing class BE_AP_NextVisits_cls extends BE_SingleRelatedListCRUD_Cls {
 	/*
 	 * @Description  constructor BE_AP_NextVisits_cls
