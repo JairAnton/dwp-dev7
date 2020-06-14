@@ -21,8 +21,10 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 	   @Description Be_RecordId_Related_Sobject_helper
 	 */
 	public Be_RecordId_Related_Sobject_helper() {
-		report = Be_Dynamic_Report_Chart__c.getInstance(String.valueOf(ApexPages.currentPage().getParameters().get('configName')));
-		report.Filters__c = report.Filters__c.replace('recordId', String.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('Id')));
+        Final String config = ApexPages.currentPage().getParameters().get('configName').escapeHTML4();
+        Final Id record = ApexPages.currentPage().getParameters().get('Id').escapeHTML4();
+		report = Be_Dynamic_Report_Chart__c.getInstance(config);
+		report.Filters__c = report.Filters__c.replace('recordId', record);
 	}
 
 	/**
