@@ -26,16 +26,6 @@ public without sharing class AP_Trigger_Helper {
 		}
 		return mapStrategic;
 	}
-	/*
-	 * @Description  Crea registros de BusinessPlan relacionados a los AP
-	 */
-	public static void createRelatedBP(List<bupl__BusinessPlan__c> lstNewBP) {
-		Final Integer lstNewBPSize = lstNewBP.size();
-		if(lstNewBPSize > 0) {
-			insert lstNewBP;
-			createBPV(lstNewBP);
-		}
-	}
 
 	/*
 	 * @Description  Crea APT propietarios a los AP's
@@ -58,20 +48,6 @@ public without sharing class AP_Trigger_Helper {
 	}
 
 	/*
-	 * @Description  Elimina APT
-	 */
-	public static void deleteAPTeam(Map<Id, acpl__Account_Planning__c> triggerOldMap) {
-		delete [Select id From bupl__AP_Team__c Where acpl__gf_account_planning_id__c in : triggerOldMap.keySet()];
-	}
-
-	/*
-	 * @Description  Elimina historial de seguimiento
-	 */
-	public static void deleteAPHistory(Map<Id, acpl__Account_Planning__c> triggerOldMap) {
-		delete [Select id From dwp_cvad__Action_Audit__c Where dwp_cvad__action_audit_record_id__c in : triggerOldMap.keySet()];
-	}
-
-	/*
 	 * @Description  Elimina fieldsConfig
 	 */
 	public static void deleteFieldsConfig(Map<Id, acpl__Account_Planning__c> triggerOldMap) {
@@ -83,13 +59,6 @@ public without sharing class AP_Trigger_Helper {
 			}
 		}
 		delete [SELECT Id FROM dyfr__Field_Config__c WHERE dyfr__DeveloperName__c IN : lstDeveloperNames];
-	}
-
-	/*
-	 * @Description  Elimina BusinessPlan
-	 */
-	public static void deleteBusinessPlan(Map<Id, acpl__Account_Planning__c> triggerOldMap) {
-		delete [SELECT ID, acpl__gf_account_planning_id__c, name FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c IN : triggerOldMap.keySet()];
 	}
 
 	/*

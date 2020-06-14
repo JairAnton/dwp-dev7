@@ -56,7 +56,7 @@ public class AP_Team_Handler_tst {
         Final Integer sharingAPSize = sharingAP.size();
 		Final Integer aptSize = accPlanTeams.size();
 		Final Integer sharingBPSize = sharingBP.size();
-        Final Boolean result = (sharingAPSize == 1) && (aptSize == 3) && (sharingBPSize == 3);
+        Final Boolean result = sharingAPSize == 1 && aptSize == 3 && sharingBPSize == 3;
 		System.assert(result, fail);
 	}
 

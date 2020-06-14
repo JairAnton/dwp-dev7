@@ -56,12 +56,12 @@ public without sharing class BusinessPlan_Handler_cls extends TriggerHandler {
 	}
 	/**
 	   @Description afterUpdate
+	*insertAPHistory: Inserta registros de seguimiento de AP creado
+	*updateStatusOnAP: Metodo que actualiza el estado del AP si el BP es validado o modificado
 	 */
 	@TestVisible
 	protected override void afterUpdate() {
-		//Inserta registros de seguimiento de AP creado
 		bpHandler.insertAPHistory(triggerNewMap, triggerOldMap);
-		//Metodo que actualiza el estado del AP si el BP es validado o modificado
 		BusinessPlan_Trigger_cls.updateStatusOnAP(triggerNewMap, triggerOldMap);
 	}
 }

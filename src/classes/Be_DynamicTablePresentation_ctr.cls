@@ -8,6 +8,14 @@
  *
  */
 public without sharing class Be_DynamicTablePresentation_ctr {
+    /*
+	 * @Description  DEVELOPER_NAME
+	 */
+    private static Final String DEVELOPER_NAME = 'developerName';
+    /*
+	 * @Description  SOBJ_TYPE
+	 */
+    private static Final String SOBJ_TYPE = 'sobjecttype';
 	/*
 	 * @Description  Be_DynamicTablePresentation_ctr
 	 */
@@ -17,7 +25,7 @@ public without sharing class Be_DynamicTablePresentation_ctr {
 	 * @Description  getFilters
 	 */
 	@AuraEnabled
-	public static String getFilters(String config) {
+	public static String getFilters(String config) {//NOSONAR
 		Final List<Be_Dynamic_Table_Presentation__mdt> mdtDTP = (List<Be_Dynamic_Table_Presentation__mdt>) getConfig(config);
 		Final Integer mdtDTPSize = mdtDTP.size();
 		String jsonFilters = mdtDTP[0].Filters__c;
@@ -28,9 +36,9 @@ public without sharing class Be_DynamicTablePresentation_ctr {
         	Final Set<String> sObjLV = mapLVConfig.get('sObjLV');
 			for(ListView lView:[SELECT Id, developerName, SObjectType FROM ListView WHERE developerName IN:devNameLV AND SObjectType IN:sObjLV]) {
 				for(Object filters:lstFilters) {//mapFilter put new values in filters
-					Map<String, Object> mapFilter = (Map<String, Object>)filters;
-					if(mapFilter.containsKey('developerName') && mapFilter.get('developerName') == lView.developerName &&
-					   mapFilter.containsKey('sobjectType') && mapFilter.get('sobjectType') == lView.SObjectType) {
+					Final Map<String, Object> mapFilter = (Map<String, Object>)filters;
+					if(mapFilter.containsKey(DEVELOPER_NAME) && mapFilter.get(DEVELOPER_NAME) == lView.developerName &&
+					   mapFilter.containsKey(SOBJ_TYPE) && mapFilter.get(SOBJ_TYPE) == lView.SObjectType) {
 						mapFilter.put('id', lView.Id);
 					}
 				}
@@ -47,10 +55,10 @@ public without sharing class Be_DynamicTablePresentation_ctr {
         Final Set<String> devNameLV = new Set<String>();
         Final Set<String> sObjLV = new Set<String>();
         for(Object filters:lstFilters) {
-            Map<String, Object> mapFilter = (Map<String, Object>)filters;
-            if(mapFilter.containsKey('developerName') && mapFilter.containsKey('sobjectType')) {
-                devNameLV.add((String) mapFilter.get('developerName'));
-                sObjLV.add((String) mapFilter.get('sobjectType'));
+            Final Map<String, Object> mapFilter = (Map<String, Object>)filters;
+            if(mapFilter.containsKey(DEVELOPER_NAME) && mapFilter.containsKey(SOBJ_TYPE)) {
+                devNameLV.add((String) mapFilter.get(DEVELOPER_NAME));
+                sObjLV.add((String) mapFilter.get(SOBJ_TYPE));
             }
         }
         return new  Map<String, Set<String>>{'devNameLV' => devNameLV, 'sObjLV' => sObjLV};
@@ -121,16 +129,15 @@ public without sharing class Be_DynamicTablePresentation_ctr {
         for(String dataTypes: lstDataTypes) {
             row.put('is' + dataTypes, dataTypes.toLowerCase() == typeCol);
         }
-        Final TypeAttributes typeAttributes = column.typeAttributes;
         switch on typeCol {
             when 'url' {
-                Final Label label = typeAttributes.label;
+                Final Label label = column.typeAttributes.label;
                 row.put('urlLabel', data.get(label.fieldName));
                 row.put('target', '_self');
             }
             when 'number', 'currency', 'percent' {
-                row.put('formatStyle', typeAttributes.formatStyle);
-                row.put('currencyCode', typeAttributes.currencyCode);
+                row.put('formatStyle', column.typeAttributes.formatStyle);
+                row.put('currencyCode', column.typeAttributes.currencyCode);
             }
             when 'date-local' {
                 row.put('isDate-local', false);

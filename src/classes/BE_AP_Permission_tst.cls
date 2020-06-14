@@ -14,8 +14,6 @@ public class BE_AP_Permission_tst {
     
     /** @Description  FAIL*/
     private static Final String FAIL = 'Fail';
-    /** @Description  V_PERMISSION*/
-    private static Final String V_PERMISSION = 'permission';
     /** @Description  V_INSERT*/
     private static Final String V_INSERT = 'insert';
     /** @Description  UPDT*/
@@ -24,8 +22,6 @@ public class BE_AP_Permission_tst {
     private static Final String DEL = 'delete';
     /** @Description  USER_TEST*/
     private static Final String USER_TEST = 'User Test';
-    /** @Description  SOBJ_NAME*/
-    private static Final String SOBJ_NAME = 'acpl__account_planning__c';
 	/*
 	 * @Description  method setUp
 	 */
@@ -62,8 +58,8 @@ public class BE_AP_Permission_tst {
 			delet = permission.permissionOnAP(DEL);
 		}
 		Test.stopTest();
-		System.assert (edit, FAIL);
-		System.assert (delet, FAIL);
+        Final Boolean assert = edit && delet;
+		System.assert (assert, FAIL);
 	}
 
 	/*
@@ -76,7 +72,7 @@ public class BE_AP_Permission_tst {
 		Boolean delet;
 		Test.startTest();
 		System.runAs(adminAP) {
-			BE_AP_Permission_helper permission = new BE_AP_Permission_helper(adminAP.Id);
+			Final BE_AP_Permission_helper permission = new BE_AP_Permission_helper(adminAP.Id);
 			create = permission.permissionOnNeed(V_INSERT);
 			edit = permission.permissionOnNeed(UPDT);
 			delet = permission.permissionOnNeed(DEL);

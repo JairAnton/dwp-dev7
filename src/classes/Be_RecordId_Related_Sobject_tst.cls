@@ -1,5 +1,4 @@
 /**
- * ------------------------------------------------------------------------------------------------
  * @Name Be_RecordId_Related_Sobject_tst
  * @Author Diego Carbajal diego.carbajal@bbva.com
  * @Date Created: 2020-06-01
@@ -74,7 +73,8 @@ public class Be_RecordId_Related_Sobject_tst {
 		insert visita;
 		Map<String, Object> mapResult;
 		Test.startTest();
-		mapResult = Be_RecordId_Related_Sobject_helper.getUrlPage('Account_Risk_Strategy', 'dwp_kitv__Visit__c', 'dwp_kitv__account_id__c', visita.Id);
+		mapResult = Be_RecordId_Related_Sobject_helper.getUrlPage(
+            '{"reportDeveloperName":"Account_Risk_Strategy","sObjType":"dwp_kitv__Visit__c", "field":"dwp_kitv__account_id__c", "recordId":"'+visita.Id+'"}');
 		Test.stopTest();
 		Final Boolean condition = (Boolean)mapResult.get('isError');
 		System.assert(condition, FAIL);
@@ -89,7 +89,7 @@ public class Be_RecordId_Related_Sobject_tst {
 			                                                                               User.user_position_equivalence__c => 'EJECUTIVO BEC'};
 		Final User userOwner = TestFactory.getUser(true, mapFields);
 		Final Account cuenta = [SELECT Id, branch_id__c FROM Account LIMIT 1];
-		acpl__Account_Planning__c apR = new acpl__Account_Planning__c(acpl__participant_id__c = cuenta.Id, acpl__external_reference_id__c = 'AP123', Name = 'AP record',
+		Final acpl__Account_Planning__c apR = new acpl__Account_Planning__c(acpl__participant_id__c = cuenta.Id, acpl__external_reference_id__c = 'AP123', Name = 'AP record',
 		                                                             acpl__gf_ap_limit_date__c = System.today(), acpl__proposal_manager_id__c = userOwner.Id);
 		insert apR;
 		List<Integer> lstResult;

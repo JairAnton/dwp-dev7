@@ -21,7 +21,7 @@ global with sharing class Be_DynamicTablePresentationSettings_cls extends Visual
 	   @return a VisualEditor.DynamicPickListRowsw from information of Be_Dynamic_Table_Presentation__mdt
 	 */
 	global override VisualEditor.DynamicPickListRows getValues() {
-		VisualEditor.DynamicPickListRows myValues = new VisualEditor.DynamicPickListRows();
+		Final VisualEditor.DynamicPickListRows myValues = new VisualEditor.DynamicPickListRows();
 		for(Be_Dynamic_Table_Presentation__mdt itemMdt : [SELECT MasterLabel, DeveloperName FROM Be_Dynamic_Table_Presentation__mdt LIMIT 10000]) {
 			myValues.addRow(new VisualEditor.DataRow(itemMdt.MasterLabel, itemMdt.DeveloperName));
 		}

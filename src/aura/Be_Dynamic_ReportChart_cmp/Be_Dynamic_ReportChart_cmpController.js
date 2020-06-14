@@ -1,10 +1,9 @@
 ({
 	init : function(component,event, helper){
         var action = component.get("c.getUrlPage");
-        action.setParams({"reportDeveloperName":component.get('v.reportName'),
-			            	"sObjType" : component.get("v.sObjTypeReference"),
-                          	"field" : component.get("v.fieldReference"),
-                          	"recordId" : component.get("v.recordId")});
+        var params = {"reportDeveloperName": component.get('v.reportName'), "sObjType": component.get("v.sObjTypeReference"), 
+                      "field": component.get("v.fieldReference"), "recordId" : component.get("v.recordId")};
+        action.setParams({"params" : JSON.stringify(params)});
         action.setCallback(this, function(response) {
             var state = response.getState();
             var result = response.getReturnValue();

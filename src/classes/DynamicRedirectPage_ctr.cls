@@ -12,13 +12,14 @@
 public without sharing class DynamicRedirectPage_ctr {
     
     /**
-	   @Description DynamicRedirectPage_ctr
-	 */
-    private DynamicRedirectPage_ctr() {}
-	/**
 	   @Description test Be_DynamicTablePresentationSettings_cls.getDefaultValue(),correct scenary
 	 */
 	Final static List<String> PROFILE_NAMES = new List<String> {'Migracion', System.Label.profAdministrator, 'System Administrator'};
+    /**
+	   @Description DynamicRedirectPage_ctr
+	 */
+    private DynamicRedirectPage_ctr() {}
+	
 	/**
 	   @Description test Be_DynamicTablePresentationSettings_cls.getDefaultValue(),correct scenary
 	 */
@@ -28,19 +29,22 @@ public without sharing class DynamicRedirectPage_ctr {
 	   @Description test Be_DynamicTablePresentationSettings_cls.getDefaultValue(),correct scenary
 	 */
 	@AuraEnabled
-	public static Map<String, Object> getRecordToRedirect(String allowedView, String sObjectType, String recordId, String fieldName) {
+	public static Map<String, Object> getRecordToRedirect(String allowedView, String jsonSObj) {
 		Final Map<String, Object> mapResponse = new Map<String, Object> {'redirectTo' => ''};
 		Final Boolean stayPage = getPermission(allowedView);
+        Final Map<String, Object> mapJsonSObj = (Map<String, Object>)JSON.deserializeUntyped(jsonSObj);
+        Final String recordId = (String)mapJsonSObj.get('recordId');
 		mapResponse.put('stayPage', stayPage);
 		mapResponse.put('isSuccess', isSuccess);
-		if(!stayPage && String.isNotBlank(fieldName)) {
+		if(!stayPage && String.isNotBlank((String)mapJsonSObj.get('fieldName'))) {
 			try {
-				Final String query = 'SELECT Id, ' + String.escapeSingleQuotes(fieldName) + ' FROM ' + String.escapeSingleQuotes(sObjectType) + ' WHERE Id=:recordId LIMIT 1';
+				Final String query = 'SELECT Id, ' + String.escapeSingleQuotes((String)mapJsonSObj.get('fieldName')) + ' FROM ' + 
+                    String.escapeSingleQuotes((String)mapJsonSObj.get('sObjectType')) + ' WHERE Id=:recordId LIMIT 1';
 				Final List<SObject> lstCurrentObj = Database.query(query);
 				Final Integer lstCurrentObjSize = lstCurrentObj.size();
 				if(lstCurrentObjSize > 0) {
 					Final SObject obj = lstCurrentObj[0];
-					mapResponse.put('redirectTo', obj.get(fieldName));
+					mapResponse.put('redirectTo', obj.get((String)mapJsonSObj.get('fieldName')));
 				} else {
 					mapResponse.put('isSuccess', false);
 				}

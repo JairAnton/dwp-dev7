@@ -76,8 +76,8 @@ public class BE_AP_Permission_helper_tst {
 			delet = permission.permissionQuestions(DEL);
 		}
 		Test.stopTest();
-		System.assert (edit, FAIL);
-		System.assert (delet, FAIL);
+        Final Boolean assert = edit && delet;
+		System.assert (assert, FAIL);
 	}
 
 	/*

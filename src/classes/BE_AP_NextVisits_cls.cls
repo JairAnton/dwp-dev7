@@ -14,7 +14,7 @@ public with sharing class BE_AP_NextVisits_cls extends BE_SingleRelatedListCRUD_
 	 * @Description  constructor BE_AP_NextVisits_cls
 	 */
 	private BE_AP_NextVisits_cls() {
-        super();
+        this();
 	}
 
 	/*

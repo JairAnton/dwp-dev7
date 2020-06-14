@@ -10,10 +10,10 @@
  */
 @isTest(seeAllData = false)
 private class User_Trigger_Test {
-    /*
-	*   @Variable: STR_EJECUTIVO
-	*/
+    /**   @Variable: STR_EJECUTIVO*/
 	private static final String USER_NAME = 'usuario.salesforce';
+    /**   @Variable: CODE_USER*/
+    private static Final String CODE_USER = 'E01';
 	/*static variable*/
 	static List<User> users;
 	/*
@@ -134,7 +134,7 @@ private class User_Trigger_Test {
 		userToInsert.organizational_unit_id__c = '00027902';
 		userToInsert.organizational_unit_name__c = 'BIBEC PERU';
 		userToInsert.prof_position_type__c = 'LEVEL C';
-		userToInsert.prof_position_id__c = 'E01';
+		userToInsert.prof_position_id__c = CODE_USER;
 		Test.startTest();
 		insert userToInsert;
         Test.stopTest();
@@ -145,32 +145,30 @@ private class User_Trigger_Test {
 
 	/*
 	 * @Name: AsignAfterUpdate
-	 * @Description: call to AssigmentPermissionValidationAP_cls class after create user with prof_position_id__c = 'E01'
+	 * @Description: call to AssigmentPermissionValidationAP_cls class after create user with prof_position_id__c = CODE_USER
 	 * @author Martin Mori
 	 */
 	@isTest
 	static void asignAfterUpdateTest() {
 		final bupl__AP_Team__c apTeam = [SELECT Id, bupl__gf_ap_team_user_id__c FROM bupl__AP_Team__c LIMIT 1][0];
-
 		final User userTest1 = new User(Id = apTeam.bupl__gf_ap_team_user_id__c);
 		userTest1.isActive = false;
 		update userTest1;
 		final User userTest2 = new User(Id = apTeam.bupl__gf_ap_team_user_id__c);
 		userTest2.isActive = true;
 		userTest2.prof_position_id__c = 'E01';
-
 		Test.startTest();
 		update userTest2;
         Test.stopTest();
         final List<PermissionSet> valPermission = [SELECT Id, Name FROM PermissionSet WHERE name = 'Account_Planning_Validation_Permission' LIMIT 1];
         Final List<PermissionSetAssignment> userAS = [SELECT Id FROM PermissionSetAssignment WHERE PermissionSetId =: valPermission[0].Id AND AssigneeId =: userTest2.Id];
-		System.assertEquals (userAS.size(), 1, 'Fail!');
+		System.assertEquals (1, userAS.size(), 'Fail!');
 	}
     
     @isTest
 	static void deleteAssigment() {
         final User userT = TestFactory.createUser('TestDelete', 'Ejecutivo');
-		userT.prof_position_id__c = 'E01';
+		userT.prof_position_id__c = CODE_USER;
         update userT;
         userT.prof_position_id__c = '';
 		Test.startTest();
@@ -208,7 +206,7 @@ private class User_Trigger_Test {
 			userToInsert.organizational_unit_id__c = '00027902';
 			userToInsert.organizational_unit_name__c = 'BIBEC PERU';
 			userToInsert.prof_position_type__c = 'LEVEL C';
-			userToInsert.prof_position_id__c = 'E01';
+			userToInsert.prof_position_id__c = CODE_USER;
 			insert userToInsert;
 			Boolean successInsert;
 			if(userToInsert.Id == null) {

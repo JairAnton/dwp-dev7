@@ -15,11 +15,10 @@ public class BP_Need_Handler_tst {
 	   @Description MAP_USERS
 	 */
 	Final static Map<String, User> MAP_USERS = AP_FactoryTest_tst.getUsers();
-	/**
-	   @Description EJECUTIVO
-	 */
-	Final static String EJECUTIVO = 'EJECUTIVO';
-
+	/**@Description EJECUTIVO*/
+	private Final static String EJECUTIVO = 'EJECUTIVO';
+    /**@Description FAIL*/
+    private static Final String FAIL = 'Fail Assertion';
 	/**
 	   @Description setUp
 	 */
@@ -52,7 +51,7 @@ public class BP_Need_Handler_tst {
 		Test.stopTest();
 		Final bupl__BP_Need__c[] lstNeed = [SELECT Id FROM bupl__BP_Need__c WHERE acpl__gf_account_planning_id__c =:apR.Id];
 		Final Integer size = lstNeed.size();
-		System.assertEquals (size, 0, 'Fail Assertion');
+		System.assertEquals (size, 0, FAIL);
 	}
 
 	/**
@@ -77,7 +76,7 @@ public class BP_Need_Handler_tst {
 		}
 		Test.stopTest();
 		Final bupl__BP_Need__c[] lstNeed = [SELECT Id, bupl__gf_bus_pl_unlk_revenue_amount__c FROM bupl__BP_Need__c WHERE acpl__gf_account_planning_id__c =:apR.Id];
-		System.assertEquals(12345678.24, lstNeed[0].bupl__gf_bus_pl_unlk_revenue_amount__c, 'Fail Assertion');
+		System.assertEquals(12345678.24, lstNeed[0].bupl__gf_bus_pl_unlk_revenue_amount__c, FAIL);
 	}
 
 	/**
@@ -87,7 +86,7 @@ public class BP_Need_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
 		insert apR;
-		bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
+		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Final bupl__BP_Need__c vNeed = new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
 		                                                    bupl__gf_bus_pl_unlk_revenue_amount__c = 12345678.24, bupl__gf_bus_pl_unlk_risk_lim_amount__c = 43643.23);
 		insert vNeed;
@@ -102,7 +101,7 @@ public class BP_Need_Handler_tst {
 		Test.stopTest();
 		Final bupl__BP_Need__c[] lstNeed = [SELECT Id, bupl__gf_bus_pl_unlk_revenue_amount__c FROM bupl__BP_Need__c WHERE acpl__gf_account_planning_id__c =:apR.Id];
 		Final Integer size = lstNeed.size();
-		System.assert (size > 0, 'Fail Assertion');
+		System.assert (size > 0, FAIL);
 	}
 
 	/**
@@ -112,7 +111,7 @@ public class BP_Need_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apR = TestFactory.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
-		bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
+		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			insert new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
@@ -120,6 +119,6 @@ public class BP_Need_Handler_tst {
 		}
 		Test.stopTest();
 		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c WHERE Id =:apR.Id LIMIT 1];
-		System.assertEquals('In Progress', apAux.acpl__gf_ap_status_type_name__c, 'Fail Assertion');
+		System.assertEquals('In Progress', apAux.acpl__gf_ap_status_type_name__c, FAIL);
 	}
 }

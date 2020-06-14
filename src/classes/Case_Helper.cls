@@ -12,13 +12,13 @@
 public with sharing class Case_Helper {
     
     /**
+	   @Description RT_ID
+	 */
+	private Final static String RT_ID = [SELECT Id FROM RecordType WHERE DeveloperName = 'Sanction_Price'].Id;
+    /**
 	   @Description Case_Helper
 	 */
     private Case_Helper() {}
-	/**
-	   @Description RT_ID
-	 */
-	Final static String RT_ID = [SELECT Id FROM RecordType WHERE DeveloperName = 'Sanction_Price'].Id;
 
 	/**
 	   @Description updateCaseNotification

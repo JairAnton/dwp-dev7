@@ -9,6 +9,7 @@
  */
 @isTest
 public class Be_DynamicTablePresentation_tst {
+    /*@Description FAIL*/
     private static Final String FAIL = 'Fail';
 	/*Setup Data*/
 	@TestSetup
@@ -45,7 +46,7 @@ public class Be_DynamicTablePresentation_tst {
 		result = Be_DynamicTablePresentation_ctr.getValues('AP_Test_Metadata_Fail', 'Basic', 'priority');
 		Test.stopTest();
 		Final Boolean condition = (Boolean) result.get('isSuccess');
-		System.assertEquals(condition, false, FAIL);
+		System.assert(!condition, FAIL);
 	}
 
     /*@Description getValuesEjecutivoTestSuccess*/

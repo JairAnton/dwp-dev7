@@ -20,7 +20,8 @@ public without sharing class DynamicRedirectPage_Tst {
 		final Account acc = TestFactory.createAccount();
 		Test.startTest();
 		System.runAs(userExecutive) {
-			Final Map<String, Object> testObject = DynamicRedirectPage_ctr.getRecordToRedirect('{"profiles":"Operativo","users":"p0000"}', 'Account', acc.Id, 'Name');
+			Final Map<String, Object> testObject = DynamicRedirectPage_ctr.getRecordToRedirect('{"profiles":"Operativo","users":"p0000"}', 
+                                                                                               '{"sObjectType":"Account","recordId":"'+acc.Id+'", "fieldName": "Name"}');
 			System.assert ((Boolean)testObject.get('isSuccess'), 'Successful!');
 		}
 		Test.stopTest();
@@ -32,7 +33,7 @@ public without sharing class DynamicRedirectPage_Tst {
 	@isTest
 	static void getRecordToRedirectFailTest() {
 		Test.startTest();
-		Final Map<String, Object> testObject = DynamicRedirectPage_ctr.getRecordToRedirect(null, 'Account', null, 'Name');
+		Final Map<String, Object> testObject = DynamicRedirectPage_ctr.getRecordToRedirect(null, '{"sObjectType":"Account","recordId":"", "fieldName": "Name"}');
 		System.assert (!(Boolean)testObject.get('isSuccess'), 'fail!');
 		Test.stopTest();
 	}

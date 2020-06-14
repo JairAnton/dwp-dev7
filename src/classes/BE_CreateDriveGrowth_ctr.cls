@@ -9,7 +9,7 @@
  *
  * @author Diego Carbajal
  */
-public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListCRUD_Cls{
+public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListCRUD_Cls {
 
     /*
     * @Description  method createRecords
@@ -34,5 +34,4 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
         }
         return response;
     }
-
 }

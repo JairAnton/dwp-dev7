@@ -65,7 +65,10 @@ public without sharing class AccountPlanning_Trigger_cls {
 			}
 		}
 		//Crea BP relacionados al AP
-		AP_Trigger_Helper.createRelatedBP(lstNewBP);
+		if(!lstNewBP.isEmpty()) {
+			insert lstNewBP;
+			AP_Trigger_Helper.createBPV(lstNewBP);
+		}
 		//Requiere que exista BP antes de ejecutarse
 		AP_Trigger_Helper.createAptOwner(ownersAPT);
 	}
@@ -99,13 +102,13 @@ public without sharing class AccountPlanning_Trigger_cls {
 	 */
 	public static void beforeDeleteRelatedRecords(Map<Id, acpl__Account_Planning__c> triggerOldMap) {
 		//Elimina el historial del AP
-		AP_Trigger_Helper.deleteAPHistory(triggerOldMap);
+		delete [Select id From dwp_cvad__Action_Audit__c Where dwp_cvad__action_audit_record_id__c in : triggerOldMap.keySet()];
 		//Elimina los los registros del objeto dyfr__Field_Config__c relacionados AP
 		AP_Trigger_Helper.deleteFieldsConfig(triggerOldMap);
 		//Elimina el Business Plan asociado al AP
-		AP_Trigger_Helper.deleteBusinessPlan(triggerOldMap);
+		delete [SELECT ID, acpl__gf_account_planning_id__c, name FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c IN : triggerOldMap.keySet()];
 		//Elimina los APT del AP
-		AP_Trigger_Helper.deleteAPTeam(triggerOldMap);
+		delete [Select id From bupl__AP_Team__c Where acpl__gf_account_planning_id__c in : triggerOldMap.keySet()];
 	}
 
 	/*
@@ -179,5 +182,4 @@ public without sharing class AccountPlanning_Trigger_cls {
 			AP_Trigger_Helper.relateListValues(lstFullFConfig, catalogCnfig);
 		}
 	}
-
 }

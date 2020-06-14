@@ -53,10 +53,10 @@ public without sharing class BP_GrowthDriver_Handler_cls extends TriggerHandler 
 	}
 	/**
 	   @Description afterInsert
+	*updateStatusOnAP: Metodo que actualiza el estado del AP de estado 'Not started' a 'In Progress'
 	 */
 	@TestVisible
 	protected override void afterInsert() {
-		//Metodo que actualiza el estado del AP de estado 'Not started' a 'In Progress'
 		BP_GrowthDriver_Trigger_cls.updateStatusOnAP(triggerNewMap);
 	}
 }

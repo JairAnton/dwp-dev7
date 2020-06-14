@@ -17,7 +17,7 @@ public without sharing class BE_CreateCommercialPlantEvent_Tst {
         final List<String> sObjNames=new List<String>{'acpl__Account_Planning__c'};
         final Map<String,Schema.RecordTypeInfo> recordType=BE_General_Utils.getRecordTypeInfo(sObjNames);
         
-        final User userExecutiveOwner = TestFactory.createUser('userExecutiveOwner','Ejecutivo');
+        final User userExecutiveO = TestFactory.createUser('userExecutiveOwner','Ejecutivo');
         final Account acc = TestFactory.createAccount();        
         
         final acpl__Account_Planning__c accPlan = new acpl__Account_Planning__c();
@@ -28,7 +28,7 @@ public without sharing class BE_CreateCommercialPlantEvent_Tst {
         accPlan.acpl__gf_ap_public_ind_type__c = true;
         accPlan.acpl__gf_ap_status_type_name__c = 'Not started';
         accPlan.acpl__participant_id__c = acc.Id;
-        accPlan.acpl__proposal_manager_id__c = userExecutiveOwner.Id;
+        accPlan.acpl__proposal_manager_id__c = userExecutiveO.Id;
         insert accPlan;
     }
     
@@ -50,7 +50,7 @@ public without sharing class BE_CreateCommercialPlantEvent_Tst {
         Test.startTest();
         final BE_CreateCommercialPlantEvent_cls commPlanEvt = new BE_CreateCommercialPlantEvent_cls();
         final BE_SingleRelatedListCRUD_Cls.Response resp = commPlanEvt.createRecords(sObjs);
-        System.assertEquals(resp.message, 'Successful', 'success!!!');
+        System.assertEquals(resp.message, 'Successful', 'Fail');
         Test.stopTest();
     }
     
@@ -101,7 +101,7 @@ public without sharing class BE_CreateCommercialPlantEvent_Tst {
         sObjUpd2.add(planEvt);
         final BE_CreateCommercialPlantEvent_cls commPlanEvt3 = new BE_CreateCommercialPlantEvent_cls();
         final BE_SingleRelatedListCRUD_Cls.Response resp = commPlanEvt3.updateRecords(sObjUpd2);
-        System.assertEquals(resp.message, 'Successful');
+        System.assertEquals(resp.message, 'Successful', 'Fail');
         Test.stopTest();
     }
     

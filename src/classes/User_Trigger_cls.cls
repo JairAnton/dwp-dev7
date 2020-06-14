@@ -7,11 +7,11 @@ public without sharing class User_Trigger_cls {
 	/*
 	 *   @Variable: temporal
 	 */
-	final Map<String, Organizational_Unit_Equivalence__c> orgEquivalentMap = new Map<String, Organizational_Unit_Equivalence__c>();
+	final static Map<String, Organizational_Unit_Equivalence__c> orgEquivalentMap = new Map<String, Organizational_Unit_Equivalence__c>();
 	/*
 	 *   @Variable: temporal
 	 */
-	final Map<String, User_Position_equivalence__c> positionEquivMap = new Map<String, User_Position_equivalence__c>();
+	final static Map<String, User_Position_equivalence__c> positionEquivMap = new Map<String, User_Position_equivalence__c>();
 	/*
 	 *   @Variable: temporal
 	 */
@@ -22,7 +22,7 @@ public without sharing class User_Trigger_cls {
 	 * @Description: call to method setEquivalentValues.
 	 * @author Jose Rodriguez
 	 */
-	public void asignBeforeInsert(List<User> userNew, Map<id, User> userNewMap) {
+	public static void asignBeforeInsert(List<User> userNew, Map<id, User> userNewMap) {
 		setEquivalentValues(userNew);
 	}
 
@@ -31,7 +31,7 @@ public without sharing class User_Trigger_cls {
 	 * @Description: call to method newMembersFormalization.
 	 * @author Diego Carbajal
 	 */
-	public void asignAfterInsert(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
+	public static void asignAfterInsert(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
 		User_Trigger_Case_cls.newMembersFormalization(userNew);
 		//Assigment AP Validation Permission
 		Final Set<Id> userGOF = new Set<Id>();
@@ -52,7 +52,7 @@ public without sharing class User_Trigger_cls {
 	 * @Description: call to method setEquivalentValues.
 	 * @author Jose Rodriguez
 	 */
-	public void asignBeforeUpdate(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
+	public static void asignBeforeUpdate(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
 		setEquivalentValues(userNew);
 	}
 
@@ -64,7 +64,7 @@ public without sharing class User_Trigger_cls {
 	 * addUserToFormalizationGroup
 	 * @author Diego Carbajal
 	 */
-	public void asignAfterUpdate(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
+	public static void asignAfterUpdate(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
 		User_Trigger_Case_cls.updFormalizationDeactiveOwners(userNewMap, userOldMap);
 		User_Trigger_Case_cls.changeRolAssis_Sgof(userNewMap, userOld);
 		User_Trigger_Case_cls.addUserToFormalizationGroup(userNewMap, userOld);
@@ -76,7 +76,7 @@ public without sharing class User_Trigger_cls {
 	 * @Description: call to method used for assigment permission to AP
 	 * @author 
 	 */
-    public void assigmentPermission(Map<id, User> userOldMap, Map<id, User> userNewMap) {
+    public static void assigmentPermission(Map<id, User> userOldMap, Map<id, User> userNewMap) {
 		Set<Id> userIds = new Set<Id>();
 		Set<Id> userGOF = new Set<Id>();
 		Set<Id> usersExGOF = new Set<Id>();
@@ -102,7 +102,7 @@ public without sharing class User_Trigger_cls {
 	 * @Description: get users ids valids
 	 * @author Martin Mori
 	 */
-    public Set<Id> getUserIds(Integer option, User usuario, Map<id, User> userNewMap, Set<Id> setIds) {
+    public static Set<Id> getUserIds(Integer option, User usuario, Map<id, User> userNewMap, Set<Id> setIds) {
 		//Obtenemos los codigos de los usuarios que deben ser validadores
 		Final List<String> lstVCodes = System.Label.AP_ValidatorsCode.split(',');
         switch on option {
@@ -131,7 +131,7 @@ public without sharing class User_Trigger_cls {
 	 * @Description: Ejecuta la logica para la asignacion de unidad organizativa y cargo equivalente de un usuario.
 	 * @author Jose Rodriguez.
 	 */
-	public void setEquivalentValues(List<User> userNew) {
+	public static void setEquivalentValues(List<User> userNew) {
 		if(PERFIL_MIGRACION.equals([select Name from profile where Id = : Userinfo.getProfileId() limit 1].Name)) {
 			List<Organizational_Unit_Equivalence__c>  orgEquivalent =  new List<Organizational_Unit_Equivalence__c>();
 			List<User_Position_equivalence__c>  userPosEquiv =  new List<User_Position_equivalence__c>();

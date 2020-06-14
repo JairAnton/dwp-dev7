@@ -12,10 +12,10 @@
 public without sharing class Account_Trigger_cls {
 
 	/*Reusable variable in methods*/
-    static Final List<String> PROFILE_NAMES = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};
+    private static Final List<String> PROFILE_NAMES = new List<String>{'Migracion', System.Label.profAdministrator, 'System Administrator'};
         
     /*Method Master for trigger*/
-    public void asignAfterUpdate(list<Account>accsNew, Map<id,Account>accsNewMap, list<Account>accsOld, Map<id,Account>accsOldMap) {
+    public static void asignAfterUpdate(list<Account>accsNew, Map<id,Account>accsNewMap, list<Account>accsOld, Map<id,Account>accsOldMap) {
 		Final Map<id, User> userAdmins = new Map<Id,User>([SELECT Id FROM user WHERE profile.Name IN: PROFILE_NAMES AND isActive=true]);
         Final Map<Id, Id> accOwnChange = new Map<Id, Id>();
         Final Map<Id,Id> mapBranchIds = new Map<Id,Id>();
@@ -53,7 +53,7 @@ public without sharing class Account_Trigger_cls {
     }
     
     /*Insert new AccountTeamMember records depend on a new Account record and User Assistant Team records with the Account Owner like user_id__c*/
-    public void afterInsert(List<Account> accsNew) {
+    public static void afterInsert(List<Account> accsNew) {
         List<User_Assistant_Team__c> lstUsers =  new List<User_Assistant_Team__c>();
         Final List<String> ownerIds = new List<String>();
         Final List<AccountTeamMember> lstATM = new List<AccountTeamMember>();
@@ -86,7 +86,7 @@ public without sharing class Account_Trigger_cls {
     }
     
     /*Method to update Owner*/
-    public void afterUpdateOwner(List<Account> accsNew, Map<Id, Account> accsOldMap) {
+    public static void afterUpdateOwner(List<Account> accsNew, Map<Id, Account> accsOldMap) {
         Final List<String> ownerIdsNew = new List<String>();
         Final List<String> accIds = new List<String>();
 

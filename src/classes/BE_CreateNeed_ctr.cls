@@ -9,7 +9,7 @@
  *
  * @author Diego Carbajal
  */
-public with sharing class BE_CreateNeed_ctr extends BE_SingleRelatedListCRUD_Cls{
+public with sharing class BE_CreateNeed_ctr extends BE_SingleRelatedListCRUD_Cls {
     
     /*
     * @Description  method createRecords
@@ -28,8 +28,6 @@ public with sharing class BE_CreateNeed_ctr extends BE_SingleRelatedListCRUD_Cls
                 lstNeed[0].bupl__gf_business_plan_id__c = lstBP[0].Id;
                 response = BE_SingleRelatedListModal_Ctr.returnResponse(lstNeed, 'insert');
             }
-        } catch(DMLException e) {
-            response.message = e.getMessage();
         } catch(Exception e) {
             response.isSuccess = false;
             response.message = e.getMessage();

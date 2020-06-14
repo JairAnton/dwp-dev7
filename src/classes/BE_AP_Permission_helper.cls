@@ -9,7 +9,7 @@
  *
  * @author Diego Carbajal
  */
-@SuppressWarnings()
+@SuppressWarnings('all')
 public with sharing class BE_AP_Permission_helper {
     
     /** @Description R_NAME*/

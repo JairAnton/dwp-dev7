@@ -19,6 +19,8 @@ public class BP_GrowthDriver_Handler_tst {
     Final static String RIESGO = 'Riesgo de firma';
     /**@Description STAND */
     Final static String STAND = 'Stand by';
+    /**@Description FAIL*/
+    private static Final String FAIL = 'Fail Assertion';
 	/**
 	   @Description afterInsert
 	 */
@@ -51,7 +53,7 @@ public class BP_GrowthDriver_Handler_tst {
 		Test.stopTest();
 		Final bupl__BP_GrowthDriver__c[] lstGD = [SELECT Id FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c =:apR.Id];
 		Final Integer size = lstGD.size();
-		System.assertEquals(size, 0, 'Fail Assertion');
+		System.assertEquals(size, 0, FAIL);
 	}
 
 	/**
@@ -76,7 +78,7 @@ public class BP_GrowthDriver_Handler_tst {
 		}
 		Test.stopTest();
 		Final bupl__BP_GrowthDriver__c[] lstGD = [SELECT Id, bupl__solution_category_desc__c FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c =:apR.Id];
-		System.assertEquals(STAND, lstGD[0].bupl__solution_category_desc__c, 'Fail Assertion');
+		System.assertEquals(STAND, lstGD[0].bupl__solution_category_desc__c, FAIL);
 	}
 
 	/**
@@ -101,7 +103,7 @@ public class BP_GrowthDriver_Handler_tst {
 		Test.stopTest();
 		Final bupl__BP_GrowthDriver__c[] lstGD = [SELECT Id FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c =:apR.Id];
 		Final Integer size = lstGD.size();
-		System.assertEquals (size, 1, 'Fail Assertion');
+		System.assertEquals (size, 1, FAIL);
 	}
 
 	/**
@@ -119,6 +121,6 @@ public class BP_GrowthDriver_Handler_tst {
 		}
 		Test.stopTest();
 		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c WHERE Id =:apR.Id LIMIT 1];
-		System.assertEquals('In Progress', apAux.acpl__gf_ap_status_type_name__c, 'Fail Assertion');
+		System.assertEquals('In Progress', apAux.acpl__gf_ap_status_type_name__c, FAIL);
 	}
 }

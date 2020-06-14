@@ -18,32 +18,32 @@ public without sharing class BusinessPlan_Trigger_cls {
 	 * @Description  Check if BP has changed and if so propagates this change on Status field in related AP.
 	 */
 	public static void updateStatusOnAP(Map<Id, bupl__BusinessPlan__c> triggerNewMap, Map<Id, bupl__BusinessPlan__c> triggerOldMap) {
-		final Set<Id> APidList = new Set<Id>();
+		final Set<Id> apIdList = new Set<Id>();
 		final Set<Id> changeStatus = new Set<Id>();
 		final Set<Id> changeAnother = new Set<Id>();
 		for(bupl__BusinessPlan__c bp : triggerNewMap.values()) {
 			if(bp.bupl__status_type__c != triggerOldMap.get(bp.Id).bupl__status_type__c && bp.bupl__status_type__c == 'Validated' &&
 			   bp.acpl__gf_ap_indvi_lock_edit_ind_type__c) { //if change status to "Validated" on BP
 				changeStatus.add(bp.acpl__gf_account_planning_id__c);
-				APidList.add(bp.acpl__gf_account_planning_id__c);
+				apIdList.add(bp.acpl__gf_account_planning_id__c);
 			} else if(bp.acpl__gf_ap_indvi_lock_edit_ind_type__c) { //if any other field is changed save de AP_id to query on it later
 				changeAnother.add(bp.acpl__gf_account_planning_id__c);
-				APidList.add(bp.acpl__gf_account_planning_id__c);
+				apIdList.add(bp.acpl__gf_account_planning_id__c);
 			}
 		}
-		if(!APidList.isEmpty()) {
-			updateAP(APidList, changeStatus, changeAnother);
+		if(!apIdList.isEmpty()) {
+			updateAP(apIdList, changeStatus, changeAnother);
 		}
 	}
 
 	/**
 	* @Description updateAP
 	*/    
-    private static void updateAP(Set<Id> APidList, Set<Id> changeStatus, Set<Id> changeAnother) {
+    private static void updateAP(Set<Id> apIdList, Set<Id> changeStatus, Set<Id> changeAnother) {
         final list<acpl__Account_Planning__c> listAPtoUpdate = [SELECT Id, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c FROM 
-                                                                acpl__Account_Planning__c WHERE Id IN :APidList AND acpl__gf_ap_status_type_name__c = 'Not started'];
+                                                                acpl__Account_Planning__c WHERE Id IN :apIdList AND acpl__gf_ap_status_type_name__c = 'Not started'];
         Final BE_AP_Permission_helper permission = new BE_AP_Permission_helper(UserInfo.getUserId());
-        Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(APidList);
+        Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(apIdList);
         for(acpl__Account_Planning__c ap : listAPtoUpdate) {
             Final Boolean userInAPT = (mapAPTs.get(ap.Id) == null ? false : mapAPTs.get(ap.Id).contains(UserInfo.getUserId()));
             if(changeStatus.contains(ap.Id)) {

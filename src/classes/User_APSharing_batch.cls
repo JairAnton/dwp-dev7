@@ -13,7 +13,7 @@ public without sharing class User_APSharing_batch implements Database.Batchable<
 	/**
 	   @Description userIds
 	 */
-	private Set<Id> userIds;
+    private Set<Id> userIds {get; set;}
 	/**
 	   @Description User_APSharing_batch
 	 */

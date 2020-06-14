@@ -69,7 +69,7 @@ public without sharing class BP_Need_Trigger_cls {
         Final Map<Id, Set<Id>> mapAPTs = permission.getAPTs(apIdList);
         final List<acpl__Account_Planning__c> listAPtoUpdate = [SELECT Id, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c FROM acpl__Account_Planning__c WHERE Id IN :APidList AND acpl__gf_ap_status_type_name__c = 'Not started'];
         for(acpl__Account_Planning__c ap : listAPtoUpdate) {
-            Final Boolean userInAPT = (mapAPTs.get(ap.Id) != null ? mapAPTs.get(ap.Id).contains(UserInfo.getUserId()) : false);
+            Final Boolean userInAPT = (mapAPTs.get(ap.Id) == null ? false :mapAPTs.get(ap.Id).contains(UserInfo.getUserId()));
             if(userInAPT && ap.acpl__gf_ap_status_type_name__c == 'Not started' && ap.acpl__gf_ap_substatus_type_name__c != Label.acpl.AP_Timed_Out) {
                 ap.acpl__gf_ap_status_type_name__c = 'In Progress';
                 ap.acpl__gf_ap_substatus_type_name__c = 'AP team not invited';

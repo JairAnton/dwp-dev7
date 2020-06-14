@@ -21,10 +21,8 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 	   @Description Be_RecordId_Related_Sobject_helper
 	 */
 	public Be_RecordId_Related_Sobject_helper() {
-        Final String config = ApexPages.currentPage().getParameters().get('configName').escapeHTML4();
-        Final Id record = ApexPages.currentPage().getParameters().get('Id').escapeHTML4();
-		report = Be_Dynamic_Report_Chart__c.getInstance(config);
-		report.Filters__c = report.Filters__c.replace('recordId', record);
+		report = Be_Dynamic_Report_Chart__c.getInstance(ApexPages.currentPage().getParameters().get('configName').escapeHTML3());
+		report.Filters__c = report.Filters__c.replace('recordId', ApexPages.currentPage().getParameters().get('Id').escapeHTML3());
 	}
 
 	/**
@@ -45,13 +43,16 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 	   @Description getUrlPage
 	 */
 	@AuraEnabled
-	public static Map<String, Object> getUrlPage(String reportDVN, String sObjType, String field, String recordId) {
+	public static Map<String, Object> getUrlPage(String params) {
+        Final Map<String, Object> mapParams = (Map<String, Object>) JSON.deserializeUntyped(params);
 		Final Map<String, Object> mapRes = new Map<String, Object> {'isError' => true};
+		Final String reportDVN = (String)mapParams.get('reportDeveloperName');
 		Final List<Report> lstReport = [SELECT Id FROM Report WHERE DeveloperName =:reportDVN LIMIT 1];
-		Final String record = getRecordIdSobject(sObjType, field, recordId);
-        if((!lstReport.isEmpty() && String.isNotEmpty(record))) {
+		Final String record = getRecordIdSobject((String)mapParams.get('sObjType'), (String)mapParams.get('field'), (String)mapParams.get('recordId'));
+        if(!lstReport.isEmpty() && String.isNotEmpty(record)) {
 			mapRes.put('isError', false);
-			mapRes.put('url', URL.getSalesforceBaseUrl().toExternalForm() + '/apex/Be_Dynamic_ReportChart_vfp?Id=' + record + '&configName=' + reportDVN);
+			mapRes.put('url', URL.getSalesforceBaseUrl().toExternalForm() + '/apex/Be_Dynamic_ReportChart_vfp?Id=' + (String)mapParams.get('recordId') + 
+                       '&configName=' + reportDVN);
 		}
 		return mapRes;
 	}
