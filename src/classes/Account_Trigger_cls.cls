@@ -194,7 +194,7 @@ public without sharing class Account_Trigger_cls {
         } 
     }
     
-    private void updateAPMainGestor(Map<Id,Id> accOwnChange) {
+    private static void updateAPMainGestor(Map<Id,Id> accOwnChange) {
         Final Map<Id, Id> mapNewOwnerByAP = new Map<Id, Id>();
         //Obtenemos los AP's afectados de acuerdo a los clientes actualizados, que no esten validados ni expirados y sean de RT Account_Planning
         Final Map<Id, acpl__Account_Planning__c> mapAP = new Map<Id, acpl__Account_Planning__c>(

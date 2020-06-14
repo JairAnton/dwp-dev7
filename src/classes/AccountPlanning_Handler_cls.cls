@@ -91,6 +91,6 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
 		//Actualiza el estado de los Business Plan al estado en que se encuentra el AP
 		apHandler.updateStatusOnBP(triggerNewMap, triggerOldMap);
 		//Crea registros de acuerdo a las acciones comerciales cuando el AP es validado
-		AccountPlanning_Trigger_cls.postValidated(triggerNewMap);
+		AP_Trigger_Helper.postValidated(triggerNewMap);
 	}
 }

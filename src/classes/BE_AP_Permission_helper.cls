@@ -9,7 +9,13 @@
  *
  * @author Diego Carbajal
  */
+@SuppressWarnings()
 public with sharing class BE_AP_Permission_helper {
+    
+    /** @Description R_NAME*/
+    private static Final String R_NAME = 'recordName';
+    /** @Description V_PERMISSION*/
+    private static Final String V_PERMISSION = 'permission';
 	/*
 	 * @Description  variable usuario
 	 */
@@ -198,22 +204,22 @@ public with sharing class BE_AP_Permission_helper {
 		Final String actionType = mapConfig.get('actionType');
 		Final Map<Id, Set<Id>> mapAPTs = getAPTs(mapsObject.keySet());
 		Final Map<String, Object> mapWorkOnSObj = workOnSObject(sobjType, actionType);
-		Final Boolean workOnSObj = (Boolean) mapWorkOnSObj.get('permission');
-		Final String recordName = (String) mapWorkOnSObj.get('recordName');
-		for(acpl__Account_Planning__c ap:lstAP) {
-			Map<String, Object> validateSobj = BE_AP_Administration_helper.validateStatus(ap);
-			if(!(Boolean) validateSobj.get('validation')) {
+		Final Boolean workOnSObj = (Boolean) mapWorkOnSObj.get(V_PERMISSION);
+		Final String recordName = (String) mapWorkOnSObj.get(R_NAME);
+		for(acpl__Account_Planning__c apR:lstAP) {
+			Final Map<String, Object> validateSobj = BE_AP_Administration_helper.validateStatus(apR);
+			if((Boolean) validateSobj.get('validation') == false) { // validacion SONAR
 				if(!(adminUser || workOnSObj)) {
-					BE_AP_Administration_helper.addErrorOnSobject(mapsObject.get(ap.Id), sobjType, BE_AP_Administration_helper.customMessage(actionType, recordName, (String)validateSobj.get('status')));
+					BE_AP_Administration_helper.addErrorOnSobject(mapsObject.get(apR.Id), sobjType, BE_AP_Administration_helper.customMessage(actionType, recordName, (String)validateSobj.get('status')));
 				}
-			} else if(!ap.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
+			} else if(!(apR.acpl__gf_ap_indvi_lock_edit_ind_type__c)) {//validacion SONAR
 				if(!(adminUser || workOnSObj)) {
-					BE_AP_Administration_helper.addErrorOnSobject(mapsObject.get(ap.Id), sobjType, BE_AP_Administration_helper.customMessage(actionType, recordName, 'bloqueado.'));
+					BE_AP_Administration_helper.addErrorOnSobject(mapsObject.get(apR.Id), sobjType, BE_AP_Administration_helper.customMessage(actionType, recordName, 'bloqueado.'));
 				}
 			} else {
-				Boolean userInAPT = (mapAPTs.get(ap.Id) != null ? mapAPTs.get(ap.Id).contains(usuario.Id) : false);
+				Final Boolean userInAPT = (mapAPTs.get(apR.Id) == null ? false : mapAPTs.get(apR.Id).contains(usuario.Id));
 				if(!(adminUser || workOnSObj || userInAPT)) {
-					BE_AP_Administration_helper.addErrorOnSobject(mapsObject.get(ap.Id), sobjType, BE_AP_Administration_helper.customMessage(actionType, recordName, 'que no tiene asignado.'));
+					BE_AP_Administration_helper.addErrorOnSobject(mapsObject.get(apR.Id), sobjType, BE_AP_Administration_helper.customMessage(actionType, recordName, 'que no tiene asignado.'));
 				}
 			}
 		}
@@ -223,35 +229,35 @@ public with sharing class BE_AP_Permission_helper {
 	 * @Description  method readRecords
 	 */
 	public Map<String, Object> workOnSObject(String sobj, String actionType) {
-		Final Map<String, Object> mapWRR = new Map<String, Object> {'permission' => false, 'recordName' => 'objeto desconocido'};
+		Final Map<String, Object> mapWRR = new Map<String, Object> {V_PERMISSION => false, R_NAME => 'objeto desconocido'};
 		switch on sobj {
 			when 'bupl__BP_Need__c' {
-				mapWRR.put('permission', permissionOnNeed(actionType));
-				mapWRR.put('recordName', 'necesidades');
+				mapWRR.put(V_PERMISSION, permissionOnNeed(actionType));
+				mapWRR.put(R_NAME, 'necesidades');
 			}
 			when 'bupl__BP_GrowthDriver__c' {
-				mapWRR.put('permission', permissionGrowthDriver(actionType));
-				mapWRR.put('recordName', 'variables de crecimiento');
+				mapWRR.put(V_PERMISSION, permissionGrowthDriver(actionType));
+				mapWRR.put(R_NAME, 'variables de crecimiento');
 			}
 			when 'acpl__Commercial_Plan_Event__c' {
-				mapWRR.put('permission', permissionCPE(actionType));
-				mapWRR.put('recordName', 'acciones comerciales');
+				mapWRR.put(V_PERMISSION, permissionCPE(actionType));
+				mapWRR.put(R_NAME, 'acciones comerciales');
 			}
 			when 'bupl__AP_Team__c' {
-				mapWRR.put('permission', permissionOnAPT(actionType));
-				mapWRR.put('recordName', 'miembros');
+				mapWRR.put(V_PERMISSION, permissionOnAPT(actionType));
+				mapWRR.put(R_NAME, 'miembros');
 			}
 			when 'acpl__Account_Planning__c' {
-				mapWRR.put('permission', permissionOnAP(actionType));
-				mapWRR.put('recordName', 'el registro');
+				mapWRR.put(V_PERMISSION, permissionOnAP(actionType));
+				mapWRR.put(R_NAME, 'el registro');
 			}
 			when 'acpl__AP_Question__c' {
-				mapWRR.put('permission', permissionQuestions(actionType));
-				mapWRR.put('recordName', 'preguntas');
+				mapWRR.put(V_PERMISSION, permissionQuestions(actionType));
+				mapWRR.put(R_NAME, 'preguntas');
 			}
 			when 'bupl__BusinessPlan__c' {
-				mapWRR.put('permission', permissionBP(actionType));
-				mapWRR.put('recordName', 'plan de negocio');
+				mapWRR.put(V_PERMISSION, permissionBP(actionType));
+				mapWRR.put(R_NAME, 'plan de negocio');
 			}
 		}
 		return mapWRR;

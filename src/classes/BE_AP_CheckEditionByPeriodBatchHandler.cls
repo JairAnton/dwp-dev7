@@ -20,6 +20,10 @@ public with sharing class BE_AP_CheckEditionByPeriodBatchHandler {
     private static Final String CHANGE = 'change';
     /** @Description  FALSO*/
     private static Final String FALSO = 'false';
+    /** @Description  V_PRIORITY*/
+    private static Final String V_PRIORITY = 'Period by priority';
+    /** @Description  V_GENERAL*/
+    private static Final String V_GENERAL = 'General period';
 	/*
 	 * @author
 	 * @Description  Bloqueo/Desbloqueo de AP's
@@ -71,9 +75,9 @@ public with sharing class BE_AP_CheckEditionByPeriodBatchHandler {
 	public static Map<String, String> checkGeneralOrPriotityEdition(acpl__Account_Planning__c apAux, Map<String, acpl__AP_Period__c> mapPriority, acpl__AP_PeriodConfiguration__c apConfig) {
 		Map<String, String> mapEditionAP = new Map<String, String> {CHANGE => FALSO, EDITION_TYPE => ''};
 		if(!mapPriority.values().isEmpty() && apConfig.acpl__gf_ap_edit_prms_type_name__c == 'General') {
-			mapEditionAP = getGrnlVal(apAux, mapPriority, apConfig);
+			mapEditionAP = getGrnlVal(apAux, mapPriority.values().get(0));
 		} else if(!mapPriority.values().isEmpty() && apConfig.acpl__gf_ap_edit_prms_type_name__c == 'Priority') {
-			mapEditionAP = getPrtyVal(apAux, mapPriority, apConfig);
+			mapEditionAP = getPrtyVal(apAux, mapPriority.get(apAux.acpl__gf_ap_priority_type_name__c));
 		}
 		return mapEditionAP;
 	}
@@ -81,10 +85,9 @@ public with sharing class BE_AP_CheckEditionByPeriodBatchHandler {
     /*
 	 * @Description  getGrnlVal
 	 */
-    private static Map<String, String> getGrnlVal(acpl__Account_Planning__c apAux, Map<String, acpl__AP_Period__c> mapPriority, acpl__AP_PeriodConfiguration__c apConfig) {
+    private static Map<String, String> getGrnlVal(acpl__Account_Planning__c apAux, acpl__AP_Period__c gnrlPeriod) {
         Map<String, String> mapEditionAP = new Map<String, String> {CHANGE => FALSO, EDITION_TYPE => ''};
-        Final acpl__AP_Period__c gnrlPeriod = mapPriority.values().get(0);
-        if(apAux.acpl__gf_ap_launch_name__c == 'General period') {
+        if(apAux.acpl__gf_ap_launch_name__c == V_GENERAL) {
             if(ACTUAL_DATE == gnrlPeriod.acpl__gf_ap_edit_start_date__c) {
                 mapEditionAP = putEditionValue(mapEditionAP, UNLOCK);
             } else if(ACTUAL_DATE > gnrlPeriod.acpl__gf_ap_edit_end_date__c) {
@@ -95,12 +98,11 @@ public with sharing class BE_AP_CheckEditionByPeriodBatchHandler {
     }
     
     /*
-	 * @Description  getGrnlVal
+	 * @Description  getPrtyVal
 	 */
-    private static Map<String, String> getPrtyVal(acpl__Account_Planning__c apAux, Map<String, acpl__AP_Period__c> mapPriority, acpl__AP_PeriodConfiguration__c apConfig) {
+    private static Map<String, String> getPrtyVal(acpl__Account_Planning__c apAux, acpl__AP_Period__c priorityPeriod) {
         Map<String, String> mapEditionAP = new Map<String, String> {CHANGE => FALSO, EDITION_TYPE => ''};
-        Final acpl__AP_Period__c priorityPeriod = mapPriority.get(apAux.acpl__gf_ap_priority_type_name__c);
-        if(apAux.acpl__gf_ap_launch_name__c == 'Period by priority') {
+        if(apAux.acpl__gf_ap_launch_name__c == V_PRIORITY) {
             if(priorityPeriod != null && ACTUAL_DATE == priorityPeriod.acpl__gf_ap_edit_start_date__c) {
 				mapEditionAP = putEditionValue(mapEditionAP, UNLOCK);
 			} else if(priorityPeriod != null && ACTUAL_DATE > priorityPeriod.acpl__gf_ap_edit_end_date__c) {

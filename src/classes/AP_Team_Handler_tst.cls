@@ -54,12 +54,10 @@ public class AP_Team_Handler_tst {
 		Final acpl__Account_Planning__Share[] sharingAP = [SELECT Id, UserOrGroup.Name FROM acpl__Account_Planning__Share WHERE parentId =:accPlan.Id];
 		Final bupl__BusinessPlan__Share[] sharingBP = [SELECT Id, UserOrGroup.Name FROM bupl__BusinessPlan__Share WHERE parentId =:bPlan.Id];
         Final Integer sharingAPSize = sharingAP.size();
-        //SONAR SOLO ACEPTA 1 ASSERT A LA VEZ
-		/*Final Integer aptSize = accPlanTeams.size();
+		Final Integer aptSize = accPlanTeams.size();
 		Final Integer sharingBPSize = sharingBP.size();
-        System.assertEquals(aptSize, 1, fail);
-		System.assertEquals(sharingBPSize, 3, FAIL);*/
-		System.assertEquals(sharingAPSize, 3, fail);
+        Final Boolean result = (sharingAPSize == 1) && (aptSize == 3) && (sharingBPSize == 3);
+		System.assert(result, fail);
 	}
 
 	/**

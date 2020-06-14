@@ -108,7 +108,6 @@ public without sharing class AccountPlanning_Trigger_cls {
 		AP_Trigger_Helper.deleteAPTeam(triggerOldMap);
 	}
 
-	//EVALUAR PREGUNTAS OBLIGATORIAS
 	/*
 	 * @Description  Clona las preguntas del Catalogo y los asocia a cada AP insertado
 	 */
@@ -181,30 +180,4 @@ public without sharing class AccountPlanning_Trigger_cls {
 		}
 	}
 
-	/*
-	 * @Description  Convierte las acciones comerciales cuando se validan los AP's
-	 */
-	public static void postValidated(Map<Id, acpl__Account_Planning__c> triggerNewMap) {
-		Final Map<Id, acpl__Account_Planning__c> validatedAP = new Map<Id, acpl__Account_Planning__c>();
-		for(acpl__Account_Planning__c ap:triggerNewMap.values()) {
-			//Verifica que el AP se ha validado y esta asociado a un cliente
-			if(!ap.acpl__gf_ap_indvi_lock_edit_ind_type__c && ap.acpl__gf_ap_status_type_name__c == 'Validated' &&
-			   ap.acpl__gf_ap_substatus_type_name__c == 'In place' && String.isNotBlank(ap.acpl__participant_id__c)) {
-				validatedAP.put(ap.Id, ap);
-			}
-		}
-        Final Integer validateSize = validatedAP.size();
-		if(validateSize > 0) {
-			//Obtiene las acciones comerciales relacionadas al AP
-			Final Map<Id, acpl__Commercial_Plan_Event__c> mapCPE = new Map<Id, acpl__Commercial_Plan_Event__c>([SELECT Id, acpl__gf_account_planning_id__c, Comments__c, Name, acpl__gf_event_date__c,
-			                                                                                                    acpl__gf_account_planning_id__r.acpl__participant_id__r.Name, acpl__gf_comm_plan_event_type_name__c, Asiggned_User__c,
-			                                                                                                    acpl__gf_account_planning_id__r.acpl__proposal_manager_id__c, acpl__gf_account_planning_id__r.acpl__participant_id__c
-			                                                                                                    FROM acpl__Commercial_Plan_Event__c WHERE acpl__gf_account_planning_id__c IN: validatedAP.keySet()]);
-			Final Integer mapCPESize = mapCPE.size();
-			if(mapCPESize > 0) {
-				//Convierte las acciones comerciales
-				AP_ConvertCPE_cls.convertCPERecords(mapCPE);
-			}
-		}
-	}
 }

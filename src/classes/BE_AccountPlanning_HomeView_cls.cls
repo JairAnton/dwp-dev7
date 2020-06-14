@@ -36,31 +36,29 @@ public without sharing class BE_AccountPlanning_HomeView_cls extends Be_DTP_Resp
 				lstAP = [SELECT Id, acpl__participant_id__c, segment_desc__c, acpl__participant_id__r.Name, toLabel(acpl__gf_ap_status_type_name__c),
 				         acpl__gf_ap_limit_date__c, toLabel(acpl__gf_ap_priority_type_name__c),
 				         (SELECT Id, bupl__gf_ap_team_user_id__c FROM acpl__Account_Planning_Team_Members__r) FROM
-				         acpl__Account_Planning__c WHERE RecordType.developerName = 'Account_Planning' AND
-				                                                                    acpl__gf_ap_substatus_type_name__c != 'Expired' AND acpl__gf_ap_launch_name__c = 'Period by priority'
-				                                                                                                                                                     ORDER BY Name];
+				         acpl__Account_Planning__c WHERE RecordType.developerName = 'Account_Planning' AND 
+                         acpl__gf_ap_substatus_type_name__c NOT IN ('Expired') AND acpl__gf_ap_launch_name__c = 'Period by priority' ORDER BY Name];
 			}
 			when 'validated' {
 				lstAP = [SELECT Id, acpl__participant_id__c, segment_desc__c, acpl__participant_id__r.Name, toLabel(acpl__gf_ap_status_type_name__c),
 				         acpl__gf_ap_limit_date__c, toLabel(acpl__gf_ap_priority_type_name__c),
 				         (SELECT Id, bupl__gf_ap_team_user_id__c FROM acpl__Account_Planning_Team_Members__r) FROM
-				         acpl__Account_Planning__c WHERE RecordType.developerName = 'Account_Planning' AND
-				                                                                    acpl__gf_ap_status_type_name__c = 'Validated' AND acpl__gf_ap_substatus_type_name__c = 'In place'
-				                                                                                                                                                           ORDER BY Name];
+				         acpl__Account_Planning__c WHERE RecordType.developerName = 'Account_Planning' AND 
+                         acpl__gf_ap_status_type_name__c = 'Validated' AND acpl__gf_ap_substatus_type_name__c = 'In place' ORDER BY Name];
 			}
 			when 'closed_this_month' {
 				lstAP = [SELECT Id, acpl__participant_id__c, segment_desc__c, acpl__participant_id__r.Name, toLabel(acpl__gf_ap_status_type_name__c),
 				         acpl__gf_ap_limit_date__c, toLabel(acpl__gf_ap_priority_type_name__c),
 				         (SELECT Id, bupl__gf_ap_team_user_id__c FROM acpl__Account_Planning_Team_Members__r) FROM
-				         acpl__Account_Planning__c WHERE RecordType.developerName = 'Account_Planning' AND acpl__gf_ap_limit_date__c = THIS_MONTH
-				                                                                                                                       AND acpl__gf_ap_substatus_type_name__c NOT IN('Expired', 'In place') ORDER BY Name];
+				         acpl__Account_Planning__c WHERE RecordType.developerName = 'Account_Planning' AND acpl__gf_ap_limit_date__c = THIS_MONTH 
+                         AND acpl__gf_ap_substatus_type_name__c NOT IN('Expired', 'In place') ORDER BY Name];
 			}
 			when 'closed_next_month' {
 				lstAP = [SELECT Id, acpl__participant_id__c, segment_desc__c, acpl__participant_id__r.Name, toLabel(acpl__gf_ap_status_type_name__c),
 				         acpl__gf_ap_limit_date__c, toLabel(acpl__gf_ap_priority_type_name__c),
 				         (SELECT Id, bupl__gf_ap_team_user_id__c FROM acpl__Account_Planning_Team_Members__r) FROM
-				         acpl__Account_Planning__c WHERE RecordType.developerName = 'Account_Planning' AND acpl__gf_ap_limit_date__c = NEXT_MONTH
-				                                                                                                                       AND acpl__gf_ap_substatus_type_name__c NOT IN('Expired', 'In place') ORDER BY Name];
+				         acpl__Account_Planning__c WHERE RecordType.developerName = 'Account_Planning' AND acpl__gf_ap_limit_date__c = NEXT_MONTH 
+                         AND acpl__gf_ap_substatus_type_name__c NOT IN('Expired', 'In place') ORDER BY Name];
 			}
 		}
 		Map<String, Object> mapData;

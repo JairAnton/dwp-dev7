@@ -28,7 +28,7 @@ public class BE_AP_Administration_Helper_tst {
 	 */
 	public static testmethod void validateStatusValidated() {
 		Map<String, Object> mapValidated = new Map<String, Object>();
-		Final acpl__Account_Planning__c apR = BE_AP_Administration_tst.getCurrentAP();
+		Final acpl__Account_Planning__c apR = [SELECT Id, acpl__gf_ap_substatus_type_name__c, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c LIMIT 1];
 		Test.startTest();
 		mapValidated = BE_AP_Administration_helper.validateStatus(apR);
 		Test.stopTest();
@@ -39,7 +39,7 @@ public class BE_AP_Administration_Helper_tst {
 	 * @Description  method addErrorOnSobject
 	 */
 	public static testmethod void addErrorOnSobject() {
-		Final List<acpl__Account_Planning__c> lstAP = new List<acpl__Account_Planning__c> {BE_AP_Administration_tst.getCurrentAP()};
+		Final List<acpl__Account_Planning__c> lstAP = new List<acpl__Account_Planning__c> {[SELECT Id, acpl__gf_ap_substatus_type_name__c, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c LIMIT 1]};
 		Boolean result;
 		Test.startTest();
 		try {

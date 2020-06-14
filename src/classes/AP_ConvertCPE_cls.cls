@@ -15,8 +15,7 @@ public without sharing class AP_ConvertCPE_cls {
 	/*
 	 * @Description  private constructor
 	 */
-	private AP_ConvertCPE_cls() {
-	}
+	private AP_ConvertCPE_cls() {}
 
 	/*
 	 * @Description  Convierte las acciones comerciales

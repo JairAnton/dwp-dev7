@@ -76,11 +76,13 @@ public class AP_FactoryTest_tst {
         return mapUsers;
     }
     
+    /*
+	 * @Description  SuppresedSonar
+	 */
     @isTest
     public static void testForSonar() {
-        Final Integer result;
         Test.startTest();
-        result = getUsers().size();
+        Final Integer result = getUsers().size();
         Test.stopTest();
         System.assertEquals(3, result, 'FAIL');
     }

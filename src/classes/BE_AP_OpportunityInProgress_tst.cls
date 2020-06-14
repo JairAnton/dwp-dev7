@@ -20,7 +20,7 @@ public class BE_AP_OpportunityInProgress_tst {
 		Final User admin = [SELECT Id FROM USER Where Id =:UserInfo.getUserId()];
 		Final User ejecutivo = [SELECT Id FROM USER Where LastName LIKE 'EJECUTIVO' LIMIT 1];
 		System.runAs(admin) {
-			Account acc = [SELECT Id FROM Account LIMIT 1];
+			Final Account acc = [SELECT Id FROM Account LIMIT 1];
 			final acpl__Account_Planning__c accountPlanning1 = TestFactory.createAccountPlanning(acc.Id, ejecutivo.Id, null, false);
 			insert accountPlanning1;
 		}
@@ -30,7 +30,7 @@ public class BE_AP_OpportunityInProgress_tst {
 	 * @Description  method readRecords
 	 */
 	public static testmethod void readRecords() {
-		Final String apId = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.DeveloperName != 'Question_Catalog' LIMIT 1].Id;
+		Final String apId = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.DeveloperName NOT IN ('Question_Catalog') LIMIT 1].Id;
 		Final Map<String, Object> mapParams = new Map<String, Object> {'sObjName' => 'Opportunity',
 			                                                           'sObjFields' => 'Name,toLabel(opportunity_status_type__c),Amount,CloseDate', 'recordId' => apId,
 			                                                           'filterSQOL' => 'AccountId=:recordId AND CloseDate = THIS_YEAR'};
