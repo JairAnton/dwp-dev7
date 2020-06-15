@@ -332,6 +332,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>commercial_plan_event__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Plan comercial</label>
+        <referenceTo>acpl__Commercial_Plan_Event__c</referenceTo>
+        <relationshipLabel>Visits</relationshipLabel>
+        <relationshipName>Visits</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>dwp_branch_id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

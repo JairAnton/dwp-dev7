@@ -37,6 +37,22 @@
         <translation>Nueva</translation>
     </valueTranslation>
     <valueTranslation>
+        <masterLabel>Pending Approval</masterLabel>
+        <translation>Pendiente de aprobación</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Request Approved</masterLabel>
+        <translation>Solicitud aprobada</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Request Re-Assigned</masterLabel>
+        <translation>Solicitud reasignada</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Request Sent For Review</masterLabel>
+        <translation>Solicitud enviada a revisar</translation>
+    </valueTranslation>
+    <valueTranslation>
         <masterLabel>Returned to the AAC</masterLabel>
         <translation>Devuelta al AAC</translation>
     </valueTranslation>

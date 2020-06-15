@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSobjectName"
+    access="global" controller="Be_RecordId_Related_Sobject_helper">
+    <aura:attribute name="titles" type="String[]"
+        default="Total Visitas Año Anterior:,Total Visitas Año Actual:,Total Próximas Visitas:" />
+    <aura:attribute name="values" type="Object[]" />
+    <aura:attribute name="load" type="Boolean" />
+    <aura:attribute name="error" type="Boolean" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler event="force:refreshView" action="{!c.init}" description="Handler to update completion" />
+
+    <br/>
+    <lightning:card title="Visitas">
+        <aura:if isTrue="{!v.error}">Ha ocurrido un error. Por favor contactese con su administrador.</aura:if>
+        <aura:if isTrue="{!v.load}">
+            <lightning:layout multipleRows="true" class="x-large">
+                <aura:iteration items="{!v.values}" var="item">
+                    <lightning:layoutItem flexibility="auto" padding="around-small" class="custom-box fondo">
+                        <h2>{!item.title}</h2>
+                        <p>{!item.value}</p>
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </lightning:layout>
+        </aura:if>
+    </lightning:card>
+
+</aura:component>

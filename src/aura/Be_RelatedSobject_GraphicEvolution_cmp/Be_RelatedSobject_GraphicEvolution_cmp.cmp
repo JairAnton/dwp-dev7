@@ -1,0 +1,42 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+  access="global" controller="Be_RecordId_Related_Sobject_helper">
+  <aura:handler name="init" value="{!this}" action="{!c.init}" />
+  <aura:attribute name="bGrafica" type="Boolean" default="false" />
+  <aura:attribute name="sFiltro" type="String" />
+  <aura:attribute name="idRecord" type="String" />
+  <aura:attribute name="title" type="String" />
+  <aura:attribute name="positionLegend" type="String" />
+  <aura:attribute name="reportName" type="String" />
+  <aura:attribute name="graphicType" type="String" />
+  <aura:attribute name="colors" type="String" />
+  <aura:attribute name="filterLabels" type="String" />
+  <aura:attribute name="filterValues" type="String" />
+  <aura:attribute name="dynamicFilters" type="List" />
+  <aura:attribute name="colorsTypes" type="List" />
+  <aura:attribute name="sObjTypeReference" type="String" description="" />
+  <aura:attribute name="fieldReference" type="String" description="" />
+  <aura:attribute name="handleError" type="Boolean" default="false" />
+  <aura:if isTrue="{!v.bGrafica}">
+    <center>
+      <div style="width:75%;">
+        <c:GraphicsGenerator_comp NombreCanvas="{!v.title}" posicionLeyenda="{!v.positionLegend}"
+          NombreInforme="{!v.reportName}" TipoGrafica="{!v.graphicType}" Id="{!v.idRecord}" Colores="{!v.colorsTypes}"
+          Filtro="{!v.sFiltro}" />
+      </div>
+      <lightning:select aura:id="selFiltro" name="selFiltro" label="Filtro" onchange="{!c.filtroGrafica}"
+        class="slds-size_1-of-2 slds-p-horizontal_x-small">
+        <aura:iteration items="{!v.dynamicFilters}" var="filter">
+          <option value="{!filter.value}">{!filter.label}</option>
+        </aura:iteration>
+      </lightning:select>
+    </center>
+  </aura:if>
+  <aura:if isTrue="{!v.handleError}">
+    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+      <span class="slds-assistive-text">warning</span>
+      <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small"></span>
+      <h2>Ha ocurrido un error con el componente. Por favor contacte a su administrador.</h2>
+    </div>
+  </aura:if>
+</aura:component>

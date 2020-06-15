@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Período</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Períodos</value>
+    </caseValues>
+    <fields>
+        <label>Notificación de fecha fin</label>
+        <name>acpl__gf_ap_close_date_msg_desc__c</name>
+    </fields>
+    <fields>
+        <label>Fecha fin</label>
+        <name>acpl__gf_ap_edit_end_date__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de inicio</label>
+        <name>acpl__gf_ap_edit_start_date__c</name>
+    </fields>
+    <fields>
+        <label>Mensaje de notificación</label>
+        <name>acpl__gf_ap_next_date_msg_desc__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de notificación</label>
+        <name>acpl__gf_ap_notfn_next_close_date__c</name>
+    </fields>
+    <fields>
+        <label>Prioridad de plan de cuenta</label>
+        <name>acpl__gf_ap_priority_edit_type__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation>Alta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation>Media</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation>Baja</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Notificación de fecha de inicio</label>
+        <name>acpl__gf_ap_start_date_msg_desc__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Nombre de configuración de período</nameFieldLabel>
+</CustomObjectTranslation>

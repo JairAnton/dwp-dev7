@@ -1,0 +1,10 @@
+<apex:page controller="Be_RecordId_Related_Sobject_helper" showHeader="true">
+    <apex:stylesheet value="{!$Resource.GeneralStyles}"/>
+    <div class="forDiv">
+        <analytics:reportChart developerName="{!report.Report_DeveloperName__c}" cacheAge="{!report.Time_cache_data__c}" 
+                                cacheResults="{!report.Active_cache__c}" rendered="{!report.Rendered__c}" 
+                                hideOnError="{!report.Hide_on_error__c}" filter="{!report.Filters__c}"
+                                showRefreshButton="{!report.Show_refresh_button__c}" size="{!report.Size__c}">
+        </analytics:reportChart>
+    </div>
+</apex:page>

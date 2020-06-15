@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Edition Schedulable batch size --></label>
+        <name>acpl__Edition_Schedulable_batch_size__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Role --></label>
+        <name>acpl__Member_Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- NotificationSchedulable batch size --></label>
+        <name>acpl__NotificationSchedulable_batch_size__c</name>
+    </fields>
+    <fields>
+        <label><!-- Timed Out Schedulable batch size --></label>
+        <name>acpl__Timed_Out_Schedulable_batch_size__c</name>
+    </fields>
+</CustomObjectTranslation>

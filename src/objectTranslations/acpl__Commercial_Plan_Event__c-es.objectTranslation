@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Commercial Plan Event --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Commercial Plan Event --></value>
+    </caseValues>
+    <fields>
+        <label><!-- Usuario asignado --></label>
+        <name>Asiggned_User__c</name>
+        <relationshipLabel><!-- Commercial Plan Events --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Comentarios --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>acpl__customer_business_country_id__c</name>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Plan de cuenta</label>
+        <name>acpl__gf_account_planning_id__c</name>
+        <relationshipLabel><!-- Commercial Plan Events --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Familia de producto</label>
+        <name>acpl__gf_ap_product_family_type_name__c</name>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Tipo</label>
+        <name>acpl__gf_comm_plan_event_type_name__c</name>
+        <picklistValues>
+            <masterLabel>Call</masterLabel>
+            <translation>Llamada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opportunity</masterLabel>
+            <translation>Oportunidad</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Task</masterLabel>
+            <translation>Tarea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visit</masterLabel>
+            <translation>Visita</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Expected Completion Date Q --></label>
+        <name>acpl__gf_event_date_Q__c</name>
+    </fields>
+    <fields>
+        <label>Fecha expectativa de completación</label>
+        <name>acpl__gf_event_date__c</name>
+    </fields>
+    <fields>
+        <label>Fecha expectativa de completación</label>
+        <name>acpl__gf_event_date_formula__c</name>
+    </fields>
+    <fields>
+        <label>Cliente</label>
+        <name>acpl__participant_id__c</name>
+        <relationshipLabel><!-- Commercial Plan Events --></relationshipLabel>
+    </fields>
+    <gender><!-- Feminine --></gender>
+    <nameFieldLabel><!-- Commercial Plan Event Name --></nameFieldLabel>
+    <validationRules>
+        <errorMessage><!-- The Expected Completion Date has to be greater or equal today --></errorMessage>
+        <name>acpl__Expected_completion_date_TODAY</name>
+    </validationRules>
+</CustomObjectTranslation>
