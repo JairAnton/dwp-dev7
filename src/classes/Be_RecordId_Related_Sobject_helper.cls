@@ -66,10 +66,9 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 		Final acpl__Account_Planning__c[] apR = BE_AP_Administration_helper.getAP(recordId);
 		Final Integer apSize = apR.size();
 		if(apSize > 0 && String.isNotBlank(apR[0].acpl__participant_id__c)) {
-			Final Id accountId = apR[0].acpl__participant_id__c;
-			lstData[0] = Database.countQuery(String.escapeSingleQuotes('SELECT count() FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c=:accountId AND dwp_kitv__visit_start_date__c = LAST_YEAR'));
-			lstData[1] = Database.countQuery(String.escapeSingleQuotes('SELECT count() FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c=:accountId AND dwp_kitv__visit_start_date__c = THIS_YEAR'));
-			lstData[2] = Database.countQuery(String.escapeSingleQuotes('SELECT count() FROM dwp_kitv__Visit__c WHERE dwp_kitv__account_id__c=:accountId AND dwp_kitv__visit_start_date__c >= TODAY'));
+			lstData[0] = Database.countQuery(String.escapeSingleQuotes('SELECT count() FROM dwp_kitv__Visit__c WHERE dwp_kitv__visit_start_date__c = LAST_YEAR AND dwp_kitv__account_id__c="'+apR[0].acpl__participant_id__c+'"'));
+			lstData[1] = Database.countQuery(String.escapeSingleQuotes('SELECT count() FROM dwp_kitv__Visit__c WHERE dwp_kitv__visit_start_date__c = THIS_YEAR AND dwp_kitv__account_id__c="'+apR[0].acpl__participant_id__c+'"'));
+			lstData[2] = Database.countQuery(String.escapeSingleQuotes('SELECT count() FROM dwp_kitv__Visit__c WHERE dwp_kitv__visit_start_date__c >= TODAY AND dwp_kitv__account_id__c="'+apR[0].acpl__participant_id__c+'"'));
 		}
 		return lstData;
 	}

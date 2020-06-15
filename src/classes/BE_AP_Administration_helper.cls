@@ -55,9 +55,7 @@ public without sharing class BE_AP_Administration_helper {
 	public static void addErrorOnSobject(List<SObject> lstSObject, String sobjType, String msg) {
 		Final List<SObject> castRecords = (List<SObject>)Type.forName('List<' + sobjType + '>').newInstance();
 		castRecords.addAll(lstSObject);
-		for(Sobject sobj:castRecords) {
-			sobj.addError(msg);
-		}
+        castRecords[0].addError(msg);
 	}
 
 	/*

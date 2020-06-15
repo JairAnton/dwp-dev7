@@ -134,7 +134,6 @@
             };
         }
 
-        var i = 0;
         var data = {
             labels: nombreColumnas,
             datasets: graficas,
