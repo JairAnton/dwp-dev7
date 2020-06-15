@@ -1,4 +1,3 @@
-@SuppressWarnings('all')
 <apex:page controller="Be_RecordId_Related_Sobject_helper" showHeader="true">
     <style type="text/css">
         div { width:90%; margin: auto; }
