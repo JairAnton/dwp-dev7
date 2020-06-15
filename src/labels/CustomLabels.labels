@@ -47,7 +47,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AP_ErrorSharingAPT</shortDescription>
-        <value>Ha ocurrido al agregar un miembro: {}</value>
+        <value>Ha ocurrido al agregar un miembro: {0}</value>
     </labels>
    <labels>
         <fullName>Hangout</fullName>
