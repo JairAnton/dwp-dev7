@@ -120,7 +120,7 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedFileList</relatedList>
+		<relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
