@@ -1,8 +1,5 @@
 <apex:page controller="Be_RecordId_Related_Sobject_helper" showHeader="true">
-    <style type="text/css">
-        div { width:90%; margin: auto; }
-   	</style>
-    <div>
+    <div style="width:90%; margin: auto;">
         <analytics:reportChart developerName="{!report.Report_DeveloperName__c}" cacheAge="{!report.Time_cache_data__c}" 
                                 cacheResults="{!report.Active_cache__c}" rendered="{!report.Rendered__c}" 
                                 hideOnError="{!report.Hide_on_error__c}" filter="{!report.Filters__c}"
