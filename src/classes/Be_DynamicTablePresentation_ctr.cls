@@ -11,7 +11,7 @@ public without sharing class Be_DynamicTablePresentation_ctr {
     /** @Description  DEVELOPER_NAME*/
     private static Final String DEVELOPER_NAME = 'developerName';
     /** @Description  SOBJ_TYPE*/
-    private static Final String SOBJ_TYPE = 'sobjecttype';
+    private static Final String SOBJ_TYPE = 'sobjectType';
 	/** @Description  Be_DynamicTablePresentation_ctr*/
 	private Be_DynamicTablePresentation_ctr() {}
 

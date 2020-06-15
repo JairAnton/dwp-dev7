@@ -7,7 +7,7 @@
  * @Description BE_AP_HomeView_GOF_cls
  *
  */
-public without sharing class BE_AP_HomeView_GOF_cls extends Be_DTP_ResponseModel_cls {
+public with sharing class BE_AP_HomeView_GOF_cls extends Be_DTP_ResponseModel_cls {
 	/*
 	 * @Description  method getData
 	 */

@@ -7,7 +7,7 @@
  * @Description BE_AccountPlanning_HomeView_cls
  *
  */
-public without sharing class BE_AccountPlanning_HomeView_cls extends Be_DTP_ResponseModel_cls {
+public with sharing class BE_AccountPlanning_HomeView_cls extends Be_DTP_ResponseModel_cls {
 	/*
 	 * @Description  method getData
 	 */
