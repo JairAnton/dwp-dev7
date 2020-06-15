@@ -383,6 +383,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Historial de seguimiento</value>
     </labels>
     <labels>
+        <fullName>GenericCustomLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GenericCustomLabel</shortDescription>
+        <value>{0}</value>
+    </labels>
+    <labels>
         <fullName>LblDirectDebt</fullName>
         <language>es</language>
         <protected>false</protected>
