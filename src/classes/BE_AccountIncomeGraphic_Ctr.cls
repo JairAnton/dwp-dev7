@@ -32,7 +32,7 @@ public with sharing class BE_AccountIncomeGraphic_Ctr {
         years.put('PEN ' + System.today().addMonths(-1).year(), currentYear);
         years.put('USD ' + System.today().addMonths(-13).year(), lastYear.clone());
         years.put('USD ' + System.today().addMonths(-1).year(), currentYear.clone());
-        for(Account_Income__c item : [SELECT Id, gf_income_movement_date__c, CurrencyIsoCode, gf_income_amount__c FROM Account_Income__c WHERE account_id__c =: recordId AND gf_income_type__c = '04' AND CALENDAR_YEAR(gf_income_movement_date__c) IN (:System.today().addMonths(-1).year(), :System.today().addMonths(-13).year())]) {
+        for(Account_Income__c item : [SELECT Id, gf_income_movement_date__c, CurrencyIsoCode, gf_income_amount__c FROM Account_Income__c WHERE account_id__c =: recordId AND gf_income_type__c = '04' AND Is_last_two_years__c = TRUE]) {
 			final String key = item.CurrencyIsoCode + ' ' + item.gf_income_movement_date__c.year();
             final map<Integer, Decimal> ltsMonth = years.get(key);
             ltsMonth.put(item.gf_income_movement_date__c.month(), ltsMonth.get(item.gf_income_movement_date__c.month())+item.gf_income_amount__c);
