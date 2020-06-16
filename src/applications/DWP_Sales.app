@@ -450,6 +450,7 @@
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
+    <tabs>acpl__Account_Planning__c</tabs>
     <tabs>standard-Event</tabs>
     <tabs>standard-Task</tabs>
 	<tabs>standard-Feed</tabs>

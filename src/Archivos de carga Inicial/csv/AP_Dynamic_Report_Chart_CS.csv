@@ -1,0 +1,2 @@
+NAME;CURRENCYISOCODE;ACTIVE_CACHE__C;FILTERS__C;HIDE_ON_ERROR__C;RENDERED__C;REPORT_DEVELOPERNAME__C;SHOW_REFRESH_BUTTON__C;SIZE__C;TIME_CACHE_DATA__C;UNIQUE_ID__C
+Account_Risk_Strategy;PEN;false;[{column:'Account.Id',operator:'equals',value:'recordId'}];false;true;Account_Risk_Strategy;false;large;86400000;AP_Account_Risk_Strategy
