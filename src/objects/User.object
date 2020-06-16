@@ -158,7 +158,7 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
 	<fields>
         <fullName>Organizational_unit_code_equivalence__c</fullName>

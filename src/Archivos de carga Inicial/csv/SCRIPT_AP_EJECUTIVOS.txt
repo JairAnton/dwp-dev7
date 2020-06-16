@@ -1,0 +1,8 @@
+//AÑADIR EJECUTIVOS AL GRUPO
+List<Group> lstRole = [select Id, developername, type FROM Group WHERE developername LIKE '%EJECUTIVO%' AND Type = 'Role'];
+List<Group> lstG = [SELECT Id, name, developername, Type FROM Group WHERE Type = 'Regular' AND developerName = 'Ejecutivos_de_Oficina' ];
+List<GroupMember> lstGM = new List<GroupMember>();
+for(Group role:lstRole) {
+    lstGM.add(new GroupMember(GroupId = lstG[0].Id, UserOrGroupId = role.Id));
+}
+insert lstGM;
