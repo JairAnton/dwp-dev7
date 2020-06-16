@@ -5178,6 +5178,11 @@ Ejecutivos de REDES</description>
         <field>Account_Income__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Income__c.Is_last_two_years__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
@@ -6137,6 +6142,10 @@ Ejecutivos de REDES</description>
     </tabVisibilities>
     <tabVisibilities>
         <tab>nonc__Prospects</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>iaso__Integration_Test</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>

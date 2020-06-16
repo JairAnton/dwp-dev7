@@ -9,6 +9,10 @@
         <value><!-- Account Income --></value>
     </caseValues>
     <fields>
+        <label><!-- Is last two years --></label>
+        <name>Is_last_two_years__c</name>
+    </fields>
+    <fields>
         <label><!-- Month --></label>
         <name>Month__c</name>
     </fields>

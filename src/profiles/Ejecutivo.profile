@@ -6890,6 +6890,11 @@ Asistente BE</description>
         <field>Account_Income__c.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Income__c.Is_last_two_years__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Change_Validator_AP_Cases</flow>
@@ -8124,6 +8129,10 @@ Asistente BE</description>
     <tabVisibilities>
         <tab>WebPyme</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>iaso__Integration_Test</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
