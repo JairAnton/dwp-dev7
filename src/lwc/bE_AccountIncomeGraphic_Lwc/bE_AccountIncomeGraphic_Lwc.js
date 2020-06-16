@@ -77,7 +77,7 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
         var endMonth = 12;
         var stepvalue = 10;
         if(FORM_FACTOR === 'Small') {
-            var stepvalue = 20;
+            stepvalue = 20;
             endMonth = this.maxMonth;
             if(endMonth-6>=0) {
                 startMonth = endMonth-6;
