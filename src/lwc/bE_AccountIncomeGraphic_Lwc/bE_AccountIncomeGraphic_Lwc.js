@@ -8,6 +8,7 @@ import findReport from '@salesforce/apex/BE_AccountIncomeGraphic_Ctr.findReport'
 import labelViewReport from '@salesforce/label/c.BE_ViewReport';
 import labelAvgMthBal from '@salesforce/label/c.BE_AvgMonthlyBalance';
 import LANG from '@salesforce/i18n/lang';
+import FORM_FACTOR from '@salesforce/client/formFactor';
 
 export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(LightningElement) {
     lang = LANG;
@@ -23,6 +24,7 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
     wiredData;
     mapData;
     maxValue = 100;
+    maxMonth = 0;
     @wire(findReport, { developerName: 'BE_Average_monthly_balance_Tmi' })
     wiredReport({ error, data }) {
         if (data) {
@@ -56,6 +58,7 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
         for(var i in this.mapData) {
             for(var j in this.mapData[i]) {
                 notEmpty = true;
+                this.maxMonth = j;
                 if(this.maxValue < this.mapData[i][j]) {
                     this.maxValue = this.mapData[i][j];
                 }
@@ -70,35 +73,45 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
     }
     buildChart() {
         var MONTHS = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Aug', 'Set', 'Oct', 'Nov', 'Dic'];
+        var startMonth = 0;
+        var endMonth = 12;
+        var stepvalue = 10;
+        if(FORM_FACTOR === 'Small') {
+            stepvalue = 20;
+            endMonth = this.maxMonth;
+            if(endMonth-6>=0) {
+                startMonth = endMonth-6;
+            }
+        }
+        MONTHS = MONTHS.slice(startMonth, endMonth);
         var config = {
             type: 'line',
             data: {
                 labels: MONTHS,
-                //labels: MONTHS.subarray(0, 6),
                 datasets: [{
                     label: this.labelData[0],
                     backgroundColor: '#D8BE75',
                     borderColor: '#D8BE75',
                     fill: false,
-                    data: Object.values(this.mapData[this.labelData[0]]),
+                    data: Object.values(this.mapData[this.labelData[0]]).slice(startMonth, endMonth),
                 }, {
                     label: this.labelData[1],
                     backgroundColor: '#C49735',
                     borderColor: '#C49735',
                     fill: false,
-                    data: Object.values(this.mapData[this.labelData[1]]),
+                    data: Object.values(this.mapData[this.labelData[1]]).slice(startMonth, endMonth),
                 }, {
                     label: this.labelData[2],
                     backgroundColor: '#449EDD',
                     borderColor: '#449EDD',
                     fill: false,
-                    data: Object.values(this.mapData[this.labelData[2]]),
+                    data: Object.values(this.mapData[this.labelData[2]]).slice(startMonth, endMonth),
                 }, {
                     label: this.labelData[3],
                     backgroundColor: '#004481',
                     borderColor: '#004481',
                     fill: false,
-                    data: Object.values(this.mapData[this.labelData[3]]),
+                    data: Object.values(this.mapData[this.labelData[3]]).slice(startMonth, endMonth),
                 }]
             },
             options: {
@@ -142,7 +155,7 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
                         ticks: {
                             min: 0,
                             max: Math.ceil(this.maxValue/100)*100,
-                            stepSize: Math.ceil(this.maxValue/100)*10,
+                            stepSize: Math.ceil(this.maxValue/100)*stepvalue,
                             callback: function(value) {
                                 return (new Intl.NumberFormat('en-US', {
                                     style: 'decimal',
@@ -152,7 +165,25 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
                     }]
                 },
                 legend: {
-                    position: 'bottom'
+                    position: 'bottom',
+                    onClick: function(e, legendItem) {
+                        var index = legendItem.datasetIndex;
+                        let myChart = this.chart;
+                        var meta = myChart.getDatasetMeta(index);
+                        meta.hidden = meta.hidden === null ? !myChart.data.datasets[index].hidden : null;
+                        var iterator = 0;
+                        var maxValueAux = 100;
+                        myChart.data.datasets.forEach((dataset) => {
+                            var isHiddenMeta = dataset._meta[0].hidden;
+                            if(!isHiddenMeta) {
+                                maxValueAux = Math.max(maxValueAux, Math.max(...dataset.data));
+                            }
+                            iterator++;
+                        });
+                        myChart.options.scales.yAxes[0].ticks.max = Math.ceil(maxValueAux/100)*100;
+                        myChart.options.scales.yAxes[0].ticks.stepSize = Math.ceil(maxValueAux/100)*stepvalue;
+                        myChart.update();
+                    }
                 }
             }
         };

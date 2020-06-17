@@ -23,34 +23,21 @@ public with sharing class BE_AccountIncomeGraphic_Ctr {
 	@AuraEnabled(cacheable = true)
 	public static map<String, map<Integer, Decimal>> getAvgMthBal(Id recordId) {
 		final map<String, map<Integer, Decimal>> years = new map<String, map<Integer, Decimal>>();
-		String key;
-		String oldkey;
-		map<Integer, Decimal> months;
-		Integer numMth;
-		for(Account_Income__c item : [SELECT Id, gf_income_movement_date__c, CurrencyIsoCode, gf_income_amount__c FROM Account_Income__c WHERE account_id__c =: recordId AND gf_income_type__c = '04' AND(gf_income_movement_date__c = LAST_YEAR OR gf_income_movement_date__c = THIS_YEAR) ORDER BY CurrencyIsoCode, gf_income_movement_date__c]) {
-			key = item.CurrencyIsoCode + ' ' + item.gf_income_movement_date__c.year();
-			if(oldkey == null) {
-				oldkey = item.CurrencyIsoCode + ' ' + item.gf_income_movement_date__c.year();
-				months =  new map<Integer, Decimal>();
-				numMth = 1;
-			} else if(oldkey != key) {
-				years.put(oldkey, months);
-				oldkey = item.CurrencyIsoCode + ' ' + item.gf_income_movement_date__c.year();
-				months =  new map<Integer, Decimal>();
-				numMth = 1;
-			}
-			while(numMth < item.gf_income_movement_date__c.month()) {
-				months.put(numMth, 0.0);
-				numMth++;
-			}
-			if(months.containsKey(item.gf_income_movement_date__c.month())) {
-				months.put(item.gf_income_movement_date__c.month(), months.get(item.gf_income_movement_date__c.month()) + item.gf_income_amount__c);
-			} else {
-				months.put(item.gf_income_movement_date__c.month(), item.gf_income_amount__c);
-				numMth++;
-			}
+        final map<Integer, Decimal> lastYear = new map<Integer, Decimal>{1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0, 7=>0, 8=>0, 9=>0, 10=>0, 11=>0, 12=>0};
+        final map<Integer, Decimal> currentYear = new map<Integer, Decimal>();
+        for(Integer numMonth=1; numMonth<=System.today().addMonths(-1).month(); numMonth++) {
+            currentYear.put(numMonth, 0);
+        }
+        years.put('PEN ' + System.today().addMonths(-13).year(), lastYear);
+        years.put('PEN ' + System.today().addMonths(-1).year(), currentYear);
+        years.put('USD ' + System.today().addMonths(-13).year(), lastYear.clone());
+        years.put('USD ' + System.today().addMonths(-1).year(), currentYear.clone());
+        for(Account_Income__c item : [SELECT Id, gf_income_movement_date__c, CurrencyIsoCode, gf_income_amount__c FROM Account_Income__c WHERE account_id__c =: recordId AND gf_income_type__c = '04' AND Is_last_two_years__c = TRUE]) {
+			final String key = item.CurrencyIsoCode + ' ' + item.gf_income_movement_date__c.year();
+            final map<Integer, Decimal> ltsMonth = years.get(key);
+            ltsMonth.put(item.gf_income_movement_date__c.month(), ltsMonth.get(item.gf_income_movement_date__c.month())+item.gf_income_amount__c);
+            years.put(key, ltsMonth);
 		}
-		years.put(key, months);
 		return years;
 	}
     
