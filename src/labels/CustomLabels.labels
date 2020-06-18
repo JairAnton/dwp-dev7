@@ -276,6 +276,13 @@
         <value>Elevar</value>
     </labels>
     <labels>
+        <fullName>BE_AP_NewButton</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_AP_NewButton</shortDescription>
+        <value>No puede crear registros mediante esta vista. Por favor siga el manual indicado.</value>
+    </labels>
+    <labels>
         <fullName>BE_DynamicModalRecordForm</fullName>
         <language>en_US</language>
         <protected>false</protected>

@@ -7057,6 +7057,13 @@ Asistente BE</description>
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>acpl__Account_Planning__c-acpl__Account Planning Administrator Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>acpl__Account_Planning__c-acpl__Account Planning Question Catalog Layout</layout>
+        <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>dwp_frct__management_plan__c-Management Plan Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

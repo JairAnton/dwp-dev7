@@ -86,16 +86,20 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
         <formFactor>Large</formFactor>
-        <type>Default</type>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>LightningComponent</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
         <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -1477,14 +1481,23 @@
     <validationRules>
         <fullName>Change_Owner</fullName>
         <active>true</active>
-        <errorConditionFormula>RecordType.DeveloperName == &apos;Account_Planning&apos; &amp;&amp; 
-ISCHANGED(OwnerId) &amp;&amp; 
+        <errorConditionFormula>ISCHANGED(OwnerId) &amp;&amp; 
 NOT(
-$Setup.AccountPlanning_Administration__c.Edit_Account_Planning__c || 
 $Profile.Name == &apos;System Administrator&apos; || 
 $Profile.Name == &quot;Migracion&quot; || 
 $Profile.Name == &quot;Administrador del sistema&quot;)</errorConditionFormula>
         <errorMessage>No puede cambiar al propietario del plan de cuenta.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>New_Question_Catalog</fullName>
+        <active>true</active>
+        <errorConditionFormula>RecordType.DeveloperName == &apos;Question_Catalog&apos; &amp;&amp;
+ISNEW() &amp;&amp; 
+NOT(
+$Profile.Name == &apos;System Administrator&apos; ||
+$Profile.Name == &quot;Migracion&quot; ||
+$Profile.Name == &quot;Administrador del sistema&quot;)</errorConditionFormula>
+        <errorMessage>No puede crear planes de cuenta de tipo Question Catalog</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Fields</fullName>

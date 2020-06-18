@@ -5258,7 +5258,7 @@
         <editable>false</editable>
         <field>dyfr__Template__c.dyfr__Template_Code__c</field>
         <readable>false</readable>
-    </fieldPermissions>    
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>fprd__GBL_Dependent_value__c.Unique_id__c</field>
@@ -5602,7 +5602,7 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
@@ -5730,10 +5730,6 @@
     </tabSettings>
     <tabSettings>
         <tab>acpl__Home_Account_Planning_Tab</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>bupl__AP_Team__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
