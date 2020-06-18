@@ -86,16 +86,20 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
         <formFactor>Large</formFactor>
-        <type>Default</type>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>LightningComponent</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
         <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -285,6 +289,24 @@
         <type>TextArea</type>
     </fields>
     <label>Account Planning Question</label>
+    <listViews>
+        <fullName>Questions_Catalog_List_View</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__gf_ap_question_form_desc__c</columns>
+        <columns>acpl__gf_account_planning_id__c</columns>
+        <columns>acpl__AA_answer__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_account_planning_id__c</field>
+            <operation>equals</operation>
+            <value>Question Catalog</value>
+        </filters>
+        <label>Catalogo de Preguntas</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>acpl__All</fullName>
         <columns>NAME</columns>
