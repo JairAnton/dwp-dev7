@@ -393,6 +393,7 @@ public without sharing class Product_cls {
 					itemOpp[0].rejection_rate_per__c = Rate;
 					if(Term != null) itemOpp[0].rejection_period_num__c = Term;
 					itemOpp[0].rejection_coin__c = IsoCurrency;
+					itemOpp[0].Loss_date__c = System.today();
 					update itemOpp[0];
 					Final Case[] lstCase = [SELECT Id, status FROM Case WHERE Opportunity_id__c =:OpportunityId AND RecordType.Name = 'Formalization'];
 					Final Integer lstCaseSize = lstCase.size();

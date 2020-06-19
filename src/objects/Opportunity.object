@@ -1214,6 +1214,15 @@
             <trackTrending>false</trackTrending>
             <type>Date</type>
         </fields>
+	<fields>
+        <fullName>Loss_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Loss date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>

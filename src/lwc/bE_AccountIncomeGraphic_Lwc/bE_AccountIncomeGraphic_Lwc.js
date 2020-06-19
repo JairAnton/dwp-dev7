@@ -171,15 +171,14 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
                         let myChart = this.chart;
                         var meta = myChart.getDatasetMeta(index);
                         meta.hidden = meta.hidden === null ? !myChart.data.datasets[index].hidden : null;
-                        var iterator = 0;
                         var maxValueAux = 100;
-                        myChart.data.datasets.forEach((dataset) => {
-                            var isHiddenMeta = dataset._meta[0].hidden;
-                            if(!isHiddenMeta) {
-                                maxValueAux = Math.max(maxValueAux, Math.max(...dataset.data));
+                        const datasets = myChart.data.datasets;
+                        let iterator, ilen;
+                        for (iterator = 0, ilen = datasets.length; iterator < ilen; iterator++) {
+                            if(myChart.isDatasetVisible(iterator)) {
+                                maxValueAux = Math.max(maxValueAux, Math.max(...datasets[iterator].data));
                             }
-                            iterator++;
-                        });
+                        }
                         myChart.options.scales.yAxes[0].ticks.max = Math.ceil(maxValueAux/100)*100;
                         myChart.options.scales.yAxes[0].ticks.stepSize = Math.ceil(maxValueAux/100)*stepvalue;
                         myChart.update();

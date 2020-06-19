@@ -5860,6 +5860,11 @@ Sub Gerentes de oficina</description>
         <field>Account_Income__c.Is_last_two_years__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Loss_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
