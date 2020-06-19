@@ -2479,4 +2479,11 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>BE_ViewReport</shortDescription>
         <value>View Report</value>
     </labels>
+	<labels>
+        <fullName>BE_VisitErrorDescField</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_VisitErrorDescField</shortDescription>
+        <value>Description is required</value>
+    </labels>
 </CustomLabels>

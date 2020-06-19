@@ -1940,6 +1940,10 @@
         <label>Saldo medio mensual</label>
         <name>BE_AvgMonthlyBalance</name>
     </customLabels>
+	<customLabels>
+        <label>La descripción es obligatoria</label>
+        <name>BE_VisitErrorDescField</name>
+    </customLabels>
     <customTabs>
         <label>No clientes</label>
         <name>nonc__Prospects</name>
