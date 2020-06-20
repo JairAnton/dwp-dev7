@@ -656,6 +656,10 @@
         <label><!-- BE_AvgMonthlyBalance --></label>
         <name>BE_AvgMonthlyBalance</name>
     </customLabels>
+	<customLabels>
+        <label><!-- BE_VisistErrorDescField --></label>
+        <name>BE_VisitErrorDescField</name>
+    </customLabels>
     <customTabs>
         <label><!-- Prospects --></label>
         <name>nonc__Prospects</name>

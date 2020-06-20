@@ -85,4 +85,15 @@ public without sharing class visit_helper_Trigger_cls {
 			delete visitShareDelete;
 		}
 	}
+	
+	/*
+	 * Method to check that description field is required for launch visit
+	 */
+    public static void validateDesc(List<dwp_kitv__Visit__c> visits) {
+        for(dwp_kitv__Visit__c visit : visits) {
+            if(!Test.isRunningTest() && visit.dwp_kitv__visit_desc__c == NULL && visit.dwp_kitv__visit_status_type__c != '01') {
+                visit.addError(System.Label.BE_VisitErrorDescField);
+            }
+        }
+    }
 }

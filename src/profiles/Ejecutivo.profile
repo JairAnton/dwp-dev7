@@ -6895,6 +6895,11 @@ Asistente BE</description>
         <field>Account_Income__c.Is_last_two_years__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Loss_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Change_Validator_AP_Cases</flow>
