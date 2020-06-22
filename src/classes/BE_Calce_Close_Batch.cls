@@ -9,19 +9,13 @@
    2020-06-21  MAMC     martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
-global without sharing class BE_Calce_Close_Batch implements Database.Batchable<sObject> {
-    /**
-    @Description constructor method
-    */
-    global BE_Calce_Close_Batch() {
-    }
-    
+public without sharing class BE_Calce_Close_Batch implements Database.Batchable<sObject> {    
     /**
     @Description start method
     @param Database.BatchableContext BatchableContextof batch
     @return Database.QueryLocator QueryLocator result query of calce
     */
-    global Database.QueryLocator start(Database.BatchableContext BC) {
+    public Database.QueryLocator start(Database.BatchableContext context) {
         return Database.getQueryLocator('SELECT Id FROM Calce__c WHERE isClosed__c = false');
     }
     
@@ -30,16 +24,16 @@ global without sharing class BE_Calce_Close_Batch implements Database.Batchable<
     @param Database.BatchableContext BatchableContextof batch
 	@param List<Calce__c> list of calce
     */
-    global void execute(Database.BatchableContext BC, List<Calce__c> lstCalce) {
-        Set<Id> ids = new Set<Id>();
+    public void execute(Database.BatchableContext context, List<Calce__c> lstCalce) {
+        final Set<Id> ids = new Set<Id>();
         for(Calce__c calce : lstCalce) {
             calce.isClosed__c = true;
             calce.status__c = 'Compartido';
             ids.add(calce.Id);
         }
         update lstCalce;
-        Map<Id,Opportunity> mapOppInsert = new Map<Id,Opportunity>();
-        Map<Id, Decimal> mapOpps = new Map<Id, Decimal>();
+        final Map<Id,Opportunity> mapOppInsert = new Map<Id,Opportunity>();
+        final Map<Id, Decimal> mapOpps = new Map<Id, Decimal>();
         for(Calce_Details__c detail : [SELECT Id, Opportunity_id__c, portfolio_fall_balance__c FROM Calce_Details__c WHERE Calce_id__c IN :ids AND portfolio_fall_balance__c > 0 AND sub_type__c IN ('01', '03')]) {
             mapOpps.put(detail.Opportunity_id__c, detail.portfolio_fall_balance__c);
         }
@@ -62,7 +56,7 @@ global without sharing class BE_Calce_Close_Batch implements Database.Batchable<
                                    mapOppInsert.put(opp.Id,opp.clone(false,false,false,false));
                                }
         insert mapOppInsert.values();
-        List<OpportunityLineItem> ltsOli = new List<OpportunityLineItem>();
+        final List<OpportunityLineItem> ltsOli = new List<OpportunityLineItem>();
         for(OpportunityLineItem oli : [SELECT Description,OpportunityId,PriceBookEntryId,Quantity,UnitPrice,fprd__GBL_All_fields_informed__c,
                                        fprd__GBL_Cloned__c,price_quote_availability_check__c,PE_List_Mejorado__c,fprd__GBL_Sample_Checkbox__c,
                                        cpliq_Fecha_Vencimiento__c,cpliq_Vcto_tarifa__c,price_quote_date__c,validityDate__c,
@@ -89,7 +83,7 @@ global without sharing class BE_Calce_Close_Batch implements Database.Batchable<
                                        frm_ContractNumber__c,gipr_Contract_Number__c,price_operation_id__c,price_rates_calculation_Id__c,
                                        da_Exporter__c,da_Importer__c,da_Observations__c,Assigned_analyst__c,cpliq_Manual__c,price_availability_check_error__c,
                                        price_quote_status_id__c,tcf_beneficiary__c,Siocode__c,fprd__GBL_ClonedFromId__c FROM OpportunityLineItem WHERE OpportunityId IN :mapOpps.keySet() ORDER BY OpportunityId]) {
-                                           OpportunityLineItem auxOli = new OpportunityLineItem();
+                                           final OpportunityLineItem auxOli = new OpportunityLineItem();
                                            auxOli = oli.clone(false,false,false,false);
                                            auxOli.UnitPrice=mapOpps.get(oli.OpportunityId);
                                            auxOli.OpportunityId=mapOppInsert.get(oli.OpportunityId).Id;
@@ -101,7 +95,7 @@ global without sharing class BE_Calce_Close_Batch implements Database.Batchable<
     /**
     @Description finish method
 	*/
-    public void finish(Database.BatchableContext BC) {
+    public void finish(Database.BatchableContext context) {
         
     }
 }

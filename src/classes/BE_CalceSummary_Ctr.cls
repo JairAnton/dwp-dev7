@@ -1,6 +1,19 @@
+/**
+   ----------------------------------------------------------------------------------------------------
+   @Name <BE_CalceNewOpportunities_Ctr>
+   @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
+   @Date 2020-02-24
+   @Description Class Ctr for NewOpportunities
+   @Changes
+    Date        Author   Email                  Type
+    2020-06-21  LMBR     lolo.bravo@bbva.com    Creation
+   ----------------------------------------------------------------------------------------------------
+ */
 public with sharing class BE_CalceSummary_Ctr {
 /** Lang Code */
 private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
+/** private constructor */
+    private BE_CalceSummary_Ctr() {}
     /**
    @Description return sObject Calce
    @param recordId  of Sbject

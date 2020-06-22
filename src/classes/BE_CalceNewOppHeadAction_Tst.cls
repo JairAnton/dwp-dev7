@@ -16,12 +16,12 @@ private class BE_CalceNewOppHeadAction_Tst {
     */
     @isTest
     public static void createRecordsTest() {
-        Account acc = TestFactory.createAccount();
-        Product2 prod = TestFactory.createProduct();
+        final Account acc = TestFactory.createAccount();
+        final Product2 prod = TestFactory.createProduct();
         prod.IsActive = true;
         update prod;
         insert new PriceBookEntry(Product2Id=prod.Id, Pricebook2Id=Test.getStandardPricebookId(), UnitPrice=0, IsActive=true, CurrencyIsoCode='PEN');
-        fprd__GBL_Product_version__c prodVersion = new fprd__GBL_Product_version__c();
+        final fprd__GBL_Product_version__c prodVersion = new fprd__GBL_Product_version__c();
         prodVersion.fprd__Active__c = true;
         prodVersion.fprd__Product__c = prod.Id;
         prodVersion.fprd__Version_number__c = 1;
@@ -43,11 +43,11 @@ private class BE_CalceNewOppHeadAction_Tst {
         detail.type__c='Indirect';
         detail.product_code__c='CODE001';
         detail.sub_type__c='01';
-        Final List<sObject> lts = new List<sObject>();
+        final List<sObject> lts = new List<sObject>();
         lts.add(detail);
         Test.StartTest();
-        BE_CalceNewOppHeadAction_Ctr newOpp = new BE_CalceNewOppHeadAction_Ctr();
-        Final BE_SingleRelatedListCRUD_Cls.Response resp = newOpp.createRecords(lts);
+        final BE_CalceNewOppHeadAction_Ctr newOpp = new BE_CalceNewOppHeadAction_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = newOpp.createRecords(lts);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
     }

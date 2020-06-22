@@ -16,11 +16,11 @@ private class BE_CalceNewEarlyCancellations_Tst {
     */
     @isTest
     public static void createRecordsTest() {
-        Account acc = TestFactory.createAccount();
-        Product2 prod = TestFactory.createProduct();
+        final Account acc = TestFactory.createAccount();
+        final Product2 prod = TestFactory.createProduct();
         prod.IsActive = true;
         update prod;
-        Final Calce__c calce = new Calce__c();
+        final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today();
         calce.start_date__c = Date.today();
@@ -37,11 +37,11 @@ private class BE_CalceNewEarlyCancellations_Tst {
         detail.type__c='Indirect';
         detail.product_code__c='CODE001';
         detail.sub_type__c='01';
-        Final List<sObject> lts = new List<sObject>();
+        final List<sObject> lts = new List<sObject>();
         lts.add(detail);
         Test.StartTest();
-        BE_CalceNewEarlyCancellations_Ctr cancellEarly = new BE_CalceNewEarlyCancellations_Ctr();
-        Final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.createRecords(lts);
+        final BE_CalceNewEarlyCancellations_Ctr cancellEarly = new BE_CalceNewEarlyCancellations_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.createRecords(lts);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
     }
@@ -51,11 +51,11 @@ private class BE_CalceNewEarlyCancellations_Tst {
     */
     @isTest
     public static void deleteRecordsTest() {
-        Account acc = TestFactory.createAccount();
-        Product2 prod = TestFactory.createProduct();
+        final Account acc = TestFactory.createAccount();
+        final Product2 prod = TestFactory.createProduct();
         prod.IsActive = true;
         update prod;
-        Opportunity opp = TestFactory.createOpportunity(acc.Id, System.UserInfo.getUserId());
+        final Opportunity opp = TestFactory.createOpportunity(acc.Id, System.UserInfo.getUserId());
         Final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today();
@@ -78,8 +78,8 @@ private class BE_CalceNewEarlyCancellations_Tst {
         lts.add(detail);
         insert lts;
         Test.StartTest();
-        BE_CalceNewEarlyCancellations_Ctr cancellEarly = new BE_CalceNewEarlyCancellations_Ctr();
-        Final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.deleteRecords(lts);
+        final BE_CalceNewEarlyCancellations_Ctr cancellEarly = new BE_CalceNewEarlyCancellations_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.deleteRecords(lts);
         System.assert(!resp.isSuccess, 'success!!!');
         test.stopTest();
     }

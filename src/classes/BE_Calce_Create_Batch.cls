@@ -9,22 +9,24 @@
    2020-06-21  MAMC     martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
-global without sharing class BE_Calce_Create_Batch implements Database.Batchable<sObject>, Database.Stateful {
+public without sharing class BE_Calce_Create_Batch implements Database.Batchable<sObject>, Database.Stateful {
     /*date used to process*/
-    global final Date dateCalEnd;
+    public final Date dateCalEnd;
     /*date used to process*/
-    global final Date dateCalStart;
+    public final Date dateCalStart;
     /*date map of months*/
-    global final Map<Integer, String> nameMonth = new Map<Integer, String>();
+    public final Map<Integer, String> nameMonth = new Map<Integer, String>();
+    /*date map of months*/
+    private final static String STRDAY = 'Mon';
     
     /**
     @Description constructor method
 	@param Date date used to create calce
     */
-    global BE_Calce_Create_Batch(Date dateCal) {
+    public BE_Calce_Create_Batch(Date dateCal) {
         this.dateCalEnd = dateCal;
-        DateTime myDateTime = ((DateTime) this.dateCalEnd).addHours(5);
-        if(myDateTime.format('E')=='Mon') {
+        final DateTime myDateTime = ((DateTime) this.dateCalEnd).addHours(5);
+        if(myDateTime.format('E')==STRDAY) {
             this.dateCalStart = this.dateCalEnd.addDays(-2);
         }
     }
@@ -32,10 +34,10 @@ global without sharing class BE_Calce_Create_Batch implements Database.Batchable
     /**
     @Description constructor method
     */
-    global BE_Calce_Create_Batch() {
+    public BE_Calce_Create_Batch() {
         this.dateCalEnd = Date.Today();
-        DateTime myDateTime = (DateTime) this.dateCalEnd;
-        if(myDateTime.format('E')=='Mon') {
+        final DateTime myDateTime = (DateTime) this.dateCalEnd;
+        if(myDateTime.format('E')==STRDAY) {
             this.dateCalStart = this.dateCalEnd.addDays(-2);
         }
     }
@@ -45,7 +47,7 @@ global without sharing class BE_Calce_Create_Batch implements Database.Batchable
     @param Database.BatchableContext BatchableContextof batch
     @return Database.QueryLocator QueryLocator result query of executive users
     */
-    global Database.QueryLocator start(Database.BatchableContext BC) {
+    public Database.QueryLocator start(Database.BatchableContext context) {
         nameMonth.put(1,'Enero ');
         nameMonth.put(2,'Febrero ');
         nameMonth.put(3,'Marzo ');
@@ -58,11 +60,13 @@ global without sharing class BE_Calce_Create_Batch implements Database.Batchable
         nameMonth.put(10,'Octubre ');
         nameMonth.put(11,'Noviembre ');
         nameMonth.put(12,'Diciembre ');
+        String query;
         if(Test.isRunningTest()) {
-            return Database.getQueryLocator('SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = \'Ejecutivo\' AND prof_position_id__c IN (\'E03\', \'I32\', \'E0B\') LIMIT 10');
+            query = 'SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = \'Ejecutivo\' AND prof_position_id__c IN (\'E03\', \'I32\', \'E0B\') LIMIT 10';
         } else {
-            return Database.getQueryLocator('SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = \'Ejecutivo\' AND prof_position_id__c IN (\'E03\', \'I32\', \'E0B\')');
+            query = 'SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = \'Ejecutivo\' AND prof_position_id__c IN (\'E03\', \'I32\', \'E0B\')';
         }
+        return Database.getQueryLocator(query);
     }
 
     /**
@@ -70,7 +74,7 @@ global without sharing class BE_Calce_Create_Batch implements Database.Batchable
     @param Database.BatchableContext BatchableContextof batch
 	@param List<User> list of users
     */
-    global void execute(Database.BatchableContext BC, List<User> lstUser) {
+    public void execute(Database.BatchableContext context, List<User> lstUser) {
         final Map<Id, Decimal> mapGroupingRisk = new Map<Id, Decimal>();
         final Map<Id, Decimal> mapGroupingCP = new Map<Id, Decimal>();
         final Map<Id, Decimal> mapGroupingLP = new Map<Id, Decimal>();
@@ -83,13 +87,9 @@ global without sharing class BE_Calce_Create_Batch implements Database.Batchable
                                               WHERE dwp_frct__management_plan_id__r.OwnerId IN :mapGroupingRisk.keySet() AND dwp_frct__solution_category_type__c IN ('Riesgo de firma','Financiamiento a corto plazo','Financiamiento a largo plazo')
                                               AND CALENDAR_YEAR(dwp_frct__management_plan_id__r.dwp_frct__management_plan_end_date__c) = :dateCalEnd.year()
                                               AND CALENDAR_MONTH(dwp_frct__management_plan_id__r.dwp_frct__management_plan_end_date__c) = :dateCalEnd.month()]) {
-            if(grouping.dwp_frct__solution_category_type__c == 'Riesgo de firma' && grouping.dwp_frct__original_commitment_amount__c != NULL) {
-                mapGroupingRisk.put(grouping.dwp_frct__management_plan_id__r.OwnerId, grouping.dwp_frct__original_commitment_amount__c);
-            } else if(grouping.dwp_frct__solution_category_type__c == 'Financiamiento a corto plazo' && grouping.dwp_frct__original_commitment_amount__c != NULL) {
-                mapGroupingCP.put(grouping.dwp_frct__management_plan_id__r.OwnerId, grouping.dwp_frct__original_commitment_amount__c);
-            } else if(grouping.dwp_frct__solution_category_type__c == 'Financiamiento a largo plazo' && grouping.dwp_frct__original_commitment_amount__c != NULL) {
-                mapGroupingLP.put(grouping.dwp_frct__management_plan_id__r.OwnerId, grouping.dwp_frct__original_commitment_amount__c);
-            }
+                                                  mapGroupingRisk = setMaps(mapGroupingRisk, grouping);
+                                                  mapGroupingCP = setMaps(mapGroupingCP, grouping);
+                                                  mapGroupingLP = setMaps(mapGroupingLP, grouping);
         }
         final List<Calce__c> ltsCalce = new List<Calce__c>();
         for(User usr : lstUser) {
@@ -105,26 +105,42 @@ global without sharing class BE_Calce_Create_Batch implements Database.Batchable
             ltsCalce.add(calce);
         }
         insert ltsCalce;
+        Map<Id,Id> mapCalce = new Map<Id,Id>();
+        for(Calce__c calce : ltsCalce) {
+            mapCalce.put(calce.OwnerId, calce.Id);
+        }
         List<Calce__Share> ltsCalceShr  = new List<Calce__Share>();
         for(User_Assistant_Team__c assistant : [SELECT assistant_id__c, user_id__c FROM User_Assistant_Team__c WHERE user_id__c = :mapGroupingRisk.keySet() AND assistant_id__r.IsActive = TRUE]) {
             Calce__Share calceShr  = new Calce__Share();
-            for(Calce__c calce : ltsCalce) {
-                if(calce.OwnerId == assistant.user_id__c) {
-                    calceShr.ParentId = calce.Id;
-                    break;
-                }
-            }
+            calceShr.ParentId = mapCalce.get(assistant.user_id__c);
             calceShr.UserOrGroupId = assistant.assistant_id__c;
             calceShr.AccessLevel = 'Edit';
             ltsCalceShr.add(calceShr);
         }
-        insert ltsCalceShr;
+        if(!ltsCalceShr.isEmpty()) {
+            insert ltsCalceShr;
+        }
     }
 
     /**
     @Description finish method
 	*/
-    public void finish(Database.BatchableContext BC) {
+    public void finish(Database.BatchableContext context) {
         
+    }
+    
+    /**
+    @Description set maps to groupings
+	*/
+    public Map<Id, Decimal> setMaps(Map<Id, Decimal> mapGrouping, dwp_frct__grouping__c grouping) {
+        Map<Id, Decimal> mapReturn = mapGrouping;
+        if(grouping.dwp_frct__solution_category_type__c == 'Riesgo de firma' && grouping.dwp_frct__original_commitment_amount__c>0) {
+            mapReturn.put(grouping.dwp_frct__management_plan_id__r.OwnerId, grouping.dwp_frct__original_commitment_amount__c);
+        } else if(grouping.dwp_frct__solution_category_type__c == 'Financiamiento a corto plazo' && grouping.dwp_frct__original_commitment_amount__c>0) {
+            mapReturn.put(grouping.dwp_frct__management_plan_id__r.OwnerId, grouping.dwp_frct__original_commitment_amount__c);
+        } else if(grouping.dwp_frct__solution_category_type__c == 'Financiamiento a largo plazo' && grouping.dwp_frct__original_commitment_amount__c>0) {
+            mapReturn.put(grouping.dwp_frct__management_plan_id__r.OwnerId, grouping.dwp_frct__original_commitment_amount__c);
+        }
+        return mapReturn;
     }
 }

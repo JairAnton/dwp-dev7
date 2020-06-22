@@ -16,9 +16,8 @@ private class BE_CalceEarlyCancellations_Tst {
     */
     @isTest
     public static void readRecordsTest() {
-        Account acc = TestFactory.createAccount();
-        Opportunity opp = TestFactory.createOpportunity(acc.Id, System.UserInfo.getUserId());
-        Final Calce__c calce = new Calce__c();
+        final Account acc = TestFactory.createAccount();
+        final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today();
         calce.start_date__c = Date.today();
@@ -38,7 +37,7 @@ private class BE_CalceEarlyCancellations_Tst {
         Final Map<String,Object> mapCalce = new Map<String,Object>();
         mapCalce.put('recordId', calce.Id);
         Test.StartTest();
-        BE_CalceEarlyCancellations_Ctr cancellEarly = new BE_CalceEarlyCancellations_Ctr();
+        final BE_CalceEarlyCancellations_Ctr cancellEarly = new BE_CalceEarlyCancellations_Ctr();
         Final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.readRecords(mapCalce);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
@@ -49,7 +48,7 @@ private class BE_CalceEarlyCancellations_Tst {
     */
     @isTest
     public static void updateRecordsTest() {
-        Final Calce__c calce = new Calce__c();
+        final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today().addDays(-45);
         calce.status__c = 'Iniciado';
@@ -68,8 +67,8 @@ private class BE_CalceEarlyCancellations_Tst {
         detail.amount__c=40000;
         lts.add(detail);
         Test.StartTest();
-        BE_CalceEarlyCancellations_Ctr cancellEarly = new BE_CalceEarlyCancellations_Ctr();
-        Final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.updateRecords(lts);
+        final BE_CalceEarlyCancellations_Ctr cancellEarly = new BE_CalceEarlyCancellations_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.updateRecords(lts);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
     }

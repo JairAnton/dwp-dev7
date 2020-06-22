@@ -16,8 +16,8 @@ private class BE_CalcePortafolioFall_Tst {
     */
     @isTest
     public static void readRecordsTest() {
-        Account acc = TestFactory.createAccount();
-        Account_Contract__c contract = new Account_Contract__c();
+        final Account acc = TestFactory.createAccount();
+        final Account_Contract__c contract = new Account_Contract__c();
         contract.account_id__c = acc.Id;
         contract.CurrencyIsoCode = 'USD';
         contract.contract_end_date__c = Date.today().addDays(-17);
@@ -30,8 +30,7 @@ private class BE_CalcePortafolioFall_Tst {
         contract.subproduct_type__c = '01';
         insert contract;
         Test.setCreatedDate(contract.Id, System.now().addHours(-6));
-        System.debug('######'+[SELECT ID, UNPAID_DAYS__C FROM Account_Contract__c]);
-        Final Calce__c calce = new Calce__c();
+        final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today();
         calce.start_date__c=date.today();
@@ -50,10 +49,10 @@ private class BE_CalcePortafolioFall_Tst {
         detail.product_code__c='CODE001';
         detail.sub_type__c='04';
         insert detail;
-        Final Map<String,Object> mapCalce = new Map<String,Object>();
+        final Map<String,Object> mapCalce = new Map<String,Object>();
         mapCalce.put('recordId', calce.Id);
         Test.StartTest();
-        BE_CalcePortafolioFall_Ctr portafolioFall = new BE_CalcePortafolioFall_Ctr();
+        final BE_CalcePortafolioFall_Ctr portafolioFall = new BE_CalcePortafolioFall_Ctr();
         Final BE_SingleRelatedListCRUD_Cls.Response resp = portafolioFall.readRecords(mapCalce);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
@@ -64,7 +63,7 @@ private class BE_CalcePortafolioFall_Tst {
     */
     @isTest
     public static void updateRecordsTest() {
-        Final Calce__c calce = new Calce__c();
+        final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today().addDays(-45);
         calce.status__c = 'Iniciado';
@@ -84,8 +83,8 @@ private class BE_CalcePortafolioFall_Tst {
         detail.amount__c=40000;
         lts.add(detail);
         Test.StartTest();
-        BE_CalcePortafolioFall_Ctr portafolioFall = new BE_CalcePortafolioFall_Ctr();
-        Final BE_SingleRelatedListCRUD_Cls.Response resp = portafolioFall.updateRecords(lts);
+        final BE_CalcePortafolioFall_Ctr portafolioFall = new BE_CalcePortafolioFall_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = portafolioFall.updateRecords(lts);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
     }

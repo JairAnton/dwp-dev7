@@ -16,8 +16,8 @@ private class BE_CalceCancellationsOfDay_Tst {
     */
     @isTest
     public static void readRecordsTest() {
-        Account acc = TestFactory.createAccount();
-        Final Calce__c calce = new Calce__c();
+        final Account acc = TestFactory.createAccount();
+        final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today();
         calce.status__c = 'Iniciado';
@@ -36,8 +36,8 @@ private class BE_CalceCancellationsOfDay_Tst {
         Final Map<String,Object> mapCalce = new Map<String,Object>();
         mapCalce.put('recordId', calce.Id);
         Test.StartTest();
-        BE_CalceCancellationsOfDay_Ctr cancellOfDay = new BE_CalceCancellationsOfDay_Ctr();
-        Final BE_SingleRelatedListCRUD_Cls.Response resp = cancellOfDay.readRecords(mapCalce);
+        final BE_CalceCancellationsOfDay_Ctr cancellOfDay = new BE_CalceCancellationsOfDay_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = cancellOfDay.readRecords(mapCalce);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
     }
@@ -47,7 +47,7 @@ private class BE_CalceCancellationsOfDay_Tst {
     */
     @isTest
     public static void updateRecordsTest() {
-        Final Calce__c calce = new Calce__c();
+        final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today().addDays(-45);
         calce.status__c = 'Iniciado';
@@ -66,8 +66,8 @@ private class BE_CalceCancellationsOfDay_Tst {
         detail.amount__c=40000;
         lts.add(detail);
         Test.StartTest();
-        BE_CalceCancellationsOfDay_Ctr cancellOfDay = new BE_CalceCancellationsOfDay_Ctr();
-        Final BE_SingleRelatedListCRUD_Cls.Response resp = cancellOfDay.updateRecords(lts);
+        final BE_CalceCancellationsOfDay_Ctr cancellOfDay = new BE_CalceCancellationsOfDay_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = cancellOfDay.updateRecords(lts);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
     }

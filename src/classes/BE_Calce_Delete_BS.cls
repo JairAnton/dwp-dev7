@@ -9,11 +9,11 @@
    2020-06-21  MAMC     martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
-global without sharing class BE_Calce_Delete_BS implements Schedulable {
+public without sharing class BE_Calce_Delete_BS implements Schedulable {
     /**
     @Description execute method
     */
-    global void execute(SchedulableContext SC) {
+    public void execute(SchedulableContext context) {
         Database.executeBatch(new BE_Calce_Delete_Batch());
     }
 }

@@ -25,11 +25,11 @@ final static List<String>PRODUCT_TYPES = new List<String> {'Direct','Indirect'};
  */
 public override BE_SingleRelatedListCRUD_Cls.Response readRecords(Map<String,Object>param) {
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
-	final Map<String,String>messages = new Map<String,String>();
+	final Map<String,String> messages = new Map<String,String>();
 	try {
 		final Calce__c calce= [SELECT Id,OwnerId,close_date__c,start_date__c FROM Calce__c WHERE Id=:(String)param.get('recordId')];
 		BE_CalceDetailManger_Helper.updateCancellationsOfDay(calce,PRODUCT_TYPES,CALCE_TYPE,OPP_TYPE);
-		final List<Calce_Details__c>resData =[SELECT ID,Name,account_id__r.Name,product_name__c,close_date__c,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c,return__c,extension__c,CurrencyIsoCode FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:CALCE_TYPE];
+		final List<Calce_Details__c> resData =[SELECT ID,Name,account_id__r.Name,product_name__c,close_date__c,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c,return__c,extension__c,CurrencyIsoCode FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:CALCE_TYPE];
 		res.data=resData;
 		res.isSuccess=true;
 		messages.put(LANG_CODE[0], 'Cancelaciones del día consultado correctamente');
@@ -48,7 +48,6 @@ public override BE_SingleRelatedListCRUD_Cls.Response readRecords(Map<String,Obj
  */
 public override BE_SingleRelatedListCRUD_Cls.Response updateRecords(List<SObject>sObjs) {
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
-	List<Calce_Details__c> cDetInsert =new List<Calce_Details__c>();
 	final Map<String,String> messages = new Map<String,String>();
 	try {
 		res.isSuccess=true;

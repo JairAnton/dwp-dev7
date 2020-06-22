@@ -1,3 +1,14 @@
+/**
+   ----------------------------------------------------------------------------------------------------
+   @Name <BE_CalceNewOpportunities_Ctr>
+   @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
+   @Date 2020-02-24
+   @Description Class Ctr for NewOpportunities
+   @Changes
+    Date        Author   Email                  Type
+    2020-06-21  LMBR     lolo.bravo@bbva.com    Creation
+   ----------------------------------------------------------------------------------------------------
+ */
 @isTest
 public with sharing class BE_CalceSummary_Tst {
     /**

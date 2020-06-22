@@ -10,6 +10,10 @@
    ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_CalceDetailManger_Helper {
+/** Opportunity type Cancelation */
+    final static list<String> CLOSE_STATUS= new List<String>{'Iniciado','En progreso'};
+/** private constructor */
+        private BE_CalceDetailManger_Helper(){}    
 /*
     @Description updateCancellationsOfDay
     @param  calce Sobject
@@ -21,18 +25,17 @@ public static void updateCancellationsOfDay(Calce__c calce, List<String>productT
 	try {
 		List<Calce_Details__c>calceDetailUpsert = new List<Calce_Details__c>();
 		Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>();
-		Map<Id,Calce_Details__c>oldOpps = new Map<Id,Calce_Details__c>();
 		for(Calce_Details__c cDetItem : [SELECT ID,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:calceType]) {
 			calceDetailsMap.put(cDetItem.opportunity_id__c,cDetItem);
 		}
-		oldOpps=calceDetailsMap;
+		final Map<Id,Calce_Details__c> oldOpps=calceDetailsMap;
 		for(OpportunityLineItem oppItem : [SELECT Id,Product2.Name,OpportunityId,Opportunity.Name,Opportunity.Amount,
 		                                   Opportunity.renewal_contract_amount__c,Opportunity.CloseDate,Opportunity.Account.Name,
 		                                   Opportunity.AccountId,Product2Id,Product2.type__c,ProductCode,Opportunity.CurrencyIsoCode FROM OpportunityLineItem WHERE
 		                                   Opportunity.Type=:oppType AND Product2.type__c IN:(productTypes) AND
 		                                   Opportunity.OwnerId=:calce.OwnerId AND Opportunity.opportunity_expiry_date__c <=: calce.close_date__c AND Opportunity.opportunity_expiry_date__c >=: calce.start_date__c AND
 		                                   Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c AND Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
-			Calce_Details__c targetDetail=new Calce_Details__c(
+				final Calce_Details__c targetDetail=new Calce_Details__c(
 				calce_id__c=calce.Id,
 				Name=oppItem.Opportunity.Name,
 				product_id__c=oppItem.Product2Id,
@@ -49,7 +52,7 @@ public static void updateCancellationsOfDay(Calce__c calce, List<String>productT
 				);
 			if(calceDetailsMap.containsKey(oppItem.OpportunityId)) {
 				targetDetail.Id=calceDetailsMap.get(oppItem.OpportunityId).Id;
-				targetDetail.amount_cancelled__c=(String.isNotBlank(String.valueOf(calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c))) ? calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c : targetDetail.amount_cancelled__c;
+				targetDetail.amount_cancelled__c=String.isNotBlank(String.valueOf(calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c)) ? calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c : targetDetail.amount_cancelled__c;
 				oldOpps.remove(oppItem.OpportunityId);
 			}
 			calceDetailUpsert.add(targetDetail);
@@ -69,18 +72,17 @@ public static void updateCancellationsOfDay(Calce__c calce, List<String>productT
  */
 public static void updateNewOpps(Calce__c calce, List<String>productTypes,String calceType, String oppType) {
 	try {
-		List<Calce_Details__c>calceDetailUpsert = new List<Calce_Details__c>();
-		Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>();
-		Map<Id,Calce_Details__c>oldOpps = new Map<Id,Calce_Details__c>();
+		final List<Calce_Details__c>calceDetailUpsert = new List<Calce_Details__c>();
+		final Map<Id,Calce_Details__c> calceDetailsMap = new Map<Id,Calce_Details__c>();
 		for(Calce_Details__c cDetItem : [SELECT ID,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:calceType]) {
 			calceDetailsMap.put(cDetItem.opportunity_id__c,cDetItem);
 		}
-		oldOpps=calceDetailsMap;
+		final Map<Id,Calce_Details__c> oldOpps=calceDetailsMap;
 		for(OpportunityLineItem oppItem : [SELECT Id,Product2.Name,OpportunityId,Opportunity.Name,Opportunity.Amount,
 		                                   Opportunity.CloseDate,Opportunity.Account.Name,Opportunity.AccountId,toLabel(Opportunity.StageName),Product2Id,Product2.type__c,ProductCode,
 		                                   Opportunity.CurrencyIsoCode FROM OpportunityLineItem WHERE Opportunity.Type=:oppType AND Product2.type__c IN:(productTypes) AND
 		                                   Opportunity.OwnerId=:calce.OwnerId AND Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c AND Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
-			Calce_Details__c targetDetail=new Calce_Details__c(
+				final Calce_Details__c targetDetail=new Calce_Details__c(
 				calce_id__c=calce.Id,
 				Name=oppItem.Opportunity.Name,
 				product_id__c=oppItem.Product2Id,
@@ -117,22 +119,21 @@ public static void updateNewOpps(Calce__c calce, List<String>productTypes,String
  */
 public static void earlyCancellations(Calce__c calce, List<String> productTypes,String calceType, String oppType) {
 	try {
-		List<Calce_Details__c>calceDetailUpsert = new List<Calce_Details__c>();
-		Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>();
-		Map<Id,Calce_Details__c>oldOpps = new Map<Id,Calce_Details__c>();
+		final List<Calce_Details__c> calceDetailUpsert = new List<Calce_Details__c>();
+		final Map<Id,Calce_Details__c> calceDetailsMap = new Map<Id,Calce_Details__c>();
 		for(Calce_Details__c cDetItem : [SELECT ID,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:calceType]) {
 			if(String.isNotBlank(cDetItem.opportunity_id__c)) {
 				calceDetailsMap.put(cDetItem.opportunity_id__c,cDetItem);
 			}
 		}
-		oldOpps=calceDetailsMap;
+		final Map<Id,Calce_Details__c> oldOpps=calceDetailsMap;
 		for(OpportunityLineItem oppItem : [SELECT Id,Product2.Name,OpportunityId,Opportunity.Name,Opportunity.Amount,
 		                                   	Opportunity.CloseDate,Opportunity.Account.Name,Opportunity.AccountId,Product2Id,
 		                                   	ProductCode,Product2.type__c FROM OpportunityLineItem WHERE
 		                                   	Opportunity.opportunity_expiry_date__c >: calce.close_date__c AND Opportunity.Type=:oppType
 		                                   	AND Product2.type__c IN:(productTypes) AND Opportunity.OwnerId=:calce.OwnerId AND
 		                                    Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c]) {
-			Calce_Details__c targetDetail=new Calce_Details__c(
+				final Calce_Details__c targetDetail=new Calce_Details__c(
 				calce_id__c=calce.Id,
 				Name=oppItem.Opportunity.Name,
 				account_id__c=oppItem.Opportunity.AccountId,
@@ -148,7 +149,7 @@ public static void earlyCancellations(Calce__c calce, List<String> productTypes,
 				);
 			if(calceDetailsMap.containsKey(oppItem.OpportunityId)) {
 				targetDetail.Id=calceDetailsMap.get(oppItem.OpportunityId).Id;
-				targetDetail.amount_cancelled__c=(String.isNotBlank(String.valueOf(calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c))) ? calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c : targetDetail.amount_cancelled__c;
+				targetDetail.amount_cancelled__c=String.isNotBlank(String.valueOf(calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c)) ? calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c : targetDetail.amount_cancelled__c;
 				oldOpps.remove(oppItem.OpportunityId);
 			}
 			calceDetailUpsert.add(targetDetail);
@@ -169,20 +170,20 @@ public static void updatePortfolioFall(Calce__c calce, String calceType) {
         final Integer numDayLeas = 90+calce.start_date__c.daysBetween(calce.close_date__c);
         final Integer numDayCart = 15+calce.start_date__c.daysBetween(calce.close_date__c);
         final Integer numDayOther = 16+calce.start_date__c.daysBetween(calce.close_date__c);
-        List<Calce_Details__c>calceDetailUpsert = new List<Calce_Details__c>();
-		Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>();
+        final List<Calce_Details__c> calceDetailUpsert = new List<Calce_Details__c>();
+		final Map<Id,Calce_Details__c> calceDetailsMap = new Map<Id,Calce_Details__c>();
 		for(Calce_Details__c cDetItem : [SELECT ID,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c,extension__c,return__c,CurrencyIsoCode FROM Calce_Details__c WHERE calce_id__c= :calce.Id AND sub_type__c=:calceType ]) {
 			calceDetailsMap.put(cDetItem.account_contract_id__c,cDetItem);
 		}
-		DateTime dtContract = [SELECT CreatedDate FROM Account_Contract__c ORDER BY CreatedDate DESC LIMIT 1][0].CreatedDate;
-		Date dateFilter = date.newinstance(dtContract.year(), dtContract.month(), dtContract.day());
+		final DateTime dtContract = [SELECT CreatedDate FROM Account_Contract__c ORDER BY CreatedDate DESC LIMIT 1][0].CreatedDate;
+		final Date dateFilter = date.newinstance(dtContract.year(), dtContract.month(), dtContract.day());
 		for(Account_Contract__c contract : [SELECT ID, CURRENCYISOCODE, F_VCTO__C, GF_TL_BAL_CONTRACT_OC_AMOUNT__C, GF_LC_CONTRACT_LC_AMOUNT__C, CONTRACT_ID__C, solution_expiry_type__c,
 		                                    SOLUTION_CATEGORY_NAME__C, ACCOUNT_ID__C, ACCOUNT_ID__R.NAME, subproduct_type__c FROM Account_Contract__C
 		                                    WHERE PRODUCT_TYPE__C='01' AND ACCOUNT_ID__r.OwnerId = :calce.OwnerId AND DAY_ONLY(CREATEDDATE) = :dateFilter
 		                                    AND ((SOLUTION_CATEGORY_NAME__C IN ('PRESTAMOS EMPRESAS', 'LETRAS', 'FORFAITING', 'FACTORING', 'COMEX IMPORTACION', 'COMEX EXPORTACION') AND UNPAID_DAYS__C >= 16 AND UNPAID_DAYS__C <= :numDayOther) OR
 		                                    (SOLUTION_CATEGORY_NAME__C = 'CARTAS FIANZAS' AND UNPAID_DAYS__C >= 15 AND UNPAID_DAYS__C <= :numDayCart) OR
 		                                    (SOLUTION_CATEGORY_NAME__C = 'LEASING' AND UNPAID_DAYS__C >= 90 AND UNPAID_DAYS__C <= :numDayLeas))]) {
-			Calce_Details__c targetDetail = new Calce_Details__c();
+			final Calce_Details__c targetDetail = new Calce_Details__c();
 			targetDetail.calce_id__c=calce.Id;
             targetDetail.sub_type__c=calceType;
             targetDetail = setValues(contract, targetDetail);
@@ -206,6 +207,7 @@ public static void updatePortfolioFall(Calce__c calce, String calceType) {
  */
 public static Calce_Details__c setValues(Account_contract__c contract, Calce_Details__c detailParam) {
     final Map<String, String> mapTypes = new Map<String, String>();
+    final Map<String,String> productsCode=new Map<String,String>{'PC00001'=>'PC00001','PC00009'=>'PC00009','PC00010'=>'PC00010','PRESTAMOSEMPRESAS'=>'PRESTAMOS EMPRESAS'};
     mapTypes.put('01', 'Direct');
     mapTypes.put('02', 'Indirect');
     final Map<String, String> mapCodes = new Map<String, String>();
@@ -221,14 +223,14 @@ public static Calce_Details__c setValues(Account_contract__c contract, Calce_Det
     Calce_Details__c detail = detailParam;
     detail.Name = contract.SOLUTION_CATEGORY_NAME__C;
     detail.type__c=mapTypes.get(contract.subproduct_type__c);
-    if(contract.SOLUTION_CATEGORY_NAME__C=='PRESTAMOS EMPRESAS') {
+    if(contract.SOLUTION_CATEGORY_NAME__C==productsCode.get('PRESTAMOSEMPRESAS')) {
         detail.product_code__c=mapCodes.get(detail.Name+contract.solution_expiry_type__c);
     } else {
         detail.product_code__c=mapCodes.get(detail.Name);
     }
-    if(detail.product_code__c=='PC00001') {
+    if(detail.product_code__c==productsCode.get('PC00001')) {
         detail.Name += ' CP';
-    } else if(detail.product_code__c=='PC00009') {
+    } else if(detail.product_code__c==productsCode.get('PC00009')) {
         detail.Name += ' LP';
     }
     detail.CurrencyIsoCode='PEN';
@@ -236,7 +238,7 @@ public static Calce_Details__c setValues(Account_contract__c contract, Calce_Det
     detail.account_id__c=contract.ACCOUNT_ID__C;
     detail.Contract_Number__c=contract.CONTRACT_ID__c;
     detail.close_date__c=contract.F_VCTO__C;
-    if(detail.product_code__c!='PC00001' && detail.product_code__c!='PC00009' && detail.product_code__c!='PC00010') {
+    if(detail.product_code__c!=productsCode.get('PC00001') && detail.product_code__c!=productsCode.get('PC00009') && detail.product_code__c!=productsCode.get('PC00010')) {
         detail.amount__c=contract.GF_LC_CONTRACT_LC_AMOUNT__C;
     }
 	return detail;
@@ -247,7 +249,7 @@ public static Calce_Details__c setValues(Account_contract__c contract, Calce_Det
     @return String
  */
 public static void updateCalceStatus(String calDetId) {
-	Calce_Details__c calceDet=[SELECT ID,calce_id__c,calce_id__r.status__c FROM Calce_Details__c WHERE Id=:calDetId];
+	final Calce_Details__c calceDet=[SELECT ID,calce_id__c,calce_id__r.status__c FROM Calce_Details__c WHERE Id=:calDetId];
 	setCalceStatus(new Calce__c(Id=calceDet.calce_id__c,status__c=calceDet.calce_id__r.status__c));
 }
 /*
@@ -255,8 +257,8 @@ public static void updateCalceStatus(String calDetId) {
     @param  Calce__c calce
  */
 public static void setCalceStatus(Calce__c calce) {
-	if(calce.status__c=='Iniciado') {
-		calce.status__c='En progreso';
+	if(calce.status__c==CLOSE_STATUS[0]) {
+		calce.status__c=CLOSE_STATUS[1];
 		update calce;
 	}
 }

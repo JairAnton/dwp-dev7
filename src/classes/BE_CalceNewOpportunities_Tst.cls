@@ -16,8 +16,8 @@ private class BE_CalceNewOpportunities_Tst {
     */
     @isTest
     public static void readRecordsTest() {
-        Account acc = TestFactory.createAccount();
-        Final Calce__c calce = new Calce__c();
+        final Account acc = TestFactory.createAccount();
+        final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today();
         calce.start_date__c = Date.today();
@@ -34,11 +34,11 @@ private class BE_CalceNewOpportunities_Tst {
         detail.product_code__c='CODE001';
         detail.sub_type__c='02';
         insert detail;
-        Final Map<String,Object> mapCalce = new Map<String,Object>();
+        final Map<String,Object> mapCalce = new Map<String,Object>();
         mapCalce.put('recordId', calce.Id);
         Test.StartTest();
-        BE_CalceNewOpportunities_Ctr newOpps = new BE_CalceNewOpportunities_Ctr();
-        Final BE_SingleRelatedListCRUD_Cls.Response resp = newOpps.readRecords(mapCalce);
+        final BE_CalceNewOpportunities_Ctr newOpps = new BE_CalceNewOpportunities_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = newOpps.readRecords(mapCalce);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
     }
@@ -48,9 +48,9 @@ private class BE_CalceNewOpportunities_Tst {
     */
     @isTest
     public static void updateRecordsTest() {
-        Account acc = TestFactory.createAccount();
-        Opportunity opp = TestFactory.createOpportunity(acc.Id, System.UserInfo.getUserId());
-        Final Calce__c calce = new Calce__c();
+        final Account acc = TestFactory.createAccount();
+        final Opportunity opp = TestFactory.createOpportunity(acc.Id, System.UserInfo.getUserId());
+        final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce';
         calce.close_date__c = Date.today().addDays(-45);
         calce.status__c = 'Iniciado';
@@ -71,8 +71,8 @@ private class BE_CalceNewOpportunities_Tst {
         detail.amount__c=40000;
         lts.add(detail);
         Test.StartTest();
-        BE_CalceNewOpportunities_Ctr newOpps = new BE_CalceNewOpportunities_Ctr();
-        Final BE_SingleRelatedListCRUD_Cls.Response resp = newOpps.updateRecords(lts);
+        final BE_CalceNewOpportunities_Ctr newOpps = new BE_CalceNewOpportunities_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = newOpps.updateRecords(lts);
         System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
     }
