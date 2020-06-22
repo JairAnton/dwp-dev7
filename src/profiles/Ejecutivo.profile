@@ -2948,7 +2948,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Calce__c.start_date__c</field>
         <readable>true</readable>
     </fieldPermissions>

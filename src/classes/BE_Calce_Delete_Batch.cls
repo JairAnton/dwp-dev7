@@ -9,24 +9,24 @@
    2020-06-21  MAMC     martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
-global without sharing class BE_Calce_Delete_Batch implements Database.Batchable<sObject> {
+public without sharing class BE_Calce_Delete_Batch implements Database.Batchable<sObject> {
     /*date used to process*/
-    global final Date dateCal;
+    public final Date dateCal;
     /*query used to process*/
-    global final String query;
+    public final String query;
     
     /**
     @Description constructor method
 	@param Date date used to delete calce
     */
-    global BE_Calce_Delete_Batch(Date dateCal) {
+    public BE_Calce_Delete_Batch(Date dateCal) {
         this.dateCal = dateCal;
     }
     
     /**
     @Description constructor method
 	*/
-    global BE_Calce_Delete_Batch() {
+    public BE_Calce_Delete_Batch() {
         this.dateCal = System.today().addMonths(-1);
     }
 
@@ -35,7 +35,7 @@ global without sharing class BE_Calce_Delete_Batch implements Database.Batchable
     @param Database.BatchableContext BatchableContextof batch
     @return Database.QueryLocator QueryLocator result query of calce
     */
-    global Database.QueryLocator start(Database.BatchableContext BC) {
+    public Database.QueryLocator start(Database.BatchableContext context) {
         return Database.getQueryLocator('SELECT Id FROM Calce__c WHERE close_date__c <= :dateCal');
     }
 
@@ -44,14 +44,14 @@ global without sharing class BE_Calce_Delete_Batch implements Database.Batchable
     @param Database.BatchableContext BatchableContextof batch
 	@param List<Calce__c> list of calce
     */
-    global void execute(Database.BatchableContext BC, List<Calce__c> lstCalce) {
+    public void execute(Database.BatchableContext context, List<Calce__c> lstCalce) {
         delete lstCalce;
     }
 
     /**
     @Description finish method
 	*/
-    public void finish(Database.BatchableContext BC) {
+    public void finish(Database.BatchableContext context) {
         
     }
 }

@@ -17,9 +17,8 @@ private class BE_Calce_Maintenance_Tst {
     @isTest
     public static void createCalceTest() {
         Test.StartTest();
-        Final BE_Calce_Create_BS calceCreSch = new BE_Calce_Create_BS();
-        final String sch = '0 0 8 * * ?';
-        system.schedule('Test Sched calce create', sch, calceCreSch);
+        final BE_Calce_Create_BS calceCreSch = new BE_Calce_Create_BS();
+        system.schedule('Test Sched calce create', '0 0 8 * * ?', calceCreSch);
         System.Database.executeBatch(new BE_Calce_Create_Batch());
         Final List<CronTrigger> lts = [SELECT ID FROM CronTrigger LIMIT 1];
         System.assert(!lts.isEmpty(), 'success create!!!');
@@ -32,7 +31,6 @@ private class BE_Calce_Maintenance_Tst {
     @isTest
     public static void createCalceDayTest() {
         Test.StartTest();
-        Final BE_Calce_Create_BS calceCreSch = new BE_Calce_Create_BS();
         System.Database.executeBatch(new BE_Calce_Create_Batch(Date.today()));
         Final List<AsyncApexJob> lts = [SELECT ID FROM AsyncApexJob LIMIT 1];
         System.assert(!lts.isEmpty(), 'success create!!!');
@@ -53,9 +51,8 @@ private class BE_Calce_Maintenance_Tst {
         calce.Direct_commitment__c = 10;
         insert calce;
         Test.StartTest();
-        Final BE_Calce_Close_BS calceCloSch = new BE_Calce_Close_BS();
-        final String sch = '0 0 20 * * ?';
-        system.schedule('Test Sched calce close', sch, calceCloSch);
+        final BE_Calce_Close_BS calceCloSch = new BE_Calce_Close_BS();
+        system.schedule('Test Sched calce close', '0 0 20 * * ?', calceCloSch);
         System.Database.executeBatch(new BE_Calce_Close_Batch());
         Final List<CronTrigger> lts = [SELECT ID FROM CronTrigger LIMIT 10];
         System.assert(!lts.isEmpty(), 'success close!!!');
@@ -72,9 +69,8 @@ private class BE_Calce_Maintenance_Tst {
         calce.close_date__c = Date.today().addDays(-40);
         insert calce;
         Test.StartTest();
-        Final BE_Calce_Delete_BS calceDelSch = new BE_Calce_Delete_BS();
-        final String sch = '0 0 23 * * ?';
-        system.schedule('Test Sched calce delete', sch, calceDelSch);
+        final BE_Calce_Delete_BS calceDelSch = new BE_Calce_Delete_BS();
+        system.schedule('Test Sched calce delete', '0 0 23 * * ?', calceDelSch);
         System.Database.executeBatch(new BE_Calce_Delete_Batch());
         Final List<CronTrigger> lts = [SELECT ID FROM CronTrigger LIMIT 1];
         System.assert(!lts.isEmpty(), 'success delete!!!');

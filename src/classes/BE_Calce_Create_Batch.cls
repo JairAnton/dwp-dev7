@@ -105,13 +105,13 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
             ltsCalce.add(calce);
         }
         insert ltsCalce;
-        Map<Id,Id> mapCalce = new Map<Id,Id>();
+        final Map<Id,Id> mapCalce = new Map<Id,Id>();
         for(Calce__c calce : ltsCalce) {
             mapCalce.put(calce.OwnerId, calce.Id);
         }
-        List<Calce__Share> ltsCalceShr  = new List<Calce__Share>();
+        final List<Calce__Share> ltsCalceShr  = new List<Calce__Share>();
         for(User_Assistant_Team__c assistant : [SELECT assistant_id__c, user_id__c FROM User_Assistant_Team__c WHERE user_id__c = :mapGroupingRisk.keySet() AND assistant_id__r.IsActive = TRUE]) {
-            Calce__Share calceShr  = new Calce__Share();
+            final Calce__Share calceShr  = new Calce__Share();
             calceShr.ParentId = mapCalce.get(assistant.user_id__c);
             calceShr.UserOrGroupId = assistant.assistant_id__c;
             calceShr.AccessLevel = 'Edit';

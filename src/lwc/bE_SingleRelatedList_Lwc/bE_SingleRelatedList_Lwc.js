@@ -59,7 +59,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         this.sfdcBaseURL = window.location.origin;
         this.switchTemplateMode();
         this.customTitle = isNotEmpty(this.title) ? JSON.parse((this.title))[this.lang] : '';
-        this.helpText = isNotEmpty(this.helpText) ? JSON.parse(this.helpText)[this.lang] : ''; 
+        this.helpText = isNotEmpty(this.helpText) ? JSON.parse(this.helpText)[this.lang] : '';
     }
     renderedCallback() {
         if (this.hasRendered) return;

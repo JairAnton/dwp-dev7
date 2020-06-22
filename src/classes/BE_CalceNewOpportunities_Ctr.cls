@@ -18,7 +18,6 @@ final static String OPP_TYPE='01';
 final static String CALCE_TYPE='02';
 /** @Indirect Product */
 final static List<String>PRODUCT_TYPES = new List<String> {'Direct','Indirect'};
-
 /**
    @Description updateRecords
    @param  List<SObject> sObjs
@@ -26,11 +25,11 @@ final static List<String>PRODUCT_TYPES = new List<String> {'Direct','Indirect'};
  */
 public override BE_SingleRelatedListCRUD_Cls.Response readRecords (Map<String,Object>param) {
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
-	final Map<String,String> messages = new Map<String,String>();
+	final Map<String,String>messages = new Map<String,String>();
 	try {
 		final Calce__c calce= [SELECT Id,OwnerId,close_date__c,start_date__c FROM Calce__c WHERE Id=:(String)param.get('recordId')];
 		BE_CalceDetailManger_Helper.updateNewOpps(calce, PRODUCT_TYPES, CALCE_TYPE, OPP_TYPE);
-		final List<Calce_Details__c> resData = [SELECT ID,Name,account_id__r.Name,product_name__c,close_date__c,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c,opportunity_stage_name__c,return__c,extension__c,CurrencyIsoCode FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:CALCE_TYPE];
+		final List<Calce_Details__c>resData = [SELECT ID,Name,account_id__r.Name,product_name__c,close_date__c,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c,opportunity_stage_name__c,return__c,extension__c,CurrencyIsoCode FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:CALCE_TYPE];
 		res.isSuccess=true;
 		messages.put(LANG_CODE[0], 'Oportunidades actualizadas correctamente.');
 		messages.put(LANG_CODE[1], 'Opportunities updated successfully.');
@@ -43,14 +42,14 @@ public override BE_SingleRelatedListCRUD_Cls.Response readRecords (Map<String,Ob
 	return res;
 }
 /**
-    @Description updateRecords
-    @param  List<SObject> sObjs
-    @return BE_SingleRelatedListCRUD_Cls.Response response
+        @Description updateRecords
+        @param  List<SObject> sObjs
+        @return BE_SingleRelatedListCRUD_Cls.Response response
  */
 public override BE_SingleRelatedListCRUD_Cls.Response updateRecords(List<SObject>sObjs) {
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
-	final Map<String,String> messages = new Map<String,String>();
-	Map<Id,Opportunity> oppsMap =new Map<Id,Opportunity>();
+	final Map<String,String>messages = new Map<String,String>();
+	final Map<Id,Opportunity>oppsMap =new Map<Id,Opportunity>();
 	try {
 		for(Calce_Details__c calceDetItem : (List<Calce_Details__c>)sObjs) {
 			if(String.isNotBlank(String.valueOf(calceDetItem.get('close_date__c')))) {
