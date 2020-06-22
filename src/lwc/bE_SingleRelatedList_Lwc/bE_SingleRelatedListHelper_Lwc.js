@@ -5,7 +5,7 @@ const isNotEmpty = (obj) => {
 };
 /** SET SETTINGS */
 const getSettingsObj = (metaData, isViewAll) => {
-    const targetFilter = (isViewAll) ? metaData.Filter__c : metaData.Filter__c + ' LIMIT ' + metaData.NumberRows__c;
+    const targetFilter = (isViewAll || !isNotEmpty(metaData.NumberRows__c)) ? metaData.Filter__c : metaData.Filter__c + ' LIMIT ' + metaData.NumberRows__c;
     const targetSettings = isNotEmpty(metaData.Settings__c) ? JSON.parse(metaData.Settings__c) : {};
     const sObject = {
         sObjName: metaData.sObjectApiName__c,

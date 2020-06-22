@@ -27,6 +27,24 @@
         <type>Flexipage</type>
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>BE_Calce_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Calce__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>BE_Calce_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Calce__c</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <logo>apps_logo</logo>
@@ -447,6 +465,7 @@
     <tabs>standard-home</tabs>
     <tabs>standard-Account</tabs>
     <tabs>nonc__Prospects</tabs>
+    <tabs>Calce__c</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>

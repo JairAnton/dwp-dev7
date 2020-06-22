@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Calce Details</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Calce Details</value>
+    </caseValues>
+    <fields>
+        <label>Contrato</label>
+        <name>account_contract_id__c</name>
+        <relationshipLabel><!-- Calce Details --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Cliente</label>
+        <name>account_id__c</name>
+        <relationshipLabel><!-- Calce Details --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Monto Original</label>
+        <name>amount__c</name>
+    </fields>
+    <fields>
+        <label>Monto Cancelado</label>
+        <name>amount_cancelled__c</name>
+    </fields>
+    <fields>
+        <label>Oficina</label>
+        <name>branch__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calce --></label>
+        <name>calce_id__c</name>
+        <relationshipLabel><!-- Calce Details --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Fecha de cierre</label>
+        <name>close_date__c</name>
+    </fields>
+    <fields>
+        <label>Numero de contrato</label>
+        <name>contract_number__c</name>
+    </fields>
+    <fields>
+        <label>Prorroga</label>
+        <name>extension__c</name>
+    </fields>
+    <fields>
+        <label>Oportunidad</label>
+        <name>opportunity_id__c</name>
+        <relationshipLabel><!-- Calce Details --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Etapa</label>
+        <name>opportunity_stage_name__c</name>
+    </fields>
+    <fields>
+        <label>Saldo</label>
+        <name>portfolio_fall_balance__c</name>
+    </fields>
+    <fields>
+        <label>Codigo del producto</label>
+        <name>product_code__c</name>
+    </fields>
+    <fields>
+        <label>Producto</label>
+        <name>product_id__c</name>
+        <relationshipLabel><!-- Calce Details --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Nombre del producto</label>
+        <name>product_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regional --></label>
+        <name>regional__c</name>
+    </fields>
+    <fields>
+        <label>Retoma</label>
+        <name>return__c</name>
+    </fields>
+    <fields>
+        <label>Sub tipo</label>
+        <name>sub_type__c</name>
+        <picklistValues>
+            <masterLabel>Caida de Cartera</masterLabel>
+            <translation><!-- Caida de Cartera --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelaciones anticipadas</masterLabel>
+            <translation><!-- Cancelaciones anticipadas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nuevas oportunidades</masterLabel>
+            <translation><!-- Nuevas oportunidades --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>cancelaciones del dia</masterLabel>
+            <translation><!-- cancelaciones del dia --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Tipo</label>
+        <name>type__c</name>
+        <picklistValues>
+            <masterLabel>Direct</masterLabel>
+            <translation><!-- Direct --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indirect</masterLabel>
+            <translation><!-- Indirect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <gender>Feminine</gender>
+    <validationRules>
+        <errorMessage><!-- El monto cancelado no puede ser mayor al monto original --></errorMessage>
+        <name>BE_Check_Amount_Cancelled</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No se puede prorrogar y retomar un cancelación al mismo tiempo --></errorMessage>
+        <name>BE_ValidateReturnExtension</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -21,6 +21,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     @api flexipageRegionWidth;
     @api recordId;
     @api title; /** Title of GRID*/
+    @api helpText; /** Help Text */
     @api iconName; /*IconName of table: standard:account */
     @api relListSet; /** Dev name of metadata*/
     @api relListType; /**Type of template: Basic, Title */
@@ -58,6 +59,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         this.sfdcBaseURL = window.location.origin;
         this.switchTemplateMode();
         this.customTitle = isNotEmpty(this.title) ? JSON.parse((this.title))[this.lang] : '';
+        this.helpText = isNotEmpty(this.helpText) ? JSON.parse(this.helpText)[this.lang] : ''; 
     }
     renderedCallback() {
         if (this.hasRendered) return;
