@@ -4,6 +4,7 @@
     <template if:true={hasRendered}>
         <div class="slds-box">
             <lightning-card variant="Narrow" title={customTitle} icon-name={iconName}>
+                <div if:true={helpText} class="slds-text-align_left slds-p-bottom_x-small">{helpText}</div>
                 <!--DESKTOP-->
                 <template if:false={isMobile}>
                     <!--TEMPLATE BASIC-->
