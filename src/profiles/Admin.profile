@@ -392,22 +392,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_ClientSearch_Helper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BE_CreateNonClientContact_Ctr</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BE_CreateNonClientContact_Helper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BE_CreateNonClientContact_REST</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>Contact_Group_Handler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
