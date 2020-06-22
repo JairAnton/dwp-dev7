@@ -4684,6 +4684,11 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Product2.type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>fprd__GBL_Guarantee__c.guaranteed_amount__c</field>
         <readable>false</readable>
     </fieldPermissions>
