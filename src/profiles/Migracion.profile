@@ -5746,6 +5746,10 @@
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+		<layout>Case-acpl__Account Plan Validation</layout>
+	    <recordType>Case.acpl__Account_Plan_Validation</recordType>
+	</layoutAssignments>
+    <layoutAssignments>
         <layout>Case-Formalization Case Layout</layout>
         <recordType>Case.Formalization</recordType>
     </layoutAssignments>

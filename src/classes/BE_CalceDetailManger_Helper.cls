@@ -185,7 +185,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 			                                    AND ((SOLUTION_CATEGORY_NAME__C IN ('PRESTAMOS EMPRESAS', 'LETRAS', 'FORFAITING', 'FACTORING', 'COMEX IMPORTACION', 'COMEX EXPORTACION') AND UNPAID_DAYS__C >= 16 AND UNPAID_DAYS__C <= :numDayOther)OR
 			                                    (SOLUTION_CATEGORY_NAME__C = 'CARTAS FIANZAS' AND UNPAID_DAYS__C >= 15 AND UNPAID_DAYS__C <= :numDayCart) OR
 			                                    (SOLUTION_CATEGORY_NAME__C = 'LEASING' AND UNPAID_DAYS__C >= 90 AND UNPAID_DAYS__C <= :numDayLeas))]) {
-				final Calce_Details__c targetDetail = new Calce_Details__c();
+				Calce_Details__c targetDetail = new Calce_Details__c();
 				targetDetail.calce_id__c=calce.Id;
 				targetDetail.sub_type__c=calceType;
 				targetDetail = setValues(contract, targetDetail);

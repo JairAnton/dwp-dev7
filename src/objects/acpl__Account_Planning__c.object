@@ -875,8 +875,8 @@
     <listViews>
         <fullName>Account_Planning_closed_next_month</fullName>
         <columns>NAME</columns>
-        <columns>segment_desc__c</columns>
         <columns>acpl__participant_id__c</columns>
+        <columns>segment_desc__c</columns>
         <columns>acpl__gf_ap_status_type_name__c</columns>
         <columns>acpl__gf_ap_priority_type_name__c</columns>
         <columns>acpl__gf_ap_limit_date__c</columns>

@@ -7368,6 +7368,10 @@ Asistente BE</description>
         <recordType>Calce__c.BE_Calce_RecordType</recordType>
     </layoutAssignments>
     <layoutAssignments>
+		<layout>Case-acpl__Account Plan Validation</layout>
+	    <recordType>Case.acpl__Account_Plan_Validation</recordType>
+	</layoutAssignments>
+    <layoutAssignments>
         <layout>Case-Case Layout</layout>
         <recordType>Case.Formalization</recordType>
     </layoutAssignments>

@@ -91,7 +91,7 @@ public without sharing class visit_helper_Trigger_cls {
 	 */
     public static void validateDesc(List<dwp_kitv__Visit__c> visits) {
         for(dwp_kitv__Visit__c visit : visits) {
-            if(!Test.isRunningTest() && visit.dwp_kitv__visit_desc__c == NULL && visit.dwp_kitv__visit_status_type__c != '01') {
+        	if(!Test.isRunningTest() && visit.dwp_kitv__visit_desc__c == NULL && visit.dwp_kitv__visit_status_type__c == '02') {
                 visit.addError(System.Label.BE_VisitErrorDescField);
             }
         }

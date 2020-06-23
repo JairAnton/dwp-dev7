@@ -51,7 +51,7 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 		Final String record = getRecordIdSobject((String)mapParams.get('sObjType'), (String)mapParams.get('field'), (String)mapParams.get('recordId'));
         if(!lstReport.isEmpty() && String.isNotEmpty(record)) {
 			mapRes.put('isError', false);
-			mapRes.put('url', URL.getSalesforceBaseUrl().toExternalForm() + '/apex/Be_Dynamic_ReportChart_vfp?Id=' + (String)mapParams.get('recordId') + 
+			mapRes.put('url', URL.getSalesforceBaseUrl().toExternalForm() + '/apex/Be_Dynamic_ReportChart_vfp?Id=' + record + 
                        '&configName=' + reportDVN);
 		}
 		return mapRes;
