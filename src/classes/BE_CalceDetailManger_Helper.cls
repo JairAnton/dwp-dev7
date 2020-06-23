@@ -15,7 +15,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 	/** Product C */
 	final static Map<Integer,String>PRODUCTS_CODE=new Map<Integer,String> {1=>'PC00001',9=>'PC00009',20=>'PRESTAMOS EMPRESAS'};
 	/** private constructor */
-    final static String CLOSE_OPP='07';
+    final static List<String> CLOSE_OPP=new List<String> {'07'};
 	/** Product C */
 	private BE_CalceDetailManger_Helper () {
 	}
@@ -37,7 +37,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 			for(OpportunityLineItem oppItem : [SELECT Id,Product2.Name,OpportunityId,Opportunity.Name,Opportunity.Amount,
 			                                   Opportunity.renewal_contract_amount__c,Opportunity.CloseDate,Opportunity.Account.Name,
 			                                   Opportunity.AccountId,Product2Id,Product2.type__c,ProductCode,Opportunity.CurrencyIsoCode FROM OpportunityLineItem WHERE
-			                                   Opportunity.Type=:oppType AND Product2.type__c IN:(productTypes) AND Opportunity.StageName!=:CLOSE_OPP AND
+			                                   Opportunity.Type=:oppType AND Product2.type__c IN:(productTypes) AND Opportunity.StageName NOT IN:(CLOSE_OPP) AND
 			                                   Opportunity.OwnerId=:calce.OwnerId AND Opportunity.opportunity_expiry_date__c <=: calce.close_date__c AND Opportunity.opportunity_expiry_date__c >=: calce.start_date__c AND
 			                                   Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c AND Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
 				final Calce_Details__c targetDetail=new Calce_Details__c(
@@ -85,7 +85,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 			final Map<Id,Calce_Details__c>oldOpps=calceDetailsMap;
 			for(OpportunityLineItem oppItem : [SELECT Id,Product2.Name,OpportunityId,Opportunity.Name,Opportunity.Amount,
 			                                   Opportunity.CloseDate,Opportunity.Account.Name,Opportunity.AccountId,toLabel(Opportunity.StageName),Product2Id,Product2.type__c,ProductCode,
-			                                   Opportunity.CurrencyIsoCode FROM OpportunityLineItem WHERE Opportunity.Type=:oppType AND Product2.type__c IN:(productTypes) AND Opportunity.StageName!=:CLOSE_OPP AND
+			                                   Opportunity.CurrencyIsoCode FROM OpportunityLineItem WHERE Opportunity.Type=:oppType AND Product2.type__c IN:(productTypes) AND Opportunity.StageName NOT IN:(CLOSE_OPP) AND
 			                                   Opportunity.OwnerId=:calce.OwnerId AND Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c AND Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
 				final Calce_Details__c targetDetail=new Calce_Details__c(
 					calce_id__c=calce.Id,
@@ -136,7 +136,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 			                                   Opportunity.CloseDate,Opportunity.Account.Name,Opportunity.AccountId,Product2Id,
 			                                   ProductCode,Product2.type__c FROM OpportunityLineItem WHERE
 			                                   Opportunity.opportunity_expiry_date__c >: calce.close_date__c AND Opportunity.Type=:oppType
-			                                   AND Product2.type__c IN:(productTypes) AND Opportunity.OwnerId=:calce.OwnerId AND Opportunity.StageName!=:CLOSE_OPP AND
+			                                   AND Product2.type__c IN:(productTypes) AND Opportunity.OwnerId=:calce.OwnerId AND Opportunity.StageName NOT IN:(CLOSE_OPP) AND
 			                                   Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c]) {
 				final Calce_Details__c targetDetail=new Calce_Details__c(
 					calce_id__c=calce.Id,
