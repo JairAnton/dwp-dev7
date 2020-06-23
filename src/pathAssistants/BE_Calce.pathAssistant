@@ -4,5 +4,5 @@
     <entityName>Calce__c</entityName>
     <fieldName>status__c</fieldName>
     <masterLabel>BE_Calce</masterLabel>
-    <recordTypeName>__MASTER__</recordTypeName>
+    <recordTypeName>BE_Calce_RecordType</recordTypeName>
 </PathAssistant>
