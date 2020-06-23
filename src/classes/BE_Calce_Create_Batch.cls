@@ -28,6 +28,8 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
         final DateTime myDateTime = ((DateTime) this.dateCalEnd).addHours(5);
         if(myDateTime.format('E')==STRDAY) {
             this.dateCalStart = this.dateCalEnd.addDays(-2);
+        } else {
+            this.dateCalStart = this.dateCalEnd;
         }
     }
     
@@ -36,9 +38,11 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
     */
     public BE_Calce_Create_Batch() {
         this.dateCalEnd = Date.Today();
-        final DateTime myDateTime = (DateTime) this.dateCalEnd;
+        final DateTime myDateTime = ((DateTime) this.dateCalEnd).addHours(5);
         if(myDateTime.format('E')==STRDAY) {
             this.dateCalStart = this.dateCalEnd.addDays(-2);
+        } else {
+            this.dateCalStart = this.dateCalEnd;
         }
     }
 
@@ -62,9 +66,9 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
         nameMonth.put(12,'Diciembre ');
         String query;
         if(Test.isRunningTest()) {
-            query = 'SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = \'Ejecutivo\' AND prof_position_id__c IN (\'E03\', \'I32\', \'E0B\') LIMIT 10';
+            query = 'SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = \'Ejecutivo\' AND prof_position_id__c IN (\'E03\', \'I32\') LIMIT 10';
         } else {
-            query = 'SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = \'Ejecutivo\' AND prof_position_id__c IN (\'E03\', \'I32\', \'E0B\')';
+            query = 'SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = \'Ejecutivo\' AND prof_position_id__c IN (\'E03\', \'I32\')';
         }
         return Database.getQueryLocator(query);
     }

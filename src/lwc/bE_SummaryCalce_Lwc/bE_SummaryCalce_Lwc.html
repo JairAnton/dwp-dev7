@@ -1,7 +1,7 @@
 <template>
     <lightning-card title="RESUMEN DE CALCE">
         <lightning-button label="Calcular resumen" title="Calcular Resumer" icon-name="utility:refresh"
-            class="slds-m-left_x-small" slot="actions" onclick={handleCalceSummary}></lightning-button>
+            class="slds-m-left_x-small" slot="actions" variant="brand" onclick={handleCalceSummary}></lightning-button>
         <p class="slds-p-horizontal_small">Actualizar el Calce para reflejar los cambios realizados</p>
         <template if:true={isload}>
             <!--CALCE INDIRECTO-->
@@ -132,17 +132,19 @@
                     </lightning-layout-item>
                     <lightning-layout-item size="12" small-device-size="12" medium-device-size="4"
                         large-device-size="2.4" padding="around-small">
-                        <lightning-record-edit-form if:false={statusCale} id="recordEditForm" record-id={recordId}
-                            object-api-name={sobjectType}>
-                            <div class="slds-align_absolute-center slds-input-has-icon slds-input-has-icon_left">
-                                <lightning-icon icon-name="utility:add" variant="success" size="x-small"
-                                    alternative-text="Approved" title="Approved"></lightning-icon>
-                                <lightning-input-field field-name="portfolio_recovery__c"
-                                    value={calce.portfolio_recovery__c} onchange={handleSubmit}></lightning-input-field>
-                            </div>
-                        </lightning-record-edit-form>
+                        <div if:false={statusCale}
+                            class="slds-align_absolute-center slds-input-has-icon slds-input-has-icon_left">
+                            <lightning-icon icon-name="utility:add" variant="success" size="x-small"
+                                alternative-text="Approved" title="Approved"></lightning-icon>
+                            <lightning-input type="number" name="portfolio_recovery" label="Recuperación de Cartera"
+                                value={calce.portfolio_recovery__c} formatter="currency"
+                                currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                minimum-fraction-digits="2" maximum-fraction-digits="2" step="1"
+                                onfocusout={handleUpdateSummary}></lightning-input>
+                        </div>
                         <div if:true={statusCale} class="slds-col slds-text-align_left">
-                            <label class="slds-form-element__label" for="text-input-id-1">Sub Total Directas</label>
+                            <label class="slds-form-element__label" for="text-input-id-1">Recuperación de
+                                Cartera</label>
                             <div class="slds-form-element__control">
                                 <lightning-icon icon-name="utility:add" variant="success" size="x-small"
                                     alternative-text="Approved" title="Approved"></lightning-icon>
