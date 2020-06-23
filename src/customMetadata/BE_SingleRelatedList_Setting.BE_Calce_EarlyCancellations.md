@@ -146,7 +146,7 @@
             &quot;className&quot;: &quot;BE_CalceNewEarlyCancellations_Ctr&quot;,
             &quot;objectApiName&quot;: &quot;Calce_Details__c&quot;,
             &quot;label&quot;: {
-                &quot;es&quot;: &quot;New Cancelación&quot;,
+                &quot;es&quot;: &quot;Nueva Cancelación&quot;,
                 &quot;en-US&quot;: &quot;New Cancellation&quot;
             },
             &quot;title&quot;: {

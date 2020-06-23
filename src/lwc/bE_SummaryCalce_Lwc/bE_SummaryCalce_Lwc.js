@@ -32,22 +32,12 @@ export default class BE_SummaryCalce_Lwc extends LightningElement {
                 this.isload = true;
             })
     }
-    handleUpdateSummary() {
+    handleUpdateSummary(evt) {
         let targetObj = {
             "sobjectType": this.sobjectType,
-            'Id': this.recordId,
+            "Id": this.recordId,
+            "portfolio_recovery__c": evt.target.value
         };
-        const inputFields = this.template.querySelectorAll(
-            'lightning-input-field'
-        );
-        for (const field of inputFields) {
-            Object.defineProperty(targetObj, field.fieldName, {
-                value: field.value,
-                writable: true,
-                enumerable: true,
-                configurable: true
-            });
-        }
         updateSummary({
             calce: targetObj,
         })
@@ -59,13 +49,6 @@ export default class BE_SummaryCalce_Lwc extends LightningElement {
                     this.showToastEvent("Error", this.error, "error");
                 }
             })
-    }
-    /** UPDATE CALCE */
-    handleSubmit(event) {
-        window.clearTimeout(this.delayTimeout);
-        this.delayTimeout = setTimeout(() => {
-            this.handleUpdateSummary();
-        }, DELAY);
     }
     /** NET CALCE */
     get conditionDirecto() {

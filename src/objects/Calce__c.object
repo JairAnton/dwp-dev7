@@ -647,7 +647,7 @@
         <label>All</label>
     </listViews>
     <listViews>
-        <fullName>Soy_Gerente</fullName>
+        <fullName>BE_CalceLastSevenDay</fullName>
         <columns>NAME</columns>
         <columns>close_date__c</columns>
         <columns>status__c</columns>
@@ -655,7 +655,44 @@
         <columns>net_direct_calce__c</columns>
         <columns>net_indirect_calce__c</columns>
         <filterScope>Everything</filterScope>
-        <label>Soy Gerente</label>
+        <filters>
+            <field>close_date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>LAST_N_DAYS:7</value>
+        </filters>
+        <label>Calce de los últimos siete días</label>
+    </listViews>
+    <listViews>
+        <fullName>BE_CalceToday</fullName>
+        <columns>NAME</columns>
+        <columns>close_date__c</columns>
+        <columns>status__c</columns>
+        <columns>portfolio_loss__c</columns>
+        <columns>net_direct_calce__c</columns>
+        <columns>net_indirect_calce__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>close_date__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Calce del día</label>
+    </listViews>
+    <listViews>
+        <fullName>BE_CalceYesterday</fullName>
+        <columns>NAME</columns>
+        <columns>close_date__c</columns>
+        <columns>status__c</columns>
+        <columns>portfolio_loss__c</columns>
+        <columns>net_direct_calce__c</columns>
+        <columns>net_indirect_calce__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>close_date__c</field>
+            <operation>equals</operation>
+            <value>YESTERDAY</value>
+        </filters>
+        <label>Calce de ayer</label>
     </listViews>
     <nameField>
         <encryptionScheme>None</encryptionScheme>
@@ -690,14 +727,29 @@
     <validationRules>
         <fullName>BE_CalceClosed</fullName>
         <active>true</active>
-        <errorConditionFormula>AND (ISCHANGED(status__c),PRIORVALUE(status__c)=&apos;Compartido&apos;, isClosed__c=true,OR ($Profile.Name &lt;&gt; &apos;System Administrator&apos;,
-$Profile.Name &lt;&gt; &apos;Administrador del sistema&apos;))</errorConditionFormula>
+        <errorConditionFormula>AND (ISCHANGED(status__c),ISPICKVAL(PRIORVALUE(status__c),&apos;Compartido&apos;), isClosed__c=true,$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;Administrador del sistema&apos;)</errorConditionFormula>
         <errorMessage>No se puede no puede modificar un calce cerrado</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BE_CalceClosedManager</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (ISCHANGED(status__c),ISPICKVAL(PRIORVALUE(status__c),&apos;Compartido&apos;),manager_Id__c&lt;&gt;$User.Id,$Profile.Name &lt;&gt; &apos;System Administrator&apos;,$Profile.Name &lt;&gt; &apos;Administrador del sistema&apos;)</errorConditionFormula>
+        <errorMessage>No se puede modificar un calce compartido, por favor comuníquese con su gerente para esta acción.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BE_CalceDontChangeOwnerId</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (ISCHANGED( OwnerId),$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;Administrador del sistema&apos;)</errorConditionFormula>
+        <errorDisplayField>OwnerId</errorDisplayField>
+        <errorMessage>No se puede cambiar el propietario del calce</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>BE_NotEditName</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISCHANGED(Name), $Profile.Name &lt;&gt; &apos;System Administrator&apos;, $Profile.Name &lt;&gt; &apos;Migracion&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(ISCHANGED(Name),$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;Administrador del sistema&apos;)</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>No tiene permisos para cambiar el nombre del calce</errorMessage>
     </validationRules>
