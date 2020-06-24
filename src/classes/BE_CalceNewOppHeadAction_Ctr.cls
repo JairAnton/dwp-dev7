@@ -26,18 +26,10 @@ public override Response createRecords(List<SObject>sObjs) {
 		final Calce__c calce = [SELECT Id,OwnerId,status__c,close_date__c FROM Calce__c WHERE Id=:calDet.calce_id__c];
 		final String accOwnerId=[SELECT Id,OwnerId FROM Account WHERE Id=:calDet.account_id__c].OwnerId;
 		if(accOwnerId==calce.OwnerId) {
-			final Opportunity opp = new Opportunity();
-			opp.Name = calDet.Name;
-			opp.AccountId = calDet.account_id__c;
-			opp.StageName = '02';
-			opp.opportunity_status_type__c = '03';
-			opp.type='01';
-			opp.CloseDate = calce.close_date__c;
-			opp.opportunity_planning_date__c = calce.close_date__c;
-			opp.CurrencyIsoCode = calDet.CurrencyIsoCode;
-			opp.Amount = calDet.amount__c;
-			opp.Field_Sup_Closing_Date__c = calce.close_date__c;
-			opp.OwnerId=calce.OwnerId;
+			final Opportunity opp = new Opportunity(Name=calDet.Name,AccountId = calDet.account_id__c,StageName = '02',opportunity_status_type__c = '03',
+                                                   type='01',CloseDate = calce.close_date__c,opportunity_planning_date__c = calce.close_date__c,
+                                                   CurrencyIsoCode = calDet.CurrencyIsoCode,Amount = calDet.amount__c,Field_Sup_Closing_Date__c = calce.close_date__c,
+                                                   OwnerId=calce.OwnerId);
 			insert opp;
 			if(String.isNotBlank(calDet.product_id__c)) {
 				final String entryId = [SELECT Id FROM PriceBookEntry WHERE Product2Id = :calDet.product_id__c AND CurrencyIsoCode = :opp.CurrencyIsoCode AND IsActive = TRUE LIMIT 1][0].Id;
@@ -75,3 +67,4 @@ public override Response createRecords(List<SObject>sObjs) {
 	return res;
 }
 }
+
