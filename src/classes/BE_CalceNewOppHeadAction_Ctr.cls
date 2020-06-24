@@ -23,7 +23,7 @@ public override Response createRecords(List<SObject>sObjs) {
 	final Savepoint savePoint = Database.setSavepoint();
 	try {
 		final Calce_Details__c calDet = (Calce_Details__c)sObjs[0];
-		final Calce__c calce = [SELECT Id,OwnerId,close_date__c FROM Calce__c WHERE Id=:calDet.calce_id__c];
+		final Calce__c calce = [SELECT Id,OwnerId,status__c,close_date__c FROM Calce__c WHERE Id=:calDet.calce_id__c];
 		final String accOwnerId=[SELECT Id,OwnerId FROM Account WHERE Id=:calDet.account_id__c].OwnerId;
 		if(accOwnerId==calce.OwnerId) {
 			final Opportunity opp = new Opportunity();
@@ -53,6 +53,7 @@ public override Response createRecords(List<SObject>sObjs) {
 				messages.put(LANG_CODE[1], 'Opportunity created successfull');
 				res.isSuccess = true;
 				res.message = messages.get(UserInfo.getLanguage());
+                BE_CalceDetailManger_Helper.setCalceStatus(calce);
 			} else {
 				Database.rollback(savePoint);
 				messages.put(LANG_CODE[0], 'Producto no encontrado');

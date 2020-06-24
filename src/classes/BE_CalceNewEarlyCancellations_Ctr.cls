@@ -22,7 +22,7 @@ public override Response createRecords(List<SObject>sObjs) {
 	final Map<String,String> messages = new Map<String,String>();
 	final Calce_Details__c calDet=(Calce_Details__c)sObjs[0];
 	try {
-		final Calce__c calce = [SELECT Id,OwnerId,close_date__c FROM Calce__c WHERE Id=:calDet.calce_id__c];
+		final Calce__c calce = [SELECT Id,OwnerId,close_date__c,status__c FROM Calce__c WHERE Id=:calDet.calce_id__c];
 		final String accOwnerId=[SELECT Id,OwnerId FROM Account WHERE Id=:calDet.account_id__c].OwnerId;
 		if(accOwnerId==calce.OwnerId) {
 			final Product2 product=[SELECT Name,ProductCode,type__c FROM Product2 WHERE Id=:calDet.product_id__c];
@@ -37,6 +37,7 @@ public override Response createRecords(List<SObject>sObjs) {
 			messages.put(LANG_CODE[1], 'Early cancellation created successfully');
 			response.isSuccess = true;
 			response.message = messages.get(UserInfo.getLanguage());
+             BE_CalceDetailManger_Helper.setCalceStatus(calce);
 		} else {
 			messages.put(LANG_CODE[0], 'Solo puede crear cancelaciones anticipadas para su cartera de cliente');
 			messages.put(LANG_CODE[1], 'Only can create early cancellation for your portafolio of clients.');
