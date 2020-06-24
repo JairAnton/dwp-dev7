@@ -41,7 +41,7 @@
         </componentInstances>
         <name>uright</name>
         <type>Region</type>
-    </flexiPageRegions>
+    </flexiPageRegions> 
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
