@@ -32,7 +32,7 @@ public without sharing class BE_Calce_Close_Batch implements Database.Batchable<
             ids.add(calce.Id);
         }
         update lstCalce;
-        final Map<Id,Opportunity> mapOppInsert = new Map<Id,Opportunity>();
+        Map<Id,Opportunity> mapOppInsert = new Map<Id,Opportunity>();
         final Map<Id, Decimal> mapOpps = new Map<Id, Decimal>();
         for(Calce_Details__c detail : [SELECT Id, Opportunity_id__c, portfolio_fall_balance__c FROM Calce_Details__c WHERE Calce_id__c IN :ids AND portfolio_fall_balance__c > 0 AND sub_type__c IN ('01', '03')]) {
             mapOpps.put(detail.Opportunity_id__c, detail.portfolio_fall_balance__c);
@@ -52,11 +52,12 @@ public without sharing class BE_Calce_Close_Batch implements Database.Batchable<
                                    opp.StageName = '02';
                                    opp.opportunity_status_type__c = '03';
                                    opp.Field_Sup_Closing_Date__c = Date.today().addDays(1);
+                                   opp.opportunity_expiry_date__c=Date.today().addDays(1);
                                    opp.CloseDate = Date.today().addDays(1);
                                    mapOppInsert.put(opp.Id,opp.clone(false,false,false,false));
                                }
         insert mapOppInsert.values();
-        final List<OpportunityLineItem> ltsOli = new List<OpportunityLineItem>();
+        List<OpportunityLineItem> ltsOli = new List<OpportunityLineItem>();
         for(OpportunityLineItem oli : [SELECT Description,OpportunityId,PriceBookEntryId,Quantity,UnitPrice,fprd__GBL_All_fields_informed__c,
                                        fprd__GBL_Cloned__c,price_quote_availability_check__c,PE_List_Mejorado__c,fprd__GBL_Sample_Checkbox__c,
                                        cpliq_Fecha_Vencimiento__c,cpliq_Vcto_tarifa__c,price_quote_date__c,validityDate__c,
@@ -83,7 +84,7 @@ public without sharing class BE_Calce_Close_Batch implements Database.Batchable<
                                        frm_ContractNumber__c,gipr_Contract_Number__c,price_operation_id__c,price_rates_calculation_Id__c,
                                        da_Exporter__c,da_Importer__c,da_Observations__c,Assigned_analyst__c,cpliq_Manual__c,price_availability_check_error__c,
                                        price_quote_status_id__c,tcf_beneficiary__c,Siocode__c,fprd__GBL_ClonedFromId__c FROM OpportunityLineItem WHERE OpportunityId IN :mapOpps.keySet() ORDER BY OpportunityId]) {
-                                           final OpportunityLineItem auxOli = new OpportunityLineItem();
+                                           OpportunityLineItem auxOli = new OpportunityLineItem();
                                            auxOli = oli.clone(false,false,false,false);
                                            auxOli.UnitPrice=mapOpps.get(oli.OpportunityId);
                                            auxOli.OpportunityId=mapOppInsert.get(oli.OpportunityId).Id;

@@ -12,6 +12,8 @@
 public without sharing class BE_Calce_Delete_Batch implements Database.Batchable<sObject> {
     /*date used to process*/
     public final Date dateCal;
+    /*date used to process*/
+    public final Date dateSpecific;
     /*query used to process*/
     public final String query;
     
@@ -20,23 +22,29 @@ public without sharing class BE_Calce_Delete_Batch implements Database.Batchable
 	@param Date date used to delete calce
     */
     public BE_Calce_Delete_Batch(Date dateCal) {
-        this.dateCal = dateCal;
+        this.dateSpecific = dateCal;
     }
     
     /**
     @Description constructor method
 	*/
     public BE_Calce_Delete_Batch() {
-        this.dateCal = System.today().addMonths(-1);
+        this.dateCal = System.today().addDays(-8);
     }
-
+    
     /**
     @Description start method
     @param Database.BatchableContext BatchableContextof batch
     @return Database.QueryLocator QueryLocator result query of calce
     */
     public Database.QueryLocator start(Database.BatchableContext context) {
-        return Database.getQueryLocator('SELECT Id FROM Calce__c WHERE close_date__c <= :dateCal');
+        String query;
+        if(dateSpecific==null) {
+            query = 'SELECT Id FROM Calce__c WHERE close_date__c <= :dateCal';
+        } else {
+            query = 'SELECT Id FROM Calce__c WHERE close_date__c = :dateSpecific';
+        }
+        return Database.getQueryLocator(query);
     }
 
     /**
