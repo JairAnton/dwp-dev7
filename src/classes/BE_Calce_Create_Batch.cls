@@ -79,9 +79,9 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
 	@param List<User> list of users
     */
     public void execute(Database.BatchableContext context, List<User> lstUser) {
-        final Map<Id, Decimal> mapGroupingRisk = new Map<Id, Decimal>();
-        final Map<Id, Decimal> mapGroupingCP = new Map<Id, Decimal>();
-        final Map<Id, Decimal> mapGroupingLP = new Map<Id, Decimal>();
+        Map<Id, Decimal> mapGroupingRisk = new Map<Id, Decimal>();
+        Map<Id, Decimal> mapGroupingCP = new Map<Id, Decimal>();
+        Map<Id, Decimal> mapGroupingLP = new Map<Id, Decimal>();
         for(User usr : lstUser) {
             mapGroupingRisk.put(usr.Id, 0);
             mapGroupingCP.put(usr.Id, 0);
