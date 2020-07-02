@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Need --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Need --></value>
+    </caseValues>
+    <fields>
+        <label>Plan de cuenta</label>
+        <name>acpl__gf_account_planning_id__c</name>
+        <relationshipLabel><!-- Needs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>bupl__country_id__c</name>
+        <picklistValues>
+            <masterLabel>Arab Emirates</masterLabel>
+            <translation><!-- Arab Emirates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Argentina</masterLabel>
+            <translation><!-- Argentina --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Belgium</masterLabel>
+            <translation><!-- Belgium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brazil</masterLabel>
+            <translation><!-- Brazil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chile</masterLabel>
+            <translation><!-- Chile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China</masterLabel>
+            <translation><!-- China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colombia</masterLabel>
+            <translation><!-- Colombia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compass</masterLabel>
+            <translation><!-- Compass --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>France</masterLabel>
+            <translation><!-- France --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Germany</masterLabel>
+            <translation><!-- Germany --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global</masterLabel>
+            <translation><!-- Global --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hong Kong</masterLabel>
+            <translation><!-- Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>India</masterLabel>
+            <translation><!-- India --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indonesia</masterLabel>
+            <translation><!-- Indonesia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italy</masterLabel>
+            <translation><!-- Italy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mexico</masterLabel>
+            <translation><!-- Mexico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NY</masterLabel>
+            <translation><!-- NY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paraguay</masterLabel>
+            <translation><!-- Paraguay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peru</masterLabel>
+            <translation><!-- Peru --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portugal</masterLabel>
+            <translation><!-- Portugal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Puerto Rico</masterLabel>
+            <translation><!-- Puerto Rico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russia</masterLabel>
+            <translation><!-- Russia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Singapore</masterLabel>
+            <translation><!-- Singapore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Korea</masterLabel>
+            <translation><!-- South Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spain</masterLabel>
+            <translation><!-- Spain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taiwan</masterLabel>
+            <translation><!-- Taiwan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkey</masterLabel>
+            <translation><!-- Turkey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USA</masterLabel>
+            <translation><!-- USA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United Kingdom</masterLabel>
+            <translation><!-- United Kingdom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uruguay</masterLabel>
+            <translation><!-- Uruguay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Venezuela</masterLabel>
+            <translation><!-- Venezuela --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Detalles de punto de dolor</label>
+        <name>bupl__gf_bus_pl_cust_lock_desc__c</name>
+    </fields>
+    <fields>
+        <label>Punto de dolor</label>
+        <name>bupl__gf_bus_pl_cust_lock_name__c</name>
+        <picklistValues>
+            <masterLabel>High competition on pricing</masterLabel>
+            <translation>Alta competencia en precios</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insufficient credit lines</masterLabel>
+            <translation>Líneas de crédito insuficientes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lack of Strategic dialogue</masterLabel>
+            <translation>Falta de diálogo estratégico</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lack of product capabilities</masterLabel>
+            <translation>Falta de capacidades del producto</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal issues pending to be solved</masterLabel>
+            <translation>Asuntos legales pendientes de resolución</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>Otros</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Our timing is out of the market</masterLabel>
+            <translation>Nuestro tiempo está fuera del mercado</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Detalles de necesidad</label>
+        <name>bupl__gf_bus_pl_sales_goal_desc__c</name>
+    </fields>
+    <fields>
+        <label>Necesidad</label>
+        <name>bupl__gf_bus_pl_sales_goal_name__c</name>
+        <picklistValues>
+            <masterLabel>BBVA Senior Management support</masterLabel>
+            <translation>Soporte de la Alta Dirección de BBVA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Build new product capabilities</masterLabel>
+            <translation>Construir nuevas capacidades de producto</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Improve internal coordination</masterLabel>
+            <translation>Mejora la coordinación interna</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Increase country risk limits</masterLabel>
+            <translation>Aumentar los límites de riesgo país</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Increase credit lines</masterLabel>
+            <translation>Aumentar líneas de crédito</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Increase execution speed</masterLabel>
+            <translation>Aumentar la velocidad de ejecución</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Increase guarantees lines</masterLabel>
+            <translation>Incrementar líneas de garantías</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Increase industry asset allocation</masterLabel>
+            <translation>Aumentar la asignación de activos de la industria</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More aggresive pricing strategy</masterLabel>
+            <translation>Estrategia de precios más agresiva</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>Otros</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Incremento de ingresos potenciales</label>
+        <name>bupl__gf_bus_pl_unlk_revenue_amount__c</name>
+    </fields>
+    <fields>
+        <label>Incremento de límite de riesgo</label>
+        <name>bupl__gf_bus_pl_unlk_risk_lim_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Counter --></label>
+        <name>bupl__gf_business_lock_record_number__c</name>
+    </fields>
+    <fields>
+        <label>Plan de negocio</label>
+        <name>bupl__gf_business_plan_id__c</name>
+        <relationshipLabel><!-- Needs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Nombre</label>
+        <name>bupl__gf_business_plan_lock_name__c</name>
+    </fields>
+    <gender><!-- Feminine --></gender>
+    <nameFieldLabel><!-- Needs Name --></nameFieldLabel>
+</CustomObjectTranslation>

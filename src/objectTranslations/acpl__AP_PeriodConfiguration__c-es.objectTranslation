@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Configuración</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Configuraciones</value>
+    </caseValues>
+    <fields>
+        <label>Guía de Plan de Negocio</label>
+        <name>acpl__gf_ap_bus_pl_guide_desc__c</name>
+    </fields>
+    <fields>
+        <label>Guía de Plan Comercial</label>
+        <name>acpl__gf_ap_comm_plan_guide_desc__c</name>
+    </fields>
+    <fields>
+        <label>Días</label>
+        <name>acpl__gf_ap_edit_days_left_number__c</name>
+    </fields>
+    <fields>
+        <label>Tipo de configuración</label>
+        <name>acpl__gf_ap_edit_prms_type_name__c</name>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation>General</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Priority</masterLabel>
+            <translation>Prioridad</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Desbloquear Planes de cuentas</label>
+        <name>acpl__gf_ap_genrl_lock_edit_ind_type__c</name>
+    </fields>
+    <fields>
+        <label>Mensaje de bloqueo</label>
+        <name>acpl__gf_ap_message_lock_desc__c</name>
+    </fields>
+    <fields>
+        <label>Mensaje de desbloqueo</label>
+        <name>acpl__gf_ap_message_unlock_desc__c</name>
+    </fields>
+    <fields>
+        <label>Guía de Análisis Estrategico</label>
+        <name>acpl__gf_ap_strat_anlys_guide_desc__c</name>
+    </fields>
+    <fields>
+        <label>Mensage de inclusión de equipo</label>
+        <name>acpl__gf_ap_team_message_desc__c</name>
+    </fields>
+    <fields>
+        <label>Evento</label>
+        <name>acpl__gf_ap_update_event_type_name__c</name>
+        <picklistValues>
+            <masterLabel>PF renewal date</masterLabel>
+            <translation><!-- PF renewal date --></translation>
+        </picklistValues>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Nombre de configuración</nameFieldLabel>
+</CustomObjectTranslation>

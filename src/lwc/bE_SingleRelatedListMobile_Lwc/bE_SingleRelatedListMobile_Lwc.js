@@ -13,17 +13,16 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
     @track sObjDataLst; /** final data*/
     connectedCallback() {
         this.sObjDataLst = this.assignData();
+        this.isHeadAction = (this.columns.lenght > 0) ? true : false;
     }
     /** TRANSFORM AND ASSING DATA */
     assignData() {
-        let indx = 0;
-        let item;
         let currentdataLst = [];
-        let currentLabels = this.sObjFieldLabels.split(",");
-        for (item of this.columnsMobile) {
+        this.columns.forEach(element => {
             const currentObj = {
-                label: currentLabels[indx],
-                value: this.sObjData[item],
+                label: element.label,
+                value: this.sObjData[element.fieldName],
+                attributes: {},
                 CurrencyIsoCode: 'PEN',
                 isDecimal: false,
                 isPercent: false,
@@ -34,10 +33,9 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
                 isEmail: false,
                 isPhoneNumber: false,
                 isButton: false,
-                //New
-                isRowAction: false
+                isCustomButton: false
             };
-            switch (this.columns[indx].type) {
+            switch (element.type) {
                 case "currency":
                     currentObj.isCurrency = true;
                     currentObj.CurrencyIsoCode = this.sObjData["CurrencyIsoCode"];
@@ -49,8 +47,9 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
                     currentObj.isDecimal = true;
                     break;
                 case "url":
-                    currentObj.urlLabel = this.sObjData[this.columns[indx].typeAttributes.label.fieldName];
-                    currentObj.value = this.sObjData[this.columns[indx].fieldName];
+                case "customlookup":
+                    currentObj.urlLabel = this.sObjData[element.typeAttributes.objectApiName][element.typeAttributes.label];
+                    currentObj.value = window.location.origin + '/' + this.sObjData[element.typeAttributes.objectApiName][element.typeAttributes.fieldName];
                     currentObj.isUrl = true;
                     break;
                 case "text":
@@ -66,16 +65,26 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
                 case "button":
                     currentObj.isButton = true;
                     break;
+                case "custombutton":
+                    currentObj.isCustomButton = true;
+                    currentObj.value = {
+                        label: this.sObjData[element.typeAttributes.label.fieldName],
+                        fieldName: this.sObjData[element.typeAttributes.fieldName.fieldName],
+                        iconName: element.typeAttributes.iconName,
+                        variant: element.typeAttributes.variant,
+                        iconPosition: element.typeAttributes.iconPosition,
+                        modalName: element.typeAttributes.modalName
+                    }
+                    break;
+                case "action":
+                    this.rowActions = element.typeAttributes.rowActions;
+                    break;
                 default:
                     currentObj.isText = true;
                     break;
             }
-            if (indx === 0 && this.rowActions !== undefined && this.rowActions.length > 0) {
-                currentObj.isRowAction = true;
-            }
             currentdataLst.push(currentObj);
-            indx++;
-        }
+        });
         return currentdataLst;
     }
     /** NAVIGATE TO RECORD */
@@ -95,16 +104,12 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
         console.log('Open Close');
         console.log(event.target.value);
         const objParam = {
-            recordId: this.sObjData.Id,
-            mode: event.target.value
+            Id: this.sObjData.Id,
+            action: event.target.value
         }
         let evt = new CustomEvent('rowaction',
             { detail: objParam });
         this.dispatchEvent(evt);
-    }
-    /** OPEN CUSTOM MODAL EVENT */
-    get showRowActions() {
-        return this.rowActions.length > 0;
     }
     /** SHOW TOAST MESSAJE */
     showToastEvent(title, message, variant) {

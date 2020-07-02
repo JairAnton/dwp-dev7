@@ -334,6 +334,10 @@
         <label><!-- SIO Status --></label>
         <name>sio_status_type__c</name>
     </fields>
+	<fields>
+        <label><!-- Loss date --></label>
+        <name>Loss_date__c</name>
+    </fields>
     <validationRules>
         <errorMessage>Please use the buttons to progress the opportunity.</errorMessage>
         <name>Opportunity_Validation_ChangeStage</name>

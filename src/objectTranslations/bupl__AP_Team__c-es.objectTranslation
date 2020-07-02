@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Miembro de equipo de cuentas</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Miembros de equipos de cuentas</value>
+    </caseValues>
+    <fields>
+        <label><!-- Gestor de plan de cuenta --></label>
+        <name>account_planning_Owner__c</name>
+    </fields>
+    <fields>
+        <label>Plan de cuenta</label>
+        <name>acpl__gf_account_planning_id__c</name>
+        <relationshipLabel>Equipo del plan de cuenta</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>bupl__country_id__c</name>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Fecha de notificación</label>
+        <name>bupl__gf_ap_team_new_member_date__c</name>
+    </fields>
+    <fields>
+        <label>Rol de miembro</label>
+        <name>bupl__gf_ap_team_role_user_name__c</name>
+        <picklistValues>
+            <masterLabel>Acompañante</masterLabel>
+            <translation><!-- Acompañante --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gestor del Plan</masterLabel>
+            <translation><!-- Gestor del Plan --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Usuario</label>
+        <name>bupl__gf_ap_team_user_id__c</name>
+        <relationshipLabel><!-- Planning Team Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Soy miembro del equipo del plan</label>
+        <name>bupl__gf_ap_user_team_ind_type__c</name>
+    </fields>
+    <fields>
+        <label>Plan de negocio</label>
+        <name>bupl__gf_business_plan_id__c</name>
+        <relationshipLabel><!-- Business Plan Team --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Familai de producto</label>
+        <name>bupl__solution_category_type__c</name>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel><!-- Account Planning Team Member Name --></nameFieldLabel>
+    <validationRules>
+        <errorMessage><!-- No puede editar un miembro del equipo. --></errorMessage>
+        <name>Edit_Record</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account Planning --></label>
+        <name>acpl__gf_account_planning_id__c</name>
+        <relationshipLabel><!-- Business Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- AP unlocked --></label>
+        <name>acpl__gf_ap_indvi_lock_edit_ind_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Public Business Plan --></label>
+        <name>bupl__gf_ap_public_ind_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Risk limit increase --></label>
+        <name>bupl__gf_bus_pl_lock_lim_tot_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Potential additional revenues --></label>
+        <name>bupl__gf_bus_pl_lock_rev_tot_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Growth Drivers Created --></label>
+        <name>bupl__gf_business_growth_rec_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Needs Created --></label>
+        <name>bupl__gf_business_lock_record_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total number of Business Plan Versions --></label>
+        <name>bupl__gf_counter_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group --></label>
+        <name>bupl__participant_id__c</name>
+        <relationshipLabel><!-- Business Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>bupl__status_type__c</name>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not started</masterLabel>
+            <translation><!-- Not started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Validation</masterLabel>
+            <translation><!-- Pending Validation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validated</masterLabel>
+            <translation><!-- Validated --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

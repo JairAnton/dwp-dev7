@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>OverrideStandardButtonMessage_cmp</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>LightningComponent</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>acpl__Account_Planning_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>acpl__participant_id__c</fields>
+        <fields>acpl__gf_ap_priority_type_name__c</fields>
+        <fields>acpl__gf_ap_status_type_name__c</fields>
+        <fields>acpl__gf_ap_limit_date__c</fields>
+        <label>Account Planning Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Planning_Administration__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( $Setup.AccountPlanning_Administration__c.Edit_Account_Planning__c || $Profile.Name == &apos;System Administrator&apos; || $Profile.Name == &quot;Migracion&quot; || $Profile.Name == &quot;Administrador del sistema&quot;, true, false)</formula>
+        <label>Account Planning Administration</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Strategic_desc__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Estrategia de la compañía</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>acpl__Group_has_PF__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Group has PF</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__business_area_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Required by (area)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>Cross-border Head</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Cross-border Head</label>
+                </value>
+                <value>
+                    <fullName>GCC Local Head</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GCC Local Head</label>
+                </value>
+                <value>
+                    <fullName>GTB Head</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>GTB Head</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__country_id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__external_reference_id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <label>Account Planning external id</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_account_planning_limit_date__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Due Date (Deprecated)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_account_planning_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full</fullName>
+                    <default>false</default>
+                    <label>Full</label>
+                </value>
+                <value>
+                    <fullName>Light</fullName>
+                    <default>false</default>
+                    <label>Light</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_acct_plan_edit_event_date__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Event date (Deprecated)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_bus_pl_guide_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Guidelines Business Plan</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_comm_plan_guide_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Guidelines Commercial Plan</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_indvi_lock_edit_ind_type__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unlock Account Planning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_launch_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Launch type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>General period</fullName>
+                    <default>false</default>
+                    <label>General period</label>
+                </value>
+                <value>
+                    <fullName>Period by priority</fullName>
+                    <default>false</default>
+                    <label>Period by priority</label>
+                </value>
+                <value>
+                    <fullName>Event driven</fullName>
+                    <default>false</default>
+                    <label>Event driven</label>
+                </value>
+                <value>
+                    <fullName>Automatic</fullName>
+                    <default>false</default>
+                    <label>Automatic</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_launch_period_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Periodo de lanzamiento con el formato &quot;YY/YY&quot;</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Launch period</label>
+        <length>6</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_limit_date__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_prev_validated_ind_type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pre-validation required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_priority_type_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_public_ind_type__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Public Business Plan</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_question_form_number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of questions</label>
+        <summaryForeignKey>acpl__AP_Question__c.acpl__gf_account_planning_id__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_req_validation_ind_type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validation Required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_status_type_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not started</fullName>
+                    <default>true</default>
+                    <label>Not started</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Pending Validation</fullName>
+                    <default>false</default>
+                    <label>Pending Validation</label>
+                </value>
+                <value>
+                    <fullName>Validated</fullName>
+                    <default>false</default>
+                    <label>Validated</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_strat_anlys_guide_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Guidelines Strategic Analysis</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_substatus_type_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Sub-status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>acpl__gf_ap_status_type_name__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not started</fullName>
+                    <default>true</default>
+                    <label>Not started</label>
+                </value>
+                <value>
+                    <fullName>AP team not invited</fullName>
+                    <default>false</default>
+                    <label>AP team not invited</label>
+                </value>
+                <value>
+                    <fullName>AP team invited</fullName>
+                    <default>false</default>
+                    <label>AP team invited</label>
+                </value>
+                <value>
+                    <fullName>Pending pre-validation</fullName>
+                    <default>false</default>
+                    <label>Pending pre-validation</label>
+                </value>
+                <value>
+                    <fullName>Pre-validated</fullName>
+                    <default>false</default>
+                    <label>Pre-validated</label>
+                </value>
+                <value>
+                    <fullName>Pending review</fullName>
+                    <default>false</default>
+                    <label>Pending review</label>
+                </value>
+                <value>
+                    <fullName>Pending validation</fullName>
+                    <default>false</default>
+                    <label>Pending validation</label>
+                </value>
+                <value>
+                    <fullName>In place</fullName>
+                    <default>false</default>
+                    <label>In place</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Not started</controllingFieldValue>
+                <valueName>Not started</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Not started</controllingFieldValue>
+                <controllingFieldValue>In Progress</controllingFieldValue>
+                <controllingFieldValue>Pending Validation</controllingFieldValue>
+                <controllingFieldValue>Validated</controllingFieldValue>
+                <valueName>Expired</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Progress</controllingFieldValue>
+                <valueName>AP team not invited</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Progress</controllingFieldValue>
+                <valueName>AP team invited</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Progress</controllingFieldValue>
+                <valueName>Pending pre-validation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Progress</controllingFieldValue>
+                <valueName>Pre-validated</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Progress</controllingFieldValue>
+                <valueName>Pending review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pending Validation</controllingFieldValue>
+                <valueName>Pending validation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Validated</controllingFieldValue>
+                <valueName>In place</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_validated_ind_type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( TEXT(acpl__gf_ap_status_type_name__c) ==&apos;Validated&apos;,1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Validated Plan</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_validation_date__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Validation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_validator_user_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Assigned Validator</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Account_Plannings1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_counter_number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Planning Counter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_event_date__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Event date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_mandatory_type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Mandatory</fullName>
+                    <default>false</default>
+                    <label>Mandatory</label>
+                </value>
+                <value>
+                    <fullName>Optional</fullName>
+                    <default>false</default>
+                    <label>Optional</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__management_country_id__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Country of Management</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acpl__month_number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Frequency (months)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acpl__participant_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Client</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Plannings</relationshipLabel>
+        <relationshipName>Account_Plannings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>acpl__proposal_manager_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Global Banker</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Account_Plannings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>segment_desc__c</fullName>
+        <externalId>false</externalId>
+        <formula>acpl__participant_id__r.segment_desc__c</formula>
+        <label>Segmento</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Account Planning</label>
+    <listViews>
+        <fullName>Account_Planning_Expired</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>segment_desc__c</columns>
+        <columns>acpl__gf_ap_status_type_name__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <columns>acpl__gf_ap_limit_date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_substatus_type_name__c</field>
+            <operation>equals</operation>
+            <value>Expired</value>
+        </filters>
+        <label>Planes de cuenta expirados</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>Ejecutivos_de_Oficina</group>
+            <group>Gerentes_de_Oficina</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Account_Planning_closed_next_month</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>segment_desc__c</columns>
+        <columns>acpl__gf_ap_status_type_name__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <columns>acpl__gf_ap_limit_date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_limit_date__c</field>
+            <operation>equals</operation>
+            <value>NEXT_MONTH</value>
+        </filters>
+        <filters>
+            <field>acpl__gf_ap_substatus_type_name__c</field>
+            <operation>notEqual</operation>
+            <value>In place,Expired</value>
+        </filters>
+        <label>Planes que cierran el proximo mes</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>Ejecutivos_de_Oficina</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Account_Planning_closed_this_month</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>segment_desc__c</columns>
+        <columns>acpl__gf_ap_status_type_name__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <columns>acpl__gf_ap_limit_date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_limit_date__c</field>
+            <operation>equals</operation>
+            <value>THIS_MONTH</value>
+        </filters>
+        <filters>
+            <field>acpl__gf_ap_substatus_type_name__c</field>
+            <operation>notEqual</operation>
+            <value>In place,Expired</value>
+        </filters>
+        <label>Planes que cierran este mes</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>Ejecutivos_de_Oficina</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Account_Planning_in_progress</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>segment_desc__c</columns>
+        <columns>acpl__gf_ap_status_type_name__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <columns>acpl__gf_ap_limit_date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_status_type_name__c</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </filters>
+        <filters>
+            <field>acpl__gf_ap_substatus_type_name__c</field>
+            <operation>notEqual</operation>
+            <value>Expired</value>
+        </filters>
+        <label>Planes de cuenta en progreso</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>Gerentes_de_Oficina</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Account_Planning_not_started</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>segment_desc__c</columns>
+        <columns>acpl__gf_ap_status_type_name__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <columns>acpl__gf_ap_limit_date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_status_type_name__c</field>
+            <operation>equals</operation>
+            <value>Not started</value>
+        </filters>
+        <filters>
+            <field>acpl__gf_ap_substatus_type_name__c</field>
+            <operation>equals</operation>
+            <value>Not started</value>
+        </filters>
+        <label>Planes de cuenta no iniciados</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>Gerentes_de_Oficina</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Account_Planning_pending_validation</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>segment_desc__c</columns>
+        <columns>acpl__gf_ap_status_type_name__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <columns>acpl__gf_ap_limit_date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_status_type_name__c</field>
+            <operation>equals</operation>
+            <value>Pending Validation</value>
+        </filters>
+        <filters>
+            <field>acpl__gf_ap_substatus_type_name__c</field>
+            <operation>equals</operation>
+            <value>Pending validation</value>
+        </filters>
+        <label>Planes de cuenta pendiente de validación</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>Gerentes_de_Oficina</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Account_Planning_validated</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>segment_desc__c</columns>
+        <columns>acpl__gf_ap_status_type_name__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <columns>acpl__gf_ap_limit_date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_substatus_type_name__c</field>
+            <operation>equals</operation>
+            <value>In place</value>
+        </filters>
+        <filters>
+            <field>acpl__gf_ap_status_type_name__c</field>
+            <operation>equals</operation>
+            <value>Validated</value>
+        </filters>
+        <label>Planes de cuenta validados</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>Ejecutivos_de_Oficina</group>
+            <group>Gerentes_de_Oficina</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>acpl__All</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__gf_ap_status_type_name__c</columns>
+        <columns>acpl__gf_ap_substatus_type_name__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>acpl__Automatic</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_launch_name__c</field>
+            <operation>equals</operation>
+            <value>Automatic</value>
+        </filters>
+        <label>Automatically launched</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>acpl__Event_driven</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_launch_name__c</field>
+            <operation>equals</operation>
+            <value>Event drive</value>
+        </filters>
+        <label>Event driven</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>acpl__General_period</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>acpl__gf_mandatory_type__c</columns>
+        <columns>acpl__gf_ap_validator_user_id__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_launch_name__c</field>
+            <operation>equals</operation>
+            <value>General period</value>
+        </filters>
+        <label>General period</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>acpl__Period_by_priority</fullName>
+        <columns>NAME</columns>
+        <columns>acpl__participant_id__c</columns>
+        <columns>segment_desc__c</columns>
+        <columns>acpl__gf_ap_status_type_name__c</columns>
+        <columns>acpl__gf_ap_priority_type_name__c</columns>
+        <columns>acpl__gf_ap_limit_date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>acpl__gf_ap_launch_name__c</field>
+            <operation>equals</operation>
+            <value>Period by priority</value>
+        </filters>
+        <filters>
+            <field>acpl__gf_ap_substatus_type_name__c</field>
+            <operation>notEqual</operation>
+            <value>Expired</value>
+        </filters>
+        <label>Por prioridad</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>Ejecutivos_de_Oficina</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>acpl__Questionnaire</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>acpl__Account_Planning__c.acpl__Question_Catalog</value>
+        </filters>
+        <label>Questionnaire</label>
+        <sharedTo>
+            <group>AP_Administration</group>
+            <group>System_Administrators</group>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <encryptionScheme>None</encryptionScheme>
+        <label>Account Planning Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Account Plannings</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>acpl__Account_Planning</fullName>
+        <active>true</active>
+        <label>Account Planning</label>
+        <picklistValues>
+            <picklist>acpl__Group_has_PF__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__business_area_desc__c</picklist>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__country_id__c</picklist>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_account_planning_name__c</picklist>
+            <values>
+                <fullName>Full</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_launch_name__c</picklist>
+            <values>
+                <fullName>Automatic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event driven</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Period by priority</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_prev_validated_ind_type__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_priority_type_name__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_req_validation_ind_type__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_status_type_name__c</picklist>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending Validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_substatus_type_name__c</picklist>
+            <values>
+                <fullName>AP team invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AP team not invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In place</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending pre-validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-validated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_mandatory_type__c</picklist>
+            <values>
+                <fullName>Mandatory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Optional</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>acpl__Question_Catalog</fullName>
+        <active>true</active>
+        <label>Question Catalog</label>
+        <picklistValues>
+            <picklist>acpl__Group_has_PF__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__business_area_desc__c</picklist>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__country_id__c</picklist>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_account_planning_name__c</picklist>
+            <values>
+                <fullName>Full</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_launch_name__c</picklist>
+            <values>
+                <fullName>Automatic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event driven</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Period by priority</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_prev_validated_ind_type__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_priority_type_name__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_req_validation_ind_type__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_status_type_name__c</picklist>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending Validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_ap_substatus_type_name__c</picklist>
+            <values>
+                <fullName>AP team invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AP team not invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In place</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending pre-validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-validated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>acpl__gf_mandatory_type__c</picklist>
+            <values>
+                <fullName>Mandatory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Optional</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <searchResultsAdditionalFields>acpl__gf_ap_status_type_name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>acpl__gf_ap_priority_type_name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>acpl__participant_id__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Change_Owner</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED(OwnerId) &amp;&amp; 
+NOT(
+$Profile.Name == &apos;System Administrator&apos; || 
+$Profile.Name == &quot;Migracion&quot; || 
+$Profile.Name == &quot;Administrador del sistema&quot;)</errorConditionFormula>
+        <errorMessage>No puede cambiar al propietario del plan de cuenta.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>New_Question_Catalog</fullName>
+        <active>true</active>
+        <errorConditionFormula>RecordType.DeveloperName == &apos;Question_Catalog&apos; &amp;&amp;
+ISNEW() &amp;&amp; 
+NOT(
+$Profile.Name == &apos;System Administrator&apos; ||
+$Profile.Name == &quot;Migracion&quot; ||
+$Profile.Name == &quot;Administrador del sistema&quot;)</errorConditionFormula>
+        <errorMessage>No puede crear planes de cuenta de tipo Question Catalog</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Fields</fullName>
+        <active>true</active>
+        <errorConditionFormula>RecordType.DeveloperName == &apos;Account_Planning&apos; &amp;&amp; 
+(ISBLANK(acpl__proposal_manager_id__c) || ISBLANK(acpl__participant_id__c) || ISBLANK(acpl__gf_ap_limit_date__c))</errorConditionFormula>
+        <errorMessage>Los campos cliente, fecha de vencimiento y gestor son obligatorios</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

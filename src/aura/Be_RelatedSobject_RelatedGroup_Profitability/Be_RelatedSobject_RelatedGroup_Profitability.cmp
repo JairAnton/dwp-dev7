@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" 
+                controller="Be_RecordId_Related_Sobject_helper">
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="sObjectName" type="String"/>
+    <aura:attribute name="sObjTypeReference" type="String" description=""/> 
+  	<aura:attribute name="fieldReference" type="String" description=""/>
+    <aura:attribute name="idRecord" type="String" />
+    <aura:attribute name="loadCmp" type="Boolean" default="false"/>
+    <aura:attribute name="handleError" type="Boolean" default="false" />
+    
+    <aura:if isTrue="{!v.loadCmp}">
+    	<c:Dynamic_RelateGroup_Profitability recordId="{!v.idRecord}"/>
+    </aura:if>
+    <aura:if isTrue="{!v.handleError}">
+      <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+        <span class="slds-assistive-text">warning</span>
+        <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small"></span>
+        <h2>Ha ocurrido un error con el componente. Por favor contacte a su administrador.</h2>
+      </div>
+    </aura:if>
+</aura:component>

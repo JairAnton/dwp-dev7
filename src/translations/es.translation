@@ -5,6 +5,10 @@
         <name>DWP_Sales</name>
     </customApplications>
     <customLabels>
+        <label><!-- AP_ValidatorsCode --></label>
+        <name>AP_ValidatorsCode</name>
+    </customLabels>
+    <customLabels>
         <label>Iniciar Hangout</label>
         <name>Hangout</name>
     </customLabels>
@@ -141,6 +145,10 @@
         <name>AccountRankingClassification3</name>
     </customLabels>
     <customLabels>
+        <label><!-- Ask_for_validation --></label>
+        <name>Ask_for_validation</name>
+    </customLabels>
+    <customLabels>
         <label>Para dar de alta a un nuevo No Cliente debe acceder a la ficha de Prospectos y pulsar el botón &quot;Nuevo No Cliente&quot;</label>
         <name>BE_NotCreateEditAccount</name>
     </customLabels>
@@ -187,6 +195,14 @@
     <customLabels>
         <label><!-- Imagen Modal de bienvenida WL --></label>
         <name>BE_WelcomeTabCteImg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Button Collection No Actions --></label>
+        <name>Button_Collection_No_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dynamic Action Audit Title --></label>
+        <name>DynamicActionsAudit_SectionTitle</name>
     </customLabels>
     <customLabels>
         <label>DIRECTA</label>
@@ -1388,6 +1404,50 @@
         <label>SOLICITADO</label>
         <name>lblReq</name>
     </customLabels>
+    <customLabels>
+        <label><!-- AP_Timed_Out --></label>
+        <name>acpl__AP_Timed_Out</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AP event date --></label>
+        <name>acpl__AP_event_date</name>
+    </customLabels>
+    <customLabels>
+        <label>Elevar</label>
+        <name>acpl__Ask_for_validation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Button_Collection_No_Actions --></label>
+        <name>acpl__Button_Collection_No_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- In Progress --></label>
+        <name>acpl__In_Progress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lock Account Plan --></label>
+        <name>acpl__Lock_Account_Plan</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No --></label>
+        <name>acpl__No</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unlock Account Plan --></label>
+        <name>acpl__Unlock_Account_Plan</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Yes --></label>
+        <name>acpl__Yes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No --></label>
+        <name>bupl__No</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Yes --></label>
+        <name>bupl__Yes</name>
+    </customLabels>
 	<customLabels>
         <label><!-- GBL_CheckInDisabled --></label>
         <name>cico__GBL_CheckInDisabled</name>
@@ -1871,6 +1931,18 @@
 	<customLabels>
         <label> Participante(s) agregado correctamente</label>
         <name>dwp_kitv__MngrAttendeeToastMessage</name>
+    </customLabels>
+	<customLabels>
+        <label>Ver Informe</label>
+        <name>BE_ViewReport</name>
+    </customLabels>
+	<customLabels>
+        <label>Saldo medio mensual</label>
+        <name>BE_AvgMonthlyBalance</name>
+    </customLabels>
+	<customLabels>
+        <label>La descripción es obligatoria</label>
+        <name>BE_VisitErrorDescField</name>
     </customLabels>
     <customTabs>
         <label>No clientes</label>

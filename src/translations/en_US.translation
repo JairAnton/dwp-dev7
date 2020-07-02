@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+	<customApplications>
+        <label><!-- Account Planning Administration --></label>
+        <name>Account_Planning_Administration</name>
+    </customApplications>
+    <customLabels>
+        <label><!-- AP_ValidatorsCode --></label>
+        <name>AP_ValidatorsCode</name>
+    </customLabels>
     <customLabels>
         <label><!-- AccountAccountingType1 --></label>
         <name>AccountAccountingType1</name>
@@ -113,6 +121,10 @@
         <name>Amount</name>
     </customLabels>
     <customLabels>
+        <label><!-- Ask_for_validation --></label>
+        <name>Ask_for_validation</name>
+    </customLabels>
+    <customLabels>
         <label><!-- BE_NotCreateEditAccount --></label>
         <name>BE_NotCreateEditAccount</name>
     </customLabels>
@@ -157,6 +169,10 @@
         <name>BE_SingleRelatedList_ViewAll</name>
     </customLabels>
     <customLabels>
+        <label><!-- Button Collection No Actions --></label>
+        <name>Button_Collection_No_Actions</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Cancel --></label>
         <name>Cancel</name>
     </customLabels>
@@ -175,6 +191,10 @@
     <customLabels>
         <label><!-- DateHigherThan --></label>
         <name>DateHigherThan</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dynamic Action Audit Title --></label>
+        <name>DynamicActionsAudit_SectionTitle</name>
     </customLabels>
     <customLabels>
         <label><!-- Hangout --></label>
@@ -627,6 +647,18 @@
 	<customLabels>
         <label><!-- BE_ExpiredContracts --></label>
         <name>BE_ExpiredContracts</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- BE_ViewReport --></label>
+        <name>BE_ViewReport</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- BE_AvgMonthlyBalance --></label>
+        <name>BE_AvgMonthlyBalance</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- BE_VisistErrorDescField --></label>
+        <name>BE_VisitErrorDescField</name>
     </customLabels>
     <customTabs>
         <label><!-- Prospects --></label>
