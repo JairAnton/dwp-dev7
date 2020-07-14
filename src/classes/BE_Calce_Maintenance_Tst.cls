@@ -15,46 +15,7 @@ private class BE_Calce_Maintenance_Tst {
 	/**@Description TestSetup for generated data to use in the test methods*/
 	@TestSetup
 	static void setupData() {
-        final User executiveUser = TestFactory.createUser('UserOwnerTest01', 'Ejecutivo');
-        executiveUser.IsActive = true;
-        executiveUser.prof_position_id__c = 'E03';
-		final User assitantUser = TestFactory.createUser('UserAssitantTest011', 'Ejecutivo');
-        assitantUser.IsActive = true;
-        final List<User> ltsUser = new List<User>();
-        ltsUser.add(executiveUser);
-        ltsUser.add(assitantUser);
-        update ltsUser;
-        final User userAux = [SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = 'Ejecutivo' AND prof_position_id__c IN ('E03', 'I32') LIMIT 1][0];
-		final User_Assistant_Team__c assistant = new User_Assistant_Team__c(assistant_id__c = assitantUser.id, user_id__c = userAux.id);
-		insert assistant;
-        
-		final dwp_frct__management_plan__c plan = new dwp_frct__management_plan__c(Name = 'PlaPPGoNE',
-                                                                                   OwnerId = userAux.Id,
-                                                                                   dwp_frct__management_plan_start_date__c = Date.today().addDays(-1),
-                                                                                   dwp_frct__management_plan_end_date__c = Date.today());
-        insert plan;
-		final List<dwp_frct__grouping__c> groupList = new List<dwp_frct__grouping__c>();
-		final List<BE_FamilyGroupingForecast__c> faProdLst = new List<BE_FamilyGroupingForecast__c>();
-		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Financiamiento a corto plazo'));
-		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Financiamiento a largo plazo'));
-		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Recursos'));
-		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Riesgo de firma'));
-		upsert faProdLst;
-		final Map<String, BE_FamilyGroupingForecast__c>familyProductMap = BE_FamilyGroupingForecast__c.getAll();
-		for(String typeFamily: familyProductMap.keySet()) {
-			groupList.add(new dwp_frct__grouping__c(
-							  dwp_frct__management_plan_id__c = plan.Id,
-							  dwp_frct__solution_category_type__c = typeFamily,
-							  dwp_frct__management_expected_drop_amount__c = 100,
-							  dwp_frct__opportunity_amortization_amount__c = 100,
-							  dwp_frct__opportunity_antcp_expiry_amount__c = 100,
-							  dwp_frct__opportunity_cancellation_amount__c = 100,
-							  dwp_frct__opportunity_closed_amount__c = 100,
-							  dwp_frct__opportunity_selected_tot_amount__c = 100,
-							  dwp_frct__original_commitment_amount__c = 100
-							  ));
-		}
-		insert groupList;
+        createDataGroupping();
         
         final Account acc = TestFactory.createAccount();
         final Opportunity opp1 = TestFactory.createOpportunity(acc.Id, System.UserInfo.getUserId());
@@ -113,12 +74,7 @@ private class BE_Calce_Maintenance_Tst {
         calceDetail1.sub_type__c = '01';
         calceDetail1.type__c = 'Indirect';
         ltsCalceDetail.add(calceDetail1);
-        final Calce_Details__c calceDetail2 = new Calce_Details__c();
-        calceDetail2.calce_id__c = calce.Id;
-        calceDetail2.account_id__c = acc.Id;
-        calceDetail2.amount__c = 500000;
-        calceDetail2.amount_cancelled__c = 300000;
-        calceDetail2.extension__c = false;
+        final Calce_Details__c calceDetail2 = calceDetail1.clone();
         calceDetail2.opportunity_id__c = opp2.Id;
         calceDetail2.product_code__c = 'PC00002';
         calceDetail2.product_id__c = prod2.Id;
@@ -129,6 +85,50 @@ private class BE_Calce_Maintenance_Tst {
         ltsCalceDetail.add(calceDetail2);
         insert ltsCalceDetail;
 	}
+    
+    /**@Description method used to create data of grouppings*/
+    static void createDataGroupping() {
+        final User executiveUser = TestFactory.createUser('UserOwnerTest01', 'Ejecutivo');
+        executiveUser.IsActive = true;
+        executiveUser.prof_position_id__c = 'E03';
+		final User assitantUser = TestFactory.createUser('UserAssitantTest011', 'Ejecutivo');
+        assitantUser.IsActive = true;
+        final List<User> ltsUser = new List<User>();
+        ltsUser.add(executiveUser);
+        ltsUser.add(assitantUser);
+        update ltsUser;
+        final User userAux = [SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = 'Ejecutivo' AND prof_position_id__c IN ('E03', 'I32') LIMIT 1][0];
+		final User_Assistant_Team__c assistant = new User_Assistant_Team__c(assistant_id__c = assitantUser.id, user_id__c = userAux.id);
+		insert assistant;
+        
+		final dwp_frct__management_plan__c plan = new dwp_frct__management_plan__c(Name = 'PlaPPGoNE',
+                                                                                   OwnerId = userAux.Id,
+                                                                                   dwp_frct__management_plan_start_date__c = Date.today().addDays(-1),
+                                                                                   dwp_frct__management_plan_end_date__c = Date.today());
+        insert plan;
+		final List<dwp_frct__grouping__c> groupList = new List<dwp_frct__grouping__c>();
+		final List<BE_FamilyGroupingForecast__c> faProdLst = new List<BE_FamilyGroupingForecast__c>();
+		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Financiamiento a corto plazo'));
+		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Financiamiento a largo plazo'));
+		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Recursos'));
+		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Riesgo de firma'));
+		upsert faProdLst;
+		final Map<String, BE_FamilyGroupingForecast__c>familyProductMap = BE_FamilyGroupingForecast__c.getAll();
+		for(String typeFamily: familyProductMap.keySet()) {
+			groupList.add(new dwp_frct__grouping__c(
+							  dwp_frct__management_plan_id__c = plan.Id,
+							  dwp_frct__solution_category_type__c = typeFamily,
+							  dwp_frct__management_expected_drop_amount__c = 100,
+							  dwp_frct__opportunity_amortization_amount__c = 100,
+							  dwp_frct__opportunity_antcp_expiry_amount__c = 100,
+							  dwp_frct__opportunity_cancellation_amount__c = 100,
+							  dwp_frct__opportunity_closed_amount__c = 100,
+							  dwp_frct__opportunity_selected_tot_amount__c = 100,
+							  dwp_frct__original_commitment_amount__c = 100
+							  ));
+		}
+		insert groupList;
+    }
 	
     /**
     @Description test method for BE_Calce_Create_Batch class
