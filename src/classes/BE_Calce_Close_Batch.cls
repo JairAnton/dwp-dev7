@@ -10,7 +10,10 @@
    2020-07-14  MAMC     martin.mori.contractor@bbva.com    	Modify		add logic to create opps to early cancelation
    -------------------------------------------------------------------------------------------------
  */
-public without sharing class BE_Calce_Close_Batch implements Database.Batchable<sObject> {    
+public without sharing class BE_Calce_Close_Batch implements Database.Batchable<sObject> {
+    /** subtype code */
+    private static final String SUBTYPE = '01';
+    
     /**
     @Description start method
     @param Database.BatchableContext BatchableContextof batch
@@ -52,7 +55,7 @@ public without sharing class BE_Calce_Close_Batch implements Database.Batchable<
                                    opp.renewal_contract_amount__c = mapOpps.get(opp.Id).portfolio_fall_balance__c;
                                    opp.StageName = '02';
                                    opp.opportunity_status_type__c = '03';
-                                   if(mapOpps.get(opp.Id).sub_type__c=='01') {
+                                   if(mapOpps.get(opp.Id).sub_type__c == SUBTYPE) {
                                        opp.Field_Sup_Closing_Date__c = Date.today().addDays(1);
                                        opp.opportunity_expiry_date__c = Date.today().addDays(1);
                                        opp.CloseDate = Date.today().addDays(1);

@@ -12,6 +12,11 @@
  */
 @isTest
 private class BE_CalceNewEarlyCancellations_Tst {
+    /** variable Indirect */
+    private static final String INDIRECT = 'indirect';
+    /** PEN currecyisocode */
+    private static final String CURPEN = 'PEN';
+    
     /**
     @Description test method createRecords
     */
@@ -22,20 +27,19 @@ private class BE_CalceNewEarlyCancellations_Tst {
         prod.IsActive = true;
         update prod;
         final Calce__c calce = new Calce__c();
-        calce.Name = 'Test Calce';
+        calce.Name = 'Test Calce1';
         calce.close_date__c = Date.today();
         calce.start_date__c = Date.today();
-        calce.status__c = 'Iniciado';
         insert calce;
         final Calce_Details__c detail = new Calce_Details__c();
         detail.calce_id__c=calce.Id;
         detail.account_id__c=acc.Id;
         detail.product_id__c=prod.Id;
-        detail.Name='detail';
-        detail.CurrencyIsoCode='PEN';
+        detail.Name='detail1';
+        detail.CurrencyIsoCode=CURPEN;
         detail.amount__c=50000;
         detail.close_date__c=date.today();
-        detail.type__c='Indirect';
+        detail.type__c=INDIRECT;
         detail.product_code__c='CODE001';
         detail.sub_type__c='01';
         final List<sObject> lts = new List<sObject>();
@@ -58,22 +62,21 @@ private class BE_CalceNewEarlyCancellations_Tst {
         prod.IsActive = true;
         update prod;
         final Calce__c calce = new Calce__c();
-        calce.Name = 'Test Calce';
+        calce.Name = 'Test Calce2';
         calce.close_date__c = Date.today();
         calce.start_date__c = Date.today();
-        calce.status__c = 'Iniciado';
         calce.OwnerId = usuario.Id;
         insert calce;
         final Calce_Details__c detail = new Calce_Details__c();
         detail.calce_id__c=calce.Id;
         detail.account_id__c=acc.Id;
         detail.product_id__c=prod.Id;
-        detail.Name='detail';
-        detail.CurrencyIsoCode='PEN';
+        detail.Name='detail2';
+        detail.CurrencyIsoCode=CURPEN;
         detail.amount__c=50000;
         detail.close_date__c=date.today();
-        detail.type__c='Indirect';
-        detail.product_code__c='CODE001';
+        detail.type__c=INDIRECT;
+        detail.product_code__c='CODE002';
         detail.sub_type__c='01';
         final List<sObject> lts = new List<sObject>();
         lts.add(detail);
@@ -95,22 +98,21 @@ private class BE_CalceNewEarlyCancellations_Tst {
         update prod;
         final Opportunity opp = TestFactory.createOpportunity(acc.Id, System.UserInfo.getUserId());
         Final Calce__c calce = new Calce__c();
-        calce.Name = 'Test Calce';
+        calce.Name = 'Test Calce3';
         calce.close_date__c = Date.today();
         calce.start_date__c = Date.today();
-        calce.status__c = 'Iniciado';
         insert calce;
         final Calce_Details__c detail = new Calce_Details__c();
         detail.calce_id__c=calce.Id;
         detail.opportunity_id__c=opp.Id;
         detail.account_id__c=acc.Id;
         detail.product_id__c=prod.Id;
-        detail.Name='detail';
-        detail.CurrencyIsoCode='PEN';
+        detail.Name='detail3';
+        detail.CurrencyIsoCode=CURPEN;
         detail.amount__c=50000;
         detail.close_date__c=date.today();
-        detail.type__c='Indirect';
-        detail.product_code__c='CODE001';
+        detail.type__c=INDIRECT;
+        detail.product_code__c='CODE003';
         detail.sub_type__c='01';
         Final List<sObject> lts = new List<sObject>();
         lts.add(detail);
@@ -141,25 +143,24 @@ private class BE_CalceNewEarlyCancellations_Tst {
             pdf__c = true,
             price_penalty__c = true,
             risk_sanction__c = true,
-            type__c = 'Indirect');
+            type__c = INDIRECT);
         insert prd;
         Final Calce__c calce = new Calce__c();
-        calce.Name = 'Test Calce';
+        calce.Name = 'Test Calce4';
         calce.close_date__c = Date.today();
         calce.start_date__c = Date.today();
-        calce.status__c = 'Iniciado';
         calce.OwnerId = usuario.Id;
         insert calce;
         final Calce_Details__c detail = new Calce_Details__c();
         detail.calce_id__c=calce.Id;
         detail.account_id__c=acc.Id;
         detail.product_id__c=prd.Id;
-        detail.Name='detail';
-        detail.CurrencyIsoCode='PEN';
+        detail.Name='detail4';
+        detail.CurrencyIsoCode=CURPEN;
         detail.amount__c=50000;
         detail.close_date__c=date.today();
-        detail.type__c='Indirect';
-        detail.product_code__c='CODE001';
+        detail.type__c=INDIRECT;
+        detail.product_code__c='CODE004';
         detail.sub_type__c='01';
         Final List<sObject> lts = new List<sObject>();
         lts.add(detail);

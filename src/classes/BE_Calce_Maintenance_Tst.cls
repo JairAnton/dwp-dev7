@@ -56,26 +56,10 @@ private class BE_Calce_Maintenance_Tst {
 		}
 		insert groupList;
         
-        final Account acc = new Account();
-        acc.Name = 'MyAccount';
-        insert acc;
-        final Opportunity opp = new Opportunity(
-            Name = 'XXX Test',
-            CloseDate = Date.today().addDays(1),
-            StageName = 'Prospecting',
-            Amount = 111111,
-            AccountId = acc.id
-        );
-        insert opp;
-        final Opportunity opp2 = new Opportunity(
-            Name = 'XXX Test2',
-            CloseDate = Date.today().addDays(1),
-            StageName = 'Prospecting',
-            Amount = 111111,
-            AccountId = acc.id
-        );
-        insert opp2;
-        final Product2 prd = new Product2(
+        final Account acc = TestFactory.createAccount();
+        final Opportunity opp1 = TestFactory.createOpportunity(acc.Id, System.UserInfo.getUserId());
+        final Opportunity opp2 = TestFactory.createOpportunity(acc.Id, System.UserInfo.getUserId());
+        final Product2 prod1 = new Product2(
             Name = 'Carta de crédito de exportación',
             ProductCode = 'PC00015',
             Description = 'Producto code 15',
@@ -88,8 +72,8 @@ private class BE_Calce_Maintenance_Tst {
             price_penalty__c = true,
             risk_sanction__c = true,
             type__c = 'Indirect');
-        insert prd;
-        final Product2 prd2 = new Product2(
+        insert prod1;
+        final Product2 prod2 = new Product2(
             Name = 'Comex importación (manual)	',
             ProductCode = 'PC00002',
             Description = 'Producto code 02',
@@ -102,39 +86,9 @@ private class BE_Calce_Maintenance_Tst {
             price_penalty__c = true,
             risk_sanction__c = true,
             type__c = 'Direct');
-        insert prd2;
-        final PriceBookEntry pbe = new PriceBookEntry(
-            Product2Id = prd.Id,
-            PriceBook2Id = Test.getStandardPricebookId(),
-            UnitPrice = 1,
-            UseStandardPrice = false,
-            IsActive = true
-        );
-        insert pbe;
-        final PriceBookEntry pbe2 = new PriceBookEntry(
-            Product2Id = prd2.Id,
-            PriceBook2Id = Test.getStandardPricebookId(),
-            UnitPrice = 1,
-            UseStandardPrice = false,
-            IsActive = true
-        );
-        insert pbe2;
-        final OpportunityLineItem oli = new OpportunityLineItem(
-            OpportunityId = opp.Id,
-            Product2Id = prd.Id,
-            Quantity = 1,
-            TotalPrice = 123,
-            PriceBookEntryId = pbe.Id
-        );
-        insert oli;
-        final OpportunityLineItem oli2 = new OpportunityLineItem(
-            OpportunityId = opp2.Id,
-            Product2Id = prd2.Id,
-            Quantity = 1,
-            TotalPrice = 123,
-            PriceBookEntryId = pbe2.Id
-        );
-        insert oli2;
+        insert prod2;
+        TestFactory.createOLI(opp1.Id, prod1.Id);
+        TestFactory.createOLI(opp2.Id, prod2.Id);
         
         Final Calce__c calce = new Calce__c();
         calce.Name = 'Test Calce close';
@@ -151,9 +105,9 @@ private class BE_Calce_Maintenance_Tst {
         calceDetail1.amount__c = 80000;
         calceDetail1.amount_cancelled__c = 50000;
         calceDetail1.extension__c = false;
-        calceDetail1.opportunity_id__c = opp.Id;
+        calceDetail1.opportunity_id__c = opp1.Id;
         calceDetail1.product_code__c = 'PC00015';
-        calceDetail1.product_id__c = prd.Id;
+        calceDetail1.product_id__c = prod1.Id;
         calceDetail1.product_name__c = 'Carta de crédito de exportación';
         calceDetail1.return__c = false;
         calceDetail1.sub_type__c = '01';
@@ -167,7 +121,7 @@ private class BE_Calce_Maintenance_Tst {
         calceDetail2.extension__c = false;
         calceDetail2.opportunity_id__c = opp2.Id;
         calceDetail2.product_code__c = 'PC00002';
-        calceDetail2.product_id__c = prd2.Id;
+        calceDetail2.product_id__c = prod2.Id;
         calceDetail2.product_name__c = 'Comex importación';
         calceDetail2.return__c = true;
         calceDetail2.sub_type__c = '03';
