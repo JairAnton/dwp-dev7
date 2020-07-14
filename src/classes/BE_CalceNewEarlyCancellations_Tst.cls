@@ -5,8 +5,9 @@
    @Date 2020-06-21
    @Description Test class from BE_CalceNewEarlyCancellations_Ctr
    @Changes
-   Date        Author   Email                  				Type
+   Date        Author   Email                  				Type		Description
    2020-06-21  MAMC     martin.mori.contractor@bbva.com    	Creation
+   2020-07-14  MAMC     martin.mori.contractor@bbva.com    	Modify		add fail methods to correct coverage test
    -------------------------------------------------------------------------------------------------
  */
 @isTest
@@ -47,10 +48,47 @@ private class BE_CalceNewEarlyCancellations_Tst {
     }
     
     /**
-    @Description test method deleteRecords
+    @Description test method createRecords fail
     */
     @isTest
-    public static void deleteRecordsTest() {
+    public static void createRecordsFailTest() {
+        Final User usuario = TestFactory.createUser('TestUser1', 'Ejecutivo');
+        final Account acc = TestFactory.createAccount();
+        final Product2 prod = TestFactory.createProduct();
+        prod.IsActive = true;
+        update prod;
+        final Calce__c calce = new Calce__c();
+        calce.Name = 'Test Calce';
+        calce.close_date__c = Date.today();
+        calce.start_date__c = Date.today();
+        calce.status__c = 'Iniciado';
+        calce.OwnerId = usuario.Id;
+        insert calce;
+        final Calce_Details__c detail = new Calce_Details__c();
+        detail.calce_id__c=calce.Id;
+        detail.account_id__c=acc.Id;
+        detail.product_id__c=prod.Id;
+        detail.Name='detail';
+        detail.CurrencyIsoCode='PEN';
+        detail.amount__c=50000;
+        detail.close_date__c=date.today();
+        detail.type__c='Indirect';
+        detail.product_code__c='CODE001';
+        detail.sub_type__c='01';
+        final List<sObject> lts = new List<sObject>();
+        lts.add(detail);
+        Test.StartTest();
+        final BE_CalceNewEarlyCancellations_Ctr cancellEarly = new BE_CalceNewEarlyCancellations_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.createRecords(lts);
+        System.assert(!resp.isSuccess, 'error!!!');
+        test.stopTest();
+    }
+    
+    /**
+    @Description test method deleteRecords fail
+    */
+    @isTest
+    public static void deleteRecordsFailTest() {
         final Account acc = TestFactory.createAccount();
         final Product2 prod = TestFactory.createProduct();
         prod.IsActive = true;
@@ -80,7 +118,56 @@ private class BE_CalceNewEarlyCancellations_Tst {
         Test.StartTest();
         final BE_CalceNewEarlyCancellations_Ctr cancellEarly = new BE_CalceNewEarlyCancellations_Ctr();
         final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.deleteRecords(lts);
-        System.assert(!resp.isSuccess, 'success!!!');
+        System.assert(!resp.isSuccess, 'error!!!');
+        test.stopTest();
+    }
+    
+    /**
+    @Description test method deleteRecords
+    */
+    @isTest
+    public static void deleteRecordsTest() {
+        Final User usuario = TestFactory.createUser('TestUser1', 'Ejecutivo');
+        final Account acc = TestFactory.createAccount();
+        final Product2 prd = new Product2(
+            Name = 'Carta de crédito de exportación',
+            ProductCode = 'PC00015',
+            Description = 'Producto code 15',
+            IsActive = true,
+            Family = 'Riesgo de firma',
+            Type_of_quote__c = 'Carta de credito',
+            Unique_id__c = '0292430',
+            formalization__c = true,
+            pdf__c = true,
+            price_penalty__c = true,
+            risk_sanction__c = true,
+            type__c = 'Indirect');
+        insert prd;
+        Final Calce__c calce = new Calce__c();
+        calce.Name = 'Test Calce';
+        calce.close_date__c = Date.today();
+        calce.start_date__c = Date.today();
+        calce.status__c = 'Iniciado';
+        calce.OwnerId = usuario.Id;
+        insert calce;
+        final Calce_Details__c detail = new Calce_Details__c();
+        detail.calce_id__c=calce.Id;
+        detail.account_id__c=acc.Id;
+        detail.product_id__c=prd.Id;
+        detail.Name='detail';
+        detail.CurrencyIsoCode='PEN';
+        detail.amount__c=50000;
+        detail.close_date__c=date.today();
+        detail.type__c='Indirect';
+        detail.product_code__c='CODE001';
+        detail.sub_type__c='01';
+        Final List<sObject> lts = new List<sObject>();
+        lts.add(detail);
+        insert lts;
+        Test.StartTest();
+        final BE_CalceNewEarlyCancellations_Ctr cancellEarly = new BE_CalceNewEarlyCancellations_Ctr();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = cancellEarly.deleteRecords(lts);
+        System.assert(resp.isSuccess, 'success!!!');
         test.stopTest();
     }
 }

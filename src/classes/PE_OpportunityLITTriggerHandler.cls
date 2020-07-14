@@ -2,8 +2,10 @@
    @Autor: Arsenio Perez Lopez
    @Proyect: BBVA PERU
    @Version:1
-   @HIstorial de cambios:
-   - Creacion del Handler
+   @Changes
+   Date        Author   Email                  				Type		Description
+            ISV												Creation
+   2020-07-14  MAMC     martin.mori.contractor@bbva.com    	Modify		add call to method setProductVersion
  */
 public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
 	list<OpportunityLineItem> Opps_New = Trigger.new;
@@ -14,6 +16,7 @@ public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
 	public Override void beforeInsert() {
 		new OpportunityLineItem_Trigger_cls().AsignBeforeInsert(Opps_New);
 		new OpportunityLineItem_Trigger_cls().updateDateLine(Opps_New);
+		new OpportunityLineItem_Trigger_cls().setProductVersion(Opps_New);
 	}
 
 	public Override void beforeUpdate() {

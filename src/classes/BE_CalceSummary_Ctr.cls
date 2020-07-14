@@ -5,8 +5,9 @@
    @Date 2020-02-24
    @Description Class Ctr for NewOpportunities
    @Changes
-    Date        Author   Email                  Type
-    2020-06-21  LMBR     lolo.bravo@bbva.com    Creation
+    Date        Author   Email                  			Type		Description
+    2020-06-21  LMBR     lolo.bravo@bbva.com    			Creation
+	2020-07-14  MAMC     martin.mori.contractor@bbva.com    Modify		add Stand_by__c field
    ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_CalceSummary_Ctr {
@@ -21,7 +22,7 @@ private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
     */
     @AuraEnabled(cacheable=false)
     public static SObject getSummaryCalce(String recordId) {
-        return [SELECT Id,status__c, portfolio_loss__c,direct_early_cancellations__c,indirect_early_cancellations__c,direct_regular_cancellations__c,indirect_regular_cancellations__c,credit_letter__c,bond_letter__c,comex__c,desc_letter_bill__c,leasing__c,net_direct_calce__c,net_indirect_calce__c,short_term_loan__c,long_term_loan__c,sub_total_direct__c,sub_total_indirect__c,portfolio_recovery__c,CurrencyIsoCode FROM Calce__c WHERE Id=: recordId];
+        return [SELECT Id,status__c, portfolio_loss__c,direct_early_cancellations__c,indirect_early_cancellations__c,direct_regular_cancellations__c,indirect_regular_cancellations__c,credit_letter__c,bond_letter__c,comex__c,desc_letter_bill__c,leasing__c,net_direct_calce__c,net_indirect_calce__c,short_term_loan__c,long_term_loan__c,sub_total_direct__c,sub_total_indirect__c,portfolio_recovery__c,CurrencyIsoCode,Stand_by__c FROM Calce__c WHERE Id=: recordId];
     }
     /**
    @Description update Calce

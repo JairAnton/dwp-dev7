@@ -5,12 +5,177 @@
    @Date 2020-06-21
    @Description Test class from BE_Calce_Create_Batch, BE_Calce_Close_Batch, BE_Delete_Close_Batch
    @Changes
-   Date        Author   Email                  				Type
+   Date        Author   Email                  				Type		Description
    2020-06-21  MAMC     martin.mori.contractor@bbva.com    	Creation
+   2020-07-14  MAMC     martin.mori.contractor@bbva.com    	Modify		add setupData method
    -------------------------------------------------------------------------------------------------
  */
 @isTest
 private class BE_Calce_Maintenance_Tst {
+	/**@Description TestSetup for generated data to use in the test methods*/
+	@TestSetup
+	static void setupData() {
+        final User executiveUser = TestFactory.createUser('UserOwnerTest01', 'Ejecutivo');
+        executiveUser.IsActive = true;
+        executiveUser.prof_position_id__c = 'E03';
+		final User assitantUser = TestFactory.createUser('UserAssitantTest011', 'Ejecutivo');
+        assitantUser.IsActive = true;
+        final List<User> ltsUser = new List<User>();
+        ltsUser.add(executiveUser);
+        ltsUser.add(assitantUser);
+        update ltsUser;
+        final User userAux = [SELECT Id, Name, ManagerId FROM User WHERE IsActive = TRUE AND Profile.Name = 'Ejecutivo' AND prof_position_id__c IN ('E03', 'I32') LIMIT 1][0];
+		final User_Assistant_Team__c assistant = new User_Assistant_Team__c(assistant_id__c = assitantUser.id, user_id__c = userAux.id);
+		insert assistant;
+        
+		final dwp_frct__management_plan__c plan = new dwp_frct__management_plan__c(Name = 'PlaPPGoNE',
+                                                                                   OwnerId = userAux.Id,
+                                                                                   dwp_frct__management_plan_start_date__c = Date.today().addDays(-1),
+                                                                                   dwp_frct__management_plan_end_date__c = Date.today());
+        insert plan;
+		final List<dwp_frct__grouping__c> groupList = new List<dwp_frct__grouping__c>();
+		final List<BE_FamilyGroupingForecast__c> faProdLst = new List<BE_FamilyGroupingForecast__c>();
+		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Financiamiento a corto plazo'));
+		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Financiamiento a largo plazo'));
+		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Recursos'));
+		faProdLst.add(new BE_FamilyGroupingForecast__c(Name = 'Riesgo de firma'));
+		upsert faProdLst;
+		final Map<String, BE_FamilyGroupingForecast__c>familyProductMap = BE_FamilyGroupingForecast__c.getAll();
+		for(String typeFamily: familyProductMap.keySet()) {
+			groupList.add(new dwp_frct__grouping__c(
+							  dwp_frct__management_plan_id__c = plan.Id,
+							  dwp_frct__solution_category_type__c = typeFamily,
+							  dwp_frct__management_expected_drop_amount__c = 100,
+							  dwp_frct__opportunity_amortization_amount__c = 100,
+							  dwp_frct__opportunity_antcp_expiry_amount__c = 100,
+							  dwp_frct__opportunity_cancellation_amount__c = 100,
+							  dwp_frct__opportunity_closed_amount__c = 100,
+							  dwp_frct__opportunity_selected_tot_amount__c = 100,
+							  dwp_frct__original_commitment_amount__c = 100
+							  ));
+		}
+		insert groupList;
+        
+        final Account acc = new Account();
+        acc.Name = 'MyAccount';
+        insert acc;
+        final Opportunity opp = new Opportunity(
+            Name = 'XXX Test',
+            CloseDate = Date.today().addDays(1),
+            StageName = 'Prospecting',
+            Amount = 111111,
+            AccountId = acc.id
+        );
+        insert opp;
+        final Opportunity opp2 = new Opportunity(
+            Name = 'XXX Test2',
+            CloseDate = Date.today().addDays(1),
+            StageName = 'Prospecting',
+            Amount = 111111,
+            AccountId = acc.id
+        );
+        insert opp2;
+        final Product2 prd = new Product2(
+            Name = 'Carta de crédito de exportación',
+            ProductCode = 'PC00015',
+            Description = 'Producto code 15',
+            IsActive = true,
+            Family = 'Riesgo de firma',
+            Type_of_quote__c = 'Carta de credito',
+            Unique_id__c = '0292430',
+            formalization__c = true,
+            pdf__c = true,
+            price_penalty__c = true,
+            risk_sanction__c = true,
+            type__c = 'Indirect');
+        insert prd;
+        final Product2 prd2 = new Product2(
+            Name = 'Comex importación (manual)	',
+            ProductCode = 'PC00002',
+            Description = 'Producto code 02',
+            IsActive = true,
+            Family = 'Financiamiento a corto plazo	',
+            Type_of_quote__c = 'COTIZA Beta	',
+            Unique_id__c = '0161720	',
+            formalization__c = true,
+            pdf__c = true,
+            price_penalty__c = true,
+            risk_sanction__c = true,
+            type__c = 'Direct');
+        insert prd2;
+        final PriceBookEntry pbe = new PriceBookEntry(
+            Product2Id = prd.Id,
+            PriceBook2Id = Test.getStandardPricebookId(),
+            UnitPrice = 1,
+            UseStandardPrice = false,
+            IsActive = true
+        );
+        insert pbe;
+        final PriceBookEntry pbe2 = new PriceBookEntry(
+            Product2Id = prd2.Id,
+            PriceBook2Id = Test.getStandardPricebookId(),
+            UnitPrice = 1,
+            UseStandardPrice = false,
+            IsActive = true
+        );
+        insert pbe2;
+        final OpportunityLineItem oli = new OpportunityLineItem(
+            OpportunityId = opp.Id,
+            Product2Id = prd.Id,
+            Quantity = 1,
+            TotalPrice = 123,
+            PriceBookEntryId = pbe.Id
+        );
+        insert oli;
+        final OpportunityLineItem oli2 = new OpportunityLineItem(
+            OpportunityId = opp2.Id,
+            Product2Id = prd2.Id,
+            Quantity = 1,
+            TotalPrice = 123,
+            PriceBookEntryId = pbe2.Id
+        );
+        insert oli2;
+        
+        Final Calce__c calce = new Calce__c();
+        calce.Name = 'Test Calce close';
+        calce.close_date__c = Date.today();
+        calce.start_date__c = Date.today();
+        calce.status__c = 'Iniciado';
+        calce.Indirect_commitment__c = 10;
+        calce.Direct_commitment__c = 10;
+        insert calce;
+        final List<Calce_Details__c> ltsCalceDetail = new List<Calce_Details__c>();
+        final Calce_Details__c calceDetail1 = new Calce_Details__c();
+        calceDetail1.calce_id__c = calce.Id;
+        calceDetail1.account_id__c = acc.Id;
+        calceDetail1.amount__c = 80000;
+        calceDetail1.amount_cancelled__c = 50000;
+        calceDetail1.extension__c = false;
+        calceDetail1.opportunity_id__c = opp.Id;
+        calceDetail1.product_code__c = 'PC00015';
+        calceDetail1.product_id__c = prd.Id;
+        calceDetail1.product_name__c = 'Carta de crédito de exportación';
+        calceDetail1.return__c = false;
+        calceDetail1.sub_type__c = '01';
+        calceDetail1.type__c = 'Indirect';
+        ltsCalceDetail.add(calceDetail1);
+        final Calce_Details__c calceDetail2 = new Calce_Details__c();
+        calceDetail2.calce_id__c = calce.Id;
+        calceDetail2.account_id__c = acc.Id;
+        calceDetail2.amount__c = 500000;
+        calceDetail2.amount_cancelled__c = 300000;
+        calceDetail2.extension__c = false;
+        calceDetail2.opportunity_id__c = opp2.Id;
+        calceDetail2.product_code__c = 'PC00002';
+        calceDetail2.product_id__c = prd2.Id;
+        calceDetail2.product_name__c = 'Comex importación';
+        calceDetail2.return__c = true;
+        calceDetail2.sub_type__c = '03';
+        calceDetail2.type__c = 'Direct';
+        ltsCalceDetail.add(calceDetail2);
+        insert ltsCalceDetail;
+	}
+	
     /**
     @Description test method for BE_Calce_Create_Batch class
     */
@@ -42,14 +207,6 @@ private class BE_Calce_Maintenance_Tst {
     */
     @isTest
     public static void closeCalceTest() {
-        Final Calce__c calce = new Calce__c();
-        calce.Name = 'Test Calce close1';
-        calce.close_date__c = Date.today();
-        calce.start_date__c = Date.today();
-        calce.status__c = 'Iniciado';
-        calce.Indirect_commitment__c = 10;
-        calce.Direct_commitment__c = 10;
-        insert calce;
         Test.StartTest();
         final BE_Calce_Close_BS calceCloSch = new BE_Calce_Close_BS();
         system.schedule('Test Sched calce close', '0 0 20 * * ?', calceCloSch);

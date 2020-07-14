@@ -5,8 +5,9 @@
    @Date 2020-06-21
    @Description Batchable class for close all calce
    @Changes
-   Date        Author   Email                  				Type
+   Date        Author   Email                  				Type		Description
    2020-06-21  MAMC     martin.mori.contractor@bbva.com    	Creation
+   2020-07-14  MAMC     martin.mori.contractor@bbva.com    	Modify		add logic to create opps to early cancelation
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_Calce_Close_Batch implements Database.Batchable<sObject> {    
@@ -33,9 +34,9 @@ public without sharing class BE_Calce_Close_Batch implements Database.Batchable<
         }
         update lstCalce;
         Map<Id,Opportunity> mapOppInsert = new Map<Id,Opportunity>();
-        final Map<Id, Decimal> mapOpps = new Map<Id, Decimal>();
-        for(Calce_Details__c detail : [SELECT Id, Opportunity_id__c, portfolio_fall_balance__c FROM Calce_Details__c WHERE Calce_id__c IN :ids AND portfolio_fall_balance__c > 0 AND sub_type__c IN ('01', '03')]) {
-            mapOpps.put(detail.Opportunity_id__c, detail.portfolio_fall_balance__c);
+        final Map<Id, Calce_Details__c> mapOpps = new Map<Id, Calce_Details__c>();
+        for(Calce_Details__c detail : [SELECT Id, Opportunity_id__c, portfolio_fall_balance__c, sub_type__c FROM Calce_Details__c WHERE Calce_id__c IN :ids AND portfolio_fall_balance__c > 0 AND sub_type__c IN ('01', '03')]) {
+            mapOpps.put(detail.Opportunity_id__c, detail);
         }
         for(Opportunity opp : [SELECT Id, AccountId,Amount,Description,LeadSource,CurrencyIsoCode,Name,OwnerId,Pricebook2Id,
                                Probability,StageName,Type,Budget_Confirmed__c,Discovery_Completed__c,isProcess__c,Opportunity_of_campaign_type__c,
@@ -47,13 +48,18 @@ public without sharing class BE_Calce_Close_Batch implements Database.Batchable<
                                success_probability_desc__c,Support_currency__c,dwp_kitv__TrackingNumber__c,frm_ContractNumber__c,
                                contract_id__c,renewal_contract_currency__c,rejection_reason_id__c,opportunity_product__c,
                                opportunity_product_family__c,renewal_contract_id__c,sio_code__c,sio_status_type__c FROM Opportunity WHERE Id IN :mapOpps.keySet() ORDER BY Id]) {
-                                   opp.Amount=mapOpps.get(opp.Id);
-                                   opp.renewal_contract_amount__c=mapOpps.get(opp.Id);
+                                   opp.Amount = mapOpps.get(opp.Id).portfolio_fall_balance__c;
+                                   opp.renewal_contract_amount__c = mapOpps.get(opp.Id).portfolio_fall_balance__c;
                                    opp.StageName = '02';
                                    opp.opportunity_status_type__c = '03';
-                                   opp.Field_Sup_Closing_Date__c = Date.today().addDays(1);
-                                   opp.opportunity_expiry_date__c=Date.today().addDays(1);
-                                   opp.CloseDate = Date.today().addDays(1);
+                                   if(mapOpps.get(opp.Id).sub_type__c=='01') {
+                                       opp.Field_Sup_Closing_Date__c = Date.today().addDays(1);
+                                       opp.opportunity_expiry_date__c = Date.today().addDays(1);
+                                       opp.CloseDate = Date.today().addDays(1);
+                                   } else {
+                                       opp.Field_Sup_Closing_Date__c = opp.opportunity_expiry_date__c;
+                                       opp.CloseDate = opp.opportunity_expiry_date__c;
+                                   }
                                    mapOppInsert.put(opp.Id,opp.clone(false,false,false,false));
                                }
         insert mapOppInsert.values();
@@ -86,7 +92,7 @@ public without sharing class BE_Calce_Close_Batch implements Database.Batchable<
                                        price_quote_status_id__c,tcf_beneficiary__c,Siocode__c,fprd__GBL_ClonedFromId__c FROM OpportunityLineItem WHERE OpportunityId IN :mapOpps.keySet() ORDER BY OpportunityId]) {
                                            OpportunityLineItem auxOli = new OpportunityLineItem();
                                            auxOli = oli.clone(false,false,false,false);
-                                           auxOli.UnitPrice=mapOpps.get(oli.OpportunityId);
+                                           auxOli.UnitPrice=mapOpps.get(oli.OpportunityId).portfolio_fall_balance__c;
                                            auxOli.OpportunityId=mapOppInsert.get(oli.OpportunityId).Id;
                                            ltsOli.add(auxOLI);
                                }
