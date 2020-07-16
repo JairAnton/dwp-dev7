@@ -87,7 +87,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 			for(OpportunityLineItem oppItem : [SELECT Id,Product2.Name,OpportunityId,Opportunity.Name,Opportunity.Amount,
 			                                   Opportunity.CloseDate,Opportunity.Account.Name,Opportunity.AccountId,toLabel(Opportunity.StageName),Product2Id,Product2.type__c,ProductCode,
 			                                   Opportunity.CurrencyIsoCode FROM OpportunityLineItem WHERE Opportunity.Type=:oppType AND Product2.type__c IN:(productTypes) AND Opportunity.StageName NOT IN:(CLOSE_OPP) AND
-			                                   Opportunity.OwnerId=:calce.OwnerId AND Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c AND Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
+			                                   Opportunity.Account.OwnerId=:calce.OwnerId AND Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c AND Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
 				final Calce_Details__c targetDetail=new Calce_Details__c(
 					calce_id__c=calce.Id,
 					Name=oppItem.Opportunity.Name,
