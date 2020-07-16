@@ -5,8 +5,9 @@
    @Date 2020-06-21
    @Description Class Helper for create and update Calce Details
    @Changes
-    Date        Author   Email                  Type
-    2020-06-21  LMBR     lolo.bravo@bbva.com    Creation
+    Date        Author   Email                  			Type		Description
+    2020-06-21  LMBR     lolo.bravo@bbva.com    			Creation
+	2020-07-14  MAMC     martin.mori.contractor@bbva.com	Modify		remove CreatedDate filter in updatePortfolioFall method
    ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_CalceDetailManger_Helper {
@@ -181,14 +182,11 @@ public with sharing class BE_CalceDetailManger_Helper {
 				calceDetailsMap.put(cDetItem.account_contract_id__c,cDetItem);
 			}
             final Map<Id,Calce_Details__c>oldContracts=calceDetailsMap;
-			final DateTime dtContract = [SELECT CreatedDate FROM Account_Contract__c ORDER BY CreatedDate DESC LIMIT 1][0].CreatedDate;
-			final Date dateFilter = date.newinstance(dtContract.year(), dtContract.month(), dtContract.day());
 			for(Account_Contract__c contract : [SELECT ID, CURRENCYISOCODE, F_VCTO__C, GF_TL_BAL_CONTRACT_OC_AMOUNT__C, GF_LC_CONTRACT_LC_AMOUNT__C, CONTRACT_ID__C, solution_expiry_type__c,
 			                                    SOLUTION_CATEGORY_NAME__C, ACCOUNT_ID__C, ACCOUNT_ID__R.NAME, subproduct_type__c FROM Account_Contract__C
-			                                    WHERE PRODUCT_TYPE__C='01' AND ACCOUNT_ID__r.OwnerId = :calce.OwnerId AND DAY_ONLY(CREATEDDATE) = :dateFilter
-			                                    AND ((SOLUTION_CATEGORY_NAME__C IN ('PRESTAMOS EMPRESAS', 'LETRAS', 'FORFAITING', 'FACTORING', 'COMEX IMPORTACION', 'COMEX EXPORTACION') AND UNPAID_DAYS__C >= 16 AND UNPAID_DAYS__C <= :numDayOther)OR
-			                                    (SOLUTION_CATEGORY_NAME__C = 'CARTAS FIANZAS' AND UNPAID_DAYS__C >= 15 AND UNPAID_DAYS__C <= :numDayCart) OR
-			                                    (SOLUTION_CATEGORY_NAME__C = 'LEASING' AND UNPAID_DAYS__C >= 90 AND UNPAID_DAYS__C <= :numDayLeas))]) {
+			                                    WHERE PRODUCT_TYPE__C='01' AND ACCOUNT_ID__r.OwnerId = :calce.OwnerId AND ((SOLUTION_CATEGORY_NAME__C = 'LEASING' AND UNPAID_DAYS__C >= 90 AND UNPAID_DAYS__C <= :numDayLeas) OR
+                                                (SOLUTION_CATEGORY_NAME__C IN ('PRESTAMOS EMPRESAS', 'LETRAS', 'FORFAITING', 'FACTORING', 'COMEX IMPORTACION', 'COMEX EXPORTACION') AND UNPAID_DAYS__C >= 16 AND UNPAID_DAYS__C <= :numDayOther) OR
+			                                    (SOLUTION_CATEGORY_NAME__C = 'CARTAS FIANZAS' AND UNPAID_DAYS__C >= 15 AND UNPAID_DAYS__C <= :numDayCart))]) {
 				Calce_Details__c targetDetail = new Calce_Details__c();
 				targetDetail.calce_id__c=calce.Id;
 				targetDetail.sub_type__c=calceType;

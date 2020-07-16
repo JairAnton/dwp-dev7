@@ -204,7 +204,19 @@
                             </div>
                         </div>
                     </lightning-layout-item>
-                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="6"
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
+                        padding="around-small">
+                        <div class="slds-col slds-text-align_left">
+                            <label class="slds-form-element__label" for="text-input-id-1">Stand by</label>
+                            <div class="slds-form-element__control">
+                                <lightning-formatted-number value={calce.Stand_by__c} format-style="currency"
+                                    currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                    minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                </lightning-formatted-number>
+                            </div>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
                         padding="around-small"></lightning-layout-item>
                     <!--CALCE VALUES INDIRECT-->
                     <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="3"
@@ -243,7 +255,7 @@
                             <label class="slds-form-element__label" for="text-input-id-1">Sub Total
                                 Indirectas</label>
                             <div class="slds-form-element__control">
-                                <lightning-icon icon-name="utility:erect_window" variant="error" size="x-small"
+                                <lightning-icon icon-name="utility:add" variant="success" size="x-small"
                                     alternative-text="Approved" title="Approved"></lightning-icon>
                                 <lightning-formatted-number value={calce.sub_total_indirect__c} format-style="currency"
                                     currency-code={calce.CurrencyIsoCode} currency-display-as="code"

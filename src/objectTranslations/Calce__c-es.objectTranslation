@@ -8,6 +8,10 @@
         <plural>true</plural>
         <value>Calce</value>
     </caseValues>
+	<fields>
+        <label>Stand by</label>
+        <name>Stand_by__c</name>
+    </fields>
     <fields>
         <label>Carta Fianza</label>
         <name>bond_letter__c</name>

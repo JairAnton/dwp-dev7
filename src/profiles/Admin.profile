@@ -1983,6 +1983,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Calce__c.Stand_by__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Calce__c.bond_letter__c</field>
         <readable>true</readable>
     </fieldPermissions>

@@ -7,10 +7,11 @@
    @Date 2019-09-13
    @Description Class Helper for Trigger for OpportunityLineItem(OLI)
    @Changes
-   Date        Author   Email                  Type
-            ISV								Creation
-   2019-11-04  LMBR     lolo.bravo@bbva.com    Modify
-   2019-11-05  MAMC     martin.mori.contractor@bbva.com    Modify
+   Date        Author   Email                  				Type		Description
+            ISV												Creation
+   2019-11-04  LMBR     lolo.bravo@bbva.com    				Modify
+   2019-11-05  MAMC     martin.mori.contractor@bbva.com    	Modify		
+   2020-07-14  MAMC     martin.mori.contractor@bbva.com    	Modify		add method setProductVersion
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class OpportunityLineItem_Trigger_cls {
@@ -39,6 +40,29 @@ public without sharing class OpportunityLineItem_Trigger_cls {
 			}
 		}
 	}
+	
+	/**
+	   @Description Method used to map productVersionId to OpportunityLineItem
+	 */
+	public void addProductVersion(List<OpportunityLineItem> olis) {
+        final Set<String> proIds = new Set<String>();
+        for(OpportunityLineItem oli : olis) {
+            if(oli.fprd__GBL_Product_version__c == null) {
+                proIds.add(oli.Product2Id);
+            }
+        }
+        if(!proIds.isEmpty()) {
+			final Map<String, Id> mapProdVersion = new Map<String, Id>();
+            for(fprd__GBL_Product_version__c prodVersion : [SELECT fprd__Product__c, Id FROM fprd__GBL_Product_version__c WHERE fprd__Active__c = TRUE AND fprd__Product__c IN :proIds]) {
+                mapProdVersion.put(prodVersion.fprd__Product__c, prodVersion.Id);
+            }
+            for(OpportunityLineItem oli : olis) {
+                if(oli.fprd__GBL_Product_version__c == null) {
+                    oli.fprd__GBL_Product_version__c = mapProdVersion.get(oli.Product2Id);
+                }
+            }
+        }
+    }
 
 	public void MasteRecord_Guarantee(list<OpportunityLineItem> Opps_New) {
 		if(Opps_New[0].gipr_Tipo_Garantia__c == '01' || Opps_New[0].gipr_Tipo_Garantia__c == '02' || Opps_New[0].gipr_Tipo_Garantia__c == '04') {

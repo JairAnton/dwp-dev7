@@ -5,8 +5,9 @@
    @Date 2020-06-21
    @Description Class Ctr for EarlyCancellations
    @Changes
-    Date        Author   Email                  Type
-    2020-06-21  LMBR     lolo.bravo@bbva.com    Creation
+    Date        Author   Email                  			Type		Description
+    2020-06-21  LMBR     lolo.bravo@bbva.com    			Creation
+	2020-07-14  MAMC     martin.mori.contractor@bbva.com	Modify		change to Exception for DMLException in catch sections
    ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_CalceEarlyCancellations_Ctr extends BE_SingleRelatedListCRUD_Cls {
@@ -35,7 +36,7 @@ public with sharing class BE_CalceEarlyCancellations_Ctr extends BE_SingleRelate
 			res.isSuccess = true;
 			res.message = messages.get(UserInfo.getLanguage());
 			res.data=resData;
-		} catch (Exception ex) {
+		} catch (DMLException ex) {
 			res.isSuccess=false;
 			res.message=ex.getDmlMessage(0);
 		}
@@ -58,7 +59,7 @@ public with sharing class BE_CalceEarlyCancellations_Ctr extends BE_SingleRelate
 			messages.put(LANG_CODE[1], 'Early cancellations saved successfully.');
 			res.isSuccess = true;
 			res.message = messages.get(UserInfo.getLanguage());
-		} catch (Exception ex) {
+		} catch (DMLException ex) {
 			res.isSuccess=false;
 			res.message=ex.getDmlMessage(0);
 		}
