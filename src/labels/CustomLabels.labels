@@ -397,6 +397,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx</value>
     </labels>
     <labels>
+        <fullName>Error_InvalidExtensionType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_InvalidExtensionType</shortDescription>
+        <value>No puede agregar este tipo de archivo.</value>
+    </labels>
+    <labels>
         <fullName>GenericCustomLabel</fullName>
         <language>en_US</language>
         <protected>false</protected>

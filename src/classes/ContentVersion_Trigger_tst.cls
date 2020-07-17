@@ -12,23 +12,21 @@
 @isTest
 public class ContentVersion_Trigger_tst {
 
+    /** Test Method preventUploadExtnsFiles*/
     public static testmethod void preventUploadExtnsFiles() {
         //Creación de ContentVersion
-        ContentVersion cvInsert = new ContentVersion(Title = 'Test', PathOnClient = 'Test.csv', VersionData = Blob.valueOf('Test ContentVersion'), IsMajorVersion = true);
-        insert cvInsert;
-        ContentVersion contentVersionSelect = [SELECT Id, Title, ContentDocumentId FROM ContentVersion WHERE Id = :cvInsert.Id LIMIT 1];
-        ContentDocument contntDocument = [SELECT Id, Title, LatestPublishedVersionId FROM ContentDocument LIMIT 1];
+        insert new ContentVersion(Title = 'Test', PathOnClient = 'Test.csv', VersionData = Blob.valueOf('Test ContentVersion'), IsMajorVersion = true);
+        Final ContentDocument contntDocument = [SELECT Id, Title, LatestPublishedVersionId FROM ContentDocument LIMIT 1];
         //Test
         Test.startTest();
-        ContentVersion cvInsertV2 = new ContentVersion(Title = 'Test', PathOnClient = 'Test.exe', VersionData = Blob.valueOf('Test ContentVersion'), 
-                                                       IsMajorVersion = true, ContentDocumentId = contntDocument.Id);
         Boolean notInserted;
         try {
-            insert cvInsertV2;
+            insert new ContentVersion(Title = 'Test', PathOnClient = 'Test.exe', VersionData = Blob.valueOf('Test ContentVersion'), 
+                                                       IsMajorVersion = true, ContentDocumentId = contntDocument.Id);
         } catch(Exception e) {
             notInserted = true;
         }
         Test.stopTest();
-        System.assert(notInserted);
+        System.assert(notInserted, 'Assertion Error');
     }
 }
