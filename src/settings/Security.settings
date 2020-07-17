@@ -52,7 +52,7 @@
         <lockerServiceCSP>false</lockerServiceCSP>
         <redirectionWarning>false</redirectionWarning>
         <referrerPolicy>true</referrerPolicy>
-        <requireHttpOnly>true</requireHttpOnly>
+        <requireHttpOnly>false</requireHttpOnly>
         <requireHttps>true</requireHttps>
         <securityCentralKillSession>true</securityCentralKillSession>
         <sessionTimeout>TwoHours</sessionTimeout>
