@@ -390,6 +390,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Historial de seguimiento</value>
     </labels>
     <labels>
+        <fullName>Extensions_Allowed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Extensions_Allowed</shortDescription>
+        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx</value>
+    </labels>
+    <labels>
         <fullName>GenericCustomLabel</fullName>
         <language>en_US</language>
         <protected>false</protected>
