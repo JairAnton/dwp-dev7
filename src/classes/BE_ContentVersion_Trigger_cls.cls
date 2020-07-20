@@ -9,10 +9,10 @@
  *
  * @author Diego Carbajal
  */
-public without sharing class ContentVersion_Trigger_cls {
+public without sharing class BE_ContentVersion_Trigger_cls {
 
     /* Private Constructor*/
-    private ContentVersion_Trigger_cls() {}
+    private BE_ContentVersion_Trigger_cls() {}
     
     /**
 	*Method preventUploadExtnsFiles for prevent determinate extensions file*/

@@ -23,6 +23,6 @@ public without sharing class ContentVersion_Handler_cls extends TriggerHandler {
     /* Method beforeInsert*/
     @TestVisible
     protected override void beforeInsert() {
-        ContentVersion_Trigger_cls.preventUploadExtnsFiles(newCV);
+        BE_ContentVersion_Trigger_cls.preventUploadExtnsFiles(newCV);
     }
 }
