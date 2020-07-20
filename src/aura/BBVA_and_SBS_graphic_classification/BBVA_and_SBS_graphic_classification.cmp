@@ -9,10 +9,13 @@
     <aura:attribute name="Per" type="List"/>
     <aura:attribute name="SBS" type="List"/>
     <aura:attribute name="valoresBBVA" type="List"/>
+	<ltng:require scripts="{!join(',',
+                           $Resource.ChartJS + '/chartjs/Chart.bundle.js',
+                           $Resource.ChartJS + '/chartjs/Chart.js'
+                           )}" afterScriptsLoaded="{!c.init}" />
     <div class="slds-scrollable">
         <div class="container">
             <canvas id="DWPChart" />
         </div>
     </div>
-    <ltng:require scripts="{!$Resource.ChartJS23}" afterScriptsLoaded="{!c.init}"/> 
-    </aura:component>
+</aura:component>
