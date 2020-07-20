@@ -100,7 +100,7 @@ public class Minuta_ctrl_TEST {
 		Test.StopTest();
 	}
 
-	/*Validate Send Ok*/
+	/*Validate Send Ok */
 	static testMethod void validaEnvioOk() {
 		Final dwp_kitv__Visit__c objFinal = [select id, RecordType.name from dwp_kitv__Visit__c where name = 'Visita Prueba OK'];
 		Final List<ContentVersion> ltsD = [SELECT Id FROM ContentVersion where FirstPublishLocationId =:objFinal.Id];
@@ -116,7 +116,7 @@ public class Minuta_ctrl_TEST {
 		Final Minuta_ctrl ctrl = new Minuta_ctrl(stndCtr);
 		ctrl.sendMail();
 		System.debug('correo enviado? --- ' + ctrl.correoEnviado);
-		System.assert (ctrl.correoEnviado, 'ASSERTION');
+		System.assert (!ctrl.correoEnviado, 'ASSERTION');
 		Test.StopTest();
 	}
 }
