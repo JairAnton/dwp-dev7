@@ -10,8 +10,8 @@
     <aura:attribute name="SBS" type="List"/>
     <aura:attribute name="valoresBBVA" type="List"/>
 	<ltng:require scripts="{!join(',',
-                           $Resource.ChartJS + '/chartjs/Chart.bundle.js',
-                           $Resource.ChartJS + '/chartjs/Chart.js'
+                           $Resource.ChartjsAP + '/chartjs/Chart.bundle.js',
+                           $Resource.ChartjsAP + '/chartjs/Chart.js'
                            )}" afterScriptsLoaded="{!c.init}" />
     <div class="slds-scrollable">
         <div class="container">
