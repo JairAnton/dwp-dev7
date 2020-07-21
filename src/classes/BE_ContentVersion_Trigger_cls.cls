@@ -19,8 +19,7 @@ public without sharing class BE_ContentVersion_Trigger_cls {
     public static void preventUploadExtnsFiles(List<ContentVersion> newLstCV) {
         for(ContentVersion cVersion:newLstCV) {
             Final Integer indexDot = cVersion.PathOnClient.lastIndexOf('.');
-            if(indexDot > 0 && !String.isEmpty(cVersion.ContentDocumentId) && 
-               !System.Label.Extensions_Allowed.split(',').contains(cVersion.PathOnClient.mid(indexDot+1,cVersion.PathOnClient.length()-1))) {
+            if(indexDot > 0 && !System.Label.Extensions_Allowed.split(',').contains(cVersion.PathOnClient.mid(indexDot+1,cVersion.PathOnClient.length()-1))) {
                 cVersion.addError(System.Label.Error_InvalidExtensionType);
             }
         }
