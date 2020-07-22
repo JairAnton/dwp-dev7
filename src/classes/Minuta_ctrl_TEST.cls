@@ -116,7 +116,7 @@ public class Minuta_ctrl_TEST {
 		Final Minuta_ctrl ctrl = new Minuta_ctrl(stndCtr);
 		ctrl.sendMail();
 		System.debug('correo enviado? --- ' + ctrl.correoEnviado);
-		System.assert (!ctrl.correoEnviado, 'ASSERTION');
+		System.assert (ctrl.correoEnviado, 'ASSERTION');
 		Test.StopTest();
 	}
 }
