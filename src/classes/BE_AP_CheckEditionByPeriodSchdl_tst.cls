@@ -172,7 +172,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 	private static void setPriority(Date inicio, Date fin, Integer leftDays) {
 		delete [SELECT Id FROM acpl__AP_PeriodConfiguration__c LIMIT 10];
 		delete [SELECT Id FROM acpl__AP_Period__c LIMIT 10];
-		insert new acpl__AP_PeriodConfiguration__c(acpl__gf_ap_edit_prms_type_name__c = 'Priority',
+		insert new acpl__AP_PeriodConfiguration__c(acpl__gf_ap_edit_prms_type_name__c = 'Wave',
 		                                           acpl__gf_ap_edit_days_left_number__c = leftDays,
 		                                           acpl__gf_ap_genrl_lock_edit_ind_type__c = false);
 		Final List<acpl__AP_Period__c> period = new List<acpl__AP_Period__c> {new acpl__AP_Period__c(acpl__gf_ap_edit_start_date__c = inicio, 

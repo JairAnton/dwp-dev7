@@ -209,8 +209,14 @@
                     <label>General</label>
                 </value>
                 <value>
+                    <fullName>Wave</fullName>
+                    <default>false</default>
+                    <label>Prioridad</label>
+                </value>
+                <value>
                     <fullName>Priority</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Priority</label>
                 </value>
             </valueSetDefinition>
