@@ -2,7 +2,7 @@ import { LightningElement, track, wire, api } from 'lwc';
 import { refreshApex } from '@salesforce/apex';
 import { NavigationMixin } from 'lightning/navigation';
 import { loadScript } from 'lightning/platformResourceLoader';
-import chart from '@salesforce/resourceUrl/ChartJS23';
+import chart from '@salesforce/resourceUrl/ChartjsAP';
 import getAvgMthBal from '@salesforce/apex/BE_AccountIncomeGraphic_Ctr.getAvgMthBal';
 import findReport from '@salesforce/apex/BE_AccountIncomeGraphic_Ctr.findReport';
 import labelViewReport from '@salesforce/label/c.BE_ViewReport';
@@ -190,7 +190,7 @@ export default class bE_AccountIncomeGraphic_Lwc extends NavigationMixin(Lightni
             return;
         }
         this.chartjsInitialized = true;
-        loadScript(this, chart)
+        loadScript(this, chart + '/chartjs/Chart.js')
             .then(() => {
                 const canvas = document.createElement('canvas');
                 var divNode = this.template.querySelector('div.chart');

@@ -184,7 +184,7 @@ public virtual class Minuta_ctrl extends MinutaWrap {//NOSONAR
 		} catch(VisualforceException e) {
 			body = Blob.valueOf('Some Text');
 		}
-		Final Attachment attach = new Attachment(Body = body, Name = 'Minuta visita del ' + formatCurrentDate(Date.today()) + '.html', IsPrivate = false,
+		Final Attachment attach = new Attachment(Body = pdfMinuta.getContentAsPDF(), Name = 'Minuta visita del ' + formatCurrentDate(Date.today()) + '.pdf', IsPrivate = false,
 		                                         ParentId = visitObjNew.Id);
 		insert attach;
 		return attach.id;
