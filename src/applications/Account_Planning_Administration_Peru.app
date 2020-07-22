@@ -6,15 +6,51 @@
     </brand>
     <formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
-    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
-    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavAutoTempTabsDisabled>true</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
     <label>Administración de Planes de Cuentas</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <setupExperience>all</setupExperience>
     <tabs>AccountPlanning_AdminTab</tabs>
     <tabs>acpl__Account_Planning__c</tabs>
     <tabs>acpl__AP_PeriodConfiguration__c</tabs>
     <tabs>acpl__AP_Period__c</tabs>
     <tabs>acpl__AP_Question__c</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Administraci_n_de_Planes_de_Cuentas_UtilityBar</utilityBar>
 </CustomApplication>
