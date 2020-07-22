@@ -1,6 +1,6 @@
 /**
  * BE_AP_CheckEditionByPeriodBatchHandler for lock/unlock AP's
- * <p /><p />
+ * <p /><p/>
  * Modification log:<p />
  * -------------------------------------------------------------------
  * Developer                    Date                Description<p />
