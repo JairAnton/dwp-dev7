@@ -175,15 +175,6 @@ public virtual class Minuta_ctrl extends MinutaWrap {//NOSONAR
 		} else {
 			templateCnvtd2 = '';
 		}
-		Final String htmlBody2 = '<![CDATA[ <html lang="es">' +
-		                         '<meta content="text/html; " http-equiv="Content-Type" />' +
-		                         templateCnvtd2 + '</html>';
-		Blob body;
-		try {
-			body = Blob.valueOf(htmlBody2);
-		} catch(VisualforceException e) {
-			body = Blob.valueOf('Some Text');
-		}
 		Final Attachment attach = new Attachment(Body = pdfMinuta.getContentAsPDF(), Name = 'Minuta visita del ' + formatCurrentDate(Date.today()) + '.pdf', IsPrivate = false,
 		                                         ParentId = visitObjNew.Id);
 		insert attach;
