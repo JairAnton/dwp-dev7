@@ -168,14 +168,13 @@ public virtual class Minuta_ctrl extends MinutaWrap {//NOSONAR
 		PageReference pdfMinuta = Page.Minuta;
 		pdfMinuta.getParameters().put('id', visitObjNew.Id);
 		pdfMinuta.setRedirect(true);
-		String templateCnvtd2 = '';
-		//String templateCnvtd2 = pdfMinuta.getContent().tostring();
+		Blob body;
 		if(!test.isRunningTest()) {
-			templateCnvtd2 = pdfMinuta.getContent().tostring();
+			body = pdfMinuta.getContentAsPDF();
 		} else {
-			templateCnvtd2 = '';
+			body = Blob.valueOf('Some Text');
 		}
-		Final Attachment attach = new Attachment(Body = pdfMinuta.getContentAsPDF(), Name = 'Minuta visita del ' + formatCurrentDate(Date.today()) + '.pdf', IsPrivate = false,
+		Final Attachment attach = new Attachment(Body = body, Name = 'Minuta visita del ' + formatCurrentDate(Date.today()) + '.pdf', IsPrivate = false,
 		                                         ParentId = visitObjNew.Id);
 		insert attach;
 		return attach.id;
