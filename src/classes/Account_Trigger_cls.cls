@@ -65,7 +65,7 @@ public without sharing class Account_Trigger_cls {
             ownerIds.add(acc.OwnerId);
         }
         //User Assistant Team list with the Owner Ids of the Account records
-        lstUsers = [Select Id, user_id__c, assistant_id__c from User_Assistant_Team__c where user_id__c IN :ownerIds AND user_id__r.isActive=true];    
+        lstUsers = [Select Id, user_id__c, assistant_id__c from User_Assistant_Team__c where user_id__c IN :ownerIds AND user_id__r.isActive=true AND assistant_id__r.isActive=true];    
         for(Account acc : accsNew) {
             for(User_Assistant_Team__c userAT : lstUsers) {
                 //If the Owner Id of the Account record is equal than user_id__c field on User_Assistant_Team__c record, it will create a new AccountTeamMember record
