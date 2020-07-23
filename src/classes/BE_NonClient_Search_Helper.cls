@@ -1,26 +1,39 @@
+/**
+----------------------------------------------------------------------------------------------------
+@Name <BE_NonClient_Search_Helper>
+@Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
+@Date 2020-02-24
+@Description Class "BE_NonClient_Search_Helper"
+@Changes
+    Date        Author   Email                  Type        
+    2020-07-21  LMBR     lolo.bravo@bbva.com    Creation   
+----------------------------------------------------------------------------------------------------
+*/
 public with sharing class BE_NonClient_Search_Helper {
     /** StatusCode Code */
     private static final List<String> VISIT_LANGUAGE = new List<String> {'es','en_US'};
+    static Map<String,String> messages;
+    /** private constructor*/
+    private BE_NonClient_Search_Helper () {}
     /**
    @Description search NonClient in API REST "ListBusiness"
    @param  acc is Non Client record
    @return Response Class  with Non Client Record (Account)
     */
     public static Response searchNonClient(Account acc) {
-        final Map<String,String> messages = new Map<String,String>();
-        Response res=new Response();
+        messages = new Map<String,String>();
+        final Response res=new Response();
         //final BE_SearchNonClient_REST.Params paramClient=new BE_SearchClient_REST.Params();
         final Map<String, Object> placeholderMap = placeholderGenerator(acc);
         final BE_NonClient_Search_REST clientSrv=new BE_NonClient_Search_REST();
         final System.HttpResponse response=clientSrv.invoke(placeholderMap);
         System.debug('###responseNonsearchCliente####'+response);
         System.debug('###responseNonsearchBody####'+response.getBody());
-        final String json=response.getBody();
         switch on response.getStatusCode() {
             when 200 {
-                BE_NonClient_Search_REST.Data dataRes = clientSrv.parseSuccess(response.getBody()).data[0];
+                final BE_NonClient_Search_REST.Data dataRes = clientSrv.parseSuccess(response.getBody()).data[0];
                 System.debug('####dataRes##'+dataRes);
-                Account nonClient=new Account(Name=dataRes.legalName,accountNumber=dataRes.businessDocuments.documentNumber,non_client_code__c=dataRes.id);
+                final Account nonClient=new Account(Name=dataRes.legalName,accountNumber=dataRes.businessDocuments.documentNumber,non_client_code__c=dataRes.id);
                 res.isExistNonClient=true;
                 res.isSuccess=true;
                 res.acc=nonClient;
@@ -54,7 +67,7 @@ public with sharing class BE_NonClient_Search_Helper {
     @param  Account acc
     @return Map<String, Object> with the nonClient
     */
-    private static Map<String, Object>placeholderGenerator (Account acc) {
+    private static Map<String, Object> placeholderGenerator (Account acc) {
 	final Map<String, Object>placeholderMap=new Map<String, Object>();
     placeholderMap.put('documentNumber', acc.AccountNumber); 
     return placeholderMap;

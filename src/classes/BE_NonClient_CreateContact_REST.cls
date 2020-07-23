@@ -59,6 +59,7 @@ public without sharing class BE_NonClient_CreateContact_REST {
     
     /** ContactDetails Class */
     public class ContactDetails {
+        /** attribute */ 
 		public Contact contact {set;get;}
         /** attribute */ 
         public Boolean isPreferential {set;get;}

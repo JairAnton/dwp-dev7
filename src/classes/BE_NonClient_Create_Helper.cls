@@ -13,17 +13,10 @@
 public without sharing class BE_NonClient_Create_Helper {
 /** key Header wich contains the code of NonClient */
 private final static Map<String,String> KEY_HEADERS = new  Map<String,String> {'location'=>'location','warning' => 'responsewarningdescription'};
-/** StatusCode Code */
-private static final Integer SUCCESS_STATUS = 204;
-/** StatusCode Code */
-private static final Integer FUNC_STATUS = 400;
-/** Message exit in Aplha */
-private static final String EXIST_ERROR = 'YA EXISTE EL NO CLIENTE';
-
-/** private constructor */
-private BE_NonClient_Create_Helper () {}
 /** response */
 static Response res;
+/** private constructor */
+private BE_NonClient_Create_Helper () {}
 /**
    @Description create NonClient in API REST "CreateNonBusiness"
    @param  nonClient is record of NonClient type BE_CreateNonClient_REST.Params Class
@@ -35,17 +28,24 @@ public static Response createNonClient(BE_NonClient_Create_REST.Params nonClient
 	final Id recordTypeId =Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Record_Type_Non_Client').getRecordTypeId();
 	final BE_NonClient_Create_REST nonClientSrv=new BE_NonClient_Create_REST(nonClient);
 	final System.HttpResponse response=nonClientSrv.invoke();
-	System.debug('CLIENT RESPONSE');
 	System.debug(response.getBody());
-	if(response.getStatusCode()==SUCCESS_STATUS) {
-		res.codeTrx=response.getHeader(KEY_HEADERS.get('location'));
-		res.codeTrx=res.codeTrx.substringAfterLast('/');
-		final Account acc=nonClient.acc;
-		acc.RecordTypeId=recordTypeId;
-		acc.OwnerId=UserInfo.getUserId();
-		acc.non_client_code__c=res.codeTrx;
-        System.debug('###Accc###'+acc);
-		res.isSuccess=true;
+    switch on response.getStatusCode() {
+			when 204 {
+				res.codeTrx=response.getHeader(KEY_HEADERS.get('location'));
+				res.codeTrx=res.codeTrx.substringAfterLast('/');
+				final Account acc=nonClient.acc;
+				acc.RecordTypeId=recordTypeId;
+				acc.OwnerId=UserInfo.getUserId();
+				acc.non_client_code__c=res.codeTrx;
+        		System.debug('###Accc###'+acc);
+				res.isSuccess=true;
+            }
+        	when 400 {
+                res.isSuccess=false;
+            }
+        	when 500 {
+                res.isSuccess=false;
+            }
     }
 	return res;
 }

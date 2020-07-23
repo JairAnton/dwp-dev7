@@ -27,44 +27,28 @@ public without sharing  class BE_NonClient_Search_REST {
     public Data_Wrapper parseSuccess(String json) { 
         return (Data_Wrapper) System.JSON.deserialize(json, Data_Wrapper.Class);
     }
-
-    /**
-    @Description parse the response of API REST when it's error
-    @param json wich contains the body response of API REST
-    @return  ClientResponseError_Wrapper
-    */
-    public ResponseError_Wrapper parseError(String json) {
-        return (ResponseError_Wrapper) System.JSON.deserialize(json, ResponseError_Wrapper.Class);
-    }
+    
+    /** Data Class */
     public class Data_Wrapper {
-        public List<Data> data {set;get;}
-    }
-	
-	public class Data {
-		public String id {set;get;}
-		public String legalName {set;get;}
-		public String creationDate {set;get;}
-		public BusinessDocuments businessDocuments {set;get;}
+        /** attribute */ public List<Data> data;
     }
     
-    public class BusinessDocumentType {
-		public String id {set;get;}
-	}
-
-	public class BusinessDocuments {
-		public String documentNumber {set;get;}
-		public BusinessDocumentType businessDocumentType {set;get;}
-	}
-
-    public class ResponseError_Wrapper {
-        /** attribute */ public Integer version {set;get;}
-        /** attribute */ public String severity {set;get;}
-        /** attribute */ public Integer httpstatus {set;get;}
-        /** attribute */ public String errorcode {set;get;}
-        /** attribute */ public String errormessage {set;get;}
-        /** attribute */ public String consumerrequestid {set;get;}
-        /** attribute */ public String systemerrorcode {set;get;}
-        /** attribute */ public String systemerrordescription {set;get;}
-        /** attribute */ public String systemerrorcause {set;get;}
+	/** Data Class */
+	public class Data {
+		/** attribute */ public String id;
+		/** attribute */ public String legalName;
+		/** attribute */ public String creationDate;
+		/** attribute */ public BusinessDocuments businessDocuments;
     }
+    
+    /** BusinessDocumentType Class*/
+    public class BusinessDocumentType {
+		/** attribute */ public String id;
+	}
+    
+	/** BusinessDocuments Class */
+	public class BusinessDocuments {
+		/** attribute */ public String documentNumber;
+		/** attribute */ public BusinessDocumentType businessDocumentType;
+	}
 }

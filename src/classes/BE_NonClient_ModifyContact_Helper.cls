@@ -10,10 +10,10 @@
    ----------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_NonClient_ModifyContact_Helper {
-/** Non Client Exist in Alpha Code */
-private static final String EXIST_CODE = 'EXISTENOCLIENTE';
 /** Lang Code */
 private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
+/** messages */
+static Map<String,String> messages;
 /** private constructor */
 private BE_NonClient_ModifyContact_Helper () {
 }
@@ -24,19 +24,12 @@ private BE_NonClient_ModifyContact_Helper () {
  */
 public static BE_SingleRelatedListCRUD_Cls.Response  modifyNonClientContact(SObject sObj) {
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
-	final Map<String,String>messages= new Map<String,String>();
+	messages= new Map<String,String>();
 	try {
 		final AccountContactRelation nonClientRel=[SELECT Account.non_client_code__c,contact_code__c FROM AccountContactRelation WHERE Id=:sObj.Id];
-		if(EXIST_CODE.equals(nonClientRel.Account.non_client_code__c)) {
-			update sObj;
-			messages.put(LANG_CODE[0], 'Contacto actualizado correctamente');
-			messages.put(LANG_CODE[1], 'Contact updated successfull');
-			res.isSuccess=true;
-			res.message=messages.get(UserInfo.getLanguage());
-		} else {
-			final Map<String, Object>placeholderMap= placeholderGenerator((AccountContactRelation)sObj);
-			final BE_NonClient_ModifyContact_REST request=new BE_NonClient_ModifyContact_REST();
-			final System.HttpResponse response=request.invoke(placeholderMap);
+		final Map<String, Object>placeholderMap= placeholderGenerator((AccountContactRelation)sObj);
+		final BE_NonClient_ModifyContact_REST request=new BE_NonClient_ModifyContact_REST();
+		final System.HttpResponse response=request.invoke(placeholderMap);
 			switch on response.getStatusCode() {
 				when 204 {
 					update sObj;
@@ -58,7 +51,6 @@ public static BE_SingleRelatedListCRUD_Cls.Response  modifyNonClientContact(SObj
 					res.message=messages.get(UserInfo.getLanguage());
 				}
 			}
-		}
 	} catch (DmlException ex) {
 		res.isSuccess=false;
 		res.message=ex.getDmlMessage(0);

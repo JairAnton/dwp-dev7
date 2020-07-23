@@ -16,8 +16,6 @@ private static final String GRANT_TICKET = 'GrantingTickets';
 /** GrantingTickets */
 private static final String CACHE_PARTITION = 'local.CredentialsPeru';
 /** GrantingTickets */
-private static final String API_NAME = 'ListClients';
-/** GrantingTickets */
 private static final String RUC_ACC = '20876543262';
 /** GrantingTickets */
 private static final String URL_GT = 'https://validation/ok';

@@ -16,6 +16,8 @@ final static String KEY_HEADER='location';
 private static final String DETAIL_TYPELAN='LANDLINE';
 /** Lang Code */
 private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
+/** messages */
+static Map<String,String> messages ;
 /** private constructor */
 private BE_NonClient_CreateContact_Helper () {
 }
@@ -28,7 +30,7 @@ public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContactRel(A
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
 	final Map<String, Object> placeholderMap=placeholderGeneratorAccConRel(nonClientCon);
     System.debug('##placeholderMap##'+placeholderMap);
-	final Map<String,String> messages= new Map<String,String>();
+	messages= new Map<String,String>();
 	final Integer existCounter=[SELECT COUNT() FROM AccountContactRelation WHERE AccountId=:nonClientCon.AccountId AND ContactId=:nonClientCon.ContactId];
 	if(existCounter==0) {
 			final BE_NonClient_CreateContact_REST request=new BE_NonClient_CreateContact_REST();
@@ -77,9 +79,8 @@ public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContactRel(A
  */
 public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContact(Contact contact,String accId) {
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
-	final Map<String,String> messages= new Map<String,String>();
+	messages= new Map<String,String>();
 	try {
-			final String codeNonClient=[SELECT non_client_code__c FROM Account WHERE Id=:accId].non_client_code__c;
 			final Map<String, Object>placeholderMap=placeholderGeneratorContact(contact,accId);
 			final BE_NonClient_CreateContact_REST request=new BE_NonClient_CreateContact_REST();
 			final System.HttpResponse response=request.invoke(placeholderMap);

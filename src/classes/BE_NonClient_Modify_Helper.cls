@@ -10,10 +10,10 @@
    ----------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_NonClient_Modify_Helper {
-/** Non Client Exist in Alpha Code */
-private static final String EXIST_CODE = 'EXISTENOCLIENTE';
 /** Lang Code */
 private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
+/** Mesagge */
+static Map<String,String> messages;
 /** private constructor */
 private BE_NonClient_Modify_Helper () {}
 /**
@@ -25,21 +25,9 @@ public static BE_SingleRelatedListCRUD_Cls.Response  modifyNonClient(Account acc
 	final Map<String,String>messages= new Map<String,String>();
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
 	final String nonClientCode=[SELECT non_client_code__c FROM Account WHERE Id=:acc.Id].non_client_code__c;
-	if(EXIST_CODE.equals(nonClientCode)) {
-		try {
-			update acc;
-			messages.put(LANG_CODE[0], 'No cliente actualizado correctamente');
-			messages.put(LANG_CODE[1], 'Non Client updated successfull');
-			res.isSuccess=true;
-			res.message=messages.get(UserInfo.getLanguage());
-		} catch (DmlException ex) {
-			res.isSuccess=false;
-			res.message=ex.getDmlMessage(0);
-		}
-	} else {
-		final Map<String, Object>placeholderMap = placeholderGenerator(acc);
-		final BE_NonClient_Modify_REST request=new BE_NonClient_Modify_REST();
-		final System.HttpResponse response=request.invoke(placeholderMap);
+	final Map<String, Object>placeholderMap = placeholderGenerator(acc);
+	final BE_NonClient_Modify_REST request=new BE_NonClient_Modify_REST();
+	final System.HttpResponse response=request.invoke(placeholderMap);
 		switch on response.getStatusCode() {
 			when 204 {
 				try {
@@ -73,7 +61,6 @@ public static BE_SingleRelatedListCRUD_Cls.Response  modifyNonClient(Account acc
 				res.isSuccess=false;
 				res.message=messages.get(UserInfo.getLanguage());
 			}
-		}
 	}
 	return res;
 }

@@ -13,6 +13,8 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     
     /** StatusCode Code */
     private static final List<String> VISIT_LANGUAGE = new List<String> {'es','en_US'};
+    /** messages */
+    static Map<String,String> messages;
     /** private constructor */
     //private BE_NonClient_Ctr() {}
     /**
@@ -68,7 +70,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
        /** code */
        public String code {set;get;}
 		/* Constructor whith params */
-       public WrapperAccount (){}
+       public WrapperAccount () {}
        /* Constructor whith params */
         public WrapperAccount (String clientID, String clientName, String ownerID) {
             this.clientLink   = '/lightning/r/Account/' + clientID + '/view';
@@ -89,20 +91,17 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     try {
         //Savepoint sp = Database.setSavepoint();
         final List<String> sObjNames=new List<String>{'Account'};
-        final Map<String,Schema.RecordTypeInfo> recordType=BE_General_Utils.getRecordTypeInfo(sObjNames);
-        client.recordTypeId=recordType.get('Record_Type_Non_Client').getRecordTypeId();
-        //Database.rollback(sp);
         System.debug('#####client###'+client);
-        final Map<String,String> messages= new Map<String,String>();
+        messages = new Map<String,String>();
         //final Boolean isRucValid=BE_SearchClient_Helper.validateRUC(client.AccountNumber);
-        BE_NonClient_Search_Helper.Response nonClientRes= BE_NonClient_Search_Helper.searchNonClient(client);
+        final BE_NonClient_Search_Helper.Response nonClientRes= BE_NonClient_Search_Helper.searchNonClient(client);
         System.debug('###nonClientRes###'+nonClientRes);
         if(nonClientRes.isSuccess && nonClientRes.isExistNonClient) {
             System.debug('###nonClientRes###'+nonClientRes);
            	objRespuesta.status='success';
          	objRespuesta.message=nonClientRes.message;
             objRespuesta.nonClientCode=nonClientRes.acc.non_client_code__c;
-        } else if (nonClientRes.isSuccess && nonClientRes.isExistNonClient==false) {
+       } else if (nonClientRes.isSuccess && nonClientRes.isExistNonClient==false) {
             final BE_NonClient_Create_REST.Params param=new BE_NonClient_Create_REST.Params();
            	param.acc=client;
          	final BE_NonClient_Create_Helper.Response res=BE_NonClient_Create_Helper.createNonClient(param);
@@ -114,7 +113,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
      		} else {
               	objRespuesta.status='error';
                	objRespuesta.message=res.message;
-        	}
+            }
         }  else {
             messages.put(VISIT_LANGUAGE[0], 'Servicio no disponible, porfavor intentar mas tarde.');
             messages.put(VISIT_LANGUAGE[1], 'Service not available, please try later.');
