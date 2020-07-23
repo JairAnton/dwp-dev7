@@ -37,23 +37,23 @@ public without sharing  class BE_NonClient_Search_REST {
         return (ResponseError_Wrapper) System.JSON.deserialize(json, ResponseError_Wrapper.Class);
     }
     public class Data_Wrapper {
-        public List<Data> data;
+        public List<Data> data {set;get;}
     }
 	
 	public class Data {
-		public String id;
-		public String legalName;
-		public String creationDate;
-		public BusinessDocuments businessDocuments;
+		public String id {set;get;}
+		public String legalName {set;get;}
+		public String creationDate {set;get;}
+		public BusinessDocuments businessDocuments {set;get;}
     }
     
     public class BusinessDocumentType {
-		public String id;
+		public String id {set;get;}
 	}
 
 	public class BusinessDocuments {
-		public String documentNumber;
-		public BusinessDocumentType businessDocumentType;
+		public String documentNumber {set;get;}
+		public BusinessDocumentType businessDocumentType {set;get;}
 	}
 
     public class ResponseError_Wrapper {
