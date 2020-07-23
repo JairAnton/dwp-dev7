@@ -8113,6 +8113,10 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabSettings>
+        <tab>AccountPlanning_AdminTab</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>acpl__AP_PeriodConfiguration__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
+        <application>Account_Planning_Administration_Peru</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>DWP_Reunion_individual</application>
         <default>false</default>
         <visible>true</visible>
@@ -7330,6 +7335,10 @@
     </recordTypeVisibilities>
 	<tabVisibilities>
         <tab>Sites</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>AccountPlanning_AdminTab</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
