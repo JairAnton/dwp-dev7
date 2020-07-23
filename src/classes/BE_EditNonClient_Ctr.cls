@@ -46,6 +46,7 @@ public without sharing class BE_EditNonClient_Ctr {
 		return Database.query(String.escapeSingleQuotes(query));
 	}
 
+
 	/**
 	   @Description update Account
 	   @param  sObjs Account sObject
