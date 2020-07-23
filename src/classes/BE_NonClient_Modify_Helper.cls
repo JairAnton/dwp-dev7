@@ -22,9 +22,8 @@ private BE_NonClient_Modify_Helper () {}
    @return Object type BE_SingleRelatedListModal_Ctr.Response Class
  */
 public static BE_SingleRelatedListCRUD_Cls.Response  modifyNonClient(Account acc) {
-	final Map<String,String>messages= new Map<String,String>();
+	messages = new Map<String,String>();
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
-	final String nonClientCode=[SELECT non_client_code__c FROM Account WHERE Id=:acc.Id].non_client_code__c;
 	final Map<String, Object>placeholderMap = placeholderGenerator(acc);
 	final BE_NonClient_Modify_REST request=new BE_NonClient_Modify_REST();
 	final System.HttpResponse response=request.invoke(placeholderMap);

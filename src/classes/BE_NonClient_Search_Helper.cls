@@ -12,6 +12,7 @@
 public with sharing class BE_NonClient_Search_Helper {
     /** StatusCode Code */
     private static final List<String> VISIT_LANGUAGE = new List<String> {'es','en_US'};
+	/** messages */
     static Map<String,String> messages;
     /** private constructor*/
     private BE_NonClient_Search_Helper () {}

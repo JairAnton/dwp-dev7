@@ -12,6 +12,8 @@
 public with sharing class BE_NonClient_DeleteContact_Helper {
 /** Lang Code */
 private static final List<String>LANG_CODE = new List<String> {'es','en_US'};
+/** messages */
+static Map<String,String> messages;
 /** private constructor */
 private BE_NonClient_DeleteContact_Helper () {}
 /**
@@ -21,7 +23,7 @@ private BE_NonClient_DeleteContact_Helper () {}
  */
 public static BE_SingleRelatedListCRUD_Cls.Response  deleteNonClientContact(String accConId) {
 	final Map<String, Object>placeholderMap=new Map<String, Object>();
-	final Map<String,String>messages= new Map<String,String>();
+	messages= new Map<String,String>();
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
 	try {
 			final AccountContactRelation nonClientCon=[SELECT Id,Account.non_client_code__c,contact_code__c FROM AccountContactRelation WHERE Id=:accConId];

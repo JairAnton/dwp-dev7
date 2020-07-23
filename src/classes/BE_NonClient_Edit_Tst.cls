@@ -49,7 +49,7 @@ static void updateNonClientTestSucess() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 2","AccountNumber":"10212210244","email__c":"test@gmail.com","Website":"www.test.com","phone_area_code__c":"41","other_phone_number__c":"987654"}';
+	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 1","AccountNumber":"10212210244","email__c":"test@gmail.com","Website":"www.test.com","phone_area_code__c":"41","other_phone_number__c":"987654"}';
 	final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_NonClient_Edit_Ctr.updateNonClient(json);
 	System.assert (res.isSuccess,'Success Edit Non Client');
 	Test.stopTest();
@@ -79,7 +79,7 @@ static void updateNonClientTestError() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 2","AccountNumber":"10212210244"}';
+	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 3","AccountNumber":"10212210244"}';
 	final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_NonClient_Edit_Ctr.updateNonClient(json);
 	System.assert (!res.isSuccess,'Error Edit Non Client');
 	Test.stopTest();
@@ -97,7 +97,7 @@ static void updateNonClientTestException() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 2","AccountNumber":"10212210244","email__c":"test@gmail.com","Website":"www.test.com","phone_area_code__c":"00","other_phone_number__c":"987654"}';
+	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 4","AccountNumber":"10212210244","email__c":"test@gmail.com","Website":"www.test.com","phone_area_code__c":"00","other_phone_number__c":"987654"}';
 	final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_NonClient_Edit_Ctr.updateNonClient(json);
 	System.assert (!res.isSuccess,'Exception Non Client');
 	Test.stopTest();
@@ -115,7 +115,7 @@ static void updateNonClientAlphaTestError() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 2","AccountNumber":"10212210244","email__c":"test@gmail.com","Website":"www.test.com","phone_area_code__c":"00","other_phone_number__c":"987654"}';
+	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 5","AccountNumber":"10212210244","email__c":"test@gmail.com","Website":"www.test.com","phone_area_code__c":"00","other_phone_number__c":"987654"}';
 	final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_NonClient_Edit_Ctr.updateNonClient(json);
 	System.assert (!res.isSuccess,'Exception');
 	Test.stopTest();

@@ -15,6 +15,8 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     private static final List<String> VISIT_LANGUAGE = new List<String> {'es','en_US'};
     /** messages */
     static Map<String,String> messages;
+	/** lWrapper */
+	static List<WrapperAccount> lWrapper;
     /** private constructor */
     //private BE_NonClient_Ctr() {}
     /**
@@ -29,7 +31,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
         System.debug('strFieldNameCode$#####'+strFieldNameCode);
         System.debug('strFielValueCode$#####'+strFielValueCode);
         final BE_Client_Search_Helper.Response resClient=BE_Client_Search_Helper.searchClienteSF(strFielValueCode);
-        List<WrapperAccount> lWrapper = new List<WrapperAccount>();
+        lWrapper = new List<WrapperAccount>();
         System.debug('resClient####'+resClient);
         WrapperAccount wrpAcc=new WrapperAccount();
         if(resClient.isSuccess) {
@@ -89,9 +91,6 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     global static String validateNonCliente(Account client) {
     final ResultValidation objRespuesta =new ResultValidation();
     try {
-        //Savepoint sp = Database.setSavepoint();
-        final List<String> sObjNames=new List<String>{'Account'};
-        System.debug('#####client###'+client);
         messages = new Map<String,String>();
         //final Boolean isRucValid=BE_SearchClient_Helper.validateRUC(client.AccountNumber);
         final BE_NonClient_Search_Helper.Response nonClientRes= BE_NonClient_Search_Helper.searchNonClient(client);
@@ -114,7 +113,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
               	objRespuesta.status='error';
                	objRespuesta.message=res.message;
             }
-        }  else {
+        } else {
             messages.put(VISIT_LANGUAGE[0], 'Servicio no disponible, porfavor intentar mas tarde.');
             messages.put(VISIT_LANGUAGE[1], 'Service not available, please try later.');
             objRespuesta.status='error';

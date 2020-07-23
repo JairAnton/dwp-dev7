@@ -10,9 +10,9 @@
 ----------------------------------------------------------------------------------------------------
 */
 public without sharing  class BE_NonClient_Search_REST {
-        /**
+    /**
     @Description call REST API to modify NonClient
-    @param  Map<String, Object> placeholderMap 
+    @param  Map<String, Object> placeholderMap
     @return System.HttpResponse response
     */
     public System.HttpResponse invoke(Map<String, Object> placeholderMap) {
@@ -30,25 +30,27 @@ public without sharing  class BE_NonClient_Search_REST {
     
     /** Data Class */
     public class Data_Wrapper {
-        /** attribute */ public List<Data> data;
+        /** attribute */ public List<Data> data {set;get;}
     }
     
 	/** Data Class */
 	public class Data {
-		/** attribute */ public String id;
-		/** attribute */ public String legalName;
-		/** attribute */ public String creationDate;
-		/** attribute */ public BusinessDocuments businessDocuments;
+		/** attribute */ public String id {set;get;}
+		/** attribute */ public String legalName {set;get;}
+		/** attribute */ public String creationDate {set;get;}
+		/** attribute */ public BusinessDocuments businessDocuments {set;get;}
     }
     
     /** BusinessDocumentType Class*/
     public class BusinessDocumentType {
-		/** attribute */ public String id;
+		/** attribute */ public String id {set;get;}
 	}
     
 	/** BusinessDocuments Class */
 	public class BusinessDocuments {
-		/** attribute */ public String documentNumber;
-		/** attribute */ public BusinessDocumentType businessDocumentType;
+		/** attribute */ public String documentNumber {set;get;}
+		/** attribute */ public BusinessDocumentType businessDocumentType {set;get;}
 	}
 }
+
+
