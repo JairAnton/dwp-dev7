@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>CreateQuotationCommitment</label>
+    <label>CreateNonClient</label>
     <protected>false</protected>
     <values>
         <field>iaso__Authentication_Service__c</field>
@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>iaso__Custom_Setting__c</field>
-        <value xsi:type="xsd:string">CreateQuotationCommitment</value>
+        <value xsi:type="xsd:string">CreateNonClient</value>
     </values>
     <values>
         <field>iaso__Description__c</field>
@@ -45,13 +45,30 @@
     <values>
         <field>iaso__Json_Input_Template_LTA__c</field>
         <value xsi:type="xsd:string">{
-	&quot;product&quot;:{
-		&quot;id&quot; : &quot;#commitmentProductId#&quot;,
-		&quot;committedData&quot; : {
-			&quot;validityDays&quot; : &quot;#validityDays#&quot;,
-			&quot;unitValue&quot; : #unitValue#
-		}
-	}
+    &quot;legalName&quot;: &quot;#legalName#&quot;,
+    &quot;businessDocuments&quot;: [
+        {
+            &quot;documentNumber&quot;: &quot;#documentNumber#&quot;,
+            &quot;businessDocumentType&quot;: {
+                &quot;description&quot;: &quot;RUC&quot;,
+                &quot;id&quot;: &quot;RUC&quot;
+            },
+            &quot;isVerified&quot;: true,
+            &quot;country&quot;: {
+                &quot;id&quot;: &quot;PE&quot;
+            }
+        }
+    ],
+    &quot;contactDetails&quot;: [
+        {
+            &quot;isPreferential&quot;: true,
+            &quot;contact&quot;: {
+                &quot;receivesNotifications&quot;: true,
+                &quot;number&quot;: &quot;#phoneNumber#&quot;,
+                &quot;contactDetailType&quot;: &quot;LANDLINE&quot;
+            }
+        }
+    ]
 }</value>
     </values>
     <values>
@@ -60,7 +77,16 @@
     </values>
     <values>
         <field>iaso__Mock_LTA__c</field>
-        <value xsi:type="xsd:string">{}</value>
+        <value xsi:type="xsd:string">{
+    &quot;messages&quot;: [
+        {
+            &quot;code&quot;: &quot;unauthorized&quot;,
+            &quot;message&quot;: &quot;Unauthorized Access&quot;,
+            &quot;parameters&quot;: [],
+            &quot;type&quot;: &quot;FATAL&quot;
+        }
+    ]
+}</value>
     </values>
     <values>
         <field>iaso__Querystring_Input_Template_LTA_TEMP__c</field>
@@ -68,7 +94,7 @@
     </values>
     <values>
         <field>iaso__Querystring_Input_Template_LTA__c</field>
-        <value xsi:type="xsd:string">/requests/#quotationId#/quotations/#operationId#/commitments</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>iaso__Retrieve_Mock_LTA_TEMP__c</field>

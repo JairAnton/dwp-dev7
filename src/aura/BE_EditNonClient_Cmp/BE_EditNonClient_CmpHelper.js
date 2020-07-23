@@ -11,8 +11,9 @@
                 var ret = response.getReturnValue();
                 var locale = $A.get("$Locale.langLocale");
                 cmp.set('v.title', JSON.parse(ret.title)[locale]);
-                this.getNonClient(cmp, evt, ret.sObjectFields);
+                this.getNonClient(cmp, evt, ret.sObjectFields.fields);
             } else {
+                cmp.set("v.loaded", true);
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
         });
@@ -21,32 +22,42 @@
     getNonClient: function (cmp, evt, fields) {
         var action = cmp.get("c.getNonClient");
         var recordId = cmp.get("v.recordId");
+        var currentFields = [];
+        for (const iterator of fields) {
+            currentFields.push(iterator.fieldName);
+        }
         action.setParams({
             "accId": recordId,
-            "sObjFields": fields
+            "sObjFields": currentFields
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
-                var object = {
+                var targetObject = {
                     sObjectType: 'Account',
                     fields: []
-                }
+                };
                 for (const iterator of fields) {
-                    object.fields.push({
-                        fieldName: iterator,
-                        value: this.isNotEmpty(res[iterator]) ? res[iterator] : ''
+                    let targetField = iterator;
+                    Object.defineProperty(targetField, 'value', {
+                        enumerable: false,
+                        configurable: false,
+                        writable: false,
+                        value: res[iterator.fieldName]
                     });
+                    targetObject.fields.push(targetField);
                 }
-                cmp.set("v.sObjData", object);
+                cmp.set("v.sObjData", targetObject);
             } else {
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
+            cmp.set("v.loaded", true);
         });
         $A.enqueueAction(action);
     },
     updateNonClients: function (cmp, evt, sObjectUpdate) {
+        cmp.set("v.loaded", false);
         var action = cmp.get("c.updateNonClient");
         action.setParams({
             "sObjs": sObjectUpdate
@@ -55,7 +66,10 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
+                console.log('res');
+                console.log(res);
                 if (res.isSuccess) {
+                    this.showToast('Success', res.message, 'success');
                     this.closeModal(cmp, evt);
                 } else {
                     this.showToast('Error', res.message, 'error');
@@ -63,6 +77,7 @@
             } else {
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
+            cmp.set("v.loaded", true);
         });
         $A.enqueueAction(action);
     },
@@ -84,4 +99,5 @@
         const notEmpty = (obj === null || obj === undefined || obj === "") ? false : true;
         return notEmpty;
     }
+
 })
