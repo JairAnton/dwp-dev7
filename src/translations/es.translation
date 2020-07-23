@@ -1409,7 +1409,7 @@
         <name>acpl__AP_Timed_Out</name>
     </customLabels>
     <customLabels>
-        <label><!-- AP event date --></label>
+        <label>Fecha de renovación del programa financiero</label>
         <name>acpl__AP_event_date</name>
     </customLabels>
     <customLabels>
@@ -1709,7 +1709,7 @@
         <name>acpl__In_Progress</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lock Account Plan --></label>
+        <label>ha sido bloqueado. La edición no está permitida</label>
         <name>acpl__Lock_Account_Plan</name>
     </customLabels>
     <customLabels>
@@ -2035,6 +2035,10 @@
     <customLabels>
         <label>La nueva pregunta se ha creado con éxito.</label>
         <name>acpl__Txt_New_Question_Created</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Txt_No --></label>
+        <name>acpl__Txt_No</name>
     </customLabels>
     <customLabels>
         <label>Lo sentimos, ningún plan de cuenta cumple con los criterios especificados.</label>
@@ -2647,6 +2651,50 @@
 	<customLabels>
         <label>No se pudo actualizar el estado de la oportunidad al estado &quot;Precio Aprobado&quot;.</label>
         <name>Error_letter_of_credit</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>dyfr__Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Editar</label>
+        <name>dyfr__Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Error inesperado. Por favor, contacte a su administrador.</label>
+        <name>dyfr__ErrorServer</name>
+    </customLabels>
+    <customLabels>
+        <label>el valor del campo es invalido, no debe ser menor que</label>
+        <name>dyfr__InferiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label>Cargando</label>
+        <name>dyfr__LoadingRecord</name>
+    </customLabels>
+    <customLabels>
+        <label>es un campo obligatorio</label>
+        <name>dyfr__MandatoryField</name>
+    </customLabels>
+    <customLabels>
+        <label>Todos los cambios sin guardarn se perderán, esta seguro que quieres cerrar ?</label>
+        <name>dyfr__ModalCloseConfirmation</name>
+    </customLabels>
+    <customLabels>
+        <label>Modificar</label>
+        <name>dyfr__Modify</name>
+    </customLabels>
+    <customLabels>
+        <label>Guardar</label>
+        <name>dyfr__Save</name>
+    </customLabels>
+    <customLabels>
+        <label>el valor de este campo es invalido, no debe ser mayor a</label>
+        <name>dyfr__SuperiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label>El registro se ha guardado satisfactoriamente.</label>
+        <name>dyfr__ToastSavedOk</name>
     </customLabels>
     <customLabels>
         <label>Asignarme petición</label>
