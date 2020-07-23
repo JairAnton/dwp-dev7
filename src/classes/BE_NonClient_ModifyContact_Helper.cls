@@ -26,7 +26,7 @@ public static BE_SingleRelatedListCRUD_Cls.Response  modifyNonClientContact(SObj
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
 	messages= new Map<String,String>();
 	try {
-		final Map<String, Object>placeholderMap= placeholderGenerator((AccountContactRelation)sObj);
+		final Map<String, Object> placeholderMap= placeholderGenerator((AccountContactRelation)sObj);
 		final BE_NonClient_ModifyContact_REST request=new BE_NonClient_ModifyContact_REST();
 		final System.HttpResponse response=request.invoke(placeholderMap);
 			switch on response.getStatusCode() {
