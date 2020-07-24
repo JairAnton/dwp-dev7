@@ -76,6 +76,9 @@
             </componentInstanceProperties>
             <componentName>acpl:AP_HomeButton</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentName>bE_Redirect_ImportWizard_Lwc</componentName>
+        </componentInstances>
         <name>region2</name>
         <type>Region</type>
     </flexiPageRegions>

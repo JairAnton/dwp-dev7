@@ -8136,4 +8136,8 @@
         <tab>acpl__Home_Account_Planning_Tab</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ImportCustomObjects</name>
+    </userPermissions>
 </PermissionSet>

@@ -291,6 +291,27 @@
 Por favor verifique la estructura de acuerdo a la guía en la documentación.</value>
     </labels>
     <labels>
+        <fullName>BE_ImportRecord_Desc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ImportRecord_Desc</shortDescription>
+        <value>Como administrador de plan de cuentas, puede crear registros de planes de cuentas mediante archivos de cargas.</value>
+    </labels>
+    <labels>
+        <fullName>BE_ImportRecord_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ImportRecord_Title</shortDescription>
+        <value>Importación de registros</value>
+    </labels>
+    <labels>
+        <fullName>BE_ImportRecord_btn_label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ImportRecord_btn_label</shortDescription>
+        <value>Importar registros</value>
+    </labels>
+    <labels>
         <fullName>BE_NotCreateEditAccount</fullName>
         <language>en_US</language>
         <protected>false</protected>
