@@ -10,10 +10,13 @@
    ----------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_Client_Search_Helper {
-/** Private constructor */
-private BE_Client_Search_Helper () {}
+/** error Exist */
+final static String EXIST_ACC='PERSONA INEXISTENTE';
 /** response */
 static Response res;
+static Map<String,String> messages;
+/** Private constructor */
+private BE_Client_Search_Helper () {}
 /**
    @Description search NonClient in Salesforce (DWP-PE) with similar RUC
    @param  accNumber is Non Client RUC
@@ -22,7 +25,8 @@ static Response res;
 public static Response searchClienteSF(String accNumber) {
 	res=new Response();
 	final List<Account>accLst=[SELECT Id,Name,RecordType.Name,OwnerId,Owner.Name,AccountNumber FROM ACCOUNT WHERE AccountNumber=:accNumber];
-	if(accLst.size()>0) {
+	final Integer size=0;
+	if(accLst.size()>size) {
 		res.acc=accLst[0];
 		res.isSuccess=true;
     } else {
@@ -36,8 +40,7 @@ public static Response searchClienteSF(String accNumber) {
    @return Response Class  with Non Client Record (Account)
  */
 public static Response searchCliente(Account acc) {
-	final Map<String,String> messages = new Map<String,String>();
-	String ERROR_EXIST_ACC='PERSONA INEXISTENTE';
+	messages = new Map<String,String>();
 	res=new Response();
 	final BE_Client_Search_REST.Params paramClient=new BE_Client_Search_REST.Params();
 	paramClient.documentType='RUC';
@@ -60,7 +63,7 @@ public static Response searchCliente(Account acc) {
 		when 409 {
 			final BE_Client_Search_REST.ClientResponseError_Wrapper error=clientSrv.parseError(json.replace('-', ''));
 			System.debug(error.errormessage.trim());
-			res.isSuccess=(error.errormessage==ERROR_EXIST_ACC) ? true : false;
+			res.isSuccess=(error.errormessage==EXIST_ACC) ? true : false;
 			res.isExistNonClient=false;
 		}
 		when 500 {
