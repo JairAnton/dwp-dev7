@@ -7,11 +7,10 @@ global with sharing class Integration_GrantingTickets_Peru implements iaso.GBL_I
 		validationRequest.setEndpoint('callout:Auth_Peru');
 		validationRequest.setMethod('POST');
 		//validationRequest.setHeader(authenticationConfig.iaso__Header_Token__c, getAuth(authenticationConfig));
-		validationRequest.setHeader('Content-Type', 'application/x-www-form-urlencoded');
+		validationRequest.setHeader('Content-Type', 'application/json');
 		//validationRequest.setHeader('Accept', 'application/json');
-		String validationRequestBody = 'grant_type=client_credentials';
+        String validationRequestBody = '{"authentication": {"userID": "ZM13024","consumerID": "13000024","authenticationType": "04","authenticationData": [{"idAuthenticationData": "password","authenticationData": ["NGQyMDFkMWVlYzEz"]}]}}';
 		validationRequest.setBody(validationRequestBody);
-
 		HttpResponse response = http.send(validationRequest);
 		// Parse the JSON response
 		if(response.getStatusCode() != 200 && response.getStatusCode() != 202) {
