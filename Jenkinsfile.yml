@@ -23,9 +23,9 @@ stages:
         params:
             mdapiConfig:
                 command: deploy
-                apiVersion: 48.0
+                apiVersion: 47.0
 branches:
-    feature:
+    feature/dwp:
         stages:
             deploy:
                 skip: false
@@ -33,6 +33,7 @@ branches:
                     mdapiConfig:
                         credentialId: SFDC_DEV
                         command: testDeploy
+                        apiVersion: 47.0
                         testLevel: RunLocalTests
                         
             publish:
@@ -78,6 +79,7 @@ branches:
                 skip: false
                 params:
                     mdapiConfig:
+                        apiVersion: 47.0
                         credentialId: SFDC_PREPROD
                         testLevel: RunLocalTests
                         
