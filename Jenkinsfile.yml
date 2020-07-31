@@ -1,38 +1,55 @@
 ---
 domain: salesforce.app
 stages:
-  staticAnalysis:
-    skip: false
-    params:
-        skipEslint: true
-        skipLintSpaces: true
-        skipStyleLint: true
-        skipPmdApex: true
-        skipSonar: false 
-        sonar:
-            exclusions: src/pages/Minuta.page
-  unitTesting:
-    skip: true
-  deploy:
-    skip: true
-  functionalTesting:
-    skip: true
-  structuralTesting:
-    skip: true
-  publish:
-    params:
-      mdapiConfig:
-        command: deploy
-        apiVersion: 47.0
+    staticAnalysis:
+        skip: false
+        params:
+            skipEslint: true
+            skipLintSpaces: true
+            skipStyleLint: true
+            skipPmdApex: true
+            skipSonar: false
+            sonar:
+                exclusions: src/pages/Minuta.page
+    unitTesting:
+        skip: true
+    deploy:
+        skip: true
+    functionalTesting:
+        skip: true
+    structuralTesting:
+        skip: true
+    publish:
+        params:
+            mdapiConfig:
+                command: deploy
+                apiVersion: 47.0
 branches:
-    feature:
+    feature/dwp:
         stages:
-            publish:
+            deploy:
+                skip: false
                 params:
                     mdapiConfig:
                         credentialId: SFDC_DEV
                         command: testDeploy
+                        apiVersion: 47.0
                         testLevel: RunLocalTests
+                        
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_QA_DWP
+                        command: testDeploy
+                        testLevel: RunLocalTests
+    feature/dwp-qa:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_QA_DWP
+                        testLevel: RunLocalTests
+                                         
     develop:
         stages:
             publish:
@@ -58,11 +75,36 @@ branches:
 
     hotfix:
         stages:
+            deploy: 
+                skip: false
+                params:
+                    mdapiConfig:
+                        apiVersion: 47.0
+                        credentialId: SFDC_PREPROD
+                        testLevel: RunLocalTests
+                        
             publish:
                 params:
                     mdapiConfig:
-                        credentialId: SFDC_BUGFIX
+                        credentialId: SFDC_PROD
+                        command: testDeploy
                         testLevel: RunLocalTests
+                        serverUrl: login.salesforce.com
+
+    bugfix:
+        stages:
+           # deploy: 
+           #     skip: false
+           #     params:
+           #        mdapiConfig:
+           #            credentialId: SFDC_BUGFIX
+           #            testLevel: RunLocalTests
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_UAT
+                        testLevel: RunLocalTests
+                        command: testDeploy
 
     master:
         stages:
@@ -72,12 +114,37 @@ branches:
                         credentialId: SFDC_PROD
                         testLevel: RunLocalTests
 pullRequests:
-   master:
-       stages:
-           publish:
-               params:
-                   mdapiConfig:
-                       credentialId: SFDC_PROD
-                       command: testDeploy
-                       testLevel: RunLocalTests
-                       serverUrl: login.salesforce.com
+    feature/dwp-qa:
+        stages:
+            deploy:
+                skip: false
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_DEV
+                        command: testDeploy
+                        apiVersion: 47.0
+                        testLevel: RunLocalTests
+                        
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_QA_DWP
+                        command: testDeploy
+                        testLevel: RunLocalTests
+    release:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_UAT
+                        command: testDeploy
+                        testLevel: RunLocalTests
+    master:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_PROD
+                        command: testDeploy
+                        testLevel: RunLocalTests
+                        serverUrl: login.salesforce.com
