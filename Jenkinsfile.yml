@@ -114,6 +114,23 @@ branches:
                         credentialId: SFDC_PROD
                         testLevel: RunLocalTests
 pullRequests:
+    feature/dwp-qa:
+        stages:
+            deploy:
+                skip: false
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_DEV
+                        command: testDeploy
+                        apiVersion: 47.0
+                        testLevel: RunLocalTests
+                        
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_QA_DWP
+                        command: testDeploy
+                        testLevel: RunLocalTests
     release:
         stages:
             publish:
