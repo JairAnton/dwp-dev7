@@ -28,7 +28,7 @@
             <translation>General</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Priority</masterLabel>
+            <masterLabel>Prioridad</masterLabel>
             <translation>Prioridad</translation>
         </picklistValues>
     </fields>
