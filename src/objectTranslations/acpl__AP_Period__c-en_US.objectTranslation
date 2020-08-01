@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
-        <label><!-- End Date Notification --></label>
+        <label>Notificación de fecha fin</label>
         <name>acpl__gf_ap_close_date_msg_desc__c</name>
     </fields>
     <fields>
-        <label><!-- End date --></label>
+        <label>Fecha de fin</label>
         <name>acpl__gf_ap_edit_end_date__c</name>
     </fields>
     <fields>
-        <label><!-- Start Date --></label>
+        <label>Fecha de inicio</label>
         <name>acpl__gf_ap_edit_start_date__c</name>
     </fields>
     <fields>
-        <label><!-- Notification message --></label>
+        <label>Mensaje de notificación</label>
         <name>acpl__gf_ap_next_date_msg_desc__c</name>
     </fields>
     <fields>
-        <label><!-- Notification date --></label>
+        <label>Fecha de notificación</label>
         <name>acpl__gf_ap_notfn_next_close_date__c</name>
     </fields>
     <fields>
-        <label><!-- Account Planning Priority --></label>
+        <label>Prioridad de plan de cuenta</label>
         <name>acpl__gf_ap_priority_edit_type__c</name>
         <picklistValues>
             <masterLabel>High</masterLabel>
@@ -37,7 +37,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Start Date Notification --></label>
+        <label>Notificación de fecha de inicio</label>
         <name>acpl__gf_ap_start_date_msg_desc__c</name>
     </fields>
 </CustomObjectTranslation>

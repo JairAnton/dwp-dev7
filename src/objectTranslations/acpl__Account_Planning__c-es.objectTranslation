@@ -89,7 +89,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Event driven</masterLabel>
-            <translation><!-- Event driven --></translation>
+            <translation>Evento</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>General period</masterLabel>
