@@ -64,33 +64,6 @@ branches:
                     mdapiConfig:
                         credentialId: SFDC_UAT
                         testLevel: RunLocalTests
-
-    preprod:
-        stages:
-            publish:
-                params:
-                    mdapiConfig:
-                        credentialId: SFDC_PREPROD
-                        testLevel: RunLocalTests
-
-    hotfix:
-        stages:
-            deploy: 
-                skip: false
-                params:
-                    mdapiConfig:
-                        apiVersion: 47.0
-                        credentialId: SFDC_PREPROD
-                        testLevel: RunLocalTests
-                        
-            publish:
-                params:
-                    mdapiConfig:
-                        credentialId: SFDC_PROD
-                        command: testDeploy
-                        testLevel: RunLocalTests
-                        serverUrl: login.salesforce.com
-
     bugfix:
         stages:
            # deploy: 
@@ -105,7 +78,29 @@ branches:
                         credentialId: SFDC_UAT
                         testLevel: RunLocalTests
                         command: testDeploy
-
+    hotfix:
+        stages:
+            deploy: 
+                skip: false
+                params:
+                    mdapiConfig:
+                        apiVersion: 47.0
+                        credentialId: SFDC_PREPROD
+                        testLevel: RunLocalTests
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_PROD
+                        command: testDeploy
+                        testLevel: RunLocalTests
+                        serverUrl: login.salesforce.com
+    preprod:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_PREPROD
+                        testLevel: RunLocalTests
     master:
         stages:
             publish:
@@ -129,6 +124,14 @@ pullRequests:
                 params:
                     mdapiConfig:
                         credentialId: SFDC_QA_DWP
+                        command: testDeploy
+                        testLevel: RunLocalTests
+    develop:
+        stages:
+            publish:
+                params:
+                    mdapiConfig:
+                        credentialId: SFDC_DEV
                         command: testDeploy
                         testLevel: RunLocalTests
     release:
