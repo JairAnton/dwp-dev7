@@ -36,180 +36,197 @@
     
     </script>
     <body>
-        
-        <div class="rectangle">
-            <table style="width:100%;height:100%;">
-                <tr>
-                    <td class="rectangle2TextBody">
-                        <p><apex:image url="{!URLLogoWhite}" height="26px" width="81px"/></p>
-                    </td>
-                </tr>          
-            </table> 
-        </div>
         <table cellspacing="0" cellpadding="0">
             <tr>
-                <td style="text-align:center;">
-                    <h1 style="color:red"><apex:outputText value="{!infoStatusVisit}"/></h1>
-                </td>
-            </tr>
-            <tr>
                 <td>
-                    <apex:outputText styleClass="textBody"  value="{!currentDate}"/>
-                </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="azul">Estimado(s)</span> 
-                </td>
-            </tr>
-            <apex:repeat value="{!visitContacsAux}" var="contac" id="contac">
-                <tr>
-                    <td><apex:outputText styleClass="azulBold" value="{!contac.dwp_kitv__contact_id__r.name}"/></td>
-                </tr>
-            </apex:repeat>
-            <tr>
-                <td><span class="grisBold">Cliente: {!dwp_kitv__Visit__c.account_name__c}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-        <div styleClass="textBody" style="font-size: 12px;font-family: Arial;padding-bottom:10px;">
-            A continuación presentamos el acta con los detalles, resumen y acuerdos de la reunión celebrada.
-        </div>
-        <table style="width:100%">
-            <tr  style="background-color: #043263">
-                <th colspan="2" class="subtitle">DETALLES</th>
-            </tr>
-            <tr>
-                <td width="50%">
-                    <span class="textBodyBold">Fecha/hora:&nbsp;</span>
-                    <span class="textBody"><apex:outputText value="{!visitDate}"/></span>
-                </td>
-                <td>
-                    <span class="textBodyBold">Dirección:&nbsp;</span> 
-                    <span class="textBody">{!dwp_kitv__Visit__c.dwp_kitv__visit_location_desc__c}</span>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <span class="textBodyBold">Asunto:&nbsp;</span> 
-                    <span class="textBody">{!dwp_kitv__Visit__c.dwp_kitv__visit_desc__c}</span>
-                </td>
-            </tr>
-        </table>
-        <table style="width:100%;border: solid 0px; border-collapse: collapse;">
-            <tr style="background-color: #043263;" class="border_bottom">
-                <th colspan="1" class="subtitle" > ACUERDO/ACTIVIDAD</th>
-                <th colspan="1" class="subtitle" > FECHA COMPROMISO</th>
-                <th colspan="1" class="subtitle" > RESPONSABLE</th>
-            </tr>
-            <apex:repeat value="{!visitAgreements}" var="agreement" id="agreement">
-                <tr class="border_bottom">
-                    <td><apex:outputText styleClass="textBody" value="{!agreement.Subject}"/></td>
-                    <td>
-                        <apex:outputText styleClass="textBody"  value="{0, date, dd/MM/yyyy}">
-                            <apex:param value="{!agreement.ActivityDate}" /> 
-                        </apex:outputText>
-                    </td>
-                    <td><apex:outputText styleClass="textBody" value="{!agreement.Owner.Name}"/></td>
-                </tr>
-            </apex:repeat>
-        </table>
-        <br/>
-        <p class="textBody">
-            Saludos,<br/>
-            Equipo BBVA
-        </p>
-        <table style="width:100%; height:100%; cellspacing:0px; cellpadding:0px;">
-            <tr>
-                <td>
-                    <apex:repeat value="{!usuarios}" var="usuario" id="usuario">
-                        <div class="box">
-                            <table cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td><apex:outputText styleClass="azulBoldUser" value="{!usuario.name}"/></td>
-                                </tr>
-                                <tr>
-                                    <td><apex:outputText styleClass="azulUser" value="{!usuario.prof_position_type__c}"/></td>
-                                </tr>
-                                <tr>
-                                    <td><apex:outputText styleClass="azulUser" value="{!usuario.email}"/></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </apex:repeat>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="subRectangle">
-                    </div>
-                    <div  class="subRectangleMedia" >
-                        <table style="width:100%;height:100%">
-                            <tr>
-                                <td class="subRectangleMediaText">
-                                    <p >
-                                        Sigamos conectados
-                                    </p>
-                                    <p>
-                                        <a href="https://www.facebook.com/bbvaenperu/"><apex:image url="{!URLLogoFacebook}"  width="15px"  height="15px"/></a> &nbsp;&nbsp;
-                                        <a href="https://www.twitter.com/bbva_peru"> <apex:image url="{!URLLogoTwiter}"  height="15px"  width="15px" /></a>
-                                    </p>
-                                </td>
-                            </tr>
-                        </table> 
-                    </div>
-                    <div class="rectangle2">
-                        <table style="width:100%;height:100%">
+                    <div class="rectangle">
+                        <table style="width:100%;height:100%;">
                             <tr>
                                 <td class="rectangle2TextBody">
-                                    <p><apex:image url="{!URLLogo}"  height="50px" width="90px"/></p>
-                                    <table style="width:100%;">
-                                        <tr style="text-align:center;">
-                                            <td class="rectangle2TextBody">
-                                                ©2019 BBVA. Derechos Reservados.
-                                            </td>
-                                        </tr>
-                                        <tr style="text-align:center;">
-                                            <td class="rectangle2TextBody">
-                                                Av. República de Panamá 3055 - San Isidro, Lima - Perú
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <p><apex:image url="{!URLLogoWhite}" height="26px" width="81px"/></p>
                                 </td>
-                            </tr>
+                            </tr>          
                         </table> 
                     </div>
-                    <div class="rectangleFoother">
-                        <table style="width:100%;height:100%">
+                    <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td style="text-align:center;">
+                                <h1 style="color:red"><apex:outputText value="{!infoStatusVisit}"/></h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <apex:outputText styleClass="textBody"  value="{!currentDate}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="azul">Estimado(s)</span> 
+                            </td>
+                        </tr>
+                        <apex:repeat value="{!visitContacsAux}" var="contac" id="contac">
                             <tr>
-                                <td class="rectangleFootherText"> 
-                                    <table style="width:100%;">
-                                        <tr style="text-align:center;">
-                                            <td class="rectangleFootherText">
-                                                Por tu Seguridad, BANCO BBVA PERÚ te informa que:
+                                <td><apex:outputText styleClass="azulBold" value="{!contac.dwp_kitv__contact_id__r.name}"/></td>
+                            </tr>
+                        </apex:repeat>
+                        <tr>
+                            <td><span class="grisBold">Cliente: {!dwp_kitv__Visit__c.account_name__c}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                    <div styleClass="textBody" style="font-size: 12px;font-family: Arial;padding-bottom:10px;">
+                        A continuación presentamos el acta con los detalles, resumen y acuerdos de la reunión celebrada.
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width:100%; border: solid 0px; border-collapse: collapse;">
+                        <tr style="background-color: #043263;" class="border_bottom">
+                            <th colspan="2" class="subtitle">DETALLES</th>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                <span class="textBodyBold">Fecha/hora:&nbsp;</span>
+                                <span class="textBody"><apex:outputText value="{!visitDate}"/></span>
+                            </td>
+                            <td>
+                                <span class="textBodyBold">Dirección:&nbsp;</span> 
+                                <span class="textBody">{!dwp_kitv__Visit__c.dwp_kitv__visit_location_desc__c}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span class="textBodyBold">Asunto:&nbsp;</span> 
+                                <span class="textBody">{!dwp_kitv__Visit__c.dwp_kitv__visit_desc__c}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width:100%; border: solid 0px; border-collapse: collapse;">
+                        <tr style="background-color: #043263;" class="border_bottom">
+                            <th colspan="1" class="subtitle" > ACUERDO/ACTIVIDAD</th>
+                            <th colspan="1" class="subtitle" > FECHA COMPROMISO</th>
+                            <th colspan="1" class="subtitle" > RESPONSABLE</th>
+                        </tr>
+                        <apex:repeat value="{!visitAgreements}" var="agreement" id="agreement">
+                            <tr class="border_bottom">
+                                <td><apex:outputText styleClass="textBody" value="{!agreement.Subject}"/></td>
+                                <td>
+                                    <apex:outputText styleClass="textBody"  value="{0, date, dd/MM/yyyy}">
+                                        <apex:param value="{!agreement.ActivityDate}" /> 
+                                    </apex:outputText>
+                                </td>
+                                <td><apex:outputText styleClass="textBody" value="{!agreement.Owner.Name}"/></td>
+                            </tr>
+                        </apex:repeat>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br/>
+                    <p class="textBody">
+                        Saludos,<br/>
+                        Equipo BBVA
+                    </p>
+                    <table style="width:100%; height:100%; cellspacing:0px; cellpadding:0px;">
+                        <tr>
+                            <td>
+                                <apex:repeat value="{!usuarios}" var="usuario" id="usuario">
+                                    <div class="box">
+                                        <table style="width:100%; height:100%;" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td><apex:outputText styleClass="azulBoldUser" value="{!usuario.name}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><apex:outputText styleClass="azulUser" value="{!usuario.prof_position_type__c}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><apex:outputText styleClass="azulUser" value="{!usuario.email}"/></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </apex:repeat>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="subRectangle">
+                                </div>
+                                <div  class="subRectangleMedia" >
+                                    <table style="width:100%;height:100%">
+                                        <tr>
+                                            <td class="subRectangleMediaText">
+                                                <p >
+                                                    Sigamos conectados
+                                                </p>
+                                                <p>
+                                                    <a href="https://www.facebook.com/bbvaenperu/"><apex:image url="{!URLLogoFacebook}"  width="15px"  height="15px"/></a> &nbsp;&nbsp;
+                                                    <a href="https://www.twitter.com/bbva_peru"> <apex:image url="{!URLLogoTwiter}"  height="15px"  width="15px" /></a>
+                                                </p>
                                             </td>
                                         </tr>
-                                        <tr style="text-align:center;">
-                                            <td class="rectangleFootherText">
-                                                Nunca solicitaremos tus datos confidenciales por correo, tales como clave SMS, clave de cajero, DNI o número de celular.
+                                    </table> 
+                                </div>
+                                <div class="rectangle2">
+                                    <table style="width:100%;height:100%">
+                                        <tr>
+                                            <td class="rectangle2TextBody">
+                                                <p><apex:image url="{!URLLogo}"  height="50px" width="90px"/></p>
+                                                <table style="width:100%;">
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangle2TextBody">
+                                                            ©2019 BBVA. Derechos Reservados.
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangle2TextBody">
+                                                            Av. República de Panamá 3055 - San Isidro, Lima - Perú
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </td>
                                         </tr>
-                                        <tr style="text-align:center;">
-                                            <td class="rectangleFootherText">
-                                                Si tienes alguna duda acerca de la autenticidad de este correo envíalo a la dirección <a class="rectangleFootherText" href="mailto:bbvaseguridadl.pe@bbva.com">bbvaseguridadl.pe@bbva.com</a> y te responderemos.
+                                    </table> 
+                                </div>
+                                <div class="rectangleFoother">
+                                    <table style="width:100%;height:100%">
+                                        <tr>
+                                            <td class="rectangleFootherText"> 
+                                                <table style="width:100%;">
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangleFootherText">
+                                                            Por tu Seguridad, BANCO BBVA PERÚ te informa que:
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangleFootherText">
+                                                            Nunca solicitaremos tus datos confidenciales por correo, tales como clave SMS, clave de cajero, DNI o número de celular.
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangleFootherText">
+                                                            Si tienes alguna duda acerca de la autenticidad de este correo envíalo a la dirección <a class="rectangleFootherText" href="mailto:bbvaseguridadl.pe@bbva.com">bbvaseguridadl.pe@bbva.com</a> y te responderemos.
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </td>
                                         </tr>
                                     </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
