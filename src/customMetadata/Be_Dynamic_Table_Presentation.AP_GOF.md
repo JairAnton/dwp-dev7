@@ -28,7 +28,7 @@
             &quot;type&quot;:&quot;text&quot;
         },
         {
-            &quot;label&quot;: &quot;Status&quot;,
+            &quot;label&quot;: &quot;Estado&quot;,
             &quot;fieldName&quot;: &quot;status&quot;,
             &quot;type&quot;: &quot;text&quot;
         },
@@ -66,7 +66,7 @@
             &quot;type&quot;:&quot;text&quot;
         },
         {
-            &quot;label&quot;: &quot;Status&quot;,
+            &quot;label&quot;: &quot;Estado&quot;,
             &quot;fieldName&quot;: &quot;status&quot;,
             &quot;type&quot;: &quot;text&quot;
         },
@@ -104,7 +104,7 @@
             &quot;type&quot;:&quot;text&quot;
         },
         {
-            &quot;label&quot;: &quot;Status&quot;,
+            &quot;label&quot;: &quot;Estado&quot;,
             &quot;fieldName&quot;: &quot;status&quot;,
             &quot;type&quot;: &quot;text&quot;
         },
@@ -142,7 +142,7 @@
             &quot;type&quot;:&quot;text&quot;
         },
         {
-            &quot;label&quot;: &quot;Status&quot;,
+            &quot;label&quot;: &quot;Estado&quot;,
             &quot;fieldName&quot;: &quot;status&quot;,
             &quot;type&quot;: &quot;text&quot;
         },
@@ -180,7 +180,7 @@
             &quot;type&quot;:&quot;text&quot;
         },
         {
-            &quot;label&quot;: &quot;Status&quot;,
+            &quot;label&quot;: &quot;Estado&quot;,
             &quot;fieldName&quot;: &quot;status&quot;,
             &quot;type&quot;: &quot;text&quot;
         },
@@ -218,7 +218,7 @@
             &quot;type&quot;:&quot;text&quot;
         },
         {
-            &quot;label&quot;: &quot;Status&quot;,
+            &quot;label&quot;: &quot;Estado&quot;,
             &quot;fieldName&quot;: &quot;status&quot;,
             &quot;type&quot;: &quot;text&quot;
         },
