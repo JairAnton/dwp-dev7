@@ -42,31 +42,20 @@ public with sharing class SanctionPriceDecision_ctrl {
 
 	/**Method for get information of price process **/
 	@AuraEnabled
-	public static Map<String, Object> getInfo(String recordIdOppLineItem) {
+	public static Map<String, Object> getInfo(String recordIdOppLineItem, String uniqueNameTable) {
 		Map<String, Object> mapReturn = new Map<String, Object>();
-
-		List<OpportunityLineItem> lstOppLineItem = [SELECT Id,
+        List<OpportunityLineItem> lstOppLineItem = [SELECT Id,
 		                                            Product2.Name,
 		                                            Product2Id,
 		                                            proposed_fee_per__c,
 		                                            minimun_fee_per__c,
 		                                            OpportunityId,
 		                                            Opportunity.opportunity_status_type__c,
-		                                            Opportunity.CurrencyIsoCode
+		                                            Opportunity.CurrencyIsoCode,
+                                                    RORC_Client__c
 		                                            FROM OpportunityLineItem
 		                                            WHERE Id = :recordIdOppLineItem];
-		List<fprd__GBL_Product_Configuration__c> lstConfig = [SELECT Id,
-		                                                      fprd__Map_field__c,
-		                                                      fprd__Header__c,
-		                                                      fprd__Header_order__c,
-		                                                      fprd__LoV_values__c,
-		                                                      fprd__LoV_labels__c,
-		                                                      fprd__Label__c,
-		                                                      fprd__Type__c
-		                                                      FROM fprd__GBL_Product_Configuration__c
-		                                                      WHERE fprd__Product__c = :lstOppLineItem[0].Product2Id
-		                                                                               AND fprd__Header__c = true
-		                                                                                                     ORDER BY fprd__Header_order__c];
+		
 		try {
 			if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].Opportunity.opportunity_status_type__c == SAPPROVED) {
 				//helper to call the service
@@ -90,21 +79,8 @@ public with sharing class SanctionPriceDecision_ctrl {
 			System.debug('error: ' + e);
 		}
 
-		Set<String> setFields = new Set<String>();
-		Map<String, Object> mapMapfieldConfig = new Map<String, Object>();
-		for(fprd__GBL_Product_Configuration__c prodConfig : lstConfig) {
-			setFields.add(prodConfig.fprd__Map_field__c);
-			mapMapfieldConfig.put(prodConfig.fprd__Map_field__c, prodConfig);
-		}
-		List<String> lstStringField = new List<String>(setFields);
-		mapReturn.put('lstInfoIsEmpty', lstStringField.isEmpty());
-		mapReturn.put('lstField', lstStringField);
 		mapReturn.put('lstOppLineItem', lstOppLineItem);
-		mapReturn.put('mapMapfieldConfig', mapMapfieldConfig);
-		if(!lstStringField.isEmpty()) {
-			Final List<SObject> lstRow = Database.query('SELECT ' + String.escapeSingleQuotes(String.join(lstStringField, ',')) + ' FROM OpportunityLineItem WHERE Id = :recordIdOppLineItem');
-			mapReturn.put('lstInfo', lstRow);
-		}
+		mapReturn.put('lstSummarize', JSON.serialize(summurizeValues(recordIdOppLineItem, uniqueNameTable)));
 
 		/**getSanctionPriceInfo*/
 		mapReturn.put('sanctionPriceInfo', getSanctionPriceInfo(recordIdOppLineItem));
@@ -212,8 +188,8 @@ public with sharing class SanctionPriceDecision_ctrl {
 
 	/**Method for get information used to analist **/
 	@AuraEnabled
-	public static Map<String, Object> getInfoAnalist(String recordIdOppLineItem) {
-		Map<String, Object> mapReturn = new Map<String, Object>();
+	public static Map<String, Object> getInfoAnalist(String recordIdOppLineItem, String uniqueNameTable) {
+        Map<String, Object> mapReturn = new Map<String, Object>();
 
 		List<OpportunityLineItem> lstOppLineItem = [SELECT Id,
 		                                            Product2.Name,
@@ -224,7 +200,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 		                                            Opportunity.CurrencyIsoCode
 		                                            FROM OpportunityLineItem
 		                                            WHERE Id = :recordIdOppLineItem];
-		List<fprd__GBL_Product_Configuration__c> lstConfig = [SELECT Id,
+		/*List<fprd__GBL_Product_Configuration__c> lstConfig = [SELECT Id,
 		                                                      fprd__Map_field__c,
 		                                                      fprd__Header__c,
 		                                                      fprd__Header_order__c,
@@ -250,7 +226,9 @@ public with sharing class SanctionPriceDecision_ctrl {
 		if(!lstStringField.isEmpty()) {
 			Final List<SObject> lstRow = Database.query('SELECT ' + String.escapeSingleQuotes(String.join(lstStringField, ',')) + ' FROM OpportunityLineItem WHERE Id = :recordIdOppLineItem');
 			mapReturn.put('lstInfo', lstRow);
-		}
+		}*/
+        mapReturn.put('lstOppLineItem', lstOppLineItem);
+		mapReturn.put('lstSummarize', JSON.serialize(summurizeValues(recordIdOppLineItem, uniqueNameTable)));
 
 		List<Case> lstCases = [SELECT Id,
 		                       opportunity_id__c,
@@ -427,6 +405,95 @@ public with sharing class SanctionPriceDecision_ctrl {
 		return mapReturn;
 	}
 
+    /**Method used to set sanction price summarize fields**/
+    public static List<itemField> summurizeValues(String recordIdOppLineItem, String uniqueNameTable) {
+        List<itemField> items = new List<itemField>();
+        final List<field__mdt> lstFieldMDT = [SELECT field_api_name__c, Field_Custom_Label__c, order__c, Use_Product_Configuration_Value__c FROM Field__mdt WHERE field_form__r.unique_id__c = :uniqueNameTable ORDER BY order__c];
+		final Set<String> setFields = new Set<String>();
+        final Set<String> fieldsProdConf = new Set<String>();
+        Map<String, Object> mapField = new Map<String, Object>();
+        for(Field__mdt field : lstFieldMDT) {
+            setFields.add(field.field_api_name__c);
+            if(field.Use_Product_Configuration_Value__c) {
+                fieldsProdConf.add(field.field_api_name__c);
+            }
+        }
+        List<String> lstField = new List<String>(setFields);
+        System.debug('SELECT Product2Id,' + String.join(lstField, ',') + ' FROM OpportunityLineItem WHERE Id = \'' + recordIdOppLineItem + '\'');
+        List<sObject> lstRecord = Database.query('SELECT Product2Id,' + String.join(lstField, ',') + ' FROM OpportunityLineItem WHERE Id = \'' + recordIdOppLineItem + '\'');
+        final String prodId = (String)lstRecord[0].get('Product2Id');
+        final Map<String, Object> mapPC = new Map<String, Object>();
+        if(!fieldsProdConf.isEmpty()) {
+            fprd__GBL_Product_Configuration__c[] lstProductConf = [SELECT fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Product__r.Name, fprd__Map_field__c FROM fprd__GBL_Product_Configuration__c 
+                                                                   WHERE fprd__Product__c = :prodId AND fprd__Map_field__c IN: fieldsProdConf];
+			for(fprd__GBL_Product_Configuration__c pc : lstProductConf) {
+				if(!String.isEmpty(pc.fprd__LoV_values__c)) {
+					String[] strLabelTmp = pc.fprd__LoV_labels__c.split(',');
+					String[] strValueTmp = pc.fprd__LoV_values__c.split(',');
+					Integer position = strValueTmp.indexOf('' + lstRecord[0].get(pc.fprd__Map_field__c));
+					if(position >= 0) {
+						mapPC.put(pc.fprd__Map_field__c, strLabelTmp[position]);
+					}
+				}
+			}
+        }
+        Decimal position = 0;
+        for(Field__mdt field : lstFieldMDT) {
+            itemField item = new itemField();
+            if(field.field_api_name__c.contains('.')) {
+                String[] apiNames = field.field_api_name__c.split('\\.');
+                Integer pos = 1;
+                sObject objAux = lstRecord[0].getSObject(apiNames[0]);
+                while(pos<apiNames.size()-1) {
+                    objAux = objAux.getSObject(apiNames[pos]);
+                    pos++;
+                }
+                if(field.Field_Custom_Label__c != null) {
+                    item.label = field.Field_Custom_Label__c;
+                } else {
+                    item.label = Schema.getGlobalDescribe().get(apiNames[apiNames.size()-2]).getDescribe().fields.getMap().get(apiNames[apiNames.size()-1]).getDescribe().getLabel();
+                }
+                if(field.Use_Product_Configuration_Value__c) {
+                    item.value = (String)mapPC.get(field.field_api_name__c);
+                } else {
+                    item.value = (String)objAux.get(apiNames[apiNames.size()-1]);
+                }
+            } else {
+                if(field.Field_Custom_Label__c != null) {
+                    item.label = field.Field_Custom_Label__c;
+                } else {
+                    item.label = Schema.getGlobalDescribe().get('OpportunityLineItem').getDescribe().fields.getMap().get(field.field_api_name__c).getDescribe().getLabel();
+                }
+                if(field.Use_Product_Configuration_Value__c) {
+                    item.value = ''+mapPC.get(field.field_api_name__c);
+                } else {
+                    item.value = ''+lstRecord[0].get(field.field_api_name__c);
+                }
+            }
+            if(position==field.order__c) {
+                item.label = items.get(items.size()-1).label;
+                item.value = items.get(items.size()-1).value + ' ' + item.value;
+                items.set(items.size()-1, item);
+            } else {
+                items.add(item);
+            }
+            position=field.order__c;
+        }
+        return items;
+    }
+    
+    /**Method for map parameters **/
+	public class itemField {
+		/**
+		 * record id param
+		 */
+		private String label;
+		/**
+		 * status of opportunity param
+		 */
+		private String value;
+	}
+    
 	/**Method for map parameters **/
 	public class Parameters {
 		/**

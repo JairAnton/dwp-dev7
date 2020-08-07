@@ -6,12 +6,15 @@
     },
     getInfo: function (component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
+        var uniqueNameTable = 'Manual_Proposal_Summarize';
         if (inputObject.approvalMethod == 'Web') {
             component.set('v.enableContinue', true);
+            uniqueNameTable = 'Web_Proposal_Summarize';
         }
         var action = component.get("c.getInfo");
         action.setParams({
-            "recordIdOppLineItem": inputObject.opportunityLineItem
+            "recordIdOppLineItem": inputObject.opportunityLineItem,
+            "uniqueNameTable": uniqueNameTable
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -20,11 +23,9 @@
                 var objSetup = {
                     'nameProd': ret.lstOppLineItem[0].Product2.Name,
                     'validityDate': ret.lstOppLineItem[0].validityDate__c,
-                    'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c
+                    'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c,
+                    'lstTile': JSON.parse(ret.lstSummarize)
                 };
-                if (!ret.lstInfoIsEmpty) {
-                    objSetup['lstTile'] = helper.setFields(ret);
-                }
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.lstOppLineItem[0]);
                 component.set('v.objSetup', objSetup);
 
@@ -179,7 +180,7 @@
         });
         $A.enqueueAction(action);
     },
-    setFields: function (ret) {
+    /*setFields: function (ret) {
         var lstTile = [];
         for (var i in ret.lstField) {
             var strValue = ret.lstInfo[0][ret.lstField[i]];
@@ -202,7 +203,7 @@
             lstTile.push(tile);
         }
         return lstTile;
-    },
+    },*/
     htmlObject: function (inputObject, evt) {
         var today = new Date();
         var originalHtml = inputObject.htmlInput;

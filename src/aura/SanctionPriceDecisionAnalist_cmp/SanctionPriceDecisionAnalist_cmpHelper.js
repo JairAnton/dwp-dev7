@@ -5,18 +5,24 @@
     },
     getInfo: function (component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
+        var uniqueNameTable = 'Manual_Proposal_Summarize';
+        if (inputObject.approvalMethod === 'Web') {
+            uniqueNameTable = 'Web_Proposal_Summarize';
+        }
         var action = component.get("c.getInfoAnalist");
         action.setParams({
-            "recordIdOppLineItem": inputObject.opportunityLineItem
+            "recordIdOppLineItem": inputObject.opportunityLineItem,
+            "uniqueNameTable": uniqueNameTable
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 var objSetup = { 'nameProd': ret.lstOppLineItem[0].Product2.Name };
-                if (!ret.lstInfoIsEmpty) {
+                /*if (!ret.lstInfoIsEmpty) {
                     objSetup['lstTile'] = helper.setFields(ret);
-                }
+                }*/
+                objSetup['lstTile'] = JSON.parse(ret.lstSummarize)
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.caseOpen);
                 component.set('v.objSetup', objSetup);
                 var objectInput = {
@@ -240,7 +246,7 @@
         });
         $A.enqueueAction(action);
     },
-    setFields: function (ret) {
+    /*setFields: function (ret) {
         var lstTile = [];
         for (var i in ret.lstField) {
             var strValue = ret.lstInfo[0][ret.lstField[i]];
@@ -263,7 +269,7 @@
             lstTile.push(tile);
         }
         return lstTile;
-    },
+    },*/
     htmlObject: function (inputObject, evt) {
         var today = new Date();
         var originalHtml = inputObject.htmlInput;

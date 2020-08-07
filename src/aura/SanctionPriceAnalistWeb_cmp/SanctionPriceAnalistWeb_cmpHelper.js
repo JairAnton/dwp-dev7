@@ -84,20 +84,20 @@
                         formatNumber = parseFloat(baiapp);
                         baiapp = formatNumber.toFixed(2);
                     }
-                    var rarmodel = ret.rarmodel;
-                    if (rarmodel !== undefined && rarmodel !== '' && rarmodel !== null) {
-                        formatNumber = parseFloat(rarmodel);
-                        rarmodel = formatNumber.toFixed(2);
+                    var rorcmodel = ret.rorcmodel;
+                    if(rorcmodel !== undefined && rorcmodel !== '' && rorcmodel !== null) {
+                        formatNumber = parseFloat(rorcmodel);
+                        rorcmodel = formatNumber.toFixed(2);
                     }
-                    var rarreq = ret.rarreq;
-                    if (rarreq !== undefined && rarreq !== '' && rarreq !== null) {
-                        formatNumber = parseFloat(rarreq);
-                        rarreq = formatNumber.toFixed(2);
+                    var rorcreq = ret.rorcreq;
+                    if(rorcreq !== undefined && rorcreq !== '' && rorcreq !== null) {
+                        formatNumber = parseFloat(rorcreq);
+                        rorcreq = formatNumber.toFixed(2);
                     }
-                    var rarapp = ret.rarapp;
-                    if (rarapp !== undefined && rarapp !== '' && rarapp !== null) {
-                        formatNumber = parseFloat(rarapp);
-                        rarapp = formatNumber.toFixed(2);
+                    var rorcapp = ret.rorcapp;
+                    if(rorcapp !== undefined && rorcapp !== '' && rorcapp !== null) {
+                        formatNumber = parseFloat(rorcapp);
+                        rorcapp = formatNumber.toFixed(2);
                     }
                     var raPE = ret.PE;
                     if (raPE !== undefined && raPE !== '' && raPE !== null) {
@@ -125,6 +125,18 @@
                         formatNumber = parseFloat(SPREAD);
                         SPREAD = formatNumber.toFixed(2);
                     }
+                    var RORC_Client = ret.RORC_Client;
+                    if(RORC_Client !== undefined && RORC_Client !== '' && RORC_Client !== null) {
+                        formatNumber = parseFloat(RORC_Client);
+                        RORC_Client = formatNumber.toFixed(2);
+                    }
+                    var RAROEC = ret.RAROEC;
+                    if(RAROEC !== undefined && RAROEC !== '' && RAROEC !== null) {
+                        formatNumber = parseFloat(RAROEC);
+                        RAROEC = formatNumber.toFixed(2);
+                    }
+                    cmp.set('v.StringRORC_Client',RORC_Client);
+                    cmp.set('v.StringRAROEC',RAROEC);
                     cmp.set('v.StringSPREAD', SPREAD);
                     cmp.set('v.StringDI_FC', DI_FC);
                     cmp.set('v.StringPE', raPE);
@@ -164,12 +176,12 @@
                             AUTH: baiapp
                         },
                         {
-                            id: 'RAR',
-                            empty: 'RAR (%)',
+                            id: 'RORC',
+                            empty: 'RORC (%)',
                             MIN: null,
-                            MODEL: rarmodel,
-                            REQU: rarreq,
-                            AUTH: rarapp
+                            MODEL: rorcmodel,
+                            REQU: rorcreq,
+                            AUTH: rorcapp
                         }
                     ]);
                 }
@@ -181,71 +193,77 @@
         });
         $A.enqueueAction(action);
     },
-    calculatebutton: function (cmp, helper, event) {
-        cmp.set('v.isLoad', false);
+    calculatebutton : function(cmp, helper, event) {
+        cmp.set('v.isLoad',false);
         var action = cmp.get("c.calculate");
         var recordId = cmp.get('v.recordId');
         var inputtea = cmp.get('v.teainput');
         action.setParams({
-            'oppId': recordId,
-            'tea': inputtea
+            'oppId' : recordId,
+            'tea' : inputtea
         });
-        action.setCallback(this, function (response) {
+        action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-                cmp.set('v.isLoad', true);
+                cmp.set('v.isLoad',true);
                 var ret = response.getReturnValue();
                 var body = ret.body;
                 var strjson = JSON.parse(body);
                 var state = ret.state;
                 var generr = ret.errormessage;
-                if (state == 200) { // Yulino 13/12/2018 : Se agreg =
+                if(state == 200){ // Yulino 13/12/2018 : Se agreg =
                     var datalst = cmp.get('v.data');
                     var spreadReq;
                     var baiReq;
-                    var rarReq;
+                    var rorcapp;
+                    var raroec;
                     var adjTea;
-                    if (strjson.data != null && strjson.data.liquidityIndicators != null) {
+                    if(strjson.data != null && strjson.data.liquidityIndicators != null) {
                         var liquidity = strjson.data.liquidityIndicators;
-                        for (var x in liquidity) {
-                            if (liquidity[x].id == 'LIQUIDITY_MARGIN_BASED_ON_REQUESTED_TEA') {
+                        for(var x in liquidity) {
+                            if(liquidity[x].id === 'SPREAD_OF_OPERATION') {
                                 spreadReq = (liquidity[x].detail.percentage);
                             }
-                            if (liquidity[x].id == 'BENEFIT_BEFORE_TAX') {
-                                baiReq = (liquidity[x].detail.percentage);
+                            if(liquidity[x].id == 'BENEFIT_BEFORE_TAX') {
+                                baiReq = (liquidity[x].detail.percentage); 
                             }
                         }
                     }
-                    if (strjson.data != null && strjson.data.financialIndicators != null) {
-                        var financial = strjson.data.financialIndicators;
-                        for (var y in financial) {
-                            if (financial[y].id == 'RAR') {
-                                rarReq = (financial[y].value);
+                    if(strjson.data != null && strjson.data.indicators != null) {
+                        var indicators = strjson.data.indicators;
+                        for(var y in indicators) {
+                            if(indicators[y].id === 'RORC_OPERATION') {
+                                rorcapp = (indicators[y].value*100);
+                            } else if(indicators[y].id === 'RAROEC_OPERATION') {
+                                raroec = (indicators[y].value*100);
                             }
                         }
+                    }
+                    if(rorcapp !== undefined && rorcapp !== '' && rorcapp !== null) {
+                        formatNumber = parseFloat(rorcapp);
+                        rorcapp = formatNumber.toFixed(2);
+                    }
+                    if(raroec !== undefined && raroec !== '' && raroec !== null) {
+                        formatNumber = parseFloat(raroec);
+                        raroec = formatNumber.toFixed(2);
                     }
                     adjTea = cmp.get('v.teainput');
-                    var formatNumber;
-                    if (adjTea !== undefined && adjTea !== '' && adjTea !== null) {
+                    var formatNumber ;
+                    if(adjTea !== undefined && adjTea !== '' && adjTea !== null) {
                         formatNumber = parseFloat(adjTea);
                         adjTea = formatNumber.toFixed(2);
                     }
-                    if (rarReq !== undefined && rarReq !== '' && rarReq !== null) {
-                        formatNumber = parseFloat(rarReq);
-                        formatNumber = formatNumber * 100;
-                        rarReq = formatNumber.toFixed(2);
-                    }
-                    if (baiReq !== undefined && baiReq !== '' && baiReq !== null) {
+                    if(baiReq !== undefined && baiReq !== '' && baiReq !== null) {
                         formatNumber = parseFloat(baiReq);
-                        formatNumber = formatNumber * 100;
+						formatNumber = formatNumber*100;
                         baiReq = formatNumber.toFixed(2);
                     }
-                    if (spreadReq !== undefined && spreadReq !== '' && spreadReq !== null) {
+                    if(spreadReq !== undefined && spreadReq !== '' && spreadReq !== null) {
                         formatNumber = parseFloat(spreadReq);
-                        formatNumber = formatNumber * 100;
+						formatNumber = formatNumber*100;
                         spreadReq = formatNumber.toFixed(2);
                     }
-                    for (var i in datalst) {
+                    for(var i in datalst) {
                         switch (datalst[i].id) {
                             case 'SPREAD':
                                 datalst[i].AUTH = spreadReq;
@@ -253,20 +271,21 @@
                             case 'BAI':
                                 datalst[i].AUTH = baiReq;
                                 break;
-                            case 'RAR':
-                                datalst[i].AUTH = rarReq;
+                            case 'RORC':
+                                datalst[i].AUTH = rorcapp;
                                 break;
                             case 'TEA':
                                 datalst[i].AUTH = adjTea;
                                 break;
                         }
-                    }
-                    cmp.set("v.StringSPREAD", ret.SPREAD);
-                    cmp.set('v.data', datalst);
-                    cmp.set('v.spreadinput', spreadReq);
-                } else {
-                    cmp.set('v.checkError', true);
-                    cmp.set('v.strErrorMessage', generr);
+                    }    
+                    cmp.set("v.StringSPREAD",ret.SPREAD);
+                    cmp.set('v.StringRAROEC',raroec);
+                    cmp.set('v.data',datalst);
+                    cmp.set('v.spreadinput',spreadReq);
+                }else{
+                    cmp.set('v.checkError',true);
+                    cmp.set('v.strErrorMessage',generr);
                 }
             }
         });

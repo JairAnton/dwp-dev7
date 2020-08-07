@@ -5,10 +5,16 @@ public class SanctionPriceAnalistWeb_ctrl {
 		String errorMessage;
 		List<OpportunityLineItem> lstOLI;
 		try {
-			lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c, proposed_apr_per__c, validityDate__c from OpportunityLineItem where OpportunityId =:oppId];
+			lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c, proposed_apr_per__c, validityDate__c, RORC_Client__c,
+                      RORC_Operation__c, RORC_Model__c, RORC_Approved__c, RAROEC_Operation__c from OpportunityLineItem where OpportunityId =:oppId];
 			if(!lstOLI.isEmpty()) {
 				mpReturn.put('proposed', lstOli[0].proposed_apr_per__c);
-				//Call a RECOVER Service One product
+				mpReturn.put('RORC_Client',lstOli[0].RORC_Client__c);
+                mpReturn.put('RAROEC',lstOli[0].RAROEC_Operation__c);
+                mpReturn.put('rorcmodel',lstOli[0].RORC_Model__c);
+                mpReturn.put('rorcreq',lstOli[0].RORC_Operation__c);
+                mpReturn.put('rorcapp',lstOli[0].RORC_Approved__c);
+                //Call a RECOVER Service One product
 				if(lstOLI[0].price_quote_id__c != '' && lstOLI[0].product_price_approval_method__c == 'Web') {
 					//helper to call the service
 					GetQuotationRequest_helper getquoteHelper = new GetQuotationRequest_helper(oppId);
@@ -92,7 +98,7 @@ public class SanctionPriceAnalistWeb_ctrl {
 										when 'BENEFIT_BEFORE_TAX_OF_APPROVED_TEA' {
 											mpReturn.put('baiapp', (lstprof[x].percentage) * 100);
 										}
-										when 'PROFITABILITY_FOR_RISK_OF_MODEL_TEA' {
+										/*when 'PROFITABILITY_FOR_RISK_OF_MODEL_TEA' {
 											mpReturn.put('rarmodel', (lstprof[x].percentage) * 100);
 										}
 										when 'PROFITABILITY_FOR_RISK_OF_REQUESTED_TEA' {
@@ -100,7 +106,7 @@ public class SanctionPriceAnalistWeb_ctrl {
 										}
 										when 'PROFITABILITY_FOR_RISK_OF_APPROVED_TEA' {
 											mpReturn.put('rarapp', (lstprof[x].percentage) * 100);
-										}
+										}*/
 									}
 								}
 							}
@@ -143,14 +149,13 @@ public class SanctionPriceAnalistWeb_ctrl {
 	@AuraEnabled
 	public static Map<String, Object> calculate(String oppId, decimal tea) {
 		Map<String, Object> mpReturn = new Map<String, Object>();
-		String strTea = (tea == null ? '' : String.valueOf(tea / 100));
 		String errorMessage;
 		List<OpportunityLineItem> lstOLI = new List<OpportunityLineItem>();
 		try {
-			lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c, proposed_apr_per__c, funding_cost_per__c from OpportunityLineItem where OpportunityId =:oppId];
+			lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c, proposed_apr_per__c, funding_cost_per__c, price_rates_calculation_Id__c from OpportunityLineItem where OpportunityId =:oppId];
 			if(lstOLI[0].price_quote_id__c != '' && lstOLI[0].product_price_approval_method__c == 'Web') {
 				//helper to call the service
-				AnalyzeRate_helper analyzerateHelper = new AnalyzeRate_helper(oppId, strTea);
+				AnalyzeRate_helper analyzerateHelper = new AnalyzeRate_helper(oppId, lstOLI[0].price_rates_calculation_Id__c, tea, false);
 				//invoke the service
 				System.HttpResponse invoke = analyzerateHelper.invoke();
 				//get json body

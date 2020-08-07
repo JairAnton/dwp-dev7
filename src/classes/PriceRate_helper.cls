@@ -230,7 +230,16 @@ public without sharing class PriceRate_helper {
 		public Response_Participant participant { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 		public Response_Product product { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 		public Response_Summary[] summary { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        public Response_Indicators[] indicators { get; set; }
 	}
+    
+    /**
+     * Indicators class to the response
+     */
+    public class Response_Indicators {
+        public String id { get; set; }
+        public String value { get; set; }
+    }
 
 	/**
 	 * BusinessAgent class to the response

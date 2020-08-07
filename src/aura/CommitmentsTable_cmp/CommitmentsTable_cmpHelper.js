@@ -65,8 +65,7 @@
                                             "quotationStatusIcon": ret.quotationStatusIcon
                                         };
                                         compEvent.setParams({ "typeMode": 'DOCONTINUE', "data": otherData });
-                                    }
-                                    else {
+                                    } else {
                                         otherData = { "errorCode": ret.errorMessage };
                                         compEvent.setParams({ "typeMode": 'DOERROR', "data": otherData });
                                     }
@@ -82,8 +81,7 @@
                             };
                             compEvent.setParams({ "typeMode": 'DOCONTINUE', "data": otherData });
                         }
-                    }
-                    else {
+                    } else {
                         var otherData = { "errorCode": ret.errorMessage };
                         compEvent.setParams({ "typeMode": 'DOERROR', "data": otherData });
                     }

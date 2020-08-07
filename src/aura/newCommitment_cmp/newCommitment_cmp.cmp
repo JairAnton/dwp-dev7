@@ -7,13 +7,17 @@
     <aura:attribute name="oppLineItem" type="String" default=""/>
     <aura:attribute name="objSetup" type="Object" />
     <aura:attribute name="isRequired" type="Boolean" default="false"/>
+    <aura:attribute name="rowData" type="Object" default="{'lstInfo':[]}"/>
+    <aura:attribute name="isReadOnly" type="Boolean" default="false"/>
+    <aura:attribute name="proposedTea" type="String" default=""/>
     
-
 	<div class="slds-modal__content slds-p-around_medium" >
         <lightning:layout multipleRows="true">
             <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
                 <lightning:select messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="field" label="{!v.objSetup.schemaSetup.mapLabel.opp_solution_comt_product_name__c}" value="{!v.objSetup.lstVal1value}" onchange="{! c.onChangeProduct }" required="true">
-                    <option value="">-</option>
+                    <aura:if isTrue="{!!v.isReadOnly}">
+                        <option value="">-</option>
+                    </aura:if>
                     <aura:iteration items="{!v.objSetup.lstVal1}" var="item">
                         <option value="{!item}">{!item}</option>
                     </aura:iteration>
@@ -21,7 +25,9 @@
             </lightning:layoutItem>
             <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
                 <lightning:select messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" aura:id="field" label="{!$Label.c.Currency}" value="{!v.objSetup.lstVal2value}" onchange="{! c.onChangeDivisa }" required="{!v.isRequired}">
-                    <option value="">-</option>
+                    <aura:if isTrue="{!!v.isReadOnly}">
+                        <option value="">-</option>
+                    </aura:if>
                     <aura:iteration items="{!v.objSetup.lstVal2}" var="item">
                         <option value="{!item}">{!item}</option>
                     </aura:iteration>
@@ -33,10 +39,11 @@
             <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
                 <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" type="number" label="{!$Label.c.BE_CommitmentAmountQuantity}" value="{!v.objSetup.valImport}" step="0.01" required="true"/>
             </lightning:layoutItem>
-            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+            <!--<lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
                 <lightning:input aura:id="field" messageWhenValueMissing="{!$Label.c.lblFieldsFormRequired}" messageWhenStepMismatch="{!$Label.c.lblFieldsFormValidateDecimal}" type="number" label="{!v.objSetup.schemaSetup.mapLabel.opp_soln_comt_stay_days_number__c}" value="{!v.objSetup.valPer}" required="true"/>
-            </lightning:layoutItem>
+            </lightning:layoutItem>-->
         </lightning:layout>
+        <lightning:input aura:id="field" name="commitmentId" value="{!v.rowData.id}" class="slds-hidden" />
     </div>
     <footer class="slds-modal__footer slds-theme_default">
         <lightning:button variant="brand" onclick="{!c.doSave}">{!$Label.c.Save}</lightning:button>

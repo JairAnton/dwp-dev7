@@ -71,9 +71,20 @@ public class SanctionPriceDecision_ctrl_Test {
 		update oli;
 		Final Case newCase = new Case(opportunity_id__c = opp.Id, Status = '01');
 		insert newCase;
-		Final fprd__GBL_Product_Configuration__c newPd = new fprd__GBL_Product_Configuration__c(fprd__LoV_labels__c = 'Valor Label 1', fprd__LoV_values__c = '01',
-		                                                                                        fprd__Map_field__c = 'PE_List_Product_mode__c', fprd__Product__c = prod.Id);
-		insert newPd;
+        Final List<fprd__GBL_Product_Configuration__c> ltsPC = new List<fprd__GBL_Product_Configuration__c>();
+		Final fprd__GBL_Product_Configuration__c newPd1 = new fprd__GBL_Product_Configuration__c();
+        newPd1.fprd__LoV_labels__c = 'Valor Label 1';
+        newPd1.fprd__LoV_values__c = '01';
+        newPd1.fprd__Map_field__c = 'PE_List_Product_mode__c';
+        newPd1.fprd__Product__c = prod.Id;
+        ltsPC.add(newPd1);
+        Final fprd__GBL_Product_Configuration__c newPd2 = new fprd__GBL_Product_Configuration__c();
+        newPd1.fprd__LoV_labels__c = 'Dias,Meses';
+        newPd1.fprd__LoV_values__c = '01,02';
+        newPd1.fprd__Map_field__c = 'gipr_Periodicidad__c';
+        newPd1.fprd__Product__c = prod.Id;
+        ltsPC.add(newPd2);
+		insert ltsPC;
 	}
 
 	static String createJson(Id oppId, Id oliId, String method, String phase, String status) {
@@ -94,10 +105,76 @@ public class SanctionPriceDecision_ctrl_Test {
 	}
 
 	@isTest
-	static void testMethodOne() {
+	static void testError409() {
 		Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
-		SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
-		SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id);
+		lstOLI[0].price_quote_id__c = quoteid;
+		lstOLI[0].price_operation_id__c = operationid;
+		update lstOLI[0];
+
+		Final List<String> lstFields = new List<String>();
+		Final List<Object> lstData = new List<Object>();
+		lstFields.add('price_quote_id__c');
+		lstData.add('eeee');
+		lstFields.add('minimun_fee_per__c');
+		lstData.add(34.5);
+		lstFields.add('gipr_Plazo__c');
+		lstData.add(435.56);
+		lstFields.add('fprd__GBL_Sample_Checkbox__c');
+		lstData.add(true);
+		lstFields.add('price_quote_date__c');
+		lstData.add('2018-12-12');
+		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
+        
+        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
+		insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = 'https://ModifyQuotationRequestRecover/KO_409', iaso__Cache_Partition__c = credential);
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+
+		Test.startTest();
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', status9);
+		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
+		System.assert (!(Boolean)mapReturnSave3.get('isOk'), 'error 409');
+		Test.stopTest();
+	}
+
+	@isTest
+	static void testError500() {
+		Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
+		lstOLI[0].price_quote_id__c = quoteid;
+		lstOLI[0].price_operation_id__c = operationid;
+		update lstOLI[0];
+
+		Final List<String> lstFields = new List<String>();
+		Final List<Object> lstData = new List<Object>();
+		lstFields.add('price_quote_id__c');
+		lstData.add('eeee');
+		lstFields.add('minimun_fee_per__c');
+		lstData.add(34.5);
+		lstFields.add('gipr_Plazo__c');
+		lstData.add(435.56);
+		lstFields.add('fprd__GBL_Sample_Checkbox__c');
+		lstData.add(true);
+		lstFields.add('price_quote_date__c');
+		lstData.add('2018-12-12');
+		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
+        
+        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
+		insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = 'https://ModifyQuotationRequestRecover/KO_500', iaso__Cache_Partition__c = credential);
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+
+		Test.startTest();
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', status9);
+		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
+		System.assert (!(Boolean)mapReturnSave3.get('isOk'), 'error 500');
+		Test.stopTest();
+	}
+
+	@isTest
+	static void testMethodSent() {
+		Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
+		SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id, 'Web_Proposal_Summarize');
+		SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id, 'Web_Proposal_Summarize');
 		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
 		SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, html);
 		String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'COTIZADOR', null, status9);
@@ -109,7 +186,7 @@ public class SanctionPriceDecision_ctrl_Test {
 
 		insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
 		insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = urlModifQuote, iaso__Cache_Partition__c = credential);
-		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
 		Test.startTest();
@@ -128,17 +205,82 @@ public class SanctionPriceDecision_ctrl_Test {
 		json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', status9);
 		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
 		System.assert ((Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
-
-		Test.stopTest();
+        Test.stopTest();
 
 		Final List<dwp_cvad__Action_Audit__c> lstAudit = [SELECT Id FROM dwp_cvad__Action_Audit__c LIMIT 1];
 		SanctionPriceDecision_ctrl.saveAuditWeb(lstAudit[0].Id, html);
 	}
 
 	@isTest
+	static void testMethodAuthorized() {
+		Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
+		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
+		
+		lstOLI[0].price_quote_id__c = quoteid;
+		lstOLI[0].price_operation_id__c = operationid;
+		update lstOLI[0];
+
+		insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
+		insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = urlModifQuote, iaso__Cache_Partition__c = credential);
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+
+		Test.startTest();
+		Final List<String> lstFields = new List<String>();
+		Final List<Object> lstData = new List<Object>();
+		lstFields.add('price_quote_id__c');
+		lstData.add('eeee');
+		lstFields.add('minimun_fee_per__c');
+		lstData.add(34.5);
+		lstFields.add('gipr_Plazo__c');
+		lstData.add(435.56);
+		lstFields.add('fprd__GBL_Sample_Checkbox__c');
+		lstData.add(true);
+		lstFields.add('price_quote_date__c');
+		lstData.add('2018-12-12');
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', '10');
+		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
+		System.assert ((Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
+        Test.stopTest();
+	}
+
+	@isTest
+	static void testMethodDenied() {
+		Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
+		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
+		
+        lstOLI[0].price_quote_id__c = quoteid;
+		lstOLI[0].price_operation_id__c = operationid;
+		update lstOLI[0];
+
+		insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
+		insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = urlModifQuote, iaso__Cache_Partition__c = credential);
+        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
+		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
+
+		Test.startTest();
+		Final List<String> lstFields = new List<String>();
+		Final List<Object> lstData = new List<Object>();
+		lstFields.add('price_quote_id__c');
+		lstData.add('eeee');
+		lstFields.add('minimun_fee_per__c');
+		lstData.add(34.5);
+		lstFields.add('gipr_Plazo__c');
+		lstData.add(435.56);
+		lstFields.add('fprd__GBL_Sample_Checkbox__c');
+		lstData.add(true);
+		lstFields.add('price_quote_date__c');
+		lstData.add('2018-12-12');
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', '13');
+		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
+		System.assert ((Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
+        Test.stopTest();
+	}
+
+	@isTest
 	static void testMethodTwo() {
 		Final List<OpportunityLineItem> lstOLI = [SELECT Id, OpportunityId FROM OpportunityLineItem LIMIT 1];
-		lstOLI[0].price_quote_id__c = quoteid;
+		lstOLI[0].price_quote_id__c = '1111';
 		lstOLI[0].price_operation_id__c = operationid;
 		update lstOLI[0];
 
@@ -146,12 +288,12 @@ public class SanctionPriceDecision_ctrl_Test {
 		update opp;
 
 		insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
-		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GetQuotationRequest', iaso__Url__c = 'https://GetQuotationRequest/OK/1111?expand=quotations', iaso__Cache_Partition__c = credential);
+		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GetQuotationRequest', iaso__Url__c = 'https://GetQuotationRequest/OK', iaso__Cache_Partition__c = credential);
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
 		Test.startTest();
-		Final Map<String, Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id);
+		Final Map<String, Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id, 'Web_Proposal_Summarize');
 		System.assert (mapReturn.containsKey('lstOppLineItem'), 'resultado correcto');
 		Test.stopTest();
 	}

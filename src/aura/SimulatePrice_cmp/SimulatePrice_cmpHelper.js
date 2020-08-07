@@ -18,9 +18,11 @@
                 ret = response.getReturnValue();
                 var teamin = ret.minimtea;
                 var teasug = ret.sugtea;
+                var rorc = ret.rorc;
+                var raroec = ret.raroec;
                 var spr = ret.spread;
                 var generr = ret.genericError;
-                var concattea = teasug + ',' + teamin + ',' + spr;
+                var concattea = teasug + ',' + teamin + ',' + rorc + ',' + raroec + ',' + spr;
                 oli = ret.oli;
                 if (generr != undefined) {
                     cmp.set('v.isError', true);

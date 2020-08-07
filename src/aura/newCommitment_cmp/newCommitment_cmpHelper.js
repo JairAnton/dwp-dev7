@@ -63,6 +63,16 @@
 				objSetup['valImport'] = '';
 				objSetup['valPer'] = '';
 				objSetup['valIdCommitment'] = '';
+                if(cmp.get('v.rowData')!==undefined && cmp.get('v.rowData').lstInfo.length>0) {
+                    cmp.set('v.isReadOnly', true);
+                    objSetup['lstVal1']=[cmp.get('v.rowData').lstInfo[0]];
+                    objSetup['lstVal2']=[cmp.get('v.rowData').lstInfo[1]];
+                    objSetup['valExp']=cmp.get('v.rowData').lstInfo[4];
+                    objSetup['lstVal1value']=cmp.get('v.rowData').lstInfo[0];
+                    objSetup['lstVal2value']=cmp.get('v.rowData').lstInfo[1];
+                    objSetup['valExpvalue']=cmp.get('v.rowData').lstInfo[4];
+                    objSetup['valImport']=cmp.get('v.rowData').lstInfo[2];
+                }
 				cmp.set('v.objSetup', objSetup);
 			}
 		});
@@ -106,7 +116,11 @@
 			return validSoFar && inputCmp.get('v.validity').valid;
 		}, true);
 		if (allValid) {
-			for (var i in fields) {
+			var unitTypeVal = objSetup['valPicklistUnitType'][objSetup.mapPosPicklistProd[objSetup.lstVal1value]];
+            if(unitTypeVal === undefined) {
+                unitTypeVal='AMOUNT';
+            }
+            for (var i in fields) {
 				lstData.push(fields[i].get('v.value'));
 			}
 			lstData.push(objSetup['valIdCommitment']);
@@ -116,7 +130,7 @@
 				"recordId": cmp.get('v.oppRecordId'),
 				"lstData": lstData,
 				"oppLineItem": cmp.get('v.oppLineItem'),
-				"unitType": objSetup['valPicklistUnitType'][objSetup.mapPosPicklistProd[objSetup.lstVal1value]]
+				"unitType" : unitTypeVal
 			});
 			action.setCallback(this, function (response) {
 				var state = response.getState();
