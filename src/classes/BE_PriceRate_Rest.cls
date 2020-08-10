@@ -1,11 +1,14 @@
 /**
-* @author Martín Mori
-* @date 07-07-2020
-*
-* @group DWP_Peru
-*
-* @description price rate webService class
-**/
+   -------------------------------------------------------------------------------------------------
+   @Name <BE_PriceRate_Rest>
+   @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
+   @Date 2020-08-10
+   @Description Class rest from price rate
+   @Changes
+   Date        Author   Email                  				Type		Description
+   2020-08-10  MAMC     martin.mori.contractor@bbva.com    	Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public with sharing class BE_PriceRate_Rest {
     /* variable */
     static Map<String,Double> mapValues = new Map<String,Double>();
@@ -88,11 +91,8 @@ public with sharing class BE_PriceRate_Rest {
                calculationid = jbody.data.summary[0].calculationId;
                final List<PriceRate_helper.Response_EffectiveRates> lsttea = jbody.data.summary[0].interestRates.EffectiveRates;               
                for (Integer i = 0; i<lsttea.size(); i++) {
-                   if(lsttea[i].id == Label.MinTEA) {
-                       mapValues.put('minimtea',lsttea[i].percentage*100);
-                   } else if(lsttea[i].id == Label.SuggTEA) {
-                       mapValues.put('sugtea',lsttea[i].percentage*100);
-                   }                   
+                   putMapEffRate('minimtea', lsttea[i], Label.MinTEA);
+                   putMapEffRate('sugtea', lsttea[i], Label.SuggTEA);
                }             
            }
     }
@@ -105,13 +105,9 @@ public with sharing class BE_PriceRate_Rest {
             final List<PriceRate_helper.Response_LiquidityIndicators> lstspread = jbody.data.summary[0].LiquidityIndicators;
             calculationid = jbody.data.summary[0].calculationId;
             for(Integer x =0; x<lstspread.size(); x++) {
-                if(lstspread[x].id == Label.commSpread) {
-                    mapValues.put('spread',lstspread[x].detail.percentage*100);
-                } else if(lstspread[x].id == Label.PriceWSLabel02) {
-                    mapValues.put('addspread',lstspread[x].detail.percentage*100);
-                } else if(lstspread[x].id == Label.PriceWSLabel01) {
-                    mapValues.put('minimspread',lstspread[x].detail.percentage*100);
-                }
+                putMapLiqInd('spread', lstspread[x], Label.commSpread);
+                putMapLiqInd('addspread', lstspread[x], Label.PriceWSLabel02);
+                putMapLiqInd('minimspread', lstspread[x], Label.PriceWSLabel01);
             }
         }
     }
@@ -123,25 +119,47 @@ public with sharing class BE_PriceRate_Rest {
         if(jbody.data != null && jbody.data.summary != null && jbody.data.summary[0].fees != null) {
             final List<PriceRate_helper.Response_Fees> lstfees = jbody.data.summary[0].fees;
             for(Integer x=0; x<lstfees.size(); x++) {
-                if(lstfees[x].feeType.Id == Label.PriceWSLabel10) {
-                    mapValues.put('expected',lstfees[x].detail.percentage*100);                                
-                } else if(lstfees[x].feeType.Id == Label.PriceWSLabel09) {
-                    mapValues.put('fundingcost',lstfees[x].detail.percentage*100);
-                } else if(lstfees[x].feeType.Id == Label.PriceWSLabel08) {
-                    mapValues.put('efficiency',lstfees[x].detail.percentage*100);
-                } else if(lstfees[x].feeType.Id == Label.PriceWSLabel07) {
-                    mapValues.put('financystock',lstfees[x].detail.percentage*100);
-                } else if(lstfees[x].feeType.Id == Label.PriceWSLabel06) {
-                    mapValues.put('fundingadj',lstfees[x].detail.percentage*100);
-                } else if(lstfees[x].feeType.Id == Label.PriceWSLabel05) {
-                    mapValues.put('regulatory',lstfees[x].detail.percentage*100);
-                } else if(lstfees[x].feeType.Id == Label.PriceWSLabel04) {
-                    mapValues.put('addcapital',lstfees[x].detail.percentage*100);
-                } else if(lstfees[x].feeType.Id == Label.PriceWSLabel03) {
-                    mapValues.put('capitalamount',lstfees[x].detail.amount);
-                    currencyid = lstfees[x].detail.currency_type;
-                }
+                putMapFee('expected', lstfees[x], Label.PriceWSLabel10);
+                putMapFee('fundingcost', lstfees[x], Label.PriceWSLabel09);
+                putMapFee('efficiency', lstfees[x], Label.PriceWSLabel08);
+                putMapFee('financystock', lstfees[x], Label.PriceWSLabel07);
+                putMapFee('fundingadj', lstfees[x], Label.PriceWSLabel06);
+                putMapFee('regulatory', lstfees[x], Label.PriceWSLabel05);
+                putMapFee('addcapital', lstfees[x], Label.PriceWSLabel04);
+                putMapFee('capitalamount', lstfees[x], Label.PriceWSLabel03);
             }
+        }
+    }
+    
+    /**
+     * method used to evaluate the Response_Fees
+	*/
+    private static void putMapFee(String labelMap, PriceRate_helper.Response_Fees fee, String customLabel) {
+        if(labelMap == 'capitalamount') {
+            if(fee.feeType.id == customLabel) {
+                mapValues.put(labelMap, fee.detail.amount);
+                currencyid = fee.detail.currency_type;
+            }
+        } else if(fee.feeType.id == customLabel) {
+            mapValues.put(labelMap, fee.detail.percentage*100);
+        }
+    }
+    
+    /**
+     * method used to evaluate the Response_LiquidityIndicators
+	*/
+    private static void putMapLiqInd(String labelMap, PriceRate_helper.Response_LiquidityIndicators liqInd, String customLabel) {
+        if(liqInd.id == customLabel) {
+            mapValues.put(labelMap, liqInd.detail.percentage*100);
+        }
+    }
+    
+    /**
+     * method used to evaluate the Response_EffectiveRates
+	*/
+    private static void putMapEffRate(String labelMap, PriceRate_helper.Response_EffectiveRates effRate, String customLabel) {
+        if(effRate.id == customLabel) {
+            mapValues.put(labelMap, effRate.percentage*100);
         }
     }
 }

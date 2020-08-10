@@ -28,7 +28,6 @@
                     if(ret.approvalMethod === 'Web') {
                         this.getInfo(cmp, evt);
                     } else {
-                        //var ret = response.getReturnValue();
                         cmp.set('v.AccId',ret.AccId);
                         cmp.set('v.type_of_quote',ret.type_of_quote);
                         if(ret.type_of_quote==='COTIZA Beta' || ret.type_of_quote==='Carta de credito')

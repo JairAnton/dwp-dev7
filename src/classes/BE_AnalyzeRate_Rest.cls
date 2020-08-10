@@ -1,11 +1,14 @@
 /**
-* @author Martín Mori
-* @date 07-07-2020
-*
-* @group DWP_Peru
-*
-* @description analyze rate webService class
-**/
+   -------------------------------------------------------------------------------------------------
+   @Name <BE_AnalyzeRate_Rest>
+   @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
+   @Date 2020-08-10
+   @Description Class rest from analyze rate
+   @Changes
+   Date        Author   Email                  				Type		Description
+   2020-08-10  MAMC     martin.mori.contractor@bbva.com    	Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public with sharing class BE_AnalyzeRate_Rest {
     /* ok code of call webservice */
     final static Integer OKCODE = 200;
@@ -55,56 +58,35 @@ public with sharing class BE_AnalyzeRate_Rest {
     }
 
     /**
-     * method to fill map with fees
-	*/
-    /*public static List<OpportunityLineItem> readFees(AnalyzeRate_helper.ResponseAnalyzeRate_Wrapper jbody, List<OpportunityLineItem> oliAux) {
-        final List<OpportunityLineItem> olis = oliAux;
-        if(jbody.data != null && jbody.data.fees != null) {
-            for(AnalyzeRate_helper.Response_Fees fee : jbody.data.fees) {
-                final AnalyzeRate_helper.Response_CalculationType calculationType = fee.feeType;
-                switch on calculationType.id {
-                    when 'RORC_MODEL' {
-                        olis[0].RORC_Model__c = fee.detail.percentage;
-                    }
-                    when 'RORCAPPROVED' {
-                        olis[0].RORC_Approved__c = fee.detail.percentage;
-                    }
-                }
-            }
-            mapReturn.put('minimtea', olis[0].minimun_apr_per__c);
-            mapReturn.put('sugtea', olis[0].suggested_apr_per__c);
-        }
-        return olis;
-    }*/
-    
-    /**
      * method to fill map with indicators
 	*/
     public static List<OpportunityLineItem> readIndicators(AnalyzeRate_helper.ResponseAnalyzeRate_Wrapper jbody, List<OpportunityLineItem> oliAux) {
         final List<OpportunityLineItem> olis = oliAux;
         olis[0].Liquidity_Margin_Recovered__c = 0.00;
         if(jbody.data != null && jbody.data.indicators != null) {
-            List<AnalyzeRate_helper.Response_Indicators> lstIndicators = jbody.data.indicators;
+            Final List<AnalyzeRate_helper.Response_Indicators> lstIndicators = jbody.data.indicators;
+            Final Map<String, Decimal> mapIndicators = new Map<String, Decimal>();
+            Final Set<String> keysPerc =  new Set<String> {Label.PriceWSLabel16, Label.PriceWSLabel17, Label.PriceWSLabel18, Label.PriceWSLabel19, Label.PriceWSLabel20};
+            Final Set<String> keysMarg =  new Set<String> {Label.PriceWSLabel21, Label.PriceWSLabel22};
             for(Integer x = 0; x < lstIndicators.size(); x++) {
-                if(lstIndicators[x].Id == Label.PriceWSLabel16) {
-                    olis[0].RORC_Client__c = (Decimal.valueOf(lstIndicators[x].value)*100).setscale(2);
-                } else if(lstIndicators[x].Id == Label.PriceWSLabel17) {
-                    olis[0].RORC_Model__c = (Decimal.valueOf(lstIndicators[x].value)*100).setscale(2);
-                    olis[0].RORC_Variation__c = (Decimal.valueOf(lstIndicators[x].value)*100).setscale(2);
-                } else if(lstIndicators[x].Id == Label.PriceWSLabel18) {
-                    olis[0].RORC_Operation__c = (Decimal.valueOf(lstIndicators[x].value)*100).setscale(2);
-                } else if(lstIndicators[x].Id == Label.PriceWSLabel19) {
-                    olis[0].RORC_Updated__c = (Decimal.valueOf(lstIndicators[x].value)*100).setscale(2);
-                } else if(lstIndicators[x].Id == Label.PriceWSLabel20) {
-                    olis[0].RAROEC_Operation__c = (Decimal.valueOf(lstIndicators[x].value)*100).setscale(2);
-                } else if(lstIndicators[x].Id == Label.PriceWSLabel21) {
-                    olis[0].Liquidity_Margin_Lost__c = Decimal.valueOf(lstIndicators[x].value).setscale(2);
-                } else if(lstIndicators[x].Id == Label.PriceWSLabel22) {
-                    olis[0].Liquidity_Margin_Recovered__c = Decimal.valueOf(lstIndicators[x].value).setscale(2);
-                } else if(lstIndicators[x].Id == 'CURRENCY_FINANCIAL_RECOVERY') {
+                if(lstIndicators[x].Id == Label.PriceWSLabel23) {
                     olis[0].Liquidity_Margin_Recovered_Currency__c = lstIndicators[x].value;
+                } else if(keysPerc.contains(lstIndicators[x].Id)) {
+                    Final Decimal valueInd = Decimal.valueOf(lstIndicators[x].value)*100;
+                    mapIndicators.put(lstIndicators[x].Id, valueInd.setScale(2));
+                } else if(keysMarg.contains(lstIndicators[x].Id)) {
+                    Final Decimal valueInd = Decimal.valueOf(lstIndicators[x].value);
+                    mapIndicators.put(lstIndicators[x].Id, valueInd.setScale(2));
                 }
             }
+            olis[0].RORC_Client__c = mapIndicators.get(Label.PriceWSLabel16);
+            olis[0].RORC_Model__c = mapIndicators.get(Label.PriceWSLabel17);
+            olis[0].RORC_Variation__c = mapIndicators.get(Label.PriceWSLabel17);
+            olis[0].RORC_Operation__c = mapIndicators.get(Label.PriceWSLabel18);
+            olis[0].RORC_Updated__c = mapIndicators.get(Label.PriceWSLabel19);
+            olis[0].RAROEC_Operation__c = mapIndicators.get(Label.PriceWSLabel20);
+            olis[0].Liquidity_Margin_Lost__c = mapIndicators.get(Label.PriceWSLabel21);
+            olis[0].Liquidity_Margin_Recovered__c = mapIndicators.get(Label.PriceWSLabel22);
             mapReturn.put('minimtea', olis[0].minimun_apr_per__c);
             mapReturn.put('sugtea', olis[0].suggested_apr_per__c);
             mapReturn.put('rorcOper', olis[0].RORC_Operation__c);
@@ -116,24 +98,6 @@ public with sharing class BE_AnalyzeRate_Rest {
         }
         return olis;
     }
-    
-    /**
-     * method to fill map with liquidity indicators
-	*/
-    /*public static List<OpportunityLineItem> readLiqIndicator(AnalyzeRate_helper.ResponseAnalyzeRate_Wrapper jbody, List<OpportunityLineItem> oliAux) {
-        final List<OpportunityLineItem> olis = oliAux;
-        olis[0].Liquidity_Margin_Recovered__c = 0.00;
-        if(jbody.data != null && jbody.data.indicators != null) {
-            List<AnalyzeRate_helper.Response_LiquidityIndicators> liqIndicator = jbody.data.liquidityIndicators;
-            for(Integer x = 0; x < liqIndicator.size(); x++) {
-                if(liqIndicator[x].Id == Label.PriceWSLabel22) {
-                    olis[0].Liquidity_Margin_Recovered__c = Decimal.valueOf(liqIndicator[x].detail.amount).setscale(2);
-                }
-            }
-            mapReturn.put('finMarRecover', olis[0].Liquidity_Margin_Recovered__c);
-        }
-        return olis;
-    }*/
     
     /**
      * method to fill map with products

@@ -2293,6 +2293,16 @@
         <scale>2</scale>
         <type>Currency</type>
     </fields>
+	<fields>
+        <fullName>Liquidity_Margin_Recovered_Currency__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Liquidity Margin Recovered Currency</label>
+        <length>3</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Liquidity_Margin_Recovered__c</fullName>
         <externalId>false</externalId>

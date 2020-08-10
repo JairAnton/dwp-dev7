@@ -1,11 +1,14 @@
 /**
-* @author Martín Mori
-* @date 07-07-2020
-*
-* @group DWP_Peru
-*
-* @description quotation webService class
-**/
+   -------------------------------------------------------------------------------------------------
+   @Name <BE_Quotation_Rest>
+   @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
+   @Date 2020-08-10
+   @Description Class rest from quotation
+   @Changes
+   Date        Author   Email                  				Type		Description
+   2020-08-10  MAMC     martin.mori.contractor@bbva.com    	Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public with sharing class BE_Quotation_Rest {
     /* static variable */
     private static final String QUOSTATUSMSG = 'quotationStatusMessage';
@@ -77,7 +80,7 @@ public with sharing class BE_Quotation_Rest {
      * Method that invoke the ws to recover a quotationupdates the opportunity and opportunity line item with the response
      */
     public static Map<String,Object> invokeRecoverQuo(String recordId) {
-		Map<String,Object> mapReturn = new Map<String,Object>();
+		Final Map<String,Object> mapReturn = new Map<String,Object>();
 		// Invoke WS
 		try {
 			final ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'RECOVER', null, '', null);
@@ -143,8 +146,7 @@ public with sharing class BE_Quotation_Rest {
 			//Check the ws response status
 			final Integer wsRespCode = mqResponse.getStatusCode();
 			if(wsRespCode == OKCODE) {
-                system.debug('########### ok');
-				// Set the status to return
+                // Set the status to return
 				mapReturn.put(STRINGSUCCESS, 'true');
 				// Update the opportunity status
 				List<Opportunity> oppList = [SELECT StageName, opportunity_status_type__c, isProcess__c, AccountId FROM Opportunity WHERE Id =: recordId];
@@ -287,9 +289,7 @@ public with sharing class BE_Quotation_Rest {
             mapReturn.put(QUOSTATUSICON, 'utility:share');
         }
         update oppToUpdate;
-        system.debug('########### before opp mapReturn'+mapReturn);
         mapReturn = updateOliModify(recordId, mapReturn, mqStatus.id, oppToUpdate, mqData);
-        system.debug('########### after opp mapReturn'+mapReturn);
         return mapReturn;
     }
     

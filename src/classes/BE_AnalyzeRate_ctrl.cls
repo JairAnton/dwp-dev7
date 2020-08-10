@@ -1,11 +1,14 @@
 /**
-* @author Martín Mori
-* @date 20-12-2019
-*
-* @group DWP_Peru
-*
-* @description BE_AnalyzeRate_ctrl class used to controller of CalculateRORC.cmp
-**/
+   -------------------------------------------------------------------------------------------------
+   @Name <BE_AnalyzeRate_ctrl>
+   @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
+   @Date 2020-08-10
+   @Description Class ctrl from sanction price
+   @Changes
+   Date        Author   Email                  				Type		Description
+   2020-08-10  MAMC     martin.mori.contractor@bbva.com    	Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public with sharing class BE_AnalyzeRate_ctrl {
     /* Map that contains return values*/
     static Map<String,Object> mapReturn = new Map<String,Object>();
@@ -15,6 +18,8 @@ public with sharing class BE_AnalyzeRate_ctrl {
     static List<BE_OutputField_Wrapper> fields = new List<BE_OutputField_Wrapper>();
     /* ok code of call webservice */
     final static Integer OKCODE = 200;
+    /* string isOk */
+    final static String STROK = 'isOk';
     
     /*
      * constructor of class
@@ -31,7 +36,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
             fields = (List<BE_OutputField_Wrapper>)JSON.deserialize(vdata, List<BE_OutputField_Wrapper>.class);
         }
         if(tea=='' || tea==null) {
-            mapReturn.put('isOk', false);
+            mapReturn.put(STROK, false);
             errorCal = 'Es necesario ingresar una tasa';
         } else {
             List<OpportunityLineItem> olis = [SELECT Id, OpportunityId, minimun_apr_per__c, price_rates_calculation_Id__c, funding_cost_per__c, calculated_spread__c,
@@ -45,7 +50,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
                 final HttpResponse invoke = prate.invoke();
                 //code = 200 OK
                 if(invoke.getStatusCode() == OKCODE) {
-                    mapReturn.put('isOk', true);
+                    mapReturn.put(STROK, true);
                     final AnalyzeRate_helper.ResponseAnalyzeRate_Wrapper jbody = prate.parse(invoke.getBody());
                     //olis = BE_AnalyzeRate_Rest.readFees(jbody, olis);
                     olis = BE_AnalyzeRate_Rest.readIndicators(jbody, olis);
@@ -59,7 +64,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
                     mapReturn.put('finMarRecoverCur', olis[0].Liquidity_Margin_Recovered_Currency__c);
                     update olis;
                 } else {
-                    mapReturn.put('isOk', false);
+                    mapReturn.put(STROK, false);
                     final WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(invoke.getBody());
                     errorCal = errorDetails.errormessage;
                 }
@@ -68,7 +73,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
                     fielAux.valueField = String.valueOf(olis[0].get(fielAux.apiName));
                 }
             } catch(Exception e) {
-                mapReturn.put('isOk', false);
+                mapReturn.put(STROK, false);
                 errorCal = e.getMessage();
             }
         }
