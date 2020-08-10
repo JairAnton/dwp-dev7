@@ -23,37 +23,7 @@
 					'schemaSetup': ret.schemaSetup,
 					'lstValIdCommitment': []
 				};
-				var posPick = 0;
-				var posPick2 = 0;
-				//var posValExp = 0;
-				for (var i in lstCommitments) {
-					if (!objSetup['valPicklistProd'].includes(lstCommitments[i].commitment_product_name__c)) {
-						if (i != 0) {
-							posPick++;
-							posPick2 = 0;
-							//posValExp=0;
-							objSetup['mapPosPicklist2'][posPick] = {};
-							//objSetup['mapPoslstValExp'][posPick] = {};
-						}
-						objSetup['mapPosPicklistProd'][lstCommitments[i].commitment_product_name__c] = posPick;
-						objSetup['valPicklistProd'].push(lstCommitments[i].commitment_product_name__c);
-						objSetup['lstValIdCommitment'].push(lstCommitments[i].commitment_id__c);
-						if (lstCommitments[i].commitment_unit_type__c === 'AMOUNT') {
-							objSetup['lstPick2'][posPick] = [lstCommitments[i].CurrencyIsoCode];
-						}
-						objSetup['lstValExp'][posPick] = [lstCommitments[i].commitment_expiry_days_number__c];
-						objSetup['valPicklistUnitType'].push(lstCommitments[i].commitment_unit_type__c);
-
-					} else {
-						objSetup['lstPick2'][posPick].push(lstCommitments[i].CurrencyIsoCode);
-						objSetup['lstValExp'][posPick].push(lstCommitments[i].commitment_expiry_days_number__c);
-					}
-
-					objSetup['mapPosPicklist2'][posPick][lstCommitments[i].CurrencyIsoCode] = posPick2;
-					//objSetup['mapPoslstValExp'][posPick][lstCommitments[i].commitment_expiry_days_number__c] = posValExp;
-					posPick2++;
-					//posValExp++;
-				}
+				objSetup = helper.createCommitments(objSetup, lstCommitments);
 				objSetup['lstVal1'] = objSetup['valPicklistProd'];
 				objSetup['lstVal2'] = [];
 				objSetup['valExp'] = '';
@@ -146,5 +116,32 @@
 		var compEvent = cmp.getEvent("commitmentsEvent");
 		compEvent.setParams({ "typeMode": 'BACK' });
 		compEvent.fire();
+	},
+    createCommitments: function (objSetup, lstCommitments) {
+        var posPick = 0;
+        var posPick2 = 0;
+        for (var i in lstCommitments) {
+            if (!objSetup['valPicklistProd'].includes(lstCommitments[i].commitment_product_name__c)) {
+            if (i != 0) {
+                posPick++;
+                posPick2 = 0;
+                objSetup['mapPosPicklist2'][posPick] = {};
+            }
+            objSetup['mapPosPicklistProd'][lstCommitments[i].commitment_product_name__c] = posPick;
+            objSetup['valPicklistProd'].push(lstCommitments[i].commitment_product_name__c);
+            objSetup['lstValIdCommitment'].push(lstCommitments[i].commitment_id__c);
+            if (lstCommitments[i].commitment_unit_type__c === 'AMOUNT') {
+                objSetup['lstPick2'][posPick] = [lstCommitments[i].CurrencyIsoCode];
+            }
+                objSetup['lstValExp'][posPick] = [lstCommitments[i].commitment_expiry_days_number__c];
+                objSetup['valPicklistUnitType'].push(lstCommitments[i].commitment_unit_type__c);
+            } else {
+                objSetup['lstPick2'][posPick].push(lstCommitments[i].CurrencyIsoCode);
+                objSetup['lstValExp'][posPick].push(lstCommitments[i].commitment_expiry_days_number__c);
+            }
+                objSetup['mapPosPicklist2'][posPick][lstCommitments[i].CurrencyIsoCode] = posPick2;
+                posPick2++;
+        }
+    	return objSetup;
 	}
 })

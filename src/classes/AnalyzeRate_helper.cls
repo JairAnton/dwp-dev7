@@ -8,9 +8,11 @@
  * @description Wrapper class to map the input values with the input attributes of the webservice
  * @HIstorial de cambios:
 	- Actualización del web service de la version v0 a la v1
+	- Actualización RORC y RAROEC
 	*****************************
 	Modificaciones:
 	Martín Alejandro Mori Chávez  07-07-2019
+	Martín Alejandro Mori Chávez  12-08-2019
 **/
 public without sharing class AnalyzeRate_helper {
     /* variable request wrapper */
@@ -36,7 +38,7 @@ public without sharing class AnalyzeRate_helper {
         final List<Request_fees> ltsFees = new List<Request_fees>();
         inputDataMapping.lstFees = JSON.serialize(ltsFees);
         
-        final List<Request_products> ltsRequestProducts = new List<Request_products>();
+        final List<Request_products> ltsReqProd = new List<Request_products>();
         final List<Opportunity_Solution_Commitment__c> lstCommitments = [SELECT Id, opp_solution_commitment_id__c,
                                                                    opp_solution_commitment_amount__c,
                                                                    opp_soln_comt_expiry_days_number__c,
@@ -47,26 +49,26 @@ public without sharing class AnalyzeRate_helper {
         for(Opportunity_Solution_Commitment__c oppSolComm : lstCommitments) {
             final Request_products products = new Request_products();
             products.id = oppSolComm.opp_solution_commitment_id__c;
-            final Request_committedData requestCommittedData = new Request_committedData();
+            final Request_committedData commData = new Request_committedData();
             final Request_unitValue unitValue = new Request_unitValue();
             unitValue.amount = oppSolComm.opp_solution_commitment_amount__c;
             unitValue.currencyType = oppSolComm.CurrencyIsoCode;
             final Request_effectiveTime effectiveTime = new Request_effectiveTime();
             effectiveTime.unit = 'DAY';
             effectiveTime.numberValue = Integer.valueOf(oppSolComm.opp_soln_comt_expiry_days_number__c);
-            requestCommittedData.unitValue = unitValue;
-            requestCommittedData.effectiveTime = effectiveTime;
-            products.committedData = requestCommittedData;
+            commData.unitValue = unitValue;
+            commData.effectiveTime = effectiveTime;
+            products.committedData = commData;
             
-            ltsRequestProducts.add(products);
+            ltsReqProd.add(products);
         }
-        inputDataMapping.lstProducts = JSON.serialize(ltsRequestProducts);
+        inputDataMapping.lstProducts = JSON.serialize(ltsReqProd);
     }
 
     /**
      * method used to create json request
      */
-    public String generateJSONRequest(){
+    public String generateJSONRequest() {
         String json = JSON.serialize(this.inputDataMapping);
         json = json.replace('currencyType', 'currency');
         json = json.replace('numberValue', 'number');
@@ -76,14 +78,14 @@ public without sharing class AnalyzeRate_helper {
     /**
      * method to invoke the webservice
      */
-    public System.HttpResponse invoke(){
+    public System.HttpResponse invoke() {
         return iaso.GBL_Integration_GenericService.invoke((isSimulate ? 'AnalyzeRateSimulate' : 'AnalyzeRate'), generateJSONRequest());
     }
 
     /**
      * Wrapper class to the request
      */
-    public class RequestAnalyzeRate_Wrapper{
+    public class RequestAnalyzeRate_Wrapper {
         /* Variable request Wrapper */
         public String ltsEffectiveRates { get; set; }
         /* Variable request Wrapper */
@@ -175,9 +177,9 @@ public without sharing class AnalyzeRate_helper {
      * @param json This is string of response webservice
      */
     public ResponseAnalyzeRate_Wrapper parse(String json) {
-        String v_json = json.replace('"currency":', '"currencyType":');
-        v_json = v_json.replace('"number":', '"numberValue":');
-        return (ResponseAnalyzeRate_Wrapper) System.JSON.deserialize(v_json, ResponseAnalyzeRate_Wrapper.class);
+        String vjson = json.replace('"currency":', '"currencyType":');
+        vjson = vjson.replace('"number":', '"numberValue":');
+        return (ResponseAnalyzeRate_Wrapper) System.JSON.deserialize(vjson, ResponseAnalyzeRate_Wrapper.class);
     }
     
     /**

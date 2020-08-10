@@ -225,7 +225,7 @@
                                 spreadReq = (liquidity[x].detail.percentage);
                             }
                             if(liquidity[x].id == 'BENEFIT_BEFORE_TAX') {
-                                baiReq = (liquidity[x].detail.percentage); 
+                                baiReq = (liquidity[x].detail.percentage);
                             }
                         }
                     }
@@ -239,11 +239,11 @@
                             }
                         }
                     }
-                    if(rorcapp !== undefined && rorcapp !== '' && rorcapp !== null) {
+                    if(rorcapp != undefined && rorcapp != null) {
                         formatNumber = parseFloat(rorcapp);
                         rorcapp = formatNumber.toFixed(2);
                     }
-                    if(raroec !== undefined && raroec !== '' && raroec !== null) {
+                    if(raroec != undefined && raroec != null) {
                         formatNumber = parseFloat(raroec);
                         raroec = formatNumber.toFixed(2);
                     }
@@ -278,12 +278,12 @@
                                 datalst[i].AUTH = adjTea;
                                 break;
                         }
-                    }    
+                    }
                     cmp.set("v.StringSPREAD",ret.SPREAD);
                     cmp.set('v.StringRAROEC',raroec);
                     cmp.set('v.data',datalst);
                     cmp.set('v.spreadinput',spreadReq);
-                }else{
+                } else {
                     cmp.set('v.checkError',true);
                     cmp.set('v.strErrorMessage',generr);
                 }

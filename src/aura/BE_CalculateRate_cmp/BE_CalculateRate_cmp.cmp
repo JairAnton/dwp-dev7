@@ -4,6 +4,8 @@
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="finMarLost" type="double"/>
     <aura:attribute name="finMarRecover" type="double"/>
+    <aura:attribute name="finMarLostCur" type="String"/>
+    <aura:attribute name="finMarRecoverCur" type="String"/>
     <aura:attribute name="sugCommitments" type="Object"/>
     <aura:attribute name="isErrorCal" type="Boolean" default="false" />
     <aura:attribute name="errorlstCal" type="String" default=""/>

@@ -35,8 +35,9 @@ public with sharing class BE_AnalyzeRate_ctrl {
             errorCal = 'Es necesario ingresar una tasa';
         } else {
             List<OpportunityLineItem> olis = [SELECT Id, OpportunityId, minimun_apr_per__c, price_rates_calculation_Id__c, funding_cost_per__c, calculated_spread__c,
-                                              RORC_Client__c, RORC_Operation__c, RAROEC_Operation__c, RORC_Updated__c, RORC_Variation__c,
-                                              RORC_Model__c, RORC_Approved__c, Liquidity_Margin_Lost__c, Liquidity_Margin_Recovered__c, suggested_apr_per__c, proposed_apr_per__c FROM OpportunityLineItem WHERE Id = :recordId];
+                                              RORC_Client__c, RORC_Operation__c, RAROEC_Operation__c, RORC_Updated__c, RORC_Variation__c, CurrencyIsoCode,
+                                              RORC_Model__c, RORC_Approved__c, Liquidity_Margin_Lost__c, Liquidity_Margin_Recovered__c, Liquidity_Margin_Recovered_Currency__c, 
+                                              suggested_apr_per__c, proposed_apr_per__c FROM OpportunityLineItem WHERE Id = :recordId];
             try {
                 //helper to call the service
                 final AnalyzeRate_helper prate = new AnalyzeRate_helper(olis[0].OpportunityId, olis[0].price_rates_calculation_Id__c, Decimal.valueOf(tea), false);
@@ -53,7 +54,9 @@ public with sharing class BE_AnalyzeRate_ctrl {
                     olis[0].proposed_apr_per__c = Decimal.valueOf(tea);
                     mapReturn.put('rorcOper', olis[0].RORC_Operation__c);
                     mapReturn.put('finMarLost', olis[0].Liquidity_Margin_Lost__c);
+                    mapReturn.put('finMarLostCur', olis[0].CurrencyIsoCode);
                     mapReturn.put('finMarRecover', olis[0].Liquidity_Margin_Recovered__c);
+                    mapReturn.put('finMarRecoverCur', olis[0].Liquidity_Margin_Recovered_Currency__c);
                     update olis;
                 } else {
                     mapReturn.put('isOk', false);

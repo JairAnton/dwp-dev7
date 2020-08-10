@@ -72,22 +72,7 @@
                 cmp.set('v.rorcOper', ret.rorcOper);
                 var sugCommitments = '';
                 if(ret.sugCommitments!==undefined) {
-                    sugCommitments = JSON.parse(ret.sugCommitments);
-                    for(var i in sugCommitments) {
-                        var indexVal = sugCommitments[i].id;
-                        indexVal += sugCommitments[i].committedData.unitValue.currencyType;
-                        indexVal += sugCommitments[i].committedData.effectiveTime.numberValue;
-                        if (ret.commIds.indexOf(indexVal) !== -1) {
-                            sugCommitments[i].selected = true;
-                        } else {
-                            sugCommitments[i].selected = false;
-                        }
-                        if (ret.commProdIds.indexOf(sugCommitments[i].id) !== -1) {
-                            sugCommitments[i].disabled = true;
-                        } else {
-                            sugCommitments[i].disabled = false;
-                        }
-                    }
+                    sugCommitments = this.setCommitments(sugCommitments, ret);
                 }
                 var inputObject = cmp.get("v.inputAttributes");
                 inputObject['sugCommitments'] = sugCommitments;
@@ -100,6 +85,25 @@
             $A.util.addClass(spinnerMain, "slds-hide");
         });
         $A.enqueueAction(action);
+    },
+    setCommitments: function(sugCommitments, ret) {
+        sugCommitments = JSON.parse(ret.sugCommitments);
+        for(var i in sugCommitments) {
+            var indexVal = sugCommitments[i].id;
+            indexVal += sugCommitments[i].committedData.unitValue.currencyType;
+            indexVal += sugCommitments[i].committedData.effectiveTime.numberValue;
+            if (ret.commIds.indexOf(indexVal) !== -1) {
+                sugCommitments[i].selected = true;
+            } else {
+                sugCommitments[i].selected = false;
+            }
+            if (ret.commProdIds.indexOf(sugCommitments[i].id) !== -1) {
+                sugCommitments[i].disabled = true;
+            } else {
+                sugCommitments[i].disabled = false;
+            }
+        }
+        return sugCommitments;
     },
 	continueSummary: function(cmp, evt, helper) {
         cmp.set('v.isLoad', false);

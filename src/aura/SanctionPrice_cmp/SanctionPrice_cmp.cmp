@@ -22,7 +22,9 @@
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="sugCommitments" type="Object"/>
     <aura:attribute name="finMarLost" type="Double"/>
+    <aura:attribute name="finMarLostCur" type="String"/>
     <aura:attribute name="finMarRecover" type="Double"/>
+    <aura:attribute name="finMarRecoverCur" type="String"/>
     <aura:attribute name="step" type="String" default="1" />
     <aura:attribute name="classHide" type="boolean" default="slds-hide"/>
     
@@ -63,7 +65,7 @@
                                             </lightning:layoutItem>
                                         </lightning:layout>
                                         <br/>
-                                    <c:BE_CalculateRate_cmp aura:id="CalculateRate" data="{!v.data}" recordId="{!v.objectInput.IdOppLineItem}" tea="{!v.objectInput.proposed}" finMarLost="{!v.finMarLost}" finMarRecover="{!v.finMarRecover}" classHide="{!v.classHide}"/>
+                                    <c:BE_CalculateRate_cmp aura:id="CalculateRate" data="{!v.data}" recordId="{!v.objectInput.IdOppLineItem}" tea="{!v.objectInput.proposed}" finMarLost="{!v.finMarLost}" finMarRecover="{!v.finMarRecover}" finMarLostCur="{!v.finMarLostCur}" finMarRecoverCur="{!v.finMarRecoverCur}" classHide="{!v.classHide}"/>
                                         <!--<c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>-->
                                     <!--</div>-->
                                 </div>

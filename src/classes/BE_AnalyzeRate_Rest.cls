@@ -101,6 +101,8 @@ public with sharing class BE_AnalyzeRate_Rest {
                     olis[0].Liquidity_Margin_Lost__c = Decimal.valueOf(lstIndicators[x].value).setscale(2);
                 } else if(lstIndicators[x].Id == Label.PriceWSLabel22) {
                     olis[0].Liquidity_Margin_Recovered__c = Decimal.valueOf(lstIndicators[x].value).setscale(2);
+                } else if(lstIndicators[x].Id == 'CURRENCY_FINANCIAL_RECOVERY') {
+                    olis[0].Liquidity_Margin_Recovered_Currency__c = lstIndicators[x].value;
                 }
             }
             mapReturn.put('minimtea', olis[0].minimun_apr_per__c);
@@ -108,7 +110,9 @@ public with sharing class BE_AnalyzeRate_Rest {
             mapReturn.put('rorcOper', olis[0].RORC_Operation__c);
             mapReturn.put('rorc_client', olis[0].RORC_Client__c);
             mapReturn.put('finMarLost', olis[0].Liquidity_Margin_Lost__c);
+            mapReturn.put('finMarLostCur', olis[0].CurrencyIsoCode);
             mapReturn.put('finMarRecover', olis[0].Liquidity_Margin_Recovered__c);
+            mapReturn.put('finMarRecoverCur', olis[0].Liquidity_Margin_Recovered_Currency__c);
         }
         return olis;
     }

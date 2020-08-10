@@ -21,26 +21,13 @@
                     cmp.set("v.data", resultData);
                     cmp.set("v.finMarLost", ret.finMarLost);
                     cmp.set("v.finMarRecover", ret.finMarRecover);
+                    cmp.set("v.finMarLostCur", ret.finMarLostCur);
+                    cmp.set("v.finMarRecoverCur", ret.finMarRecoverCur);
                     var sugCommitments = '';
-                        if(ret.sugCommitments!==undefined) {
-                            sugCommitments = JSON.parse(ret.sugCommitments);
-                            for(var i in sugCommitments) {
-                                var indexVal = sugCommitments[i].id;
-                                indexVal += sugCommitments[i].committedData.unitValue.currencyType;
-                                indexVal += sugCommitments[i].committedData.effectiveTime.numberValue;
-                                if (ret.commIds.indexOf(indexVal) !== -1) {
-                                    sugCommitments[i].selected = true;
-                                } else {
-                                    sugCommitments[i].selected = false;
-                                }
-                                if (ret.commProdIds.indexOf(sugCommitments[i].id) !== -1) {
-                                    sugCommitments[i].disabled = true;
-                                } else {
-                                    sugCommitments[i].disabled = false;
-                                }
-                            }
-                        }
-                        cmp.set("v.sugCommitments", sugCommitments);
+                    if(ret.sugCommitments!==undefined) {
+                        sugCommitments = this.setCommitments(sugCommitments, ret);
+                    }
+                    cmp.set("v.sugCommitments", sugCommitments);
                     var alertInd = document.getElementById("idAlertInd");
                     alertInd.classList.remove("slds-hide");
                     var alertMar = document.getElementById("idAlertMar");
@@ -66,5 +53,24 @@
     closeAlertMar: function (cmp, evt, helper) {
         var alerta = document.getElementById("idAlertMar");
         alerta.classList.add("slds-hide");
+    },
+    setCommitments: function(sugCommitments, ret) {
+        sugCommitments = JSON.parse(ret.sugCommitments);
+        for(var i in sugCommitments) {
+            var indexVal = sugCommitments[i].id;
+            indexVal += sugCommitments[i].committedData.unitValue.currencyType;
+            indexVal += sugCommitments[i].committedData.effectiveTime.numberValue;
+            if (ret.commIds.indexOf(indexVal) !== -1) {
+                sugCommitments[i].selected = true;
+            } else {
+                sugCommitments[i].selected = false;
+            }
+            if (ret.commProdIds.indexOf(sugCommitments[i].id) !== -1) {
+                sugCommitments[i].disabled = true;
+            } else {
+                sugCommitments[i].disabled = false;
+            }
+        }
+        return sugCommitments;
     }
 })

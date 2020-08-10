@@ -2,12 +2,6 @@
     close: function (cmp, evt, helper) {
         helper.closeMe(cmp, evt, helper);
     },
-    /*doInit: function (cmp, evt, helper) {
-        var device = $A.get("$Browser.formFactor");
-        if (device !== 'DESKTOP') {
-            cmp.set('v.modalWidthCustom', "85%");
-        }
-    },*/
     doTypeMode: function (cmp, evt, helper) {
         var typeMode = evt.getParam("typeMode");
         var rowData = evt.getParam("rowData");

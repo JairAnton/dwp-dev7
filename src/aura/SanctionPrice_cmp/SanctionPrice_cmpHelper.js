@@ -28,7 +28,7 @@
                     if(ret.approvalMethod === 'Web') {
                         this.getInfo(cmp, evt);
                     } else {
-                        var ret = response.getReturnValue();
+                        //var ret = response.getReturnValue();
                         cmp.set('v.AccId',ret.AccId);
                         cmp.set('v.type_of_quote',ret.type_of_quote);
                         if(ret.type_of_quote==='COTIZA Beta' || ret.type_of_quote==='Carta de credito')
@@ -46,7 +46,7 @@
                             'dinamicInput':'-'
                         };
                         cmp.set('v.hasHeader',true);
-                        if(ret.approvalMethod == 'Tarifario' && ret.dynamicValue!=undefined){
+                        if(ret.approvalMethod === 'Tarifario' && ret.dynamicValue !== undefined){
                             objectInput['dinamicInput'] = ret.dynamicValue.toString() + ',-';
                             cmp.set('v.hasHeader',true);
                         }
@@ -95,38 +95,7 @@
                         cmp.set('v.errorlst',generr);
                         cmp.set('v.hasHeader',false);
                     } else {
-                        cmp.set('v.hasHeader',true);
-                    	cmp.set('v.isError', false);
-                        objectInput['sugtea'] = ret.sugtea;
-                        objectInput['minimtea'] = ret.minimtea;
-                        objectInput['rorc_client'] = ret.rorc_client;
-                        objectInput['proposed'] = ret.proposed;
-                        cmp.set("v.finMarLost", ret.finMarLost);
-                        cmp.set("v.classHide", (ret.finMarLost>0)?'':'slds-hide');
-                        cmp.set("v.finMarRecover", ret.finMarRecover);
-                        cmp.set("v.proposedEmpty", (ret.proposed)?false:true);
-                        var resultData = JSON.parse(ret.fields);
-                        var sugCommitments = '';
-                        if(ret.sugCommitments!==undefined) {
-                            sugCommitments = JSON.parse(ret.sugCommitments);
-                            for(var i in sugCommitments) {
-                                var indexVal = sugCommitments[i].id;
-                                indexVal += sugCommitments[i].committedData.unitValue.currencyType;
-                                indexVal += sugCommitments[i].committedData.effectiveTime.numberValue;
-                                if (ret.commIds.indexOf(indexVal) !== -1) {
-                                    sugCommitments[i].selected = true;
-                                } else {
-                                    sugCommitments[i].selected = false;
-                                }
-                                if (ret.commProdIds.indexOf(sugCommitments[i].id) !== -1) {
-                                    sugCommitments[i].disabled = true;
-                                } else {
-                                    sugCommitments[i].disabled = false;
-                                }
-                            }
-                        }
-                        cmp.set("v.data", resultData);
-                        cmp.set("v.sugCommitments", sugCommitments);
+                        objectInput = this.readWebInfo(cmp, ret, objectInput);
                     }
                 }
                 cmp.set('v.objectInput',objectInput);
@@ -134,6 +103,43 @@
             }
         });
         $A.enqueueAction(action);
+    },
+    readWebInfo : function(cmp, ret, objectInput) {
+        cmp.set('v.hasHeader',true);
+        cmp.set('v.isError', false);
+        objectInput['sugtea'] = ret.sugtea;
+        objectInput['minimtea'] = ret.minimtea;
+        objectInput['rorc_client'] = ret.rorc_client;
+        objectInput['proposed'] = ret.proposed;
+        cmp.set("v.finMarLost", ret.finMarLost);
+        cmp.set("v.finMarLostCur", ret.finMarLostCur);
+        cmp.set("v.classHide", (ret.finMarLost>0)?'':'slds-hide');
+        cmp.set("v.finMarRecover", ret.finMarRecover);
+        cmp.set("v.finMarRecoverCur", ret.finMarRecoverCur);
+        cmp.set("v.proposedEmpty", (ret.proposed)?false:true);
+        var resultData = JSON.parse(ret.fields);
+        var sugCommitments = '';
+        if(ret.sugCommitments!==undefined) {
+            sugCommitments = JSON.parse(ret.sugCommitments);
+            for(var i in sugCommitments) {
+                var indexVal = sugCommitments[i].id;
+                indexVal += sugCommitments[i].committedData.unitValue.currencyType;
+                indexVal += sugCommitments[i].committedData.effectiveTime.numberValue;
+                if (ret.commIds.indexOf(indexVal) !== -1) {
+                    sugCommitments[i].selected = true;
+                } else {
+                    sugCommitments[i].selected = false;
+                }
+                if (ret.commProdIds.indexOf(sugCommitments[i].id) !== -1) {
+                    sugCommitments[i].disabled = true;
+                } else {
+                    sugCommitments[i].disabled = false;
+                }
+            }
+        }
+        cmp.set("v.data", resultData);
+        cmp.set("v.sugCommitments", sugCommitments);
+        return objectInput;
     },
     continue : function(cmp, evt, helper) {
     	if(cmp.get('v.objectInput').approvalMethod !== 'Web') {
@@ -181,13 +187,13 @@
                 $A.enqueueAction(action);
             }
         } else {
-            var inputObject=cmp.get('v.inputAttributes');
-            inputObject['approvalMethod'] = cmp.get('v.objectInput').approvalMethod;
-            inputObject['opportunityLineItem'] = cmp.get('v.objectInput').IdOppLineItem;
-            inputObject['pricingModelId'] = cmp.get('v.objectInput').pricingModelId;
-            var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
-            compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:SanctionPriceCommitments_cmp'});
-            compEvent.fire();
+            var inputObj = cmp.get('v.inputAttributes');
+            inputObj['approvalMethod'] = cmp.get('v.objectInput').approvalMethod;
+            inputObj['opportunityLineItem'] = cmp.get('v.objectInput').IdOppLineItem;
+            inputObj['pricingModelId'] = cmp.get('v.objectInput').pricingModelId;
+            var compEvt = cmp.getEvent('dynamicFlowWizardContinue');
+            compEvt.setParams({'inputAttributes': inputObj, 'nextComponent':'c:SanctionPriceCommitments_cmp'});
+            compEvt.fire();
         }
     },
     activeButton : function(cmp, evt, helper) {
@@ -218,7 +224,6 @@
         var inputObject=cmp.get('v.inputAttributes');
         var compEvent = cmp.getEvent("commitmentsEvent");
         if(ret.success === 'true') {
-            //helper.secondCall(ret);
             if(ret.nextCallout !== undefined && ret.nextCallout === true) {
                 helper.secondCall(cmp, evt, helper);
             } else {
@@ -266,7 +271,9 @@
         inputObject['minimtea'] = cmp.get('v.objectInput').minimtea;
         inputObject['proposed'] = cmp.find("CalculateRate").get('v.tea');
         inputObject['finMarLost'] = cmp.find("CalculateRate").get('v.finMarLost');
+        inputObject['finMarLostCur'] = cmp.find("CalculateRate").get('v.finMarLostCur');
         inputObject['finMarRecover'] = cmp.find("CalculateRate").get('v.finMarRecover');
+        inputObject['finMarRecoverCur'] = cmp.find("CalculateRate").get('v.finMarRecoverCur');
         if(sugCommitments==null) {
             inputObject['sugCommitments'] = cmp.get('v.sugCommitments');
         } else {

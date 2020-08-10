@@ -233,7 +233,7 @@ public with sharing class SanctionPrice_ctrl {
                                           Opportunity.Account.commercial_strategy__c, suggested_apr_per__c, minimun_apr_per__c, calculated_spread__c,
                                           price_rates_calculation_Id__c, proposed_apr_per__c, product_price_approval_indicator__c, pricing_model_id__c,
                                           RORC_Client__c, RORC_Operation__c, RAROEC_Operation__c, RORC_Updated__c, RORC_Variation__c,
-                                          RORC_Model__c, RORC_Approved__c, Liquidity_Margin_Lost__c
+                                          RORC_Model__c, RORC_Approved__c, Liquidity_Margin_Lost__c, CurrencyIsoCode
                                           FROM OpportunityLineItem WHERE OpportunityId = :recordId];
         try {
             final Decimal teaProposed = (olis[0].proposed_apr_per__c == null ? olis[0].suggested_apr_per__c : olis[0].proposed_apr_per__c);

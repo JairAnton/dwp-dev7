@@ -6,42 +6,19 @@
     <aura:attribute name="hasHeader" type="Boolean" default="true" description="Allow show header section" />
     <aura:attribute name="rowData" type="Object" default="{'lstInfo':[]}"/>
     <aura:attribute name="finMarLost" type="double" default="{!v.inputAttributes.finMarLost}"/>
+    <aura:attribute name="finMarLostCur" type="String" default="{!v.inputAttributes.finMarLostCur}"/>
     <aura:attribute name="typeProduct" type="double" default="{!v.inputAttributes.approvalMethod}"/>
     <aura:attribute name="finMarRecover" type="double" default="{!v.inputAttributes.finMarRecover}"/>
+    <aura:attribute name="finMarRecoverCur" type="String" default="{!v.inputAttributes.finMarRecoverCur}"/>
     <aura:attribute name="rorcOper" type="double" default="{!v.inputAttributes.RORCOperation}"/>
     <aura:attribute name="sugCommitments" type="Object" default="{!v.inputAttributes.sugCommitments}"/>
-    <!--<aura:attribute name="hideSpinner" type="Boolean" default="false"/>-->
     <aura:registerEvent name="commitmentsEvent" type="c:Commitments_evt"/>
     <aura:handler name="commitmentsEvent" event="c:Commitments_evt" action="{!c.doTypeMode}"/>
     
     <aura:if isTrue="{!v.step == '1'}">
         <div class="slds-modal__content slds-p-around_medium">
             <aura:if isTrue="{!v.typeProduct == 'Web'}">
-            <!--<div class="slds-size_3-of-4">
-                <table class="slds-card slds-table slds-table_col-bordered slds-text-heading_medium">
-                    <tr>
-                        <th scope="col" class="slds-truncate cells-border">
-                            <div class="slds-p-vertical_medium">
-                                <div class="slds-text-title_caps slds-truncate">TEA Propuesta %</div>
-                                <div class="horizontal"><lightning:formattedNumber value="{!v.inputAttributes.proposed}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="{!v.inputAttributes.proposed lt 0 ? 'redColor' : ''}" /></div>
-                            </div>
-                        </th>
-                        <th scope="col" class="slds-truncate cells-border">
-                            <div class="slds-p-vertical_medium">
-                                <div class="slds-text-title_caps slds-truncate">RORC Operación %</div>
-                                <div class="horizontal"><lightning:formattedNumber value="{!v.rorcOper}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="{!v.rorcOper lt 0 ? 'redColor' : ''}" /></div>
-                            </div>
-                        </th>
-                        <th scope="col" class="slds-truncate cells-border">
-                            <div class="slds-p-vertical_medium">
-                                <div class="slds-text-title_caps slds-truncate">Margen Finan. Perdida S/.</div>
-                                <div class="horizontal"><lightning:formattedNumber value="{!v.finMarLost}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="redColor" /></div>
-                            </div>
-                        </th>
-                    </tr>
-                </table>
-            </div>-->
-                <lightning:layout multipleRows="true" class="slds-grid slds-card slds-text-heading_medium">
+            	<lightning:layout multipleRows="true" class="slds-grid slds-card slds-text-heading_medium">
                     <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-left-box">
                         <div class="slds-text-heading_small slds-truncate">TEA Propuesta %</div>
                         <div class="custom-font-number"><lightning:formattedNumber value="{!v.inputAttributes.proposed}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
@@ -52,11 +29,11 @@
                     </lightning:layoutItem>
                     <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-center-box">
                         <div class="slds-text-heading_small slds-truncate">Margen Finan. Perdida</div>
-                        <div class="custom-font-number"><lightning:formattedNumber value="{!v.finMarLost}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="slds-text-color_destructive"/></div>
+                        <div class="custom-font-number">{!v.finMarLostCur} <lightning:formattedNumber value="{!v.finMarLost}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="slds-text-color_destructive"/></div>
                     </lightning:layoutItem>
                     <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-right-box">
                         <div class="slds-text-heading_small slds-truncate">Margen Finan. Recuper.</div>
-                        <div class="custom-font-number"><lightning:formattedNumber value="{!v.finMarRecover}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
+                        <div class="custom-font-number">{!v.finMarRecoverCur} <lightning:formattedNumber value="{!v.finMarRecover}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
                     </lightning:layoutItem>
                 </lightning:layout>
             <br/>
@@ -111,10 +88,6 @@
             <c:CommitmentsTable_cmp aura:id="commTableId" oppRecordId="{!v.inputAttributes.recordId}" idOli="{!v.inputAttributes.opportunityLineItem}" quoteMethod="{!v.inputAttributes.approvalMethod}" finMarRecover="{!v.finMarRecover}" proposedTea="{!v.inputAttributes.proposed}" inputObject="{!v.inputAttributes}"/>
         </div>
         <aura:if isTrue="{!!v.readOnly}">
-            <!--<footer class="slds-modal__footer slds-theme_default">
-                <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPC"/>
-                <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
-            </footer>-->
             <footer class="slds-modal__footer slds-theme_default">
                 <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
                     <table width="100%">
