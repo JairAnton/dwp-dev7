@@ -60,18 +60,6 @@ public class SanctionPriceDecision_ctrl_Test {
 	 * Label of operation id
 	 */
 	static String operationid = '222';
-    /**
-	 * Label of isOk
-	 */
-	static String STROK = 'isOk';
-    /**
-	 * Label of web
-	 */
-	static String STRWEB = 'web';
-    /**
-	 * Label of approve
-	 */
-	static String STRAPPR = 'approve';
     
 	@testSetup
 	static void setData() {
@@ -99,7 +87,7 @@ public class SanctionPriceDecision_ctrl_Test {
 		insert ltsPC;
 	}
 
-	static String createJson(Id oppId, Id oliId, String method, String phase, String status) {
+	static String createJson(Id oppId, Id oliId, String status) {
 		return '{' +
 		       '"recordId" : "' + oppId + '",' +
 		       '"statusOpp" : "' + status + '",' +
@@ -110,8 +98,8 @@ public class SanctionPriceDecision_ctrl_Test {
 		       '"recordOli" : "' + oliId + '",' +
 		       '"statusCase" : "01",' +
 		       '"storeHtml" : "' + html + '",' +
-		       '"approvalMethod" : "' + method + '",' +
-		       '"wsPhase" : "' + phase + '",' +
+		       '"approvalMethod" : "web",' +
+		       '"wsPhase" : "approve",' +
 		       '"validDate" : "2000-11-11"' +
 		       '}';
 	}
@@ -136,61 +124,15 @@ public class SanctionPriceDecision_ctrl_Test {
         return lstData;
     }
 
-	@isTest
-	static void testError409() {
-		Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
-		lstOLI[0].price_quote_id__c = quoteid;
-		lstOLI[0].price_operation_id__c = operationid;
-		update lstOLI[0];
-		
-        Final List<String> lstFields = createFields();
-		Final List<Object> lstData = createData();
-		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
-        
-        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
-		insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = 'https://ModifyQuotationRequestRecover/KO_409', iaso__Cache_Partition__c = credential);
-        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
-		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
-		Test.startTest();
-		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, status9);
-		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert (!(Boolean)mapReturnSave3.get(STROK), 'error 409');
-		Test.stopTest();
-	}
-
-	@isTest
-	static void testError500() {
-		Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
-		lstOLI[0].price_quote_id__c = quoteid;
-		lstOLI[0].price_operation_id__c = operationid;
-		update lstOLI[0];
-
-		Final List<String> lstFields = createFields();
-		Final List<Object> lstData = createData();
-		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
-        
-        insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
-		insert new iaso__GBL_Rest_Services_Url__c(Name = ModifQuote, iaso__Url__c = 'https://ModifyQuotationRequestRecover/KO_500', iaso__Cache_Partition__c = credential);
-        Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
-		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
-		Test.startTest();
-		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, status9);
-		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert (!(Boolean)mapReturnSave3.get(STROK), 'error 500');
-		Test.stopTest();
-	}
-
-	@isTest
+    @isTest
 	static void testMethodSent() {
 		Final List<OpportunityLineItem> lstOLI = [SELECT Id FROM OpportunityLineItem LIMIT 1];
 		SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id, 'Web_Proposal_Summarize');
 		SanctionPriceDecision_ctrl.getInfoAnalist(lstOLI[0].Id, 'Web_Proposal_Summarize');
 		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
 		SanctionPriceDecision_ctrl.saveDecision(lstOpp[0].Id, status9, etapa4, true, asd, nameAudit, comments, html);
-		String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'COTIZADOR', null, status9);
-		SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, new List<String>(), new List<Object>());
+		String json = createJson(lstOpp[0].Id, lstOLI[0].Id, status9);
+		SanctionPriceDecision_ctrl.saveDecisionAnalist(json.replace('web',  'COTIZADOR'), true, new List<String>(), new List<Object>());
 
 		lstOLI[0].price_quote_id__c = quoteid;
 		lstOLI[0].price_operation_id__c = operationid;
@@ -204,9 +146,9 @@ public class SanctionPriceDecision_ctrl_Test {
 		Test.startTest();
 		Final List<String> lstFields = createFields();
 		Final List<Object> lstData = createData();
-		json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, status9);
+		json = createJson(lstOpp[0].Id, lstOLI[0].Id, status9);
 		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert ((Boolean)mapReturnSave3.get(STROK), 'resultado correcto');
+		System.assert ((Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
         Test.stopTest();
 
 		Final List<dwp_cvad__Action_Audit__c> lstAudit = [SELECT Id FROM dwp_cvad__Action_Audit__c LIMIT 1];
@@ -230,9 +172,9 @@ public class SanctionPriceDecision_ctrl_Test {
 		Test.startTest();
 		Final List<String> lstFields = createFields();
 		Final List<Object> lstData = createData();
-		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, '10');
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, '10');
 		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert ((Boolean)mapReturnSave3.get(STROK), 'success!!!');
+		System.assert ((Boolean)mapReturnSave3.get('isOk'), 'success!!!');
         Test.stopTest();
 	}
 
@@ -253,9 +195,9 @@ public class SanctionPriceDecision_ctrl_Test {
 		Test.startTest();
 		Final List<String> lstFields = createFields();
 		Final List<Object> lstData = createData();
-		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, '13');
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, '13');
 		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert ((Boolean)mapReturnSave3.get(STROK), 'success');
+		System.assert ((Boolean)mapReturnSave3.get('isOk'), 'success');
         Test.stopTest();
 	}
 

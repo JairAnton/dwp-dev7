@@ -66,9 +66,9 @@ public with sharing class BE_AnalyzeRate_Rest {
         if(jbody.data != null && jbody.data.indicators != null) {
             Final List<AnalyzeRate_helper.Response_Indicators> lstIndicators = jbody.data.indicators;
             Final Map<String, Decimal> mapIndicators = new Map<String, Decimal>();
-            Final Set<String> keysPerc =  new Set<String> {Label.PriceWSLabel16, Label.PriceWSLabel17, Label.PriceWSLabel18, Label.PriceWSLabel19, Label.PriceWSLabel20};
-            Final Set<String> keysMarg =  new Set<String> {Label.PriceWSLabel21, Label.PriceWSLabel22};
             for(Integer x = 0; x < lstIndicators.size(); x++) {
+                Final Set<String> keysPerc =  new Set<String> {Label.PriceWSLabel16, Label.PriceWSLabel17, Label.PriceWSLabel18, Label.PriceWSLabel19, Label.PriceWSLabel20};
+                Final Set<String> keysMarg =  new Set<String> {Label.PriceWSLabel21, Label.PriceWSLabel22};
                 if(lstIndicators[x].Id == Label.PriceWSLabel23) {
                     olis[0].Liquidity_Margin_Recovered_Currency__c = lstIndicators[x].value;
                 } else if(keysPerc.contains(lstIndicators[x].Id)) {

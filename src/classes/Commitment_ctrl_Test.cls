@@ -17,13 +17,13 @@ public class Commitment_ctrl_Test {
 
 	@isTest
 	static void test_method_one() {
-		List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2];
+		List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2 LIMIT 1];
 		lstProd[0].Type_of_quote__c = 'Tarifario';
 		update lstProd;
 		Map<String, Object> mapReturnInfo = Commitment_ctrl.getInfo('Tarifario', null);
 		System.assert (mapReturnInfo.containsKey('schemaSetup'));
 
-		List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
+		List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
 		Map<String, Object> mapReturnInfoTable = Commitment_ctrl.getInfoTable(lstOpp[0].Id);
 		System.assert (mapReturnInfoTable.containsKey('schemaSetup'));
 
@@ -46,7 +46,7 @@ public class Commitment_ctrl_Test {
 		lstData.add(30);
 		Commitment_ctrl.changeCommitment(lstOpp[0].Id, lstData, null);
 
-		Final List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c];
+		Final List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c LIMIT 1];
 		Final Map<String, Object> mapReturnDelete = Commitment_ctrl.deleteCommitment(lstOppSol[0].Id);
 		System.assert((Boolean)mapReturnDelete.get('isOK'), 'success!');
 	}

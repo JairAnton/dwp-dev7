@@ -234,19 +234,14 @@
                         for(var y in indicators) {
                             if(indicators[y].id === 'RORC_OPERATION') {
                                 rorcapp = (indicators[y].value*100);
+                                rorcapp = rorcapp.toFixed(2);
                             } else if(indicators[y].id === 'RAROEC_OPERATION') {
                                 raroec = (indicators[y].value*100);
+                                raroec = raroec.toFixed(2);
                             }
                         }
                     }
-                    if(rorcapp != undefined && rorcapp != null) {
-                        formatNumber = parseFloat(rorcapp);
-                        rorcapp = formatNumber.toFixed(2);
-                    }
-                    if(raroec != undefined && raroec != null) {
-                        formatNumber = parseFloat(raroec);
-                        raroec = formatNumber.toFixed(2);
-                    }
+                    
                     adjTea = cmp.get('v.teainput');
                     var formatNumber ;
                     if(adjTea !== undefined && adjTea !== '' && adjTea !== null) {

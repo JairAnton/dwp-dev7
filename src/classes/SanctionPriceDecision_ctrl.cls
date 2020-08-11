@@ -81,8 +81,6 @@ public with sharing class SanctionPriceDecision_ctrl {
 
 		mapReturn.put('lstOppLineItem', lstOppLineItem);
 		mapReturn.put('lstSummarize', JSON.serialize(summurizeValues(oliId, uniqueNameTable)));
-
-		/**getSanctionPriceInfo*/
 		mapReturn.put('sanctionPriceInfo', getSanctionPriceInfo(oliId));
 
 		return mapReturn;

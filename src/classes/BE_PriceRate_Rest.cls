@@ -24,6 +24,8 @@ public with sharing class BE_PriceRate_Rest {
     final static Integer KOCODE = 409;
     /* ok code of call webservice */
     final static Integer OKCODE = 200;
+    /* string capitalamount */
+    final static String CAPAMT = 'capitalamount';
     
 	/**
      * constructor of class
@@ -135,7 +137,7 @@ public with sharing class BE_PriceRate_Rest {
      * method used to evaluate the Response_Fees
 	*/
     private static void putMapFee(String labelMap, PriceRate_helper.Response_Fees fee, String customLabel) {
-        if(labelMap == 'capitalamount') {
+        if(labelMap == CAPAMT) {
             if(fee.feeType.id == customLabel) {
                 mapValues.put(labelMap, fee.detail.amount);
                 currencyid = fee.detail.currency_type;

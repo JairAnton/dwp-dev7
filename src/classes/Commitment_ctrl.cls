@@ -40,7 +40,6 @@ public with sharing class Commitment_ctrl {
 		Set<String> setApiName = new Set<String>();
 		setApiName.add('opp_solution_commitment_amount__c');
 		setApiName.add('opp_soln_comt_expiry_days_number__c');
-		//setApiName.add('opp_soln_comt_stay_days_number__c');
 		setApiName.add('opp_solution_comt_product_name__c');
 		setApiName.add('opp_solution_commitment_number__c');
 		setApiName.add('CurrencyIsoCode');
@@ -72,7 +71,6 @@ public with sharing class Commitment_ctrl {
 		Set<String> setApiName = new Set<String>();
 		setApiName.add('opp_solution_commitment_amount__c');
 		setApiName.add('opp_soln_comt_expiry_days_number__c');
-		//setApiName.add('opp_soln_comt_stay_days_number__c');
 		setApiName.add('opp_solution_comt_product_name__c');
 		setApiName.add('opp_solution_commitment_number__c');
 		setApiName.add('CurrencyIsoCode');
@@ -85,25 +83,7 @@ public with sharing class Commitment_ctrl {
 	 */
 	@AuraEnabled
 	public static Map<String, Object> saveCommitment(String recordId, List<Object> lstData, String oppLineItem, String unitType) {
-		/*Map<String, Object> mapReturn = new Map<String, Object>();
-		Opportunity_Solution_Commitment__c oppSolCommitment = new Opportunity_Solution_Commitment__c();
-		oppSolCommitment.opp_solution_comt_product_name__c = String.valueOf(lstData[0]);
-		oppSolCommitment.CurrencyIsoCode = String.valueOf(lstData[1]);
-		oppSolCommitment.opp_soln_comt_expiry_days_number__c = Double.valueOf(lstData[2]);
-		if(unitType == STRAMOUNT) {
-			oppSolCommitment.opp_solution_commitment_amount__c = Double.valueOf(lstData[3]);
-		} else {
-			oppSolCommitment.opp_solution_commitment_number__c = Double.valueOf(lstData[3]);
-		}
-		oppSolCommitment.opp_soln_comt_stay_days_number__c = Double.valueOf(lstData[4]);
-		oppSolCommitment.opp_solution_commitment_id__c = String.valueOf(lstData[5]);
-		oppSolCommitment.price_quotation_method__c = String.valueOf(lstData[6]);
-		oppSolCommitment.opportunity_id__c = recordId;
-		oppSolCommitment.opp_solution_id__c = oppLineItem;
-		insert oppSolCommitment;
-		mapReturn.put('isOK', true);
-		return mapReturn;*/
-        Map<String,Object> mapReturn = new Map<String,Object>();
+		Map<String,Object> mapReturn = new Map<String,Object>();
         Opportunity_Solution_Commitment__c oppSolCommitment = new Opportunity_Solution_Commitment__c();
         if(lstData[4]==null) {
             oppSolCommitment.opp_solution_comt_product_name__c = String.valueOf(lstData[0]);

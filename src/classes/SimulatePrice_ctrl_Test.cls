@@ -1,3 +1,14 @@
+/**
+   -------------------------------------------------------------------------------------------------
+   @Name <SimulatePrice_ctrl_Test>
+   @Author 
+   @Date 
+   @Description Test class from SimulatePrice_ctrl
+   @Changes
+   Date        Author   Email                  				Type		Description
+   
+   -------------------------------------------------------------------------------------------------
+ */
 @istest
 public class SimulatePrice_ctrl_Test {
 	static Account acctest;
@@ -6,6 +17,9 @@ public class SimulatePrice_ctrl_Test {
 	static OpportunityLineItem olitest;
 	static Product2 prodtest;
 
+    /*
+     * Method used to create test data
+	*/
 	static void setData() {
 		defaultUser = TestFactory.createUser('Test', 'Migracion');
 		acctest = TestFactory.createAccount();
@@ -16,6 +30,9 @@ public class SimulatePrice_ctrl_Test {
         insert bailLetter;
 	}
 
+    /*
+     * Method used to test correct scenary
+	*/
 	@isTest
 	static void test_method_one() {
 		setData();
@@ -33,6 +50,9 @@ public class SimulatePrice_ctrl_Test {
 		Test.stopTest();
 	}
     
+    /*
+     * Method used to test correct scenary
+	*/
 	@isTest
 	static void test_method_two() {
 		setData();
@@ -50,10 +70,13 @@ public class SimulatePrice_ctrl_Test {
 		Test.stopTest();
 	}
     
+    /*
+     * Method used to test fail scenary
+	*/
     @isTest
 	static void test_method_fail() {
 		setData();
-        final List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2];
+        final List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2 LIMIT 1];
 		lstProd[0].Type_of_quote__c = 'Web';
 		update lstProd;
         final List<OpportunityLineItem> lstOli = [SELECT Id, OpportunityId FROM OpportunityLineItem LIMIT 1];

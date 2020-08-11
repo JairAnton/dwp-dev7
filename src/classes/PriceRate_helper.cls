@@ -217,6 +217,7 @@ public without sharing class PriceRate_helper {
 	 * Wrapper class to the response
 	 */
 	public class ResponseSimulateRate_Wrapper {
+		/* variable response */
 		public Response_data data { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -224,21 +225,30 @@ public without sharing class PriceRate_helper {
 	 * Data class to the response
 	 */
 	public class Response_data {
+		/* variable response */
 		public Response_CalculationType calculationType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_CalculationType model { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_BusinessAgent businessAgent { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_Participant participant { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_Product product { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_Summary[] summary { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
-        public Response_Indicators[] indicators { get; set; }
+        /* variable response */
+		public Response_Indicators[] indicators { get; set; }
 	}
     
     /**
      * Indicators class to the response
      */
     public class Response_Indicators {
-        public String id { get; set; }
-        public String value { get; set; }
+        /* variable response */
+		public String id { get; set; }
+        /* variable response */
+		public String value { get; set; }
     }
 
 	/**
@@ -251,8 +261,11 @@ public without sharing class PriceRate_helper {
 	 * Product class to the response
 	 */
 	public class Response_Product {
+		/* variable response */
 		public Response_BusinessAgent requestedAmount { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_BusinessAgent term { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_BusinessAgent guarantee { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -260,7 +273,9 @@ public without sharing class PriceRate_helper {
 	 * Fees class to the response
 	 */
 	public class Response_Fees {
+		/* variable response */
 		public Response_CalculationType feeType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_Detail detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -268,6 +283,7 @@ public without sharing class PriceRate_helper {
 	 * Segment class to the response
 	 */
 	public class Response_Segment {
+		/* variable response */
 		public Response_SubSegment subSegment { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -275,6 +291,7 @@ public without sharing class PriceRate_helper {
 	 * IdentityDocuments class to the response
 	 */
 	public class Response_IdentityDocuments {
+		/* variable response */
 		public Response_BusinessAgent documentType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -282,7 +299,9 @@ public without sharing class PriceRate_helper {
 	 * FinancialIndicators class to the response
 	 */
 	public class Response_FinancialIndicators {
+		/* variable response */
 		public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public String value { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -290,11 +309,17 @@ public without sharing class PriceRate_helper {
 	 * Participant class to the response
 	 */
 	public class Response_Participant {
+		/* variable response */
 		public Response_IdentityDocuments[] identityDocuments { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_BusinessAgent bank { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_Segment segment { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_Delinquency delinquency { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_BusinessAgent[] strategicRelationships { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_BusinessAgent[] riskLevel { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -302,6 +327,7 @@ public without sharing class PriceRate_helper {
 	 * CalculationType class to the response
 	 */
 	public class Response_CalculationType {
+		/* variable response */
 		public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -309,6 +335,7 @@ public without sharing class PriceRate_helper {
 	 * SubSegment class to the response
 	 */
 	public class Response_SubSegment {
+		/* variable response */
 		public Response_BusinessAgent[] partitions { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -316,7 +343,9 @@ public without sharing class PriceRate_helper {
 	 * LiquidityIndicators class to the response
 	 */
 	public class Response_LiquidityIndicators {
+		/* variable response */
 		public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_Detail detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -324,10 +353,15 @@ public without sharing class PriceRate_helper {
 	 * Summary class to the response
 	 */
 	public class Response_Summary {
+		/* variable response */
 		public String calculationId { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_FinancialIndicators[] financialIndicators { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_InterestRates interestRates { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_Fees[] fees { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Response_LiquidityIndicators[] liquidityIndicators { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -335,6 +369,7 @@ public without sharing class PriceRate_helper {
 	 * InterestRates class to the response
 	 */
 	public class Response_InterestRates {
+		/* variable response */
 		public Response_EffectiveRates[] effectiveRates { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -342,7 +377,9 @@ public without sharing class PriceRate_helper {
 	 * EffectiveRates class to the response
 	 */
 	public class Response_EffectiveRates {
+		/* variable response */
 		public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Double percentage { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -350,6 +387,7 @@ public without sharing class PriceRate_helper {
 	 * Delinquency class to the response
 	 */
 	public class Response_Delinquency {
+		/* variable response */
 		public Response_BehaviorDebts behaviorDebts { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -357,6 +395,7 @@ public without sharing class PriceRate_helper {
 	 * BehaviorDebts class to the response
 	 */
 	public class Response_BehaviorDebts {
+		/* variable response */
 		public Response_BusinessAgent[] tacticalVariable { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 
@@ -364,8 +403,11 @@ public without sharing class PriceRate_helper {
 	 * Detail class to the response
 	 */
 	public class Response_Detail {
+        /* variable response */
 		public Double percentage { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public Double amount { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+		/* variable response */
 		public String currency_type { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 	}
 }
