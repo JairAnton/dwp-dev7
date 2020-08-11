@@ -156,7 +156,7 @@ public with sharing class SimulatePrice_ctrl {
 	public static void validParameters(List<OpportunityLineItem> olis) {
 		Boolean validPeriod = true;
 		Boolean validBail = true;
-		if(!olis.isEmpty() && olis[0].pricing_model_id__c == '11') {
+		if(!olis.isEmpty() && olis[0].pricing_model_id__c == '8') {
 			validBail = false;
 			validPeriod = false;
 			for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c LIMIT 10000]) {

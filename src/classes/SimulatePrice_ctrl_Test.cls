@@ -80,7 +80,7 @@ public class SimulatePrice_ctrl_Test {
 		lstProd[0].Type_of_quote__c = 'Web';
 		update lstProd;
         final List<OpportunityLineItem> lstOli = [SELECT Id, OpportunityId FROM OpportunityLineItem LIMIT 1];
-        lstOli[0].pricing_model_id__c = '11';
+        lstOli[0].pricing_model_id__c = '8';
         update lstOli;
         SimulatePrice_ctrl.getInfo(null);
 		final String result = (String)SimulatePrice_ctrl.getInfo(lstOli[0].OpportunityId).get('genericError');

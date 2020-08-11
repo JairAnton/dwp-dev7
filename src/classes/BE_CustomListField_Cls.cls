@@ -15,7 +15,7 @@ public with sharing class BE_CustomListField_Cls {
     
     /**Method used to set sanction price summarize fields**/
     public static List<itemField> createListField(String oliId, String uniqueNameTable) {
-        Final List<itemField> items = new List<itemField>();
+        List<itemField> items = new List<itemField>();
         Final List<field__mdt> lstFieldMDT = [SELECT field_api_name__c, Field_Custom_Label__c, order__c, Use_Product_Configuration_Value__c FROM Field__mdt WHERE field_form__r.unique_id__c = :uniqueNameTable ORDER BY order__c];
 		Final Set<String> setFields = new Set<String>();
         Final Set<String> fieldsProdConf = new Set<String>();
@@ -33,18 +33,23 @@ public with sharing class BE_CustomListField_Cls {
         }
         Decimal position = 0;
         for(Field__mdt field : lstFieldMDT) {
-            itemField item = new itemField();
-            item.label = (field.Field_Custom_Label__c == null) ? Schema.getGlobalDescribe().get('OpportunityLineItem').getDescribe().fields.getMap().get(field.field_api_name__c).getDescribe().getLabel() : field.Field_Custom_Label__c;
-            item.value = (field.Use_Product_Configuration_Value__c) ? ''+mapPC.get(field.field_api_name__c) : ''+lstRecord[0].get(field.field_api_name__c);
-            if(position==field.order__c) {
-                item.value = items.get(items.size()-1).value + ' ' + item.value;
-                items.set(items.size()-1, item);
-            } else {
-                items.add(item);
-            }
-            position=field.order__c;
+            items = addFields(items, field, lstRecord, mapPC, position);
+            position = field.order__c;
         }
-        position++;
+        return items;
+    }
+    
+    /**Method to create map product configuration **/
+    private static List<itemField> addFields(List<itemField> items, Field__mdt field, List<sObject> lstRecord, Map<String, Object> mapPC, Decimal position) {
+        itemField item = new itemField();
+        item.label = (field.Field_Custom_Label__c == null) ? Schema.getGlobalDescribe().get('OpportunityLineItem').getDescribe().fields.getMap().get(field.field_api_name__c).getDescribe().getLabel() : field.Field_Custom_Label__c;
+        item.value = field.Use_Product_Configuration_Value__c ? ''+mapPC.get(field.field_api_name__c) : ''+lstRecord[0].get(field.field_api_name__c);
+        if(position == field.order__c) {
+            item.value = items.get(items.size()-1).value + ' ' + item.value;
+            items.set(items.size()-1, item);
+        } else {
+            items.add(item);
+        }
         return items;
     }
     
