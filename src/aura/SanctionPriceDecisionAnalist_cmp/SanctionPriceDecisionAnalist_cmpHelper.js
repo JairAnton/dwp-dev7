@@ -11,7 +11,7 @@
         }
         var action = component.get("c.getInfoAnalist");
         action.setParams({
-            "recordIdOppLineItem": inputObject.opportunityLineItem,
+            "oliId": inputObject.opportunityLineItem,
             "uniqueNameTable": uniqueNameTable
         });
         action.setCallback(this, function (response) {

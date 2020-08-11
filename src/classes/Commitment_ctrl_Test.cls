@@ -36,7 +36,7 @@ public class Commitment_ctrl_Test {
         lstData.add(3);
 		lstData.add('52');
 		lstData.add('Web');
-		Map<String, Object> mapReturnSave = Commitment_ctrl.saveCommitment(lstOpp[0].Id, lstData, null, 'AMOUNT');
+		Commitment_ctrl.saveCommitment(lstOpp[0].Id, lstData, null, 'AMOUNT');
 		
         lstData.clear();
         lstData.add('52');
@@ -46,9 +46,9 @@ public class Commitment_ctrl_Test {
 		lstData.add(30);
 		Commitment_ctrl.changeCommitment(lstOpp[0].Id, lstData, null);
 
-		List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c];
-		Map<String, Object> mapReturnDelete = Commitment_ctrl.deleteCommitment(lstOppSol[0].Id);
-		System.assertEquals(true, (Boolean)mapReturnDelete.get('isOK'));
+		Final List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c];
+		Final Map<String, Object> mapReturnDelete = Commitment_ctrl.deleteCommitment(lstOppSol[0].Id);
+		System.assert((Boolean)mapReturnDelete.get('isOK'), 'success!');
 	}
 
 	@isTest

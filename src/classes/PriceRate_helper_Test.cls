@@ -27,13 +27,11 @@ global class PriceRate_helper_Test {
 		System.HttpResponse priceResponse = pricehHelper.invoke();
         System.debug(priceResponse.getBody());
 		PriceRate_helper.ResponseSimulateRate_Wrapper responseWrapper = pricehHelper.parse(priceResponse.getBody());
-        final String calculationId = responseWrapper.data.calculationType.id;
-        final Double detailAmount = responseWrapper.data.summary[0].fees[0].detail.amount;
+        final String resp = responseWrapper.data.calculationType.id +
+            responseWrapper.data.summary[0].fees[0].detail.amount;
 
 		Test.stopTest();
 
-		//sonar
-		Integer result = 1 + 2;
-		System.assertEquals(3, result);
+		System.assert(!String.isBlank(resp), 'success!!');
 	}
 }

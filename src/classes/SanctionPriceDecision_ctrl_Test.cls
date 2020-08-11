@@ -60,7 +60,19 @@ public class SanctionPriceDecision_ctrl_Test {
 	 * Label of operation id
 	 */
 	static String operationid = '222';
-
+    /**
+	 * Label of isOk
+	 */
+	static String STROK = 'isOk';
+    /**
+	 * Label of web
+	 */
+	static String STRWEB = 'web';
+    /**
+	 * Label of approve
+	 */
+	static String STRAPPR = 'approve';
+    
 	@testSetup
 	static void setData() {
 		Account acc = TestFactory.createAccount();
@@ -103,6 +115,26 @@ public class SanctionPriceDecision_ctrl_Test {
 		       '"validDate" : "2000-11-11"' +
 		       '}';
 	}
+    
+    static List<String> createFields() {
+		Final List<String> lstFields = new List<String>();
+        lstFields.add('price_quote_id__c');
+		lstFields.add('minimun_fee_per__c');
+		lstFields.add('gipr_Plazo__c');
+		lstFields.add('fprd__GBL_Sample_Checkbox__c');
+		lstFields.add('price_quote_date__c');
+        return lstFields;
+    }
+    
+    static List<Object> createData() {
+        Final List<Object> lstData = new List<Object>();
+        lstData.add('eeee');
+		lstData.add(34.5);
+		lstData.add(435.56);
+		lstData.add(true);
+		lstData.add('2018-12-10');
+        return lstData;
+    }
 
 	@isTest
 	static void testError409() {
@@ -110,19 +142,9 @@ public class SanctionPriceDecision_ctrl_Test {
 		lstOLI[0].price_quote_id__c = quoteid;
 		lstOLI[0].price_operation_id__c = operationid;
 		update lstOLI[0];
-
-		Final List<String> lstFields = new List<String>();
-		Final List<Object> lstData = new List<Object>();
-		lstFields.add('price_quote_id__c');
-		lstData.add('eeee');
-		lstFields.add('minimun_fee_per__c');
-		lstData.add(34.5);
-		lstFields.add('gipr_Plazo__c');
-		lstData.add(435.56);
-		lstFields.add('fprd__GBL_Sample_Checkbox__c');
-		lstData.add(true);
-		lstFields.add('price_quote_date__c');
-		lstData.add('2018-12-12');
+		
+        Final List<String> lstFields = createFields();
+		Final List<Object> lstData = createData();
 		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
         
         insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
@@ -131,9 +153,9 @@ public class SanctionPriceDecision_ctrl_Test {
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
 		Test.startTest();
-		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', status9);
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, status9);
 		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert (!(Boolean)mapReturnSave3.get('isOk'), 'error 409');
+		System.assert (!(Boolean)mapReturnSave3.get(STROK), 'error 409');
 		Test.stopTest();
 	}
 
@@ -144,18 +166,8 @@ public class SanctionPriceDecision_ctrl_Test {
 		lstOLI[0].price_operation_id__c = operationid;
 		update lstOLI[0];
 
-		Final List<String> lstFields = new List<String>();
-		Final List<Object> lstData = new List<Object>();
-		lstFields.add('price_quote_id__c');
-		lstData.add('eeee');
-		lstFields.add('minimun_fee_per__c');
-		lstData.add(34.5);
-		lstFields.add('gipr_Plazo__c');
-		lstData.add(435.56);
-		lstFields.add('fprd__GBL_Sample_Checkbox__c');
-		lstData.add(true);
-		lstFields.add('price_quote_date__c');
-		lstData.add('2018-12-12');
+		Final List<String> lstFields = createFields();
+		Final List<Object> lstData = createData();
 		Final List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
         
         insert new iaso__GBL_Rest_Services_Url__c(Name = grantTK, iaso__Url__c = urlGrantTK, iaso__Cache_Partition__c = credential);
@@ -164,9 +176,9 @@ public class SanctionPriceDecision_ctrl_Test {
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
 		Test.startTest();
-		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', status9);
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, status9);
 		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert (!(Boolean)mapReturnSave3.get('isOk'), 'error 500');
+		System.assert (!(Boolean)mapReturnSave3.get(STROK), 'error 500');
 		Test.stopTest();
 	}
 
@@ -190,21 +202,11 @@ public class SanctionPriceDecision_ctrl_Test {
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
 		Test.startTest();
-		Final List<String> lstFields = new List<String>();
-		Final List<Object> lstData = new List<Object>();
-		lstFields.add('price_quote_id__c');
-		lstData.add('eeee');
-		lstFields.add('minimun_fee_per__c');
-		lstData.add(34.5);
-		lstFields.add('gipr_Plazo__c');
-		lstData.add(435.56);
-		lstFields.add('fprd__GBL_Sample_Checkbox__c');
-		lstData.add(true);
-		lstFields.add('price_quote_date__c');
-		lstData.add('2018-12-12');
-		json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', status9);
+		Final List<String> lstFields = createFields();
+		Final List<Object> lstData = createData();
+		json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, status9);
 		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert ((Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
+		System.assert ((Boolean)mapReturnSave3.get(STROK), 'resultado correcto');
         Test.stopTest();
 
 		Final List<dwp_cvad__Action_Audit__c> lstAudit = [SELECT Id FROM dwp_cvad__Action_Audit__c LIMIT 1];
@@ -226,21 +228,11 @@ public class SanctionPriceDecision_ctrl_Test {
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
 		Test.startTest();
-		Final List<String> lstFields = new List<String>();
-		Final List<Object> lstData = new List<Object>();
-		lstFields.add('price_quote_id__c');
-		lstData.add('eeee');
-		lstFields.add('minimun_fee_per__c');
-		lstData.add(34.5);
-		lstFields.add('gipr_Plazo__c');
-		lstData.add(435.56);
-		lstFields.add('fprd__GBL_Sample_Checkbox__c');
-		lstData.add(true);
-		lstFields.add('price_quote_date__c');
-		lstData.add('2018-12-12');
-		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', '10');
+		Final List<String> lstFields = createFields();
+		Final List<Object> lstData = createData();
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, '10');
 		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert ((Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
+		System.assert ((Boolean)mapReturnSave3.get(STROK), 'success!!!');
         Test.stopTest();
 	}
 
@@ -259,21 +251,11 @@ public class SanctionPriceDecision_ctrl_Test {
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
 		Test.startTest();
-		Final List<String> lstFields = new List<String>();
-		Final List<Object> lstData = new List<Object>();
-		lstFields.add('price_quote_id__c');
-		lstData.add('eeee');
-		lstFields.add('minimun_fee_per__c');
-		lstData.add(34.5);
-		lstFields.add('gipr_Plazo__c');
-		lstData.add(435.56);
-		lstFields.add('fprd__GBL_Sample_Checkbox__c');
-		lstData.add(true);
-		lstFields.add('price_quote_date__c');
-		lstData.add('2018-12-12');
-		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, 'web', 'APPROVE', '13');
+		Final List<String> lstFields = createFields();
+		Final List<Object> lstData = createData();
+		Final String json = createJson(lstOpp[0].Id, lstOLI[0].Id, STRWEB, STRAPPR, '13');
 		Final Map<String, Object> mapReturnSave3 = SanctionPriceDecision_ctrl.saveDecisionAnalist(json, true, lstFields, lstData);
-		System.assert ((Boolean)mapReturnSave3.get('isOk'), 'resultado correcto');
+		System.assert ((Boolean)mapReturnSave3.get(STROK), 'success');
         Test.stopTest();
 	}
 
@@ -294,7 +276,7 @@ public class SanctionPriceDecision_ctrl_Test {
 
 		Test.startTest();
 		Final Map<String, Object> mapReturn = SanctionPriceDecision_ctrl.getInfo(lstOLI[0].Id, 'Web_Proposal_Summarize');
-		System.assert (mapReturn.containsKey('lstOppLineItem'), 'resultado correcto');
+		System.assert (mapReturn.containsKey('lstOppLineItem'), 'resultado exitoso');
 		Test.stopTest();
 	}
 

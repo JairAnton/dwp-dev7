@@ -58,7 +58,7 @@ public class BE_AnalyzeRate_Tst {
 		insert new iaso__GBL_Rest_Services_Url__c(Name = STRAR, iaso__Url__c = URLOK, iaso__Cache_Partition__c = STRCACHE);
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-		List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
+		Final List<OpportunityLineItem> olis = new List<OpportunityLineItem>();
         olis.add(oli);
         Test.startTest();
         Final Map<String, Object> mapReturnAR = BE_AnalyzeRate_Rest.invokeWS(opp.Id, olis, 0.07, false);
