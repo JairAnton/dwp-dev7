@@ -23,7 +23,7 @@ public with sharing class SimulatePrice_ctrl {
 	public static Map<String, Object> getInfo(String recordId) {
 		Map<String, Object> mapReturn = new Map<String, Object>();
 		Double sugtea, spread, minimspread, addspread, expected, efficiency, financystock, fundingadj, regulatory, addcapital, capitalamount;
-		Double minimtea = 0, fundingcost = 0, calculateSpread = 0, rorcClient = 0, raroecOper = 0;
+		Double minimtea = 0, calculateSpread = 0, rorcClient = 0, raroecOper = 0;
 		String currencyid;
 		List<OpportunityLineItem> oli = [Select Id, Name, minimun_apr_per__c, suggested_apr_per__c, spread_per__c,
 		                                 additional_capital_per__c, additional_apread_per__c, capital_amount__c, capital_currency_id__c, efficiency_cost__c,
@@ -42,6 +42,7 @@ public with sharing class SimulatePrice_ctrl {
 				//get values if statuscode=200
 				if(invoke.getStatusCode() == 200) {
 					if(!oli.isEmpty()) {
+                        Double fundingcost = 0;
 						if(jbody.data != null && jbody.data.summary != null && jbody.data.summary[0].interestRates != null &&
 						   jbody.data.summary[0].interestRates.EffectiveRates != null) {
 							List<PriceRate_helper.Response_EffectiveRates> lsttea = jbody.data.summary[0].interestRates.EffectiveRates;

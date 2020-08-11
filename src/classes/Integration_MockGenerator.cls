@@ -183,6 +183,104 @@ global class Integration_MockGenerator implements HttpCalloutMock {
 				res.setBody('{"version":1,"severity":"FATAL","http-status":409,"error-code":"functionalError","error-message":"null","consumer-request-id":"cb034d49-fe9f-4ad4-bb05-ef0ae7cbc505","system-error-code":"functionalError","system-error-description":"Default functional error."}');
 				res.setStatusCode(500);
 			}
+			when 'https://CreateNonClient/204/v1/non-businesses' {
+				System.assertEquals('https://CreateNonClient/204/v1/non-businesses', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setHeader('location', 'nonCLient/P00000001');
+				res.setStatusCode(204);
+			}
+			when 'https://CreateNonClient/400/v1/non-businesses' {
+				System.assertEquals('https://CreateNonClient/400/v1/non-businesses', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setHeader('responsewarningdescription', 'YA EXISTE EL NO CLIENTE');
+				res.setStatusCode(400);
+			}
+			when 'https://ListClients/200/v0/businesses?identityDocument.documentType.id=RUC&identityDocument.documentNumber=20876543262' {
+				System.assertEquals('https://ListClients/200/v0/businesses?identityDocument.documentType.id=RUC&identityDocument.documentNumber=20876543262', req.getEndpoint());
+				System.assertEquals('GET', req.getMethod());
+				res.setBody('{"data": [{"businessDocuments": [{"businessDocumentType": {"id": "RUC","name": "R.U.C."},"documentNumber": "20978633995"}],"id": "77780583","formation": {"date": "1980-10-14","country": {"id": "PER","name": "PERU"},"businessType": {}},"membershipDate": "2007-08-14","legalName": "HIPERTEHUELCHE","businessGroup": {"id": "M02","name": "PERS.JURID.COMERCIA."},"bank": {"branch": {"id": "0102","name": "OF.CALLAO"}},"employeesNumber": 0,"annualSales": {"amount": 0,"currency": "PEN"},"economicActivity": {"id": "00000000112","name": "CULT.HORTALIZAS Y LEGUMBRES"}}]}');
+				res.setStatusCode(200);
+			}
+			when 'https://ListClients/409/v0/businesses?identityDocument.documentType.id=RUC&identityDocument.documentNumber=20876543262' {
+				System.assertEquals('https://ListClients/409/v0/businesses?identityDocument.documentType.id=RUC&identityDocument.documentNumber=20876543262', req.getEndpoint());
+				System.assertEquals('GET', req.getMethod());
+				res.setBody('{"version": 1,"severity": "FATAL","http-status": 409,"error-code": "PEE2008","error-message": "PERSONA INEXISTENTE","consumer-request-id": "2158b315-9712-4d8b-86fa-106c08ae9d7b","system-error-code": "functionalError","system-error-description": "Error funcional por defecto.","system-error-cause": "PEE2008: CONSULTA SOLO PARA PERSONA JURIDICA"}');
+				res.setStatusCode(409);
+			}
+			when 'https://ListClients/500/v0/businesses?identityDocument.documentType.id=RUC&identityDocument.documentNumber=20876543262' {
+				System.assertEquals('https://ListClients/500/v0/businesses?identityDocument.documentType.id=RUC&identityDocument.documentNumber=20876543262', req.getEndpoint());
+				System.assertEquals('GET', req.getMethod());
+				res.setStatusCode(500);
+			}
+			when 'https://ListNonClient/200' {
+				System.assertEquals('https://ListNonClient/200', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setBody('{"data": [{"id": "PE0011000009126","legalName": "BBVA SFSC COMPANY","creationDate": "2020-07-21T00:00:00.0-0500","businessDocuments": {"documentNumber": "20987654366","businessDocumentType": {"id": "RUC"}}}]}');
+				res.setStatusCode(200);
+			}
+			when 'https://ListNonClient/400' {
+				System.assertEquals('https://ListNonClient/400', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setStatusCode(400);
+			}
+			when 'https://ListNonClient/500' {
+				System.assertEquals('https://ListNonClient/500', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setStatusCode(500);
+			}
+			when 'https://ModifyNonClient/204/v1/non-businesses/P0234234234' {
+				System.assertEquals('https://ModifyNonClient/204/v1/non-businesses/P0234234234', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setStatusCode(204);
+			}
+			when 'https://ModifyNonClient/500/v1/non-businesses/P0234234234' {
+				System.assertEquals('https://ModifyNonClient/500/v1/non-businesses/P0234234234', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setStatusCode(500);
+			}
+			when 'https://ModifyNonClient/400/v1/non-businesses/P0234234234' {
+				System.assertEquals('https://ModifyNonClient/400/v1/non-businesses/P0234234234', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setStatusCode(400);
+			}
+			when 'https://CreateNonBusinessContact/204/20876543265/contacts' {
+				System.assertEquals('https://CreateNonBusinessContact/204/20876543265/contacts', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setHeader('location', 'contact/00001');
+				res.setBody('{"firstName": "JUAN MANUEL","lastName": "RODRIGUEZ","roleType": {"id":"OTHERS"},"contactDetails": [{"isPreferential":true,"contact":{"receivesNotifications":true,"number":"987654327","contactDetailType":"MOBILE"}},{"contact":{"receivesNotifications":true,"contactDetailType":"EMAIL","address":"test@gmail.com"}}]}');
+				res.setStatusCode(204);
+			}
+			when 'https://CreateNonBusinessContact/500/20876543265/contacts' {
+				System.assertEquals('https://CreateNonBusinessContact/500/20876543265/contacts', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setHeader('location', 'contact/00001');
+				res.setBody('{"firstName": "JUAN DIEGO","lastName": "MENDOZA","roleType": {"id":"OTHERS"},"contactDetails": [{"isPreferential":true,"contact":{"receivesNotifications":true,"number":"987654327","contactDetailType":"MOBILE"}},{"contact":{"receivesNotifications":true,"contactDetailType":"EMAIL","address":"test@gmail.com"}}]}');
+				res.setStatusCode(500);
+			}
+			when 'https://ModifyNonBusinessContact/204/20876543265/contacts/00001' {
+				System.assertEquals('https://ModifyNonBusinessContact/204/20876543265/contacts/00001', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setBody('{"firstName": "PEDRO DIEGO","lastName": "GARCÍA","roleType": {"id":"OTHERS"},"contactDetails": [{"isPreferential":true,"contact":{"receivesNotifications":true,"number":"987654327","contactDetailType":"MOBILE"}},{"contact":{"receivesNotifications":true,"contactDetailType":"EMAIL","address":"test@gmail.com"}}]}');
+				res.setStatusCode(204);
+			}
+			when 'https://ModifyNonBusinessContact/500/20876543265/contacts/00001' {
+				System.assertEquals('https://ModifyNonBusinessContact/500/20876543265/contacts/00001', req.getEndpoint());
+				System.assertEquals('POST', req.getMethod());
+				res.setBody('{"firstName": "EL","lastName": "BRAVO","roleType": {"id":"OTHERS"},"contactDetails": [{"isPreferential":true,"contact":{"receivesNotifications":true,"number":"987654327","contactDetailType":"MOBILE"}},{"contact":{"receivesNotifications":true,"contactDetailType":"EMAIL","address":"test@gmail.com"}}]}');
+				res.setStatusCode(500);
+			}
+			when 'https://DeleteNonBusinessContact/204/20876543265/contacts/00001' {
+				System.assertEquals('https://DeleteNonBusinessContact/204/20876543265/contacts/00001', req.getEndpoint());
+				System.assertEquals('DELETE', req.getMethod());
+				res.setBody('{"firstName": "MARTIN","lastName": "DIAZ","roleType": {"id":"OTHERS"},"contactDetails": [{"isPreferential":true,"contact":{"receivesNotifications":true,"number":"987654327","contactDetailType":"MOBILE"}},{"contact":{"receivesNotifications":true,"contactDetailType":"EMAIL","address":"test@gmail.com"}}]}');
+				res.setStatusCode(204);
+			}
+			when 'https://DeleteNonBusinessContact/500/20876543265/contacts/00001' {
+				System.assertEquals('https://DeleteNonBusinessContact/500/20876543265/contacts/00001', req.getEndpoint());
+				System.assertEquals('DELETE', req.getMethod());
+				res.setBody('{"firstName": "MICHEL","lastName": "MENDOZA","roleType": {"id":"OTHERS"},"contactDetails": [{"isPreferential":true,"contact":{"receivesNotifications":true,"number":"987654327","contactDetailType":"MOBILE"}},{"contact":{"receivesNotifications":true,"contactDetailType":"EMAIL","address":"test@gmail.com"}}]}');
+				res.setStatusCode(500);
+			}
 			when else {
 				//nothing
 			}

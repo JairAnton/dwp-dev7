@@ -241,7 +241,6 @@
                             }
                         }
                     }
-                    
                     adjTea = cmp.get('v.teainput');
                     var formatNumber ;
                     if(adjTea !== undefined && adjTea !== '' && adjTea !== null) {

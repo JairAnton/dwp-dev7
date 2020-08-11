@@ -34,7 +34,7 @@ public class SimulatePrice_ctrl_Test {
      * Method used to test correct scenary
 	*/
 	@isTest
-	static void test_method_one() {
+	static void testMethodOne() {
 		setData();
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'SimulateRate', iaso__Url__c = 'https://SimulateRate/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
@@ -54,7 +54,7 @@ public class SimulatePrice_ctrl_Test {
      * Method used to test correct scenary
 	*/
 	@isTest
-	static void test_method_two() {
+	static void testMethodTwo() {
 		setData();
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'SimulateRate', iaso__Url__c = 'https://SimulateRate/ko', iaso__Cache_Partition__c = 'local.CredentialsPeru');
@@ -74,7 +74,7 @@ public class SimulatePrice_ctrl_Test {
      * Method used to test fail scenary
 	*/
     @isTest
-	static void test_method_fail() {
+	static void testMethodFail() {
 		setData();
         final List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2 LIMIT 1];
 		lstProd[0].Type_of_quote__c = 'Web';

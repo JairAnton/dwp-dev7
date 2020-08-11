@@ -216,8 +216,8 @@ public with sharing class BE_Quotation_Rest {
         Map<String,Object> mapReturn = mapReturnAux;
         List<OpportunityLineItem> oppProductList = [SELECT price_quote_id__c, price_operation_id__c, price_quote_status_id__c, price_quote_owner_id__c, price_quote_date__c FROM OpportunityLineItem WHERE OpportunityId = : recordId];
         if(oppProductList.isEmpty() == false) {
-            final String oppStatusLabel;
-            final String oppStatusIcon;
+            String oppStatusLabel;
+            String oppStatusIcon;
             if(quotationStatus == Label.WebPriceQuotationRequestStatus01) {
                 oppStatusLabel = Label.OppStatusLabel08;
                 oppStatusIcon = Label.AuditStyleApproveTop;
@@ -259,7 +259,13 @@ public with sharing class BE_Quotation_Rest {
                 }		
             }
             update oppProdUpdate;
-            mapReturn = createCaseAudit(recordId, quotationStatus, mapReturn, caseOwner, oppToUpdate, oppStatusLabel, oppStatusIcon);
+            Final Map<String, String> params = new Map<String, String>();
+            params.put('recordId', recordId);
+            params.put('quotationStatus', quotationStatus);
+            params.put('caseOwner', caseOwner);
+            params.put('oppStatusLabel', oppStatusLabel);
+            params.put('oppStatusIcon', oppStatusIcon);
+            mapReturn = createCaseAudit(params, mapReturn, oppToUpdate);
         }
         return mapReturn;
     }
@@ -332,7 +338,13 @@ public with sharing class BE_Quotation_Rest {
                 }
             }
             update oppProdUpdate;
-            mapReturn = createCaseAudit(recordId, priceQuoStatus, mapReturn, caseOwner, oppToUpdate, oppStatusLabel, oppStatusIcon);
+            Final Map<String, String> params = new Map<String, String>();
+            params.put('recordId', recordId);
+            params.put('quotationStatus', priceQuoStatus);
+            params.put('caseOwner', caseOwner);
+            params.put('oppStatusLabel', oppStatusLabel);
+            params.put('oppStatusIcon', oppStatusIcon);
+            mapReturn = createCaseAudit(params, mapReturn, oppToUpdate);
         }
         return mapReturn;
     }
@@ -340,22 +352,22 @@ public with sharing class BE_Quotation_Rest {
     /**
      * Method used to create case and audit
      */
-    public static Map<String,Object> createCaseAudit(String recordId, String priceQuoStatus, Map<String,Object> mapReturnAux, String caseOwner, Opportunity oppToUpdate, String oppStatusLabel, String oppStatusIcon) {
+    public static Map<String,Object> createCaseAudit(Map<String,String> params, Map<String,Object> mapReturnAux, Opportunity oppToUpdate) {
         Map<String,Object> mapReturn = mapReturnAux;
-        if(priceQuoStatus == Label.WebPriceQuotationRequestStatus02) {
+        if(params.get('priceQuoStatus') == Label.WebPriceQuotationRequestStatus02) {
             final Case caseToInsert = new Case();
             caseToInsert.Status = '01';
             caseToInsert.Type = '01';
             caseToInsert.AccountId = oppToUpdate.AccountId;
-            caseToInsert.opportunity_id__c = recordId;
-            if(String.isNotBlank(caseOwner)) {
-                caseToInsert.OwnerId = caseOwner;
+            caseToInsert.opportunity_id__c = params.get('recordId');
+            if(String.isNotBlank(params.get('caseOwner'))) {
+                caseToInsert.OwnerId = params.get('caseOwner');
             }
             insert caseToInsert;
         }
         
         // Create audit record
-        final dwp_cvad__Action_Audit__c auditToInsert = Action_Audit_Helper.getAudit(oppStatusLabel, 'Opportunity', recordId, System.now(), Label.AuditPriceApproval, UserInfo.getUserId(), oppStatusIcon, '', false);
+        final dwp_cvad__Action_Audit__c auditToInsert = Action_Audit_Helper.getAudit(params.get('oppStatusLabel'), 'Opportunity', params.get('recordId'), System.now(), Label.AuditPriceApproval, UserInfo.getUserId(), params.get('oppStatusIcon'), '', false);
         insert auditToInsert;
         mapReturn.put('auditId',auditToInsert.Id);
         

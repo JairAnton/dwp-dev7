@@ -28,7 +28,7 @@ public class SanctionPrice_ctrl_Test {
      * Method used to test correct scenary
 	*/
 	@isTest
-	static void test_method_one() {
+	static void testMethodOne() {
 		Final List<Account> lstAccount = [SELECT Id FROM Account LIMIT 1];
 		lstAccount[0].segment_desc__c = 'SUPERIOR';
 		update lstAccount;
@@ -56,7 +56,7 @@ public class SanctionPrice_ctrl_Test {
      * Method used to test correct scenary
 	*/
 	@isTest
-	static void test_method_two() {
+	static void testMethodTwo() {
 		Final List<Account> lstAccount = [SELECT Id FROM Account LIMIT 1];
 		lstAccount[0].segment_desc__c = 'SUPERIOR';
 		update lstAccount;
@@ -91,7 +91,7 @@ public class SanctionPrice_ctrl_Test {
      * Method used to test fail scenary
 	*/
     @isTest
-	static void test_method_fail() {
+	static void testMethodFail() {
 		Final List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2 LIMIT 1];
 		lstProd[0].Type_of_quote__c = 'Web';
 		update lstProd;

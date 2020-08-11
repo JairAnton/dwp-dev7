@@ -80,7 +80,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 		}
 
 		mapReturn.put('lstOppLineItem', lstOppLineItem);
-		mapReturn.put('lstSummarize', JSON.serialize(summurizeValues(oliId, uniqueNameTable)));
+		mapReturn.put('lstSummarize', JSON.serialize(BE_CustomListField_Cls.createListField(oliId, uniqueNameTable)));
 		mapReturn.put('sanctionPriceInfo', getSanctionPriceInfo(oliId));
 
 		return mapReturn;
@@ -199,7 +199,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 		                                            FROM OpportunityLineItem
 		                                            WHERE Id = :oliId];
 		mapReturn.put('lstOppLineItem', lstOppLineItem);
-		mapReturn.put('lstSummarize', JSON.serialize(summurizeValues(oliId, uniqueNameTable)));
+		mapReturn.put('lstSummarize', JSON.serialize(BE_CustomListField_Cls.createListField(oliId, uniqueNameTable)));
 
 		List<Case> lstCases = [SELECT Id,
 		                       opportunity_id__c,
@@ -374,72 +374,6 @@ public with sharing class SanctionPriceDecision_ctrl {
 		mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#Assigned_analyst#', assignedAnalyst));
 
 		return mapReturn;
-	}
-
-    /**Method used to set sanction price summarize fields**/
-    public static List<itemField> summurizeValues(String oliId, String uniqueNameTable) {
-        Final List<itemField> items = new List<itemField>();
-        Final List<field__mdt> lstFieldMDT = [SELECT field_api_name__c, Field_Custom_Label__c, order__c, Use_Product_Configuration_Value__c FROM Field__mdt WHERE field_form__r.unique_id__c = :uniqueNameTable ORDER BY order__c];
-		Final Set<String> setFields = new Set<String>();
-        Final Set<String> fieldsProdConf = new Set<String>();
-        for(Field__mdt field : lstFieldMDT) {
-            setFields.add(field.field_api_name__c);
-            if(field.Use_Product_Configuration_Value__c) {
-                fieldsProdConf.add(field.field_api_name__c);
-            }
-        }
-        Final List<String> lstField = new List<String>(setFields);
-        Final List<sObject> lstRecord = Database.query('SELECT Product2Id,' + String.escapeSingleQuotes(String.join(lstField, ',')) + ' FROM OpportunityLineItem WHERE Id = :oliId');
-        Final Map<String, Object> mapPC = new Map<String, Object>();
-        if(!fieldsProdConf.isEmpty()) {
-            Final String prodId = (String)lstRecord[0].get('Product2Id');
-            Final fprd__GBL_Product_Configuration__c[] lstProductConf = [SELECT fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Product__r.Name, fprd__Map_field__c FROM fprd__GBL_Product_Configuration__c 
-                                                                   WHERE fprd__Product__c = :prodId AND fprd__Map_field__c IN: fieldsProdConf];
-			for(fprd__GBL_Product_Configuration__c pc : lstProductConf) {
-				if(!String.isEmpty(pc.fprd__LoV_values__c)) {
-					Final String[] strLabelTmp = pc.fprd__LoV_labels__c.split(',');
-					Final String[] strValueTmp = pc.fprd__LoV_values__c.split(',');
-					Final Integer position = strValueTmp.indexOf('' + lstRecord[0].get(pc.fprd__Map_field__c));
-					if(position >= 0) {
-						mapPC.put(pc.fprd__Map_field__c, strLabelTmp[position]);
-					}
-				}
-			}
-        }
-        Decimal position = 0;
-        for(Field__mdt field : lstFieldMDT) {
-            itemField item = new itemField();
-            if(field.Field_Custom_Label__c == null) {
-                item.label = Schema.getGlobalDescribe().get('OpportunityLineItem').getDescribe().fields.getMap().get(field.field_api_name__c).getDescribe().getLabel();
-            } else {
-                item.label = field.Field_Custom_Label__c;
-            }
-            if(field.Use_Product_Configuration_Value__c) {
-                item.value = ''+mapPC.get(field.field_api_name__c);
-            } else {
-                item.value = ''+lstRecord[0].get(field.field_api_name__c);
-            }
-            if(position==field.order__c) {
-                item.value = items.get(items.size()-1).value + ' ' + item.value;
-                items.set(items.size()-1, item);
-            } else {
-                items.add(item);
-            }
-            position=field.order__c;
-        }
-        return items;
-    }
-    
-    /**Method for map parameters **/
-	public class itemField {
-		/**
-		 * record id param
-		 */
-		private String label;
-		/**
-		 * status of opportunity param
-		 */
-		private String value;
 	}
     
 	/**Method for map parameters **/
