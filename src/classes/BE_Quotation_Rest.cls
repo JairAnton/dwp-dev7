@@ -24,10 +24,10 @@ public with sharing class BE_Quotation_Rest {
     final static String STRINGSUCCESS = 'success';
     /* string false */
     final static String STRINGFALSE = 'false';
-    /* string caseowner */
-    final static String CASEOWN = 'caseowner';
-    /* string recordid */
-    final static String RECORDID = 'recordid';
+    /* string caseOwner */
+    final static String CASEOWN = 'caseOwner';
+    /* string false */
+    final static String RECID = 'recordid';
     
     /**
      * constructor of class
@@ -264,7 +264,7 @@ public with sharing class BE_Quotation_Rest {
             }
             update oppProdUpdate;
             Final Map<String, String> params = new Map<String, String>();
-            params.put(RECORDID, recordId);
+            params.put(RECID, recordId);
             params.put('quotationStatus', quotationStatus);
             params.put(CASEOWN, caseOwner);
             params.put('oppStatusLabel', oppStatusLabel);
@@ -343,7 +343,7 @@ public with sharing class BE_Quotation_Rest {
             }
             update oppProdUpdate;
             Final Map<String, String> params = new Map<String, String>();
-            params.put(RECORDID, recordId);
+            params.put(RECID, recordId);
             params.put('quotationStatus', priceQuoStatus);
             params.put(CASEOWN, caseOwner);
             params.put('oppStatusLabel', oppStatusLabel);
@@ -363,7 +363,7 @@ public with sharing class BE_Quotation_Rest {
             caseToInsert.Status = '01';
             caseToInsert.Type = '01';
             caseToInsert.AccountId = oppToUpdate.AccountId;
-            caseToInsert.opportunity_id__c = params.get(RECORDID);
+            caseToInsert.opportunity_id__c = params.get(RECID);
             if(String.isNotBlank(params.get(CASEOWN))) {
                 caseToInsert.OwnerId = params.get(CASEOWN);
             }
@@ -371,7 +371,7 @@ public with sharing class BE_Quotation_Rest {
         }
         
         // Create audit record
-        final dwp_cvad__Action_Audit__c auditToInsert = Action_Audit_Helper.getAudit(params.get('oppStatusLabel'), 'Opportunity', params.get(RECORDID), System.now(), Label.AuditPriceApproval, UserInfo.getUserId(), params.get('oppStatusIcon'), '', false);
+        final dwp_cvad__Action_Audit__c auditToInsert = Action_Audit_Helper.getAudit(params.get('oppStatusLabel'), 'Opportunity', params.get(RECID), System.now(), Label.AuditPriceApproval, UserInfo.getUserId(), params.get('oppStatusIcon'), '', false);
         insert auditToInsert;
         mapReturn.put('auditId',auditToInsert.Id);
         
