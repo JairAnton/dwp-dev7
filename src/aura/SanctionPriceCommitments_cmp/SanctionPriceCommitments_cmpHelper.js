@@ -10,6 +10,7 @@
     	var inputObject = cmp.get('v.inputAttributes');
     	if (inputObject.approvalMethod === 'Web') {
 			inputObject['finMarRecover'] = cmp.get('v.finMarRecover');
+			inputObject['finMarRecoverCur'] = cmp.get('v.finMarRecoverCur');
 			inputObject['quotationStatusMessage'] = evt.getParam("data").quotationStatusMessage;
 			inputObject['quotationStatusIcon'] = evt.getParam("data").quotationStatusIcon;
 			inputObject['auditRecordId'] = evt.getParam("data").auditId;
@@ -69,6 +70,7 @@
                 var ret = response.getReturnValue();
                 cmp.set('v.finMarLost', ret.finMarLost);
                 cmp.set('v.finMarRecover', ret.finMarRecover);
+                cmp.set('v.finMarRecoverCur', ret.finMarRecoverCur);
                 cmp.set('v.rorcOper', ret.rorcOper);
                 var sugCommitments = '';
                 if(ret.sugCommitments!==undefined) {

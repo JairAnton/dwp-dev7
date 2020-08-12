@@ -29,11 +29,11 @@
                     </lightning:layoutItem>
                     <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-center-box">
                         <div class="slds-text-heading_small slds-truncate">Margen Finan. Perdida</div>
-                        <div class="custom-font-number">{!v.finMarLostCur} <lightning:formattedNumber value="{!v.finMarLost}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="slds-text-color_destructive"/></div>
+                        <div class="custom-font-number">{!v.finMarLostCur}&nbsp;<lightning:formattedNumber value="{!v.finMarLost}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="slds-text-color_destructive"/></div>
                     </lightning:layoutItem>
                     <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-right-box">
                         <div class="slds-text-heading_small slds-truncate">Margen Finan. Recuper.</div>
-                        <div class="custom-font-number">{!v.finMarRecoverCur} <lightning:formattedNumber value="{!v.finMarRecover}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
+                        <div class="custom-font-number">{!v.finMarRecoverCur}&nbsp;<lightning:formattedNumber value="{!v.finMarRecover}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
                     </lightning:layoutItem>
                 </lightning:layout>
             <br/>
