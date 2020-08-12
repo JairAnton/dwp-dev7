@@ -40,7 +40,7 @@ public class SanctionPriceAnalistWeb_ctrl_Test {
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'AnalyzeRate', iaso__Url__c = 'https://AnalyzeRate/OK', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-		AnalyzeRate_helper analyzehelper = new AnalyzeRate_helper(opp.Id, '0.43');
+        AnalyzeRate_helper analyzehelper = new AnalyzeRate_helper(opp.Id, '123456',0.43, false);
 		Test.startTest();
 
 		Map<String, Object> mapReturn = SanctionPriceAnalistWeb_ctrl.calculate(opp.Id, 0.43);

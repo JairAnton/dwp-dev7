@@ -6,6 +6,34 @@
         <visible>true</visible>
     </applicationVisibilities>
 	<classAccesses>
+        <apexClass>BE_AnalyzeRate_Rest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_AnalyzeRate_Tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_AnalyzeRate_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CustomListField_Cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_OutputField_Wrapper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_PriceRate_Rest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_Quotation_Rest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>OpportunityLineItem_Trigger_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -3242,6 +3270,26 @@ Analistas de riesgos</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+		<editable>true</editable>
+		<field>OpportunityLineItem.FinancingType__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Liquidity_Margin_Lost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Liquidity_Margin_Recovered_Currency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Liquidity_Margin_Recovered__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.ListPrice</field>
         <readable>true</readable>
@@ -3249,6 +3297,41 @@ Analistas de riesgos</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.ProductCode</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RAROEC_Operation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Approved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Client__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Operation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Updated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Variation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5167,11 +5250,6 @@ Analistas de riesgos</description>
         <field>AccountContactRelation.Total_campos_obligatorios__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-		<editable>true</editable>
-		<field>OpportunityLineItem.FinancingType__c</field>
-		<readable>true</readable>
-	</fieldPermissions>
     <fieldPermissions>
 		<editable>false</editable>
 		<field>BE_BailLetterCombination__c.BailObject__c</field>

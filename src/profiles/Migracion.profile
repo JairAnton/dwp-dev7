@@ -135,6 +135,18 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_AnalyzeRate_Rest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_AnalyzeRate_Tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_AnalyzeRate_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_AP_Administration_helper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -223,6 +235,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_CustomListField_Cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BP_GrowthDriver_Handler_cls</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -265,6 +281,18 @@
     <classAccesses>
         <apexClass>Be_DynamicTablePresentation_tst</apexClass>
         <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_OutputField_Wrapper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_PriceRate_Rest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_Quotation_Rest</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Be_RecordId_Related_Sobject_helper</apexClass>
@@ -2970,14 +2998,68 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+		<editable>true</editable>
+		<field>OpportunityLineItem.FinancingType__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Liquidity_Margin_Lost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Liquidity_Margin_Recovered_Currency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Liquidity_Margin_Recovered__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.ListPrice</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-
         <editable>false</editable>
         <field>OpportunityLineItem.ProductCode</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RAROEC_Operation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Approved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Client__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Operation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Updated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Variation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5351,11 +5433,6 @@
         <field>AccountContactRelation.Total_campos_obligatorios__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-		<editable>true</editable>
-		<field>OpportunityLineItem.FinancingType__c</field>
-		<readable>true</readable>
-	</fieldPermissions>
     <fieldPermissions>
 		<editable>true</editable>
 		<field>BE_BailLetterCombination__c.BailObject__c</field>

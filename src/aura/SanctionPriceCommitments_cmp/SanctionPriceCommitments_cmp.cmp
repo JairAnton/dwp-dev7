@@ -1,18 +1,122 @@
-<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" controller="Commitment_ctrl" access="GLOBAL">
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
     <aura:attribute name="step" type="String" default="1" />
     <aura:attribute name="modalWidthCustom" type="String" default="60rem" access="global" description="Specify a custom width."/>
     <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to display" />
     <aura:attribute name="hasHeader" type="Boolean" default="true" description="Allow show header section" />
+    <aura:attribute name="rowData" type="Object" default="{'lstInfo':[]}"/>
+    <aura:attribute name="finMarLost" type="double" default="{!v.inputAttributes.finMarLost}"/>
+    <aura:attribute name="finMarLostCur" type="String" default="{!v.inputAttributes.finMarLostCur}"/>
+    <aura:attribute name="typeProduct" type="double" default="{!v.inputAttributes.approvalMethod}"/>
+    <aura:attribute name="finMarRecover" type="double" default="{!v.inputAttributes.finMarRecover}"/>
+    <aura:attribute name="finMarRecoverCur" type="String" default="{!v.inputAttributes.finMarRecoverCur}"/>
+    <aura:attribute name="rorcOper" type="double" default="{!v.inputAttributes.RORCOperation}"/>
+    <aura:attribute name="sugCommitments" type="Object" default="{!v.inputAttributes.sugCommitments}"/>
+    <aura:registerEvent name="commitmentsEvent" type="c:Commitments_evt"/>
     <aura:handler name="commitmentsEvent" event="c:Commitments_evt" action="{!c.doTypeMode}"/>
-	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
     <aura:if isTrue="{!v.step == '1'}">
-        <c:CommitmentsTable_cmp oppRecordId="{!v.inputAttributes.recordId}" quoteMethod="{!v.inputAttributes.approvalMethod}"/>
+        <div class="slds-modal__content slds-p-around_medium">
+            <aura:if isTrue="{!v.typeProduct == 'Web'}">
+            	<lightning:layout multipleRows="true" class="slds-grid slds-card slds-text-heading_medium">
+                    <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-left-box">
+                        <div class="slds-text-heading_small slds-truncate">TEA Propuesta %</div>
+                        <div class="custom-font-number"><lightning:formattedNumber value="{!v.inputAttributes.proposed}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-center-box">
+                        <div class="slds-text-heading_small slds-truncate">RORC Operación %</div>
+                        <div class="custom-font-number"><lightning:formattedNumber value="{!v.rorcOper}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="{!v.rorcOper lt 0 ? 'slds-text-color_destructive' : ''}"/></div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-center-box">
+                        <div class="slds-text-heading_small slds-truncate">Margen Finan. Perdida</div>
+                        <div class="custom-font-number">{!v.finMarLostCur} <lightning:formattedNumber value="{!v.finMarLost}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="slds-text-color_destructive"/></div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-right-box">
+                        <div class="slds-text-heading_small slds-truncate">Margen Finan. Recuper.</div>
+                        <div class="custom-font-number">{!v.finMarRecoverCur} <lightning:formattedNumber value="{!v.finMarRecover}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            <br/>
+            <p>El margen financiero de esta operación esta en pérdida. Deberás registrar compromisos para captar nuevos recursos. Te sugerimos los siguientes:</p>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer" role="grid">
+                <lightning:spinner aura:id="Spinner" variant="brand" class="slds-hide"/>
+                <thead>
+                    <tr>
+                        <th scope="col" class="slds-is-sortable slds-is-resizable">
+                            CUMPLIMIENTO
+                        </th>
+                        <th scope="col" class="slds-is-sortable slds-is-resizable">
+                            DIVISA
+                        </th>
+                        <th scope="col" class="slds-is-sortable slds-is-resizable">
+                            SALDO MEDIO
+                        </th>
+                        <th scope="col" class="slds-is-sortable slds-is-resizable">
+                            PLAZO PERIODO
+                        </th>
+                        <th scope="col" class="slds-is-sortable slds-is-resizable">
+                            PERIODICIDAD
+                        </th>
+                        <th scope="col" class="slds-is-sortable slds-is-resizable">
+                            ACCION
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.sugCommitments}" var="rowSugComm" indexVar="index">
+                        <aura:if isTrue="{!rowSugComm.committedData.classification == 'SUGGESTED'}">
+                            <tr>
+                            <th>{!rowSugComm.name}</th>
+                            <th>{!rowSugComm.committedData.unitValue.currencyType}</th>
+                            <th>{!rowSugComm.committedData.unitValue.amount}</th>
+                            <th>{!rowSugComm.committedData.effectiveTime.numberValue}</th>
+                            <th>Días</th>
+                            <th>
+                                <div class="slds-checkbox_add-button">
+                                    <input type="checkbox" class="slds-assistive-text" id="{!'unique-id-'+index}" name="commSugCheck" value="{!index}" checked="{!rowSugComm.selected}" onchange="{!c.onchange}" disabled="{!rowSugComm.disabled}"/>
+                                    <label for="{!'unique-id-'+index}" class="slds-checkbox_faux">
+                                        <span class="slds-assistive-text">Add product</span>
+                                    </label>
+                                </div>
+                            </th>
+                            </tr>
+                        </aura:if>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            </aura:if>
+            <c:CommitmentsTable_cmp aura:id="commTableId" oppRecordId="{!v.inputAttributes.recordId}" idOli="{!v.inputAttributes.opportunityLineItem}" quoteMethod="{!v.inputAttributes.approvalMethod}" finMarRecover="{!v.finMarRecover}" proposedTea="{!v.inputAttributes.proposed}" inputObject="{!v.inputAttributes}"/>
+        </div>
+        <aura:if isTrue="{!!v.readOnly}">
+            <footer class="slds-modal__footer slds-theme_default">
+                <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+                            </td>
+                            <td>
+                                <div class="slds-float_right"><c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPC"/></div>
+                            </td>
+                        </tr>
+                    </table>
+                    <aura:set attribute="else">
+                        <lightning:layout multipleRows="true">
+                            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+                                <c:ButtonWithoutDoubleClick_cmp class="slds-button slds-button_neutral slds-button_stretch" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPC"/>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+                                <lightning:button class="slds-button slds-button_neutral slds-button_stretch" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </aura:set>
+                </aura:if>
+            </footer>
+        </aura:if>
         <aura:set attribute="else">
-             <aura:if isTrue="{!v.step == '2'}">
-                <c:newCommitment_cmp oppLineItem="{!v.inputAttributes.opportunityLineItem}" approvalMethod="{!v.inputAttributes.approvalMethod}" pricingModelId="{!v.inputAttributes.pricingModelId}" oppRecordId="{!v.inputAttributes.recordId}"/>
-            	<aura:set attribute="else">
+            <aura:if isTrue="{!v.step == '2'}">
+                <c:newCommitment_cmp oppLineItem="{!v.inputAttributes.opportunityLineItem}" approvalMethod="{!v.inputAttributes.approvalMethod}" pricingModelId="{!v.inputAttributes.pricingModelId}" oppRecordId="{!v.inputAttributes.recordId}" rowData="{!v.rowData}" proposedTea="{!v.inputAttributes.proposed}"/>
+                <aura:set attribute="else">
                     <aura:if isTrue="{!v.step == '3'}">
                         <c:ErrorMessageWS_cmp errorMessagesList="{!v.errorlst}" />
                     </aura:if>
@@ -20,5 +124,4 @@
             </aura:if>
         </aura:set>
     </aura:if>
-    
 </aura:component>

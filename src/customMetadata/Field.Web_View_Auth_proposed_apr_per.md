@@ -3,6 +3,18 @@
     <label>Web - View - Auth - Proposed APR</label>
     <protected>false</protected>
     <values>
+        <field>Field_Custom_Label__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Sub_Order__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Use_Product_Configuration_Value__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
         <field>default_value__c</field>
         <value xsi:nil="true"/>
     </values>

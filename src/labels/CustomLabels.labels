@@ -2086,6 +2086,62 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>Price WS Label 10</shortDescription>
         <value>EXPECTED_LOSS</value>
     </labels>
+	<labels>
+        <fullName>PriceWSLabel16</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 16</shortDescription>
+        <value>RORC_CLIENT_STOCK_MONTH_ACTIVE</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel17</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 17</shortDescription>
+        <value>RORC_CLIENT_POST</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel18</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 18</shortDescription>
+        <value>RORC_OPERATION</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel19</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 19</shortDescription>
+        <value>RORC_CLIENT_VARIATION</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel20</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 20</shortDescription>
+        <value>RAROEC_OPERATION</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel21</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 21</shortDescription>
+        <value>LOST_FINANCIAL_MARGIN</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel22</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 22</shortDescription>
+        <value>MARGIN_FINANCIAL_RECOVERY</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel23</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 23</shortDescription>
+        <value>CURRENCY_FINANCIAL_RECOVERY</value>
+    </labels>
     <labels>
         <fullName>PriceQuotationAvailabilityErrorMessageWrongUser</fullName>
         <language>en_US</language>

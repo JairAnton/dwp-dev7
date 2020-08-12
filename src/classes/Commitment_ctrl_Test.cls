@@ -17,30 +17,38 @@ public class Commitment_ctrl_Test {
 
 	@isTest
 	static void test_method_one() {
-		List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2];
+		List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2 LIMIT 1];
 		lstProd[0].Type_of_quote__c = 'Tarifario';
 		update lstProd;
 		Map<String, Object> mapReturnInfo = Commitment_ctrl.getInfo('Tarifario', null);
 		System.assert (mapReturnInfo.containsKey('schemaSetup'));
 
-		List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
+		List<Opportunity> lstOpp = [SELECT Id FROM Opportunity LIMIT 1];
 		Map<String, Object> mapReturnInfoTable = Commitment_ctrl.getInfoTable(lstOpp[0].Id);
 		System.assert (mapReturnInfoTable.containsKey('schemaSetup'));
 
 		List<Object> lstData = new List<Object>();
+        lstData.add('Prod');
+		lstData.add('PEN');
+		lstData.add(30);
+		lstData.add(100);
+		lstData.add(null);
+        lstData.add(3);
+		lstData.add('52');
+		lstData.add('Web');
+		Commitment_ctrl.saveCommitment(lstOpp[0].Id, lstData, null, 'AMOUNT');
+		
+        lstData.clear();
+        lstData.add('52');
 		lstData.add('Prod');
 		lstData.add('PEN');
-		lstData.add(34);
-		lstData.add(12);
-		lstData.add(3);
-		lstData.add(null);
-		lstData.add(null);
-		Map<String, Object> mapReturnSave = Commitment_ctrl.saveCommitment(lstOpp[0].Id, lstData, null, 'AMOUNT');
-		System.assertEquals(true, (Boolean)mapReturnSave.get('isOK'));
+		lstData.add(100);
+		lstData.add(30);
+		Commitment_ctrl.changeCommitment(lstOpp[0].Id, lstData, null);
 
-		List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c];
-		Map<String, Object> mapReturnDelete = Commitment_ctrl.deleteCommitment(lstOppSol[0].Id);
-		System.assertEquals(true, (Boolean)mapReturnDelete.get('isOK'));
+		Final List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c LIMIT 1];
+		Final Map<String, Object> mapReturnDelete = Commitment_ctrl.deleteCommitment(lstOppSol[0].Id);
+		System.assert((Boolean)mapReturnDelete.get('isOK'), 'success!');
 	}
 
 	@isTest
@@ -53,6 +61,9 @@ public class Commitment_ctrl_Test {
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 
 		Test.startTest();
+        
+        final List<OpportunityLineItem> lstOli = [SELECT Id FROM OpportunityLineItem LIMIT 1];
+        Commitment_ctrl.infoAnalyzeRate(lstOli[0].Id, '0.25');
 
 		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
 		System.assertEquals('true', mapResultReturn.get('success'));
