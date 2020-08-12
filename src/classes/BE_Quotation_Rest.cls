@@ -358,7 +358,7 @@ public with sharing class BE_Quotation_Rest {
      */
     public static Map<String,Object> createCaseAudit(Map<String,String> params, Map<String,Object> mapReturnAux, Opportunity oppToUpdate) {
         Map<String,Object> mapReturn = mapReturnAux;
-        if(params.get('priceQuoStatus') == Label.WebPriceQuotationRequestStatus02) {
+        if(params.get('quotationStatus') == Label.WebPriceQuotationRequestStatus02) {
             final Case caseToInsert = new Case();
             caseToInsert.Status = '01';
             caseToInsert.Type = '01';

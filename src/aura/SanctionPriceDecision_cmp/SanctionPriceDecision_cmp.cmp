@@ -43,7 +43,7 @@
             <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false" isHTML="true"/>
         </aura:if>
         <h3 class="slds-section__title">{!$Label.c.Commitments}</h3>
-        <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" finMarRecover="{!v.inputAttributes.finMarRecover}"/>
+        <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" finMarRecover="{!v.inputAttributes.finMarRecover}" finMarRecoverCur="{!v.inputAttributes.finMarRecoverCur}"/>
     </div>
     
     <div class="slds-modal__content slds-p-around_medium" >
@@ -55,7 +55,7 @@
                         <h3 class="slds-text-heading_small">{!$Label.c.Price}</h3>
                         <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false"/>
                         <div class="slds-m-bottom_medium" id="divCommitments">
-                            <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" finMarRecover="{!v.inputAttributes.finMarRecover}" quoteMethod="{!v.inputAttributes.approvalMethod}"/>
+                            <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" finMarRecover="{!v.inputAttributes.finMarRecover}" finMarRecoverCur="{!v.inputAttributes.finMarRecoverCur}" quoteMethod="{!v.inputAttributes.approvalMethod}"/>
                         </div>
                     </lightning:tab>
                     <lightning:tab label="{!$Label.c.Comments}">
