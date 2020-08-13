@@ -25,11 +25,8 @@
     <aura:attribute name="Id" type="String" />
     <ltng:require scripts="{!join(',',
                            $Resource.ChartjsAP + '/chartjs/Chart.bundle.js',
-                           $Resource.ChartjsAP + '/chartjs/Chart.bundle.min.js',
-                           $Resource.ChartjsAP  + '/chartjs/Chart.js',
-                           $Resource.ChartjsAP  + '/chartjs/Chart.min.js'
-                           )}"
-                  afterScriptsLoaded="{!c.iniciaGraficas}" />
+                           $Resource.ChartjsAP + '/chartjs/Chart.js'
+                           )}" afterScriptsLoaded="{!c.iniciaGraficas}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <aura:handler name="change" value="{!v.BanderaEjecucion}" action="{!c.cambio}"/>
     <div class="c-container" onload="c.rerender">

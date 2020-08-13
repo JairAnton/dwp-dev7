@@ -1,6 +1,6 @@
 /**
  * BE_AP_CheckEditionByPeriodBatchHandler for lock/unlock AP's
- * <p /><p />
+ * <p/><p/>
  * Modification log:<p />
  * -------------------------------------------------------------------
  * Developer                    Date                Description<p />
@@ -76,7 +76,7 @@ public with sharing class BE_AP_CheckEditionByPeriodBatchHandler {
 		Map<String, String> mapEditionAP = new Map<String, String> {CHANGE => FALSO, EDITION_TYPE => ''};
 		if(!mapPriority.values().isEmpty() && apConfig.acpl__gf_ap_edit_prms_type_name__c == 'General') {
 			mapEditionAP = getGrnlVal(apAux, mapPriority.values().get(0));
-		} else if(!mapPriority.values().isEmpty() && apConfig.acpl__gf_ap_edit_prms_type_name__c == 'Priority') {
+		} else if(!mapPriority.values().isEmpty() && apConfig.acpl__gf_ap_edit_prms_type_name__c == 'Wave') {
 			mapEditionAP = getPrtyVal(apAux, mapPriority.get(apAux.acpl__gf_ap_priority_type_name__c));
 		}
 		return mapEditionAP;

@@ -9,48 +9,48 @@
         <value>Cuestionarios de planes de cuentas</value>
     </caseValues>
     <fields>
-        <label><!-- Answer --></label>
+        <label>Respuesta</label>
         <name>acpl__AA_answer__c</name>
     </fields>
     <fields>
-        <label><!-- Answer checkbox --></label>
+        <label>Respuesta en casilla</label>
         <name>acpl__AA_answer_checkbox__c</name>
     </fields>
     <fields>
-        <label><!-- Answer currency --></label>
+        <label>Respuesta en moneda</label>
         <name>acpl__AA_answer_currency__c</name>
     </fields>
     <fields>
-        <label><!-- Answer date --></label>
+        <label>Respuesta en fecha</label>
         <name>acpl__AA_answer_date__c</name>
     </fields>
     <fields>
-        <label><!-- Answer is checkbox --></label>
+        <label>Respuesta en casilla</label>
         <name>acpl__AA_answer_is_checkbox__c</name>
     </fields>
     <fields>
-        <label><!-- Answer number --></label>
+        <label>Respuesta en número</label>
         <name>acpl__AA_answer_number__c</name>
     </fields>
     <fields>
-        <label><!-- Answer text --></label>
+        <label>Respuesta en texto</label>
         <name>acpl__AA_answer_text__c</name>
     </fields>
     <fields>
-        <label><!-- Answer text area --></label>
+        <label>Respuesta en area de texto</label>
         <name>acpl__AA_answer_text_area__c</name>
     </fields>
     <fields>
-        <label><!-- Account Planning --></label>
+        <label>Plan de Cuenta</label>
         <name>acpl__gf_account_planning_id__c</name>
         <relationshipLabel><!-- Account Planning Questions --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Answer formula --></label>
+        <label>Respuesta en formula</label>
         <name>acpl__gf_ap_answer_form_desc__c</name>
     </fields>
     <fields>
-        <label><!-- Question --></label>
+        <label>Pregunta</label>
         <name>acpl__gf_ap_question_form_desc__c</name>
     </fields>
     <gender>Feminine</gender>

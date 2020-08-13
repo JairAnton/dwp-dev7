@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
-        <application>acpl__Account_Planning_Administration</application>
+        <application>Account_Planning_Administration_Peru</application>
         <visible>true</visible>
     </applicationVisibilities>
     <fieldPermissions>
@@ -8113,6 +8113,10 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabSettings>
+        <tab>AccountPlanning_AdminTab</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>acpl__AP_PeriodConfiguration__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
@@ -8132,4 +8136,8 @@
         <tab>acpl__Home_Account_Planning_Tab</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ImportCustomObjects</name>
+    </userPermissions>
 </PermissionSet>

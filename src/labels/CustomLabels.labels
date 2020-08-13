@@ -291,6 +291,27 @@
 Por favor verifique la estructura de acuerdo a la guía en la documentación.</value>
     </labels>
     <labels>
+        <fullName>BE_ImportRecord_Desc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ImportRecord_Desc</shortDescription>
+        <value>Como administrador de plan de cuentas, puede crear registros de planes de cuentas mediante archivos de cargas.</value>
+    </labels>
+    <labels>
+        <fullName>BE_ImportRecord_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ImportRecord_Title</shortDescription>
+        <value>Importación de registros</value>
+    </labels>
+    <labels>
+        <fullName>BE_ImportRecord_btn_label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ImportRecord_btn_label</shortDescription>
+        <value>Importar registros</value>
+    </labels>
+    <labels>
         <fullName>BE_NotCreateEditAccount</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -388,6 +409,20 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>Dynamic Action Audit Title</shortDescription>
         <value>Historial de seguimiento</value>
+    </labels>
+    <labels>
+        <fullName>Extensions_Allowed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Extensions_Allowed</shortDescription>
+        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx</value>
+    </labels>
+    <labels>
+        <fullName>Error_InvalidExtensionType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_InvalidExtensionType</shortDescription>
+        <value>No puede agregar este tipo de archivo.</value>
     </labels>
     <labels>
         <fullName>GenericCustomLabel</fullName>

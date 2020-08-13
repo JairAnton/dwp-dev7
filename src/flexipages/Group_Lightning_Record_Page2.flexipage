@@ -140,7 +140,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -278,7 +278,7 @@
                 <name>showTotal</name>
                 <value>false</value>
             </componentInstanceProperties>
-            <componentName>dwp_dv:DynamicRelatedGrupedTable_comp</componentName>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>

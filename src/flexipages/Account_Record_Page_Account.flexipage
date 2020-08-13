@@ -1649,7 +1649,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>gf_income_type__c IN (&apos;01&apos;, &apos;02&apos;, &apos;03&apos;) AND Is_last_two_years__c = TRUE</value>
+                <value>gf_income_type__c IN (&apos;01&apos;, &apos;02&apos;, &apos;03&apos;) AND gf_income_movement_date__c &gt;= LAST_N_YEARS:2</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>
@@ -4437,7 +4437,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>FilterStatic</name>
-                <value>gf_income_type__c IN (&apos;01&apos;, &apos;02&apos;, &apos;03&apos;) AND Is_last_two_years__c = TRUE</value>
+                <value>gf_income_type__c IN (&apos;01&apos;, &apos;02&apos;, &apos;03&apos;) AND gf_income_movement_date__c &gt;= LAST_N_YEARS:2</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Format</name>

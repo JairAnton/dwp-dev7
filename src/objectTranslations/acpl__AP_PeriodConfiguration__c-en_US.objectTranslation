@@ -9,19 +9,19 @@
         <name>acpl__gf_ap_comm_plan_guide_desc__c</name>
     </fields>
     <fields>
-        <label><!-- Days --></label>
+        <label>Días</label>
         <name>acpl__gf_ap_edit_days_left_number__c</name>
     </fields>
     <fields>
-        <label><!-- Configuration type --></label>
+        <label>Tipo de configuración</label>
         <name>acpl__gf_ap_edit_prms_type_name__c</name>
         <picklistValues>
             <masterLabel>General</masterLabel>
             <translation><!-- General --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Priority</masterLabel>
-            <translation><!-- Priority --></translation>
+            <masterLabel>Prioridad</masterLabel>
+            <translation><!-- Prioridad --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -45,7 +45,7 @@
         <name>acpl__gf_ap_team_message_desc__c</name>
     </fields>
     <fields>
-        <label><!-- Event --></label>
+        <label>Evento</label>
         <name>acpl__gf_ap_update_event_type_name__c</name>
         <picklistValues>
             <masterLabel>PF renewal date</masterLabel>

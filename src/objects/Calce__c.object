@@ -161,6 +161,37 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+	<fields>
+        <fullName>Stand_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Stand by</label>
+        <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
+        <summaryFilterItems>
+            <field>Calce_Details__c.product_code__c</field>
+            <operation>equals</operation>
+            <value>PC00013</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.type__c</field>
+            <operation>equals</operation>
+            <value>Indirect</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.extension__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.return__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
     <fields>
         <fullName>bond_letter__c</fullName>
         <externalId>false</externalId>
@@ -629,7 +660,7 @@
     <fields>
         <fullName>sub_total_indirect__c</fullName>
         <externalId>false</externalId>
-        <formula>credit_letter__c + bond_letter__c</formula>
+        <formula>credit_letter__c + bond_letter__c + Stand_by__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sub Total Indirect</label>
         <precision>18</precision>

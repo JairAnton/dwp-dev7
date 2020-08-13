@@ -40,19 +40,6 @@
                 <value>Edit event date</value>
             </componentInstanceProperties>
             <componentName>acpl:AP_HomeButton</componentName>
-            <visibilityRule>
-                <booleanFilter>1 OR 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!$User.Profile.Name}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>Administrador del sistema</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!$User.Profile.Name}</leftValue>
-                    <operator>CONTAINS</operator>
-                    <rightValue>System administrator</rightValue>
-                </criteria>
-            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -88,6 +75,9 @@
                 <value>Guidelines configuration</value>
             </componentInstanceProperties>
             <componentName>acpl:AP_HomeButton</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>bE_Redirect_ImportWizard_Lwc</componentName>
         </componentInstances>
         <name>region2</name>
         <type>Region</type>
