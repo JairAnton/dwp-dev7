@@ -12,6 +12,8 @@
 global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interface_prospect {
     /** StatusCode Code */
     private static final List<String> VISIT_LANGUAGE = new List<String> {'es','en_US'};
+	/** Error */
+	 private static final String ERROR_CODE = 'error';
     /** messages */
     static Map<String,String> messages;
     /**
@@ -41,7 +43,10 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
                 	}
         	   }
         } else {
-            throw new AuraHandledException('Porfavor ingresar valores correctos');
+            messages = new Map<String,String>();
+            messages.put(VISIT_LANGUAGE[0], 'Porfavor ingresar valores correctos');
+            messages.put(VISIT_LANGUAGE[1], 'Please, put correct values');
+            throw new AuraHandledException(messages.get(UserInfo.getLanguage()));
         }
         return JSON.serialize(lWrapper);
     }
@@ -87,7 +92,6 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     global static String validateNonCliente(Account client) {
     final ResultValidation objRespuesta =new ResultValidation();
     try {
-        final List<String> sObjNames=new List<String>{'Account'};
         messages = new Map<String,String>();
         final Boolean isValidPhone=validatePhone(client);
         if(isValidPhone==true) {
@@ -104,24 +108,24 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
            			objRespuesta.status='success';
          			objRespuesta.message=res.message;
           			objRespuesta.nonClientCode=res.codeTrx;
-     		} else {
-              		objRespuesta.status='error';
+				} else {
+              		objRespuesta.status=ERROR_CODE;
                		objRespuesta.message=res.message;
             	}
-        	}  else {
+        	} else {
             messages.put(VISIT_LANGUAGE[0], 'Servicio no disponible, porfavor intentar mas tarde.');
             messages.put(VISIT_LANGUAGE[1], 'Service not available, please try later.');
-            objRespuesta.status='error';
+            objRespuesta.status=ERROR_CODE;
             objRespuesta.message=messages.get(UserInfo.getLanguage());
         }
         } else {
             messages.put(VISIT_LANGUAGE[0], 'Ingresar código y número de telefono correcto.');
             messages.put(VISIT_LANGUAGE[1], 'Put correct code and phone number.');
-            objRespuesta.status='error';
+            objRespuesta.status=ERROR_CODE;
             objRespuesta.message=messages.get(UserInfo.getLanguage());
         }
     } catch (DMLException ex) {
-            objRespuesta.status='error';
+            objRespuesta.status=ERROR_CODE;
             objRespuesta.message=ex.getDmlMessage(0);
          	System.debug('####ex.getDmlMessage(0)##'+ex.getDmlMessage(0));
     }
@@ -150,13 +154,12 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     private static Boolean validatePhone(Account acc) {
         Boolean isValid=false;
         if(String.isNotBlank(acc.phone_area_code__c) && String.isNotBlank(acc.other_phone_number__c)) {
+            final String currentNumber = acc.other_phone_number__c;
             switch on acc.phone_area_code__c {
 				when '01' {
-                   String currentNumber = acc.other_phone_number__c;
                    isValid = currentNumber.length() == 7 && currentNumber.isNumeric() ? true : false;
                 }
                 when else {
-                   String currentNumber = acc.other_phone_number__c;
                    isValid = currentNumber.length() == 6 && currentNumber.isNumeric() ? true : false;  
                 }
             }
