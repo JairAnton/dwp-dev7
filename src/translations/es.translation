@@ -2847,7 +2847,7 @@
     <customLabels>
         <label>¿Desea continuar?</label>
         <name>nonc__NClient_lbl_WishContinue</name>
-    </customLabels>
+    </customLabels> 
 	<customLabels>
         <label>Contratos vigentes e impagos</label>
         <name>BE_UnpaidContracts</name>

@@ -313,12 +313,12 @@
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>AccountNumber</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <label>DuplicateSearchFieldSet</label>
     </fieldSets>
@@ -513,27 +513,32 @@
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>AccountNumber</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>phone_area_code__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>other_phone_number__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <label>Non Client</label>
     </fieldSets>
     <fieldSets>
         <fullName>nonc__Non_Client_Additional</fullName>
+        <availableFields>
+            <field>AccountNumber</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
         <availableFields>
             <field>AccountSource</field>
             <isFieldManaged>false</isFieldManaged>
