@@ -7,8 +7,16 @@
         <value xsi:type="xsd:string">bbvaPeruGrantingTickets</value>
     </values>
     <values>
+        <field>iaso__Blocked_Service__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
         <field>iaso__Custom_Setting__c</field>
         <value xsi:type="xsd:string">ProductsQuoteAvailability</value>
+    </values>
+    <values>
+        <field>iaso__Description__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>iaso__Headers_Class__c</field>
@@ -27,6 +35,10 @@
         <value xsi:type="xsd:string">GET</value>
     </values>
     <values>
+        <field>iaso__IsCacheable__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
         <field>iaso__Json_Input_Template_LTA_TEMP__c</field>
         <value xsi:nil="true"/>
     </values>
@@ -40,7 +52,100 @@
     </values>
     <values>
         <field>iaso__Mock_LTA__c</field>
-        <value xsi:type="xsd:string">{}</value>
+        <value xsi:type="xsd:string">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;18&quot;,
+            &quot;name&quot;: &quot;Tarjeta Capital de Trabajo&quot;,
+            &quot;productType&quot;: {
+                &quot;id&quot;: &quot;1006&quot;
+            },
+            &quot;pricing&quot;: {
+                &quot;id&quot;: &quot;18&quot;
+            }
+        },
+        {
+            &quot;id&quot;: &quot;16&quot;,
+            &quot;name&quot;: &quot;Descuentos&quot;,
+            &quot;productType&quot;: {
+                &quot;id&quot;: &quot;1007&quot;
+            },
+            &quot;pricing&quot;: {
+                &quot;id&quot;: &quot;9&quot;
+            }
+        },
+        {
+            &quot;id&quot;: &quot;15&quot;,
+            &quot;name&quot;: &quot;Carta Fianza&quot;,
+            &quot;productType&quot;: {
+                &quot;id&quot;: &quot;1005&quot;
+            },
+            &quot;pricing&quot;: {
+                &quot;id&quot;: &quot;8&quot;
+            }
+        },
+        {
+            &quot;id&quot;: &quot;12&quot;,
+            &quot;name&quot;: &quot;Forfaiting&quot;,
+            &quot;productType&quot;: {
+                &quot;id&quot;: &quot;1003&quot;
+            },
+            &quot;pricing&quot;: {
+                &quot;id&quot;: &quot;7&quot;
+            }
+        },
+        {
+            &quot;id&quot;: &quot;11&quot;,
+            &quot;name&quot;: &quot;Préstamo Comercial (CP)&quot;,
+            &quot;productType&quot;: {
+                &quot;id&quot;: &quot;1001&quot;
+            },
+            &quot;pricing&quot;: {
+                &quot;id&quot;: &quot;6&quot;
+            }
+        },
+        {
+            &quot;id&quot;: &quot;9&quot;,
+            &quot;name&quot;: &quot;Préstamo Comercial (LP)&quot;,
+            &quot;productType&quot;: {
+                &quot;id&quot;: &quot;1001&quot;
+            },
+            &quot;pricing&quot;: {
+                &quot;id&quot;: &quot;5&quot;
+            }
+        },
+        {
+            &quot;id&quot;: &quot;8&quot;,
+            &quot;name&quot;: &quot;Leasing&quot;,
+            &quot;productType&quot;: {
+                &quot;id&quot;: &quot;1004&quot;
+            },
+            &quot;pricing&quot;: {
+                &quot;id&quot;: &quot;4&quot;
+            }
+        },
+        {
+            &quot;id&quot;: &quot;7&quot;,
+            &quot;name&quot;: &quot;FIA Exportación&quot;,
+            &quot;productType&quot;: {
+                &quot;id&quot;: &quot;1003&quot;
+            },
+            &quot;pricing&quot;: {
+                &quot;id&quot;: &quot;3&quot;
+            }
+        },
+        {
+            &quot;id&quot;: &quot;6&quot;,
+            &quot;name&quot;: &quot;FIA Importación&quot;,
+            &quot;productType&quot;: {
+                &quot;id&quot;: &quot;1003&quot;
+            },
+            &quot;pricing&quot;: {
+                &quot;id&quot;: &quot;2&quot;
+            }
+        }
+    ]
+}</value>
     </values>
     <values>
         <field>iaso__Querystring_Input_Template_LTA_TEMP__c</field>

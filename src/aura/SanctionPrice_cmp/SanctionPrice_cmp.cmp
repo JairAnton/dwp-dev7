@@ -1,6 +1,6 @@
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" controller="SanctionPrice_ctrl" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:handler name="saveFieldsForm" event="c:FieldsForm_Save_evt" action="{!c.saveResponse}"/>
+    <!--<aura:handler name="saveFieldsForm" event="c:FieldsForm_Save_evt" action="{!c.saveResponse}"/>-->
     <aura:attribute name="objectInput" type="Object" />
     <aura:attribute name="isLoad" type="Boolean" default="false"/>
     <aura:attribute name="checkError" type="Boolean" default="false"/>
@@ -17,6 +17,17 @@
     <aura:attribute name="showWebForm" type="Boolean" default="false"/>
     <aura:attribute name="proposedEmpty" type="Boolean" default="false"/>
     
+    <aura:handler name="commitmentsEvent" event="c:Commitments_evt" action="{!c.doTypeMode}"/>
+    <aura:registerEvent name="commitmentsEvent" type="c:Commitments_evt"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="sugCommitments" type="Object"/>
+    <aura:attribute name="finMarLost" type="Double"/>
+    <aura:attribute name="finMarLostCur" type="String"/>
+    <aura:attribute name="finMarRecover" type="Double"/>
+    <aura:attribute name="finMarRecoverCur" type="String"/>
+    <aura:attribute name="step" type="String" default="1" />
+    <aura:attribute name="classHide" type="boolean" default="slds-hide"/>
+    
     <aura:if isTrue="{!v.isLoad}">
         <aura:if isTrue="{!v.checkError}">
             <ui:message title="Error" severity="error" >
@@ -26,34 +37,37 @@
         <aura:if isTrue="{!v.isError}">
             <c:ErrorMessageWS_cmp errorMessagesList="{!v.errorlst}"/>
             <aura:set attribute="else">
-                <div class="slds-modal__content slds-p-around_medium" >
+                <lightning:spinner aura:id="Spinner" variant="brand" class="slds-hide"/>
+                <div class="slds-modal__content slds-p-around_small" >
                     <aura:if isTrue="{!v.type_of_quote=='Carta de credito'}">
                         <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-align_absolute-center">
                             <c:FieldsSummary aura:id="fieldsSummary" recordId="{!v.objectInput.IdOppLineItem}" OpportunityId="{!v.OppId}"/>
                         </div>
                     </aura:if>
                     <aura:if isTrue="{!v.type_of_quote!='Carta de credito'}">
-                        <p style="padding-left:10px; font-size:12pt; font-family:'Salesforce Sans';">Proponer Precio</p>
-                        <div class="slds-grid slds-wrap slds-m-horizontal_medium">
+                        <p style="padding-left:15px; font-size:12pt; font-weight:bold; font-family:'Salesforce Sans';">Proponer Precio</p>
+                        <div class="slds-grid slds-wrap slds-m-horizontal_small">
                             <aura:if isTrue="{!v.showWebForm}">
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_5-of-12">
-                                    <c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>
-                                    <div class="slds-align_absolute-center">
-                                        <lightning:button variant="brand" onclick="{!c.updateSpread}">Actualizar</lightning:button>
-                                    </div>
-                                    <br/>
-                                    <div class="slds-m-right_small slds-m-left_small">
-                                        <div id="idAlert" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
-                                            <span class="slds-assistive-text">warning</span>
-                                            <h2><b>Actualizar el spread antes de continuar</b></h2>
-                                            <br/>
-                                            <div class="slds-notify__close">
-                                                <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" onclick="{!c.closeAlert}" title="close" alternativeText="Close window"/>
-                                            </div>
-                                        </div>
+                                <div class="slds-col slds-p-left-small slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_5-of-12">
+                                    <!--<div style="margin-right:11px; margin-left:11px;">-->
+                                        <lightning:layout multipleRows="true" class="slds-grid">
+                                            <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-col custom-left-box">
+                                                <div class="slds-text-body_small">TEA Sugerida %</div>
+                                                <div class="custom-font-number"><lightning:formattedNumber value="{!v.objectInput.sugtea}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-col custom-center-box">
+                                                <div class="slds-text-body_small">TEA Mínima %</div>
+                                                <div class="custom-font-number"><lightning:formattedNumber value="{!v.objectInput.minimtea}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
+                                            </lightning:layoutItem>
+                                            <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-col custom-right-box">
+                                                <div class="slds-text-body_small">RORC Cliente %</div>
+                                                <div class="custom-font-number"><lightning:formattedNumber value="{!v.objectInput.rorc_client}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
+                                            </lightning:layoutItem>
+                                        </lightning:layout>
                                         <br/>
-                                    </div>
-                                    <br/>
+                                    <c:BE_CalculateRate_cmp aura:id="CalculateRate" data="{!v.data}" recordId="{!v.objectInput.IdOppLineItem}" tea="{!v.objectInput.proposed}" finMarLost="{!v.finMarLost}" finMarRecover="{!v.finMarRecover}" finMarLostCur="{!v.finMarLostCur}" finMarRecoverCur="{!v.finMarRecoverCur}" classHide="{!v.classHide}"/>
+                                        <!--<c:FieldsForm_cmp aura:id="fieldsForm" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal'}"/>-->
+                                    <!--</div>-->
                                 </div>
                                 <aura:set attribute="else">
                                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
@@ -62,7 +76,7 @@
                                 </aura:set>
                             </aura:if>
                             <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_7-of-12">
+                                <div class="slds-col slds-p-left_small slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_7-of-12">
                                     <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
                                 </div>
                             </aura:if>  
