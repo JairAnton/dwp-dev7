@@ -75,7 +75,7 @@ public class Commitment_ctrl_Test {
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 		Test.startTest();
-		Commitment_ctrl.infoAnalyzeRate(OLI_TEST.Id, '0.25');
+		Commitment_ctrl.infoAnalyzeRate(oliTest.Id, '0.25');
 		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
         System.assertEquals(Label.PriceCreateQuotationRequestApprovedMessage, mapResultReturn.get('quotationStatusMessage'));
