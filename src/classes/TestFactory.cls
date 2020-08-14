@@ -29,7 +29,7 @@ public class TestFactory {
 		return usuario;
 	}
 
-	/** @Description Eduardo Castillo S. Método creado para OpportunityPDFWrap*/
+	/** Description Eduardo Castillo S. Método creado para OpportunityPDFWrap*/
 	public static User createUser_1(String userName, String perfil) {
         Final List<Profile> prof = new List<Profile>([SELECT Id, Name FROM Profile where Name = : perfil]);
         Final Double random = Math.random();

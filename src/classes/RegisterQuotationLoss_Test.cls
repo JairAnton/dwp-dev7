@@ -22,10 +22,10 @@ public class RegisterQuotationLoss_Test {
 		Product2 prodtest = TestFactory.createProduct();
 		OpportunityLineItem olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
 
-		List<Product2> prdTestListUpd = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
-		if(!prdTestListUpd.isEmpty()) {
-			prdTestListUpd[0].Type_of_quote__c = 'Web';
-			update prdTestListUpd[0];
+		List<Product2> prdListUpd = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
+		if(!prdListUpd.isEmpty()) {
+			prdListUpd[0].Type_of_quote__c = 'Web';
+			update prdListUpd[0];
 		}
 
 		List<Web_Service_Value_Mapping__c> webServiceMappintList = new List<Web_Service_Value_Mapping__c>();
@@ -46,12 +46,12 @@ public class RegisterQuotationLoss_Test {
 		insert wsMappingRecord;
 
 		// Prepare opportunity
-		List<OpportunityLineItem> oppLIToUpdList = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
+		List<OpportunityLineItem> oppLIUpd = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
 
-		if(!oppLIToUpdList.isEmpty()) {
-			oppLIToUpdList[0].price_quote_id__c = '1475650';
-			oppLIToUpdList[0].price_operation_id__c = '1469800';
-			update oppLIToUpdList[0];
+		if(!oppLIUpd.isEmpty()) {
+			oppLIUpd[0].price_quote_id__c = '1475650';
+			oppLIUpd[0].price_operation_id__c = '1469800';
+			update oppLIUpd[0];
 		}
     }
     
@@ -134,14 +134,14 @@ public class RegisterQuotationLoss_Test {
 		Final Opportunity opptest = TestFactory.createOpportunity(acctest.Id, UserInfo.getUserId());
 		Final Product2 prodtest = TestFactory.createProduct();
 		Final OpportunityLineItem olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
-        Final List<Product2> prdTestListUpd = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
-		if(!prdTestListUpd.isEmpty()) {
-			prdTestListUpd[0].Type_of_quote__c = 'Web';
-			update prdTestListUpd[0];
+        Final List<Product2> prdListUpd = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
+		if(!prdListUpd.isEmpty()) {
+			prdListUpd[0].Type_of_quote__c = 'Web';
+			update prdListUpd[0];
 		}
-		Final List<OpportunityLineItem> oppLIToUpdList = [SELECT price_quote_owner_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
-		if(!oppLIToUpdList.isEmpty()) {
-			oppLIToUpdList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		Final List<OpportunityLineItem> oppLIUpd = [SELECT price_quote_owner_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
+		if(!oppLIUpd.isEmpty()) {
+			oppLIUpd[0].price_quote_owner_id__c = UserInfo.getUserId();
 		}
 		Map<String, Object> resultMap;
 		Test.startTest();
