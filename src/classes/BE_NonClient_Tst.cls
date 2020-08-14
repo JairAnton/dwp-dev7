@@ -65,6 +65,7 @@ static void validateNonClienteTestNoAvailableService() {
 	System.assertEquals('error',resultVal.status,'Error Non Avialable Service');
 	Test.stopTest();
 }
+
 /**
    @Description test BE_NonClient_Ctr.validateNonCliente(), correct scenary
  */

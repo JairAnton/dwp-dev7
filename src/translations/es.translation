@@ -149,6 +149,10 @@
         <name>Ask_for_validation</name>
     </customLabels>
     <customLabels>
+        <label>Por favor ingresar valores correctos.</label>
+        <name>BE_NonClient_ErrorMessage</name>
+    </customLabels>
+    <customLabels>
         <label>Para dar de alta a un nuevo No Cliente debe acceder a la ficha de Prospectos y pulsar el botón &quot;Nuevo No Cliente&quot;</label>
         <name>BE_NotCreateEditAccount</name>
     </customLabels>

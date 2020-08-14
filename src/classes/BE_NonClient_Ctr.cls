@@ -12,8 +12,6 @@
 global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interface_prospect {
     /** StatusCode Code */
     private static final List<String> VISIT_LANGUAGE = new List<String> {'es','en_US'};
-	/** Error */
-	 private static final String ERROR_CODE = 'error';
     /** messages */
     static Map<String,String> messages;
     /**
@@ -43,10 +41,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
                 	}
         	   }
         } else {
-            messages = new Map<String,String>();
-            messages.put(VISIT_LANGUAGE[0], 'Porfavor ingresar valores correctos');
-            messages.put(VISIT_LANGUAGE[1], 'Please, put correct values');
-            throw new AuraHandledException(messages.get(UserInfo.getLanguage()));
+            throw new AuraHandledException(System.Label.BE_NonClient_ErrorMessage);
         }
         return JSON.serialize(lWrapper);
     }
@@ -108,24 +103,24 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
            			objRespuesta.status='success';
          			objRespuesta.message=res.message;
           			objRespuesta.nonClientCode=res.codeTrx;
-				} else {
-              		objRespuesta.status=ERROR_CODE;
+     		} else {
+              		objRespuesta.status='error';
                		objRespuesta.message=res.message;
             	}
-        	} else {
+        	}  else {
             messages.put(VISIT_LANGUAGE[0], 'Servicio no disponible, porfavor intentar mas tarde.');
             messages.put(VISIT_LANGUAGE[1], 'Service not available, please try later.');
-            objRespuesta.status=ERROR_CODE;
+            objRespuesta.status='error';
             objRespuesta.message=messages.get(UserInfo.getLanguage());
         }
         } else {
             messages.put(VISIT_LANGUAGE[0], 'Ingresar código y número de telefono correcto.');
             messages.put(VISIT_LANGUAGE[1], 'Put correct code and phone number.');
-            objRespuesta.status=ERROR_CODE;
+            objRespuesta.status='error';
             objRespuesta.message=messages.get(UserInfo.getLanguage());
         }
     } catch (DMLException ex) {
-            objRespuesta.status=ERROR_CODE;
+            objRespuesta.status='error';
             objRespuesta.message=ex.getDmlMessage(0);
          	System.debug('####ex.getDmlMessage(0)##'+ex.getDmlMessage(0));
     }
