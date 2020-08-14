@@ -57,7 +57,7 @@ public class Commitment_ctrl_Test {
 		lstData.add('PEN');
 		lstData.add(100);
 		lstData.add(30);
-		Commitment_ctrl.changeCommitment(lstOpp[0].Id, lstData, null);
+		Commitment_ctrl.changeCommitment(oppTest[0].Id, lstData, null);
 		
 		Final List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c LIMIT 1];
 		Final Map<String, Object> mapReturnDelete = Commitment_ctrl.deleteCommitment(lstOppSol[0].Id);
