@@ -1,5 +1,19 @@
 <aura:component extends="c:Collapsable_comun" controller="SanctionPrice_ctrl" implements="force:hasRecordId">
-	<div class="slds-p-top_small">
-        <c:CommitmentsTable_cmp oppRecordId="{!v.recordId}" readOnly="true"/>
+    <aura:attribute name="finMarRecover" type="Double"/>
+    <aura:attribute name="finMarRecoverCur" type="String"/>
+    <aura:attribute name="quoteMethod" type="Double"/>
+	<div class="slds-m-top_x-small">
+        <aura:if isTrue="{!v.quoteMethod == 'Web'}">
+            <aura:if isTrue="{!v.finMarRecover > 0}">
+                <c:CommitmentsTable_cmp oppRecordId="{!v.recordId}" finMarRecover="{!v.finMarRecover}" readOnly="true"/>
+                <aura:if isTrue="{!!v.readOnly}">
+                    <div class="slds-m-left_large">Margen Financiero Recuperado</div>
+                	<div class="slds-m-left_large"><lightning:icon iconName="utility:info" alternativeText="info" size="small"/>{!v.finMarRecoverCur}&nbsp;<lightning:formattedNumber value="{!v.finMarRecover}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/></div>
+                </aura:if>
+            </aura:if>
+            <aura:set attribute="else">
+                <c:CommitmentsTable_cmp oppRecordId="{!v.recordId}" finMarRecover="{!v.finMarRecover}" readOnly="true"/>
+            </aura:set>
+        </aura:if>
     </div>
 </aura:component>

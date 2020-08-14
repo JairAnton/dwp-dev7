@@ -2284,6 +2284,34 @@
         <scale>2</scale>
         <type>Percent</type>
     </fields>
+	<fields>
+        <fullName>Liquidity_Margin_Lost__c</fullName>
+        <externalId>false</externalId>
+        <label>Liquidity Margin Lost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+	<fields>
+        <fullName>Liquidity_Margin_Recovered_Currency__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Liquidity Margin Recovered Currency</label>
+        <length>3</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Liquidity_Margin_Recovered__c</fullName>
+        <externalId>false</externalId>
+        <label>Liquidity Margin Recovered</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
     <fields>
         <fullName>product_formalization_indicator__c</fullName>
         <externalId>false</externalId>
@@ -2387,10 +2415,73 @@
         <scale>2</scale>
         <type>Percent</type>
     </fields>
+	<fields>
+        <fullName>RAROEC_Operation__c</fullName>
+        <externalId>false</externalId>
+        <label>RAROEC Operation (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
     <fields>
         <fullName>restructuring_fee_per__c</fullName>
         <externalId>false</externalId>
         <label>Restructuring fee (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+	<fields>
+        <fullName>RORC_Approved__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Approved (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Client__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Client (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Model (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Operation__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Operation (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Updated__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Updated (%)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Variation__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Variation (%)</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>

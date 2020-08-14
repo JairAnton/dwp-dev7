@@ -2,14 +2,9 @@
     close: function (cmp, evt, helper) {
         helper.closeMe(cmp, evt, helper);
     },
-    doInit: function (cmp, evt, helper) {
-        var device = $A.get("$Browser.formFactor");
-        if (device !== 'DESKTOP') {
-            cmp.set('v.modalWidthCustom', "85%");
-        }
-    },
     doTypeMode: function (cmp, evt, helper) {
         var typeMode = evt.getParam("typeMode");
+        var rowData = evt.getParam("rowData");
         var device = $A.get("$Browser.formFactor");
         var widthValue = '60rem';
         if (device !== 'DESKTOP') {
@@ -22,14 +17,17 @@
                 helper.closeMe(cmp, evt, helper);
                 break;
             case 'DONEW':
+                cmp.set('v.rowData',rowData);
                 cmp.set('v.step', '2');
                 cmp.set('v.modalWidthCustom', widthValue);
                 break;
             case 'BACK':
                 cmp.set('v.step', '1');
                 cmp.set('v.modalWidthCustom', widthValue);
+                helper.refresh(cmp, evt, helper);
                 break;
             case 'DOCONTINUE':
+                cmp.set('v.rowData',rowData);
                 helper.continue(cmp, evt, helper);
                 break;
             case 'DOERROR':
@@ -41,5 +39,11 @@
             default:
 
         }
-    }
+    },
+    onchange: function(cmp, evt, helper) {
+        helper.changeSugComm(cmp, evt, helper);
+    },
+	doContinue : function(cmp, evt, helper) {
+		helper.continueSummary(cmp, evt, helper);
+	}
 })

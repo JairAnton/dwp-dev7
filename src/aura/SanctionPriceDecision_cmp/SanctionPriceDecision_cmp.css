@@ -45,6 +45,11 @@
     display: block;
     width: 100%;
   }
+
+  .THIS label.icon-blue .slds-icon-text-default { fill: #1A6D06; }
+  .THIS label.icon-green .slds-icon-text-default { fill: #1596DF; }
+  .THIS label.icon-blue { color: #1A6D06; }
+  .THIS label.icon-green { color: #1596DF; }
   
   .THIS .actionChoice label.flush-mahogany { color: #c23934; background: #fefbfb}
   .THIS .actionChoice label.flush-mahogany:hover { background: #fcf5f5; }
