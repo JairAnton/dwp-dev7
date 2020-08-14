@@ -22,7 +22,7 @@ public class RegisterQuotationLoss_Test {
 		Product2 prodtest = TestFactory.createProduct();
 		OpportunityLineItem olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
 
-		List<Product2> prdListUpd = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
+		Final List<Product2> prdListUpd = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
 		if(!prdListUpd.isEmpty()) {
 			prdListUpd[0].Type_of_quote__c = 'Web';
 			update prdListUpd[0];
@@ -46,7 +46,7 @@ public class RegisterQuotationLoss_Test {
 		insert wsMappingRecord;
 
 		// Prepare opportunity
-		List<OpportunityLineItem> oppLIUpd = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
+		Final List<OpportunityLineItem> oppLIUpd = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
 
 		if(!oppLIUpd.isEmpty()) {
 			oppLIUpd[0].price_quote_id__c = '1475650';
