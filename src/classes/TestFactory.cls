@@ -13,8 +13,8 @@
 @isTest
 public class TestFactory {
     
-    /** @Description  GIPR_TIPO_GARANTIA*/
-    static Final String GIPR_TIPO_GARANTIA = 'gipr_tipo_garantia_pc00005';
+    /** @Description  TIPO_GARANTIA*/
+    static Final String TIPO_GARANTIA = 'TIPO_GARANTIA_pc00005';
     /** @Description  STR_TEST*/
     static Final String STR_TEST = 'Test';
     
@@ -29,7 +29,7 @@ public class TestFactory {
 		return usuario;
 	}
 
-	/*Eduardo Castillo S. Método creado para OpportunityPDFWrap*/
+	/** @Description Eduardo Castillo S. Método creado para OpportunityPDFWrap*/
 	public static User createUser_1(String userName, String perfil) {
         Final List<Profile> prof = new List<Profile>([SELECT Id, Name FROM Profile where Name = : perfil]);
         Final Double random = Math.random();
@@ -52,7 +52,7 @@ public class TestFactory {
 	public static Attachment createAttachment(Id parentId, String attachmentName) {
         Blob bodyBlob = Blob.valueOf('Unit Test Attachment Body');
 		Final Attachment attach = new Attachment(Name = attachmentName, body = bodyBlob, parentId = parentId, ContentType = 'application/msword', IsPrivate = false, 
-                                                Description = 'Test');
+                                                Description = STR_TEST);
 		insert attach;
 		return attach;
 	}
@@ -111,14 +111,14 @@ public class TestFactory {
 
     /** @Description  createContact*/
 	public static Contact createContact(Id acc) {
-		Final Contact cont = new  Contact(accountid = acc, LastName = 'test', FirstName = 'test', Salutation = 'Mr.', decision_making_desc__c = 'Si');
+		Final Contact cont = new  Contact(accountid = acc, LastName = STR_TEST, FirstName = STR_TEST, Salutation = 'Mr.', decision_making_desc__c = 'Si');
 		insert cont;
 		return cont;
 	}
 
     /** @Description  createUserBranch*/
 	public static User_Branch__c createUserBranch(Id userId) {
-		Final Branch__c branch = new Branch__c(Name = 'Test');
+		Final Branch__c branch = new Branch__c(Name = STR_TEST);
 		insert branch;
 		Final User_Branch__c userBranch = new User_Branch__c(branch_name__c = branch.id, User__c = userId);
 		insert userBranch;
@@ -134,7 +134,7 @@ public class TestFactory {
 
     /** @Description  createParticipants*/
 	public static fprd__GBL_Intervener__c createParticipants(Id oppId) {
-		Final fprd__GBL_Intervener__c part = new fprd__GBL_Intervener__c(Name = 'Test', fprd__GBL_Opportunity_product__c = 'IDOP');
+		Final fprd__GBL_Intervener__c part = new fprd__GBL_Intervener__c(Name = STR_TEST, fprd__GBL_Opportunity_product__c = 'IDOP');
 		insert part;
 		return part;
 	}
@@ -207,21 +207,21 @@ public class TestFactory {
                                                                                        FPRD__MAP_FIELD__C = 'gipr_Periodicidad__c', FPRD__ORDER__C = 6, FPRD__PRODUCT__C = IDProduct, 
                                                                                        FPRD__READ_ONLY__C = false, FPRD__RELATED_MAP_FIELDS__C = '', FPRD__SECTION_ORDER__C = 1, 
                                                                                        FPRD__SECTION_NAME__C = 'Criterios de pago y liquidación', FPRD__TYPE__C = 'List', 
-                                                                                       FPRD__UPPER_LIMIT__C = 0, FPRD__VALUES_CONTROL_FIELD__C = GIPR_TIPO_GARANTIA, 
-                                                                                       FPRD__VISIBILITY_CONDITION__C  = '', FPRD__VISIBILITY_CONTROL_FIELD__C = GIPR_TIPO_GARANTIA, 
+                                                                                       FPRD__UPPER_LIMIT__C = 0, FPRD__VALUES_CONTROL_FIELD__C = TIPO_GARANTIA, 
+                                                                                       FPRD__VISIBILITY_CONDITION__C  = '', FPRD__VISIBILITY_CONTROL_FIELD__C = TIPO_GARANTIA, 
                                                                                        FPRD__VISIBILITY_CONTROL_VALUE__C = 'No dineraria,Dineraria');
 		Insert gblPC;
 	}
 
 	//Eduardo Castillo S. Método creado para OpportunityPDFWrap_Test
 	public static void productConfiguration_1(Id IDProduct) {
-		insert new fprd__GBL_Product_Configuration__c(FPRD__DEFAULT_VALUE__C = '2', FPRD__DEVELOPERNAME__C = GIPR_TIPO_GARANTIA, FPRD__HEADER__C = false, 
+		insert new fprd__GBL_Product_Configuration__c(FPRD__DEFAULT_VALUE__C = '2', FPRD__DEVELOPERNAME__C = TIPO_GARANTIA, FPRD__HEADER__C = false, 
                                                       FPRD__HEADER_ORDER__C = 0, FPRD__HIDDEN__C = false, FPRD__IMPORTANT__C = false, FPRD__LABEL__C = 'Periocidad', 
                                                       FPRD__LOV_LABELS__C = 'Días,Meses', FPRD__LOV_VALUES__C = '01,02', FPRD__LOWER_LIMIT__C = 0, FPRD__MANDATORY__C = false, 
                                                       FPRD__MAP_FIELD__C = 'gipr_Periodicidad__c', FPRD__ORDER__C = 6, FPRD__PRODUCT__C = IDProduct, FPRD__READ_ONLY__C = false, 
                                                       FPRD__RELATED_MAP_FIELDS__C = '', FPRD__SECTION_ORDER__C = 1, FPRD__SECTION_NAME__C = 'Criterios de pago y liquidación', 
-                                                      FPRD__TYPE__C = 'List', FPRD__VISIBILITY_CONTROL_VALUE__C = 'No dineraria,Dineraria', FPRD__VALUES_CONTROL_FIELD__C = GIPR_TIPO_GARANTIA,
-                                                      FPRD__UPPER_LIMIT__C = 0, FPRD__VISIBILITY_CONDITION__C  = '', FPRD__VISIBILITY_CONTROL_FIELD__C = GIPR_TIPO_GARANTIA);
+                                                      FPRD__TYPE__C = 'List', FPRD__VISIBILITY_CONTROL_VALUE__C = 'No dineraria,Dineraria', FPRD__VALUES_CONTROL_FIELD__C = TIPO_GARANTIA,
+                                                      FPRD__UPPER_LIMIT__C = 0, FPRD__VISIBILITY_CONDITION__C  = '', FPRD__VISIBILITY_CONTROL_FIELD__C = TIPO_GARANTIA);
 	}
 
 	//Eduardo Castillo S. Método creado para OpportunityPDFWrap_Test

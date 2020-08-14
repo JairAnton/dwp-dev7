@@ -12,6 +12,36 @@
  **/
 @isTest
 public class Container_Product_Form_ctrl_Test {
+
+	/** @Description  KEY*/
+	static Final String KEY = 'key';
+	/** @Description  KEY_2*/
+	static Final String KEY_2 = 'key2';
+	/** @Description  KEY_3*/
+	static Final String KEY_3 = 'key3';
+	/** @Description  SHOW_WARNING*/
+	static Final String SHOW_WARNING = 'showwarning';
+	/** @Description  ERROR_MSG*/
+	static Final String ERROR_MSG = 'errormessage';
+	/** @Description  DATA_CW*/
+	static Final String DATA_CW = 'dataCW';
+	/** @Description  TEST_OPP*/
+	static Final String TEST_OPP = 'testopp';
+	/** @Description  ESPECIALISTA*/
+	static Final String ESPECIALISTA = 'Especialista';
+	/** @Description  EJECUTIVO*/
+	static Final String EJECUTIVO = 'Ejecutivo';
+	/** @Description  EJECUTIVO_1*/
+	static Final String EJECUTIVO_1 = 'EjecutivoTest1';
+	/** @Description  EJECUTIVO_2*/
+	static Final String EJECUTIVO_2 = 'EjecutivoTest2';
+	/** @Description  STR_OPP*/
+	static Final String STR_OPP = 'Opportunity';
+	/** @Description  PICKLIST*/
+	static Final String PICKLIST = 'Picklist';
+	/** @Description  ID_IN*/
+	static Final String ID_IN = 'ID_IN';
+	
     /** @Description  TestSetup*/
 	@TestSetup
 	public static void setup() {
@@ -37,29 +67,29 @@ public class Container_Product_Form_ctrl_Test {
 		insert actions;
 
 		Final List<dwp_dace__Condition__c> conditions = new List<dwp_dace__Condition__c>();
-		dwp_dace__Condition__c condition1 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition1', dwp_dace__field_api_name__c = 'Profile.Name', 
+		Final dwp_dace__Condition__c condition1 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition1', dwp_dace__field_api_name__c = 'Profile.Name', 
                                                                        dwp_dace__field_type__c = 'Text', dwp_dace__field_value_1__c = 'Especialista,Ejecutivo,Administrador del sistema,System Administrator', 
-                                                                       dwp_dace__object_api_name__c = 'User', dwp_dace__operator_type__c = 'ID_IN');
+                                                                       dwp_dace__object_api_name__c = 'User', dwp_dace__operator_type__c = ID_IN);
 		conditions.add(condition1);
-		Final dwp_dace__Condition__c condition2 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition2', dwp_dace__field_api_name__c = 'StageName', dwp_dace__field_type__c = 'Picklist', 
-                                                                             dwp_dace__field_value_1__c = '01,02,03', dwp_dace__object_api_name__c = 'Opportunity', dwp_dace__operator_type__c = 'ID_IN');
+		Final dwp_dace__Condition__c condition2 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition2', dwp_dace__field_api_name__c = 'StageName', dwp_dace__field_type__c = PICKLIST, 
+                                                                             dwp_dace__field_value_1__c = '01,02,03', dwp_dace__object_api_name__c = STR_OPP, dwp_dace__operator_type__c = ID_IN);
 		conditions.add(condition2);
-		Final dwp_dace__Condition__c condition3 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition3', dwp_dace__field_api_name__c = 'Type', dwp_dace__field_type__c = 'Picklist', 
-                                                                             dwp_dace__field_value_1__c = '01', dwp_dace__object_api_name__c = 'Opportunity', dwp_dace__operator_type__c = 'ID_IN');
+		Final dwp_dace__Condition__c condition3 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition3', dwp_dace__field_api_name__c = 'Type', dwp_dace__field_type__c = PICKLIST, 
+                                                                             dwp_dace__field_value_1__c = '01', dwp_dace__object_api_name__c = STR_OPP, dwp_dace__operator_type__c = ID_IN);
 		conditions.add(condition3);
-		Final dwp_dace__Condition__c condition4 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition4', dwp_dace__field_api_name__c = 'Type', dwp_dace__field_type__c = 'Picklist', 
-                                                                             dwp_dace__field_value_1__c = '02', dwp_dace__object_api_name__c = 'Opportunity', dwp_dace__operator_type__c = 'ID_IN');
+		Final dwp_dace__Condition__c condition4 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition4', dwp_dace__field_api_name__c = 'Type', dwp_dace__field_type__c = PICKLIST, 
+                                                                             dwp_dace__field_value_1__c = '02', dwp_dace__object_api_name__c = STR_OPP, dwp_dace__operator_type__c = ID_IN);
 		conditions.add(condition4);
 		Final dwp_dace__Condition__c condition5 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition5', dwp_dace__field_api_name__c = 'opportunity_status_type__c', 
-                                                                             dwp_dace__field_type__c = 'Picklist', dwp_dace__field_value_1__c = '24,12', dwp_dace__object_api_name__c = 'Opportunity',
-                                                                             dwp_dace__operator_type__c = 'ID_IN');
+                                                                             dwp_dace__field_type__c = PICKLIST, dwp_dace__field_value_1__c = '24,12', dwp_dace__object_api_name__c = STR_OPP,
+                                                                             dwp_dace__operator_type__c = ID_IN);
 		conditions.add(condition5);
 		Final dwp_dace__Condition__c condition6 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition6', dwp_dace__field_api_name__c = 'Profile.Name', dwp_dace__field_type__c = 'Text', 
                                                                              dwp_dace__field_value_1__c = 'Ejecutivo,Administrador del sistema,System Administrator', dwp_dace__object_api_name__c = 'User', 
-                                                                             dwp_dace__operator_type__c = 'ID_IN');
+                                                                             dwp_dace__operator_type__c = ID_IN);
 		conditions.add(condition6);
-		Final dwp_dace__Condition__c condition7 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition7', dwp_dace__field_api_name__c = 'StageName', dwp_dace__field_type__c = 'Picklist', 
-                                                                             dwp_dace__field_value_1__c = '04', dwp_dace__object_api_name__c = 'Opportunity', dwp_dace__operator_type__c = 'ID_IN');
+		Final dwp_dace__Condition__c condition7 = new dwp_dace__Condition__c(dwp_dace__condition_unique_id__c = 'condition7', dwp_dace__field_api_name__c = 'StageName', dwp_dace__field_type__c = PICKLIST, 
+                                                                             dwp_dace__field_value_1__c = '04', dwp_dace__object_api_name__c = STR_OPP, dwp_dace__operator_type__c = ID_IN);
 		conditions.add(condition7);
 		insert conditions;
 
@@ -113,15 +143,15 @@ public class Container_Product_Form_ctrl_Test {
     /** @Description  case1*/
 	@isTest
 	public static void case1() {
-		Final User testUser1 = TestFactory.createUser('EjecutivoTest1', 'Ejecutivo');
-		TestFactory.createUser('EjecutivoTest2', 'Especialista');
+		Final User testUser1 = TestFactory.createUser(EJECUTIVO_1, EJECUTIVO);
+		TestFactory.createUser(EJECUTIVO_2, ESPECIALISTA);
 		Final Account testAccount = TestFactory.createAccount();
-		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = 'testopp', AccountId = testAccount.Id, StageName = '01', Amount = 100, CloseDate = system.Date.today(), 
+		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = TEST_OPP, AccountId = testAccount.Id, StageName = '01', Amount = 100, CloseDate = system.Date.today(), 
                                           opportunity_status_type__c = '01', Type = '01');
 		insert opp;
         Map<String, Object> actual;
-        Final Map<String, Object> mapCW = new Map<String, Object>{'showWarning' => false, 'errorMessage' => '' };
-        Final Map<String, Object> expected = new Map<String, Object>{'key' => true, 'key2' => true, 'key3' => true, 'dataCW' => mapCW};
+        Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => false, ERROR_MSG => '' };
+        Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2 => true, KEY_3 => true, DATA_CW => mapCW};
         Test.startTest();
 		System.runAs(testUser1) {
 			actual = Container_Product_Form_ctrl.getActions(opp.Id);
@@ -133,15 +163,15 @@ public class Container_Product_Form_ctrl_Test {
     /** @Description  case2*/
 	@isTest
 	public static void case2() {
-		Final User testUser1 = TestFactory.createUser('EjecutivoTest1', 'Ejecutivo');
-		Final User testUser2 = TestFactory.createUser('EjecutivoTest2', 'Especialista');
+		Final User testUser1 = TestFactory.createUser(EJECUTIVO_1, EJECUTIVO);
+		Final User testUser2 = TestFactory.createUser(EJECUTIVO_2, ESPECIALISTA);
 		Final Account testAccount = TestFactory.createAccount();
-		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = 'testopp', AccountId = testAccount.Id, StageName = '01', Amount = 100, 
+		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = TEST_OPP, AccountId = testAccount.Id, StageName = '01', Amount = 100, 
                                           CloseDate = system.Date.today(), opportunity_status_type__c = '01', Type = '01');
 		insert opp;
 
-        Final Map<String, Object> mapCW = new Map<String, Object>{'showWarning' => false, 'errorMessage' => '' };
-        Final Map<String, Object> expected = new Map<String, Object>{'key' => true, 'key2' => true, 'key3' => true, 'dataCW' => mapCW};
+        Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => false, ERROR_MSG => '' };
+        Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2 => true, KEY_3 => true, DATA_CW => mapCW};
         Map<String, Object> actual;
         Test.startTest();
 		System.runAs(testUser2) {
@@ -154,14 +184,14 @@ public class Container_Product_Form_ctrl_Test {
     /** @Description  case3*/
 	@isTest
 	public static void case3() {
-		Final User testUser1 = TestFactory.createUser('EjecutivoTest1', 'Ejecutivo');
-		TestFactory.createUser('EjecutivoTest2', 'Especialista');
+		Final User testUser1 = TestFactory.createUser(EJECUTIVO_1, EJECUTIVO);
+		TestFactory.createUser(EJECUTIVO_2, ESPECIALISTA);
 		Final Account testAccount = TestFactory.createAccount();
-		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = 'testopp', AccountId = testAccount.Id, StageName = '01', Amount = 100, CloseDate = system.Date.today(), 
+		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = TEST_OPP, AccountId = testAccount.Id, StageName = '01', Amount = 100, CloseDate = system.Date.today(), 
                                           opportunity_status_type__c = '01', Type = '02');
 		insert opp;
-        Final Map<String, Object> mapCW = new Map<String, Object>{'showWarning' => false, 'errorMessage' => ''};
-        Final Map<String, Object> expected = new Map<String, Object>{'key' => true, 'key2'=> false, 'key3' => false, 'dataCW' => mapCW};
+        Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => false, ERROR_MSG => ''};
+        Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2=> false, KEY_3 => false, DATA_CW => mapCW};
         Map<String, Object> actual;
         Test.startTest();
 		System.runAs(testUser1) {
@@ -174,14 +204,14 @@ public class Container_Product_Form_ctrl_Test {
     /** @Description  case4*/
 	@isTest
 	public static void case4() {
-		Final User testUser1 = TestFactory.createUser('EjecutivoTest1', 'Ejecutivo');
-		Final User testUser2 = TestFactory.createUser('EjecutivoTest2', 'Especialista');
+		Final User testUser1 = TestFactory.createUser(EJECUTIVO_1, EJECUTIVO);
+		Final User testUser2 = TestFactory.createUser(EJECUTIVO_2, ESPECIALISTA);
 		Final Account testAccount = TestFactory.createAccount();
-		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = 'testopp', AccountId = testAccount.Id, StageName = '01', Amount = 100, 
+		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = TEST_OPP, AccountId = testAccount.Id, StageName = '01', Amount = 100, 
                                           CloseDate = system.Date.today(), opportunity_status_type__c = '01', Type = '02');
 		insert opp;
-        Final Map<String, Object> mapCW = new Map<String, Object>{'showWarning' => false, 'errorMessage' => ''};
-        Final Map<String, Object> expected = new Map<String, Object>{'key' => true, 'key2'=> false, 'key3' => false, 'dataCW' => mapCW};
+        Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => false, ERROR_MSG => ''};
+        Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2=> false, KEY_3 => false, DATA_CW => mapCW};
         Map<String, Object> actual;
         Test.startTest();
 		System.runAs(testUser2) {
@@ -194,14 +224,14 @@ public class Container_Product_Form_ctrl_Test {
     /** @Description  case5*/
 	@isTest
 	public static void case5() {
-		Final User testUser1 = TestFactory.createUser('EjecutivoTest1', 'Ejecutivo');
-		TestFactory.createUser('EjecutivoTest2', 'Especialista');
+		Final User testUser1 = TestFactory.createUser(EJECUTIVO_1, EJECUTIVO);
+		TestFactory.createUser(EJECUTIVO_2, ESPECIALISTA);
 		Final Account testAccount = TestFactory.createAccount();
-		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = 'testopp', AccountId = testAccount.Id, StageName = '04', Amount = 100, 
+		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = TEST_OPP, AccountId = testAccount.Id, StageName = '04', Amount = 100, 
                                           CloseDate = system.Date.today(), opportunity_status_type__c = '12');
 		insert opp;
-		Final Map<String, Object> mapCW = new Map<String, Object>{'showWarning' => false, 'errorMessage' => ''};
-        Final Map<String, Object> expected = new Map<String, Object>{'key' => true, 'key2'=> false, 'key3' => false, 'dataCW' => mapCW};
+		Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => false, ERROR_MSG => ''};
+        Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2=> false, KEY_3 => false, DATA_CW => mapCW};
         Map<String, Object> actual;
         Test.startTest();
 		System.runAs(testUser1) {
@@ -214,14 +244,14 @@ public class Container_Product_Form_ctrl_Test {
     /** @Description  case6*/
 	@isTest
 	public static void case6() {
-		Final User testUser1 = TestFactory.createUser('EjecutivoTest1', 'Ejecutivo');
-		TestFactory.createUser('EjecutivoTest2', 'Especialista');
+		Final User testUser1 = TestFactory.createUser(EJECUTIVO_1, EJECUTIVO);
+		TestFactory.createUser(EJECUTIVO_2, ESPECIALISTA);
 		Final Account testAccount = TestFactory.createAccount();
-		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = 'testopp', AccountId = testAccount.Id, StageName = '04', Amount = 100, 
+		Final Opportunity opp = new Opportunity(ownerId = testUser1.Id, Name = TEST_OPP, AccountId = testAccount.Id, StageName = '04', Amount = 100, 
                                           CloseDate = system.Date.today(), opportunity_status_type__c = '24');
 		insert opp;
-        Final Map<String, Object> mapCW = new Map<String, Object>{'showWarning' => false, 'errorMessage' => ''};
-        Final Map<String, Object> expected = new Map<String, Object>{'key' => true, 'key2'=> false, 'key3' => false, 'dataCW' => mapCW};
+        Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => false, ERROR_MSG => ''};
+        Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2=> false, KEY_3 => false, DATA_CW => mapCW};
         Map<String, Object> actual;
         Test.startTest();
 		System.runAs(testUser1) {
@@ -244,8 +274,8 @@ public class Container_Product_Form_ctrl_Test {
 		prod.Type_of_quote__c = 'Web';
 		update prod;
 		TestFactory.createOLI(opp.Id, prod.Id);
-        Final Map<String, Object> mapCW = new Map<String, Object>{'showWarning' => true, 'errorMessage' => Label.PriceQuotationProductNotAvailableErrorMessage};
-        Final Map<String, Object> expected = new Map<String, Object>{'key' => true, 'key2'=> true, 'key3' => true, 'dataCW' => mapCW};
+        Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => true, ERROR_MSG => Label.PriceQuotationProductNotAvailableErrorMessage};
+        Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2=> true, KEY_3 => true, DATA_CW => mapCW};
         Map<String, Object> actual;
 		Test.startTest();
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
@@ -268,8 +298,8 @@ public class Container_Product_Form_ctrl_Test {
 		prod.Type_of_quote__c = 'Web';
 		update prod;
 		TestFactory.createOLI(opp.Id, prod.Id);
-        Final Map<String, Object> mapCW = new Map<String, Object>{'showWarning' => true, 'errorMessage' => Label.PriceQuotationAvailabilityErrorMessage};
-        Final Map<String, Object> expected = new Map<String, Object>{'key' => true, 'key2'=> true, 'key3' => true, 'dataCW' => mapCW};
+        Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => true, ERROR_MSG => Label.PriceQuotationAvailabilityErrorMessage};
+        Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2=> true, KEY_3 => true, DATA_CW => mapCW};
         Map<String, Object> actual;
 		Test.startTest();
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
@@ -292,8 +322,8 @@ public class Container_Product_Form_ctrl_Test {
 		prod.Type_of_quote__c = 'Web';
 		update prod;
 		TestFactory.createOLI(opp.Id, prod.Id);
-        Final Map<String, Object> mapCW = new Map<String, Object>{'showWarning' => true, 'errorMessage' => Label.PriceQuotationAvailabilityErrorMessage};
-        Final Map<String, Object> expected = new Map<String, Object>{'key' => true, 'key2'=> true, 'key3' => true, 'dataCW' => mapCW};
+        Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => true, ERROR_MSG => Label.PriceQuotationAvailabilityErrorMessage};
+        Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2=> true, KEY_3 => true, DATA_CW => mapCW};
         Map<String, Object> actual;
 		Test.startTest();
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());

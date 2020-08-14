@@ -17,7 +17,9 @@ public class OpportunityLineItem_test {
     /** @Description  PC_041*/
     Final static String PC_041 = 'PC00041';
     /** @Description  PC_002*/
-    Final static String PC_002 = 'PC00002';
+	Final static String PC_002 = 'PC00002';
+	/** @Description  ASSERT*/
+	Final static String ASSERT = 'Assertion Error';
     
     /** @Description  Setup*/
 	@testSetup
@@ -30,7 +32,7 @@ public class OpportunityLineItem_test {
 		Final Product2 prd = new Product2(Name = 'Test Product', ProductCode = 'TEST', Family = 'Family', IsActive = true);
 		insert prd;
 
-		PriceBookEntry pbe = new PriceBookEntry(Product2Id = prd.Id, PriceBook2Id = Test.getStandardPricebookId(), UnitPrice = 1, UseStandardPrice = false, 
+		Final PriceBookEntry pbe = new PriceBookEntry(Product2Id = prd.Id, PriceBook2Id = Test.getStandardPricebookId(), UnitPrice = 1, UseStandardPrice = false, 
                                                 IsActive = true);
 		insert pbe;
 		TestFactory.createGuarantee(opp.Id);
@@ -61,7 +63,7 @@ public class OpportunityLineItem_test {
         Test.startTest();
 		insert oli2;
 		Test.stopTest();
-        System.assertNotEquals(null, oli2.Id);
+        System.assertNotEquals(null, oli2.Id, ASSERT);
 	}
 
     /** @Description  beforeUpdateV2*/
@@ -74,7 +76,7 @@ public class OpportunityLineItem_test {
 		oppLI.gipr_Periodicidad__c = '01';
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.gipr_Plazo__c, 4);
+		system.assertEquals(oppLI.gipr_Plazo__c, 4, ASSERT);
 	}
 
     /** @Description  beforeUpdateV2v1*/
@@ -87,7 +89,7 @@ public class OpportunityLineItem_test {
 		oppLI.gipr_Periodicidad__c = '02';
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.gipr_Plazo__c, 4);
+		system.assertEquals(oppLI.gipr_Plazo__c, 4, ASSERT);
 	}
 
     /** @Description  beforeUpdateV3*/
@@ -99,7 +101,7 @@ public class OpportunityLineItem_test {
 		oppLI.cpliq_Fecha_Vencimiento__c = System.today().addDays(12);
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.cpliq_Fecha_Vencimiento__c, System.today().addDays(12));
+		system.assertEquals(oppLI.cpliq_Fecha_Vencimiento__c, System.today().addDays(12), ASSERT);
 	}
 
     /** @Description  beforeUpdateV4*/
@@ -111,7 +113,7 @@ public class OpportunityLineItem_test {
 		oppLI.gipr_Plazo__c = 3;
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.gipr_Plazo__c, 3);
+		system.assertEquals(oppLI.gipr_Plazo__c, 3, ASSERT);
 	}
 
     /** @Description  beforeUpdateV4v1*/
@@ -124,7 +126,7 @@ public class OpportunityLineItem_test {
 		oppLI.cpliq_Periodicidad__c = '02';
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.gipr_Plazo__c, 3);
+		system.assertEquals(oppLI.gipr_Plazo__c, 3, ASSERT);
 	}
 
     /** @Description  beforeUpdateV4v2*/
@@ -137,7 +139,7 @@ public class OpportunityLineItem_test {
 		oppLI.cpliq_Periodicidad__c = '03';
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.gipr_Plazo__c, 3);
+		system.assertEquals(oppLI.gipr_Plazo__c, 3, ASSERT);
 	}
 
     /** @Description  beforeUpdateV5*/
@@ -149,19 +151,19 @@ public class OpportunityLineItem_test {
 		oppLI.cpliq_Fecha_Vencimiento__c = system.today().addDays(12);
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.cpliq_Fecha_Vencimiento__c, system.today().addDays(12));
+		system.assertEquals(oppLI.cpliq_Fecha_Vencimiento__c, system.today().addDays(12), ASSERT);
 	}
 
     /** @Description  beforeUpdateV6*/
 	@isTest
     static void beforeUpdateV6() {
         updateProduct(PC_002);
-		OpportunityLineItem oppLI = [Select id, OpportunityId, Product2Id from OpportunityLineItem limit 1];
+		Final OpportunityLineItem oppLI = [Select id, OpportunityId, Product2Id from OpportunityLineItem limit 1];
         Test.startTest();
 		oppLI.cpliq_Fecha_Vencimiento__c = system.today().addDays(442);
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.cpliq_Fecha_Vencimiento__c, system.today().addDays(442));
+		system.assertEquals(oppLI.cpliq_Fecha_Vencimiento__c, system.today().addDays(442), ASSERT);
 	}
 
     /** @Description  beforeUpdateV7*/
@@ -174,7 +176,7 @@ public class OpportunityLineItem_test {
 		oppLI.cpliq_Periodicidad__c = '01';
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.cpliq_n__c, 13);
+		system.assertEquals(oppLI.cpliq_n__c, 13, ASSERT);
 	}
 
     /** @Description  beforeUpdateV7v1*/
@@ -187,7 +189,7 @@ public class OpportunityLineItem_test {
 		oppLI.cpliq_Periodicidad__c = '02';
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.cpliq_n__c, 13);
+		system.assertEquals(oppLI.cpliq_n__c, 13, ASSERT);
 	}
 
     /** @Description  beforeUpdateV8*/
@@ -200,7 +202,7 @@ public class OpportunityLineItem_test {
 		oppLI.cpliq_Periodicidad__c = '01';
 		update oppLI;
         Test.stopTest();
-		system.assertEquals(oppLI.cpliq_n__c, 13);
+		system.assertEquals(oppLI.cpliq_n__c, 13, ASSERT);
 	}
 
     /** @Description  beforeUpdateV8v1*/
@@ -217,6 +219,6 @@ public class OpportunityLineItem_test {
 		insert opsolcom;
 		delete oppLI;
 		Test.stopTest();
-        system.assertNotEquals(opsolcom.Id, null);
+        system.assertNotEquals(opsolcom.Id, null, ASSERT);
 	}
 }

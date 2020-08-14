@@ -22,10 +22,10 @@ public class RegisterQuotationLoss_Test {
 		Product2 prodtest = TestFactory.createProduct();
 		OpportunityLineItem olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
 
-		List<Product2> prodTestListToUpdate = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
-		if(!prodTestListToUpdate.isEmpty()) {
-			prodTestListToUpdate[0].Type_of_quote__c = 'Web';
-			update prodTestListToUpdate[0];
+		List<Product2> prdTestListUpd = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
+		if(!prdTestListUpd.isEmpty()) {
+			prdTestListUpd[0].Type_of_quote__c = 'Web';
+			update prdTestListUpd[0];
 		}
 
 		List<Web_Service_Value_Mapping__c> webServiceMappintList = new List<Web_Service_Value_Mapping__c>();
@@ -46,12 +46,12 @@ public class RegisterQuotationLoss_Test {
 		insert wsMappingRecord;
 
 		// Prepare opportunity
-		List<OpportunityLineItem> oppLineItemToUpdateList = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
+		List<OpportunityLineItem> oppLIToUpdList = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
 
-		if(!oppLineItemToUpdateList.isEmpty()) {
-			oppLineItemToUpdateList[0].price_quote_id__c = '1475650';
-			oppLineItemToUpdateList[0].price_operation_id__c = '1469800';
-			update oppLineItemToUpdateList[0];
+		if(!oppLIToUpdList.isEmpty()) {
+			oppLIToUpdList[0].price_quote_id__c = '1475650';
+			oppLIToUpdList[0].price_operation_id__c = '1469800';
+			update oppLIToUpdList[0];
 		}
     }
     
@@ -69,10 +69,10 @@ public class RegisterQuotationLoss_Test {
 		Product_cls.registerQuotationLoss(opptest.Id, '02', '01');
 		Test.stopTest();
 		// Check result
-		Final List<OpportunityLineItem> oppLineItemToCheckList = [SELECT Id, price_quote_status_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
+		Final List<OpportunityLineItem> oppLICheckList = [SELECT Id, price_quote_status_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
 		String quotationStatus = '';
-		if(!oppLineItemToCheckList.isEmpty()) {
-			quotationStatus = oppLineItemToCheckList[0].price_quote_status_id__c;
+		if(!oppLICheckList.isEmpty()) {
+			quotationStatus = oppLICheckList[0].price_quote_status_id__c;
 		}
 		System.assertEquals('REGISTER_LOST', quotationStatus);
 	}
@@ -81,7 +81,6 @@ public class RegisterQuotationLoss_Test {
 	@isTest
     static void rejectOppWithPriceQuotationError1Test() {
         Final Opportunity opptest = [SELECT Id FROM Opportunity LIMIT 1];
-        Final OpportunityLineItem olitest = [SELECT Id FROM OpportunityLineItem LIMIT 1];
 		// Prepare ws mocks
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestDisburse/KO_409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
@@ -98,7 +97,6 @@ public class RegisterQuotationLoss_Test {
 	@isTest
     static void rejectOppWithPriceQuotationError2Test() {
         Final Opportunity opptest = [SELECT Id FROM Opportunity LIMIT 1];
-        Final OpportunityLineItem olitest = [SELECT Id FROM OpportunityLineItem LIMIT 1];
 		// Prepare ws mocks
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestDisburse/KO_500', iaso__Cache_Partition__c = 'local.CredentialsPeru');
@@ -118,12 +116,11 @@ public class RegisterQuotationLoss_Test {
 		Final Account acctest = TestFactory.createAccount();
 		Final Opportunity opptest = TestFactory.createOpportunity(acctest.Id, UserInfo.getUserId());
 		Final Product2 prodtest = TestFactory.createProduct();
-		Final OpportunityLineItem olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
+		TestFactory.createOLI(opptest.Id, prodtest.Id);
 
 		//Reject the opp
-		Map<String, Object> resultMap;
         Test.startTest();
-		resultMap = Product_cls.setRejectOpportunity(opptest.Id, '02', '01', '', 100000, 1, 12, '');
+		Product_cls.setRejectOpportunity(opptest.Id, '02', '01', '', 100000, 1, 12, '');
         Test.stopTest();
 		Final List<Opportunity> oppList = [SELECT StageName FROM Opportunity WHERE Id = :opptest.Id];
         System.assertEquals('07', oppList[0].StageName);
@@ -137,14 +134,14 @@ public class RegisterQuotationLoss_Test {
 		Final Opportunity opptest = TestFactory.createOpportunity(acctest.Id, UserInfo.getUserId());
 		Final Product2 prodtest = TestFactory.createProduct();
 		Final OpportunityLineItem olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
-        Final List<Product2> prodTestListToUpdate = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
-		if(!prodTestListToUpdate.isEmpty()) {
-			prodTestListToUpdate[0].Type_of_quote__c = 'Web';
-			update prodTestListToUpdate[0];
+        Final List<Product2> prdTestListUpd = [SELECT Type_of_quote__c FROM Product2 WHERE Id = :prodtest.Id];
+		if(!prdTestListUpd.isEmpty()) {
+			prdTestListUpd[0].Type_of_quote__c = 'Web';
+			update prdTestListUpd[0];
 		}
-		Final List<OpportunityLineItem> oppLineItemToUpdateList = [SELECT price_quote_owner_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
-		if(!oppLineItemToUpdateList.isEmpty()) {
-			oppLineItemToUpdateList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		Final List<OpportunityLineItem> oppLIToUpdList = [SELECT price_quote_owner_id__c FROM OpportunityLineItem WHERE Id = : olitest.Id];
+		if(!oppLIToUpdList.isEmpty()) {
+			oppLIToUpdList[0].price_quote_owner_id__c = UserInfo.getUserId();
 		}
 		Map<String, Object> resultMap;
 		Test.startTest();
