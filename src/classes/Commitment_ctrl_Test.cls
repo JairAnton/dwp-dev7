@@ -47,7 +47,7 @@ public class Commitment_ctrl_Test {
 		Final Map<String, Object> mapTable = Commitment_ctrl.getInfoTable(oppTest.Id);
         assertComplete = assertComplete && mapTable.containsKey('schemaSetup');
 
-        Final List<Object> lstData = new List<Object>{'Prod', 'PEN', 30, 100, 3, null, '52', 'Web'};
+        Final List<Object> lstData = new List<Object>{'Prod', 'PEN', 30, 100, null, 3, '52', 'Web'};
 		Final Map<String, Object> mapReturnSave = Commitment_ctrl.saveCommitment(oppTest.Id, lstData, null, 'AMOUNT');
         assertComplete = assertComplete && (Boolean)mapReturnSave.get('isOK');
 

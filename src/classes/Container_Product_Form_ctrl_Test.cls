@@ -20,9 +20,9 @@ public class Container_Product_Form_ctrl_Test {
 	/** @Description  KEY_3*/
 	static Final String KEY_3 = 'key3';
 	/** @Description  SHOW_WARNING*/
-	static Final String SHOW_WARNING = 'showwarning';
+	static Final String SHOW_WARNING = 'showWarning';
 	/** @Description  ERROR_MSG*/
-	static Final String ERROR_MSG = 'errormessage';
+	static Final String ERROR_MSG = 'errorMessage';
 	/** @Description  DATA_CW*/
 	static Final String DATA_CW = 'dataCW';
 	/** @Description  TEST_OPP*/
