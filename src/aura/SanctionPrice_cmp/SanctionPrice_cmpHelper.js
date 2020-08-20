@@ -28,6 +28,7 @@
                     if(ret.approvalMethod === 'Web') {
                         this.getInfo(cmp, evt);
                     } else {
+                        cmp.set('v.OppId', inputObject.recordId);
                         cmp.set('v.AccId',ret.AccId);
                         cmp.set('v.type_of_quote',ret.type_of_quote);
                         if(ret.type_of_quote==='COTIZA Beta' || ret.type_of_quote==='Carta de credito')
@@ -63,6 +64,7 @@
         action.setParams({
             "recordId" : inputObject.recordId
         });
+        cmp.set('v.OppId', inputObject.recordId);
         action.setCallback(this, function(response) {
             var state = response.getState();
             if(state === "SUCCESS") {

@@ -26,7 +26,7 @@ public with sharing class Case_Helper {
 	public static void updateCaseNotification(List<Case> lstNew, Map<Id, Case> mapOld) {
 		Final List <Id> lstId = new List <Id>();
 		for(Case casnew : lstNew) {
-			if(!casnew.IsClosed && casnew.OwnerId != mapOld.get(casnew.Id).OwnerId && casnew.recordTypeId == RT_ID) {
+			if(!casnew.IsClosed && casnew.OwnerId != mapOld.get(casnew.Id).OwnerId && casnew.recordTypeId == RT_ID && casnew.bypass__c) {
 				lstId.add(casnew.Id);
 			}
 		}

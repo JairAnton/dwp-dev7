@@ -40,6 +40,9 @@
                 }
                 var inputObject = cmp.get("v.inputObject");
                 inputObject['sugCommitments'] = sugCommitments;
+                inputObject['finMarRecover'] =  ret.finMarRecover;
+                inputObject['finMarLost'] =  ret.finMarLost;
+                inputObject['rorcOper'] = ret.rorcOper;
                 var compEvent = cmp.getEvent('dynamicFlowWizardContinue');
                 compEvent.setParams({'inputAttributes': inputObject, 'nextComponent':'c:SanctionPriceCommitments_cmp'});
                 compEvent.fire();

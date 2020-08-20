@@ -40,50 +40,50 @@
                         <lightning:layout multipleRows="true">
                             <lightning:layoutItem padding="horizontal-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
                                 <div class="slds-form-element slds-p-bottom_xx-small">
-                                    <span class="slds-form-element__label">CR %</span>
+                                    <span class="slds-form-element__label">CR (%)</span>
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
-                                            <lightning:formattedNumber value="{!v.StringCR}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
+                                            <lightning:formattedNumber value="{!v.StringCR}" class="{!v.StringCR lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
                                         </span>
                                     </div>
                                 </div>
                             </lightning:layoutItem>
                             <lightning:layoutItem padding="horizontal-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
                                 <div class="slds-form-element slds-p-bottom_xx-small">
-                                    <span class="slds-form-element__label">PE %</span>
+                                    <span class="slds-form-element__label">PE (%)</span>
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
-                                            <lightning:formattedNumber value="{!v.StringPE}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
+                                            <lightning:formattedNumber value="{!v.StringPE}" class="{!v.StringPE lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
                                         </span>
                                     </div>
                                 </div>
                             </lightning:layoutItem>
                             <lightning:layoutItem padding="horizontal-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
                                 <div class="slds-form-element slds-p-bottom_xx-small">
-                                    <span class="slds-form-element__label">CE %</span>
+                                    <span class="slds-form-element__label">CE (%)</span>
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
-                                            <lightning:formattedNumber value="{!v.StringCE}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
+                                            <lightning:formattedNumber value="{!v.StringCE}" class="{!v.StringCE lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
                                         </span>
                                     </div>
                                 </div>
                             </lightning:layoutItem>
                             <lightning:layoutItem padding="horizontal-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
                                 <div class="slds-form-element slds-p-bottom_xx-small">
-                                    <span class="slds-form-element__label">DI % finanzas</span>
+                                    <span class="slds-form-element__label">DI (%) finanzas</span>
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
-                                            <lightning:formattedNumber value="{!v.StringDI_FC}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
+                                            <lightning:formattedNumber value="{!v.StringDI_FC}" class="{!v.StringDI_FC lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
                                         </span>
                                     </div>
                                 </div>
                             </lightning:layoutItem>
                             <lightning:layoutItem padding="horizontal-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
                                 <div class="slds-form-element slds-p-bottom_xx-small">
-                                    <span class="slds-form-element__label">Spread % finanzas</span>
+                                    <span class="slds-form-element__label">Spread (%) finanzas</span>
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
-                                            <lightning:formattedNumber value="{!v.StringSPREAD}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
+                                            <lightning:formattedNumber value="{!v.StringSPREAD}" class="{!v.StringSPREAD lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
                                         </span>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                     <span class="slds-form-element__label">RORC Cliente (%)</span>
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
-                                            <lightning:formattedNumber value="{!v.StringRORC_Client}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
+                                            <lightning:formattedNumber value="{!v.StringRORC_Client}" class="{!v.StringRORC_Client lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
                                         </span>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                     <span class="slds-form-element__label">RAROEC Operación (%)</span>
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
-                                            <lightning:formattedNumber value="{!v.StringRAROEC}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
+                                            <lightning:formattedNumber value="{!v.StringRAROEC}" class="{!v.StringRAROEC lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
                                         </span>
                                     </div>
                                 </div>
