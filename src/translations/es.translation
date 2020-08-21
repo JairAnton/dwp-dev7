@@ -2813,7 +2813,7 @@
         <name>nonc__NClient_lbl_NotExistCustomField</name>
     </customLabels>
     <customLabels>
-        <label>El &Field& : &Valor& existe.</label>
+        <label><!-- NClient_lbl_NotExistCustomValue --></label>
         <name>nonc__NClient_lbl_NotExistCustomValue</name>
     </customLabels>
     <customLabels>
