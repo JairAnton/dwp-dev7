@@ -1921,7 +1921,12 @@
         <columns>branch_id__c</columns>
         <columns>Owner_calculated__c</columns>
         <filterScope>Everything</filterScope>
-        <label>All Accounts</label>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Record_Type_Client</value>
+        </filters>
+        <label>Todos los Clientes</label>
     </listViews>
     <listViews>
         <fullName>BE_My_Non_Clients</fullName>
@@ -1949,7 +1954,7 @@
             <operation>equals</operation>
             <value>Account.Record_Type_Non_Client</value>
         </filters>
-        <label>No Clientes</label>
+        <label>Todo los No Clientes</label>
     </listViews>
     <listViews>
         <fullName>MyAccounts</fullName>
@@ -1960,6 +1965,11 @@
         <columns>segment_desc__c</columns>
         <columns>branch_id__c</columns>
         <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Record_Type_Client</value>
+        </filters>
         <label>My Accounts</label>
     </listViews>
     <listViews>
