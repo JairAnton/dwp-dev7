@@ -20,11 +20,11 @@
             <aura:if isTrue="{!v.typeProduct == 'Web'}">
             	<lightning:layout multipleRows="true" class="slds-grid slds-card slds-text-heading_medium">
                     <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-left-box">
-                        <div class="slds-text-heading_small slds-truncate">TEA Propuesta %</div>
+                        <div class="slds-text-heading_small slds-truncate">TEA Propuesta (%)</div>
                         <div class="custom-font-number"><lightning:formattedNumber value="{!v.inputAttributes.proposed}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
                     </lightning:layoutItem>
                     <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-center-box">
-                        <div class="slds-text-heading_small slds-truncate">RORC Operación %</div>
+                        <div class="slds-text-heading_small slds-truncate">RORC Operación (%)</div>
                         <div class="custom-font-number"><lightning:formattedNumber value="{!v.rorcOper}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" class="{!v.rorcOper lt 0 ? 'slds-text-color_destructive' : ''}"/></div>
                     </lightning:layoutItem>
                     <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="3" class="slds-col custom-center-box">

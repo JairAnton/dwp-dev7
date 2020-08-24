@@ -10,15 +10,10 @@
 ----------------------------------------------------------------------------------------------------
 */
 global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interface_prospect {
-    
     /** StatusCode Code */
     private static final List<String> VISIT_LANGUAGE = new List<String> {'es','en_US'};
     /** messages */
     static Map<String,String> messages;
-	/** lWrapper */
-	static List<WrapperAccount> lWrapper;
-    /** private constructor */
-    //private BE_NonClient_Ctr() {}
     /**
     @Description search NonClient in Salesforce (DWP-PE) with similar RUC
     @param  strSearchName is Non Client Name
@@ -27,25 +22,26 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     @return String  with List<WrapperAccount>
     */
     global static String checkDuplicateNonClients(String strSearchName,String strFieldNameCode,String strFielValueCode) {
-       	System.debug('strSearchName$#####'+strSearchName);
-        System.debug('strFieldNameCode$#####'+strFieldNameCode);
-        System.debug('strFielValueCode$#####'+strFielValueCode);
-        final BE_Client_Search_Helper.Response resClient=BE_Client_Search_Helper.searchClienteSF(strFielValueCode);
-        lWrapper = new List<WrapperAccount>();
-        System.debug('resClient####'+resClient);
-        WrapperAccount wrpAcc=new WrapperAccount();
-        if(resClient.isSuccess) {
-            wrpAcc=new WrapperAccount((String)resClient.acc.Id, resClient.acc.Name,(String)resClient.acc.OwnerId);
-            wrpAcc.clientType=resClient.acc.AccountNumber;
-            wrpAcc.code=resClient.acc.AccountNumber;
-            wrpAcc.ownerName=resClient.acc.Owner.Name;
-            lWrapper.add(wrpAcc);
+        final Boolean isRucValid=BE_Client_Search_Helper.validateRUC(strFielValueCode);
+        List<WrapperAccount> lWrapper = new List<WrapperAccount>();
+        if(String.isNotBlank(strSearchName) && String.isNotBlank(strFielValueCode) && isRucValid) {
+        	final BE_Client_Search_Helper.Response resClient=BE_Client_Search_Helper.searchClienteSF(strFielValueCode);
+        	WrapperAccount wrpAcc=new WrapperAccount();    
+        		if(resClient.isSuccess) {
+            		wrpAcc=new WrapperAccount((String)resClient.acc.Id, resClient.acc.Name,(String)resClient.acc.OwnerId);
+            		wrpAcc.code=resClient.acc.AccountNumber;
+            		wrpAcc.ownerName=resClient.acc.Owner.Name;
+            		lWrapper.add(wrpAcc);
+        		} else {
+        			final BE_Client_Search_Helper.Response resClientSrv=BE_Client_Search_Helper.searchCliente(new Account(AccountNumber=strFielValueCode));
+            		if (resClientSrv.isExistNonClient==true && resClientSrv.isSuccess) {
+              			wrpAcc.clientName=resClientSrv.acc.Name;
+                        wrpAcc.code=resClientSrv.acc.AccountNumber;
+              			lWrapper.add(wrpAcc);
+                	}
+        	   }
         } else {
-        	final BE_Client_Search_Helper.Response resClientSrv=BE_Client_Search_Helper.searchCliente(new Account(AccountNumber=strFielValueCode));
-            if (resClientSrv.isExistNonClient==true && resClientSrv.isSuccess) {
-              wrpAcc.clientName=resClientSrv.acc.Name;
-              lWrapper.add(wrpAcc);
-            }
+            throw new AuraHandledException(System.Label.BE_NonClient_ErrorMessage);
         }
         return JSON.serialize(lWrapper);
     }
@@ -83,7 +79,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
 
     /**
     @Description validate non client before save in Alpha DB and Salesforce.
-    call API REST: ListBusiness,ListNonBusiness and CreateNonBusiness
+    call API REST: ListNonBusiness and CreateNonBusiness
     @param client sObject type Account wich contains the minimum information of NonClient
     @return  String type objRespuesta Class
     */
@@ -92,30 +88,34 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
     final ResultValidation objRespuesta =new ResultValidation();
     try {
         messages = new Map<String,String>();
-        //final Boolean isRucValid=BE_SearchClient_Helper.validateRUC(client.AccountNumber);
-        final BE_NonClient_Search_Helper.Response nonClientRes= BE_NonClient_Search_Helper.searchNonClient(client);
-        System.debug('###nonClientRes###'+nonClientRes);
-        if(nonClientRes.isSuccess && nonClientRes.isExistNonClient) {
-            System.debug('###nonClientRes###'+nonClientRes);
+        final Boolean isValidPhone=validatePhone(client);
+        if(isValidPhone==true) {
+        	final BE_NonClient_Search_Helper.Response nonClientRes= BE_NonClient_Search_Helper.searchNonClient(client);
+        	if(nonClientRes.isSuccess && nonClientRes.isExistNonClient) {
            	objRespuesta.status='success';
          	objRespuesta.message=nonClientRes.message;
             objRespuesta.nonClientCode=nonClientRes.acc.non_client_code__c;
        } else if (nonClientRes.isSuccess && nonClientRes.isExistNonClient==false) {
-            final BE_NonClient_Create_REST.Params param=new BE_NonClient_Create_REST.Params();
-           	param.acc=client;
-         	final BE_NonClient_Create_Helper.Response res=BE_NonClient_Create_Helper.createNonClient(param);
-    		System.debug('res####'+res);
-           	if (res.isSuccess) {
-           		objRespuesta.status='success';
-         		objRespuesta.message=res.message;
-          		objRespuesta.nonClientCode=res.codeTrx;
+            	final BE_NonClient_Create_REST.Params param=new BE_NonClient_Create_REST.Params();
+           		param.acc=client;
+         		final BE_NonClient_Create_Helper.Response res=BE_NonClient_Create_Helper.createNonClient(param);
+           		if (res.isSuccess) {
+           			objRespuesta.status='success';
+         			objRespuesta.message=res.message;
+          			objRespuesta.nonClientCode=res.codeTrx;
      		} else {
-              	objRespuesta.status='error';
-               	objRespuesta.message=res.message;
-            }
-        } else {
+              		objRespuesta.status='error';
+               		objRespuesta.message=res.message;
+            	}
+        	}  else {
             messages.put(VISIT_LANGUAGE[0], 'Servicio no disponible, porfavor intentar mas tarde.');
             messages.put(VISIT_LANGUAGE[1], 'Service not available, please try later.');
+            objRespuesta.status='error';
+            objRespuesta.message=messages.get(UserInfo.getLanguage());
+        }
+        } else {
+            messages.put(VISIT_LANGUAGE[0], 'Ingresar código y número de telefono correcto.');
+            messages.put(VISIT_LANGUAGE[1], 'Put correct code and phone number.');
             objRespuesta.status='error';
             objRespuesta.message=messages.get(UserInfo.getLanguage());
         }
@@ -140,9 +140,25 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
        public String nonClientCode {set;get;}
         
      }
-     /** Don´t use this method */
+     /** Don't use this method */
     @AuraEnabled
     public static String checkConvertedClients(List<Account> lProspect, Map<String, Account> mapAccs) {
        return '';
+    }
+    /** Validate Phone Number */
+    private static Boolean validatePhone(Account acc) {
+        Boolean isValid=false;
+        if(String.isNotBlank(acc.phone_area_code__c) && String.isNotBlank(acc.other_phone_number__c)) {
+            final String currentNumber = acc.other_phone_number__c;
+            switch on acc.phone_area_code__c {
+				when '01' {
+                   isValid = currentNumber.length() == 7 && currentNumber.isNumeric() ? true : false;
+                }
+                when else {
+                   isValid = currentNumber.length() == 6 && currentNumber.isNumeric() ? true : false;  
+                }
+            }
+        }
+       return isValid;
     }
 }

@@ -43,7 +43,7 @@ static void validateNonClienteTestExistNonClient() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final Account acc=new Account(Name='TEST_NON_CLIENT_TEST_ONE',AccountNumber=RUC_ACC);
+	final Account acc=new Account(Name='TEST_NON_CLIENT_TEST_ONE',AccountNumber=RUC_ACC,phone_area_code__c='01',other_phone_number__c='9876543');
 	final String res=BE_NonClient_Ctr.validateNonCliente(acc);
 	final BE_NonClient_Ctr.ResultValidation resultVal= (BE_NonClient_Ctr.ResultValidation )JSON.deserialize(res,BE_NonClient_Ctr.ResultValidation.class);
 	System.assertEquals('success',resultVal.status,'Sucess message');
@@ -65,6 +65,7 @@ static void validateNonClienteTestNoAvailableService() {
 	System.assertEquals('error',resultVal.status,'Error Non Avialable Service');
 	Test.stopTest();
 }
+
 /**
    @Description test BE_NonClient_Ctr.validateNonCliente(), correct scenary
  */
@@ -76,7 +77,7 @@ static void validateNonClienteTestSucess() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final Account acc=new Account(Name='TEST_NON_CLIENT_TEST_THREE',AccountNumber=RUC_ACC);
+	final Account acc=new Account(Name='TEST_NON_CLIENT_TEST_THREE',AccountNumber=RUC_ACC,phone_area_code__c='02',other_phone_number__c='456783');
 	final String res=BE_NonClient_Ctr.validateNonCliente(acc);
 	final BE_NonClient_Ctr.ResultValidation resultVal= (BE_NonClient_Ctr.ResultValidation )JSON.deserialize(res,BE_NonClient_Ctr.ResultValidation.class);
 	System.assertEquals('success',resultVal.status,'Success Non Client');

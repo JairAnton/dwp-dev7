@@ -312,6 +312,14 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Importar registros</value>
     </labels>
     <labels>
+        <fullName>BE_NonClient_ErrorMessage</fullName>
+        <categories>BE_NonClient</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_NonClient_ErrorMessage</shortDescription>
+        <value>Please, put correct values</value>
+    </labels>
+    <labels>
         <fullName>BE_NotCreateEditAccount</fullName>
         <language>en_US</language>
         <protected>false</protected>

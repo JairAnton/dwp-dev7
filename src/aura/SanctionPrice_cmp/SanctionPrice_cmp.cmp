@@ -52,15 +52,15 @@
                                     <!--<div style="margin-right:11px; margin-left:11px;">-->
                                         <lightning:layout multipleRows="true" class="slds-grid">
                                             <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-col custom-left-box">
-                                                <div class="slds-text-body_small">TEA Sugerida %</div>
+                                                <div class="slds-text-body_small">TEA Sugerida (%)</div>
                                                 <div class="custom-font-number"><lightning:formattedNumber value="{!v.objectInput.sugtea}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
                                             </lightning:layoutItem>
                                             <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-col custom-center-box">
-                                                <div class="slds-text-body_small">TEA Mínima %</div>
+                                                <div class="slds-text-body_small">TEA Mínima (%)</div>
                                                 <div class="custom-font-number"><lightning:formattedNumber value="{!v.objectInput.minimtea}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
                                             </lightning:layoutItem>
                                             <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="slds-col custom-right-box">
-                                                <div class="slds-text-body_small">RORC Cliente %</div>
+                                                <div class="slds-text-body_small">RORC Cliente (%)</div>
                                                 <div class="custom-font-number"><lightning:formattedNumber value="{!v.objectInput.rorc_client}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" /></div>
                                             </lightning:layoutItem>
                                         </lightning:layout>

@@ -100,9 +100,9 @@
                             <div class="slds-text-align_left" role="alert">
                                 <span class="slds-assistive-text">warning</span>
                                 <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Description of icon when needed">
-                                    <label class="{!v.inputAttributes.quotationStatusIcon eq 'utility:check' ? 'icon-blue' : 'icon-green'}">
+                                    <label class="{!v.inputAttributes.quotationStatusIcon eq 'utility:check' ? 'icon-blue slds-text-heading_medium slds-align_absolute-center' : 'icon-green slds-text-heading_medium slds-align_absolute-center'}">
                                         <strong>
-                                            <lightning:icon class="slds-m-left_x-small" iconName="{!v.inputAttributes.quotationStatusIcon}" size="x-small" />
+                                            <lightning:icon class="slds-m-left_x-small" iconName="{!v.inputAttributes.quotationStatusIcon}" size="x-medium"/>
                                             <aura:if isTrue="{!v.inputAttributes.quotationStatusIcon == 'utility:check'}">
                                                 Precio aprobado
                                                 <aura:set attribute="else">
