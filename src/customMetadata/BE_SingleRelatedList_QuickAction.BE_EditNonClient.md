@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>ClassName__c</field>
-        <value xsi:type="xsd:string">BE_EditNonClient_Ctr</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>CustomFields__c</field>
