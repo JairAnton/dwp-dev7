@@ -24,9 +24,9 @@ public without sharing class BE_EditNonClient_Ctr {
 	 */
 	@AuraEnabled
 	public static Map<String, Object> getFields(String nameMetadata) {
-		for(BE_SingleRelatedList_QuickAction__mdt mdt : [SELECT Id, Title__c, Fields__c, sObjectType__c, ClassName__c, ModeAction__c FROM BE_SingleRelatedList_QuickAction__mdt WHERE DeveloperName = :nameMetadata]) {
+		for(BE_SingleRelatedList_QuickAction__mdt mdt : [SELECT Id, Title__c, CustomFields__c, sObjectType__c, ClassName__c, ModeAction__c FROM BE_SingleRelatedList_QuickAction__mdt WHERE DeveloperName = :nameMetadata]) {
 			mapReturn.put('title', mdt.Title__c);
-			mapReturn.put('sObjectFields', mdt.Fields__c.split(','));
+			mapReturn.put('sObjectFields', JSON.deserializeUntyped(mdt.CustomFields__c));
 			mapReturn.put('sObjectType', mdt.sObjectType__c);
 			mapReturn.put('className', mdt.ClassName__c);
 			mapReturn.put('modeAction', mdt.ModeAction__c);
