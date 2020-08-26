@@ -2778,7 +2778,7 @@
     </customLabels>
     <customLabels>
         <label>Existe un registro con el RUC: %AccountNumber%</label>
-        <name>nonc__NClient_lbl_ExistDuplicate</name>
+        <name>nonc__NClient_lbl_ExistDuplicate</name> 
     </customLabels>
     <customLabels>
         <label><!-- NClient_lbl_FielSet --></label>
@@ -2825,7 +2825,7 @@
         <name>nonc__NClient_lbl_NotExistsRT</name>
     </customLabels>
     <customLabels>
-        <label>Dueño</label>
+        <label>Gestor</label>
         <name>nonc__NClient_lbl_Owner</name>
     </customLabels>
     <customLabels>
@@ -2841,7 +2841,7 @@
         <name>nonc__NClient_lbl_Select_a_record_type</name>
     </customLabels>
     <customLabels>
-        <label>No Cliente %field% tiene similar RUC</label>
+        <label>No Cliente tiene similar RUC</label>
         <name>nonc__NClient_lbl_Similar</name>
     </customLabels>
     <customLabels>

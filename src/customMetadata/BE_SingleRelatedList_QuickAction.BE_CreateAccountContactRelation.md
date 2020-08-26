@@ -36,12 +36,16 @@
         {
             &quot;fieldName&quot;: &quot;MobilePhone__c&quot;,
             &quot;required&quot;: &quot;true&quot;,
-            &quot;value&quot;: &quot;Phone&quot;
+            &quot;value&quot;: &quot;phone&quot;
         },
         {
             &quot;fieldName&quot;: &quot;email__c&quot;,
             &quot;required&quot;: &quot;true&quot;,
-            &quot;value&quot;: &quot;Email&quot;
+            &quot;value&quot;: &quot;email&quot;
+        },
+        {
+            &quot;fieldName&quot;: &quot;&quot;,
+            &quot;required&quot;: &quot;&quot;
         },
         {
             &quot;fieldName&quot;: &quot;phone_1_area_code__c&quot;
