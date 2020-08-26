@@ -26,8 +26,14 @@ public static BE_SingleRelatedListCRUD_Cls.Response  deleteNonClientContact(Stri
 	messages= new Map<String,String>();
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
 	try {
-			final AccountContactRelation nonClientCon=[SELECT Id,Account.non_client_code__c,contact_code__c FROM AccountContactRelation WHERE Id=:accConId];
-			placeholderMap.put('nonclientCode',nonClientCon.Account.non_client_code__c);
+			final AccountContactRelation nonClientCon=[SELECT Id,Account.non_client_code__c,contact_code__c,IsActive FROM AccountContactRelation WHERE Id=:accConId];
+            if(nonClientCon.IsActive) {
+                messages.put(LANG_CODE[0], 'No se puede eliminar una relación principal.');
+				messages.put(LANG_CODE[1], 'Can not delete a direct relationship.');
+				res.isSuccess=false;
+				res.message=messages.get(UserInfo.getLanguage());    
+            } else { 
+        	placeholderMap.put('nonclientCode',nonClientCon.Account.non_client_code__c);
 			placeholderMap.put('contactCode', nonClientCon.contact_code__c);
 			final BE_NonClient_DeleteContact_REST request=new BE_NonClient_DeleteContact_REST();
 			final System.HttpResponse response=request.invoke(placeholderMap);
@@ -52,6 +58,9 @@ public static BE_SingleRelatedListCRUD_Cls.Response  deleteNonClientContact(Stri
 					res.message=messages.get(UserInfo.getLanguage());
 				}
 			}
+                
+            }
+        
 	} catch (DmlException ex) {
 		res.isSuccess=false;
 		res.message=ex.getDmlMessage(0);
