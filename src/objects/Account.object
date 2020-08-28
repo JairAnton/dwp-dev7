@@ -2697,7 +2697,7 @@
         <fullName>Record_Type_Non_Client</fullName>
         <active>true</active>
         <compactLayoutAssignment>BE_Acc_NonClient</compactLayoutAssignment>
-        <label>Non Client</label>
+        <label>No Cliente</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
