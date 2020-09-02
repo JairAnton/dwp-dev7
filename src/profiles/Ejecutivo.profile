@@ -370,7 +370,7 @@
         <apexClass>BE_Calce_Maintenance_Tst</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+    <classAccesses> 
         <apexClass>BE_OutputField_Wrapper</apexClass>
         <enabled>true</enabled>
     </classAccesses>

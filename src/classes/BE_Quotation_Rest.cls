@@ -28,7 +28,6 @@ public with sharing class BE_Quotation_Rest {
     final static String CASEOWN = 'caseOwner';
     /* string false */
     final static String RECID = 'recordid';
-    
     /**
      * constructor of class
      */

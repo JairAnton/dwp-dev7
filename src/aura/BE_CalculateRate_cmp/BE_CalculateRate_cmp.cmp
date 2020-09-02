@@ -14,7 +14,6 @@
     <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
     <aura:attribute name="spinner" type="boolean" default="FALSE"/>
     <aura:attribute name="classHide" type="boolean" default="slds-hide"/>
-     
     <aura:if isTrue="{!v.spinner}">
         <div aura:id="spinnerId" class="slds-spinner_container">
             <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
@@ -24,7 +23,6 @@
             </div>
         </div>
     </aura:if>
-    
     <lightning:layout multipleRows="true" verticalAlign="end">
         <lightning:layoutItem padding="horizontal-small" size="6">
             <div class="slds-p-bottom_xx-small"><lightning:input type="number" aura:id="inputTEA" label="TEA Propuesta %" value="{!v.tea}" step="0.01" /></div>

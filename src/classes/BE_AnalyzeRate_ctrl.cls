@@ -20,7 +20,6 @@ public with sharing class BE_AnalyzeRate_ctrl {
     final static Integer OKCODE = 200;
     /* string isOk */
     final static String STROK = 'isOk';
-    
     /*
      * constructor of class
 	*/

@@ -12,7 +12,6 @@
 public with sharing class BE_CustomListField_Cls {
     /**constructor**/
     private BE_CustomListField_Cls() {}
-    
     /**Method used to set sanction price summarize fields**/
     public static List<itemField> createListField(String oliId, String uniqueNameTable) {
         List<itemField> items = new List<itemField>();

@@ -26,7 +26,6 @@ public with sharing class BE_PriceRate_Rest {
     final static Integer OKCODE = 200;
     /* string capitalamount */
     final static String CAPAMT = 'capitalamount';
-    
 	/**
      * constructor of class
      */

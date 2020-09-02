@@ -27,7 +27,6 @@ public class BE_AnalyzeRate_Tst {
     final static String STROK = 'isOk';
     /* string error */
     final static String STRERROR = 'error!!!';
-
 	/**@Description TestSetup for generated data to use in the test methods*/
 	@TestSetup
 	static void setupData() {

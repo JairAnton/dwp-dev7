@@ -16,7 +16,6 @@ public with sharing class BE_AnalyzeRate_Rest {
     static String genericError;
     /* variable */
     static Map<String,Object> mapReturn = new Map<String,Object>();
-    
     /**
      * constructor of class
      */

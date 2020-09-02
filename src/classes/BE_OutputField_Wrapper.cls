@@ -13,7 +13,6 @@ public class BE_OutputField_Wrapper {
     public String typeField {get; set;}
     /* Attribute */
     public String valueField {get; set;}
-    
     /**
     * @description constructor class
     */
