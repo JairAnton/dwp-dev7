@@ -388,7 +388,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BBVA_SBS_Classification_cls</apexClass>
-        <enabled>true</enabled>
+        <enabled>true</enabled> 
     </classAccesses>
     <classAccesses>
         <apexClass>Contact_Group_Handler</apexClass>
