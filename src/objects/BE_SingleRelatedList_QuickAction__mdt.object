@@ -11,13 +11,12 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>CustomFields__c</fullName>
+        <fullName>Fields__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Fields</label>
-        <length>32768</length>
-        <type>LongTextArea</type>
-        <visibleLines>5</visibleLines>
+        <required>false</required>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>ModeAction__c</fullName>
