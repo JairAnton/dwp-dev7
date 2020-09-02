@@ -3,7 +3,7 @@
     <applicationVisibilities>
         <application>DWP_Reunion_individual</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>true</visible> 
     </applicationVisibilities>
     <applicationVisibilities>
         <application>DWP_Sales</application>

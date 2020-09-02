@@ -4,7 +4,7 @@
     <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>5</minorNumber>
-        <namespace>dwp_cvad</namespace>
+        <namespace>dwp_cvad</namespace> 
     </packageVersions>
     <status>Active</status>
 </ApexClass>

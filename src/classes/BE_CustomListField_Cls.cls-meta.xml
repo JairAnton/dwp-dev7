@@ -4,7 +4,7 @@
     <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>35</minorNumber>
-        <namespace>fprd</namespace>
+        <namespace>fprd</namespace> 
     </packageVersions>
     <status>Active</status>
 </ApexClass>
