@@ -370,18 +370,6 @@
         <apexClass>BE_Calce_Maintenance_Tst</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses> 
-        <apexClass>BE_OutputField_Wrapper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BE_PriceRate_Rest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BE_Quotation_Rest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <classAccesses>
         <apexClass>BusinessPlan_Trigger_cls</apexClass>
         <enabled>true</enabled>
