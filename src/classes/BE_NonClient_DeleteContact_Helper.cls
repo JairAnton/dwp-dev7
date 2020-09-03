@@ -30,23 +30,25 @@ private BE_NonClient_DeleteContact_Helper () {}
 		messages = new Map<String,String>();
 		res=new BE_SingleRelatedListCRUD_Cls.Response();
 		try {
-				final AccountContactRelation nonClientCon=[SELECT Id,Account.non_client_code__c,contact_code__c,Account.RecordTypeId FROM AccountContactRelation WHERE Id=:accConId];
-				final List<String> sObjNames=new List<String> {'Account'};
-				final Map<String,Schema.RecordTypeInfo> recordType =BE_General_Utils.getRecordTypeInfo(sObjNames);
-				final String rtNonClientId = recordType.get('Record_Type_Non_Client').getRecordTypeId();
-				if(rtNonClientId.equals(nonClientCon.Account.RecordTypeId)) {
+			final AccountContactRelation nonClientCon=[SELECT Id,Account.RecordType.DeveloperName,Account.non_client_code__c,contact_code__c,Account.RecordTypeId FROM AccountContactRelation WHERE Id=:accConId];
+			switch on nonClientCon.Account.RecordType.DeveloperName {
+				when 'Record_Type_Non_Client' {
 					placeholderMap.put('nonclientCode',nonClientCon.Account.non_client_code__c);
 					placeholderMap.put('contactCode', nonClientCon.contact_code__c);
 					final BE_NonClient_DeleteContact_REST request=new BE_NonClient_DeleteContact_REST();
 					final System.HttpResponse response=request.invoke(placeholderMap);
-					res=manageResponse(response,nonClientCon,isDML);
-				} else {
+					res=manageResponse(response,nonClientCon);
+				}
+				when else {
 					messages.put(LANG_CODE[0], listMessages[0]);
 					messages.put(LANG_CODE[1], listMessages[1]);
 					res.isSuccess=true;
 					res.message=messages.get(UserInfo.getLanguage());
-					delete nonClientCon;
 				}
+			}
+			if(isDML && res.isSuccess) {
+				delete nonClientCon;
+			}
 		} catch (DmlException ex) {
 			res.isSuccess=false;
 			res.message=ex.getDmlMessage(0);
@@ -54,14 +56,11 @@ private BE_NonClient_DeleteContact_Helper () {}
 		return res;
 	}
 	/** manageResponse */
-	private static BE_SingleRelatedListCRUD_Cls.Response manageResponse(System.HttpResponse response,AccountContactRelation nonClientCon,Boolean isDML) {
+	private static BE_SingleRelatedListCRUD_Cls.Response manageResponse(System.HttpResponse response,AccountContactRelation nonClientCon){
 		messages= new Map<String,String>();
 		res=new BE_SingleRelatedListCRUD_Cls.Response();
 		switch on response.getStatusCode() {
 			when 204 {
-				if(isDML) {
-					delete nonClientCon;
-				}
 				messages.put(LANG_CODE[0], listMessages[0]);
 				messages.put(LANG_CODE[1], listMessages[1]);
 				res.isSuccess=true;
@@ -75,13 +74,7 @@ private BE_NonClient_DeleteContact_Helper () {}
 			}
 			when 400 {
 				final String responsewarning=response.getHeader('responsewarningdescription');
-				if(isDML && responsewarning=='NO EXISTE EL CONTACTO') {
-					delete nonClientCon;
-					messages.put(LANG_CODE[0], listMessages[0]);
-					messages.put(LANG_CODE[1], listMessages[1]);
-					res.isSuccess=true;
-					res.message=messages.get(UserInfo.getLanguage());
-				} else if(responsewarning=='NO EXISTE EL CONTACTO' && isDML==false) {
+				if(responsewarning=='NO EXISTE EL CONTACTO') {
 					messages.put(LANG_CODE[0], listMessages[0]);
 					messages.put(LANG_CODE[1], listMessages[1]);
 					res.isSuccess=true;
