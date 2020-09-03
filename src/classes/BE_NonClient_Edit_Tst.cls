@@ -27,6 +27,8 @@ private static final List<String>SOBJNAME =new List<String> {'Account'};
 private static final String NOCLIENT_CODE='P0234234234';
 /** RUC */
 private static final String RUC='20000000002';
+/** Account Number*/
+private static final String ACC_NUMBER='10212210244';
 /**
    @Description test BE_EditNonClient_Ctr.updateRecord(),correct scenary
  */
@@ -40,7 +42,7 @@ static void updateRecordTestSucess() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST 2',AccountNumber='10212210244',email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='41',other_phone_number__c='987654');
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST ONE',AccountNumber=ACC_NUMBER,email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='41',other_phone_number__c='987654');
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
 	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
 	System.assert (res.isSuccess,'Success Edit Non Client');
@@ -56,7 +58,7 @@ static void updateRecordTestServerError() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST 2',AccountNumber='10212210244');
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST TWO',AccountNumber=ACC_NUMBER);
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
 	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
 	System.assert (!res.isSuccess,'Server error Edit Non Client');
@@ -72,7 +74,7 @@ static void updateRecordTestError() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST 2',AccountNumber='10212210244');
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST',AccountNumber=ACC_NUMBER);
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
 	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord(acc);
 	System.assert (!res.isSuccess,'Error Edit Non Client');
@@ -91,7 +93,7 @@ static void updateRecordTestException() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST 2',AccountNumber='10212210244',email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='00',other_phone_number__c='987654');
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST THREE',AccountNumber=ACC_NUMBER,email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='00',other_phone_number__c='987654');
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
 	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
 	System.assert (!res.isSuccess,'Exception Non Client');
@@ -110,7 +112,7 @@ static void updateRecordAlphaTestError() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST 2',AccountNumber='10212210244',email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='00',other_phone_number__c='987654');
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST SS',AccountNumber=ACC_NUMBER,email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='00',other_phone_number__c='987654');
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
 	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
 	System.assert (!res.isSuccess,'Exception');

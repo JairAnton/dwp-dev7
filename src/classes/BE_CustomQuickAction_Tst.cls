@@ -23,7 +23,7 @@ public with sharing class BE_CustomQuickAction_Tst {
     /**
         @Description test BE_CustomQuickAction_Ctr.getsObjFieldsTest(), correct scenary
      */
-    static void getsObjFieldsTest(){
+    static void getsObjFieldsTest() {
         final Account acc = new Account(Name='Test_Success');
         insert acc;
         final sObject sOBJ=BE_CustomQuickAction_Ctr.getsObjFields(acc.id, 'Account', new List<String>{'Name'});
@@ -43,7 +43,7 @@ public with sharing class BE_CustomQuickAction_Tst {
     */
     @IsTest
     static void updateSuccessMethodsTest() {
-        Account acc = new Account(Name='Test_Success');
+        final Account acc = new Account(Name='Test_Success');
         insert acc;
         final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.updateRecord(acc, '');
         System.assert(resp.isSuccess, 'successUpdate!');
@@ -54,7 +54,7 @@ public with sharing class BE_CustomQuickAction_Tst {
     */
     @IsTest
     static void deleteSuccessMethodsTest() {
-        Account acc = new Account(Name='Test_Delete_Success');
+        final Account acc = new Account(Name='Test_Delete_Success');
         insert acc;
         final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.deleteRecord(acc, '');
         System.assert(resp.isSuccess, 'successDeleteSucess!');

@@ -25,7 +25,6 @@ private BE_NonClient_Create_Helper () {}
 public static Response createNonClient(BE_NonClient_Create_REST.Params nonClient) {
 	res=new Response();
 	res.isExistNonClient=false;
-	final Id recordTypeId =Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Record_Type_Non_Client').getRecordTypeId();
 	final BE_NonClient_Create_REST nonClientSrv=new BE_NonClient_Create_REST(nonClient);
 	final System.HttpResponse response=nonClientSrv.invoke();
 	System.debug(response.getBody());
@@ -34,17 +33,17 @@ public static Response createNonClient(BE_NonClient_Create_REST.Params nonClient
 				res.codeTrx=response.getHeader(KEY_HEADERS.get('location'));
 				res.codeTrx=res.codeTrx.substringAfterLast('/');
 				final Account acc=nonClient.acc;
-				acc.RecordTypeId=recordTypeId;
+				acc.RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Record_Type_Non_Client').getRecordTypeId();
 				acc.OwnerId=UserInfo.getUserId();
 				acc.non_client_code__c=res.codeTrx;
 				res.isSuccess=true;
-            }
-        	when 400 {
-                res.isSuccess=false;
-            }
-        	when 500 {
-                res.isSuccess=false;
-            }
+      }
+      when 400 {
+        res.isSuccess=false;
+      }
+      when 500 {
+        res.isSuccess=false;
+      }
     }
 	return res;
 }

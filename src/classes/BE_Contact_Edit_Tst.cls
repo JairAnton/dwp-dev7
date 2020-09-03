@@ -19,6 +19,8 @@ public with sharing class BE_Contact_Edit_Tst {
     private static final String GRANT_TICKETVAL = 'https://validation/ok';
     /** GrantingTickets */
     private static final String CACHE_PARTITION = 'iaso.ServicesPartition';
+    /** GrantingTickets */
+    static final List<String> SOBJTYPE_NAME=new List<String> {'Account'};
     /** ACC ONE */
     private static  Account accOne = new Account(Name='Client One',AccountNumber='20876543267',non_client_code__c='20876543267');
     /** ACC TWO */
@@ -30,8 +32,7 @@ public with sharing class BE_Contact_Edit_Tst {
      */
     @IsTest
     static void updateRecordCreateTest() {
-        final List<String>sObjNames=new List<String> {'Account'};
-        final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(sObjNames);
+        final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJTYPE_NAME);
         accOne.recordTypeId=recordType.get(RECORD_TYPE[0]).getRecordTypeId();
         accTwo.recordTypeId=recordType.get(RECORD_TYPE[1]).getRecordTypeId();
         final List<Account> accs=new List<Account> {accOne,accTwo};
@@ -55,8 +56,7 @@ public with sharing class BE_Contact_Edit_Tst {
      */
     @IsTest
     static void updateRecordUpdateTest() {
-        final List<String>sObjNames=new List<String> {'Account'};
-        final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(sObjNames);
+        final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJTYPE_NAME);
         accTwo.recordTypeId=recordType.get(RECORD_TYPE[0]).getRecordTypeId();
         final Account acc=accTwo;
         insert acc;
@@ -78,8 +78,7 @@ public with sharing class BE_Contact_Edit_Tst {
      */
     @IsTest
     static void updateRecordDeleteCreateTest() {
-        final List<String>sObjNames=new List<String> {'Account'};
-	    final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(sObjNames);
+	    final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJTYPE_NAME);
         final List<Account> accs=new List<Account> {accTwo,accOne};
         accs[0].recordTypeId=recordType.get(RECORD_TYPE[0]).getRecordTypeId();
         accs[1].recordTypeId=recordType.get(RECORD_TYPE[0]).getRecordTypeId();
@@ -110,8 +109,7 @@ public with sharing class BE_Contact_Edit_Tst {
      */
     @IsTest
     static void updateRecordDeleteTest() {
-        final List<String>sObjNames=new List<String> {'Account'};
-	    final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(sObjNames);
+	    final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJTYPE_NAME);
         final List<Account> accs=new List<Account> {accOne,accTwo};
         accs[0].recordTypeId=recordType.get(RECORD_TYPE[1]).getRecordTypeId();
         accs[1].recordTypeId=recordType.get(RECORD_TYPE[0]).getRecordTypeId();
@@ -131,3 +129,4 @@ public with sharing class BE_Contact_Edit_Tst {
         Test.stopTest();
     }
 }
+

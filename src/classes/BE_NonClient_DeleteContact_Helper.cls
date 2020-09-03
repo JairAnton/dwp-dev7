@@ -14,6 +14,10 @@ public with sharing class BE_NonClient_DeleteContact_Helper {
 private static final List<String>LANG_CODE = new List<String> {'es','en_US'};
 /** Response */
 private static  BE_SingleRelatedListCRUD_Cls.Response res;
+/** Message */
+static Map<String,String> messages;
+/** */
+private static List<String> listMessages=new List<String>{'Contacto eliminado correctamente','Contact deleted successfull'}; 
 /** private constructor */
 private BE_NonClient_DeleteContact_Helper () {}
 	/**
@@ -23,7 +27,7 @@ private BE_NonClient_DeleteContact_Helper () {}
 	*/
 	public static BE_SingleRelatedListCRUD_Cls.Response  deleteNonClientContact(String accConId, Boolean isDML) {
 		final Map<String, Object> placeholderMap=new Map<String, Object>();
-		final Map<String,String> messages= new Map<String,String>();
+		messages = new Map<String,String>();
 		res=new BE_SingleRelatedListCRUD_Cls.Response();
 		try {
 				final AccountContactRelation nonClientCon=[SELECT Id,Account.non_client_code__c,contact_code__c,Account.RecordTypeId FROM AccountContactRelation WHERE Id=:accConId];
@@ -37,8 +41,8 @@ private BE_NonClient_DeleteContact_Helper () {}
 					final System.HttpResponse response=request.invoke(placeholderMap);
 					res=manageResponse(response,nonClientCon,isDML);
 				} else {
-					messages.put(LANG_CODE[0], 'Contacto eliminado correctamente');
-					messages.put(LANG_CODE[1], 'Contact deleted successfull');
+					messages.put(LANG_CODE[0], listMessages[0]);
+					messages.put(LANG_CODE[1], listMessages[1]);
 					res.isSuccess=true;
 					res.message=messages.get(UserInfo.getLanguage());
 					delete nonClientCon;
@@ -49,16 +53,17 @@ private BE_NonClient_DeleteContact_Helper () {}
 		}
 		return res;
 	}
+	/** manageResponse */
 	private static BE_SingleRelatedListCRUD_Cls.Response manageResponse(System.HttpResponse response,AccountContactRelation nonClientCon,Boolean isDML){
-		final Map<String,String> messages= new Map<String,String>();
-		final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
+		messages= new Map<String,String>();
+		res=new BE_SingleRelatedListCRUD_Cls.Response();
 		switch on response.getStatusCode() {
 			when 204 {
 				if(isDML) {
 					delete nonClientCon;
 				}
-				messages.put(LANG_CODE[0], 'Contacto eliminado correctamente');
-				messages.put(LANG_CODE[1], 'Contact deleted successfull');
+				messages.put(LANG_CODE[0], listMessages[0]);
+				messages.put(LANG_CODE[1], listMessages[1]);
 				res.isSuccess=true;
 				res.message=messages.get(UserInfo.getLanguage());
 			}
@@ -72,13 +77,13 @@ private BE_NonClient_DeleteContact_Helper () {}
 				final String responsewarning=response.getHeader('responsewarningdescription');
 				if(isDML && responsewarning=='NO EXISTE EL CONTACTO') {
 					delete nonClientCon;
-					messages.put(LANG_CODE[0], 'Contacto eliminado correctamente');
-					messages.put(LANG_CODE[1], 'Contact deleted successfull');
+					messages.put(LANG_CODE[0], listMessages[0]);
+					messages.put(LANG_CODE[1], listMessages[1]);
 					res.isSuccess=true;
 					res.message=messages.get(UserInfo.getLanguage());
 				} else if(responsewarning=='NO EXISTE EL CONTACTO' && isDML==false) {
-					messages.put(LANG_CODE[0], 'Contacto eliminado correctamente');
-					messages.put(LANG_CODE[1], 'Contact deleted successfull');
+					messages.put(LANG_CODE[0], listMessages[0]);
+					messages.put(LANG_CODE[1], listMessages[1]);
 					res.isSuccess=true;
 					res.message=messages.get(UserInfo.getLanguage());
 				} else {

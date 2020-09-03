@@ -34,14 +34,18 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
                 /**MODIFY CONTACT RELATIONSHIP */
                 return modifyContact(conNew, conOld, sObj);
             } else {
-                update sObj;
                 res.isSuccess=true;
                 res.message='Successfull';
+                res.data=sObj;
+            }
+            if(res.isSuccess) {
+                update sObj;
             }
             return res;
     }
+
     /** deleteCreateContact */
-    public BE_CustomQuickActionCRUD_Cls.Response deleteCreateContact(Contact conOld, Contact conNew, SObject sObj){
+    public BE_CustomQuickActionCRUD_Cls.Response deleteCreateContact(Contact conOld, Contact conNew, SObject sObj) {
         /**DELETE AND CREATE CONTACT RELATIONSHIP */
         final BE_CustomQuickActionCRUD_Cls.Response res=new BE_CustomQuickActionCRUD_Cls.Response();
         final Id accConRelId=[SELECT Id FROM  AccountContactRelation WHERE AccountId=:conOld.AccountId AND ContactId=:conOld.Id].Id;
@@ -52,48 +56,40 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
             final BE_SingleRelatedListCRUD_Cls.Response resSrvCreate=BE_NonClient_CreateContact_Helper.createNonClientContact(conNew,conNew.AccountId, false);
             res.isSuccess=resSrvCreate.isSuccess;
             res.message=resSrvCreate.message;
-            if(res.isSuccess) {
-                update sObj;
-            }
+            res.data=sObj;
         }
         return res;
     }
     /** deleteContact */
-    public BE_CustomQuickActionCRUD_Cls.Response deleteContact(Contact conOld,SObject sObj){
+    public BE_CustomQuickActionCRUD_Cls.Response deleteContact(Contact conOld,SObject sObj) {
         /**DELETE CONTACT RELATIONSHIP */
         final BE_CustomQuickActionCRUD_Cls.Response res=new BE_CustomQuickActionCRUD_Cls.Response();
         final Id accConRelId=[SELECT Id FROM  AccountContactRelation WHERE AccountId=:conOld.AccountId AND ContactId=:conOld.Id].Id;
         final BE_SingleRelatedListCRUD_Cls.Response resService=BE_NonClient_DeleteContact_Helper.deleteNonClientContact(accConRelId,false);
         res.isSuccess=resService.isSuccess;
         res.message=resService.message;
-        if(res.isSuccess) {
-            update sObj;
-        }
+        res.data=sObj;
         return res;
     }
     /** createContact */
-    public BE_CustomQuickActionCRUD_Cls.Response createContact(Contact conNew,SObject sObj){
+    public BE_CustomQuickActionCRUD_Cls.Response createContact(Contact conNew,SObject sObj) {
         /**CREATE CONTACT RELATIONSHIP */
         final BE_CustomQuickActionCRUD_Cls.Response res=new BE_CustomQuickActionCRUD_Cls.Response();
         final BE_SingleRelatedListCRUD_Cls.Response resService=BE_NonClient_CreateContact_Helper.createNonClientContact(conNew,conNew.AccountId, false);
         res.isSuccess=resService.isSuccess;
         res.message=resService.message;
-        if(res.isSuccess) {
-            update sObj;
-        }
+        res.data=sObj;
         return res;
     }
     /** modifyContact */
-    public BE_CustomQuickActionCRUD_Cls.Response modifyContact(Contact conNew, Contact conOld,SObject sObj){
+    public BE_CustomQuickActionCRUD_Cls.Response modifyContact(Contact conNew, Contact conOld,SObject sObj) {
         /**MODIFY CONTACT RELATIONSHIP */
         final BE_CustomQuickActionCRUD_Cls.Response res=new BE_CustomQuickActionCRUD_Cls.Response();
         conNew.contact_code__c=conOld.contact_code__c;
         final BE_SingleRelatedListCRUD_Cls.Response resService=BE_NonClient_ModifyContact_Helper.modifyNonClientContact(conNew, false,'Contact');
         res.isSuccess=resService.isSuccess;
         res.message=resService.message;
-        if(res.isSuccess) {
-            update sObj;
-        }
+        res.data=sObj;
         return res;
     }
 
