@@ -1,140 +1,338 @@
+/**
+ * 
+ * @author Global hub
+ * @date 06-11-2018 
+ *
+ * @group Global_HUB
+ *
+ * @description Wrapper class to map the input values with the input attributes of the webservice
+ * @HIstorial de cambios:
+	- Actualización del web service de la version v0 a la v1
+	- Actualización RORC y RAROEC
+	*****************************
+	Modificaciones:
+	Martín Alejandro Mori Chávez  07-07-2019
+	Martín Alejandro Mori Chávez  12-08-2019
+**/
 public without sharing class AnalyzeRate_helper {
-	public RequestAnalyzeRate_Wrapper inputDataMapping { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    /* variable request wrapper */
+    public RequestAnalyzeRate_Wrapper inputDataMapping { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    /* variable boolean is simulate call*/
+    public Boolean isSimulate { get; set; }
 
-	public AnalyzeRate_helper(String recordId, String strRequestedTea) {
-		List<String> lstFeesLabels_str = new List<String> {Label.PriceWSLabel10, Label.PriceWSLabel14, Label.PriceWSLabel15, Label.PriceWSLabel08, Label.PriceWSLabel05, Label.PriceWSLabel04};
-		List<String> lstFeesLabels_str_ApiName = new List<String> {'expected_loss_per__c', 'financing_cost_stockholder_per__c', 'funding_cost_adjusted_per__c', 'efficiency_cost__c', 'regulatory_capital_per__c', 'additional_capital_per__c'};
+    /**
+     * constructor of class
+     */
+    public AnalyzeRate_helper(String recordId, String calculationId, Decimal tea, Boolean isSimulate) {
+        this.isSimulate = isSimulate;
+        inputDataMapping = new RequestAnalyzeRate_Wrapper();
+            
+        final List<Request_effectiveRates> ltsEffectiveRates = new List<Request_effectiveRates>();
+        final Request_effectiveRates effectiveRates = new Request_effectiveRates();
+        effectiveRates.id = 'REQUESTED_TEA';
+        effectiveRates.percentage = tea/100.00;
+        ltsEffectiveRates.add(effectiveRates);
+        inputDataMapping.ltsEffectiveRates = JSON.serialize(ltsEffectiveRates);
+        inputDataMapping.calculationRatesId = calculationId;
+        
+        final List<Request_fees> ltsFees = new List<Request_fees>();
+        inputDataMapping.lstFees = JSON.serialize(ltsFees);
+        
+        final List<Request_products> ltsReqProd = new List<Request_products>();
+        final List<Opportunity_Solution_Commitment__c> lstCommitments = [SELECT Id, opp_solution_commitment_id__c,
+                                                                   opp_solution_commitment_amount__c,
+                                                                   opp_soln_comt_expiry_days_number__c,
+                                                                   opp_solution_comt_product_name__c,
+                                                                   CurrencyIsoCode
+                                                                   FROM Opportunity_Solution_Commitment__c
+                                                                   WHERE opportunity_id__c = :recordId AND opp_solution_commitment_amount__c >= 0];
+        for(Opportunity_Solution_Commitment__c oppSolComm : lstCommitments) {
+            final Request_products products = new Request_products();
+            products.id = oppSolComm.opp_solution_commitment_id__c;
+            final Request_committedData commData = new Request_committedData();
+            final Request_unitValue unitValue = new Request_unitValue();
+            unitValue.amount = oppSolComm.opp_solution_commitment_amount__c;
+            unitValue.currencyType = oppSolComm.CurrencyIsoCode;
+            final Request_effectiveTime effectiveTime = new Request_effectiveTime();
+            effectiveTime.unit = 'DAY';
+            effectiveTime.numberValue = Integer.valueOf(oppSolComm.opp_soln_comt_expiry_days_number__c);
+            commData.unitValue = unitValue;
+            commData.effectiveTime = effectiveTime;
+            products.committedData = commData;
+            
+            ltsReqProd.add(products);
+        }
+        inputDataMapping.lstProducts = JSON.serialize(ltsReqProd);
+    }
 
-		List<String> lstFeesLabels_cur = new List<String> {Label.PriceWSLabel03};
-		List<String> lstFeesLabels_cur_ApiName = new List<String> {'capital_amount__c,capital_currency_id__c'};
+    /**
+     * method used to create json request
+     */
+    public String generateJSONRequest() {
+        String json = JSON.serialize(this.inputDataMapping);
+        json = json.replace('currencyType', 'currency');
+        json = json.replace('numberValue', 'number');
+        return json;
+    }
 
-		List<String> lstLiquitidyIndicators_str = new List<String> {Label.PriceWSLabel13, Label.PriceWSLabel11, Label.PriceWSLabel12};
-		List<String> lstLiquitidyIndicators_ApiName = new List<String> {'additional_apread_per__c', 'minimum_spread_per__c', 'spread_per__c'};
-		//final String querytemp=String.join(lstFeesLabels_cur_ApiName, ',') ;
-		// final String querytemp2=String.join(lstLiquitidyIndicators_ApiName, ',') ;
-		// final String querytemp3=String.join(lstFeesLabels_str_ApiName, ',') ;
-		final String querytemp4 = '\'' + String.escapeSingleQuotes(recordId) + '\'';
-		final String queryCampos = 'SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, expected_loss_per__c,financing_cost_stockholder_per__c,funding_cost_adjusted_per__c,efficiency_cost__c,regulatory_capital_per__c,additional_capital_per__c' +
-		                           ',capital_amount__c,capital_currency_id__c' +
-		                           ',additional_apread_per__c,minimum_spread_per__c,spread_per__c ' +
-		                           ' FROM OpportunityLineItem WHERE OpportunityId = ';
-		List<OpportunityLineItem> oliInfo = Database.query(queryCampos + querytemp4);
+    /**
+     * method to invoke the webservice
+     */
+    public System.HttpResponse invoke() {
+        return iaso.GBL_Integration_GenericService.invoke((isSimulate ? 'AnalyzeRateSimulate' : 'AnalyzeRate'), generateJSONRequest());
+    }
 
-
-		/*List<OpportunityLineItem> oliInfo = Database.query('SELECT Id,CurrencyIsoCode,Product2.price_approval_web_service_id__c,UnitPrice, ' +String.join(lstFeesLabels_str_ApiName, ',') +
-		                                                        ', ' + System.escapeSingleQuotes(String.join(lstFeesLabels_cur_ApiName, ',')) +
-		                                                        ', ' + String.join(lstLiquitidyIndicators_ApiName, ',') +
-		                                                    ' FROM OpportunityLineItem WHERE OpportunityId = ' + querytemp4 ); //Ernesto 2018/12/04: se agrego String.escapeSingleQuotes
-		 */
-		if(!oliInfo.isEmpty()) {
-			List<Object> lstFeeds = new List<Object>();
-			Integer pos = 0;
-			for(String strFeed : lstFeesLabels_str_ApiName) {
-				Request_fees_str reqFees = new Request_fees_str();
-				Request_detail_str reqDet = new Request_detail_str();
-				reqDet.percentage = (oliInfo[0].get(strFeed) == null ? '' : String.valueOf(Double.valueOf(oliInfo[0].get(strFeed)) / 100));
-				Request_feeType reqTyp = new Request_feeType();
-				reqTyp.id = lstFeesLabels_str[pos];
-
-				reqFees.detail = reqDet;
-				reqFees.feeType = reqTyp;
-				lstFeeds.add(reqFees);
-				pos++;
-			}
-			pos = 0;
-			for(String strFeed : lstFeesLabels_cur_ApiName) {
-				List<String> splitStrFeed = strFeed.split(',');
-
-				Request_fees_cur reqFees = new Request_fees_cur();
-
-				Request_detail_cur reqDet = new Request_detail_cur();
-				reqDet.amount = Double.valueOf(oliInfo[0].get(splitStrFeed[0]));
-				reqDet.currency_type = String.valueOf(oliInfo[0].get(splitStrFeed[1]));
-
-				Request_feeType reqTyp = new Request_feeType();
-				reqTyp.id = lstFeesLabels_cur[pos];
-
-				reqFees.detail = reqDet;
-				reqFees.feeType = reqTyp;
-
-				lstFeeds.add(reqFees);
-				pos++;
-			}
-			List<Object> lstLiquit = new List<Object>();
-			pos = 0;
-			for(String strLiquit : lstLiquitidyIndicators_ApiName) {
-				Request_liquidityIndicators liquit = new Request_liquidityIndicators();
-
-				Request_detail_num detailNum = new Request_detail_num();
-				detailNum.percentage = (oliInfo[0].get(strLiquit) == null ? null : Double.valueOf(oliInfo[0].get(strLiquit)) / 100);
-
-				liquit.detail = detailNum;
-				liquit.id = lstLiquitidyIndicators_str[pos];
-
-				lstLiquit.add(liquit);
-				pos++;
-			}
-
-			RequestAnalyzeRate_Wrapper requestInput = new RequestAnalyzeRate_Wrapper();
-			requestInput.lstFees = JSON.serialize(lstFeeds);
-			requestInput.strRequestedTea = strRequestedTea;
-			requestInput.lstLiquitidyIndicators = JSON.serialize(lstLiquit);
-			requestInput.productId = String.valueOf(oliInfo[0].Product2.price_approval_web_service_id__c);
-			requestInput.strAmount = String.valueOf(oliInfo[0].UnitPrice);
-			requestInput.currencyIsoCode = String.valueOf(oliInfo[0].CurrencyIsoCode);
-			this.inputDataMapping = requestInput;
-		}
+    /**
+     * Wrapper class to the request
+     */
+    public class RequestAnalyzeRate_Wrapper {
+        /* Variable request Wrapper */
+        public String ltsEffectiveRates { get; set; }
+        /* Variable request Wrapper */
+        public String calculationRatesId { get; set; }
+        /* Variable request Wrapper */
+        public String lstFees { get; set; }
+        /* Variable request Wrapper */
+        public String lstProducts { get; set; }
+    }
+    
+    /**
+     * Request_effectiveRates class to the request
+     */
+    public class Request_effectiveRates {
+        /* Variable request */
+		public String id { get; set; }
+        /* Variable request */
+		public Double percentage { get; set; }
 	}
-
-	public String generateJSONRequest() {
-		String json = JSON.serialize(this.inputDataMapping);
-		json = json.replace('currency_type', 'currency');
-		return json;
+    
+    /**
+     * Request_fees class to the request
+     */
+    public class Request_fees {
+        /* Variable request */
+		public Request_detail detail { get; set; }
+        /* Variable request */
+		public Request_feeType feeType { get; set; }
 	}
-
-	//method to invoke the webservice
-	public System.HttpResponse invoke() {
-		return iaso.GBL_Integration_GenericService.invoke('AnalyzeRate', generateJSONRequest());
+    
+    /**
+     * Request_detail class to the request
+     */
+    public class Request_detail {
+        /* Variable request */
+		public String percentage { get; set; }
 	}
-
-	public class RequestAnalyzeRate_Wrapper {
-		public String lstFees { get; set; } //Yulino 29/11/2018 : se agregó el get y set
-		public String strRequestedTea { get; set; } //Yulino 29/11/2018 : se agregó el get y set
-		public String lstLiquitidyIndicators { get; set; } //Yulino 29/11/2018 : se agregó el get y set
-		public String productId { get; set; } //Yulino 29/11/2018 : se agregó el get y set
-		public String strAmount { get; set; } //Yulino 29/11/2018 : se agregó el get y set
-		public String currencyIsoCode { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+    
+    /**
+     * Request_feeType class to the request
+     */
+    public class Request_feeType {
+        /* Variable request */
+		public String id { get; set; }
 	}
-
-	public class Request_fees_str {
-		public Request_detail_str detail { get; set; } //Yulino 29/11/2018 : se agregó el get y set
-		public Request_feeType feeType { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+    
+    /**
+     * Request_products class to the request
+     */
+    public class Request_products {
+        /* Variable request */
+		public String id { get; set; }
+        /* Variable request */
+		public Request_committedData committedData { get; set; }
 	}
-
-	public class Request_detail_str {
-		public String percentage { get; set; } //Yulino 29/11/2018 : se agregó el get y set
+    
+    /**
+     * Request_committedData class to the request
+     */
+    public class Request_committedData {
+        /* Variable request */
+		public Request_unitValue unitValue { get; set; }
+        /* Variable request */
+		public Request_effectiveTime effectiveTime { get; set; }
 	}
-
-	public class Request_feeType {
-		public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+	
+    /**
+     * Request_unitValue class to the request
+     */
+    public class Request_unitValue {
+        /* Variable request */
+		public Double amount { get; set; }
+        /* Variable request */
+		public String currencyType { get; set; }
 	}
-
-	public class Request_fees_cur {
-		public Request_detail_cur detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
-		public Request_feeType feeType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    
+    /**
+     * Request_effectiveTime class to the request
+     */
+    public class Request_effectiveTime {
+        /* Variable request */
+		public String unit { get; set; }
+        /* Variable request */
+		public Integer numberValue { get; set; }
 	}
-
-	public class Request_detail_cur {
-		public Double amount { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
-		public String currency_type { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    
+    /**
+     * Method used of parse json to ResponseAnalyzeRate_Wrapper class
+     * @param json This is string of response webservice
+     */
+    public ResponseAnalyzeRate_Wrapper parse(String json) {
+        String vjson = json.replace('"currency":', '"currencyType":');
+        vjson = vjson.replace('"number":', '"numberValue":');
+        return (ResponseAnalyzeRate_Wrapper) System.JSON.deserialize(vjson, ResponseAnalyzeRate_Wrapper.class);
+    }
+    
+    /**
+     * Wrapper class to the response
+     */
+    public class ResponseAnalyzeRate_Wrapper {
+        /* Variable response Wrapper */
+        public Response_data data { get; set; }
+    }
+    
+    /**
+     * Data class to the response
+     */
+    public class Response_data {
+        /* Variable response */
+        public Response_InterestRates interestRates { get; set; }
+        /* Variable response */
+        public Response_FinancialIndicators[] financialIndicators { get; set; }
+        /* Variable response */
+        public Response_LiquidityIndicators[] liquidityIndicators { get; set; }
+        /* Variable response */
+        public Response_Fees[] fees { get; set; }
+        /* Variable response */
+        public Response_Products[] products { get; set; }
+        /* Variable response */
+        public Boolean isCoveredMinimunEvaluated { get; set; }
+        /* Variable response */
+        public Response_Indicators[] indicators { get; set; }
+    }
+    
+    /**
+     * InterestRates class to the response
+     */
+    public class Response_InterestRates {
+        /* Variable response */
+        public Response_EffectiveRates[] effectiveRates { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    }
+    
+	/**
+     * EffectiveRates class to the response
+     */
+    public class Response_EffectiveRates {
+        /* Variable response */
+        public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        /* Variable response */
+        public Double percentage { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    }
+    
+    /**
+     * FinancialIndicators class to the response
+     */
+    public class Response_FinancialIndicators {
+        /* Variable response */
+        public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        /* Variable response */
+        public String value { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    }
+    
+    /**
+     * LiquidityIndicators class to the response
+     */
+    public class Response_LiquidityIndicators {
+        /* Variable response */
+        public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        /* Variable response */
+        public Response_Detail detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    }
+    
+    /**
+     * Fees class to the response
+     */
+    public class Response_Fees {
+        /* Variable response */
+        public Response_CalculationType feeType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        /* Variable response */
+        public Response_Detail detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    }
+    
+    /**
+     * CalculationType class to the response
+     */
+    public class Response_CalculationType {
+        /* Variable response */
+        public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    }
+    
+    /**
+     * Detail class to the response
+     */
+    public class Response_Detail {
+        /* Variable response */
+        public Double percentage { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        /* Variable response */
+        public Double amount { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        /* Variable response */
+        public String currencyType { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    }
+    
+    /**
+     * FinancialIndicators class to the response
+     */
+    public class Response_Indicators {
+        /* Variable response */
+        public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+        /* Variable response */
+        public String value { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    }
+    
+    /**
+     * CommittedData class to the response
+     */
+    public class Response_Products {
+        /* Variable response */
+		public String id { get; set; }
+        /* Variable response */
+        public String name { get; set; }
+        /* Variable response */
+		public Response_CommittedData committedData { get; set; }
 	}
-
-	class Request_liquidityIndicators {
-		public Request_detail_num detail { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
-		public String id { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    
+    /**
+     * CommittedData class to the response
+     */
+    public class Response_CommittedData {
+        /* Variable response */
+        public String description { get; set; }
+        /* Variable response */
+        public Response_UnitValue unitValue { get; set; }
+        /* Variable response */
+		public Response_EffectiveTime effectiveTime { get; set; }
+        /* Variable response */
+        public String classification { get; set; }
 	}
-
-	public class Request_detail_num {
-		public Double percentage { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
+    
+	/**
+     * UnitValue class to the response
+     */
+    public class Response_UnitValue {
+        /* Variable response */
+		public Double amount { get; set; }
+        /* Variable response */
+		public String currencyType { get; set; }
+        /* Variable response */
+        public String unitValueDetailType { get; set; }
+	}
+    
+    /**
+     * EffectiveTime class to the response
+     */
+    public class Response_EffectiveTime {
+        /* Variable response */
+		public String unit { get; set; }
+        /* Variable response */
+		public Integer numberValue { get; set; }
 	}
 }

@@ -3,7 +3,7 @@
     <applicationVisibilities>
         <application>DWP_Reunion_individual</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>true</visible> 
     </applicationVisibilities>
     <applicationVisibilities>
         <application>DWP_Sales</application>
@@ -271,6 +271,18 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_AnalyzeRate_Rest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_AnalyzeRate_Tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_AnalyzeRate_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_CalceCancellationsOfDay_Ctr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -364,7 +376,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BBVA_SBS_Classification_cls</apexClass>
-        <enabled>true</enabled>
+        <enabled>true</enabled> 
     </classAccesses>
     <classAccesses>
         <apexClass>Contact_Group_Handler</apexClass>
@@ -4128,6 +4140,26 @@ Asistente BE</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+		<editable>true</editable>
+		<field>OpportunityLineItem.FinancingType__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Liquidity_Margin_Lost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Liquidity_Margin_Recovered_Currency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Liquidity_Margin_Recovered__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.ListPrice</field>
         <readable>true</readable>
@@ -4135,6 +4167,41 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.ProductCode</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RAROEC_Operation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Approved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Client__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Operation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Updated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.RORC_Variation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6972,11 +7039,6 @@ Asistente BE</description>
         <field>AccountContactRelation.Total_campos_obligatorios__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-		<editable>true</editable>
-		<field>OpportunityLineItem.FinancingType__c</field>
-		<readable>true</readable>
-	</fieldPermissions>
     <fieldPermissions>
 		<editable>false</editable>
 		<field>BE_BailLetterCombination__c.BailObject__c</field>

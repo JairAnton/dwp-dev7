@@ -1,7 +1,11 @@
-<aura:component controller="Commitment_ctrl">
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" controller="Commitment_ctrl">
     <aura:registerEvent name="CommitmentsDelete" type="c:CommitmentsDelete_evt" />
+    <aura:registerEvent name="commitmentsEvent" type="c:Commitments_evt"/>
     <aura:attribute name="row" type="Object" default="{'lstInfo':[]}"/>
     <aura:attribute name="readOnly" type="Boolean" default="false"/>
+	<aura:attribute name="proposedTea" type="String" default=""/>
+    <aura:attribute name="idOli" type="String" default=""/>
+    <aura:attribute name="inputObject" type="Object"/>
 
     <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">
         <aura:iteration items="{!v.row.lstInfo}" var="data">
@@ -9,7 +13,7 @@
         </aura:iteration>
         <aura:if isTrue="{!!v.readOnly}">
             <th>
-                <lightning:buttonIcon iconName="utility:delete" variant="bare" alternativeText="Delete" onclick="{!c.onDelete}"/>
+                <lightning:buttonIcon iconName="utility:edit" variant="bare" alternativeText="Edit" onclick="{!c.onEdit}"/> - <lightning:buttonIcon iconName="utility:delete" variant="bare" alternativeText="Delete" onclick="{!c.onDelete}"/>
             </th>
         </aura:if>
     </tr> 

@@ -1,301 +1,259 @@
+/**
+ * @author ismael.nunez.garcia@accenture.com
+ * @date 2018
+ *
+ * @group NONE
+ *  * Modification log:<p />
+ * -------------------------------------------------------------------
+ * Developer                    Date                Description<p />
+ * -------------------------------------------------------------------
+ * Diego Carbajal    		14/08/2020          modified version.<p />
+ * @description Container_Product_Form_ctrl_Test
+ **/
 @istest
 public class Commitment_ctrl_Test {
-	static Account acctest;
-	static Opportunity opptest;
-	static OpportunityLineItem olitest;
-	static Product2 prodtest;
+    /** @Description  accTest*/
+	static Account accTest;
+    /** @Description  oppTest*/
+	static Opportunity oppTest;
+    /** @Description  oliTest*/
+	static OpportunityLineItem oliTest;
+    /** @Description  prodTest*/
+	static Product2 prodTest;
+    /** @Description  quoteOwner*/
 	static User quoteOwner;
 
-	@testSetup
+    /** @Description  Like Setup*/
 	static void setData() {
-		acctest = TestFactory.createAccount();
-		opptest = new Opportunity(ownerId = UserInfo.getUserId(), Name = 'testopp', AccountId = acctest.Id, StageName = '02', Amount = 100, CloseDate = system.Date.today(), opportunity_status_type__c = '02');
-		insert opptest;
-		prodtest = TestFactory.createProduct();
-		olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
+		accTest = TestFactory.createAccount();
+		oppTest = new Opportunity(ownerId = UserInfo.getUserId(), Name = 'testopp', AccountId = accTest.Id, StageName = '02', Amount = 100, CloseDate = system.Date.today(), 
+                                   opportunity_status_type__c = '02');
+		insert oppTest;
+		prodTest = TestFactory.createProduct();
+		oliTest = TestFactory.createOLI(oppTest.Id, prodTest.Id);
 	}
 
+    /** @Description  testMethodOne*/
 	@isTest
-	static void test_method_one() {
-		List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2];
+	static void testMethodOne() {
+        setData();
+		Final List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2 LIMIT 1];
 		lstProd[0].Type_of_quote__c = 'Tarifario';
 		update lstProd;
-		Map<String, Object> mapReturnInfo = Commitment_ctrl.getInfo('Tarifario', null);
-		System.assert (mapReturnInfo.containsKey('schemaSetup'));
+        Boolean assertComplete;
+        Test.startTest();
+		Final Map<String, Object> mapReturnInfo = Commitment_ctrl.getInfo('Tarifario', null);
+        assertComplete = mapReturnInfo.containsKey('schemaSetup');
+		Final Map<String, Object> mapTable = Commitment_ctrl.getInfoTable(oppTest.Id);
+        assertComplete = assertComplete && mapTable.containsKey('schemaSetup');
 
-		List<Opportunity> lstOpp = [SELECT Id FROM Opportunity];
-		Map<String, Object> mapReturnInfoTable = Commitment_ctrl.getInfoTable(lstOpp[0].Id);
-		System.assert (mapReturnInfoTable.containsKey('schemaSetup'));
+        Final List<Object> lstData = new List<Object>{'Prod', 'PEN', 30, 100, null, 3, '52', 'Web'};
+		Final Map<String, Object> mapReturnSave = Commitment_ctrl.saveCommitment(oppTest.Id, lstData, null, 'AMOUNT');
+        assertComplete = assertComplete && (Boolean)mapReturnSave.get('isOK');
 
-		List<Object> lstData = new List<Object>();
+		lstData.clear();
+        lstData.add('52');
 		lstData.add('Prod');
 		lstData.add('PEN');
-		lstData.add(34);
-		lstData.add(12);
-		lstData.add(3);
-		lstData.add(null);
-		lstData.add(null);
-		Map<String, Object> mapReturnSave = Commitment_ctrl.saveCommitment(lstOpp[0].Id, lstData, null, 'AMOUNT');
-		System.assertEquals(true, (Boolean)mapReturnSave.get('isOK'));
-
-		List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c];
-		Map<String, Object> mapReturnDelete = Commitment_ctrl.deleteCommitment(lstOppSol[0].Id);
-		System.assertEquals(true, (Boolean)mapReturnDelete.get('isOK'));
+		lstData.add(100);
+		lstData.add(30);
+		Commitment_ctrl.changeCommitment(oppTest.Id, lstData, null);
+		
+		Final List<Opportunity_Solution_Commitment__c> lstOppSol = [SELECT Id FROM Opportunity_Solution_Commitment__c LIMIT 1];
+		Final Map<String, Object> mapReturnDelete = Commitment_ctrl.deleteCommitment(lstOppSol[0].Id);
+        assertComplete = assertComplete && (Boolean)mapReturnDelete.get('isOK');
+        Test.stopTest();
+        System.assert(assertComplete, 'Ha fallado la validación');
 	}
 
+    /** @Description  testCreateQuoteRequestSuccess*/
 	@isTest
-	static void test_createQuoteRequest_Success() {
+	static void testCreateQuoteRequestSuccess() {
 		setData();
-
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequestApproved/OK', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-		System.assertEquals('true', mapResultReturn.get('success'));
-		System.assertEquals(Label.PriceCreateQuotationRequestApprovedMessage, mapResultReturn.get('quotationStatusMessage'));
-
+		Commitment_ctrl.infoAnalyzeRate(oliTest.Id, '0.25');
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assertEquals(Label.PriceCreateQuotationRequestApprovedMessage, mapResultReturn.get('quotationStatusMessage'));
 	}
 
+    /** @Description  testCreateQuoteRequestError1*/
 	@isTest
-	static void test_createQuoteRequest_Error_1() {
+	static void testCreateQuoteRequestError1() {
 		setData();
-
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequest/KO_500', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-
-		System.assertEquals('false', mapResultReturn.get('success'));
-		System.assertEquals(Label.PriceCreateQuotationRequestUnknowError, mapResultReturn.get('errorMessage'));
-
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assertEquals(Label.PriceCreateQuotationRequestUnknowError, mapResultReturn.get('errorMessage'));
 	}
+    
+    /** @Description  testCreateQuoteRequestError2*/
 	@isTest
-	static void test_createQuoteRequest_Error_2() {
+	static void testCreateQuoteRequestError2() {
 		setData();
-
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationRequest', iaso__Url__c = 'https://CreateRequest/KO_409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-
-		System.assertEquals('false', mapResultReturn.get('success'));
-
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assertEquals('false', mapResultReturn.get('success'));
 	}
+    
+    /** @Description  testRequetQuotationApprovalSuccess*/
 	@isTest
-	static void test_requetQuotationApproval_Success() {
+	static void testRequetQuotationApprovalSuccess() {
 		setData();
-
-		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c
-		                                                 FROM OpportunityLineItem WHERE Id = :olitest.Id];
-
-		if(!oppLineItemTestList.isEmpty()) {
-			oppLineItemTestList[0].price_quote_id__c = '1475650';
-			oppLineItemTestList[0].price_operation_id__c = '1469800';
-			oppLineItemTestList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		Final List<OpportunityLineItem> oppLITest = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = :oliTest.Id];
+		if(!oppLITest.isEmpty()) {
+			oppLITest[0].price_quote_id__c = '1475650';
+			oppLITest[0].price_operation_id__c = '1469800';
+			oppLITest[0].price_quote_owner_id__c = UserInfo.getUserId();
 		}
-
-		update oppLineItemTestList[0];
-
+		update oppLITest[0];
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/OK', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-		System.assertEquals('true', mapResultReturn.get('success'));
-		System.assertEquals(Label.PriceCreateQuotationRequestSentForApprovalMessage, mapResultReturn.get('quotationStatusMessage'));
-
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assertEquals(Label.PriceCreateQuotationRequestSentForApprovalMessage, mapResultReturn.get('quotationStatusMessage'));
 	}
 
+    /** @Description  testRequetQuotationApproval2Success*/
 	@isTest
-	static void test_requetQuotationApproval_2_Success() {
+	static void testRequetQuotationApproval2Success() {
 		setData();
-
-		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c
-		                                                 FROM OpportunityLineItem WHERE Id = :olitest.Id];
-
-		if(!oppLineItemTestList.isEmpty()) {
-			oppLineItemTestList[0].price_quote_id__c = '1475650';
-			oppLineItemTestList[0].price_operation_id__c = '1469800';
-			oppLineItemTestList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		Final List<OpportunityLineItem> oppLITest = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = :oliTest.Id];
+		if(!oppLITest.isEmpty()) {
+			oppLITest[0].price_quote_id__c = '1475650';
+			oppLITest[0].price_operation_id__c = '1469800';
+			oppLITest[0].price_quote_owner_id__c = UserInfo.getUserId();
 		}
-
-		update oppLineItemTestList[0];
-		Opportunity_Solution_Commitment__c osc = new Opportunity_Solution_Commitment__c(opp_solution_commitment_amount__c = 34,
-		                                                                                opp_solution_commitment_id__c = '34',
-		                                                                                opp_soln_comt_expiry_days_number__c = 23,
-		                                                                                opp_solution_id__c = oppLineItemTestList[0].Id,
-		                                                                                opportunity_id__c = opptest.Id,
-		                                                                                CurrencyIsoCode = 'PEN');
-		insert osc;
+		update oppLITest[0];
+		insert new Opportunity_Solution_Commitment__c(opp_solution_commitment_amount__c = 34, opp_solution_commitment_id__c = '34', 
+                                                                                        opp_soln_comt_expiry_days_number__c = 23, opp_solution_id__c = oppLITest[0].Id,
+		                                                                                opportunity_id__c = oppTest.Id, CurrencyIsoCode = 'PEN');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/OK_2', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'CreateQuotationCommitment', iaso__Url__c = 'https://CreateQuotationCommitment/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-		System.assertEquals('true', mapResultReturn.get('success'));
-		System.assertEquals(Label.PriceCreateQuotationRequestApprovedMessage, mapResultReturn.get('quotationStatusMessage'));
-
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assertEquals(Label.PriceCreateQuotationRequestApprovedMessage, mapResultReturn.get('quotationStatusMessage'));
 	}
 
+    /** @Description  testRequetQuotationApprovalDifferentUserSuccess*/
 	@isTest
-	static void test_requetQuotationApprovalDifferentUser_Success() {
+	static void testRequetQuotationApprovalDifferentUserSuccess() {
 		setData();
-
-		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c
-		                                                 FROM OpportunityLineItem WHERE Id = :olitest.Id];
-
-		if(!oppLineItemTestList.isEmpty()) {
-			oppLineItemTestList[0].price_quote_id__c = '1475650';
-			oppLineItemTestList[0].price_operation_id__c = '1469800';
+		Final List<OpportunityLineItem> oppLITest = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = :oliTest.Id];
+		if(!oppLITest.isEmpty()) {
+			oppLITest[0].price_quote_id__c = '1475650';
+			oppLITest[0].price_operation_id__c = '1469800';
 		}
-
-		update oppLineItemTestList[0];
-
+		update oppLITest[0];
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/OK', iaso__Cache_Partition__c = 'local.CredentialsPeru');
-
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-		System.assertEquals('true', mapResultReturn.get('success'));
-
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assertEquals('true', mapResultReturn.get('success'));
 	}
 
+    /** @Description  testRequetQuotationApprovalError1*/
 	@isTest
-	static void test_requetQuotationApproval_Error_1() {
+	static void testRequetQuotationApprovalError1() {
 		setData();
-
-		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c
-		                                                 FROM OpportunityLineItem WHERE Id = :olitest.Id];
-
-		if(!oppLineItemTestList.isEmpty()) {
-			oppLineItemTestList[0].price_quote_id__c = '1475650';
-			oppLineItemTestList[0].price_operation_id__c = '1469800';
-			oppLineItemTestList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		Final List<OpportunityLineItem> oppLITest = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = :oliTest.Id];
+		if(!oppLITest.isEmpty()) {
+			oppLITest[0].price_quote_id__c = '1475650';
+			oppLITest[0].price_operation_id__c = '1469800';
+			oppLITest[0].price_quote_owner_id__c = UserInfo.getUserId();
 		}
-
-		update oppLineItemTestList[0];
-
+		update oppLITest[0];
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/KO_409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-		System.assertEquals('false', mapResultReturn.get('success'));
-		System.assert (String.valueOf(mapResultReturn.get('errorMessage')).contains(Label.PriceRequestQuotationApprovalKnownError));
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assert (String.valueOf(mapResultReturn.get('errorMessage')).contains(Label.PriceRequestQuotationApprovalKnownError));
 	}
 
+    /** @Description  testRequetQuotationApprovalError2*/
 	@isTest
-	static void test_requetQuotationApproval_Error_2() {
+	static void testRequetQuotationApprovalError2() {
 		setData();
-
-		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c
-		                                                 FROM OpportunityLineItem WHERE Id = :olitest.Id];
-
-		if(!oppLineItemTestList.isEmpty()) {
-			oppLineItemTestList[0].price_quote_id__c = '1475650';
-			oppLineItemTestList[0].price_operation_id__c = '1469800';
-			oppLineItemTestList[0].price_quote_owner_id__c = UserInfo.getUserId();
+		Final List<OpportunityLineItem> oppLITest = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = :oliTest.Id];
+		if(!oppLITest.isEmpty()) {
+			oppLITest[0].price_quote_id__c = '1475650';
+			oppLITest[0].price_operation_id__c = '1469800';
+			oppLITest[0].price_quote_owner_id__c = UserInfo.getUserId();
 		}
-
-		update oppLineItemTestList[0];
-
+		update oppLITest;
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/KO_500', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-		System.assertEquals('false', mapResultReturn.get('success'));
-		System.assertEquals(Label.PriceRequestQuotationApprovalUnKnownError, mapResultReturn.get('errorMessage'));
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assertEquals(Label.PriceRequestQuotationApprovalUnKnownError, mapResultReturn.get('errorMessage'));
 	}
 
+    /** @Description  testRequetQuotationApprovalDifferentUserError1*/
 	@isTest
-	static void test_requetQuotationApprovalDifferentUser_Error_1() {
+	static void testRequetQuotationApprovalDifferentUserError1() {
 		setData();
-
-		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c
-		                                                 FROM OpportunityLineItem WHERE Id = :olitest.Id];
-
-		if(!oppLineItemTestList.isEmpty()) {
-			oppLineItemTestList[0].price_quote_id__c = '1475650';
-			oppLineItemTestList[0].price_operation_id__c = '1469800';
+		Final List<OpportunityLineItem> oppLITest = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = :oliTest.Id];
+		if(!oppLITest.isEmpty()) {
+			oppLITest[0].price_quote_id__c = '1475650';
+			oppLITest[0].price_operation_id__c = '1469800';
 		}
-
-		update oppLineItemTestList[0];
-
+		update oppLITest;
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/KO_409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-		System.assertEquals('false', mapResultReturn.get('success'));
-		System.assert (String.valueOf(mapResultReturn.get('errorMessage')).contains(Label.PriceRecoverRequestKnownError));
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assert (String.valueOf(mapResultReturn.get('errorMessage')).contains(Label.PriceRecoverRequestKnownError));
 	}
 
+    /** @Description  testRequetQuotationApprovalDifferentUserError2*/
 	@isTest
-	static void test_requetQuotationApprovalDifferentUser_Error_2() {
+	static void testRequetQuotationApprovalDifferentUserError2() {
 		setData();
-
-		List<OpportunityLineItem> oppLineItemTestList = [SELECT Id, price_quote_id__c, price_operation_id__c
-		                                                 FROM OpportunityLineItem WHERE Id = :olitest.Id];
-
-		if(!oppLineItemTestList.isEmpty()) {
-			oppLineItemTestList[0].price_quote_id__c = '1475650';
-			oppLineItemTestList[0].price_operation_id__c = '1469800';
+		Final List<OpportunityLineItem> oppLITest = [SELECT Id, price_quote_id__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = :oliTest.Id];
+		if(!oppLITest.isEmpty()) {
+			oppLITest[0].price_quote_id__c = '1475650';
+			oppLITest[0].price_operation_id__c = '1469800';
 		}
-
-		update oppLineItemTestList[0];
-
+		update oppLITest;
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestApproval/KO_500', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-
 		Test.startTest();
-
-		Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(opptest.Id);
-		System.assertEquals('false', mapResultReturn.get('success'));
-		System.assertEquals(Label.PriceRecoverRequestUnknownError, mapResultReturn.get('errorMessage'));
+		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
+        System.assertEquals(Label.PriceRecoverRequestUnknownError, mapResultReturn.get('errorMessage'));
 	}
 }

@@ -6,12 +6,15 @@
     },
     getInfo: function (component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
+        var uniqueNameTable = 'Manual_Proposal_Summarize';
         if (inputObject.approvalMethod == 'Web') {
             component.set('v.enableContinue', true);
+            uniqueNameTable = 'Web_Proposal_Summarize';
         }
         var action = component.get("c.getInfo");
         action.setParams({
-            "recordIdOppLineItem": inputObject.opportunityLineItem
+            "oliId": inputObject.opportunityLineItem,
+            "uniqueNameTable": uniqueNameTable
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -20,11 +23,9 @@
                 var objSetup = {
                     'nameProd': ret.lstOppLineItem[0].Product2.Name,
                     'validityDate': ret.lstOppLineItem[0].validityDate__c,
-                    'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c
+                    'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c,
+                    'lstTile': JSON.parse(ret.lstSummarize)
                 };
-                if (!ret.lstInfoIsEmpty) {
-                    objSetup['lstTile'] = helper.setFields(ret);
-                }
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.lstOppLineItem[0]);
                 component.set('v.objSetup', objSetup);
 
@@ -178,30 +179,6 @@
             }
         });
         $A.enqueueAction(action);
-    },
-    setFields: function (ret) {
-        var lstTile = [];
-        for (var i in ret.lstField) {
-            var strValue = ret.lstInfo[0][ret.lstField[i]];
-            if (ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c !== undefined &&
-                ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c !== '') {
-                var lovValues = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c.split(',');
-                var lovLabels = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_labels__c.split(',');
-                var posVal = lovValues.indexOf(strValue);
-                strValue = lovLabels[posVal];
-            }
-            if (ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__Type__c === 'currency' && !isNaN(strValue)) {
-                var val = Math.round(Number(strValue) * 100) / 100;
-                var parts = val.toString().split(".");
-                strValue = ret.lstOppLineItem[0].Opportunity.CurrencyIsoCode + ' ' + parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : ".00");
-            }
-            var tile = {
-                'label': ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__Label__c,
-                'value': strValue
-            }
-            lstTile.push(tile);
-        }
-        return lstTile;
     },
     htmlObject: function (inputObject, evt) {
         var today = new Date();

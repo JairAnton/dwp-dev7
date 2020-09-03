@@ -1,0 +1,22 @@
+.THIS .custom-left-box {
+    background-color: #ECEBEA;
+    border-left: 1px solid #C0C0C0;
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #C0C0C0;
+    border-radius: 10px 0px 0px 10px;
+}
+.THIS .custom-right-box {
+    background-color: #ECEBEA;
+    border: 1px solid #C0C0C0;
+    border-radius: 0px 10px 10px 0px;
+}
+.THIS .custom-center-box {
+    background-color: #ECEBEA;
+    border-left: 1px solid #C0C0C0;
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #C0C0C0;
+}
+.THIS.Normal div.horizontal {
+    display: block;
+    padding: 5px;
+}

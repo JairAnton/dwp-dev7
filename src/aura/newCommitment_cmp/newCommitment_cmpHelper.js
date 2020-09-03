@@ -23,37 +23,7 @@
 					'schemaSetup': ret.schemaSetup,
 					'lstValIdCommitment': []
 				};
-				var posPick = 0;
-				var posPick2 = 0;
-				//var posValExp = 0;
-				for (var i in lstCommitments) {
-					if (!objSetup['valPicklistProd'].includes(lstCommitments[i].commitment_product_name__c)) {
-						if (i != 0) {
-							posPick++;
-							posPick2 = 0;
-							//posValExp=0;
-							objSetup['mapPosPicklist2'][posPick] = {};
-							//objSetup['mapPoslstValExp'][posPick] = {};
-						}
-						objSetup['mapPosPicklistProd'][lstCommitments[i].commitment_product_name__c] = posPick;
-						objSetup['valPicklistProd'].push(lstCommitments[i].commitment_product_name__c);
-						objSetup['lstValIdCommitment'].push(lstCommitments[i].commitment_id__c);
-						if (lstCommitments[i].commitment_unit_type__c === 'AMOUNT') {
-							objSetup['lstPick2'][posPick] = [lstCommitments[i].CurrencyIsoCode];
-						}
-						objSetup['lstValExp'][posPick] = [lstCommitments[i].commitment_expiry_days_number__c];
-						objSetup['valPicklistUnitType'].push(lstCommitments[i].commitment_unit_type__c);
-
-					} else {
-						objSetup['lstPick2'][posPick].push(lstCommitments[i].CurrencyIsoCode);
-						objSetup['lstValExp'][posPick].push(lstCommitments[i].commitment_expiry_days_number__c);
-					}
-
-					objSetup['mapPosPicklist2'][posPick][lstCommitments[i].CurrencyIsoCode] = posPick2;
-					//objSetup['mapPoslstValExp'][posPick][lstCommitments[i].commitment_expiry_days_number__c] = posValExp;
-					posPick2++;
-					//posValExp++;
-				}
+				objSetup = helper.createCommitments(objSetup, lstCommitments);
 				objSetup['lstVal1'] = objSetup['valPicklistProd'];
 				objSetup['lstVal2'] = [];
 				objSetup['valExp'] = '';
@@ -63,6 +33,16 @@
 				objSetup['valImport'] = '';
 				objSetup['valPer'] = '';
 				objSetup['valIdCommitment'] = '';
+                if(cmp.get('v.rowData')!==undefined && cmp.get('v.rowData').lstInfo.length>0) {
+                    cmp.set('v.isReadOnly', true);
+                    objSetup['lstVal1']=[cmp.get('v.rowData').lstInfo[0]];
+                    objSetup['lstVal2']=[cmp.get('v.rowData').lstInfo[1]];
+                    objSetup['valExp']=cmp.get('v.rowData').lstInfo[4];
+                    objSetup['lstVal1value']=cmp.get('v.rowData').lstInfo[0];
+                    objSetup['lstVal2value']=cmp.get('v.rowData').lstInfo[1];
+                    objSetup['valExpvalue']=cmp.get('v.rowData').lstInfo[4];
+                    objSetup['valImport']=cmp.get('v.rowData').lstInfo[2];
+                }
 				cmp.set('v.objSetup', objSetup);
 			}
 		});
@@ -106,7 +86,11 @@
 			return validSoFar && inputCmp.get('v.validity').valid;
 		}, true);
 		if (allValid) {
-			for (var i in fields) {
+			var unitTypeVal = objSetup['valPicklistUnitType'][objSetup.mapPosPicklistProd[objSetup.lstVal1value]];
+            if(unitTypeVal === undefined) {
+                unitTypeVal='AMOUNT';
+            }
+            for (var i in fields) {
 				lstData.push(fields[i].get('v.value'));
 			}
 			lstData.push(objSetup['valIdCommitment']);
@@ -116,7 +100,7 @@
 				"recordId": cmp.get('v.oppRecordId'),
 				"lstData": lstData,
 				"oppLineItem": cmp.get('v.oppLineItem'),
-				"unitType": objSetup['valPicklistUnitType'][objSetup.mapPosPicklistProd[objSetup.lstVal1value]]
+				"unitType" : unitTypeVal
 			});
 			action.setCallback(this, function (response) {
 				var state = response.getState();
@@ -132,5 +116,32 @@
 		var compEvent = cmp.getEvent("commitmentsEvent");
 		compEvent.setParams({ "typeMode": 'BACK' });
 		compEvent.fire();
+	},
+    createCommitments: function (objSetup, lstCommitments) {
+        var posPick = 0;
+        var posPick2 = 0;
+        for (var i in lstCommitments) {
+            if (!objSetup['valPicklistProd'].includes(lstCommitments[i].commitment_product_name__c)) {
+            if (i != 0) {
+                posPick++;
+                posPick2 = 0;
+                objSetup['mapPosPicklist2'][posPick] = {};
+            }
+            objSetup['mapPosPicklistProd'][lstCommitments[i].commitment_product_name__c] = posPick;
+            objSetup['valPicklistProd'].push(lstCommitments[i].commitment_product_name__c);
+            objSetup['lstValIdCommitment'].push(lstCommitments[i].commitment_id__c);
+            if (lstCommitments[i].commitment_unit_type__c === 'AMOUNT') {
+                objSetup['lstPick2'][posPick] = [lstCommitments[i].CurrencyIsoCode];
+            }
+                objSetup['lstValExp'][posPick] = [lstCommitments[i].commitment_expiry_days_number__c];
+                objSetup['valPicklistUnitType'].push(lstCommitments[i].commitment_unit_type__c);
+            } else {
+                objSetup['lstPick2'][posPick].push(lstCommitments[i].CurrencyIsoCode);
+                objSetup['lstValExp'][posPick].push(lstCommitments[i].commitment_expiry_days_number__c);
+            }
+                objSetup['mapPosPicklist2'][posPick][lstCommitments[i].CurrencyIsoCode] = posPick2;
+                posPick2++;
+        }
+    	return objSetup;
 	}
 })

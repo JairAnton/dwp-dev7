@@ -5,6 +5,10 @@
         <name>Siocode__c</name>
     </fields>
     <fields>
+        <label>Spread (%)</label>
+        <name>Spread__c</name>
+    </fields>
+    <fields>
         <label><!-- Tipo amortización --></label>
         <name>Tipo_amortizacion__c</name>
         <picklistValues>
@@ -19,6 +23,10 @@
             <masterLabel>En cuotas</masterLabel>
             <translation><!-- En cuotas --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label>Spread (%)</label>
+        <name>calculated_spread__c</name>
     </fields>
     <fields>
         <label>Amortización</label>
@@ -1256,7 +1264,7 @@
             <translation>Premium</translation>
         </picklistValues>
     </fields>
-	    <fields>
+    <fields>
         <label>Texto VB° Legal</label>
         <name>tcf_Legal_VB_text__c</name>
         <picklistValues>
@@ -1635,6 +1643,42 @@
             <masterLabel>03</masterLabel>
             <translation>Sepymex</translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label>Margen financiero de pérdida</label>
+        <name>Liquidity_Margin_Lost__c</name>
+    </fields>
+    <fields>
+        <label>Margen financiero recuperado</label>
+        <name>Liquidity_Margin_Recovered__c</name>
+    </fields>
+    <fields>
+        <label>RAROEC operación (%)</label>
+        <name>RAROEC_Operation__c</name>
+    </fields>
+    <fields>
+        <label>RORC aprobado (%)</label>
+        <name>RORC_Approved__c</name>
+    </fields>
+    <fields>
+        <label>RORC cliente (%)</label>
+        <name>RORC_Client__c</name>
+    </fields>
+    <fields>
+        <label>RORC modelo (%)</label>
+        <name>RORC_Model__c</name>
+    </fields>
+    <fields>
+        <label>RORC de operación (%)</label>
+        <name>RORC_Operation__c</name>
+    </fields>
+    <fields>
+        <label>RORC cliente con TEA propuesta (%)</label>
+        <name>RORC_Updated__c</name>
+    </fields>
+    <fields>
+        <label>Variación del RORC (%)</label>
+        <name>RORC_Variation__c</name>
     </fields>
     <validationRules>
         <errorMessage>Nº de contrato no válido, el formato correcto: 0000-0000-000000000</errorMessage>

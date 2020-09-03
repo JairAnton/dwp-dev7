@@ -8,36 +8,48 @@
     <aura:attribute name="hasRecord" type="Boolean" default="false"/>
     <aura:attribute name="readOnly" type="Boolean" default="false"/>
     <aura:attribute name="quoteMethod" type="String" default=""/>
-
-	<div class="{!v.readOnly?'':'slds-modal__content slds-p-around_medium'}" >
+    <aura:attribute name="idOli" type="String" default=""/>
+    <aura:attribute name="proposedTea" type="String" default=""/>
+    <aura:attribute name="finMarRecover" type="Double"/>
+	<aura:attribute name="inputObject" type="Object" />
+    
+    <div class="{!v.readOnly?'':'slds-modal__content slds-p-around_medium'}" >
         <aura:if isTrue="{!v.isLoad}">
-            <aura:if isTrue="{!v.hasRecord}">
-				<div class="slds-scrollable">
-					<table class="slds-table slds-table_bordered slds-table_cell-buffer" role="grid">
-						<thead>
-							<tr>
-								<aura:iteration items="{!v.objSetup.lstHead}" var="head" indexVar="i">
-									<th scope="col" class="slds-is-sortable slds-is-resizable">
-										{! i==1?$Label.c.Currency:head}
-									</th>
-								</aura:iteration>
-								<aura:if isTrue="{!!v.readOnly}">
-									<th scope="col" class="slds-is-sortable slds-is-resizable">
-										
-									</th>
-								</aura:if>
-							</tr>
-						</thead>
-						<tbody>
-							<aura:iteration items="{!v.objSetup.lstData}" var="row">
-								<c:CommitmentsRow_cmp row="{!row}" readOnly="{!v.readOnly}"/>
-							</aura:iteration>            
-						</tbody>
-					</table>
-				</div>
-            </aura:if>
             <aura:if isTrue="{!!v.readOnly}">
                 <lightning:button class="slds-m-top_small" variant="brand" label="{!$Label.c.AddCommitment}" onclick="{!c.doNew}" />
+            </aura:if>
+            <aura:if isTrue="{!v.hasRecord}">
+                <aura:if isTrue="{!!v.readOnly}">
+                    <br/><br/>
+                    <strong>Compromiso agregado</strong>
+                    <br/>
+                </aura:if>
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer" role="grid">
+                    <thead>
+                        <tr>
+                            <aura:iteration items="{!v.objSetup.lstHead}" var="head" indexVar="i">
+                                <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                    {! i==1?$Label.c.Currency:head}
+                                </th>
+                            </aura:iteration>
+                            <aura:if isTrue="{!!v.readOnly}">
+                                <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                    Acción
+                                </th>
+                            </aura:if>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.objSetup.lstData}" var="row">
+                            <c:CommitmentsRow_cmp row="{!row}" readOnly="{!v.readOnly}" idOli="{!v.idOli}" proposedTea="{!v.proposedTea}" inputObject="{!v.inputObject}"/>
+                        </aura:iteration>            
+                    </tbody>
+                </table>
+                <!--<br/>
+                <aura:if isTrue="{!v.quoteMethod == 'Web'}">
+                    <div>Margen Financiero Recuperado S/.</div>
+                    <div class="horizontal"><aura:if isTrue="{!!v.readOnly}"><lightning:icon iconName="utility:info" alternativeText="info" size="small"/>&nbsp;</aura:if>{!v.finMarRecover}</div>
+                </aura:if>-->
             </aura:if>
             <aura:set attribute="else">
                 <div style="height: 5em" class="slds-p-top_medium">
@@ -46,10 +58,10 @@
             </aura:set>
         </aura:if>
     </div>
-    <aura:if isTrue="{!!v.readOnly}">
+    <!--<aura:if isTrue="{!!v.readOnly}">
         <footer class="slds-modal__footer slds-theme_default">
             <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPC"/>
             <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
         </footer>
-    </aura:if>
+    </aura:if>-->
 </aura:component>

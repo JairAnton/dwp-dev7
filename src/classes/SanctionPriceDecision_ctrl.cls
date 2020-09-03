@@ -42,31 +42,20 @@ public with sharing class SanctionPriceDecision_ctrl {
 
 	/**Method for get information of price process **/
 	@AuraEnabled
-	public static Map<String, Object> getInfo(String recordIdOppLineItem) {
+	public static Map<String, Object> getInfo(String oliId, String uniqueNameTable) {
 		Map<String, Object> mapReturn = new Map<String, Object>();
-
-		List<OpportunityLineItem> lstOppLineItem = [SELECT Id,
+        List<OpportunityLineItem> lstOppLineItem = [SELECT Id,
 		                                            Product2.Name,
 		                                            Product2Id,
 		                                            proposed_fee_per__c,
 		                                            minimun_fee_per__c,
 		                                            OpportunityId,
 		                                            Opportunity.opportunity_status_type__c,
-		                                            Opportunity.CurrencyIsoCode
+		                                            Opportunity.CurrencyIsoCode,
+                                                    RORC_Client__c
 		                                            FROM OpportunityLineItem
-		                                            WHERE Id = :recordIdOppLineItem];
-		List<fprd__GBL_Product_Configuration__c> lstConfig = [SELECT Id,
-		                                                      fprd__Map_field__c,
-		                                                      fprd__Header__c,
-		                                                      fprd__Header_order__c,
-		                                                      fprd__LoV_values__c,
-		                                                      fprd__LoV_labels__c,
-		                                                      fprd__Label__c,
-		                                                      fprd__Type__c
-		                                                      FROM fprd__GBL_Product_Configuration__c
-		                                                      WHERE fprd__Product__c = :lstOppLineItem[0].Product2Id
-		                                                                               AND fprd__Header__c = true
-		                                                                                                     ORDER BY fprd__Header_order__c];
+		                                            WHERE Id = :oliId];
+		
 		try {
 			if(!lstOppLineItem.isEmpty() && lstOppLineItem[0].Opportunity.opportunity_status_type__c == SAPPROVED) {
 				//helper to call the service
@@ -90,24 +79,9 @@ public with sharing class SanctionPriceDecision_ctrl {
 			System.debug('error: ' + e);
 		}
 
-		Set<String> setFields = new Set<String>();
-		Map<String, Object> mapMapfieldConfig = new Map<String, Object>();
-		for(fprd__GBL_Product_Configuration__c prodConfig : lstConfig) {
-			setFields.add(prodConfig.fprd__Map_field__c);
-			mapMapfieldConfig.put(prodConfig.fprd__Map_field__c, prodConfig);
-		}
-		List<String> lstStringField = new List<String>(setFields);
-		mapReturn.put('lstInfoIsEmpty', lstStringField.isEmpty());
-		mapReturn.put('lstField', lstStringField);
 		mapReturn.put('lstOppLineItem', lstOppLineItem);
-		mapReturn.put('mapMapfieldConfig', mapMapfieldConfig);
-		if(!lstStringField.isEmpty()) {
-			Final List<SObject> lstRow = Database.query('SELECT ' + String.escapeSingleQuotes(String.join(lstStringField, ',')) + ' FROM OpportunityLineItem WHERE Id = :recordIdOppLineItem');
-			mapReturn.put('lstInfo', lstRow);
-		}
-
-		/**getSanctionPriceInfo*/
-		mapReturn.put('sanctionPriceInfo', getSanctionPriceInfo(recordIdOppLineItem));
+		mapReturn.put('lstSummarize', JSON.serialize(BE_CustomListField_Cls.createListField(oliId, uniqueNameTable)));
+		mapReturn.put('sanctionPriceInfo', getSanctionPriceInfo(oliId));
 
 		return mapReturn;
 	}
@@ -212,8 +186,8 @@ public with sharing class SanctionPriceDecision_ctrl {
 
 	/**Method for get information used to analist **/
 	@AuraEnabled
-	public static Map<String, Object> getInfoAnalist(String recordIdOppLineItem) {
-		Map<String, Object> mapReturn = new Map<String, Object>();
+	public static Map<String, Object> getInfoAnalist(String oliId, String uniqueNameTable) {
+        Map<String, Object> mapReturn = new Map<String, Object>();
 
 		List<OpportunityLineItem> lstOppLineItem = [SELECT Id,
 		                                            Product2.Name,
@@ -223,34 +197,9 @@ public with sharing class SanctionPriceDecision_ctrl {
 		                                            OpportunityId,
 		                                            Opportunity.CurrencyIsoCode
 		                                            FROM OpportunityLineItem
-		                                            WHERE Id = :recordIdOppLineItem];
-		List<fprd__GBL_Product_Configuration__c> lstConfig = [SELECT Id,
-		                                                      fprd__Map_field__c,
-		                                                      fprd__Header__c,
-		                                                      fprd__Header_order__c,
-		                                                      fprd__LoV_values__c,
-		                                                      fprd__LoV_labels__c,
-		                                                      fprd__Label__c,
-		                                                      fprd__Type__c
-		                                                      FROM fprd__GBL_Product_Configuration__c
-		                                                      WHERE fprd__Product__c = :lstOppLineItem[0].Product2Id
-		                                                                               AND fprd__Header__c = true
-		                                                                                                     ORDER BY fprd__Header_order__c];
-		Set<String> setFields = new Set<String>();
-		Map<String, Object> mapMapfieldConfig = new Map<String, Object>();
-		for(fprd__GBL_Product_Configuration__c prodConfig : lstConfig) {
-			setFields.add(prodConfig.fprd__Map_field__c);
-			mapMapfieldConfig.put(prodConfig.fprd__Map_field__c, prodConfig);
-		}
-		List<String> lstStringField = new List<String>(setFields);
-		mapReturn.put('lstInfoIsEmpty', lstStringField.isEmpty());
-		mapReturn.put('lstField', lstStringField);
+		                                            WHERE Id = :oliId];
 		mapReturn.put('lstOppLineItem', lstOppLineItem);
-		mapReturn.put('mapMapfieldConfig', mapMapfieldConfig);
-		if(!lstStringField.isEmpty()) {
-			Final List<SObject> lstRow = Database.query('SELECT ' + String.escapeSingleQuotes(String.join(lstStringField, ',')) + ' FROM OpportunityLineItem WHERE Id = :recordIdOppLineItem');
-			mapReturn.put('lstInfo', lstRow);
-		}
+		mapReturn.put('lstSummarize', JSON.serialize(BE_CustomListField_Cls.createListField(oliId, uniqueNameTable)));
 
 		List<Case> lstCases = [SELECT Id,
 		                       opportunity_id__c,
@@ -426,7 +375,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 
 		return mapReturn;
 	}
-
+    
 	/**Method for map parameters **/
 	public class Parameters {
 		/**
