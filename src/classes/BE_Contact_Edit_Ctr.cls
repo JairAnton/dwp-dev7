@@ -69,6 +69,7 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
         }
         return res;
     }
+	
     /** deleteContact */
     public BE_CustomQuickActionCRUD_Cls.Response deleteContact(Contact conOld,SObject sObj) {
         /**DELETE CONTACT RELATIONSHIP */
@@ -80,6 +81,7 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
         res.data=sObj;
         return res;
     }
+	
     /** createContact */
     public BE_CustomQuickActionCRUD_Cls.Response createContact(Contact conNew,SObject sObj) {
         /**CREATE CONTACT RELATIONSHIP */
@@ -90,6 +92,7 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
         res.data=sObj;
         return res;
     }
+	
     /** modifyContact */
     public BE_CustomQuickActionCRUD_Cls.Response modifyContact(Contact conNew, Contact conOld,SObject sObj) {
         /**MODIFY CONTACT RELATIONSHIP */
