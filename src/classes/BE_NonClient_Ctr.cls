@@ -37,7 +37,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
         			final BE_Client_Search_Helper.Response resClientSrv=BE_Client_Search_Helper.searchCliente(new Account(AccountNumber=strFielValueCode));
             		if (resClientSrv.isExistNonClient==true && resClientSrv.isSuccess) {
               			wrpAcc.clientName=resClientSrv.acc.Name;
-						wrpAcc.clientType=Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Record_Type_Client').getName();
+                        wrpAcc.clientType=Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Record_Type_Client').getName();
                         wrpAcc.code=resClientSrv.acc.AccountNumber;
               			lWrapper.add(wrpAcc);
                 	}

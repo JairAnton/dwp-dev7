@@ -33,6 +33,11 @@ public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContactRel(A
 	messages= new Map<String,String>();
 	final Integer existCounter=[SELECT COUNT() FROM AccountContactRelation WHERE AccountId=:nonClientCon.AccountId AND ContactId=:nonClientCon.ContactId];
 	if(existCounter==0) {
+		final List<String> sObjNames=new List<String> {'Account'};
+		final Map<String,Schema.RecordTypeInfo> recordType =BE_General_Utils.getRecordTypeInfo(sObjNames);
+		final String rtNonClientId = recordType.get('Record_Type_Non_Client').getRecordTypeId();
+		final Account nonClient=[SELECT RecordTypeId,Account.non_client_code__c FROM Account WHERE Id=:nonClientCon.AccountId];
+		if(rtNonClientId.equals(nonClient.RecordTypeId)) {
 			final BE_NonClient_CreateContact_REST request=new BE_NonClient_CreateContact_REST();
 			final System.HttpResponse response=request.invoke(placeholderMap);
 			switch on response.getStatusCode() {
@@ -64,6 +69,14 @@ public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContactRel(A
 					res.message=messages.get(UserInfo.getLanguage());
 				}
 			}
+		} else {
+			insert nonClientCon;
+			messages.put(LANG_CODE[0], 'Contacto creado correctamente');
+			messages.put(LANG_CODE[1], 'Contact created successfully');
+			res.isSuccess=true;
+			res.message=messages.get(UserInfo.getLanguage());
+			res.data.add(nonClientCon);	
+		}
 	} else {
 		messages.put(LANG_CODE[0], 'El no cliente ya tiene una relación con el contacto');
 		messages.put(LANG_CODE[1], 'There are relationship with the contact');
@@ -77,11 +90,11 @@ public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContactRel(A
    @param  SObject sObj
    @return BE_SingleRelatedListCRUD_Cls.Response response
  */
-public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContact(Contact contact,String accId) {
+public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContact(Contact contact,String accId, Boolean isDML) {
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
 	messages= new Map<String,String>();
 	try {
-			final Map<String, Object>placeholderMap=placeholderGeneratorContact(contact,accId);
+			final Map<String, Object> placeholderMap=placeholderGeneratorContact(contact,accId);
 			final BE_NonClient_CreateContact_REST request=new BE_NonClient_CreateContact_REST();
 			final System.HttpResponse response=request.invoke(placeholderMap);
         	System.debug('###response###'+response);
@@ -90,7 +103,9 @@ public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContact(Cont
 					final String contactCode=response.getHeader(KEY_HEADER);
 					contact.AccountId=accId;
 					contact.contact_code__c=contactCode.substringAfterLast('/');
-                    insert contact;
+					if(isDML) {
+						insert contact;
+					}
 					messages.put(LANG_CODE[0], 'Contacto creado correctamente');
 					messages.put(LANG_CODE[1], 'Contact created successfully');
 					res.isSuccess=true;
@@ -123,7 +138,7 @@ public static BE_SingleRelatedListCRUD_Cls.Response  createNonClientContact(Cont
    @param  AccountContactRelation nonClientCon
    @return Map<String, Object> placeholderMap
  */
-private static Map<String, Object>placeholderGeneratorAccConRel(AccountContactRelation nonClientCon) {
+private static Map<String, Object> placeholderGeneratorAccConRel(AccountContactRelation nonClientCon) {
 	final Account nonClient=[SELECT Account.non_client_code__c FROM Account WHERE Id=:nonClientCon.AccountId];
 	final Contact con=[SELECT LastName, FirstName FROM Contact WHERE Id=:nonClientCon.ContactId];
 	final BE_NonClient_CreateContact_REST.Params param=new BE_NonClient_CreateContact_REST.Params();
@@ -173,7 +188,7 @@ private static Map<String, Object>placeholderGeneratorAccConRel(AccountContactRe
    @param  String accId
    @return Map<String, Object> placeholderMap
  */
-private static Map<String, Object>placeholderGeneratorContact(Contact contact,String accId) {
+private static Map<String, Object> placeholderGeneratorContact(Contact contact,String accId) {
 	final Account nonClient=[SELECT Account.non_client_code__c FROM Account WHERE Id=:accId];
 	final BE_NonClient_CreateContact_REST.Params param=new BE_NonClient_CreateContact_REST.Params();
 	/** ROLES */

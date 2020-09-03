@@ -26,7 +26,7 @@ public without sharing class BE_NonClient_Contact_Ctr  extends BE_SingleRelatedL
     @return BE_SingleRelatedListCRUD_Cls.Response response
     */
     public override BE_SingleRelatedListCRUD_Cls.Response deleteRecords(List<SObject> sObjs) {
-      return BE_NonClient_DeleteContact_Helper.deleteNonClientContact(sObjs[0].Id);
+      return BE_NonClient_DeleteContact_Helper.deleteNonClientContact(sObjs[0].Id,true);
     }
 
     /**
@@ -35,6 +35,6 @@ public without sharing class BE_NonClient_Contact_Ctr  extends BE_SingleRelatedL
     @return BE_SingleRelatedListCRUD_Cls.Response response
     */
     public override BE_SingleRelatedListCRUD_Cls.Response updateRecords(List<SObject> sObjs) {
-      return BE_NonClient_ModifyContact_Helper.modifyNonClientContact(sObjs[0]);
+      return BE_NonClient_ModifyContact_Helper.modifyNonClientContact(sObjs[0],true,'AccountContactRelation');
     }
 }

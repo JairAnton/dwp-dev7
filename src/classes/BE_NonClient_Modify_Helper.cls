@@ -21,12 +21,14 @@ private BE_NonClient_Modify_Helper () {}
    @param  Account acc
    @return Object type BE_SingleRelatedListModal_Ctr.Response Class
  */
-public static BE_SingleRelatedListCRUD_Cls.Response  modifyNonClient(Account acc) {
-	messages = new Map<String,String>();
-	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
+public static BE_CustomQuickActionCRUD_Cls.Response  modifyNonClient(Account acc) {
+	final Map<String,String>messages= new Map<String,String>();
+	final BE_CustomQuickActionCRUD_Cls.Response res=new BE_CustomQuickActionCRUD_Cls.Response();
+	final String nonClientCode=[SELECT non_client_code__c FROM Account WHERE Id=:acc.Id].non_client_code__c;
 	final Map<String, Object>placeholderMap = placeholderGenerator(acc);
 	final BE_NonClient_Modify_REST request=new BE_NonClient_Modify_REST();
 	final System.HttpResponse response=request.invoke(placeholderMap);
+    System.debug('###response###'+response.getBody());
 		switch on response.getStatusCode() {
 			when 204 {
 				try {
@@ -68,7 +70,7 @@ public static BE_SingleRelatedListCRUD_Cls.Response  modifyNonClient(Account acc
    @param  Account acc
    @return Map<String, Object> with the nonClient
  */
-private static Map<String, Object>placeholderGenerator (Account acc) {
+private static Map<String, Object> placeholderGenerator (Account acc) {
 	final String nonClientCode=[SELECT non_client_code__c FROM Account WHERE Id=:acc.Id].non_client_code__c;
 	final Map<String, Object>placeholderMap=new Map<String, Object>();
 	placeholderMap.put('nonClientCode', nonClientCode);
