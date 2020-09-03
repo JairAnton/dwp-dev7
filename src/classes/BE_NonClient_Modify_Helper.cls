@@ -22,9 +22,8 @@ private BE_NonClient_Modify_Helper () {}
    @return Object type BE_SingleRelatedListModal_Ctr.Response Class
  */
 public static BE_CustomQuickActionCRUD_Cls.Response  modifyNonClient(Account acc) {
-	final Map<String,String>messages= new Map<String,String>();
+	messages= new Map<String,String>();
 	final BE_CustomQuickActionCRUD_Cls.Response res=new BE_CustomQuickActionCRUD_Cls.Response();
-	final String nonClientCode=[SELECT non_client_code__c FROM Account WHERE Id=:acc.Id].non_client_code__c;
 	final Map<String, Object>placeholderMap = placeholderGenerator(acc);
 	final BE_NonClient_Modify_REST request=new BE_NonClient_Modify_REST();
 	final System.HttpResponse response=request.invoke(placeholderMap);
@@ -72,7 +71,7 @@ public static BE_CustomQuickActionCRUD_Cls.Response  modifyNonClient(Account acc
  */
 private static Map<String, Object> placeholderGenerator (Account acc) {
 	final String nonClientCode=[SELECT non_client_code__c FROM Account WHERE Id=:acc.Id].non_client_code__c;
-	final Map<String, Object>placeholderMap=new Map<String, Object>();
+	final Map<String, Object> placeholderMap=new Map<String, Object>();
 	placeholderMap.put('nonClientCode', nonClientCode);
 	final BE_NonClient_Modify_REST.NonClient nonClient=new BE_NonClient_Modify_REST.NonClient();
 	/** LEGAL NAME */

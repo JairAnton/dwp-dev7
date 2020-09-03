@@ -60,7 +60,7 @@
         });
         $A.enqueueAction(action);
     },
-    updatesObject: function (cmp, evt, sObjectUpdate,actionApex) {
+    callApexMethod: function (cmp, evt, sObjectUpdate,actionApex) {
         cmp.set("v.loaded", false);
         var action = actionApex;
         action.setParams({

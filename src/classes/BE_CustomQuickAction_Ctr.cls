@@ -9,12 +9,13 @@
    2020-03-03  LMBR     lolo.bravo@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
-public without sharing class BE_CustomQuickAction_Ctr  {
-  private BE_CustomQuickAction_Ctr() {}
+public without sharing class BE_CustomQuickAction_Ctr {
   /** mapReturn */
   static Map<String,Object> mapReturn = new Map<String,Object>();
   /** Response variable */
   static BE_CustomQuickActionCRUD_Cls.Response res;
+  /** Private Constructor */
+  private BE_CustomQuickAction_Ctr() {}
   /**
      @Description get Metadata Config
      @param  nameMetadata DeveloperName of Metadata for QuickAction
@@ -53,13 +54,10 @@ public without sharing class BE_CustomQuickAction_Ctr  {
   public static Object createRecord(sObject sObj,String className) {
           res=new BE_CustomQuickActionCRUD_Cls.Response();
           if(String.isNotBlank(className)) {
-              BE_CustomQuickActionCRUD_Cls singleClas=(BE_CustomQuickActionCRUD_Cls)Type.forName(className).newInstance();
+              final BE_CustomQuickActionCRUD_Cls singleClas=(BE_CustomQuickActionCRUD_Cls)Type.forName(className).newInstance();
               res=singleClas.createRecord(sObj);
-          } else if(sObj!=null) {
-              res = returnResponse(sObj, 'insert');
           } else {
-              res.isSuccess=false;
-              res.message='Error null object';
+              res = returnResponse(sObj, 'insert');
           }
           return res;
   }
@@ -74,13 +72,10 @@ public without sharing class BE_CustomQuickAction_Ctr  {
   public static Object updateRecord(sObject sObj,String className) {
           res=new BE_CustomQuickActionCRUD_Cls.Response();
           if(String.isNotBlank(className)) {
-              BE_CustomQuickActionCRUD_Cls singleClas=(BE_CustomQuickActionCRUD_Cls)Type.forName(className).newInstance();
+              final BE_CustomQuickActionCRUD_Cls singleClas=(BE_CustomQuickActionCRUD_Cls)Type.forName(className).newInstance();
               res=singleClas.updateRecord(sObj);
-          } else if(sObj!=null) {
-              res = returnResponse(sObj, 'update');
           } else {
-              res.isSuccess=false;
-              res.message='Error null object';
+            res = returnResponse(sObj, 'update');
           }
           return res;
   }
@@ -95,13 +90,10 @@ public without sharing class BE_CustomQuickAction_Ctr  {
   public static Object deleteRecord(sObject sObj,String className) {
           res=new BE_CustomQuickActionCRUD_Cls.Response();
           if(String.isNotBlank(className)) {
-              BE_CustomQuickActionCRUD_Cls singleClas=(BE_CustomQuickActionCRUD_Cls)Type.forName(className).newInstance();
+              final BE_CustomQuickActionCRUD_Cls singleClas=(BE_CustomQuickActionCRUD_Cls)Type.forName(className).newInstance();
               res=singleClas.deleteRecord(sObj);
-          } else if(sObj!=null) {
-              res = returnResponse(sObj, 'delete');
           } else {
-              res.isSuccess=false;
-              res.message='Error null object';
+              res = returnResponse(sObj, 'delete');
           }
           return res;
   }
@@ -113,7 +105,7 @@ public without sharing class BE_CustomQuickAction_Ctr  {
    @return a Object type BE_CustomQuickActionCRUD_Cls.Response
   */
   public static BE_CustomQuickActionCRUD_Cls.Response returnResponse(sObject sObj , String action) {
-          res = new BE_CustomQuickActionCRUD_Cls.Response(true, 'Successful');
+          res = new BE_CustomQuickActionCRUD_Cls.Response(true, 'Successfull');
           try {
               switch on action {
                   when 'insert' {

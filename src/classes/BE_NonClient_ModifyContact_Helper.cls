@@ -16,6 +16,8 @@ private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
 private static final String DETAIL_TYPELAN='LANDLINE';
 /** messages */
 static Map<String,String> messages;
+/** placeholderMap */
+static Map<String, Object> placeholderMap;
 /** private constructor */
 private BE_NonClient_ModifyContact_Helper () {
 }
@@ -25,7 +27,6 @@ private BE_NonClient_ModifyContact_Helper () {
    @return BE_SingleRelatedListCRUD_Cls.Response response
  */
 public static BE_SingleRelatedListCRUD_Cls.Response  modifyNonClientContact(SObject sObj, Boolean isDML, String sObjectType) {
-	Map<String, Object> placeholderMap;
 	String recordTypeSObject;
 	final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
 	messages= new Map<String,String>();

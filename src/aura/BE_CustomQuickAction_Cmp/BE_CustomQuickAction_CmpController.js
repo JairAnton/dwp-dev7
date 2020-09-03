@@ -6,24 +6,22 @@
         evt.preventDefault();
         var fields = evt.getParam('fields');
         var initialsObject = { "sObjectType": cmp.get('v.sObjectType')};
-        var actionApex;
         switch (cmp.get("v.settings").modeAction) {
             case 'view':
-                actionApex=cmp.get("c.readRecord");
+                helper.callApexMethod(cmp, evt, JSON.stringify(initialsObject),cmp.get("c.readRecord"))
                 break;
             case 'create':
-                actionApex=cmp.get("c.createRecord");
                 var sObjectCreate = Object.assign(initialsObject, fields);
+                helper.callApexMethod(cmp, evt, JSON.stringify(sObjectCreate),cmp.get("c.createRecord"));
                 break;
             case 'update':
-                actionApex=cmp.get("c.updateRecord");
                 initialsObject.Id = cmp.get('v.recordId');
                 var sObjectUpdate = Object.assign(initialsObject, fields);
-                helper.updatesObject(cmp, evt, JSON.stringify(sObjectUpdate),actionApex);
+                helper.callApexMethod(cmp, evt, JSON.stringify(sObjectUpdate),cmp.get("c.updateRecord"));
                 break;
             case 'delete':
-                actionApex=cmp.get("c.deleteRecord");
                 initialsObject.Id = cmp.get('v.recordId');
+                helper.callApexMethod(cmp, evt, JSON.stringify(initialsObject),cmp.get("c.deleteRecord"));
                 break;
         }
     },

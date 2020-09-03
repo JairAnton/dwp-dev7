@@ -1,3 +1,14 @@
+/**
+   -------------------------------------------------------------------------------------------------
+   @Name <BE_CustomQuickActionCRUD_Cls>
+   @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
+   @Date 2020-09-03
+   @Description Interfase BE_CustomQuickActionCRUD_Cls
+   @Changes
+   Date        Author   Email                  Type
+   2020-09-03  LMBR     lolo.bravo@bbva.com    Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public virtual class BE_CustomQuickActionCRUD_Cls {
     /**RESPONSE */
     Response response;
