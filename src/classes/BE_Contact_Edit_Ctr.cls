@@ -22,7 +22,7 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
         final Contact conNew=(Contact)sObj;
         final Contact conOld=[SELECT ID,contact_code__c, AccountId,Account.RecordType.DeveloperName FROM Contact WHERE Id=:(Id)sObj.get('Id')];
 		final String rtAccDevNameNew = [SELECT Id, RecordType.DeveloperName FROM Account WHERE Id=:(Id)sObj.get('AccountId')].RecordType.DeveloperName;
-        String mixRecordType=conOld.Account.RecordType.DeveloperName+rtAccDevNameNew;
+        final String mixRecordType=conOld.Account.RecordType.DeveloperName+rtAccDevNameNew;
         switch on mixRecordType {
             when 'Record_Type_Non_ClientRecord_Type_Non_Client'  {
                 if( conOld.AccountId==conNew.AccountId) {

@@ -12,6 +12,8 @@
 public with sharing class BE_NonClient_DeleteContact_Helper {
 /** Lang Code */
 private static final List<String>LANG_CODE = new List<String> {'es','en_US'};
+/** Lang Code */
+private static final String NOT_EXIST_MSG = 'NO EXISTE EL CONTACTO';
 /** Response */
 private static  BE_SingleRelatedListCRUD_Cls.Response res;
 /** Message */
@@ -37,7 +39,7 @@ private BE_NonClient_DeleteContact_Helper () {}
 					placeholderMap.put('contactCode', nonClientCon.contact_code__c);
 					final BE_NonClient_DeleteContact_REST request=new BE_NonClient_DeleteContact_REST();
 					final System.HttpResponse response=request.invoke(placeholderMap);
-					res=manageResponse(response,nonClientCon);
+					res=manageResponse(response);
 				}
 				when else {
 					messages.put(LANG_CODE[0], listMessages[0]);
@@ -56,7 +58,7 @@ private BE_NonClient_DeleteContact_Helper () {}
 		return res;
 	}
 	/** manageResponse */
-	private static BE_SingleRelatedListCRUD_Cls.Response manageResponse(System.HttpResponse response,AccountContactRelation nonClientCon){
+	private static BE_SingleRelatedListCRUD_Cls.Response manageResponse(System.HttpResponse response) {
 		messages= new Map<String,String>();
 		res=new BE_SingleRelatedListCRUD_Cls.Response();
 		switch on response.getStatusCode() {
@@ -74,7 +76,7 @@ private BE_NonClient_DeleteContact_Helper () {}
 			}
 			when 400 {
 				final String responsewarning=response.getHeader('responsewarningdescription');
-				if(responsewarning=='NO EXISTE EL CONTACTO') {
+				if(responsewarning.equals(NOT_EXIST_MSG)) {
 					messages.put(LANG_CODE[0], listMessages[0]);
 					messages.put(LANG_CODE[1], listMessages[1]);
 					res.isSuccess=true;
