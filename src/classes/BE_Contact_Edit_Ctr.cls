@@ -10,47 +10,45 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRUD_Cls {
-    /** Lang Code */
-    private static final List<String> RECORD_TYPE = new List<String> {'Record_Type_Non_Client','Record_Type_Client'};
-    /** */
-    private static BE_CustomQuickActionCRUD_Cls.Response res;
+    /** Response */
+    static BE_CustomQuickActionCRUD_Cls.Response res ;
     /**
     @Description updateRecord
     @param  sObject sObj
     @return BE_CustomQuickActionCRUD_Cls.Response response
     */
     public override BE_CustomQuickActionCRUD_Cls.Response updateRecord(sObject sObj) {
-            res=new BE_CustomQuickActionCRUD_Cls.Response();
-            final Contact conNew=(Contact)sObj;
-            final Contact conOld=[SELECT ID,contact_code__c, AccountId,Account.RecordType.DeveloperName FROM Contact WHERE Id=:(Id)sObj.get('Id')];
-		    final String rtAccDevNameNew = [SELECT Id, RecordType.DeveloperName FROM Account WHERE Id=:(Id)sObj.get('AccountId')].RecordType.DeveloperName;
-            Integer type=conOld.Account.RecordType.DeveloperName==RECORD_TYPE[0] && rtAccDevNameNew==RECORD_TYPE[0] && conOld.AccountId!=conNew.AccountId?1:0;
-            type=conOld.Account.RecordType.DeveloperName==RECORD_TYPE[0] && rtAccDevNameNew==RECORD_TYPE[1]?2:0;
-            type=conOld.Account.RecordType.DeveloperName==RECORD_TYPE[1] && rtAccDevNameNew==RECORD_TYPE[0]?3:0;
-            type=conOld.Account.RecordType.DeveloperName==RECORD_TYPE[0] && rtAccDevNameNew==RECORD_TYPE[0] && conOld.AccountId==conNew.AccountId?4:0;
-            switch on type {
-                when 0 {
-                    res.isSuccess=true;
-                    res.message='Successfull';
-                    res.data=sObj;
-                }
-                when 1 {
-                    res = deleteCreateContact(conOld, conNew, sObj); 
-                }
-                when 2 {
-                    res = deleteContact(conOld, sObj); 
-                }
-                when 3 {
-                    res = createContact(conNew, sObj);
-                }
-                when 4 {
+        res=new BE_CustomQuickActionCRUD_Cls.Response();
+        final Contact conNew=(Contact)sObj;
+        final Contact conOld=[SELECT ID,contact_code__c, AccountId,Account.RecordType.DeveloperName FROM Contact WHERE Id=:(Id)sObj.get('Id')];
+		final String rtAccDevNameNew = [SELECT Id, RecordType.DeveloperName FROM Account WHERE Id=:(Id)sObj.get('AccountId')].RecordType.DeveloperName;
+        String mixRecordType=conOld.Account.RecordType.DeveloperName+rtAccDevNameNew;
+        switch on mixRecordType {
+            when 'Record_Type_Non_ClientRecord_Type_Non_Client'  {
+                if( conOld.AccountId==conNew.AccountId) {
                     res = modifyContact(conNew, conOld, sObj);
+                } else {
+                    res = deleteCreateContact(conOld, conNew, sObj);
                 }
             }
-            if(res.isSuccess) {
-                update sObj;
+            when 'Record_Type_Non_ClientRecord_Type_Client'{
+                /**DELETE CONTACT RELATIONSHIP */
+                res = deleteContact(conOld, sObj);
             }
-            return res;
+            when 'Record_Type_ClientRecord_Type_Non_Client'{
+                /**CREATE CONTACT RELATIONSHIP */
+                res = createContact(conNew, sObj); 
+            }
+            when else {
+                res.isSuccess=true;
+                res.message='Contacto Modificado Satisfactoriamente';
+                res.data=sObj;  
+            }
+        }
+        if(res.isSuccess) {
+            update sObj;
+        }
+        return res;
     }
 
     /** deleteCreateContact */
@@ -69,7 +67,6 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
         }
         return res;
     }
-	
     /** deleteContact */
     public BE_CustomQuickActionCRUD_Cls.Response deleteContact(Contact conOld,SObject sObj) {
         /**DELETE CONTACT RELATIONSHIP */
@@ -81,7 +78,6 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
         res.data=sObj;
         return res;
     }
-	
     /** createContact */
     public BE_CustomQuickActionCRUD_Cls.Response createContact(Contact conNew,SObject sObj) {
         /**CREATE CONTACT RELATIONSHIP */
@@ -92,7 +88,6 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
         res.data=sObj;
         return res;
     }
-	
     /** modifyContact */
     public BE_CustomQuickActionCRUD_Cls.Response modifyContact(Contact conNew, Contact conOld,SObject sObj) {
         /**MODIFY CONTACT RELATIONSHIP */
