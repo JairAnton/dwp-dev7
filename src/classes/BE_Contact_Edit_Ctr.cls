@@ -26,18 +26,18 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
         switch on mixRecordType {
             when 'Record_Type_Non_ClientRecord_Type_Non_Client'  {
                 if( conOld.AccountId==conNew.AccountId) {
-                    res = modifyContact(conNew, conOld, sObj);
+                    //res = modifyContact(conNew, conOld, sObj);
                 } else {
-                    res = deleteCreateContact(conOld, conNew, sObj);
+                    //res = deleteCreateContact(conOld, conNew, sObj);
                 }
             }
             when 'Record_Type_Non_ClientRecord_Type_Client'{
                 /**DELETE CONTACT RELATIONSHIP */
-                res = deleteContact(conOld, sObj);
+                //res = deleteContact(conOld, sObj);
             }
             when 'Record_Type_ClientRecord_Type_Non_Client'{
                 /**CREATE CONTACT RELATIONSHIP */
-                res = createContact(conNew, sObj); 
+                //res = createContact(conNew, sObj); 
             }
             when else {
                 res.isSuccess=true;
