@@ -54,7 +54,7 @@ private BE_NonClient_DeleteContact_Helper () {}
 		return res;
 	}
 	/** manageResponse */
-	private static BE_SingleRelatedListCRUD_Cls.Response manageResponse(System.HttpResponse response,AccountContactRelation nonClientCon,Boolean isDML){
+	private static BE_SingleRelatedListCRUD_Cls.Response manageResponse(System.HttpResponse response,AccountContactRelation nonClientCon,Boolean isDML) {
 		messages= new Map<String,String>();
 		res=new BE_SingleRelatedListCRUD_Cls.Response();
 		switch on response.getStatusCode() {
