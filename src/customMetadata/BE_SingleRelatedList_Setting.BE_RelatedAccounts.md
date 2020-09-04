@@ -161,7 +161,6 @@
             &quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
             &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
             &quot;defaultValue&quot;: &quot;ContactId&quot;,
-            &quot;redirect&quot;: &quot;false&quot;,
             &quot;label&quot;: {
                 &quot;es&quot;: &quot;Agregar relación&quot;,
                 &quot;en-US&quot;: &quot;Add Relationship&quot;
