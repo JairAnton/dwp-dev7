@@ -27,20 +27,13 @@ private static final List<String>SOBJNAME =new List<String> {'Account'};
 private static final String NOCLIENT_CODE='P0234234234';
 /** RUC */
 private static final String RUC='20000000002';
+/** Account Number*/
+private static final String ACC_NUMBER='10212210244';
 /**
-   @Description test BE_EditNonClient_Ctr.getFields(), correct scenary
+   @Description test BE_EditNonClient_Ctr.updateRecord(),correct scenary
  */
 @IsTest
-static void getFieldsTest() {
-	BE_NonClient_Edit_Ctr.getFields('BE_EditNonClient');
-	final BE_SingleRelatedList_QuickAction__mdt configMeta=(BE_SingleRelatedList_QuickAction__mdt) JSON.deserialize('{"DeveloperName":"TESTMETADATA_TST","MasterLabel":"Phone"}',BE_SingleRelatedList_QuickAction__mdt.class);
-	System.assertEquals('TESTMETADATA_TST',configMeta.DeveloperName,'Good');
-}
-/**
-   @Description test BE_EditNonClient_Ctr.updateNonClient(),correct scenary
- */
-@IsTest
-static void updateNonClientTestSucess() {
+static void updateRecordTestSucess() {
 	final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJNAME);
 	final Account nonClient=new Account(Name='NO CLIENT TEST ONE',AccountNumber=RUC,recordTypeId=recordType.get(RECORD_TYPE).getRecordTypeId(),non_client_code__c=NOCLIENT_CODE);
 	insert nonClient;
@@ -49,13 +42,14 @@ static void updateNonClientTestSucess() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 1","AccountNumber":"10212210244","email__c":"test@gmail.com","Website":"www.test.com","phone_area_code__c":"41","other_phone_number__c":"987654"}';
-	final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_NonClient_Edit_Ctr.updateNonClient(json);
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST ONE',AccountNumber=ACC_NUMBER,email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='41',other_phone_number__c='987654');
+	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
+	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
 	System.assert (res.isSuccess,'Success Edit Non Client');
 	Test.stopTest();
 }
 @IsTest
-static void updateNonClientTestServerError() {
+static void updateRecordTestServerError() {
 	final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJNAME);
 	final Account nonClient=new Account(Name='NO CLIENT TEST TWO',AccountNumber=RUC,recordTypeId=recordType.get(RECORD_TYPE).getRecordTypeId(),non_client_code__c=NOCLIENT_CODE);
 	insert nonClient;
@@ -64,13 +58,14 @@ static void updateNonClientTestServerError() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 2","AccountNumber":"10212210244"}';
-	final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_NonClient_Edit_Ctr.updateNonClient(json);
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST TWO',AccountNumber=ACC_NUMBER);
+	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
+	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
 	System.assert (!res.isSuccess,'Server error Edit Non Client');
 	Test.stopTest();
 }
 @IsTest
-static void updateNonClientTestError() {
+static void updateRecordTestError() {
 	final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJNAME);
 	final Account nonClient=new Account(Name='NO CLIENT TEST THREE',AccountNumber=RUC,recordTypeId=recordType.get(RECORD_TYPE).getRecordTypeId(),non_client_code__c=NOCLIENT_CODE);
 	insert nonClient;
@@ -79,16 +74,17 @@ static void updateNonClientTestError() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 3","AccountNumber":"10212210244"}';
-	final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_NonClient_Edit_Ctr.updateNonClient(json);
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST',AccountNumber=ACC_NUMBER);
+	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
+	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord(acc);
 	System.assert (!res.isSuccess,'Error Edit Non Client');
 	Test.stopTest();
 }
 /**
-   @Description test BE_EditNonClient_Ctr.updateNonClient(),correct scenary
+   @Description test BE_EditNonClient_Ctr.updateRecord(),correct scenary
  */
 @IsTest
-static void updateNonClientTestException() {
+static void updateRecordTestException() {
 	final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJNAME);
 	final Account nonClient=new Account(Name='NO CLIENT TEST FOUR',AccountNumber=RUC,recordTypeId=recordType.get(RECORD_TYPE).getRecordTypeId(),non_client_code__c=NOCLIENT_CODE);
 	insert nonClient;
@@ -97,16 +93,17 @@ static void updateNonClientTestException() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 4","AccountNumber":"10212210244","email__c":"test@gmail.com","Website":"www.test.com","phone_area_code__c":"00","other_phone_number__c":"987654"}';
-	final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_NonClient_Edit_Ctr.updateNonClient(json);
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST THREE',AccountNumber=ACC_NUMBER,email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='00',other_phone_number__c='987654');
+	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
+	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
 	System.assert (!res.isSuccess,'Exception Non Client');
 	Test.stopTest();
 }
 /**
-   @Description test BE_EditNonClient_Ctr.updateNonClient(),correct scenary
+   @Description test BE_EditNonClient_Ctr.updateRecord(),correct scenary
  */
 @IsTest
-static void updateNonClientAlphaTestError() {
+static void updateRecordAlphaTestError() {
 	final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJNAME);
 	final Account nonClient=new Account(Name='NO CLIENT TEST FIVE',AccountNumber=RUC,recordTypeId=recordType.get(RECORD_TYPE).getRecordTypeId(),non_client_code__c='EXISTENOCLIENTE');
 	insert nonClient;
@@ -115,21 +112,10 @@ static void updateNonClientAlphaTestError() {
 	Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 	Test.startTest();
-	final String json = '{"sobejctType":"Account","id":"'+nonClient.Id+'","Name":"NON CLIENT TEST 5","AccountNumber":"10212210244","email__c":"test@gmail.com","Website":"www.test.com","phone_area_code__c":"00","other_phone_number__c":"987654"}';
-	final BE_SingleRelatedListCRUD_Cls.Response res=(BE_SingleRelatedListCRUD_Cls.Response)BE_NonClient_Edit_Ctr.updateNonClient(json);
+	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST SS',AccountNumber=ACC_NUMBER,email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='00',other_phone_number__c='987654');
+	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
+	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
 	System.assert (!res.isSuccess,'Exception');
 	Test.stopTest();
-}
-/**
-   @Description test BE_EditNonClient_Ctr.updateNonClient(),correct scenary
- */
-@IsTest
-static void getNonClientTest() {
-	final Map<String,Schema.RecordTypeInfo>recordType=BE_General_Utils.getRecordTypeInfo(SOBJNAME);
-	final Account nonClient=new Account(Name='NO CLIENT TEST SIX',AccountNumber=RUC,recordTypeId=recordType.get(RECORD_TYPE).getRecordTypeId());
-	insert nonClient;
-	final List<String>fields = new List<String> {'Name','AccountNumber'};
-	final Account nonClientRes=BE_NonClient_Edit_Ctr.getNonClient(nonClient.Id,fields);
-	System.assertEquals(nonClient.Id, nonClientRes.Id,'Successs Account');
 }
 }

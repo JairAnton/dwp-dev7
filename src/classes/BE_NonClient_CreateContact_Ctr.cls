@@ -48,7 +48,7 @@ public static Object createNonClientContact(String sObjs, String sObjType,String
 	System.debug(sObjs);
 	switch on sObjType {
 		when 'Contact' {
-			res=BE_NonClient_CreateContact_Helper.createNonClientContact((Contact)JSON.deserialize(sObjs,Contact.Class),recordId);
+			res=BE_NonClient_CreateContact_Helper.createNonClientContact((Contact)JSON.deserialize(sObjs,Contact.Class),recordId,true);
 		}
 		when 'AccountContactRelation' {
 			res=BE_NonClient_CreateContact_Helper.createNonClientContactRel((AccountContactRelation)JSON.deserialize(sObjs,AccountContactRelation.Class));
