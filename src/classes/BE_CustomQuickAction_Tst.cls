@@ -65,26 +65,8 @@ public with sharing class BE_CustomQuickAction_Tst {
     */
     @IsTest
     static void createErrorMethodsTest() {
-    	final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.createRecord(null, '');
+    	final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.createRecord(new Contact(LastName='TestError',MobilePhone='9876543213'), '');
         System.assert(!resp.isSuccess, 'errorCreate!');
-    }
-    
-    /**
-     @Description test updateRecords method, incorrect scenary
-    */
-    @IsTest
-    static void updateErrorMethodsTest() {
-    	final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.updateRecord(null, '');
-        System.assert(!resp.isSuccess, 'errorUpdate!');
-    }
-    
-    /**
-     @Description test deleteRecords method, incorrect scenary
-    */
-    @IsTest
-    static void deleteErrorMethodsTest() {
-    	final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.deleteRecord(null, '');
-        System.assert(!resp.isSuccess, 'errorDelete!');
     }
 
     /**
