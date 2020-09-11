@@ -104,7 +104,7 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
            		if (res.isSuccess) {
            			objRespuesta.status='success';
          			objRespuesta.message=res.message;
-          			objRespuesta.nonClientCode=res.codeTrx;
+                    objRespuesta.nonClientCode=res.codeTrx;
      		} else {
               		objRespuesta.status='error';
                		objRespuesta.message=res.message;
@@ -140,7 +140,17 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
        /**Non Client Code */
        @AuraEnabled
        public String nonClientCode {set;get;}
-        
+       /**Non Client Code */
+       @AuraEnabled
+       public String branchId {set;get;}
+       /** public Validation */
+       public ResultValidation () {
+        final Integer sizeLst=0;
+        final List<User_Branch__c> userBranchLst=[SELECT ID,branch_name__c FROM User_Branch__c WHERE User__c=:UserInfo.getUserId()];
+        if(userBranchLst.size()>sizeLst){
+            this.branchId=userBranchLst[0].branch_name__c;
+        }
+       }
      }
      /** Don't use this method */
     @AuraEnabled
