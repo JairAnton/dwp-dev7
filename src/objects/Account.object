@@ -109,6 +109,7 @@
         <fields>Name</fields>
         <fields>RecordTypeId</fields>
         <fields>AccountNumber</fields>
+        <fields>branch_id__c</fields>
         <fields>OwnerId</fields>
         <label>Non Client</label>
     </compactLayouts>
@@ -511,6 +512,16 @@
         </availableFields>
         <description>It&apos;s used in the creation form of prospects.</description>
         <displayedFields>
+            <field>phone_area_code__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>other_phone_number__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
@@ -521,14 +532,19 @@
             <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>phone_area_code__c</field>
+            <field>economic_activity_sector__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>other_phone_number__c</field>
+            <field>OwnerId</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
         </displayedFields>
         <label>Non Client</label>
     </fieldSets>

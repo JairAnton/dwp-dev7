@@ -54,9 +54,6 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>helpText</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
                 <name>iconName</name>
                 <value>action:view_relationship</value>
             </componentInstanceProperties>
@@ -70,9 +67,9 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>{     &quot;es&quot;: &quot;Cuentas Relacionados&quot;,     &quot;en-US&quot;: &quot;Related Accounts&quot; }</value>
+                <value>{     &quot;es&quot;: &quot;Clientes Relacionados&quot;,     &quot;en-US&quot;: &quot;Related Clients&quot; }</value>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
