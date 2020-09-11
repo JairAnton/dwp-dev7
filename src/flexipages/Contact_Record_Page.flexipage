@@ -54,9 +54,6 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>helpText</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
                 <name>iconName</name>
                 <value>action:view_relationship</value>
             </componentInstanceProperties>
