@@ -7,7 +7,7 @@
                 <!--RECORD LABELS-->
                 <lightning-layout-item if:false={it.first} key={it.value.label} size="4" small-device-size="4"
                     medium-device-size="4" padding="horizontal-small">
-                    <div class="slds-text-align_left slds-text-color_weak">{it.value.label}:</div>
+                    <div if:true={it.value.label} class="slds-text-align_left slds-text-color_weak">{it.value.label}:</div>
                 </lightning-layout-item>
                 <!--FIRST RECORD VALUES-->
                 <lightning-layout-item if:true={it.first} key={it.value.value} size="11" small-device-size="10"

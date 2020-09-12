@@ -5,148 +5,153 @@
     <values>
         <field>Columns__c</field>
         <value xsi:type="xsd:string">{
-    &quot;values&quot;: [
-        {
-            &quot;label&quot;: &quot;Cliente&quot;,
-            &quot;fieldName&quot;: &quot;AccountId&quot;,
-            &quot;type&quot;: &quot;customlookup&quot;,
-            &quot;typeAttributes&quot;: {
-                &quot;isCustom&quot;: true,
-                &quot;fieldName&quot;: &quot;Id&quot;,
-                &quot;label&quot;: &quot;Name&quot;,
-                &quot;objectApiName&quot;: &quot;Account&quot;,
-                &quot;rowData&quot;: {
-                    &quot;fieldName&quot;: &quot;rowData&quot;
-                }
-            }
-        },
-        {
-            &quot;label&quot;: &quot;Contact Name&quot;,
-            &quot;fieldName&quot;: &quot;ContactId&quot;,
-            &quot;type&quot;: &quot;customlookup&quot;,
-            &quot;typeAttributes&quot;: {
-                &quot;isCustom&quot;: true,
-                &quot;fieldName&quot;: &quot;Id&quot;,
-                &quot;label&quot;: &quot;Name&quot;,
-                &quot;objectApiName&quot;: &quot;Contact&quot;,
-                &quot;rowData&quot;: {
-                    &quot;fieldName&quot;: &quot;rowData&quot;
-                }
-            }
-        },
-        {
-            &quot;label&quot;: &quot;Rol&quot;,
-            &quot;fieldName&quot;: &quot;calc_prof_position_type__c&quot;,
-            &quot;type&quot;: &quot;picklist&quot;
-        },
-        {
-            &quot;label&quot;: &quot;Email&quot;,
-            &quot;fieldName&quot;: &quot;email__c&quot;,
-            &quot;type&quot;: &quot;email&quot;
-        },
-        {
-            &quot;type&quot;: &quot;action&quot;,
-            &quot;typeAttributes&quot;: {
-                &quot;rowActions&quot;: [
-                    {
-                        &quot;name&quot;: &quot;view&quot;,
-                        &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
-                        &quot;label&quot;: {
-                            &quot;es&quot;: &quot;Ver relación&quot;,
-                            &quot;en-US&quot;: &quot;View Relationship&quot;
-                        },
-                        &quot;title&quot;: {
-                            &quot;es&quot;: &quot;Relación de contacto de cuenta&quot;,
-                            &quot;en-US&quot;: &quot;Account Contact Relationship&quot;
-                        }
-                    },
-                    {
-                        &quot;name&quot;: &quot;update&quot;,
-                        &quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
-                        &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
-                        &quot;title&quot;: {
-                            &quot;es&quot;: &quot;Modificar Relación de contacto de cuenta&quot;,
-                            &quot;en-US&quot;: &quot;Modify Account Contact Relationship&quot;
-                        },
-                        &quot;label&quot;: {
-                            &quot;es&quot;: &quot;Editar relación&quot;,
-                            &quot;en-US&quot;: &quot;Edit Relationship&quot;
-                        },
-                        &quot;fields&quot;: [
-                            {
-                                &quot;fieldName&quot;: &quot;ContactId&quot;,
-                                &quot;required&quot;: &quot;true&quot;,
-                                &quot;disabled&quot;: &quot;true&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;AccountId&quot;,
-                                &quot;required&quot;: &quot;true&quot;,
-                                &quot;disabled&quot;: &quot;true&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;prof_position_type__c&quot;,
-                                &quot;required&quot;: &quot;true&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;other_prof_prosition_type__c&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;decision_making_desc__c&quot;,
-                                &quot;required&quot;: &quot;true&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;MobilePhone__c&quot;,
-                                &quot;required&quot;: &quot;true&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;email__c&quot;,
-                                &quot;required&quot;: &quot;true&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;isDirect&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;phone_1_area_code__c&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;phone_1__c&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;phone_2_area_code__c&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;phone_2__c&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;events_info_type__c&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;Description__c&quot;
-                            }
-                        ]
-                    },
-                    {
-                        &quot;name&quot;: &quot;delete&quot;,
-                        &quot;label&quot;: {
-                            &quot;es&quot;: &quot;Eliminar relación&quot;,
-                            &quot;en-US&quot;: &quot;Remove Relationship&quot;
-                        },
-                        &quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
-                        &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
-                        &quot;title&quot;: {
-                            &quot;es&quot;: &quot;Eliminar Relación de contacto de cuenta&quot;,
-                            &quot;en-US&quot;: &quot;Delete Account Contact Relationship&quot;
-                        }
-                    }
-                ]
-            }
-        }
-    ]
+&quot;values&quot;: [
+{
+&quot;label&quot;: &quot;Name&quot;,
+&quot;fieldName&quot;: &quot;AccountId&quot;,
+&quot;type&quot;: &quot;customlookup&quot;,
+&quot;typeAttributes&quot;: {
+&quot;isCustom&quot;: true,
+&quot;fieldName&quot;: &quot;Id&quot;,
+&quot;label&quot;: &quot;Name&quot;,
+&quot;objectApiName&quot;: &quot;Account&quot;,
+&quot;rowData&quot;: {
+&quot;fieldName&quot;: &quot;rowData&quot;
+}
+}
+},
+{
+&quot;label&quot;: &quot;Contacto&quot;,
+&quot;fieldName&quot;: &quot;ContactId&quot;,
+&quot;type&quot;: &quot;customlookup&quot;,
+&quot;typeAttributes&quot;: {
+&quot;isCustom&quot;: true,
+&quot;fieldName&quot;: &quot;Id&quot;,
+&quot;label&quot;: &quot;Name&quot;,
+&quot;objectApiName&quot;: &quot;Contact&quot;,
+&quot;rowData&quot;: {
+&quot;fieldName&quot;: &quot;rowData&quot;
+}
+}
+},
+{
+&quot;label&quot;: &quot;Cargo&quot;,
+&quot;fieldName&quot;: &quot;calc_prof_position_type__c&quot;,
+&quot;type&quot;: &quot;picklist&quot;
+},
+{
+&quot;label&quot;: &quot;Decisor&quot;,
+&quot;fieldName&quot;: &quot;decision_making_desc__c&quot;,
+&quot;type&quot;: &quot;checkbox&quot;
+},
+{
+&quot;label&quot;: &quot;Celular&quot;,
+&quot;fieldName&quot;: &quot;MobilePhone__c&quot;,
+&quot;type&quot;: &quot;Phone&quot;
+},
+{
+&quot;type&quot;: &quot;action&quot;,
+&quot;typeAttributes&quot;: {
+&quot;rowActions&quot;: [
+{
+&quot;name&quot;: &quot;view&quot;,
+&quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
+&quot;label&quot;: {
+&quot;es&quot;: &quot;Ver relación&quot;,
+&quot;en-US&quot;: &quot;View Relationship&quot;
+},
+&quot;title&quot;: {
+&quot;es&quot;: &quot;Relación de contacto de cuenta&quot;,
+&quot;en-US&quot;: &quot;Account Contact Relationship&quot;
+}
+},
+{
+&quot;name&quot;: &quot;update&quot;,
+&quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
+&quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
+&quot;title&quot;: {
+&quot;es&quot;: &quot;Modificar Relación de contacto de cuenta&quot;,
+&quot;en-US&quot;: &quot;Modify Account Contact Relationship&quot;
+},
+&quot;label&quot;: {
+&quot;es&quot;: &quot;Editar relación&quot;,
+&quot;en-US&quot;: &quot;Edit Relationship&quot;
+},
+&quot;fields&quot;: [
+{
+&quot;fieldName&quot;: &quot;ContactId&quot;,
+&quot;required&quot;: &quot;true&quot;,
+&quot;disabled&quot;: &quot;true&quot;
+},
+{
+&quot;fieldName&quot;: &quot;AccountId&quot;,
+&quot;required&quot;: &quot;true&quot;,
+&quot;disabled&quot;: &quot;true&quot;
+},
+{
+&quot;fieldName&quot;: &quot;prof_position_type__c&quot;,
+&quot;required&quot;: &quot;true&quot;
+},
+{
+&quot;fieldName&quot;: &quot;other_prof_prosition_type__c&quot;
+},
+{
+&quot;fieldName&quot;: &quot;decision_making_desc__c&quot;,
+&quot;required&quot;: &quot;true&quot;
+},
+{
+&quot;fieldName&quot;: &quot;MobilePhone__c&quot;,
+&quot;required&quot;: &quot;true&quot;
+},
+{
+&quot;fieldName&quot;: &quot;email__c&quot;,
+&quot;required&quot;: &quot;true&quot;
+},
+{
+&quot;fieldName&quot;: &quot;isDirect&quot;
+},
+{
+&quot;fieldName&quot;: &quot;phone_1_area_code__c&quot;
+},
+{
+&quot;fieldName&quot;: &quot;phone_1__c&quot;
+},
+{
+&quot;fieldName&quot;: &quot;phone_2_area_code__c&quot;
+},
+{
+&quot;fieldName&quot;: &quot;phone_2__c&quot;
+},
+{
+&quot;fieldName&quot;: &quot;events_info_type__c&quot;
+},
+{
+&quot;fieldName&quot;: &quot;Description__c&quot;
+}
+]
+},
+{
+&quot;name&quot;: &quot;delete&quot;,
+&quot;label&quot;: {
+&quot;es&quot;: &quot;Eliminar relación&quot;,
+&quot;en-US&quot;: &quot;Remove Relationship&quot;
+},
+&quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
+&quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
+&quot;title&quot;: {
+&quot;es&quot;: &quot;Eliminar Relación de contacto de cuenta&quot;,
+&quot;en-US&quot;: &quot;Delete Account Contact Relationship&quot;
+}
+}
+]
+}
+}
+]
 }</value>
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Contact.Name,Account.Name,calc_prof_position_type__c,decision_making_desc__c,Contact_decisor__c,email__c</value>
+        <value xsi:type="xsd:string">Contact.Name,Account.Name,calc_prof_position_type__c,decision_making_desc__c,Contact_decisor__c,MobilePhone__c,email__c</value>
     </values>
     <values>
         <field>Filter__c</field>

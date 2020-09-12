@@ -537,7 +537,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>OwnerId</field>
+            <field>Website</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>

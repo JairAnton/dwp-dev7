@@ -18,7 +18,7 @@
         <actionName>Edit</actionName>
         <type>Default</type>
     </actionOverrides>
- <compactLayoutAssignment>Contact</compactLayoutAssignment>
+    <compactLayoutAssignment>Contact</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Contact</fullName>
         <fields>Name</fields>
