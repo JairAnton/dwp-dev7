@@ -67,7 +67,7 @@
                     },
                     {
                         &quot;name&quot;: &quot;update&quot;,
-                        &quot;className&quot;: &quot;BE_NonClientContact_Ctr&quot;,
+                        &quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
                         &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
                         &quot;title&quot;: {
                             &quot;es&quot;: &quot;Modificar Relación de contacto de cuenta&quot;,
@@ -136,7 +136,7 @@
                             &quot;es&quot;: &quot;Eliminar relación&quot;,
                             &quot;en-US&quot;: &quot;Remove Relationship&quot;
                         },
-                        &quot;className&quot;: &quot;BE_NonClientContact_Ctr&quot;,
+                        &quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
                         &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
                         &quot;title&quot;: {
                             &quot;es&quot;: &quot;Eliminar Relación de contacto de cuenta&quot;,
@@ -163,7 +163,7 @@
     &quot;values&quot;: [
         {
             &quot;name&quot;: &quot;insert&quot;,
-            &quot;className&quot;: &quot;BE_NonClientContact_Ctr&quot;,
+            &quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
             &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
             &quot;defaultValue&quot;: &quot;AccountId&quot;,
             &quot;label&quot;: {
