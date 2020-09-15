@@ -1,14 +1,14 @@
 /**
-----------------------------------------------------------------------------------------------------
-@Name <BE_NonClient_Ctr>
-@Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
-@Date 2020-02-24
-@Description Class Controller for Validate and create NonClient with global Cmp NonClient
-@Changes
-    Date        Author   Email                  Type        
-    2020-02-24  LMBR     lolo.bravo@bbva.com    Creation   
-----------------------------------------------------------------------------------------------------
-*/
+   ----------------------------------------------------------------------------------------------------
+   @Name <BE_NonClient_Ctr>
+   @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
+   @Date 2020-02-24
+   @Description Class Controller for Validate and create NonClient with global Cmp NonClient
+   @Changes
+    Date        Author   Email                  Type
+    2020-02-24  LMBR     lolo.bravo@bbva.com    Creation
+   ----------------------------------------------------------------------------------------------------
+ */
 global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interface_prospect {
     /** StatusCode Code */
     private static final List<String> VISIT_LANGUAGE = new List<String> {'es','en_US'};
@@ -70,14 +70,34 @@ global without sharing class BE_NonClient_Ctr implements nonc.NonClient_interfac
        /** code */
        public String code {set;get;}
 		/* Constructor whith params */
-       public WrapperAccount () {}
-       /* Constructor whith params */
-        public WrapperAccount (String clientID, String clientName, String ownerID) {
-            this.clientLink   = '/lightning/r/Account/' + clientID + '/view';
-            this.ownerLink    = '/lightning/r/User/' + ownerID + '/view';
-            this.clientName   = clientName;
-      }
-    }
+		public WrapperAccount (String clientID, String clientName, String ownerID) {
+			this.clientLink   = '/lightning/r/Account/' + clientID + '/view';
+			this.ownerLink    = '/lightning/r/User/' + ownerID + '/view';
+			this.clientName   = clientName;
+		}
+	}
+
+	/**
+	   @Description validate non client before save in Alpha DB and Salesforce.
+	   call API REST: ListBusiness,ListNonBusiness and CreateNonBusiness
+	   @param client sObject type Account wich contains the minimum information of NonClient
+	   @return  String type objRespuesta Class
+	 */
+	@AuraEnabled
+	global static String validateNonCliente(Account client) {
+		final Boolean isRucValid = BE_SearchClient_Helper.validateRUC(client.AccountNumber);
+		final ResultValidation objRespuesta = new ResultValidation();
+		if(isRucValid) {
+			objRespuesta.status = 'success';
+			objRespuesta.message = 'The Non Client create successfull';
+		} else {
+			objRespuesta.status = 'error';
+			objRespuesta.message = 'Please input a correct RUC format';
+		}
+		System.debug('JSON.serialize(objRespuesta)');
+		System.debug(JSON.serialize(objRespuesta));
+		return JSON.serialize(objRespuesta);
+	}
 
     /**
     @Description validate non client before save in Alpha DB and Salesforce.
