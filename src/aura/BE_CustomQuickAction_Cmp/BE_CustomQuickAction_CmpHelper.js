@@ -14,6 +14,7 @@
                 cmp.set("v.settings",ret);
                 this.getsObjectFields(cmp,evt,ret.sObjectType,ret.sObjectFields.fields);
             } else {
+                cmp.set("v.loaded", true);
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
         });
@@ -22,6 +23,10 @@
     getsObjectFields: function (cmp, evt, sObjectType,fields) {
         var action = cmp.get("c.getsObjFields");
         var recordId = cmp.get("v.recordId");
+        var currentFields = [];
+        for (const iterator of fields) {
+            currentFields.push(iterator.fieldName);
+        }
         action.setParams({
             "accId": recordId,
             "sObjFields": currentFields,
@@ -34,12 +39,16 @@
                 var targetObject = {
                     sObjectType: sObjectType,
                     fields: []
-                }
+                };
                 for (const iterator of fields) {
-                    object.fields.push({
-                        fieldName: iterator,
-                        value: this.isNotEmpty(res[iterator]) ? res[iterator] : ''
+                    let targetField = iterator;
+                    Object.defineProperty(targetField, 'value', {
+                        enumerable: false,
+                        configurable: false,
+                        writable: false,
+                        value: res[iterator.fieldName]
                     });
+                    targetObject.fields.push(targetField);
                 }
                 cmp.set("v.sObjData", targetObject);
                 console.log("sObjData");
@@ -47,6 +56,7 @@
             } else {
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
+            cmp.set("v.loaded", true);
         });
         $A.enqueueAction(action);
     },
@@ -62,6 +72,7 @@
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
                 if (res.isSuccess) {
+                    this.showToast('Success', res.message, 'success');
                     this.closeModal(cmp, evt);
                 } else {
                     this.showToast('Error', res.message, 'error');
@@ -69,6 +80,7 @@
             } else {
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
+            cmp.set("v.loaded", true);
         });
         $A.enqueueAction(action);
     },
