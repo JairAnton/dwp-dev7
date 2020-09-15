@@ -207,7 +207,7 @@
         <fields>CONTACT.FULL_NAME</fields>
         <fields>calc_prof_position_type__c</fields>
         <fields>decision_making_desc__c</fields>
-        <fields>ACCCONRELATION.IS_DIRECT</fields>
+        <fields>MobilePhone__c</fields>
         <relatedList>RelatedAccountContactRelationList</relatedList>
     </relatedLists>
     <relatedLists>

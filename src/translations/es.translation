@@ -153,7 +153,7 @@
         <name>BE_NonClient_ErrorMessage</name>
     </customLabels>
     <customLabels>
-        <label>Para dar de alta a un nuevo No Cliente debe acceder a la ficha de Prospectos y pulsar el botón &quot;Nuevo No Cliente&quot;</label>
+        <label>No es posible crear un cliente.</label>
         <name>BE_NotCreateEditAccount</name>
     </customLabels>
     <customLabels>
@@ -2801,7 +2801,7 @@
         <name>nonc__NClient_lbl_NoListView</name>
     </customLabels>
     <customLabels>
-        <label>No se encontraron registros con el nombre</label>
+        <label>No se encontraron registros con el el RUC y nombre</label>
         <name>nonc__NClient_lbl_No_accounts_under_name</name>
     </customLabels>
     <customLabels>
@@ -2813,7 +2813,7 @@
         <name>nonc__NClient_lbl_NotExistCustomField</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_NotExistCustomValue --></label>
+        <label>El &amp;Field&amp; : &amp;Valor&amp; ya existe.</label>
         <name>nonc__NClient_lbl_NotExistCustomValue</name>
     </customLabels>
     <customLabels>
@@ -2825,7 +2825,7 @@
         <name>nonc__NClient_lbl_NotExistsRT</name>
     </customLabels>
     <customLabels>
-        <label>Dueño</label>
+        <label>Gestor</label>
         <name>nonc__NClient_lbl_Owner</name>
     </customLabels>
     <customLabels>
@@ -2841,7 +2841,7 @@
         <name>nonc__NClient_lbl_Select_a_record_type</name>
     </customLabels>
     <customLabels>
-        <label>No Cliente %field% tiene similar RUC</label>
+        <label>No Cliente tiene similar RUC</label>
         <name>nonc__NClient_lbl_Similar</name>
     </customLabels>
     <customLabels>
@@ -2931,6 +2931,10 @@
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label>Nuevo Contacto</label>
+        <name>NewContact</name>
     </quickActions>
     <quickActions>
         <label>Evento</label>

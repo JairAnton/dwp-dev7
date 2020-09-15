@@ -109,6 +109,7 @@
         <fields>Name</fields>
         <fields>RecordTypeId</fields>
         <fields>AccountNumber</fields>
+        <fields>branch_id__c</fields>
         <fields>OwnerId</fields>
         <label>Non Client</label>
     </compactLayouts>
@@ -511,6 +512,16 @@
         </availableFields>
         <description>It&apos;s used in the creation form of prospects.</description>
         <displayedFields>
+            <field>phone_area_code__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>other_phone_number__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
@@ -521,14 +532,19 @@
             <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>phone_area_code__c</field>
+            <field>economic_activity_sector__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>other_phone_number__c</field>
+            <field>Website</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
         </displayedFields>
         <label>Non Client</label>
     </fieldSets>
@@ -1921,7 +1937,12 @@
         <columns>branch_id__c</columns>
         <columns>Owner_calculated__c</columns>
         <filterScope>Everything</filterScope>
-        <label>All Accounts</label>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Record_Type_Client</value>
+        </filters>
+        <label>Todos los Clientes</label>
     </listViews>
     <listViews>
         <fullName>BE_My_Non_Clients</fullName>
@@ -1949,7 +1970,7 @@
             <operation>equals</operation>
             <value>Account.Record_Type_Non_Client</value>
         </filters>
-        <label>No Clientes</label>
+        <label>Todo los No Clientes</label>
     </listViews>
     <listViews>
         <fullName>MyAccounts</fullName>
@@ -1960,6 +1981,11 @@
         <columns>segment_desc__c</columns>
         <columns>branch_id__c</columns>
         <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Record_Type_Client</value>
+        </filters>
         <label>My Accounts</label>
     </listViews>
     <listViews>
@@ -2687,7 +2713,7 @@
         <fullName>Record_Type_Non_Client</fullName>
         <active>true</active>
         <compactLayoutAssignment>BE_Acc_NonClient</compactLayoutAssignment>
-        <label>Non Client</label>
+        <label>No Cliente</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>

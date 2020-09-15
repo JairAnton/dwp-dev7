@@ -36,15 +36,14 @@ public static Response createNonClient(BE_NonClient_Create_REST.Params nonClient
 				acc.RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('Record_Type_Non_Client').getRecordTypeId();
 				acc.OwnerId=UserInfo.getUserId();
 				acc.non_client_code__c=res.codeTrx;
-        		System.debug('###Accc###'+acc);
 				res.isSuccess=true;
-            }
-        	when 400 {
-                res.isSuccess=false;
-            }
-        	when 500 {
-                res.isSuccess=false;
-            }
+      }
+      when 400 {
+        res.isSuccess=false;
+      }
+      when 500 {
+        res.isSuccess=false;
+      }
     }
 	return res;
 }
