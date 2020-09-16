@@ -209,7 +209,37 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>msgConfirmCancel</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>selectionType</name>
+                <value>Static</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>templateName</name>
+                <value>Account Planning - Datos del Grupo</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>visibilityHeader</name>
                 <value>true</value>
+            </componentInstanceProperties>
+            <componentName>dyfr:Dynamic_Form_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>editButton</name>
+                <value>{&quot;style&quot;:&quot;neutral&quot;,&quot;unactiveStyle&quot;:&quot;hidden&quot;,&quot;active&quot;:false}</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>msgConfirmCancel</name>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>selectionType</name>
@@ -224,6 +254,13 @@
                 <value>true</value>
             </componentInstanceProperties>
             <componentName>dyfr:Dynamic_Form_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>Facet-724a145f-9c31-4f9f-8151-71773a3934e8</name>
         <type>Facet</type>
@@ -280,7 +317,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Growth_Driver_Business_Plan</value>
+                <value>AP_Growth_Driver_Groups_PN</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -288,14 +325,20 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>{     &quot;es&quot;: &quot;Variables de crecimiento&quot;,     &quot;en-US&quot;: &quot;Variables de crecimiento&quot; }</value>
+                <value>{     &quot;es&quot;: &quot;Variables de crecimiento&quot;,     &quot;en-US&quot;: &quot;Growth Driver&quot; }</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>true</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -305,7 +348,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Growth_Driver_Summary</value>
+                <value>AP_Growth_Driver_Groups_Summary</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -313,14 +356,82 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>{     &quot;es&quot;: &quot;Variables de crecimiento&quot;,     &quot;en-US&quot;: &quot;Variables de crecimiento&quot; }</value>
+                <value>{     &quot;es&quot;: &quot;Variables de crecimiento&quot;,     &quot;en-US&quot;: &quot;Growth Driver&quot; }</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>false</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Growth_Driver_Clients_PN</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Variables de crecimiento&quot;,     &quot;en-US&quot;: &quot;Growth Driver&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
+                <criteria>
+                    <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>true</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Growth_Driver_Clients_Summary</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Variables de crecimiento&quot;,     &quot;en-US&quot;: &quot;Growth Driver&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
+                <criteria>
+                    <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>false</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -400,7 +511,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Potecial</value>
+                <value>Potencial</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
@@ -439,7 +550,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Commercial_Action_Commercial_Plan</value>
+                <value>AP_Commercial_Action_Groups_PC</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -451,11 +562,17 @@
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>true</rightValue>
                 </criteria>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
             </visibilityRule>
         </componentInstances>
         <componentInstances>
@@ -464,7 +581,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Commercial_Action_Summary</value>
+                <value>AP_Commercial_Action_Groups_Summary</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -476,10 +593,16 @@
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
             <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
                 <criteria>
                     <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>false</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -489,7 +612,69 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Opportunities_Commercial_Plan</value>
+                <value>AP_Commercial_Action_Clients_PC</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Acciones del Plan Comercial&quot;,     &quot;en-US&quot;: &quot;Commercial Action&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
+                <criteria>
+                    <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>true</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Commercial_Action_Clients_Summary</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Acciones del Plan Comercial&quot;,     &quot;en-US&quot;: &quot;Commercial Action&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <booleanFilter>1 AND 2</booleanFilter>
+                <criteria>
+                    <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>false</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Opportunities_Groups</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -500,6 +685,38 @@
                 <value>{     &quot;es&quot;: &quot;Oportunidades en progreso&quot;,     &quot;en-US&quot;: &quot;Opportunities in progress&quot; }</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Opportunities_Clients</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Oportunidades en progreso&quot;,     &quot;en-US&quot;: &quot;Opportunities in progress&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentName>BE_AP_VisitHighlightning_cmp</componentName>
@@ -510,7 +727,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Next_Visits_Commercial_Plan</value>
+                <value>AP_Next_Visits_Groups</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -521,6 +738,13 @@
                 <value>{     &quot;es&quot;: &quot;Proximas visitas&quot;,     &quot;en-US&quot;: &quot;Next visits&quot; }</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -528,7 +752,32 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Last_Visits_Commercial_Plan</value>
+                <value>AP_Next_Visits_Clients</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Proximas visitas&quot;,     &quot;en-US&quot;: &quot;Next visits&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Last_Visits_Groups</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -539,6 +788,38 @@
                 <value>{     &quot;es&quot;: &quot;Visitas pasadas&quot;,     &quot;en-US&quot;: &quot;Last visits&quot; }</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Last_Visits_Clients</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Visitas pasadas&quot;,     &quot;en-US&quot;: &quot;Last visits&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>Facet-6xzi4ku3jew</name>
         <type>Facet</type>
@@ -613,7 +894,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Growth_Driver_Summary</value>
+                <value>AP_Growth_Driver_Groups_Summary</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -624,6 +905,38 @@
                 <value>{     &quot;es&quot;: &quot;Variables de crecimiento&quot;,     &quot;en-US&quot;: &quot;Growth Driver&quot; }</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Growth_Driver_Clients_Summary</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Variables de crecimiento&quot;,     &quot;en-US&quot;: &quot;Growth Driver&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -649,7 +962,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Commercial_Action_Summary</value>
+                <value>AP_Commercial_Action_Groups_Summary</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -660,6 +973,13 @@
                 <value>{     &quot;es&quot;: &quot;Acciones del Plan Comercial&quot;,     &quot;en-US&quot;: &quot;Commercial Action&quot; }</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -667,7 +987,32 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Opportunities_Commercial_Plan</value>
+                <value>AP_Commercial_Action_Clients_Summary</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Acciones del Plan Comercial&quot;,     &quot;en-US&quot;: &quot;Commercial Action&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Opportunities_Groups</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -678,6 +1023,38 @@
                 <value>{     &quot;es&quot;: &quot;Oportunidades Comerciales&quot;,     &quot;en-US&quot;: &quot;Commercial Opportunities&quot; }</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Opportunities_Clients</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Oportunidades Comerciales&quot;,     &quot;en-US&quot;: &quot;Commercial Opportunities&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentName>BE_AP_VisitHighlightning_cmp</componentName>
@@ -688,7 +1065,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
-                <value>AP_Next_Visits_Commercial_Plan</value>
+                <value>AP_Next_Visits_Groups</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListType</name>
@@ -699,6 +1076,38 @@
                 <value>{     &quot;es&quot;: &quot;Proximas visitas&quot;,     &quot;en-US&quot;: &quot;Next visits&quot; }</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>AP_Next_Visits_Clients</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Proximas visitas&quot;,     &quot;en-US&quot;: &quot;Next visits&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>Facet-355f658c-c0c8-46b1-9f5e-896d0432c21c</name>
         <type>Facet</type>
@@ -769,6 +1178,52 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>iconName</name>
+                <value>standard:account</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metadataConfig</name>
+                <value>AP_Group_Clients</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>recordsToShow</name>
+                <value>4</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModel</name>
+                <value>Title Large</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModelAll</name>
+                <value>Title Large</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>titleCard</name>
+                <value>Clientes del Grupo</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>parentFieldApiName</name>
@@ -909,6 +1364,52 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>iconName</name>
+                <value>standard:account</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metadataConfig</name>
+                <value>AP_Group_Clients</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>recordsToShow</name>
+                <value>4</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModel</name>
+                <value>Title Large</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModelAll</name>
+                <value>Title Large</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>titleCard</name>
+                <value>Clientes del Grupo</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Record_Type_Economic_Group</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>parentFieldApiName</name>

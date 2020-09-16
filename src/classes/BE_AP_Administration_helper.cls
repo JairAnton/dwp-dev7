@@ -29,7 +29,8 @@ public without sharing class BE_AP_Administration_helper {
 	public static List<acpl__Account_Planning__c> getAP(String recordId) {
 		return [SELECT Id, Name, acpl__gf_ap_indvi_lock_edit_ind_type__c, acpl__participant_id__c, acpl__participant_id__r.Name,
 		        acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c, acpl__gf_ap_priority_type_name__c, acpl__proposal_manager_id__c,
-		        acpl__participant_id__r.OwnerId FROM acpl__Account_Planning__c WHERE Id = : recordId LIMIT 1];
+				acpl__participant_id__r.OwnerId, acpl__participant_id__r.parentId, acpl__participant_id__r.RecordType.DeveloperName 
+				FROM acpl__Account_Planning__c WHERE Id = : recordId LIMIT 1];
 	}
 
 	/*

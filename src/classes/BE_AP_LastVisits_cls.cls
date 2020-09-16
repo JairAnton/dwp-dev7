@@ -9,21 +9,11 @@
  *
  * @author Diego Carbajal
  */
-@SuppressWarnings('all')
 public with sharing class BE_AP_LastVisits_cls extends BE_SingleRelatedListCRUD_Cls {
 	/*
 	 * @Description  method readRecords
 	 */
 	public override BE_SingleRelatedListCRUD_Cls.Response readRecords(Map<String, Object> mapParams) {
-		Final BE_SingleRelatedListCRUD_Cls.Response res = new BE_SingleRelatedListCRUD_Cls.Response();
-		Final BE_SingleRelatedList_Ctr.Params param = new BE_SingleRelatedList_Ctr.Params();
-		param.sObjName = (String)mapParams.get('sObjName');
-		param.sObjFields = (String)mapParams.get('sObjFields');
-		param.filterSQOL = (String)mapParams.get('filterSQOL');
-		Final Id accId = BE_AP_Administration_helper.getAP((String) mapParams.get('recordId'))[0].acpl__participant_id__c;
-		res.isSuccess = true;
-		res.message = 'Success';
-		res.data = BE_SingleRelatedList_Ctr.getSOQLData(accId, param);
-		return res;
+		return BE_AP_RelatedVisits_helper_cls.readVisitRecords(mapParams);
 	}
 }

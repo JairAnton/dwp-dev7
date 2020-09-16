@@ -8,5 +8,6 @@ access="global">
     <c:bE_DynamicTablePresentation_Lwc metadataConfig="{!v.sObject.metadataConfig}" 
                                     tableModel="{!v.sObject.tableModel}" selectedfilter="{!v.sObject.selectedfilter}"
                                     viewAll="{!v.sObject.viewAll}" tableModelAll="{!v.sObject.tableModelAll}" 
-                                    titleCard="{!v.sObject.titleCard}" iconName="{!v.sObject.iconName}"/>
+                                    titleCard="{!v.sObject.titleCard}" iconName="{!v.sObject.iconName}" recordId="{!v.sObject.recordId}" 
+                                    enableReload="{!v.sObject.enableReload}"/>
 </aura:component>

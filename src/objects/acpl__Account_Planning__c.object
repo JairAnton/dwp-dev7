@@ -149,10 +149,11 @@
     <compactLayouts>
         <fullName>acpl__Account_Planning_Compact_Layout</fullName>
         <fields>Name</fields>
-        <fields>acpl__participant_id__c</fields>
-        <fields>acpl__gf_ap_priority_type_name__c</fields>
-        <fields>acpl__gf_ap_status_type_name__c</fields>
-        <fields>acpl__gf_ap_limit_date__c</fields>
+        <fields>AccountGroup__c</fields>
+        <fields>Account_RecordType__c</fields>
+        <fields>Account_ClientCode__c</fields>
+        <fields>AccountOwner__c</fields>
+        <fields>AccountBranch__c</fields>
         <label>Account Planning Compact Layout</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -167,6 +168,52 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>AccountBranch__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( acpl__participant_id__r.branch_id__c , acpl__participant_id__r.branch_id__r.Name , &quot;_self&quot;)</formula>
+        <label>Oficina principal</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountGroup__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(acpl__participant_id__r.ParentId,
+acpl__participant_id__r.Parent.Name, &quot;_self&quot;)</formula>
+        <label>Grupo</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountOwner__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(acpl__participant_id__r.OwnerId, 
+										acpl__participant_id__r.Owner.FirstName &amp; &quot; &quot; &amp; acpl__participant_id__r.Owner.LastName, &quot;_self&quot;)</formula>
+        <label>Gestor principal</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_ClientCode__c</fullName>
+        <externalId>false</externalId>
+        <formula>acpl__participant_id__r.main_code_id__c</formula>
+        <label>Código central</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_Planning_Administration__c</fullName>
         <externalId>false</externalId>
         <formula>IF( $Setup.AccountPlanning_Administration__c.Edit_Account_Planning__c || $Profile.Name == &apos;System Administrator&apos; || $Profile.Name == &quot;Migracion&quot; || $Profile.Name == &quot;Administrador del sistema&quot;, true, false)</formula>
@@ -174,6 +221,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Account_RecordType__c</fullName>
+        <externalId>false</externalId>
+        <formula>acpl__participant_id__r.RecordType.Name</formula>
+        <label>Tipo</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Strategic_desc__c</fullName>
@@ -1143,6 +1201,7 @@
     <recordTypes>
         <fullName>acpl__Account_Planning</fullName>
         <active>true</active>
+        <compactLayoutAssignment>acpl__Account_Planning_Compact_Layout</compactLayoutAssignment>
         <label>Account Planning</label>
         <picklistValues>
             <picklist>acpl__Group_has_PF__c</picklist>

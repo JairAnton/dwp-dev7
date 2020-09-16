@@ -3,7 +3,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
     ""reportName"": ""Account_Risk_Strategy"",
 ""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;1;false;;;;;Negocio BBVA;2;Estrategia;5;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;1;false;;;;;NEGOCIO BBVA;2;Estrategia;5;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;;;RENTABILIDAD_MONTHS;true;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Matrix"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -37,7 +37,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""showLink"":false,
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;1;false;;;;;Negocio BBVA;2;Rentabilidad;4;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;1;false;;;;;NEGOCIO BBVA;2;Rentabilidad;4;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;1;;Account_Banking_System_Debt__c_DIRECTA;false;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Matrix"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -71,7 +71,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""showLink"":false,
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;2;false;;;;;Negocio BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;2;false;;;;;NEGOCIO BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;1;;Account_Banking_System_Debt__c_INDIRECTA;false;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Matrix"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -105,7 +105,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""showLink"":false,
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;3;false;;;;;Negocio BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;3;false;;;;;NEGOCIO BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;1;;Account_Banking_System_Debt__c_INDIRECTA_DESC;false;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Matrix"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -125,7 +125,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""Symbol"":true,
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;5;false;;;;;Negocio BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;5;false;;;;;NEGOCIO BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;;;EVOLUCION_DEUDA_SBS_GRAPHIC;true;false;false;false;;c:Be_RelatedSobject_GraphicEvolution_cmp;"{
     ""defaultFilter"":""TOTAL"",
     ""title"":""EVOLUCIÓN DEUDA SBS"",
@@ -137,7 +137,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""filterValues"":""TOTAL,DIRECTA,PRESTAMO,COMEX,LEASING,DESCUENTO DE LETRAS,FACTORING,OTROS,INDIRECTA,AVALES Y FIANZAS,CARTA. CREDITO,ACEPTACIONES BANCARIAS (OTROS)"",
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;6;false;;;;;Negocio BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;6;false;;;;;NEGOCIO BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;;;EVOLUCION_CUOTA_SBS_GRAPHIC;true;false;false;false;;c:Be_RelatedSobject_GraphicEvolution_cmp;"{
     ""defaultFilter"":""TOTAL"",
     ""title"":""EVOLUCIÓN CUOTA SBS"",
@@ -149,12 +149,12 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""filterValues"":""TOTAL,DIRECTA,PRESTAMO,COMEX,LEASING,DESCUENTO DE LETRAS,FACTORING,OTROS,INDIRECTA,AVALES Y FIANZAS,CARTA. CREDITO,ACEPTACIONES BANCARIAS (OTROS)"",
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;6;false;;;;;Negocio BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;6;false;;;;;NEGOCIO BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;;;FACTURACION_Y_SPREAD;true;false;false;false;;c:Be_RelatedSobject_RelatedGroup_Profitability;"{
   ""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c"",
 ""sObjectName"":""Account""
-}";;false;;;1;false;;;;;Negocio BBVA;2;Evaluación de facturación y spread;3;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;1;false;;;;;NEGOCIO BBVA;2;Evaluación de facturación y spread;3;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;;;CUOTA_SBS_TOTAL;true;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Matrix"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -188,7 +188,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""showLink"":false,
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;1;false;;;;;Negocio BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;1;false;;;;;NEGOCIO BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;;;CUOTA_SBS_CURRENT_MONTH;true;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Summary"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -223,7 +223,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c"",
 ""sObjectName"":""Account""
-}";;false;;;7;false;;;;;Negocio BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;7;false;;;;;NEGOCIO BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;1;;Account_Banking_System_Debt__c_DIRECTA_DESC;false;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Matrix"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -243,7 +243,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""Symbol"":true,
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;4;false;;;;;Negocio BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;4;false;;;;;NEGOCIO BBVA;2;Información de cuota;1;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;;;DEUDA_SBS_TOTAL;true;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Matrix"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -277,7 +277,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""showLink"":false,
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;1;false;;;;;Negocio BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;1;false;;;;;NEGOCIO BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;1;;DEUDA_SBS_DIRECTA;false;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Summary"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -292,7 +292,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""Order"":""product_group_classification_order__c ASC"",
 ""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;2;false;;;;;Negocio BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;2;false;;;;;NEGOCIO BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;1;;DEUDA_SBS_DIRECTA_DESC;false;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Summary"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -306,7 +306,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""Order"":""product_desc_order__c ASC"",
 ""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;4;false;;;;;Negocio BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;4;false;;;;;NEGOCIO BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;;;RENTABILIDAD_YEARS;true;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Summary"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -341,7 +341,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c"",
 ""sObjectName"":""Account""
-}";;false;;;2;false;;;;;Negocio BBVA;2;Rentabilidad;4;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;2;false;;;;;NEGOCIO BBVA;2;Rentabilidad;4;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;1;;DEUDA_SBS_INDIRECTA_DESC;false;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Summary"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -355,7 +355,7 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""Order"":""product_desc_order__c ASC"",
 ""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;5;false;;;;;Negocio BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;5;false;;;;;NEGOCIO BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;1;;DEUDA_SBS_INDIRECTA;false;false;false;false;;c:Be_RelatedSobject_Dynamic_Tablecontent_Cmp;"{
     ""Type"":""Summary"",
     ""customLabelAPInameError"":""AccountNoData"",
@@ -370,5 +370,54 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 	""Order"":""product_group_classification_order__c ASC"",
 ""sObjTypeReference"":""acpl__Account_Planning__c"",
 	""fieldReference"":""acpl__participant_id__c""
-}";;false;;;3;false;;;;;Negocio BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
+}";;false;;;3;false;;;;;NEGOCIO BBVA;2;Información de Deuda SBS;2;AP_Client_Data_Tab;;lightning component;;;;;
 0;false;;;AP_Strategic_Field;true;false;false;true;Descripción de estrategia;;;;false;Strategic_desc__c;;1;false;;;;;Estrategía de la compañia;1;;;AP_Strategic_Tab;;textAreaLong;;;;;
+0;false;;;EconomicGroup_BBVA_SBS_Information;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
+    ""titleCard"": ""DETALLE POR BANCO DEUDA (TOTAL D+I) SBS"",
+""tableModel"":""Basic"",
+""metadataConfig"":""Economic_Group_BankingDebt"",
+""viewAll"":true,
+""showTotalRecords"": false
+}";;false;;;1;false;;;;;NEGOCIO BBVA;1;INFORMACIÓN DE DEUDA BBVA Y SBS;1;AP_Group_Data_Tab;;lightning component;;;;;
+0;false;;;EconomicGroup_Profitability_Year;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
+    ""titleCard"": """",
+""tableModel"":""Basic"",
+""metadataConfig"":""Economic_Group_Profitability"",
+""viewAll"":true,
+""showTotalRecords"":false
+}";;false;;;1;false;;;;;NEGOCIO BBVA;1;RENTABILIDAD (acumulado de año);4;AP_Group_Data_Tab;;lightning component;;;;;
+0;false;;;EconomicGroup_BBVA_Debt_Fee;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
+    ""titleCard"": ""DEUDA Y CUOTA BBVA"",
+""tableModel"":""Basic"",
+""metadataConfig"":""Economic_Group_Debt_Fee_BBVA"",
+""viewAll"":true,
+""showTotalRecords"":false
+}";;false;;;2;false;;;;;NEGOCIO BBVA;1;INFORMACIÓN DE DEUDA BBVA Y SBS;1;AP_Group_Data_Tab;;lightning component;;;;;
+0;false;;;EconomicGroup_AccountIncome_SMA;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
+    ""titleCard"": ""SALDO MEDIO ANUAL"",
+""tableModel"":""Basic"",
+""metadataConfig"":""Economic_Group_AccountIncome"",
+""viewAll"":true,
+""showTotalRecords"": false
+}";;false;;;1;false;;;;;NEGOCIO BBVA;1;INGRESOS EN CUENTA;2;AP_Group_Data_Tab;;lightning component;;;;;
+0;false;;;EconomicGroup_Spread_Rate;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
+    ""titleCard"": ""SPREAD Y TASA "",
+""tableModel"":""Basic"",
+""metadataConfig"":""Economic_Group_Spread_Rate"",
+""viewAll"":true,
+""showTotalRecords"": false
+}";;false;;;2;false;;;;;NEGOCIO BBVA;1;FACTURACIÓN Y SPREAD;3;AP_Group_Data_Tab;;lightning component;;;;;
+0;false;;;EconomicGroup_Position_SM;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
+    ""titleCard"": ""POSICION (Saldo Medio)"",
+""tableModel"":""Basic"",
+""metadataConfig"":""Economic_Group_Position"",
+""viewAll"":true,
+""showTotalRecords"":false
+}";;false;;;3;false;;;;;NEGOCIO BBVA;1;INFORMACIÓN DE DEUDA BBVA Y SBS;1;AP_Group_Data_Tab;;lightning component;;;;;
+0;false;;;EconomicGroup_ProfitabilityBilling;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
+    ""titleCard"": ""FACTURACION"",
+""tableModel"":""Basic"",
+""metadataConfig"":""Economic_Group_ProfitabilityBilling"",
+""viewAll"":true,
+""showTotalRecords"": false
+}";;false;;;1;false;;;;;NEGOCIO BBVA;1;FACTURACIÓN Y SPREAD;3;AP_Group_Data_Tab;;lightning component;;;;;

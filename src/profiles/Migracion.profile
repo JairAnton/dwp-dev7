@@ -191,10 +191,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_AP_HomeView_GOF_cls</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_AP_LastVisits_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -224,10 +220,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_AP_Permission_tst</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BE_AccountPlanning_HomeView_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

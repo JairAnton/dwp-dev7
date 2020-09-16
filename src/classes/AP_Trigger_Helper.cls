@@ -54,7 +54,7 @@ public without sharing class AP_Trigger_Helper {
 		Final List<String> lstDeveloperNames = new List<String>();
 		for(String apId:triggerOldMap.keySet()) {
 			for(Integer i = 1; i <= triggerOldMap.get(apId).acpl__gf_ap_question_form_number__c; i++) {
-				Final String dvName = apId + '_' + i;
+				Final String dvName = apId + '_Q' + i;
 				lstDeveloperNames.add(dvName);
 			}
 		}
@@ -147,7 +147,8 @@ public without sharing class AP_Trigger_Helper {
 			//Obtiene las acciones comerciales relacionadas al AP
 			Final Map<Id, acpl__Commercial_Plan_Event__c> mapCPE = new Map<Id, acpl__Commercial_Plan_Event__c>([SELECT Id, acpl__gf_account_planning_id__c, Comments__c, Name, acpl__gf_event_date__c,
 			                                                                                                    acpl__gf_account_planning_id__r.acpl__participant_id__r.Name, acpl__gf_comm_plan_event_type_name__c, Asiggned_User__c,
-			                                                                                                    acpl__gf_account_planning_id__r.acpl__proposal_manager_id__c, acpl__gf_account_planning_id__r.acpl__participant_id__c
+																												acpl__gf_account_planning_id__r.acpl__proposal_manager_id__c, acpl__gf_account_planning_id__r.acpl__participant_id__c, 
+																												acpl__gf_account_planning_id__r.acpl__participant_id__r.RecordType.DeveloperName, ClientAssigned__c, ClientAssigned__r.Name 
 			                                                                                                    FROM acpl__Commercial_Plan_Event__c WHERE acpl__gf_account_planning_id__c IN: validatedAP.keySet()]);
 			Final Integer mapCPESize = mapCPE.size();
 			if(mapCPESize > 0) {
