@@ -32,10 +32,13 @@ public virtual class Be_DTP_ResponseModel_cls {
 		@AuraEnabled
 		public List<Object> data {set; get;}
         
-		/**Constructor Response*/
+		/**Constructor Response with param*/
 		public Response(Boolean isSuccess) {
 			this.isSuccess = isSuccess;
 		}
+
+		/**Constructor Response*/
+		public Response() {}
         
 	}
 }
