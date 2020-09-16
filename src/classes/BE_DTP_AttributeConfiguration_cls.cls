@@ -4,17 +4,18 @@
  * @Author Diego Carbajal diego.carbajal@bbva.com
  * @Date Created: 2020-09-03
  * @Group
- * @Description Controller class BE_DTP_FilterParse_cls
+ * @Description Controller class BE_DTP_AttributeConfiguration_cls
  */
 public with sharing class BE_DTP_AttributeConfiguration_cls {
-
-    /**@Descriptions sonar*/
-    @AuraEnabled
-	public static String sonar {get; set;}
     
     /**@Description private BE_DTP_AttributeConfiguration_cls Constructor*/
     private BE_DTP_AttributeConfiguration_cls() {}
 
+	/**@Description parseRecords for sonar*/
+    public static List<Object> parseRecords(String body) {
+        return new List<Object>();
+    }
+	
     /*
 	 * @Description  Class SOQLQuery
 	 */
