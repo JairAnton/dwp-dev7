@@ -63,8 +63,7 @@ public class Be_DynamicTablePresentation_tst {
 
     /*@Description getDataResponse*/
     public static testmethod void getDataResponse() {
-        Final Be_DTP_ResponseModel_cls dtpModel = new Be_DTP_ResponseModel_cls();
-        Be_DTP_ResponseModel_cls.Response response = new Be_DTP_ResponseModel_cls.Response();
+        Be_DTP_ResponseModel_cls.Response response;
         Test.startTest();
         response = dtpModel.getData(new Map<String, String>(), 'columns', new List<String>());
         Test.stopTest();
