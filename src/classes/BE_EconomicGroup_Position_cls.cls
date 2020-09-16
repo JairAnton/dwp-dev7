@@ -22,7 +22,7 @@ public with sharing class BE_EconomicGroup_Position_cls extends Be_DTP_ResponseM
         Final list<AggregateResult> listInfoBBVA = [SELECT account_id__r.Id clientId, product_group_classification_id__c, type__c, 
                                             MIN(account_id__r.bank_turnover_volume_amount__c) exp1, SUM(average_balance_amount__c) exp2 
                                             FROM Account_BBVA_Information__c where account_id__r.ParentId IN: replaceField AND
-                                            type__c IN ('01', '02') AND product_group_classification_id__c != '' AND 
+                                            type__c IN ('01', '02') AND product_group_classification_id__c NOT IN ('') AND 
                                             is_last_date__c = true GROUP BY account_id__r.id, product_group_classification_id__c, 
                                             type__c ORDER BY account_id__r.Id];
         Final Map<Id, List<AggregateResult>> mapAggr = generateMapAggregate(listInfoBBVA);
