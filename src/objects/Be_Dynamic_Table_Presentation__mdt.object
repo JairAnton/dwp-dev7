@@ -28,6 +28,15 @@
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
     </fields>
+    <fields>
+        <fullName>Replace_Fields_Configuration__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Replace Fields Configuration</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
     <label>Dynamic Table Presentation</label>
     <pluralLabel>Dynamic Table Presentations</pluralLabel>
     <visibility>Public</visibility>
