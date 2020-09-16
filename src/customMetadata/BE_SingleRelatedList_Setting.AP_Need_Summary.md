@@ -70,6 +70,10 @@
         <value xsi:type="xsd:double">6.0</value>
     </values>
     <values>
+        <field>Settings__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>sObjectApiName__c</field>
         <value xsi:type="xsd:string">bupl__BP_Need__c</value>
     </values>

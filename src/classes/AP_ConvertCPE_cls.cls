@@ -12,6 +12,10 @@
 public without sharing class AP_ConvertCPE_cls {
     /** @Description  TASK*/
     private static Final String TASK = 'Task';
+    /** @Description  NAME*/
+    private static Final String NAME = 'Name';
+    /** @Description  NAME*/
+    private static Final String RT_ECO_GRP = 'Record_Type_Economic_Group';
 	/*
 	 * @Description  private constructor
 	 */
@@ -101,7 +105,7 @@ public without sharing class AP_ConvertCPE_cls {
 		for(dwp_kitv__Visit__c visit: newVisitCPE) {
 			//1. mapCPEPartner contiene los Asiggned_User__c de los acpl__Commercial_Plan_Event__c
 			//2. mapUser verifica si el usuario en Asiggned_User__c esta activo
-			//3. Verifica que el Asiggned_User__c no se encuentre como VMT en el equipo de la visita (creaci�n automatica)
+			//3. Verifica que el Asiggned_User__c no se encuentre como VMT en el equipo de la visita (creación automatica)
 			if(mapCPEPartner.containsKey(visit.commercial_plan_event__c) && mapUser.containsKey(mapCPEPartner.get(visit.commercial_plan_event__c)) &&
 			   (mapVMT.isEmpty() || !mapVMT.get(visit.Id).contains(mapCPEPartner.get(visit.commercial_plan_event__c)))) {
 				newVMT.add(new dwp_kitv__Visit_Management_Team__c(dwp_kitv__user_id__c = mapCPEPartner.get(visit.commercial_plan_event__c), dwp_kitv__visit_id__c = visit.Id));
@@ -129,7 +133,7 @@ public without sharing class AP_ConvertCPE_cls {
 		for(Opportunity opp: newOppCPE) {
 			//1. mapCPEPartner contiene los Asiggned_User__c de los acpl__Commercial_Plan_Event__c
 			//2. mapUser verifica si el usuario en Asiggned_User__c esta activo
-			//3. Verifica que el Asiggned_User__c no se encuentre como VMT en el equipo de la visita (creaci�n automatica)
+			//3. Verifica que el Asiggned_User__c no se encuentre como VMT en el equipo de la visita (creación automatica)
 			if(mapCPEPartner.containsKey(opp.commercial_plan_event__c) && mapUser.containsKey(mapCPEPartner.get(opp.commercial_plan_event__c)) &&
 			   (mapATM.isEmpty() || !mapATM.get(opp.Id).contains(mapCPEPartner.get(opp.commercial_plan_event__c)))) {
 				newATM.add(new OpportunityTeamMember(UserId = mapCPEPartner.get(opp.commercial_plan_event__c), OpportunityId = opp.Id));
@@ -139,33 +143,56 @@ public without sharing class AP_ConvertCPE_cls {
 	}
 
 	/*
-	 * @Description  setNewVisit for sonar
+	 * @Description  setNewVisit
 	 */
 	private static List<dwp_kitv__Visit__c> setNewVisit(acpl__Commercial_Plan_Event__c cpe, Set<Id> idsCPEVisit, List<dwp_kitv__Visit__c> newVisitCPE) {
 		if(cpe.acpl__gf_comm_plan_event_type_name__c == 'Visit' && !idsCPEVisit.contains(cpe.Id)) {
-			newVisitCPE.add(new dwp_kitv__Visit__c(dwp_kitv__visit_purpose_type__c = '01', dwp_kitv__account_id__c = cpe.acpl__gf_account_planning_id__r.acpl__participant_id__c,
-			                                       Name = 'Visita AP - ' + cpe.acpl__gf_account_planning_id__r.acpl__participant_id__r.Name + ' ' + String.valueOf(cpe.acpl__gf_event_date__c).left(10),
+			Final Map<String, String> mapClient = getMapClientAssigned(cpe);
+			newVisitCPE.add(new dwp_kitv__Visit__c(dwp_kitv__visit_purpose_type__c = '01', dwp_kitv__account_id__c = mapClient.get('Id'),
+			                                       Name = 'Visita AP - ' + mapClient.get(NAME) + ' ' + String.valueOf(cpe.acpl__gf_event_date__c).left(10),
 			                                       OwnerId = cpe.acpl__gf_account_planning_id__r.acpl__proposal_manager_id__c, dwp_kitv__visit_desc__c = cpe.Comments__c, dwp_kitv__visit_duration_number__c = '30',
 			                                       dwp_kitv__visit_start_date__c = Date.today().addMonths(2), commercial_plan_event__c = cpe.Id));
 		}
 		return newVisitCPE;
 	}
 
+	/*
+	 * @Description  setNewOpp
+	 */
 	private static List<Opportunity> setNewOpp(acpl__Commercial_Plan_Event__c cpe, Set<Id> idsCPEOpp, List<Opportunity> newOppCPE) {
 		if(cpe.acpl__gf_comm_plan_event_type_name__c == 'Opportunity' && !idsCPEOpp.contains(cpe.Id)) {
-			newOppCPE.add(new Opportunity(AccountId = cpe.acpl__gf_account_planning_id__r.acpl__participant_id__c, StageName = '02', opportunity_status_type__c = '03',
-			                              Name = 'Oportunidad AP - ' + cpe.acpl__gf_account_planning_id__r.acpl__participant_id__r.Name + ' ' + String.valueOf(cpe.acpl__gf_event_date__c).left(10),
+			Final Map<String, String> mapClient = getMapClientAssigned(cpe);
+			newOppCPE.add(new Opportunity(AccountId = mapClient.get('Id'), StageName = '02', opportunity_status_type__c = '03',
+			                              Name = 'Oportunidad AP - ' + mapClient.get(NAME) + ' ' + String.valueOf(cpe.acpl__gf_event_date__c).left(10),
 			                              CloseDate = Date.today().addMonths(2), Field_Sup_Closing_Date__c = Date.today().addMonths(2), Description = cpe.Comments__c, commercial_plan_event__c = cpe.Id,
 			                              opportunity_planning_date__c = Date.today().addDays(14), OwnerId = cpe.acpl__gf_account_planning_id__r.acpl__proposal_manager_id__c));
 		}
 		return newOppCPE;
 	}
 
+	/*
+	 * @Description  setNewTask
+	 */
 	private static List<Task> setNewTask(acpl__Commercial_Plan_Event__c cpe, Set<Id> idsCPETask, List<Task> newTaskCPE) {
 		if((cpe.acpl__gf_comm_plan_event_type_name__c == TASK || cpe.acpl__gf_comm_plan_event_type_name__c == 'Call') && !idsCPETask.contains(cpe.Id)) {
 			newTaskCPE.add(new Task(OwnerId = (String.isBlank(cpe.Asiggned_User__c) ? cpe.acpl__gf_account_planning_id__r.acpl__proposal_manager_id__c : cpe.Asiggned_User__c),
 			                        Subject = (cpe.acpl__gf_comm_plan_event_type_name__c == TASK ? 'Other' : 'Call'), ActivityDate = Date.today().addMonths(2), WhatId = cpe.Id));
 		}
 		return newTaskCPE;
+	}
+
+	/*
+	 * @Description  getMapClientAssigned
+	 */
+	private static Map<String, String> getMapClientAssigned(acpl__Commercial_Plan_Event__c cpe) {
+		Final Map<String, String> mapClient = new Map<String, String>();
+		if(cpe.acpl__gf_account_planning_id__r.acpl__participant_id__r.RecordType.DeveloperName == RT_ECO_GRP) {
+			mapClient.put(NAME, cpe.ClientAssigned__r.Name);
+			mapClient.put('Id', cpe.ClientAssigned__c);
+		} else {
+			mapClient.put(NAME, cpe.acpl__gf_account_planning_id__r.acpl__participant_id__r.Name);
+			mapClient.put('Id', cpe.acpl__gf_account_planning_id__r.acpl__participant_id__c);
+		}
+		return mapClient;
 	}
 }

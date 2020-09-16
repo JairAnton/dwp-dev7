@@ -6,108 +6,117 @@
  * @Group
  * @Description Controller class Be_DynamicTablePresentation_ctr
  */
-@SuppressWarnings('PMD.CyclomaticComplexity')
 public without sharing class Be_DynamicTablePresentation_ctr {
-    /** @Description  DEVELOPER_NAME*/
-    private static Final String DEVELOPER_NAME = 'developerName';
-    /** @Description  SOBJ_TYPE*/
-    private static Final String SOBJ_TYPE = 'sobjectType';
+
+    /** @Description  BASIC*/
+    static Final String BASIC = 'Basic';
+    
 	/** @Description  Be_DynamicTablePresentation_ctr*/
 	private Be_DynamicTablePresentation_ctr() {}
 
 	/*
-	 * @Description  getFilters
+	 * @Description  Obtain filters in metadata
 	 */
 	@AuraEnabled
 	public static String getFilters(String config) {
-		Final List<Be_Dynamic_Table_Presentation__mdt> mdtDTP = (List<Be_Dynamic_Table_Presentation__mdt>) getConfig(config);
-		Final Integer mdtDTPSize = mdtDTP.size();
-		String jsonFilters = mdtDTP[0].Filters__c;
-		if(mdtDTPSize > 0 && String.isNotBlank(jsonFilters)) {
-            Final List<Object> lstFilters = (List<Object>) JSON.deserializeUntyped(mdtDTP[0].Filters__c);
-            Final Map<String, Set<String>> mapLVConfig = getLVConfigs(lstFilters);
-            Final Set<String> devNameLV = mapLVConfig.get('devNameLV');
-        	Final Set<String> sObjLV = mapLVConfig.get('sObjLV');
-			for(ListView lView:[SELECT Id, developerName, SObjectType FROM ListView WHERE developerName IN:devNameLV AND SObjectType IN:sObjLV]) {
-				for(Object filters:lstFilters) {//mapFilter put new values in filters
-					Final Map<String, Object> mapFilter = (Map<String, Object>)filters;
-					if(mapFilter.containsKey(DEVELOPER_NAME) && mapFilter.get(DEVELOPER_NAME) == lView.developerName &&
-					   mapFilter.containsKey(SOBJ_TYPE) && mapFilter.get(SOBJ_TYPE) == lView.SObjectType) {
-						mapFilter.put('id', lView.Id);
-					}
-				}
-			}
-			jsonFilters = JSON.serialize(lstFilters);
+		Final List<Be_Dynamic_Table_Presentation__mdt> mdtDTP = getConfig(config);
+		String jsonFilters = 'empty';
+		if(!mdtDTP.isEmpty() && String.isNotBlank(mdtDTP[0].Filters__c)) {
+			Final List<BE_DTP_FilterParser_cls.Filter> lstFilters = (List<BE_DTP_FilterParser_cls.Filter>) BE_DTP_FilterParser_cls.parseRecords(mdtDTP[0].Filters__c);
+			jsonFilters = putFiltersId(lstFilters);
 		}
-		return mdtDTPSize > 0 ? jsonFilters : 'empty';
+		return jsonFilters;
 	}
 
-    /*
-	 * @Description  getLVConfigs
-	 */
-    private static Map<String, Set<String>> getLVConfigs(List<Object> lstFilters) {
-        Final Set<String> devNameLV = new Set<String>();
-        Final Set<String> sObjLV = new Set<String>();
-        for(Object filters:lstFilters) {
-            Final Map<String, Object> mapFilter = (Map<String, Object>)filters;
-            if(mapFilter.containsKey(DEVELOPER_NAME) && mapFilter.containsKey(SOBJ_TYPE)) {
-                devNameLV.add((String) mapFilter.get(DEVELOPER_NAME));
-                sObjLV.add((String) mapFilter.get(SOBJ_TYPE));
-            }
-        }
-        return new  Map<String, Set<String>>{'devNameLV' => devNameLV, 'sObjLV' => sObjLV};
-    }
-	/*
-	 * @Description  getValues
-	 */
+	/** @Description  Put ListView Id for standard ListView*/
+	private static String putFiltersId(List<BE_DTP_FilterParser_cls.Filter> lstFilters) {
+		Final Set<String> setDevName = new Set<String>();
+		Final Set<String> setSObjt = new Set<String>();
+		for(BE_DTP_FilterParser_cls.Filter filter:lstFilters) {
+			if(String.isNotBlank(filter.sObjectType) && String.isNotBlank(filter.developerName)) {
+				setDevName.add(filter.developerName);
+				setSObjt.add(filter.sObjectType);
+			}
+		}
+		for(ListView lView:[SELECT Id, developerName, SObjectType FROM ListView WHERE developerName IN:setDevName AND SObjectType IN:setSObjt]) {
+			for(BE_DTP_FilterParser_cls.Filter filter:lstFilters) {
+				if(filter.developerName == lView.developerName && filter.sObjectType == lView.SObjectType) {
+					filter.filterId =  lView.Id;
+				}
+			}
+		}
+		return JSON.serialize(lstFilters);
+	}
+
+	/** @Description  getValues */
 	@AuraEnabled
-	public static Map<String, Object> getValues(String config, String mode, String filter) {
-		Final Map<String, Object> mapRes = new Map<String, Object>();
-		Final List<Be_Dynamic_Table_Presentation__mdt> mdtDTP = (List<Be_Dynamic_Table_Presentation__mdt>) getConfig(config);
-		if(String.isNotBlank(mdtDTP[0].ClassName__c)) {
-			try {
-				Final Be_DTP_ResponseModel_cls singleClass = (Be_DTP_ResponseModel_cls)Type.forName(mdtDTP[0].ClassName__c).newInstance();
-				Final Be_DTP_ResponseModel_cls.Response response = singleClass.getData(filter);
-				mapRes.put('isSuccess', response.isSuccess);
-				mapRes.put('message', response.message);
-				if(response.isSuccess) {
-					Final List<Column> columns = getColumnsType(filter, mdtDTP[0]);
-					mapRes.put('data', mode == 'Basic' ? response.data : convertPersonalizedValues(response.data, columns, mdtDTP[0]));
-					mapRes.put('columns', mdtDTP[0].Columns_Table_Configuration__c);
+	public static Be_DTP_ResponseModel_cls.Response getValues(Map<String, String> mapConfigs, String filter) {
+		Be_DTP_ResponseModel_cls.Response response = new Be_DTP_ResponseModel_cls.Response(false);
+		try {
+			Final List<Be_Dynamic_Table_Presentation__mdt> mdtDTP = getConfig(mapConfigs.get('config'));
+            Final Integer mdtDTPSize = mdtDTP.size();
+			if(mdtDTPSize > 0) {
+				//If need to replace a field from another object lstReplaceValues will be contain values for specific field
+				Final List<String> replaceField = Be_DynamicTablePresentation_helper.doReplaceQuery(mdtDTP[0], filter, mapConfigs.get('recordId'));
+				////Reusable variables for columns and params in custom or configuration form
+				List<BE_DTP_ColumnParser_cls.Column> columnsAux;
+				Final Map<String, String> mapParams = new Map<String, String>{'filterCode' => filter, 'recordId' => mapConfigs.get('recordId')};
+				//If className is empty call records by configurations, else get records by custom class
+				if(String.isBlank(mdtDTP[0].ClassName__c)) {
+					response.data = Be_DynamicTablePresentation_helper.getData(mdtDTP[0], mapParams, replaceField);
+					response.isSuccess = true;
+					response.columns = mdtDTP[0].Columns_Table_Configuration__c;
+					//Adapt records from DataTable to Title form
+					columnsAux = BE_DTP_ColumnParser_cls.getColumnsType(filter, mdtDTP[0].Columns_Table_Configuration__c);
+					response.data = convertValues(response.data, columnsAux, mapConfigs.get('mode'));
+				} else {
+					Final Be_DTP_ResponseModel_cls helperClass = (Be_DTP_ResponseModel_cls)Type.forName(mdtDTP[0].ClassName__c).newInstance();
+					response = helperClass.getData(mapParams, mdtDTP[0].Columns_Table_Configuration__c, replaceField);
+					//Adapt records from DataTable to Title form if result isSuccess
+					columnsAux = response.isSuccess ? BE_DTP_ColumnParser_cls.getColumnsType(filter, response.columns) : 
+														BE_DTP_ColumnParser_cls.getColumnsType(filter, mdtDTP[0].Columns_Table_Configuration__c);
+					response.data = response.isSuccess ? convertValues(response.data, columnsAux, mapConfigs.get('mode')) : new List<Object>();
 				}
-			} catch(Exception e) {
-				mapRes.put('isSuccess', false);
-				mapRes.put('message', e.getMessage());
+			} else {
+				response.message = 'No se ha encontrado metadata valida.';
 			}
-		} else {
-			mapRes.put('isSuccess', false);
-			mapRes.put('message', 'Ha ocurrido un error, por favor contactese con su administrador.');
+		} catch (Exception e) {
+			System.debug('Be_DynamicTablePresentation_ctr.getValues');
+			System.debug('e.getMessage() => '+e.getMessage());
+			response.message = e.getMessage();
 		}
-		return mapRes;
+		return response;
 	}
 
-	/*
-	 * @Description  getConfig
-	 */
+	/** @Description  getConfig*/
 	@AuraEnabled(cacheable = true)
-	public static Object getConfig(String config) {
-		return [SELECT Id, Columns_Table_Configuration__c, ClassName__c, Filters__c FROM Be_Dynamic_Table_Presentation__mdt 
-                WHERE DeveloperName = : config];
+	public static List<Be_Dynamic_Table_Presentation__mdt> getConfig(String config) {
+		return [SELECT Id, Columns_Table_Configuration__c, ClassName__c, Filters__c, Replace_Fields_Configuration__c 
+					FROM Be_Dynamic_Table_Presentation__mdt WHERE DeveloperName =: config LIMIT 1];
 	}
 
-	/*
-	 * @Description  convertPersonalizedValues
-	 */
-	public static List<Object> convertPersonalizedValues(List<Object> res, List<Column> columns, Be_Dynamic_Table_Presentation__mdt mdtDTP) {
+	/** @Description  convertValues */
+	private static List<Object> convertValues(List<Object> res, List<BE_DTP_ColumnParser_cls.Column> columns, String mode) {
+		List<Object> lstObj;
+		if(mode == BASIC) {
+			lstObj = res;
+		} else {
+			lstObj = convertPersonalizedValues(res, columns, null);
+		}
+		return lstObj;
+	}
+
+	/** @Description  convertPersonalizedValues */
+	public static List<Object> convertPersonalizedValues(List<Object> res, List<BE_DTP_ColumnParser_cls.Column> columns, Be_Dynamic_Table_Presentation__mdt mdtDTP) {
 		Final List<Map<String, Object>> newValues = new List<Map<String, Object>>();
 		Map<String, Object> value;
 		List<Map<String, Object>> record;
 		Map<String, Object> row;
-        Final String[] lstDataTypes = new String[] {'Boolean', 'Date', 'Date-local', 'Percent', 'Number', 'Text', 'Email', 'Url', 'Phone'};
+        Final String[] lstDataTypes = new String[] {'Boolean', 'Date', 'Date-local', 'Percent', 'Number', 'Text', 'Email', 'Url', 'Phone', 'Currency'};
 		for(Map<String, Object> data: (List<Map<String, Object>>) res) {
 			value = new Map<String, Object> {'key' => data.get('Id')};
 			record = new List<Map<String, Object>>();
-			for(Column column: columns) {
+			for(BE_DTP_ColumnParser_cls.Column column: columns) {
                 row = getRow(data, column, lstDataTypes);
 				record.add(row);
 				value.put('record', record);
@@ -117,7 +126,8 @@ public without sharing class Be_DynamicTablePresentation_ctr {
 		return newValues;
 	}
 
-    private static Map<String, Object> getRow(Map<String, Object> data, Column column, String[] lstDataTypes) {
+	/** @Description  getRow */
+    private static Map<String, Object> getRow(Map<String, Object> data, BE_DTP_ColumnParser_cls.Column column, String[] lstDataTypes) {
         Final Map<String, Object> row = new Map<String, Object> {'label' => column.label, 'value' => data.get(column.fieldName)};
 		Final String typeCol = column.type.toLowerCase();
         for(String dataTypes: lstDataTypes) {
@@ -125,13 +135,15 @@ public without sharing class Be_DynamicTablePresentation_ctr {
         }
         switch on typeCol {
             when 'url' {
-                Final Label label = column.typeAttributes.label;
+                Final BE_DTP_ColumnParser_cls.Label label = column.typeAttributes.label;
                 row.put('urlLabel', data.get(label.fieldName));
                 row.put('target', '_self');
             }
             when 'number', 'currency', 'percent' {
                 row.put('formatStyle', column.typeAttributes.formatStyle);
-                row.put('currencyCode', column.typeAttributes.currencyCode);
+				row.put('currencyCode', column.typeAttributes.currencyCode);
+				row.put('currencyIsoCode', data.get('CurrencyIsoCode'));
+				row.put('currencyDisplayAs', column.typeAttributes.currencyDisplayAs);
             }
             when 'date-local' {
                 row.put('isDate-local', false);
@@ -140,55 +152,5 @@ public without sharing class Be_DynamicTablePresentation_ctr {
         }
         return row;
     }
-	/*
-	 * @Description  getColumnsType
-	 */
-	public static List<Column> getColumnsType(String filter, Be_Dynamic_Table_Presentation__mdt mdtDTP) {
-		Final Object objColumns = (Object)JSON.deserializeUntyped(mdtDTP.Columns_Table_Configuration__c);
-		Final Map<String, Object> mapColumns = (Map<String, Object>) objColumns;
-		Final List<Object> lstColumn = (List<Object>)mapColumns.get(filter);
-		return (List<Column>)JSON.deserialize(JSON.serialize(lstColumn), List<Column>.class);
-	}
 
-	/*
-	 * @Description  Column
-	 */
-	public with sharing class Column {
-		/**Indicate if the transaction is Success*/
-		@AuraEnabled
-		public String label {set; get;}
-		/**Message to show in the front to final user*/
-		@AuraEnabled
-		public String fieldName {set; get;}
-		/**type*/
-		@AuraEnabled
-		public String type {set; get;}
-        /**TypeAttributes*/
-		@AuraEnabled
-		public TypeAttributes typeAttributes {set; get;}
-	}
-
-	/*
-	 * @Description  TypeAttributes
-	 */
-	public with sharing class TypeAttributes {
-        /**label*/
-		@AuraEnabled
-		public Label label {set; get;}
-        /**formatStyle*/
-		@AuraEnabled
-		public String formatStyle {set; get;}
-        /**currencyCode*/
-		@AuraEnabled
-		public String currencyCode {set; get;}
-	}
-
-    /*
-	 * @Description  Label
-	 */
-	public with sharing class Label {
-        /**fieldName*/
-		@AuraEnabled
-		public String fieldName {set; get;}
-	}
 }
