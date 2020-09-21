@@ -12,6 +12,42 @@
     <navType>Standard</navType>
     <profileActionOverrides>
         <actionName>View</actionName>
+        <content>Account_Planning_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
         <content>Account_Planning_Page_Peru</content>
         <formFactor>Small</formFactor>
         <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
