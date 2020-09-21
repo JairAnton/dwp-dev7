@@ -377,47 +377,54 @@ acpl__gf_counter_number__c;dyfr__Blank_in_edit_mode__c;dyfr__Column_Size__c;dyfr
 ""tableModel"":""Basic"",
 ""metadataConfig"":""Economic_Group_BankingDebt"",
 ""viewAll"":true,
-""showTotalRecords"": false
+""showTotalRecords"": false,
+""insideBox"":true
 }";;false;;;1;false;;;;;NEGOCIO BBVA;1;INFORMACIÓN DE DEUDA BBVA Y SBS;1;AP_Group_Data_Tab;;lightning component;;;;;
 0;false;;;EconomicGroup_Profitability_Year;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
     ""titleCard"": """",
 ""tableModel"":""Basic"",
 ""metadataConfig"":""Economic_Group_Profitability"",
 ""viewAll"":true,
-""showTotalRecords"":false
+""showTotalRecords"":false,
+""insideBox"":true
 }";;false;;;1;false;;;;;NEGOCIO BBVA;1;RENTABILIDAD (acumulado de año);4;AP_Group_Data_Tab;;lightning component;;;;;
 0;false;;;EconomicGroup_BBVA_Debt_Fee;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
     ""titleCard"": ""DEUDA Y CUOTA BBVA"",
 ""tableModel"":""Basic"",
 ""metadataConfig"":""Economic_Group_Debt_Fee_BBVA"",
 ""viewAll"":true,
-""showTotalRecords"":false
+""showTotalRecords"":false,
+""insideBox"":true
 }";;false;;;2;false;;;;;NEGOCIO BBVA;1;INFORMACIÓN DE DEUDA BBVA Y SBS;1;AP_Group_Data_Tab;;lightning component;;;;;
 0;false;;;EconomicGroup_AccountIncome_SMA;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
-    ""titleCard"": ""SALDO MEDIO ANUAL"",
+    ""titleCard"": """",
 ""tableModel"":""Basic"",
 ""metadataConfig"":""Economic_Group_AccountIncome"",
 ""viewAll"":true,
-""showTotalRecords"": false
-}";;false;;;1;false;;;;;NEGOCIO BBVA;1;INGRESOS EN CUENTA;2;AP_Group_Data_Tab;;lightning component;;;;;
+""showTotalRecords"": false,
+""insideBox"":true
+}";;false;;;1;false;;;;;NEGOCIO BBVA;1;SALDO MEDIO ANUAL;2;AP_Group_Data_Tab;;lightning component;;;;;
 0;false;;;EconomicGroup_Spread_Rate;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
     ""titleCard"": ""SPREAD Y TASA "",
 ""tableModel"":""Basic"",
 ""metadataConfig"":""Economic_Group_Spread_Rate"",
 ""viewAll"":true,
-""showTotalRecords"": false
+""showTotalRecords"": false,
+""insideBox"":true
 }";;false;;;2;false;;;;;NEGOCIO BBVA;1;FACTURACIÓN Y SPREAD;3;AP_Group_Data_Tab;;lightning component;;;;;
 0;false;;;EconomicGroup_Position_SM;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
     ""titleCard"": ""POSICION (Saldo Medio)"",
 ""tableModel"":""Basic"",
 ""metadataConfig"":""Economic_Group_Position"",
 ""viewAll"":true,
-""showTotalRecords"":false
+""showTotalRecords"":false,
+""insideBox"":true
 }";;false;;;3;false;;;;;NEGOCIO BBVA;1;INFORMACIÓN DE DEUDA BBVA Y SBS;1;AP_Group_Data_Tab;;lightning component;;;;;
 0;false;;;EconomicGroup_ProfitabilityBilling;true;false;false;false;;c:bE_DynamicTablePresentation_Lwc;"{
-    ""titleCard"": ""FACTURACION"",
+    ""titleCard"": ""FACTURACIÓN"",
 ""tableModel"":""Basic"",
 ""metadataConfig"":""Economic_Group_ProfitabilityBilling"",
 ""viewAll"":true,
-""showTotalRecords"": false
+""showTotalRecords"": false,
+""insideBox"":true
 }";;false;;;1;false;;;;;NEGOCIO BBVA;1;FACTURACIÓN Y SPREAD;3;AP_Group_Data_Tab;;lightning component;;;;;

@@ -1188,6 +1188,10 @@
                 <value>standard:account</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>metadataConfig</name>
                 <value>AP_Group_Clients</value>
             </componentInstanceProperties>
@@ -1372,6 +1376,10 @@
             <componentInstanceProperties>
                 <name>iconName</name>
                 <value>standard:account</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>metadataConfig</name>
