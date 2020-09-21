@@ -750,6 +750,10 @@
         <apexClass>User_Trigger_Case_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>acpl__AP_GuidelinesController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>acpl__APButtonsValidationMessages</apexClass>
         <enabled>true</enabled>
@@ -1444,6 +1448,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_TableHomeSetting_Cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>dyfr__Dynamic_Form_Config_ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
