@@ -28,6 +28,7 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
     @api tableModelAll;
     @api recordsToShow;
     @api spinner;
+    @api insideBox;
 
     connectedCallback() {
         this.params = {mode: this.tableModel, config: this.metadataConfig, recordId: this.recordId};
@@ -49,7 +50,7 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
                     this.columns = (this.selectedfilter ? this.columns[this.selectedfilter] : this.columns);
                     this.values = response.data;
                     this.recordsToShow = (this.recordsToShow ? this.recordsToShow : 6);
-                    if(!this.viewAll && this.values.length > this.recordsToShow) {
+                    if( !this.viewAll && this.values.length > this.recordsToShow) {
                         let limitRecords = [];
                         for(let i = 0; i < this.recordsToShow; i++) {
                             limitRecords.push(this.values[i]);
@@ -188,12 +189,14 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
     putTitle(titleCard, totalRecords) {
         if(this.showTotalRecords) {
             this.title = titleCard + ' ('+totalRecords+')';
-            this.template.querySelector('div').classList.toggle('slds-box');
         } else if (titleCard){
             this.title = titleCard;
-            this.template.querySelector('div').classList.toggle('slds-box');
         } else {
             this.title = '';
+        }
+        //Embeber en box
+        if(this.insideBox) {
+            this.template.querySelector('div').classList.add('slds-box');
         }
     }
 }

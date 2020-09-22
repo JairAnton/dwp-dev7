@@ -95,7 +95,7 @@ public with sharing class BE_EconomicGroup_TotalSystemDebt_cls extends Be_DTP_Re
     private Map<String, Object> getFixedTotal(Map<String, Object> mapValues, Map<String, Object> mapTotalValues) {
         for(String key: mapValues.keySet()) {
             if(key != 'Id' && key != 'CLIENT_NAME' && key != 'URL__Id') {
-                mapTotalValues.put(key, (Decimal) mapValues.get(key));
+                mapTotalValues.put(key, (Decimal) mapTotalValues.get(key) + (Decimal) mapValues.get(key));
             }
         }
         return mapTotalValues;

@@ -222,6 +222,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_AP_RelatedVisits_helper_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_CreateCommercialPlantEvent_Tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -401,7 +405,71 @@
         <apexClass>BE_Calce_Maintenance_Tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-     <classAccesses>
+    <classAccesses>
+        <apexClass>BE_DTP_AttributeConfiguration_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_DTP_ColumnParser_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_DTP_FilterParser_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_DTP_ReplaceConfigParser_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_AccountIncome_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_AccountIncome_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_DebtAndFee_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_DebtAndFee_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Position_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Position_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Profitability_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Profitability_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Spread_Rate_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Spread_Rate_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_TotalSystemDebt_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_TotalSystemDebt_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_NonClient_Contact_Ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -511,6 +579,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_SingleRelatedList_Tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Be_DynamicTablePresentation_helper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

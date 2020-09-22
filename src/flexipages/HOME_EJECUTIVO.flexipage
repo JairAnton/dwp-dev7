@@ -111,11 +111,15 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>enableReload</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>iconName</name>
                 <value>standard:account</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>metadataConfig</name>
@@ -124,6 +128,10 @@
             <componentInstanceProperties>
                 <name>recordsToShow</name>
                 <value>3</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>tableModel</name>
@@ -136,6 +144,10 @@
             <componentInstanceProperties>
                 <name>titleCard</name>
                 <value>Plan de cuenta</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>false</value>
             </componentInstanceProperties>
             <componentName>bE_DynamicTablePresentation_Lwc</componentName>
             <visibilityRule>
@@ -160,11 +172,15 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>enableReload</name>
-                <value>false</value>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>iconName</name>
                 <value>standard:account</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>metadataConfig</name>
@@ -173,6 +189,10 @@
             <componentInstanceProperties>
                 <name>recordsToShow</name>
                 <value>4</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>tableModel</name>
@@ -185,6 +205,10 @@
             <componentInstanceProperties>
                 <name>titleCard</name>
                 <value>Plan de cuenta</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>false</value>
             </componentInstanceProperties>
             <componentName>bE_DynamicTablePresentation_Lwc</componentName>
             <visibilityRule>
