@@ -1,7 +1,7 @@
 ({
-    getInfo: function (cmp, evt, helper) {
+    getSettings: function (cmp, evt, helper) {
         var nameMetadata = cmp.get('v.nameMetadata');
-        var action = cmp.get("c.getFields");
+        var action = cmp.get("c.getSettings");
         action.setParams({
             "nameMetadata": nameMetadata
         });
@@ -11,51 +11,68 @@
                 var ret = response.getReturnValue();
                 var locale = $A.get("$Locale.langLocale");
                 cmp.set('v.title', JSON.parse(ret.title)[locale]);
-                this.getNonClient(cmp, evt, ret.sObjectFields);
+                cmp.set("v.settings",ret);
+                this.getsObjectFields(cmp,evt,ret.sObjectType,ret.sObjectFields.fields);
             } else {
+                cmp.set("v.loaded", true);
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
         });
         $A.enqueueAction(action);
     },
-    getNonClient: function (cmp, evt, fields) {
-        var action = cmp.get("c.getNonClient");
+    getsObjectFields: function (cmp, evt, sObjectType,fields) {
+        var action = cmp.get("c.getsObjFields");
         var recordId = cmp.get("v.recordId");
+        var currentFields = [];
+        for (const iterator of fields) {
+            currentFields.push(iterator.fieldName);
+        }
         action.setParams({
             "accId": recordId,
-            "sObjFields": fields
+            "sObjFields": currentFields,
+            "sObjectType": sObjectType
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
-                var object = {
-                    sObjectType: 'Account',
+                var targetObject = {
+                    sObjectType: sObjectType,
                     fields: []
-                }
+                };
                 for (const iterator of fields) {
-                    object.fields.push({
-                        fieldName: iterator,
-                        value: this.isNotEmpty(res[iterator]) ? res[iterator] : ''
+                    let targetField = iterator;
+                    Object.defineProperty(targetField, 'value', {
+                        enumerable: false,
+                        configurable: false,
+                        writable: false,
+                        value: res[iterator.fieldName]
                     });
+                    targetObject.fields.push(targetField);
                 }
-                cmp.set("v.sObjData", object);
+                cmp.set("v.sObjData", targetObject);
+                console.log("sObjData");
+                console.log(targetObject);
             } else {
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
+            cmp.set("v.loaded", true);
         });
         $A.enqueueAction(action);
     },
-    updateNonClients: function (cmp, evt, sObjectUpdate) {
-        var action = cmp.get("c.updateNonClient");
+    callApexMethod: function (cmp, evt, sObjectUpdate,actionApex) {
+        cmp.set("v.loaded", false);
+        var action = actionApex;
         action.setParams({
-            "sObjs": sObjectUpdate
+            "sObj": sObjectUpdate,
+            "className":cmp.get("v.settings").className
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
                 if (res.isSuccess) {
+                    this.showToast('Success', res.message, 'success');
                     this.closeModal(cmp, evt);
                 } else {
                     this.showToast('Error', res.message, 'error');
@@ -63,6 +80,7 @@
             } else {
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
+            cmp.set("v.loaded", true);
         });
         $A.enqueueAction(action);
     },

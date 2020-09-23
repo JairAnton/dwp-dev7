@@ -35,14 +35,19 @@
             }
         },
         {
-            &quot;label&quot;: &quot;Rol&quot;,
+            &quot;label&quot;: &quot;Cargo&quot;,
             &quot;fieldName&quot;: &quot;calc_prof_position_type__c&quot;,
             &quot;type&quot;: &quot;picklist&quot;
         },
         {
-            &quot;label&quot;: &quot;Email&quot;,
-            &quot;fieldName&quot;: &quot;email__c&quot;,
-            &quot;type&quot;: &quot;email&quot;
+            &quot;label&quot;: &quot;Decisor&quot;,
+            &quot;fieldName&quot;: &quot;decision_making_desc__c&quot;,
+            &quot;type&quot;: &quot;checkbox&quot;
+        },
+        {
+            &quot;label&quot;: &quot;Celular&quot;,
+            &quot;fieldName&quot;: &quot;MobilePhone__c&quot;,
+            &quot;type&quot;: &quot;Phone&quot;
         },
         {
             &quot;type&quot;: &quot;action&quot;,
@@ -62,7 +67,7 @@
                     },
                     {
                         &quot;name&quot;: &quot;update&quot;,
-                        &quot;className&quot;: &quot;BE_NonClientContact_Ctr&quot;,
+                        &quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
                         &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
                         &quot;title&quot;: {
                             &quot;es&quot;: &quot;Modificar Relación de contacto de cuenta&quot;,
@@ -131,7 +136,7 @@
                             &quot;es&quot;: &quot;Eliminar relación&quot;,
                             &quot;en-US&quot;: &quot;Remove Relationship&quot;
                         },
-                        &quot;className&quot;: &quot;BE_NonClientContact_Ctr&quot;,
+                        &quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
                         &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
                         &quot;title&quot;: {
                             &quot;es&quot;: &quot;Eliminar Relación de contacto de cuenta&quot;,
@@ -146,7 +151,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Contact.Name,Account.Name,calc_prof_position_type__c,decision_making_desc__c,Contact_decisor__c,email__c</value>
+        <value xsi:type="xsd:string">Contact.Name,Account.Name,calc_prof_position_type__c,decision_making_desc__c,Contact_decisor__c,MobilePhone__c,email__c</value>
     </values>
     <values>
         <field>Filter__c</field>
@@ -158,10 +163,9 @@
     &quot;values&quot;: [
         {
             &quot;name&quot;: &quot;insert&quot;,
-            &quot;className&quot;: &quot;BE_NonClientContact_Ctr&quot;,
+            &quot;className&quot;: &quot;BE_NonClient_Contact_Ctr&quot;,
             &quot;objectApiName&quot;: &quot;AccountContactRelation&quot;,
             &quot;defaultValue&quot;: &quot;AccountId&quot;,
-            &quot;redirect&quot;: &quot;true&quot;,
             &quot;label&quot;: {
                 &quot;es&quot;: &quot;Agregar relación&quot;,
                 &quot;en-US&quot;: &quot;Add Relationship&quot;

@@ -77,7 +77,7 @@ public with sharing class BE_VisitComercialActivity_Cls {
 			this.TotalVisitsYF = totalVisitsYF;
 			this.TotalVisitsCQ = totalVisitsCQ;
 			if(TotalVisitsYTD > 0 && TotalVisitsYTD != null) {
-				final Decimal numVisitsTRYOY =  0;
+				Decimal numVisitsTRYOY =  0;
 				if(TotalVisitsYF!=0) {
 					numVisitsTRYOY =  (((Decimal) TotalVisitsYTD - (Decimal) TotalVisitsYF) / TotalVisitsYF) * 100;
 				}

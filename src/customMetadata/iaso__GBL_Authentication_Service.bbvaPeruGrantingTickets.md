@@ -4,19 +4,19 @@
     <protected>false</protected>
     <values>
         <field>iaso__Apex_Class__c</field>
-        <value xsi:type="xsd:string">Integration_GrantingTickets_Peru</value>
+        <value xsi:type="xsd:string">GBL_Integration_GrantingTickets</value>
     </values>
     <values>
         <field>iaso__Cache_Key__c</field>
-        <value xsi:type="xsd:string">tsec</value>
+        <value xsi:type="xsd:string">credentials</value>
     </values>
     <values>
         <field>iaso__Cache_Partition__c</field>
-        <value xsi:type="xsd:string">CredentialsPeru</value>
+        <value xsi:type="xsd:string">iaso.ServicesPartition</value>
     </values>
     <values>
         <field>iaso__CryptoKey__c</field>
-        <value xsi:type="xsd:string">T/lMwfNZJjDKGEGrRFsgwW8KrzeHLOxSCrOOVMm/6fk=</value>
+        <value xsi:type="xsd:string">y+b9issF2Dyr+Jn/FUw6mEm2+E58Mi7EuaywEE0Q9E4=</value>
     </values>
     <values>
         <field>iaso__Custom_Setting__c</field>
@@ -28,11 +28,14 @@
     </values>
     <values>
         <field>iaso__Password__c</field>
-        <value xsi:type="xsd:string">Px8sYQwalCEifGUuaj+Qzgllwbt6zrIN8X6T/tKCD60=</value>
+        <value xsi:type="xsd:string">khqd8rJdeO1Ki3vSGoZUAovPxgdb+Pqpi0GDHdJjB8EuzHSm0kmqnyEn+CHL+OlR</value>
     </values>
     <values>
         <field>iaso__Service_Parameters__c</field>
         <value xsi:type="xsd:string">{
+    &quot;idAuthenticationData&quot;: &quot;password&quot;,
+    &quot;consumerID&quot;: &quot;13000024&quot;,
+    &quot;authenticationType&quot;: &quot;04&quot;
 }</value>
     </values>
     <values>

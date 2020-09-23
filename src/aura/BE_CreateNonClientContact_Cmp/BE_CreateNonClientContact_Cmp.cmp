@@ -1,0 +1,95 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader"
+    controller="BE_NonClient_CreateContact_Ctr" access="global">
+    <aura:attribute name="issearching" type="Boolean" default="true" />
+    <!-- attributes -->
+    <aura:attribute name="nameMetadata" type="String" default="BE_CreateNonClientContact" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="title" type="String" default="Nuevo Contacto" />
+    <aura:attribute name="sObjData" type="Object" />
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0" />
+    <aura:attribute name="selectedRow" type="Object" />
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:attribute name="isNext" type="Boolean" default="false" />
+    <aura:attribute name="keyValue" type="String" default="" />
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <!--MODAL-->
+    <div>
+        <aura:if isTrue="{!v.loaded}">
+            <!--HEADER-->
+            <lightning:recordEditForm aura:id="recordFormContact" onsubmit="{!c.handleSubmitCustom}"
+                objectApiName="{!v.sObjData.sObjectType}">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>
+                </header>
+                <!--CONTENT-->
+                <aura:renderIf isTrue="{!v.issearching}">
+                    <div class="slds-grid slds-grid_vertical slds-scrollable">
+                        <div class="slds-col" onkeyup="{! c.handleKeyUp}">
+                            <lightning:layout multipleRows="true">
+                                <lightning:layoutItem size="12" padding="around-small">
+                                    <div class="custom-box">
+                                        Buscar el contacto antes de continuar.
+                                    </div>
+                                </lightning:layoutItem>
+                                <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="8"
+                                    largeDeviceSize="9" padding="around-small">
+                                    <div>
+                                        <lightning:input aura:id="enter-search" name="enter-search"
+                                            label="Search when user hits the 'enter' key" variant="label-hidden"
+                                            type="search" />
+                                    </div>
+                                </lightning:layoutItem>
+                                <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="4"
+                                    largeDeviceSize="3" padding="around-small">
+                                    <div class="custom-box">
+                                        <lightning:button label="Buscar" variant="brand" title="Title"
+                                            onclick="{! c.handleContacts}" />
+                                    </div>
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                        </div>
+                        <div class="slds-col slds-scrollable--y" style="height:250px">
+                            <lightning:datatable columns="{! v.columns }" data="{! v.data }" keyField="id"
+                                maxRowSelection="1" onrowaction="{! c.handleRowAction }"
+                                onrowselection="{! c.updateSelectedText}" />
+                        </div>
+                    </div>
+                    <!--CREATE RECORD-->
+                    <aura:set attribute="else">
+                        <lightning:layout multipleRows="true">
+                            <aura:iteration items="{!v.sObjData.fields}" var="item">
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12"
+                                    largeDeviceSize="6">
+                                    <lightning:inputField fieldName="{!item.fieldName}" value="{!item.value}"
+                                        required="{!item.required}" disabled="{!item.disabled}" />
+                                </lightning:layoutItem>
+                            </aura:iteration>
+                        </lightning:layout>
+                    </aura:set>
+                </aura:renderIf>
+                <!-- FOOTER-->
+                <div class="modal-footer slds-modal__footer">
+                    <lightning:button label="Cancelar" title="Brand action" onclick="{! c.closeModal }" />
+                    <aura:if isTrue="{!v.issearching}">
+                        <aura:if isTrue="{!v.isNext}">
+                            <lightning:button variant="brand" label="Siguiente" title="Brand action"
+                                onclick="{! c.createContact }" />
+                        </aura:if>
+                        <aura:set attribute="else">
+                            <lightning:button variant="brand" label="Atrás" title="Brand action"
+                                onclick="{! c.backButton }" />
+                            <lightning:button variant="brand" type="submit" label="Guardar" title="Brand action" />
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </lightning:recordEditForm>
+            <!--SPINNER-->
+            <aura:set attribute="else">
+                <lightning:spinner class="slds-spinner" alternativeText="Loading" />
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

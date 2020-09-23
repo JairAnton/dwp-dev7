@@ -324,7 +324,7 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>BE_NotCreateEditAccount</shortDescription>
-        <value>Register a new Non Client you must access the Prospects tab and press the &quot;New Non-Client&quot; button</value>
+        <value>It is not possible to create a client.</value>
     </labels>
     <labels>
         <fullName>BE_SingleRelatedListModal_BtnCancel</fullName>
