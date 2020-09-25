@@ -6,5 +6,10 @@
         <minorNumber>54</minorNumber>
         <namespace>acpl</namespace>
     </packageVersions>
+    <packageVersions>
+        <majorNumber>5</majorNumber>
+        <minorNumber>2</minorNumber>
+        <namespace>dwp_kitv</namespace>
+    </packageVersions>
     <status>Active</status>
 </ApexClass>

@@ -160,6 +160,19 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>ClientAssigned__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asignación de cliente</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Growth Drivers</relationshipLabel>
+        <relationshipName>Growth_Drivers</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>acpl__gf_account_planning_id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
@@ -892,5 +905,14 @@
     <pluralLabel>Growth Drivers</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Assign_Client_Group</fullName>
+        <active>true</active>
+        <description>Validación para asignar un cliente a una variable de crecimiento perteneciente a un Grupo Económico</description>
+        <errorConditionFormula>acpl__gf_account_planning_id__r.acpl__participant_id__r.RecordType.DeveloperName == &apos;Record_Type_Economic_Group&apos; &amp;&amp; 
+acpl__gf_account_planning_id__r.acpl__participant_id__c != ClientAssigned__r.ParentId</errorConditionFormula>
+        <errorDisplayField>ClientAssigned__c</errorDisplayField>
+        <errorMessage>Debe asignar la variable a un cliente del grupo económico.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

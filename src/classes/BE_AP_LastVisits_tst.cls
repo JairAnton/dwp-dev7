@@ -27,9 +27,28 @@ public class BE_AP_LastVisits_tst {
 	}
 
 	/*
-	 * @Description  method readRecords
+	 * @Description  method readRecordsClients
 	 */
-	public static testmethod void readRecords() {
+	public static testmethod void readRecordsClients() {
+		Final String apId = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.DeveloperName = 'Account_Planning' LIMIT 1].Id;
+		Final Map<String, Object> mapParams = new Map<String, Object> {'sObjName' => 'dwp_kitv__Visit__c',
+			                                                           'sObjFields' => 'Name,start_date_calculated__c,dwp_kitv__visit_desc__c', 'recordId' => apId,
+			                                                           'filterSQOL' => 'dwp_kitv__account_id__c = :recordId AND dwp_kitv__visit_end_date__c < TODAY AND dwp_kitv__visit_end_date__c >= LAST_YEAR ORDER BY dwp_kitv__visit_end_date__c DESC'};
+		Test.startTest();
+		Final BE_SingleRelatedListCRUD_Cls singleClas = (BE_SingleRelatedListCRUD_Cls)Type.forName('BE_AP_LastVisits_cls').newInstance();
+		Final BE_SingleRelatedListCRUD_Cls.Response res = singleClas.readRecords(mapParams);
+		Test.stopTest();
+		System.assert (res.isSuccess, 'Fail');
+	}
+    
+    /*
+	 * @Description  method readRecordsGroups
+	 */
+	public static testmethod void readRecordsGroups() {
+        Final Id rtIdGE = [SELECT Id FROM RecordType WHERE DeveloperName = 'Record_Type_Economic_Group' LIMIT 1].Id;
+        Final Account acc = [SELECT Id, RecordTypeId FROM Account LIMIT 1];
+        acc.RecordTypeId = rtIdGE;
+        update acc;
 		Final String apId = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.DeveloperName = 'Account_Planning' LIMIT 1].Id;
 		Final Map<String, Object> mapParams = new Map<String, Object> {'sObjName' => 'dwp_kitv__Visit__c',
 			                                                           'sObjFields' => 'Name,start_date_calculated__c,dwp_kitv__visit_desc__c', 'recordId' => apId,
