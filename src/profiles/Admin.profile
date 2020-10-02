@@ -41,6 +41,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AP_Handler_Helper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AP_Question_Handler_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -205,10 +209,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_AP_HomeView_GOF_cls</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_AP_LastVisits_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -241,7 +241,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_AccountPlanning_HomeView_cls</apexClass>
+        <apexClass>BE_AP_RelatedVisits_helper_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -266,6 +266,22 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_CreateNeed_ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_DTP_AttributeConfiguration_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_DTP_ColumnParser_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_DTP_FilterParser_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_DTP_ReplaceConfigParser_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -314,6 +330,54 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Be_DynamicTablePresentation_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_AccountIncome_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_AccountIncome_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_DebtAndFee_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_DebtAndFee_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Position_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Position_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Profitability_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Profitability_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Spread_Rate_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_Spread_Rate_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_TotalSystemDebt_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_EconomicGroup_TotalSystemDebt_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -537,6 +601,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Be_DynamicTablePresentation_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Contact_Group_Handler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -634,6 +702,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>PDFclassButton</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProfitabilityController_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProfitabilityController_cls_test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -4514,7 +4590,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>acpl__Account_Planning__c.AccountBranch__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Account_Planning__c.AccountGroup__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Account_Planning__c.AccountOwner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Account_Planning__c.Account_ClientCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>acpl__Account_Planning__c.Account_Planning_Administration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Account_Planning__c.Account_RecordType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4689,6 +4790,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>acpl__Commercial_Plan_Event__c.ClientAssigned__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>acpl__Commercial_Plan_Event__c.Comments__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4755,6 +4861,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>bupl__AP_Team__c.bupl__solution_category_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>bupl__BP_GrowthDriver__c.ClientAssigned__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

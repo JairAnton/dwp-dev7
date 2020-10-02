@@ -1,4 +1,4 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api, track } from 'lwc';
 import getFilters from "@salesforce/apex/Be_DynamicTablePresentation_ctr.getFilters";
 import getValues from "@salesforce/apex/Be_DynamicTablePresentation_ctr.getValues";
 import FORM_FACTOR from '@salesforce/client/formFactor';
@@ -7,14 +7,17 @@ import { NavigationMixin } from 'lightning/navigation';
 export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(LightningElement) {
     @api metadataConfig; /** Dev name of metadata*/
     @api titleCard;
-    @api title;
+    @track title;
     @api iconName;
     @api columns;
     @api values;
     @api loadView;
+    @api recordId;
+    @api params;
+    @api enableReload;
     @api mode = {isBasic: false, isTitle: false, isTitleMedium: false, isTitleLarge:false};
-    @api valuesTitle;
-    @api flexipageRegionWidth;
+    @api showTotalRecords;
+    //@api flexipageRegionWidth;
     @api isMobile;
     @api tableModel;
     @api noneData;
@@ -25,8 +28,10 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
     @api tableModelAll;
     @api recordsToShow;
     @api spinner;
+    @api insideBox;
 
     connectedCallback() {
+        this.params = {mode: this.tableModel, config: this.metadataConfig, recordId: this.recordId};
         this.isMobile = (FORM_FACTOR === 'Small' || FORM_FACTOR === 'Medium') ? true : false;
         this.getActions();
         this.modelMode();
@@ -34,18 +39,18 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
 
     getData() {
         this.spinner = true;
-        getValues({config : this.metadataConfig, mode : this.tableModel, filter: this.selectedfilter})
+        getValues({mapConfigs: this.params, filter: this.selectedfilter})
             .then((response) => {
+                this.loadView = false;
                 if(response.isSuccess) {
                     this.noneData = response.data === null || response.data.length < 1;
                     let totalRecords = this.noneData ? 0 : response.data.length;
-                    this.title = this.titleCard + ' ('+totalRecords+')';
+                    this.putTitle(this.titleCard, totalRecords);
                     this.columns = JSON.parse(response.columns);
-                    console.log('this.columns => '+JSON.stringify(this.columns));
-                    this.columns = this.columns[this.selectedfilter];
+                    this.columns = (this.selectedfilter ? this.columns[this.selectedfilter] : this.columns);
                     this.values = response.data;
-                    this.recordsToShow = (this.recordsToShow === null || this.recordsToShow === undefined ? 6 : this.recordsToShow);
-                    if(!this.viewAll && this.values.length > this.recordsToShow) {
+                    this.recordsToShow = (this.recordsToShow ? this.recordsToShow : 6);
+                    if( !this.viewAll && this.values.length > this.recordsToShow) {
                         let limitRecords = [];
                         for(let i = 0; i < this.recordsToShow; i++) {
                             limitRecords.push(this.values[i]);
@@ -71,11 +76,10 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
             .then((response) => {
                 if(response !== 'empty') {
                     this.filters = JSON.parse(response);
-                    if(this.selectedfilter === null || this.selectedfilter === undefined) {
+                    if(!this.selectedfilter) {
                         this.getSelectedFilter();
                     }
                 }
-                console.log('this.selectedfilter => '+this.selectedfilter);
                 this.getData();
             })
             .catch((error) => {
@@ -87,7 +91,7 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
 
     getSelectedFilter() {
         for(let i = 0; i < this.filters.length; i++) {
-            if(this.filters[i].default !== undefined && this.filters[i].default !== null) {
+            if(this.filters[i].defaultFilter) {
                 this.selectedfilter = this.filters[i].code;
                 break;
             }
@@ -99,7 +103,7 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
     }
 
     modelMode() {
-        if(this.viewAll && (this.tableModelAll !== null && this.tableModelAll !== undefined)) {
+        if(this.viewAll && this.tableModelAll && this.tableModel !== 'Basic') {
             this.getModel(this.tableModelAll);
         } else {
             this.getModel(this.tableModel);
@@ -122,7 +126,7 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
     }
 
     get hasFilters() {
-        return this.filters !== null && this.filters.length > 0;
+        return this.filters !== null && this.filters.length > 1;
     }
 
     onRowAction(event) {
@@ -134,12 +138,12 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
         let sObjectType, idLV;
         for(let i = 0; i < this.filters.length; i++) {
             if(this.filters[i].code === this.selectedfilter) {
-                idLV = this.filters[i].id;
-                sObjectType = this.filters[i].sobjectType;
+                idLV = this.filters[i].filterId;
+                sObjectType = this.filters[i].sObjectType;
                 break;
             }
         }
-        if(sObjectType !== null && sObjectType !== undefined && idLV !== null && idLV !== undefined) {
+        if(sObjectType && idLV) {
             this.standardListView(sObjectType, idLV);
         } else {
             this.customListView();
@@ -151,10 +155,12 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
             metadataConfig: this.metadataConfig,
             tableModel: this.tableModel,
             selectedfilter: this.selectedfilter,
+            recordId: this.recordId,
             viewAll: true,
             tableModelAll: this.tableModelAll,
             titleCard: this.titleCard,
-            iconName: this.iconName
+            iconName: this.iconName,
+            enableReload: this.enableReload
         }
         this[NavigationMixin.Navigate]({
             type: 'standard__component',
@@ -180,4 +186,17 @@ export default class BE_DynamicTablePresentation_Lwc extends NavigationMixin(Lig
         });
     }
 
+    putTitle(titleCard, totalRecords) {
+        if(this.showTotalRecords) {
+            this.title = titleCard + ' ('+totalRecords+')';
+        } else if (titleCard){
+            this.title = titleCard;
+        } else {
+            this.title = '';
+        }
+        //Embeber en box
+        if(this.insideBox) {
+            this.template.querySelector('div').classList.add('slds-box');
+        }
+    }
 }

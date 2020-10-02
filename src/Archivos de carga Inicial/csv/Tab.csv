@@ -1,3 +1,4 @@
 Name;dyfr__Column_Number__c;dyfr__Order__c;dyfr__Save_APEX_Class__c;dyfr__Show_Completion__c;dyfr__Tab_Code__c;dyfr__Template__r.dyfr__Template_Code__c
 Negocio;2;1;;false;AP_Client_Data_Tab;AP_Client_Data
 Estrategía;2;1;;false;AP_Strategic_Tab;AP_Strategic
+Negocio;2;1;;false;AP_Group_Data_Tab;AP_Group_Data

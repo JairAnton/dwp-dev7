@@ -16,7 +16,11 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 	   @Description currentRecord
 	 */
 	public Sobject currentRecord {get; set;}
-
+    /**
+	   @Description RT_ECO_GRP
+	 */
+    static Final String RT_ECO_GRP = 'Record_Type_Economic_Group';
+    
 	/**
 	   @Description Be_RecordId_Related_Sobject_helper
 	 */
@@ -63,16 +67,30 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 	@AuraEnabled
 	public static List<Integer> getVisitValues(String recordId) {
 		Final Integer[] lstData = new Integer[3];
-		Final acpl__Account_Planning__c[] apR = BE_AP_Administration_helper.getAP(recordId);
-		Final Integer apSize = apR.size();
-		if(apSize > 0 && String.isNotBlank(apR[0].acpl__participant_id__c)) {
-            dwp_kitv__Visit__c[] lstTmp = [SELECT Id FROM dwp_kitv__Visit__c WHERE dwp_kitv__visit_start_date__c = LAST_YEAR AND dwp_kitv__account_id__c =:apR[0].acpl__participant_id__c];
+		Final acpl__Account_Planning__c[] lstAP = BE_AP_Administration_helper.getAP(recordId);
+		if(!lstAP.isEmpty() && String.isNotBlank(lstAP[0].acpl__participant_id__c)) {
+			Final Set<Id> clientsIds = getClientsIds(lstAP[0]);
+            dwp_kitv__Visit__c[] lstTmp = [SELECT Id FROM dwp_kitv__Visit__c WHERE dwp_kitv__visit_start_date__c = LAST_YEAR AND dwp_kitv__account_id__c IN: clientsIds];
 			lstData[0] = lstTmp.size();
-            lstTmp = [SELECT Id FROM dwp_kitv__Visit__c WHERE dwp_kitv__visit_start_date__c = THIS_YEAR AND dwp_kitv__account_id__c =:apR[0].acpl__participant_id__c];
+            lstTmp = [SELECT Id FROM dwp_kitv__Visit__c WHERE dwp_kitv__visit_start_date__c = THIS_YEAR AND dwp_kitv__account_id__c IN: clientsIds];
 			lstData[1] = lstTmp.size();
-            lstTmp = [SELECT Id FROM dwp_kitv__Visit__c WHERE dwp_kitv__visit_start_date__c >= TODAY AND dwp_kitv__account_id__c =:apR[0].acpl__participant_id__c];
+            lstTmp = [SELECT Id FROM dwp_kitv__Visit__c WHERE dwp_kitv__visit_start_date__c >= TODAY AND dwp_kitv__account_id__c IN: clientsIds];
 			lstData[2] = lstTmp.size();
 		}
 		return lstData;
+	}
+
+	/**
+	   @Description getClientsIds
+	 */
+	private static Set<Id> getClientsIds(acpl__Account_Planning__c apRecord) {
+		Set<Id> clientsIds;
+		if(apRecord.acpl__participant_id__r.RecordType.DeveloperName == RT_ECO_GRP) {
+			Final Map<Id, Account> mapClients = new Map<Id, Account>([SELECT Id FROM Account WHERE parentId=:apRecord.acpl__participant_id__c]);
+			clientsIds = mapClients.keySet();
+		} else {
+			clientsIds = new Set<Id>{apRecord.acpl__participant_id__c};
+		}
+		return clientsIds;
 	}
 }

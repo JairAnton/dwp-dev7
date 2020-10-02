@@ -20,8 +20,12 @@ public class Be_RecordId_Related_Sobject_tst {
 		                                                                              unique_id__c = 'AP_Account_Risk_Strategy');
 		insert chartConfig;
 		//Create Account
-		Final Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {Account.OwnerId => UserInfo.getUserId(), Account.Name => 'CLIENTE MARTÍN'};
+		Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {Account.OwnerId => UserInfo.getUserId(), Account.Name => 'CLIENTE MARTÍN'};
 		TestFactory.getAccount(true, mapFields);
+        //Create User
+        Final String perfil = [SELECT Id FROM Profile WHERE name = 'Ejecutivo'].Id;
+		mapFields = new Map<Schema.SObjectField, Object> {User.LastName => 'Risotto', User.ProfileId => perfil, User.user_position_equivalence__c => 'EJECUTIVO BEC'};
+		TestFactory.getUser(true, mapFields);
 	}
 
 	/*
@@ -80,14 +84,32 @@ public class Be_RecordId_Related_Sobject_tst {
 	}
 
 	/*
+	 * @Description  method getVisitValuesClients
+	 */
+	public static testmethod void getVisitValuesClients() {
+		Final User userOwner = [SELECT Id FROM User WHERE LastName LIKE '%Risotto%' LIMIT 1];
+		Final Account cuenta = [SELECT Id, branch_id__c FROM Account LIMIT 1];
+		Final acpl__Account_Planning__c apR = new acpl__Account_Planning__c(acpl__participant_id__c = cuenta.Id, acpl__external_reference_id__c = 'AP123', Name = 'AP record',
+		                                                             acpl__gf_ap_limit_date__c = System.today(), acpl__proposal_manager_id__c = userOwner.Id);
+		insert apR;
+		List<Integer> lstResult;
+		Test.startTest();
+		lstResult = Be_RecordId_Related_Sobject_helper.getVisitValues(apR.Id);
+		Test.stopTest();
+		Final Integer size = lstResult.size();
+		Final Boolean condition = size > 0;
+		System.assert (condition, FAIL);
+	}
+    
+    /*
 	 * @Description  method getVisitValues
 	 */
-	public static testmethod void getVisitValues() {
-		Final String perfil = [SELECT Id FROM Profile WHERE name = 'Ejecutivo'].Id;
-		Final Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {User.LastName => 'Risotto', User.ProfileId => perfil,
-			                                                                               User.user_position_equivalence__c => 'EJECUTIVO BEC'};
-		Final User userOwner = TestFactory.getUser(true, mapFields);
-		Final Account cuenta = [SELECT Id, branch_id__c FROM Account LIMIT 1];
+	public static testmethod void getVisitValuesGroups() {
+        Final Id rtIdGE = [SELECT Id FROM RecordType WHERE DeveloperName = 'Record_Type_Economic_Group' LIMIT 1].Id;
+		Final User userOwner = [SELECT Id FROM User WHERE LastName LIKE '%Risotto%' LIMIT 1];
+		Final Account cuenta = [SELECT Id, branch_id__c, recordTypeId FROM Account LIMIT 1];
+        cuenta.RecordTypeId = rtIdGE;
+        update cuenta;
 		Final acpl__Account_Planning__c apR = new acpl__Account_Planning__c(acpl__participant_id__c = cuenta.Id, acpl__external_reference_id__c = 'AP123', Name = 'AP record',
 		                                                             acpl__gf_ap_limit_date__c = System.today(), acpl__proposal_manager_id__c = userOwner.Id);
 		insert apR;

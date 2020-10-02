@@ -110,48 +110,16 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>iconName</name>
                 <value>standard:account</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>metadataConfig</name>
-                <value>AP_Executive</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>recordsToShow</name>
-                <value>4</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>tableModel</name>
-                <value>Title Medium</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>tableModelAll</name>
-                <value>Title</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>titleCard</name>
-                <value>Plan de cuenta</value>
-            </componentInstanceProperties>
-            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
-            <visibilityRule>
-                <booleanFilter>1 OR 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!$User.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>E03</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!$User.prof_position_id__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>I32</rightValue>
-                </criteria>
-            </visibilityRule>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>iconName</name>
-                <value>standard:account</value>
+                <name>insideBox</name>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>metadataConfig</name>
@@ -162,6 +130,10 @@
                 <value>3</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>tableModel</name>
                 <value>Title Medium</value>
             </componentInstanceProperties>
@@ -172,6 +144,10 @@
             <componentInstanceProperties>
                 <name>titleCard</name>
                 <value>Plan de cuenta</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>false</value>
             </componentInstanceProperties>
             <componentName>bE_DynamicTablePresentation_Lwc</componentName>
             <visibilityRule>
@@ -190,6 +166,62 @@
                     <leftValue>{!$User.prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>OS8</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>iconName</name>
+                <value>standard:account</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metadataConfig</name>
+                <value>AP_Executive</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>recordsToShow</name>
+                <value>4</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModel</name>
+                <value>Title Medium</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModelAll</name>
+                <value>Title</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>titleCard</name>
+                <value>Plan de cuenta</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
+            <visibilityRule>
+                <booleanFilter>1 OR 2</booleanFilter>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>E03</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I32</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>

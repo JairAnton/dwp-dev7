@@ -9,8 +9,10 @@ export default class BE_CustomDataTypeLookup_Lwc extends LightningElement {
     urlLabel;
     @track isEdit = false;
     connectedCallback() {
-        this.urlValue = window.location.origin + '/' + this.rowData[this.objectApiName][this.fieldName];
-        this.urlLabel = this.rowData[this.objectApiName][this.label];
+        if(this.rowData[this.objectApiName]) {
+            this.urlValue = window.location.origin + '/' + this.rowData[this.objectApiName][this.fieldName];
+            this.urlLabel = this.rowData[this.objectApiName][this.label];
+        }
     }
     /** FUNCTIONS */
     handleEditAction() {
