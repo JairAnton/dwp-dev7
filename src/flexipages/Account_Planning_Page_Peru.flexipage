@@ -198,6 +198,56 @@
                 </criteria>
             </visibilityRule>
         </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>BE_AP_Guarantor</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Accionistas&quot;,     &quot;en-US&quot;: &quot;Guarantors&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>true</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>BE_AP_Guarantors_Read_Only</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Accionistas&quot;,     &quot;en-US&quot;: &quot;Guarantors&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>false</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
         <name>Facet-ga5ou731nwh</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -1209,7 +1259,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>tableModelAll</name>
-                <value>Title Large</value>
+                <value>Title</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>titleCard</name>
@@ -1399,7 +1449,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>tableModelAll</name>
-                <value>Title Large</value>
+                <value>Title</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>titleCard</name>

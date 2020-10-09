@@ -160,6 +160,17 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Monto</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>ClientAssigned__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -171,6 +182,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ExpectedDate__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Fecha expectativa de completación</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>acpl__gf_account_planning_id__c</fullName>
@@ -417,6 +438,19 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>bupl__gf_growth_drvr_prdt_short_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Short description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>bupl__solution_category_desc__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -436,157 +470,157 @@
                     <label>Others</label>
                 </value>
                 <value>
-                    <fullName>Préstamo comercial CP (manual)</fullName>
+                    <fullName>0160010</fullName>
                     <default>false</default>
                     <label>Préstamo comercial CP (manual)</label>
                 </value>
                 <value>
-                    <fullName>Préstamo comercial CP</fullName>
+                    <fullName>0160010_NEW</fullName>
                     <default>false</default>
                     <label>Préstamo comercial CP</label>
                 </value>
                 <value>
-                    <fullName>Comex importación (manual)</fullName>
+                    <fullName>0161720</fullName>
                     <default>false</default>
                     <label>Comex importación (manual)</label>
                 </value>
                 <value>
-                    <fullName>Comex importación</fullName>
+                    <fullName>0161720_NEW</fullName>
                     <default>false</default>
                     <label>Comex importación</label>
                 </value>
                 <value>
-                    <fullName>Comex exportación (manual)</fullName>
+                    <fullName>0161710</fullName>
                     <default>false</default>
                     <label>Comex exportación (manual)</label>
                 </value>
                 <value>
-                    <fullName>Comex exportación</fullName>
+                    <fullName>0161710_NEW</fullName>
                     <default>false</default>
                     <label>Comex exportación</label>
                 </value>
                 <value>
-                    <fullName>Forfaiting</fullName>
+                    <fullName>0161730</fullName>
                     <default>false</default>
                     <label>Forfaiting</label>
                 </value>
                 <value>
-                    <fullName>Letras (manual)</fullName>
+                    <fullName>0159501</fullName>
                     <default>false</default>
                     <label>Letras (manual)</label>
                 </value>
                 <value>
-                    <fullName>Letras</fullName>
+                    <fullName>0159501_NEW</fullName>
                     <default>false</default>
                     <label>Letras</label>
                 </value>
                 <value>
-                    <fullName>Factoring</fullName>
+                    <fullName>0159502</fullName>
                     <default>false</default>
                     <label>Factoring</label>
                 </value>
                 <value>
-                    <fullName>Préstamo comercial LP (manual)</fullName>
+                    <fullName>PC00009</fullName>
                     <default>false</default>
                     <label>Préstamo comercial LP (manual)</label>
                 </value>
                 <value>
-                    <fullName>Préstamo comercial LP</fullName>
+                    <fullName>PC00009_NEW</fullName>
                     <default>false</default>
                     <label>Préstamo comercial LP</label>
                 </value>
                 <value>
-                    <fullName>Leasing (manual)</fullName>
+                    <fullName>0159601</fullName>
                     <default>false</default>
                     <label>Leasing (manual)</label>
                 </value>
                 <value>
-                    <fullName>Leasing</fullName>
+                    <fullName>0159601_NEW</fullName>
                     <default>false</default>
                     <label>Leasing</label>
                 </value>
                 <value>
-                    <fullName>Carta fianza técnica (manual)</fullName>
+                    <fullName>0292235</fullName>
                     <default>false</default>
                     <label>Carta fianza técnica (manual)</label>
                 </value>
                 <value>
-                    <fullName>Carta fianza técnica</fullName>
+                    <fullName>0292235_NEW</fullName>
                     <default>false</default>
                     <label>Carta fianza técnica</label>
                 </value>
                 <value>
-                    <fullName>Carta fianza económica (manual)</fullName>
+                    <fullName>0292230</fullName>
                     <default>false</default>
                     <label>Carta fianza económica (manual)</label>
                 </value>
                 <value>
-                    <fullName>Carta fianza económica</fullName>
+                    <fullName>0292230_NEW</fullName>
                     <default>false</default>
                     <label>Carta fianza económica</label>
                 </value>
                 <value>
-                    <fullName>Stand by</fullName>
+                    <fullName>0292420</fullName>
                     <default>false</default>
                     <label>Stand by</label>
                 </value>
                 <value>
-                    <fullName>Carta de crédito de importación</fullName>
+                    <fullName>0292410</fullName>
                     <default>false</default>
                     <label>Carta de crédito de importación</label>
                 </value>
                 <value>
-                    <fullName>Carta de crédito de exportación</fullName>
+                    <fullName>0292430</fullName>
                     <default>false</default>
                     <label>Carta de crédito de exportación</label>
                 </value>
                 <value>
-                    <fullName>Vista PJ</fullName>
+                    <fullName>0240011</fullName>
                     <default>false</default>
                     <label>Vista PJ</label>
                 </value>
                 <value>
-                    <fullName>Depósito a plazo</fullName>
+                    <fullName>0241041</fullName>
                     <default>false</default>
                     <label>Depósito a plazo</label>
                 </value>
                 <value>
-                    <fullName>Pago a proveedores</fullName>
+                    <fullName>08</fullName>
                     <default>false</default>
                     <label>Pago a proveedores</label>
                 </value>
                 <value>
-                    <fullName>Pago de haberes</fullName>
+                    <fullName>09</fullName>
                     <default>false</default>
                     <label>Pago de haberes</label>
                 </value>
                 <value>
-                    <fullName>Net Cash</fullName>
+                    <fullName>21</fullName>
                     <default>false</default>
                     <label>Net Cash</label>
                 </value>
                 <value>
-                    <fullName>FX</fullName>
+                    <fullName>PC00035</fullName>
                     <default>false</default>
                     <label>FX</label>
                 </value>
                 <value>
-                    <fullName>Forward</fullName>
+                    <fullName>PC00036</fullName>
                     <default>false</default>
                     <label>Forward</label>
                 </value>
                 <value>
-                    <fullName>PFL</fullName>
+                    <fullName>PC00040</fullName>
                     <default>false</default>
                     <label>PFL</label>
                 </value>
                 <value>
-                    <fullName>PPF</fullName>
+                    <fullName>PC00041</fullName>
                     <default>false</default>
-                    <label>PPF</label>
+                    <label>PFF</label>
                 </value>
                 <value>
-                    <fullName>PFA</fullName>
+                    <fullName>PC00042</fullName>
                     <default>false</default>
                     <label>PFA</label>
                 </value>
@@ -695,127 +729,127 @@
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>Programa financiero</controllingFieldValue>
-                <valueName>PFL</valueName>
+                <valueName>PC00040</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Programa financiero</controllingFieldValue>
-                <valueName>PPF</valueName>
+                <valueName>PC00041</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Programa financiero</controllingFieldValue>
-                <valueName>PFA</valueName>
+                <valueName>PC00042</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a largo plazo</controllingFieldValue>
+                <valueName>PC00009</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a largo plazo</controllingFieldValue>
+                <valueName>PC00009_NEW</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a largo plazo</controllingFieldValue>
+                <valueName>0159601</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a largo plazo</controllingFieldValue>
+                <valueName>0159601_NEW</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Préstamo comercial CP (manual)</valueName>
+                <valueName>0160010</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Préstamo comercial CP</valueName>
+                <valueName>0160010_NEW</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Comex importación (manual)</valueName>
+                <valueName>0161720</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Comex importación</valueName>
+                <valueName>0161720_NEW</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Comex exportación (manual)</valueName>
+                <valueName>0161710</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Comex exportación</valueName>
+                <valueName>0161710_NEW</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Forfaiting</valueName>
+                <valueName>0161730</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Letras (manual)</valueName>
+                <valueName>0159501</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Letras</valueName>
+                <valueName>0159501_NEW</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Factoring</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Préstamo comercial LP (manual)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Préstamo comercial LP</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Leasing (manual)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
-                <valueName>Leasing</valueName>
+                <valueName>0159502</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Riesgo de firma</controllingFieldValue>
-                <valueName>Carta fianza técnica (manual)</valueName>
+                <valueName>0292235</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Riesgo de firma</controllingFieldValue>
-                <valueName>Carta fianza técnica</valueName>
+                <valueName>0292235_NEW</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Riesgo de firma</controllingFieldValue>
-                <valueName>Carta fianza económica (manual)</valueName>
+                <valueName>0292230</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Riesgo de firma</controllingFieldValue>
-                <valueName>Carta fianza económica</valueName>
+                <valueName>0292230_NEW</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Riesgo de firma</controllingFieldValue>
-                <valueName>Stand by</valueName>
+                <valueName>0292420</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Riesgo de firma</controllingFieldValue>
-                <valueName>Carta de crédito de importación</valueName>
+                <valueName>0292410</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Riesgo de firma</controllingFieldValue>
-                <valueName>Carta de crédito de exportación</valueName>
+                <valueName>0292430</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Recursos</controllingFieldValue>
-                <valueName>Vista PJ</valueName>
+                <valueName>0240011</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Recursos</controllingFieldValue>
-                <valueName>Depósito a plazo</valueName>
+                <valueName>0241041</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Serv. Transaccionales</controllingFieldValue>
-                <valueName>Pago a proveedores</valueName>
+                <valueName>08</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Serv. Transaccionales</controllingFieldValue>
-                <valueName>Pago de haberes</valueName>
+                <valueName>09</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Serv. Transaccionales</controllingFieldValue>
-                <valueName>Net Cash</valueName>
+                <valueName>21</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Tesorería</controllingFieldValue>
-                <valueName>FX</valueName>
+                <valueName>PC00035</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Tesorería</controllingFieldValue>
-                <valueName>Forward</valueName>
+                <valueName>PC00036</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -832,6 +866,11 @@
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
+                <value>
+                    <fullName>Financiamiento a largo plazo</fullName>
+                    <default>false</default>
+                    <label>Financiamiento a largo plazo</label>
+                </value>
                 <value>
                     <fullName>Financiamiento a corto plazo</fullName>
                     <default>false</default>

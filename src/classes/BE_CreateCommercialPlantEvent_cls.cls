@@ -48,8 +48,8 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
     */
     public override BE_SingleRelatedListCRUD_Cls.Response updateRecords(List<SObject> sObjs) {
         BE_SingleRelatedListCRUD_Cls.Response response = new BE_SingleRelatedListCRUD_Cls.Response();
+        Final List<acpl__Commercial_Plan_Event__c> lstCPE = (List<acpl__Commercial_Plan_Event__c>) sObjs;
         try {
-            Final List<acpl__Commercial_Plan_Event__c> lstCPE = (List<acpl__Commercial_Plan_Event__c>) sObjs;
             Final List<acpl__Account_Planning__c> lstAP = BE_AP_Administration_helper.getAP(lstCPE[0].acpl__gf_account_planning_id__c);
             Final Integer apSize = lstAp.size();
             if(apSize > 0 && String.isNotBlank(lstAp[0].acpl__participant_id__c)) {
@@ -57,6 +57,15 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
                 if(mapAU.get(V_SUCCESS) == V_TRUE) {
                     lstCPE[0].Name = lstAp[0].Name + ' - ' + String.valueOf(lstCPE[0].acpl__gf_event_date__c).left(10);
                     response = BE_SingleRelatedListModal_Ctr.returnResponse(lstCPE, 'update');
+                    Final acpl__Commercial_Plan_Event__c[] lstCPEAux = [SELECT Id, ClientAssigned__c, acpl__gf_event_date__c, GrowthDriver__c 
+                                                                        FROM acpl__Commercial_Plan_Event__c WHERE Id =: lstCPE[0].Id LIMIT 1];
+                    if(response.isSuccess && !lstCPEAux.isEmpty() && String.isNotBlank(lstCPEAux[0].GrowthDriver__c)) {
+                        Final bupl__BP_GrowthDriver__c[] lstGD = [SELECT Id, ExpectedDate__c, ClientAssigned__c FROM bupl__BP_GrowthDriver__c 
+                                                        WHERE Id=:lstCPEAux[0].GrowthDriver__c LIMIT 1];
+                        lstGD[0].ExpectedDate__c = lstCPEAux[0].acpl__gf_event_date__c;
+                        lstGD[0].ClientAssigned__c = lstCPEAux[0].ClientAssigned__c;
+                        update lstGD;
+                    }
                 } else {
                     response.isSuccess = false;
                     response.message = mapAU.get(MSG);
