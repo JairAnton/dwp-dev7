@@ -44,6 +44,10 @@ public without sharing class AP_ConvertCPE_cls {
 		Final Integer newOppCPESize = newOppCPE.size();
 		Final Integer newTaskCPESize = newTaskCPE.size();
 		Final Map<Id, User> mapUser = new Map<Id, User>([SELECT Id, Name, isActive FROM User WHERE Id IN: mapCPEPartner.values() AND isActive = true]);
+		//Obtenemos las acciones comerciales con Growth Drivers asociados
+		Map<Id, acpl__Commercial_Plan_Event__c> mapCPEAux = new Map<Id, acpl__Commercial_Plan_Event__c>([SELECT Id, GrowthDriver__c, GrowthDriver__r.Amount__c, 
+																GrowthDriver__r.bupl__solution_category_desc__c, GrowthDriver__r.CurrencyIsoCode FROM 
+																acpl__Commercial_Plan_Event__c WHERE Id IN:mapCPE.keySet() AND GrowthDriver__c NOT IN ('')]);
 		//Crea visitas
 		if(newVisitCPESize > 0) {
 			insert newVisitCPE;
@@ -51,7 +55,7 @@ public without sharing class AP_ConvertCPE_cls {
 		}
 		//Crea oportunidades
 		if(newOppCPESize > 0) {
-			insert newOppCPE;
+			newOppCPE = generateOpps(newOppCPE, mapCPEAux);
 			createATM(mapCPE, mapCPEPartner, newOppCPE, mapUser);
 		}
 		//Crea Tareas
@@ -194,5 +198,34 @@ public without sharing class AP_ConvertCPE_cls {
 			mapClient.put('Id', cpe.acpl__gf_account_planning_id__r.acpl__participant_id__c);
 		}
 		return mapClient;
+	}
+
+	private static List<Opportunity> generateOpps(List<Opportunity> lstOpp, Map<Id, acpl__Commercial_Plan_Event__c> mapCPEAux) {
+		Final Map<String, PriceBookEntry> mapPBE = new Map<String, PriceBookEntry>();
+		for(PriceBookEntry pbe: [SELECT Id, Product2.Unique_id__c, CurrencyIsoCode FROM PriceBookEntry WHERE IsActive = TRUE AND Product2.isActive = TRUE]) {
+			mapPBE.put(pbe.Product2.Unique_id__c + '_' + PBE.CurrencyIsoCode, pbe);
+		}
+		for(Opportunity opp: lstOpp) {
+			if(mapCPEAux.containsKey(opp.commercial_plan_event__c)) {
+				opp.Amount = mapCPEAux.get(opp.commercial_plan_event__c).GrowthDriver__r.Amount__c;
+				opp.CurrencyIsoCode = mapCPEAux.get(opp.commercial_plan_event__c).GrowthDriver__r.CurrencyIsoCode;
+				
+			}
+		}
+		insert lstOpp;
+		Final List<OpportunityLineItem> lstOli = new List<OpportunityLineItem>();
+		for(Opportunity opp: lstOpp) {
+			if(mapCPEAux.containsKey(opp.commercial_plan_event__c)) {
+				Final acpl__Commercial_Plan_Event__c cpeAux = mapCPEAux.get(opp.commercial_plan_event__c);
+				if(mapPBE.containsKey(cpeAux.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAux.GrowthDriver__r.CurrencyIsoCode)) {
+					lstOli.add(new OpportunityLineItem(OpportunityId = opp.Id, Quantity = 1, UnitPrice = Opp.Amount, 
+								PricebookEntryId = mapPBE.get(cpeAux.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAux.GrowthDriver__r.CurrencyIsoCode).Id));
+				}
+			}
+		}
+		if(!lstOli.isEmpty()) {
+			insert lstOli;
+		}
+		return lstOpp;
 	}
 }

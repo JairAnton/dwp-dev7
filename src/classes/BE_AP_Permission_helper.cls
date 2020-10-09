@@ -171,6 +171,27 @@ public with sharing class BE_AP_Permission_helper {
 		return permission;
 	}
 
+    /*
+	 * @Description  method permissionStockHolder
+	 */
+	public Boolean permissionSH(String type) {
+		Boolean permission;
+		if(csAPA != null) {
+			switch on type {
+                when 'insert' {
+					permission = csAPA.Create_StockHolder__c;
+				}
+				when 'update' {
+					permission = csAPA.Edit_StockHolder__c;
+				}
+				when 'delete' {
+					permission = csAPA.Delete_StockHolder__c;
+				}
+			}
+		}
+		return permission;
+	}
+    
 	/*
 	 * @Description  method adminPermission
 	 */
@@ -258,6 +279,10 @@ public with sharing class BE_AP_Permission_helper {
 			when 'bupl__BusinessPlan__c' {
 				mapWRR.put(V_PERMISSION, permissionBP(actionType));
 				mapWRR.put(R_NAME, 'plan de negocio');
+			}
+            when 'BE_StockHolder__c' {
+				mapWRR.put(V_PERMISSION, permissionSH(actionType));
+				mapWRR.put(R_NAME, 'fiadores');
 			}
 		}
 		return mapWRR;

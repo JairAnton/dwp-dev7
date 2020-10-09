@@ -16,13 +16,17 @@
             &quot;fieldName&quot;: &quot;bupl__solution_category_desc__c&quot;,
             &quot;type&quot;: &quot;picklist&quot;
         },
-
+        {
+            &quot;label&quot;: &quot;MONTO&quot;,
+            &quot;fieldName&quot;: &quot;Amount__c&quot;,
+            &quot;type&quot;: &quot;currency&quot;
+        },
         {
             &quot;label&quot;: &quot;DETALLE&quot;,
             &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_desc__c&quot;,
             &quot;type&quot;: &quot;textArea&quot;
         },
-    {
+        {
             &quot;type&quot;: &quot;action&quot;,
             &quot;typeAttributes&quot;: {
                 &quot;rowActions&quot;: [
@@ -40,9 +44,9 @@
                     },
                     {
                         &quot;name&quot;: &quot;update&quot;,
-                        &quot;className&quot;: &quot;&quot;,
+                        &quot;className&quot;: &quot;BE_CreateDriveGrowth_ctr&quot;,
                         &quot;objectApiName&quot;: &quot;bupl__BP_GrowthDriver__c&quot;,
- &quot;defaultValue&quot;: &quot;acpl__gf_account_planning_id__c&quot;,
+                        &quot;defaultValue&quot;: &quot;acpl__gf_account_planning_id__c&quot;,
                         &quot;title&quot;: {
                             &quot;es&quot;: &quot;Editar variable de crecimiento&quot;,
                             &quot;en-US&quot;: &quot;Edit Growth Driver&quot;
@@ -64,6 +68,15 @@
                             },
                             {
                                 &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_desc__c&quot;
+                            },
+                            {
+                                &quot;fieldName&quot;: &quot;Amount__c&quot;
+                            },
+                            {
+                                &quot;fieldName&quot;: &quot;ExpectedDate__c&quot;
+                            },
+                            {
+                                &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
                             }
                         ]
                     },
@@ -73,7 +86,7 @@
                             &quot;es&quot;: &quot;Eliminar variable&quot;,
                             &quot;en-US&quot;: &quot;Delete growth driver&quot;
                         },
-                        &quot;className&quot;: &quot;&quot;,
+                        &quot;className&quot;: &quot;BE_CreateDriveGrowth_ctr&quot;,
                         &quot;objectApiName&quot;: &quot;bupl__BP_GrowthDriver__c&quot;,
                         &quot;title&quot;: {
                             &quot;es&quot;: &quot;Eliminar variable de crecimiento&quot;,
@@ -88,7 +101,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">bupl__solution_category_id__c,bupl__solution_category_desc__c,bupl__gf_growth_drvr_prdt_desc__c</value>
+        <value xsi:type="xsd:string">bupl__solution_category_id__c,toLabel(bupl__solution_category_desc__c),Amount__c, bupl__gf_growth_drvr_prdt_desc__c</value>
     </values>
     <values>
         <field>Filter__c</field>
@@ -123,6 +136,15 @@
                 },
                 {
                     &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_desc__c&quot;
+                },
+                {
+                    &quot;fieldName&quot;: &quot;Amount__c&quot;
+                },
+                {
+                    &quot;fieldName&quot;: &quot;ExpectedDate__c&quot;
+                },
+                {
+                    &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
                 },
                 {
                     &quot;fieldName&quot;: &quot;acpl__gf_account_planning_id__c&quot;,
