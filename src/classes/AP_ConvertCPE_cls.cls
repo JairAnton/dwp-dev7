@@ -45,7 +45,7 @@ public without sharing class AP_ConvertCPE_cls {
 		Final Integer newTaskCPESize = newTaskCPE.size();
 		Final Map<Id, User> mapUser = new Map<Id, User>([SELECT Id, Name, isActive FROM User WHERE Id IN: mapCPEPartner.values() AND isActive = true]);
 		//Obtenemos las acciones comerciales con Growth Drivers asociados
-		Map<Id, acpl__Commercial_Plan_Event__c> mapCPEAux = new Map<Id, acpl__Commercial_Plan_Event__c>([SELECT Id, GrowthDriver__c, GrowthDriver__r.Amount__c, 
+		Final Map<Id, acpl__Commercial_Plan_Event__c> mapCPEAux = new Map<Id, acpl__Commercial_Plan_Event__c>([SELECT Id, GrowthDriver__c, GrowthDriver__r.Amount__c, 
 																GrowthDriver__r.bupl__solution_category_desc__c, GrowthDriver__r.CurrencyIsoCode FROM 
 																acpl__Commercial_Plan_Event__c WHERE Id IN:mapCPE.keySet() AND GrowthDriver__c NOT IN ('')]);
 		//Crea visitas

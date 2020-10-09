@@ -12,6 +12,12 @@
 @isTest
 public class AP_StockHolder_Handler_tst {
 
+    /*** @Description variable DNI*/
+    Final static String DNI = 'DNI';
+    /*** @Description variable ACCIONISTA*/
+    Final static String ACCIONISTA = 'Accionista';
+    /*** @Description variable ACCIONISTA*/
+    Final static String DOCUMENT_NUMBER = '1029384756';
     /*** @Description variable mapUsers*/
 	static Map<String, User> mapUsers = AP_FactoryTest_tst.obtainUsers();
 	/*** @Description variable EJECUTIVO*/
@@ -39,7 +45,7 @@ public class AP_StockHolder_Handler_tst {
 		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
-				insert new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = 'Accionista', DocumentNumber__c = '1029384756', DocumentType__c = 'DNI');
+				insert new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = 'ACCIONISTA', DocumentNumber__c = DOCUMENT_NUMBER, DocumentType__c = DNI);
 			} catch(Exception e) {
                 error = true;
 				System.debug(e.getMessage());
@@ -56,13 +62,13 @@ public class AP_StockHolder_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
 		insert apRecord;
-		Final BE_Stockholder__c stockholder = new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = 'Accionista', DocumentNumber__c = '1029384756', DocumentType__c = 'DNI');
+		Final BE_Stockholder__c stockholder = new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = 'ACCIONISTA', DocumentNumber__c = DOCUMENT_NUMBER, DocumentType__c = DNI);
 		insert stockholder;
         Boolean error = false;
 		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
-				stockholder.Name = 'Accionista Aux';
+				stockholder.Name = 'ACCIONISTA Aux';
 				update stockholder;
 			} catch(Exception e) {
                 error = true;
@@ -80,7 +86,7 @@ public class AP_StockHolder_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
 		insert apRecord;
-		Final BE_Stockholder__c stockholder = new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = 'Accionista', DocumentNumber__c = '1029384756', DocumentType__c = 'DNI');
+		Final BE_Stockholder__c stockholder = new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = 'ACCIONISTA', DocumentNumber__c = DOCUMENT_NUMBER, DocumentType__c = DNI);
 		insert stockholder;
         Boolean error = false;
 		Test.startTest();
@@ -105,7 +111,7 @@ public class AP_StockHolder_Handler_tst {
 		insert apRecord;
 		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {
-			insert new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = 'Accionista', DocumentNumber__c = '1029384756', DocumentType__c = 'DNI');
+			insert new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = 'ACCIONISTA', DocumentNumber__c = DOCUMENT_NUMBER, DocumentType__c = DNI);
 		}
 		Test.stopTest();
 		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c WHERE Id =:apRecord.Id LIMIT 1];

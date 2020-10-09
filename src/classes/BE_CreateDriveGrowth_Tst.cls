@@ -35,7 +35,7 @@ public without sharing class BE_CreateDriveGrowth_Tst {
         AP_FactoryTest_tst.generateProduct();
     }
     
-    private static bupl__BP_GrowthDriver__c getGD() {
+    private static bupl__BP_GrowthDriver__c obtainGD() {
         Final bupl__BusinessPlan__c bpAux = [SELECT Id, acpl__gf_account_planning_id__c FROM bupl__BusinessPlan__c LIMIT 1];
         return new bupl__BP_GrowthDriver__c(bupl__gf_business_plan_id__c = bpAux.Id, bupl__gf_business_growth_rec_number__c = 1, ExpectedDate__c = System.today(), 
                                      bupl__solution_category_desc__c = '0292235_NEW', CurrencyIsoCode = 'PEN', bupl__solution_category_id__c = 'Riesgo de firma', 
@@ -47,7 +47,7 @@ public without sharing class BE_CreateDriveGrowth_Tst {
     */
     @isTest
     static void createRecordsTest() {
-        final List<SObject> sObjs = new List<SObject>{getGD()};
+        final List<SObject> sObjs = new List<SObject>{obtainGD()};
         Test.startTest();
         Final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateDriveGrowth_ctr().createRecords(sObjs);
         Test.stopTest();
@@ -59,7 +59,7 @@ public without sharing class BE_CreateDriveGrowth_Tst {
     */
     @isTest
     static void createRecordsInvalidPrdTest() {
-        Final bupl__BP_GrowthDriver__c growthDriver = getGD();
+        Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
         growthDriver.bupl__solution_category_desc__c = '0292235';
         final List<SObject> sObjs = new List<SObject>{growthDriver};
         Test.startTest();
@@ -86,7 +86,7 @@ public without sharing class BE_CreateDriveGrowth_Tst {
     */
     @isTest
     static void updateRecordsTest() {
-        Final bupl__BP_GrowthDriver__c growthDriver = getGD();
+        Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
         new BE_CreateDriveGrowth_ctr().createRecords(new List<SObject>{growthDriver});
         growthDriver.ExpectedDate__c = System.today() +1;
         Test.startTest();
@@ -100,7 +100,7 @@ public without sharing class BE_CreateDriveGrowth_Tst {
     */
     @isTest
     static void updateRecordsInvalidPrdTest() {
-        Final bupl__BP_GrowthDriver__c growthDriver = getGD();
+        Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
         new BE_CreateDriveGrowth_ctr().createRecords(new List<SObject>{growthDriver});
         growthDriver.bupl__solution_category_desc__c = '0292235';
         Test.startTest();
@@ -114,7 +114,7 @@ public without sharing class BE_CreateDriveGrowth_Tst {
     */
     @isTest
     static void deleteRecordsTest() {
-        Final bupl__BP_GrowthDriver__c growthDriver = getGD();
+        Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
         new BE_CreateDriveGrowth_ctr().createRecords(new List<SObject>{growthDriver});
         Test.startTest();
         final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateDriveGrowth_ctr().deleteRecords(new List<SObject>{growthDriver});
