@@ -17,8 +17,8 @@ public class BP_GrowthDriver_Handler_tst {
     Final static String EJECUTIVO = 'EJECUTIVO';
     /**@Description RIESGO */
     Final static String RIESGO = 'Riesgo de firma';
-    /**@Description STAND */
-    Final static String STAND = 'Stand by';
+    /**@Description PRODUCT */
+    Final static String PRODUCT = '0292235_NEW';
     /**@Description FAIL*/
     private static Final String FAIL = 'Fail Assertion';
 	/**
@@ -27,6 +27,7 @@ public class BP_GrowthDriver_Handler_tst {
 	@TestSetup
 	public static void setUp() {
 		AP_FactoryTest_tst.forSetUp();
+        AP_FactoryTest_tst.generateProduct();
 	}
 
 	/**
@@ -39,14 +40,14 @@ public class BP_GrowthDriver_Handler_tst {
 		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
+            Final bupl__BP_GrowthDriver__c[] auxGD = new bupl__BP_GrowthDriver__c[] {
+                new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
+                                             bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT),
+				new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
+                                             bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT)};
 			try {
-				Final bupl__BP_GrowthDriver__c[] auxGD = new bupl__BP_GrowthDriver__c[] {};
-				auxGD.add(new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-				                                       bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = STAND));
-				auxGD.add(new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-				                                       bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = STAND));
 				insert auxGD;
-			} catch(Exception e) {
+			} catch(DMLException e) {
 				System.debug(e.getMessage());
 			}
 		}
@@ -65,12 +66,12 @@ public class BP_GrowthDriver_Handler_tst {
 		insert apR;
 		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Final bupl__BP_GrowthDriver__c vGD = new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-		                                                                  bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = STAND);
+		                                                                  bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT);
 		insert vGD;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
-				vGD.bupl__solution_category_desc__c = 'Carta fianza económica';
+				vGD.bupl__solution_category_desc__c = '0292235';
 				update vGD;
 			} catch(Exception e) {
 				System.debug(e.getMessage());
@@ -78,7 +79,7 @@ public class BP_GrowthDriver_Handler_tst {
 		}
 		Test.stopTest();
 		Final bupl__BP_GrowthDriver__c[] lstGD = [SELECT Id, bupl__solution_category_desc__c FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c =:apR.Id];
-		System.assertEquals(STAND, lstGD[0].bupl__solution_category_desc__c, FAIL);
+		System.assertEquals(PRODUCT, lstGD[0].bupl__solution_category_desc__c, FAIL);
 	}
 
 	/**
@@ -90,7 +91,7 @@ public class BP_GrowthDriver_Handler_tst {
 		insert apR;
 		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Final bupl__BP_GrowthDriver__c vGD = new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-		                                                                  bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = STAND);
+		                                                                  bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT);
 		insert vGD;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
@@ -117,7 +118,7 @@ public class BP_GrowthDriver_Handler_tst {
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			insert new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-			                                    bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = STAND);
+			                                    bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT);
 		}
 		Test.stopTest();
 		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_status_type_name__c FROM acpl__Account_Planning__c WHERE Id =:apR.Id LIMIT 1];
