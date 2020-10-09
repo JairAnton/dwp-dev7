@@ -47,26 +47,25 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
         Final List<bupl__BP_GrowthDriver__c> lstGD = (List<bupl__BP_GrowthDriver__c>) sObjs;
         Final Savepoint svp = Database.setSavePoint();
         BE_SingleRelatedListCRUD_Cls.Response response = BE_SingleRelatedListModal_Ctr.returnResponse(lstGD, 'update');
-        if(response.isSuccess) {
-            if(lstGD[0].ExpectedDate__c == null) {
-                throw new AuraException('No puede dejar vacio el campo de fecha de completación.');
-            }
-            Final acpl__Commercial_Plan_Event__c[] lstCPE = [SELECT Id, Name, acpl__gf_event_date__c, ClientAssigned__c 
-                                                            FROM acpl__Commercial_Plan_Event__c WHERE GrowthDriver__c =: lstGD[0].Id LIMIT 1];
-            if(!lstCPE.isEmpty()) {
-                lstCPE[0].Name = lstCPE[0].Name.left(lstCPE[0].Name.length() - 10) + String.valueOf(lstGD[0].ExpectedDate__c).left(10);
-                lstCPE[0].acpl__gf_event_date__c = lstGD[0].ExpectedDate__c;
-                lstCPE[0].ClientAssigned__c = lstGD[0].ClientAssigned__c;
-                response = BE_SingleRelatedListModal_Ctr.returnResponse(lstCPE, 'update');
-                if(validateProductInactive(lstGD[0].bupl__solution_category_desc__c, lstGD[0].CurrencyIsoCode)) {
-                    Database.rollback(svp);
-                    response.isSuccess = false;
-                    response.message = 'El producto no se encuentra disponible. Seleccione otro producto y/o moneda.';
-                } else if(!response.isSuccess) {
-                    Database.rollback(svp);
-                } 
-                
-            }
+        Final acpl__Commercial_Plan_Event__c[] lstCPE = [SELECT Id, Name, acpl__gf_event_date__c, ClientAssigned__c FROM acpl__Commercial_Plan_Event__c 
+                                                         WHERE GrowthDriver__c =: lstGD[0].Id LIMIT 1];
+        if(!lstCPE.isEmpty() && lstGD[0].ExpectedDate__c == null) {
+            Database.rollback(svp);
+            response.isSuccess = false;
+            response.message = 'No puede dejar vacio el campo de fecha de completación.';
+        }
+        if(response.isSuccess && !lstCPE.isEmpty()) {
+            lstCPE[0].Name = lstCPE[0].Name.left(lstCPE[0].Name.length() - 10) + String.valueOf(lstGD[0].ExpectedDate__c).left(10);
+            lstCPE[0].acpl__gf_event_date__c = lstGD[0].ExpectedDate__c;
+            lstCPE[0].ClientAssigned__c = lstGD[0].ClientAssigned__c;
+            response = BE_SingleRelatedListModal_Ctr.returnResponse(lstCPE, 'update');
+            if(validateProductInactive(lstGD[0].bupl__solution_category_desc__c, lstGD[0].CurrencyIsoCode)) {
+                Database.rollback(svp);
+                response.isSuccess = false;
+                response.message = 'El producto no se encuentra disponible. Seleccione otro producto y/o moneda.';
+            } else if(!response.isSuccess) {
+                Database.rollback(svp);
+            }     
         }
         return response;
     }
@@ -100,7 +99,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
                                                acpl__gf_comm_plan_event_type_name__c = 'Opportunity', acpl__gf_account_planning_id__c = gdAux.acpl__gf_account_planning_id__c, 
                                                Name = bpAux.acpl__gf_account_planning_id__r.Name + ' - ' + String.valueOf(gdAux.ExpectedDate__c).left(10), 
                                                GrowthDriver__c = gdAux.Id, acpl__gf_event_date__c = gdAux.ExpectedDate__c, ClientAssigned__c = gdAux.ClientAssigned__c)};
-		BE_SingleRelatedListCRUD_Cls.Response response = BE_SingleRelatedListModal_Ctr.returnResponse(cpe, 'insert');
+		Final BE_SingleRelatedListCRUD_Cls.Response response = BE_SingleRelatedListModal_Ctr.returnResponse(cpe, 'insert');
         if(validateProductInactive(gdAux.bupl__solution_category_desc__c, gdAux.CurrencyIsoCode)) {
             Database.rollback(svp);
             response.isSuccess = false;
