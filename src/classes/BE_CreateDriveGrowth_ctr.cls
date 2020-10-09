@@ -96,6 +96,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
     }
 
     private static Boolean validateProductInactive(String productCode, String currencyCode) {
-        return [SELECT Id FROM PriceBookEntry WHERE Product2.Unique_id__c =: productCode AND CurrencyIsoCode =: currencyCode AND IsActive = TRUE LIMIT 1].size() < 1;
+		Final PriceBookEntry[] lstPBE = [SELECT Id FROM PriceBookEntry WHERE Product2.Unique_id__c =: productCode AND CurrencyIsoCode =: currencyCode AND IsActive = TRUE LIMIT 1];
+        return lstPBE.size() < 1;
     }
 }
