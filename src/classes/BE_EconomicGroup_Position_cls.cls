@@ -23,7 +23,7 @@ public with sharing class BE_EconomicGroup_Position_cls extends Be_DTP_ResponseM
                                             MIN(account_id__r.bank_turnover_volume_amount__c) exp1, SUM(average_balance_amount__c) exp2 
                                             FROM Account_BBVA_Information__c where account_id__r.ParentId IN: replaceField AND
                                             type__c IN ('01', '02') AND product_group_classification_id__c NOT IN ('') AND 
-                                            is_last_date__c = true GROUP BY account_id__r.id, product_group_classification_id__c, 
+                                            is_last_date__c = true GROUP BY account_id__r.Id, product_group_classification_id__c, 
                                             type__c ORDER BY account_id__r.Id];
         Final Map<Id, List<AggregateResult>> mapAggr = generateMapAggregate(listInfoBBVA);
         Final List<Map<String, Object>> lstMapValues = new List<Map<String, Object>>();
@@ -62,11 +62,14 @@ public with sharing class BE_EconomicGroup_Position_cls extends Be_DTP_ResponseM
     private static Map<String, Object> getValue(List<AggregateResult> lstAgr, Id accId, String clientName) {
         Double vol = 0, ind = 0, dir = 0, res = 0;
         for(AggregateResult agr: lstAgr) {
-            if((String)agr.get('product_group_classification_id__c') == label.LblDirectDebt && (String)agr.get('type__c') == '01') {
+            System.debug(clientName);
+            System.debug(((String)agr.get('product_group_classification_id__c')).toLowerCase());
+            System.debug((Double)agr.get('exp2'));
+            if(((String)agr.get('product_group_classification_id__c')).toLowerCase() == label.LblDirectDebt.toLowerCase() && (String)agr.get('type__c') == '01') {
                 dir = (Double)agr.get('exp2');
-            } else if ((String)agr.get('product_group_classification_id__c') == label.LblIndirectDebt && (String)agr.get('type__c') == '01') {
+            } else if (((String)agr.get('product_group_classification_id__c')).toLowerCase() == label.LblIndirectDebt.toLowerCase() && (String)agr.get('type__c') == '01') {
                 ind = (Double)agr.get('exp2');
-            } else if((String)agr.get('product_group_classification_id__c') == label.LblResources && (String)agr.get('type__c') == '02') {
+            } else if(((String)agr.get('product_group_classification_id__c')).toLowerCase() == label.LblResources.toLowerCase() && (String)agr.get('type__c') == '02') {
                 res = (Double)agr.get('exp2');
             }
             vol = (Double) agr.get('exp1');

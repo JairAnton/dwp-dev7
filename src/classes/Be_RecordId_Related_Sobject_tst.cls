@@ -121,4 +121,32 @@ public class Be_RecordId_Related_Sobject_tst {
 		Final Boolean condition = size > 0;
 		System.assert (condition, FAIL);
 	}
+
+    /*
+	 * @Description  method getMetadataConfig Success
+	 */
+	public static testmethod void getMetadataConfigSuccess() {
+		Final User ejecutivo = [SELECT Id FROM User WHERE Profile.Name = 'Ejecutivo' AND isActive = true LIMIT 1];
+		Final Account acc = [SELECT Id FROM Account LIMIT 1];
+		acc.recordTypeId = [SELECT Id FROM RecordType WHERE DeveloperName IN ('Record_Type_Economic_Group', 'Record_Type_Client') LIMIT 1].Id;
+		update acc;
+		Final acpl__Account_Planning__c accountPlanning1 = AP_FactoryTest_tst.createAccountPlanning(acc.Id, ejecutivo.Id, null, false);
+        insert accountPlanning1;
+		Map<String, Object> mapResponse;
+		Test.startTest();
+		mapResponse = Be_RecordId_Related_Sobject_helper.getMetadataConfig(accountPlanning1.Id);
+		Test.stopTest();
+		System.assert((Boolean) mapResponse.get('isSuccess'), 'Assert Error');
+	}
+    
+    /*
+	 * @Description  method getMetadataConfig Error
+	 */
+    public static testmethod void getMetadataConfigError() {
+		Map<String, Object> mapResponse;
+		Test.startTest();
+		mapResponse = Be_RecordId_Related_Sobject_helper.getMetadataConfig(null);
+		Test.stopTest();
+		System.assert(!(Boolean) mapResponse.get('isSuccess'), 'Assert Error');
+	}
 }

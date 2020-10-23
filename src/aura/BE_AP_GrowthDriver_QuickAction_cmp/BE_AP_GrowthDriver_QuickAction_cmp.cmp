@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" 
+                access="global" controller="Be_RecordId_Related_Sobject_helper">
+    <aura:attribute name = "modalSet" type = "Object"/>
+    <aura:attribute name = "load" type = "Boolean" default="false"/>
+    <aura:attribute name = "error" type = "Boolean" default="false"/>
+    <aura:attribute name = "showSpinner" type = "Boolean" default="true"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner variant="brand" />
+    </aura:if>
+    <aura:if isTrue="{!v.load}">
+        <c:bE_SingleRelatedListModal_Lwc aura:id = "cmpModal" title = "Nueva Variable de Crecimiento" sobjectType = "{!v.modalSet.objectApiName}" 
+                                        sObjFields = "{!v.modalSet.fields}" modeAction = "{!v.modalSet.name}" 
+                                        className = "{!v.modalSet.className}" redirect = "{!v.modalSet.redirect}" 
+                                        standardView = "true"  onclosemodalweb = "{!c.handleCloseStanModal}" />
+    </aura:if>
+    <aura:if isTrue="{!v.error}">Ha ocurrido un error. Por favor contactese con su administrador.</aura:if>
+</aura:component>

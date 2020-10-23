@@ -22,8 +22,8 @@
                 <field>Comments__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Name</field>
+                <behavior>Readonly</behavior>
+                <field>Product__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -45,11 +45,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Product__c</field>
+                <field>Amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ClientAssigned__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Name</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

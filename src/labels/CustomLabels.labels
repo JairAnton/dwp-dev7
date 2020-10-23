@@ -444,21 +444,21 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <language>es</language>
         <protected>false</protected>
         <shortDescription>LblDirectDebt</shortDescription>
-        <value>DirectDebt</value>
+        <value>DIRECTA</value>
     </labels>
     <labels>
         <fullName>LblIndirectDebt</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>LblIndirectDebt</shortDescription>
-        <value>IndirectDebt</value>
+        <value>INDIRECTA</value>
     </labels>
     <labels>
         <fullName>LblResources</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>LblResources</shortDescription>
-        <value>Resources</value>
+        <value>RECURSOS GESTIONADOS</value>
     </labels>
     <labels>
         <fullName>Month10ShortName</fullName>

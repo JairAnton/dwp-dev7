@@ -4840,6 +4840,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Commercial_Plan_Event__c.Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>acpl__Commercial_Plan_Event__c.Asiggned_User__c</field>
         <readable>true</readable>
