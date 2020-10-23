@@ -10,7 +10,10 @@
  * @author Diego Carbajal
  */
 public with sharing class BE_EconomicGroup_Position_cls extends Be_DTP_ResponseModel_cls {
-    
+    /** @Description  EXP_2*/
+    static Final String EXP_2 = 'exp2';
+    /** @Description  PRODUCT_GROUP*/
+    static Final String PRODUCT_GROUP = 'product_group_classification_id__c';
     /*
 	 * @Description  Get Custom Data for BBVA Information
 	 */
@@ -63,14 +66,14 @@ public with sharing class BE_EconomicGroup_Position_cls extends Be_DTP_ResponseM
         Double vol = 0, ind = 0, dir = 0, res = 0;
         for(AggregateResult agr: lstAgr) {
             System.debug(clientName);
-            System.debug(((String)agr.get('product_group_classification_id__c')).toLowerCase());
-            System.debug((Double)agr.get('exp2'));
-            if(((String)agr.get('product_group_classification_id__c')).toLowerCase() == label.LblDirectDebt.toLowerCase() && (String)agr.get('type__c') == '01') {
-                dir = (Double)agr.get('exp2');
-            } else if (((String)agr.get('product_group_classification_id__c')).toLowerCase() == label.LblIndirectDebt.toLowerCase() && (String)agr.get('type__c') == '01') {
-                ind = (Double)agr.get('exp2');
-            } else if(((String)agr.get('product_group_classification_id__c')).toLowerCase() == label.LblResources.toLowerCase() && (String)agr.get('type__c') == '02') {
-                res = (Double)agr.get('exp2');
+            System.debug(((String)agr.get(PRODUCT_GROUP)).toLowerCase());
+            System.debug((Double)agr.get(EXP_2));
+            if(((String)agr.get(PRODUCT_GROUP)).toLowerCase() == label.LblDirectDebt.toLowerCase() && (String)agr.get('type__c') == '01') {
+                dir = (Double)agr.get(EXP_2);
+            } else if (((String)agr.get(PRODUCT_GROUP)).toLowerCase() == label.LblIndirectDebt.toLowerCase() && (String)agr.get('type__c') == '01') {
+                ind = (Double)agr.get(EXP_2);
+            } else if(((String)agr.get(PRODUCT_GROUP)).toLowerCase() == label.LblResources.toLowerCase() && (String)agr.get('type__c') == '02') {
+                res = (Double)agr.get(EXP_2);
             }
             vol = (Double) agr.get('exp1');
         }

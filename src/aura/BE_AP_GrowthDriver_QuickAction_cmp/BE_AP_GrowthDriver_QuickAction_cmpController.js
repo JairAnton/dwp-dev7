@@ -11,7 +11,7 @@
 			if (state === "SUCCESS") {
 				var result = response.getReturnValue();
 				if (result.isSuccess) {
-					let targetHeadActions;
+					var targetHeadActions = [];
 					if (result) {
 						targetHeadActions = JSON.parse(result.data).values;
 						targetHeadActions.forEach(element => {

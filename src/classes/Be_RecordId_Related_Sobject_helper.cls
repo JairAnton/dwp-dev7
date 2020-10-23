@@ -115,7 +115,7 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
             }
         } catch (Exception e) {
             mapConfig.put('Msg', e.getMessage());
-            System.debug(mapConfig.get('Msg'));
+            System.debug(mapConfig);
         }
         return mapConfig;
     }
