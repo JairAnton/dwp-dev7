@@ -530,7 +530,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>insideBox</name>
-                <value>true</value>
+                <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>metadataConfig</name>
@@ -554,46 +554,6 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>titleCard</name>
-                <value>FACTURACIÓN</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>viewAll</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>enableReload</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>insideBox</name>
-                <value>true</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>metadataConfig</name>
-                <value>Economic_Group_Spread_Rate</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>recordsToShow</name>
-                <value>100</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>showTotalRecords</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>tableModel</name>
-                <value>Basic</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>tableModelAll</name>
-                <value>Title</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>titleCard</name>
-                <value>SPREAD Y TASA</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>viewAll</name>
@@ -681,7 +641,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
-                <value>FACTURACIÓN Y SPREAD</value>
+                <value>FACTURACIÓN</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>

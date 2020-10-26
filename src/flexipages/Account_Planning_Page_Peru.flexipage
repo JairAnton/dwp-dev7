@@ -491,77 +491,12 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>iconName</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relListSet</name>
-                <value>AP_Need_Business_Plan</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relListType</name>
-                <value>Basic</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>{     &quot;es&quot;: &quot;Necesidades&quot;,     &quot;en-US&quot;: &quot;Need&quot; }</value>
-            </componentInstanceProperties>
-            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
-            <visibilityRule>
-                <criteria>
-                    <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>true</rightValue>
-                </criteria>
-            </visibilityRule>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>iconName</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relListSet</name>
-                <value>AP_Need_Summary</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relListType</name>
-                <value>Basic</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>{     &quot;es&quot;: &quot;Necesidades&quot;,     &quot;en-US&quot;: &quot;Need&quot; }</value>
-            </componentInstanceProperties>
-            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
-            <visibilityRule>
-                <criteria>
-                    <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
-                    <operator>EQUAL</operator>
-                    <rightValue>false</rightValue>
-                </criteria>
-            </visibilityRule>
-        </componentInstances>
-        <name>Facet-e77040ea-877c-437c-b7c3-0774bf5b5fa3</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
                 <name>body</name>
                 <value>Facet-4afa472b-6cfb-405e-8501-9dc954fa65e6</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
                 <value>Variables de Crecimiento</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:tab</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
-                <value>Facet-e77040ea-877c-437c-b7c3-0774bf5b5fa3</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Potencial</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
@@ -987,24 +922,6 @@
                     <rightValue>Record_Type_Economic_Group</rightValue>
                 </criteria>
             </visibilityRule>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>iconName</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relListSet</name>
-                <value>AP_Need_Summary</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relListType</name>
-                <value>Basic</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>{     &quot;es&quot;: &quot;Necesidades&quot;,     &quot;en-US&quot;: &quot;Need&quot; }</value>
-            </componentInstanceProperties>
-            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>

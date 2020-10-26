@@ -73,7 +73,8 @@
                                 &quot;fieldName&quot;: &quot;Amount__c&quot;
                             },
                             {
-                                &quot;fieldName&quot;: &quot;ExpectedDate__c&quot;
+                                &quot;fieldName&quot;: &quot;ExpectedDate__c&quot;,
+&quot;required&quot;: &quot;true&quot;
                             },
                             {
                                 &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
@@ -141,7 +142,8 @@
                     &quot;fieldName&quot;: &quot;Amount__c&quot;
                 },
                 {
-                    &quot;fieldName&quot;: &quot;ExpectedDate__c&quot;
+                    &quot;fieldName&quot;: &quot;ExpectedDate__c&quot;,
+&quot;required&quot;: &quot;true&quot;
                 },
                 {
                     &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
