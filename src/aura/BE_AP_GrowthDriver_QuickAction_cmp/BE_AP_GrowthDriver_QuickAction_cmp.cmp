@@ -10,9 +10,8 @@
     </aura:if>
     <aura:if isTrue="{!v.load}">
         <c:bE_SingleRelatedListModal_Lwc aura:id = "cmpModal" title = "Nueva Variable de Crecimiento" sobjectType = "{!v.modalSet.objectApiName}" 
-                                        sObjFields = "{!v.modalSet.fields}" modeAction = "{!v.modalSet.name}" 
-                                        className = "{!v.modalSet.className}" redirect = "{!v.modalSet.redirect}" 
-                                        standardView = "true"  onclosemodalweb = "{!c.handleCloseStanModal}" />
+                                        sObjFields = "{!v.modalSet.fields}" modeAction = "{!v.modalSet.name}" className = "{!v.modalSet.className}" 
+										redirect = "{!v.modalSet.redirect}" standardView = "true"  onclosemodalweb = "{!c.handleCloseStanModal}" />
     </aura:if>
     <aura:if isTrue="{!v.error}">Ha ocurrido un error. Por favor contactese con su administrador.</aura:if>
 </aura:component>
