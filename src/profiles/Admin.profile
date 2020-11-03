@@ -504,6 +504,10 @@
         <apexClass>BE_Calce_Maintenance_Tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>BE_DynamicTreeGrid_Ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
      <classAccesses>
         <apexClass>BE_NonClient_Contact_Ctr</apexClass>
         <enabled>true</enabled>
@@ -617,6 +621,18 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_TreeDataGroup_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_TreeData_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_TreeGrid_Utils</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Be_DynamicTablePresentation_helper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -674,6 +690,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GraphicsGenerator_cls_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MX_PickListValues_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MX_PickListValues_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
