@@ -1537,6 +1537,17 @@
         <errorMessage>The account is required</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Name_or_Commercial_Action_modified</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( 
+				AND($Profile.Name!=&apos;Administrador del sistema&apos;, ISCHANGED(commercial_plan_event__c)), 
+				true,
+				IF(AND($Profile.Name!=&apos;Administrador del sistema&apos;, NOT(ISNULL(commercial_plan_event__c)), ISCHANGED(Name)),
+							true, false)
+)</errorConditionFormula>
+        <errorMessage>No puede modificar el nombre o plan comercial de esta oportunidad.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Opportunity_Validation_02_OnlyCommercial</fullName>
         <active>true</active>
         <description>Validate the creation in this Stage only for a Commercial Profile</description>

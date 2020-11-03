@@ -16,20 +16,25 @@
             &quot;fieldName&quot;: &quot;bupl__solution_category_desc__c&quot;,
             &quot;type&quot;: &quot;picklist&quot;
         },
-{
+        {
             &quot;label&quot;: &quot;CLIENTE&quot;,
             &quot;fieldName&quot;: &quot;ClientAssigned__r&quot;,
             &quot;type&quot;: &quot;customlookup&quot;,
-&quot;typeAttributes&quot;: {
-&quot;isCustom&quot;: true,
-&quot;fieldName&quot;: &quot;Id&quot;,
-&quot;label&quot;: &quot;Name&quot;,
-&quot;objectApiName&quot;: &quot;ClientAssigned__r&quot;,
-&quot;rowData&quot;: {
-&quot;fieldName&quot;: &quot;rowData&quot;
-}
-}
-},
+            &quot;typeAttributes&quot;: {
+                &quot;isCustom&quot;: true,
+                &quot;fieldName&quot;: &quot;Id&quot;,
+                &quot;label&quot;: &quot;Name&quot;,
+                &quot;objectApiName&quot;: &quot;ClientAssigned__r&quot;,
+                &quot;rowData&quot;: {
+                    &quot;fieldName&quot;: &quot;rowData&quot;
+                }
+            }
+        },
+        {
+            &quot;label&quot;: &quot;MONTO&quot;,
+            &quot;fieldName&quot;: &quot;Amount__c&quot;,
+            &quot;type&quot;: &quot;currency&quot;
+        },
         {
             &quot;label&quot;: &quot;DETALLE&quot;,
             &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_desc__c&quot;,
@@ -59,7 +64,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">bupl__solution_category_id__c,bupl__solution_category_desc__c,bupl__gf_growth_drvr_prdt_desc__c, ClientAssigned__r.Name</value>
+        <value xsi:type="xsd:string">bupl__solution_category_id__c,toLabel(bupl__solution_category_desc__c),bupl__gf_growth_drvr_prdt_desc__c, ClientAssigned__r.Name, Amount__c</value>
     </values>
     <values>
         <field>Filter__c</field>

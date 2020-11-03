@@ -16,20 +16,20 @@
             &quot;fieldName&quot;: &quot;acpl__gf_event_date__c&quot;,
             &quot;type&quot;: &quot;Date&quot;
         },
-{
+        {
             &quot;label&quot;: &quot;CLIENTE&quot;,
             &quot;fieldName&quot;: &quot;ClientAssigned__r&quot;,
             &quot;type&quot;: &quot;customlookup&quot;,
-&quot;typeAttributes&quot;: {
-&quot;isCustom&quot;: true,
-&quot;fieldName&quot;: &quot;Id&quot;,
-&quot;label&quot;: &quot;Name&quot;,
-&quot;objectApiName&quot;: &quot;ClientAssigned__r&quot;,
-&quot;rowData&quot;: {
-&quot;fieldName&quot;: &quot;rowData&quot;
-}
-}
-},
+            &quot;typeAttributes&quot;: {
+                &quot;isCustom&quot;: true,
+                &quot;fieldName&quot;: &quot;Id&quot;,
+                &quot;label&quot;: &quot;Name&quot;,
+                &quot;objectApiName&quot;: &quot;ClientAssigned__r&quot;,
+                &quot;rowData&quot;: {
+                    &quot;fieldName&quot;: &quot;rowData&quot;
+                }
+            }
+        },
         {
             &quot;label&quot;: &quot;COMENTARIOS&quot;,
             &quot;fieldName&quot;: &quot;Comments__c&quot;,
@@ -79,11 +79,14 @@
                                 &quot;fieldName&quot;: &quot;Asiggned_User__c&quot;
                             },
                             {
-                                &quot;fieldName&quot;: &quot;acpl__gf_account_planning_id__c&quot;,
-                                &quot;disabled&quot;: true 
+                                &quot;fieldName&quot;: &quot;Product__c&quot;
                             },
-{
+                            {
                                 &quot;fieldName&quot;: &quot;ClientAssigned__c&quot;
+                            },
+                            {
+                                &quot;fieldName&quot;: &quot;acpl__gf_account_planning_id__c&quot;,
+                                &quot;disabled&quot;: true
                             }
                         ]
                     },

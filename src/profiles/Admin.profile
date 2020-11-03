@@ -57,6 +57,18 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AP_StockHolder_Handler_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AP_StockHolder_Handler_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AP_StockHolder_Trigger_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AP_Team_Handler_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -234,6 +246,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_AP_Permission_helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_AP_Permission_helper_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -488,6 +504,10 @@
         <apexClass>BE_Calce_Maintenance_Tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>BE_DynamicTreeGrid_Ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
      <classAccesses>
         <apexClass>BE_NonClient_Contact_Ctr</apexClass>
         <enabled>true</enabled>
@@ -601,6 +621,18 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_TreeDataGroup_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_TreeData_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_TreeGrid_Utils</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Be_DynamicTablePresentation_helper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -658,6 +690,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GraphicsGenerator_cls_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MX_PickListValues_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MX_PickListValues_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1925,6 +1965,46 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.TotalPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BE_Stockholder__c.BBVA_Classification__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BE_Stockholder__c.BBVA_Debt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BE_Stockholder__c.Buro__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BE_Stockholder__c.Guarantor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BE_Stockholder__c.Nationality__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BE_Stockholder__c.Participation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BE_Stockholder__c.SBS_Classification__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BE_Stockholder__c.SBS_Debt__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4784,6 +4864,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Commercial_Plan_Event__c.Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>acpl__Commercial_Plan_Event__c.Asiggned_User__c</field>
         <readable>true</readable>
@@ -4796,6 +4881,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>acpl__Commercial_Plan_Event__c.Comments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>acpl__Commercial_Plan_Event__c.GrowthDriver__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Commercial_Plan_Event__c.Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4865,7 +4960,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>bupl__BP_GrowthDriver__c.Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>bupl__BP_GrowthDriver__c.ClientAssigned__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>bupl__BP_GrowthDriver__c.ExpectedDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6859,6 +6964,9 @@
         <layout>BE_SingleRelatedList_Setting__mdt-Related List Config Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>BE_Stockholder__c-Stockholder Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Be_Dynamic_Table_Presentation__mdt-Dynamic Table Presentation Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7104,6 +7212,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account_Indicator__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>BE_Stockholder__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
