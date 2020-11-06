@@ -15,9 +15,9 @@ public with sharing class BE_Quotation_Ctr {
     /** list of commintments */
 	public final List<Opportunity_Solution_Commitment__c> commitments {get; set;}
     /** string with comments */
-	public final static String comments {get; set;}
+	public String comments {get; set;}
     /** string with modality */
-	public final static String modality {get; set;}
+	public final String modality {get; set;}
     
     /**
 	   @Description Constructor of class

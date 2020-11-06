@@ -105,7 +105,7 @@ public class ReevaluateButtonClass {
 		String genericError;
         Final Boolean useQuote = checkQuoteUse(Idopp);
         if(useQuote) {
-            genericError = Label.BE_ErrorReevaluate;
+            genericError = Label.ErrorReevaluate;
         } else {
             Opportunity opp = [SELECT Id, opportunity_status_type__c, StageName, isProcess__c, BE_UseApprovedQuote__c FROM Opportunity WHERE Id =: Idopp];
 			List <dwp_cvad__Action_Audit__c> lstactionPrice = new List <dwp_cvad__Action_Audit__c>();

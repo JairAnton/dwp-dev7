@@ -57,4 +57,3 @@
         toastEvent.fire();
     }
 })
-
