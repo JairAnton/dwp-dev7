@@ -26,13 +26,16 @@ public class BE_Quotation_Tst {
 		TestFactory.createOLI(opp.id, prod.id);
 	}
 
+	/**
+	   @Description test success method
+	 */
 	public static testMethod void unitTest() {
 		Final Opportunity opp = [SELECT Id FROM Opportunity LIMIT 1];
 		Final PageReference pageRef = Page.BE_Quotation_vfp;
 		pageRef.getParameters().put('id', opp.id);
 		test.setCurrentPage(pageRef);
-		Final ApexPages.StandardController sc = new ApexPages.standardController(opp);
-		Final BE_Quotation_Ctr pdf = new BE_Quotation_Ctr(sc);
+		Final ApexPages.StandardController standardCont = new ApexPages.standardController(opp);
+		Final BE_Quotation_Ctr pdf = new BE_Quotation_Ctr(standardCont);
         
         Final List<Opportunity_Solution_Commitment__c> commitments = pdf.commitments;
         System.assert(commitments.isEmpty(), 'success!!!');

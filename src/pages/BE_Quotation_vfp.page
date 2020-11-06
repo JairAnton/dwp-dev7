@@ -1,11 +1,12 @@
 <apex:page renderAs="pdf" language="es" applyBodyTag="false" standardController="Opportunity" extensions="BE_Quotation_Ctr">
+    <apex:stylesheet value="{!$Resource.BE_StyleQuotationPDF}"/>
     <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100"/>
     <br/>
-    <div style="background:#ededed; color:#42517c; font-family:sans-serif; font-size:20px;">
+    <div>
         <b>&nbsp;Datos de cliente</b>
     </div>
     <br/>
-    <table cellpadding="6" style="width: 100%; font-size=20px; border-collapse: collapse;">
+    <table cellpadding="6">
         <tr>
             <th width="50%">Cliente: {!Opportunity.Account.Name}</th>
             <th width="50%"></th>
@@ -24,11 +25,11 @@
         </tr>
     </table>
     <br/>
-    <div style="background:#ededed; color:#42517c; font-family:sans-serif; font-size:20px;">
+    <div>
         <b>&nbsp;Datos de la oportunidad</b>
     </div>
     <br/>
-    <table cellpadding="6" style="width: 100%; font-size=20px; border-collapse: collapse;">
+    <table cellpadding="6">
         <apex:repeat value="{!Opportunity.OpportunityLineItems}" var="lineitem">
             <tr>
                 <td width="50%">Producto: {!lineitem.Product2.Name} </td>
@@ -41,11 +42,11 @@
         </apex:repeat>
     </table>
     <br/>
-    <div style="background:#ededed; color:#42517c; font-family:sans-serif; font-size:20px;">
+    <div>
         <b>&nbsp;Sanción precio</b>
     </div>
     <br/>
-    <table cellpadding="6" style="width: 100%; font-size=20px; border-collapse: collapse;">
+    <table cellpadding="6">
         <apex:repeat value="{!Opportunity.OpportunityLineItems}" var="lineitem">
             <tr>
                 <td width="50%">Nº cotización: {!lineitem.price_quote_id__c} </td>
@@ -82,12 +83,12 @@
         </apex:repeat>
     </table>
     <br/>
-    <div style="background:#ededed; color:#42517c; font-family:sans-serif; font-size:20px;">
+    <div>
         <b>&nbsp;Compromisos</b>
     </div>
     <br/>
-    <table cellpadding="6" style="width: 100%; font-size=20px; border-collapse: collapse;">
-        <tr style="background-color:#004481; color:#ffffff;">
+    <table cellpadding="6">
+        <tr class="commitment">
             <th>Producto</th>
             <th>Monto</th>
             <th>Cantidad</th>

@@ -9,15 +9,15 @@
     2020-11-06  MAMCH    martin.mori.contractor@bbva.com    Creation
    ----------------------------------------------------------------------------------------------------
  */
-public class BE_Quotation_Ctr {
+public with sharing class BE_Quotation_Ctr {
 	/** variable opportunity */
 	private final Opportunity opp;
     /** list of commintments */
 	public final List<Opportunity_Solution_Commitment__c> commitments {get; set;}
     /** string with comments */
-	public static String comments {get; set;}
+	public final static String comments {get; set;}
     /** string with modality */
-	public static String modality {get; set;}
+	public final static String modality {get; set;}
     
     /**
 	   @Description Constructor of class

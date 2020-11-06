@@ -12,6 +12,9 @@
 @isTest
 public class BE_CurrentPriceList_tst {
 
+    /**
+	   @Description setup data
+	 */
     @testSetup
     public static void setUp() {
         Final User ejecutivo = TestFactory.createUser('Ejecutivo', 'Ejecutivo');
@@ -35,6 +38,9 @@ public class BE_CurrentPriceList_tst {
         insert new OpportunityLineItem(OpportunityId = opp2.Id, Quantity = 1, TotalPrice = 10.00, PricebookEntryId = priceBookId, Product2Id = product.Id);
     }
     
+    /**
+	   @Description test method
+	 */
     @isTest
     public static void getCurrentPriceSuccess() {
         Final Opportunity[] lstOpp =[SELECT Id, CreatedDate FROM Opportunity ORDER BY CreatedDate ASC LIMIT 2];
@@ -47,11 +53,14 @@ public class BE_CurrentPriceList_tst {
         params.filterSQOL = config.Filter__c;
         Test.startTest();
         Final Object response = BE_SingleRelatedList_Ctr.getDynamicResponse(lstOpp[1].Id, params);
-        Map<String, Object> mapResponse = (Map<String, Object>) JSON.deserializeUntyped(JSON.serialize(response));
+        Final Map<String, Object> mapResponse = (Map<String, Object>) JSON.deserializeUntyped(JSON.serialize(response));
         Test.stopTest();
         System.assert((Boolean) mapResponse.get('isSuccess'), 'Failed Assertion');
     }
     
+	/**
+	   @Description test method
+	 */
     @isTest
     public static void getCurrentPriceError() {
         Final Opportunity[] lstOpp =[SELECT Id, CreatedDate FROM Opportunity ORDER BY CreatedDate ASC LIMIT 2];
@@ -64,7 +73,7 @@ public class BE_CurrentPriceList_tst {
         params.filterSQOL = null;
         Test.startTest();
         Final Object response = BE_SingleRelatedList_Ctr.getDynamicResponse(lstOpp[1].Id, params);
-        Map<String, Object> mapResponse = (Map<String, Object>) JSON.deserializeUntyped(JSON.serialize(response));
+        Final Map<String, Object> mapResponse = (Map<String, Object>) JSON.deserializeUntyped(JSON.serialize(response));
         Test.stopTest();
         System.assert(!(Boolean)mapResponse.get('isSuccess'), 'Failed Assertion');
     }

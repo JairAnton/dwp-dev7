@@ -9,7 +9,12 @@
     2020-11-06  MAMCH    martin.mori.contractor@bbva.com    Creation
    ----------------------------------------------------------------------------------------------------
  */
-public with sharing class BE_SanctionUseQuotation_Ctr {    
+public with sharing class BE_SanctionUseQuotation_Ctr {
+	/**
+	   @Description constructor method
+	 */
+	private BE_SanctionUseQuotation_Ctr() {}
+	
     /**
 	   @Description method used to return comments of audit
 	   @param  String recordId id of record related of audit
@@ -17,18 +22,14 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
 	 */
     @AuraEnabled
     public static String getComments(String recordId) {
-        try {
-            String comments = '';
-            for(dwp_cvad__Action_Audit_Detail__c auditDet : [SELECT Id, dwp_cvad__action_audit_detail_content__c, dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c FROM dwp_cvad__Action_Audit_Detail__c WHERE dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c = :recordId ORDER BY dwp_cvad__action_audit_id__r.CreatedDate DESC LIMIT 1]) {
-                comments = auditDet.dwp_cvad__action_audit_detail_content__c;
-                comments = comments.substringAfterLast('>Comentarios</h3>');
-                comments = comments.substringBefore('</span>');
-                comments = comments.stripHtmlTags();
-            }
-            return comments;
-        } catch(Exception e) {
-            return null;
+        String comments = '';
+        for(dwp_cvad__Action_Audit_Detail__c auditDet : [SELECT Id, dwp_cvad__action_audit_detail_content__c, dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c FROM dwp_cvad__Action_Audit_Detail__c WHERE dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c = :recordId ORDER BY dwp_cvad__action_audit_id__r.CreatedDate DESC LIMIT 1]) {
+            comments = auditDet.dwp_cvad__action_audit_detail_content__c;
+            comments = comments.substringAfterLast('>Comentarios</h3>');
+            comments = comments.substringBefore('</span>');
+            comments = comments.stripHtmlTags();
         }
+		return comments;
     }
     
     /**
@@ -41,7 +42,7 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
 	public static Map<String, Object> useQuotationPrice(String oppId, String idOliSelected) {
         Final Map<String, Object> mapReturn = new Map<String, Object>();
 		mapReturn.put('isOk', true);
-        Savepoint sp = Database.setSavepoint();
+        Savepoint savep = Database.setSavepoint();
 		try {
 			Final opportunity opp  = [SELECT Id FROM Opportunity WHERE ID =:oppId];
 			opp.isProcess__c = true;
@@ -72,10 +73,10 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
                 insert commitments;
             }
             
-            Final List<dwp_cvad__Action_Audit__c> audits = new List<dwp_cvad__Action_Audit__c>();
             Final List<dwp_cvad__Action_Audit__c> auditExist = [SELECT action_audit_email__c, dwp_cvad__action_audit_date__c, dwp_cvad__action_audit_user_id__c, dwp_cvad__action_audit_style__c, dwp_cvad__audit_audit_comments__c, dwp_cvad__action_audit_name__c, dwp_cvad__action_audit_object_api_name__c, dwp_cvad__action_audit_record_id__c, action_opp_sio_code__c, dwp_cvad__action_audit_type__c FROM dwp_cvad__Action_Audit__c WHERE dwp_cvad__action_audit_record_id__c = :oliSelected[0].OpportunityId ORDER BY CreatedDate DESC LIMIT 1];
             if(!auditExist.isEmpty()) {
-                for(dwp_cvad__Action_Audit__c audit : auditExist) {
+                Final List<dwp_cvad__Action_Audit__c> audits = new List<dwp_cvad__Action_Audit__c>();
+				for(dwp_cvad__Action_Audit__c audit : auditExist) {
                     dwp_cvad__Action_Audit__c auditClone = audit.clone();
                     auditClone.dwp_cvad__action_audit_name__c = label.PriceApprovalUsingQuote;
                     auditClone.dwp_cvad__action_audit_record_id__c = oppId;
@@ -106,13 +107,11 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
                 conDocLink.shareType = 'V';
                 insert conDocLink;
             }
-            
-			return mapReturn;
 		} catch(Exception e) {
-            Database.rollback(sp);
+            Database.rollback(savep);
 			mapReturn.put('isOk', false);
 			mapReturn.put('errorMessage', e.getMessage());
-            return mapReturn;
 		}
+		return mapReturn;
 	}
 }

@@ -282,7 +282,6 @@ export default class BE_DynamicModalRecordForm_Lwc extends NavigationMixin(Light
     }
     handleCloseModal() {
         console.log('handleCloseModal');
-        /*this.dispatchEvent(new CustomEvent('hidecmp', {composed: true, bubbles: true, cancelable: true}));*/
         const message = {params: { value: "ENVIO DESDE LWC" }};
         publish(this.context, SRL_Channel, message);
     }

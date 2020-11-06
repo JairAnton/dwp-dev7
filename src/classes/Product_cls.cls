@@ -10,6 +10,9 @@
    --------------------------------------------------------------------------*/
 
 public without sharing class Product_cls {
+	/* string Web value */
+    Final static String STRWEB = 'Web';
+	
 	/*Description
 	   Comments to describe the functionality of this method
 	 */
@@ -277,7 +280,7 @@ public without sharing class Product_cls {
 				if(Action == 'btnApprove') {//08
 					itemOpp[0].StageName = '06';
 					itemOpp[0].opportunity_status_type__c = '23';
-					if(itemOpp[0].OpportunityLineItems[0].product2.type_of_quote__c == 'Web' && !itemOpp[0].BE_UseApprovedQuote__c) {
+					if(itemOpp[0].OpportunityLineItems[0].product2.type_of_quote__c == STRWEB && !itemOpp[0].BE_UseApprovedQuote__c) {
 						returnMap = disburseQuotation(itemOpp[0].id, ContractNumber);
 					} else {
 						returnMap.put('success', true);
@@ -423,7 +426,7 @@ public without sharing class Product_cls {
 		                                                  FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 		mapReturn.put('nextAction', true);
 		if(!oppProductList.isEmpty()) {
-			if(oppProductList[0].price_quote_id__c != null && oppProductList[0].price_quote_id__c != '' && oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product_price_approval_method__c == 'Web') {
+			if(oppProductList[0].price_quote_id__c != null && oppProductList[0].price_quote_id__c != '' && oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product_price_approval_method__c == STRWEB) {
 				mapReturn = BE_Quotation_Rest.invokeRecoverQuo(recordId);
 				mapReturn.put('nextAction', true);
 				if((String) mapReturn.get('success') == 'false') {
@@ -446,7 +449,7 @@ public without sharing class Product_cls {
 			                                             FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 			if(!oppProductsList.isEmpty()) {
 				// Check if there is a quotation linked to the opportunity
-				if(oppProductsList[0].product_price_approval_method__c == 'Web' && oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null) {
+				if(oppProductsList[0].product_price_approval_method__c == STRWEB && oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null) {
 					// Call Web Service to register the quotation loss
 					ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, rejectParams, null);
 					HttpResponse mqResponse = mqHelper.invoke();
@@ -504,7 +507,7 @@ public without sharing class Product_cls {
 				HTMLComments = HTMLComments + '<b>TEA propuesta:</b> ' + itemOppProduct[0].proposed_apr_per__c + '% <br/>' +
 				               '<b>Comisión estructuración:</b> ' + itemOppProduct[0].restructuring_fee_per__c + '% <br/>' +
 				               '<b>Comisión Liquidacion Anticipada(%):</b> ' + itemOppProduct[0].cancellation_fee_per__c + '% <br/>';
-			} else if(itemOppProduct[0].Product2.Type_of_quote__c == 'Web') {
+			} else if(itemOppProduct[0].Product2.Type_of_quote__c == STRWEB) {
 				HTMLComments = HTMLComments + '<b>TEA propuesta (%):</b> ' + itemOppProduct[0].proposed_apr_per__c + '% <br/>';
 				HTMLComments = HTMLComments + '<b>Validez TEA:</b> ' + itemOppProduct[0].validityDate__c + '<br/>';
 				HTMLComments = HTMLComments + '<b>ID COTIZA:</b> ' + itemOppProduct[0].price_quote_id__c + '<br/>';

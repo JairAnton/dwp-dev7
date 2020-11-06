@@ -70,8 +70,7 @@ public class ReevaluateButtonClass {
                 Map<String, Object> callServ = new Map<String, Object>();
                 if(opp.BE_UseApprovedQuote__c) {
                     clearOppQuoteValues(Idopp);
-                }
-                else {
+                } else {
                     callServ = ReevaluateButtonClass.callService(Idopp);
                 }
                 if(callServ.get('genericError') == null) {
@@ -114,8 +113,7 @@ public class ReevaluateButtonClass {
                 Map<String, Object> callServ = new Map<String, Object>();
                 if(opp.BE_UseApprovedQuote__c) {
                     clearOppQuoteValues(Idopp);
-                }
-                else {
+                } else {
                     callServ = ReevaluateButtonClass.callService(Idopp);
                 }
                 if(callServ.get('genericError') == null) {
@@ -146,16 +144,19 @@ public class ReevaluateButtonClass {
     private static void clearOppQuoteValues(String oppId) {
         List<OpportunityLineItem> olis = [SELECT Id, price_quote_id__c, Opportunity.Account.Name FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
         Final String namePDF = olis[0].price_quote_id__c + ' - ' + olis[0].Opportunity.Account.Name;
-        olis[0].price_quote_date__c = null;
-        olis[0].suggested_apr_per__c = null;
-        olis[0].validityDate__c = null;
-        olis[0].proposed_apr_per__c = null;
-        olis[0].minimun_apr_per__c = null;
-        olis[0].price_quote_id__c = null;
-        olis[0].Assigned_analyst__c = null;
-        olis[0].price_operation_id__c = null;
+        Final String nullString;
+		Final Date nullDate;
+        Final Decimal nullDecimal;
+        olis[0].price_quote_date__c = nullDate;
+        olis[0].suggested_apr_per__c = nullDecimal;
+        olis[0].validityDate__c = nullDate;
+        olis[0].proposed_apr_per__c = nullDecimal;
+        olis[0].minimun_apr_per__c = nullDecimal;
+        olis[0].price_quote_id__c = nullString;
+        olis[0].Assigned_analyst__c = nullString;
+        olis[0].price_operation_id__c = nullString;
         update olis;
-        List<Opportunity_Solution_Commitment__c> commitments = [SELECT Id FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c = :oppId];
+        Final List<Opportunity_Solution_Commitment__c> commitments = [SELECT Id FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c = :oppId];
         if(!commitments.isEmpty()) {
             delete commitments;
         }
@@ -171,12 +172,12 @@ public class ReevaluateButtonClass {
 	 */
     private static boolean checkQuoteUse(String oppId) {
         final OpportunityLineItem oli = [SELECT Id, price_quote_id__c, Opportunity.AccountId, Product2Id FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
-        final List<OpportunityLineItem> lts = [SELECT Id FROM OpportunityLineItem WHERE OpportunityId <> :oppId AND Opportunity.BE_UseApprovedQuote__c = TRUE AND price_quote_id__c = :oli.price_quote_id__c AND Opportunity.AccountId = :oli.Opportunity.AccountId AND Product2Id = :oli.Product2Id];
-        if(lts.isEmpty()) {
-            return false;
-        } else {
-            return true;
+        final List<OpportunityLineItem> lts = [SELECT Id FROM OpportunityLineItem WHERE Opportunity.BE_UseApprovedQuote__c = TRUE AND price_quote_id__c = :oli.price_quote_id__c AND Opportunity.AccountId = :oli.Opportunity.AccountId AND Product2Id = :oli.Product2Id];
+        Boolean exist = true; 
+		if(lts.isEmpty()) {
+            exist = false;
         }
+		return exist;
     }
 
 	@auraenabled

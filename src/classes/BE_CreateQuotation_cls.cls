@@ -9,7 +9,7 @@
     2020-11-06  MAMCH    martin.mori.contractor@bbva.com    Creation
    ----------------------------------------------------------------------------------------------------
  */
-public class BE_CreateQuotation_cls {
+public with sharing class BE_CreateQuotation_cls {
 	/**
 	   @Description constructor method
 	 */
@@ -29,10 +29,10 @@ public class BE_CreateQuotation_cls {
 		Final pageReference pdfQuotation = Page.BE_Quotation_vfp;
 		pdfQuotation.getParameters().put('id', oppId);
 		Blob body;
-		if(!test.isRunningTest()) {
-			body = pdfQuotation.getContent();
-		} else {
+		if(test.isRunningTest()) {
 			body = blob.valueOf('TestString');
+		} else {
+			body = pdfQuotation.getContent();
 		}
         
         if(ltsContDoc.isEmpty()) {

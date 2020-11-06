@@ -23,7 +23,7 @@ export default class BE_CustomDataTypeButton_Lwc extends NavigationMixin(Lightni
         console.log('PARAMETROS DOCUMENTO');
         console.log(JSON.stringify(params));
         if(this.buttonData.component === 'filePreview') {
-            if(params['fileId'] != initialParams['fileId']) this.openPreview(params['fileId']);
+            if(params['fileId'] !== initialParams['fileId']) this.openPreview(params['fileId']);
             console.log(params['fileId']);
         } else {
             const dynamicCMP = new CustomEvent('customtypebutton', {composed: true, bubbles: true, cancelable: true,
@@ -38,7 +38,7 @@ export default class BE_CustomDataTypeButton_Lwc extends NavigationMixin(Lightni
         for ( var key in obj ) temp[ key ] = clone( obj[ key ] );
         return temp;
     }
- 
+
     openPreview(fileId) {
         this[NavigationMixin.Navigate]({
             type: 'standard__namedPage',
