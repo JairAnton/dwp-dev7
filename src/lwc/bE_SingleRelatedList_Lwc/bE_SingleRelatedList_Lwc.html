@@ -18,11 +18,21 @@
                         </template>
                         <!--DATA TABLE-->
                         <div class="slds-p-horizontal_small bodyBox">
-                            <c-b-e_-custom-data-table_-lwc key-field="Id" hide-checkbox-column="true"
-                                draft-values={draftValues} data={sObjectData} wrap-text-max-lines="2" columns={columns}
-                                onrowaction={handleRowActionWeb} onsave={handleInlineSave}
-                                oncustomtypelookup={handleCustomTypeLookup} onvalueselect={handleSelection}>
-                            </c-b-e_-custom-data-table_-lwc>
+                            <template if:true={showCheckbox}>
+                                <c-b-e_-custom-data-table_-lwc key-field="Id" max-row-selection={maxRowSelection}
+                                    draft-values={draftValues} data={sObjectData} wrap-text-max-lines="2" columns={columns}
+                                    onrowaction={handleRowActionWeb} onsave={handleInlineSave}
+                                    oncustomtypelookup={handleCustomTypeLookup} onvalueselect={handleSelection} 
+                                    onrowselection={handleCheckboxChange}>
+                                </c-b-e_-custom-data-table_-lwc>
+                            </template>
+                            <template if:false={showCheckbox}>
+                                <c-b-e_-custom-data-table_-lwc key-field="Id" hide-checkbox-column="true"
+                                    draft-values={draftValues} data={sObjectData} wrap-text-max-lines="2" columns={columns}
+                                    onrowaction={handleRowActionWeb} onsave={handleInlineSave}
+                                    oncustomtypelookup={handleCustomTypeLookup} onvalueselect={handleSelection}>
+                                </c-b-e_-custom-data-table_-lwc>
+                            </template>
                         </div>
                     </template>
                     <!--TEMPLATE TITLE-->

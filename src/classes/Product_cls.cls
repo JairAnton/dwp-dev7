@@ -3,6 +3,10 @@
  * Description : Class to insert a record from Account
  * Created date : May 15 2018
  * Developer name: Isaías Velázquez Cortés Indra(México)
+ * 
+ * @Changes
+ *   Date        Author   Email                  			Type		Description
+ *   2020-07-14  MAMC     martin.mori.contractor@bbva.com	Modify		add condition for calling web services
    --------------------------------------------------------------------------*/
 
 public without sharing class Product_cls {
@@ -273,7 +277,7 @@ public without sharing class Product_cls {
 				if(Action == 'btnApprove') {//08
 					itemOpp[0].StageName = '06';
 					itemOpp[0].opportunity_status_type__c = '23';
-					if(itemOpp[0].OpportunityLineItems[0].product2.type_of_quote__c == 'Web') {
+					if(itemOpp[0].OpportunityLineItems[0].product2.type_of_quote__c == 'Web' && !itemOpp[0].BE_UseApprovedQuote__c) {
 						returnMap = disburseQuotation(itemOpp[0].id, ContractNumber);
 					} else {
 						returnMap.put('success', true);

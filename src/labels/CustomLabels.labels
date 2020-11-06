@@ -818,6 +818,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>lblSanctionRisk</shortDescription>
         <value>Risk Approval</value>
     </labels>
+	<labels>
+        <fullName>lblTitleCurrentPriceSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleCurrentPriceSanction</shortDescription>
+        <value>Sanction with current price</value>
+    </labels>
     <labels>
         <fullName>lblTitleFormalization</fullName>
         <language>en_US</language>
@@ -1055,6 +1062,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>Embedded</shortDescription>
         <value>Embedded</value>
+    </labels>
+	<labels>
+        <fullName>ErrorReevaluate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorReevaluate</shortDescription>
+        <value>It is not possible to reevaluate an opportunity with a quote id used on another opportunity</value>
     </labels>
     <labels>
         <fullName>Error_TEA_no_calculada</fullName>
@@ -1492,104 +1506,111 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Price Sanction</value>
     </labels>
    <labels>
-    <fullName>lblEtapa01</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa01</shortDescription>
-    <value>Commercial actions</value>
-</labels>
-<labels>
-    <fullName>lblEtapa02</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa02</shortDescription>
-    <value>Pending to start</value>
-</labels>
-<labels>
-    <fullName>lblEtapa03</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa03</shortDescription>
-    <value>In Management</value>
-</labels>
-<labels>
-    <fullName>lblEtapa04</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa04</shortDescription>
-    <value>In Sanction</value>
-</labels>
-<labels>
-    <fullName>lblEtapa05</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa05</shortDescription>
-    <value>Formalization</value>
-</labels>
-<labels>
-    <fullName>lblEtapa06</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa06</shortDescription>
-    <value>Formalizate</value>
-</labels>
-<labels>
-    <fullName>lblEtapa07</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa07</shortDescription>
-    <value>Rejected</value>
-</labels>
-<labels>
-    <fullName>lblEtapaNoEncontrada</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapaNoEncontrada</shortDescription>
-    <value>There is no stage in this opportunity</value>
-</labels>
-<labels>
-    <fullName>lblAnalistaProf</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>lblAnalistaProf</shortDescription>
-    <value>Analista</value>
-</labels>
-<labels>
-    <fullName>lblReasign</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>lblReasign</shortDescription>
-    <value>Reasign Owner</value>
-</labels>
-<labels>
-    <fullName>lblSearch</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>lblSearch</shortDescription>
-    <value>Search...</value>
-</labels>
-<labels>
-    <fullName>profAdministrator</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>profAdministrator</shortDescription>
-    <value>System Administrator</value>
-</labels>
-<labels>
-    <fullName>reasignSuccess</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>reasignSuccess</shortDescription>
-    <value>The case has been reasigned succesfully,</value>
-</labels>
-<labels>
-        <fullName>errorEmptyUser</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>errorEmptyUser</shortDescription>
-        <value>You have to insert an user.</value>
-</labels>
-<labels>
+		<fullName>lblEtapa01</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa01</shortDescription>
+		<value>Commercial actions</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa02</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa02</shortDescription>
+		<value>Pending to start</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa03</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa03</shortDescription>
+		<value>In Management</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa04</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa04</shortDescription>
+		<value>In Sanction</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa05</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa05</shortDescription>
+		<value>Formalization</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa06</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa06</shortDescription>
+		<value>Formalizate</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa07</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa07</shortDescription>
+		<value>Rejected</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapaNoEncontrada</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapaNoEncontrada</shortDescription>
+		<value>There is no stage in this opportunity</value>
+	</labels>
+	<labels>
+		<fullName>lblAlertCurrentPriceSanction</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>lblAlertCurrentPriceSanction</shortDescription>
+		<value>Select the sanction price to use in this opportunity</value>
+	</labels>
+	<labels>
+		<fullName>lblAnalistaProf</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>lblAnalistaProf</shortDescription>
+		<value>Analista</value>
+	</labels>
+	<labels>
+		<fullName>lblReasign</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>lblReasign</shortDescription>
+		<value>Reasign Owner</value>
+	</labels>
+	<labels>
+		<fullName>lblSearch</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>lblSearch</shortDescription>
+		<value>Search...</value>
+	</labels>
+	<labels>
+		<fullName>profAdministrator</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>profAdministrator</shortDescription>
+		<value>System Administrator</value>
+	</labels>
+	<labels>
+		<fullName>reasignSuccess</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>reasignSuccess</shortDescription>
+		<value>The case has been reasigned succesfully,</value>
+	</labels>
+	<labels>
+			<fullName>errorEmptyUser</fullName>
+			<language>en_US</language>
+			<protected>false</protected>
+			<shortDescription>errorEmptyUser</shortDescription>
+			<value>You have to insert an user.</value>
+	</labels>
+	<labels>
         <fullName>AddCommitment</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2170,6 +2191,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>DecisionPriceActionError</shortDescription>
         <value>The action over the quotation could not be performed due to the following error:</value>
+    </labels>
+	<labels>
+        <fullName>PriceApprovalUsingQuote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceApprovalUsingQuote</shortDescription>
+        <value>Authorized with current price</value>
     </labels>
     <labels>
         <fullName>PriceApproveDefaultComment</fullName>

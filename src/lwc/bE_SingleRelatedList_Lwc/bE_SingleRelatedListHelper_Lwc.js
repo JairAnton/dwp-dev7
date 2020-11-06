@@ -40,7 +40,8 @@ const transformData = (data, columns) => {
         if (column.hasOwnProperty('typeAttributes') && column.typeAttributes.hasOwnProperty('isCustom')) {
             if (column.typeAttributes.isCustom) {
                 data.forEach(row => {
-                    Object.defineProperty(row, "rowData", { value: row, writable: true, enumerable: true, configurable: true });
+                    let rowAux = clone(row);
+                    Object.defineProperty(row, "rowData", { value: rowAux, writable: true, enumerable: true, configurable: true });
                 });
             }
         }
@@ -78,4 +79,12 @@ const setHeadActions = (lang) => {
     }
     return actions;
 }
+
+function clone ( obj ) {
+    if ( obj === null || typeof obj  !== 'object' ) return obj;
+    var temp = obj.constructor();
+    for ( var key in obj ) temp[ key ] = clone( obj[ key ] );
+    return temp;
+}
+
 export { isNotEmpty, transformColumns, transformHeadActions, transformData, getSettingsObj };
