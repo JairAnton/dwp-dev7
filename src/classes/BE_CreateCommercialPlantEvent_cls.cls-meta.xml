@@ -6,5 +6,10 @@
         <minorNumber>54</minorNumber>
         <namespace>acpl</namespace>
     </packageVersions>
+    <packageVersions>
+        <majorNumber>2</majorNumber>
+        <minorNumber>0</minorNumber>
+        <namespace>bupl</namespace>
+    </packageVersions>
     <status>Active</status>
 </ApexClass>

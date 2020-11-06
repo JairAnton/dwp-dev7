@@ -27,6 +27,7 @@ export default class BE_SingleRelatedListModal_Lwc extends NavigationMixin(Light
     @api className;
     @api modeAction;
     @api redirect = false;
+    @api standardView = false;
     @track mode;
     @track error;
     @track loaded = false;

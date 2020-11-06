@@ -144,4 +144,23 @@ public class AP_FactoryTest_tst {
         Test.stopTest();
         System.assertEquals(result, 3, 'FAIL');
     }
+    
+    /*
+	 * @Description  generateProduct
+	 */
+    public static void generateProduct() {
+        Final User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId()];
+        System.runAs(admin) {
+            final Product2 prod = TestFactory.createProduct();
+            prod.IsActive = true;
+            prod.ProductCode = 'PC00011';
+            prod.Unique_id__c = '0292235_NEW';
+            update prod;
+            insert new PriceBookEntry(Product2Id=prod.Id, Pricebook2Id=Test.getStandardPricebookId(), UnitPrice=0, IsActive=true, CurrencyIsoCode='PEN');
+            final fprd__GBL_Product_version__c prodVersion = new fprd__GBL_Product_version__c(fprd__Active__c = true, fprd__Product__c = prod.Id, fprd__Version_number__c = 1);
+            prodVersion.CurrencyIsoCode = 'PEN';
+            insert prodVersion;
+        }
+    }
+    
 }

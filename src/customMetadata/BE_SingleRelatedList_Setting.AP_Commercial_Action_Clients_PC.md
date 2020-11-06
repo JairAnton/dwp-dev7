@@ -67,7 +67,10 @@
                             {
                                 &quot;fieldName&quot;: &quot;acpl__gf_account_planning_id__c&quot;,
                                 &quot;disabled&quot;: true 
-                            }
+                            },
+{
+                    &quot;fieldName&quot;: &quot;Product__c&quot;
+                }
                         ]
                     },
                     {

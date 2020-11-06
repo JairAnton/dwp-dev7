@@ -40,7 +40,8 @@ public class BE_AP_Permission_tst {
 			                                             Delete_Account_Planning_Team_Members__c = true, Delete_Need__c = true, Delete_Business_Plan__c = true,
 			                                             Delete_Commercial_Plan__c = true, Delete_Growth_Driver__c = true,  Edit_Account_Planning__c = true,
 			                                             Edit_Business_Plan__c = true, Edit_Account_Planning_Questions__c = true, Edit_Account_Planning_Team_Members__c = true,
-			                                             Edit_Commercial_Plan__c = true, Create_Need__c = true, Edit_Growth_Driver__c = true, Edit_Need__c = true);
+			                                             Edit_Commercial_Plan__c = true, Create_Need__c = true, Edit_Growth_Driver__c = true, Edit_Need__c = true, 
+                                                         Create_StockHolder__c = true, Edit_StockHolder__c = true, Delete_StockHolder__c = true);
 		}
 	}
 
@@ -141,6 +142,27 @@ public class BE_AP_Permission_tst {
         Final Boolean result = create && edit && delet;
 		System.assert (result, FAIL);
 	}
+
+	/*
+	 * @Description  method permissionStocker
+	 */
+	public static testmethod void permissionStocker() {
+		Final User adminAP = [SELECT Id FROM User WHERE user_position_equivalence__c =: USER_TEST LIMIT 1];
+		Boolean create;
+		Boolean edit;
+		Boolean delet;
+		Test.startTest();
+		System.runAs(adminAP) {
+			Final BE_AP_Permission_helper permission = new BE_AP_Permission_helper(adminAP.Id);
+			create = permission.permissionSH(V_INSERT);
+			edit = permission.permissionSH(UPDT);
+			delet = permission.permissionSH(DEL);
+		}
+		Test.stopTest();
+        Final Boolean result = create && edit && delet;
+		System.assert (result, FAIL);
+	}
+    
 	/*
 	 * @Description  method getAP
 	 */

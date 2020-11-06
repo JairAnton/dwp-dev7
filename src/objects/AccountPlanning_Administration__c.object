@@ -35,6 +35,14 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Create_StockHolder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Create StockHolder</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Delete_Account_Planning_Questions__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -91,6 +99,14 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Delete_StockHolder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Delete StockHolder</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Edit_Account_Planning_Questions__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -143,6 +159,14 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Edit Need</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Edit_StockHolder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Edit StockHolder</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>

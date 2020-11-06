@@ -2,9 +2,10 @@
  * ------------------------------------------------------------------------------------------------
  * @Name Be_RecordId_Related_Sobject_helper
  * @Author Diego Carbajal diego.carbajal@bbva.com
- * @Date Created: 2020-05-01
+ * @Date Created: 	2020-05-01
+ * @Date Modified: 	2020-10-23
  * @Group
- * @Description Clase helper para componentes y graficos de reporte
+ * @Description Clase helper para componentes, graficos de reporte y Variables de crecimiento en AP
  *
  */
 public without sharing class Be_RecordId_Related_Sobject_helper {
@@ -93,4 +94,29 @@ public without sharing class Be_RecordId_Related_Sobject_helper {
 		}
 		return clientsIds;
 	}
+
+	/**
+	   @Description getMetadataConfig
+	 */
+	@AuraEnabled
+    public static Map<String, Object> getMetadataConfig(String recordId) {
+        Final Map<String, Object> mapConfig = new Map<String, Object>{'isSuccess' => false, 'Msg' => 'No se ha encontrado la metadata seleccionada.'};
+        try {
+            Final acpl__Account_Planning__c[] lstAP = [SELECT Id, acpl__participant_id__r.RecordType.DeveloperName FROM 
+                                                        acpl__Account_Planning__c WHERE Id=: recordId LIMIT 1];
+            Final String metadataConfig = lstAP[0].acpl__participant_id__r.RecordType.DeveloperName == 'Record_Type_Economic_Group' ? 
+                                                                            'AP_Growth_Driver_Groups_PN' : 'AP_Growth_Driver_Clients_PN' ;
+            if(String.isNotBlank(metadataConfig)) {
+                Final BE_SingleRelatedList_Setting__mdt[] lstSRL = [SELECT Id, HeadActions__c FROM BE_SingleRelatedList_Setting__mdt 
+                                                                    WHERE DeveloperName =: metadataConfig LIMIT 1];
+                mapConfig.put('isSuccess', true);
+                mapConfig.put('data', lstSRL[0].HeadActions__c);
+                mapConfig.remove('Msg');
+            }
+        } catch (Exception e) {
+            mapConfig.put('Msg', e.getMessage());
+            System.debug(mapConfig);
+        }
+        return mapConfig;
+    }
 }

@@ -7,6 +7,11 @@
         <namespace>acpl</namespace>
     </packageVersions>
     <packageVersions>
+        <majorNumber>2</majorNumber>
+        <minorNumber>0</minorNumber>
+        <namespace>bupl</namespace>
+    </packageVersions>
+    <packageVersions>
         <majorNumber>5</majorNumber>
         <minorNumber>2</minorNumber>
         <namespace>dwp_kitv</namespace>
