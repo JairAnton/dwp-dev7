@@ -426,7 +426,7 @@ public without sharing class Product_cls {
 		                                                  FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 		mapReturn.put('nextAction', true);
 		if(!oppProductList.isEmpty()) {
-			if(oppProductList[0].price_quote_id__c != null && oppProductList[0].price_quote_id__c != '' && oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product_price_approval_method__c == STRWEB) {
+			if(oppProductList[0].price_quote_id__c != null && oppProductList[0].price_quote_id__c != '' && oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product_price_approval_method__c == 'Web') {
 				mapReturn = BE_Quotation_Rest.invokeRecoverQuo(recordId);
 				mapReturn.put('nextAction', true);
 				if((String) mapReturn.get('success') == 'false') {

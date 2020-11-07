@@ -3,7 +3,7 @@
     <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100"/>
     <br/>
     <div>
-        <b>&nbsp;Datos de cliente</b>
+        <strong>&nbsp;Datos de cliente</strong>
     </div>
     <br/>
     <table cellpadding="6">
@@ -26,7 +26,7 @@
     </table>
     <br/>
     <div>
-        <b>&nbsp;Datos de la oportunidad</b>
+        <strong>&nbsp;Datos de la oportunidad</strong>
     </div>
     <br/>
     <table cellpadding="6">
@@ -43,7 +43,7 @@
     </table>
     <br/>
     <div>
-        <b>&nbsp;Sanción precio</b>
+        <strong>&nbsp;Sanción precio</strong>
     </div>
     <br/>
     <table cellpadding="6">
@@ -84,7 +84,7 @@
     </table>
     <br/>
     <div>
-        <b>&nbsp;Compromisos</b>
+        <strong>&nbsp;Compromisos</strong>
     </div>
     <br/>
     <table cellpadding="6">
