@@ -64,7 +64,7 @@ public class ReevaluateButtonClass {
         if(useQuote) {
             genericError = Label.ErrorReevaluate;
         } else {
-            Opportunity opp = [SELECT Id, opportunity_status_type__c, StageName, isProcess__c, BE_UseApprovedQuote__c FROM Opportunity WHERE Id =: Idopp];
+            Final Opportunity opp = [SELECT Id, opportunity_status_type__c, StageName, isProcess__c, BE_UseApprovedQuote__c FROM Opportunity WHERE Id =: Idopp];
 			List <dwp_cvad__Action_Audit__c> lstactionRisk = new List <dwp_cvad__Action_Audit__c>();
 			try {
                 Map<String, Object> callServ = new Map<String, Object>();
@@ -74,11 +74,12 @@ public class ReevaluateButtonClass {
                     callServ = ReevaluateButtonClass.callService(Idopp);
                 }
                 if(callServ.get('genericError') == null) {
-                    opp.isProcess__c = true;
-                    opp.StageName = '04';
-                    opp.opportunity_status_type__c = '24';
-                    opp.BE_UseApprovedQuote__c = false;
-                    update opp;
+                    Final Opportunity oppUpdate = new Opportunity();
+                    oppUpdate.isProcess__c = true;
+                    oppUpdate.StageName = '04';
+                    oppUpdate.opportunity_status_type__c = '24';
+                    oppUpdate.BE_UseApprovedQuote__c = false;
+                    update oppUpdate;
                     
                     lstactionRisk.add(Action_Audit_Helper.getAudit(label.reevalRisk, 'Opportunity', opp.Id, DateTime.now(), label.AuditRiskApproval, UserInfo.getUserId(), label.restudyStyle, opp.sio_code__c, false));
                     insert lstactionRisk;
@@ -107,7 +108,7 @@ public class ReevaluateButtonClass {
         if(useQuote) {
             genericError = Label.ErrorReevaluate;
         } else {
-            Opportunity opp = [SELECT Id, opportunity_status_type__c, StageName, isProcess__c, BE_UseApprovedQuote__c FROM Opportunity WHERE Id =: Idopp];
+            Final Opportunity opp = [SELECT Id, opportunity_status_type__c, StageName, isProcess__c, BE_UseApprovedQuote__c FROM Opportunity WHERE Id =: Idopp];
 			List <dwp_cvad__Action_Audit__c> lstactionPrice = new List <dwp_cvad__Action_Audit__c>();
             try {
                 Map<String, Object> callServ = new Map<String, Object>();
@@ -117,11 +118,13 @@ public class ReevaluateButtonClass {
                     callServ = ReevaluateButtonClass.callService(Idopp);
                 }
                 if(callServ.get('genericError') == null) {
-                    opp.isProcess__c = true;
-                    opp.StageName = '04';
-                    opp.opportunity_status_type__c = '12';
-                    opp.BE_UseApprovedQuote__c = false;
-                    update opp;
+                    Final Opportunity oppUpdate = new Opportunity();
+                    oppUpdate.Id = opp.Id;
+                    oppUpdate.isProcess__c = true;
+                    oppUpdate.StageName = '04';
+                    oppUpdate.opportunity_status_type__c = '12';
+                    oppUpdate.BE_UseApprovedQuote__c = false;
+                    update oppUpdate;
                     
                     lstactionPrice.add(Action_Audit_Helper.getAudit(label.reevalPrice, 'Opportunity', opp.Id, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), label.restudyStyle, '', false));
                     insert lstactionPrice;
@@ -142,20 +145,22 @@ public class ReevaluateButtonClass {
 	* @param String oppId
 	 */
     private static void clearOppQuoteValues(String oppId) {
-        List<OpportunityLineItem> olis = [SELECT Id, price_quote_id__c, Opportunity.Account.Name FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
+        Final List<OpportunityLineItem> olis = [SELECT Id, price_quote_id__c, Opportunity.Account.Name FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
         Final String namePDF = olis[0].price_quote_id__c + ' - ' + olis[0].Opportunity.Account.Name;
-        Final String nullString;
-		Final Date nullDate;
-        Final Decimal nullDecimal;
-        olis[0].price_quote_date__c = nullDate;
-        olis[0].suggested_apr_per__c = nullDecimal;
-        olis[0].validityDate__c = nullDate;
-        olis[0].proposed_apr_per__c = nullDecimal;
-        olis[0].minimun_apr_per__c = nullDecimal;
-        olis[0].price_quote_id__c = nullString;
-        olis[0].Assigned_analyst__c = nullString;
-        olis[0].price_operation_id__c = nullString;
-        update olis;
+        String nullString;
+		Date nullDate;
+        Decimal nullDecimal;
+        Final OpportunityLineItem oli = new OpportunityLineItem();
+        oli.Id = olis[0].Id;
+        oli.price_quote_date__c = nullDate;
+        oli.suggested_apr_per__c = nullDecimal;
+        oli.validityDate__c = nullDate;
+        oli.proposed_apr_per__c = nullDecimal;
+        oli.minimun_apr_per__c = nullDecimal;
+        oli.price_quote_id__c = nullString;
+        oli.Assigned_analyst__c = nullString;
+        oli.price_operation_id__c = nullString;
+        update oli;
         Final List<Opportunity_Solution_Commitment__c> commitments = [SELECT Id FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c = :oppId];
         if(!commitments.isEmpty()) {
             delete commitments;

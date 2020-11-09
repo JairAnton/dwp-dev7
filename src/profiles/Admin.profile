@@ -569,14 +569,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_EditNonClient_Ctr</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BE_EditNonClient_Tst</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_ForecastPlanGroupingManager_Qs</apexClass>
         <enabled>true</enabled>
     </classAccesses>

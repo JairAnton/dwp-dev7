@@ -29,7 +29,7 @@ public with sharing class BE_CreateQuotation_cls {
 		Final pageReference pdfQuotation = Page.BE_Quotation_vfp;
 		pdfQuotation.getParameters().put('id', oppId);
 		Blob body;
-		if(test.isRunningTest()) {
+		if(Test.isRunningTest()) {
 			body = blob.valueOf('TestString');
 		} else {
 			body = pdfQuotation.getContent();

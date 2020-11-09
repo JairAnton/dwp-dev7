@@ -43,7 +43,7 @@ public class BE_SanctionUseQuotation_Tst {
 	@isTest
     static void getCommentsTest() {
 		Final Opportunity opp = [SELECT Id FROM Opportunity LIMIT 1];
-        String comment = BE_SanctionUseQuotation_Ctr.getComments(opp.Id);
+        Final String comment = BE_SanctionUseQuotation_Ctr.getComments(opp.Id);
         System.assert(String.isNotBlank(comment), 'success!!!');
 	}
     

@@ -81,8 +81,8 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
 	 */
     private static void createCommitments(String oppId, String oliId, String oppIdSelect) {
         Final List<Opportunity_Solution_Commitment__c> commitments = new List<Opportunity_Solution_Commitment__c>();
-        for(Opportunity_Solution_Commitment__c commitment : [SELECT added_to_price_quotation__c, opp_solution_commitment_amount__c, price_quote_date__c, opportunity_id__c, opp_soln_comt_expiry_days_number__c, opp_soln_comt_stay_days_number__c, opp_solution_commitment_number__c, CurrencyIsoCode, opp_solution_comt_product_name__c, opp_solution_id__c, price_quotation_id__c, price_quotation_method__c, opp_solution_commitment_id__c FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c = :oppIdSelect]) {
-            Opportunity_Solution_Commitment__c oppSolCommitment = commitment.clone();
+        for(Opportunity_Solution_Commitment__c commitment : [SELECT added_to_price_quotation__c, opp_solution_commitment_amount__c, price_quote_date__c, opp_soln_comt_expiry_days_number__c, opp_soln_comt_stay_days_number__c, opp_solution_commitment_number__c, CurrencyIsoCode, opp_solution_comt_product_name__c, price_quotation_id__c, price_quotation_method__c, opp_solution_commitment_id__c FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c = :oppIdSelect]) {
+            Final Opportunity_Solution_Commitment__c oppSolCommitment = commitment.clone();
             oppSolCommitment.opportunity_id__c = oppId;
             oppSolCommitment.opp_solution_id__c = oliId;
             commitments.add(oppSolCommitment);
@@ -98,11 +98,11 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
 	   @param  String oppIdSelect id of opportunity selected
 	 */
     private static void createAudits(String oppId, String oppIdSelect) {
-        Final List<dwp_cvad__Action_Audit__c> auditExist = [SELECT action_audit_email__c, dwp_cvad__action_audit_date__c, dwp_cvad__action_audit_user_id__c, dwp_cvad__action_audit_style__c, dwp_cvad__audit_audit_comments__c, dwp_cvad__action_audit_name__c, dwp_cvad__action_audit_object_api_name__c, dwp_cvad__action_audit_record_id__c, action_opp_sio_code__c, dwp_cvad__action_audit_type__c FROM dwp_cvad__Action_Audit__c WHERE dwp_cvad__action_audit_record_id__c = :oppIdSelect ORDER BY CreatedDate DESC LIMIT 1];
+        Final List<dwp_cvad__Action_Audit__c> auditExist = [SELECT Id, action_audit_email__c, dwp_cvad__action_audit_date__c, dwp_cvad__action_audit_user_id__c, dwp_cvad__action_audit_style__c, dwp_cvad__audit_audit_comments__c, dwp_cvad__action_audit_object_api_name__c, action_opp_sio_code__c, dwp_cvad__action_audit_type__c FROM dwp_cvad__Action_Audit__c WHERE dwp_cvad__action_audit_record_id__c = :oppIdSelect ORDER BY CreatedDate DESC LIMIT 1];
         if(!auditExist.isEmpty()) {
             Final List<dwp_cvad__Action_Audit__c> audits = new List<dwp_cvad__Action_Audit__c>();
             for(dwp_cvad__Action_Audit__c audit : auditExist) {
-                dwp_cvad__Action_Audit__c auditClone = audit.clone();
+                Final dwp_cvad__Action_Audit__c auditClone = audit.clone();
                 auditClone.dwp_cvad__action_audit_name__c = label.PriceApprovalUsingQuote;
                 auditClone.dwp_cvad__action_audit_record_id__c = oppId;
                 audits.add(auditClone);
@@ -113,7 +113,7 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
             
             Final List<dwp_cvad__Action_Audit_Detail__c> auditDetails = new List<dwp_cvad__Action_Audit_Detail__c>();
             for(dwp_cvad__Action_Audit_Detail__c detail : [SELECT dwp_cvad__action_audit_detail_content__c, dwp_cvad__action_audit_detail_display_order__c, dwp_cvad__action_audit_detail_content_format__c, CurrencyIsoCode, dwp_cvad__action_audit_detail_display_type__c, dwp_cvad__action_audit_detail_display_title__c FROM dwp_cvad__Action_Audit_Detail__c WHERE dwp_cvad__action_audit_id__c = :auditExist[0].Id]) {
-                dwp_cvad__Action_Audit_Detail__c detailClone = detail.clone();
+                Final dwp_cvad__Action_Audit_Detail__c detailClone = detail.clone();
                 detailClone.dwp_cvad__action_audit_id__c = audits[0].Id;
                 auditDetails.add(detailClone);
             }

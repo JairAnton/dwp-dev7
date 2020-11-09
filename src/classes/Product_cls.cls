@@ -426,7 +426,7 @@ public without sharing class Product_cls {
 		                                                  FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 		mapReturn.put('nextAction', true);
 		if(!oppProductList.isEmpty()) {
-			if(oppProductList[0].price_quote_id__c != null && oppProductList[0].price_quote_id__c != '' && oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product_price_approval_method__c == 'Web') {
+			if(oppProductList[0].price_quote_id__c != null && oppProductList[0].price_quote_id__c != '' && oppProductList[0].price_quote_owner_id__c != UserInfo.getUserId() && oppProductList[0].product_price_approval_method__c == STRWEB) {
 				mapReturn = BE_Quotation_Rest.invokeRecoverQuo(recordId);
 				mapReturn.put('nextAction', true);
 				if((String) mapReturn.get('success') == 'false') {
@@ -447,46 +447,43 @@ public without sharing class Product_cls {
 		try {
 			List<OpportunityLineItem> oppProductsList = [SELECT Id, price_quote_id__c, price_quote_status_id__c, price_quote_owner_id__c, product_price_approval_method__c
 			                                             FROM OpportunityLineItem WHERE OpportunityId = :recordId];
-			if(!oppProductsList.isEmpty()) {
-				// Check if there is a quotation linked to the opportunity
-				if(oppProductsList[0].product_price_approval_method__c == STRWEB && oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null) {
-					// Call Web Service to register the quotation loss
-					ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, rejectParams, null);
-					HttpResponse mqResponse = mqHelper.invoke();
-					//Check the ws response status
-					Integer wsResponseStatusCode = mqResponse.getStatusCode();
-					// Check if the response was successful
-					if(wsResponseStatusCode == 200) {
-						returnMap.put('success', 'true');
-						// Get the response body
-						ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
-						// Update the quoation status and owner
-						ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
-						ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
-						oppProductsList[0].price_quote_status_id__c = mqStatus.id;
-						List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
-						if(!mqBusinessAgentsList.isEmpty()) {
-							List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
-							if(!userList.isEmpty()) {
-								oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
-							}
-						} else {
-							oppProductsList[0].price_quote_owner_id__c = null;
-						}
-						update oppProductsList[0];
-					} else if(wsResponseStatusCode == 409) {
-						returnMap.put('success', 'false');
-						WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody());
-						// Set the error message
-						String errorMessage = Label.PriceRegisterLossKnownError + ' ' + errorDetails.errormessage;
-						returnMap.put('errorMessage', errorMessage);
-					} else {
-						returnMap.put('success', 'false');
-						String errorMessage = Label.PriceRegisterLossUnknownError;
-						returnMap.put('errorMessage', errorMessage);
-					}
-				}
-			}
+			if(!oppProductsList.isEmpty() && oppProductsList[0].product_price_approval_method__c == STRWEB && oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null) {
+                // Call Web Service to register the quotation loss
+                ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, rejectParams, null);
+                HttpResponse mqResponse = mqHelper.invoke();
+                //Check the ws response status
+                Integer wsResponseStatusCode = mqResponse.getStatusCode();
+                // Check if the response was successful
+                if(wsResponseStatusCode == 200) {
+                    returnMap.put('success', 'true');
+                    // Get the response body
+                    ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
+                    // Update the quoation status and owner
+                    ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
+                    ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
+                    oppProductsList[0].price_quote_status_id__c = mqStatus.id;
+                    List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
+                    if(!mqBusinessAgentsList.isEmpty()) {
+                        List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
+                        if(!userList.isEmpty()) {
+                            oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
+                        }
+                    } else {
+                        oppProductsList[0].price_quote_owner_id__c = null;
+                    }
+                    update oppProductsList[0];
+                } else if(wsResponseStatusCode == 409) {
+                    returnMap.put('success', 'false');
+                    WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody());
+                    // Set the error message
+                    String errorMessage = Label.PriceRegisterLossKnownError + ' ' + errorDetails.errormessage;
+                    returnMap.put('errorMessage', errorMessage);
+                } else {
+                    returnMap.put('success', 'false');
+                    String errorMessage = Label.PriceRegisterLossUnknownError;
+                    returnMap.put('errorMessage', errorMessage);
+                }
+            }
 		} catch(Exception e) {
 			returnMap.put('success', 'false');
 			String errorMessage = Label.PriceRegisterLossUnknownError;

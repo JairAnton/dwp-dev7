@@ -10,9 +10,7 @@
    ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_Quotation_Ctr {
-	/** variable opportunity */
-	private final Opportunity opp;
-    /** list of commintments */
+	/** list of commintments */
 	public final List<Opportunity_Solution_Commitment__c> commitments {get; set;}
     /** string with comments */
 	public String comments {get; set;}
@@ -24,7 +22,7 @@ public with sharing class BE_Quotation_Ctr {
 	   @param  ApexPages.StandardController stdController
 	 */
     public BE_Quotation_Ctr(ApexPages.StandardController stdController) {
-        opp = (Opportunity)stdController.getRecord();
+        Opportunity opp = (Opportunity)stdController.getRecord();
         for(dwp_cvad__Action_Audit_Detail__c auditDet : [SELECT Id, dwp_cvad__action_audit_detail_content__c FROM dwp_cvad__Action_Audit_Detail__c WHERE dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c = :opp.Id ORDER BY dwp_cvad__action_audit_id__r.CreatedDate DESC LIMIT 1]) {
             comments = auditDet.dwp_cvad__action_audit_detail_content__c;
             comments = comments.substringAfterLast('>Comentarios</h3>');
