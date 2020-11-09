@@ -8599,6 +8599,11 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Legal_Representative__c.Customer_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Legal_Representative__c.Document_Type_Abbreviation__c</field>
         <readable>true</readable>
     </fieldPermissions>
