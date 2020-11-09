@@ -28,10 +28,12 @@ public with sharing class BE_CurrentPriceList_cls extends BE_SingleRelatedListCR
                 //Variables usadas en query dinamica
                 Final String clientId = olis[0].Opportunity.AccountId;
                 Final String productId = olis[0].Product2.ProductCode;
-                res.data = queryData(clientId, productId, param);
-                res.data = getFiles(res.data);
-                res.isSuccess = true;
-			    res.message = 'Success';
+                if(clientId!=null && productId!=null) {
+                    res.data = Database.query('SELECT '+String.escapeSingleQuotes(param.sObjFields)+', CurrencyIsoCode FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL));
+                    res.data = getFiles(res.data);
+                    res.isSuccess = true;
+                    res.message = 'Success';
+                }
             }
 		} catch (Exception e) {
 			res.isSuccess = false;
@@ -40,13 +42,6 @@ public with sharing class BE_CurrentPriceList_cls extends BE_SingleRelatedListCR
 		return res;
 	}
     
-    /*
-	 * @Description  method return queryData
-	 */
-    private List<SObject> queryData(String clientId, String productId, BE_SingleRelatedList_Ctr.Params param) {
-        return Database.query('SELECT '+String.escapeSingleQuotes(param.sObjFields)+', CurrencyIsoCode FROM '+String.escapeSingleQuotes(param.sObjName)+' WHERE '+String.escapeSingleQuotes(param.filterSQOL));
-    }
-
     /*
 	 * @Description  method get files
 	 */
@@ -57,15 +52,17 @@ public with sharing class BE_CurrentPriceList_cls extends BE_SingleRelatedListCR
                 ids.add((String)obj.get(STROPPID));
             }
         }
-        Final Map<String, Id> mapFileIds = getFileIds(ids);
-        for(sObject obj : data) {
-            Final String namePDF = (String)obj.getSObject('Opportunity').getSObject('Account').get('Name') + ' - cotización Nro. ' + (String)obj.get('price_quote_id__c');
-            Final String prodCode = (String)obj.getSObject('Product2').get('ProductCode');
-            if(prodCode == Label.lblPDFProductCartaTecnicaEconomica || prodCode == Label.lblPDFProductCartaTecnicaImport) {
-                obj.put('proposed_apr_per__c', (String)obj.get('proposed_fee_per__c'));
-            }
-            if(mapFileIds.containsKey((String)obj.get(STROPPID) + ' - ' + namePDF)) {
-                obj.put('Unique_id__c', mapFileIds.get((String)obj.get(STROPPID) + ' - ' + namePDF));
+        if(!ids.isEmpty()) {
+            Final Map<String, Id> mapFileIds = getFileIds(ids);
+            for(sObject obj : data) {
+                Final String namePDF = (String)obj.get('price_quote_id__c') + ' - ' + (String)obj.getSObject('Opportunity').getSObject('Account').get('Name');
+                Final String prodCode = (String)obj.getSObject('Product2').get('ProductCode');
+                if(prodCode == Label.lblPDFProductCartaTecnicaEconomica || prodCode == Label.lblPDFProductCartaTecnicaImport) {
+                    obj.put('proposed_apr_per__c', (String)obj.get('proposed_fee_per__c'));
+                }
+                if(mapFileIds.containsKey((String)obj.get(STROPPID) + ' - ' + namePDF)) {
+                    obj.put('Unique_id__c', mapFileIds.get((String)obj.get(STROPPID) + ' - ' + namePDF));
+                }
             }
         }
         return data;

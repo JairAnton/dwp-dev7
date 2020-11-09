@@ -165,9 +165,9 @@ public class ReevaluateButtonClass {
         if(!commitments.isEmpty()) {
             delete commitments;
         }
-        Final List<ContentDocumentLink> ltsCDL = [SELECT Id FROM ContentDocumentLink WHERE LinkedEntityId = :oppId AND ContentDocument.Title =:namePDF AND ContentDocument.FileType = 'pdf'];
+        Final List<ContentDocumentLink> ltsCDL = [SELECT Id, ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId = :oppId AND ContentDocument.Title =:namePDF AND ContentDocument.FileType = 'pdf'];
         if(!ltsCDL.isEmpty()) {
-            delete ltsCDL;
+            delete new ContentDocument(Id = ltsCDL[0].ContentDocumentId);
         }
     }
     
@@ -177,10 +177,11 @@ public class ReevaluateButtonClass {
 	 */
     private static boolean checkQuoteUse(String oppId) {
         final OpportunityLineItem oli = [SELECT Id, price_quote_id__c, Opportunity.AccountId, Product2Id FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
-        final List<OpportunityLineItem> lts = [SELECT Id FROM OpportunityLineItem WHERE Opportunity.BE_UseApprovedQuote__c = TRUE AND price_quote_id__c = :oli.price_quote_id__c AND Opportunity.AccountId = :oli.Opportunity.AccountId AND Product2Id = :oli.Product2Id];
-        Boolean exist = true; 
-		if(lts.isEmpty()) {
-            exist = false;
+        Boolean exist = false;
+        for(OpportunityLineItem oliaux : [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE Opportunity.BE_UseApprovedQuote__c = TRUE AND price_quote_id__c = :oli.price_quote_id__c AND Opportunity.AccountId = :oli.Opportunity.AccountId AND Product2Id = :oli.Product2Id]) {
+            if(oliaux.OpportunityId != oppId) {
+                exist = true;
+            }
         }
 		return exist;
     }

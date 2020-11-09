@@ -6,6 +6,7 @@
         helper.continue(cmp, evt, helper);
     },
     onSelectedQuotation: function(cmp, evt, helper) {
+        cmp.set("v.btnDisable", false);
         helper.getComments(cmp, evt, helper);
     },
     closeAlert: function (cmp, evt, helper) {

@@ -375,7 +375,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 		}
 		update oliRecord;
         if(opp.opportunity_status_type__c == SAUTHORIZED) {
-            BE_CreateQuotation_cls.generatePDF(opp.Id);
+            BE_CreateQuotation_cls.generatePDF(opp.Id, String.valueOf(oliRecord.validityDate__c));
         }
 		mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#Assigned_analyst#', assignedAnalyst));
 

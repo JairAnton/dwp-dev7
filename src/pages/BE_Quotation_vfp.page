@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td>RUC: {!Opportunity.Account.AccountNumber} </td>
-            <td>Registro ejecutivo: {!Opportunity.Owner.user_id__c} </td>
+            <td>Registro ejecutivo: {!userCode} </td>
         </tr>
         <tr>
             <td>Oficina: {!Opportunity.Account.branch_name__c}</td>
@@ -50,7 +50,7 @@
         <apex:repeat value="{!Opportunity.OpportunityLineItems}" var="lineitem">
             <tr>
                 <td width="50%">Nº cotización: {!lineitem.price_quote_id__c} </td>
-                <td width="50%">Fecha de sanción:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!lineitem.price_quote_date__c}" /> </apex:outputText> </td>
+                <td width="50%">Fecha de sanción:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!TODAY()}" /> </apex:outputText> </td>
             </tr>
             <tr>
                 <td>
@@ -65,7 +65,7 @@
                         </apex:outputText>
                     </apex:outputPanel>
                 </td>
-                <td>Vigencia:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!lineitem.validityDate__c}" /></apex:outputText></td>
+                <td>Vigencia:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!validDate}" /></apex:outputText></td>
             </tr>
             <tr>
                 <td>Plazo:&nbsp;<apex:outputfield value="{!lineitem.gipr_Plazo__c}"/>&nbsp;<apex:outputfield value="{!lineitem.gipr_Periodicidad__c}"/></td>

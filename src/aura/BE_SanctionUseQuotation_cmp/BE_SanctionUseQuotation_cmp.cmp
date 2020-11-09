@@ -9,6 +9,7 @@
     <aura:attribute name="idOli" type="string"/>
     <aura:attribute name="comments" type="string"/>
     <aura:attribute name="classHide" type="boolean" default="slds-hide"/>
+    <aura:attribute name="btnDisable" type="boolean" default="true"/>
     
     <aura:if isTrue="{!v.isLoad}">
         <aura:if isTrue="{!v.isError}">
@@ -40,14 +41,14 @@
                                     <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
                                 </td>
                                 <td>
-                                    <div class="slds-float_right"><c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/></div>
+                                    <div class="slds-float_right"><c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE" disabled="{!v.btnDisable}" /></div>
                                 </td>
                             </tr>
                         </table>
                         <aura:set attribute="else">
                             <lightning:layout multipleRows="true">
                                 <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
-                                    <c:ButtonWithoutDoubleClick_cmp class="slds-button slds-button_neutral slds-button_stretch" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                                    <c:ButtonWithoutDoubleClick_cmp class="slds-button slds-button_neutral slds-button_stretch" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE" disabled="{!v.btnDisable}" />
                                 </lightning:layoutItem>
                                 <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
                                     <lightning:button class="slds-button slds-button_neutral slds-button_stretch" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>

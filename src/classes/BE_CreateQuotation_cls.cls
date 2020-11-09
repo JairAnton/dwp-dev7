@@ -19,7 +19,7 @@ public with sharing class BE_CreateQuotation_cls {
 	   @Description method used to generate pdf and update opportunity
 	   @param  String oppId id of opportunity
 	 */
-    public static void generatePDF(string oppId) {
+    public static void generatePDF(string oppId, String validDate) {
         update new Opportunity(Id = oppId, BE_HasApprovedQuote__c=true);
         
         Final List<OpportunityLineItem> ltsOli = new List<OpportunityLineItem>([SELECT Id, Opportunity.Account.Name, price_quote_id__c FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1]);
@@ -28,8 +28,9 @@ public with sharing class BE_CreateQuotation_cls {
 
 		Final pageReference pdfQuotation = Page.BE_Quotation_vfp;
 		pdfQuotation.getParameters().put('id', oppId);
+		pdfQuotation.getParameters().put('validDate', validDate);
 		Blob body;
-		if(Test.isRunningTest()) {
+		if(test.isRunningTest()) {
 			body = blob.valueOf('TestString');
 		} else {
 			body = pdfQuotation.getContent();

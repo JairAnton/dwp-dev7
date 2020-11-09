@@ -50,8 +50,8 @@ public class BE_SanctionUseQuotation_Tst {
     @isTest
     static void useQuotationPriceSuccessTest() {
 		Final OpportunityLineItem oli = [SELECT Id, OpportunityId FROM OpportunityLineItem ORDER BY CreatedDate ASC LIMIT 1];
-        BE_CreateQuotation_cls.generatePDF(oli.OpportunityId);
-        BE_CreateQuotation_cls.generatePDF(oli.OpportunityId);
+        BE_CreateQuotation_cls.generatePDF(oli.OpportunityId, '2020-11-06');
+        BE_CreateQuotation_cls.generatePDF(oli.OpportunityId, '2020-11-06');
         Final Opportunity opp = [SELECT Id FROM Opportunity ORDER BY CreatedDate DESC LIMIT 1];
         opp.StageName = '04';
         update opp;

@@ -132,7 +132,14 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
         Final String namePDF = oli.price_quote_id__c + ' - ' + oli.Opportunity.Account.Name;
         Final List<ContentDocumentLink> ltsCDL = [SELECT Id, ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId = :oli.OpportunityId AND ContentDocument.Title =:namePDF AND ContentDocument.FileType = 'pdf'];
         if(!ltsCDL.isEmpty()) {
-            Final Id conDoc = ltsCDL[0].ContentDocumentId;
+            Final List<ContentVersion> ltsContVer = [SELECT Id, versionData FROM ContentVersion WHERE ContentDocumentId = :ltsCDL[0].ContentDocumentId];
+            Final ContentVersion conVer = new ContentVersion();
+            conVer.ContentLocation = 'S';
+            conVer.versionData = ltsContVer[0].versionData;
+            conVer.title = namePDF;
+            conVer.pathOnClient = conVer.title + '.pdf';
+            insert conVer;
+            Final Id conDoc = [SELECT ContentDocumentId FROM ContentVersion WHERE Id =:conVer.Id].ContentDocumentId;
             Final ContentDocumentLink conDocLink = New ContentDocumentLink();
             conDocLink.LinkedEntityId = oppId;
             conDocLink.ContentDocumentId = conDoc;

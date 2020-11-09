@@ -29,7 +29,7 @@ public class BE_CurrentPriceList_tst {
         oli1.validityDate__c = Date.today()+50;
         update oli1;
         insert new ContentVersion(ContentLocation = 'S', PathOnClient = 'Document.pdf', VersionData = EncodingUtil.base64Decode('GENERATE DOCUMENT'), 
-                                                         Title = acc.Name + ' - cotización Nro. ' + oli1.price_quote_id__c);
+                                                         Title = oli1.price_quote_id__c + ' - ' + acc.Name);
         Final Id conDoc = [SELECT ContentDocumentId FROM ContentVersion LIMIT 1].ContentDocumentId;
         insert new ContentDocumentLink(LinkedEntityId = opp1.Id, ContentDocumentId = conDoc, shareType = 'V');
         //Segunda oportunidad con precio vigente a elegir
@@ -45,7 +45,7 @@ public class BE_CurrentPriceList_tst {
     public static void getCurrentPriceSuccess() {
         Final Opportunity[] lstOpp =[SELECT Id, CreatedDate FROM Opportunity ORDER BY CreatedDate ASC LIMIT 2];
         Final BE_SingleRelatedList_Setting__mdt config = [SELECT sObjectApiName__c, Settings__c, Filter__c, FieldsQuery__c FROM BE_SingleRelatedList_Setting__mdt 
-                                                          WHERE DeveloperName = 'List_Read_OppCurrentPrice' LIMIT 1];
+                                                          WHERE DeveloperName = 'BE_List_Read_OppCurrentPrice' LIMIT 1];
         Final BE_SingleRelatedList_Ctr.Params params = new BE_SingleRelatedList_Ctr.Params();
         params.sObjName = config.sObjectApiName__c;
         params.settings = (Map<String, Object>) JSON.deserializeUntyped(config.Settings__c);
@@ -65,7 +65,7 @@ public class BE_CurrentPriceList_tst {
     public static void getCurrentPriceError() {
         Final Opportunity[] lstOpp =[SELECT Id, CreatedDate FROM Opportunity ORDER BY CreatedDate ASC LIMIT 2];
         Final BE_SingleRelatedList_Setting__mdt config = [SELECT sObjectApiName__c, Settings__c, Filter__c, FieldsQuery__c FROM BE_SingleRelatedList_Setting__mdt 
-                                                          WHERE DeveloperName = 'List_Read_OppCurrentPrice' LIMIT 1];
+                                                          WHERE DeveloperName = 'BE_List_Read_OppCurrentPrice' LIMIT 1];
         Final BE_SingleRelatedList_Ctr.Params params = new BE_SingleRelatedList_Ctr.Params();
         params.sObjName = null;
         params.settings = (Map<String, Object>) JSON.deserializeUntyped(config.Settings__c);
