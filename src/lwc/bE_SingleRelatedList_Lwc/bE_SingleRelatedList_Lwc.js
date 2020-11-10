@@ -54,6 +54,8 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     wiredsObjectList;
     sfdcBaseURL;
     relListTypeMode;
+    @track showCheckbox = false;
+    @track maxRowSelection = -1;
     connectedCallback() {
         this.isMobile = (FORM_FACTOR === 'Small' || FORM_FACTOR === 'Medium') ? true : false;
         this.sfdcBaseURL = window.location.origin;
@@ -75,6 +77,12 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             try {
                 this.configMeta = data;
                 this.sObject = getSettingsObj(data[0], this.viewAlll);
+                if(this.sObject.settings.hasOwnProperty('showCheckbox')) {
+                    this.showCheckbox = this.sObject.settings.showCheckbox;
+                }
+                if(this.sObject.settings.hasOwnProperty('maxRowSelection')) {
+                    this.maxRowSelection = this.sObject.settings.maxRowSelection;
+                }
                 this.columns = transformColumns(data[0].Columns__c, this.lang);
                 this.headActions = transformHeadActions(data[0].HeadActions__c, this.recordId, this.lang);
                 this.callListData();
@@ -293,9 +301,18 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     /**Refresh if lwc is involved in aura*/
     refreshOnAura() {
         const refreshView = new CustomEvent('refreshCmp', {
-            detail: { "refresh": true }
-        });
+			detail: { "refresh": true }
+		});
         this.dispatchEvent(refreshView);
+    }
+
+    /**Checkbox change event*/
+    handleCheckboxChange(event) {
+        const selectedRows = event.detail.selectedRows;
+        const checkboxChangeEvent = new CustomEvent('checkboxchange', {
+            detail: { selectedRows },
+        });
+        this.dispatchEvent(checkboxChangeEvent);
     }
 
 }

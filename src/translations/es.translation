@@ -2924,7 +2924,23 @@
         <label>La descripción es obligatoria</label>
         <name>BE_VisitErrorDescField</name>
     </customLabels>
-    <customTabs>
+	<customLabels>
+        <label>No es posible reevaluar una oportunidad con un id de cotiza usado en otra oportunidad</label>
+        <name>ErrorReevaluate</name>
+    </customLabels>
+	<customLabels>
+        <label>Selecciona la sanción de precio a utilizar en esta oportunidad</label>
+        <name>lblAlertCurrentPriceSanction</name>
+    </customLabels>
+	<customLabels>
+        <label>Sancionar con precio vigente</label>
+        <name>lblTitleCurrentPriceSanction</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado con precio vigente</label>
+        <name>PriceApprovalUsingQuote</name>
+    </customLabels>
+	<customTabs>
         <label>No clientes</label>
         <name>nonc__Prospects</name>
     </customTabs>

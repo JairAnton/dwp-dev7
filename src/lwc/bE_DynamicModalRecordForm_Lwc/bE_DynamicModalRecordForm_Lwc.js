@@ -10,8 +10,11 @@ import msgError from '@salesforce/label/c.Dwp_msgGenericError'
 import { ShowToastEvent } from 'lightning/platformShowToastEvent'
 import FORM_FACTOR from '@salesforce/client/formFactor';
 import { NavigationMixin } from 'lightning/navigation';
+import SRL_Channel from "@salesforce/messageChannel/BE_SingleRelatedList_MessageChannel__c";
+import { createMessageContext, releaseMessageContext, publish } from 'lightning/messageService';
 
 export default class BE_DynamicModalRecordForm_Lwc extends NavigationMixin(LightningElement) {
+    context = createMessageContext();
     label = {msgError};
     enabledTempInit = templateInit;
     //Config
@@ -278,16 +281,17 @@ export default class BE_DynamicModalRecordForm_Lwc extends NavigationMixin(Light
         });
     }
     handleCloseModal() {
-        this.dispatchEvent(new CustomEvent('close'));
+        console.log('handleCloseModal');
+        const message = {params: { value: "ENVIO DESDE LWC" }};
+        publish(this.context, SRL_Channel, message);
+    }
+
+    disconnectedCallback() {
+        releaseMessageContext(this.context);
     }
 
     showToast(title, message, type) {
-        const event = new ShowToastEvent({
-            title: title,
-            message: message,
-            variant : type
-        });
-        this.dispatchEvent(event);
+        this.dispatchEvent(new ShowToastEvent({title: title, message: message, variant : type}));
     }
 
     numberWithCommas(x) {

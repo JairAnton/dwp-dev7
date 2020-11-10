@@ -660,7 +660,23 @@
         <label><!-- BE_VisistErrorDescField --></label>
         <name>BE_VisitErrorDescField</name>
     </customLabels>
-    <customTabs>
+	<customLabels>
+        <label><!-- ErrorReevaluate --></label>
+        <name>ErrorReevaluate</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- lblAlertCurrentPriceSanction --></label>
+        <name>lblAlertCurrentPriceSanction</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- lblTitleCurrentPriceSanction --></label>
+        <name>lblTitleCurrentPriceSanction</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PriceApprovalUsingQuote --></label>
+        <name>PriceApprovalUsingQuote</name>
+    </customLabels>
+	<customTabs>
         <label><!-- Prospects --></label>
         <name>nonc__Prospects</name>
     </customTabs>

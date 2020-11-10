@@ -3,9 +3,16 @@
  * Description : Class to insert a record from Account
  * Created date : May 15 2018
  * Developer name: Isaías Velázquez Cortés Indra(México)
+ * 
+ * @Changes
+ *   Date        Author   Email                  			Type		Description
+ *   2020-07-14  MAMC     martin.mori.contractor@bbva.com	Modify		add condition for calling web services
    --------------------------------------------------------------------------*/
 
 public without sharing class Product_cls {
+	/* string Web value */
+    Final static String STRWEB = 'Web';
+	
 	/*Description
 	   Comments to describe the functionality of this method
 	 */
@@ -273,7 +280,7 @@ public without sharing class Product_cls {
 				if(Action == 'btnApprove') {//08
 					itemOpp[0].StageName = '06';
 					itemOpp[0].opportunity_status_type__c = '23';
-					if(itemOpp[0].OpportunityLineItems[0].product2.type_of_quote__c == 'Web') {
+					if(itemOpp[0].OpportunityLineItems[0].product2.type_of_quote__c == STRWEB && !itemOpp[0].BE_UseApprovedQuote__c) {
 						returnMap = disburseQuotation(itemOpp[0].id, ContractNumber);
 					} else {
 						returnMap.put('success', true);
@@ -440,46 +447,43 @@ public without sharing class Product_cls {
 		try {
 			List<OpportunityLineItem> oppProductsList = [SELECT Id, price_quote_id__c, price_quote_status_id__c, price_quote_owner_id__c, product_price_approval_method__c
 			                                             FROM OpportunityLineItem WHERE OpportunityId = :recordId];
-			if(!oppProductsList.isEmpty()) {
-				// Check if there is a quotation linked to the opportunity
-				if(oppProductsList[0].product_price_approval_method__c == 'Web' && oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null) {
-					// Call Web Service to register the quotation loss
-					ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, rejectParams, null);
-					HttpResponse mqResponse = mqHelper.invoke();
-					//Check the ws response status
-					Integer wsResponseStatusCode = mqResponse.getStatusCode();
-					// Check if the response was successful
-					if(wsResponseStatusCode == 200) {
-						returnMap.put('success', 'true');
-						// Get the response body
-						ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
-						// Update the quoation status and owner
-						ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
-						ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
-						oppProductsList[0].price_quote_status_id__c = mqStatus.id;
-						List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
-						if(!mqBusinessAgentsList.isEmpty()) {
-							List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
-							if(!userList.isEmpty()) {
-								oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
-							}
-						} else {
-							oppProductsList[0].price_quote_owner_id__c = null;
-						}
-						update oppProductsList[0];
-					} else if(wsResponseStatusCode == 409) {
-						returnMap.put('success', 'false');
-						WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody());
-						// Set the error message
-						String errorMessage = Label.PriceRegisterLossKnownError + ' ' + errorDetails.errormessage;
-						returnMap.put('errorMessage', errorMessage);
-					} else {
-						returnMap.put('success', 'false');
-						String errorMessage = Label.PriceRegisterLossUnknownError;
-						returnMap.put('errorMessage', errorMessage);
-					}
-				}
-			}
+			if(!oppProductsList.isEmpty() && oppProductsList[0].product_price_approval_method__c == STRWEB && oppProductsList[0].price_quote_id__c != '' && oppProductsList[0].price_quote_id__c != null) {
+                // Call Web Service to register the quotation loss
+                ModifyQuotationRequest_helper mqHelper = new ModifyQuotationRequest_helper(recordId, 'REGISTER_LOSS', null, rejectParams, null);
+                HttpResponse mqResponse = mqHelper.invoke();
+                //Check the ws response status
+                Integer wsResponseStatusCode = mqResponse.getStatusCode();
+                // Check if the response was successful
+                if(wsResponseStatusCode == 200) {
+                    returnMap.put('success', 'true');
+                    // Get the response body
+                    ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper responseBody = ModifyQuotationRequest_helper.responseParse(mqResponse.getBody());
+                    // Update the quoation status and owner
+                    ModifyQuotationRequest_helper.Response_data mqData = responseBody.data;
+                    ModifyQuotationRequest_helper.Response_status mqStatus = mqData.status;
+                    oppProductsList[0].price_quote_status_id__c = mqStatus.id;
+                    List<ModifyQuotationRequest_helper.Response_businessAgents> mqBusinessAgentsList = mqData.businessAgents;
+                    if(!mqBusinessAgentsList.isEmpty()) {
+                        List<User> userList = [SELECT Id FROM User WHERE user_id__c = : mqBusinessAgentsList[0].id];
+                        if(!userList.isEmpty()) {
+                            oppProductsList[0].price_quote_owner_id__c = userList[0].Id;
+                        }
+                    } else {
+                        oppProductsList[0].price_quote_owner_id__c = null;
+                    }
+                    update oppProductsList[0];
+                } else if(wsResponseStatusCode == 409) {
+                    returnMap.put('success', 'false');
+                    WebServiceUtils.ResponseErrorMessage_Wrapper errorDetails = WebServiceUtils.parse(mqResponse.getBody());
+                    // Set the error message
+                    String errorMessage = Label.PriceRegisterLossKnownError + ' ' + errorDetails.errormessage;
+                    returnMap.put('errorMessage', errorMessage);
+                } else {
+                    returnMap.put('success', 'false');
+                    String errorMessage = Label.PriceRegisterLossUnknownError;
+                    returnMap.put('errorMessage', errorMessage);
+                }
+            }
 		} catch(Exception e) {
 			returnMap.put('success', 'false');
 			String errorMessage = Label.PriceRegisterLossUnknownError;
@@ -500,7 +504,7 @@ public without sharing class Product_cls {
 				HTMLComments = HTMLComments + '<b>TEA propuesta:</b> ' + itemOppProduct[0].proposed_apr_per__c + '% <br/>' +
 				               '<b>Comisión estructuración:</b> ' + itemOppProduct[0].restructuring_fee_per__c + '% <br/>' +
 				               '<b>Comisión Liquidacion Anticipada(%):</b> ' + itemOppProduct[0].cancellation_fee_per__c + '% <br/>';
-			} else if(itemOppProduct[0].Product2.Type_of_quote__c == 'Web') {
+			} else if(itemOppProduct[0].Product2.Type_of_quote__c == STRWEB) {
 				HTMLComments = HTMLComments + '<b>TEA propuesta (%):</b> ' + itemOppProduct[0].proposed_apr_per__c + '% <br/>';
 				HTMLComments = HTMLComments + '<b>Validez TEA:</b> ' + itemOppProduct[0].validityDate__c + '<br/>';
 				HTMLComments = HTMLComments + '<b>ID COTIZA:</b> ' + itemOppProduct[0].price_quote_id__c + '<br/>';

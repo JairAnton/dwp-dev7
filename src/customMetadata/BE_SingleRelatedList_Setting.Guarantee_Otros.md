@@ -23,7 +23,11 @@
                 &quot;label&quot;: {
                     &quot;fieldName&quot;: &quot;Name&quot;
                 },
-                &quot;modalName&quot;: &quot;Guarantee_Detailes_Otros&quot;,
+                &quot;component&quot;: &quot;c:bE_DynamicModalRecordForm_Lwc&quot;,
+                &quot;params&quot;: {
+                    &quot;idRecord&quot;: &quot;Id&quot;,
+                    &quot;metaDataConfig&quot;: &quot;Guarantee_Detailes_Otros&quot;
+                },
                 &quot;iconName&quot;: &quot;utility:search&quot;,
                 &quot;iconPosition&quot;: &quot;right&quot;,
                 &quot;rowData&quot;: {

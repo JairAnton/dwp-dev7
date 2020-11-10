@@ -5,6 +5,9 @@
  * @group Global_HUB
  *
  * @description Controller class from SanctionPriceDecision_ctrl
+ * @Changes
+ *  Date        Author   Email                  			Type		Description
+ *  2020-11-06  MAMC     martin.mori.contractor@bbva.com	Modify		add method to create quote pdf
  **/
 public with sharing class SanctionPriceDecision_ctrl {
 	/**
@@ -364,13 +367,16 @@ public with sharing class SanctionPriceDecision_ctrl {
 			assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
 			oliRecord.Assigned_analyst__c = assignedAnalyst;
 			mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#validityDate#', params.validDate.substring(8, 10) + '/' + params.validDate.substring(5, 7) + '/' + params.validDate.substring(0, 4)));
-		} else if(opp.opportunity_status_type__c == SDENIED) {
+        } else if(opp.opportunity_status_type__c == SDENIED) {
 			oliRecord.price_quote_date__c = System.today();
 			assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
 			oliRecord.Assigned_analyst__c = assignedAnalyst;
 			mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#validityDate#', ''));
 		}
 		update oliRecord;
+        if(opp.opportunity_status_type__c == SAUTHORIZED) {
+            BE_CreateQuotation_cls.generatePDF(opp.Id, String.valueOf(oliRecord.validityDate__c));
+        }
 		mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#Assigned_analyst#', assignedAnalyst));
 
 		return mapReturn;
