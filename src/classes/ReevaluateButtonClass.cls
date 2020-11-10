@@ -147,9 +147,9 @@ public class ReevaluateButtonClass {
     private static void clearOppQuoteValues(String oppId) {
         Final List<OpportunityLineItem> olis = [SELECT Id, price_quote_id__c, Opportunity.Account.Name FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
         Final String namePDF = olis[0].price_quote_id__c + ' - ' + olis[0].Opportunity.Account.Name;
-        String nullString;
-		Date nullDate;
-        Decimal nullDecimal;
+        Final String nullString;
+		Final Date nullDate;
+        Final Decimal nullDecimal;
         Final OpportunityLineItem oli = new OpportunityLineItem();
         oli.Id = olis[0].Id;
         oli.price_quote_date__c = nullDate;

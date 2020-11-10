@@ -33,6 +33,7 @@ public class BE_Quotation_Tst {
 		Final Opportunity opp = [SELECT Id FROM Opportunity LIMIT 1];
 		Final PageReference pageRef = Page.BE_Quotation_vfp;
 		pageRef.getParameters().put('id', opp.id);
+		pageRef.getParameters().put('validDate', '2020-10-10');
 		test.setCurrentPage(pageRef);
 		Final ApexPages.StandardController standardCont = new ApexPages.standardController(opp);
 		Final BE_Quotation_Ctr pdf = new BE_Quotation_Ctr(standardCont);

@@ -10,8 +10,10 @@
  * @author Martín Mori - Diego Carbajal
  */
 public with sharing class BE_CurrentPriceList_cls extends BE_SingleRelatedListCRUD_Cls {
-	/* string Web value */
+	/* string OpportunityId value */
     Final static String STROPPID = 'OpportunityId';
+	/* string concat value */
+    Final static String STRCONCAT = ' - ';
 	
 	/*
 	 * @Description  method readRecords
@@ -55,13 +57,13 @@ public with sharing class BE_CurrentPriceList_cls extends BE_SingleRelatedListCR
         if(!ids.isEmpty()) {
             Final Map<String, Id> mapFileIds = getFileIds(ids);
             for(sObject obj : data) {
-                Final String namePDF = (String)obj.get('price_quote_id__c') + ' - ' + (String)obj.getSObject('Opportunity').getSObject('Account').get('Name');
+                Final String namePDF = (String)obj.get('price_quote_id__c') + STRCONCAT + (String)obj.getSObject('Opportunity').getSObject('Account').get('Name');
                 Final String prodCode = (String)obj.getSObject('Product2').get('ProductCode');
                 if(prodCode == Label.lblPDFProductCartaTecnicaEconomica || prodCode == Label.lblPDFProductCartaTecnicaImport) {
                     obj.put('proposed_apr_per__c', (String)obj.get('proposed_fee_per__c'));
                 }
-                if(mapFileIds.containsKey((String)obj.get(STROPPID) + ' - ' + namePDF)) {
-                    obj.put('Unique_id__c', mapFileIds.get((String)obj.get(STROPPID) + ' - ' + namePDF));
+                if(mapFileIds.containsKey((String)obj.get(STROPPID) + STRCONCAT + namePDF)) {
+                    obj.put('Unique_id__c', mapFileIds.get((String)obj.get(STROPPID) + STRCONCAT + namePDF));
                 }
             }
         }
@@ -74,7 +76,7 @@ public with sharing class BE_CurrentPriceList_cls extends BE_SingleRelatedListCR
 	private Map<String, Id> getFileIds(Set<Id> ids) {
         Final Map<String, Id> retMap = new Map<String, Id>();
         for(ContentDocumentLink cdl : [SELECT Id, LinkedEntityId, ContentDocument.Title, ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId IN :ids AND ContentDocument.FileType = 'pdf']) {
-            retMap.put(cdl.LinkedEntityId + ' - ' + cdl.ContentDocument.Title, cdl.ContentDocumentId);
+            retMap.put(cdl.LinkedEntityId + STRCONCAT + cdl.ContentDocument.Title, cdl.ContentDocumentId);
         }
         return retMap;
 	}
