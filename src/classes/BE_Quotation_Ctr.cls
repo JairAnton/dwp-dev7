@@ -30,8 +30,7 @@ public with sharing class BE_Quotation_Ctr {
     public BE_Quotation_Ctr(ApexPages.StandardController stdController) {
         Final Opportunity opp = (Opportunity)stdController.getRecord();
         validDate = Date.valueOf(ApexPages.currentPage().getParameters().get('validDate'));
-        Final String teaComStr = ApexPages.currentPage().getParameters().get('teaCom');
-        teaCom = Decimal.valueOf(teaComStr);
+        teaCom = Decimal.valueOf(String.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('teaCom')));
         for(dwp_cvad__Action_Audit_Detail__c auditDet : [SELECT Id, dwp_cvad__action_audit_detail_content__c FROM dwp_cvad__Action_Audit_Detail__c WHERE dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c = :opp.Id ORDER BY dwp_cvad__action_audit_id__r.CreatedDate DESC LIMIT 1]) {
             comments = auditDet.dwp_cvad__action_audit_detail_content__c;
             comments = comments.substringAfterLast('>Comentarios</h3>');
