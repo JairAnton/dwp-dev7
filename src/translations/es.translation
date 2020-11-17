@@ -725,7 +725,7 @@
         <name>Risk</name>
     </customLabels>
     <customLabels>
-        <label>La Oportunidad ha sido correctamente aprobada.</label>
+        <label>La oportunidad ha sido correctamente aprobada.</label>
         <name>approveSucess</name>
     </customLabels>
     <customLabels>
@@ -771,6 +771,10 @@
     <customLabels>
         <label>Desvincular SIO</label>
         <name>lblUnlink</name>
+    </customLabels>
+    <customLabels>
+        <label>Usar precio vigente</label>
+        <name>lblUseCurrentPrice</name>
     </customLabels>
     <customLabels>
         <label>Usuario no autorizado.</label>
@@ -1053,6 +1057,10 @@
         <name>lblCREATE_CASE</name>
     </customLabels>
     <customLabels>
+        <label>Comentarios de la cotización:</label>
+        <name>lblCommentQuote</name>
+    </customLabels>
+    <customLabels>
         <label>Elevar petición</label>
         <name>OppPriceDecision02_long</name>
     </customLabels>
@@ -1189,7 +1197,7 @@
         <name>PriceCreateQuotationRequestUnknowError</name>
     </customLabels>
     <customLabels>
-        <label>La sanción ha sido aprobado y la oportunidad está lista para ser formalizada.</label>
+        <label>La sanción ha sido aprobada y la oportunidad está lista para ser formalizada.</label>
         <name>PriceCreateQuotationRequestApprovedMessage</name>
     </customLabels>
     <customLabels>
@@ -1201,7 +1209,7 @@
         <name>PriceCreateQuotationRequestKnowError</name>
     </customLabels>
     <customLabels>
-        <label>La sanción ha sido elevado a un analista de precios para ser autorizada.</label>
+        <label>La sanción ha sido elevada a un analista de precios para ser autorizada.</label>
         <name>PriceCreateQuotationRequestSentForApprovalMessage</name>
     </customLabels>
     <customLabels>

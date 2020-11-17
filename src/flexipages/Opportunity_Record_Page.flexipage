@@ -524,6 +524,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>iconName</name>
+                <value>standard:quotes</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relListSet</name>
@@ -535,6 +536,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
+                <value>{&quot;es&quot;: &quot;Cotizaciones vigentes&quot;, &quot;en-US&quot;: &quot;Current quotes&quot;}</value>
             </componentInstanceProperties>
             <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>

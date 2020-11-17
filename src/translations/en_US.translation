@@ -453,6 +453,10 @@
         <name>lblSearch</name>
     </customLabels>
     <customLabels>
+        <label><!-- lblUseCurrentPrice --></label>
+        <name>lblUseCurrentPrice</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Check Similar Name Non Client --></label>
         <name>nonc__Check_Similar_Name_Non_Client</name>
     </customLabels>
@@ -607,6 +611,10 @@
     <customLabels>
         <label><!-- lblCREATE_CASE --></label>
         <name>lblCREATE_CASE</name>
+    </customLabels>
+	<customLabels>
+        <label><!-- lblCommentQuote --></label>
+        <name>lblCommentQuote</name>
     </customLabels>
     <customLabels>
         <label>To continue, calculate the profitability of the Authorized TEA.</label>

@@ -54,14 +54,14 @@
             </tr>
             <tr>
                 <td>
-                    <apex:outputPanel rendered="{!IF(lineitem.Product2.ProductCode == $Label.lblPDFProductCartaTecnicaEconomica || lineitem.Product2.ProductCode ==$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
+                    <apex:outputPanel layout="none" rendered="{!IF(lineitem.Product2.ProductCode == $Label.lblPDFProductCartaTecnicaEconomica || lineitem.Product2.ProductCode ==$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
                         Comisión aprobada:<apex:outputText value=" {0, number,.00} %">
-                        <apex:param value="{!lineitem.proposed_fee_per__c}"/>
+                        <apex:param value="{!teaCom}"/>
                         </apex:outputText>
                     </apex:outputPanel>
-                    <apex:outputPanel rendered="{!IF(lineitem.Product2.ProductCode != $Label.lblPDFProductCartaTecnicaEconomica && lineitem.Product2.ProductCode !=$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
+                    <apex:outputPanel layout="none" rendered="{!IF(lineitem.Product2.ProductCode != $Label.lblPDFProductCartaTecnicaEconomica && lineitem.Product2.ProductCode !=$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
                         TEA aprobada:<apex:outputText value=" {0, number,.00} %">
-                        <apex:param value="{!lineitem.proposed_apr_per__c}"/>
+                        <apex:param value="{!teaCom}"/>
                         </apex:outputText>
                     </apex:outputPanel>
                 </td>
@@ -71,7 +71,7 @@
                 <td>Plazo:&nbsp;<apex:outputfield value="{!lineitem.gipr_Plazo__c}"/>&nbsp;<apex:outputfield value="{!lineitem.gipr_Periodicidad__c}"/></td>
                 <td>Tipo garantía:&nbsp; <apex:outputfield value="{!lineitem.gipr_Tipo_Garantia__c}"/></td>
             </tr>
-            <apex:outputPanel rendered="{!lineitem.Product2.ProductCode == $Label.lblPDFProductExportComex || lineitem.Product2.ProductCode == $Label.lblPDFProductImportComex}">
+            <apex:outputPanel layout="none" rendered="{!lineitem.Product2.ProductCode == $Label.lblPDFProductExportComex || lineitem.Product2.ProductCode == $Label.lblPDFProductImportComex}">
                 <tr>
                     <td>Medio de pago:&nbsp;<apex:outputfield value="{!lineitem.gipr_Payment_Method__c}"/></td>
                     <td>Bolsa comex:&nbsp;<apex:outputfield value="{!lineitem.gipr_Comex_Bag__c}"/></td>

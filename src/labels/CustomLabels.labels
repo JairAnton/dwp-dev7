@@ -1188,7 +1188,7 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>approveSucess</shortDescription>
-        <value>The Opportunity is successfully approved.</value>
+        <value>The opportunity is successfully approved.</value>
     </labels>
     <labels>
         <fullName>auditStyleSendBack</fullName>
@@ -1294,6 +1294,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>lblUnlink</shortDescription>
         <value>Unlink SIO</value>
+    </labels>
+    <labels>
+        <fullName>lblUseCurrentPrice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblUseCurrentPrice</shortDescription>
+        <value>Use current price</value>
     </labels>
     <labels>
         <fullName>lblUserNotAuth</fullName>
@@ -1721,7 +1728,14 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>lblCREATE_CASE</shortDescription>
         <value>CREATE_CASE</value>
-    </labels> 
+    </labels>
+	<labels>
+        <fullName>lblCommentQuote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblCommentQuote</shortDescription>
+        <value>Quote Comments:</value>
+    </labels>
     <labels>
         <fullName>OppPriceDecision02_long</fullName>
         <language>en_US</language>

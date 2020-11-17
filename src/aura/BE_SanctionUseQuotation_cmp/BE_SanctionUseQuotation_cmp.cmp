@@ -26,9 +26,9 @@
                     </div>
                     <br/>
                     <br/>
-                    <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" title='{"es": "Seleccionar cotización existente", "en-US": "Select existing quote"}'
+                    <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" title='{"es": "Seleccionar cotización vigente", "en-US": "Select current quote"}'
                     	relListSet="BE_Opp_Current_Price" relListType="Basic" iconName="standard:quotes" isViewAll="true" oncheckboxchange="{!c.onSelectedQuotation}"/>
-                    <h1 class="slds-text-heading–medium">Comentarios:</h1>
+                    <h1 class="slds-text-heading–medium">{!$Label.c.lblCommentQuote}</h1>
                     <div class="row">
                         <lightning:textarea name="comments" disabled="true" value="{!v.comments}" variant="label-hidden"/>
                     </div>

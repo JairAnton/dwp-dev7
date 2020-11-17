@@ -34,6 +34,7 @@ public class BE_Quotation_Tst {
 		Final PageReference pageRef = Page.BE_Quotation_vfp;
 		pageRef.getParameters().put('id', opp.id);
 		pageRef.getParameters().put('validDate', '2020-10-10');
+		pageRef.getParameters().put('teaCom', '50.8');
 		test.setCurrentPage(pageRef);
 		Final ApexPages.StandardController standardCont = new ApexPages.standardController(opp);
 		Final BE_Quotation_Ctr pdf = new BE_Quotation_Ctr(standardCont);

@@ -23,7 +23,7 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
     @AuraEnabled
     public static String getComments(String recordId) {
         String comments = '';
-        for(dwp_cvad__Action_Audit_Detail__c auditDet : [SELECT Id, dwp_cvad__action_audit_detail_content__c, dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c FROM dwp_cvad__Action_Audit_Detail__c WHERE dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c = :recordId ORDER BY dwp_cvad__action_audit_id__r.CreatedDate DESC LIMIT 1]) {
+        for(dwp_cvad__Action_Audit_Detail__c auditDet : [SELECT Id, dwp_cvad__action_audit_detail_content__c, dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c FROM dwp_cvad__Action_Audit_Detail__c WHERE dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c = :recordId AND dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_style__c = 'approve' AND dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_type__c = 'Price Approval' ORDER BY dwp_cvad__action_audit_id__r.CreatedDate DESC LIMIT 1]) {
             comments = auditDet.dwp_cvad__action_audit_detail_content__c;
             comments = comments.substringAfterLast('>Comentarios</h3>');
             comments = comments.substringBefore('</span>');
@@ -51,12 +51,13 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
             update opp;
             
             Final List<OpportunityLineItem> olis = [SELECT Id FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
-            Final List<OpportunityLineItem> oliSelected = [SELECT Id, OpportunityId, Opportunity.Account.Name, price_quote_date__c, suggested_apr_per__c, validityDate__c, proposed_apr_per__c, minimun_apr_per__c, price_quote_id__c, Assigned_analyst__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = :idOliSelected LIMIT 1];
+            Final List<OpportunityLineItem> oliSelected = [SELECT Id, OpportunityId, Opportunity.Account.Name, price_quote_date__c, suggested_apr_per__c, validityDate__c, proposed_apr_per__c, minimun_apr_per__c, proposed_fee_per__c, price_quote_id__c, Assigned_analyst__c, price_operation_id__c FROM OpportunityLineItem WHERE Id = :idOliSelected LIMIT 1];
             olis[0].price_quote_date__c = oliSelected[0].price_quote_date__c;
             olis[0].suggested_apr_per__c = oliSelected[0].suggested_apr_per__c;
             olis[0].validityDate__c = oliSelected[0].validityDate__c;
             olis[0].proposed_apr_per__c = oliSelected[0].proposed_apr_per__c;
             olis[0].minimun_apr_per__c = oliSelected[0].minimun_apr_per__c;
+            olis[0].proposed_fee_per__c = oliSelected[0].proposed_fee_per__c;
             olis[0].price_quote_id__c = oliSelected[0].price_quote_id__c;
             olis[0].Assigned_analyst__c = oliSelected[0].Assigned_analyst__c;
             olis[0].price_operation_id__c = oliSelected[0].price_operation_id__c;
@@ -98,12 +99,13 @@ public with sharing class BE_SanctionUseQuotation_Ctr {
 	   @param  String oppIdSelect id of opportunity selected
 	 */
     private static void createAudits(String oppId, String oppIdSelect) {
-        Final List<dwp_cvad__Action_Audit__c> auditExist = [SELECT Id, action_audit_email__c, dwp_cvad__action_audit_date__c, dwp_cvad__action_audit_user_id__c, dwp_cvad__action_audit_style__c, dwp_cvad__audit_audit_comments__c, dwp_cvad__action_audit_object_api_name__c, action_opp_sio_code__c, dwp_cvad__action_audit_type__c FROM dwp_cvad__Action_Audit__c WHERE dwp_cvad__action_audit_record_id__c = :oppIdSelect ORDER BY CreatedDate DESC LIMIT 1];
+        Final List<dwp_cvad__Action_Audit__c> auditExist = [SELECT Id, action_audit_email__c, dwp_cvad__action_audit_date__c, dwp_cvad__action_audit_user_id__c, dwp_cvad__action_audit_style__c, dwp_cvad__audit_audit_comments__c, dwp_cvad__action_audit_object_api_name__c, action_opp_sio_code__c, dwp_cvad__action_audit_type__c FROM dwp_cvad__Action_Audit__c WHERE dwp_cvad__action_audit_record_id__c = :oppIdSelect AND dwp_cvad__action_audit_style__c = 'approve' AND dwp_cvad__action_audit_type__c = 'Price Approval' ORDER BY CreatedDate DESC LIMIT 1];
         if(!auditExist.isEmpty()) {
             Final List<dwp_cvad__Action_Audit__c> audits = new List<dwp_cvad__Action_Audit__c>();
             for(dwp_cvad__Action_Audit__c audit : auditExist) {
                 Final dwp_cvad__Action_Audit__c auditClone = audit.clone();
                 auditClone.dwp_cvad__action_audit_name__c = label.PriceApprovalUsingQuote;
+                auditClone.dwp_cvad__action_audit_date__c = DateTime.now();
                 auditClone.dwp_cvad__action_audit_record_id__c = oppId;
                 audits.add(auditClone);
             }
