@@ -73,7 +73,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
-                <value>Name,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
+                <value>Customer_Name__c,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>HeaderGroup</name>
@@ -379,7 +379,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-6eb17ebb-29f1-45ea-92b0-07c60bc45f56</name>
         <type>Facet</type>
@@ -400,7 +400,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-c3257e6b-d906-49fb-85d3-f412cd1f87e4</name>
         <type>Facet</type>
@@ -421,7 +421,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-tbxmreqiyze</name>
         <type>Facet</type>
@@ -442,7 +442,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-ezc1o8ld0jm</name>
         <type>Facet</type>
@@ -463,7 +463,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-zelqc64gga</name>
         <type>Facet</type>
@@ -5426,7 +5426,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-3fe4a477-eb92-4481-8cb0-bffe653afb50</name>
         <type>Facet</type>
@@ -5447,7 +5447,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-5bbbd79b-1e8a-45b4-bbb5-616f0d8265df</name>
         <type>Facet</type>
@@ -5468,7 +5468,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-4ea46060-ba47-4304-b056-7232b13eebe5</name>
         <type>Facet</type>
@@ -5489,7 +5489,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-1a4ebf79-ae9c-420f-8f5c-679bcfa23392</name>
         <type>Facet</type>
@@ -5510,7 +5510,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-50ad078e-0bc1-4251-9f59-8f4ad368225f</name>
         <type>Facet</type>
@@ -7518,7 +7518,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
-                <value>Name,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
+                <value>Customer_Name__c,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>HeaderGroup</name>

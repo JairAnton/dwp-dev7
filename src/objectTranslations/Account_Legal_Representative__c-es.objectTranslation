@@ -13,6 +13,10 @@
         <name>Birth_Date__c</name>
     </fields>
     <fields>
+        <label>Apellidos y nombres</label>
+        <name>Customer_Name__c</name>
+    </fields>
+    <fields>
         <label>T. Doc.</label>
         <name>Document_Type_Abbreviation__c</name>
     </fields>

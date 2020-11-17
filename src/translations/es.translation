@@ -725,7 +725,7 @@
         <name>Risk</name>
     </customLabels>
     <customLabels>
-        <label>La Oportunidad ha sido correctamente aprobada.</label>
+        <label>La oportunidad ha sido correctamente aprobada.</label>
         <name>approveSucess</name>
     </customLabels>
     <customLabels>
@@ -771,6 +771,10 @@
     <customLabels>
         <label>Desvincular SIO</label>
         <name>lblUnlink</name>
+    </customLabels>
+    <customLabels>
+        <label>Usar precio vigente</label>
+        <name>lblUseCurrentPrice</name>
     </customLabels>
     <customLabels>
         <label>Usuario no autorizado.</label>
@@ -1053,6 +1057,10 @@
         <name>lblCREATE_CASE</name>
     </customLabels>
     <customLabels>
+        <label>Comentarios de la cotización:</label>
+        <name>lblCommentQuote</name>
+    </customLabels>
+    <customLabels>
         <label>Elevar petición</label>
         <name>OppPriceDecision02_long</name>
     </customLabels>
@@ -1189,7 +1197,7 @@
         <name>PriceCreateQuotationRequestUnknowError</name>
     </customLabels>
     <customLabels>
-        <label>La sanción ha sido aprobado y la oportunidad está lista para ser formalizada.</label>
+        <label>La sanción ha sido aprobada y la oportunidad está lista para ser formalizada.</label>
         <name>PriceCreateQuotationRequestApprovedMessage</name>
     </customLabels>
     <customLabels>
@@ -1201,7 +1209,7 @@
         <name>PriceCreateQuotationRequestKnowError</name>
     </customLabels>
     <customLabels>
-        <label>La sanción ha sido elevado a un analista de precios para ser autorizada.</label>
+        <label>La sanción ha sido elevada a un analista de precios para ser autorizada.</label>
         <name>PriceCreateQuotationRequestSentForApprovalMessage</name>
     </customLabels>
     <customLabels>
@@ -2924,7 +2932,23 @@
         <label>La descripción es obligatoria</label>
         <name>BE_VisitErrorDescField</name>
     </customLabels>
-    <customTabs>
+	<customLabels>
+        <label>No es posible reevaluar una oportunidad con un id de cotiza usado en otra oportunidad</label>
+        <name>ErrorReevaluate</name>
+    </customLabels>
+	<customLabels>
+        <label>Selecciona la sanción de precio a utilizar en esta oportunidad</label>
+        <name>lblAlertCurrentPriceSanction</name>
+    </customLabels>
+	<customLabels>
+        <label>Sancionar con precio vigente</label>
+        <name>lblTitleCurrentPriceSanction</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado con precio vigente</label>
+        <name>PriceApprovalUsingQuote</name>
+    </customLabels>
+	<customTabs>
         <label>No clientes</label>
         <name>nonc__Prospects</name>
     </customTabs>
