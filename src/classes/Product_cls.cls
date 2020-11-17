@@ -275,7 +275,7 @@ public without sharing class Product_cls {
 	public static Map<String, Object> setLastFormalization(String OpportunityId, String Action, String Body, String ContractNumber) {
 		Map<String, Object> returnMap = new Map<String, Object>();
 		try {
-			List<Opportunity> itemOpp = [SELECT Id, opportunity_status_type__c, Name, OwnerId, (SELECT Id, product2.type_of_quote__c FROM OpportunityLineItems) FROM Opportunity WHERE Id =: OpportunityId];
+			List<Opportunity> itemOpp = [SELECT Id, opportunity_status_type__c, Name, OwnerId, BE_UseApprovedQuote__c, (SELECT Id, product2.type_of_quote__c FROM OpportunityLineItems) FROM Opportunity WHERE Id =: OpportunityId];
 			if(Pattern.matches('[0-9]{4}-[0-9]{4}-[0-9]{10}', ContractNumber) || String.isEmpty(ContractNumber)) {
 				if(Action == 'btnApprove') {//08
 					itemOpp[0].StageName = '06';

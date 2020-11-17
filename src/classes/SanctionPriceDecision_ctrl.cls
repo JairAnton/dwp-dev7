@@ -158,6 +158,9 @@ public with sharing class SanctionPriceDecision_ctrl {
 					switch on invokeModify.getStatusCode() {
 						when 200 {
 							mapReturn = updateOli(params, invokeModify.getBody(), opp, mapReturn);
+							if(mapReturn.containsKey('hasQuote')) {
+                                opp.BE_HasApprovedQuote__c=true;
+                            }
 						}
 						when 409 {
 							WebServiceUtils.ResponseErrorMessage_Wrapper errorW = WebServiceUtils.parse(invokeModify.getBody());
@@ -181,6 +184,22 @@ public with sharing class SanctionPriceDecision_ctrl {
 				update opp;
 				mapReturn = saveAuditCase(params, mapReturn, elevateCase, (String)mapReturn.get(IDANALIST), lstApiField, lstValue);
 			}
+		} catch(Exception e) {
+			mapReturn.put('isOk', false);
+		}
+		return mapReturn;
+	}
+	
+	/**Method for create pdf quote **/
+	@AuraEnabled
+	public static Map<String, Object> createPdf(String recordId) {
+        Final Map<String, Object> mapReturn = new Map<String, Object>();
+        try {
+            Final Opportunity opp = [SELECT Id, opportunity_status_type__c FROM Opportunity WHERE Id = :recordId LIMIT 1];
+            if(opp.opportunity_status_type__c == SAUTHORIZED) {
+                BE_CreateQuotation_cls.generatePDF(opp.Id);
+            }
+            mapReturn.put('isOk', true);
 		} catch(Exception e) {
 			mapReturn.put('isOk', false);
 		}
@@ -367,6 +386,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 			assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
 			oliRecord.Assigned_analyst__c = assignedAnalyst;
 			mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#validityDate#', params.validDate.substring(8, 10) + '/' + params.validDate.substring(5, 7) + '/' + params.validDate.substring(0, 4)));
+			mapReturn.put('hasQuote', true);
         } else if(opp.opportunity_status_type__c == SDENIED) {
 			oliRecord.price_quote_date__c = System.today();
 			assignedAnalyst = System.UserInfo.getFirstName() + ' ' + System.UserInfo.getLastName();
@@ -374,10 +394,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 			mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#validityDate#', ''));
 		}
 		update oliRecord;
-        if(opp.opportunity_status_type__c == SAUTHORIZED) {
-            BE_CreateQuotation_cls.generatePDF(opp.Id, String.valueOf(oliRecord.validityDate__c));
-        }
-		mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#Assigned_analyst#', assignedAnalyst));
+        mapReturn.put(NEWSTOREHTML, ((String)mapReturn.get(NEWSTOREHTML)).replace('#Assigned_analyst#', assignedAnalyst));
 
 		return mapReturn;
 	}

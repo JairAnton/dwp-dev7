@@ -226,21 +226,35 @@
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
                 if (!res.isError) {
-                    var nav = $A.get("e.force:navigateToList");
-                    nav.setParams({
-                        "listViewId": res.listView.Id,
-                        "listViewName": null,
-                        "scope": "Case"
-                    });
-                    nav.fire();
+                    helper.createQuotePdf(component, evt, res);
                 } else {
-                    helper.closeMe(cmp, evt, helper);
+                    helper.closeMe(component, evt, helper);
                 }
             } else {
-                helper.closeMe(cmp, evt, helper);
+                helper.closeMe(component, evt, helper);
             }
         });
         $A.enqueueAction(action);
+    },
+    createQuotePdf: function (component, evt, res) {
+        var inputObject = component.get('v.inputAttributes');
+        var actionPdf = component.get("c.createPdf");
+        actionPdf.setParams({
+            "recordId": inputObject.recordId
+        });
+        actionPdf.setCallback(this, function (responsePdf) {
+            var statePdf = responsePdf.getState();
+            if (statePdf === "SUCCESS") {
+                var nav = $A.get("e.force:navigateToList");
+                nav.setParams({
+                    "listViewId": res.listView.Id,
+                    "listViewName": null,
+                    "scope": "Case"
+                });
+                nav.fire();
+            }
+        });
+        $A.enqueueAction(actionPdf);
     },
     htmlObject: function (inputObject, evt) {
         var today = new Date();

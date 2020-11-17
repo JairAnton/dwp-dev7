@@ -19,16 +19,19 @@ public with sharing class BE_CreateQuotation_cls {
 	   @Description method used to generate pdf and update opportunity
 	   @param  String oppId id of opportunity
 	 */
-    public static void generatePDF(string oppId, String validDate) {
-        update new Opportunity(Id = oppId, BE_HasApprovedQuote__c=true);
-        
-        Final List<OpportunityLineItem> ltsOli = new List<OpportunityLineItem>([SELECT Id, Opportunity.Account.Name, price_quote_id__c FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1]);
-		Final String namePDF = ltsOli[0].price_quote_id__c + ' - ' + ltsOli[0].Opportunity.Account.Name;
+    public static void generatePDF(string oppId) {
+        Final OpportunityLineItem ltsOli = [SELECT Id, Opportunity.Account.Name, price_quote_id__c, validityDate__c, proposed_apr_per__c, proposed_fee_per__c, Product2.ProductCode FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
+		Final String namePDF = ltsOli.price_quote_id__c + ' - ' + ltsOli.Opportunity.Account.Name;
 		Final List<ContentDocument> ltsContDoc = [SELECT ID FROM ContentDocument WHERE Title =:namePDF AND FileType = 'pdf'];
 
 		Final pageReference pdfQuotation = Page.BE_Quotation_vfp;
 		pdfQuotation.getParameters().put('id', oppId);
-		pdfQuotation.getParameters().put('validDate', validDate);
+		pdfQuotation.getParameters().put('validDate', String.valueOf(ltsOli.validityDate__c));
+        if(ltsOli.Product2.ProductCode == Label.lblPDFProductCartaTecnicaEconomica || ltsOli.Product2.ProductCode == Label.lblPDFProductCartaTecnicaImport) {
+            pdfQuotation.getParameters().put('teaCom', String.valueOf(ltsOli.proposed_fee_per__c));
+        } else {
+            pdfQuotation.getParameters().put('teaCom', String.valueOf(ltsOli.proposed_apr_per__c));
+        }
 		Blob body;
 		if(test.isRunningTest()) {
 			body = blob.valueOf('TestString');

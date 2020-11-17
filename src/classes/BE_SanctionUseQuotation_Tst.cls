@@ -18,6 +18,11 @@ public class BE_SanctionUseQuotation_Tst {
 		TestFactory.createUserBranch(user.Id);
 		Final Opportunity opp = TestFactory.createOpportunity(acc.Id, user.Id);
 		Final List<dwp_cvad__Action_Audit__c> action_audit_list = TestFactory.create_Action_Audit(opp.id);
+        Final dwp_cvad__Action_Audit__c updateAudit = new dwp_cvad__Action_Audit__c();
+        updateAudit.Id = action_audit_list[0].Id;
+        updateAudit.dwp_cvad__action_audit_style__c = 'approve';
+        updateAudit.dwp_cvad__action_audit_type__c = 'Price Approval';
+        update updateAudit;
         insert new dwp_cvad__Action_Audit_Detail__c(dwp_cvad__action_audit_id__c = action_audit_list[0].Id, 
                                                     dwp_cvad__action_audit_detail_content__c = '<h3 class="slds-section__title">Comentarios</h3><div class="slds-form-element__control"><span class="slds-form-element__static">analista: tasa aprobada</span></div>',
                                                     dwp_cvad__action_audit_detail_display_order__c = 1.0, 
@@ -50,8 +55,8 @@ public class BE_SanctionUseQuotation_Tst {
     @isTest
     static void useQuotationPriceSuccessTest() {
 		Final OpportunityLineItem oli = [SELECT Id, OpportunityId FROM OpportunityLineItem ORDER BY CreatedDate ASC LIMIT 1];
-        BE_CreateQuotation_cls.generatePDF(oli.OpportunityId, '2020-11-06');
-        BE_CreateQuotation_cls.generatePDF(oli.OpportunityId, '2020-11-06');
+        BE_CreateQuotation_cls.generatePDF(oli.OpportunityId);
+        BE_CreateQuotation_cls.generatePDF(oli.OpportunityId);
         Final Opportunity opp = [SELECT Id FROM Opportunity ORDER BY CreatedDate DESC LIMIT 1];
         opp.StageName = '04';
         update opp;

@@ -64,7 +64,7 @@ public class ReevaluateButtonClass {
         if(useQuote) {
             genericError = Label.ErrorReevaluate;
         } else {
-            Final Opportunity opp = [SELECT Id, opportunity_status_type__c, StageName, isProcess__c, BE_UseApprovedQuote__c FROM Opportunity WHERE Id =: Idopp];
+            Final Opportunity opp = [SELECT Id, opportunity_status_type__c, StageName, isProcess__c, BE_UseApprovedQuote__c, sio_code__c FROM Opportunity WHERE Id =: Idopp];
 			List <dwp_cvad__Action_Audit__c> lstactionRisk = new List <dwp_cvad__Action_Audit__c>();
 			try {
                 Map<String, Object> callServ = new Map<String, Object>();
@@ -75,10 +75,12 @@ public class ReevaluateButtonClass {
                 }
                 if(callServ.get('genericError') == null) {
                     Final Opportunity oppUpdate = new Opportunity();
+                    oppUpdate.Id = opp.Id;
                     oppUpdate.isProcess__c = true;
                     oppUpdate.StageName = '04';
                     oppUpdate.opportunity_status_type__c = '24';
                     oppUpdate.BE_UseApprovedQuote__c = false;
+                    oppUpdate.sio_code__c = opp.sio_code__c;
                     update oppUpdate;
                     
                     lstactionRisk.add(Action_Audit_Helper.getAudit(label.reevalRisk, 'Opportunity', opp.Id, DateTime.now(), label.AuditRiskApproval, UserInfo.getUserId(), label.restudyStyle, opp.sio_code__c, false));
@@ -157,6 +159,7 @@ public class ReevaluateButtonClass {
         oli.validityDate__c = nullDate;
         oli.proposed_apr_per__c = nullDecimal;
         oli.minimun_apr_per__c = nullDecimal;
+		oli.proposed_fee_per__c = nullDecimal;
         oli.price_quote_id__c = nullString;
         oli.Assigned_analyst__c = nullString;
         oli.price_operation_id__c = nullString;
@@ -176,11 +179,14 @@ public class ReevaluateButtonClass {
 	* @param String oppId
 	 */
     private static boolean checkQuoteUse(String oppId) {
-        final OpportunityLineItem oli = [SELECT Id, price_quote_id__c, Opportunity.AccountId, Product2Id FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
+        final OpportunityLineItem oli = [SELECT Id, price_quote_id__c, Opportunity.AccountId, Product2Id, Opportunity.BE_UseApprovedQuote__c FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
         Boolean exist = false;
-        for(OpportunityLineItem oliaux : [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE Opportunity.BE_UseApprovedQuote__c = TRUE AND price_quote_id__c = :oli.price_quote_id__c AND Opportunity.AccountId = :oli.Opportunity.AccountId AND Product2Id = :oli.Product2Id]) {
-            if(oliaux.OpportunityId != oppId) {
-                exist = true;
+        if(!oli.Opportunity.BE_UseApprovedQuote__c) {
+            for(OpportunityLineItem oliaux : [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE Opportunity.BE_UseApprovedQuote__c = TRUE AND price_quote_id__c = :oli.price_quote_id__c AND Opportunity.AccountId = :oli.Opportunity.AccountId AND Product2Id = :oli.Product2Id]) {
+                if(oliaux.OpportunityId != oppId) {
+                    exist = true;
+                    break;
+                }
             }
         }
 		return exist;
@@ -205,7 +211,11 @@ public class ReevaluateButtonClass {
 					switch on invoke.getStatusCode() {
 						when 200 {
 							if(jbody.data != null && jbody.data.status != null) {
+								Final Date nullDate;
+								Final String nullString;
 								lstOLI[0].price_quote_status_id__c = jbody.data.status.id;
+								lstOLI[0].validityDate__c = nullDate;
+                                lstOLI[0].Assigned_analyst__c = nullString;
 								update lstOLI;
 							}
 							if(jbody.data != null && jbody.data.businessAgents != null) {
