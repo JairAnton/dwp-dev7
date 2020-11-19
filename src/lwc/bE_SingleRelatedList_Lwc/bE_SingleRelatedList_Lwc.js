@@ -76,7 +76,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         if (data) {
             try {
                 this.configMeta = data;
-                this.sObject = getSettingsObj(data[0], this.viewAlll);
+                this.sObject = getSettingsObj(data[0], this.isViewAll);
                 if(this.sObject.settings.hasOwnProperty('showCheckbox')) {
                     this.showCheckbox = this.sObject.settings.showCheckbox;
                 }
