@@ -218,4 +218,49 @@ private class User_Trigger_Test {
 		}
 		Test.stopTest();
 	}
+    
+    @isTest
+    static void addJpnInSMSTest() {
+         Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
+        Final Id jpnUR = [SELECT Id FROM UserRole WHERE DeveloperName = 'JEFE_PROMOCION_DE_NEGOCIO_BE_1' LIMIT 1].Id;
+        Final User userGR = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'OS8'});
+        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01', 
+            																				User.ManagerId => userGR.Id});
+        Final User userJPN = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => '', 
+            																				User.ManagerId => userGR.Id, User.UserRoleId => jpnUR });
+        Final User userEJE = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
+            																				User.ManagerId => userGOF.Id});
+        System.runAs(userGOF) {
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userGOF.Id, 'Planning', true);
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userEJE.Id, 'Planning', true);
+        }
+        Test.startTest();
+        userJPN.prof_position_id__c = 'OS9';
+        update userJPN;
+        Final User userJPN2 = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'OS9', 
+            																				User.ManagerId => userGR.Id, User.UserRoleId => jpnUR });
+        Test.stopTest();
+        Final slmt__Sales_Meeting__Share[] lstSMAJPN = [SELECT Id FROM slmt__Sales_Meeting__Share WHERE UserOrGroupId =: userJPN.Id OR UserOrGroupId =: userJPN2.Id];
+        System.assertEquals(4, lstSMAJPN.size(), 'Assertion Error');
+    }
+    
+    @isTest
+    static void removeJPNofSMSTest() {
+         Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
+        Final Id jpnUR = [SELECT Id FROM UserRole WHERE DeveloperName = 'JEFE_PROMOCION_DE_NEGOCIO_BE_1' LIMIT 1].Id;
+        Final User userGR = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'OS8'});
+        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01', 
+            																				User.ManagerId => userGR.Id});
+        Final User userJPN = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'OS9', 
+            																				User.ManagerId => userGR.Id, User.UserRoleId => jpnUR });
+        System.runAs(userGOF) {
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userGOF.Id, 'Planning', true);
+        }
+        Test.startTest();
+        userJPN.prof_position_id__c = 'E01';
+        update userJPN;
+        Test.stopTest();
+        Final slmt__Sales_Meeting__Share[] lstSMAJPN = [SELECT Id FROM slmt__Sales_Meeting__Share WHERE UserOrGroupId =: userJPN.Id];
+        System.assertEquals(0, lstSMAJPN.size(), 'Assertion Error');
+    }
 }

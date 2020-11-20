@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>Event_is_Meeting</name>
+        <label>Event is Meeting</label>
+        <locationX>206</locationX>
+        <locationY>345</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Meeting_is_not_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.slmt__management_plan_meeting_id__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Sales_Meeting</targetReference>
+            </connector>
+            <label>Meeting is not null</label>
+        </rules>
+    </decisions>
+    <description>Flow that allows you to create &quot;event relation&quot; related to the sales meeting event</description>
+    <interviewLabel>Create Attendee for Event to Sales Meeting {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Attendees for Sales Meeting Event</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Attendee_Manager</name>
+        <label>Create Attendee Manager</label>
+        <locationX>836</locationX>
+        <locationY>310</locationY>
+        <inputAssignments>
+            <field>EventId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsInvitee</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RelationId</field>
+            <value>
+                <elementReference>Get_Sales_Meeting.slmt__mngmt_plan_meeting_user_id__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>EventRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Sales_Meeting</name>
+        <label>Get Sales Meeting</label>
+        <locationX>504</locationX>
+        <locationY>342</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_Attendee_Manager</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.slmt__management_plan_meeting_id__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>slmt__Sales_Meeting__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>88</locationX>
+        <locationY>84</locationY>
+        <connector>
+            <targetReference>Event_is_Meeting</targetReference>
+        </connector>
+        <object>Event</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

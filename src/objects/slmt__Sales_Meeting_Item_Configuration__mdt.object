@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Custom metadata to store the sales meeting item configuration</description>
+    <fields>
+        <fullName>slmt__detail_class_name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the apex class that implements the Sales_Meeting_Item_Details_Itf interface to obtain the information to display in the card</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Name of the apex class that implements the Sales_Meeting_Item_Details_Itf interface to obtain the information to display in the card</inlineHelpText>
+        <label>Item Details Class Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>slmt__item_component_attributes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>JSON file with the attributes required to dispaly the Item Component</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>JSON file with the attributes required to dispaly the Item Component</inlineHelpText>
+        <label>Item Component Attributes</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>slmt__item_component_name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the component to be displayed when the item is selected</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Name of the component to be displayed when the item is selected</inlineHelpText>
+        <label>Item Component Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>slmt__sales_meeting_config_id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Relation with the sales meeting configuration</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Relation with the sales meeting configuration</inlineHelpText>
+        <label>Sales meeting configuration</label>
+        <referenceTo>slmt__Sales_Meeting_Configuration__mdt</referenceTo>
+        <relationshipLabel>Sales Meeting Item Configurations</relationshipLabel>
+        <relationshipName>Sales_Meeting_Item_Configurations</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>slmt__sales_meeting_item_id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the sales meeting configuration</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Unique identifier of the sales meeting configuration</inlineHelpText>
+        <label>Item Id</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Sales Meeting Item Configuration</label>
+    <pluralLabel>Sales Meeting Item Configurations</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

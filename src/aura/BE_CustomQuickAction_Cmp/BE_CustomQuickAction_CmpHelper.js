@@ -46,7 +46,7 @@
                         enumerable: false,
                         configurable: false,
                         writable: false,
-                        value: res[iterator.fieldName]
+                        value: res[iterator.fieldName] ? res[iterator.fieldName] : iterator.value
                     });
                     targetObject.fields.push(targetField);
                 }
@@ -65,7 +65,7 @@
         var action = actionApex;
         action.setParams({
             "sObj": sObjectUpdate,
-            "className":cmp.get("v.settings").className
+            "className": cmp.get("v.settings").className
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -73,7 +73,7 @@
                 var res = response.getReturnValue();
                 if (res.isSuccess) {
                     this.showToast('Success', res.message, 'success');
-                    this.closeModal(cmp, evt);
+                    this.closeModal(cmp, evt, res.data.Id);
                 } else {
                     this.showToast('Error', res.message, 'error');
                 }
@@ -84,9 +84,27 @@
         });
         $A.enqueueAction(action);
     },
-    closeModal: function (cmp, evt) {
-        $A.get("e.force:closeQuickAction").fire();
-        $A.get('e.force:refreshView').fire();
+    closeModal: function (cmp, evt, recordId) {
+        if(cmp.get("v.isNotQuickAction")) {
+            if(recordId === null) {
+                var homeEvent = $A.get("e.force:navigateToObjectHome");
+                homeEvent.setParams({
+                    "scope": cmp.get('v.sObjData').sObjectType
+                });
+                homeEvent.fire();
+            } else {
+                var navEvt = $A.get("e.force:navigateToSObject");
+                navEvt.setParams({
+                    "recordId": recordId,
+                    "slideDevName": "detail"
+                });
+                navEvt.fire();
+            }
+        }
+        else {
+            $A.get("e.force:closeQuickAction").fire();
+        	$A.get('e.force:refreshView').fire();
+        }
     },
     showToast: function (title, message, type) {
         var toastEvent = $A.get("e.force:showToast");

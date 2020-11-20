@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Buttons__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Buttons</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Settings__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Settings</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <label>Button Bar Setting</label>
+    <pluralLabel>Button Bar Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

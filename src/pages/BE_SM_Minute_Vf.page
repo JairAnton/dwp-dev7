@@ -1,0 +1,331 @@
+<apex:page showHeader="false" language="es_PE" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false"   docType="html-5.0" standardController="slmt__Sales_Meeting__c" extensions="BE_SM_Minute_Ctr" >
+    <head>
+        <title>BBVA</title>
+        <style type="text/css">
+            .box {  float: left;   height: auto;  width: 49%; margin-bottom: 10px;}
+            .rectangle { text-align:center;	height: 50px;	background-color: #043263; vertical-align: middle}
+            .subRectangle { text-align:center;	height: 30px;	background-color: #043263; vertical-align: middle}
+            .subRectangleMedia { text-align:center;	height: 60px;	background-color: #1464A5; vertical-align: middle}
+            .subRectangleMediaText { text-align:center;font-size: 10px;font-family: Arial; color: #FFFFFF; vertical-align: middle	}
+            .rectangle2 {	height: 126px;	 	background-color: #F7F7F7; text-align:center;  vertical-align: middle;}
+            .rectangleFoother {	height: 50px;	font-family: Arial; 	background-color: #FFFFFF; text-align:center;  vertical-align: middle;}
+            .rectangle2TextBody { text-align:center;font-size: 10px;	font-family: Arial; color: #9B9B9B; vertical-align: middle; text-align:center;	}
+            .rectangleFootherText { text-align:center; font-size: 10px;	font-family: Arial; color: #4A4A4A; vertical-align: middle	}
+            p {display: block;margin-block-start: 0px;margin-block-end: 0px;margin-inline-start: 0px;margin-inline-end: 0px;font-family: Arial;}
+            .textBody { font-size: 12px;font-family: Arial !important; }
+            .textBodyBold { font-size: 12px;font-family: Arial; font-weight: bold;}
+            .azul{color: #1464A5;font-family: Arial;	font-size: 14px; }
+            .azulBold {color: #1464A5;	font-family: Arial;	font-size: 14px; font-weight: bold;}
+            .grisBold {color: #BCB4B2;	font-family: Arial;	font-size: 14px; font-weight: bold;}
+            .subtitle {padding-left: 5px;height: 30px;	background-color: #043263; width: auto;	color: #FFFFFF;	font-family: Arial;	font-size: 14px; font-weight: bold;	line-height: 14px; text-align:left}   
+            .azulUser{color: #1464A5;font-family: Arial;	font-size: 12px; }
+            .azulBoldUser {color: #1464A5;	font-family: Arial;	font-size: 14px; font-weight: bold;}
+            tr.border_bottom td {border-right:0pt solid;border-left:0pt solid;border-bottom:1pt solid silver;border-collapse: collapse; padding-top: 5px; padding-bottom: 5px} 
+        </style>
+    </head>
+    <body>
+        <table style="width:100%; height:100%; cellspacing:0px; cellpadding:0px;">
+            <tr>
+                <td>
+                    <div class="rectangle">
+                        <table style="width:100%;height:100%;">
+                            <tr>
+                                <td class="rectangle2TextBody">
+                                    <p><apex:image url="{!URLLogoWhite}" height="26px" width="81px"/></p>
+                                </td>
+                            </tr>          
+                        </table> 
+                    </div>
+                    <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td style="text-align:center;">
+                                <!--<h1 style="color:red"><apex:outputText value="{!infoStatusVisit}"/></h1>-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <apex:outputText styleClass="textBody"  value="{!currentDate}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="azul">Estimado(a)</span> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <!--<td><apex:outputText styleClass="azulBold" value="{!slmt__Sales_Meeting__c.slmt__mngmt_plan_meeting_user_id__r.FirstName} {!slmt__Sales_Meeting__c.slmt__mngmt_plan_meeting_user_id__r.LastName}"/></td>-->
+                            <td><apex:outputText styleClass="azulBold" value="{!slmt__Sales_Meeting__c.slmt__mngmt_plan_meeting_user_id__r.Name}"/></td>
+                        </tr>
+                        <!--<tr>
+                            <td><span class="grisBold">Cliente: {!dwp_kitv__Visit__c.account_name__c}</span>
+                            </td>
+                        </tr>-->
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                    <div styleClass="textBody" style="font-size: 12px;font-family: Arial;padding-bottom:10px;">
+                        A continuación presentamos el acta con los detalles, resumen y acuerdos de la reunión celebrada.
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width:100%; border: solid 0px; border-collapse: collapse;">
+                        <tr style="background-color: #043263;" class="border_bottom">
+                            <th colspan="2" class="subtitle">DETALLES</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2" >
+                                <span class="textBodyBold">Nombre:&nbsp;</span>
+                                <span class="textBody"><apex:outputText value="{!slmt__Sales_Meeting__c.Name}"/></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                <span class="textBodyBold">Tipo de Reunion:&nbsp;</span>
+                                <span class="textBody"><apex:outputText value="{!slmt__Sales_Meeting__c.Type_of_meeting__c}"/></span>
+                            </td>
+                            <td width="50%">
+                                <span class="textBodyBold">Fecha/hora:&nbsp;</span>
+                                <span class="textBody"><apex:outputText value="{!meetingDate}"/></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                &nbsp;
+                            </td>
+                            <td width="50%">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" >
+                                <table style="width:100%; border: solid 0px; border-collapse: collapse;">
+                                    <tr style="background-color: #043263;" class="border_bottom">
+                                        <th class="subtitle">TEMAS</th>
+                                        <th class="subtitle">VISITAS</th>
+                                        <th class="subtitle">PIPELINE LP</th>
+                                        <th class="subtitle">P. COMERCIAL</th>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapTopic['label_1']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapTopic['value_1']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapVisit['label_1']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapVisit['value_1']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapPipeline['label_1']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPipeline['value_1']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapPC['label_1']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPC['value_1']}"/></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapTopic['label_2']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapTopic['value_2']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapVisit['label_2']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapVisit['value_2']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapPipeline['label_2']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPipeline['value_2']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapPC['label_2']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPC['value_2']}"/></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapTopic['label_3']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapTopic['value_3']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapVisit['label_3']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapVisit['value_3']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapPipeline['label_3']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPipeline['value_3']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><b><apex:outputText value="{!mapPC['label_3']}"/></b></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPC['value_3']}"/></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width:100%; border: solid 0px; border-collapse: collapse;">
+                        <tr style="background-color: #043263;" class="border_bottom">
+                            <th colspan="1" class="subtitle" >ACUERDO</th>
+                            <th colspan="1" class="subtitle" >RELACIONADO A</th>
+                            <th colspan="1" class="subtitle" >RESPONSABLE</th>
+                            <th colspan="1" class="subtitle" >ESTADO</th>
+                            <th colspan="1" class="subtitle" >F. VCTO.</th>
+                        </tr>
+                        <apex:repeat value="{!slmtTopics}" var="topic" id="idTopic">
+                            <tr class="border_bottom">
+                                <td><apex:outputText styleClass="textBody" value="{!topic.Subject}"/></td>
+                                <td><apex:outputText styleClass="textBody" value="{!topic.What.Name}"/></td>
+                                <td><apex:outputText styleClass="textBody" value="{!topic.Owner.Name}"/></td>
+                                <td><apex:outputText styleClass="textBody" value="{!topic.Status}"/></td>
+                                <td>
+                                    <apex:outputText styleClass="textBody"  value="{0, date, dd/MM/yyyy}">
+                                        <apex:param value="{!topic.ActivityDate}" /> 
+                                    </apex:outputText>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </table>
+                </td>
+            </tr>
+            <apex:outputPanel id="e" rendered="{!slmt__Sales_Meeting__c.Summary__c != null}">
+            <tr>
+                <table style="width:100%; border: solid 0px; border-collapse: collapse;">
+                    <tr style="background-color: #043263;" class="border_bottom">
+                        <th colspan="2" class="subtitle">RESUMEN</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="textBody"><apex:outputText value="{!slmt__Sales_Meeting__c.Summary__c}"/></span>
+                        </td>
+                    </tr>
+                </table>
+            </tr>
+            </apex:outputPanel>
+            <tr>
+                <td>
+                    <br/>
+                    <br/>
+                    <p class="textBody">
+                        Saludos,<br/>
+                        Equipo BBVA
+                    </p>
+                    <table style="width:100%; height:100%; cellspacing:0px; cellpadding:0px;">
+                        <tr>
+                            <td>
+                                <!--<apex:repeat value="{!usuarios}" var="usuario" id="usuario">-->
+                                    <div class="box">
+                                        <table style="width:100%; height:100%;" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td><apex:outputText styleClass="azulBoldUser" value="{!slmt__Sales_Meeting__c.Collaborator__r.FirstName} {!slmt__Sales_Meeting__c.Collaborator__r.LastName}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><apex:outputText styleClass="azulUser" value="{!slmt__Sales_Meeting__c.Collaborator__r.prof_position_type__c}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><apex:outputText styleClass="azulUser" value="{!slmt__Sales_Meeting__c.Collaborator__r.email}"/></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                <!--</apex:repeat>-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="subRectangle">
+                                </div>
+                                <div  class="subRectangleMedia" >
+                                    <table style="width:100%;height:100%">
+                                        <tr>
+                                            <td class="subRectangleMediaText">
+                                                <p >
+                                                    Sigamos conectados
+                                                </p>
+                                                <p>
+                                                    <a href="https://www.facebook.com/bbvaenperu/"><apex:image url="{!URLLogoFacebook}"  width="15px"  height="15px"/></a> &nbsp;&nbsp;
+                                                    <a href="https://www.twitter.com/bbva_peru"> <apex:image url="{!URLLogoTwiter}"  height="15px"  width="15px" /></a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </div>
+                                <div class="rectangle2">
+                                    <table style="width:100%;height:100%">
+                                        <tr>
+                                            <td class="rectangle2TextBody">
+                                                <p><apex:image url="{!URLLogo}"  height="50px" width="90px"/></p>
+                                                <table style="width:100%;">
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangle2TextBody">
+                                                            ©{!YEAR(TODAY())} BBVA. Derechos Reservados.
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangle2TextBody">
+                                                            Av. República de Panamá 3055 - San Isidro, Lima - Perú
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </div>
+                                <div class="rectangleFoother">
+                                    <table style="width:100%;height:100%">
+                                        <tr>
+                                            <td class="rectangleFootherText"> 
+                                                <table style="width:100%;">
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangleFootherText">
+                                                            Por tu Seguridad, BANCO BBVA PERÚ te informa que:
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangleFootherText">
+                                                            Nunca solicitaremos tus datos confidenciales por correo, tales como clave SMS, clave de cajero, DNI o número de celular.
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="text-align:center;">
+                                                        <td class="rectangleFootherText">
+                                                            Si tienes alguna duda acerca de la autenticidad de este correo envíalo a la dirección <a class="rectangleFootherText" href="mailto:bbvaseguridadl.pe@bbva.com">bbvaseguridadl.pe@bbva.com</a> y te responderemos.
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</apex:page>

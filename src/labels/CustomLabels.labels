@@ -700,6 +700,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Formalizar</value>
     </labels>
     <labels>
+        <fullName>lblGOFCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblGOFCode</shortDescription>
+        <value>E01,I21</value>
+    </labels>
+    <labels>
         <fullName>lblPDFProductCommercialLoanCP</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -831,6 +838,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>lblTitleFormalization</shortDescription>
         <value>formalizate Opportunity</value>
+    </labels>
+	<labels>
+        <fullName>lblTitleNewSalesMeeting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleNewSalesMeeting</shortDescription>
+        <value>New Sales Meeting</value>
     </labels>
     <labels>
         <fullName>lblTitleReevaluate</fullName>
@@ -1287,6 +1301,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>lblComplete</shortDescription>
         <value>Complete</value>
+    </labels>
+    <labels>
+        <fullName>lblEjecutivoCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblEjecutivoCode</shortDescription>
+        <value>E03,I32</value>
     </labels>
     <labels>
         <fullName>lblUnlink</fullName>
@@ -1784,6 +1805,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>OppStatusLabel13</shortDescription>
         <value>Price denied</value>
+    </labels>
+    <labels>
+        <fullName>Opp_LP_Products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opp_LP_Products</shortDescription>
+        <value>PC00009,PC00009_NEW,0159601,0159601_NEW</value>
     </labels>
     <labels>
         <fullName>PriceProposalSectionTitle</fullName>
@@ -2464,6 +2492,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>Mensaje petición formalización con Subgerente asignado 2</shortDescription>
         <value>¿Deseas asignártela para poder completar la formalización?</value>
+    </labels>
+    <labels>
+        <fullName>lblAssistants</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblAssistants</shortDescription>
+        <value>E0B,I49</value>
     </labels>
     <labels>
         <fullName>lblAuth</fullName>

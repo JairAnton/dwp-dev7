@@ -68,4 +68,44 @@ private class User_assistant_team_trigger_TEST {
 		List<AccountTeamMember> atmList = [select id, AccountId, UserId from AccountTeamMember];
 		System.assertEquals(0, atmList.size());
 	}
+    
+    @isTest
+    public static void insertSharingSM() {
+        Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
+        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
+        Final User userEJE = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
+            																				User.ManagerId => userGOF.Id});
+        Final User userAssist = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E0B', 
+            																				User.ManagerId => userGOF.Id});
+        Final User userAssist2 = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E0B', 
+            																				User.ManagerId => userGOF.Id});
+        BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userEJE.Id, 'Planning', true);
+        Test.startTest();
+        Final User_Assistant_Team__c[] lstUAT = new User_Assistant_Team__c[]{new User_Assistant_Team__c(user_id__c = userEJE.Id, assistant_id__c = userAssist.Id), 
+            																new User_Assistant_Team__c(user_id__c = userEJE.Id, assistant_id__c = userAssist2.Id)};
+		System.runAs(userEJE) {insert lstUAT;}
+        Test.stopTest();
+        Final slmt__Sales_Meeting__Share[] lstSMAssist = [SELECT Id FROM slmt__Sales_Meeting__Share WHERE UserOrGroupId =: userAssist.Id OR UserOrGroupId =:userAssist2.Id];
+        System.assertEquals(2, lstSMAssist.size(), 'Assertion Fail');
+    }
+    
+    @isTest
+    public static void deleteSharingSM() {
+        Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
+        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
+        Final User userEJE = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
+            																				User.ManagerId => userGOF.Id});
+        Final User userAssist = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E0B', 
+            																				User.ManagerId => userGOF.Id});
+        Final User userAssist2 = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E0B', 
+            																				User.ManagerId => userGOF.Id});
+        insert new User_Assistant_Team__c(user_id__c = userEJE.Id, assistant_id__c = userAssist.Id);
+        insert new User_Assistant_Team__c(user_id__c = userEJE.Id, assistant_id__c = userAssist2.Id);
+        BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userEJE.Id, 'Planning', true);
+        Test.startTest();
+        delete [SELECT Id FROM User_Assistant_Team__c WHERE user_id__c=:userEJE.Id];
+        Test.stopTest();
+        Final slmt__Sales_Meeting__Share[] lstSMAssist = [SELECT Id FROM slmt__Sales_Meeting__Share WHERE UserOrGroupId =: userAssist.Id OR UserOrGroupId =:userAssist2.Id];
+        System.assertEquals(0, lstSMAssist.size(), 'Assertion Fail');
+    }
 }
