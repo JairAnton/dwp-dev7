@@ -5,17 +5,32 @@
  *
  */
 public without sharing class User_Assistant_Team_Trigger_cls {
+
+	/**
+     * @Description constructor
+     */
+	private User_Assistant_Team_Trigger_cls() {}
+
+	/**
+     * @Description AsignAfterInsert
+     */
 	public void AsignAfterInsert(list<User_Assistant_Team__c> UAssT_New, Map<id, User_Assistant_Team__c> UAssT_NewMap,
 	                             list<User_Assistant_Team__c> UAssT_Old, Map<id, User_Assistant_Team__c> UAssT_OldMap) {
 		insertAssistants(UAssT_New);
 		insertSMSharing(UAssT_New);
 	}
 
+	/**
+     * @Description AsignAfterDelete
+     */
 	public void AsignAfterDelete(list<User_Assistant_Team__c> UAssT_Old) {
 		deleteAssistants(UAssT_Old);
 		deleteSMSharing(UAssT_Old);
 	}
 
+	/**
+     * @Description insertAssistants
+     */
 	private void insertAssistants(list<User_Assistant_Team__c> UAssT_New) {
 		list<AccountTeamMember> atmList = new List<AccountTeamMember>();
 		list<String> uatIdList = new List<String>();
@@ -44,10 +59,13 @@ public without sharing class User_Assistant_Team_Trigger_cls {
 		}
 	}
 	
-	private void insertSMSharing(List<User_Assistant_Team__c> triggerNew) {
+	/**
+     * @Description insertSMSharing
+     */
+	private static void insertSMSharing(List<User_Assistant_Team__c> triggerNew) {
 		Final Map<Id, Set<Id>> mapEjeAndAst = new Map<Id, Set<Id>>();
-		Final List<String> lstAsst = System.Label.lblAssistants.split(',');
-		Final Map<Id, User> mapAssist = new Map<Id, User>([SELECT Id FROM User WHERE prof_position_id__c IN: lstAsst]);
+		Final List<String> ASSIST_CODE = System.Label.lblAssistants.split(',');
+		Final Map<Id, User> mapAssist = new Map<Id, User>([SELECT Id FROM User WHERE prof_position_id__c IN: ASSIST_CODE]);
 		Set<Id> setAssistAux;
 		for(User_Assistant_Team__c uat : triggerNew) {
 			if(mapAssist.containsKey(uat.assistant_id__c)) {
@@ -80,7 +98,10 @@ public without sharing class User_Assistant_Team_Trigger_cls {
 		insert cPlansShare;
 	}
 
-	private void deleteAssistants(list<User_Assistant_Team__c> UAssT_Old) {
+	/**
+     * @Description deleteAssistants
+     */
+	private static void deleteAssistants(list<User_Assistant_Team__c> UAssT_Old) {
 		list<AccountTeamMember> atmList = new List<AccountTeamMember>();
 		list<String> uatIdList = new List<String>();
 		for(User_Assistant_Team__c uat : UAssT_Old) {
@@ -104,7 +125,10 @@ public without sharing class User_Assistant_Team_Trigger_cls {
 		}
 	}
 
-	private void deleteSMSharing(List<User_Assistant_Team__c> triggerOld) {
+	/**
+     * @Description deleteSMSharing
+     */
+	private static void deleteSMSharing(List<User_Assistant_Team__c> triggerOld) {
 		Final Map<Id, Set<Id>> mapEjeAndAst = new Map<Id, Set<Id>>();
 		Set<Id> setAssistAux;
 		for(User_Assistant_Team__c uat : triggerOld) {
@@ -121,14 +145,14 @@ public without sharing class User_Assistant_Team_Trigger_cls {
 														RowCause = 'Manual' AND UserOrGroupId IN: setAssistAux];
 		final slmt__Sales_Meeting__Share[] lstSMStoDel = new slmt__Sales_Meeting__Share[]{};
 		Set<Id> setIdAux;
-		for(slmt__Sales_Meeting__Share smsAux: lstSMS){
+		for(slmt__Sales_Meeting__Share smsAux: lstSMS) {
 			setIdAux = mapEjeAndAst.get(smsAux.parent.Collaborator__c);
 			if(setIdAux.contains(smsAux.UserOrGroupId)) {
 				lstSMStoDel.add(smsAux);
 			}
 		}
 		if(!lstSMStoDel.isEmpty()) {delete lstSMStoDel;}
-		final mAP<Id,dwp_frct__management_plan__c> cPlans= new Map<Id,dwp_frct__management_plan__c>([SELECT OwnerId FROM dwp_frct__management_plan__c WHERE OwnerId IN:mapEjeAndAst.keySet()]);
+		//final mAP<Id,dwp_frct__management_plan__c> cPlans= new Map<Id,dwp_frct__management_plan__c>([SELECT OwnerId FROM dwp_frct__management_plan__c WHERE OwnerId IN:mapEjeAndAst.keySet()]);
 		final dwp_frct__management_plan__Share[] cPlansShare =[SELECT Id, parent.OwnerId, UserOrGroupId FROM dwp_frct__management_plan__Share WHERE parentId IN:mapSM.keySet() AND 
 		AccessLevel = 'Edit' AND RowCause = 'Manual' AND UserOrGroupId IN: setAssistAux];
 		final dwp_frct__management_plan__Share[] cPlansShareDel= new dwp_frct__management_plan__Share[]{};

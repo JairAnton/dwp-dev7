@@ -1,3 +1,14 @@
+/**
+   -------------------------------------------------------------------------------------------------
+   @Name <BE_ButtonsBarCRUD_cls>
+   @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
+   @Date 2020-11-15
+   @Description
+   @Changes
+   Date        Author   Email                  Type
+   2020-11-15  LMBR     lolo.bravo@bbva.com    Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public virtual class BE_ButtonsBarCRUD_cls {
     /**RESPONSE */
     Response response;

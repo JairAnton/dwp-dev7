@@ -1,5 +1,18 @@
+/*
+ * @Name: User_assistant_team_trigger_TEST
+ * @Description: Trigger de Ejecucion User
+ * @Create by: Jose Rodriguez
+ *
+   @Changes
+   Date        Author   Email                  				Type
+   2019-06-15  JERP     jose.rodriguez.paredes@bbva.com		Creation
+   2020-11-15  DJCP     diego.carbajal@bbva.com				Update
+ */
 @isTest
 private class User_assistant_team_trigger_TEST {
+
+	/*** @Description variable E0B*/
+	private static Final String E0B = 'E0B';
 	/*
 	   @testSetup
 	   static void setup(){
@@ -16,6 +29,9 @@ private class User_assistant_team_trigger_TEST {
 	   }
 	 */
 
+	 /**
+     * @Description insertTest
+     */
 	@isTest
     static void insertTest() {
 		User UserOwnerTest01 = TestFactory.createUser('UserOwnerTest01', 'Ejecutivo');
@@ -42,6 +58,9 @@ private class User_assistant_team_trigger_TEST {
 		System.assertEquals(4, atmList.size());
 	}
 
+	/**
+     * @Description deleteTest
+     */
 	@isTest
     static void deleteTest() {
 		User UserOwnerTest01 = TestFactory.createUser('UserOwnerTest01', 'Ejecutivo');
@@ -68,16 +87,19 @@ private class User_assistant_team_trigger_TEST {
 		List<AccountTeamMember> atmList = [select id, AccountId, UserId from AccountTeamMember];
 		System.assertEquals(0, atmList.size());
 	}
-    
+	
+	/**
+     * @Description insertSharingSM
+     */
     @isTest
     public static void insertSharingSM() {
         Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User userEJE = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
             																				User.ManagerId => userGOF.Id});
-        Final User userAssist = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E0B', 
+        Final User userAssist = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => E0B, 
             																				User.ManagerId => userGOF.Id});
-        Final User userAssist2 = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E0B', 
+        Final User userAssist2 = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => E0B, 
             																				User.ManagerId => userGOF.Id});
         BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userEJE.Id, 'Planning', true);
         Test.startTest();
@@ -88,16 +110,19 @@ private class User_assistant_team_trigger_TEST {
         Final slmt__Sales_Meeting__Share[] lstSMAssist = [SELECT Id FROM slmt__Sales_Meeting__Share WHERE UserOrGroupId =: userAssist.Id OR UserOrGroupId =:userAssist2.Id];
         System.assertEquals(2, lstSMAssist.size(), 'Assertion Fail');
     }
-    
+	
+	/**
+     * @Description deleteSharingSM
+     */
     @isTest
     public static void deleteSharingSM() {
         Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User userEJE = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
             																				User.ManagerId => userGOF.Id});
-        Final User userAssist = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E0B', 
+        Final User userAssist = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => E0B, 
             																				User.ManagerId => userGOF.Id});
-        Final User userAssist2 = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E0B', 
+        Final User userAssist2 = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => E0B, 
             																				User.ManagerId => userGOF.Id});
         insert new User_Assistant_Team__c(user_id__c = userEJE.Id, assistant_id__c = userAssist.Id);
         insert new User_Assistant_Team__c(user_id__c = userEJE.Id, assistant_id__c = userAssist2.Id);

@@ -2737,6 +2737,30 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>slmt__Card_Collection_Wrapper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>slmt__Sales_Meeting_Configuration_Wrapper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>slmt__Sales_Meeting_Ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>slmt__Sales_Meeting_Ctrl_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>slmt__Sales_Meeting_Item_Details_Itf</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>slmt__Sales_Meeting_Wrapper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>statusAssistantButtons</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -6691,6 +6715,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.slmt__management_plan_meeting_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>User.Manager_frm__c</field>
         <readable>true</readable>
@@ -6713,6 +6742,11 @@
 	<fieldPermissions>
         <editable>true</editable>
         <field>Event.gcal__GBL_Google_Event_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.slmt__management_plan_meeting_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8105,7 +8139,112 @@
         <field>Opportunity.Loss_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<flowAccesses>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting_Configuration__mdt.slmt__card_carousel_infinite_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting_Configuration__mdt.slmt__default_selected_card_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting_Configuration__mdt.slmt__error_message_custom_label_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting_Configuration__mdt.slmt__sales_meeting_config_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting_Item_Configuration__mdt.slmt__detail_class_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting_Item_Configuration__mdt.slmt__item_component_attributes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting_Item_Configuration__mdt.slmt__item_component_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting_Item_Configuration__mdt.slmt__sales_meeting_config_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting_Item_Configuration__mdt.slmt__sales_meeting_item_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.CloseDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.Collaborator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.DateTime__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.Reason_Unrealized__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.Summary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.Type_of_meeting__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>slmt__Sales_Meeting__c.Url__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.slmt__management_plan_meeting_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.slmt__mngmt_plan_meet_dur_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.slmt__mngmt_plan_meeting_start_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.slmt__mngmt_plan_meeting_status_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.slmt__mngmt_plan_meeting_user_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <flowAccesses>
         <enabled>false</enabled>
         <flow>Change_Validator_AP_Cases</flow>
     </flowAccesses>
@@ -8325,6 +8464,13 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Commitment_Value__c-Commitment Value Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>slmt__Sales_Meeting__c-BE Sales Meeting Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-BE_SalesMeetingLayout</layout>
+        <recordType>Task.slmt__Sales_Meeting</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>User_Assistant_Team__c-User Assistant Team Layout</layout>
@@ -8881,6 +9027,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>slmt__Sales_Meeting__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>User_Assistant_Team__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -9223,6 +9378,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>nonc__Prospects</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>slmt__Sales_Meeting__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

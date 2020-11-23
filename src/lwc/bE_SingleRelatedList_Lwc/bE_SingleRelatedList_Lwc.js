@@ -10,7 +10,8 @@ import { refreshApex } from "@salesforce/apex";
 import LANG from '@salesforce/i18n/lang';
 import viewAlll from '@salesforce/label/c.BE_SingleRelatedList_ViewAll';
 import errorMsg from '@salesforce/label/c.Dwp_msgGenericError';
-import { isNotEmpty, transformColumns, transformHeadActions, transformData, getSettingsObj, defaultsValues, defaultsValuesForm, obtainFields } from './bE_SingleRelatedListHelper_Lwc.js';
+import { isNotEmpty, transformColumns, transformHeadActions, transformData } from './bE_SingleRelatedListHelper_Lwc.js';
+import { getSettingsObj, defaultsValues, defaultsValuesForm, obtainFields } from './bE_SingleRelatedListHelper_Lwc.js';
 import getRTId from '@salesforce/apex/BE_SM_Utils.getRecordTypeId';
 import Id from '@salesforce/user/Id';
 

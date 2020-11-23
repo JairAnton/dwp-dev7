@@ -16,17 +16,17 @@
 &quot;value&quot;: &quot;Reunión de Seguimiento ...&quot;
 },
 {
-&quot;fieldName&quot;: &quot;BE_Collaborator__c&quot;,
+&quot;fieldName&quot;: &quot;Collaborator__c&quot;,
 &quot;required&quot;: true,
 &quot;value&quot;: &quot;UserId&quot;
 },
 {
-&quot;fieldName&quot;: &quot;BE_Type_of_meeting__c&quot;,
+&quot;fieldName&quot;: &quot;Type_of_meeting__c&quot;,
 &quot;required&quot;: true,
 &quot;value&quot;: &quot;Tracing&quot;
 },
 {
-&quot;fieldName&quot;: &quot;BE_DateTime__c&quot;,
+&quot;fieldName&quot;: &quot;DateTime__c&quot;,
 &quot;required&quot;: true
 },
 {

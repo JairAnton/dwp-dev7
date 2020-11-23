@@ -11,14 +11,15 @@
  */
 public without sharing class BE_SM_Utils {
 
-    /** @Description lstJPN*/
-    static Final User[] lstJPN = [SELECT Id, ManagerId FROM User WHERE prof_position_id__c = 'OS9' AND UserRoleId != '' AND isActive = true];
-    /** @Description lstGOFCode*/
-    static Final List<String> lstGOFCode = System.Label.lblGOFCode.split(',');
-    /** @Description lstEjeCode*/
-    static Final List<String> lstEjeCode = System.Label.lblEjecutivoCode.split(',');
-    /** @Description lstAsst*/
-    static Final List<String> lstAsst = System.Label.lblAssistants.split(',');
+    /** @Description JPNS*/
+    static Final User[] JPNS = [SELECT Id, ManagerId FROM User WHERE prof_position_id__c = 'OS9' AND UserRoleId NOT IN ('') AND isActive = true];
+    /** @Description GOF_CODE*/
+    static Final List<String> GOF_CODE = System.Label.lblGOFCode.split(',');
+    /** @Description EJE_CODE*/
+    static Final List<String> EJE_CODE = System.Label.lblEjecutivoCode.split(',');
+    /** @Description ASSIST_CODE*/
+    static Final List<String> ASSIST_CODE = System.Label.lblAssistants.split(',');
+
 	/** private constructor */
 	private BE_SM_Utils() {}
     
@@ -27,14 +28,14 @@ public without sharing class BE_SM_Utils {
 	 */
     public static Set<Id> getColaborators(Id collaborator) {
         Final User currentUser = [SELECT Id, prof_position_id__c FROM User WHERE Id=:collaborator LIMIT 1];
-        Final Set<Id> setOppCollaborators = new Set<Id>();
-        if(lstGOFCode.contains(currentUser.prof_position_id__c)) {
-            Final Map<Id, User> mapCollaborators = new Map<Id, User>([SELECT Id FROM User WHERE prof_position_id__c IN:lstEjeCode AND ManagerId =:currentUser.Id]);
-            if(!mapCollaborators.isEmpty()) { setOppCollaborators.addAll(mapCollaborators.keySet()); }
-        } else if(lstEjeCode.contains(currentUser.prof_position_id__c)) {
-            setOppCollaborators.add(currentUser.Id);
+        Final Set<Id> setOppCols = new Set<Id>();
+        if(GOF_CODE.contains(currentUser.prof_position_id__c)) {
+            Final Map<Id, User> mapCollaborators = new Map<Id, User>([SELECT Id FROM User WHERE prof_position_id__c IN:EJE_CODE AND ManagerId =:currentUser.Id]);
+            if(!mapCollaborators.isEmpty()) { setOppCols.addAll(mapCollaborators.keySet()); }
+        } else if(EJE_CODE.contains(currentUser.prof_position_id__c)) {
+            setOppCols.add(currentUser.Id);
         }
-        return setOppCollaborators;
+        return setOppCols;
     }
 
     /*
@@ -44,7 +45,7 @@ public without sharing class BE_SM_Utils {
         Final Map<Id, Set<Id>> mapAssistByCol = new Map<Id, Set<Id>>();
         Final User_Assistant_Team__c[] lstAssist = [SELECT Id, user_id__c, assistant_id__c FROM User_Assistant_Team__c WHERE 
                                                     assistant_id__r.isActive = true AND user_id__c IN:setCollaborator AND 
-                                                    assistant_id__r.prof_position_id__c IN: lstAsst];
+                                                    assistant_id__r.prof_position_id__c IN: ASSIST_CODE];
         Set<Id> setAssist;
         for(User_Assistant_Team__c uat: lstAssist) {
             setAssist = new Set<Id>{uat.assistant_id__c};
@@ -64,7 +65,7 @@ public without sharing class BE_SM_Utils {
         Final User[] lstCol = [SELECT Id, ManagerId, Manager.ManagerId FROM User WHERE Id IN: setCollaborator];
         Set<Id> setIds;
         for(User userAux: lstCol) {
-            for(User jpnAux: lstJPN) {
+            for(User jpnAux: JPNS) {
                 if(byGOF) {
                     setIds = getJPNManagerGOF(mapJPNByCol, jpnAux, userAux);
                 } else {
@@ -78,6 +79,9 @@ public without sharing class BE_SM_Utils {
         return mapJPNByCol;
     }
 
+    /*
+	 * @Description  method getJPNManagerGOF
+	 */
     private static Set<Id> getJPNManagerGOF(Map<Id, Set<Id>> mapAux, User jpnAux, User gofAux) {
         Set<Id> setIds;
         if(String.isNotBlank(gofAux.ManagerId) && jpnAux.ManagerId == gofAux.ManagerId) {
@@ -87,6 +91,9 @@ public without sharing class BE_SM_Utils {
         return setIds;
     }
 
+    /*
+	 * @Description  method getJPNManagerEJE
+	 */
     private static Set<Id> getJPNManagerEJE(Map<Id, Set<Id>> mapAux, User jpnAux, User ejeAux) {
         Set<Id> setIds;
         if(String.isNotBlank(ejeAux.ManagerId) && String.isNotBlank(ejeAux.Manager.ManagerId) && 
@@ -97,6 +104,9 @@ public without sharing class BE_SM_Utils {
         return setIds;
     }
 
+    /*
+	 * @Description  method getUsersByEje
+	 */
     public static Map<Id, Set<Id>> getUsersByEje(Set<Id> setCollaborator) {
         Final Map<Id, Set<Id>> mapUsersByEje = getAssistantsByEje(setCollaborator);
         Final Map<Id, Set<Id>> mapJPNByEje = getJPNByCol(setCollaborator, false);
@@ -116,10 +126,23 @@ public without sharing class BE_SM_Utils {
 	 */
     @AuraEnabled
     public static String getRecordTypeId(String developerName) {
-        System.debug('############## developerName: '+developerName);
         final List<String> sObjNames = new List<String> {'Task'};
         final Map<String, Schema.RecordTypeInfo> recordType = BE_General_Utils.getRecordTypeInfo(sObjNames);
 		final String rtId = recordType.get(developerName).getRecordTypeId();
         return rtId;
+    }
+    
+    /*
+	 * @Description  method to return recordtypeId from task sales meeting
+	 */
+    @AuraEnabled
+    public static Map<String, String> getTypesSM() {
+        Final Map<String, String> mapReturn = new Map<String, String>();
+        Final Schema.DescribeFieldResult fieldResult = slmt__Sales_Meeting__c.Type_of_meeting__c.getDescribe();
+        Final List<Schema.PicklistEntry> plentry = fieldResult.getPicklistValues();
+        for(Schema.PicklistEntry item : plentry) {
+            mapReturn.put(item.getValue(), item.getLabel());
+        }       
+        return mapReturn;
     }
 }

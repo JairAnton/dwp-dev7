@@ -10,6 +10,8 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_SM_CloseTopic_Ctr  extends BE_SingleRelatedListCRUD_Cls {
+    /** Close Topic */
+    final static String CLOSE_TOPIC='Completed';
     /**
     @Description createRecords
     @param  List<SObject> sObjs
@@ -17,7 +19,6 @@ public without sharing class BE_SM_CloseTopic_Ctr  extends BE_SingleRelatedListC
     */
     public override BE_SingleRelatedListCRUD_Cls.Response readRecords(Map<String,Object> params) {
         final BE_SingleRelatedListCRUD_Cls.Response res= new BE_SingleRelatedListCRUD_Cls.Response();
-        final String closeTopic='Completed';
         final slmt__Sales_Meeting__c salesMeeting= [SELECT slmt__mngmt_plan_meeting_user_id__c,Collaborator__c FROM slmt__Sales_Meeting__c WHERE Id=:(String)params.get('recordId')];
         final String collaborator=salesMeeting.Collaborator__c;
         final String manager=salesMeeting.slmt__mngmt_plan_meeting_user_id__c;

@@ -12,13 +12,13 @@
 global class BE_SM_PipelineLPQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
 
     /** @Description  Variable THIS_MONTH*/
-    private static String THIS_MONTH = 'thisMonth';
+    private static Final String THIS_MONTH = 'thisMonth';
     /** @Description  Variable THIS_AMOUNT*/
-    private static String THIS_AMOUNT = 'thisAmount';
+    private static Final String THIS_AMOUNT = 'thisAmount';
     /** @Description  Variable NEXT_MONTH*/
-    private static String NEXT_MONTH = 'nextMonth';
+    private static Final String NEXT_MONTH = 'nextMonth';
     /** @Description  Variable NEXT_AMOUNT*/
-    private static String NEXT_AMOUNT = 'nextAmount';
+    private static Final String NEXT_AMOUNT = 'nextAmount';
 
     /*
 	 * @Description  method getCardDetails
@@ -76,7 +76,6 @@ global class BE_SM_PipelineLPQVC_Cls implements slmt.Sales_Meeting_Item_Details_
         Final List<String> lstProducts = System.Label.Opp_LP_Products.split(',');
         Final Integer year = salesMeeting.slmt__management_plan_meeting_date__c.year();
         Final Integer month = salesMeeting.slmt__management_plan_meeting_date__c.month();
-        Final Date initDate = Date.newInstance(year, month, 1);
         Final Date lastDate = Date.newInstance(year, month, Date.daysInMonth(year, month));
         Final Set<Id> setIdsOpp = new Set<Id>();
         for(OpportunityLineItem oli: [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE Opportunity.stageName IN: setStages 

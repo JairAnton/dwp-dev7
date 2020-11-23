@@ -11,8 +11,12 @@
  */
 public without sharing class BE_SM_Opportunity_helper {
 
-    /* @Description  Variable lstProducts*/
-    static Final List<String> lstProducts = System.Label.Opp_LP_Products.split(',');
+    /* @Description  Variable PRODUCTS*/
+    static Final List<String> PRODUCTS = System.Label.Opp_LP_Products.split(',');
+
+    /* @Description  Variable PRODUCTS*/
+    static Final Integer MONTH12 = 12;
+
     /*
 	 * @Description  method BE_SM_Opportunity_helper
 	 */
@@ -45,7 +49,7 @@ public without sharing class BE_SM_Opportunity_helper {
         Final Set<Id> setIdsOpp = new Set<Id>();
         for(OpportunityLineItem oli: [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE Opportunity.stageName IN: setStages 
                                     AND Opportunity.CloseDate >=:initDate AND Opportunity.CloseDate <=:lastDate AND 
-                                    Product2.Unique_id__c IN: lstProducts AND (Opportunity.OwnerId IN:setIdsCol OR 
+                                    Product2.Unique_id__c IN: PRODUCTS AND (Opportunity.OwnerId IN:setIdsCol OR 
                                     OpportunityId IN:setAuxIdsOpp)]) {
             setIdsOpp.add(oli.OpportunityId);
         }
@@ -57,8 +61,8 @@ public without sharing class BE_SM_Opportunity_helper {
 	 */
     private static Date getLastDate(Date initDate) {
         Date lastDate;
-        //Si el siguiente mes es enero
-        if(initDate.Month() == 12) {
+        //Si el siguiente mes es enero o mes actual es diciembre
+        if(initDate.Month() == MONTH12) {
             lastDate = Date.newInstance(initDate.Year() + 1, 1, Date.daysInMonth(initDate.Year() + 1, 1));
         } else {
             lastDate = Date.newInstance(initDate.Year(), initDate.Month() + 1, Date.daysInMonth(initDate.Year(), initDate.Month() + 1));
@@ -78,7 +82,7 @@ public without sharing class BE_SM_Opportunity_helper {
         }
         Final Set<Id> setOppIds = new Set<Id>();
         for(OpportunityLineItem oli:[SELECT Id, OpportunityId FROM OpportunityLineItem WHERE OpportunityId IN:setOpp AND 
-                                    Product2.Unique_id__c IN: lstProducts]) {
+                                    Product2.Unique_id__c IN: PRODUCTS]) {
             setOppIds.add(oli.OpportunityId);
         }
         return setOppIds;

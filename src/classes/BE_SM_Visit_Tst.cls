@@ -17,7 +17,7 @@ public with sharing class BE_SM_Visit_Tst {
 	 */
     @TestSetup
     static void setUp(){
-        Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
+        Final Id ejeProfileId = BE_SM_Factory_tst.PROFILEID_EJECUTIVO;
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
             																					User.ManagerId => userGOF.Id});

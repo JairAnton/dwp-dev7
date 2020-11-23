@@ -52,7 +52,6 @@ public without sharing class BE_SM_Visit_helper {
 	 * @Description method getVisitIds
 	 */
     private static Set<Id> getVisitIds(Id collaborator, Set<String> setStages, Date initDate, Date lastDate) {
-        Final Set<Id> setIdsCol = BE_SM_Utils.getColaborators(collaborator);
         Final Set<Id> setIdsVisit = new Set<Id>();
         for(dwp_kitv__Visit_Management_Team__c vTeam : [SELECT Id, dwp_kitv__visit_id__c FROM dwp_kitv__Visit_Management_Team__c  WHERE dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c IN: setStages 
                                                         AND dwp_kitv__user_id__c = :collaborator AND dwp_kitv__visit_id__r.start_date_calculated__c >= :initDate AND dwp_kitv__visit_id__r.start_date_calculated__c <= :lastDate]) {

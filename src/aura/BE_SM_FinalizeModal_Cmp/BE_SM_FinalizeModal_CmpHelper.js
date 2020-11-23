@@ -2,10 +2,8 @@
     saveMethod : function(cmp, event, helper) {
         helper.saveRecord(cmp, event, helper);
     },
-    
     saveCloneMethod : function(cmp, event, helper) {
         helper.saveRecord(cmp, event, helper);
-        //setTimeout(myFunction, 3000)
         var navService = cmp.find("navService");
         var pageReference = {
             type: 'standard__recordPage',
@@ -18,11 +16,9 @@
         event.preventDefault();
         navService.navigate(pageReference);
     },
-     
     closeMethod : function(component, event, helper) {
         $A.get("e.force:closeQuickAction").fire();
     },
-    
     saveRecord : function(cmp, event, helper) {
         var recordId = cmp.get('v.recordId');
         var action = cmp.get("c.finalizeMeeting");
@@ -42,7 +38,7 @@
                         "message": "Reunión finalizada satisfactoriamente",
                         "type" : "success"
                     });
-                    toastEvent.fire();                    
+                    toastEvent.fire();
                     $A.get("e.force:closeQuickAction").fire();
                     $A.get('e.force:refreshView').fire();
                 } else {
@@ -53,7 +49,7 @@
                 }
             } else {
                 cmp.set('v.isError', true);
-                cmp.set('v.errorlst', ret.message);
+                cmp.set('v.errorlst', 'Error inesperado, por favor comuniquese con su administrador.');
                 cmp.set('v.hasHeader', false);
                 cmp.set('v.isLoad', true);
             }

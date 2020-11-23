@@ -149,11 +149,25 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>Sales_Meeting_Compact_Layout</compactLayoutAssignment>
+    <compactLayoutAssignment>BE_Sales_Meeting_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>BE_Sales_Meeting_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Type_of_meeting__c</fields>
+        <fields>Collaborator__c</fields>
+        <fields>slmt__mngmt_plan_meeting_user_id__c</fields>
+        <fields>DateTime__c</fields>
+        <fields>slmt__mngmt_plan_meet_dur_number__c</fields>
+        <fields>slmt__mngmt_plan_meeting_status_name__c</fields>
+        <label>BE Sales Meeting Compact Layout</label>
+    </compactLayouts>
     <compactLayouts>
         <fullName>Sales_Meeting_Compact_Layout</fullName>
         <fields>Name</fields>
+        <fields>Type_of_meeting__c</fields>
+        <fields>Collaborator__c</fields>
         <fields>slmt__mngmt_plan_meeting_user_id__c</fields>
+        <fields>DateTime__c</fields>
         <fields>slmt__mngmt_plan_meet_dur_number__c</fields>
         <fields>slmt__mngmt_plan_meeting_status_name__c</fields>
         <label>Sales Meeting Compact Layout</label>

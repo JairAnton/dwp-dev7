@@ -9,7 +9,7 @@
    2020-11-11  MAMCH    martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
-global class BE_SM_VisitQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
+global without sharing class BE_SM_VisitQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
     /*
 	 * @Description method getCardDetails
 	 */
@@ -23,14 +23,9 @@ global class BE_SM_VisitQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
                                                             WHERE dwp_kitv__user_id__c IN :userIds AND ((dwp_kitv__visit_id__r.start_date_calculated__c <= :smDate.addDays(30) AND dwp_kitv__visit_id__r.start_date_calculated__c >= :smDate.addDays(-30)) OR 
                                                             (CALENDAR_YEAR(dwp_kitv__visit_id__r.start_date_calculated__c) = :smDate.year() AND CALENDAR_MONTH(dwp_kitv__visit_id__r.start_date_calculated__c) = :smDate.month()))]) {
             Final Integer noOfDays = smDate.daysBetween(visitTeam.dwp_kitv__visit_id__r.start_date_calculated__c);
-            if(visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '06' && visitTeam.dwp_kitv__visit_id__r.start_date_calculated__c.year() == smDate.year() && visitTeam.dwp_kitv__visit_id__r.start_date_calculated__c.month() == smDate.month()) {
-                monthVisit++;
-            }
-            if(noOfDays>0 && noOfDays<=30 && (visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '01' || visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '02' || visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '03')) {
-                nextVisit++;
-            } if(noOfDays<=0 && noOfDays>=-30 && (visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '04' || visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '05' || visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '06')) {
-                lastVisit++;
-            }
+            monthVisit = getMonthVisits(visitTeam, smDate, monthVisit);
+            lastVisit = getLastVisits(visitTeam, noOfDays, lastVisit);
+            nextVisit = getNextVisits(visitTeam, noOfDays, nextVisit);
         }
         
         Final List<Map<String,String>> lstReturn = new List<Map<String,String>>();
@@ -39,6 +34,39 @@ global class BE_SM_VisitQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
         lstReturn.add(createItem(new List<String>{'Realizadas (ult 30 días)', String.valueOf(lastVisit), '06', cardId}));
         lstReturn.add(createItem(new List<String>{'Planificadas (prox 30 días)', String.valueOf(nextVisit), '06', cardId}));
         return lstReturn;
+    }
+    
+    /*
+	 * @Description method getMonthVisits
+	 */
+    private Integer getMonthVisits(dwp_kitv__Visit_Management_Team__c visitTeam, Date smDate, Integer monthVisit) {
+        Integer returnVal = monthVisit;
+        if(visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '06' && visitTeam.dwp_kitv__visit_id__r.start_date_calculated__c.year() == smDate.year() && visitTeam.dwp_kitv__visit_id__r.start_date_calculated__c.month() == smDate.month()) {
+            returnVal++;
+        }
+        return returnVal;
+    }
+    
+    /*
+	 * @Description method getNextVisits
+	 */
+    private Integer getNextVisits(dwp_kitv__Visit_Management_Team__c visitTeam, Integer noOfDays, Integer nextVisit) {
+        Integer returnVal = nextVisit;
+        if(noOfDays>0 && noOfDays<=30 && (visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '01' || visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '02' || visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '03')) {
+            returnVal++;
+        }
+        return returnVal;
+    }
+    
+    /*
+	 * @Description method getLastVisits
+	 */
+    private Integer getLastVisits(dwp_kitv__Visit_Management_Team__c visitTeam, Integer noOfDays, Integer lastVisit) {
+        Integer returnVal = lastVisit;
+        if(noOfDays<=0 && noOfDays>=-30 && (visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '04' || visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '05' || visitTeam.dwp_kitv__visit_id__r.dwp_kitv__visit_status_type__c == '06')) {
+            returnVal++;
+        }
+        return returnVal;
     }
     
     /*

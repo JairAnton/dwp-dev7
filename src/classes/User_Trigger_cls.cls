@@ -5,12 +5,14 @@
  */
 public without sharing class User_Trigger_cls {
     
-	/**   @Variable: temporal */
+	/**   @Variable: ORG_EQUIVALENT */
 	final static Map<String, Organizational_Unit_Equivalence__c> ORG_EQUIVALENT = new Map<String, Organizational_Unit_Equivalence__c>();
-	/**   @Variable: temporal*/
+	/**   @Variable: POSITION_EQUIV*/
 	final static Map<String, User_Position_equivalence__c> POSITION_EQUIV = new Map<String, User_Position_equivalence__c>();
-	/**   @Variable: temporal*/
+	/**   @Variable: PERFIL_MIGRACION*/
 	private static final String PERFIL_MIGRACION {get {return 'Migracion';} set;}
+	/**   @Variable: JPN_CODE*/
+	private static final String JPN_CODE = 'OS9';
     /**   @Description: User_Trigger_cls*/
     private User_Trigger_cls() {}
 
@@ -168,8 +170,8 @@ public without sharing class User_Trigger_cls {
         Final Map<String, Set<Id>> mapJPNByManager = new Map<String, Set<Id>>();
         Set<Id> setJPNIdAux = new Set<Id>();
 		for(User userAux: userNewMap.values()) {
-            Boolean userJPN = userAux.isActive && String.isNotEmpty(userAux.UserRoleId) && userAux.prof_position_id__c == 'OS9';
-            if(( userJPN && userOldMap == null) || (userJPN && userOldMap.get((Id)userAux.Id).prof_position_id__c != 'OS9')) {
+            Boolean userJPN = userAux.isActive && String.isNotEmpty(userAux.UserRoleId) && userAux.prof_position_id__c == JPN_CODE;
+            if(( userJPN && userOldMap == null) || (userJPN && userOldMap.get((Id)userAux.Id).prof_position_id__c != JPN_CODE)) {
                 setJPNIdAux = new Set<Id>{userAux.Id};
                 if(mapJPNByManager.containsKey(userAux.ManagerId)) {
                     setJPNIdAux.addAll(mapJPNByManager.get(userAux.ManagerId));
@@ -186,7 +188,7 @@ public without sharing class User_Trigger_cls {
 		Final Set<Id> setJpnId = new Set<Id>();
 		for(User userAux: userNewMap.values()) {
 			if(userAux.isActive && String.isNotEmpty(userOldMap.get((Id)userAux.Id).UserRoleId) && 
-				userOldMap.get((Id)userAux.Id).prof_position_id__c == 'OS9' && userAux.prof_position_id__c != 'OS9') {
+				userOldMap.get((Id)userAux.Id).prof_position_id__c == JPN_CODE && userAux.prof_position_id__c != JPN_CODE) {
 				setJpnId.add((Id)userAux.Id);
 			}
 		}

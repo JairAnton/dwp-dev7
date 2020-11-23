@@ -12,37 +12,20 @@
 @isTest
 public with sharing class BE_SM_Pipeline_tst {
     
+    /** @Description  variable RECORD_ID*/
+    private static Final String RECORD_ID = 'recordId';
+    /** @Description  variable SOBJECT_NAME*/
+    private static Final String SOBJECT_NAME = 'sObjName';
+    /** @Description  variable SOBJECT_FIELDS*/
+    private static Final String SOBJECT_FIELDS = 'sObjFields';
+    /** @Description  variable ASSERT_ERROR*/
+    private static Final String ASSERT_ERROR = 'Assertion Error';
     /*
 	 * @Description  method setUp
 	 */
     @TestSetup
-    static void setUp(){
-        Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
-        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
-        Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
-            																					User.ManagerId => userGOF.Id});
-        Final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
-        Final Date initDate = Date.newInstance(2020, 11, 11);
-        System.runAs(ejecutivo) {
-            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 11), ejecutivo.Id, 'Planning', true);
-        }
-        Final Opportunity[] lstOpp = new Opportunity[]{};
-        for(Integer i = 2; i <= 7; i++) {
-            lstOpp.add(new Opportunity(ownerId = ejecutivo.Id, Name = 'testopp '+i, AccountId = acc.Id, StageName = '0'+i, Amount = 100, 
-                                       CloseDate = initDate, Field_Sup_Closing_Date__c = initDate));
-        }
-        insert lstOpp;
-        lstOpp[0].closeDate = initDate.addMonths(1);
-        update lstOpp[0];
-        Test.setCreatedDate(lstOpp[0].Id, initDate.addDays(-10));
-        Final List<String> lstProducts = System.Label.Opp_LP_Products.split(',');
-        Final Product2 product = BE_SM_Factory_tst.createProduct(lstProducts[0]);
-        Final PricebookEntry standardPrice = BE_SM_Factory_tst.createPriceBookEntry(Test.getStandardPricebookId(), product.Id, 10000);
-        Final OpportunityLineItem[] lstOli = new OpportunityLineItem[]{};
-        for(Opportunity opp:lstOpp) {
-            lstOli.add(new OpportunityLineItem(OpportunityId = opp.Id, Quantity = 1, TotalPrice = 10.00, PricebookEntryId = standardPrice.Id, Product2Id = product.Id));
-        }
-        insert lstOli;
+    static void setUp() {
+        BE_SM_Factory_tst.generalSetUp();
     }
     
     /*
@@ -57,9 +40,9 @@ public with sharing class BE_SM_Pipeline_tst {
         salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
         update salesMeeting;
         Test.startTest();
-        response = new BE_SM_Pipeline_Pending_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
+        response = new BE_SM_Pipeline_Pending_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 1, 'Assertion Error');
+        System.assertEquals(response.data.size(), 1, ASSERT_ERROR);
     }
 
     /*
@@ -74,9 +57,9 @@ public with sharing class BE_SM_Pipeline_tst {
         salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
         update salesMeeting;
         Test.startTest();
-        response = new BE_SM_Pipeline_Negotiaton_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
+        response = new BE_SM_Pipeline_Negotiaton_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 1, 'Assertion Error');
+        System.assertEquals(response.data.size(), 1, ASSERT_ERROR);
     }
     
     /*
@@ -91,9 +74,9 @@ public with sharing class BE_SM_Pipeline_tst {
         salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
         update salesMeeting;
         Test.startTest();
-        response = new BE_SM_Pipeline_Sanction_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
+        response = new BE_SM_Pipeline_Sanction_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 1, 'Assertion Error');
+        System.assertEquals(response.data.size(), 1, ASSERT_ERROR);
     }
     
     /*
@@ -108,9 +91,9 @@ public with sharing class BE_SM_Pipeline_tst {
         salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
         update salesMeeting;
         Test.startTest();
-        response = new BE_SM_Pipeline_Formalization_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
+        response = new BE_SM_Pipeline_Formalization_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 1, 'Assertion Error');
+        System.assertEquals(response.data.size(), 1, ASSERT_ERROR);
     }
     
     /*
@@ -125,9 +108,9 @@ public with sharing class BE_SM_Pipeline_tst {
                                                        WHERE DeveloperName = 'BE_SM_DismissedOpportunities'];
         BE_SingleRelatedListCRUD_Cls.Response response;
         Test.startTest();
-        response = new BE_SM_Opportunity_Dismissed_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
+        response = new BE_SM_Opportunity_Dismissed_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 1, 'Assertion Error');
+        System.assertEquals(response.data.size(), 1, ASSERT_ERROR);
     }
     
     /*
@@ -142,9 +125,9 @@ public with sharing class BE_SM_Pipeline_tst {
                                                        WHERE DeveloperName = 'BE_SM_ExpiredOpportunities'];
         BE_SingleRelatedListCRUD_Cls.Response response;
         Test.startTest();
-        response = new BE_SM_Opportunity_Expired_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
+        response = new BE_SM_Opportunity_Expired_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 4, 'Assertion Error');
+        System.assertEquals(response.data.size(), 4, ASSERT_ERROR);
     }
     
     /*
@@ -162,46 +145,10 @@ public with sharing class BE_SM_Pipeline_tst {
         opp.Formalization_Date__c = Date.newInstance(2020, 11, 1);
         update opp;
         Test.startTest();
-        response = new BE_SM_Opportunity_Formalized_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
+        response = new BE_SM_Opportunity_Formalized_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 1, 'Assertion Error');
+        System.assertEquals(response.data.size(), 1, ASSERT_ERROR);
     }
     
-    /*
-	 * @Description  method getCardDetails
-	 */
-    @isTest
-    static void getCardDetails() {
-        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
-        Test.startTest();
-        List<Map<String,String>> lstCard = new BE_SM_PipelineLPQVC_Cls().getCardDetails(salesMeeting, 'cardId');
-        Test.stopTest();
-        System.assertEquals(4, lstCard.size(), 'Assertion Failed');
-    }
     
-    /*
-	 * @Description  method updateRecordsSuccessTest
-	 */
-    @isTest
-    static void updateRecordsSuccessTest() {
-        Final Opportunity opp = [SELECT Id FROM Opportunity WHERE StageName = '02' LIMIT 1];
-        opp.Amount = 9999;
-        Test.startTest();
-        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_Pipeline_Update_cls().updateRecords(new SObject[]{opp});
-        Test.stopTest();
-        Final SObject obj = response.data[0];
-        System.assertEquals(opp.Amount, obj.get('Amount'), 'Assertion Failed');
-    }
-    
-    /*
-	 * @Description  method updateRecordsErrorTest
-	 */
-    @isTest
-    static void updateRecordsErrorTest() {
-        Final Opportunity opp;
-        Test.startTest();
-        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_Pipeline_Update_cls().updateRecords(new SObject[]{opp});
-        Test.stopTest();
-        System.assertEquals(false, response.isSuccess, 'Assertion Failed');
-    }
 }

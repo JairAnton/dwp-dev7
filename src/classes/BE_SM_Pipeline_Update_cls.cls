@@ -15,13 +15,13 @@ public with sharing class BE_SM_Pipeline_Update_cls extends BE_SingleRelatedList
     * @Description  method updateRecords
     */
     public override BE_SingleRelatedListCRUD_Cls.Response updateRecords(List<SObject> sObjs) {
-        BE_SingleRelatedListCRUD_Cls.Response response = new BE_SingleRelatedListCRUD_Cls.Response(true, '');
-        Final List<Opportunity> lstOpp = (List<Opportunity>) sObjs;
+        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SingleRelatedListCRUD_Cls.Response(true, '');
         try {
+            Final List<Opportunity> lstOpp = (List<Opportunity>) sObjs;
             Final OpportunityLineItem[] lstOli = [SELECT Id, UnitPrice, Opportunity.Amount FROM OpportunityLineItem WHERE 
                                                     OpportunityId =:lstOpp[0].Id AND Opportunity.stageName IN ('02', '03')];
             update lstOpp;
-            if(!lstOli.isEmpty() && (lstOli[0].Opportunity.Amount != lstOpp[0].Amount)) {
+            if(!lstOli.isEmpty() && lstOli[0].Opportunity.Amount != lstOpp[0].Amount) {
                 lstOli[0].UnitPrice = lstOpp[0].Amount;
                 update lstOli;
             }

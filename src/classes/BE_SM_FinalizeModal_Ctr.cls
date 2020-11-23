@@ -10,8 +10,19 @@
    -------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_SM_FinalizeModal_Ctr {
-    /* @Variable: FORMAT_DATE */
-    public static Final String FORMAT_DATE = 'dd-MM-YYYY HH:mm a';
+    /* @Variable: MESSAGE */
+    public static Final String MESSAGE = 'message';
+    /*   @Variable: ISSUCCESS
+	 */
+	public static Final String ISSUCCESS = 'isSuccess';
+    /*   @Variable: ISSUCCESS
+	 */
+	public static Final String PLANNED = 'Planned';
+    
+    /*
+	 * @Description constructor method
+	 */
+    private BE_SM_FinalizeModal_Ctr() {}
     
     /*
 	 * @Description method getStatusMeeting
@@ -19,23 +30,23 @@ public with sharing class BE_SM_FinalizeModal_Ctr {
     @AuraEnabled
     public static Map<String, Object> getStatusMeeting(String recordId) {
         Final Map<String, Object> res = new Map<String, Object>();
-        if(recordId!=null) {
+        if(recordId==null) {
+            res.put(ISSUCCESS, false);
+            res.put(MESSAGE, 'error id no valid');
+        } else {
             try {
                 Final slmt__Sales_Meeting__c meeting = [SELECT Id, slmt__mngmt_plan_meeting_status_name__c FROM slmt__Sales_Meeting__c WHERE Id =:recordId LIMIT 1];
-                if(meeting.slmt__mngmt_plan_meeting_status_name__c=='Planned') {
-                    res.put('isSuccess', true);
-                    res.put('message', 'success');
+                if(meeting.slmt__mngmt_plan_meeting_status_name__c==PLANNED) {
+                    res.put(ISSUCCESS, true);
+                    res.put(MESSAGE, 'success');
                 } else {
-                    res.put('isSuccess', false);
-                    res.put('message', 'Solo las reuniones en estado: En preparación, pueden ser finalizadas.');
+                    res.put(ISSUCCESS, false);
+                    res.put(MESSAGE, 'Solo las reuniones en estado: En preparación, pueden ser finalizadas.');
                 }
             } catch (Exception ex) {
-                res.put('isSuccess', false);
-                res.put('message', ex.getMessage());
+                res.put(ISSUCCESS, false);
+                res.put(MESSAGE, ex.getMessage());
             }
-        } else {
-            res.put('isSuccess', false);
-            res.put('message', 'error id no valid');
         }
         return res;
     }
@@ -46,30 +57,26 @@ public with sharing class BE_SM_FinalizeModal_Ctr {
     @AuraEnabled
     public static Map<String, Object> finalizeMeeting(String recordId, String summary) {
         Final Map<String, Object> res = new Map<String, Object>();
-        if(recordId!=null) {
+        if(recordId==null) {
+            res.put(ISSUCCESS, false);
+            res.put(MESSAGE, 'error id no valid');
+        } else {
             try {
                 Final slmt__Sales_Meeting__c slmtRecord = new slmt__Sales_Meeting__c();
                 slmtRecord.Id = recordId;
                 slmtRecord.slmt__mngmt_plan_meeting_status_name__c = 'Finalized';
                 slmtRecord.Summary__c = summary;
                 update slmtRecord;
-                Final slmt__Sales_Meeting__c meeting = [SELECT Id, Name, slmt__management_plan_meeting_date__c, slmt__mngmt_plan_meet_dur_number__c, 
-                	slmt__mngmt_plan_meeting_start_desc__c, slmt__mngmt_plan_meeting_status_name__c, slmt__mngmt_plan_meeting_user_id__c, 
-                	slmt__mngmt_plan_meeting_user_id__r.Email, Type_of_meeting__c, Collaborator__c, Collaborator__r.Email, 
-                	DateTime__c, Url__c FROM slmt__Sales_Meeting__c WHERE Id =:recordId LIMIT 1];
-                Final ApexPages.StandardController sc = new ApexPages.StandardController(slmtRecord);
-				Final BE_SM_Minute_Ctr slmtMinute = new BE_SM_Minute_Ctr(sc);
+                Final ApexPages.StandardController standCtr = new ApexPages.StandardController(slmtRecord);
+				Final BE_SM_Minute_Ctr slmtMinute = new BE_SM_Minute_Ctr(standCtr);
                 slmtMinute.sendMail();
                 
-                res.put('isSuccess', true);
-                res.put('message', 'success');
+                res.put(ISSUCCESS, true);
+                res.put(MESSAGE, 'success');
             } catch (Exception ex) {
-                res.put('isSuccess', false);
-                res.put('message', ex.getMessage());
+                res.put(ISSUCCESS, false);
+                res.put(MESSAGE, ex.getMessage());
             }
-        } else {
-            res.put('isSuccess', false);
-            res.put('message', 'error id no valid');
         }
         return res;
     }

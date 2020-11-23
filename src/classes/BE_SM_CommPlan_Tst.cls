@@ -44,7 +44,7 @@ public with sharing class BE_SM_CommPlan_Tst {
         insert lstOpp;
         /** PRICE BOOK */
         final Id pricebookId = Test.getStandardPricebookId();
-        List<PricebookEntry> pBookEntries= new List<PricebookEntry>{
+        final List<PricebookEntry> pBookEntries= new List<PricebookEntry>{
             new PricebookEntry(Pricebook2Id = pricebookId, Product2Id = products[0].Id, UnitPrice = 10000, IsActive = true),
             new PricebookEntry(Pricebook2Id = pricebookId, Product2Id = products[1].Id, UnitPrice = 10000, IsActive = true),
             new PricebookEntry(Pricebook2Id = pricebookId, Product2Id = products[2].Id, UnitPrice = 10000, IsActive = true)    

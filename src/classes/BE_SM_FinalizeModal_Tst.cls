@@ -11,15 +11,20 @@
  */
 @isTest
 public class BE_SM_FinalizeModal_Tst {
+    /*   @Variable: ERROR
+	 */
+	public static Final String ERROR = 'error!!!';
+    /*   @Variable: ISSUCCESS
+	 */
+	public static Final String ISSUCCESS = 'isSuccess';
+    
     /*
 	 * @Description  method setUp
 	 */
     @TestSetup
     static void setUp() {
-        Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.getEjecutivoProfile(), User.prof_position_id__c => 'E03'});
-        Final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
-        Final Date initDate = Date.newInstance(2020, 11, 11);
-        BE_SM_Factory_tst.createSalesMeeting(initDate, ejecutivo.Id, 'Planning', true);
+        Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.PROFILEID_EJECUTIVO, User.prof_position_id__c => 'E03'});
+        BE_SM_Factory_tst.createSalesMeeting(Date.newInstance(2020, 11, 11), ejecutivo.Id, 'Planning', true);
     }
     
     /*
@@ -31,7 +36,7 @@ public class BE_SM_FinalizeModal_Tst {
         Test.startTest();
         Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting(salesMeeting.Id);
         Test.stopTest();
-        System.assert((Boolean)mapResult.get('isSuccess'), 'success!!!');
+        System.assert((Boolean)mapResult.get(ISSUCCESS), 'success!!!');
     }
     
     /*
@@ -42,7 +47,7 @@ public class BE_SM_FinalizeModal_Tst {
         Test.startTest();
         Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting(null);
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get('isSuccess'), 'error!!!');
+        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
     }
     
     /*
@@ -53,7 +58,7 @@ public class BE_SM_FinalizeModal_Tst {
         Test.startTest();
         Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting('0010m0000');
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get('isSuccess'), 'error!!!');
+        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
     }
     
     /*
@@ -67,7 +72,7 @@ public class BE_SM_FinalizeModal_Tst {
         Test.startTest();
         Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting(updateSM.Id);
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get('isSuccess'), 'error!!!');
+        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
     }
     
     /*
@@ -79,7 +84,7 @@ public class BE_SM_FinalizeModal_Tst {
         Test.startTest();
         Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.finalizeMeeting(salesMeeting.Id, 'test summary');
         Test.stopTest();
-        System.assert((Boolean)mapResult.get('isSuccess'), 'success!!!');
+        System.assert((Boolean)mapResult.get(ISSUCCESS), 'success!!!');
     }
     
     /*
@@ -90,7 +95,7 @@ public class BE_SM_FinalizeModal_Tst {
         Test.startTest();
         Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.finalizeMeeting(null, 'test summary');
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get('isSuccess'), 'error!!!');
+        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
     }
     
     /*
@@ -101,6 +106,6 @@ public class BE_SM_FinalizeModal_Tst {
         Test.startTest();
         Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.finalizeMeeting('0010m0000', 'test summary');
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get('isSuccess'), 'error!!!');
+        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
     }
 }

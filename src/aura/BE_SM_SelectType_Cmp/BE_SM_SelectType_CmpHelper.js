@@ -17,7 +17,7 @@
         });
         $A.enqueueAction(action);
 	},
-    loadForm : function(cmp, evt) {
+    loadForm : function(cmp, event) {
         var metadata = 'BE_SM_NewRecord'+cmp.get('v.value');
         var evt = $A.get("e.force:navigateToComponent");
         evt.setParams({

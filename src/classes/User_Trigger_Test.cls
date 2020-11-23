@@ -112,7 +112,7 @@ private class User_Trigger_Test {
 
 	/*
 	 * @Name: AsignAfterInsert
-	 * @Description: call to AssigmentPermissionValidationAP_cls class after create user with prof_position_id__c = 'E01'
+	 * @Description: call to AssigmentPermissionValidationAP_cls class after create user with prof_position_id__c = CODE_USER
 	 * @author Martin Mori
 	 */
 	@isTest
@@ -156,7 +156,7 @@ private class User_Trigger_Test {
 		update userTest1;
 		final User userTest2 = new User(Id = apTeam.bupl__gf_ap_team_user_id__c);
 		userTest2.isActive = true;
-		userTest2.prof_position_id__c = 'E01';
+		userTest2.prof_position_id__c = CODE_USER;
 		Test.startTest();
 		update userTest2;
         Test.stopTest();
@@ -224,7 +224,7 @@ private class User_Trigger_Test {
          Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
         Final Id jpnUR = [SELECT Id FROM UserRole WHERE DeveloperName = 'JEFE_PROMOCION_DE_NEGOCIO_BE_1' LIMIT 1].Id;
         Final User userGR = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'OS8'});
-        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01', 
+        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => CODE_USER, 
             																				User.ManagerId => userGR.Id});
         Final User userJPN = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => '', 
             																				User.ManagerId => userGR.Id, User.UserRoleId => jpnUR });
@@ -249,7 +249,7 @@ private class User_Trigger_Test {
          Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
         Final Id jpnUR = [SELECT Id FROM UserRole WHERE DeveloperName = 'JEFE_PROMOCION_DE_NEGOCIO_BE_1' LIMIT 1].Id;
         Final User userGR = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'OS8'});
-        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01', 
+        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => CODE_USER, 
             																				User.ManagerId => userGR.Id});
         Final User userJPN = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'OS9', 
             																				User.ManagerId => userGR.Id, User.UserRoleId => jpnUR });
@@ -257,7 +257,7 @@ private class User_Trigger_Test {
             BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userGOF.Id, 'Planning', true);
         }
         Test.startTest();
-        userJPN.prof_position_id__c = 'E01';
+        userJPN.prof_position_id__c = CODE_USER;
         update userJPN;
         Test.stopTest();
         Final slmt__Sales_Meeting__Share[] lstSMAJPN = [SELECT Id FROM slmt__Sales_Meeting__Share WHERE UserOrGroupId =: userJPN.Id];

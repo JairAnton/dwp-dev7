@@ -9,29 +9,21 @@
    2020-11-11  MAMCH    martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
-public virtual class BE_SM_Minute_Ctr extends BE_SM_Minute_Wrapper {
+public without sharing virtual class BE_SM_Minute_Ctr {
 	/** @Description meeting*/
-    public slmt__Sales_Meeting__c meeting {get; set;}
+    public slmt__Sales_Meeting__c meeting { get; set; }
 	/** @Description currentDate*/
-    public Final String currentDate { get { return formatCurrentDate(Date.today()); }}
+    public Final String currentDate { get { return formatCurrentDate(Date.today()); } }
 	/** @Description meetingDate*/
-    public String meetingDate {get; set;}
+    public String meetingDate { get; set; }
 	/** @Description mapTopic*/
-    public Map<String, String> mapTopic {
-		get{return getMapValues(new BE_SM_TopicQVC_Cls().getCardDetails(meeting, 'cardId'));}
-	}
+    public Map<String, String> mapTopic { get; set; }
 	/** @Description mapVisit*/
-    public Map<String, String> mapVisit {
-		get{return getMapValues(new BE_SM_VisitQVC_Cls().getCardDetails(meeting, 'cardId'));}
-	}
+    public Map<String, String> mapVisit { get; set; }
 	/** @Description mapPipeline*/
-    public Map<String, String> mapPipeline {
-		get{return getMapValues(new BE_SM_PipelineLPQVC_Cls().getCardDetails(meeting, 'cardId'));}
-	}
+    public Map<String, String> mapPipeline { get; set; }
 	/** @Description mapPC*/
-    public Map<String, String> mapPC {
-		get{return getMapValues(new BE_SM_CommPlanQVC_Cls().getCardDetails(meeting, 'cardId'));}
-	}
+    public Map<String, String> mapPC { get; set; }
     /*   @Variable: FORMAT_DATE
 	 */
 	public static Final String FORMAT_DATE = 'dd-MM-YYYY HH:mm a';
@@ -48,22 +40,20 @@ public virtual class BE_SM_Minute_Ctr extends BE_SM_Minute_Wrapper {
 	 */
 	public static Final String FORMAT_DATE_4 = 'dd/MM/yyyy HH:mm';
 	/*
-	 *   @Variable: FORMAT_DATE_5
-	 */
-	public static Final String FORMAT_DATE_5 = 'd.M.yyyy H:mm';
-	/*
-	 *   @Variable: FORMAT_DATE_6
-	 */
-	public static Final String FORMAT_DATE_6 = 'dd.MM.yyyy HH:mm';
-	/*
 	 *   @Variable: FORMAT_DATE_7
 	 */
 	public static Final String FORMAT_DATE_7 = 'd/MM/yyyy H:mm';
-	/*
-	 *   @Variable: FORMAT_DATE_8
-	 */
-	public static Final String FORMAT_DATE_8 = 'yyyy-MM-dd HH:mm';	
-	
+    /** @Description slmtTopics*/
+    public static List<Task> slmtTopics {get; set;}
+	/** @Description urlLogo*/
+    public static String urlLogo {get; set;}
+	/** @Description urlLogoWhite*/
+    public static String urlLogoWhite {get; set;}
+	/** @Description urlLogoFacebook*/
+    public static String urlLogoFacebook {get; set;}
+	/** @Description urlLogoTwiter*/
+    public static String urlLogoTwiter {get; set;}
+    
 	/*
 	 * @Description method BE_SM_Minute_Ctr
 	 */
@@ -74,6 +64,10 @@ public virtual class BE_SM_Minute_Ctr extends BE_SM_Minute_Wrapper {
 		DateTime__c, Url__c FROM slmt__Sales_Meeting__c WHERE Id =:controller.getId() LIMIT 1];
         setValues(controller.getId());
 		meetingDate = getTimeZoneValue(meeting.DateTime__c);
+        mapTopic = getMapValues(new BE_SM_TopicQVC_Cls().getCardDetails(meeting, 'Item1'));
+        mapVisit = getMapValues(new BE_SM_VisitQVC_Cls().getCardDetails(meeting, 'Item2'));
+        mapPipeline = getMapValues(new BE_SM_PipelineLPQVC_Cls().getCardDetails(meeting, 'Item3'));
+        mapPC = getMapValues(new BE_SM_CommPlanQVC_Cls().getCardDetails(meeting, 'Item4'));
 	}
     
     /**
@@ -100,17 +94,16 @@ public virtual class BE_SM_Minute_Ctr extends BE_SM_Minute_Wrapper {
 	 * @Description method sendMail
 	 */
     public void sendMail() {
-		Final String statusOldMeeting = meeting.slmt__mngmt_plan_meeting_status_name__c;
 		String templateConverted = 'BODY NULL';
 		try {
 			Final Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
 			Final PageReference templateVF = Page.BE_SM_Minute_vf;
 			templateVF.getParameters().put('id', meeting.Id);
 			templateVF.setRedirect(true);
-			if(!test.isRunningTest()) {
-				templateConverted = templateVF.getContent().tostring();
-			} else {
+			if(test.isRunningTest()) {
 				templateConverted = '';
+			} else {
+				templateConverted = templateVF.getContent().tostring();
 			}
 			Final String htmlBody = '<![CDATA[ <html lang="es">' +
 			                        '<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />' +
@@ -140,10 +133,10 @@ public virtual class BE_SM_Minute_Ctr extends BE_SM_Minute_Wrapper {
 		pdfMinuta.getParameters().put('id', slmtObjNew.Id);
 		pdfMinuta.setRedirect(true);
 		Blob body;
-		if(!test.isRunningTest()) {
-			body = pdfMinuta.getContentAsPDF();
-		} else {
+		if(test.isRunningTest()) {
 			body = Blob.valueOf('Some Text');
+		} else {
+			body = pdfMinuta.getContentAsPDF();
 		}
 		Final ContentVersion conVer = new ContentVersion();
         conVer.ContentLocation = 'S';
@@ -179,30 +172,6 @@ public virtual class BE_SM_Minute_Ctr extends BE_SM_Minute_Wrapper {
 	 */
     private Map<String, String> mapValues() {
 		Final Map<String, String> localeMap = new Map<String, String>(); //holds the locale to timedate formats
-		localeMap.put('ar', FORMAT_DATE_3);
-		localeMap.put('ar_AE', FORMAT_DATE_3);
-		localeMap.put('ar_BH', FORMAT_DATE_3);
-		localeMap.put('ar_JO', FORMAT_DATE_3);
-		localeMap.put('ar_KW', FORMAT_DATE_3);
-		localeMap.put('ar_LB', FORMAT_DATE_3);
-		localeMap.put('ar_SA', FORMAT_DATE_3);
-		localeMap.put('bg_BG', 'yyyy-M-d H:mm');
-		localeMap.put('ca', FORMAT_DATE_4);
-		localeMap.put('ca_ES', FORMAT_DATE_4);
-		localeMap.put('ca_ES_EURO', FORMAT_DATE_4);
-		localeMap.put('cs', FORMAT_DATE_5);
-		localeMap.put('cs_CZ', FORMAT_DATE_5);
-		localeMap.put('da', 'dd-MM-yyyy HH:mm');
-		localeMap.put('da_DK', 'dd-MM-yyyy HH:mm');
-		localeMap.put('de', FORMAT_DATE_6);
-		localeMap.put('de_AT', FORMAT_DATE_6);
-		localeMap.put('de_AT_EURO', FORMAT_DATE_6);
-		localeMap.put('de_CH', FORMAT_DATE_6);
-		localeMap.put('de_DE', FORMAT_DATE_6);
-		localeMap.put('de_DE_EURO', FORMAT_DATE_6);
-		localeMap.put('de_LU', FORMAT_DATE_6);
-		localeMap.put('de_LU_EURO', FORMAT_DATE_6);
-		localeMap.put('el_GR', 'd/M/yyyy h:mm a');
 		localeMap.put('en_AU', 'd/MM/yyyy HH:mm');
 		localeMap.put('en_B', FORMAT_DATE_2);
 		localeMap.put('en_BM', FORMAT_DATE_2);
@@ -235,62 +204,7 @@ public virtual class BE_SM_Minute_Ctr extends BE_SM_Minute_Wrapper {
 		localeMap.put('es_UY', FORMAT_DATE_3);
 		localeMap.put('es_VE', FORMAT_DATE_3);
 		localeMap.put('et_EE', 'd.MM.yyyy H:mm');
-		localeMap.put('fi', FORMAT_DATE_5);
-		localeMap.put('fi_FI', FORMAT_DATE_5);
-		localeMap.put('fi_FI_EURO', FORMAT_DATE_5);
-		localeMap.put('fr', FORMAT_DATE_4);
-		localeMap.put('fr_BE', FORMAT_DATE_7);
-		localeMap.put('fr_CA', FORMAT_DATE_8);
-		localeMap.put('fr_CH', FORMAT_DATE_6);
-		localeMap.put('fr_FR', FORMAT_DATE_4);
-		localeMap.put('fr_FR_EURO', FORMAT_DATE_4);
-		localeMap.put('fr_LU', FORMAT_DATE_4);
-		localeMap.put('fr_MC', FORMAT_DATE_4);
-		localeMap.put('hr_HR', 'yyyy.MM.dd HH:mm');
-		localeMap.put('hu', 'yyyy.MM.dd. H:mm');
-		localeMap.put('hy_AM', FORMAT_DATE_2);
-		localeMap.put('is_IS', 'd.M.yyyy HH:mm');
-		localeMap.put('it', 'dd/MM/yyyy H.mm');
-		localeMap.put('it_CH', FORMAT_DATE_6);
-		localeMap.put('it_IT', 'dd/MM/yyyy H.mm');
-		localeMap.put('iw', 'HH:mm dd/MM/yyyy');
-		localeMap.put('iw_IL', 'HH:mm dd/MM/yyyy');
-		localeMap.put('ja', 'yyyy/MM/dd H:mm');
-		localeMap.put('ja_JP', 'yyyy/MM/dd H:mm');
-		localeMap.put('kk_KZ', FORMAT_DATE_2);
-		localeMap.put('km_KH', FORMAT_DATE_2);
-		localeMap.put('ko', 'yyyy. M. d a h:mm');
-		localeMap.put('ko_KR', 'yyyy. M. d a h:mm');
-		localeMap.put('lt_LT', 'yyyy.M.d HH.mm');
-		localeMap.put('lv_LV', 'yyyy.d.M HH:mm');
-		localeMap.put('ms_MY', 'dd/MM/yyyy h:mm a');
-		localeMap.put('nl', 'd-M-yyyy H:mm');
-		localeMap.put('nl_BE', FORMAT_DATE_7);
-		localeMap.put('nl_NL', 'd-M-yyyy H:mm');
-		localeMap.put('nl_SR', 'd-M-yyyy H:mm');
-		localeMap.put('no', FORMAT_DATE_6);
-		localeMap.put('no_NO', FORMAT_DATE_6);
-		localeMap.put('pl', FORMAT_DATE_8);
-		localeMap.put('pt', 'dd-MM-yyyy H:mm');
-		localeMap.put('pt_AO', 'dd-MM-yyyy H:mm');
-		localeMap.put('pt_BR', FORMAT_DATE_4);
-		localeMap.put('pt_PT', 'dd-MM-yyyy H:mm');
-		localeMap.put('ro_RO', FORMAT_DATE_6);
-		localeMap.put('ru', 'dd.MM.yyyy H:mm');
-		localeMap.put('sk_SK', FORMAT_DATE_5);
-		localeMap.put('sl_SI', 'd.M.y H:mm');
-		localeMap.put('sv', FORMAT_DATE_8);
-		localeMap.put('sv_SE', FORMAT_DATE_8);
-		localeMap.put('th', FORMAT_DATE_2);
-		localeMap.put('th_TH', 'd/M/yyyy, H:mm ?.');
-		localeMap.put('tr', FORMAT_DATE_6);
-		localeMap.put('ur_PK', FORMAT_DATE_2);
-		localeMap.put('vi_VN', 'HH:mm dd/MM/yyyy');
-		localeMap.put('zh', 'yyyy-M-d ah:mm');
-		localeMap.put('zh_CN', 'yyyy-M-d ah:mm');
-		localeMap.put('zh_HK', 'yyyy-M-d ah:mm');
-		localeMap.put('zh_TW', 'yyyy/M/d a h:mm');
-		return localeMap; //return the map
+		return localeMap;
 	}
 
 	/*
@@ -299,9 +213,33 @@ public virtual class BE_SM_Minute_Ctr extends BE_SM_Minute_Wrapper {
     private Map<String, String> getMapValues(List<Map<String,String>> lstMapQVC) {
 		Final Map<String, String> mapVPF = new Map<String, String>();
 		for(Integer i = 1; i < lstMapQVC.size(); i++) {
-			mapVPF.put('label_'+i, (lstMapQVC[i]).get('label'));
-			mapVPF.put('value_'+i, (lstMapQVC[i]).get('value'));
+			mapVPF.put('label_'+i, lstMapQVC[i].get('label'));
+			mapVPF.put('value_'+i, lstMapQVC[i].get('value'));
 		}
 		return mapVPF;
+	}
+    
+    /*
+	 * @Description method setValues
+	 */
+    public static void setValues(String slmtId) {
+        try {
+			slmtTopics = [SELECT Id, ActivityDate, Subject, Status, Owner.Name, What.Name FROM Task 
+                          WHERE RecordType.DeveloperName = 'Sales_Meeting' AND slmt__management_plan_meeting_id__c = :slmtId
+                          ORDER BY Status ASC, ActivityDate DESC];
+			Final String lstMembrete = [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA' LIMIT 1].Id;
+			Final String lstMembreteWhite = [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white' LIMIT 1].Id;
+			Final String lstLogoFace = [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo' LIMIT 1].Id;
+			Final String lstLogoTwiter = [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo' LIMIT 1].Id;
+			Final String sfdcBaseURL = URL.getSalesforceBaseUrl().toExternalForm() + '/servlet/servlet.ImageServer?id=';
+			Final String param = '&oid=';
+            urlLogo = sfdcBaseURL + lstMembrete + param + UserInfo.getOrganizationId();
+			urlLogoFacebook = sfdcBaseURL + lstLogoFace + param + UserInfo.getOrganizationId();
+			urlLogoTwiter = sfdcBaseURL + lstLogoTwiter + param + UserInfo.getOrganizationId();
+			urlLogoWhite = sfdcBaseURL + lstMembreteWhite + param + UserInfo.getOrganizationId();
+			
+		} catch(System.Exception e) {
+			system.debug('Exception : ' + e.getMessage());
+		}
 	}
 }

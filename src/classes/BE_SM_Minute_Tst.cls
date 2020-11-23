@@ -16,12 +16,10 @@ public with sharing class BE_SM_Minute_Tst {
 	 * @Description  method setUp
 	 */
     @TestSetup
-    static void setUp(){
-        Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
+    static void setUp() {
+        Final Id ejeProfileId = BE_SM_Factory_tst.PROFILEID_EJECUTIVO;
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', User.ManagerId => userGOF.Id});
-        Final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
-        Final Date initDate = Date.newInstance(2020, 11, 11);
         BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 11), ejecutivo.Id, 'Planning', true);
     }
     
