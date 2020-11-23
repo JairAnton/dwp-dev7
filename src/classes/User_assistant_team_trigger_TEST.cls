@@ -93,7 +93,7 @@ private class User_assistant_team_trigger_TEST {
      */
     @isTest
     public static void insertSharingSM() {
-        Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
+        Final Id ejeProfileId = BE_SM_Factory_tst.ID_EJE;
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User userEJE = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
             																				User.ManagerId => userGOF.Id});
@@ -116,7 +116,7 @@ private class User_assistant_team_trigger_TEST {
      */
     @isTest
     public static void deleteSharingSM() {
-        Final Id ejeProfileId = BE_SM_Factory_tst.getEjecutivoProfile();
+        Final Id ejeProfileId = BE_SM_Factory_tst.ID_EJE;
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User userEJE = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
             																				User.ManagerId => userGOF.Id});
