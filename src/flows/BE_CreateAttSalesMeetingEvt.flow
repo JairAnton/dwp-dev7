@@ -22,9 +22,9 @@
             <label>Meeting is not null</label>
         </rules>
     </decisions>
-    <description>Flow that allows you to create &quot;event relation&quot; related to the sales meeting event</description>
-    <interviewLabel>Create Attendee for Event to Sales Meeting {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Create Attendees for Sales Meeting Event</label>
+    <description>Flow that allows you to create &quot;event relation&quot; related to the sales meeting event.</description>
+    <interviewLabel>Create Attendees for Sales Meeting Evt {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Attendees for Sales Meeting Evt</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>

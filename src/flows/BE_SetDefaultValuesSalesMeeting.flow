@@ -27,7 +27,6 @@
             </value>
         </assignmentItems>
     </assignments>
-    <description>Set the values for the date, name and manager fields</description>
     <formulas>
         <name>setDate</name>
         <dataType>Date</dataType>

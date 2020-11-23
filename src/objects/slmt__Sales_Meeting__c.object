@@ -447,14 +447,14 @@
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Invalid_DateTime_Ejecutivo_Planning_Type</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>If SM is Planning type and colaborator is ejecutivo, and BE_DateTime__c is greater than the first 6 working days of the month</description>
-        <errorConditionFormula>IF(ISPICKVAL(BE_Type_of_meeting__c, &apos;Planning&apos;) &amp;&amp; 
-	(00N0m000006Dxrn.00N1I00000Mp8gb == &apos;E03&apos; || 
-		00N0m000006Dxrn.00N1I00000Mp8gb == &apos;I32&apos;),
-	IF(DATEVALUE(BE_DateTime__c) &gt;= DATE(YEAR(DATEVALUE(BE_DateTime__c)), MONTH(DATEVALUE(BE_DateTime__c)), 1) &amp;&amp;
-		DATEVALUE(BE_DateTime__c)&lt;= DATE(YEAR(DATEVALUE(BE_DateTime__c)), MONTH(DATEVALUE(BE_DateTime__c)), CASE(
-																					MOD( DATE(YEAR(DATEVALUE(BE_DateTime__c)), MONTH(DATEVALUE(BE_DateTime__c)), 1) - DATE( 1900, 1, 8 ), 7 ),
+        <errorConditionFormula>IF(ISPICKVAL(Type_of_meeting__c, &apos;Planning&apos;) &amp;&amp; 
+	(Collaborator__r.prof_position_id__c == &apos;E03&apos; || 
+		Collaborator__r.prof_position_id__c == &apos;I32&apos;),
+	IF(DATEVALUE(DateTime__c) &gt;= DATE(YEAR(DATEVALUE(DateTime__c)), MONTH(DATEVALUE(DateTime__c)), 1) &amp;&amp;
+		DATEVALUE(DateTime__c)&lt;= DATE(YEAR(DATEVALUE(DateTime__c)), MONTH(DATEVALUE(DateTime__c)), CASE(
+																					MOD( DATE(YEAR(DATEVALUE(DateTime__c)), MONTH(DATEVALUE(DateTime__c)), 1) - DATE( 1900, 1, 8 ), 7 ),
 																					0, 8,
 																					1, 8,
 																					2, 8,

@@ -116,7 +116,7 @@
         <dataType>Boolean</dataType>
         <expression>true</expression>
     </formulas>
-    <interviewLabel>BE_Sales_Meeting_Automatic_Closing-2_InterviewLabel</interviewLabel>
+    <interviewLabel>BE_SalesMeetingAutomaticClosing-1_InterviewLabel</interviewLabel>
     <label>Sales Meeting Automatic Closing</label>
     <processMetadataValues>
         <name>ObjectType</name>

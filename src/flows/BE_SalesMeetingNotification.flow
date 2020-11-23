@@ -480,7 +480,7 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>[slmt__Sales_Meeting__c].DateTime__c + (VALUE(TEXT([slmt__Sales_Meeting__c].slmt__mngmt_plan_meet_dur_number__c))/24/60)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_11_myRule_10_A1_7176909153</name>
+        <name>formula_11_myRule_10_A1_2178955383</name>
         <dataType>DateTime</dataType>
         <expression>{!myVariable_current.DateTime__c} + (VALUE(TEXT({!myVariable_current.slmt__mngmt_plan_meet_dur_number__c}))/24/60)</expression>
     </formulas>
@@ -491,7 +491,7 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>[slmt__Sales_Meeting__c].DateTime__c + (VALUE(TEXT([slmt__Sales_Meeting__c].slmt__mngmt_plan_meet_dur_number__c))/24/60)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A1_0730992609</name>
+        <name>formula_2_myRule_1_A1_7677079904</name>
         <dataType>DateTime</dataType>
         <expression>{!myVariable_current.DateTime__c} + (VALUE(TEXT({!myVariable_current.slmt__mngmt_plan_meet_dur_number__c}))/24/60)</expression>
     </formulas>
@@ -502,7 +502,7 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>[slmt__Sales_Meeting__c].DateTime__c + (VALUE(TEXT([slmt__Sales_Meeting__c].slmt__mngmt_plan_meet_dur_number__c))/24/60)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_5_myRule_4_A1_6939051036</name>
+        <name>formula_5_myRule_4_A1_2354777740</name>
         <dataType>DateTime</dataType>
         <expression>{!myVariable_current.DateTime__c} + (VALUE(TEXT({!myVariable_current.slmt__mngmt_plan_meet_dur_number__c}))/24/60)</expression>
     </formulas>
@@ -513,7 +513,7 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>[slmt__Sales_Meeting__c].DateTime__c + (VALUE(TEXT([slmt__Sales_Meeting__c].slmt__mngmt_plan_meet_dur_number__c))/24/60)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_8_myRule_7_A1_3479105861</name>
+        <name>formula_8_myRule_7_A1_0146652613</name>
         <dataType>DateTime</dataType>
         <expression>{!myVariable_current.DateTime__c} + (VALUE(TEXT({!myVariable_current.slmt__mngmt_plan_meet_dur_number__c}))/24/60)</expression>
     </formulas>
@@ -561,7 +561,7 @@ Fecha: {!myVariable_current.DateTime__c}
         <dataType>Boolean</dataType>
         <expression>AND( ISNEW() , {!myVariable_current.Collaborator__r.ManagerId} != null, {!myVariable_current.CreatedById} != {!myVariable_current.Collaborator__c}, {!myVariable_current.CreatedById} != {!myVariable_current.slmt__mngmt_plan_meeting_user_id__c}  )</expression>
     </formulas>
-    <interviewLabel>BE_Sales_Meeting_Notification-6_InterviewLabel</interviewLabel>
+    <interviewLabel>BE_SalesMeetingNotification-1_InterviewLabel</interviewLabel>
     <label>Sales Meeting Notification</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -629,7 +629,7 @@ Fecha: {!myVariable_current.DateTime__c}
             </processMetadataValues>
             <field>EndDateTime</field>
             <value>
-                <elementReference>formula_2_myRule_1_A1_0730992609</elementReference>
+                <elementReference>formula_2_myRule_1_A1_7677079904</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -801,7 +801,7 @@ Fecha: {!myVariable_current.DateTime__c}
             </processMetadataValues>
             <field>EndDateTime</field>
             <value>
-                <elementReference>formula_5_myRule_4_A1_6939051036</elementReference>
+                <elementReference>formula_5_myRule_4_A1_2354777740</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -973,7 +973,7 @@ Fecha: {!myVariable_current.DateTime__c}
             </processMetadataValues>
             <field>EndDateTime</field>
             <value>
-                <elementReference>formula_8_myRule_7_A1_3479105861</elementReference>
+                <elementReference>formula_8_myRule_7_A1_0146652613</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1234,7 +1234,7 @@ Fecha: {!myVariable_current.DateTime__c}
             </processMetadataValues>
             <field>EndDateTime</field>
             <value>
-                <elementReference>formula_11_myRule_10_A1_7176909153</elementReference>
+                <elementReference>formula_11_myRule_10_A1_2178955383</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

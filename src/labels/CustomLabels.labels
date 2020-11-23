@@ -326,6 +326,27 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>BE_NotCreateEditAccount</shortDescription>
         <value>It is not possible to create a client.</value>
     </labels>
+	<labels>
+        <fullName>BE_SalesMeeting_BtnCancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SalesMeeting_BtnCancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>BE_SalesMeeting_BtnFinalize</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SalesMeeting_BtnFinalize</shortDescription>
+        <value>Finalize</value>
+    </labels>
+    <labels>
+        <fullName>BE_SalesMeeting_BtnFinalizeNew</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SalesMeeting_BtnFinalizeNew</shortDescription>
+        <value>Finalize &amp; New</value>
+    </labels>
     <labels>
         <fullName>BE_SingleRelatedListModal_BtnCancel</fullName>
         <language>en_US</language>
