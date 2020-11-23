@@ -31,8 +31,8 @@ global without sharing class BE_SM_TopicQVC_Cls implements slmt.Sales_Meeting_It
         final List<Map<String,String>> lstReturn = new List<Map<String,String>>();
         lstReturn.add(createItem(new List<String>{'', 'Temas', '08',cardId}));
         lstReturn.add(createItem(new List<String>{'Temas a tratar',String.valueOf(totalTopics),'06',cardId}));
-        lstReturn.add(createItem(new List<String>{'Temas del gestor',String.valueOf(String.valueOf(topicsManager) + ' de ' + String.valueOf(totalTopics)),'08',cardId}));
-        lstReturn.add(createItem(new List<String>{'Temas del responsable', String.valueOf(String.valueOf(topicsColl) + ' de ' + String.valueOf(totalTopics)),'08',cardId}));
+        lstReturn.add(createItem(new List<String>{'Temas del gestor',String.valueOf(topicsManager) + ' de ' + String.valueOf(totalTopics),'08',cardId}));
+        lstReturn.add(createItem(new List<String>{'Temas del responsable', String.valueOf(topicsColl) + ' de ' + String.valueOf(totalTopics),'08',cardId}));
         return lstReturn;
     }
 

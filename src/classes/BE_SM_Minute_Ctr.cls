@@ -212,7 +212,7 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 	/*
 	 * @Description method getMapValues
 	 */
-    private Map<String, String> mapValuesGet(List<Map<String,String>> lstMapQVC) {
+    public Map<String, String> mapValuesGet(List<Map<String,String>> lstMapQVC) {
 		Final Map<String, String> mapVPF = new Map<String, String>();
 		for(Integer i = 1; i < lstMapQVC.size(); i++) {
 			mapVPF.put('label_'+i, lstMapQVC[i].get('label'));
@@ -229,10 +229,10 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 			slmtTopics = [SELECT Id, ActivityDate, Subject, Status, Owner.Name, What.Name FROM Task 
                           WHERE RecordType.DeveloperName = 'Sales_Meeting' AND slmt__management_plan_meeting_id__c = :slmtId
                           ORDER BY Status ASC, ActivityDate DESC];
-			Final String lstMembrete = returnMembreteId();
-			Final String lstMembreteWhite = returnMembWhiteId();
-			Final String lstLogoFace = returnLogoFaceId();
-			Final String lstLogoTwiter = returnLogoTwiterId();
+			Final String lstMembrete = returnDocId('Logo_BBVA');
+			Final String lstMembreteWhite = returnDocId('Logo_BBVA_white');
+			Final String lstLogoFace = returnDocId('facebook_logo');
+			Final String lstLogoTwiter = returnDocId('twitter_logo');
 			Final String sfdcBaseURL = URL.getSalesforceBaseUrl().toExternalForm() + '/servlet/servlet.ImageServer?id=';
 			urlLogo = sfdcBaseURL + lstMembrete + PARAM + UserInfo.getOrganizationId();
 			urlLogoFacebook = sfdcBaseURL + lstLogoFace + PARAM + UserInfo.getOrganizationId();
@@ -245,30 +245,10 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 	}
     
     /*
-	 * @Description method returnMembreteId
+	 * @Description method returnDocId
 	 */
-    public static String returnMembreteId() {
-        return [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA' LIMIT 1].Id;
-    }
-    
-    /*
-	 * @Description method returnMembWhiteId
-	 */
-    public static String returnMembWhiteId() {
-        return [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white' LIMIT 1].Id;
-    }
-    
-    /*
-	 * @Description method returnLogoFaceId
-	 */
-    public static String returnLogoFaceId() {
-        return [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo' LIMIT 1].Id;
-    }
-    
-    /*
-	 * @Description method returnLogoTwiterId
-	 */
-    public static String returnLogoTwiterId() {
-        return [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo' LIMIT 1].Id;
+    public static String returnDocId(String DevName) {
+        Final List<Document> ltsDoc = [SELECT Id FROM Document WHERE DeveloperName = :DevName LIMIT 1];
+        return ltsDoc.isEmpty() ? '' : ltsDoc[0].Id;
     }
 }
