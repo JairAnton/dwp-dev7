@@ -12,8 +12,8 @@
 @isTest
 public with sharing class BE_SM_Factory_tst {
     
-    /** @Description  variable PROFILEID_EJECUTIVO*/
-    public static Id PROFILEID_EJECUTIVO = [SELECT Id FROM Profile WHERE Name = 'Ejecutivo' LIMIT 1].Id;
+    /** @Description  variable ID_EJE*/
+    public static Final Id ID_EJE = [SELECT Id FROM Profile WHERE Name = 'Ejecutivo' LIMIT 1].Id;
     
     /*
 	 * @Description  method createSalesMeeting
@@ -39,9 +39,10 @@ public with sharing class BE_SM_Factory_tst {
 		return standardPrice;
     }
 
+    /** @Description  generalSetUp*/
     public static void generalSetUp() {
-        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => PROFILEID_EJECUTIVO, User.prof_position_id__c => 'E01'});
-        Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => PROFILEID_EJECUTIVO, User.prof_position_id__c => 'E03', 
+        Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ID_EJE, User.prof_position_id__c => 'E01'});
+        Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ID_EJE, User.prof_position_id__c => 'E03', 
             																					User.ManagerId => userGOF.Id});
         Final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
         Final Date initDate = Date.newInstance(2020, 11, 11);

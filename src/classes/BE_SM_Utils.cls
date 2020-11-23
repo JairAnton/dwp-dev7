@@ -128,15 +128,14 @@ public without sharing class BE_SM_Utils {
     public static String getRecordTypeId(String developerName) {
         final List<String> sObjNames = new List<String> {'Task'};
         final Map<String, Schema.RecordTypeInfo> recordType = BE_General_Utils.getRecordTypeInfo(sObjNames);
-		final String rtId = recordType.get(developerName).getRecordTypeId();
-        return rtId;
+        return recordType.get(developerName).getRecordTypeId();
     }
     
     /*
 	 * @Description  method to return recordtypeId from task sales meeting
 	 */
     @AuraEnabled
-    public static Map<String, String> getTypesSM() {
+    public static Map<String, String> retTypesSM() {
         Final Map<String, String> mapReturn = new Map<String, String>();
         Final Schema.DescribeFieldResult fieldResult = slmt__Sales_Meeting__c.Type_of_meeting__c.getDescribe();
         Final List<Schema.PicklistEntry> plentry = fieldResult.getPicklistValues();

@@ -29,7 +29,7 @@ global without sharing class BE_SM_CommPlanQVC_Cls implements slmt.Sales_Meeting
         final DateTime lastDayOfMonth = DateTime.newInstance(salesDate.year(),salesDate.month(), numberOfDays);
         final List<dwp_frct__management_plan__c> cplans=[SELECT dwp_frct__mngmt_plan_tot_commitment_amount__c  FROM dwp_frct__management_plan__c WHERE dwp_frct__management_plan_end_date__c>=:(Date)contextRecord.get('slmt__management_plan_meeting_date__c') 
         AND dwp_frct__management_plan_start_date__c<=:(Date)contextRecord.get('slmt__management_plan_meeting_date__c') AND OwnerId=:(String)contextRecord.get('Collaborator__c')];
-        totalCommitment=(cplans.isEmpty())?0.0:cplans[0].dwp_frct__mngmt_plan_tot_commitment_amount__c;
+        totalCommitment=cplans.isEmpty()?0.0:cplans[0].dwp_frct__mngmt_plan_tot_commitment_amount__c;
         for (OpportunityLineItem  oli: [SELECT Id,convertCurrency(Opportunity.Amount)Amount,OpportunityId FROM OpportunityLineItem WHERE  Product2.Type__c=:PRODUCT_TYPE AND  Opportunity.CloseDate >=:firstDayOfMonth.date() AND Opportunity.CloseDate <=:lastDayOfMonth.date() AND Opportunity.isClosed = false AND Opportunity.isWon = false AND Opportunity.OwnerId =:(String)contextRecord.get('Collaborator__c') ORDER BY Opportunity.Amount DESC]) {
             directCommitment=directCommitment+oli.Opportunity.Amount;
         }

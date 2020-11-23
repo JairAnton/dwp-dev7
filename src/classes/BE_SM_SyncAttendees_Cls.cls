@@ -24,10 +24,10 @@ public with sharing class BE_SM_SyncAttendees_Cls {
         }
         final String hour = String.valueOf(Datetime.now().hour());
         final String min = String.valueOf(Datetime.now().minute() + 2); 
-        final String ss = String.valueOf(Datetime.now().second());
-        final String nextFireTime = ss + ' ' + min + ' ' + hour + ' * * ?';
+        final String second = String.valueOf(Datetime.now().second());
+        final String nextFireTime = second + ' ' + min + ' ' + hour + ' * * ?';
         
         final BE_SyncEventAttendees_BS sch = new BE_SyncEventAttendees_BS(evtIds); 
-        System.schedule('Sync attendees started at ' + String.valueOf(Datetime.now()), nextFireTime, sch);
+        System.schedule('Sync attendees started at ' + Datetime.now(), nextFireTime, sch);
     }
 }

@@ -23,7 +23,7 @@ public class BE_SM_FinalizeModal_Tst {
 	 */
     @TestSetup
     static void setUp() {
-        Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.PROFILEID_EJECUTIVO, User.prof_position_id__c => 'E03'});
+        Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.ID_EJE, User.prof_position_id__c => 'E03'});
         BE_SM_Factory_tst.createSalesMeeting(Date.newInstance(2020, 11, 11), ejecutivo.Id, 'Planning', true);
     }
     

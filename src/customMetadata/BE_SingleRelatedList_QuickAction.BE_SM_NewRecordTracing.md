@@ -38,7 +38,7 @@
 }</value>
     </values>
     <values>
-        <field>Fields__c</field>
+        <field>CustomFields__c</field>
         <value xsi:nil="true"/>
     </values>
     <values>

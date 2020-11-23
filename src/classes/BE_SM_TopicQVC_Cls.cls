@@ -9,7 +9,7 @@
    2020-11-15  LMBR     lolo.bravo@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
-global class BE_SM_TopicQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
+global without sharing class BE_SM_TopicQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
     /**
     @Description createRecords
     @param Object contextRecord (Sales Meeting)
@@ -17,14 +17,13 @@ global class BE_SM_TopicQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
     @return BE_SingleRelatedListCRUD_Cls.Response response
     */
     public List<Map<String,String>> getCardDetails(sObject contextRecord, String cardId) {
-        System.debug('cardId'+cardId);
         Integer totalTopics = 0;
         Integer topicsManager = 0;
-        Integer topicsCollaborator = 0;
+        Integer topicsColl = 0;
         for(Task tsk : [SELECT Id, Subject, OwnerId FROM Task WHERE  (OwnerId=:(String)contextRecord.get('Collaborator__c')  OR OwnerId=:(String)contextRecord.get('slmt__mngmt_plan_meeting_user_id__c')) AND slmt__management_plan_meeting_id__r.OwnerId=:(String)contextRecord.get('Collaborator__c') AND ActivityDate <=:(Date)contextRecord.get('slmt__management_plan_meeting_date__c')]) {
             totalTopics++;
             if(tsk.OwnerId == contextRecord.get('Collaborator__c')) {
-                topicsCollaborator++;
+                topicsColl++;
             } else if(tsk.OwnerId == contextRecord.get('slmt__mngmt_plan_meeting_user_id__c')) {
                 topicsManager++;
             }
@@ -32,8 +31,8 @@ global class BE_SM_TopicQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
         final List<Map<String,String>> lstReturn = new List<Map<String,String>>();
         lstReturn.add(createItem(new List<String>{'', 'Temas', '08',cardId}));
         lstReturn.add(createItem(new List<String>{'Temas a tratar',String.valueOf(totalTopics),'06',cardId}));
-        lstReturn.add(createItem(new List<String>{'Temas del gestor',String.valueOf(topicsManager) + ' de ' + String.valueOf(totalTopics),'08',cardId}));
-        lstReturn.add(createItem(new List<String>{'Temas del responsable',String.valueOf(topicsCollaborator) + ' de ' + String.valueOf(totalTopics),'08',cardId}));
+        lstReturn.add(createItem(new List<String>{'Temas del gestor',String.valueOf(String.valueOf(topicsManager) + ' de ' + String.valueOf(totalTopics)),'08',cardId}));
+        lstReturn.add(createItem(new List<String>{'Temas del responsable', String.valueOf(String.valueOf(topicsColl) + ' de ' + String.valueOf(totalTopics)),'08',cardId}));
         return lstReturn;
     }
 

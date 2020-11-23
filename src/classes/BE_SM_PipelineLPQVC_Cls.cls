@@ -9,7 +9,7 @@
    2020-11-10  DCP     diego.carbajal@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
-global class BE_SM_PipelineLPQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
+global without sharing class BE_SM_PipelineLPQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
 
     /** @Description  Variable THIS_MONTH*/
     private static Final String THIS_MONTH = 'thisMonth';
@@ -27,12 +27,12 @@ global class BE_SM_PipelineLPQVC_Cls implements slmt.Sales_Meeting_Item_Details_
         Final slmt__Sales_Meeting__c salesMeeting= [SELECT slmt__management_plan_meeting_date__c, Collaborator__c 
                                                     FROM slmt__Sales_Meeting__c WHERE Id=:contextRecord.Id];
         Final Map<String, Decimal> mapResult = getCurrentOpps(salesMeeting);
-        Integer thisMonth = Integer.valueOf(mapResult.get(THIS_MONTH));
-        Integer thisMontNew = getNewOpps(salesMeeting);
-        Integer nextMonth = Integer.valueOf(mapResult.get(NEXT_MONTH));
+        Final Integer thisMonth = Integer.valueOf(mapResult.get(THIS_MONTH));
+        Final Integer thisMontNew = getNewOpps(salesMeeting);
+        Final Integer nextMonth = Integer.valueOf(mapResult.get(NEXT_MONTH));
         Final List<String> formato = new String[]{'0','number','###,###,##0.00'};
 
-        List<Map<String,String>> lstReturn = new List<Map<String,String>>();
+        Final List<Map<String,String>> lstReturn = new List<Map<String,String>>();
         //Map<String,String> title = new Map<String,String>();
 
         lstReturn.add(createItem('', 'Pipeline LP', '08'));
@@ -49,11 +49,13 @@ global class BE_SM_PipelineLPQVC_Cls implements slmt.Sales_Meeting_Item_Details_
 	 */
     private Map<String, Decimal> getCurrentOpps(slmt__Sales_Meeting__c salesMeeting) {
         Final Map<String, Decimal> mapResult = new Map<String, Decimal>{THIS_MONTH => 0, NEXT_MONTH => 0, THIS_AMOUNT => 0, NEXT_AMOUNT => 0};
-        BE_SingleRelatedListCRUD_Cls.Response response = BE_SM_Opportunity_helper.getSMPipeline(new Set<String>{'02', '03', '04', '05'}, 
-        new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => 'Opportunity', 'sObjFields' => 'CloseDate,StageName,Amount,convertCurrency(amount) convertedCurrency'});
+        Final BE_SingleRelatedListCRUD_Cls.Response response = BE_SM_Opportunity_helper.getSMPipeline(new Set<String>{'02', '03', '04', '05'}, 
+                                                            new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => 'Opportunity', 
+                                                            'sObjFields' => 'CloseDate,StageName,Amount,convertCurrency(amount) convertedCurrency'});
+        Date fecha; 
         if(response.isSuccess) {
             for(SObject obj :response.data) {
-                Date fecha = (Date)obj.get('CloseDate');
+                fecha = (Date)obj.get('CloseDate');
                 if(fecha.month() == salesMeeting.slmt__management_plan_meeting_date__c.month()) {
                     mapResult.put(THIS_MONTH, mapResult.get(THIS_MONTH) + 1);
                     mapResult.put(THIS_AMOUNT, mapResult.get(THIS_AMOUNT) + (Decimal)obj.get('convertedCurrency'));

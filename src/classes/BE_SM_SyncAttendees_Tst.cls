@@ -16,8 +16,8 @@ public with sharing class BE_SM_SyncAttendees_Tst {
 	 * @Description  method setUp
 	 */
     @TestSetup
-    static void setUp(){
-        Final Id ejeProfileId = BE_SM_Factory_tst.PROFILEID_EJECUTIVO;
+    static void setUp() {
+        Final Id ejeProfileId = BE_SM_Factory_tst.ID_EJE;
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', User.ManagerId => userGOF.Id});
         
@@ -39,12 +39,12 @@ public with sharing class BE_SM_SyncAttendees_Tst {
     static void unitTest() {
         Test.startTest();
         final Set<String> setSMIds = new Set<String>();
-        final Set<Id> evtIds = new Set<Id>();
         for(slmt__Sales_Meeting__c slmt : [SELECT Id FROM slmt__Sales_Meeting__c LIMIT 4]) {
             setSMIds.add(slmt.Id);
         }
-        if(setSMIds.size()>0) {
-            for(Event evt : [SELECT Id FROM Event WHERE slmt__management_plan_meeting_id__c IN :setSMIds AND IsChild = FALSE]) {
+        if(!setSMIds.isEmpty()) {
+            final Set<Id> evtIds = new Set<Id>();
+        	for(Event evt : [SELECT Id FROM Event WHERE slmt__management_plan_meeting_id__c IN :setSMIds AND IsChild = FALSE]) {
                 evtIds.add(evt.Id);
             }
             Database.executeBatch(new BE_SyncEventAttendees_Batch(evtIds));

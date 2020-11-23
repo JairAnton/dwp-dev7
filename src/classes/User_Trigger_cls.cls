@@ -166,12 +166,17 @@ public without sharing class User_Trigger_cls {
 		}
 	}
 
-    private static void addJPNInSMS(Map<id, User> userNewMap, Map<id, User> userOldMap) {
+    /*
+	 * @Name: addJPNInSMS
+	 * @Description: add jpns
+	 */
+	private static void addJPNInSMS(Map<id, User> userNewMap, Map<id, User> userOldMap) {
         Final Map<String, Set<Id>> mapJPNByManager = new Map<String, Set<Id>>();
         Set<Id> setJPNIdAux = new Set<Id>();
+		Boolean userJPN;
 		for(User userAux: userNewMap.values()) {
-            Boolean userJPN = userAux.isActive && String.isNotEmpty(userAux.UserRoleId) && userAux.prof_position_id__c == JPN_CODE;
-            if(( userJPN && userOldMap == null) || (userJPN && userOldMap.get((Id)userAux.Id).prof_position_id__c != JPN_CODE)) {
+            userJPN = userAux.isActive && String.isNotEmpty(userAux.UserRoleId) && userAux.prof_position_id__c == JPN_CODE;
+            if((userJPN && userOldMap == null) || (userJPN && userOldMap.get((Id)userAux.Id).prof_position_id__c != JPN_CODE)) {
                 setJPNIdAux = new Set<Id>{userAux.Id};
                 if(mapJPNByManager.containsKey(userAux.ManagerId)) {
                     setJPNIdAux.addAll(mapJPNByManager.get(userAux.ManagerId));
@@ -184,6 +189,10 @@ public without sharing class User_Trigger_cls {
         }
 	}
     
+	/*
+	 * @Name: removeJPNofSMS
+	 * @Description: remove jpns
+	 */
 	private static void removeJPNofSMS(Map<id, User> userNewMap, Map<id, User> userOldMap) {
 		Final Set<Id> setJpnId = new Set<Id>();
 		for(User userAux: userNewMap.values()) {

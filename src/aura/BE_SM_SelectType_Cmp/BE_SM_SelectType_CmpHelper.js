@@ -1,7 +1,7 @@
 ({
 	getTypes : function(cmp, evt) {
         var options = [];
-        var action = cmp.get("c.getTypesSM");
+        var action = cmp.get("c.retTypesSM");
         action.setCallback(this, function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {

@@ -43,7 +43,7 @@ public without sharing class BE_SyncEventAttendees_Batch implements Database.Bat
                 userIds.add(evtRel.RelationId);
             }
         }
-        if(userIds.size()>0) {
+        if(!userIds.isEmpty()) {
             for(User usr : [SELECT Id, User_Id__c FROM User WHERE Id IN :userIds]) {
                 mapUserCodes.put(usr.Id, usr.User_Id__c);
             }
@@ -71,7 +71,7 @@ public without sharing class BE_SyncEventAttendees_Batch implements Database.Bat
             }
             ltsGcalEvtAtt.add(gcalEvtAtt);
         }
-        if(ltsGcalEvtAtt.size() > 0) {
+        if(!ltsGcalEvtAtt.isEmpty()) {
             insert ltsGcalEvtAtt;
         }
     }

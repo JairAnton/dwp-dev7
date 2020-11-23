@@ -101,15 +101,15 @@ public without sharing class User_Assistant_Team_Trigger_cls {
 	/**
      * @Description deleteAssistants
      */
-	private static void deleteAssistants(list<User_Assistant_Team__c> UAssT_Old) {
+	private static void deleteAssistants(list<User_Assistant_Team__c> uAssTOld) {
 		list<AccountTeamMember> atmList = new List<AccountTeamMember>();
 		list<String> uatIdList = new List<String>();
-		for(User_Assistant_Team__c uat : UAssT_Old) {
+		for(User_Assistant_Team__c uat : uAssTOld) {
 			uatIdList.add(uat.user_Id__c);
 		}
 		List<Account> accList = [Select id, OwnerId, (select id, AccountId, UserId from AccountTeamMembers) From Account where OwnerId IN :uatIdList];
 
-		for(User_Assistant_Team__c uat : UAssT_Old) {
+		for(User_Assistant_Team__c uat : uAssTOld) {
 			for(Account acc : accList) {
 				if(acc.OwnerId == uat.user_Id__c) {
 					for(AccountTeamMember atm : acc.AccountTeamMembers) {
@@ -152,12 +152,11 @@ public without sharing class User_Assistant_Team_Trigger_cls {
 			}
 		}
 		if(!lstSMStoDel.isEmpty()) {delete lstSMStoDel;}
-		//final mAP<Id,dwp_frct__management_plan__c> cPlans= new Map<Id,dwp_frct__management_plan__c>([SELECT OwnerId FROM dwp_frct__management_plan__c WHERE OwnerId IN:mapEjeAndAst.keySet()]);
 		final dwp_frct__management_plan__Share[] cPlansShare =[SELECT Id, parent.OwnerId, UserOrGroupId FROM dwp_frct__management_plan__Share WHERE parentId IN:mapSM.keySet() AND 
 		AccessLevel = 'Edit' AND RowCause = 'Manual' AND UserOrGroupId IN: setAssistAux];
 		final dwp_frct__management_plan__Share[] cPlansShareDel= new dwp_frct__management_plan__Share[]{};
         for(dwp_frct__management_plan__Share cPlanShareAux:cPlansShare) {
-			if(mapEjeAndAst.get(cPlanShareAux.parent.OwnerId).contains(cPlanShareAux.UserOrGroupId)){
+			if(mapEjeAndAst.get(cPlanShareAux.parent.OwnerId).contains(cPlanShareAux.UserOrGroupId)) {
 				cPlansShareDel.add(cPlanShareAux);
 			}
 		}

@@ -16,8 +16,8 @@ public with sharing class BE_SM_Visit_Tst {
 	 * @Description  method setUp
 	 */
     @TestSetup
-    static void setUp(){
-        Final Id ejeProfileId = BE_SM_Factory_tst.PROFILEID_EJECUTIVO;
+    static void setUp() {
+        Final Id ejeProfileId = BE_SM_Factory_tst.ID_EJE;
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
             																					User.ManagerId => userGOF.Id});
@@ -45,7 +45,7 @@ public with sharing class BE_SM_Visit_Tst {
         Test.startTest();
         Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_PlanningVisit_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 30, 'success!!!');
+        System.assertEquals(response.data.size(), 30, 'success getSMPlanningVisits!!!');
     }
 
     /*
@@ -58,7 +58,7 @@ public with sharing class BE_SM_Visit_Tst {
         Test.startTest();
         Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_RealizedVisit_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 10, 'success!!!');
+        System.assertEquals(response.data.size(), 10, 'success getSMRealizedVisits!!!');
     }
     
     /*
@@ -70,7 +70,7 @@ public with sharing class BE_SM_Visit_Tst {
         Test.startTest();
         Final List<Map<String,String>> lstCard = new BE_SM_VisitQVC_Cls().getCardDetails(salesMeeting, 'cardId');
         Test.stopTest();
-        System.assertEquals(4, lstCard.size(), 'success!!!');
+        System.assertEquals(4, lstCard.size(), 'success getCardDetails!!!');
     }
     
     /*
@@ -81,6 +81,6 @@ public with sharing class BE_SM_Visit_Tst {
         Test.startTest();
         Final String rtId = BE_SM_Utils.getRecordTypeId('Sales_Meeting');
         Test.stopTest();
-        System.assert(!String.isEmpty(rtId), 'success!!!');
+        System.assert(!String.isEmpty(rtId), 'success getRecordTypeTask!!!');
     }
 }

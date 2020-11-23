@@ -10,7 +10,7 @@
             case 'view':
                 helper.callApexMethod(cmp, evt, JSON.stringify(initialsObject),cmp.get("c.readRecord"))
                 break;
-            case 'create': 
+            case 'create':
                 var sObjectCreate = Object.assign(initialsObject, fields);
                 helper.callApexMethod(cmp, evt, sObjectCreate,cmp.get("c.createRecord"));
                 break;
