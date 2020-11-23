@@ -10,6 +10,7 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_SM_PendingTopic_Ctr  extends BE_SingleRelatedListCRUD_Cls {
+    /** OPEN_TOPIC */
     final static String OPEN_TOPIC='Open';
     /**
     @Description createRecords
@@ -22,9 +23,13 @@ public without sharing class BE_SM_PendingTopic_Ctr  extends BE_SingleRelatedLis
         final String collaborator=salesMeeting.Collaborator__c;
         final String manager=salesMeeting.slmt__mngmt_plan_meeting_user_id__c;
         final Date myDate =  Date.valueOf(salesMeeting.slmt__management_plan_meeting_date__c);
-        final String query = 'SELECT '+ params.get('sObjFields')+ ' FROM '+ params.get('sObjName') + ' WHERE Status=:OpenTopic AND (OwnerId=: collaborator OR OwnerId=:manager) AND slmt__management_plan_meeting_id__r.Collaborator__c=:collaborator AND  ActivityDate <=:myDate';
-        res.isSuccess=true;
-        res.data=Database.query(String.escapeSingleQuotes(query));
+        if(String.isNotBlank(collaborator) && String.isNotBlank(manager) && String.isNotBlank(myDate.format())) {
+            final String query = 'SELECT '+ params.get('sObjFields')+ ' FROM '+ params.get('sObjName') + ' WHERE Status=:OpenTopic AND (OwnerId=: collaborator OR OwnerId=:manager) AND slmt__management_plan_meeting_id__r.Collaborator__c=:collaborator AND  ActivityDate <=:myDate';
+            res.isSuccess=true;
+            res.data=Database.query(String.escapeSingleQuotes(query));
+        } else {
+            res.isSuccess=false;
+        }
         return res;
     }
 }

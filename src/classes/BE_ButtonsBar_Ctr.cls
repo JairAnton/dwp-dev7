@@ -31,12 +31,12 @@ public with sharing class BE_ButtonsBar_Ctr {
     public static Object getObjectId(Map<String,Object> params) {
         BE_ButtonsBarCRUD_cls.Response res= new BE_ButtonsBarCRUD_cls.Response();
         if(String.isNotBlank((String)params.get('apexClass'))) {
-            BE_ButtonsBarCRUD_cls resCustom=(BE_ButtonsBarCRUD_cls)Type.forName((String)params.get('apexClass')).newInstance();
+            final BE_ButtonsBarCRUD_cls resCustom=(BE_ButtonsBarCRUD_cls)Type.forName((String)params.get('apexClass')).newInstance();
             res=resCustom.readRecords(params);
         } else {
             final String query = 'SELECT ID FROM '+ params.get('objectApiName') +' WHERE ' + params.get('filter');
             res.isSuccess=true;
-            res.data=Database.query(query);
+            res.data=Database.query(String.escapeSingleQuotes(query));
             
         }
         return res;

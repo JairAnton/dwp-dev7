@@ -43,15 +43,17 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 	 *   @Variable: FORMAT_DATE_7
 	 */
 	public static Final String FORMAT_DATE_7 = 'd/MM/yyyy H:mm';
-    /** @Description slmtTopics*/
+    /** @Variable PARAM*/
+    public static Final String PARAM = '&oid=';
+    /** @Variable slmtTopics*/
     public static List<Task> slmtTopics {get; set;}
-	/** @Description urlLogo*/
+	/** @Variable urlLogo*/
     public static String urlLogo {get; set;}
-	/** @Description urlLogoWhite*/
+	/** @Variable urlLogoWhite*/
     public static String urlLogoWhite {get; set;}
-	/** @Description urlLogoFacebook*/
+	/** @Variable urlLogoFacebook*/
     public static String urlLogoFacebook {get; set;}
-	/** @Description urlLogoTwiter*/
+	/** @Variable urlLogoTwiter*/
     public static String urlLogoTwiter {get; set;}
     
 	/*
@@ -62,12 +64,12 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 		slmt__mngmt_plan_meeting_start_desc__c, slmt__mngmt_plan_meeting_status_name__c, slmt__mngmt_plan_meeting_user_id__c, 
 		slmt__mngmt_plan_meeting_user_id__r.Email, Type_of_meeting__c, Collaborator__c, Collaborator__r.Email, 
 		DateTime__c, Url__c FROM slmt__Sales_Meeting__c WHERE Id =:controller.getId() LIMIT 1];
-        setValues(controller.getId());
+        valuesSet(controller.getId());
 		meetingDate = getTimeZoneValue(meeting.DateTime__c);
-        mapTopic = getMapValues(new BE_SM_TopicQVC_Cls().getCardDetails(meeting, 'Item1'));
-        mapVisit = getMapValues(new BE_SM_VisitQVC_Cls().getCardDetails(meeting, 'Item2'));
-        mapPipeline = getMapValues(new BE_SM_PipelineLPQVC_Cls().getCardDetails(meeting, 'Item3'));
-        mapPC = getMapValues(new BE_SM_CommPlanQVC_Cls().getCardDetails(meeting, 'Item4'));
+        mapTopic = mapValuesGet(new BE_SM_TopicQVC_Cls().getCardDetails(meeting, 'Item1'));
+        mapVisit = mapValuesGet(new BE_SM_VisitQVC_Cls().getCardDetails(meeting, 'Item2'));
+        mapPipeline = mapValuesGet(new BE_SM_PipelineLPQVC_Cls().getCardDetails(meeting, 'Item3'));
+        mapPC = mapValuesGet(new BE_SM_CommPlanQVC_Cls().getCardDetails(meeting, 'Item4'));
 	}
     
     /**
@@ -210,7 +212,7 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 	/*
 	 * @Description method getMapValues
 	 */
-    private Map<String, String> getMapValues(List<Map<String,String>> lstMapQVC) {
+    private Map<String, String> mapValuesGet(List<Map<String,String>> lstMapQVC) {
 		Final Map<String, String> mapVPF = new Map<String, String>();
 		for(Integer i = 1; i < lstMapQVC.size(); i++) {
 			mapVPF.put('label_'+i, lstMapQVC[i].get('label'));
@@ -222,24 +224,51 @@ public without sharing virtual class BE_SM_Minute_Ctr {
     /*
 	 * @Description method setValues
 	 */
-    public static void setValues(String slmtId) {
+    public static void valuesSet(String slmtId) {
         try {
 			slmtTopics = [SELECT Id, ActivityDate, Subject, Status, Owner.Name, What.Name FROM Task 
                           WHERE RecordType.DeveloperName = 'Sales_Meeting' AND slmt__management_plan_meeting_id__c = :slmtId
                           ORDER BY Status ASC, ActivityDate DESC];
-			Final String lstMembrete = [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA' LIMIT 1].Id;
-			Final String lstMembreteWhite = [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white' LIMIT 1].Id;
-			Final String lstLogoFace = [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo' LIMIT 1].Id;
-			Final String lstLogoTwiter = [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo' LIMIT 1].Id;
+			Final String lstMembrete = returnMembreteId();
+			Final String lstMembreteWhite = returnMembWhiteId();
+			Final String lstLogoFace = returnLogoFaceId();
+			Final String lstLogoTwiter = returnLogoTwiterId();
 			Final String sfdcBaseURL = URL.getSalesforceBaseUrl().toExternalForm() + '/servlet/servlet.ImageServer?id=';
-			Final String param = '&oid=';
-            urlLogo = sfdcBaseURL + lstMembrete + param + UserInfo.getOrganizationId();
-			urlLogoFacebook = sfdcBaseURL + lstLogoFace + param + UserInfo.getOrganizationId();
-			urlLogoTwiter = sfdcBaseURL + lstLogoTwiter + param + UserInfo.getOrganizationId();
-			urlLogoWhite = sfdcBaseURL + lstMembreteWhite + param + UserInfo.getOrganizationId();
+			urlLogo = sfdcBaseURL + lstMembrete + PARAM + UserInfo.getOrganizationId();
+			urlLogoFacebook = sfdcBaseURL + lstLogoFace + PARAM + UserInfo.getOrganizationId();
+			urlLogoTwiter = sfdcBaseURL + lstLogoTwiter + PARAM + UserInfo.getOrganizationId();
+			urlLogoWhite = sfdcBaseURL + lstMembreteWhite + PARAM + UserInfo.getOrganizationId();
 			
 		} catch(System.Exception e) {
 			system.debug('Exception : ' + e.getMessage());
 		}
 	}
+    
+    /*
+	 * @Description method returnMembreteId
+	 */
+    public static String returnMembreteId() {
+        return [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA' LIMIT 1].Id;
+    }
+    
+    /*
+	 * @Description method returnMembWhiteId
+	 */
+    public static String returnMembWhiteId() {
+        return [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white' LIMIT 1].Id;
+    }
+    
+    /*
+	 * @Description method returnLogoFaceId
+	 */
+    public static String returnLogoFaceId() {
+        return [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo' LIMIT 1].Id;
+    }
+    
+    /*
+	 * @Description method returnLogoTwiterId
+	 */
+    public static String returnLogoTwiterId() {
+        return [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo' LIMIT 1].isEmpty() ? '' : [SELECT Id FROM Document WHERE DeveloperName = 'twitter_logo' LIMIT 1].Id;
+    }
 }

@@ -12,6 +12,8 @@
 public with sharing class BE_SM_CPlan_InversionRentable_Ctr extends BE_SingleRelatedListCRUD_Cls {
     /** PRODUCT_TYPE */
     final static String PRODUCT_TYPE='Direct';
+    /** oppIds */
+    List<String> oppIds;
     /**
     @Description createRecords
     @param  List<SObject> sObjs
@@ -24,7 +26,7 @@ public with sharing class BE_SM_CPlan_InversionRentable_Ctr extends BE_SingleRel
         final Integer numberOfDays = Date.daysInMonth(salesDate.year(), salesDate.month());
         final DateTime firstDayOfMonth = DateTime.newInstance(salesDate.year(), salesDate.month(), 1);
         final DateTime lastDayOfMonth = DateTime.newInstance(salesDate.year(),salesDate.month(), numberOfDays);
-        List<String> oppIds=new List<String>();
+        oppIds=new List<String>();
         for (OpportunityLineItem  oli: [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE  Product2.Type__c=:PRODUCT_TYPE AND  Opportunity.CloseDate >=:firstDayOfMonth.date() AND Opportunity.CloseDate <=:lastDayOfMonth.date() AND Opportunity.isClosed = false AND Opportunity.isWon = false AND Opportunity.OwnerId =:salesMeeting.Collaborator__c ORDER BY Opportunity.Amount DESC LIMIT 10]) {
             oppIds.add(oli.OpportunityId);
         }
