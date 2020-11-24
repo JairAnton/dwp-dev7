@@ -1,0 +1,106 @@
+<apex:page renderAs="pdf" language="es" applyBodyTag="false" standardController="Opportunity" extensions="BE_Quotation_Ctr">
+    <apex:stylesheet value="{!$Resource.BE_StyleQuotationPDF}"/>
+    <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100"/>
+    <br/>
+    <div>
+        <strong>&nbsp;Datos de cliente</strong>
+    </div>
+    <br/>
+    <table cellpadding="6">
+        <tr>
+            <th width="50%">Cliente: {!Opportunity.Account.Name}</th>
+            <th width="50%"></th>
+        </tr>
+        <tr>
+            <td>Código central: {!Opportunity.Account.main_code_id__c} </td>
+            <td>Nombre ejecutivo: {!Opportunity.Owner.Name} </td>
+        </tr>
+        <tr>
+            <td>RUC: {!Opportunity.Account.AccountNumber} </td>
+            <td>Registro ejecutivo: {!userCode} </td>
+        </tr>
+        <tr>
+            <td>Oficina: {!Opportunity.Account.branch_name__c}</td>
+            <td>Cod cartera: {!Opportunity.Owner.portfolio_classification_id__c}</td>
+        </tr>
+    </table>
+    <br/>
+    <div>
+        <strong>&nbsp;Datos de la oportunidad</strong>
+    </div>
+    <br/>
+    <table cellpadding="6">
+        <apex:repeat value="{!Opportunity.OpportunityLineItems}" var="lineitem">
+            <tr>
+                <td width="50%">Producto: {!lineitem.Product2.Name} </td>
+                <td width="50%">Modalidad: {!modality} </td>
+            </tr>
+            <tr>
+                <td width="50%">Importe: {!Opportunity.CurrencyIsoCode}&nbsp;<apex:outputText value="{0, number, ###,###,##0.00}"><apex:param value="{!Opportunity.Amount}"/></apex:outputText> </td>
+                <td width="50%">&nbsp;</td>
+            </tr>
+        </apex:repeat>
+    </table>
+    <br/>
+    <div>
+        <strong>&nbsp;Sanción precio</strong>
+    </div>
+    <br/>
+    <table cellpadding="6">
+        <apex:repeat value="{!Opportunity.OpportunityLineItems}" var="lineitem">
+            <tr>
+                <td width="50%">Nº cotización: {!lineitem.price_quote_id__c} </td>
+                <td width="50%">Fecha de sanción:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!TODAY()}" /> </apex:outputText> </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputPanel layout="none" rendered="{!IF(lineitem.Product2.ProductCode == $Label.lblPDFProductCartaTecnicaEconomica || lineitem.Product2.ProductCode ==$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
+                        Comisión aprobada:<apex:outputText value=" {0, number,.00} %">
+                        <apex:param value="{!teaCom}"/>
+                        </apex:outputText>
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!IF(lineitem.Product2.ProductCode != $Label.lblPDFProductCartaTecnicaEconomica && lineitem.Product2.ProductCode !=$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
+                        TEA aprobada:<apex:outputText value=" {0, number,.00} %">
+                        <apex:param value="{!teaCom}"/>
+                        </apex:outputText>
+                    </apex:outputPanel>
+                </td>
+                <td>Vigencia:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!validDate}" /></apex:outputText></td>
+            </tr>
+            <tr>
+                <td>Plazo:&nbsp;<apex:outputfield value="{!lineitem.gipr_Plazo__c}"/>&nbsp;<apex:outputfield value="{!lineitem.gipr_Periodicidad__c}"/></td>
+                <td>Tipo garantía:&nbsp; <apex:outputfield value="{!lineitem.gipr_Tipo_Garantia__c}"/></td>
+            </tr>
+            <apex:outputPanel layout="none" rendered="{!lineitem.Product2.ProductCode == $Label.lblPDFProductExportComex || lineitem.Product2.ProductCode == $Label.lblPDFProductImportComex}">
+                <tr>
+                    <td>Medio de pago:&nbsp;<apex:outputfield value="{!lineitem.gipr_Payment_Method__c}"/></td>
+                    <td>Bolsa comex:&nbsp;<apex:outputfield value="{!lineitem.gipr_Comex_Bag__c}"/></td>
+                </tr>
+            </apex:outputPanel>
+            <tr>
+                <td colspan="2">Comentarios:<br/>{!comments}</td>
+            </tr>
+        </apex:repeat>
+    </table>
+    <br/>
+    <div>
+        <strong>&nbsp;Compromisos</strong>
+    </div>
+    <br/>
+    <table cellpadding="6">
+        <tr class="commitment">
+            <th>Producto</th>
+            <th>Monto</th>
+            <th>Cantidad</th>
+            <th>Plazo Vcto (días)</th>
+        </tr>
+        <apex:repeat value="{!commitments}" var="comm">
+            <tr>
+                <td>{!comm.opp_solution_comt_product_name__c}</td>
+                <td>{!comm.CurrencyIsoCode} {!comm.opp_solution_commitment_amount__c}</td>
+                <td>{!comm.opp_solution_commitment_number__c}</td>
+                <td>{!comm.opp_soln_comt_expiry_days_number__c}</td>
+            </tr>
+        </apex:repeat>
+    </table>
+</apex:page>

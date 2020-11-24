@@ -57,6 +57,14 @@ public class ReevaluateButtonClassTest {
 		ReevaluateButtonClass.start(opptest.Id);
 		ReevaluateButtonClass.setToPrice(opptest.Id);
 		ReevaluateButtonClass.setToRisk(opptest.Id);
+        
+        opptest.StageName = '05';
+		opptest.opportunity_status_type__c = '20';
+        opptest.BE_UseApprovedQuote__c = true;
+		update opptest;
+        
+        ReevaluateButtonClass.setToPrice(opptest.Id);
+        
 		Test.stopTest();
 		//sonar
 		Integer result = 1 + 2;

@@ -6,7 +6,7 @@
  * @Group
  * @Description Controller class Be_DynamicTablePresentation_helper
  */
-public without sharing class Be_DynamicTablePresentation_helper {
+public with sharing class Be_DynamicTablePresentation_helper {
 
     /**@Description Quotes for replace*/
     Final static String QUOTES='\'';

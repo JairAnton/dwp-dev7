@@ -163,6 +163,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Customer_Name__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Customer Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Document_Type_Abbreviation__c</fullName>
         <externalId>false</externalId>
         <formula>CASE( TEXT(Personal_Type__c), &quot;L&quot;, &quot;DNI&quot;, &quot;E&quot;, &quot;CE&quot;, &quot;C&quot;, &quot;CFFP&quot;, &quot;A&quot;, &quot;CFFAA&quot;, &quot;P&quot;, &quot;PAS&quot;, &quot;R&quot;, &quot;RUC&quot;, &quot;T&quot;, &quot;LT&quot;, &quot;V&quot;, &quot;DPI&quot;, &quot;O&quot;, &quot;Otros&quot;, &quot;&quot;)</formula>

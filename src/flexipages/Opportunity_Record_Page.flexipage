@@ -30,8 +30,8 @@
                 <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>buttonsAlignment</name> 
-                <value>left,left,left,right,right,right,right,right,right,right,right,right</value>
+                <name>buttonsAlignment</name>
+                <value>left,left,left,right,right,right,right,right,right,right,right,right,right</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsCollectionUniqueIdentifier</name>
@@ -39,11 +39,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsStyles</name>
-                <value>neutral,neutral,neutral,neutral,neutral,brand,brand,brand,brand,brand,brand,brand</value>
+                <value>destructive,neutral,neutral,neutral,neutral,brand,brand,brand,brand,brand,brand,brand,brand</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsUniqueIdentifiers</name>
-                <value>btnReject,btnReevaluate,btnUnlink,btnQuote,btnPDF,btnPenalizeRisk,btnSanctionPrice,btnSanctionPrice2,btnApprove,btnFormalization,btnFormalize,btnComplete</value>
+                <value>btnReject,btnReevaluate,btnUnlink,btnQuote,btnPDF,btnPenalizeRisk,btnUseCurrentPrice,btnSanctionPrice,btnSanctionPrice2,btnApprove,btnFormalization,btnFormalize,btnComplete</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>
@@ -390,7 +390,7 @@
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
             <visibilityRule>
-                <booleanFilter>1 AND 2</booleanFilter>
+                <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
                 <criteria>
                     <leftValue>{!$User.prof_position_id__c}</leftValue>
                     <operator>NE</operator>
@@ -400,6 +400,16 @@
                     <leftValue>{!$User.prof_position_id__c}</leftValue>
                     <operator>NE</operator>
                     <rightValue>I43</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>CZ1</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>CZ2</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -410,7 +420,7 @@
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
             <visibilityRule>
-                <booleanFilter>1 OR 2</booleanFilter>
+                <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
                 <criteria>
                     <leftValue>{!$User.prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
@@ -420,6 +430,16 @@
                     <leftValue>{!$User.prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>I43</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>CZ1</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>CZ2</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -500,6 +520,25 @@
                 <value>facet-1b7f36ba-fca9-4b46-bd3e-e66bfe035bdb</value>
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+                <value>standard:quotes</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>BE_List_Read_OppCurrentPrice</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{&quot;es&quot;: &quot;Cotizaciones vigentes&quot;, &quot;en-US&quot;: &quot;Current quotes&quot;}</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>

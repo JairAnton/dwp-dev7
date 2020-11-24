@@ -15,3 +15,4 @@ Add Product,addProduct
 Complete,btnComplete
 Unlink,btnUnlink
 Aprove Formalization,btnFormalize
+Use Current Price,btnUseCurrentPrice
