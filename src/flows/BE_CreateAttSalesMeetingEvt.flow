@@ -68,7 +68,6 @@
             </value>
         </inputAssignments>
         <object>EventRelation</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
         <name>Get_Sales_Meeting</name>
