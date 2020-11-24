@@ -23,7 +23,7 @@ public without sharing class BE_SM_Topic_Tst {
         final User manager = TestFactory.createUser('Manager', 'Ejecutivo');
         manager.prof_position_id__c = 'E01';
         update manager;
-        final Date initDate = Date.newInstance(2020, 11, 12);
+        final Date initDate = Date.newInstance(2020, 11, 04);
         /** SALES MEETING */
         final slmt__Sales_Meeting__c slm=new slmt__Sales_Meeting__c(Name='SalesMeeting202010',DateTime__c=initDate,slmt__management_plan_meeting_date__c = initDate,OwnerId=ejecutivo.Id,Collaborator__c = ejecutivo.Id,slmt__mngmt_plan_meeting_user_id__c=manager.Id);
         insert slm;

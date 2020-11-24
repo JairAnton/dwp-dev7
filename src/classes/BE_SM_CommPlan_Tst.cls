@@ -22,7 +22,7 @@ public with sharing class BE_SM_CommPlan_Tst {
         update ejecutivo;
         /** ACCOUNT */
         final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
-        final Date initDate = Date.newInstance(2020, 11, 12);
+        final Date initDate = Date.newInstance(2020, 11, 04);
         /** ACCOUNT INFORMATION */
         insert new Account_BBVA_Information__c(current_balance_amount__c=1000,account_id__c=acc.Id, type__c = '01',product_desc__c = 'Comex' ,product_group_classification_id__c='Directa');
         /** ACCOUNT PLAN */

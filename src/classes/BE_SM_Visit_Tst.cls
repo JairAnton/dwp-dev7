@@ -22,8 +22,8 @@ public with sharing class BE_SM_Visit_Tst {
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
             																					User.ManagerId => userGOF.Id});
         Final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
-        Final Date initDate = Date.newInstance(2020, 11, 11);
-        BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 11), ejecutivo.Id, 'Planning', true);
+        Final Date initDate = Date.newInstance(2020, 11, 04);
+        BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 4), ejecutivo.Id, 'Planning', true);
         
         Final dwp_kitv__Visit__c [] lstVisitas = new dwp_kitv__Visit__c[] {};
 		for(Integer i = 0; i < 30; i++) {

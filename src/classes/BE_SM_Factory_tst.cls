@@ -45,18 +45,22 @@ public with sharing class BE_SM_Factory_tst {
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ID_EJE, User.prof_position_id__c => 'E03', 
             																					User.ManagerId => userGOF.Id});
         Final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
-        Final Date initDate = Date.newInstance(2020, 11, 11);
+        Final Date initDate = Date.newInstance(2020, 11, 2);
         System.runAs(ejecutivo) {
-            createSalesMeeting(DateTime.newInstance(2020, 11, 11), ejecutivo.Id, 'Planning', true);
+            createSalesMeeting(DateTime.newInstance(2020, 11, 2), ejecutivo.Id, 'Planning', true);
         }
         Final Opportunity[] lstOpp = new Opportunity[]{};
-        for(Integer i = 2; i <= 7; i++) {
+        for(Integer i = 1; i <= 7; i++) {
             lstOpp.add(new Opportunity(ownerId = ejecutivo.Id, Name = 'testopp '+i, AccountId = acc.Id, StageName = '0'+i, Amount = 100, 
                                        CloseDate = initDate, Field_Sup_Closing_Date__c = initDate));
         }
         insert lstOpp;
-        lstOpp[0].closeDate = initDate.addMonths(1);
-        update lstOpp[0];
+        lstOpp[1].closeDate = initDate.addMonths(1);
+        lstOpp[6].closeDate = initDate.addDays(-15);
+        update lstOpp;
+        for(Opportunity opp: lstOpp) {
+            System.debug('opp => '+opp);
+        }
         Test.setCreatedDate(lstOpp[0].Id, initDate.addDays(-10));
         Final List<String> lstProducts = System.Label.Opp_LP_Products.split(',');
         Final Product2 product = createProduct(lstProducts[0]);
@@ -72,7 +76,7 @@ public with sharing class BE_SM_Factory_tst {
     @isTest
 	public static void testSM() {
         Test.startTest();
-        Final slmt__Sales_Meeting__c slmt = createSalesMeeting(DateTime.newInstance(1,1,2021), UserInfo.getUserId(), 'Planning', false);
+        Final slmt__Sales_Meeting__c slmt = createSalesMeeting(DateTime.newInstance(2020,11,2), UserInfo.getUserId(), 'Planning', false);
         Test.stopTest();
         System.assertEquals('Planning', slmt.Type_of_meeting__c, 'Assertion Error');
 	}

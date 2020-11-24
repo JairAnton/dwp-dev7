@@ -9,23 +9,23 @@ public without sharing class User_Assistant_Team_Trigger_cls {
 	/**
      * @Description constructor
      */
-	public User_Assistant_Team_Trigger_cls() {}
+	private User_Assistant_Team_Trigger_cls() {}
 
 	/**
      * @Description AsignAfterInsert
      */
-	public void AsignAfterInsert(list<User_Assistant_Team__c> UAssT_New, Map<id, User_Assistant_Team__c> UAssT_NewMap,
-	                             list<User_Assistant_Team__c> UAssT_Old, Map<id, User_Assistant_Team__c> UAssT_OldMap) {
-		insertAssistants(UAssT_New);
-		insertSMSharing(UAssT_New);
+	public static void asignAfterInsert(list<User_Assistant_Team__c> uatNew, Map<id, User_Assistant_Team__c> uatNewMap,
+	                             list<User_Assistant_Team__c> uatOld, Map<id, User_Assistant_Team__c> uatOldMap) {
+		insertAssistants(uatNew);
+		insertSMSharing(uatNew);
 	}
 
 	/**
      * @Description AsignAfterDelete
      */
-	public void AsignAfterDelete(list<User_Assistant_Team__c> UAssT_Old) {
-		deleteAssistants(UAssT_Old);
-		deleteSMSharing(UAssT_Old);
+	public static void AsignAfterDelete(list<User_Assistant_Team__c> uatOld) {
+		deleteAssistants(uatOld);
+		deleteSMSharing(uatOld);
 	}
 
 	/**
