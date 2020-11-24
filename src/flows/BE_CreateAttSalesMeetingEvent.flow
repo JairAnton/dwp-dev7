@@ -22,9 +22,47 @@
             <label>Meeting is not null</label>
         </rules>
     </decisions>
+    <decisions>
+        <description>Sales meeting is created by collaborator</description>
+        <name>Is_created_by_Collaborator</name>
+        <label>Is created by Collaborator</label>
+        <locationX>616</locationX>
+        <locationY>345</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Created_by_Manager_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Sales_Meeting.CreatedById</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_Sales_Meeting.slmt__mngmt_plan_meeting_user_id__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Attendee_Collaborator</targetReference>
+            </connector>
+            <label>Created by Manager - true</label>
+        </rules>
+        <rules>
+            <name>Created_by_Manager_false</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Sales_Meeting.CreatedById</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_Sales_Meeting.slmt__mngmt_plan_meeting_user_id__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Attendee_Manager</targetReference>
+            </connector>
+            <label>Created by Manager - false</label>
+        </rules>
+    </decisions>
     <description>Flow that allows you to create &quot;event relation&quot; related to the sales meeting event.</description>
-    <interviewLabel>Create Attendees for Sales Meeting Evt {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Create Attendees for Sales Meeting Evt</label>
+    <interviewLabel>Create Attendees for Sales Meeting Event {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Attendees for Sales Meeting Event</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -45,10 +83,36 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
+        <name>Create_Attendee_Collaborator</name>
+        <label>Create Attendee Collaborator</label>
+        <locationX>841</locationX>
+        <locationY>463</locationY>
+        <inputAssignments>
+            <field>EventId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsInvitee</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RelationId</field>
+            <value>
+                <elementReference>Get_Sales_Meeting.Collaborator__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>EventRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
         <name>Create_Attendee_Manager</name>
         <label>Create Attendee Manager</label>
-        <locationX>836</locationX>
-        <locationY>310</locationY>
+        <locationX>840</locationX>
+        <locationY>227</locationY>
         <inputAssignments>
             <field>EventId</field>
             <value>
@@ -68,15 +132,16 @@
             </value>
         </inputAssignments>
         <object>EventRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
         <name>Get_Sales_Meeting</name>
         <label>Get Sales Meeting</label>
-        <locationX>504</locationX>
-        <locationY>342</locationY>
+        <locationX>437</locationX>
+        <locationY>343</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Create_Attendee_Manager</targetReference>
+            <targetReference>Is_created_by_Collaborator</targetReference>
         </connector>
         <filters>
             <field>Id</field>

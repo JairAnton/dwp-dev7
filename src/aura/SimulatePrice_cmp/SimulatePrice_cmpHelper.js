@@ -22,7 +22,7 @@
                 var raroec = ret.raroec;
                 var spr = ret.spread;
                 var generr = ret.genericError;
-                var concattea = teasug + ',' + teamin + ',' + rorc + ',' + raroec + ',' + spr;
+                var concattea = teasug + ',' + teamin + ',' + rorc + ',' + spr + ',' + raroec;
                 oli = ret.oli;
                 if (generr != undefined) {
                     cmp.set('v.isError', true);
