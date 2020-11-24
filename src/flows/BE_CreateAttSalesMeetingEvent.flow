@@ -106,7 +106,6 @@
             </value>
         </inputAssignments>
         <object>EventRelation</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
         <name>Create_Attendee_Manager</name>
@@ -132,7 +131,6 @@
             </value>
         </inputAssignments>
         <object>EventRelation</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
         <name>Get_Sales_Meeting</name>
@@ -152,7 +150,6 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>slmt__Sales_Meeting__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
         <locationX>88</locationX>
