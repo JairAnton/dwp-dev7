@@ -40,7 +40,7 @@ public class SalesMeeting_trigger_tst {
      */
     @isTest
     public static void salesMeetingColOwnerTest() {
-        Final Id ejeId = [SELECT Id FROM User WHERE prof_position_id__c = 'E03' LIMIT 1].Id;
+        Final Id ejeId = [SELECT Id FROM User WHERE prof_position_id__c = 'E03' AND CreatedDate = TODAY  AND isActive = True LIMIT 1].Id;
         Final slmt__Sales_Meeting__c[] lstSM = new slmt__Sales_Meeting__c[]{};
 		for(Integer i = 0; i < 201; i++) {
             lstSM.add(BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), ejeId, 'Planning', false));
@@ -57,10 +57,10 @@ public class SalesMeeting_trigger_tst {
      */
     @isTest
     public static void addRecordAccessTest() {
-        Final Id ejeId = [SELECT Id FROM User WHERE prof_position_id__c = 'E03' LIMIT 1].Id;
-        Final Id gofId = [SELECT Id FROM User WHERE prof_position_id__c = 'E01' LIMIT 1].Id;
-        Final Id jpnId = [SELECT Id FROM User WHERE prof_position_id__c = 'OS9' LIMIT 1].Id;
-        Final Id assistId = [SELECT Id FROM User WHERE prof_position_id__c = 'E0B' LIMIT 1].Id;
+        Final Id ejeId = [SELECT Id FROM User WHERE prof_position_id__c = 'E03' AND CreatedDate = TODAY AND isActive = True LIMIT 1].Id;
+        Final Id gofId = [SELECT Id FROM User WHERE prof_position_id__c = 'E01' AND CreatedDate = TODAY AND isActive = True LIMIT 1].Id;
+        Final Id jpnId = [SELECT Id FROM User WHERE prof_position_id__c = 'OS9' AND CreatedDate = TODAY AND isActive = True LIMIT 1].Id;
+        Final Id assistId = [SELECT Id FROM User WHERE prof_position_id__c = 'E0B' AND CreatedDate = TODAY AND isActive = True LIMIT 1].Id;
         insert new User_Assistant_Team__c(user_id__c = ejeId, assistant_id__c = assistId);
         Final slmt__Sales_Meeting__c[] lstSM = new slmt__Sales_Meeting__c[]{};
 		for(Integer i = 0; i < 101; i++) {
