@@ -1,0 +1,9 @@
+<aura:component extends="dwp_mdal:ModalTemplate_cmp" implements="lightning:actionOverride,force:hasSObjectName" access="global">
+    <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section"/>    
+    <aura:attribute name="sObjectType" type="String" default=""/>    
+    <aura:attribute name="isNotQuickAction" type="Boolean" default="false"/>    
+    <aura:attribute name="nameMetadata" type="String" default=""/>    
+    <div class="slds-modal__content slds-p-around_small" >
+        <c:BE_CustomQuickAction_Cmp sObjectType="{!v.sObjectType}" isNotQuickAction="{!v.isNotQuickAction}" nameMetadata="{!v.nameMetadata}"/>
+    </div>
+</aura:component>

@@ -1,0 +1,16 @@
+<aura:component implements="slmt:Item_Detail_Component_itf,flexipage:availableForAllPageTypes,force:hasRecordId"
+  access="global">
+  <aura:attribute name="activeSections" type="List" default="['A','B','C']" />
+  <lightning:card variant="Narrow" title="TEMAS A TRATAR" iconName="custom:custom83">
+    <lightning:accordion aura:id="accordion" allowMultipleSectionsOpen="true" activeSectionName="{! v.activeSections }">
+      <lightning:accordionSection name="A" label="TEMAS PENDIENTES">
+        <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" title='{"es": "TEMA", "en-US": "TOPIC"}'
+          relListSet="BE_SM_PendingTopic" relListType="Basic" iconName="" />
+      </lightning:accordionSection>
+      <lightning:accordionSection name="C" label="TEMAS CERRADOS EN LOS ÚLTIMOS 15 DÍAS">
+        <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" title='{"es": "TEMA", "en-US": "TOPIC"}'
+          relListSet="BE_SM_CloseTopic" relListType="Basic" iconName="" />
+      </lightning:accordionSection>
+    </lightning:accordion>
+  </lightning:card>
+</aura:component>

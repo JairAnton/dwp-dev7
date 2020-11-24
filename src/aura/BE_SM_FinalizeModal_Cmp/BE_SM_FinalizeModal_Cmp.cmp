@@ -1,0 +1,35 @@
+<aura:component implements="flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="BE_SM_FinalizeModal_Ctr" access="global">
+	<aura:attribute name="recordId" type="String" default="" />
+    <lightning:navigation aura:id="navService"/>
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+    <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium">Finalizar Reunion</h4>
+    </div>
+    <div class="slds-modal__content slds-m-around_x-large slds-size_1-of-1">
+        <form class="slds-form--stacked">
+            <lightning:recordForm aura:id='form' recordId="{!v.recordId}"
+                                  objectApiName="slmt__Sales_Meeting__c"
+                                  layoutType="Compact"
+                                  columns="2"
+                                  mode="readonly">
+            </lightning:recordForm>
+        </form> 
+    </div>
+    <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <lightning:button variant="Neutral" class="slds-button" label="{!$Label.c.BE_SalesMeeting_BtnCancel}" onclick="{!c.handleClose}"/>
+        <lightning:button variant="Neutral" class="slds-button" label="{!$Label.c.BE_SalesMeeting_BtnFinalizeNew}" onclick="{!c.handleSaveClone}"/>
+        <lightning:button variant="Brand" class="slds-button" label="{!$Label.c.BE_SalesMeeting_BtnFinalize}" onclick="{!c.handleSave}"/>
+    </div>
+</aura:component>

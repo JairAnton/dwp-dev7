@@ -20,11 +20,8 @@ export default class BE_CustomDataTypeButton_Lwc extends NavigationMixin(Lightni
                 params[att] = this.buttonData.params[att];
             }
         }
-        console.log('PARAMETROS DOCUMENTO');
-        console.log(JSON.stringify(params));
         if(this.buttonData.component === 'filePreview') {
             if(params['fileId'] !== initialParams['fileId']) this.openPreview(params['fileId']);
-            console.log(params['fileId']);
         } else {
             const dynamicCMP = new CustomEvent('customtypebutton', {composed: true, bubbles: true, cancelable: true,
                                                 detail: { "component": this.buttonData.component, "params": params}

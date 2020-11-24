@@ -3,14 +3,20 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getDynamicResponse from "@salesforce/apex/BE_SingleRelatedList_Ctr.getDynamicResponse";
 import getConfigMetaData from "@salesforce/apex/BE_SingleRelatedList_Ctr.getConfigMeta";
 import updateRecords from "@salesforce/apex/BE_SingleRelatedList_Ctr.updateRecords";
+import { encodeDefaultFieldValues } from 'lightning/pageReferenceUtils';
 import FORM_FACTOR from '@salesforce/client/formFactor';
 import { NavigationMixin } from 'lightning/navigation';
 import { refreshApex } from "@salesforce/apex";
 import LANG from '@salesforce/i18n/lang';
 import viewAlll from '@salesforce/label/c.BE_SingleRelatedList_ViewAll';
 import errorMsg from '@salesforce/label/c.Dwp_msgGenericError';
-import { isNotEmpty, transformColumns, transformHeadActions, transformData, getSettingsObj } from './bE_SingleRelatedListHelper_Lwc.js';
+import { isNotEmpty, transformColumns, transformHeadActions, transformData } from './bE_SingleRelatedListHelper_Lwc.js';
+import { getSettingsObj, defaultsValuesForm, obtainFields } from './bE_SingleRelatedListHelper_Lwc.js';
+import getRTId from '@salesforce/apex/BE_SM_Utils.getRecordTypeId';
+import Id from '@salesforce/user/Id';
+
 export default class SingleRelatedList extends NavigationMixin(LightningElement) {
+    userId = Id;
     lang = LANG;
     // EXPOSE LABEL TO USE IN TEMPLATE
     label = {
@@ -184,16 +190,71 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     /** ROW ACTIONS */
     handleRowActionWeb(event) {
+        console.log(JSON.stringify(event.detail));
         event.stopPropagation();
-        const modalSet = {
-            recordId: event.detail.row.Id,
-            mode: event.detail.action.name,
-            fields: event.detail.action.fields,
-            className: event.detail.action.className,
-            objectApiName: event.detail.action.objectApiName,
-            title: event.detail.action.title[this.lang],
-        };
-        this.handleOpenStanModal(modalSet);
+        if (isNotEmpty(event.detail.action.isNotUIAPI)) {
+            let defaultVal = null;
+            if(event.detail.action.defaultValues !== null && event.detail.action.defaultValues!== undefined) {
+                defaultVal = encodeDefaultFieldValues(defaultsValuesForm(event.detail.action.defaultValues, this.recordId, this.userId, event));
+            }
+            if(event.detail.action.recordTypeDevName !== null && event.detail.action.recordTypeDevName!== undefined) {
+                getRTId( {"developerName": event.detail.action.recordTypeDevName} )
+                .then(result => {
+                    this[NavigationMixin.Navigate]({
+                        type: event.detail.action.navigationType,
+                        attributes: {
+                            recordId: event.detail.row.Id,
+                            objectApiName: event.detail.action.objectApiName,
+                            actionName: event.detail.action.name
+                        },
+                        state: {
+                            defaultFieldValues: defaultVal,
+                            recordTypeId: result,
+                            navigationLocation: event.detail.action.navigationLocation
+                        }
+                    });
+                }).catch(error=>{
+                    console.log('############## ERROR');
+                    console.log(error);
+                });
+            } else {
+                this[NavigationMixin.Navigate]({
+                    type: event.detail.action.navigationType,
+                    attributes: {
+                        recordId: event.detail.row.Id,
+                        objectApiName: event.detail.action.objectApiName,
+                        actionName: event.detail.action.name
+                    },
+                    state: {
+                        defaultFieldValues: defaultVal,
+                        navigationLocation: event.detail.action.navigationLocation
+                    }
+                });
+            }
+            this.handleCloseStanModal(event);
+        } else if (event.detail.action.isDynamicCmp) {
+            let record = event.detail.row;
+            let component = event.detail.action.componentName;
+            let initParams = event.detail.action.componentParams;
+            let params = obtainFields(initParams, record);
+            console.log(JSON.stringify(component));
+            console.log(JSON.stringify(initParams));
+            console.log(JSON.stringify(params));
+            const dynamicCMP = new CustomEvent('customtypebutton', {composed: true, bubbles: true, cancelable: true,
+                detail: { "component": component, "params": params}
+            });
+            this.dispatchEvent(dynamicCMP);
+        } else {
+            const modalSet = {
+                recordId: event.detail.row.Id,
+                mode: event.detail.action.name,
+                fields: event.detail.action.fields,
+                className: event.detail.action.className,
+                objectApiName: event.detail.action.objectApiName,
+                title: event.detail.action.title[this.lang],
+            };
+            this.handleOpenStanModal(modalSet);
+        }
     }
     handleRowActionMobile(event) {
         event.stopPropagation();
@@ -210,16 +271,68 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     /** HEAD ACTIONS */
     handleHeadAction(event) {
         event.stopPropagation();
-        const modalSet = {
-            recordId: '',
-            mode: event.target.value.name,
-            fields: event.target.value.fields,
-            className: event.target.value.className,
-            objectApiName: event.target.value.objectApiName,
-            title: event.target.value.title[this.lang],
-            redirect: event.target.value.redirect
-        };
-        this.handleOpenStanModal(modalSet);
+        console.log('event.target.isNotUIAPI');
+        console.log(event.target.value.isNotUIAPI);
+        if (isNotEmpty(event.target.value.isNotUIAPI)) {
+            let recordTypeDevName = event.target.value.recordTypeDevName;
+            let navigationType = event.target.value.navigationType;
+            let objectApiName = event.target.value.objectApiName;
+            let actionName = event.target.value.name;
+            let navigationLocation = event.target.value.navigationLocation;
+            let defaultVal = null;
+            if(event.target.value.fields !== null && event.target.value.fields!== undefined) {
+                defaultVal = encodeDefaultFieldValues(defaultsValuesForm(event.target.value.fields, this.recordId, this.userId, null));
+            }
+            if(recordTypeDevName !== null && recordTypeDevName!== undefined) {
+                getRTId( {"developerName": recordTypeDevName} )
+                .then(result => {
+                    this[NavigationMixin.Navigate]({
+                        type: navigationType,
+                        attributes: {
+                            objectApiName: objectApiName,
+                            actionName: actionName
+                        },
+                        state: {
+                            defaultFieldValues: defaultVal,
+                            recordTypeId: result,
+                            navigationLocation: navigationLocation
+                        }
+                    });
+                }).catch(error=>{
+                    console.log('############## ERROR');
+                    console.log(error);
+                });
+            } else {
+                this[NavigationMixin.Navigate]({
+                    type: navigationType,
+                    attributes: {
+                        objectApiName: objectApiName,
+                        actionName: actionName
+                    },
+                    state: {
+                        defaultFieldValues: defaultVal,
+                        navigationLocation: navigationLocation
+                    }
+                });
+            }
+            this.handleCloseStanModal(event);
+        } else if (event.target.value.isDynamicCmp) {
+            let component = event.target.value.componentName;
+            let params = event.target.value.componentParams;
+            console.log(component);
+            console.log(params);
+        } else {
+            const modalSet = {
+                recordId: '',
+                mode: event.target.value.name,
+                fields: event.target.value.fields,
+                className: event.target.value.className,
+                objectApiName: event.target.value.objectApiName,
+                title: event.target.value.title[this.lang],
+                redirect: event.target.value.redirect
+            };
+            this.handleOpenStanModal(modalSet);
+        }
     }
     /** HANDLE SAVE*/
     handleInlineSave(event) {
@@ -300,9 +413,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
 
     /**Refresh if lwc is involved in aura*/
     refreshOnAura() {
-        const refreshView = new CustomEvent('refreshCmp', {
-			detail: { "refresh": true }
-		});
+        const refreshView = new CustomEvent('refreshCmp', {detail: { "refresh": true }});
         this.dispatchEvent(refreshView);
     }
 

@@ -158,6 +158,18 @@
     </customLabels>
     <customLabels>
         <label>Cancelar</label>
+        <name>BE_SalesMeeting_BtnCancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Finalizar</label>
+        <name>BE_SalesMeeting_BtnFinalize</name>
+    </customLabels>
+    <customLabels>
+        <label>Finalizar y nueva</label>
+        <name>BE_SalesMeeting_BtnFinalizeNew</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
         <name>BE_SingleRelatedListModal_BtnCancel</name>
     </customLabels>
     <customLabels>

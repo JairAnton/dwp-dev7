@@ -2,7 +2,7 @@ trigger Event_Trigger on Event (after insert, before update, before delete, afte
     gcal.GBL_EventHandler gcalHandler = new gcal.GBL_EventHandler();
     dwp_kitv.Event_Handler eventHandler = new dwp_kitv.Event_Handler();
     gcal.GBL_Configuration_wrp googleConfig = new gcal.GBL_Configuration_wrp();
-    
+    new Event_Handler_cls().run();
     if(trigger.isBefore) {
         if(trigger.isUpdate) {
             eventHandler.eventBeforeUpdate(trigger.new, Trigger.oldMap);

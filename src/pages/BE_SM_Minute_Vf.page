@@ -1,0 +1,305 @@
+<apex:page showHeader="false" language="es_PE" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false"   docType="html-5.0" standardController="slmt__Sales_Meeting__c" extensions="BE_SM_Minute_Ctr" >
+    <apex:stylesheet value="{!$Resource.BE_SM_Minute}"/>
+    <head>
+        <title>BBVA</title>
+    </head>
+    <body>
+        <table class="tableFull tableSpacingZero">
+            <tr>
+                <td>
+                    <div class="rectangle">
+                        <table class="tableFull">
+                            <tr>
+                                <td class="rectangle2TextBody">
+                                    <p><apex:image url="{!URLLogoWhite}" height="26px" width="81px"/></p>
+                                </td>
+                            </tr>          
+                        </table> 
+                    </div>
+                    <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <apex:outputText styleClass="textBody" value="{!currentDate}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="azul">Estimado(a)</span> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><apex:outputText styleClass="azulBold" value="{!slmt__Sales_Meeting__c.slmt__mngmt_plan_meeting_user_id__r.Name}"/></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                    <div class="textBody">
+                        A continuación presentamos el acta con los detalles, resumen y acuerdos de la reunión celebrada.
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="styleTable">
+                        <tr class="border_bottom backgroundTitle">
+                            <th colspan="2" class="subtitle">DETALLES</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2" >
+                                <span class="textBodyBold">Nombre:&nbsp;</span>
+                                <span class="textBody"><apex:outputText value="{!slmt__Sales_Meeting__c.Name}"/></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                <span class="textBodyBold">Tipo de Reunion:&nbsp;</span>
+                                <span class="textBody"><apex:outputText value="{!slmt__Sales_Meeting__c.Type_of_meeting__c}"/></span>
+                            </td>
+                            <td width="50%">
+                                <span class="textBodyBold">Fecha/hora:&nbsp;</span>
+                                <span class="textBody"><apex:outputText value="{!meetingDate}"/></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                &nbsp;
+                            </td>
+                            <td width="50%">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" >
+                                <table class="styleTable">
+                                    <tr class="border_bottom backgroundTitle">
+                                        <th class="subtitle">TEMAS</th>
+                                        <th class="subtitle">VISITAS</th>
+                                        <th class="subtitle">PIPELINE LP</th>
+                                        <th class="subtitle">P. COMERCIAL</th>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapTopic['label_1']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapTopic['value_1']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapVisit['label_1']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapVisit['value_1']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapPipeline['label_1']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPipeline['value_1']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapPC['label_1']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPC['value_1']}"/></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapTopic['label_2']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapTopic['value_2']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapVisit['label_2']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapVisit['value_2']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapPipeline['label_2']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPipeline['value_2']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapPC['label_2']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPC['value_2']}"/></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapTopic['label_3']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapTopic['value_3']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapVisit['label_3']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapVisit['value_3']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapPipeline['label_3']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPipeline['value_3']}"/></span>
+                                        </td>
+                                        <td width="25%">
+                                            <span class="textBody"><strong><apex:outputText value="{!mapPC['label_3']}"/></strong></span>
+                                            <br/>
+                                            <span class="textBody"><apex:outputText value="{!mapPC['value_3']}"/></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="styleTable">
+                        <tr class="border_bottom backgroundTitle">
+                            <th colspan="1" class="subtitle" >ACUERDO</th>
+                            <th colspan="1" class="subtitle" >RELACIONADO A</th>
+                            <th colspan="1" class="subtitle" >RESPONSABLE</th>
+                            <th colspan="1" class="subtitle" >ESTADO</th>
+                            <th colspan="1" class="subtitle" >F. VCTO.</th>
+                        </tr>
+                        <apex:repeat value="{!slmtTopics}" var="topic" id="idTopic">
+                            <tr class="border_bottom">
+                                <td><apex:outputText styleClass="textBody" value="{!topic.Subject}"/></td>
+                                <td><apex:outputText styleClass="textBody" value="{!topic.What.Name}"/></td>
+                                <td><apex:outputText styleClass="textBody" value="{!topic.Owner.Name}"/></td>
+                                <td><apex:outputText styleClass="textBody" value="{!topic.Status}"/></td>
+                                <td>
+                                    <apex:outputText styleClass="textBody"  value="{0, date, dd/MM/yyyy}">
+                                        <apex:param value="{!topic.ActivityDate}" /> 
+                                    </apex:outputText>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </table>
+                </td>
+            </tr>
+            <apex:outputPanel id="e" rendered="{!slmt__Sales_Meeting__c.Summary__c != null}">
+            <tr>
+                <table class="styleTable">
+                    <tr class="border_bottom backgroundTitle">
+                        <th colspan="2" class="subtitle">RESUMEN</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="textBody"><apex:outputText value="{!slmt__Sales_Meeting__c.Summary__c}"/></span>
+                        </td>
+                    </tr>
+                </table>
+            </tr>
+            </apex:outputPanel>
+            <tr>
+                <td>
+                    <br/>
+                    <br/>
+                    <p class="textBody">
+                        Saludos,<br/>
+                        Equipo BBVA
+                    </p>
+                    <table class="tableFull tableSpacingZero">
+                        <tr>
+                            <td>
+                                <div class="box">
+                                    <table class="tableFull" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td><apex:outputText styleClass="azulBoldUser" value="{!slmt__Sales_Meeting__c.Collaborator__r.FirstName} {!slmt__Sales_Meeting__c.Collaborator__r.LastName}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><apex:outputText styleClass="azulUser" value="{!slmt__Sales_Meeting__c.Collaborator__r.prof_position_type__c}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><apex:outputText styleClass="azulUser" value="{!slmt__Sales_Meeting__c.Collaborator__r.email}"/></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="subRectangle">
+                                </div>
+                                <div  class="subRectangleMedia" >
+                                    <table class="tableFull">
+                                        <tr>
+                                            <td class="subRectangleMediaText">
+                                                <p >
+                                                    Sigamos conectados
+                                                </p>
+                                                <p>
+                                                    <a href="https://www.facebook.com/bbvaenperu/"><apex:image url="{!URLLogoFacebook}"  width="15px"  height="15px"/></a> &nbsp;&nbsp;
+                                                    <a href="https://www.twitter.com/bbva_peru"> <apex:image url="{!URLLogoTwiter}"  height="15px"  width="15px" /></a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </div>
+                                <div class="rectangle2">
+                                    <table width="100%">
+                                        <tr>
+                                            <td class="rectangle2TextBody">
+                                                <p><apex:image url="{!URLLogo}" height="50px" width="90px"/></p>
+                                                <table class="tableFull">
+                                                    <tr class="textAlingCenter">
+                                                        <td class="rectangle2TextBody">
+                                                            ©{!YEAR(TODAY())} BBVA. Derechos Reservados.
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="textAlingCenter">
+                                                        <td class="rectangle2TextBody">
+                                                            Av. República de Panamá 3055 - San Isidro, Lima - Perú
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </div>
+                                <div class="rectangleFoother">
+                                    <table class="tableFull">
+                                        <tr>
+                                            <td class="rectangleFootherText"> 
+                                                <table class="tableFull">
+                                                    <tr class="textAlingCenter">
+                                                        <td class="rectangleFootherText">
+                                                            Por tu Seguridad, BANCO BBVA PERÚ te informa que:
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="textAlingCenter">
+                                                        <td class="rectangleFootherText">
+                                                            Nunca solicitaremos tus datos confidenciales por correo, tales como clave SMS, clave de cajero, DNI o número de celular.
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="textAlingCenter">
+                                                        <td class="rectangleFootherText">
+                                                            Si tienes alguna duda acerca de la autenticidad de este correo envíalo a la dirección 
+															<a class="rectangleFootherText" href="mailto:bbvaseguridadl.pe@bbva.com">bbvaseguridadl.pe@bbva.com</a>
+															y te responderemos.
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</apex:page>

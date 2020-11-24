@@ -5,14 +5,14 @@
     handleSubmitCustom: function (cmp, evt, helper) {
         evt.preventDefault();
         var fields = evt.getParam('fields');
-        var initialsObject = { "sObjectType": cmp.get('v.sObjectType')};
+        var initialsObject = { "sobjectType": cmp.get('v.sObjectType')};
         switch (cmp.get("v.settings").modeAction) {
             case 'view':
                 helper.callApexMethod(cmp, evt, JSON.stringify(initialsObject),cmp.get("c.readRecord"))
                 break;
             case 'create':
                 var sObjectCreate = Object.assign(initialsObject, fields);
-                helper.callApexMethod(cmp, evt, JSON.stringify(sObjectCreate),cmp.get("c.createRecord"));
+                helper.callApexMethod(cmp, evt, sObjectCreate,cmp.get("c.createRecord"));
                 break;
             case 'update':
                 initialsObject.Id = cmp.get('v.recordId');
@@ -26,6 +26,6 @@
         }
     },
     closeModal: function (cmp, evt, helper) {
-        helper.closeModal(cmp, evt);
+        helper.closeModal(cmp, evt, null);
     }
 })

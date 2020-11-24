@@ -19,6 +19,7 @@
     <aura:attribute name="isError" type="Boolean" default="false" />
     <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to be displayed"/>
     <aura:attribute name="isLoad" type="Boolean" default="true"/>
+    <aura:attribute name="redirect" type="Boolean" default="true"/>
     
     <!-- embedded components -->
     <c:MX_PickListValues_comp sObjectName="Opportunity" fieldName="Loss_Reason__c" picklistValues="{!v.pickReject}" />
