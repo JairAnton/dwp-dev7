@@ -9998,7 +9998,12 @@ Asistente BE</description>
         <recordType>dwp_kitv__Visit__c.dwp_kitv__LeadVisit</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-	<tabVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.slmt__Sales_Meeting</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <tabVisibilities>
         <tab>Sites</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
