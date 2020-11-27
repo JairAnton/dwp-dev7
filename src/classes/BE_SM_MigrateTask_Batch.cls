@@ -45,12 +45,12 @@ public with sharing class BE_SM_MigrateTask_Batch implements Database.Batchable<
                 slmtSetIds.add(slmt.Id);
             }
         }
-        if(!slmtMap.isEmpty()) {
+        if(!slmtMap.isEmpty() && !slmtSetIds.isEmpty()) {
             Final Map<Id, Id> remplaceIdMap = new Map<Id, Id>();
             for(Id idAux : slmtMap.keySet()) {
                 remplaceIdMap.put(slmtMap.get(idAux), slmtCollMap.get(idAux));
             }
-            List<Task> taskUpd = new List<Task>();
+            Final List<Task> taskUpd = new List<Task>();
             for(Task tskAux : [SELECT Id, slmt__management_plan_meeting_id__c FROM Task WHERE Status = 'Open' AND slmt__management_plan_meeting_id__c IN :slmtSetIds]) {
                 tskAux.slmt__management_plan_meeting_id__c = remplaceIdMap.get(tskAux.slmt__management_plan_meeting_id__c);
                 taskUpd.add(tskAux);

@@ -55,8 +55,6 @@ public without sharing virtual class BE_SM_Minute_Ctr {
     public static String urlLogoFacebook {get; set;}
 	/** @Variable urlLogoTwiter*/
     public static String urlLogoTwiter {get; set;}
-    /** @Variable summary*/
-    public static String summary {get; set;}
     
 	/*
 	 * @Description method BE_SM_Minute_Ctr
@@ -72,7 +70,6 @@ public without sharing virtual class BE_SM_Minute_Ctr {
         mapVisit = mapValuesGet(new BE_SM_VisitQVC_Cls().getCardDetails(meeting, 'Item2'));
         mapPipeline = mapValuesGet(new BE_SM_PipelineLPQVC_Cls().getCardDetails(meeting, 'Item3'));
         mapPC = mapValuesGet(new BE_SM_CommPlanQVC_Cls().getCardDetails(meeting, 'Item4'));
-        summary = meeting.Summary__c;
 	}
     
     /**

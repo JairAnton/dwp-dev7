@@ -1,14 +1,13 @@
 /**
-   ---------------------------------------------------------------------------------------------------------------------------------------
+   -------------------------------------------------------------------------------------------------
    @Name <BE_CustomQuickAction_Ctr>
    @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
    @Date 2020-03-03
    @Description BE_CustomQuickAction_Ctr class
    @Changes
-   Date        Author  		Email                  				Type			Description
-   2020-03-03  LMBR     	lolo.bravo@bbva.com    				Creation
-   2020-11-23  MAMCH     	martin.mori.contractor@bbva.com    	modification	modify getSettings and getsObjFields method
-   ---------------------------------------------------------------------------------------------------------------------------------------
+   Date        Author   Email                  Type
+   2020-03-03  LMBR     lolo.bravo@bbva.com    Creation
+   -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_CustomQuickAction_Ctr {
   /** mapReturn */
@@ -44,13 +43,13 @@ public without sharing class BE_CustomQuickAction_Ctr {
   @AuraEnabled
   public static SObject getsObjFields(String accId,String sObjectType,  List<String> sObjFields) {
       SObject returnObj;
-      if(accId!=null && accId!='') {
+      if(accId==null || accId=='') {
+          Final Map<String, Schema.SObjectType> schemaDesc = Schema.getGlobalDescribe(); 
+          Final Schema.SObjectType schemaType = schemaDesc.get(sObjectType);
+          returnObj = schemaType.newSobject();
+      } else {
           final String query= 'SELECT '+ String.join(sObjFields, ',') + ' FROM '+ sObjectType +' WHERE Id=:accId';
           returnObj = Database.query(String.escapeSingleQuotes(query));
-      } else {
-          Map<String, Schema.SObjectType> gd = Schema.getGlobalDescribe(); 
-          Schema.SObjectType st = gd.get(sObjectType);
-          returnObj = st.newSobject();
       }
       return returnObj;
   }
