@@ -13,6 +13,8 @@
 public with sharing class BE_SM_MigrateTask_Tst {
     /** @Variable STREJE*/
     public static Final String STREJE = 'Ejecutivo';
+    /** @Variable STROPEN*/
+    public static Final String STROPEN = 'Open';
     
     /*
 	 * @Description  method setUp
@@ -39,11 +41,11 @@ public with sharing class BE_SM_MigrateTask_Tst {
         final Map<String, Schema.RecordTypeInfo> recordType = BE_General_Utils.getRecordTypeInfo(new List<String> {'Task'});
         final String taskRTSlmt =  recordType.get('Sales_Meeting').getRecordTypeId();
         insert new List<Task>{
-            new Task(RecordTypeId=taskRTSlmt,Subject='TASK01',slmt__management_plan_meeting_id__c=slm1.Id,Status='Open',OwnerId=ejecutivo.Id,ActivityDate=initDate.addDays(-2)),
-            new Task(RecordTypeId=taskRTSlmt,Subject='TASK02',slmt__management_plan_meeting_id__c=slm1.Id,Status='Open',OwnerId=ejecutivo.Id,ActivityDate=initDate.addDays(-2)),
+            new Task(RecordTypeId=taskRTSlmt,Subject='TASK01',slmt__management_plan_meeting_id__c=slm1.Id,Status=STROPEN,OwnerId=ejecutivo.Id,ActivityDate=initDate.addDays(-2)),
+            new Task(RecordTypeId=taskRTSlmt,Subject='TASK02',slmt__management_plan_meeting_id__c=slm1.Id,Status=STROPEN,OwnerId=ejecutivo.Id,ActivityDate=initDate.addDays(-2)),
             new Task(RecordTypeId=taskRTSlmt,Subject='TASK03',slmt__management_plan_meeting_id__c=slm1.Id,Status='Completed',OwnerId=ejecutivo.Id,ActivityDate=initDate),
-            new Task(RecordTypeId=taskRTSlmt,Subject='TASK04',slmt__management_plan_meeting_id__c=slm2.Id,OwnerId=ejecutivo2.Id,ActivityDate=initDate.addDays(-2)),
-            new Task(RecordTypeId=taskRTSlmt,Subject='TASK05',slmt__management_plan_meeting_id__c=slm2.Id,OwnerId=ejecutivo2.Id,ActivityDate=initDate.addDays(-2))
+            new Task(RecordTypeId=taskRTSlmt,Subject='TASK04',slmt__management_plan_meeting_id__c=slm2.Id,Status=STROPEN,OwnerId=ejecutivo2.Id,ActivityDate=initDate.addDays(-2)),
+            new Task(RecordTypeId=taskRTSlmt,Subject='TASK05',slmt__management_plan_meeting_id__c=slm2.Id,Status=STROPEN,OwnerId=ejecutivo2.Id,ActivityDate=initDate.addDays(-2))
         };
     }
     
