@@ -55,6 +55,8 @@ public without sharing virtual class BE_SM_Minute_Ctr {
     public static String urlLogoFacebook {get; set;}
 	/** @Variable urlLogoTwiter*/
     public static String urlLogoTwiter {get; set;}
+    /** @Variable summary*/
+    public static String summary {get; set;}
     
 	/*
 	 * @Description method BE_SM_Minute_Ctr
@@ -63,13 +65,14 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 		meeting = [SELECT Id, Name, slmt__management_plan_meeting_date__c, slmt__mngmt_plan_meet_dur_number__c, 
 		slmt__mngmt_plan_meeting_start_desc__c, slmt__mngmt_plan_meeting_status_name__c, slmt__mngmt_plan_meeting_user_id__c, 
 		slmt__mngmt_plan_meeting_user_id__r.Email, Type_of_meeting__c, Collaborator__c, Collaborator__r.Email, 
-		DateTime__c, Url__c FROM slmt__Sales_Meeting__c WHERE Id =:controller.getId() LIMIT 1];
-        valuesSet(controller.getId());
+		DateTime__c, Url__c, Summary__c FROM slmt__Sales_Meeting__c WHERE Id =:controller.getId() LIMIT 1];
+        valuesSet(controller.getId(), meeting.slmt__management_plan_meeting_date__c);
 		meetingDate = getTimeZoneValue(meeting.DateTime__c);
         mapTopic = mapValuesGet(new BE_SM_TopicQVC_Cls().getCardDetails(meeting, 'Item1'));
         mapVisit = mapValuesGet(new BE_SM_VisitQVC_Cls().getCardDetails(meeting, 'Item2'));
         mapPipeline = mapValuesGet(new BE_SM_PipelineLPQVC_Cls().getCardDetails(meeting, 'Item3'));
         mapPC = mapValuesGet(new BE_SM_CommPlanQVC_Cls().getCardDetails(meeting, 'Item4'));
+        summary = meeting.Summary__c;
 	}
     
     /**
@@ -98,7 +101,7 @@ public without sharing virtual class BE_SM_Minute_Ctr {
     public void sendMail() {
 		String templateConverted = 'BODY NULL';
 		try {
-			Final Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+            Final Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
 			Final PageReference templateVF = Page.BE_SM_Minute_vf;
 			templateVF.getParameters().put('id', meeting.Id);
 			templateVF.setRedirect(true);
@@ -107,8 +110,10 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 			} else {
 				templateConverted = templateVF.getContent().tostring();
 			}
-			Final String htmlBody = '<![CDATA[ <html lang="es">' +
+            Final StaticResource staticRes = [select id, body from StaticResource Where Name = 'BE_SM_Minute' LIMIT 1];
+            Final String htmlBody = '<![CDATA[ <html lang="es">' +
 			                        '<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />' +
+                					'<head><style>' + staticRes.body.toString() + '</style></head>'+
 			                        templateConverted +
 			                        '</html>';
 			email.setHtmlBody(htmlBody);
@@ -120,39 +125,38 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 			Final Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage> {email};
 			Final Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);
 			if(results[0].isSuccess()) {
-				createPdf(meeting);
+				createPdf();
 			}
 		} catch(Exception ex) {
-			System.debug('---Exception->' + ex);
+            System.debug('---Exception->' + ex);
 		}
 	}
 
 	/*
 	 * @Description method createPdf
 	 */
-    public String createPdf(slmt__Sales_Meeting__c slmtObjNew) {
-		Final PageReference pdfMinuta = Page.BE_SM_Minute_vf;
-		pdfMinuta.getParameters().put('id', slmtObjNew.Id);
+    public void createPdf() {
+        Final PageReference pdfMinuta = Page.BE_SM_Minute_vf;
+        pdfMinuta.getParameters().put('id', meeting.Id);
 		pdfMinuta.setRedirect(true);
 		Blob body;
 		if(test.isRunningTest()) {
 			body = Blob.valueOf('Some Text');
 		} else {
-			body = pdfMinuta.getContentAsPDF();
+            body = pdfMinuta.getContentAsPDF();
 		}
-		Final ContentVersion conVer = new ContentVersion();
+        Final ContentVersion conVer = new ContentVersion();
         conVer.ContentLocation = 'S';
         conVer.versionData = body;
-        conVer.title = 'Minuta de reunión de ' + slmtObjNew.Type_of_meeting__c + ' del ' + formatCurrentDate(Date.today());
+        conVer.title = 'Minuta de reunión de ' + meeting.Type_of_meeting__c + ' del ' + formatCurrentDate(Date.today());
         conVer.pathOnClient = conVer.title + '.pdf';
         insert conVer;
         Final Id conDoc = [SELECT ContentDocumentId FROM ContentVersion WHERE Id =:conVer.Id].ContentDocumentId;
         Final ContentDocumentLink conDocLink = New ContentDocumentLink();
-        conDocLink.LinkedEntityId = slmtObjNew.Id;
+        conDocLink.LinkedEntityId = meeting.Id;
         conDocLink.ContentDocumentId = conDoc;
         conDocLink.shareType = 'V';
         insert conDocLink;
-		return conDocLink.Id;
 	}
 
 	/*
@@ -224,11 +228,11 @@ public without sharing virtual class BE_SM_Minute_Ctr {
     /*
 	 * @Description method setValues
 	 */
-    public static void valuesSet(String slmtId) {
+    public static void valuesSet(String slmtId, Date dtValue) {
         try {
 			slmtTopics = [SELECT Id, ActivityDate, Subject, Status, Owner.Name, What.Name FROM Task 
-                          WHERE RecordType.DeveloperName = 'Sales_Meeting' AND slmt__management_plan_meeting_id__c = :slmtId
-                          ORDER BY Status ASC, ActivityDate DESC];
+                          WHERE RecordType.DeveloperName = 'Sales_Meeting' AND slmt__management_plan_meeting_id__c = :slmtId 
+                          AND ActivityDate <=:dtValue ORDER BY Status ASC, ActivityDate DESC];
 			Final String lstMembrete = returnDocId('Logo_BBVA');
 			Final String lstMembreteWhite = returnDocId('Logo_BBVA_white');
 			Final String lstLogoFace = returnDocId('facebook_logo');

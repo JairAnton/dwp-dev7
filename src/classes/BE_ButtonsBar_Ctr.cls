@@ -9,7 +9,11 @@
    2020-11-15  LMBR     lolo.bravo@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
-public with sharing class BE_ButtonsBar_Ctr {
+public without sharing class BE_ButtonsBar_Ctr {
+    /**@Description Quotes*/
+    final static String QUOTES='\'';
+    /**@Description params to quotes*/
+    final static String REFACTORPER='@@';
     /** private constructor */
     private BE_ButtonsBar_Ctr() {}
     /**
@@ -36,8 +40,7 @@ public with sharing class BE_ButtonsBar_Ctr {
         } else {
             final String query = 'SELECT ID FROM '+ params.get('objectApiName') +' WHERE ' + params.get('filter');
             res.isSuccess=true;
-            res.data=Database.query(String.escapeSingleQuotes(query));
-            
+            res.data=Database.query(String.escapeSingleQuotes(query).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES));
         }
         return res;
     } 

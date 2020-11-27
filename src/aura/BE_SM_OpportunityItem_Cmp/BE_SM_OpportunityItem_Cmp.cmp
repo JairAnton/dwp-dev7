@@ -15,34 +15,34 @@
                     </lightning:accordionSection>
                     <!--Sección Pipeline - En Gestión-->
                     <lightning:accordionSection name="AB" label="En Gestión">
-                        <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Negotiaton" 
+                        <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Negotiaton" 
                         relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
                     </lightning:accordionSection>
                     <!--Sección Pipeline - En Sanción-->
                     <lightning:accordionSection name="AC" label="En Sanción">
-                        <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Sanction" 
+                        <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Sanction" 
                         relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
                     </lightning:accordionSection>
                     <!--Sección Pipeline - En Formalización-->
                     <lightning:accordionSection name="AD" label="En Formalización">
-                        <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Formalization" 
+                        <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Formalization" 
                         relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
                     </lightning:accordionSection>
                 </lightning:accordion>
             </lightning:accordionSection>
             <!--Sección Vencidas-->
             <lightning:accordionSection name="B" label="Vencidas">
-                <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_ExpiredOpportunities" 
+                <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_ExpiredOpportunities" 
                 relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
             </lightning:accordionSection>
             <!--Sección Formalizadas-->
             <lightning:accordionSection name="C" label="Formalizadas">
-                <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_FormalizedOpportunities" 
+                <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_FormalizedOpportunities" 
                 relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
             </lightning:accordionSection>
             <!--Sección Desestimadas-->
             <lightning:accordionSection name="D" label="Desestimadas">
-                <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_DismissedOpportunities" 
+                <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_DismissedOpportunities" 
                 relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
             </lightning:accordionSection>
         </lightning:accordion>

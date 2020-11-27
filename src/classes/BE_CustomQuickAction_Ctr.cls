@@ -1,13 +1,14 @@
 /**
-   -------------------------------------------------------------------------------------------------
+   ---------------------------------------------------------------------------------------------------------------------------------------
    @Name <BE_CustomQuickAction_Ctr>
    @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
    @Date 2020-03-03
    @Description BE_CustomQuickAction_Ctr class
    @Changes
-   Date        Author   Email                  Type
-   2020-03-03  LMBR     lolo.bravo@bbva.com    Creation
-   -------------------------------------------------------------------------------------------------
+   Date        Author  		Email                  				Type			Description
+   2020-03-03  LMBR     	lolo.bravo@bbva.com    				Creation
+   2020-11-23  MAMCH     	martin.mori.contractor@bbva.com    	modification	modify getSettings and getsObjFields method
+   ---------------------------------------------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_CustomQuickAction_Ctr {
   /** mapReturn */
@@ -24,8 +25,9 @@ public without sharing class BE_CustomQuickAction_Ctr {
   @AuraEnabled
   public static Map<String,Object> getSettings(String nameMetadata) {
   	for(BE_SingleRelatedList_QuickAction__mdt mdt : [SELECT Id, Title__c,CustomFields__c, sObjectType__c, ClassName__c, ModeAction__c FROM BE_SingleRelatedList_QuickAction__mdt WHERE DeveloperName = :nameMetadata]) {
+        mdt.CustomFields__c = mdt.CustomFields__c.replaceAll(': "UserId"', ': "'+System.UserInfo.getUserId()+'"');
   		mapReturn.put('title', mdt.Title__c);
-  		mapReturn.put('sObjectFields', JSON.deserializeUntyped(mdt.CustomFields__c));
+        mapReturn.put('sObjectFields', JSON.deserializeUntyped(mdt.CustomFields__c));
   		mapReturn.put('sObjectType', mdt.sObjectType__c);
   		mapReturn.put('className', mdt.ClassName__c);
   		mapReturn.put('modeAction', mdt.ModeAction__c);
@@ -41,8 +43,16 @@ public without sharing class BE_CustomQuickAction_Ctr {
  */
   @AuraEnabled
   public static SObject getsObjFields(String accId,String sObjectType,  List<String> sObjFields) {
-  	final String query= 'SELECT '+ String.join(sObjFields, ',') + ' FROM '+ sObjectType +' WHERE Id=:accId';
-  	return Database.query(String.escapeSingleQuotes(query));
+      SObject returnObj;
+      if(accId!=null && accId!='') {
+          final String query= 'SELECT '+ String.join(sObjFields, ',') + ' FROM '+ sObjectType +' WHERE Id=:accId';
+          returnObj = Database.query(String.escapeSingleQuotes(query));
+      } else {
+          Map<String, Schema.SObjectType> gd = Schema.getGlobalDescribe(); 
+          Schema.SObjectType st = gd.get(sObjectType);
+          returnObj = st.newSobject();
+      }
+      return returnObj;
   }
   /**
    @Description update records with standard or custom Class Extends
@@ -52,14 +62,14 @@ public without sharing class BE_CustomQuickAction_Ctr {
   */
   @AuraEnabled
   public static Object createRecord(sObject sObj,String className) {
-          res=new BE_CustomQuickActionCRUD_Cls.Response();
-          if(String.isNotBlank(className)) {
-              final BE_CustomQuickActionCRUD_Cls singleClas=(BE_CustomQuickActionCRUD_Cls)Type.forName(className).newInstance();
-              res=singleClas.createRecord(sObj);
-          } else {
-              res = returnResponse(sObj, 'insert');
-          }
-          return res;
+      res=new BE_CustomQuickActionCRUD_Cls.Response();
+      if(String.isNotBlank(className)) {
+          final BE_CustomQuickActionCRUD_Cls singleClas=(BE_CustomQuickActionCRUD_Cls)Type.forName(className).newInstance();
+          res=singleClas.createRecord(sObj);
+      } else {
+          res = returnResponse(sObj, 'insert');
+      }
+      return res;
   }
   
   /**

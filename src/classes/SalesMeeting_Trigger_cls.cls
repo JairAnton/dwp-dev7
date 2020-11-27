@@ -121,4 +121,17 @@ public without sharing class SalesMeeting_Trigger_cls {
             }
         }
     }
+    
+    /**
+     * @Description migrateTasks
+     */
+    public static void migrateTasks(List<slmt__Sales_Meeting__c> triggerNew) {
+        Final Map<Id, Id> slmtCollMap = new Map<Id, Id>();
+        for(slmt__Sales_Meeting__c slmtAux : triggerNew) {
+            slmtCollMap.put(slmtAux.Collaborator__c, slmtAux.Id);
+        }
+        if(!slmtCollMap.isEmpty()) {
+            Database.executeBatch(new BE_SM_MigrateTask_Batch(slmtCollMap));
+        }
+    }
 }

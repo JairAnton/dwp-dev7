@@ -1,4 +1,4 @@
-<apex:page showHeader="false" language="es_PE" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false"   docType="html-5.0" standardController="slmt__Sales_Meeting__c" extensions="BE_SM_Minute_Ctr" >
+<apex:page showHeader="false" language="es_PE" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="slmt__Sales_Meeting__c" extensions="BE_SM_Minute_Ctr" >
     <apex:stylesheet value="{!$Resource.BE_SM_Minute}"/>
     <head>
         <title>BBVA</title>
@@ -158,9 +158,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    &nbsp;
-                </td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>
@@ -188,20 +186,23 @@
                     </table>
                 </td>
             </tr>
-            <apex:outputPanel id="e" rendered="{!slmt__Sales_Meeting__c.Summary__c != null}">
             <tr>
-                <table class="styleTable">
-                    <tr class="border_bottom backgroundTitle">
-                        <th colspan="2" class="subtitle">RESUMEN</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="textBody"><apex:outputText value="{!slmt__Sales_Meeting__c.Summary__c}"/></span>
-                        </td>
-                    </tr>
-                </table>
+                <td>&nbsp;</td>
             </tr>
-            </apex:outputPanel>
+            <tr>
+                <td>
+                    <table class="styleTable">
+                        <tr class="border_bottom backgroundTitle">
+                            <th colspan="1" class="subtitle"><apex:outputPanel rendered="{!slmt__Sales_Meeting__c.Summary__c != null}">RESUMEN</apex:outputPanel></th>
+                        </tr>
+                        <tr class="border_bottom">
+                            <td>
+                                <span class="textBody"><apex:outputPanel rendered="{!slmt__Sales_Meeting__c.Summary__c != null}"><apex:outputText value="{!slmt__Sales_Meeting__c.Summary__c}"/></apex:outputPanel></span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <br/>
@@ -285,9 +286,7 @@
                                                     </tr>
                                                     <tr class="textAlingCenter">
                                                         <td class="rectangleFootherText">
-                                                            Si tienes alguna duda acerca de la autenticidad de este correo envíalo a la dirección 
-															<a class="rectangleFootherText" href="mailto:bbvaseguridadl.pe@bbva.com">bbvaseguridadl.pe@bbva.com</a>
-															y te responderemos.
+                                                            Si tienes alguna duda acerca de la autenticidad de este correo envíalo a la dirección <a class="rectangleFootherText" href="mailto:bbvaseguridadl.pe@bbva.com">bbvaseguridadl.pe@bbva.com</a> y te responderemos.
                                                         </td>
                                                     </tr>
                                                 </table>

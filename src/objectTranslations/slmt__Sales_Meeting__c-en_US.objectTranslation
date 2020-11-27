@@ -7,7 +7,7 @@
     <fields>
         <label><!-- Collaborator --></label>
         <name>Collaborator__c</name>
-        <relationshipLabel><!-- Sales Meetings (Collaborator) --></relationshipLabel>
+        <relationshipLabel><!-- Reuniones Individuales (Colaborador) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- DateTime --></label>
@@ -121,7 +121,7 @@
         <help><!-- The person who is invited to to the meeting to review the sales rep plan. --></help>
         <label><!-- Manager --></label>
         <name>slmt__mngmt_plan_meeting_user_id__c</name>
-        <relationshipLabel><!-- Sales Meetings (Manager) --></relationshipLabel>
+        <relationshipLabel><!-- Reuniones Individuales (Responsable) --></relationshipLabel>
     </fields>
     <layouts>
         <layout>BE Sales Meeting Layout</layout>
@@ -137,10 +137,6 @@
     <quickActions>
         <label><!-- New Topic --></label>
         <name>BE_SMNewTopic</name>
-    </quickActions>
-    <quickActions>
-        <label><!-- Reasignar Temas --></label>
-        <name>BE_SM_Reasign_Topics</name>
     </quickActions>
     <validationRules>
         <errorMessage><!-- No puede colocar una fecha mayor a los 6 pimeros días utiles del mes. --></errorMessage>

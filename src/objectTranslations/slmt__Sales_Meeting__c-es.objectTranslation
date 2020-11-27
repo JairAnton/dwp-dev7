@@ -2,11 +2,11 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Sales Meeting --></value>
+        <value>Reunión Individual</value>
     </caseValues>
     <caseValues>
         <plural>true</plural>
-        <value><!-- Sales Meeting --></value>
+        <value>Reuniones Individuales</value>
     </caseValues>
     <fields>
         <label>Fecha de cierre</label>
@@ -15,7 +15,7 @@
     <fields>
         <label>Colaborador</label>
         <name>Collaborator__c</name>
-        <relationshipLabel><!-- Sales Meetings (Collaborator) --></relationshipLabel>
+        <relationshipLabel><!-- Reuniones Individuales (Colaborador) --></relationshipLabel>
     </fields>
     <fields>
         <label>Fecha y hora</label>
@@ -129,9 +129,9 @@
         <help><!-- The person who is invited to to the meeting to review the sales rep plan. --></help>
         <label>Responsable</label>
         <name>slmt__mngmt_plan_meeting_user_id__c</name>
-        <relationshipLabel><!-- Sales Meetings (Manager) --></relationshipLabel>
+        <relationshipLabel><!-- Reuniones Individuales (Responsable) --></relationshipLabel>
     </fields>
-    <gender><!-- Feminine --></gender>
+    <gender>Feminine</gender>
     <layouts>
         <layout>BE Sales Meeting Layout</layout>
         <sections>
@@ -141,16 +141,12 @@
     </layouts>
     <nameFieldLabel><!-- Name --></nameFieldLabel>
     <quickActions>
-        <label><!-- Finalize --></label>
+        <label>Finalizar</label>
         <name>BE_SMFinalizeModal</name>
     </quickActions>
     <quickActions>
-        <label><!-- New Topic --></label>
+        <label>Nuevo tema</label>
         <name>BE_SMNewTopic</name>
-    </quickActions>
-    <quickActions>
-        <label><!-- Reasignar Temas --></label>
-        <name>BE_SM_Reasign_Topics</name>
     </quickActions>
     <validationRules>
         <errorMessage><!-- No puede colocar una fecha mayor a los 6 pimeros días utiles del mes. --></errorMessage>

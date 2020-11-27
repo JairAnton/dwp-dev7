@@ -23,7 +23,7 @@ public with sharing class BE_SM_FinalizeModal_Ctr {
 	 * @Description constructor method
 	 */
     private BE_SM_FinalizeModal_Ctr() {}
-    
+
     /*
 	 * @Description method getStatusMeeting
 	 */
@@ -35,8 +35,9 @@ public with sharing class BE_SM_FinalizeModal_Ctr {
             res.put(MESSAGE, 'error id no valid');
         } else {
             try {
-                Final slmt__Sales_Meeting__c meeting = [SELECT Id, slmt__mngmt_plan_meeting_status_name__c FROM slmt__Sales_Meeting__c WHERE Id =:recordId LIMIT 1];
+                Final slmt__Sales_Meeting__c meeting = [SELECT Id, slmt__mngmt_plan_meeting_status_name__c, Summary__c FROM slmt__Sales_Meeting__c WHERE Id =:recordId LIMIT 1];
                 if(meeting.slmt__mngmt_plan_meeting_status_name__c==PLANNED) {
+                    res.put('summary', meeting.Summary__c);
                     res.put(ISSUCCESS, true);
                     res.put(MESSAGE, 'success');
                 } else {
@@ -70,7 +71,6 @@ public with sharing class BE_SM_FinalizeModal_Ctr {
                 Final ApexPages.StandardController standCtr = new ApexPages.StandardController(slmtRecord);
 				Final BE_SM_Minute_Ctr slmtMinute = new BE_SM_Minute_Ctr(standCtr);
                 slmtMinute.sendMail();
-                
                 res.put(ISSUCCESS, true);
                 res.put(MESSAGE, 'success');
             } catch (Exception ex) {
