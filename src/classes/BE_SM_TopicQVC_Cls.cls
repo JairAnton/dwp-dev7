@@ -20,7 +20,7 @@ global without sharing class BE_SM_TopicQVC_Cls implements slmt.Sales_Meeting_It
         Integer totalTopics = 0;
         Integer topicsManager = 0;
         Integer topicsColl = 0;
-        for(Task tsk : [SELECT Id, Subject, OwnerId FROM Task WHERE  (OwnerId=:(String)contextRecord.get('Collaborator__c')  OR OwnerId=:(String)contextRecord.get('slmt__mngmt_plan_meeting_user_id__c')) AND slmt__management_plan_meeting_id__r.OwnerId=:(String)contextRecord.get('Collaborator__c') AND ActivityDate <=:(Date)contextRecord.get('slmt__management_plan_meeting_date__c')]) {
+        for(Task tsk : [SELECT Id, Subject, OwnerId FROM Task WHERE  (OwnerId=:(String)contextRecord.get('Collaborator__c')  OR OwnerId=:(String)contextRecord.get('slmt__mngmt_plan_meeting_user_id__c')) AND slmt__management_plan_meeting_id__r.Collaborator__c=:(String)contextRecord.get('Collaborator__c') AND ActivityDate <=:(Date)contextRecord.get('slmt__management_plan_meeting_date__c')]) {
             totalTopics++;
             if(tsk.OwnerId == contextRecord.get('Collaborator__c')) {
                 topicsColl++;
@@ -31,8 +31,8 @@ global without sharing class BE_SM_TopicQVC_Cls implements slmt.Sales_Meeting_It
         final List<Map<String,String>> lstReturn = new List<Map<String,String>>();
         lstReturn.add(createItem(new List<String>{'', 'Temas', '08',cardId}));
         lstReturn.add(createItem(new List<String>{'Temas a tratar',String.valueOf(totalTopics),'06',cardId}));
-        lstReturn.add(createItem(new List<String>{'Temas del gestor',String.valueOf(topicsManager) + ' de ' + String.valueOf(totalTopics),'08',cardId}));
-        lstReturn.add(createItem(new List<String>{'Temas del responsable', String.valueOf(topicsColl) + ' de ' + String.valueOf(totalTopics),'08',cardId}));
+        lstReturn.add(createItem(new List<String>{'Temas del gestor',String.valueOf(topicsColl) + ' de ' + String.valueOf(totalTopics),'08',cardId}));
+        lstReturn.add(createItem(new List<String>{'Temas del responsable', String.valueOf(topicsManager) + ' de ' + String.valueOf(totalTopics),'08',cardId}));
         return lstReturn;
     }
 

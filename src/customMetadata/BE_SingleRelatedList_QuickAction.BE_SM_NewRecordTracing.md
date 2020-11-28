@@ -38,10 +38,6 @@
 }</value>
     </values>
     <values>
-        <field>CustomFields__c</field>
-        <value xsi:nil="true"/>
-    </values>
-    <values>
         <field>ModeAction__c</field>
         <value xsi:type="xsd:string">create</value>
     </values>

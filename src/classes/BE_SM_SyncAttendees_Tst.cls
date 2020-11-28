@@ -33,7 +33,7 @@ public with sharing class BE_SM_SyncAttendees_Tst {
     }
     
     /*
-	 * @Description method getSMPlanningVisits
+	 * @Description method unitTest
 	 */
     @isTest
     static void unitTest() {

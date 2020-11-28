@@ -41,7 +41,7 @@
             &quot;navigate&quot;: {
                 &quot;type&quot;: &quot;standard__recordPage&quot;,
                 &quot;attributes&quot;: {
-                    &quot;filter&quot;: &quot;Title=&apos;Planes Comerciales Oficina&apos;&quot;,
+                    &quot;filter&quot;: &quot;Title=@@Planes Comerciales Oficina@@&quot;,
                     &quot;objectApiName&quot;: &quot;Dashboard&quot;,
                     &quot;actionName&quot;: &quot;view&quot;
                 }
@@ -54,7 +54,7 @@
             &quot;navigate&quot;: {
                 &quot;type&quot;: &quot;standard__recordPage&quot;,
                 &quot;attributes&quot;: {
-                    &quot;filter&quot;: &quot;DeveloperName=&apos;BE_Resumen_calce_por_oficinas_zgq&apos;&quot;,
+                    &quot;filter&quot;: &quot;DeveloperName=@@BE_Resumen_calce_por_oficinas_zgq@@&quot;,
                     &quot;objectApiName&quot;: &quot;Report&quot;,
                     &quot;actionName&quot;: &quot;view&quot;
                 }

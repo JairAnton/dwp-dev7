@@ -1,4 +1,7 @@
 ({
+    doInit : function(cmp, evt, helper) {
+        helper.getInfo(cmp, evt, helper);
+    },
     handleSave : function(cmp, evt, helper) {
         helper.saveMethod(cmp, evt, helper);
     },

@@ -1,4 +1,28 @@
 ({
+    getInfo : function(cmp, event, helper) {
+        var recordId = cmp.get('v.recordId');
+        var action = cmp.get("c.getStatusMeeting");
+        action.setParams({
+            "recordId": recordId
+        });
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if(state === "SUCCESS") {
+                var ret = response.getReturnValue();
+                if(ret.isSuccess) {
+                    cmp.set('v.summary', ret.summary);
+                    cmp.set('v.isError', false);
+                } else {
+                    cmp.set('v.isError', true);
+                    cmp.set('v.errorlst', ret.message);
+                }
+            } else {
+                cmp.set('v.isError', true);
+                cmp.set('v.errorlst', 'Error inesperado, por favor comuniquese con su administrador.');
+            }
+        });
+        $A.enqueueAction(action);
+    },
     saveMethod : function(cmp, event, helper) {
         helper.saveRecord(cmp, event, helper);
     },
@@ -23,7 +47,8 @@
         var recordId = cmp.get('v.recordId');
         var action = cmp.get("c.finalizeMeeting");
         action.setParams({
-            "recordId" : recordId
+            "recordId": recordId,
+            "summary": cmp.get('v.summary')
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
@@ -44,14 +69,10 @@
                 } else {
                     cmp.set('v.isError', true);
                     cmp.set('v.errorlst', ret.message);
-                    cmp.set('v.hasHeader', false);
-                    cmp.set('v.isLoad', true);
                 }
             } else {
                 cmp.set('v.isError', true);
                 cmp.set('v.errorlst', 'Error inesperado, por favor comuniquese con su administrador.');
-                cmp.set('v.hasHeader', false);
-                cmp.set('v.isLoad', true);
             }
         });
         $A.enqueueAction(action);
