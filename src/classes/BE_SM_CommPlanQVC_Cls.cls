@@ -14,6 +14,10 @@ global without sharing class BE_SM_CommPlanQVC_Cls implements slmt.Sales_Meeting
     final static List<String> DIRECT_FAMILY=new List<String>{'Financiamiento a corto plazo','Financiamiento a largo plazo'};
     /** USERS POSITION CODE */
     final static List<List<String>> USERS_CODE=new List<List<String>>{(List<String>)System.Label.lblEjecutivoCode.split(','),(List<String>)System.Label.lblGOFCode.split(',')};
+    /**@Description Quotes*/
+    final static String QUOTES='\'';
+    /**@Description params to quotes*/
+    final static String REFACTORPER='@@';
     /**
     @Description createRecords
     @param Object contextRecord (Sales Meeting)
@@ -38,14 +42,14 @@ global without sharing class BE_SM_CommPlanQVC_Cls implements slmt.Sales_Meeting
         }
         /** ADVANCE DIRECT COMMITMENT */
         String query= 'SELECT Id, convertCurrency(current_balance_amount__c)current_balance_amount__c FROM Account_BBVA_Information__c'+
-        ' WHERE type__c = \'01\' AND product_desc__c NOT IN(\' \') AND is_last_date__c = true AND product_group_classification_id__c=\'Directa\'';
+        ' WHERE type__c = @@01@@ AND product_desc__c NOT IN(@@ @@) AND is_last_date__c = true AND product_group_classification_id__c=@@Directa@@';
         if(USERS_CODE[0].contains(userCode)) {
-            query=query + ' AND account_id__r.OwnerId=\'' + collaborator+'\'';
+            query=query + ' AND account_id__r.OwnerId=@@' + collaborator+'@@';
         } else if(USERS_CODE[1].contains(userCode)) {
             final User_Branch__c branchUser = [SELECT Id,branch_name__r.branch_id__c FROM User_Branch__c WHERE User__c=:collaborator];
-            query=query + ' AND account_id__r.branch_id__r.branch_id__c=\'' + branchUser.branch_name__r.branch_id__c+'\'';
+            query=query + ' AND account_id__r.branch_id__r.branch_id__c=@@' + branchUser.branch_name__r.branch_id__c+'@@';
         }
-        for (Account_BBVA_Information__c accInform : Database.query(query)) {
+        for (Account_BBVA_Information__c accInform : Database.query(String.escapeSingleQuotes(query).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES))) {
             advDirCommitment=advDirCommitment+accInform.current_balance_amount__c;
         }
         final List<Map<String,String>> lstReturn = new List<Map<String,String>>();
