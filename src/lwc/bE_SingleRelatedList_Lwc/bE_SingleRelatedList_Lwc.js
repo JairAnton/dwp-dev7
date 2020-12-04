@@ -89,6 +89,9 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
                 if(this.sObject.settings.hasOwnProperty('maxRowSelection')) {
                     this.maxRowSelection = this.sObject.settings.maxRowSelection;
                 }
+				if(this.sObject.settings.hasOwnProperty('hideViewAll')) {
+                    this.isViewAll=this.sObject.settings.hideViewAll;
+                }
                 this.columns = transformColumns(data[0].Columns__c, this.lang);
                 this.headActions = transformHeadActions(data[0].HeadActions__c, this.recordId, this.lang);
                 this.callListData();

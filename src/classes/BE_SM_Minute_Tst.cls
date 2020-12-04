@@ -20,7 +20,9 @@ public with sharing class BE_SM_Minute_Tst {
         Final Id ejeProfileId = BE_SM_Factory_tst.ID_EJE;
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', User.ManagerId => userGOF.Id});
-        BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 4), ejecutivo.Id, 'Planning', true);
+        System.runAs(ejecutivo) {
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 4), ejecutivo.Id, 'Planning', true);
+        }
     }
     
     /*

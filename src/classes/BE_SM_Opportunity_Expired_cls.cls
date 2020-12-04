@@ -25,7 +25,7 @@ public with sharing class BE_SM_Opportunity_Expired_cls extends BE_SingleRelated
         Final Set<Id> setAuxIdsOpp = BE_SM_Opportunity_helper.getOppIdsInColaboration(setIdsCol, setStages);
         Final Set<Id> setIdsOpp = new Set<Id>();
         for(OpportunityLineItem oli: [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE 
-                                    Opportunity.CloseDate <:salesMeeting.slmt__management_plan_meeting_date__c AND 
+                                    Opportunity.Loss_date__c <:salesMeeting.slmt__management_plan_meeting_date__c AND 
                                     Product2.Unique_id__c IN: lstProducts AND Opportunity.stageName IN: setStages AND  
                                     (Opportunity.OwnerId IN:setIdsCol OR OpportunityId IN:setAuxIdsOpp)]) {
             setIdsOpp.add(oli.OpportunityId);

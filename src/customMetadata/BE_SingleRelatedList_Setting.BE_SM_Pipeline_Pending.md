@@ -7,7 +7,7 @@
         <value xsi:type="xsd:string">{
     &quot;values&quot;: [
         {
-            &quot;label&quot;: &quot;CLIENTE&quot;,
+            &quot;label&quot;: &quot;Cliente&quot;,
             &quot;fieldName&quot;: &quot;AccountId&quot;,
             &quot;type&quot;: &quot;customlookup&quot;,
             &quot;typeAttributes&quot;: {
@@ -21,7 +21,7 @@
             }
         },
         {
-            &quot;label&quot;: &quot;NOMBRE&quot;,
+            &quot;label&quot;: &quot;Nombre&quot;,
             &quot;fieldName&quot;: &quot;Id&quot;,
             &quot;type&quot;: &quot;customurl&quot;,
             &quot;typeAttributes&quot;: {
@@ -33,8 +33,13 @@
                 &quot;fieldName&quot;: &quot;Id&quot;
             }
         },
+       {
+       &quot;label&quot;: &quot;Estado&quot;,
+       &quot;fieldName&quot;: &quot;opportunity_status_type__c&quot;,
+       &quot;type&quot;: &quot;picklist&quot;
+        },
         {
-            &quot;label&quot;: &quot;MONTO&quot;,
+            &quot;label&quot;: &quot;Importe&quot;,
             &quot;fieldName&quot;: &quot;Amount&quot;,
             &quot;type&quot;: &quot;currency&quot;,
             &quot;typeAttributes&quot;: {
@@ -49,7 +54,7 @@
             }
         },
         {
-            &quot;label&quot;: &quot;FECHA DE CIERRE&quot;,
+            &quot;label&quot;: &quot;Fecha de cierre&quot;,
             &quot;fieldName&quot;: &quot;CloseDate&quot;,
             &quot;type&quot;: &quot;date-local&quot;
         },
@@ -101,18 +106,12 @@
                         },
                         &quot;fields&quot;: [
                             {
-                                &quot;fieldName&quot;: &quot;Name&quot;,
-                                &quot;required&quot;: &quot;true&quot;
-                            },
-                            {
                                 &quot;fieldName&quot;: &quot;AccountId&quot;,
                                 &quot;disabled&quot;: &quot;true&quot;
                             },
                             {
-                                &quot;fieldName&quot;: &quot;opportunity_planning_date__c&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;CloseDate&quot;
+                                &quot;fieldName&quot;: &quot;Name&quot;,
+                                &quot;required&quot;: &quot;true&quot;
                             },
                             {
                                 &quot;fieldName&quot;: &quot;Amount&quot;
@@ -120,6 +119,12 @@
                             {
                                 &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;,
 &quot;disabled&quot;: true
+                            },
+                            {
+                                &quot;fieldName&quot;: &quot;opportunity_planning_date__c&quot;
+                            },
+                            {
+                                &quot;fieldName&quot;: &quot;CloseDate&quot;
                             },
                             {
                                 &quot;fieldName&quot;: &quot;success_probability_desc__c&quot;
@@ -151,7 +156,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Account.Name, Name,Amount,CloseDate</value>
+        <value xsi:type="xsd:string">Account.Name, Name,toLabel(opportunity_status_type__c),Amount,CloseDate</value>
     </values>
     <values>
         <field>Filter__c</field>
@@ -168,7 +173,8 @@
     <values>
         <field>Settings__c</field>
         <value xsi:type="xsd:string">{
-&quot;readClassName&quot;: &quot;BE_SM_Pipeline_Pending_cls&quot;
+&quot;readClassName&quot;: &quot;BE_SM_Pipeline_Pending_cls&quot;,
+&quot;hideViewAll&quot;: true
 }</value>
     </values>
     <values>

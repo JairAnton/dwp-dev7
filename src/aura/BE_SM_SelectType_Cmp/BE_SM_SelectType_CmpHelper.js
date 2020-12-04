@@ -11,8 +11,6 @@
                 }
                 cmp.set("v.value",options[0].value);
                 cmp.set("v.options",options);
-            } else {
-                alert('error');
             }
         });
         $A.enqueueAction(action);

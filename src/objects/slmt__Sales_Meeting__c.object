@@ -198,6 +198,52 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Collaborator</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>((1 OR 2 OR 3) AND (4 OR 5 OR 6 OR 7)) OR 8</booleanFilter>
+            <errorMessage>No existe un usuario para seleccionar.</errorMessage>
+            <filterItems>
+                <field>User.ManagerId</field>
+                <operation>equals</operation>
+                <valueField>$User.Id</valueField>
+            </filterItems>
+            <filterItems>
+                <field>User.Id</field>
+                <operation>equals</operation>
+                <valueField>$User.Id</valueField>
+            </filterItems>
+            <filterItems>
+                <field>User.ManagerId</field>
+                <operation>equals</operation>
+                <valueField>$User.ManagerId</valueField>
+            </filterItems>
+            <filterItems>
+                <field>User.prof_position_id__c</field>
+                <operation>equals</operation>
+                <value>E01</value>
+            </filterItems>
+            <filterItems>
+                <field>User.prof_position_id__c</field>
+                <operation>equals</operation>
+                <value>E03</value>
+            </filterItems>
+            <filterItems>
+                <field>User.prof_position_id__c</field>
+                <operation>equals</operation>
+                <value>I21</value>
+            </filterItems>
+            <filterItems>
+                <field>User.prof_position_id__c</field>
+                <operation>equals</operation>
+                <value>I32</value>
+            </filterItems>
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>Administrador del sistema</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>User</referenceTo>
         <relationshipName>Sales_Meetings</relationshipName>
         <required>false</required>
@@ -221,6 +267,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>slmt__mngmt_plan_meeting_status_name__c</controllingField>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -250,6 +297,26 @@
                     <label>Others</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Unrealized</controllingFieldValue>
+                <valueName>Holidays</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unrealized</controllingFieldValue>
+                <valueName>No availability of agenda</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unrealized</controllingFieldValue>
+                <valueName>There were expired opportunities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unrealized</controllingFieldValue>
+                <valueName>Training</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unrealized</controllingFieldValue>
+                <valueName>Others</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -296,6 +363,28 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>auxiliar_collaborator__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sales_Meetings_Auxiliar_Collaborator</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>auxiliar_manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sales_Meetings_Auxiliar_Manager</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>slmt__management_plan_meeting_date__c</fullName>
@@ -421,14 +510,62 @@
     <label>Sales Meeting</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Type_of_meeting__c</columns>
+        <columns>Collaborator__c</columns>
+        <columns>slmt__mngmt_plan_meeting_user_id__c</columns>
+        <columns>DateTime__c</columns>
+        <columns>slmt__mngmt_plan_meeting_status_name__c</columns>
         <filterScope>Everything</filterScope>
-        <label>All</label>
+        <label>Todas</label>
     </listViews>
     <listViews>
-        <fullName>Mis_reuniones</fullName>
+        <fullName>Mis_pr_ximas_reuniones</fullName>
         <columns>NAME</columns>
-        <filterScope>Mine</filterScope>
-        <label>Mis reuniones</label>
+        <columns>Type_of_meeting__c</columns>
+        <columns>Collaborator__c</columns>
+        <columns>slmt__mngmt_plan_meeting_user_id__c</columns>
+        <columns>DateTime__c</columns>
+        <columns>slmt__mngmt_plan_meeting_status_name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>slmt__management_plan_meeting_date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Mis próximas reuniones</label>
+    </listViews>
+    <listViews>
+        <fullName>Mis_reuniones_de_este_mes</fullName>
+        <columns>NAME</columns>
+        <columns>Type_of_meeting__c</columns>
+        <columns>Collaborator__c</columns>
+        <columns>slmt__mngmt_plan_meeting_user_id__c</columns>
+        <columns>DateTime__c</columns>
+        <columns>slmt__mngmt_plan_meeting_status_name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>slmt__management_plan_meeting_date__c</field>
+            <operation>equals</operation>
+            <value>THIS_MONTH</value>
+        </filters>
+        <label>Mis reuniones de este mes</label>
+    </listViews>
+    <listViews>
+        <fullName>Mis_reuniones_del_mes_pasado</fullName>
+        <columns>NAME</columns>
+        <columns>Type_of_meeting__c</columns>
+        <columns>Collaborator__c</columns>
+        <columns>slmt__mngmt_plan_meeting_user_id__c</columns>
+        <columns>DateTime__c</columns>
+        <columns>slmt__mngmt_plan_meeting_status_name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>slmt__management_plan_meeting_date__c</field>
+            <operation>equals</operation>
+            <value>LAST_MONTH</value>
+        </filters>
+        <label>Mis reuniones del mes pasado</label>
     </listViews>
     <nameField>
         <encryptionScheme>None</encryptionScheme>
@@ -465,6 +602,18 @@
 		false, true), 
 	false)</errorConditionFormula>
         <errorMessage>No puede colocar una fecha mayor a los 6 pimeros días utiles del mes.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_DateTime</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISCHANGED( DateTime__c ) , DateTime__c &lt;  NOW())</errorConditionFormula>
+        <errorMessage>No se puede crear una reunión individual con fecha y hora pasada</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Finalized_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( NOW() &lt;  DateTime__c ,  ISPICKVAL( slmt__mngmt_plan_meeting_status_name__c , &apos;Finalized&apos;) )</errorConditionFormula>
+        <errorMessage>No se puede finalizar una reunión individual antes de la fecha y hora programda.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

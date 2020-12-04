@@ -21,6 +21,7 @@ public without sharing class BE_SM_ManagementPlanLink_Cls extends BE_ButtonsBarC
         final List<SObject> plans=[SELECT ID FROM dwp_frct__management_plan__c WHERE dwp_frct__management_plan_end_date__c>=:salesMeeting.DateTime__c AND dwp_frct__management_plan_start_date__c<=:salesMeeting.DateTime__c AND OwnerId=:salesMeeting.Collaborator__c];
         if(plans.isEmpty()) {
             res.isSuccess=false;
+            res.message='No se encontraron registros de Proyección Mensual.';
         } else {
             res.data=plans;
             res.isSuccess=true;

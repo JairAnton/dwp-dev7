@@ -444,7 +444,7 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Extensions_Allowed</shortDescription>
-        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx</value>
+        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx,png,jpg,jpeg</value>
     </labels>
     <labels>
         <fullName>Error_InvalidExtensionType</fullName>

@@ -7,7 +7,7 @@
         <value xsi:type="xsd:string">{
     &quot;buttons&quot;: [
         {
-            &quot;label&quot;: &quot;Proyección Mensual&quot;,
+            &quot;label&quot;: &quot;Proyección mensual&quot;,
             &quot;name&quot;: &quot;button01&quot;,
             &quot;variant&quot;: &quot;brand&quot;,
             &quot;navigate&quot;: {
@@ -35,7 +35,7 @@
             }
         },
         {
-            &quot;label&quot;: &quot;Planes Comerciales Oficina&quot;,
+            &quot;label&quot;: &quot;Planes comerciales oficina&quot;,
             &quot;name&quot;: &quot;button03&quot;,
             &quot;variant&quot;: &quot;brand&quot;,
             &quot;navigate&quot;: {
@@ -48,8 +48,21 @@
             }
         },
         {
-            &quot;label&quot;: &quot;Calce Semanal&quot;,
+            &quot;label&quot;: &quot;Visitas&quot;,
             &quot;name&quot;: &quot;button04&quot;,
+            &quot;variant&quot;: &quot;brand&quot;,
+            &quot;navigate&quot;: {
+                &quot;type&quot;: &quot;standard__recordPage&quot;,
+                &quot;attributes&quot;: {
+                    &quot;filter&quot;: &quot;Title=@@Panel de Visitas@@&quot;,
+                    &quot;objectApiName&quot;: &quot;Dashboard&quot;,
+                    &quot;actionName&quot;: &quot;view&quot;
+                }
+            }
+        },
+        {
+            &quot;label&quot;: &quot;Calce semanal&quot;,
+            &quot;name&quot;: &quot;button05&quot;,
             &quot;variant&quot;: &quot;brand&quot;,
             &quot;navigate&quot;: {
                 &quot;type&quot;: &quot;standard__recordPage&quot;,

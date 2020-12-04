@@ -7,7 +7,7 @@
         <value xsi:type="xsd:string">{
     &quot;values&quot;: [
         {
-            &quot;label&quot;: &quot;CLIENTE&quot;,
+            &quot;label&quot;: &quot;Cliente&quot;,
             &quot;fieldName&quot;: &quot;AccountId&quot;,
             &quot;type&quot;: &quot;customlookup&quot;,
             &quot;typeAttributes&quot;: {
@@ -21,7 +21,7 @@
             }
         },
         {
-            &quot;label&quot;: &quot;NOMBRE&quot;,
+            &quot;label&quot;: &quot;Nombre&quot;,
             &quot;fieldName&quot;: &quot;Id&quot;,
             &quot;type&quot;: &quot;customurl&quot;,
             &quot;typeAttributes&quot;: {
@@ -34,12 +34,12 @@
             }
         },
         {
-            &quot;label&quot;: &quot;ETAPA&quot;,
+            &quot;label&quot;: &quot;Etapa&quot;,
             &quot;fieldName&quot;: &quot;StageName&quot;,
             &quot;type&quot;: &quot;picklist&quot;
         },
         {
-            &quot;label&quot;: &quot;MONTO&quot;,
+            &quot;label&quot;: &quot;Importe&quot;,
             &quot;fieldName&quot;: &quot;Amount&quot;,
             &quot;type&quot;: &quot;currency&quot;,
             &quot;typeAttributes&quot;: {
@@ -54,7 +54,7 @@
             }
         },
         {
-            &quot;label&quot;: &quot;FECHA DE CIERRE&quot;,
+            &quot;label&quot;: &quot;Fecha de cierre&quot;,
             &quot;fieldName&quot;: &quot;CloseDate&quot;,
             &quot;type&quot;: &quot;date&quot;
         }
@@ -80,7 +80,8 @@
     <values>
         <field>Settings__c</field>
         <value xsi:type="xsd:string">{
-&quot;readClassName&quot;: &quot;BE_SM_CPlan_InversionRentable_Ctr&quot;
+&quot;readClassName&quot;: &quot;BE_SM_CPlan_InversionRentable_Ctr&quot;,
+&quot;hideViewAll&quot;: true
 }</value>
     </values>
     <values>

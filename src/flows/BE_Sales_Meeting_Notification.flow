@@ -72,10 +72,10 @@
                 <stringValue>{&quot;mentions&quot;:[],&quot;message&quot;:&quot;Has sido convocado a la reunión individual {![slmt__Sales_Meeting__c].Name}.\nTipo de Reunión: {![slmt__Sales_Meeting__c].Type_of_meeting__c}\nGerente: {![slmt__Sales_Meeting__c].Collaborator__r.Manager.FirstName} {![slmt__Sales_Meeting__c].Collaborator__r.Manager.LastName}\nColaborador: {![slmt__Sales_Meeting__c].Collaborator__r.FirstName} {![slmt__Sales_Meeting__c].Collaborator__r.LastName}\nFecha: {![slmt__Sales_Meeting__c].DateTime__c}\n{![slmt__Sales_Meeting__c].Url__c}&quot;}</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_1_A4</name>
+        <name>myRule_1_A3</name>
         <label>Post Manager</label>
         <locationX>100</locationX>
-        <locationY>500</locationY>
+        <locationY>400</locationY>
         <actionName>chatterPost</actionName>
         <actionType>chatterPost</actionType>
         <inputParameters>
@@ -174,10 +174,10 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>{&quot;mentions&quot;:[],&quot;message&quot;:&quot;Has sido convocado a la reunión individual {![slmt__Sales_Meeting__c].Name}.\nTipo de Reunión: {![slmt__Sales_Meeting__c].Type_of_meeting__c}\nGerente: {![slmt__Sales_Meeting__c].Collaborator__r.Manager.FirstName} {![slmt__Sales_Meeting__c].Collaborator__r.Manager.LastName}\nColaborador: {![slmt__Sales_Meeting__c].Collaborator__r.FirstName} {![slmt__Sales_Meeting__c].Collaborator__r.LastName}\nFecha: {![slmt__Sales_Meeting__c].DateTime__c}\n{![slmt__Sales_Meeting__c].Url__c}&quot;}</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_4_A4</name>
+        <name>myRule_4_A3</name>
         <label>Post Collaborator</label>
         <locationX>400</locationX>
-        <locationY>500</locationY>
+        <locationY>400</locationY>
         <actionName>chatterPost</actionName>
         <actionType>chatterPost</actionType>
         <inputParameters>
@@ -276,14 +276,14 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>{&quot;mentions&quot;:[],&quot;message&quot;:&quot;Has sido convocado a la reunión individual {![slmt__Sales_Meeting__c].Name}.\nTipo de Reunión: {![slmt__Sales_Meeting__c].Type_of_meeting__c}\nGerente: {![slmt__Sales_Meeting__c].Collaborator__r.Manager.FirstName} {![slmt__Sales_Meeting__c].Collaborator__r.Manager.LastName}\nColaborador: {![slmt__Sales_Meeting__c].Collaborator__r.FirstName} {![slmt__Sales_Meeting__c].Collaborator__r.LastName}\nFecha: {![slmt__Sales_Meeting__c].DateTime__c}\n{![slmt__Sales_Meeting__c].Url__c}&quot;}</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_7_A4</name>
+        <name>myRule_7_A3</name>
         <label>PostCollaborator</label>
         <locationX>700</locationX>
-        <locationY>500</locationY>
+        <locationY>400</locationY>
         <actionName>chatterPost</actionName>
         <actionType>chatterPost</actionType>
         <connector>
-            <targetReference>myRule_7_A5</targetReference>
+            <targetReference>myRule_7_A4</targetReference>
         </connector>
         <inputParameters>
             <name>text</name>
@@ -322,10 +322,10 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>{&quot;mentions&quot;:[],&quot;message&quot;:&quot;Has sido convocado a la reunión individual {![slmt__Sales_Meeting__c].Name}.\nTipo de Reunión: {![slmt__Sales_Meeting__c].Type_of_meeting__c}\nGerente: {![slmt__Sales_Meeting__c].Collaborator__r.Manager.FirstName} {![slmt__Sales_Meeting__c].Collaborator__r.Manager.LastName}\nColaborador: {![slmt__Sales_Meeting__c].Collaborator__r.FirstName} {![slmt__Sales_Meeting__c].Collaborator__r.LastName}\nFecha: {![slmt__Sales_Meeting__c].DateTime__c}\n{![slmt__Sales_Meeting__c].Url__c}&quot;}</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_7_A5</name>
+        <name>myRule_7_A4</name>
         <label>PostManager</label>
         <locationX>700</locationX>
-        <locationY>600</locationY>
+        <locationY>500</locationY>
         <actionName>chatterPost</actionName>
         <actionType>chatterPost</actionType>
         <inputParameters>
@@ -425,9 +425,6 @@ Fecha: {!myVariable_current.DateTime__c}
         <label>myDecision6</label>
         <locationX>50</locationX>
         <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>myDecision9</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>default</defaultConnectorLabel>
         <rules>
             <name>myRule_7</name>
@@ -445,34 +442,7 @@ Fecha: {!myVariable_current.DateTime__c}
             <label>Created by Other</label>
         </rules>
     </decisions>
-    <decisions>
-        <processMetadataValues>
-            <name>index</name>
-            <value>
-                <numberValue>3.0</numberValue>
-            </value>
-        </processMetadataValues>
-        <name>myDecision9</name>
-        <label>myDecision9</label>
-        <locationX>50</locationX>
-        <locationY>0</locationY>
-        <defaultConnectorLabel>default</defaultConnectorLabel>
-        <rules>
-            <name>myRule_10</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>formula_myRule_10</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>myRule_10_A1</targetReference>
-            </connector>
-            <label>Update Sales Meeting</label>
-        </rules>
-    </decisions>
+    <description>Create event, sync attendees and post to chater when create sales meeting</description>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
@@ -480,7 +450,7 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>[slmt__Sales_Meeting__c].DateTime__c + (VALUE(TEXT([slmt__Sales_Meeting__c].slmt__mngmt_plan_meet_dur_number__c))/24/60)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_11_myRule_10_A1_2178955383</name>
+        <name>formula_2_myRule_1_A1_8075105762</name>
         <dataType>DateTime</dataType>
         <expression>{!myVariable_current.DateTime__c} + (VALUE(TEXT({!myVariable_current.slmt__mngmt_plan_meet_dur_number__c}))/24/60)</expression>
     </formulas>
@@ -491,7 +461,7 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>[slmt__Sales_Meeting__c].DateTime__c + (VALUE(TEXT([slmt__Sales_Meeting__c].slmt__mngmt_plan_meet_dur_number__c))/24/60)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A1_7677079904</name>
+        <name>formula_5_myRule_4_A1_1748147161</name>
         <dataType>DateTime</dataType>
         <expression>{!myVariable_current.DateTime__c} + (VALUE(TEXT({!myVariable_current.slmt__mngmt_plan_meet_dur_number__c}))/24/60)</expression>
     </formulas>
@@ -502,18 +472,7 @@ Fecha: {!myVariable_current.DateTime__c}
                 <stringValue>[slmt__Sales_Meeting__c].DateTime__c + (VALUE(TEXT([slmt__Sales_Meeting__c].slmt__mngmt_plan_meet_dur_number__c))/24/60)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_5_myRule_4_A1_2354777740</name>
-        <dataType>DateTime</dataType>
-        <expression>{!myVariable_current.DateTime__c} + (VALUE(TEXT({!myVariable_current.slmt__mngmt_plan_meet_dur_number__c}))/24/60)</expression>
-    </formulas>
-    <formulas>
-        <processMetadataValues>
-            <name>originalFormula</name>
-            <value>
-                <stringValue>[slmt__Sales_Meeting__c].DateTime__c + (VALUE(TEXT([slmt__Sales_Meeting__c].slmt__mngmt_plan_meet_dur_number__c))/24/60)</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>formula_8_myRule_7_A1_0146652613</name>
+        <name>formula_8_myRule_7_A1_9942367923</name>
         <dataType>DateTime</dataType>
         <expression>{!myVariable_current.DateTime__c} + (VALUE(TEXT({!myVariable_current.slmt__mngmt_plan_meet_dur_number__c}))/24/60)</expression>
     </formulas>
@@ -527,17 +486,6 @@ Fecha: {!myVariable_current.DateTime__c}
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
         <expression>AND( ISNEW() , {!myVariable_current.CreatedById} == {!myVariable_current.Collaborator__c}, {!myVariable_current.Collaborator__r.ManagerId} != null )</expression>
-    </formulas>
-    <formulas>
-        <processMetadataValues>
-            <name>originalFormula</name>
-            <value>
-                <stringValue>ISCHANGED([slmt__Sales_Meeting__c].DateTime__c )</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>formula_myRule_10</name>
-        <dataType>Boolean</dataType>
-        <expression>ISCHANGED({!myVariable_current.DateTime__c} )</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
@@ -561,7 +509,7 @@ Fecha: {!myVariable_current.DateTime__c}
         <dataType>Boolean</dataType>
         <expression>AND( ISNEW() , {!myVariable_current.Collaborator__r.ManagerId} != null, {!myVariable_current.CreatedById} != {!myVariable_current.Collaborator__c}, {!myVariable_current.CreatedById} != {!myVariable_current.slmt__mngmt_plan_meeting_user_id__c}  )</expression>
     </formulas>
-    <interviewLabel>BE_SalesMeetingNotification-1_InterviewLabel</interviewLabel>
+    <interviewLabel>BE_Sales_Meeting_Notification-1_InterviewLabel</interviewLabel>
     <label>Sales Meeting Notification</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -584,7 +532,7 @@ Fecha: {!myVariable_current.DateTime__c}
     <processMetadataValues>
         <name>TriggerType</name>
         <value>
-            <stringValue>onAllChanges</stringValue>
+            <stringValue>onCreateOnly</stringValue>
         </value>
     </processMetadataValues>
     <processType>Workflow</processType>
@@ -629,7 +577,7 @@ Fecha: {!myVariable_current.DateTime__c}
             </processMetadataValues>
             <field>EndDateTime</field>
             <value>
-                <elementReference>formula_2_myRule_1_A1_7677079904</elementReference>
+                <elementReference>formula_2_myRule_1_A1_8075105762</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -801,7 +749,7 @@ Fecha: {!myVariable_current.DateTime__c}
             </processMetadataValues>
             <field>EndDateTime</field>
             <value>
-                <elementReference>formula_5_myRule_4_A1_2354777740</elementReference>
+                <elementReference>formula_5_myRule_4_A1_1748147161</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -973,7 +921,7 @@ Fecha: {!myVariable_current.DateTime__c}
             </processMetadataValues>
             <field>EndDateTime</field>
             <value>
-                <elementReference>formula_8_myRule_7_A1_0146652613</elementReference>
+                <elementReference>formula_8_myRule_7_A1_9942367923</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1110,456 +1058,6 @@ Fecha: {!myVariable_current.DateTime__c}
         </inputAssignments>
         <object>Event</object>
     </recordCreates>
-    <recordUpdates>
-        <processMetadataValues>
-            <name>evaluationType</name>
-            <value>
-                <stringValue>criteria</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>extraTypeInfo</name>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>isChildRelationship</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>reference</name>
-            <value>
-                <stringValue>[slmt__Sales_Meeting__c].Events</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>referenceTargetField</name>
-        </processMetadataValues>
-        <name>myRule_10_A1</name>
-        <label>Update Event</label>
-        <locationX>1000</locationX>
-        <locationY>200</locationY>
-        <filters>
-            <processMetadataValues>
-                <name>implicit</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <field>WhatId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <processMetadataValues>
-                <name>implicit</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>inputDataType</name>
-                <value>
-                    <stringValue>ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Sales Meeting</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue>slmt__Sales_Meeting__c</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideType</name>
-                <value>
-                    <stringValue>ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>operatorDataType</name>
-                <value>
-                    <stringValue>String</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>slmt__management_plan_meeting_id__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>DateTime</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>End Date Time</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue></stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Formula</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>EndDateTime</field>
-            <value>
-                <elementReference>formula_11_myRule_10_A1_2178955383</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>DateTime</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Start Date Time</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue></stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>StartDateTime</field>
-            <value>
-                <elementReference>myVariable_current.DateTime__c</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Event</object>
-    </recordUpdates>
-    <recordUpdates>
-        <processMetadataValues>
-            <name>evaluationType</name>
-            <value>
-                <stringValue>always</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>extraTypeInfo</name>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>isChildRelationship</name>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>reference</name>
-            <value>
-                <stringValue>[slmt__Sales_Meeting__c]</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>referenceTargetField</name>
-        </processMetadataValues>
-        <name>myRule_1_A3</name>
-        <label>Set Manager</label>
-        <locationX>100</locationX>
-        <locationY>400</locationY>
-        <connector>
-            <targetReference>myRule_1_A4</targetReference>
-        </connector>
-        <filters>
-            <processMetadataValues>
-                <name>implicit</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Manager</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue>User</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>slmt__mngmt_plan_meeting_user_id__c</field>
-            <value>
-                <elementReference>myVariable_current.Collaborator__r.ManagerId</elementReference>
-            </value>
-        </inputAssignments>
-        <object>slmt__Sales_Meeting__c</object>
-    </recordUpdates>
-    <recordUpdates>
-        <processMetadataValues>
-            <name>evaluationType</name>
-            <value>
-                <stringValue>always</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>extraTypeInfo</name>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>isChildRelationship</name>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>reference</name>
-            <value>
-                <stringValue>[slmt__Sales_Meeting__c]</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>referenceTargetField</name>
-        </processMetadataValues>
-        <name>myRule_4_A3</name>
-        <label>Set Manager and Owner</label>
-        <locationX>400</locationX>
-        <locationY>400</locationY>
-        <connector>
-            <targetReference>myRule_4_A4</targetReference>
-        </connector>
-        <filters>
-            <processMetadataValues>
-                <name>implicit</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Owner ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue>Group;User</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>OwnerId</field>
-            <value>
-                <elementReference>myVariable_current.Collaborator__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Manager</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue>User</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>slmt__mngmt_plan_meeting_user_id__c</field>
-            <value>
-                <elementReference>myVariable_current.Collaborator__r.ManagerId</elementReference>
-            </value>
-        </inputAssignments>
-        <object>slmt__Sales_Meeting__c</object>
-    </recordUpdates>
-    <recordUpdates>
-        <processMetadataValues>
-            <name>evaluationType</name>
-            <value>
-                <stringValue>always</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>extraTypeInfo</name>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>isChildRelationship</name>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>reference</name>
-            <value>
-                <stringValue>[slmt__Sales_Meeting__c]</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>referenceTargetField</name>
-        </processMetadataValues>
-        <name>myRule_7_A3</name>
-        <label>Set Manager</label>
-        <locationX>700</locationX>
-        <locationY>400</locationY>
-        <connector>
-            <targetReference>myRule_7_A4</targetReference>
-        </connector>
-        <filters>
-            <processMetadataValues>
-                <name>implicit</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Manager</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue>User</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>slmt__mngmt_plan_meeting_user_id__c</field>
-            <value>
-                <elementReference>myVariable_current.Collaborator__r.ManagerId</elementReference>
-            </value>
-        </inputAssignments>
-        <object>slmt__Sales_Meeting__c</object>
-    </recordUpdates>
     <startElementReference>myDecision</startElementReference>
     <status>Active</status>
     <variables>

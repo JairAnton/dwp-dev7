@@ -725,6 +725,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_SM_CPlan_Helper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_SM_CPlan_InversionRentable_Ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -778,6 +782,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_SM_Minute_Tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SM_Minute_Wrapper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -838,6 +846,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_SM_RealizedVisit_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SM_ReasignTopics_Ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SM_ReasignTopics_Tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

@@ -26,7 +26,9 @@ public without sharing class BE_SM_Topic_Tst {
         final Date initDate = Date.newInstance(2020, 11, 04);
         /** SALES MEETING */
         final slmt__Sales_Meeting__c slm=new slmt__Sales_Meeting__c(Name='SalesMeeting202010',DateTime__c=initDate,slmt__management_plan_meeting_date__c = initDate,OwnerId=ejecutivo.Id,Collaborator__c = ejecutivo.Id,slmt__mngmt_plan_meeting_user_id__c=manager.Id);
-        insert slm;
+        System.runAs(ejecutivo) {
+            insert slm;
+        }
         /** TASK */
         insert new List<Task>{
             new Task(Subject='TASK01',slmt__management_plan_meeting_id__c=slm.Id,Status='Open',OwnerId=ejecutivo.Id,ActivityDate=initDate.addDays(-2)),

@@ -28,7 +28,9 @@ public with sharing class BE_SM_CommPlan_Tst {
         /** ACCOUNT PLAN */
         insert new dwp_frct__management_plan__c(dwp_frct__management_plan_end_date__c=initDate.addDays(15),dwp_frct__management_plan_start_date__c=initDate,OwnerId=ejecutivo.Id);
         /** SALES MEETING */
-        insert new slmt__Sales_Meeting__c(Name='SalesMeeting202010',DateTime__c=initDate,slmt__management_plan_meeting_date__c = initDate, Collaborator__c = ejecutivo.Id);
+        System.runAs(ejecutivo) {
+            insert new slmt__Sales_Meeting__c(Name='SalesMeeting202010',DateTime__c=initDate,slmt__management_plan_meeting_date__c = initDate, Collaborator__c = ejecutivo.Id);
+        }
         /** PRODUCT */
         final List<Product2> products= new List<Product2>{
         new Product2(Name = 'Comex exportación', Family = 'Financiamiento a corto plazo', ProductCode = 'PC00003',Type__c='Direct'),
@@ -75,8 +77,10 @@ public with sharing class BE_SM_CommPlan_Tst {
         final slmt__Sales_Meeting__c salesMeeting = [SELECT Id,Name,slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_CPlan_InversionRentable'];
-        salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
-        update salesMeeting;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
+            update salesMeeting;
+        }
         Test.startTest();
         final BE_SingleRelatedListCRUD_Cls.Response response=new BE_SM_CPlan_InversionRentable_Ctr().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();
@@ -91,8 +95,10 @@ public with sharing class BE_SM_CommPlan_Tst {
         final slmt__Sales_Meeting__c salesMeeting = [SELECT Id,Name,slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_CPlan_Recursos'];
-        salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
-        update salesMeeting;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
+        	update salesMeeting;
+        }
         Test.startTest();
         final BE_SingleRelatedListCRUD_Cls.Response response=new BE_SM_CPlan_Recursos_Ctr().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();
@@ -107,8 +113,10 @@ public with sharing class BE_SM_CommPlan_Tst {
         final slmt__Sales_Meeting__c salesMeeting = [SELECT Id,Name,slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_CPlan_RiesgoFirma'];
-        salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
-        update salesMeeting;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
+        	update salesMeeting;
+        }
         Test.startTest();
         final BE_SingleRelatedListCRUD_Cls.Response response=new BE_SM_CPlan_RiesgoFirma_Ctr().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();

@@ -5,8 +5,8 @@
    @Date 2020-11-04
    @Description
    @Changes
-   Date        Author   Email                  Type
-   2020-11-04  DCP     diego.carbajal@bbva.com    Creation
+   Date        Author   Email                  		Type
+   2020-11-04  DCP      diego.carbajal@bbva.com     Creation
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_SM_Opportunity_helper {
@@ -27,12 +27,9 @@ public without sharing class BE_SM_Opportunity_helper {
 	 */
     public static BE_SingleRelatedListCRUD_Cls.Response getSMPipeline(Set<String> setStages, Map<String,Object> params) {
         BE_SingleRelatedListCRUD_Cls.Response response = new BE_SingleRelatedListCRUD_Cls.Response(true, '');
-        Final slmt__Sales_Meeting__c salesMeeting= [SELECT slmt__management_plan_meeting_date__c, Collaborator__c 
+        Final slmt__Sales_Meeting__c salesMeeting = [SELECT slmt__management_plan_meeting_date__c, Collaborator__c 
                                                     FROM slmt__Sales_Meeting__c WHERE Id=:(String)params.get('recordId')];
-        System.debug('salesMeeting.slmt__management_plan_meeting_date__c => '+salesMeeting.slmt__management_plan_meeting_date__c);
-        Final Date initDate = Date.newInstance(salesMeeting.slmt__management_plan_meeting_date__c.year(), 
-                                                salesMeeting.slmt__management_plan_meeting_date__c.month(), 1);
-        Final Set<Id> setIdsOpp = getOppIds(salesMeeting.Collaborator__c, setStages, initDate);
+        Final Set<Id> setIdsOpp = getOppIds(salesMeeting.Collaborator__c, setStages, salesMeeting.slmt__management_plan_meeting_date__c);
         if(!setIdsOpp.isEmpty()) {
             response = getOpportunities(setIdsOpp, params);
         }

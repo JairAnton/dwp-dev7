@@ -35,10 +35,10 @@
     <formulas>
         <name>setName</name>
         <dataType>String</dataType>
-        <expression>IF( ISPICKVAL( {!$Record.Type_of_meeting__c} , &apos;Planning&apos;) , &quot;Reunión de Planificación - &quot; &amp; {!$Record.Collaborator__r.FirstName} &amp; &quot; &quot; &amp; {!$Record.Collaborator__r.LastName} &amp; &quot; - &quot; &amp; TEXT(DAY({!setDate})) &amp; &quot;/&quot; &amp; TEXT(MONTH({!setDate})) &amp; &quot;/&quot; &amp; TEXT(YEAR({!setDate})), IF( ISPICKVAL( {!$Record.Type_of_meeting__c} , &apos;Tracing&apos;) , &quot;Reunión de Seguimiento - &quot; &amp; {!$Record.Collaborator__r.FirstName} &amp; &quot; &quot; &amp; {!$Record.Collaborator__r.LastName} &amp; &quot; - &quot; &amp; TEXT({!setDate}), &quot;Reunión - &quot; &amp; {!$Record.Collaborator__r.FirstName} &amp; &quot; &quot; &amp; {!$Record.Collaborator__r.LastName} &amp; &quot; - &quot; &amp; TEXT(MONTH({!setDate})) &amp; &quot;/&quot; &amp; TEXT(YEAR({!setDate})) ))</expression>
+        <expression>IF( ISPICKVAL( {!$Record.Type_of_meeting__c} , &apos;Planning&apos;) , &quot;Reunión de Planificación - &quot; &amp; {!$Record.Collaborator__r.FirstName} &amp; &quot; &quot; &amp; {!$Record.Collaborator__r.LastName} &amp; &quot; - &quot; &amp; LPAD(TEXT(MONTH({!setDate})), 2, &apos;0&apos; ) &amp; &quot;/&quot; &amp; TEXT(YEAR({!setDate})), IF( ISPICKVAL( {!$Record.Type_of_meeting__c} , &apos;Tracing&apos;) , &quot;Reunión de Seguimiento - &quot; &amp; {!$Record.Collaborator__r.FirstName} &amp; &quot; &quot; &amp; {!$Record.Collaborator__r.LastName} &amp; &quot; - &quot; &amp; LPAD(TEXT(DAY({!setDate})), 2, &apos;0&apos; ) &amp; &quot;/&quot; &amp; LPAD(TEXT(MONTH({!setDate})), 2, &apos;0&apos; ) &amp; &quot;/&quot; &amp; TEXT(YEAR({!setDate})), &quot;Reunión - &quot; &amp; {!$Record.Collaborator__r.FirstName} &amp; &quot; &quot; &amp; {!$Record.Collaborator__r.LastName} &amp; &quot; - &quot; &amp; LPAD(TEXT(DAY({!setDate})), 2, &apos;0&apos; ) &amp; &quot;/&quot; &amp; LPAD(TEXT(MONTH({!setDate})), 2, &apos;0&apos; ) &amp; &quot;/&quot; &amp; TEXT(YEAR({!setDate})) ))</expression>
     </formulas>
-    <interviewLabel>Set default values sales meeting {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Set default values sales meeting</label>
+    <interviewLabel>Set default values Sales Meeting {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Set values Sales Meeting</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>

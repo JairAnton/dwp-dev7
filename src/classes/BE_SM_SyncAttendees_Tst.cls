@@ -29,7 +29,9 @@ public with sharing class BE_SM_SyncAttendees_Tst {
             smRecord.Type_of_meeting__c = 'Tracing';
             lstSM.add(smRecord);
         }
-        insert lstSM;
+        System.runAs(ejecutivo) {
+            insert lstSM;
+        }
     }
     
     /*

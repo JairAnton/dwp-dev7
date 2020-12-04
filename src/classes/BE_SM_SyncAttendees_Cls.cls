@@ -27,7 +27,7 @@ public with sharing class BE_SM_SyncAttendees_Cls {
         final String second = String.valueOf(Datetime.now().second());
         final String nextFireTime = second + ' ' + min + ' ' + hour + ' * * ?';
         
-        final BE_SyncEventAttendees_BS sch = new BE_SyncEventAttendees_BS(evtIds); 
-        System.schedule('Sync attendees started at ' + Datetime.now(), nextFireTime, sch);
+        final BE_SyncEventAttendees_BS sch = new BE_SyncEventAttendees_BS(evtIds);
+        System.schedule('Sync attendees started at ' + Math.random() + '-' + Datetime.now(), nextFireTime, sch);
     }
 }
