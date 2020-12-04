@@ -9,7 +9,7 @@
    2020-11-15  LMBR     lolo.bravo@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
-public with sharing class BE_SM_CPlan_InversionRentable_Ctr extends BE_SingleRelatedListCRUD_Cls {
+public without sharing class BE_SM_CPlan_InversionRentable_Ctr extends BE_SingleRelatedListCRUD_Cls {
     /** PRODUCT_TYPE */
     final static String PRODUCT_TYPE='Direct';
     /** USERS POSITION CODE */
@@ -31,9 +31,9 @@ public with sharing class BE_SM_CPlan_InversionRentable_Ctr extends BE_SingleRel
         final DateTime lastDayOfMonth = DateTime.newInstance(salesDate.year(),salesDate.month(), numberOfDays);
         oppIds=new Set<Id>();
         /** OLIS */
-        String queryOli= 'SELECT Id, OpportunityId FROM OpportunityLineItem WHERE  Product2.Type__c=\''+PRODUCT_TYPE+ '\' AND  Opportunity.CloseDate >='+firstDayOfMonth.format(FORMAT_DATE)
+        String queryOli= 'SELECT Id, OpportunityId FROM OpportunityLineItem WHERE  Product2.Type__c=\''+String.escapeSingleQuotes(PRODUCT_TYPE)+ '\' AND  Opportunity.CloseDate >='+firstDayOfMonth.format(FORMAT_DATE)
         + ' AND Opportunity.CloseDate <='+lastDayOfMonth.format(FORMAT_DATE)+' AND Opportunity.isClosed = false AND Opportunity.isWon = false';
-        if(USERS_CODE[0].contains(salesMeeting.Collaborator__r.prof_position_id__c)){
+        if(USERS_CODE[0].contains(salesMeeting.Collaborator__r.prof_position_id__c)) {
             queryOli=queryOli + ' AND Opportunity.OwnerId=\''+salesMeeting.Collaborator__c+'\' ORDER BY Opportunity.Amount DESC LIMIT 10';
         } else if(USERS_CODE[1].contains(salesMeeting.Collaborator__r.prof_position_id__c)) {
             final User_Branch__c branchUser = [SELECT Id,branch_name__r.branch_id__c FROM User_Branch__c WHERE User__c=:salesMeeting.Collaborator__c];

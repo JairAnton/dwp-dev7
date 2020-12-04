@@ -9,7 +9,7 @@
    2020-11-15  LMBR     lolo.bravo@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
-public with sharing class BE_SM_CPlan_RiesgoFirma_Ctr extends BE_SingleRelatedListCRUD_Cls {
+public without sharing class BE_SM_CPlan_RiesgoFirma_Ctr extends BE_SingleRelatedListCRUD_Cls {
     /** PRODUCT_TYPE */
     final static String PRODUCT_FAMILY='Riesgo de firma';
     /** oppIds */

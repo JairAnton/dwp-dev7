@@ -1,9 +1,28 @@
+/**
+   -------------------------------------------------------------------------------------------------
+   @Name BE_SM_FinalizeModal_Ctr
+   @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
+   @Date 2020-11-11
+   @Description
+   @Changes
+   Date        Author   Email                  				Type
+   2020-12-04  MAMCH    martin.mori.contractor@bbva.com    	Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public without sharing class BE_SM_ReasignTopics_Ctr {
     /* @Variable: MESSAGE */
     public static Final String MESSAGE = 'message';
     /*   @Variable: ISSUCCESS*/
     public static Final String ISSUCCESS = 'isSuccess';
     
+    /*
+	 * @Description constructor method
+	 */
+    private BE_SM_ReasignTopics_Ctr() {}
+    
+    /*
+	 * @Description method returnUsers
+	 */
     @AuraEnabled
     public static Map<String, String> returnUsers(String slmtId) {
         Final Map<String, String> mapReturn = new Map<String, String>();
@@ -14,6 +33,9 @@ public without sharing class BE_SM_ReasignTopics_Ctr {
         return mapReturn;
     }
     
+    /*
+	 * @Description method reasingTopics
+	 */
     @AuraEnabled
     public static  Map<String, Object> reasingTopics(String slmtId, String ownerId) {
         final Map<String, Object> res = new Map<String, Object>();
@@ -22,7 +44,10 @@ public without sharing class BE_SM_ReasignTopics_Ctr {
             for (String taskId : taskMap.KeySet()) {
                 taskMap.get(taskId).OwnerId=UserInfo.getUserId();
             }
-            if(!taskMap.isEmpty()) {
+            if(taskMap.isEmpty()) {
+                res.put(ISSUCCESS, false);
+                res.put(MESSAGE, 'No existen registros a actualizar.');
+            } else {
                 final slmt__Sales_Meeting__c ltsSM = [SELECT Id, Collaborator__c, slmt__mngmt_plan_meeting_user_id__c FROM slmt__Sales_Meeting__c WHERE Id = :slmtId LIMIT 1];
                 if(ltsSM.Collaborator__c == ownerId) {
                     update new slmt__Sales_Meeting__c(Id=slmtId, auxiliar_collaborator__c=UserInfo.getUserId());
@@ -31,9 +56,6 @@ public without sharing class BE_SM_ReasignTopics_Ctr {
                 }
                 update taskMap.values();
                 res.put(ISSUCCESS, true);
-            } else {
-                res.put(ISSUCCESS, false);
-                res.put(MESSAGE, 'No existen registros a actualizar.');
             }
         } catch (Exception e) {
             res.put(ISSUCCESS, false);

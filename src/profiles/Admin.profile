@@ -785,10 +785,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_SM_Minute_Wrapper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_SM_Opportunity_Dismissed_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>

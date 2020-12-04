@@ -25,9 +25,8 @@ public class BE_SM_ReasignTopics_Tst {
     static void setUp() {
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.ID_EJE, User.prof_position_id__c => 'E01'});
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.ID_EJE, User.prof_position_id__c => 'E03', User.ManagerId => userGOF.Id});
-        Final User assistant = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.ID_EJE, User.prof_position_id__c => 'E0B', User.ManagerId => userGOF.Id});
         System.runAs(ejecutivo) {
-            slmt__Sales_Meeting__c slmt = BE_SM_Factory_tst.createSalesMeeting(Date.newInstance(2020, 11, 04), ejecutivo.Id, 'Planning', true);
+            Final slmt__Sales_Meeting__c slmt = BE_SM_Factory_tst.createSalesMeeting(Date.newInstance(2020, 11, 04), ejecutivo.Id, 'Planning', true);
             final Map<String, Schema.RecordTypeInfo> recordType = BE_General_Utils.getRecordTypeInfo(new List<String> {'Task'});
         	final String taskRTSlmt =  recordType.get('Sales_Meeting').getRecordTypeId();
         	insert new List<Task>{

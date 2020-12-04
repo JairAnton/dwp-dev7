@@ -64,7 +64,7 @@ public with sharing class BE_SM_FinalizeModal_Ctr {
         } else {
             try {
                 Final slmt__Sales_Meeting__c slmt = [SELECT Id, Collaborator__c, slmt__mngmt_plan_meeting_user_id__c, auxiliar_collaborator__c, auxiliar_manager__c FROM slmt__Sales_Meeting__c WHERE Id = :recordId LIMIT 1];
-                List<Task> ltsTask = new List<Task>();
+                Final List<Task> ltsTask = new List<Task>();
                 if(!String.isEmpty(slmt.auxiliar_collaborator__c)) {
                     for(Task taskAux : [SELECT Id FROM Task WHERE OwnerId = :slmt.auxiliar_collaborator__c AND slmt__management_plan_meeting_id__c = :recordId]) {
                         taskAux.OwnerId = slmt.Collaborator__c;

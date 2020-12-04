@@ -25,6 +25,8 @@ public without sharing class BE_SM_CloseTopic_Ctr  extends BE_SingleRelatedListC
         final String auxColl=salesMeeting.auxiliar_collaborator__c;
         final String auxMana=salesMeeting.auxiliar_manager__c;
         if(String.isNotBlank(collaborator) && String.isNotBlank(manager)) {
+            System.debug('###DATOS:collaborator'+collaborator+ ' auxColl:'+auxColl  +' manager:'+manager+
+            ' auxMana:'+manager);
             final String query = 'SELECT '+ params.get('sObjFields')+ ' FROM '+ params.get('sObjName') + ' WHERE Status=:CLOSE_TOPIC AND (OwnerId=: collaborator OR OwnerId=:manager OR OwnerId=:auxColl OR OwnerId=:auxMana) AND slmt__management_plan_meeting_id__r.Collaborator__c=:collaborator AND ActivityDate>= LAST_N_DAYS:30';
             res.isSuccess=true;
             res.data=Database.query(String.escapeSingleQuotes(query));

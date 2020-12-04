@@ -24,36 +24,32 @@ global without sharing class BE_SM_CommPlanQVC_Cls implements slmt.Sales_Meeting
         Decimal totalCommitment =  0.00;
         Decimal directCommitment = 0.00;
         Decimal advDirCommitment = 0.00;
-
+        final String collaborator=(String)contextRecord.get('Collaborator__c');
         final List<String> args = new String[]{'0','number','###,###,##0.00'};
-        final DateTime salesDate=(DateTime)contextRecord.get('slmt__management_plan_meeting_date__c');
-        final Integer numberOfDays = Date.daysInMonth(salesDate.year(), salesDate.month());
-        final DateTime firstDayOfMonth = DateTime.newInstance(salesDate.year(), salesDate.month(), 1);
-        final DateTime lastDayOfMonth = DateTime.newInstance(salesDate.year(),salesDate.month(), numberOfDays);
         /** USER */
-        final String userCode=[SELECT prof_position_id__c FROM User WHERE Id=:(String)contextRecord.get('Collaborator__c')].prof_position_id__c;
+        final String userCode=[SELECT prof_position_id__c FROM User WHERE Id=:collaborator].prof_position_id__c;
         /** TOTAL COMMITMENT */
         final List<dwp_frct__management_plan__c> cplans=[SELECT dwp_frct__mngmt_plan_tot_commitment_amount__c  FROM dwp_frct__management_plan__c WHERE dwp_frct__management_plan_end_date__c>=:(Date)contextRecord.get('slmt__management_plan_meeting_date__c') 
-        AND dwp_frct__management_plan_start_date__c<=:(Date)contextRecord.get('slmt__management_plan_meeting_date__c') AND OwnerId=:(String)contextRecord.get('Collaborator__c')];
+        AND dwp_frct__management_plan_start_date__c<=:(Date)contextRecord.get('slmt__management_plan_meeting_date__c') AND OwnerId=:collaborator];
         totalCommitment=cplans.isEmpty()?0.0:cplans[0].dwp_frct__mngmt_plan_tot_commitment_amount__c;
         /** DIRECT COMMITMENT */
-        for (dwp_frct__grouping__c  grouping: [SELECT ID,dwp_frct__original_commitment_amount__c FROM dwp_frct__grouping__c WHERE  dwp_frct__management_plan_id__r.OwnerId=:(String)contextRecord.get('Collaborator__c') AND dwp_frct__solution_category_type__c IN:DIRECT_FAMILY]) {
+        for (dwp_frct__grouping__c  grouping: [SELECT ID,dwp_frct__original_commitment_amount__c FROM dwp_frct__grouping__c WHERE  dwp_frct__management_plan_id__r.OwnerId=:collaborator AND dwp_frct__solution_category_type__c IN:DIRECT_FAMILY]) {
             directCommitment=directCommitment+grouping.dwp_frct__original_commitment_amount__c;
         }
         /** ADVANCE DIRECT COMMITMENT */
         String query= 'SELECT Id, convertCurrency(current_balance_amount__c)current_balance_amount__c FROM Account_BBVA_Information__c'+
         ' WHERE type__c = \'01\' AND product_desc__c NOT IN(\' \') AND is_last_date__c = true AND product_group_classification_id__c=\'Directa\'';
-        if(USERS_CODE[0].contains(userCode)){
-            query=query + ' AND account_id__r.OwnerId=\'' + (String)contextRecord.get('Collaborator__c')+'\'';
+        if(USERS_CODE[0].contains(userCode)) {
+            query=query + ' AND account_id__r.OwnerId=\'' + collaborator+'\'';
         } else if(USERS_CODE[1].contains(userCode)) {
-            final User_Branch__c branchUser = [SELECT Id,branch_name__r.branch_id__c FROM User_Branch__c WHERE User__c=:(String)contextRecord.get('Collaborator__c')];
+            final User_Branch__c branchUser = [SELECT Id,branch_name__r.branch_id__c FROM User_Branch__c WHERE User__c=:collaborator];
             query=query + ' AND account_id__r.branch_id__r.branch_id__c=\'' + branchUser.branch_name__r.branch_id__c+'\'';
         }
         for (Account_BBVA_Information__c accInform : Database.query(query)) {
             advDirCommitment=advDirCommitment+accInform.current_balance_amount__c;
         }
         final List<Map<String,String>> lstReturn = new List<Map<String,String>>();
-        lstReturn.add(createItem(new List<String>{'', 'P. comercial', '08',cardId}));
+        lstReturn.add(createItem(new List<String>{'', 'P. Comercial', '08',cardId}));
         lstReturn.add(createItem(new List<String>{'Total compromiso',String.valueOf('S/.'+ String.format(totalCommitment.format(),args)),'08',cardId}));
         lstReturn.add(createItem(new List<String>{'Compromiso directas',String.valueOf('S/.'+ String.format(directCommitment.format(),args)),'08',cardId}));
         lstReturn.add(createItem(new List<String>{'Avance en directas',String.valueOf('S/.'+ String.format(advDirCommitment.format(),args)),'08',cardId}));
