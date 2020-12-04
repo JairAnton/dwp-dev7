@@ -413,8 +413,8 @@ public without sharing class Product_cls {
 	}
     
 	/*rejectOpp Method*/
-    private static Map<String, Object> rejectOpp(List<Opportunity> itemOpp, String RejectReason, String WinnerBank) {
-        Map<String, Object> resultMap = registerQuotationLoss(itemOpp[0].Id, RejectReason, WinnerBank);
+    private static Map<String, Object> rejectOpp(List<Opportunity> itemOpp, String rejectReason, String winnerBank) {
+        Map<String, Object> resultMap = registerQuotationLoss(itemOpp[0].Id, rejectReason, winnerBank);
         if((String)resultMap.get('success') == 'true') {
             update itemOpp[0];
             Final Case[] lstCase = [SELECT Id, status FROM Case WHERE Opportunity_id__c =:itemOpp[0].Id AND RecordType.Name = 'Formalization'];
