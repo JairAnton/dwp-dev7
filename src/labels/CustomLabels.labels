@@ -1926,6 +1926,20 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Sanction GM 2</value>
     </labels>
     <labels>
+        <fullName>SalesMeetingErrorFinalized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesMeetingErrorFinalized</shortDescription>
+        <value>A sales meeting finalized cannot be modified.</value>
+    </labels>
+    <labels>
+        <fullName>SalesMeetingErrorUnrealized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesMeetingErrorUnrealized</shortDescription>
+        <value>A sales meeting unrealized can only be modified the reason.</value>
+    </labels>
+    <labels>
         <fullName>PDFSectionPayment</fullName>
         <language>en_US</language>
         <protected>false</protected>

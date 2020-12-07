@@ -1145,6 +1145,14 @@
         <name>SIOstatus3</name>
     </customLabels>
     <customLabels>
+        <label>Una reunión individual finalizada no puede ser modificada.</label>
+        <name>SalesMeetingErrorFinalized</name>
+    </customLabels>
+    <customLabels>
+        <label>Una reunión individual no realizada solo puede ser modificado el motivo.</label>
+        <name>SalesMeetingErrorUnrealized</name>
+    </customLabels>
+    <customLabels>
         <label>'Criterios de pago y liquidación','Información general del producto'</label>
         <name>PDFSectionPayment</name>
     </customLabels>

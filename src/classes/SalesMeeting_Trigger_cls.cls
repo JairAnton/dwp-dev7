@@ -167,7 +167,6 @@ public without sharing class SalesMeeting_Trigger_cls {
      * @Description validationStatus
      */
     public static void validationStatus(List<slmt__Sales_Meeting__c> triggerNew, Map<id, slmt__Sales_Meeting__c> triggerOldMap) {
-        Final Map<Id, slmt__Sales_Meeting__c> slmtMap = new Map<Id, slmt__Sales_Meeting__c>();
         Final Id idAdmin = [SELECT Id FROM Profile WHERE Name = 'Administrador del sistema' OR Name = 'System Administrator' LIMIT 1].Id;
         if(System.UserInfo.getProfileId() != idAdmin) {
             for(slmt__Sales_Meeting__c slmtAux : triggerNew) {
