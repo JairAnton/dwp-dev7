@@ -19,6 +19,11 @@ public without sharing class SalesMeeting_Trigger_cls {
     static Final String GOF = 'GOF';
     /** @Description EJE*/
     static Final String EJE = 'EJE';
+    /** @Description STRFINALIZED*/
+    static Final String STRFINALIZED = 'Finalized';
+    /** @Description STRUNREALIZED*/
+    static Final String STRUNREALIZED = 'Unrealized';
+    
 
     /**
      * @Description constructor
@@ -166,19 +171,39 @@ public without sharing class SalesMeeting_Trigger_cls {
         Final Id idAdmin = [SELECT Id FROM Profile WHERE Name = 'Administrador del sistema' OR Name = 'System Administrator' LIMIT 1].Id;
         if(System.UserInfo.getProfileId() != idAdmin) {
             for(slmt__Sales_Meeting__c slmtAux : triggerNew) {
-                if(triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c == 'Finalized') {
-                    slmtAux.addError('Una reunión finalizada no puede ser modificada.');
-                } else if(triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c == 'Unrealized' && 
-                          (triggerOldMap.get(slmtAux.Id).DateTime__c != slmtAux.DateTime__c || 
-                          triggerOldMap.get(slmtAux.Id).Collaborator__c != slmtAux.Collaborator__c || 
-                          triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meet_dur_number__c != slmtAux.slmt__mngmt_plan_meet_dur_number__c || 
-                          triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c != slmtAux.slmt__mngmt_plan_meeting_status_name__c || 
-                          triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_user_id__c != slmtAux.slmt__mngmt_plan_meeting_user_id__c || 
-                          triggerOldMap.get(slmtAux.Id).Summary__c != slmtAux.Summary__c || 
-                          triggerOldMap.get(slmtAux.Id).Type_of_meeting__c != slmtAux.Type_of_meeting__c)) {
-                              slmtAux.addError('Una reunión finalizada no puede ser modificada.');
-                          }
+                if(triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c == STRFINALIZED) {
+                    slmtAux.addError(Label.SalesMeetingErrorFinalized);
+                } else if(triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c == STRUNREALIZED) {
+                    Boolean validChange = changeValue(triggerOldMap.get(slmtAux.Id), slmtAux);
+                    if(validChange) {
+                        slmtAux.addError(Label.SalesMeetingErrorUnrealized);
+                    }
+                }
             }
         }
+    }
+    
+    /**
+     * @Description changeValue
+     */
+    private static Boolean changeValue(slmt__Sales_Meeting__c slmtNew, slmt__Sales_Meeting__c slmtOld) {
+        Boolean retValidation = false;
+        Final List<String> ltsFields = new List<String>();
+        ltsFields.add('DateTime__c');
+        ltsFields.add('Collaborator__c');
+        ltsFields.add('slmt__mngmt_plan_meet_dur_number__c');
+        ltsFields.add('slmt__mngmt_plan_meeting_status_name__c');
+        ltsFields.add('slmt__mngmt_plan_meeting_user_id__c');
+        ltsFields.add('Summary__c');
+        ltsFields.add('Type_of_meeting__c');
+        for(String field : ltsFields) {
+            if(slmtNew.get(field) == slmtOld.get(field)) {
+                retValidation = false;
+            } else {
+                retValidation = true;
+                break;
+            }
+        }
+        return retValidation;
     }
 }

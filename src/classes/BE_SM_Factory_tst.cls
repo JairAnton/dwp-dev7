@@ -47,7 +47,7 @@ public with sharing class BE_SM_Factory_tst {
         Final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
         Final Date initDate = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2);
         System.runAs(ejecutivo) {
-            createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2), ejecutivo.Id, 'Planning', true);
+            createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2, 3, 3, 3), ejecutivo.Id, 'Planning', true);
         }
         Final Opportunity[] lstOpp = new Opportunity[]{};
         for(Integer i = 1; i <= 7; i++) {
@@ -75,7 +75,7 @@ public with sharing class BE_SM_Factory_tst {
     @isTest
 	public static void testSM() {
         Test.startTest();
-        Final slmt__Sales_Meeting__c slmt = createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2), UserInfo.getUserId(), 'Planning', false);
+        Final slmt__Sales_Meeting__c slmt = createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2, 3, 3, 3), UserInfo.getUserId(), 'Planning', false);
         Test.stopTest();
         System.assertEquals('Planning', slmt.Type_of_meeting__c, 'Assertion Error');
 	}

@@ -24,7 +24,7 @@ public with sharing class BE_SM_Visit_Tst {
         Final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
         Final Date initDate = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 04);
         System.runAs(ejecutivo) {
-        	BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 4), ejecutivo.Id, 'Planning', true);
+        	BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 4, 3, 3, 3), ejecutivo.Id, 'Planning', true);
         }
         
         Final dwp_kitv__Visit__c [] lstVisitas = new dwp_kitv__Visit__c[] {};

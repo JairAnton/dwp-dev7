@@ -27,16 +27,14 @@ public class BE_SM_ReasignTopics_Tst {
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.ID_EJE, User.prof_position_id__c => 'E03', User.ManagerId => userGOF.Id});
         TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.ID_EJE, User.prof_position_id__c => 'E0B', User.ManagerId => userGOF.Id});
         TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.ID_EJE, User.prof_position_id__c => 'SO8', User.ManagerId => userGOF.Id});
-        System.runAs(ejecutivo) {
-            Final slmt__Sales_Meeting__c slmt = BE_SM_Factory_tst.createSalesMeeting(Date.today().addDays(5), ejecutivo.Id, 'Tracing', true);
-            final Map<String, Schema.RecordTypeInfo> recordType = BE_General_Utils.getRecordTypeInfo(new List<String> {'Task'});
-        	final String taskRTSlmt =  recordType.get('Sales_Meeting').getRecordTypeId();
-        	insert new List<Task> {
-                new Task(RecordTypeId=taskRTSlmt,Subject='TASK01',slmt__management_plan_meeting_id__c=slmt.Id,Status='Open',OwnerId=ejecutivo.Id,ActivityDate=Date.today().addDays(5)),
+        Final slmt__Sales_Meeting__c slmt = BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addDays(5).year(), System.today().addDays(5).month(), 4, 3, 3, 3), ejecutivo.Id, 'Tracing', true);
+        final Map<String, Schema.RecordTypeInfo> recordType = BE_General_Utils.getRecordTypeInfo(new List<String> {'Task'});
+        final String taskRTSlmt =  recordType.get('Sales_Meeting').getRecordTypeId();
+        insert new List<Task> {
+            new Task(RecordTypeId=taskRTSlmt,Subject='TASK01',slmt__management_plan_meeting_id__c=slmt.Id,Status='Open',OwnerId=ejecutivo.Id,ActivityDate=Date.today().addDays(5)),
                 new Task(RecordTypeId=taskRTSlmt,Subject='TASK02',slmt__management_plan_meeting_id__c=slmt.Id,Status='Open',OwnerId=ejecutivo.Id,ActivityDate=Date.today().addDays(5)),
                 new Task(RecordTypeId=taskRTSlmt,Subject='TASK03',slmt__management_plan_meeting_id__c=slmt.Id,Status='Open',OwnerId=userGOF.Id,ActivityDate=Date.today().addDays(5))
-            };
-        }
+                };
     }
     
     /*
