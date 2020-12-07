@@ -22,7 +22,7 @@ public with sharing class BE_SM_CommPlan_Tst {
         update ejecutivo;
         /** ACCOUNT */
         final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
-        final Date initDate = Date.newInstance(2020, 11, 04);
+        final Date initDate = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 04);
         /** ACCOUNT INFORMATION */
         insert new Account_BBVA_Information__c(current_balance_amount__c=1000,account_id__c=acc.Id, type__c = '01',product_desc__c = 'Comex' ,product_group_classification_id__c='Directa');
         /** ACCOUNT PLAN */
@@ -78,7 +78,7 @@ public with sharing class BE_SM_CommPlan_Tst {
         final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_CPlan_InversionRentable'];
         System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
-            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
+            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 11);
             update salesMeeting;
         }
         Test.startTest();
@@ -96,7 +96,7 @@ public with sharing class BE_SM_CommPlan_Tst {
         final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_CPlan_Recursos'];
         System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
-            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
+            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 11);
         	update salesMeeting;
         }
         Test.startTest();
@@ -114,7 +114,7 @@ public with sharing class BE_SM_CommPlan_Tst {
         final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_CPlan_RiesgoFirma'];
         System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
-            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
+            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 11);
         	update salesMeeting;
         }
         Test.startTest();

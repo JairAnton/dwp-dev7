@@ -24,7 +24,7 @@ public with sharing class BE_SM_SyncAttendees_Tst {
         Final List<slmt__Sales_Meeting__c> lstSM = new List<slmt__Sales_Meeting__c>();
         for(Integer aux = 0; aux <= 3; aux++) {
             Final slmt__Sales_Meeting__c smRecord = new slmt__Sales_Meeting__c();
-            smRecord.DateTime__c = DateTime.newInstance(2020, 11, 9+aux*7);
+            smRecord.DateTime__c = DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 9+aux*7);
             smRecord.Collaborator__c = ejecutivo.Id;
             smRecord.Type_of_meeting__c = 'Tracing';
             lstSM.add(smRecord);

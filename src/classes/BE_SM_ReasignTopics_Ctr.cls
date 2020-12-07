@@ -39,7 +39,7 @@ public without sharing class BE_SM_ReasignTopics_Ctr {
     @AuraEnabled
     public static  Map<String, Object> reasingTopics(String slmtId, String ownerId) {
         final Map<String, Object> res = new Map<String, Object>();
-        try {
+        //try {
             final Map<Id,Task> taskMap= new Map<Id,Task>([SELECT ID,OwnerId FROM Task WHERE slmt__management_plan_meeting_id__c=:slmtId AND OwnerId=:ownerId AND Status='Open']);
             for (String taskId : taskMap.KeySet()) {
                 taskMap.get(taskId).OwnerId=UserInfo.getUserId();
@@ -57,10 +57,10 @@ public without sharing class BE_SM_ReasignTopics_Ctr {
                 update taskMap.values();
                 res.put(ISSUCCESS, true);
             }
-        } catch (Exception e) {
+        /*} catch (Exception e) {
             res.put(ISSUCCESS, false);
             res.put(MESSAGE, 'Error al reasignar temas.');
-        }
+        }*/
         return res;
     }
 }

@@ -21,7 +21,7 @@ public with sharing class BE_SM_Minute_Tst {
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E01'});
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', User.ManagerId => userGOF.Id});
         System.runAs(ejecutivo) {
-            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 4), ejecutivo.Id, 'Planning', true);
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 4), ejecutivo.Id, 'Planning', true);
         }
     }
     

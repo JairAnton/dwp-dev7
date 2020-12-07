@@ -605,7 +605,7 @@
     </validationRules>
     <validationRules>
         <fullName>Validate_DateTime</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>IF( AND( OR( ISCHANGED( DateTime__c ), ISNEW() ) , DateTime__c &lt;  NOW() , $Profile.Name == &apos;Ejecutivo&apos; ) , TRUE , FALSE )</errorConditionFormula>
         <errorMessage>No se puede crear una reunión individual con fecha y hora pasada</errorMessage>
     </validationRules>

@@ -45,9 +45,9 @@ public with sharing class BE_SM_Factory_tst {
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ID_EJE, User.prof_position_id__c => 'E03', 
             																					User.ManagerId => userGOF.Id});
         Final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
-        Final Date initDate = Date.newInstance(2020, 11, 2);
+        Final Date initDate = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2);
         System.runAs(ejecutivo) {
-            createSalesMeeting(DateTime.newInstance(2020, 11, 2), ejecutivo.Id, 'Planning', true);
+            createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2), ejecutivo.Id, 'Planning', true);
         }
         Final Opportunity[] lstOpp = new Opportunity[]{};
         for(Integer i = 1; i <= 7; i++) {
@@ -61,7 +61,6 @@ public with sharing class BE_SM_Factory_tst {
         for(Opportunity opp: lstOpp) {
             System.debug('opp => '+opp);
         }
-        Test.setCreatedDate(lstOpp[0].Id, initDate.addDays(-10));
         Final List<String> lstProducts = System.Label.Opp_LP_Products.split(',');
         Final Product2 product = createProduct(lstProducts[0]);
         Final PricebookEntry standardPrice = createPriceBookEntry(Test.getStandardPricebookId(), product.Id, 10000);
@@ -76,7 +75,7 @@ public with sharing class BE_SM_Factory_tst {
     @isTest
 	public static void testSM() {
         Test.startTest();
-        Final slmt__Sales_Meeting__c slmt = createSalesMeeting(DateTime.newInstance(2020,11,2), UserInfo.getUserId(), 'Planning', false);
+        Final slmt__Sales_Meeting__c slmt = createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2), UserInfo.getUserId(), 'Planning', false);
         Test.stopTest();
         System.assertEquals('Planning', slmt.Type_of_meeting__c, 'Assertion Error');
 	}
