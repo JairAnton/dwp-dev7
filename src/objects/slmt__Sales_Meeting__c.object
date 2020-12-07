@@ -583,6 +583,12 @@
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>Change_Status</fullName>
+        <active>false</active>
+        <errorConditionFormula>OR ( AND( ISCHANGED( slmt__mngmt_plan_meeting_status_name__c ) , ISPICKVAL( slmt__mngmt_plan_meeting_status_name__c , &apos;Planned&apos; ) ) , AND( NOT ( ISCHANGED( slmt__mngmt_plan_meeting_status_name__c ) ) , ISPICKVAL( slmt__mngmt_plan_meeting_status_name__c , &apos;Planned&apos; ) ) )</errorConditionFormula>
+        <errorMessage>Operación no válida</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Invalid_DateTime_Ejecutivo_Planning_Type</fullName>
         <active>true</active>
         <description>If SM is Planning type and colaborator is ejecutivo, and BE_DateTime__c is greater than the first 6 working days of the month</description>
@@ -606,7 +612,7 @@
     <validationRules>
         <fullName>Validate_DateTime</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( ISCHANGED( DateTime__c ) , DateTime__c &lt;  NOW())</errorConditionFormula>
+        <errorConditionFormula>AND( ISCHANGED( DateTime__c ) , DateTime__c &lt;  NOW(),  OR ( $Profile.Name != &apos;System Administrator&apos;, $Profile.Name != &apos;Administrador del Sistema&apos; ) )</errorConditionFormula>
         <errorMessage>No se puede crear una reunión individual con fecha y hora pasada</errorMessage>
     </validationRules>
     <validationRules>

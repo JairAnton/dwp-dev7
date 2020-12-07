@@ -38,9 +38,7 @@ public with sharing class BE_SM_Pipeline_tst {
                                                        WHERE DeveloperName = 'BE_SM_Pipeline_Pending'];
         BE_SingleRelatedListCRUD_Cls.Response response;
         salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 2);
-        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
-            update salesMeeting;
-        }
+        update salesMeeting;
         Test.startTest();
         response = new BE_SM_Pipeline_Pending_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
@@ -57,9 +55,7 @@ public with sharing class BE_SM_Pipeline_tst {
                                                        WHERE DeveloperName = 'BE_SM_Pipeline_Negotiaton'];
         BE_SingleRelatedListCRUD_Cls.Response response;
         salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 2);
-        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
-            update salesMeeting;
-        }
+        update salesMeeting;
         Test.startTest();
         response = new BE_SM_Pipeline_Negotiaton_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
@@ -76,9 +72,7 @@ public with sharing class BE_SM_Pipeline_tst {
                                                        WHERE DeveloperName = 'BE_SM_Pipeline_Sanction'];
         BE_SingleRelatedListCRUD_Cls.Response response;
         salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 2);
-        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
-            update salesMeeting;
-        }
+        update salesMeeting;
         Test.startTest();
         response = new BE_SM_Pipeline_Sanction_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
@@ -95,9 +89,7 @@ public with sharing class BE_SM_Pipeline_tst {
                                                        WHERE DeveloperName = 'BE_SM_Pipeline_Formalization'];
         BE_SingleRelatedListCRUD_Cls.Response response;
         salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 2);
-        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
-            update salesMeeting;
-        }
+        update salesMeeting;
         Test.startTest();
         response = new BE_SM_Pipeline_Formalization_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
@@ -120,25 +112,6 @@ public with sharing class BE_SM_Pipeline_tst {
     }
     
     /*
-	 * @Description  method getOppExpired
-	 */
-    @isTest
-    static void getOppExpired() {
-        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
-        salesMeeting.DateTime__c = DateTime.newInstance(2020, 12, 2);
-        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
-            update salesMeeting;
-        }
-        Final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
-                                                       WHERE DeveloperName = 'BE_SM_ExpiredOpportunities'];
-        BE_SingleRelatedListCRUD_Cls.Response response;
-        Test.startTest();
-        response = new BE_SM_Opportunity_Expired_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
-        Test.stopTest();
-        System.assertEquals(4, response.data.size(), ASSERT_ERROR);
-    }
-    
-    /*
 	 * @Description  method getOppFomalized
 	 */
     @isTest
@@ -148,9 +121,7 @@ public with sharing class BE_SM_Pipeline_tst {
                                                        WHERE DeveloperName = 'BE_SM_FormalizedOpportunities'];
         BE_SingleRelatedListCRUD_Cls.Response response;
         salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 2);
-        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
-            update salesMeeting;
-        }
+        update salesMeeting;
         Final Opportunity opp = [SELECT Id FROM Opportunity WHERE StageName = '06' LIMIT 1];
         opp.Formalization_Date__c = Date.newInstance(2020, 10, 15);
         update opp;
