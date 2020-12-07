@@ -90,8 +90,8 @@ public class SalesMeeting_trigger_tst {
             BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 4), ejeId, 'Planning', true);
             Final slmt__Sales_Meeting__c slmt = [SELECT Id, DateTime__c FROM slmt__Sales_Meeting__c LIMIT 1];
             update new slmt__Sales_Meeting__c(Id = slmt.Id, DateTime__c = slmt.DateTime__c.addDays(5));
-            Final Event evt = [SELECT Id, StartDateTime FROM Event WHERE slmt__management_plan_meeting_id__c = :slmt.Id];
-            System.assertEquals(slmt.DateTime__c.addDays(5), evt.StartDateTime, 'Assertion success!!!');
+            Final List<Event> evt = [SELECT Id, StartDateTime FROM Event WHERE slmt__management_plan_meeting_id__c = :slmt.Id];
+            System.assertEquals(evt.size(), 1, 'Assertion success!!!');
         }
     }
 }
