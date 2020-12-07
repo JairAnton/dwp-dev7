@@ -134,4 +134,51 @@ public without sharing class SalesMeeting_Trigger_cls {
             Database.executeBatch(new BE_SM_MigrateTask_Batch(slmtCollMap));
         }
     }
+    
+    /**
+     * @Description migrateTasks
+     */
+    public static void updateEvent(List<slmt__Sales_Meeting__c> triggerNew, Map<id, slmt__Sales_Meeting__c> triggerOldMap) {
+        Final Map<Id, slmt__Sales_Meeting__c> slmtMap = new Map<Id, slmt__Sales_Meeting__c>();
+        for(slmt__Sales_Meeting__c slmtAux : triggerNew) {
+            if(slmtAux.DateTime__c != triggerOldMap.get(slmtAux.Id).DateTime__c) {
+                slmtMap.put(slmtAux.Id, slmtAux);
+            }
+        }
+        if(!slmtMap.isEmpty()) {
+            Final List<Event> evtsUpd = new List<Event>();
+            for(Event evt : [SELECT Id, slmt__management_plan_meeting_id__c FROM Event WHERE slmt__management_plan_meeting_id__c IN :slmtMap.keySet() AND IsChild = FALSE]) {
+                evt.StartDateTime = slmtMap.get(evt.slmt__management_plan_meeting_id__c).DateTime__c;
+                evt.EndDateTime = slmtMap.get(evt.slmt__management_plan_meeting_id__c).DateTime__c.addMinutes(Integer.valueOf(slmtMap.get(evt.slmt__management_plan_meeting_id__c).slmt__mngmt_plan_meet_dur_number__c));
+                evtsUpd.add(evt);
+            }
+            if(!evtsUpd.isEmpty()) {
+                update evtsUpd;
+            }
+        }
+    }
+    
+    /**
+     * @Description validationStatus
+     */
+    public static void validationStatus(List<slmt__Sales_Meeting__c> triggerNew, Map<id, slmt__Sales_Meeting__c> triggerOldMap) {
+        Final Map<Id, slmt__Sales_Meeting__c> slmtMap = new Map<Id, slmt__Sales_Meeting__c>();
+        Final Id idAdmin = [SELECT Id FROM Profile WHERE Name = 'Administrador del sistema' OR Name = 'System Administrator' LIMIT 1].Id;
+        if(System.UserInfo.getProfileId() != idAdmin) {
+            for(slmt__Sales_Meeting__c slmtAux : triggerNew) {
+                if(triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c == 'Finalized') {
+                    slmtAux.addError('Una reunión finalizada no puede ser modificada.');
+                } else if(triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c == 'Unrealized' && 
+                          (triggerOldMap.get(slmtAux.Id).DateTime__c != slmtAux.DateTime__c || 
+                          triggerOldMap.get(slmtAux.Id).Collaborator__c != slmtAux.Collaborator__c || 
+                          triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meet_dur_number__c != slmtAux.slmt__mngmt_plan_meet_dur_number__c || 
+                          triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c != slmtAux.slmt__mngmt_plan_meeting_status_name__c || 
+                          triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_user_id__c != slmtAux.slmt__mngmt_plan_meeting_user_id__c || 
+                          triggerOldMap.get(slmtAux.Id).Summary__c != slmtAux.Summary__c || 
+                          triggerOldMap.get(slmtAux.Id).Type_of_meeting__c != slmtAux.Type_of_meeting__c)) {
+                              slmtAux.addError('Una reunión finalizada no puede ser modificada.');
+                          }
+            }
+        }
+    }
 }

@@ -46,4 +46,22 @@ public class SalesMeeting_Handler_cls extends TriggerHandler {
           SalesMeeting_Trigger_cls.addRecordAccess(triggerNewMap);
           SalesMeeting_Trigger_cls.migrateTasks(triggerNew);
 	}
+    
+    /**
+     * @Description afterUpdate
+     */
+	@TestVisible
+	protected override void afterUpdate() {
+          //actualiza el evento relacionado al SalesMeeting
+          SalesMeeting_Trigger_cls.updateEvent(triggerNew, triggerOldMap);
+	}
+    
+    /**
+     * @Description beforeUpdate
+     */
+	@TestVisible
+	protected override void beforeUpdate() {
+          //verifica cambios validos en el SalesMeeting
+          SalesMeeting_Trigger_cls.validationStatus(triggerNew, triggerOldMap);
+	}
 }

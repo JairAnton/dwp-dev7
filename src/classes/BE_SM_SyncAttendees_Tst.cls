@@ -52,7 +52,7 @@ public with sharing class BE_SM_SyncAttendees_Tst {
             Database.executeBatch(new BE_SyncEventAttendees_Batch(evtIds));
         }
         Test.stopTest();
-        final List<gcal__Event_Attendees__c> attends = [SELECT Id FROM gcal__Event_Attendees__c LIMIT 10];
+        final List<gcal__Event_Attendees__c> attends = [SELECT Id FROM gcal__Event_Attendees__c LIMIT 4];
         System.assertEquals(attends.size(), 4, 'success!!!');
     }
 }
