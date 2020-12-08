@@ -19,6 +19,11 @@ public without sharing class SalesMeeting_Trigger_cls {
     static Final String GOF = 'GOF';
     /** @Description EJE*/
     static Final String EJE = 'EJE';
+    /** @Description STRFINALIZED*/
+    static Final String STRFINALIZED = 'Finalized';
+    /** @Description STRUNREALIZED*/
+    static Final String STRUNREALIZED = 'Unrealized';
+    
 
     /**
      * @Description constructor
@@ -133,5 +138,71 @@ public without sharing class SalesMeeting_Trigger_cls {
         if(!slmtCollMap.isEmpty()) {
             Database.executeBatch(new BE_SM_MigrateTask_Batch(slmtCollMap));
         }
+    }
+    
+    /**
+     * @Description migrateTasks
+     */
+    public static void updateEvent(List<slmt__Sales_Meeting__c> triggerNew, Map<id, slmt__Sales_Meeting__c> triggerOldMap) {
+        Final Map<Id, slmt__Sales_Meeting__c> slmtMap = new Map<Id, slmt__Sales_Meeting__c>();
+        for(slmt__Sales_Meeting__c slmtAux : triggerNew) {
+            if(slmtAux.DateTime__c != triggerOldMap.get(slmtAux.Id).DateTime__c) {
+                slmtMap.put(slmtAux.Id, slmtAux);
+            }
+        }
+        if(!slmtMap.isEmpty()) {
+            Final List<Event> evtsUpd = new List<Event>();
+            for(Event evt : [SELECT Id, slmt__management_plan_meeting_id__c FROM Event WHERE slmt__management_plan_meeting_id__c IN :slmtMap.keySet() AND IsChild = FALSE]) {
+                evt.StartDateTime = slmtMap.get(evt.slmt__management_plan_meeting_id__c).DateTime__c;
+                evt.EndDateTime = slmtMap.get(evt.slmt__management_plan_meeting_id__c).DateTime__c.addMinutes(Integer.valueOf(slmtMap.get(evt.slmt__management_plan_meeting_id__c).slmt__mngmt_plan_meet_dur_number__c));
+                evtsUpd.add(evt);
+            }
+            if(!evtsUpd.isEmpty()) {
+                update evtsUpd;
+            }
+        }
+    }
+    
+    /**
+     * @Description validationStatus
+     */
+    public static void validationStatus(List<slmt__Sales_Meeting__c> triggerNew, Map<id, slmt__Sales_Meeting__c> triggerOldMap) {
+        Final Id idAdmin = [SELECT Id FROM Profile WHERE Name = 'Administrador del sistema' OR Name = 'System Administrator' LIMIT 1].Id;
+        if(System.UserInfo.getProfileId() != idAdmin) {
+            for(slmt__Sales_Meeting__c slmtAux : triggerNew) {
+                if(triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c == STRFINALIZED) {
+                    slmtAux.addError(Label.SalesMeetingErrorFinalized);
+                } else if(triggerOldMap.get(slmtAux.Id).slmt__mngmt_plan_meeting_status_name__c == STRUNREALIZED) {
+                    Boolean validChange = changeValue(triggerOldMap.get(slmtAux.Id), slmtAux);
+                    if(validChange) {
+                        slmtAux.addError(Label.SalesMeetingErrorUnrealized);
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+     * @Description changeValue
+     */
+    private static Boolean changeValue(slmt__Sales_Meeting__c slmtNew, slmt__Sales_Meeting__c slmtOld) {
+        Boolean retValidation = false;
+        Final List<String> ltsFields = new List<String>();
+        ltsFields.add('DateTime__c');
+        ltsFields.add('Collaborator__c');
+        ltsFields.add('slmt__mngmt_plan_meet_dur_number__c');
+        ltsFields.add('slmt__mngmt_plan_meeting_status_name__c');
+        ltsFields.add('slmt__mngmt_plan_meeting_user_id__c');
+        ltsFields.add('Summary__c');
+        ltsFields.add('Type_of_meeting__c');
+        for(String field : ltsFields) {
+            if(slmtNew.get(field) == slmtOld.get(field)) {
+                retValidation = false;
+            } else {
+                retValidation = true;
+                break;
+            }
+        }
+        return retValidation;
     }
 }

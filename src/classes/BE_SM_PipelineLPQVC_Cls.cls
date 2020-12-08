@@ -79,10 +79,10 @@ global without sharing class BE_SM_PipelineLPQVC_Cls implements slmt.Sales_Meeti
         Final Integer year = salesMeeting.slmt__management_plan_meeting_date__c.year();
         Final Integer month = salesMeeting.slmt__management_plan_meeting_date__c.month();
         Final Date lastDate = Date.newInstance(year, month, Date.daysInMonth(year, month));
+        Final Date initDate = Date.newInstance(year, month, 1);
         Final Set<Id> setIdsOpp = new Set<Id>();
         for(OpportunityLineItem oli: [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE Opportunity.stageName IN: setStages 
-                                    AND Opportunity.CreatedDate >=:salesMeeting.slmt__management_plan_meeting_date__c AND 
-                                    Opportunity.CreatedDate <=:lastDate AND Product2.Unique_id__c IN: lstProducts AND 
+                                    AND Opportunity.CreatedDate >=:initDate AND Opportunity.CreatedDate <=:lastDate AND Product2.Unique_id__c IN: lstProducts AND 
                                     (Opportunity.OwnerId IN:setIdsCol OR OpportunityId in:setAuxIdsOpp)]) {
             setIdsOpp.add(oli.OpportunityId);
         }

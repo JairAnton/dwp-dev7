@@ -9,22 +9,22 @@
             <lightning:accordionSection name="A" label="Pipeline">
                 <lightning:accordion aura:id="accordionOpp" allowMultipleSectionsOpen="true" activeSectionName="{!v.pipelineSections}" title="Oportunidades">
                     <!--Sección Pipeline - Pendiente de Iniciar-->
-                    <lightning:accordionSection name="AA" label="Pendiente de Iniciar">
+                    <lightning:accordionSection name="AA" label="Pendiente de iniciar">
                         <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Pending" 
                         relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
                     </lightning:accordionSection>
                     <!--Sección Pipeline - En Gestión-->
-                    <lightning:accordionSection name="AB" label="En Gestión">
+                    <lightning:accordionSection name="AB" label="En gestión">
                         <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Negotiaton" 
                         relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
                     </lightning:accordionSection>
                     <!--Sección Pipeline - En Sanción-->
-                    <lightning:accordionSection name="AC" label="En Sanción">
+                    <lightning:accordionSection name="AC" label="En sanción">
                         <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Sanction" 
                         relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
                     </lightning:accordionSection>
                     <!--Sección Pipeline - En Formalización-->
-                    <lightning:accordionSection name="AD" label="En Formalización">
+                    <lightning:accordionSection name="AD" label="En formalización">
                         <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Formalization" 
                         relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
                     </lightning:accordionSection>

@@ -63,8 +63,8 @@ public without sharing virtual class BE_SM_Minute_Ctr {
 		meeting = [SELECT Id, Name, slmt__management_plan_meeting_date__c, slmt__mngmt_plan_meet_dur_number__c, 
 		slmt__mngmt_plan_meeting_start_desc__c, slmt__mngmt_plan_meeting_status_name__c, slmt__mngmt_plan_meeting_user_id__c, 
 		slmt__mngmt_plan_meeting_user_id__r.Email, Type_of_meeting__c, Collaborator__c, Collaborator__r.Email, 
-		DateTime__c, Url__c, Summary__c FROM slmt__Sales_Meeting__c WHERE Id =:controller.getId() LIMIT 1];
-        valuesSet(controller.getId(), meeting.slmt__management_plan_meeting_date__c);
+		DateTime__c, Url__c, Summary__c, auxiliar_collaborator__c, auxiliar_manager__c FROM slmt__Sales_Meeting__c WHERE Id =:controller.getId() LIMIT 1];
+        valuesSet(meeting);
 		meetingDate = getTimeZoneValue(meeting.DateTime__c);
         mapTopic = mapValuesGet(new BE_SM_TopicQVC_Cls().getCardDetails(meeting, 'Item1'));
         mapVisit = mapValuesGet(new BE_SM_VisitQVC_Cls().getCardDetails(meeting, 'Item2'));
@@ -225,11 +225,15 @@ public without sharing virtual class BE_SM_Minute_Ctr {
     /*
 	 * @Description method setValues
 	 */
-    public static void valuesSet(String slmtId, Date dtValue) {
+    public static void valuesSet(slmt__Sales_Meeting__c slmt) {
         try {
-			slmtTopics = [SELECT Id, ActivityDate, Subject, Status, Owner.Name, What.Name FROM Task 
-                          WHERE RecordType.DeveloperName = 'Sales_Meeting' AND slmt__management_plan_meeting_id__c = :slmtId 
-                          AND ActivityDate <=:dtValue ORDER BY Status ASC, ActivityDate DESC];
+            final Date next30Days = Date.valueOf(slmt.slmt__management_plan_meeting_date__c).addDays(30);
+            final Date last60Days = Date.valueOf(slmt.slmt__management_plan_meeting_date__c).addDays(-60);
+            slmtTopics = [SELECT Id, ActivityDate, Subject, Status, Owner.Name, What.Name FROM Task 
+                          WHERE RecordType.DeveloperName = 'Sales_Meeting' AND slmt__management_plan_meeting_id__r.Collaborator__c = :slmt.Collaborator__c AND 
+                          (OwnerId = :slmt.Collaborator__c OR OwnerId = :slmt.slmt__mngmt_plan_meeting_user_id__c OR OwnerId = :slmt.auxiliar_collaborator__c OR OwnerId = :slmt.auxiliar_manager__c)
+                          AND (Status = 'Open' AND ActivityDate <=: next30Days AND ActivityDate >=: last60Days)
+                          ORDER BY Status ASC, ActivityDate DESC];
 			Final String lstMembrete = returnDocId('Logo_BBVA');
 			Final String lstMembreteWhite = returnDocId('Logo_BBVA_white');
 			Final String lstLogoFace = returnDocId('facebook_logo');

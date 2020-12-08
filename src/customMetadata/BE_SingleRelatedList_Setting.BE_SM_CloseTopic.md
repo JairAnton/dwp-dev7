@@ -7,12 +7,20 @@
         <value xsi:type="xsd:string">{
 &quot;values&quot;: [
 {
-&quot;label&quot;: &quot;ACUERDO&quot;,
-&quot;fieldName&quot;: &quot;Subject&quot;,
-&quot;type&quot;: &quot;text&quot;
-},
+            &quot;label&quot;: &quot;Acuerdo&quot;,
+            &quot;fieldName&quot;: &quot;Id&quot;,
+            &quot;type&quot;: &quot;customurl&quot;,
+            &quot;typeAttributes&quot;: {
+                &quot;rowData&quot;: {
+                    &quot;fieldName&quot;: &quot;rowData&quot;
+                },
+                &quot;isCustom&quot;: true,
+                &quot;label&quot;: &quot;Subject&quot;,
+                &quot;fieldName&quot;: &quot;Id&quot;
+            }
+        },
 {
-&quot;label&quot;: &quot;RELACIONADO&quot;,
+&quot;label&quot;: &quot;Relacionado&quot;,
 &quot;fieldName&quot;: &quot;WhatId&quot;,
 &quot;type&quot;: &quot;customlookup&quot;,
 &quot;typeAttributes&quot;: {
@@ -26,7 +34,7 @@
 }
 },
 {
-&quot;label&quot;: &quot;RESPONSABLE&quot;,
+&quot;label&quot;: &quot;Asignado&quot;,
 &quot;fieldName&quot;: &quot;OwnerId&quot;,
 &quot;type&quot;: &quot;customlookup&quot;,
 &quot;typeAttributes&quot;: {
@@ -40,7 +48,7 @@
 }
 },
 {
-&quot;label&quot;: &quot;ESTADO&quot;,
+&quot;label&quot;: &quot;Estado&quot;,
 &quot;fieldName&quot;: &quot;Status&quot;,
 &quot;type&quot;: &quot;text&quot;
 },
@@ -70,7 +78,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Status,WhatId,Subject,What.Name,Owner.Name</value>
+        <value xsi:type="xsd:string">toLabel(Status),WhatId,Subject,What.Name,Owner.Name</value>
     </values>
     <values>
         <field>Filter__c</field>
@@ -87,7 +95,8 @@
     <values>
         <field>Settings__c</field>
         <value xsi:type="xsd:string">{
-    &quot;readClassName&quot;: &quot;BE_SM_CloseTopic_Ctr&quot;
+    &quot;readClassName&quot;: &quot;BE_SM_CloseTopic_Ctr&quot;,
+    &quot;hideViewAll&quot;: true
 }</value>
     </values>
     <values>

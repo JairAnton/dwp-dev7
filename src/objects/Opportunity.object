@@ -1560,7 +1560,7 @@
         <errorConditionFormula>IF( 
 				AND($Profile.Name!=&apos;Administrador del sistema&apos;, ISCHANGED(commercial_plan_event__c)), 
 				true,
-				IF(AND($Profile.Name!=&apos;Administrador del sistema&apos;, NOT(ISNULL(commercial_plan_event__c)), ISCHANGED(Name)),
+				IF(AND($Profile.Name!=&apos;Administrador del sistema&apos;, NOT(ISBLANK(commercial_plan_event__c)), ISCHANGED(Name)),
 							true, false)
 )</errorConditionFormula>
         <errorMessage>No puede modificar el nombre o plan comercial de esta oportunidad.</errorMessage>

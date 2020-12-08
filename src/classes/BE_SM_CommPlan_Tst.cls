@@ -22,13 +22,15 @@ public with sharing class BE_SM_CommPlan_Tst {
         update ejecutivo;
         /** ACCOUNT */
         final Account acc = TestFactory.getAccount(true, new Map<Schema.SObjectField, Object>{Account.OwnerId => ejecutivo.Id});
-        final Date initDate = Date.newInstance(2020, 11, 04);
+        final Date initDate = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 04);
         /** ACCOUNT INFORMATION */
         insert new Account_BBVA_Information__c(current_balance_amount__c=1000,account_id__c=acc.Id, type__c = '01',product_desc__c = 'Comex' ,product_group_classification_id__c='Directa');
         /** ACCOUNT PLAN */
         insert new dwp_frct__management_plan__c(dwp_frct__management_plan_end_date__c=initDate.addDays(15),dwp_frct__management_plan_start_date__c=initDate,OwnerId=ejecutivo.Id);
         /** SALES MEETING */
-        insert new slmt__Sales_Meeting__c(Name='SalesMeeting202010',DateTime__c=initDate,slmt__management_plan_meeting_date__c = initDate, Collaborator__c = ejecutivo.Id);
+        System.runAs(ejecutivo) {
+            insert new slmt__Sales_Meeting__c(Name='SalesMeeting202010',DateTime__c=initDate,slmt__management_plan_meeting_date__c = initDate, Collaborator__c = ejecutivo.Id);
+        }
         /** PRODUCT */
         final List<Product2> products= new List<Product2>{
         new Product2(Name = 'Comex exportación', Family = 'Financiamiento a corto plazo', ProductCode = 'PC00003',Type__c='Direct'),
@@ -75,8 +77,10 @@ public with sharing class BE_SM_CommPlan_Tst {
         final slmt__Sales_Meeting__c salesMeeting = [SELECT Id,Name,slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_CPlan_InversionRentable'];
-        salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
-        update salesMeeting;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 11);
+            update salesMeeting;
+        }
         Test.startTest();
         final BE_SingleRelatedListCRUD_Cls.Response response=new BE_SM_CPlan_InversionRentable_Ctr().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();
@@ -91,8 +95,10 @@ public with sharing class BE_SM_CommPlan_Tst {
         final slmt__Sales_Meeting__c salesMeeting = [SELECT Id,Name,slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_CPlan_Recursos'];
-        salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
-        update salesMeeting;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 11);
+        	update salesMeeting;
+        }
         Test.startTest();
         final BE_SingleRelatedListCRUD_Cls.Response response=new BE_SM_CPlan_Recursos_Ctr().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();
@@ -107,8 +113,10 @@ public with sharing class BE_SM_CommPlan_Tst {
         final slmt__Sales_Meeting__c salesMeeting = [SELECT Id,Name,slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_CPlan_RiesgoFirma'];
-        salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(2020, 11, 11);
-        update salesMeeting;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            salesMeeting.slmt__management_plan_meeting_date__c = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 11);
+        	update salesMeeting;
+        }
         Test.startTest();
         final BE_SingleRelatedListCRUD_Cls.Response response=new BE_SM_CPlan_RiesgoFirma_Ctr().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();

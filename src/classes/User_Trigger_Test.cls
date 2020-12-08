@@ -231,8 +231,8 @@ private class User_Trigger_Test {
         Final User userEJE = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', 
             																				User.ManagerId => userGOF.Id});
         System.runAs(userGOF) {
-            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userGOF.Id, 'Planning', true);
-            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userEJE.Id, 'Planning', true);
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 1), userGOF.Id, 'Planning', true);
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 1), userEJE.Id, 'Planning', true);
         }
         Test.startTest();
         userJPN.prof_position_id__c = 'OS9';
@@ -254,7 +254,7 @@ private class User_Trigger_Test {
         Final User userJPN = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'OS9', 
             																				User.ManagerId => userGR.Id, User.UserRoleId => jpnUR });
         System.runAs(userGOF) {
-            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(2020, 11, 1), userGOF.Id, 'Planning', true);
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 1), userGOF.Id, 'Planning', true);
         }
         Test.startTest();
         userJPN.prof_position_id__c = CODE_USER;

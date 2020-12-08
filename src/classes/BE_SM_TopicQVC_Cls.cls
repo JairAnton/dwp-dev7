@@ -20,11 +20,15 @@ global without sharing class BE_SM_TopicQVC_Cls implements slmt.Sales_Meeting_It
         Integer totalTopics = 0;
         Integer topicsManager = 0;
         Integer topicsColl = 0;
-        for(Task tsk : [SELECT Id, Subject, OwnerId FROM Task WHERE  (OwnerId=:(String)contextRecord.get('Collaborator__c')  OR OwnerId=:(String)contextRecord.get('slmt__mngmt_plan_meeting_user_id__c')) AND slmt__management_plan_meeting_id__r.Collaborator__c=:(String)contextRecord.get('Collaborator__c') AND ActivityDate <=:(Date)contextRecord.get('slmt__management_plan_meeting_date__c')]) {
+        final slmt__Sales_Meeting__c slmt=[SELECT ID,slmt__management_plan_meeting_date__c,Collaborator__c,slmt__mngmt_plan_meeting_user_id__c,auxiliar_collaborator__c,auxiliar_manager__c FROM slmt__Sales_Meeting__c WHERE Id=:(String)contextRecord.get('Id')];
+        final Date slmtDate = (Date)contextRecord.get('slmt__management_plan_meeting_date__c');
+        for(Task tsk : [SELECT Id, Subject, OwnerId FROM Task WHERE  (OwnerId=:slmt.Collaborator__c OR OwnerId=:slmt.slmt__mngmt_plan_meeting_user_id__c OR 
+        OwnerId=:slmt.auxiliar_collaborator__c OR OwnerId=: slmt.auxiliar_manager__c)  AND slmt__management_plan_meeting_id__r.Collaborator__c=:slmt.Collaborator__c
+        AND ActivityDate <=:(Date)slmt.slmt__management_plan_meeting_date__c.addDays(60) AND ActivityDate >=:(Date)slmtDate.addDays(-60)]) {
             totalTopics++;
-            if(tsk.OwnerId == contextRecord.get('Collaborator__c')) {
+            if(tsk.OwnerId == slmt.Collaborator__c || tsk.OwnerId==slmt.auxiliar_collaborator__c) {
                 topicsColl++;
-            } else if(tsk.OwnerId == contextRecord.get('slmt__mngmt_plan_meeting_user_id__c')) {
+            } else if(tsk.OwnerId == slmt.slmt__mngmt_plan_meeting_user_id__c || tsk.OwnerId==slmt.auxiliar_manager__c) {
                 topicsManager++;
             }
         }

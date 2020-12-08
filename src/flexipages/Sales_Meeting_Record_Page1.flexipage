@@ -35,10 +35,36 @@
             </componentInstanceProperties>
             <componentName>bE_CustomBarButtons_Lwc</componentName>
             <visibilityRule>
+                <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6</booleanFilter>
                 <criteria>
                     <leftValue>{!$User.prof_position_id__c}</leftValue>
                     <operator>EQUAL</operator>
                     <rightValue>E01</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I21</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>OS8</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>OS9</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.Profile.Name}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>System Administrator</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.Profile.Name}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Administrador del sistema</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>
@@ -49,10 +75,26 @@
             </componentInstanceProperties>
             <componentName>bE_CustomBarButtons_Lwc</componentName>
             <visibilityRule>
+                <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
                 <criteria>
-                    <leftValue>{!$User.user_id__c}</leftValue>
-                    <operator>NE</operator>
-                    <rightValue>E01</rightValue>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>E03</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I32</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>E0B</rightValue>
+                </criteria>
+                <criteria>
+                    <leftValue>{!$User.prof_position_id__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>I49</rightValue>
                 </criteria>
             </visibilityRule>
         </componentInstances>

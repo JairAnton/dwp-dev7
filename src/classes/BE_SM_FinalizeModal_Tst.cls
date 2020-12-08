@@ -24,7 +24,9 @@ public class BE_SM_FinalizeModal_Tst {
     @TestSetup
     static void setUp() {
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => BE_SM_Factory_tst.ID_EJE, User.prof_position_id__c => 'E03'});
-        BE_SM_Factory_tst.createSalesMeeting(Date.newInstance(2020, 11, 04), ejecutivo.Id, 'Planning', true);
+        System.runAs(ejecutivo) {
+            BE_SM_Factory_tst.createSalesMeeting(Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 04), ejecutivo.Id, 'Planning', true);
+        }
     }
     
     /*
@@ -32,11 +34,15 @@ public class BE_SM_FinalizeModal_Tst {
 	 */
     @isTest
     static void getStatusMeetingTest() {
-        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id FROM slmt__Sales_Meeting__c LIMIT 1];
+        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         Test.startTest();
-        Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting(salesMeeting.Id);
+        Boolean resBoolean = false;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting(salesMeeting.Id);
+            resBoolean = (Boolean)mapResult.get(ISSUCCESS);
+        }
         Test.stopTest();
-        System.assert((Boolean)mapResult.get(ISSUCCESS), 'success!!!');
+        System.assert(resBoolean, 'success!!!');
     }
     
     /*
@@ -44,10 +50,15 @@ public class BE_SM_FinalizeModal_Tst {
 	 */
     @isTest
     static void getStatusMeetingNullErrorTest() {
+        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         Test.startTest();
-        Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting(null);
+        Boolean resBoolean = false;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting(null);
+            resBoolean = (Boolean)mapResult.get(ISSUCCESS);
+        }
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
+        System.assert(!resBoolean, ERROR);
     }
     
     /*
@@ -55,10 +66,15 @@ public class BE_SM_FinalizeModal_Tst {
 	 */
     @isTest
     static void getStatusMeetingIdErrorTest() {
+        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         Test.startTest();
-        Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting('0010m0000');
+        Boolean resBoolean = false;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting('0010m0000');
+            resBoolean = (Boolean)mapResult.get(ISSUCCESS);
+        }
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
+        System.assert(!resBoolean, ERROR);
     }
     
     /*
@@ -66,13 +82,17 @@ public class BE_SM_FinalizeModal_Tst {
 	 */
     @isTest
     static void getStatusMeetingStatusErrorTest() {
-        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id FROM slmt__Sales_Meeting__c LIMIT 1];
-        Final slmt__Sales_Meeting__c updateSM = new slmt__Sales_Meeting__c(Id=salesMeeting.Id, slmt__mngmt_plan_meeting_status_name__c='Finalized');
+        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, Collaborator__c, DateTime__c FROM slmt__Sales_Meeting__c LIMIT 1];
+        Final slmt__Sales_Meeting__c updateSM = new slmt__Sales_Meeting__c(Id=salesMeeting.Id, DateTime__c=System.today().addDays(-5), slmt__mngmt_plan_meeting_status_name__c='Finalized');
         update updateSM;
         Test.startTest();
-        Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting(updateSM.Id);
+        Boolean resBoolean = false;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.getStatusMeeting(updateSM.Id);
+            resBoolean = (Boolean)mapResult.get(ISSUCCESS);
+        }
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
+        System.assert(!resBoolean, ERROR);
     }
     
     /*
@@ -80,11 +100,17 @@ public class BE_SM_FinalizeModal_Tst {
 	 */
     @isTest
     static void finalizeMeetingTest() {
-        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id FROM slmt__Sales_Meeting__c LIMIT 1];
+        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
+        Final slmt__Sales_Meeting__c updateSM = new slmt__Sales_Meeting__c(Id=salesMeeting.Id, DateTime__c=System.today().addDays(-5));
+        update updateSM;
         Test.startTest();
-        Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.finalizeMeeting(salesMeeting.Id, 'test summary');
+        Boolean resBoolean = false;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.finalizeMeeting(salesMeeting.Id, 'test summary');
+            resBoolean = (Boolean)mapResult.get(ISSUCCESS);
+        }
         Test.stopTest();
-        System.assert((Boolean)mapResult.get(ISSUCCESS), 'success!!!');
+        System.assert(resBoolean, 'success!!!');
     }
     
     /*
@@ -92,10 +118,15 @@ public class BE_SM_FinalizeModal_Tst {
 	 */
     @isTest
     static void finalizeMeetingNullErrorTest() {
+        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         Test.startTest();
-        Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.finalizeMeeting(null, 'test summary');
+        Boolean resBoolean = false;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.finalizeMeeting(null, 'test summary');
+            resBoolean = (Boolean)mapResult.get(ISSUCCESS);
+        }
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
+        System.assert(!resBoolean, ERROR);
     }
     
     /*
@@ -103,9 +134,14 @@ public class BE_SM_FinalizeModal_Tst {
 	 */
     @isTest
     static void finalizeMeetingIdErrorTest() {
+        Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
         Test.startTest();
-        Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.finalizeMeeting('0010m0000', 'test summary');
+        Boolean resBoolean = false;
+        System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
+            Final Map<String, Object> mapResult = BE_SM_FinalizeModal_Ctr.finalizeMeeting('0010m0000', 'test summary');
+            resBoolean = (Boolean)mapResult.get(ISSUCCESS);
+        }
         Test.stopTest();
-        System.assert(!(Boolean)mapResult.get(ISSUCCESS), ERROR);
+        System.assert(!resBoolean, ERROR);
     }
 }

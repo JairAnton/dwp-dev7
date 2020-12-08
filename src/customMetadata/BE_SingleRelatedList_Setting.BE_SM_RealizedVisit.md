@@ -7,12 +7,20 @@
         <value xsi:type="xsd:string">{
 &quot;values&quot;: [
 {
-            &quot;label&quot;: &quot;Nombre&quot;,
-            &quot;fieldName&quot;: &quot;Name&quot;,
-            &quot;type&quot;: &quot;text&quot;
-        },
+&quot;label&quot;: &quot;Nombre&quot;,
+&quot;fieldName&quot;: &quot;Id&quot;,
+&quot;type&quot;: &quot;customurl&quot;,
+&quot;typeAttributes&quot;: {
+&quot;rowData&quot;: {
+&quot;fieldName&quot;: &quot;rowData&quot;
+},
+&quot;isCustom&quot;: true,
+&quot;label&quot;: &quot;Name&quot;,
+&quot;fieldName&quot;: &quot;Id&quot;
+}
+},
 {
-&quot;label&quot;: &quot;CLIENTE&quot;,
+&quot;label&quot;: &quot;Cliente&quot;,
 &quot;fieldName&quot;: &quot;dwp_kitv__account_id__c&quot;,
 &quot;type&quot;: &quot;customlookup&quot;,
 &quot;typeAttributes&quot;: {
@@ -26,12 +34,12 @@
 }
 },
 {
-&quot;label&quot;: &quot;FECHA&quot;,
+&quot;label&quot;: &quot;Fecha&quot;,
 &quot;fieldName&quot;: &quot;start_date_calculated__c&quot;,
 &quot;type&quot;: &quot;date-local&quot;
 },
 {
-&quot;label&quot;: &quot;ESTADO&quot;,
+&quot;label&quot;: &quot;Estado&quot;,
 &quot;fieldName&quot;: &quot;dwp_kitv__visit_status_type__c&quot;,
 &quot;type&quot;: &quot;text&quot;
 },
@@ -108,7 +116,8 @@
     <values>
         <field>Settings__c</field>
         <value xsi:type="xsd:string">{
-&quot;readClassName&quot;: &quot;BE_SM_RealizedVisit_cls&quot;
+&quot;readClassName&quot;: &quot;BE_SM_RealizedVisit_cls&quot;,
+&quot;hideViewAll&quot;: true
 }</value>
     </values>
     <values>

@@ -444,7 +444,7 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Extensions_Allowed</shortDescription>
-        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx</value>
+        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx,png,jpg,jpeg</value>
     </labels>
     <labels>
         <fullName>Error_InvalidExtensionType</fullName>
@@ -1924,6 +1924,20 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>SIOstatus3</shortDescription>
         <value>Sanction GM 2</value>
+    </labels>
+    <labels>
+        <fullName>SalesMeetingErrorFinalized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesMeetingErrorFinalized</shortDescription>
+        <value>A sales meeting finalized cannot be modified.</value>
+    </labels>
+    <labels>
+        <fullName>SalesMeetingErrorUnrealized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesMeetingErrorUnrealized</shortDescription>
+        <value>A sales meeting unrealized can only be modified the reason.</value>
     </labels>
     <labels>
         <fullName>PDFSectionPayment</fullName>

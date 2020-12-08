@@ -24,12 +24,14 @@ public with sharing class BE_SM_SyncAttendees_Tst {
         Final List<slmt__Sales_Meeting__c> lstSM = new List<slmt__Sales_Meeting__c>();
         for(Integer aux = 0; aux <= 3; aux++) {
             Final slmt__Sales_Meeting__c smRecord = new slmt__Sales_Meeting__c();
-            smRecord.DateTime__c = DateTime.newInstance(2020, 11, 9+aux*7);
+            smRecord.DateTime__c = DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 9+aux*7, 3, 3, 3);
             smRecord.Collaborator__c = ejecutivo.Id;
             smRecord.Type_of_meeting__c = 'Tracing';
             lstSM.add(smRecord);
         }
-        insert lstSM;
+        System.runAs(ejecutivo) {
+            insert lstSM;
+        }
     }
     
     /*
@@ -50,7 +52,7 @@ public with sharing class BE_SM_SyncAttendees_Tst {
             Database.executeBatch(new BE_SyncEventAttendees_Batch(evtIds));
         }
         Test.stopTest();
-        final List<gcal__Event_Attendees__c> attends = [SELECT Id FROM gcal__Event_Attendees__c LIMIT 10];
+        final List<gcal__Event_Attendees__c> attends = [SELECT Id FROM gcal__Event_Attendees__c LIMIT 4];
         System.assertEquals(attends.size(), 4, 'success!!!');
     }
 }
