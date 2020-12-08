@@ -1,3 +1,4 @@
+import { NavigationMixin } from 'lightning/navigation';
 /** VALIDATE NOT EMPTY */
 const isNotEmpty = (obj) => {
     const notEmpty = (obj === null || obj === undefined || obj === "") ? false : true;
@@ -79,12 +80,71 @@ const setHeadActions = (lang) => {
     }
     return actions;
 }
+/** NOT UI API */
+const defaultsValues=(event,recordId)=> {
+    const listFields={};
+    event.target.value.fields.forEach(fields => {
+        if (fields.hasOwnProperty('value')) {
+            switch (fields.value) {
+                case "recordId":
+                    listFields[fields.fieldName] = recordId;
+                    break;
+                default:
+                    listFields[fields.fieldName] = fields.value;
+                    break;
+            }
+        }
+    });
+    return listFields;
+}
+
+const defaultsValuesForm=(defaultValues, recordId, userId, event)=> {
+    const listFields={};
+    defaultValues.forEach(field => {
+        if (field.hasOwnProperty('value')) {
+            console.log(field.fieldName);
+            if(field.value === 'recordId') {
+                listFields[field.fieldName] = recordId;
+            } else if(field.value === 'userId') {
+                listFields[field.fieldName] = userId;
+            } else if(event !== null &&  event.detail.row.hasOwnProperty(field.value)) {
+                listFields[field.fieldName] = event.detail.row[field.value];
+            } else {
+                listFields[field.fieldName] = field.value;
+            }
+        }
+    });
+    return listFields;
+}
+
+const obtainFields=(params, record)=> {
+    var result = {};
+    for (const att in params) {
+        if(typeof params[att] === 'object' && params[att] !== null) {
+            let paramAux = params[att];
+            let resultAux = {};
+            for(const attAux in paramAux) {
+                if (record[paramAux[attAux]]) {
+                    resultAux[attAux] = record[paramAux[attAux]];
+                } else {
+                    resultAux[attAux] = paramAux[attAux];
+                }
+            }
+            result[att] = resultAux;
+        } else if (record[params[att]]) {
+            result[att] = record[params[att]];
+        } else {
+            result[att] = params[att];
+        }
+    }
+    return result;
+}
 
 function clone ( obj ) {
-    if ( obj === null || typeof obj  !== 'object' ) return obj;
+    if ( obj === null || typeof obj !== 'object' ) return obj;
     var temp = obj.constructor();
-    for ( var key in obj ) temp[ key ] = clone( obj[ key ] );
+    for (var key in obj) temp[key] = clone(obj[key]);
     return temp;
 }
 
-export { isNotEmpty, transformColumns, transformHeadActions, transformData, getSettingsObj };
+export { isNotEmpty, transformColumns, transformHeadActions, transformData, getSettingsObj, defaultsValues, defaultsValuesForm, obtainFields};

@@ -326,6 +326,27 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>BE_NotCreateEditAccount</shortDescription>
         <value>It is not possible to create a client.</value>
     </labels>
+	<labels>
+        <fullName>BE_SalesMeeting_BtnCancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SalesMeeting_BtnCancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>BE_SalesMeeting_BtnFinalize</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SalesMeeting_BtnFinalize</shortDescription>
+        <value>Finalize</value>
+    </labels>
+    <labels>
+        <fullName>BE_SalesMeeting_BtnFinalizeNew</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SalesMeeting_BtnFinalizeNew</shortDescription>
+        <value>Finalize &amp; New</value>
+    </labels>
     <labels>
         <fullName>BE_SingleRelatedListModal_BtnCancel</fullName>
         <language>en_US</language>
@@ -423,7 +444,7 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Extensions_Allowed</shortDescription>
-        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx</value>
+        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx,png,jpg,jpeg</value>
     </labels>
     <labels>
         <fullName>Error_InvalidExtensionType</fullName>
@@ -700,6 +721,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Formalizar</value>
     </labels>
     <labels>
+        <fullName>lblGOFCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblGOFCode</shortDescription>
+        <value>E01,I21</value>
+    </labels>
+    <labels>
         <fullName>lblPDFProductCommercialLoanCP</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -831,6 +859,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>lblTitleFormalization</shortDescription>
         <value>formalizate Opportunity</value>
+    </labels>
+	<labels>
+        <fullName>lblTitleNewSalesMeeting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleNewSalesMeeting</shortDescription>
+        <value>New Sales Meeting</value>
     </labels>
     <labels>
         <fullName>lblTitleReevaluate</fullName>
@@ -1287,6 +1322,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>lblComplete</shortDescription>
         <value>Complete</value>
+    </labels>
+    <labels>
+        <fullName>lblEjecutivoCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblEjecutivoCode</shortDescription>
+        <value>E03,I32</value>
     </labels>
     <labels>
         <fullName>lblUnlink</fullName>
@@ -1786,6 +1828,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Price denied</value>
     </labels>
     <labels>
+        <fullName>Opp_LP_Products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opp_LP_Products</shortDescription>
+        <value>PC00009,PC00009_NEW,0159601,0159601_NEW</value>
+    </labels>
+    <labels>
         <fullName>PriceProposalSectionTitle</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1875,6 +1924,20 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>SIOstatus3</shortDescription>
         <value>Sanction GM 2</value>
+    </labels>
+    <labels>
+        <fullName>SalesMeetingErrorFinalized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesMeetingErrorFinalized</shortDescription>
+        <value>A sales meeting finalized cannot be modified.</value>
+    </labels>
+    <labels>
+        <fullName>SalesMeetingErrorUnrealized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesMeetingErrorUnrealized</shortDescription>
+        <value>A sales meeting unrealized can only be modified the reason.</value>
     </labels>
     <labels>
         <fullName>PDFSectionPayment</fullName>
@@ -2464,6 +2527,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>Mensaje petición formalización con Subgerente asignado 2</shortDescription>
         <value>¿Deseas asignártela para poder completar la formalización?</value>
+    </labels>
+    <labels>
+        <fullName>lblAssistants</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblAssistants</shortDescription>
+        <value>E0B,I49</value>
     </labels>
     <labels>
         <fullName>lblAuth</fullName>

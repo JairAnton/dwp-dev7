@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- CloseDate --></label>
+        <name>CloseDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Collaborator --></label>
+        <lookupFilter>
+            <errorMessage><!-- No existe un usuario para seleccionar. --></errorMessage>
+        </lookupFilter>
+        <name>Collaborator__c</name>
+        <relationshipLabel><!-- Sales Meetings (Collaborator) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DateTime --></label>
+        <name>DateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason (Unrealized) --></label>
+        <name>Reason_Unrealized__c</name>
+        <picklistValues>
+            <masterLabel>Holidays</masterLabel>
+            <translation><!-- Holidays --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No availability of agenda</masterLabel>
+            <translation><!-- No availability of agenda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>There were expired opportunities</masterLabel>
+            <translation><!-- There were expired opportunities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Summary --></label>
+        <name>Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of meeting --></label>
+        <name>Type_of_meeting__c</name>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tracing</masterLabel>
+            <translation><!-- Tracing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Url --></label>
+        <name>Url__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>auxiliar_collaborator__c</name>
+        <relationshipLabel><!-- Sales Meetings (User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>auxiliar_manager__c</name>
+        <relationshipLabel><!-- Sales Meetings (User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The day the meeting is scheduled. --></help>
+        <label><!-- Date --></label>
+        <name>slmt__management_plan_meeting_date__c</name>
+    </fields>
+    <fields>
+        <help><!-- The meeting duration. Initially only 15  minutes will be allowed, but it will accept increments of 15min. These values will exist but will deploy inactive by default. --></help>
+        <label><!-- Duration --></label>
+        <name>slmt__mngmt_plan_meet_dur_number__c</name>
+        <picklistValues>
+            <masterLabel>20</masterLabel>
+            <translation><!-- 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>25</masterLabel>
+            <translation><!-- 25 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30</masterLabel>
+            <translation><!-- 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>35</masterLabel>
+            <translation><!-- 35 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40</masterLabel>
+            <translation><!-- 40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>45</masterLabel>
+            <translation><!-- 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50</masterLabel>
+            <translation><!-- 50 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The Start time. --></help>
+        <label><!-- Start Time --></label>
+        <name>slmt__mngmt_plan_meeting_start_desc__c</name>
+    </fields>
+    <fields>
+        <help><!-- The meeting status. Will be planned once created. When done, will be updated to Finalized --></help>
+        <label><!-- Status --></label>
+        <name>slmt__mngmt_plan_meeting_status_name__c</name>
+        <picklistValues>
+            <masterLabel>Finalized</masterLabel>
+            <translation><!-- Finalized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planned</masterLabel>
+            <translation><!-- Planned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unrealized</masterLabel>
+            <translation><!-- Unrealized --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The person who is invited to to the meeting to review the sales rep plan. --></help>
+        <label><!-- Manager --></label>
+        <name>slmt__mngmt_plan_meeting_user_id__c</name>
+        <relationshipLabel><!-- Sales Meetings (Manager) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>BE Sales Meeting Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Summary --></label>
+            <section>Summary</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Finalize --></label>
+        <name>BE_SMFinalizeModal</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Topic --></label>
+        <name>BE_SMNewTopic</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Reasignar Temas --></label>
+        <name>BE_SM_Reasign_Topics</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage><!-- Operación no válida --></errorMessage>
+        <name>Change_Status</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No puede colocar una fecha mayor a los 6 pimeros días utiles del mes. --></errorMessage>
+        <name>Invalid_DateTime_Ejecutivo_Planning_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No se puede crear una reunión individual con fecha y hora pasada --></errorMessage>
+        <name>Validate_DateTime</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No se puede finalizar una reunión individual antes de la fecha y hora programda. --></errorMessage>
+        <name>Validate_Finalized_Date</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -158,6 +158,18 @@
     </customLabels>
     <customLabels>
         <label>Cancelar</label>
+        <name>BE_SalesMeeting_BtnCancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Finalizar</label>
+        <name>BE_SalesMeeting_BtnFinalize</name>
+    </customLabels>
+    <customLabels>
+        <label>Finalizar y nueva</label>
+        <name>BE_SalesMeeting_BtnFinalizeNew</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
         <name>BE_SingleRelatedListModal_BtnCancel</name>
     </customLabels>
     <customLabels>
@@ -1131,6 +1143,14 @@
     <customLabels>
         <label>Sanción aprobado  GM 2</label>
         <name>SIOstatus3</name>
+    </customLabels>
+    <customLabels>
+        <label>Una reunión individual finalizada no puede ser modificada.</label>
+        <name>SalesMeetingErrorFinalized</name>
+    </customLabels>
+    <customLabels>
+        <label>Una reunión individual no realizada solo puede ser modificado el motivo.</label>
+        <name>SalesMeetingErrorUnrealized</name>
     </customLabels>
     <customLabels>
         <label>'Criterios de pago y liquidación','Información general del producto'</label>

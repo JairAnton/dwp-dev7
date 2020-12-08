@@ -5,12 +5,14 @@
  */
 public without sharing class User_Trigger_cls {
     
-	/**   @Variable: temporal */
+	/**   @Variable: ORG_EQUIVALENT */
 	final static Map<String, Organizational_Unit_Equivalence__c> ORG_EQUIVALENT = new Map<String, Organizational_Unit_Equivalence__c>();
-	/**   @Variable: temporal*/
+	/**   @Variable: POSITION_EQUIV*/
 	final static Map<String, User_Position_equivalence__c> POSITION_EQUIV = new Map<String, User_Position_equivalence__c>();
-	/**   @Variable: temporal*/
+	/**   @Variable: PERFIL_MIGRACION*/
 	private static final String PERFIL_MIGRACION {get {return 'Migracion';} set;}
+	/**   @Variable: JPN_CODE*/
+	private static final String JPN_CODE = 'OS9';
     /**   @Description: User_Trigger_cls*/
     private User_Trigger_cls() {}
 
@@ -30,6 +32,7 @@ public without sharing class User_Trigger_cls {
 	 */
 	public static void asignAfterInsert(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
 		User_Trigger_Case_cls.newMembersFormalization(userNew);
+        addJPNInSMS(userNewMap, null);
 		//Assigment AP Validation Permission
 		Final Set<Id> userGOF = new Set<Id>();
 		//Obtenemos los codigos de los usuarios que deben ser validadores
@@ -66,6 +69,8 @@ public without sharing class User_Trigger_cls {
 		User_Trigger_Case_cls.changeRolAssis_Sgof(userNewMap, userOld);
 		User_Trigger_Case_cls.addUserToFormalizationGroup(userNewMap, userOld);
 		BE_User_Trigger_VisitTeam_Cls.sharingVisitTeamMember(userNewMap, userOldMap);
+        addJPNInSMS(userNewMap, userOldMap);
+		removeJPNofSMS(userNewMap, userOldMap);
 	}
     
     /*
@@ -159,5 +164,45 @@ public without sharing class User_Trigger_cls {
 				System.debug('Cambios aplicados: unidad: ' + u.Organizational_unit_equivalence__c + ' posicion ' + u.User_position_equivalence__c);
 			}
 		}
+	}
+
+    /*
+	 * @Name: addJPNInSMS
+	 * @Description: add jpns
+	 */
+	private static void addJPNInSMS(Map<id, User> userNewMap, Map<id, User> userOldMap) {
+        Final Map<String, Set<Id>> mapJPNByManager = new Map<String, Set<Id>>();
+        Set<Id> setJPNIdAux = new Set<Id>();
+		Boolean userJPN;
+		for(User userAux: userNewMap.values()) {
+            userJPN = userAux.isActive && String.isNotEmpty(userAux.UserRoleId) && userAux.prof_position_id__c == JPN_CODE;
+            if((userJPN && userOldMap == null) || (userJPN && userOldMap.get((Id)userAux.Id).prof_position_id__c != JPN_CODE)) {
+                setJPNIdAux = new Set<Id>{userAux.Id};
+                if(mapJPNByManager.containsKey(userAux.ManagerId)) {
+                    setJPNIdAux.addAll(mapJPNByManager.get(userAux.ManagerId));
+                }
+                mapJPNByManager.put(userAux.ManagerId, setJPNIdAux);
+            }
+		}
+        if(!mapJPNByManager.isEmpty()) {
+            BE_SM_SharingUsers_cls.addJPNofSMS(JSON.serialize(mapJPNByManager));
+        }
+	}
+    
+	/*
+	 * @Name: removeJPNofSMS
+	 * @Description: remove jpns
+	 */
+	private static void removeJPNofSMS(Map<id, User> userNewMap, Map<id, User> userOldMap) {
+		Final Set<Id> setJpnId = new Set<Id>();
+		for(User userAux: userNewMap.values()) {
+			if(userAux.isActive && String.isNotEmpty(userOldMap.get((Id)userAux.Id).UserRoleId) && 
+				userOldMap.get((Id)userAux.Id).prof_position_id__c == JPN_CODE && userAux.prof_position_id__c != JPN_CODE) {
+				setJpnId.add((Id)userAux.Id);
+			}
+		}
+        if(!setJpnId.isEmpty()) {
+            BE_SM_SharingUsers_cls.removeJPNofSMS(setJpnId);
+        }
 	}
 }

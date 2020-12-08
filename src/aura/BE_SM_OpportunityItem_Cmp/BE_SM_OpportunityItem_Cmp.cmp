@@ -1,0 +1,50 @@
+<aura:component implements="slmt:Item_Detail_Component_itf,flexipage:availableForAllPageTypes,force:hasRecordId"
+    access="global">
+    <aura:attribute name="activeSections" type="List" default="['A','B','C','D']" />
+    <aura:attribute name="pipelineSections" type="List" default="['AA','AB','AC','AD','AE']" />
+    <lightning:card variant="Narrow" title="Oportunidades" iconName="standard:opportunity">
+        <lightning:accordion aura:id="accordionOpp" allowMultipleSectionsOpen="true"
+            activeSectionName="{!v.activeSections}" title="Oportunidades">
+            <!--Sección Pipeline-->
+            <lightning:accordionSection name="A" label="Pipeline">
+                <lightning:accordion aura:id="accordionOpp" allowMultipleSectionsOpen="true" activeSectionName="{!v.pipelineSections}" title="Oportunidades">
+                    <!--Sección Pipeline - Pendiente de Iniciar-->
+                    <lightning:accordionSection name="AA" label="Pendiente de iniciar">
+                        <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Pending" 
+                        relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
+                    </lightning:accordionSection>
+                    <!--Sección Pipeline - En Gestión-->
+                    <lightning:accordionSection name="AB" label="En gestión">
+                        <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Negotiaton" 
+                        relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
+                    </lightning:accordionSection>
+                    <!--Sección Pipeline - En Sanción-->
+                    <lightning:accordionSection name="AC" label="En sanción">
+                        <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Sanction" 
+                        relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
+                    </lightning:accordionSection>
+                    <!--Sección Pipeline - En Formalización-->
+                    <lightning:accordionSection name="AD" label="En formalización">
+                        <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_Pipeline_Formalization" 
+                        relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
+                    </lightning:accordionSection>
+                </lightning:accordion>
+            </lightning:accordionSection>
+            <!--Sección Vencidas-->
+            <lightning:accordionSection name="B" label="Vencidas">
+                <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_ExpiredOpportunities" 
+                relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
+            </lightning:accordionSection>
+            <!--Sección Formalizadas-->
+            <lightning:accordionSection name="C" label="Formalizadas">
+                <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_FormalizedOpportunities" 
+                relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
+            </lightning:accordionSection>
+            <!--Sección Desestimadas-->
+            <lightning:accordionSection name="D" label="Desestimadas">
+                <c:BE_SingleRelatedListRefresh_cmp recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_DismissedOpportunities" 
+                relListType="Basic" iconName="" title='{"es": "", "en-US": ""}' />
+            </lightning:accordionSection>
+        </lightning:accordion>
+    </lightning:card>
+</aura:component>
