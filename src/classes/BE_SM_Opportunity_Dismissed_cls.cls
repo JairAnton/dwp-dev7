@@ -31,8 +31,8 @@ public with sharing class BE_SM_Opportunity_Dismissed_cls extends BE_SingleRelat
         System.debug('slmt__management_plan_meeting_date__c => '+salesMeeting.slmt__management_plan_meeting_date__c);
         System.debug('lstProducts => '+lstProducts);
         for(OpportunityLineItem oli: [SELECT Id, OpportunityId, Opportunity.CloseDate FROM OpportunityLineItem WHERE 
-                                    Opportunity.CloseDate <:salesMeeting.slmt__management_plan_meeting_date__c AND 
-                                    Opportunity.CloseDate >=:last30Date AND Product2.Unique_id__c IN: lstProducts AND 
+                                    Opportunity.Loss_date__c <:salesMeeting.slmt__management_plan_meeting_date__c AND 
+                                    Opportunity.Loss_date__c >=:last30Date AND Product2.Unique_id__c IN: lstProducts AND 
                                     Opportunity.stageName IN: setStages AND  
                                     (Opportunity.OwnerId IN:setIdsCol OR OpportunityId in:setAuxIdsOpp)]) {
             setIdsOpp.add(oli.OpportunityId);
