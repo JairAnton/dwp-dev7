@@ -229,11 +229,11 @@ public without sharing virtual class BE_SM_Minute_Ctr {
         try {
             final Date next30Days = Date.valueOf(slmt.slmt__management_plan_meeting_date__c).addDays(30);
             final Date last60Days = Date.valueOf(slmt.slmt__management_plan_meeting_date__c).addDays(-60);
-            slmtTopics = [SELECT Id, ActivityDate, Subject, Status, Owner.Name, What.Name FROM Task 
+            slmtTopics = [SELECT Id, ActivityDate, Subject, toLabel(Status), Owner.Name, What.Name FROM Task 
                           WHERE RecordType.DeveloperName = 'Sales_Meeting' AND slmt__management_plan_meeting_id__r.Collaborator__c = :slmt.Collaborator__c AND 
                           (OwnerId = :slmt.Collaborator__c OR OwnerId = :slmt.slmt__mngmt_plan_meeting_user_id__c OR OwnerId = :slmt.auxiliar_collaborator__c OR OwnerId = :slmt.auxiliar_manager__c)
                           AND (Status = 'Open' AND ActivityDate <=: next30Days AND ActivityDate >=: last60Days)
-                          ORDER BY Status ASC, ActivityDate DESC];
+                          ORDER BY ActivityDate DESC];
 			Final String lstMembrete = returnDocId('Logo_BBVA');
 			Final String lstMembreteWhite = returnDocId('Logo_BBVA_white');
 			Final String lstLogoFace = returnDocId('facebook_logo');

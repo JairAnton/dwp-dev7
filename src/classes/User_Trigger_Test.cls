@@ -246,7 +246,7 @@ private class User_Trigger_Test {
     
     @isTest
     static void removeJPNofSMSTest() {
-         Final Id ejeProfileId = BE_SM_Factory_tst.ID_EJE;
+        Final Id ejeProfileId = BE_SM_Factory_tst.ID_EJE;
         Final Id jpnUR = [SELECT Id FROM UserRole WHERE DeveloperName = 'JEFE_PROMOCION_DE_NEGOCIO_BE_1' LIMIT 1].Id;
         Final User userGR = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'OS8'});
         Final User userGOF = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => CODE_USER, 
