@@ -29,7 +29,7 @@ public without sharing class BE_SM_PendingTopic_Ctr  extends BE_SingleRelatedLis
         System.debug('###DATOS:collaborator'+collaborator+ ' auxColl:'+auxColl  +' manager:'+manager+
                      ' auxMana:'+auxMana+ ' next30Days:'+next30Days+ ' last60Days:'+last60Days);
         if(String.isNotBlank(collaborator) && String.isNotBlank(manager) && String.isNotBlank(next30Days.format())) {
-            final String query = 'SELECT '+ params.get('sObjFields')+ ' FROM '+ params.get('sObjName') + ' WHERE Status=:OPEN_TOPIC AND (OwnerId=: collaborator OR OwnerId=:manager OR OwnerId=:auxColl OR OwnerId=:auxMana) AND slmt__management_plan_meeting_id__r.Collaborator__c=:collaborator AND  ActivityDate <=:next30Days AND ActivityDate>=:last60Days';
+            final String query = 'SELECT '+ params.get('sObjFields')+ ' FROM '+ params.get('sObjName') + ' WHERE Status=:OPEN_TOPIC AND (OwnerId=: collaborator OR OwnerId=:manager OR OwnerId=:auxColl OR OwnerId=:auxMana) AND slmt__management_plan_meeting_id__r.Collaborator__c=:collaborator AND  ActivityDate <=:next30Days AND ActivityDate>=:last60Days ORDER BY ActivityDate DESC';
             res.isSuccess=true;
             res.data=Database.query(String.escapeSingleQuotes(query));
         } else {

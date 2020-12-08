@@ -32,10 +32,11 @@ public with sharing class BE_SM_MigrateTask_Tst {
         manager.prof_position_id__c = 'E01';
         update manager;
         final Date initDate = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 04);
+        final DateTime initDateTime = DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 04, 3, 3, 3);
         /** SALES MEETING */
-        final slmt__Sales_Meeting__c slm1=new slmt__Sales_Meeting__c(DateTime__c=initDate,Collaborator__c=ejecutivo.Id);
+        final slmt__Sales_Meeting__c slm1=new slmt__Sales_Meeting__c(DateTime__c=initDateTime,Collaborator__c=ejecutivo.Id);
         insert slm1;
-        final slmt__Sales_Meeting__c slm2=new slmt__Sales_Meeting__c(DateTime__c=initDate,Collaborator__c=ejecutivo2.Id);
+        final slmt__Sales_Meeting__c slm2=new slmt__Sales_Meeting__c(DateTime__c=initDateTime,Collaborator__c=ejecutivo2.Id);
         insert slm2;
         /** TASK */
         final Map<String, Schema.RecordTypeInfo> recordType = BE_General_Utils.getRecordTypeInfo(new List<String> {'Task'});
@@ -55,8 +56,8 @@ public with sharing class BE_SM_MigrateTask_Tst {
     @isTest
     static void unitTest() {
         final List<slmt__Sales_Meeting__c> ltsSlmt = [SELECT Id, Name, DateTime__c, OwnerId, Collaborator__c, slmt__mngmt_plan_meeting_status_name__c, Type_of_meeting__c FROM slmt__Sales_Meeting__c LIMIT 2];
-        update new slmt__Sales_Meeting__c(Id = ltsSlmt[0].Id, DateTime__c=System.today().addDays(-5), slmt__mngmt_plan_meeting_status_name__c = 'Finalized');
-        update new slmt__Sales_Meeting__c(Id = ltsSlmt[1].Id, DateTime__c=System.today().addDays(-5), slmt__mngmt_plan_meeting_status_name__c = 'Finalized');
+        update new slmt__Sales_Meeting__c(Id = ltsSlmt[0].Id, DateTime__c=System.now().addDays(-5), slmt__mngmt_plan_meeting_status_name__c = 'Finalized');
+        update new slmt__Sales_Meeting__c(Id = ltsSlmt[1].Id, DateTime__c=System.now().addDays(-5), slmt__mngmt_plan_meeting_status_name__c = 'Finalized');
         Test.startTest();
         final List<slmt__Sales_Meeting__c> newSlmts = new List<slmt__Sales_Meeting__c>();
         newSlmts.add(new slmt__Sales_Meeting__c(DateTime__c = ltsSlmt[0].DateTime__c.addDays(7), Collaborator__c = ltsSlmt[0].Collaborator__c, Type_of_meeting__c = ltsSlmt[0].Type_of_meeting__c));

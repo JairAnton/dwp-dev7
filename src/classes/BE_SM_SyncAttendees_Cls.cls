@@ -22,9 +22,10 @@ public with sharing class BE_SM_SyncAttendees_Cls {
         for(Event evt : [SELECT Id FROM Event WHERE slmt__management_plan_meeting_id__c IN :setSMIds AND IsChild = FALSE]) {
             evtIds.add(evt.Id);
         }
-        final String hour = String.valueOf(Datetime.now().hour());
-        final String min = String.valueOf(Datetime.now().minute() + 2); 
-        final String second = String.valueOf(Datetime.now().second());
+        Final DateTime dtSchedule = Datetime.now().addMinutes(2);
+        final String hour = String.valueOf(dtSchedule.hour());
+        final String min = String.valueOf(dtSchedule.minute()); 
+        final String second = String.valueOf(dtSchedule.second());
         final String nextFireTime = second + ' ' + min + ' ' + hour + ' * * ?';
         
         final BE_SyncEventAttendees_BS sch = new BE_SyncEventAttendees_BS(evtIds);

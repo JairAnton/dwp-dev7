@@ -102,7 +102,7 @@ private class User_assistant_team_trigger_TEST {
         Final User userAssist2 = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => E0B, 
             																				User.ManagerId => userGOF.Id});
         System.runAs(userEJE) {
-            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 1), userEJE.Id, 'Planning', true);
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 1, 3, 3, 3), userEJE.Id, 'Planning', true);
         }
         Test.startTest();
         Final User_Assistant_Team__c[] lstUAT = new User_Assistant_Team__c[]{new User_Assistant_Team__c(user_id__c = userEJE.Id, assistant_id__c = userAssist.Id), 
@@ -129,7 +129,7 @@ private class User_assistant_team_trigger_TEST {
         insert new User_Assistant_Team__c(user_id__c = userEJE.Id, assistant_id__c = userAssist.Id);
         insert new User_Assistant_Team__c(user_id__c = userEJE.Id, assistant_id__c = userAssist2.Id);
         System.runAs(userEJE) {
-            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 1), userEJE.Id, 'Planning', true);
+            BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 1, 3, 3, 3), userEJE.Id, 'Planning', true);
         }
         Test.startTest();
         delete [SELECT Id FROM User_Assistant_Team__c WHERE user_id__c=:userEJE.Id];
