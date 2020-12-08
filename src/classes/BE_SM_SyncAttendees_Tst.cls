@@ -22,7 +22,7 @@ public with sharing class BE_SM_SyncAttendees_Tst {
         Final User ejecutivo = TestFactory.getUser(true, new Map<Schema.SObjectField, Object>{User.ProfileId => ejeProfileId, User.prof_position_id__c => 'E03', User.ManagerId => userGOF.Id});
         
         Final List<slmt__Sales_Meeting__c> lstSM = new List<slmt__Sales_Meeting__c>();
-        for(Integer aux = 0; aux <= 3; aux++) {
+        for(Integer aux = 0; aux <= 1; aux++) {
             Final slmt__Sales_Meeting__c smRecord = new slmt__Sales_Meeting__c();
             smRecord.DateTime__c = DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 9+aux*7, 3, 3, 3);
             smRecord.Collaborator__c = ejecutivo.Id;
@@ -41,7 +41,7 @@ public with sharing class BE_SM_SyncAttendees_Tst {
     static void unitTest() {
         Test.startTest();
         final Set<String> setSMIds = new Set<String>();
-        for(slmt__Sales_Meeting__c slmt : [SELECT Id FROM slmt__Sales_Meeting__c LIMIT 4]) {
+        for(slmt__Sales_Meeting__c slmt : [SELECT Id FROM slmt__Sales_Meeting__c LIMIT 2]) {
             setSMIds.add(slmt.Id);
         }
         if(!setSMIds.isEmpty()) {
@@ -52,7 +52,7 @@ public with sharing class BE_SM_SyncAttendees_Tst {
             Database.executeBatch(new BE_SyncEventAttendees_Batch(evtIds));
         }
         Test.stopTest();
-        final List<gcal__Event_Attendees__c> attends = [SELECT Id FROM gcal__Event_Attendees__c LIMIT 4];
-        System.assertEquals(attends.size(), 4, 'success!!!');
+        final List<gcal__Event_Attendees__c> attends = [SELECT Id FROM gcal__Event_Attendees__c LIMIT 2];
+        System.assertEquals(attends.size(), 2, 'success!!!');
     }
 }

@@ -114,9 +114,19 @@ public with sharing class BE_SM_Pipeline_tst {
                                                        WHERE DeveloperName = 'BE_SM_DismissedOpportunities'];
         BE_SingleRelatedListCRUD_Cls.Response response;
         Test.startTest();
+        Final List<Opportunity> ltsOpp = new List<Opportunity>();
+        for(OpportunityLineItem oli : [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE Product2.Unique_id__c IN ('PC00009','PC00009_NEW','0159601','0159601_NEW') LIMIT 4]) {
+            Final Opportunity opp = new Opportunity();
+            opp.Id = oli.OpportunityId;
+            opp.Loss_date__c = salesMeeting.slmt__management_plan_meeting_date__c.addDays(-10);
+            opp.stageName = '07';
+            opp.OwnerId = salesMeeting.Collaborator__c;
+            ltsOpp.add(opp);
+        }
+        update ltsOpp;
         response = new BE_SM_Opportunity_Dismissed_cls().readRecords(new Map<String, Object>{RECORD_ID => salesMeeting.Id, SOBJECT_NAME => srl.sObjectApiName__c, SOBJECT_FIELDS => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(1, response.data.size(), ASSERT_ERROR);
+        System.assertEquals(4, response.data.size(), ASSERT_ERROR);
     }
     
     /*
@@ -129,12 +139,6 @@ public with sharing class BE_SM_Pipeline_tst {
         System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
             update salesMeeting;
         }
-        Final List<Opportunity> ltsOpp = new List<Opportunity>();
-        for(Opportunity opp : [SELECT Id FROM Opportunity LIMIT 4]) {
-            opp.Loss_date__c = Date.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2);
-            ltsOpp.add(opp);
-        }
-        update ltsOpp;
         Final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt 
                                                        WHERE DeveloperName = 'BE_SM_ExpiredOpportunities'];
         BE_SingleRelatedListCRUD_Cls.Response response;
