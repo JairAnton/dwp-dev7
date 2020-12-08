@@ -28,13 +28,11 @@ public with sharing class BE_SM_Visit_Tst {
         }
         
         Final dwp_kitv__Visit__c [] lstVisitas = new dwp_kitv__Visit__c[] {};
-		for(Integer i = 0; i < 3; i++) {
+		for(Integer i = 0; i < 2; i++) {
 			lstVisitas.add(new dwp_kitv__Visit__c(dwp_kitv__account_id__c = acc.Id, dwp_kitv__visit_duration_number__c = '15', dwp_kitv__visit_start_date__c = initDate.addDays(5)));
 		}
-        for(Integer i = 0; i < 2; i++) {
-			lstVisitas.add(new dwp_kitv__Visit__c(dwp_kitv__account_id__c = acc.Id, dwp_kitv__visit_status_type__c = '04', dwp_kitv__visit_duration_number__c = '15', dwp_kitv__visit_start_date__c = initDate.addDays(-5)));
-		}
-        insert lstVisitas;
+        lstVisitas.add(new dwp_kitv__Visit__c(dwp_kitv__account_id__c = acc.Id, dwp_kitv__visit_status_type__c = '04', dwp_kitv__visit_duration_number__c = '15', dwp_kitv__visit_start_date__c = initDate.addDays(-5)));
+		insert lstVisitas;
     }
     
     /*
@@ -47,7 +45,7 @@ public with sharing class BE_SM_Visit_Tst {
         Test.startTest();
         Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_PlanningVisit_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 3, 'success getSMPlanningVisits!!!');
+        System.assertEquals(response.data.size(), 2, 'success getSMPlanningVisits!!!');
     }
 
     /*
@@ -60,7 +58,7 @@ public with sharing class BE_SM_Visit_Tst {
         Test.startTest();
         Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_RealizedVisit_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
         Test.stopTest();
-        System.assertEquals(response.data.size(), 2, 'success getSMRealizedVisits!!!');
+        System.assertEquals(response.data.size(), 1, 'success getSMRealizedVisits!!!');
     }
     
     /*
