@@ -37,6 +37,8 @@
     </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
+		<logo>apps_logo1</logo>
+        <logoVersion>1</logoVersion>
         <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
     </brand>
     <description>Aplicación para el componente PPG</description>
