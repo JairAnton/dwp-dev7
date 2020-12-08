@@ -612,7 +612,7 @@
     <validationRules>
         <fullName>Validate_Finalized_Date</fullName>
         <active>true</active>
-        <errorConditionFormula>AND ( NOW() &lt;  DateTime__c ,  ISPICKVAL( slmt__mngmt_plan_meeting_status_name__c , &apos;Finalized&apos;) )</errorConditionFormula>
+        <errorConditionFormula>AND ( NOW() &lt;  DateTime__c ,  OR ( ISPICKVAL( slmt__mngmt_plan_meeting_status_name__c , &apos;Finalized&apos;), ISPICKVAL( slmt__mngmt_plan_meeting_status_name__c , &apos;Unrealized&apos;) ) , $Profile.Name == &apos;Ejecutivo&apos; )</errorConditionFormula>
         <errorMessage>No se puede finalizar una reunión individual antes de la fecha y hora programda.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>

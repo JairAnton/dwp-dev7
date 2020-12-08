@@ -135,7 +135,7 @@ public with sharing class BE_SM_Pipeline_tst {
     @isTest
     static void getOppExpired() {
         Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
-        salesMeeting.DateTime__c = DateTime.newInstance(System.today().addMonths(2).year(), System.today().addMonths(2).month(), 2);
+        salesMeeting.DateTime__c = DateTime.newInstance(System.today().addMonths(2).year(), System.today().addMonths(2).month(), 2, 3, 3, 3);
         System.runAs(new User(Id=salesMeeting.Collaborator__c)) {
             update salesMeeting;
         }
