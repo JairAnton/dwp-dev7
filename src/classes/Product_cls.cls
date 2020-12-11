@@ -387,28 +387,23 @@ public without sharing class Product_cls {
 			                             rejection_reason_id__c, rejection_amount__c, rejection_rate_per__c, rejection_period_num__c, rejection_coin__c
 			                             FROM Opportunity WHERE Id =: OpportunityId];
 			if(!itemOpp.isEmpty()) {
-				resultMap = registerQuotationLoss(OpportunityId, RejectReason, WinnerBank);
-				if((String)resultMap.get('success') == 'true') {
-					// Update opportunity with the input data
-					itemOpp[0].IsProcess__c = true;
-					itemOpp[0].StageName = '07';
-					itemOpp[0].opportunity_status_type__c = '22';
-					itemOpp[0].Loss_Reason__c = RejectReason;
-					itemOpp[0].rejection_winner_entity_name__c = WinnerBank;
-					itemOpp[0].rejection_reason_id__c = Comments;
-					itemOpp[0].rejection_amount__c = Amount;
-					itemOpp[0].rejection_rate_per__c = Rate;
-					if(Term != null) itemOpp[0].rejection_period_num__c = Term;
-					itemOpp[0].rejection_coin__c = IsoCurrency;
-					itemOpp[0].Loss_date__c = System.today();
-					update itemOpp[0];
-					Final Case[] lstCase = [SELECT Id, status FROM Case WHERE Opportunity_id__c =:OpportunityId AND RecordType.Name = 'Formalization'];
-					Final Integer lstCaseSize = lstCase.size();
-					if(lstCaseSize > 0) {
-						Final Map<Schema.SObjectField, Object> mapCaseFields = new Map<Schema.SObjectField, Object> {Case.status => '11'};
-						Formalization_helper.dynamicUpdateCase(lstCase[0], mapCaseFields);
-					}
-				}
+                if(itemOpp[0].opportunity_status_type__c == '14' || itemOpp[0].opportunity_status_type__c == '09' || itemOpp[0].opportunity_status_type__c == '19' || itemOpp[0].opportunity_status_type__c == '21') {
+                    resultMap.put('success', 'false');
+					resultMap.put('errorMessage', 'No es posible desestimar la oportunidad.');
+                } else {
+                    itemOpp[0].IsProcess__c = true;
+                    itemOpp[0].StageName = '07';
+                    itemOpp[0].opportunity_status_type__c = '22';
+                    itemOpp[0].Loss_Reason__c = RejectReason;
+                    itemOpp[0].rejection_winner_entity_name__c = WinnerBank;
+                    itemOpp[0].rejection_reason_id__c = Comments;
+                    itemOpp[0].rejection_amount__c = Amount;
+                    itemOpp[0].rejection_rate_per__c = Rate;
+                    if(Term != null) itemOpp[0].rejection_period_num__c = Term;
+                    itemOpp[0].rejection_coin__c = IsoCurrency;
+                    itemOpp[0].Loss_date__c = System.today();
+                    resultMap = rejectOpp(itemOpp, RejectReason, WinnerBank);
+                }
 			}
 		} catch(Dmlexception exp) {
 			resultMap.put('success', 'false');
@@ -416,6 +411,21 @@ public without sharing class Product_cls {
 		}
 		return resultMap;
 	}
+    
+	/*rejectOpp Method*/
+    private static Map<String, Object> rejectOpp(List<Opportunity> itemOpp, String rejectReason, String winnerBank) {
+        Map<String, Object> resultMap = registerQuotationLoss(itemOpp[0].Id, rejectReason, winnerBank);
+        if((String)resultMap.get('success') == 'true') {
+            update itemOpp[0];
+            Final Case[] lstCase = [SELECT Id, status FROM Case WHERE Opportunity_id__c =:itemOpp[0].Id AND RecordType.Name = 'Formalization'];
+            Final Integer lstCaseSize = lstCase.size();
+            if(lstCaseSize > 0) {
+                Final Map<Schema.SObjectField, Object> mapCaseFields = new Map<Schema.SObjectField, Object> {Case.status => '11'};
+                    Formalization_helper.dynamicUpdateCase(lstCase[0], mapCaseFields);
+            }
+        }
+        return resultMap;
+    }
 
 	// Method that invoke the ws to recover a quotationupdates the opportunity and opportunity line item with the response
 	@auraenabled

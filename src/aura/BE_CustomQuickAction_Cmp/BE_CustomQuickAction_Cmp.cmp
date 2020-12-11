@@ -3,11 +3,13 @@
     access="global" controller="BE_CustomQuickAction_Ctr">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:attribute name="recordId" type="String" default="" />
+    <aura:attribute name="sObjectType" type="String" default="" />
     <aura:attribute name="nameMetadata" type="String" default="" />
     <aura:attribute name="settings" type="Object" />
     <aura:attribute name="sObjData" type="Object" />
     <aura:attribute name="title" type="String" />
     <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:attribute name="isNotQuickAction" type="Boolean" default="false" />
     <!--HEADER-->
     <header class="slds-modal__header">
         <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>

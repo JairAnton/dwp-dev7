@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Custom metadata to store the sales meeting configuration</description>
+    <fields>
+        <fullName>slmt__card_carousel_infinite_type__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Specifies in the card carousel has an infinite behaviour</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Specifies in the card carousel has an infinite behaviour</inlineHelpText>
+        <label>Card Carousel Infinite</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>slmt__card_carousel_slides_number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specifies the number of slides to display without scrolling</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Specifies the number of slides to display without scrolling</inlineHelpText>
+        <label>Card Carousel Slides Number</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>slmt__default_selected_card_id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the item to be set as selected when the sales meeting is initialized</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Unique identifier of the item to be set as selected when the sales meeting is initialized</inlineHelpText>
+        <label>Default Selected Item Id</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>slmt__error_message_custom_label_id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API Name of the custom label that will contain the text to display if there is an error setting the sales meeting information</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>API Name of the custom label that will contain the text to display if there is an error setting the sales meeting information</inlineHelpText>
+        <label>Error Message API Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>slmt__sales_meeting_config_id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the sales meeting configuration</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Unique identifier of the sales meeting configuration</inlineHelpText>
+        <label>Configuration Id</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Sales Meeting Configuration</label>
+    <pluralLabel>Sales Meeting Configurations</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

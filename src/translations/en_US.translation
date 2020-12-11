@@ -605,6 +605,14 @@
         <name>errorEmptyUser</name>
     </customLabels>
     <customLabels>
+        <label><!-- SalesMeetingErrorFinalized --></label>
+        <name>SalesMeetingErrorFinalized</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SalesMeetingErrorUnrealized --></label>
+        <name>SalesMeetingErrorUnrealized</name>
+    </customLabels>
+    <customLabels>
         <label><!-- lblREASIGN_CASE --></label>
         <name>lblREASIGN_CASE</name>
     </customLabels>
