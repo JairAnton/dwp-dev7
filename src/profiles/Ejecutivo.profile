@@ -1207,7 +1207,7 @@
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
-        <apexClass>event_handler</apexClass>
+        <apexClass>Event_Handler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
@@ -1215,7 +1215,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>envent_trigger</apexClass>
+        <apexClass>Event_Trigger_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
