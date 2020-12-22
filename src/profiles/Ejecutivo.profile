@@ -1207,10 +1207,6 @@
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
-        <apexClass>Event_Handler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	<classAccesses>
         <apexClass>Event_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
