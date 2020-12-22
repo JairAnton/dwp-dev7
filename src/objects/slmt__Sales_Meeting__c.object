@@ -615,5 +615,11 @@
         <errorConditionFormula>AND ( NOW() &lt;  DateTime__c ,  OR ( ISPICKVAL( slmt__mngmt_plan_meeting_status_name__c , &apos;Finalized&apos;), ISPICKVAL( slmt__mngmt_plan_meeting_status_name__c , &apos;Unrealized&apos;) ) , $Profile.Name == &apos;Ejecutivo&apos; )</errorConditionFormula>
         <errorMessage>No se puede finalizar una reunión individual antes de la fecha y hora programda.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Validate_auxiliars</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( IF( auxiliar_collaborator__c ==  auxiliar_manager__c , TRUE, FALSE ) , NOT ( ISBLANK( auxiliar_collaborator__c  ) ) , NOT ( ISBLANK( auxiliar_manager__c ) ) )</errorConditionFormula>
+        <errorMessage>No es posible asignarse las tareas de dos usuarios a la vez.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

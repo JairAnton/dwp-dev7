@@ -7,34 +7,56 @@
         <value xsi:type="xsd:string">{
     &quot;values&quot;: [
         {
-            &quot;label&quot;: &quot;NOMBRE DE LA OPORTUNIDAD&quot;,
-            &quot;fieldName&quot;: &quot;Name&quot;,
-            &quot;type&quot;: &quot;Text&quot;
-        },
-{
+			&quot;label&quot;: &quot;NOMBRE DE LA OPORTUNIDAD&quot;,
+			&quot;fieldName&quot;: &quot;Id&quot;,
+			&quot;type&quot;: &quot;customurl&quot;,
+			&quot;typeAttributes&quot;: {
+				&quot;rowData&quot;: {
+					&quot;fieldName&quot;: &quot;rowData&quot;
+				},
+				&quot;isCustom&quot;: true,
+				&quot;label&quot;: &quot;Name&quot;,
+				&quot;fieldName&quot;: &quot;Id&quot;
+			}
+		},
+		{
             &quot;label&quot;: &quot;CLIENTE&quot;,
             &quot;fieldName&quot;: &quot;Account&quot;,
             &quot;type&quot;: &quot;customlookup&quot;,
-&quot;typeAttributes&quot;: {
-&quot;isCustom&quot;: true,
-&quot;fieldName&quot;: &quot;Id&quot;,
-&quot;label&quot;: &quot;Name&quot;,
-&quot;objectApiName&quot;: &quot;Account&quot;,
-&quot;rowData&quot;: {
-&quot;fieldName&quot;: &quot;rowData&quot;
-}
-}
-},
+			&quot;typeAttributes&quot;: {
+				&quot;isCustom&quot;: true,
+				&quot;fieldName&quot;: &quot;Id&quot;,
+				&quot;label&quot;: &quot;Name&quot;,
+				&quot;objectApiName&quot;: &quot;Account&quot;,
+				&quot;rowData&quot;: {
+					&quot;fieldName&quot;: &quot;rowData&quot;
+				}
+			}
+		},
         {
             &quot;label&quot;: &quot;ESTADO&quot;,
             &quot;fieldName&quot;: &quot;opportunity_status_type__c&quot;,
             &quot;type&quot;: &quot;Picklist&quot;
         },
         {
-            &quot;label&quot;: &quot;IMPORTE&quot;,
-            &quot;fieldName&quot;: &quot;Amount&quot;,
-            &quot;type&quot;: &quot;currency&quot;
-        },
+			&quot;label&quot;: &quot;IMPORTE&quot;,
+			&quot;fieldName&quot;: &quot;Amount&quot;,
+			&quot;type&quot;: &quot;customcurrency&quot;,
+			&quot;typeAttributes&quot;: {
+			&quot;isCustom&quot;: &quot;true&quot;,
+			&quot;value&quot;: {
+				&quot;fieldName&quot;: &quot;Amount&quot;
+			},
+			&quot;currencyCode&quot;: {
+				&quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
+			},
+			&quot;displayAs&quot;: &quot;code&quot;,
+				&quot;maxFractionDigits&quot;: 2
+			},
+			&quot;cellAttributes&quot;: {
+				&quot;alignment&quot;: &quot;right&quot;
+			}
+		},
         {
             &quot;label&quot;: &quot;FECHA DE CIERRE&quot;,
             &quot;fieldName&quot;: &quot;CloseDate&quot;,

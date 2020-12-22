@@ -1206,8 +1206,16 @@
         <apexClass>Email_SIO_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
+	<classAccesses>
+        <apexClass>event_handler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>Event_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>envent_trigger</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -9085,6 +9093,16 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>slmt__Sales_Meeting_Item_Configuration__mdt.slmt__sales_meeting_item_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.auxiliar_collaborator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.auxiliar_manager__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

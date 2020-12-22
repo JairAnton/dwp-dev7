@@ -163,7 +163,7 @@
         <fullName>Amount__c</fullName>
         <externalId>false</externalId>
         <formula>GrowthDriver__r.Amount__c</formula>
-        <label>Monto</label>
+        <label>Importe en soles</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>

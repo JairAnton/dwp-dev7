@@ -9,7 +9,7 @@
    2020-11-11  MAMCH    martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
-public with sharing class BE_SM_FinalizeModal_Ctr {
+public without sharing class BE_SM_FinalizeModal_Ctr {
     /* @Variable: MESSAGE */
     public static Final String MESSAGE = 'message';
     /*   @Variable: ISSUCCESS

@@ -62,7 +62,7 @@ public without sharing virtual class BE_SM_Minute_Ctr {
     public BE_SM_Minute_Ctr(ApexPages.StandardController controller) {
 		meeting = [SELECT Id, Name, slmt__management_plan_meeting_date__c, slmt__mngmt_plan_meet_dur_number__c, 
 		slmt__mngmt_plan_meeting_start_desc__c, slmt__mngmt_plan_meeting_status_name__c, slmt__mngmt_plan_meeting_user_id__c, 
-		slmt__mngmt_plan_meeting_user_id__r.Email, Type_of_meeting__c, Collaborator__c, Collaborator__r.Email, 
+		slmt__mngmt_plan_meeting_user_id__r.Email, toLabel(Type_of_meeting__c), Collaborator__c, Collaborator__r.Email, 
 		DateTime__c, Url__c, Summary__c, auxiliar_collaborator__c, auxiliar_manager__c FROM slmt__Sales_Meeting__c WHERE Id =:controller.getId() LIMIT 1];
         valuesSet(meeting);
 		meetingDate = getTimeZoneValue(meeting.DateTime__c);

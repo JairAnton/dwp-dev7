@@ -121,6 +121,7 @@ public with sharing class SanctionPrice_ctrl {
             genericError = 'La "periodicidad comisión" elegida no es válida en combinación con el "tipo de moneda", "tipo carta fianza" y "tipo de benenficiario" seleccionados. Por favor eliga otra "periodicidad comisión".';
         } else if(validPeriod) {
             genericError = BE_PriceRate_Rest.invokeWS(olis, false);
+			mapReturn.put(STRINGERROR, genericError);
         }
     }
     
