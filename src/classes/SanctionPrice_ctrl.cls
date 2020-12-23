@@ -73,16 +73,7 @@ public with sharing class SanctionPrice_ctrl {
                     }
                     //If product_price_approval_method__c == Web and has a OLI    
                 } else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web') {
-                    genericError = BE_PriceRate_Rest.invokeWS(lstOpp[0].OpportunityLineItems, false);
-                    if(String.isNotBlank(genericError)) {
-                        genericError = genericError.replaceAll('BENEFICIARIO', '"tipo de beneficiario"');
-                        genericError = genericError.replaceAll('OBJETO FIANZA', '"tipo carta fianza"');
-                        genericError = genericError.replaceAll('MONEDA', '"moneda"');
-                        genericError = genericError.replaceAll('El PERIODO DE PAGO elegido no es válido', 'La "periodicidad comisión" elegida no es válida');
-                        genericError = genericError.replaceAll('otro PERIODO DE PAGO', 'otra "periodicidad comisión"');
-                        genericError = genericError.replaceAll('el PERIODO DE PAGO', 'la "periodicidad comisión"');
-                        mapReturn.put(STRINGERROR, genericError);
-                    }
+                    callWSCalculateRate(lstOpp[0].OpportunityLineItems);
                     mapReturn.put(STRINGPROPOSED, (lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c == null ? '' : String.valueOf(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c)));
                 }
                 mapReturn.put('hasOLI',true);
@@ -96,6 +87,22 @@ public with sharing class SanctionPrice_ctrl {
             mapReturn.put(STRINGERROR, genericError);
         }
         return mapReturn;
+    }
+    
+    /**
+	 * Method call calculateRate method of webservice 
+     */
+    public static void callWSCalculateRate(List<OpportunityLineItem> olis) {
+        genericError = BE_PriceRate_Rest.invokeWS(olis, false);
+        if(String.isNotBlank(genericError)) {
+            genericError = genericError.replaceAll('BENEFICIARIO', '"tipo de beneficiario"');
+            genericError = genericError.replaceAll('OBJETO FIANZA', '"tipo carta fianza"');
+            genericError = genericError.replaceAll('MONEDA', '"moneda"');
+            genericError = genericError.replaceAll('El PERIODO DE PAGO elegido no es válido', 'La "periodicidad comisión" elegida no es válida');
+            genericError = genericError.replaceAll('otro PERIODO DE PAGO', 'otra "periodicidad comisión"');
+            genericError = genericError.replaceAll('el PERIODO DE PAGO', 'la "periodicidad comisión"');
+            mapReturn.put(STRINGERROR, genericError);
+        }
     }
     
     @AuraEnabled
