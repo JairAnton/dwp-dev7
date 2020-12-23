@@ -93,9 +93,11 @@ public with sharing class SimulatePrice_ctrl {
                         Final List<PriceRate_helper.Response_Indicators> lstIndicators = jbody.data.indicators;
                         for(Integer x = 0; x < lstIndicators.size(); x++) {
                             if(lstIndicators[x].Id == Label.PriceWSLabel16) {
-                                rorcClient = Decimal.valueOf(lstIndicators[x].value).setscale(2);
+                                Final Decimal valueInd = Decimal.valueOf(lstIndicators[x].value)*100;
+                                rorcClient = valueInd.setScale(2);
                             } else if(lstIndicators[x].Id == Label.PriceWSLabel20) {
-                                raroecOper = Decimal.valueOf(lstIndicators[x].value).setscale(2);
+                                Final Decimal valueInd = Decimal.valueOf(lstIndicators[x].value)*100;
+                                raroecOper = valueInd.setScale(2);
                             }
                         }
                     }
