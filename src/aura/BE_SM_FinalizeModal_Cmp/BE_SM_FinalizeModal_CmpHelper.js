@@ -57,6 +57,31 @@
                 ret = response.getReturnValue();
                 var isSuccess = ret.isSuccess;
                 if(isSuccess) {
+                    helper.createMinutePdf(cmp, event);
+                } else {
+                    cmp.set('v.isError', true);
+                    cmp.set('v.errorlst', ret.message);
+                }
+            } else {
+                cmp.set('v.isError', true);
+                cmp.set('v.errorlst', 'Error inesperado, por favor comuniquese con su administrador.');
+            }
+        });
+        $A.enqueueAction(action);
+    },
+    createMinutePdf: function (cmp, evt) {
+        var recordId = cmp.get('v.recordId');
+        var actionSendMinute = cmp.get("c.sendMinute");
+        actionSendMinute.setParams({
+            "recordId": recordId
+        });
+        actionSendMinute.setCallback(this, function(response) {
+            var state = response.getState();
+            var ret;
+            if(state === "SUCCESS") {
+                ret = response.getReturnValue();
+                var isSuccess = ret.isSuccess;
+                if(isSuccess) {
                     var toastEvent = $A.get("e.force:showToast");
                     toastEvent.setParams({
                         "title": "Exito!",
@@ -75,6 +100,6 @@
                 cmp.set('v.errorlst', 'Error inesperado, por favor comuniquese con su administrador.');
             }
         });
-        $A.enqueueAction(action);
+        $A.enqueueAction(actionSendMinute);
     }
 })
