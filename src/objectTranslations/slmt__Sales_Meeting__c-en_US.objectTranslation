@@ -136,37 +136,6 @@
         <name>slmt__mngmt_plan_meeting_user_id__c</name>
         <relationshipLabel><!-- Sales Meetings (Manager) --></relationshipLabel>
     </fields>
-    <layouts>
-        <layout>BE Sales Meeting Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Summary --></label>
-            <section>Summary</section>
-        </sections>
-    </layouts>
-    <quickActions>
-        <label><!-- Finalize --></label>
-        <name>BE_SMFinalizeModal</name>
-    </quickActions>
-    <quickActions>
-        <label><!-- New Topic --></label>
-        <name>BE_SMNewTopic</name>
-    </quickActions>
-    <quickActions>
-        <label><!-- Reasignar Temas --></label>
-        <name>BE_SM_Reasign_Topics</name>
-    </quickActions>
-    <validationRules>
-        <errorMessage><!-- Operación no válida --></errorMessage>
-        <name>Change_Status</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- No puede colocar una fecha mayor a los 6 pimeros días utiles del mes. --></errorMessage>
-        <name>Invalid_DateTime_Ejecutivo_Planning_Type</name>
-    </validationRules>
     <validationRules>
         <errorMessage><!-- No se puede crear una reunión individual con fecha y hora pasada --></errorMessage>
         <name>Validate_DateTime</name>

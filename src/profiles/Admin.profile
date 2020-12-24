@@ -1221,6 +1221,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Event_Trigger_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>FieldForm_ctrl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -8378,6 +8382,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>slmt__Sales_Meeting_Item_Configuration__mdt.slmt__sales_meeting_item_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.auxiliar_collaborator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.auxiliar_manager__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

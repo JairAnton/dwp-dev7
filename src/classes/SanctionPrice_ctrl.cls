@@ -73,7 +73,7 @@ public with sharing class SanctionPrice_ctrl {
                     }
                     //If product_price_approval_method__c == Web and has a OLI    
                 } else if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Web') {
-                    validParameters(lstOpp[0].OpportunityLineItems);
+                    callWSCalculateRate(lstOpp[0].OpportunityLineItems);
                     mapReturn.put(STRINGPROPOSED, (lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c == null ? '' : String.valueOf(lstOpp[0].OpportunityLineItems[0].proposed_apr_per__c)));
                 }
                 mapReturn.put('hasOLI',true);
@@ -90,37 +90,18 @@ public with sharing class SanctionPrice_ctrl {
     }
     
     /**
-	 * Method validate if the combination parameters is correct and call webservice 
+	 * Method call calculateRate method of webservice 
      */
-    public static void validParameters(List<OpportunityLineItem> olis) {
-        Boolean validPeriod = true;
-        Boolean validBail = true;
-        if(!olis.isEmpty() && olis[0].pricing_model_id__c=='8') {
-            validBail = false;
-            validPeriod = false;
-            for(BE_BailLetterCombination__c bailLetterComb : [SELECT Id, Name, UniqueId__c, Currency__c, Beneficiary__c, BailObject__c, Period__c FROM BE_BailLetterCombination__c LIMIT 10000]) {
-                if(bailLetterComb.UniqueId__c==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c+olis[0].tcf_Periodicity_commission__c) {
-                    validPeriod = true;
-                    validBail = true;
-                    break;
-                } else if(validBail==false && bailLetterComb.UniqueId__c.subString(0,7)==olis[0].CurrencyIsoCode+olis[0].tcf_type_beneficiary__c+olis[0].tcf_type_bail_letter__c) {
-                    validBail = true;
-                }
-            }
-        }
-        returnError(validPeriod, validBail, olis);
-    }
-    
-    /**
-	 * Method for return error of the validation bail letter
-     */
-    public static void returnError(Boolean validPeriod, Boolean validBail, List<OpportunityLineItem> olis) {
-        if(validBail==false) {
-            genericError = 'El "tipo carta fianza" elegido no es válido en combinación con el "tipo de moneda" y "tipo de benenficiario" seleccionados. Por favor eliga otro "tipo carta fianza".';
-        } else if(validPeriod==false) {
-            genericError = 'La "periodicidad comisión" elegida no es válida en combinación con el "tipo de moneda", "tipo carta fianza" y "tipo de benenficiario" seleccionados. Por favor eliga otra "periodicidad comisión".';
-        } else if(validPeriod) {
-            genericError = BE_PriceRate_Rest.invokeWS(olis, false);
+    public static void callWSCalculateRate(List<OpportunityLineItem> olis) {
+        genericError = BE_PriceRate_Rest.invokeWS(olis, false);
+        if(String.isNotBlank(genericError)) {
+            genericError = genericError.replaceAll('BENEFICIARIO', '"tipo de beneficiario"');
+            genericError = genericError.replaceAll('OBJETO FIANZA', '"tipo carta fianza"');
+            genericError = genericError.replaceAll('MONEDA', '"moneda"');
+            genericError = genericError.replaceAll('El PERIODO DE PAGO elegido no es válido', 'La "periodicidad comisión" elegida no es válida');
+            genericError = genericError.replaceAll('otro PERIODO DE PAGO', 'otra "periodicidad comisión"');
+            genericError = genericError.replaceAll('el PERIODO DE PAGO', 'la "periodicidad comisión"');
+            mapReturn.put(STRINGERROR, genericError);
         }
     }
     

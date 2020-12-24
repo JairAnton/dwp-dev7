@@ -17,10 +17,24 @@
             &quot;type&quot;: &quot;picklist&quot;
         },
         {
-            &quot;label&quot;: &quot;IMPORTE DE LA NECESIDAD&quot;,
-            &quot;fieldName&quot;: &quot;bupl__gf_bus_pl_unlk_revenue_amount__c&quot;,
-            &quot;type&quot;: &quot;currency&quot;
-        },
+			&quot;label&quot;: &quot;IMPORTE DE LA NECESIDAD&quot;,
+			&quot;fieldName&quot;: &quot;bupl__gf_bus_pl_unlk_revenue_amount__c&quot;,
+			&quot;type&quot;: &quot;customcurrency&quot;,
+			&quot;typeAttributes&quot;: {
+			&quot;isCustom&quot;: &quot;true&quot;,
+			&quot;value&quot;: {
+				&quot;fieldName&quot;: &quot;bupl__gf_bus_pl_unlk_revenue_amount__c&quot;
+			},
+			&quot;currencyCode&quot;: {
+				&quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
+			},
+			&quot;displayAs&quot;: &quot;code&quot;,
+				&quot;maxFractionDigits&quot;: 2
+			},
+			&quot;cellAttributes&quot;: {
+				&quot;alignment&quot;: &quot;right&quot;
+			}
+		},
         {
             &quot;label&quot;: &quot;LIMITANTE&quot;,
             &quot;fieldName&quot;: &quot;bupl__gf_bus_pl_cust_lock_name__c&quot;,

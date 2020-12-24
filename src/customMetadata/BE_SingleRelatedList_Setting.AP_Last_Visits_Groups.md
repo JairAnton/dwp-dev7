@@ -7,24 +7,32 @@
         <value xsi:type="xsd:string">{
     &quot;values&quot;: [
         {
-            &quot;label&quot;: &quot;NOMBRE DE LA VISITA&quot;,
-            &quot;fieldName&quot;: &quot;Name&quot;,
-            &quot;type&quot;: &quot;Text&quot;
-        },
-{
+			&quot;label&quot;: &quot;NOMBRE DE LA VISITA&quot;,
+			&quot;fieldName&quot;: &quot;Id&quot;,
+			&quot;type&quot;: &quot;customurl&quot;,
+			&quot;typeAttributes&quot;: {
+				&quot;rowData&quot;: {
+					&quot;fieldName&quot;: &quot;rowData&quot;
+				},
+				&quot;isCustom&quot;: true,
+				&quot;label&quot;: &quot;Name&quot;,
+				&quot;fieldName&quot;: &quot;Id&quot;
+			}
+		},
+		{
             &quot;label&quot;: &quot;CLIENTE&quot;,
             &quot;fieldName&quot;: &quot;dwp_kitv__account_id__r&quot;,
             &quot;type&quot;: &quot;customlookup&quot;,
-&quot;typeAttributes&quot;: {
-&quot;isCustom&quot;: true,
-&quot;fieldName&quot;: &quot;Id&quot;,
-&quot;label&quot;: &quot;Name&quot;,
-&quot;objectApiName&quot;: &quot;dwp_kitv__account_id__r&quot;,
-&quot;rowData&quot;: {
-&quot;fieldName&quot;: &quot;rowData&quot;
-}
-}
-},
+			&quot;typeAttributes&quot;: {
+				&quot;isCustom&quot;: true,
+				&quot;fieldName&quot;: &quot;Id&quot;,
+				&quot;label&quot;: &quot;Name&quot;,
+				&quot;objectApiName&quot;: &quot;dwp_kitv__account_id__r&quot;,
+				&quot;rowData&quot;: {
+					&quot;fieldName&quot;: &quot;rowData&quot;
+				}
+			}
+		},
         {
             &quot;label&quot;: &quot;FECHA DE INICIO&quot;,
             &quot;fieldName&quot;: &quot;start_date_calculated__c&quot;,

@@ -196,7 +196,7 @@ public with sharing class SanctionPriceDecision_ctrl {
         Final Map<String, Object> mapReturn = new Map<String, Object>();
         try {
             Final Opportunity opp = [SELECT Id, opportunity_status_type__c FROM Opportunity WHERE Id = :recordId LIMIT 1];
-            if(opp.opportunity_status_type__c == SAUTHORIZED) {
+            if(opp.opportunity_status_type__c == SAUTHORIZED || opp.opportunity_status_type__c == SAPPROVED) {
                 BE_CreateQuotation_cls.generatePDF(opp.Id);
             }
             mapReturn.put('isOk', true);
