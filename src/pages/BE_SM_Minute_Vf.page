@@ -61,7 +61,7 @@
                         <tr>
                             <td width="50%">
                                 <span class="textBodyBold">Tipo de Reunion:&nbsp;</span>
-                                <span class="textBody"><apex:outputText value="{!slmt__Sales_Meeting__c.Type_of_meeting__c}"/></span>
+                                <span class="textBody"><apex:outputText value="{!meeting.Type_of_meeting__c}"/></span>
                             </td>
                             <td width="50%">
                                 <span class="textBodyBold">Fecha/hora:&nbsp;</span>

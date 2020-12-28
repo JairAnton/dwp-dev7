@@ -43,7 +43,6 @@
 &quot;month&quot;:&quot;2-digit&quot;,
 &quot;hour&quot;:&quot;2-digit&quot;,
 &quot;minute&quot;:&quot;2-digit&quot;,
-&quot;hour12&quot;:true,
 &quot;time-zone&quot;:&quot;America/Bogota&quot;
 }
 },
