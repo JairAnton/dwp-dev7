@@ -10,7 +10,7 @@
  *  Date        Author   Email                  			Type		Description
  *  2020-11-06  MAMC     martin.mori.contractor@bbva.com	Modify		add method clearOppQuoteValues
  **/
-public class ReevaluateButtonClass {
+public without sharing class ReevaluateButtonClass {
 	private static boolean risk;
 	private static boolean price;
 
@@ -69,7 +69,7 @@ public class ReevaluateButtonClass {
 			try {
                 Map<String, Object> callServ = new Map<String, Object>();
                 if(opp.BE_UseApprovedQuote__c) {
-                    clearOppQuoteValues(Idopp);
+                    mapReturn = clearOppQuoteValues(Idopp);
                 } else {
                     callServ = ReevaluateButtonClass.callService(Idopp);
                 }
@@ -82,6 +82,7 @@ public class ReevaluateButtonClass {
                     oppUpdate.BE_UseApprovedQuote__c = false;
                     oppUpdate.sio_code__c = opp.sio_code__c;
                     update oppUpdate;
+					mapReturn = clearOppQuoteValues(Idopp);
                     
                     lstactionRisk.add(Action_Audit_Helper.getAudit(label.reevalRisk, 'Opportunity', opp.Id, DateTime.now(), label.AuditRiskApproval, UserInfo.getUserId(), label.restudyStyle, opp.sio_code__c, false));
                     insert lstactionRisk;
@@ -115,7 +116,7 @@ public class ReevaluateButtonClass {
             try {
                 Map<String, Object> callServ = new Map<String, Object>();
                 if(opp.BE_UseApprovedQuote__c) {
-                    clearOppQuoteValues(Idopp);
+                    mapReturn = clearOppQuoteValues(Idopp);
                 } else {
                     callServ = ReevaluateButtonClass.callService(Idopp);
                 }
@@ -127,6 +128,7 @@ public class ReevaluateButtonClass {
                     oppUpdate.opportunity_status_type__c = '12';
                     oppUpdate.BE_UseApprovedQuote__c = false;
                     update oppUpdate;
+					mapReturn = clearOppQuoteValues(Idopp);
                     
                     lstactionPrice.add(Action_Audit_Helper.getAudit(label.reevalPrice, 'Opportunity', opp.Id, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), label.restudyStyle, '', false));
                     insert lstactionPrice;
@@ -146,7 +148,8 @@ public class ReevaluateButtonClass {
 	* @Description clear the set values when using a current quote
 	* @param String oppId
 	 */
-    private static void clearOppQuoteValues(String oppId) {
+    private static Map<String, Object> clearOppQuoteValues(String oppId) {
+		Map<String, Object> mapReturn = new Map<String, Object>();
         Final List<OpportunityLineItem> olis = [SELECT Id, price_quote_id__c, Opportunity.Account.Name FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
         Final String namePDF = olis[0].price_quote_id__c + ' - ' + olis[0].Opportunity.Account.Name;
         Final String nullString;
@@ -170,8 +173,27 @@ public class ReevaluateButtonClass {
         }
         Final List<ContentDocumentLink> ltsCDL = [SELECT Id, ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId = :oppId AND ContentDocument.Title =:namePDF AND ContentDocument.FileType = 'pdf'];
         if(!ltsCDL.isEmpty()) {
-            delete new ContentDocument(Id = ltsCDL[0].ContentDocumentId);
+            update new ContentDocument(Id = ltsCDL[0].ContentDocumentId, OwnerId = System.UserInfo.getUserId());
+            mapReturn.put('idDocument', ltsCDL[0].ContentDocumentId);
         }
+		return mapReturn;
+    }
+	
+	/**
+	* @Description delete pdf of quotation
+	* @param String oppId
+	 */
+    @auraenabled
+    public static Map<String, Object> deleteQuotePdf(String idDoc) {
+        Map<String, Object> mapReturn = new Map<String, Object>();
+		String genericError;
+        try {
+            delete new ContentDocument(Id = idDoc);
+        } catch(Exception e) {
+            genericError = e.getMessage();
+        }
+        mapReturn.put('genericError', genericError);
+        return mapReturn;
     }
     
     /**
