@@ -13,6 +13,10 @@
 public without sharing class ReevaluateButtonClass {
 	private static boolean risk;
 	private static boolean price;
+	/** status code price */
+    final private static List<String> statusPrice = new List<String> {'13', '10', '11', '08'};
+    /** status code risk */
+    final private static List<String> statusRisk = new List<String> {'14', '15', '16', '17', '18'};
 
 	@auraenabled
 	public static Map<String, Object> start(String Idopp) {
@@ -47,30 +51,36 @@ public without sharing class ReevaluateButtonClass {
 	*/
     private static String evalStageFour(Opportunity opp, List<OpportunityLineItem> lstOLI) {
         String msg;
-        if((opp.opportunity_status_type__c == '16' || opp.opportunity_status_type__c == '17' || opp.opportunity_status_type__c == '18' || opp.opportunity_status_type__c == '15' || opp.opportunity_status_type__c == '14') && (lstOLI[0].product_risk_approval_indicator__c == true)) {
-			msg = 'Risk';
-		} else if((opp.opportunity_status_type__c == '13' || opp.opportunity_status_type__c == '10' || opp.opportunity_status_type__c == '11' || opp.opportunity_status_type__c == '08') && (lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_risk_approval_indicator__c == false))    {
-			msg = 'Price';
-		} else if((opp.opportunity_status_type__c == '13' || opp.opportunity_status_type__c == '10' || opp.opportunity_status_type__c == '11' || opp.opportunity_status_type__c == '08') && (lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_risk_approval_indicator__c == true))    {
-			msg = 'Both';
-		}
+        if(statusRisk.contains(opp.opportunity_status_type__c) && lstOLI[0].product_risk_approval_indicator__c == true) {
+            msg = 'Risk';
+        } else if(statusPrice.contains(opp.opportunity_status_type__c) && lstOLI[0].product_price_approval_indicator__c == true) {
+            if(lstOLI[0].product_risk_approval_indicator__c) {
+                msg = 'Both';
+            } else {
+                msg = 'Price';
+            }
+        }
         return msg;
     }
-	
-	/**
+    
+    /**
 	* @Description method to evaluate stage 05
 	* @param Opportunity opp
 	* @param List<OpportunityLineItem> lstOLI
 	*/
     private static String evalStageFive(Opportunity opp, List<OpportunityLineItem> lstOLI) {
         String msg;
-		if(opp.opportunity_status_type__c == '20' && (lstOLI[0].product_risk_approval_indicator__c == true && lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_formalization_indicator__c == true)) {
-			msg = 'Both';
-		} else if(opp.opportunity_status_type__c == '20' && (lstOLI[0].product_risk_approval_indicator__c == true && lstOLI[0].product_price_approval_indicator__c == false && lstOLI[0].product_formalization_indicator__c == true))  {
-			msg = 'Risk';
-		} else if(opp.opportunity_status_type__c == '20' && (lstOLI[0].product_risk_approval_indicator__c == false && lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_formalization_indicator__c == true))  {
-			msg = 'Price';
-		}
+        if(opp.opportunity_status_type__c == '20' && lstOLI[0].product_formalization_indicator__c) {
+            if(lstOLI[0].product_risk_approval_indicator__c) {
+                if(lstOLI[0].product_price_approval_indicator__c) {
+                    msg = 'Both';
+                } else {
+                    msg = 'Risk';
+                }
+            } else if(lstOLI[0].product_price_approval_indicator__c) {
+                msg = 'Price';
+            }
+        }
         return msg;
     }
 
