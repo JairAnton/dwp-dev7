@@ -213,7 +213,11 @@ public without sharing class ReevaluateButtonClass {
         }
 		return exist;
     }
-
+	
+	/**
+	* @Description method to call webservice
+	* @param String Idopp
+	*/
 	@auraenabled
 	public static Map<String, Object> callService(String Idopp) {
 		String genericError;
@@ -228,34 +232,7 @@ public without sharing class ReevaluateButtonClass {
 					ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(opp.Id, 'RECOVER', lstOLI[0].proposed_apr_per__c, opp.frm_ContractNumber__c, null);
 					//invoke the service
 					System.HttpResponse invoke = modifyHelper.invoke();
-					//get json body
-					ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper jbody = ModifyQuotationRequest_helper.responseParse(invoke.getBody());
-					switch on invoke.getStatusCode() {
-						when 200 {
-							if(jbody.data != null && jbody.data.status != null) {
-								Final Date nullDate;
-								Final String nullString;
-								lstOLI[0].price_quote_status_id__c = jbody.data.status.id;
-								lstOLI[0].validityDate__c = nullDate;
-                                lstOLI[0].Assigned_analyst__c = nullString;
-								update lstOLI;
-							}
-							if(jbody.data != null && jbody.data.businessAgents != null) {
-								List <User> userList = [SELECT Id FROM User where user_id__c =: jbody.data.businessAgents[0].id];
-								if(!userList.isEmpty()) {
-									lstOLI[0].price_quote_owner_id__c = userList[0].Id;
-								} else  {
-									lstOLI[0].price_quote_owner_id__c = null;
-								}
-								update lstOLI;
-							}
-						} when 409 {
-							WebServiceUtils.ResponseErrorMessage_Wrapper jerror = WebServiceUtils.parse(invoke.getBody());
-							genericError = jerror.errormessage;
-						} when else {
-							genericError = Label.GenericError;
-						}
-					}
+					genericError = readResponse(invoke, lstOLI[0]);
 				}
 			}
 		} catch(Exception e) {
@@ -265,4 +242,40 @@ public without sharing class ReevaluateButtonClass {
 		mapReturn.put('genericError', genericError);
 		return mapReturn;
 	}
+	
+	/**
+	* @Description method to read response webservice
+	* @param String Idopp
+	*/
+    private static String readResponse(System.HttpResponse invoke, OpportunityLineItem oli) {
+        String genericError;
+        Final OpportunityLineItem oliUpdate = new OpportunityLineItem();
+        oliUpdate.Id = oli.Id;
+        switch on invoke.getStatusCode() {
+            when 200 {
+                ModifyQuotationRequest_helper.ResponseModifyQuotationRequest_Wrapper jbody = ModifyQuotationRequest_helper.responseParse(invoke.getBody());
+                if(jbody.data != null && jbody.data.status != null) {
+                    oliUpdate.price_quote_status_id__c = jbody.data.status.id;
+                    oliUpdate.validityDate__c = null;
+                    oliUpdate.Assigned_analyst__c = null;
+                    update oliUpdate;
+                }
+                if(jbody.data != null && jbody.data.businessAgents != null) {
+                    List <User> userList = [SELECT Id FROM User where user_id__c =: jbody.data.businessAgents[0].id];
+                    if(!userList.isEmpty()) {
+                        oliUpdate.price_quote_owner_id__c = userList[0].Id;
+                    } else  {
+                        oliUpdate.price_quote_owner_id__c = null;
+                    }
+                    update oliUpdate;
+                }
+            } when 409 {
+                WebServiceUtils.ResponseErrorMessage_Wrapper jerror = WebServiceUtils.parse(invoke.getBody());
+                genericError = jerror.errormessage;
+            } when else {
+                genericError = Label.GenericError;
+            }
+        }
+        return genericError;
+    }
 }

@@ -56,7 +56,7 @@
             var ret = response.getReturnValue();
             if (state === "SUCCESS") {
                 var genericError = ret.genericError;
-                if (genericError != undefined) {
+                if (genericError !== undefined) {
                     component.set('v.isError', true);
                     component.set('v.errorlst', genericError);
                     component.set('v.hasHeader', false);

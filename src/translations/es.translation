@@ -1109,7 +1109,7 @@
         <name>SanctionPriceAnalistValidationMessage</name>
     </customLabels>
     <customLabels>
-        <label>Debe ser el propietario de la oportunidad</label>
+        <label>No tiene permisos para modificar la oportunidad</label>
         <name>Error_validation_01</name>
     </customLabels>
     <customLabels>
