@@ -26,7 +26,11 @@ public without sharing class ReevaluateButtonClass {
 		Map<String, Object> mapReturn = new Map<String, Object>();
 		try {
 			if(!lstOLI.isEmpty()) {
-				msg = evaluateStage(opp, lstOLI);
+				if(opp.StageName == '04') {
+					msg = evalStageFour(opp, lstOLI);
+				} else if(opp.StageName == '05')  {
+					msg = evalStageFive(opp, lstOLI);
+				}
 			}
 		} catch(Exception e) {
 			genericError = e.getMessage();
@@ -37,28 +41,35 @@ public without sharing class ReevaluateButtonClass {
 	}
 	
 	/**
-	* @Description method to evaluate stage
+	* @Description method to evaluate stage 04
 	* @param Opportunity opp
 	* @param List<OpportunityLineItem> lstOLI
 	*/
-    private static String evaluateStage(Opportunity opp, List<OpportunityLineItem> lstOLI) {
+    private static String evalStageFour(Opportunity opp, List<OpportunityLineItem> lstOLI) {
         String msg;
-        if(opp.StageName == '04') {
-			if((opp.opportunity_status_type__c == '16' || opp.opportunity_status_type__c == '17' || opp.opportunity_status_type__c == '18' || opp.opportunity_status_type__c == '15' || opp.opportunity_status_type__c == '14') && (lstOLI[0].product_risk_approval_indicator__c == true)) {
-				msg = 'Risk';
-			} else if((opp.opportunity_status_type__c == '13' || opp.opportunity_status_type__c == '10' || opp.opportunity_status_type__c == '11' || opp.opportunity_status_type__c == '08') && (lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_risk_approval_indicator__c == false))    {
-				msg = 'Price';
-			} else if((opp.opportunity_status_type__c == '13' || opp.opportunity_status_type__c == '10' || opp.opportunity_status_type__c == '11' || opp.opportunity_status_type__c == '08') && (lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_risk_approval_indicator__c == true))    {
-				msg = 'Both';
-			}
-		} else if(opp.StageName == '05')  {
-			if(opp.opportunity_status_type__c == '20' && (lstOLI[0].product_risk_approval_indicator__c == true && lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_formalization_indicator__c == true)) {
-				msg = 'Both';
-			} else if(opp.opportunity_status_type__c == '20' && (lstOLI[0].product_risk_approval_indicator__c == true && lstOLI[0].product_price_approval_indicator__c == false && lstOLI[0].product_formalization_indicator__c == true))  {
-				msg = 'Risk';
-			} else if(opp.opportunity_status_type__c == '20' && (lstOLI[0].product_risk_approval_indicator__c == false && lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_formalization_indicator__c == true))  {
-				msg = 'Price';
-			}
+        if((opp.opportunity_status_type__c == '16' || opp.opportunity_status_type__c == '17' || opp.opportunity_status_type__c == '18' || opp.opportunity_status_type__c == '15' || opp.opportunity_status_type__c == '14') && (lstOLI[0].product_risk_approval_indicator__c == true)) {
+			msg = 'Risk';
+		} else if((opp.opportunity_status_type__c == '13' || opp.opportunity_status_type__c == '10' || opp.opportunity_status_type__c == '11' || opp.opportunity_status_type__c == '08') && (lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_risk_approval_indicator__c == false))    {
+			msg = 'Price';
+		} else if((opp.opportunity_status_type__c == '13' || opp.opportunity_status_type__c == '10' || opp.opportunity_status_type__c == '11' || opp.opportunity_status_type__c == '08') && (lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_risk_approval_indicator__c == true))    {
+			msg = 'Both';
+		}
+        return msg;
+    }
+	
+	/**
+	* @Description method to evaluate stage 05
+	* @param Opportunity opp
+	* @param List<OpportunityLineItem> lstOLI
+	*/
+    private static String evalStageFive(Opportunity opp, List<OpportunityLineItem> lstOLI) {
+        String msg;
+		if(opp.opportunity_status_type__c == '20' && (lstOLI[0].product_risk_approval_indicator__c == true && lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_formalization_indicator__c == true)) {
+			msg = 'Both';
+		} else if(opp.opportunity_status_type__c == '20' && (lstOLI[0].product_risk_approval_indicator__c == true && lstOLI[0].product_price_approval_indicator__c == false && lstOLI[0].product_formalization_indicator__c == true))  {
+			msg = 'Risk';
+		} else if(opp.opportunity_status_type__c == '20' && (lstOLI[0].product_risk_approval_indicator__c == false && lstOLI[0].product_price_approval_indicator__c == true && lstOLI[0].product_formalization_indicator__c == true))  {
+			msg = 'Price';
 		}
         return msg;
     }
