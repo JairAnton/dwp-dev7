@@ -51,9 +51,9 @@ public without sharing class ReevaluateButtonClass {
 	*/
     private static String evalStageFour(Opportunity opp, List<OpportunityLineItem> lstOLI) {
         String msg;
-        if(statusRisk.contains(opp.opportunity_status_type__c) && lstOLI[0].product_risk_approval_indicator__c == true) {
+        if(statusRisk.contains(opp.opportunity_status_type__c) && lstOLI[0].product_risk_approval_indicator__c) {
             msg = 'Risk';
-        } else if(statusPrice.contains(opp.opportunity_status_type__c) && lstOLI[0].product_price_approval_indicator__c == true) {
+        } else if(statusPrice.contains(opp.opportunity_status_type__c) && lstOLI[0].product_price_approval_indicator__c) {
             if(lstOLI[0].product_risk_approval_indicator__c) {
                 msg = 'Both';
             } else {
@@ -83,98 +83,6 @@ public without sharing class ReevaluateButtonClass {
         }
         return msg;
     }
-
-	@auraenabled
-	public static Map<String, Object> setToRisk(String Idopp) {
-		/**
-		 *  @description Method to update the opportunity status to reevalute to risk and insert a Action Audit
-		 *  @return String
-		 * */
-		Map<String, Object> mapReturn = new Map<String, Object>();
-		String genericError;
-        Final Boolean useQuote = checkQuoteUse(Idopp);
-        if(useQuote) {
-            genericError = Label.ErrorReevaluate;
-        } else {
-            Final Opportunity opp = [SELECT Id, opportunity_status_type__c, StageName, isProcess__c, BE_UseApprovedQuote__c, sio_code__c FROM Opportunity WHERE Id =: Idopp];
-			List <dwp_cvad__Action_Audit__c> lstactionRisk = new List <dwp_cvad__Action_Audit__c>();
-			try {
-                Map<String, Object> callServ = new Map<String, Object>();
-                if(opp.BE_UseApprovedQuote__c) {
-                    mapReturn = clearOppQuoteValues(Idopp);
-                } else {
-                    callServ = ReevaluateButtonClass.callService(Idopp);
-                }
-                if(callServ.get('genericError') == null) {
-                    Final Opportunity oppUpdate = new Opportunity();
-                    oppUpdate.Id = opp.Id;
-                    oppUpdate.isProcess__c = true;
-                    oppUpdate.StageName = '04';
-                    oppUpdate.opportunity_status_type__c = '24';
-                    oppUpdate.BE_UseApprovedQuote__c = false;
-                    oppUpdate.sio_code__c = opp.sio_code__c;
-                    update oppUpdate;
-					mapReturn = clearOppQuoteValues(Idopp);
-                    
-                    lstactionRisk.add(Action_Audit_Helper.getAudit(label.reevalRisk, 'Opportunity', opp.Id, DateTime.now(), label.AuditRiskApproval, UserInfo.getUserId(), label.restudyStyle, opp.sio_code__c, false));
-                    insert lstactionRisk;
-                    
-                    mapReturn.put('Updated', 'Updated');
-                } else  {
-                    genericError = callServ.get('genericError').toString();
-                }
-            } catch(Exception e) {
-                genericError = e.getMessage();
-            }
-        }
-		mapReturn.put('genericError', genericError);
-		return mapReturn;
-	}
-
-	@auraenabled
-	public static Map<String, Object> setToPrice(String Idopp) {
-		/**
-		 *  @description Method to update the opportunity status to reevalute to price and insert a Action Audit
-		 *  @return String
-		 * */
-        Map<String, Object> mapReturn = new Map<String, Object>();
-		String genericError;
-        Final Boolean useQuote = checkQuoteUse(Idopp);
-        if(useQuote) {
-            genericError = Label.ErrorReevaluate;
-        } else {
-            Final Opportunity opp = [SELECT Id, opportunity_status_type__c, StageName, isProcess__c, BE_UseApprovedQuote__c FROM Opportunity WHERE Id =: Idopp];
-			List <dwp_cvad__Action_Audit__c> lstactionPrice = new List <dwp_cvad__Action_Audit__c>();
-            try {
-                Map<String, Object> callServ = new Map<String, Object>();
-                if(opp.BE_UseApprovedQuote__c) {
-                    mapReturn = clearOppQuoteValues(Idopp);
-                } else {
-                    callServ = ReevaluateButtonClass.callService(Idopp);
-                }
-                if(callServ.get('genericError') == null) {
-                    Final Opportunity oppUpdate = new Opportunity();
-                    oppUpdate.Id = opp.Id;
-                    oppUpdate.isProcess__c = true;
-                    oppUpdate.StageName = '04';
-                    oppUpdate.opportunity_status_type__c = '12';
-                    oppUpdate.BE_UseApprovedQuote__c = false;
-                    update oppUpdate;
-					mapReturn = clearOppQuoteValues(Idopp);
-                    
-                    lstactionPrice.add(Action_Audit_Helper.getAudit(label.reevalPrice, 'Opportunity', opp.Id, DateTime.now(), label.AuditPriceApproval, UserInfo.getUserId(), label.restudyStyle, '', false));
-                    insert lstactionPrice;
-                    mapReturn.put('Updated', 'Updated');
-                } else  {
-                    genericError = callServ.get('genericError').toString();
-                }
-            } catch(Exception e) {
-                genericError = e.getMessage();
-            }
-        }
-		mapReturn.put('genericError', genericError);
-		return mapReturn;
-	}
     
     /**
 	* @Description clear the set values when using a current quote
